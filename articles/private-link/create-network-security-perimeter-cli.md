@@ -1,0 +1,153 @@
+---
+title: Quickstart - Create a network security perimeter - Azure CLI
+description: Learn how to create a network security perimeter for an Azure resource using Azure CLI. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
+author: mbender-ms
+ms.author: mbender
+ms.service: private-link
+ms.topic: quickstart
+ms.date: 03/13/2024
+#CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure CLI, so that I can control the network traffic to and from the resource.
+---
+
+# Quickstart: Create a network security perimeter - Azure CLI
+
+Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure CLI. A [network security perimeter](network-security-perimeter-concepts.md) allows Azure PaaS resources to communicate within an explicit trusted boundary.
+
+In this quickstart, you create a network security perimeter for an Azure key vault, one of many [Azure Platform as a Service (PaaS) accounts supported by network security perimeter](./network-security-perimeter-concepts.md#onboarded-private-link-resources), using the Azure CLI. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+
+[!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The [latest Azure CLI](/cli/azure/install-azure-cli), or you can use Azure Cloud Shell in the portal.
+  - This article requires version 2.38.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- After upgrading to the latest version, you can import the network security perimeter commands using `az extension add --name nsp`.
+
+[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
+
+
+## Connect to your Azure account and select your subscription
+
+To get started, connect to [Azure Cloud Shell](https://shell.azure.com) or use your local CLI environment.
+
+1. For Azure Cloud Shell, sign in and select your subscription.
+1. If you installed CLI locally, sign in with the following command: 
+
+    ```azurecli-interactive
+    az login 
+    ```
+
+1. Select your active subscription locally with the following command: 
+
+    ```azurecli-interactive
+    az account set --subscription "Azure Subscription"
+    ```
+
+1. Now you can create your resources in the next steps.
+   
+## Create a resource group and key vault
+
+Before you can create a network security perimeter, you have to create a resource group and a key vault resource.  
+This example creates a resource group named **test-rg** in the WestCentralUS location and a key vault named **key-vault-YYYYDDMM** in the resource group with the following commands:
+
+```azurecli-interactive
+az group create --name test-rg --location westcentralus
+
+# Create a key vault using a datetime value to ensure a unique name
+
+key_vault_name="key-vault-$(date +%s)"
+az keyvault create --name $key_vault_name --resource-group test-rg --location westcentralus --query 'id' --output tsv
+
+```
+ 
+## Create a network security perimeter
+
+In this step, create a network security perimeter with the `az network perimeter create` command.
+
+> [!NOTE]
+> Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
+
+```azurecli-interactive
+az network perimeter create -n network-security-perimeter -g test-rg -l westcentralus
+```
+
+## Create and update PaaS resources’ association with a new profile
+
+In this step, you create a new profile and associate the PaaS resource, the Azure Key Vault with the profile using the `az network perimeter profile create` and `az network perimeter association create` commands.
+
+1. Create a new profile for your network security perimeter with the following command:
+
+    ```azurecli-interactive
+    # Create a new profile
+    az network perimeter profile create --name network-perimeter-profile --resource-group test-rg --perimeter-name network-security-perimeter --location westcentralus
+
+    
+    ```
+2. Associate the Azure Key Vault (PaaS resource) with the network security perimeter profile. You need to fill in your **key vault ID** and **profile ID** in the following commands:
+
+    ```azurecli-interactive
+
+    # Get key vault id
+    az keyvault show --name $key_vault_name --resource-group test-rg --query 'id'
+    
+    # Get the profile id
+    az network perimeter profile show --name network-perimeter-profile --resource-group test-rg --perimeter-name network-security-perimeter
+
+    # Associate the Azure Key Vault with the network security perimeter profile
+    az network perimeter association create -n network-perimeter-association --perimeter-name network-security-perimeter -g test-rg --access-mode Learning  --private-link-resource "{id:/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/key-vault-1710348729}"  --profile "{id:/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/test-rg/providers/Microsoft.Network/networkSecurityPerimeters/network-security-perimeter/profiles/network-perimeter-profile}"
+    
+    ```
+ 
+3. Update association by changing the access mode to **enforced** with the `az network perimeter association create` command as follows:
+
+    ```azurecli-interactive
+    az network perimeter association create -n network-perimeter-association --perimeter-name network-security-perimeter -g test-rg --access-mode Enforced  --private-link-resource "{id:/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/key-vault-1710348729}"  --profile "{id:/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/test-rg/providers/Microsoft.Network/networkSecurityPerimeters/network-security-perimeter/profiles/network-perimeter-profile}"
+    ```
+
+## Create and update network security perimeter access rules
+
+In this step, you create and update network security perimeter access rules with the `az network perimeter profile access-rule create` command.
+
+1. Create an inbound access rule for the profile created with the following command:
+
+    ```azurecli-interactive
+
+    # Create an inbound access rule
+    az network perimeter profile access-rule create -n access-rule --profile-name network-perimeter-profile --perimeter-name network-security-perimeter -g test-rg --address-prefixes "[20.10.0.0/16]"
+
+    ```
+
+1. Update your inbound access rule with another IP address range with the following command:
+
+    ```azurecli-interactive
+    
+    # Update the inbound access rule
+    az network perimeter profile access-rule create -n access-rule --profile-name network-perimeter-profile --perimeter-name network-security-perimeter -g test-rg --address-prefixes "['20.11.0.0/16', '20.10.0.0/16']"
+
+    ```
+
+## Delete all resources
+
+To delete a network security perimeter and other resources in this quickstart, use the following commands:
+
+```azurecli-interactive
+
+    # Delete the network security perimeter association
+    az network perimeter association delete -n network-perimeter-association -g test-rg --perimeter-name network-security-perimeter
+
+    # Delete the network security perimeter
+    az network perimeter delete -g test-rg -n network-security-perimeter --yes
+    
+    # Delete the key vault
+    az keyvault delete --name $key_vault_name --resource-group test-rg
+    
+    # Delete the resource group
+    az group delete --name test-rg --yes --no-wait
+
+```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-diagnostic-logs.md)
