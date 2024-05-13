@@ -1,64 +1,26 @@
 ---
-title: Enable workspace replication across regions in Log Analytics
-description: Explore how to use the workspace replication feature in Log Analytics to create copies of a workspace in different regions for data resiliency.
+title: Increase data and service reslience by replicating your Log Analytics workspace across regions
+description: Use the workspace replication feature in Log Analytics to create copies of a workspace in different regions for data resiliency.
 ms.topic: how-to
 author: noakup
 ms.author: noakuper
 ms.date: 04/26/2024
 ms.custom: references_regions 
 
-# CustomerIntent: As a developer, I want to explore workspace replication in Log Analytics so I can have copies of my workspace in different regions for data resiliency.
+# Customer intent: As a Log Analytics workspace administrator, I want to replicate my workspace across regions to protect and continue to access my log data in the event of a regional failure.
 ---
 
-<!-- Per the Contributor Guide > What can I publish on learn.microsoft.com > UNAUTHORIZED content > REGIONS:
+# Increase data and service reslience by replicating your Log Analytics workspace across regions
 
-   Regions: In general, avoid discussing or describing the regions in which an Azure feature, product, or service is available.
-   Feature and service availability by region is provided to the public on the following ACOM page:
-   https://azure.microsoft.com/regions/services/. In most cases, provide a link to the ACOM page.
+Replicating your Log Analytics workspace across regions increases resilience by enabling you to switch over to the replicated workspace and continue operations in the event of a regional failure. Your original workspace and region are referred to as the _primary_. The replicated workspace and alternate region are referred to as the _secondary_.
 
-   However, the following exceptions are allowed:
-
-   - You can use specific regions in examples when you're describing procedures, tools, or developer endpoints. For example, this sentence is OK:
-
-      "The following screenshot shows two pings from two different region client machines, one in the East Asia region and one in the West US."
-
-   - You can specify region availability of service features if the ACOM page doesn't provide the level of granularity customers will need
-    to use the feature successfully. For example, this sentence is OK if the feature isn't covered on the ACOM page:
-
-      "Routing Preference support for storage account is available in the following Azure regions: France Central, North Central US, and West Central US."
-
-      [ ! Important ]
-      For this exception, the article must contain ms.custom: references_regions in the metadata header for tracking purposes.
-
-   Link: https://review.learn.microsoft.com/en-us/help/contribute/contribute-get-started-channel-guidance?branch=main#unauthorized-content
-
--->
-
-# Enable workspace replication across regions in Log Analytics
-
-Workspace replication provides higher resilience to Log Analytics workspace and service by allowing you to create a replication of your workspace in another region and use it as needed. Your original workspace and region are referred to as the _primary_. The replicated workspace and alternate region are referred to as the _secondary_.
+This article explains how Log Analytics workspace replication works, how to replicate your workspace, and how to switch over and back.
 
 ## Prerequisites
 
-<!-- Reviewer:
-
-   Please identify any prerequisites. I added some items for consideration.
-   
--->
-
 - For limits and restrictions related to workspace replication in Log Analytics, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
 
-### Permissions required
-
-<!-- Reviewer:
-
-   I created the following table from the Note alerts about roles in this article,
-   along with the Permissions section in the new Summary rules article
-   (see PR https://github.com/MicrosoftDocs/azure-docs-pr/pull/272706).
-
-   Please verify the content and adjust as needed.
-   
--->
+## Permissions required
 
 | Action | Permissions required |
 | --- | --- |
@@ -68,39 +30,27 @@ Workspace replication provides higher resilience to Log Analytics workspace and 
 | Trigger failback | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
 | Check workspace state | `Microsoft.OperationalInsights/workspaces/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 
-## Explore the replication process
+## How Log Analytics workspace replication works
 
-The workspace replication process creates an instance of your workspace in the secondary region. The secondary workspace is created with the same configuration as your primary workspace, except for log files. When you configure replication, existing logs ingested to your primary workspace don't automatically replicate to the secondary region. After you enable replication, new changes to the primary workspace configuration automatically sync to the secondary workspace. You can [configure the replication scope](#log-replication-scope) for how new logs ingested to your primary workspace replicate to your second workspace.
+The workspace replication process creates an instance of your workspace in the secondary region. The process creates the secondary workspace with the same configuration as your primary workspace, and Azure Monitor automatically updates the secondary workspace with any future changes you make to your primary workspace configuration. 
 
-Workspace replication lets you set up a secondary workspace as a "shadow" workspace for resiliency purposes only. In the Azure portal, you can't view, access, or manage the secondary workspace.
+The secondary workspace is a "shadow" workspace for resiliency purposes only. You can’t see the secondary workspace in the Azure portal, and you can't manage or access it directly.
 
-If an outage affects your primary region, you can trigger failover to reroute all ingestion and query requests to your secondary region. After you mitigate the outage and restore your primary workspace, you can trigger failover to return to your primary region.
+When you enable workspace replication, Azure Monitor sends new logs ingested to your primary workspace to your secondary region also, but logs you ingest to the workspace before you enable workspace replication aren’t copied over. You can [configure the replication scope](#log-replication-scope) for how new logs ingested to your primary workspace replicate to your second workspace.
 
-If you choose to fail over, the secondary workspace becomes active and your primary becomes inactive. Ingestion flows through your secondary region ingestion pipeline rather than the primary region. Similarly, replication during failover also moves from the secondary region to the primary region. The process is asynchronous and doesn't affect your ingestion latency.
+If an outage affects your primary region, you can trigger switchover to reroute all ingestion and query requests to your secondary region. After you mitigate the outage and restore your primary workspace, you can switch back over to your primary region.
 
-If the primary region isn't able to process incoming logs, the logs are buffered on the secondary region for up to 11 days. During the first four days, replication attempts are repeated periodically. If your primary workspace isn't functional for a longer period, contact Microsoft to initiate replication.
+When you switch over, the secondary workspace becomes active and your primary becomes inactive. Azure Monitor then ingests new data through the ingestion pipeline in your secondary region, rather than the primary region. During switchover, Azure Monitor replicates all data you ingest from the secondary region to the primary region. The process is asynchronous and doesn't affect your ingestion latency.
+
+> [!IMPORTANT]
+> If the primary region can't process incoming log data, Azure Monitor buffers the data in the secondary region for up to 11 days. During the first four days, Azure Monitor automatically reattempts to replicate the data periodically. If your primary workspace isn't functional for a longer period, contact Microsoft to initiate replication.
 
 :::image type="content" source="media/workspace-replication/ingestion-flows.png" alt-text="Diagram that shows ingestion flows during normal and failover modes." lightbox="media/workspace-replication/ingestion-flows.png" border="false":::
 
-### Log replication scope
 
-When you first set up replication, logs currently ingested to your primary workspace don't automatically copy over to the secondary region. You can configure the replication scope for new logs ingested to your primary workspace, so they replicate to your secondary workspace as they're ingested.
+### Supported regions
 
-The following table summarizes the general replication scope for the different logs available when you enable workspace replication.
-
-| Log type | Replication scope |
-| --- | --- |
-| **Platform logs (Diagnostic logs)** | All platform logs that target the primary workspace replicate to the secondary workspace. |
-| **Logs from the Microsoft Monitoring Agent (MMA)** | All MMA logs that target the primary workspace replicate to the secondary workspace. |
-| **Logs from Azure Monitor Agent** | Logs from Azure Monitor Agent are managed by using Data Collection Rules (DCRs) for precise control over replication scope. DCRs allow you to enable replication for one stream of logs like Security logs and disable replication for other logs, such as Perf logs. To replicate Azure Monitor Agent logs, you enable replication on the primary workspace and also configure replication in a DCR. This process is described in the [Enable DCR replication](#enable-dcr-replication) section. |
-| **Custom logs (v1)** | Logs from the Data Collector API that target the primary workspace replicate to the secondary workspace. |
-| **Custom logs (v2)** | Custom logs and transformation logs are also configured by using DCRs similar to the process for Azure Monitor Agent logs. To replicate these custom logs, you enable replication on the primary workspace and also configure replication in a DCR. This process is described in the [Enable DCR replication](#enable-dcr-replication) section.  |
-
-<!-- Added ms.custom metadata to allow region information in article per Criteria. -->
-
-### Support for regions and region groups
-
-Each workspace has a primary location, which is the region in which the workspace resides. When enabling replication, you choose a secondary location - another region in which a "shadow" workspace is created, and that you can later switch to.
+Each workspace has a primary location, which is the region in which the workspace resides. When you enable replication, you choose a secondary location - another region in which a "shadow" workspace is created, and that you can later switch to.
 
 Workspace replication is currently supported for workspaces in a limited set of regions, organized by region groups (groups of geographically adjacent regions). When you enable replication, select a secondary location from the list of supported regions, and from the same region group as the workspace primary location. For example, a workspace in West Europe can have a replication in North Europe, but not in West US 2, since these regions are in different region groups. 
 
@@ -128,11 +78,11 @@ Some Azure Monitor experiences are currently only partially compatible with work
 
 ## Enable and disable workspace replication
 
-You can enable and disable workspace replication by using a REST command. The command triggers a long running operation that can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for the feature to be operational for all data types, and some data types might start replicating before others. Changes to the schema after you enable workspace replication can take up to one hour to start replicating. Some examples include custom logs that use new tables or custom fields, or diagnostic logs set up for new resource types.
+You enable and disable workspace replication by using a REST command. The command triggers a long running operation, which means that it can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for all data types to begin replicating, and some data types might start replicating before others. Changes you make to table schemas after you enable workspace replication can take up to one hour to start replicating - for example, custom log tables or custom fields you create, or diagnostic logs set up for new resource types.
 
-### Enable dedicated cluster replication
+### Using a dedicated cluster?
 
-If your workspace is linked to a dedicated cluster, you first enable replication on the cluster and then enable the feature on the linked workspace. This operation creates a second cluster on your secondary region to allow your workspace to keep using the dedicated cluster even if you fail over. (There are no extra charges beyond replication charges for the second cluster.) This process allows features like cluster managed keys (CMK) to continue to work (with the same key) during failover.
+If your workspace is linked to a dedicated cluster, you first enable replication on the cluster and then enable the feature on the linked workspace. This operation creates a second cluster in your secondary region to allow your workspace to keep using the dedicated cluster even if you switch over. (There are no extra charges beyond replication charges for the second cluster.) This process allows features like cluster managed keys (CMK) to continue to work (with the same key) during failover.
 
 You enable replication on your dedicated cluster with a `PUT` command that uses the following values:
 
@@ -148,7 +98,7 @@ The `PUT` command is a long running operation that can take some time to complet
 
 The following code demonstrates the `PUT` command to enable replication on the dedicated cluster:
 
-```kusto
+```rest
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/clusters/<cluster_name>?api-version=2023-01-01-preview
@@ -182,7 +132,7 @@ The `PUT` command is a long running operation that can take some time to complet
 
 The following code demonstrates the `PUT` command to enable replication on the linked workspace:
 
-```kusto
+```rest
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
@@ -211,7 +161,7 @@ The `GET` command verifies that the workspace provisioning state changes from "U
 
 The following code demonstrates the `GET` command:
 
-```kusto
+```rest
 GET
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
 ```
@@ -263,7 +213,7 @@ The `PUT` command is a long running operation that can take some time to complet
 
 The following code demonstrates the `PUT` command to disable replication for the workspace:
 
-```kusto
+```rest
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
@@ -292,7 +242,7 @@ You disable replication for the cluster with a `PUT` command that uses the follo
 
 The following code demonstrates the `PUT` command to disable replication for the cluster:
 
-```kusto
+```rest
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/clusters/<cluster_name>?api-version=2023-01-01-preview
@@ -386,7 +336,7 @@ The `POST` command is a long running operation that can take some time to comple
 
 The following code demonstrates the `POST` command:
 
-```kusto
+```rest
 POST 
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/locations/<secondary_location>/workspaces/<workspace_name>/failover?api-version=2023-01-01-preview
 
@@ -488,7 +438,7 @@ The `POST` command is a long running operation that can take some time to comple
 
 The following code demonstrates the `POST` command:
 
-```kusto
+```rest
 POST
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/failback?api-version=2023-01-01-preview
 
