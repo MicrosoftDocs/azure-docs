@@ -260,8 +260,8 @@ sections:
           How am I charged for Assistants?
         answer: |
           Currently, when you use Assistants API, you're billed for the following: 
-          1. Inference cost (input and output) of the base model you're using for each Assistant (for example gpt-4-0125). If you've created multiple Assistants, you will be charged for the base model attached to each Assistant. 
-          2. If you've enabled the Code Interpreter tool. For example if your assistant calls Code Interpreter simultaneously in two different threads, this would create two Code Interpreter sessions, each of which would be charged. Each session is active by default for one hour, which means that you would only pay this fee once if your user keeps giving instructions to Code Interpreter in the same thread for up to one hour. 
+          - Inference cost (input and output) of the base model you're using for each Assistant (for example gpt-4-0125). If you've created multiple Assistants, you will be charged for the base model attached to each Assistant. 
+          - If you've enabled the Code Interpreter tool. For example if your assistant calls Code Interpreter simultaneously in two different threads, this would create two Code Interpreter sessions, each of which would be charged. Each session is active by default for one hour, which means that you would only pay this fee once if your user keeps giving instructions to Code Interpreter in the same thread for up to one hour. 
 
           For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
       - question: |
