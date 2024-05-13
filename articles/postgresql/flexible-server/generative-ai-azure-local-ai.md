@@ -59,7 +59,7 @@ The azure_local_ai extension allows you to create and update embeddings both in 
 azure_local_ai.create_embeddings(model_uri text, input text, batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000);
 ```
 ```sql
-azure_local_ai.create_embeddings(model_uri text, array[input text, input text], batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000);
+azure_local_ai.create_embeddings(model_uri text, array[inputs [text]], batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000);
 ```
 
 ### Arguments
