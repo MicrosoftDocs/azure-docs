@@ -5,7 +5,7 @@ description: Learn how to configure VPN Gateway server settings for P2S configur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/25/2024
+ms.date: 05/13/2024
 ms.author: cherylmc
 
 ---
@@ -41,7 +41,7 @@ You can use the following values to create a test environment, or refer to these
 
 * **Virtual network gateway name:** VNet1GW
 * **Gateway type:** VPN
-* **VPN type:** Route-based
+* **VPN type:** Route-based (required for P2S)
 * **SKU:** VpnGw2
 * **Generation:** Generation2
 * **Gateway subnet address range:** 10.1.255.0/27
@@ -64,8 +64,8 @@ In this section, you create a VNet. Refer to the [Example values](#example) sect
 
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
->[!NOTE]
->The Basic gateway SKU does not support IKEv2 or RADIUS authentication. If you plan on having Mac clients connect to your VNet, do not use the Basic SKU.
+> [!NOTE]
+> The Basic gateway SKU does not support IKEv2 or RADIUS authentication. If you plan on having Mac clients connect to your VNet, do not use the Basic SKU.
 >
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -103,7 +103,7 @@ The **Point-to-site configuration** page contains the configuration information 
 
 The client address pool is a range of private IP addresses that you specify. The clients that connect over a point-to-site VPN dynamically receive an IP address from this range. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or the VNet that you want to connect to. If you configure multiple protocols and SSTP is one of the protocols, then the configured address pool is split between the configured protocols equally.
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png" alt-text="Screenshot of Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png":::
+   :::image type="content" source="./media/vpn-gateway-point-to-site-resource-manager-portalconfiguration-address-pool.png" alt-text="Screenshot of Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-point-to-site-resource-manager-portalconfiguration-address-pool.png":::
 
 1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
 
@@ -111,8 +111,8 @@ The client address pool is a range of private IP addresses that you specify. The
 
 ## <a name="type"></a>Specify tunnel and authentication type
 
->[!NOTE]
->If you don't see tunnel type or authentication type on the **Point-to-site configuration** page, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
+> [!NOTE]
+> If you don't see tunnel type or authentication type on the **Point-to-site configuration** page, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
 >
 
 In this section, you specify the tunnel type and the authentication type. These settings can become complex, depending on the tunnel type you require and the VPN client software that will be used to make the connection from the user's operating system. The steps in this article will walk you through basic configuration settings and choices.
@@ -134,11 +134,12 @@ As you can tell, planning the tunnel type and authentication type is important w
   * The native VPN client for iOS and macOS can only use the IKEv2 tunnel type to connect to Azure.
   * The Azure VPN Client isn't supported for certificate authentication at this time, even if you select the OpenVPN tunnel type.
   * If you want to use the OpenVPN tunnel type with certificate authentication, you can use an OpenVPN client.
-  * For macOS, you can use the Azure VPN Client with the OpenVPN tunnel type and Microsoft Entra authentication (not certificate authentication).
+  * For macOS, you can use the Azure VPN Client with the OpenVPN tunnel type and Microsoft Entra ID authentication (not certificate authentication).
 
-* **Android and Linux**:
+* **Linux**:
 
-  * The strongSwan client on Android and Linux can use only the IKEv2 tunnel type to connect. If you want to use the OpenVPN tunnel type, use a different VPN client.
+  * The Azure VPN Client for Linux supports the OpenVPN tunnel type.
+  * The strongSwan client on Android and Linux can use only the IKEv2 tunnel type to connect.
 
 ### <a name="tunneltype"></a>Tunnel type
 
@@ -160,7 +161,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
 
 1. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert.png" alt-text="Screenshot showing root certificate information in Notepad." border="false" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert-expand.png":::
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert.png" alt-text="Screenshot showing root certificate information in Notepad." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert-expand.png":::
 1. Navigate to your **Virtual network gateway -> Point-to-site configuration** page in the **Root certificate** section. This section is only visible if you have selected **Azure certificate** for the authentication type.
 1. In the **Root certificate** section, you can add up to 20 trusted root certificates.
 
@@ -168,27 +169,32 @@ In this section, you upload public root certificate data to Azure. Once the publ
    * **Name** the certificate.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/root-certificate.png" alt-text="Screenshot of certificate data field." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/root-certificate.png":::
-1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md). 
+1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md).
 1. Select **Save** at the top of the page to save all of the configuration settings.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save-configuration.png" alt-text="Screenshot of P2S configuration with Save selected." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save-configuration.png" :::
 
-## <a name="installclientcert"></a>Install exported client certificate
+## <a name="profile-files"></a>Generate VPN client profile configuration files
 
-Each VPN client that wants to connect needs to have a client certificate. When you generate a client certificate, the computer you used will typically automatically install the client certificate for you. If you want to create a P2S connection from another computer, you need to install a client certificate on the computer that wants to connect. When installing a client certificate, you need the password that was created when the client certificate was exported.
+All of the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. You can generate client profile configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
 
-Make sure the client certificate was exported as a .pfx along with the entire certificate chain (which is the default). Otherwise, the root certificate information isn't present on the client computer and the client won't be able to authenticate properly.
+The VPN client profile configuration files that you generate are specific to the P2S VPN gateway configuration for the VNet. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
 
-For install steps, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
+### PowerShell
+
+[!INCLUDE [Generate profile configuration files - PowerShell](../../includes/vpn-gateway-generate-profile-powershell.md)]
+
+### Azure portal
+
+[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
 
 ## <a name="clientconfig"></a>Configure VPN clients and connect to Azure
 
-Each VPN client is configured using the files in a VPN client profile configuration package that you generate and download. The configuration package contains settings that are specific to the VPN gateway that you created. If you make changes to the gateway, such as changing a tunnel type, certificate, or authentication type, you'll need to generate another VPN client profile configuration package and install it on each client. Otherwise, your VPN clients may not be able to connect.
-
-For steps to generate a VPN client profile configuration package, configure your VPN clients, and connect to Azure, see the following articles:
+For steps to configure your VPN clients, and connect to Azure, see the following articles:
 
 * [Windows](point-to-site-vpn-client-cert-windows.md)
 * [macOS-iOS](point-to-site-vpn-client-cert-mac.md)
+* Linux: [Azure VPN Client](point)
 * [Linux](point-to-site-vpn-client-cert-linux.md)
 
 ## <a name="verify"></a>To verify your connection
