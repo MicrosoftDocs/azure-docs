@@ -45,19 +45,19 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
 
 1. Launch Visual Studio as an **administrator**.
 
-2. Create a project with **File**->**New**->**Project**.
+1. Create a project with **File**->**New**->**Project**.
 
-3. In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
+1. In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
 
-4. Name the application **Voting** and click **OK**.
+1. Name the application **Voting** and click **OK**.
 
    ![New project dialog in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. On the **New Service Fabric Service** page, choose **Stateless ASP.NET Core**, name your service **VotingWeb**, then click **OK**.
+1. On the **New Service Fabric Service** page, choose **Stateless ASP.NET Core**, name your service **VotingWeb**, then click **OK**.
    
    ![Choosing ASP.NET web service in the new service dialog](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application (Model-View-Controller)**, then click **OK**.
+1. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application (Model-View-Controller)**, then click **OK**.
    
    ![Choose ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -66,6 +66,7 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    ![Solution Explorer following creation of application with ASP.NET core Web API service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### Update the site.js file
+
 Open **wwwroot/js/site.js**.  Replace its contents with the following JavaScript used by the Home views, then save your changes.
 
 ```javascript
@@ -173,7 +174,6 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
 
 Open **Views/Shared/_Layout.cshtml**, the default layout for the ASP.NET app.  Replace its contents with the following, then save your changes.
 
-
 ```html
 <!DOCTYPE html>
 <html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
@@ -252,7 +252,7 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 
 ### Add the VotesController.cs file
 
-Add a controller, which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Visual C#->ASP.NET Core->Class**. Name the file **VotesController.cs**, then click **Add**.  
+Add a controller, which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Visual C#->ASP.NET Core->Class**. Name the file **VotesController.cs**, then select **Add**.  
 
 Replace the *VotesController.cs* file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file is modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
 
@@ -300,7 +300,7 @@ namespace VotingWeb.Controllers
 
 When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port.  The [service manifest](service-fabric-application-and-service-manifests.md) declares the service endpoints.
 
-In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** element in the **Resources** section and change the **Port** value to **8080**. To deploy and run the application locally, the application listening port must be open and available on your computer.
+In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the `Resources` section, find the `Endpoint` element, and then change the `Port` value to `8080`. To deploy and run the application locally, the application listening port must be open and available on your computer.
 
 ```xml
 <Resources>
@@ -313,9 +313,10 @@ In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find t
   </Resources>
 ```
 
-Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug your application.  In Solution Explorer, select the **Voting** project and update the **Application URL** property to **8080**.
+Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug your application.  In Solution Explorer, select the **Voting** project and update the `Application URL` property to `8080`.
 
 ### Deploy and run the Voting application locally
+
 You can now go ahead and run the Voting application for debugging. In Visual Studio, press **F5** to deploy the application to your local Service Fabric cluster in debug mode. The application will fail if you didn't previously open Visual Studio as **administrator**.
 
 > [!NOTE]
@@ -336,12 +337,12 @@ Service Fabric allows you to consistently and reliably store your data right ins
 In this tutorial, you create a service which stores a counter value in a reliable collection.
 
 1. In Solution Explorer, right-click **Services** within the Voting application project and choose **Add -> New Service Fabric Service...**.
-    
-2. In the **New Service Fabric Service** dialog, choose **Stateful ASP.NET Core**, name the service **VotingData**, then press **OK**.
+
+1. In the **New Service Fabric Service** dialog, choose **Stateful ASP.NET Core**, name the service **VotingData**, then press **OK**.
 
     Once your service project is created, you have two services in your application. As you continue to build your application, you can add more services in the same way. Each can be independently versioned and upgraded.
 
-3. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **API**.
+1. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **API**.
 
     Visual Studio creates the VotingData service project and displays it in Solution Explorer.
 
@@ -454,10 +455,12 @@ This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-commu
           }
         ],
 ```
+
 To find the reverse proxy port used in your local development cluster, view the **HttpApplicationGatewayEndpoint** element in the local Service Fabric cluster manifest:
+
 1. Open a browser window and navigate to http:\//localhost:19080 to open the Service Fabric Explorer tool.
-2. Select **Cluster -> Manifest**.
-3. Make a note of the HttpApplicationGatewayEndpoint element port. By default this should be 19081. If it is not 19081, you will need to change the port in the GetProxyAddress method of the following VotesController.cs code.
+1. Select **Cluster -> Manifest**.
+1. Make a note of the HttpApplicationGatewayEndpoint element port. By default this should be 19081. If it is not 19081, you will need to change the port in the GetProxyAddress method of the following VotesController.cs code.
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -582,8 +585,8 @@ public class VotesController : Controller
 
 The voting application consists of two services:
 
-* Web front-end service (VotingWeb)- An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the backend service.
-* Back-end service (VotingData)- An ASP.NET Core web service, which exposes an API to store the vote results in a reliable dictionary persisted on disk.
+* Web front-end service (VotingWeb) - An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the back-end service.
+* Back-end service (VotingData) - An ASP.NET Core web service, which exposes an API to store the vote results in a reliable dictionary persisted on disk.
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
@@ -591,9 +594,9 @@ When you vote in the application the following events occur:
 
 1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
 
-2. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
+1. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
 
-3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
+1. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Debug in Visual Studio
 
@@ -603,30 +606,30 @@ To look at what happens in the code, complete the following steps:
 
 1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 72).
 
-2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
+1. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
-3. Press **F5** to start the application in debug mode.
+1. Press **F5** to start the application in debug mode.
 
-4. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
-    
+1. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
 
    1. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
 
       ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. First construct the URL to the ReverseProxy for the back-end service **(1)**.
-   3. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
-   4. Finally the return the response from the back-end service to the client **(3)**.
+   1. First construct the URL to the ReverseProxy for the back-end service **(1)**.
+   1. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
+   1. Finally the return the response from the back-end service to the client **(3)**.
 
-5. Press **F5** to continue.
+1. Press **F5** to continue.
+
    1. You are now at the break point in the back-end service.
 
       ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-   2. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
-   3. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-   4. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
-6. Press **F5** to continue.
+   1. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
+   1. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
+   1. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+1. Press **F5** to continue.
 
 To stop the debugging session, press **Shift+F5**.
 
