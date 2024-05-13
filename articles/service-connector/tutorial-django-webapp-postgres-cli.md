@@ -12,11 +12,11 @@ ms.date: 05/13/2024
 # Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service
 
 > [!NOTE]
-> You are using Service Connector that makes it easier to connect your web app to database service in this tutorial. The tutorial here is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md) to use this feature so you will see similarities. Look into section [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database) in this tutorial to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
+> In this tutorial, you use Service Connector that simplifies the process of connecting a web app to a database service. This tutorial is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md), so you may see some similarities. Look into section [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database) to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
 
 This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](../postgresql/flexible-server/index.yml) database.
 
-In this tutorial, you'll use the Azure CLI to complete the following tasks:
+In this tutorial, you use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
 > * Set up your initial environment with Python and the Azure CLI
@@ -25,10 +25,6 @@ In this tutorial, you'll use the Azure CLI to complete the following tasks:
 > * Update your code and redeploy
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
-
-## Prerequisites
-
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
 ## Set up your initial environment
 
@@ -253,7 +249,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 ## Clean up resources
 
-If you'd like to keep the app or continue to additional tutorials, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges, delete the resource group created for this tutorial:
+If you'd like to keep the app or continue to more tutorials, skip ahead to [Next steps](#next-step). Otherwise, to avoid incurring ongoing charges, delete the resource group created for this tutorial:
 
 ```azurecli
 az group delete --name ServiceConnector-tutorial-rg --no-wait
@@ -265,9 +261,7 @@ Deleting all the resources can take some time. The `--no-wait` argument allows t
 
 Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
-## Next steps
-
-Follow the tutorials listed below to learn more about Service Connector.
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)
