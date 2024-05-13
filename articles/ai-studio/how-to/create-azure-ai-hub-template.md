@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom: devx-track-arm-template, devx-track-bicep
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 5/21/2024
 ms.reviewer: deeikele
 ms.author: larryfr
 author: Blackmist

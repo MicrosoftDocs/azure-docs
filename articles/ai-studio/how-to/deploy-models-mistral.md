@@ -5,7 +5,7 @@ description: Learn how to deploy Mistral Large with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 5/21/2024
 ms.reviewer: kritifaujdar 
 reviewer: fkriti
 ms.author: mopeakande

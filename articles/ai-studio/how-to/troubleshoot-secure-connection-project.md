@@ -5,7 +5,7 @@ description: 'Learn how to troubleshoot connectivity problems to a project that 
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 5/21/2024
 ms.reviewer: meerakurup
 ms.author: larryfr 
 author: Blackmist 

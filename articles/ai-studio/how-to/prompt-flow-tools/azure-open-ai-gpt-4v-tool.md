@@ -5,7 +5,7 @@ description: This article introduces you to the Azure OpenAI GPT-4 Turbo with Vi
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 2/26/2024
+ms.date: 5/21/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt

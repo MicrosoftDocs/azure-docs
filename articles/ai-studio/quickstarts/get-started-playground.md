@@ -5,7 +5,7 @@ description: Use this article to learn how to create a project, deploy a chat mo
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 3/19/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban

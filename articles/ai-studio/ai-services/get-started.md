@@ -5,7 +5,7 @@ description: This article describes how to get started with AI services in Azure
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 2/5/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban

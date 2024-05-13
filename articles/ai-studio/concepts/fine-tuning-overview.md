@@ -5,7 +5,7 @@ description: This article introduces fine-tuning of models in Azure AI Studio.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 5/13/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban

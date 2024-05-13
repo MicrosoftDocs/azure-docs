@@ -5,7 +5,7 @@ description: Learn how to consume deployed serverless API endpoints from a diffe
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 5/21/2024
 ms.author: mopeakande 
 author: msakande
 ms.reviewer: fasantia

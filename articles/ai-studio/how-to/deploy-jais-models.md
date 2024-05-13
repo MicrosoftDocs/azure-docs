@@ -5,7 +5,7 @@ description: Learn how to deploy JAIS models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 5/21/2024
 ms.reviewer: haelhamm
 ms.author: ssalgado
 author: ssalgadodev
