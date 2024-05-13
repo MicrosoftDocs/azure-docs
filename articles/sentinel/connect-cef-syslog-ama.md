@@ -168,7 +168,7 @@ Create a JSON file for the data collection rule, create an API request, and send
 
 1. Send the request.
  
-    For an example of the response that you should receive, see [Syslog/CEF DCR creation response](api-dcr-reference.md#syslogcef-dcr-creation-response)
+    For an example of the response that you should receive, see [Syslog/CEF DCR creation response](api-dcr-reference.md#syslogcef-dcr-creation-response).
 
 ### Associate the DCR with the log forwarder
 
