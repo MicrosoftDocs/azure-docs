@@ -14,7 +14,7 @@ ms.reviewer: jushiman
 > [!IMPORTANT]
 > Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
-Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a Big Data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
+Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a big data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
 
 Using Compute Fleet, you can:
 - Deploy up to 10,000 VMs with a single API, using [Spot VM](../virtual-machines/spot-vms.md) and [Standard VM](../virtual-machines/overview.md) types together.
@@ -105,7 +105,7 @@ In all other scenarios requiring a modification to the running Compute Fleet, yo
 
 You can configure your Compute Fleet with Spot VMs to set the max hourly price you agree to pay per hour. Compute Fleet doesn't deploy new Spot VMs in your specified list if the price of the Spot VM increases over the specified Max Hourly price.
 
-#### Spot Eviction Policy 
+#### Spot eviction policy 
 
 **Delete (default):** Compute Fleet deletes your running Spot VM and all other resources attached to the VM. Data stored on persistent disk storage is also deleted.
 
