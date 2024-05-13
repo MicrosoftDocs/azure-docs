@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI Extension for Azure Functions
+title: Azure OpenAI extension for Azure Functions
 description: Learn to configure the Azure OpenAI extension to be able to integrate your Azure Functions code executions with Azure OpenAI APIs. 
 ms.topic: reference
 ms.date: 05/14/2024

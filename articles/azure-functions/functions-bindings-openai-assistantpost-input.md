@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
-The Azure OpenAI assistant post input binding lets you to send prompts to assistant chat bots.
+The Azure OpenAI assistant post input binding lets you send prompts to assistant chat bots.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  

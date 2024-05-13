@@ -103,7 +103,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-csharp"  
 ## Attributes
 
-Apply the `EmbeddingsStoreOutput` attribute to define a embeddings store output binding, which supports these parameters:
+Apply the `EmbeddingsStoreOutput` attribute to define an embeddings store output binding, which supports these parameters:
 
 | Parameter | Description |
 | --------- | ----------- |
