@@ -34,7 +34,7 @@ To learn more about working with the Logstash data collection engine, see [Getti
 
 :::image type="content" source="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png" alt-text="Diagram of the Logstash architecture." border="false" lightbox="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png":::
 
-The Logstash engine is comprised of three components:
+The Logstash engine is composed of three components:
 
 - Input plugins: Customized collection of data from various sources.
 - Filter plugins: Manipulation and normalization of data according to specified criteria.
