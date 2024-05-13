@@ -4,12 +4,12 @@ description: Experience to view agent health at scale and troubleshoot issues re
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 7/25/2023
+ms.date: 5/13/2024
 ms.custom:
 ms.reviewer: shseth
 ---
 
-# Azure Monitor Agent Health (Preview)
+# Azure Monitor Agent Health
 
 The article provides an overview of the **Azure Monitor Agent Health** experience that enables an at scale solution for viewing the health of agents deployed across your organization. You can now monitor the health of your agents easily and seamlessly across Azure, on premises and other clouds using this interactive experience. Identify data collection problems before they start impacting your business, and troubleshoot faster by narrowing down the impact scope for a given problem.
 It includes agents deployed across virtual machines, scale sets and [Arc-enabled servers](../../azure-arc/servers/overview.md) (on premise servers with Azure Arc installed), as well as the [data collection rules](../essentials/data-collection-rule-overview.md) managing the agents across all these resources.
