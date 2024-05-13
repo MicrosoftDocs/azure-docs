@@ -116,7 +116,7 @@ To add and configure these actions, take the following steps:
     
     This condition asks the question "Did the Virus Total IP report have any results?" For example:
 
-    :::image type="content" source="../media/create-tasks-playbook/set-condition.png" alt-text="Screenshot shows how to set a true-false condition in a playbook.":::
+    :::image type="content" source="../media/create-tasks-playbook/set-condition.png" alt-text="Screenshot shows how to set a true-false condition in a playbook." border="false":::
 
 1. Inside the **True** option, select **Add an action**, and then:
 

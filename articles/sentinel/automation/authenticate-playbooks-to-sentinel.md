@@ -71,10 +71,8 @@ Authenticating as a managed identity allows you to give permissions directly to 
     1. From the button bar at the top, select **Add** and choose **Add role assignment**. If the **Add role assignment** option is disabled, you don't have permissions to assign roles.
     1. In the new panel that appears, assign the appropriate role:
 
-        | Role | Situation |
-        | --- | --- |
-        | [**Microsoft Sentinel Responder**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder) | Playbook has steps that update incidents or watchlists |
-        | [**Microsoft Sentinel Reader**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader) | Playbook only receives incidents |
+        - [**Microsoft Sentinel Responder**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder):  Playbook has steps that update incidents or watchlists
+        - [**Microsoft Sentinel Reader**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader):  Playbook only receives incidents
 
     1. Under **Assign access to**, select **Logic App**.
     1. Select the subscription the playbook belongs to, and then select the playbook name.

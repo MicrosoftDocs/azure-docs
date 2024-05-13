@@ -100,33 +100,39 @@ Playbooks with entity triggers support actions such as:
 
 ## Recommended playbook templates
 
-The following recommended playbooks, and other similar playbooks are available to you in the [Content hub](../sentinel-solutions-deploy.md), or in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks):
+This section lists recommended playbooks, and other similar playbooks are available to you in the [Content hub](../sentinel-solutions-deploy.md), or in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks).
 
-- **Notification playbooks** are triggered when an alert or incident is created and send a notification to a configured destination:
+### Notification playbook templates
 
-    | Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content hub/<br>Azure Marketplace |
-    | -------- | ----------------------------------- | --------------------------------------------- |
-    | **Post a message in a Microsoft Teams channel** | [Post-Message-Teams](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Post-Message-Teams) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-    | **Send an Outlook email notification** | [Send-basic-email](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Send-basic-email) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-    | **Post a message in a Slack channel** | [Post-Message-Slack](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Post-Message-Slack) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-    | **Send Microsoft Teams adaptive card on incident creation** | [Send-Teams-adaptive-card-on-incident-creation](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Send-Teams-adaptive-card-on-incident-creation) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
+**Notification playbooks** are triggered when an alert or incident is created and send a notification to a configured destination:
 
-- **Blocking playbooks** are triggered when an alert or incident is created, gather entity information like the account, IP address, and host, and blocks them from further actions:
+| Playbook | Folder in<br>GitHub&nbsp;repository |Solution in Content hub/<br>Azure Marketplace |
+| -------- | ----------------------------------- |--------------------------------------------- |
+| **Post a message in a Microsoft Teamschannel** | [Post-Message-Teams](https://githubcom/Azure/Azure-Sentinel/tree/master/SolutionsSentinelSOARessentials/PlaybooksPost-Message-Teams) | [Sentinel SOAR Essentialssolution](https://azuremarketplace.microsoft.comen-us/marketplace/apps/azuresentinelazure-sentinel-solution-sentinelsoaressentialstab=Overview) |
+| **Send an Outlook email notification** |[Send-basic-email](https://github.com/AzureAzure-Sentinel/tree/master/SolutionsSentinelSOARessentials/PlaybooksSend-basic-email) | [Sentinel SOAR Essentialssolution](https://azuremarketplace.microsoft.comen-us/marketplace/apps/azuresentinelazure-sentinel-solution-sentinelsoaressentialstab=Overview) |
+| **Post a message in a Slack channel** |[Post-Message-Slack](https://github.com/AzureAzure-Sentinel/tree/master/SolutionsSentinelSOARessentials/PlaybooksPost-Message-Slack) | [Sentinel SOAR Essentialssolution](https://azuremarketplace.microsoft.comen-us/marketplace/apps/azuresentinelazure-sentinel-solution-sentinelsoaressentialstab=Overview) |
+| **Send Microsoft Teams adaptive card on incidentcreation** |[Send-Teams-adaptive-card-on-incident-creation(https://github.com/Azure/Azure-Sentinel/treemaster/Solutions/SentinelSOARessentials/PlaybooksSend-Teams-adaptive-card-on-incident-creation) |[Sentinel SOAR Essentials solution](https:/azuremarketplace.microsoft.com/en-us/marketplaceapps/azuresentinelazure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
 
-    | Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content&nbsp;hub/<br>Azure Marketplace |
-    | -------- | ----------------------------------- | ----------------------------------------- |
-    | **Block an IP address in Azure Firewall** | [AzureFirewall-BlockIP-addNewRule](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Firewall/Playbooks/AzureFirewall-BlockIP-addNewRule) | [Azure Firewall Solution for Sentinel](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/sentinel4azurefirewall.sentinel4azurefirewall?tab=Overview) |
-    | **Block a Microsoft Entra user** | Block-AADUser | [Microsoft Entra solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
-    | **Reset a Microsoft Entra user password** | Reset-AADUserPassword | [Microsoft Entra solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
-    | **Isolate or unisolate device using<br>Microsoft Defender for Endpoint** | [Isolate-MDEMachine](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/MicrosoftDefenderForEndpoint/Playbooks/Isolate-MDEMachine)<br>[Unisolate-MDEMachine](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/MicrosoftDefenderForEndpoint/Playbooks/Unisolate-MDEMachine) | [Microsoft Defender for Endpoint solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-microsoftdefenderendpoint?tab=Overview) |
+### Blocking playbook templates
 
-- **Create, update, or close playbooks** can create, update, or close incidents in Microsoft Sentinel, Microsoft 365 security services, or other ticketing systems:
+**Blocking playbooks** are triggered when an alert or incident is created, gather entity information like the account, IP address, and host, and blocks them from further actions:
 
-    | Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content hub/<br>Azure Marketplace |
-    | -------- | ----------------------------------- | --------------------------------------------- |
-    | **Create an incident using Microsoft Forms** | [CreateIncident-MicrosoftForms](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/CreateIncident-MicrosoftForms) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-    | **Relate alerts to incidents** | [relateAlertsToIncident-basedOnIP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/relateAlertsToIncident-basedOnIP) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-    | **Create a ServiceNow incident** | [Create-SNOW-record](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Servicenow/Playbooks/Create-SNOW-record) | [ServiceNow solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-servicenow?tab=Overview) |
+| Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content&nbsp;hub/<br>Azure Marketplace |
+| -------- | ----------------------------------- | ----------------------------------------- |
+| **Block an IP address in Azure Firewall** | [AzureFirewall-BlockIP-addNewRule](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Azure%20Firewall/Playbooks/AzureFirewall-BlockIP-addNewRule) | [Azure Firewall Solution for Sentinel](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/sentinel4azurefirewall.sentinel4azurefirewall?tab=Overview) |
+| **Block a Microsoft Entra user** | Block-AADUser | [Microsoft Entra solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
+| **Reset a Microsoft Entra user password** | Reset-AADUserPassword | [Microsoft Entra solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivedirectory?tab=Overview) |
+| **Isolate or unisolate device using<br>Microsoft Defender for Endpoint** | [Isolate-MDEMachine](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/MicrosoftDefenderForEndpoint/Playbooks/Isolate-MDEMachine)<br>[Unisolate-MDEMachine](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/MicrosoftDefenderForEndpoint/Playbooks/Unisolate-MDEMachine) | [Microsoft Defender for Endpoint solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-microsoftdefenderendpoint?tab=Overview) |
+
+### Create, update, or close playbook templates
+
+**Create, update, or close playbooks** can create, update, or close incidents in Microsoft Sentinel, Microsoft 365 security services, or other ticketing systems:
+
+| Playbook | Folder in<br>GitHub&nbsp;repository | Solution in Content hub/<br>Azure Marketplace |
+| -------- | ----------------------------------- | --------------------------------------------- |
+| **Create an incident using Microsoft Forms** | [CreateIncident-MicrosoftForms](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/CreateIncident-MicrosoftForms) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
+| **Relate alerts to incidents** | [relateAlertsToIncident-basedOnIP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/relateAlertsToIncident-basedOnIP) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
+| **Create a ServiceNow incident** | [Create-SNOW-record](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Servicenow/Playbooks/Create-SNOW-record) | [ServiceNow solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-servicenow?tab=Overview) |
 
 ## Commonly used playbook configurations
 
