@@ -96,50 +96,25 @@ INSERT INTO docs(doc) VALUES ('Create in-database embeddings with azure_local_ai
                              ('Use vector indexes and Azure OpenAI embeddings in PostgreSQL for retrieval augmented generation.');
 
 
-```
+-- Add a vector column and generate vector embeddings from locally deployed model
+ALTER TABLE docs
+ADD COLUMN doc_vector vector(384) -- multilingual-e5 embeddings are 384 dimensions
+GENERATED ALWAYS AS (azure_local_ai.create_embeddings('multilingual-e5-small:v1', doc)::vector) STORED; -- TEXT string sent to local model
 
-#### Update embeddings via batch processing
+--View floating point entries in the doc_vector column
+select doc_vector from docs;
 
-```sql
---Create docs table
-CREATE TABLE docs(doc_id int generated always as identity primary key, doc text not null, embedding float4[], last_update timestamptz default now());
+-- Add a single record to the docs table and the vector embedding using azure_local_ai and locally deployed model will be automatically generated
+INSERT INTO docs(doc) VALUES ('Semantic Search with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI');
 
---Insert data into the docs table
-INSERT INTO docs(doc) VALUES ('Create in-database embeddings with azure_local_ai extension.'),
-                             ('Enable RAG patterns with in-database embeddings and vectors on Azure Database for PostgreSQL - Flexible server.'),
-                             ('Generate vector embeddings in PostgreSQL with azure_local_ai extension.'),
-                             ('Generate text embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns with azure_local_ai extension and locally deployed LLM.'),
-                             ('Use vector indexes and Azure OpenAI embeddings in PostgreSQL for retrieval augmented generation.');
+--View all doc entries and their doc_vector column
+select doc, doc_vector, last_update from docs;
 
-
---Update embeddings via batch processing
-with docs_with_ids as (
- select (
-         azure_local_ai.create_embeddings(
-          'multilingual-e5-small:v1',
-          array_agg(doc),
-          array_agg(doc_id)
-         )
-        ).* from docs where last_update is not null
-)
-update docs set embedding = docs_with_ids.embedding
- from docs_with_ids
- where docs.doc_id = docs_with_ids.id;
-
-
---Query embedding text, list results by descending similarity score
-with all_docs as (
- select doc_id, doc, embedding
-  from docs
-), target_doc as (
- select azure_local_ai.create_embeddings('multilingual-e5-small:v1', 'Generate text embeddings in PostgreSQL.') embedding
-)
-select all_docs.doc_id, all_docs.doc , 1 - (all_docs.embedding::vector <=> target_doc.embedding::vector) as similarity
- from target_doc, all_docs
- order by similarity desc
- limit 2;
+-- Simple array embedding
+SELECT azure_local_ai.create_embeddings('multilingual-e5-small:v1', array['Recommendation System with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI.', 'Generative AI with Azure Database for PostgreSQL - Flexible Server.']);
 
 ```
+
 
 ### Update embeddings upon insertion
 
