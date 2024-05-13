@@ -724,6 +724,7 @@ SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}" --query pa
 ```azurecli
 SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
 ```
+---
 
 Update the secret on the cluster. Include any optional parameters you configured when the command was originally run.
 
@@ -731,7 +732,6 @@ Update the secret on the cluster. Include any optional parameters you configured
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
 
----
 
 ## Next steps
 
