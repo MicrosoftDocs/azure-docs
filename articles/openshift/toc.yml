@@ -23,6 +23,8 @@
     - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
       href: quickstart-openshift-arm-bicep-template.md
 - name: How-to guides
+    - name: Frequently asked questions
+      href: openshift-faq.yml
   items:
     - name: Cluster operations
       items:
@@ -137,8 +139,6 @@
       href: ./index.yml
 - name: Resources
   items:
-    - name: Frequently asked questions
-      href: openshift-faq.yml
     - name: Azure Red Hat OpenShift service definition
       href: openshift-service-definitions.md
     - name: Troubleshooting
