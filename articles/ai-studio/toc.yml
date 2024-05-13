@@ -71,10 +71,8 @@ items:
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
-    - name: Deploy Phi models
-      items:
-      - name: Deploy Phi-3 models
-        href: how-to/deploy-models-phi-3.md
+    - name: Deploy Phi-3 models
+      href: how-to/deploy-models-phi-3.md
     - name: Deploy TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md
     - name: Deploy open models
