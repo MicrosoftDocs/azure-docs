@@ -22,7 +22,7 @@ This article provides a summary of the latest releases and major documentation u
 
 ### GPT-4o preview model available for early access
 
-GPT-4o is the latest preview model from OpenAI launched on May 13, 2024.
+GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
 
 - GPT-4o integrates text, image, and audio processing in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
 - GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in audio and vision tasks, setting new benchmarks for AI capabilities.
