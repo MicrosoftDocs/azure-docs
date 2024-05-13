@@ -50,7 +50,7 @@ Use the following steps to create a hub from the Azure portal:
 1. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
     > [!TIP]
-    > You can skip selecting Azure AI Services if you plan to only work in Azure Machine Learning studio. Azure AI Services are required for Azure AI Studio.
+    > You can skip selecting Azure AI Services if you plan to only work in Azure Machine Learning studio. Azure AI Services are required for Azure AI Studio, and provide access to pre-built AI models for use in prompt flow.
 
     :::image type="content" source="../ai-studio/media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set resource information." lightbox="../ai-studio/media/how-to/resource-create-resources.png"::: 
 
