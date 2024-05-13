@@ -203,39 +203,23 @@ You can view the alerts settings under **Recovery Services Vault** > **Settings*
 
 To manage your alerts settings, go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** option. Select **Manage alerts** > **Manage built-in alert settings for resources** option.  
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/properties.png" alt-text="Screenshot displays properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/properties.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/bccproperties.png" alt-text="Screenshot displays properties for alerting feature in Business Continuity Center." lightbox="./media/site-recovery-monitor-and-troubleshoot/bccproperties.png":::
 
 Get an at-scale view of all vaults across all subscriptions using Classic Alerts for Backup and Site Recovery. You can update the alert settings for each vault by selecting **Update**. You can also select only get Azure Monitor alerts and disable classic alerts. You can also choose to disable certain categories of built-in alerts that are enabled by default. Update settings and select **Update** to save. 
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/properties.png" alt-text="Screenshot displays properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/properties.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/bcc.png" alt-text="Screenshot displays opt-in properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/bcc.png":::
 
 ### Manage Azure Site Recovery alerts in Backup Center
 
 To manage your alerts settings, do the following:
 
 1. Select *Click here to take action* to manage built-in alerts for site recovery. 
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center.png" alt-text="Screenshot displays Backup Center properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center.png":::
 1. Select **Manage alerts** to view alert configurations. Select **Create rule** to create alert processing rules to route alerts to different notification channels. 
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-manage.png" alt-text="Screenshot displays manage properties in Backup center." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-manage.png":::
 1. Check which vaults have classic alerts configured for Backup and Site Recovery. The two columns **Backup Classic Alerts** and **Site Recovery Classic Alerts** show **Yes** if classic alerts are on. We recommend, to switch to Azure Monitor based alerts for a better monitoring experience by selecting **Update**. 
 1. Select the options to only get Azure Monitor alerts and disable classic alerts. You can also choose to disable certain categories of built-in alerts that are enabled by default. Security alerts can't be disabled. Update settings and select **Update** to save. 
-
-
-### View the generated Azure Site Recovery alerts in Backup Center
-
-Once alerts are generated, you can view and manage them from the Azure Monitor portal. Follow these steps:
-
-1.	On the [Azure portal](https://ms.portal.azure.com), go to **Azure Monitor** > **Alerts**.
-    
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
-
-2.	Set the filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts. 
-    You can also customize the values of other filters to see alerts of a specific time range up to 30 days or for vaults, subscriptions, severity and alert state (user response).
-   
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/monitor-service.png" alt-text="Screenshot displays Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/monitor-service.png":::
-
-3. Select any alert of your interest to see further details. For example, the affected VM, possible causes, recommended action, etc.
-4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
-
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-closed.png" alt-text="Screenshot displays closed alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-closed.png":::
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-opt.png" alt-text="Screenshot displays opt-in properties for alerting feature in Backup center." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-opt.png":::
 
 
 ### View the generated Azure Site Recovery alerts in Recovery Services vault
@@ -254,20 +238,23 @@ Once alerts are generated, you can view and manage them from the Azure Monitor p
 1.	On the [Azure portal](https://ms.portal.azure.com), go to **Azure Monitor** > **Alerts**.
 2.	Set the filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts. 
     You can also customize the values of other filters to see alerts of a specific time range up to 30 days or for vaults, subscriptions, severity and alert state (user response).
+
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
 3.	Select any alert of your interest to see further details. For example, the affected VM, possible causes, recommended action, etc.
 4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal.png" alt-text="Screenshot displays alert details via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal.png":::
 
 
 ### View the generated Azure Site Recovery alerts in Business Continuity Center
 
 You can manage your alerts settings under **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** blade. This shows you the alerts in order of **Severity** and **Category**. Select the hyperlink or **View affected resources** to get a detailed view of the alerts. 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-alerts.png" alt-text="Screenshot displays Backup Center alerts." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-alerts.png":::
+
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-alerts.png" alt-text="Screenshot displays Backup Center alerts." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-alerts.png":::
 
 Select **View alert** to get alert details and take action. 
 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png" alt-text="Screenshot displays Manage alerts option." lightbox="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png" alt-text="Screenshot displays Manage alerts option." lightbox="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png":::
 
 Like Azure Monitor, Business Continuity Center, and Recovery Services Vault you can view alerts from Backup Center as well. 
 
