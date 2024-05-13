@@ -39,12 +39,11 @@ The azure_local_ai extension provides a set of functions. These functions allow 
 
 |  Schema  |  Name  |  Result data type  |  Argument data types  |  
 |---|---|---|---|
-| `__azure_local_ai__`  |  create_embeddings  |  TABLE(embedding real[])  |  model_uri text, inputs text[],   batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000  |  
-| `__azure_local_ai__`  |  create_embeddings  |  TABLE(ID anyelement, embedding   real[])  |  model_uri text, inputs text[], IDs   anyarray, batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT   3600000  |  
-| `__azure_local_ai__`  |  create_embeddings  |  real[]  |  model_uri text, input text,   timeout_ms integer DEFAULT 3600000  |  
-| `__azure_local_ai__`  |  get_setting  |  jsonb  |  keys text[] DEFAULT   ARRAY[]::text[], timeout_ms integer DEFAULT 3600000  |  
-| `__azure_local_ai__`  |  get_setting  |  text  |  key text, timeout_ms integer   DEFAULT 3600000  |  
-| `__azure_local_ai__`  |  model_metadata  |  jsonb  |  model_uri text  |  
+| `azure_local_ai`  |  create_embeddings  |  TABLE(embedding real[])  |  model_uri text, inputs text[],   batch_size bigint DEFAULT 128, timeout_ms integer DEFAULT 3600000  |  
+| `azure_local_ai`  |  create_embeddings  |  real[]  |  model_uri text, input text,   timeout_ms integer DEFAULT 3600000  |  
+| `azure_local_ai`  |  get_setting  |  jsonb  |  keys text[] DEFAULT   ARRAY[]::text[], timeout_ms integer DEFAULT 3600000  |  
+| `azure_local_ai`  |  get_setting  |  text  |  key text, timeout_ms integer   DEFAULT 3600000  |  
+| `azure_local_ai`  |  model_metadata  |  jsonb  |  model_uri text  |  
 
 These can be displayed via the PSQL command,
 
