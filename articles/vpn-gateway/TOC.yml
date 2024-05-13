@@ -236,7 +236,7 @@
         - name: macOS clients
           items:
           - name: Microsoft-registered VPN client app
-            href: openvpn-azure-ad-client-mac.md
+            href: point-to-site-entra-vpn-client-mac.md
           - name: Manually registered VPN client app
             href: openvpn-azure-ad-client-mac.md
       - name: RADIUS authentication
