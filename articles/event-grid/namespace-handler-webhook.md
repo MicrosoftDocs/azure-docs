@@ -22,11 +22,7 @@ If your webhook endpoint is known by malicious actors, they could exploit attack
 >- `WebHook-Request-Rate`. That is, Event Grid does not request a data rate at which it communicates with your webhook endpoint. If your webhook responds with a `WebHook-Allowed-Rate`header, it is ignored.
 
 ## Webhooks
-See the following articles for an overview and examples of using webhooks as event handlers.
-
-|Title  |Description  |
-|---------|---------|
-| [Deliver events to webhooks using namespace topics - Azure CLI](publish-deliver-events-with-namespace-topics-webhook.md). | The article provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model. |
+See [Deliver events to webhooks using namespace topics - Azure CLI](publish-deliver-events-with-namespace-topics-webhook.md), which provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model.
 
 
 ## Next steps
