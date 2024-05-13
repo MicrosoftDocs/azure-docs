@@ -33,7 +33,7 @@ For easier navigation, here are links to the corresponding sections for each ser
 |Aspect       |Section                                                            |
 |-------------|-------------------------------------------------------------------|
 |Extractive   |[Extractive Summarization](#try-text-extractive-summarization) |
-|Abstractive  |[Abstrctive Summarization](#try-text-abstractive-summarization)|
+|Abstractive  |[Abstractive Summarization](#try-text-abstractive-summarization)|
 |Query-focused|[Query-focused Summarization](#query-based-summarization)          |
 
 
