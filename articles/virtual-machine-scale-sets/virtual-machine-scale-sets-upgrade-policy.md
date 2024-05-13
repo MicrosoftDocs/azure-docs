@@ -42,7 +42,7 @@ Manual upgrade policy is best suited for workloads where you require more contro
 
 ### Rolling upgrade policy
 > [!NOTE]
-> Rolling upgrade policy is only available for Virtual Machine Scale Sets with Uniform Orchestration. 
+> Rolling upgrade policy is available for both Virtual Machine Scale Sets with Uniform Orchestration and Virtual Machine Scale Sets with Flexible Orchestration. 
 
 With a rolling upgrade policy, the scale set performs updates in batches. You also get more control over the upgrades with settings like batch size, max healthy percentage, prioritizing unhealthy instances and enabling upgrades across availability zones. 
 
