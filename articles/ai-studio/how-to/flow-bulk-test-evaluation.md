@@ -120,7 +120,7 @@ You can go to the prompt flow **Runs** tab. Then go to the batch run detail page
 
 After setting up the configuration, you can select **"Submit"** for this new round of evaluation. After submission, you'll be able to see a new record in the prompt flow run list. After the evaluation run completed, similarly, you can check the result of evaluation in the **"Outputs"** tab of the batch run detail panel. You need to select the new evaluation run to view its result.
 
-To learn more about the metrics calculated by the built-in evaluation methods, navigate to [understand the built-in evaluation metrics](#understand-the-built-in-evaluation-metrics).
+To learn more about the metrics calculated by the built-in evaluation methods, navigate to [understand the built-in evaluation methods](#understand-the-built-in-evaluation-methods).
 
 ### Overview
 
