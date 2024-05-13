@@ -386,7 +386,7 @@ print(response.text)
 
 ### Detect image incidents
 
-Use the following command to upload a sample image and test it against the incient you deployed. You can either use a URL pointing to the image in an Azure blob storage container, or you can add the image data as a Base64 string.
+Use the following command to upload a sample image and test it against the incident you deployed. You can either use a URL pointing to the image in an Azure blob storage container, or you can add the image data as a Base64 string.
 
 #### [cURL](#tab/curl)
 
