@@ -137,7 +137,7 @@ To create and apply resource modification, follow these steps:
 
    When you perform a restore operation, provide the *ConfigMap name* and the *Namespace* where it's deployed as part of restore configuration. These details need to be provided under **Resource Modifier Rules**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-backup-overview/resource-modifier-rules.png" alt-text="Screenshot shows the location to provide resource details.":::
+   :::image type="content" source="./media/azure-kubernetes-service-backup-overview/resource-modifier-rules.png" alt-text="Screenshot shows the location to provide resource details." lightbox="./media/azure-kubernetes-service-backup-overview/resource-modifier-rules.png":::
 
 
    Operations supported by **Resource Modifier**
@@ -163,7 +163,7 @@ To create and apply resource modification, follow these steps:
 
      You can use the **Test** operation to check if a particular value is present in the resource. If the value is present, the patch is applied. If the value isn't present, the patch isn't applied.
 
-     :::image type="content" source="./media/azure-kubernetes-service-backup-overview/test-trsource-modifier-value-present.png" alt-text="{alt-text}":::
+     :::image type="content" source="./media/azure-kubernetes-service-backup-overview/test-resource-modifier-value-present.png" alt-text="Screenshot shows the option to test if the resource value modifier is present.":::
 
 ### JSON patch
 
