@@ -126,13 +126,29 @@ Use the following command to update your namespace with the custom domain config
 az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name> --is-full-object --properties @./resources/NS.json 
 ```
 
+Replace the following placeholders with appropriate values, save it to a file named `NS.json`, and run the CLI command. 
+
+| Place holder | Description | 
+| ------------ | ----------- |
+| `HOSTNAME` | You can get the host name from the **Overview** page of your Event Grid namespace in the Azure portal. |
+| `NAMESPACENAME` | Name of the Event Grid namespace. |
+| `TOPICNAME` | Name of the topic in the namespace. |
+| `HTTPDOMAINNAME` | Name of the HTTP domain. |
+| `MQTTDOMAINNAME` | Name of the MQTT domain. |
+| `SUBSCRIPTIONID` | Azure subscription ID. |
+| `RESOURCEGROUPNAME` | Name of the Azure resource group. |
+| `KEYVAULTNAME` | Name of the key vault. |
+| `CERTIFICATENAME` | Name of the certificate. |
+
+
+
 **NS.json**
 
 ```json
 {
     "properties": {
         "topicsConfiguration": {
-            "hostname": "NAMESPACENAMEMESPACE.westus2-1.eventgrid.azure.net",
+            "hostname": "",
             "customDomains": [
                 {
                     "fullyQualifiedDomainName": "www.HTTPDOMAINNAME.com",
@@ -140,7 +156,7 @@ az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscrip
                         "type": "SystemAssigned"
                     },
                     "certificateInfo": {
-                        "keyVaultArmId": " /subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP NAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
+                        "keyVaultArmId": " /subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
                         "certificateName": "CERTIFICATENAME"
                     }
                 }
@@ -170,8 +186,7 @@ az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscrip
 }
 ```
 
--  `fullyQualifiedDomainName` - custom domain associated with the http hostname or MQTT hostname.
--  `type` - identity type can either `SystemAssigned` or `UserAssigned`. If `UserAssigned` is selected, specify the user assigned identity using the `userAssignedIdentity` property. 
+The identity type (`type`) can be either `SystemAssigned` or `UserAssigned`. If `UserAssigned` is selected, specify the user assigned identity using the `userAssignedIdentity` property. 
 
 The response to this operation includes the DNS information in the form of the following properties: `expectedTxtRecordName` and `expectedTxtRecordValue`. Save this information as you need to use these values to prove your custom domain ownership. Here's a sample response: 
 
