@@ -37,7 +37,9 @@ Existing Azure OpenAI customers can test out GPT-4o in the **NEW** Azure OpenAI 
 To test the latest model:
 
 > [!NOTE]
-> The GPT-4o early access playground is currently only available for resources in **West US3** and **East US**, and is limited to 10 requests every five minutes. Azure OpenAI service abuse monitoring is enabled for all early access playground users even if approved for modification; default content filters are enabled and cannot be modified. GPT-4o is a preview model and is currently not available for deployment/direct API access.
+> - The GPT-4o early access playground is currently only available for resources in **West US3** and **East US**, and is limited to 10 requests every five minutes per subscription. 
+> - Azure OpenAI service abuse monitoring is enabled for all early access playground users even if approved for modification; default content filters are enabled and cannot be modified.
+> - GPT-4o is an Azure OpenAI preview model and is currently not available for deployment/direct API access.
 
 1. Navigate to Azure OpenAI Studio at https://oai.azure.com/ and sign-in with credentials that have access to your OpenAI resources.
 2. Select an Azure OpenAI resource in the **West US3** or **East US** regions. If you don't have a resource in one of these regions you will need to [create a resource](../how-to/create-resource.md).
@@ -68,7 +70,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 |  Model ID  | Description | Max Request (tokens) | Training Data (up to)  |
 |  --- |  :--- |:--- |:---: |
-|`gpt-4o` (2024-05-13) <br> **GPT-4o (Omni) Preview** | **Latest preview model** <br> - Text, image processing <br> - Enhanced accuracy and responsiveness <br> - Parity with English text and coding tasks compared to GPT-4 Turbo with Vision <br> - Superior performance in non-English languages and in vision tasks <br> - [Currently only available via early access playground](#early-access-playground) <br> - Currently no deployment/API access|Input: 128,000  <br> Output: 4,096| Dec 2023 |
+|`gpt-4o` (2024-05-13) <br> **GPT-4o (Omni) Preview** | **Latest preview model** <br> - Text, image processing <br> - Enhanced accuracy and responsiveness <br> - Parity with English text and coding tasks compared to GPT-4 Turbo with Vision <br> - Superior performance in non-English languages and in vision tasks <br> - [Currently only available via early access playground](#early-access-playground) <br> - Currently no deployment/API access|Input: 128,000  <br> Output: 4,096| Oct 2023 |
 | `gpt-4` (turbo-2024-04-09) <br>**GPT-4 Turbo with Vision** | **Latest GA model** <br> - Replacement for all GPT-4 preview models (`vision-preview`, `1106-Preview`, `0125-Preview`). <br> - [**Feature availability**](#gpt-4o-and-gpt-4-turbo) is currently different depending on method of input, and deployment type. <br> - Does **not support** enhancements. | Input: 128,000  <br> Output: 4,096  | Dec 2023 |
 | `gpt-4` (0125-Preview)*<br>**GPT-4 Turbo Preview** | **Preview Model** <br> -Replaces 1106-Preview <br>- Better code generation performance <br> - Reduces cases where the model doesn't complete a task <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
 | `gpt-4` (vision-preview)<br>**GPT-4 Turbo with Vision Preview**  | **Preview model** <br> - Accepts text and image input. <br> - Supports enhancements <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
