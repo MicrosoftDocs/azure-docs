@@ -46,16 +46,18 @@ items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
       displayName: endpoint
-    - name: Deploy models as serverless API
-      href: how-to/deploy-models-serverless.md
-      displayName: maas, paygo, models-as-a-service
-    - name: Consume serverless API models from a different project or hub
-      href: how-to/deploy-models-serverless-connect.md
-      displayName: maas, paygo, models-as-a-service
-    - name: Model and region availability for Serverless API deployments
-      href: how-to/deploy-models-serverless-availability.md
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md
+    - name: Serverless API models
+      items:
+      - name: Deploy models as serverless API
+        href: how-to/deploy-models-serverless.md
+        displayName: maas, paygo, models-as-a-service
+      - name: Consume serverless API models from a different project or hub
+        href: how-to/deploy-models-serverless-connect.md
+        displayName: maas, paygo, models-as-a-service
+      - name: Model and region availability for Serverless API deployments
+        href: how-to/deploy-models-serverless-availability.md
     - name: Azure OpenAI models
       items:
       - name: Deploy Azure OpenAI models
@@ -86,22 +88,6 @@ items:
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
-    - name: Azure AI Model Inference API
-      items:
-        - name: What's the Azure AI Model Inference API?
-          href: reference/reference-model-inference-api.md
-        - name: Reference
-          items:
-            - name: Get Info
-              href: reference/reference-model-inference-info.md
-            - name: Embeddings
-              href: reference/reference-model-inference-embeddings.md
-            - name: Completions
-              href: reference/reference-model-inference-completions.md
-            - name: Chat Completions
-              href: reference/reference-model-inference-chat-completions.md
-            - name: Images Embeddings
-              href: reference/reference-model-inference-images-embeddings.md
   - name: Create AI Studio projects and resources
     items:
     - name: AI Studio hubs and projects overview
@@ -318,6 +304,22 @@ items:
     href: ../ai-services/reference/rest-api-resources.md?context=/azure/ai-studio/context/context
   - name: Prompt flow Python SDK
     href: https://microsoft.github.io/promptflow/reference/index.html#
+  - name: Azure AI Model Inference API
+    items:
+      - name: What's the Azure AI Model Inference API?
+        href: reference/reference-model-inference-api.md
+      - name: Reference
+        items:
+        - name: Get Info
+          href: reference/reference-model-inference-info.md
+        - name: Embeddings
+          href: reference/reference-model-inference-embeddings.md
+        - name: Completions
+          href: reference/reference-model-inference-completions.md
+        - name: Chat Completions
+          href: reference/reference-model-inference-chat-completions.md
+        - name: Images Embeddings
+          href: reference/reference-model-inference-images-embeddings.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../ai-services/policy-reference.md?context=/azure/ai-studio/context/context
