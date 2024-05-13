@@ -121,7 +121,7 @@ Sample email SQL VM:
 
 ## Other options
 
-You can use [workflow automations](workflow-automation.md) to trigger actions based on changes to the recommendation's status.
+You can use [workflow automations](workflow-automation.yml) to trigger actions based on changes to the recommendation's status.
 
 You can also use the [Vulnerability Assessments workbook](defender-for-sql-on-machines-vulnerability-assessment.md#view-vulnerabilities-in-graphical-interactive-reports) to view an interactive report of your findings. The data from the workbook can be exported, and a copy of the workbook can be customized and stored. Learn how to [create rich, interactive reports of Defender for Cloud data](custom-dashboards-azure-workbooks.md)
 

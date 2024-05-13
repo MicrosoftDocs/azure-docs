@@ -48,16 +48,16 @@ For the resource logs schema and properties for data errors and events, see [Res
 ### Stream Analytics jobs
 microsoft.streamanalytics/streamingjobs
 
-- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
-- [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
-- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics)
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
-- [Microsoft.StreamAnalytics resource provider operations](/azure/role-based-access-control/permissions/internet-of-things#microsoftstreamanalytics)
+- [Microsoft.StreamAnalytics resource provider operations](../role-based-access-control/permissions/internet-of-things.md#microsoftstreamanalytics)
 
 ## Related content
 
-- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
+- [Monitor Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
 - [Monitor Azure Stream Analytics](monitor-azure-stream-analytics.md)
 - [Dimensions for Azure Stream Analytics metrics](stream-analytics-job-metrics-dimensions.md)
 - [Understand and adjust streaming units](stream-analytics-streaming-unit-consumption.md)

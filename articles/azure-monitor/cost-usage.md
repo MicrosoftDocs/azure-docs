@@ -155,7 +155,14 @@ To explore the data in more detail, click on the icon in the upper-right corner 
 :::image type="content" source="logs/media/manage-cost-storage/logs.png" lightbox="logs/media/manage-cost-storage/logs.png" alt-text="Screenshot of log query with Usage table in Log Analytics.":::
 
 ### Application insights
-To learn about your usage trends for your classic Application Insights resource, select **Usage and Estimated Costs** from the **Applications** menu in the Azure portal. 
+
+#### Workspace-based resources
+
+To learn about usage on your workspace-based resources, see [Data volume trends for workspace-based resources](logs/analyze-usage.md#data-volume-trends-for-workspace-based-resources).
+
+#### Classic resources
+
+To learn about usage on retired classic Application Insights resources, select **Usage and Estimated Costs** from the **Applications** menu in the Azure portal. 
 
 :::image type="content" source="media/usage-estimated-costs/app-insights-usage.png" lightbox="media/usage-estimated-costs/app-insights-usage.png" alt-text="Screenshot of usage and estimated costs for Application Insights in Azure portal.":::
 

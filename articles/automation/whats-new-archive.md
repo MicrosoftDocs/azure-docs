@@ -319,7 +319,7 @@ Automation support of service tags allows or denies the traffic for the Automati
 
 **Type:** Plan for change
 
-Azure Automation fully supports [TLS 1.2 or higher](../automation/automation-managing-data.md#tls-12-or-higher-for-azure-automation) and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
+Azure Automation fully supports [TLS 1.2 or higher](../automation/automation-managing-data.md#tls-for-azure-automation) and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
 
 ## January 2020
 

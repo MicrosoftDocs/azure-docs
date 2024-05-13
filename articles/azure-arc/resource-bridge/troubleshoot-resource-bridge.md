@@ -263,9 +263,7 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 **Datastore** 
 
 - Allocate space
-
 - Browse datastore
-
 - Low level file operations
 
 **Folder** 
@@ -283,9 +281,7 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 **Resource**
 
 - Assign virtual machine to resource pool
-
 - Migrate powered off virtual machine
-
 - Migrate powered on virtual machine
 
 **Sessions**
@@ -295,125 +291,68 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 **vApp**
 
 - Assign resource pool
-
 - Import 
 
 **Virtual machine**
 
 - Change Configuration
-
   - Acquire disk lease
-
   - Add existing disk
-
   - Add new disk
-
   - Add or remove device
-
   - Advanced configuration
-
   - Change CPU count
-
   - Change Memory
-
   - Change Settings
-
   - Change resource
-
   - Configure managedBy
-
   - Display connection settings
-
   - Extend virtual disk
-
   - Modify device settings
-
   - Query Fault Tolerance compatibility
-
   - Query unowned files
-
   - Reload from path
-
   - Remove disk
-
   - Rename
-
   - Reset guest information
-
   - Set annotation
-
   - Toggle disk change tracking
-
   - Toggle fork parent
-
   - Upgrade virtual machine compatibility
-
 - Edit Inventory
-
   - Create from existing
-
   - Create new
-
   - Register
-
   - Remove
-
   - Unregister
-
 - Guest operations
-
   - Guest operation alias modification
-
   - Guest operation modifications
-
   - Guest operation program execution
-
   - Guest operation queries
-
 - Interaction
-
   - Connect devices
-
   - Console interaction
-
   - Guest operating system management by VIX API
-
   - Install VMware Tools
-
   - Power off
-
   - Power on
-
   - Reset
-
   - Suspend
-
 - Provisioning
-
   - Allow disk access
-
   - Allow file access
-
   - Allow read-only disk access
-
   - Allow virtual machine download
-
   - Allow virtual machine files upload
-
   - Clone virtual machine
-
   - Deploy template
-  
   - Mark as template
-
   - Mark as virtual machine
-
+  - Customize guest
 - Snapshot management
-
   - Create snapshot
-
   - Remove snapshot
-
   - Revert to snapshot
 
 ## Next steps

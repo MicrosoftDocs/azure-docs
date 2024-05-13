@@ -262,7 +262,7 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Make sure that the data disks are initialized, and then retry the operation.
 
-- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.yml).
 - **Linux**: [Initialize a new data disk in Linux](../virtual-machines/linux/add-disk.md).
 
 If the problem persists, contact support.

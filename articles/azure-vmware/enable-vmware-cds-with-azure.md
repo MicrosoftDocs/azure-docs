@@ -2,7 +2,7 @@
 title: Enable VMware Cloud Director service with Azure VMware Solution 
 description: This article explains how to use  Azure VMware Solution to enable enterprise customers to use Azure VMware Solution for private clouds underlying resources for virtual datacenters.
 ms.topic: how-to
-ms.date: 4/15/2024
+ms.date: 4/16/2024
 ms.custom: engagement-fy23
 ---
 
@@ -178,7 +178,7 @@ This offering is supported in all Azure regions where Azure VMware Solution is a
 
 ### How is VMware Cloud Director service supported?
 
-VMware Cloud director service (CDs) is VMware owned and supported product connected to Azure VMware solution. For any support queries on CDs, contact VMware support for assistance. Both VMware and Microsoft support teams collaborate as necessary to address and resolve Cloud Director Service issues within Azure VMware Solution.
+VMware Cloud Director service (CDs) is VMware owned and supported product connected to Azure VMware solution. For any support queries on CDs, contact VMware support for assistance. Both VMware and Microsoft support teams collaborate as necessary to address and resolve Cloud Director Service issues within Azure VMware Solution.
 
 
 ## Next steps

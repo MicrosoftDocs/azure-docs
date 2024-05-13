@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 03/22/2024
+ms.date: 04/18/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -23,7 +23,7 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 >[!Note]
 > - If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) and tar are installed. To install tar, you can copy tar.exe and archiveint.dll from any Windows 11 or Windows Server 2019/2022 machine to *C:\Windows\System32* path on your VMM server machine.
-> - If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with AAD authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
+> - If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with Microsoft Entra ID authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
 > - Azure Arc Resource Bridge deployment using private link is currently not supported.
 
 | **Requirement** | **Details** |

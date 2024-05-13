@@ -1,7 +1,7 @@
 ---
-title: Azure Blob indexer
+title: Azure blob indexer
 titleSuffix: Azure AI Search
-description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure AI Search.
+description: Set up an Azure blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 05/04/2024
 ---
 
 # Index data from Azure Blob Storage
@@ -25,7 +25,7 @@ Blob indexers are frequently used for both [AI enrichment](cognitive-search-conc
 
 + [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md), Standard performance (general-purpose v2).
 
-+ [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob Storage include Hot, Cool, and Archive. Only Hot and Cool can be accessed by search indexers.
++ [Access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, cold, and archive. Indexers can retrieve blobs on hot, cool, and cold access tiers. 
 
 + Blobs providing text content and metadata. If blobs contain binary content or unstructured text, consider adding [AI enrichment](cognitive-search-concept-intro.md) for image and natural language processing. Blob content can’t exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
