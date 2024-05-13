@@ -1,6 +1,6 @@
 ---
 title: ND MI300X v5-series specs include
-description: Include file containing specifications of ND H100 v5-series VM sizes.
+description: Include file containing specifications of ND MI300X v5-series virtual machine (VM) sizes.
 services: virtual-machines
 author: marccharest
 ms.topic: include
