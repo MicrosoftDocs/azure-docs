@@ -135,13 +135,19 @@ Instead of checking outputs on each node, you can also set flow output and check
 - Define evaluation interface mapping
 - Set deployment response schema
 
-When you clone the sample, the flow outputs (category and evidence) are already set. You can select **View outputs** to check the outputs in a table.
+When you clone the sample, the flow outputs (category and evidence) are already set. 
+
+You can select **View trace** button in the banner to view detailed input, output, flow execution and orchestration information. You can see that the flow predicts the input URL with a category and evidence.
+
+:::image type="content" source="./media/get-started-prompt-flow/authoring-view-trace.png" alt-text="Screenshot of viewing trace in authoring page." lightbox = "./media/get-started-prompt-flow/authoring-view-trace.png":::
+
+:::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
+
+You can select **View test result** to check all historical tests in a list.
 
 :::image type="content" source="./media/get-started-prompt-flow/view-outputs-entry-point.png" alt-text="Screenshot of Web classification showing the view outputs button." lightbox = "./media/get-started-prompt-flow/view-outputs-entry-point.png":::
 
-You can see that the flow predicts the input URL with a category and evidence.
-
-:::image type="content" source="./media/get-started-prompt-flow/view-outputs.png" alt-text="Screenshot of Web classification showing outputs tab." lightbox = "./media/get-started-prompt-flow/view-outputs.png":::
+:::image type="content" source="./media/how-to-develop-flow/authoring-test-result.png" alt-text="Screenshot of flow test result." lightbox ="./media/how-to-develop-flow/authoring-test-result.png":::
 
 ## Test and evaluation
 
