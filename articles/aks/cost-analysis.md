@@ -44,7 +44,7 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
     * Enterprise Agreement
     * Microsoft Customer Agreement
 
-* Access to the Azure API including Azure Resource Manager (ARM) API. For a list of fully qualified domain names (FQDNs) required, see [AKS Cost Analysis required FQDN](./outbound-rules-control-egress.md#aks-cost-analysis-addon).
+* Access to the Azure API including Azure Resource Manager (ARM) API. For a list of fully qualified domain names (FQDNs) required, see [AKS Cost Analysis required FQDN](./outbound-rules-control-egress.md#aks-cost-analysis-add-on).
 
 * Virtual nodes aren't supported at this time.
 
