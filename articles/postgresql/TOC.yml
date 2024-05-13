@@ -426,7 +426,13 @@
       - name: Azure Cognitive Services
         href: flexible-server/generative-ai-azure-cognitive.md
       - name: Azure Machine Learning Services
-        href: flexible-server/generative-ai-azure-machine-learning.md        
+        href: flexible-server/generative-ai-azure-machine-learning.md
+    - name: In-database Embeddings (azure_local_ai)
+      items:
+      - name: Overview  
+        href: flexible-server/azure-local-ai.md
+      - name: Create embeddings with azure_local_ai
+        href: flexible-server/generative-ai-azure-local-ai.md
     - name: Azure Storage (pg_azure_storage)
       href: flexible-server/reference-pg-azure-storage.md
     - name: Vector similarity search (pgvector)
