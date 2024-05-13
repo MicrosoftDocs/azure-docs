@@ -51,11 +51,14 @@ This feature allows you to monitor the health of your control plane resource usi
 
 For more information, on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
 
+<!--
+** Removed NAS Encryption until configuration available **
 ### NAS Encryption
 
 NAS (Non-Access-Stratum) encryption configuration determines the encryption algorithm applied to the management traffic between the UEs and the AMF(5G) or MME(4G). By default, for security reasons, Packet Core deployments are configured to preferentially use NEA2/EEA2 encryption.
 
 You can change the preferred encryption level after deployment by [modifying the packet core configuration](modify-packet-core.md).
+-->
 
 <!--## Issues fixed in the AP5GC 2404 release
 # NO FIXED ISSUES IN AP5GC2404
