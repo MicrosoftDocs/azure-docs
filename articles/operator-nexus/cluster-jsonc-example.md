@@ -274,7 +274,6 @@ ms.custom: template-how-to
                 "aggregatorOrSingleRackDefinition": "[parameters('aggregatorOrSingleRack')]",
                 "computeRackDefinitions": "[parameters('computeRacks')]",
                 "clusterServicePrincipal": "[parameters('clusterServicePrincipal')]",
-                "secretArchive": "[parameters('secretArchive')]",
                 "managedResourceGroupConfiguration": "[parameters('managedResourceGroupConfiguration')]"
               }
             }
