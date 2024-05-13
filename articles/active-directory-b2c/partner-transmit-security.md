@@ -32,9 +32,9 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
 
 A Transmit Detection and Response integration includes the following components:
 
-- **Azure AD B2C tenant**: Authenticates the user and hosts a script that collects device telemetry as users execute a target policy. It blocks or challenges sign-in/up attempts based on the risk recommendation returned by Transmit.
+- **Azure AD B2C tenant**: Authenticates the user and hosts a script that collects device information as users execute a target policy. It blocks or challenges sign-in/up attempts based on the risk recommendation returned by Transmit.
 - **Custom UI templates**: Customizes HTML content of the pages rendered by Azure AD B2C. These pages include the JavaScript snippets required for Transmit risk detection.
-- **Transmit data collection service**: Dynamically embedded script that logs device telemetry, which is used to continuously assess risk during user interactions.
+- **Transmit data collection service**: Dynamically embedded script that logs device information, which is used to continuously assess risk during user interactions.
 - **Transmit DRS API endpoint**: Provides the risk recommendation based on collected data. Azure AD B2C communicates with this endpoint using a REST API connector.
 - **Azure Functions**: Your hosted API endpoint that is used to obtain a recommendation from the Transmit DRS API endpoint via the API connector.
 
@@ -43,21 +43,21 @@ The following architecture diagram illustrates the implementation described in t
 ![Diagram of the Transmit and Azure AD B2C architecture](./media/partner-transmit-security/transmit-security-integration-diagram.png)
 
 1. The user signs-in with Azure AD B2C.
-2. The sign-in page initializes the Transmit SDK, which starts streaming device telemetry to Transmit.
+2. A custom page initializes the Transmit SDK, which starts streaming device information to Transmit.
 3. Azure AD B2C reports a sign-in action event to Transmit in order to obtain an action token.
 4. Transmit returns an action token, and Azure AD B2C proceeds with the user sign-up or sign-in.
-5. After authenticating the user, Azure AD B2C requests a risk recommendation from Transmit via Azure Functions.
+5. After the user signs-in, Azure AD B2C requests a risk recommendation from Transmit via the Azure Function.
 6. The Azure Function sends Transmit the recommendation request with the action token.
-7. Transmit returns a recommendation (challenge/allow/deny) based on the collected device telemetry.
+7. Transmit returns a recommendation (challenge/allow/deny) based on the collected device information.
 8. The Azure Function passes the recommendation result to Azure AD B2C to handle accordingly.
 9. Azure AD B2C performs more steps if needed, like multifactor authentication and completes the sign-up or sign-in flow.
 
 ## Prerequisites
 
 * A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/)
-* [An Azure AD B2C tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant) linked to the Entra subscription
-* [A registered web application](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant) in your Azure AD B2C tenant
-* [Azure AD B2C custom policies](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
+* [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Entra subscription
+* [A registered web application](./tutorial-register-applications.md) in your Azure AD B2C tenant
+* [Azure AD B2C custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 * A Transmit Security tenant. Go to [transmitsecurity.com](https://transmitsecurity.com/)
 
 ## Step 1: Create a Transmit app
@@ -71,7 +71,7 @@ Sign in to the [Transmit Admin Portal](https://portal.transmitsecurity.io/) and 
    |:---------|:---------------------|
    | **Application name** | Application name|
    | **Client name** | Client name|
-   | **Redirect URIs** | Enter your website URL. The redirect URIs is a required field but not used for this flow|
+   | **Redirect URIs** | Enter your website URL. This attribute is a required field but not used for this flow|
 
 3. Select **Add**.
 
@@ -79,13 +79,13 @@ Sign in to the [Transmit Admin Portal](https://portal.transmitsecurity.io/) and 
 
 ## Step 2: Create your custom UI
 
-Start by integrating Transmit DRS into the B2C frontend application. This involves creating a custom sign-in page that integrates the [Transmit SDK](https://developer.transmitsecurity.com/sdk-ref/platform/introduction/), and replaces the default Azure AD B2C sign-in page. 
+Start by integrating Transmit DRS into the B2C frontend application. Create a custom sign-in page that integrates the [Transmit SDK](https://developer.transmitsecurity.com/sdk-ref/platform/introduction/), and replaces the default Azure AD B2C sign-in page. 
 
-Once activated, Transmit DRS starts collecting telemetry data for the user interacting with your app. Transmit DRS returns an action token that Azure AD B2C needs for risk recommendation.
+Once activated, Transmit DRS starts collecting information for the user interacting with your app. Transmit DRS returns an action token that Azure AD B2C needs for risk recommendation.
 
 To integrating Transmit DRS into the B2C sign-in page, follow these steps:
 
-1. Prepare a custom HTML file for your sign-in page based on the [sample templates](https://learn.microsoft.com/en-us/azure/active-directory-b2c/customize-ui-with-html?pivots=b2c-custom-policy#sample-templates). Add the following script to load and initialize the Transmit SDK, and to obtain an action token. The returned action token should be stored in a hidden HTML element (`ts-drs-response` in this example).
+1. Prepare a custom HTML file for your sign-in page based on the [sample templates](./customize-ui-with-html.md#sample-templates). Add the following script to load and initialize the Transmit SDK, and to obtain an action token. The returned action token should be stored in a hidden HTML element (`ts-drs-response` in this example).
 
 ```html
     <!-- Function that obtains an action token -->
@@ -119,11 +119,11 @@ To integrating Transmit DRS into the B2C sign-in page, follow these steps:
 
 1. [Enable JavaScript and page layout versions in Azure AS B2C](./javascript-and-page-layout.md).
 
-1. Host the HTML page on a Cross-Origin Resource Sharing (CORS) enabled web endpoint by [creating a storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal&toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) and [adding CORS support for Azure Storage](https://learn.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+1. Host the HTML page on a Cross-Origin Resource Sharing (CORS) enabled web endpoint by [creating a storage account](/azure/storage/common/storage-account-create.md?tabs=azure-portal&toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) and [adding CORS support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
 ## Step 3: Create an Azure Function
 
-Azure AD B2C can obtain a risk recommendation from Transmit using a [API connector](./add-api-connector). Passing this request through an intermediate web API (such as using [Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/)) provides more flexibility in your implementation logic. 
+Azure AD B2C can obtain a risk recommendation from Transmit using a [API connector](./add-api-connector.md). Passing this request through an intermediate web API (such as using [Azure Functions](/azure/azure-functions/)) provides more flexibility in your implementation logic. 
 
 Follow these steps to create an Azure function that uses the action token from the frontend application to get a recommendation from the [Transmit DRS endpoint](https://developer.transmitsecurity.com/openapi/risk/recommendations/#operation/getRiskRecommendation).
 
@@ -136,7 +136,7 @@ Follow these steps to create an Azure function that uses the action token from t
     }
     ```
 
-2. Extract the action token from the request. Your custom policy defines whether it's passed in the query or body.
+2. Extract the action token from the request. Your custom policy defines how to pass the request, in query string parameters or body.
 
     ```csharp
     // Checks for the action token in the query string
@@ -203,9 +203,9 @@ Follow these steps to create an Azure function that uses the action token from t
 
 You incorporate Transmit DRS into your Azure B2C application by extending your custom policies.
 
-1. Download the [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) to get started (see [Create custom policies in Azure AD B2C](./tutorial-create-user-flows?pivots=b2c-custom-policy))
+1. Download the [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) to get started (see [Create custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy))
 
-2. Create a new file that inherits from **TrustFrameworkExtensions**, which will extend the base policy with tenant-specific customizations for Transmit DRS.
+2. Create a new file that inherits from **TrustFrameworkExtensions**, which extens the base policy with tenant-specific customizations for Transmit DRS.
 
     ```xml
     <BasePolicy>
@@ -266,7 +266,7 @@ You incorporate Transmit DRS into your Azure B2C application by extending your c
        <DisplayName>Sign in using DRS</DisplayName>
        <TechnicalProfiles>
           <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
-             <DisplayName>Local Account Signin</DisplayName>
+             <DisplayName>Local Account Sign-in</DisplayName>
              <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
              <Metadata>
              <Item Key="SignUpTarget">SignUpWithLogonEmailExchange</Item>
@@ -386,7 +386,7 @@ You incorporate Transmit DRS into your Azure B2C application by extending your c
 
 7. Save the policy file as `DRSTrustFrameworkExtensions.xml`.
 
-8. Create a new file that inherits from the file you saved. It extends the SignIn policy that works as an entry point for the Signin and Signup user journeys with Transmit DRS.
+8. Create a new file that inherits from the file you saved. It extends the sign-in policy that works as an entry point for the sign-up and sign-in user journeys with Transmit DRS.
 
     ```xml
     <BasePolicy>
@@ -444,9 +444,5 @@ Using the directory with your Azure AD B2C tenant, test your custom policy:
 
 ## Next steps
 
-* [Solutions and Training for Azure Active Directory B2C](solution-articles.md)
 * Ask questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
-* [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
-* YouTube: [Identity Azure AD B2C Series](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0)
-* [Azure AD B2C custom policy overview](custom-policy-overview.md)
-* [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+* Check out the [Azure AD B2C custom policy overview](custom-policy-overview.md)
