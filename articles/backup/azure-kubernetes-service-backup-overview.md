@@ -92,6 +92,151 @@ Backup in AKS has two types of hooks:
 - Backup hooks
 - Restore hooks
 
+## Modify resource while restoring backups to AKS cluster
+
+You can use the *Resource Modification* feature to modify backed-up Kubernetes resources during restore by specifying *JSON* patches as `configmap` deployed in the AKS cluster.
+
+### Create and apply a resource modifier configmap during restore
+
+To create and apply resource modification, follow these steps:
+
+1. Create resource modifiers configmap.
+
+   You need to create one configmap in your preferred namespace from a *YAML* file that defined resource modifiers.
+
+   **Example for creating command**:
+
+    ```json
+    version: v1
+    resourceModifierRules:
+    - conditions:
+        groupResource: persistentvolumeclaims
+        resourceNameRegex: "^mysql.*$"
+        namespaces:
+        - bar
+        - foo
+        labelSelector:
+            matchLabels:
+              foo: bar
+      patches:
+      - operation: replace
+        path: "/spec/storageClassName"
+        value: "premium"
+      - operation: remove
+        path: "/metadata/labels/test"
+
+    ```
+
+   - The above *configmap* applies the *JSON* patch to all the Persistent Volume Copies in the *namespaces* bar and *foo* with name that starts with `mysql` and `match label foo: bar`. The JSON patch replaces the `storageClassName` with `premium` and removes the label `test` from the Persistent Volume Copies.
+   - Here, the *Namespace* is the original namespace of the backed-up resource, and not the new namespace where the resource is going to be restored.
+   - You can specify multiple JSON patches for a particular resource. The patches are applied as per the order specified in the *configmap*. A subsequent patch is applied in order. If multiple patches are specified for the same path, the last patch overrides the previous patches.
+   - You can specify multiple `resourceModifierRules` in the *configmap*. The rules are applied as per the order specified in the *configmap*.
+
+
+2. Creating a resource modifier reference in the restore configuration
+
+   When you perform a restore operation, provide the *ConfigMap name* and the *Namespace* where it's deployed as part of restore configuration. These details need to be provided under **Resource Modifier Rules**.
+
+   :::image type="content" source="./media/azure-kubernetes-service-backup-overview/resource-modifier-rules.png" alt-text="Screenshot shows the location to provide resource details.":::
+
+
+   Operations supported by **Resource Modifier**
+
+   - **Add**
+
+     :::image type="content" source="./media/azure-kubernetes-service-backup-overview/add-resource-modifier.png" alt-text="Screenshot shows the addition of resource modifier. ":::
+
+   - **Remove**
+
+     :::image type="content" source="./media/azure-kubernetes-service-backup-overview/remove-resource-modifier.png" alt-text="Screenshot shows the option to remove resource.":::
+
+   - **Replace**
+
+     :::image type="content" source="./media/azure-kubernetes-service-backup-overview/replace-resource-modifier.png" alt-text="Screenshot shows the replacement option for resource modifier.":::
+
+   - **Move**
+   - **Copy**
+
+     :::image type="content" source="./media/azure-kubernetes-service-backup-overview/copy-resource-modifier.png" alt-text="Screenshot shows the option to copy resource modifier.":::
+
+   - **Test**
+
+     You can use the **Test** operation to check if a particular value is present in the resource. If the value is present, the patch is applied. If the value isn't present, the patch isn't applied.
+
+     :::image type="content" source="./media/azure-kubernetes-service-backup-overview/test-trsource-modifier-value-present.png" alt-text="{alt-text}":::
+
+### JSON patch
+
+This *configmap* applies the JSON patch to all the deployments in the namespaces by default and ``nginx` with the name that starts with `nginxdep`. The JSON patch updates the replica count to *12* for all such deployments.
+
+
+```json
+resourceModifierRules:
+- conditions:
+groupResource: deployments.apps
+resourceNameRegex: "^nginxdep.*$"
+namespaces:
+- default
+- nginx
+patches:
+- operation: replace
+path: "/spec/replicas"
+value: "12"
+
+```
+
+- **JSON Merge patch**: This config map will apply the JSON Merge Patch to all the deployments in the namespaces default and nginx with the name starting with nginxdep. The JSON Merge Patch will add/update the label "app" with the value "nginx1".
+
+```json
+
+
+version: v1
+resourceModifierRules:
+  - conditions:
+      groupResource: deployments.apps
+      resourceNameRegex: "^nginxdep.*$"
+      namespaces:
+        - default
+        - nginx
+    mergePatches:
+      - patchData: |
+          {
+            "metadata" : {
+              "labels" : {
+                "app" : "nginx1"
+              }
+            }
+          }
+
+
+```
+
+- **Strategic Merge patch**: This config map will apply the Strategic Merge Patch to all the pods in the namespace default with the name starting with nginx. The Strategic Merge Patch will update the image of container nginx to mcr.microsoft.com/cbl-mariner/base/nginx:1.22
+
+```json
+
+version: v1
+resourceModifierRules:
+- conditions:
+    groupResource: pods
+    resourceNameRegex: "^nginx.*$"
+    namespaces:
+    - default
+  strategicPatches:
+  - patchData: |
+      {
+        "spec": {
+          "containers": [
+            {
+              "name": "nginx",
+              "image": "mcr.microsoft.com/cbl-mariner/base/nginx:1.22"
+            }
+          ]
+        }
+      }
+
+```
+
 ### Backup hooks
 
 In a backup hook, you can configure the commands to run the hook before any custom action processing (pre-hooks), or after all custom actions are finished and any additional items specified by custom actions are backed up (post-hooks).
