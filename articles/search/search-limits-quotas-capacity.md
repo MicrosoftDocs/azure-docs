@@ -8,10 +8,9 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 05/21/2024
 ms.custom:
   - references_regions
-  - ignite-2023
 ---
 
 # Service limits in Azure AI Search
@@ -89,9 +88,22 @@ Use the [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
 
 Vector limits vary by service creation date and tier. To check the age of your search service and learn more about vector indexes, see [Vector index size and staying under limits](vector-search-index-size.md).
 
-### Vector limits on services created after April 3, 2024 in supported regions
+### Vector limits on services created after May 17, 2024
 
-The highest vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
+The highest vector limits are available on search services created after May 17, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
+
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+|--------|--------------------|--------------------------------------------|------------------------------|
+| Basic | 15                  | 5                                          | 1,100 million              |
+| S1    | 160                 | 35                                         | 8,200 million              |
+| S2    | 512                 | 150                                        | 23,500 million             |
+| S3    | 1,024               | 300                                        | 47,000 million             |
+| L1    | 2,048               | 150                                         | 2,800 million              |
+| L2    | 4,096               | 300                                         | 8,400 million              |
+
+### Vector limits on services created between April 3, 2024 and May 17, 2024
+
+The following vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 |--------|--------------------|--------------------------------------------|------------------------------|
@@ -124,6 +136,8 @@ All other regions have these limits:
 | L2    | 2,000              | 36                                         | 8,400 million                |
 
 ### Vector limits on services created before July 1, 2023
+
+These limits applied to private preview.
 
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 |--------|--------------------|--------------------------------------------|------------------------------|
