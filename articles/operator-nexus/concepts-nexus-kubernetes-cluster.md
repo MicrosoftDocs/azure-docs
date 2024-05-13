@@ -25,7 +25,7 @@ Nexus Kubernetes Cluster Service is a Kubernetes distribution designed for on-pr
 
 Like any Kubernetes cluster, Nexus Kubernetes cluster has two components:
 
-* Control plane: provides core Kubernetes services and manage the life cycle of application workloads.
+* Control plane: provides core Kubernetes services and manages the life cycle of application workloads.
 
 * Nodes: To run your applications and supporting services, you need a Kubernetes node. It provides the container runtime environment.
 Each NKS cluster has at least one node, Node is hosted in virtual machine (VM) that runs the [Kubernetes node components](../aks/concepts-clusters-workloads.md#nodes). 
