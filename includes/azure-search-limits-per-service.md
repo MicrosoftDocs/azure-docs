@@ -27,7 +27,7 @@ Free services don't have fixed partitions or replicas and they share resources w
 | Resource | Free | Basic | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|-------|------|----|----|----|----------- |----|----|
 | Service level agreement (SLA)| No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
-| Storage (partition size) | 50&nbsp;MB |2&nbsp;GB |25&nbsp;GB |100&nbsp;GB |200&nbsp;GB |200&nbsp;GB| 1,000&nbsp;GB | 2,000&nbsp;GB  |
+| Storage (partition size) | 50&nbsp;MB |2&nbsp;GB |25&nbsp;GB |100&nbsp;GB |200&nbsp;GB |200&nbsp;GB| 1&nbsp;TB | 2&nbsp;TB  |
 | Partitions | N/A |1 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A |3 |12 |12 |12 |12 |12 |12 |
 
@@ -44,13 +44,13 @@ Currently, there's no in-place upgrade. You should [create a new search service]
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
 | Service level agreement (SLA) | No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
-| Storage (partition size)  | 50&nbsp;MB | **15&nbsp;GB** | **160&nbsp;GB** | **350&nbsp;GB** | **700&nbsp;GB** | **700&nbsp;GB** | 1,000&nbsp;GB | 2,000&nbsp;GB  |
+| Storage (partition size)  | 50&nbsp;MB | **15&nbsp;GB** | **160&nbsp;GB** | **512&nbsp;GB** | **1&nbsp;TB** | **1&nbsp;TB** | 1&nbsp;TB | 2&nbsp;TB  |
 | Partitions | N/A |3 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A | 3 |12 |12 |12 |12 |12 |12 |
 
 ### After May 17, 2024
 
-S2, S3, and S3 HD have larger partition sizes starting on May 17, 2024.  If you created an S2 or higher search service after April 3, the higher partition size becomes available automatically. If you're running an older search service, you must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
+S2, S3, and S3 HD have larger partition sizes starting on May 17, 2024.  If you created an S2 or higher search service after April 3, the higher partition size becomes available automatically. If you're runing an older search service, you must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
 
 Storage Optimized tiers (L1 and L2) now have larger partitions at the current pricing.
 
@@ -61,7 +61,7 @@ Storage Optimized tiers (L1 and L2) now have larger partitions at the current pr
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
 | Service level agreement (SLA) | No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
-| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | **512&nbsp;GB** | **1024&nbsp;GB** | **1024&nbsp;GB** | **2048&nbsp;GB** | **4096&nbsp;GB**  |
+| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | 512&nbsp;GB | 1&nbsp;TB | &nbsp;TB | **2&nbsp;TB** | **4&nbsp;TB**  |
 | Partitions | N/A |3 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A | 3 |12 |12 |12 |12 |12 |12 |
 
