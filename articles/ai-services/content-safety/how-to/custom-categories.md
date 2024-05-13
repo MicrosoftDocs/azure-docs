@@ -26,9 +26,9 @@ The custom category API lets you create your own content categories for your use
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US), and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource</a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US), and supported pricing tier. Then select **Create**.
    * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. Copy the endpoint and either of the key values to a temporary location for later use.
-* Also create an Azure blob storage container where you'll keep your training annotation file.
+* Also [create an Azure blob storage container](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) where you'll keep your training annotation file.
 * One of the following installed:
    * [cURL](https://curl.haxx.se/) for REST API calls.
    * [Python 3.x](https://www.python.org/) installed
@@ -39,7 +39,7 @@ The custom category API lets you create your own content categories for your use
 
 To train a custom category, you need example text data that represents the category you want to detect. Follow these steps to prepare your sample data:
 
-1. Collect or write sample data.
+1. Collect or write your sample data:
     - The quality of your sample data is important for training an effective model. Aim to collect at least 50 positive samples that accurately represent the content you want to identify. These samples should be clear, varied, and directly related to the category definition.
     - Negative samples aren't required, but they can improve the model's ability to distinguish relevant content from irrelevant content. 
         To improve performance, aim for 50 samples that aren't related to the positive case definition. These should be varied but still within the context of the content your model will encounter. Choose negative samples carefully to ensure they don't inadvertently overlap with the positive category. 
@@ -52,7 +52,7 @@ To train a custom category, you need example text data that represents the categ
     {"text": "This is the 3rd sample (negative).", "isPositive": false}
     ```
 
-1. Upload the _.jsonl_ file to an Azure Storage account blob container. You can create a new [Azure Storage Account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) if you don't have one. Copy the blob URL to a temporary location for later use.
+1. Upload the _.jsonl_ file to an Azure Storage account blob container. Copy the blob URL to a temporary location for later use.
 
 ### Grant storage access 
 
@@ -70,7 +70,7 @@ To train a custom category, you need example text data that represents the categ
 
 #### [cURL](#tab/curl)
 
-In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values:
+In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other necessary parameters with your own values. Then enter each command in a terminal window and run it.
 
 ### Create new category version
 
@@ -93,7 +93,9 @@ curl -X POST "<endpoint>/contentsafety/text/categories/<your_category_name>:buil
      -H "Content-Type: application/json"
 ```
 
-## Analyze text with a customized category:
+## Analyze text with a customized category
+
+Run the following command to analyze text with your customized category. Replace `<your_category_name>` with your own value:
 
 ```bash
 curl -X POST "<endpoint>/contentsafety/text:analyzeCustomCategory?api-version=2024-02-15-preview" \
@@ -115,7 +117,7 @@ First, you need to install the required Python library:
 pip install requests
 ```
 
-Then, define the necessary variables with your own Azure resource details:
+Then, open a new Python script and define the necessary variables with your own Azure resource details:
 
 ```python
 import requests
@@ -147,7 +149,7 @@ def create_new_category_version(category_name, definition, sample_blob_url):
 # Replace the parameters with your own values
 category_name = "DrugAbuse"
 definition = "This category is related to Drug Abuse."
-sample_blob_url = "https://example.blob.core.windows.net/example-container/drugsample.jsonl"
+sample_blob_url = "https://<your-azure-storage-url>/example-container/drugsample.jsonl"
 
 result = create_new_category_version(category_name, definition, sample_blob_url)
 print(result)
@@ -155,7 +157,7 @@ print(result)
 
 ### Start the category build process
 
-You can trigger the category build process with the *category name* and *version number*.
+You can start the category build process with the *category name* and *version number*.
 
 ```python
 def trigger_category_build_process(category_name, version):
@@ -200,11 +202,13 @@ print(result)
 
 ## Other custom category operations
 
-Remember to replace the placeholders with your actual values for the API key, endpoint, and specific content (category name, definition, and so on). These examples help you get started using Azure AI Content Safety to analyze your text and work with customized categories.
+Remember to replace the placeholders below with your actual values for the API key, endpoint, and specific content (category name, definition, and so on). These examples help you to manage the customized categories in your account.
 
 #### [cURL](#tab/curl)
 
-### Get a customized category or a specific version of it:
+### Get a customized category or a specific version of it
+
+Replace the placeholders with your own values and run the following command in a terminal window:
 
 ```bash
 curl -X GET "<endpoint>/contentsafety/text/categories/<your_category_name>?api-version=2024-02-15-preview&version=1" \
@@ -214,6 +218,8 @@ curl -X GET "<endpoint>/contentsafety/text/categories/<your_category_name>?api-v
 
 ### List categories of their latest versions
 
+Replace the placeholders with your own values and run the following command in a terminal window:
+
 ```bash
 curl -X GET "<endpoint>/contentsafety/text/categories?api-version=2024-02-15-preview" \
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
@@ -221,6 +227,8 @@ curl -X GET "<endpoint>/contentsafety/text/categories?api-version=2024-02-15-pre
 ```
 
 ### Delete a customized category or a specific version of it
+
+Replace the placeholders with your own values and run the following command in a terminal window:
 
 ```bash
 curl -X DELETE "<endpoint>/contentsafety/text/categories/<your_category_name>?api-version=2024-02-15-preview&version=1" \
@@ -250,7 +258,9 @@ headers = {
 }
 ```
 
-### Get a customized category or a specific version of it:
+### Get a customized category or a specific version of it
+
+Replace the placeholders with your own values and run the following code in your Python script:
 
 ```python
 def get_customized_category(category_name, version=None):
@@ -269,7 +279,7 @@ result = get_customized_category(category_name, version)
 print(result)
 ```
 
-### List categories of their latest versions:
+### List categories of their latest versions
 
 ```python
 def list_categories_latest_versions():
@@ -281,7 +291,9 @@ result = list_categories_latest_versions()
 print(result)
 ```
 
-### Delete a customized category or a specific version of it:
+### Delete a customized category or a specific version of it
+
+Replace the placeholders with your own values and run the following code in your Python script:
 
 ```python
 def delete_customized_category(category_name, version=None):
@@ -299,8 +311,10 @@ version = 1
 result = delete_customized_category(category_name, version)
 print(result)
 ```
-
 ---
 
 
+## Related content
 
+* [Custom categories concepts](../concepts/custom-categories.md)
+* [Moderate content with Content Safety](../quickstart-text.md)

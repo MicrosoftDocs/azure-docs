@@ -14,23 +14,23 @@ ms.author: pafarley
 
 # Custom categories 
 
-The Azure AI Content Safety Custom Category feature lets you create and manage your own content categories for enhanced moderation and filtering. This feature enables customers to define categories specific to their needs, provide sample data, train a custom machine learning model, and use it to classify new content according to the predefined categories.
+The Azure AI Content Safety custom category feature lets you create and manage your own content categories for enhanced moderation and filtering. This feature enables customers to define categories specific to their needs, provide sample data, train a custom machine learning model, and use it to classify new content according to the predefined categories.
 
 ## Types of analysis
 
 | API        | Functionality   |
 | :--------- | :------------ |
-| Customized categories | Create, get, and delete a customized category or list all customized categories for further annotation task |
+| Customized categories | Create, get, and delete a customized category or list all customized categories for further annotation tasks |
 
 ## How it works
 
-The Azure AI Content Safety Custom Category feature provides a streamlined process for creating, training, and using custom content classification models. Here's an in-depth look at the underlying workflow:
+The Azure AI Content Safety custom category feature provides a streamlined process for creating, training, and using custom content classification models. Here's a look at the underlying workflow:
 
 ### Step 1: Definition and setup
  
 When you define a custom category, you need to teach the AI what type of content you want to identify. This involves providing a clear **category name** and a detailed **definition** that encapsulates the content's characteristics.
 
-Then, you collect a balanced dataset with **positive** and (optionally)**negative examples** to help the AI to learn the nuances of your category. This data should be representative of the variety of content that the model will encounter in a real-world scenario.
+Then, you collect a balanced dataset with **positive** and (optionally) **negative examples** to help the AI to learn the nuances of your category. This data should be representative of the variety of content that the model will encounter in a real-world scenario.
 
 ### Step 2: Model training
  
@@ -43,6 +43,8 @@ After training, you need to evaluate the model to ensure it meets your accuracy 
 ## Limitations
 
 ### Input limitations
+
+See the following table for the input limitations of the service.
 
 | Object           | Limitation   |
 | ---------------- | ------------ |
@@ -59,6 +61,11 @@ After training, you need to evaluate the model to ensure it meets your accuracy 
 |       Length of a category name           |         maximum 128 characters    |
 |       Length of a blob url       |          maximum 500 characters    |
 
+
+### Region availability
+
+To use this API, you must create your Azure AI Content Safety resource in one of the supported regions:
+- East US
 
 
 ## Next steps

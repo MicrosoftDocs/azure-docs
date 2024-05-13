@@ -26,9 +26,9 @@ One way to deal with emerging content incidents is to use [Blocklists](/azure/ai
 
 ## How it works 
 
-First, you create an incident object with a description. Then you add any number of image or text samples to the incident. The service will analyze the description and samples right away: no training step is needed.
+First, you use the API to create an incident object with a description. Then you add any number of image or text samples to the incident. No training step is needed.
 
-Then, you can include your defined incident in a regular text analysis or image analysis request. The service will return whether the submitted content is an instance of your incident. The service can still do other content moderation tasks in the same API call.
+Then, you can include your defined incident in a regular text analysis or image analysis request. The service will indicate whether the submitted content is an instance of your incident. The service can still do other content moderation tasks in the same API call.
 
 ## Limitations
 

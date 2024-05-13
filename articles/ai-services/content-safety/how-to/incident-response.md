@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Use the incident response API
 
-The incident response API lets you quickly respond to emerging harmful content incidents. You can easily define an incident with a few examples in a specific topic, and the service will start detecting similar content.
+The incident response API lets you quickly respond to emerging harmful content incidents. You can define an incident with a few examples in a specific topic, and the service will start detecting similar content.
 
 Follow these steps to define an incident with a few examples of text content and then analyze new text content to see if it matches the incident.
 
@@ -30,7 +30,7 @@ Follow these steps to define an incident with a few examples of text content and
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or Sweden Central), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
-* Also create a blob storage container if you want to upload your images there. You can also encode your images as Base64 strings and use them directly in the API calls.
+* Also [create a blob storage container](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) if you want to upload your images there. You can alternatively encode your images as Base64 strings and use them directly in the API calls.
 * One of the following installed:
   * [cURL](https://curl.haxx.se/) for REST API calls.
   * [Python 3.x](https://www.python.org/) installed
@@ -38,6 +38,8 @@ Follow these steps to define an incident with a few examples of text content and
 <!--tbd env vars-->
 
 ## Test the text incident response API
+
+Use the sample code in this section to create a text incident, add samples to the incident, deploy the incident, and then detect text incidents.
 
 ### Create an incident object
 
@@ -47,7 +49,7 @@ In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other ne
 
 The following command creates an incident with a name and definition.
 
-```shell
+```bash
 curl --location --request PATCH 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
@@ -109,7 +111,7 @@ Use the following command to add text examples to the incident.
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>:addIncidentSamples?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
@@ -159,7 +161,7 @@ Use the following command to deploy the incident, making it available for the an
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>:deploy?api-version=2024-02-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' 
@@ -192,7 +194,7 @@ Run the following command to analyze sample text content for the incident you ju
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location 'https://<endpoint>/contentsafety/text:detectIncidents?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
@@ -231,6 +233,8 @@ print(response.text)
 
 ## Test the image incident response API
 
+Use the sample code in this section to create an image incident, add samples to the incident, deploy the incident, and then detect image incidents.
+
 ### Create an incident
 
 #### [cURL](#tab/curl)
@@ -240,7 +244,7 @@ In the commands below, replace `<your_api_key>`, `<your_endpoint>`, and other ne
 The following command creates an image incident:
 
 
-```shell
+```bash
 curl --location --request PATCH 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
@@ -301,7 +305,7 @@ Use the following command to add examples images to your incident. The image sam
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>:addIncidentSamples?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
@@ -353,7 +357,7 @@ Use the following command to deploy the incident, making it available for the an
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>:deploy?api-version=2024-02-15-preview' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' 
@@ -386,7 +390,7 @@ Use the following command to upload a sample image and test it against the incie
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location 'https://<endpoint>/contentsafety/image:detectIncidents?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
@@ -435,13 +439,13 @@ print(response.text)
 
 The following operations are useful for managing incidents and incident samples.
 
-### Text incident API
+### Text incidents API
 
 #### List all incidents
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location GET 'https://<endpoint>/contentsafety/text/incidents?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -468,7 +472,7 @@ print(response.text)
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location GET 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -495,7 +499,7 @@ print(response.text)
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location --request DELETE 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -524,7 +528,7 @@ This command retrieves the unique IDs of all the samples associated with a given
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location GET 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>/incidentsamples?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -552,7 +556,7 @@ Use an incident sample ID to look up details about the sample.
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location GET 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>/incidentsamples/<your-incident-sample-id>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -580,7 +584,7 @@ Use an incident sample ID to retrieve and delete that sample.
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location 'https://<endpoint>/contentsafety/text/incidents/<text-incident-name>:removeIncidentSamples?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
@@ -614,13 +618,13 @@ print(response.text)
 ```
 ---
 
-### Image incident API
+### Image incidents API
 
 #### Get the incidents list
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location GET 'https://<endpoint>/contentsafety/image/incidents?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -647,7 +651,7 @@ print(response.text)
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location GET 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -673,7 +677,7 @@ print(response.text)
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location --request DELETE 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -703,7 +707,7 @@ This command retrieves the unique IDs of all the samples associated with a given
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location GET 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>/incidentsamples?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -732,7 +736,7 @@ Use an incident sample ID to look up details about the sample.
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location GET 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>/incidentsamples/<your-incident-sample-id>?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>'
 ```
@@ -761,7 +765,7 @@ Use an incident sample ID to retrieve and delete that sample.
 
 #### [cURL](#tab/curl)
 
-```shell
+```bash
 curl --location 'https://<endpoint>/contentsafety/image/incidents/<image-incident-name>:removeIncidentSamples?api-version=2024-02-15-preview ' \
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
