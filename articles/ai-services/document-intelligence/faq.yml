@@ -530,7 +530,7 @@ sections:
           If you received error "AuthorizationPermissionMismatch: This request is not authorized to perform this operation using this permission" when opening a custom project, it is likely the local/key authentication is disabled for your storage account and your do not have enough permission to access the blob data.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments-1) to configure your access roles.
 
       - question: |
-          Why am I not able to sign in to Document Intelligence Studio and keeps seeing AADSTS50058:InteractionRequiredAuthError error?
+          Why am I not able to sign in to Document Intelligence Studio and keeps seeing InteractionRequiredAuthError error?
         answer: |
           If you received error "InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-request was sent but no user is signed in.", this is due to 3rd-party cookies are blocked by your browser so we cannot successfully sign in your account.
         
