@@ -197,7 +197,7 @@ That's all you need for handling file attachments. Next, let's run the code.
 
 ## Run the code
 
-For Webpack, you can use the `webpack-dev-server` property to build and run your app. Run the following command to bundle your application host on a local webserver:
+For Webpack, you can use the `webpack-dev-server` property to build and run your app. Run the following command to bundle your application host on a local web server:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
