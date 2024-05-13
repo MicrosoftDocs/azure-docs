@@ -42,63 +42,65 @@ You then need to configure managed identity for the app and assign it the proper
         --system-assigned
     ```
 
-1. Retrieve the managed identity's principal ID:
+1. For the app to access Azure OpenAI and the session pool, you need to assign the managed identity the proper roles.
 
-    ```bash
-    az containerapp show \
-        --name $CONTAINER_APP_NAME \
-        --resource-group $RESOURCE_GROUP_NAME \
-        --query identity.principalId \
-        --output tsv
-    ```
+    1. Retrieve the managed identity's principal ID:
 
-1. Retrieve the session pool resource ID:
+        ```bash
+        az containerapp show \
+            --name $CONTAINER_APP_NAME \
+            --resource-group $RESOURCE_GROUP_NAME \
+            --query identity.principalId \
+            --output tsv
+        ```
 
-    ```bash
-    az containerapp sessionpool show \
-        --name $SESSION_POOL_NAME \
-        --resource-group $RESOURCE_GROUP_NAME \
-        --query id \
-        --output tsv
-    ```
+    1. Retrieve the session pool resource ID:
 
-1. Assign the managed identity the `Azure ContainerApps Session Creator` and `Contributor` roles on the session pool:
+        ```bash
+        az containerapp sessionpool show \
+            --name $SESSION_POOL_NAME \
+            --resource-group $RESOURCE_GROUP_NAME \
+            --query id \
+            --output tsv
+        ```
 
-    Before you run the following command, replace `<PRINCIPAL_ID>` and `<SESSION_POOL_RESOURCE_ID>` with the values you retrieved in the previous steps.
+    1. Assign the managed identity the `Azure ContainerApps Session Creator` and `Contributor` roles on the session pool:
 
-    ```bash
-    # Assign the Azure ContainerApps Session Creator role using its ID
-    az role assignment create \
-        --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
-        --assignee <PRINCIPAL_ID> \
-        --scope <SESSION_POOL_RESOURCE_ID>
+        Before you run the following command, replace `<PRINCIPAL_ID>` and `<SESSION_POOL_RESOURCE_ID>` with the values you retrieved in the previous steps.
 
-    az role assignment create \
-        --role "Contributor" \
-        --assignee <PRINCIPAL_ID> \
-        --scope <SESSION_POOL_RESOURCE_ID>
-    ```
+        ```bash
+        # Assign the Azure ContainerApps Session Creator role using its ID
+        az role assignment create \
+            --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+            --assignee <PRINCIPAL_ID> \
+            --scope <SESSION_POOL_RESOURCE_ID>
 
-1. Retrieve the Azure OpenAI account resource ID:
+        az role assignment create \
+            --role "Contributor" \
+            --assignee <PRINCIPAL_ID> \
+            --scope <SESSION_POOL_RESOURCE_ID>
+        ```
 
-    ```bash
-    az cognitiveservices account show \
-        --name $AZURE_OPENAI_NAME \
-        --resource-group $RESOURCE_GROUP_NAME \
-        --query id \
-        --output tsv
-    ```
+    1. Retrieve the Azure OpenAI account resource ID:
 
-1. Assign the managed identity the `Cognitive Services OpenAI User` role on the Azure OpenAI account:
+        ```bash
+        az cognitiveservices account show \
+            --name $AZURE_OPENAI_NAME \
+            --resource-group $RESOURCE_GROUP_NAME \
+            --query id \
+            --output tsv
+        ```
 
-    Before you run the following command, replace `<PRINCIPAL_ID>` and `<AZURE_OPENAI_RESOURCE_ID>` with the values you retrieved in the previous steps.
+    1. Assign the managed identity the `Cognitive Services OpenAI User` role on the Azure OpenAI account:
 
-    ```bash
-    az role assignment create \
-        --role "Cognitive Services OpenAI User" \
-        --assignee <PRINCIPAL_ID> \
-        --scope <AZURE_OPENAI_RESOURCE_ID>
-    ```
+        Before you run the following command, replace `<PRINCIPAL_ID>` and `<AZURE_OPENAI_RESOURCE_ID>` with the values you retrieved in the previous steps.
+
+        ```bash
+        az role assignment create \
+            --role "Cognitive Services OpenAI User" \
+            --assignee <PRINCIPAL_ID> \
+            --scope <AZURE_OPENAI_RESOURCE_ID>
+        ```
 
 1. Retrieve the app's fully qualified domain name (FQDN):
 
