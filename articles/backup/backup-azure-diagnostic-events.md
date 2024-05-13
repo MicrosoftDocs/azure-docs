@@ -63,7 +63,7 @@ To send your vault diagnostics data to Log Analytics:
 4. Select the following events: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupPolicy**, and **AddonAzureBackupProtectedInstance**.
 5. Select **Save**.
 
-   :::image type="content" source="./media/backup-azure-configure-backup-reports/backup-vault-diagnostics-settings.png" alt-text="Screenshot shows the backup vault diagnostics settings.":::   
+   :::image type="content" source="./media/backup-azure-diagnostics-events/backup-vault-diagnostics-settings.png" alt-text="Screenshot shows the backup vault diagnostics settings.":::   
 ---
 
 After data flows into the Log Analytics workspace, dedicated tables for each of these events are created in your workspace. You can query any of these tables directly. You can also perform joins or unions between these tables if necessary.
@@ -88,7 +88,7 @@ Currently, we continue to support the *AzureBackupReport* event for Recovery Ser
 *The legacy event in Azure diagnostics mode will eventually be deprecated. Choosing the new events can help you avoid complex migrations later*. Our Log Analytics-based [reporting solution](./configure-reports.md) will also cease support for data from the legacy event. 
 
 > [!NOTE]
-> For Backup vaults, all diagnostics events are sent to the resource-specific tables only; so, you don't need to do any migration for Backup vaults. The following section is specific to Recovery services vaults.
+> For Backup vaults, all diagnostics events are sent to the resource-specific tables only; so, you don't need to do any migration for Backup vaults. The preceeding section is specific to Recovery services vaults.
 
 ### Steps to move to new diagnostics settings for a Log Analytics workspace
 
