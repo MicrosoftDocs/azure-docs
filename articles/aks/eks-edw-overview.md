@@ -24,7 +24,7 @@ To replicate this workload from AWS to Azure, follow these basic steps:
 ## Prerequisites
 
 - An Azure account. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- The **Owner** or **User Access Administrator** and **Contributor** [Azure built-in role](/azure/role-based-access-control/built-in-roles) on a subscription in your Azure account.
+- The **Owner** [Azure built-in role](/azure/role-based-access-control/built-in-roles), or the **User Access Administrator** and **Contributor** built-in roles, on a subscription in your Azure account.
 - [Azure CLI v2.56](/cli/azure/install-azure-cli) or later
 - [Azure Kubernetes Service (AKS) preview extension](/azure/aks/draft#install-the-aks-preview-azure-cli-extension)
 - [jq v1.5](https://jqlang.github.io/jq/) or later

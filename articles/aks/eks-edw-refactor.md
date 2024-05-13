@@ -123,7 +123,7 @@ To create the EDW workload in Azure, you need to set up service-to-service authe
    az aks update -g "${RESOURCE_GROUP}" -n $AKS_CLUSTER_NAME --enable-oidc-issuer --enable-workload-identity
    ```
 
-1. You need to configure an identity from an external OpenID Connect Provider (AKS) to get tokens as the user assigned managed identity to access [Microsoft Entra ID protected services](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc) such as Azure Storage Queues or Cosmos DB. Retrieve the OIDC Issuer URL from the AKS cluster before creating the managed identity:
+1. You need to configure an identity from an external OpenID Connect Provider (AKS) to get tokens as the user assigned managed identity to access [Microsoft Entra ID protected services](/entra/identity-platform/v2-protocols-oidc) such as Azure Storage Queues or Cosmos DB. Retrieve the OIDC Issuer URL from the AKS cluster before creating the managed identity:
 
    ```azurecli
    KS_OIDC_ISSUER=$(az aks show --name $AKS_CLUSTER_NAME --resource-group "$RESOURCE_GROUP_NAME" --query "oidcIssuerProfile.issuerUrl" -otsv)
@@ -189,7 +189,7 @@ In Azure, an equivalent means of making connections to Azure Storage Queue is to
 >
 > `DefaultAzureCredential` also exists in Azure SDKs for other popular programming languages including [JavaScript](/javascript/api/overview/azure/identity-readme), [Java](/java/api/overview/azure/identity-readme), [Go](/azure/developer/go/azure-sdk-authentication?tabs=bash), and [.NET](/dotnet/api/azure.identity.defaultazurecredential). This example uses Python, but applications written in any of these programming languages would authenticate easily in a similar manner to what is shown below.
 >
-> For more fine-grained control over credential discovery, you may also look at using the [ChainedTokenCredential](https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.chainedtokencredential?view=azure-python) which also exists in the languages listed above.
+> For more fine-grained control over credential discovery, you could use the [ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential?view=azure-python), which also exists in all of the languages listed above.
 
 For Azure, update your code to:
 
