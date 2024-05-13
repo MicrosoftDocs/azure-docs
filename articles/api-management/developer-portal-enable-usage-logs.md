@@ -1,6 +1,6 @@
 ---
 title: Enable usage logs - Developer portal - Azure API Management
-description: Learn how to enable resource logs to monitor usage of the developer portal in Azure API Management.
+description: Enable logs to monitor usage of the developer portal in Azure API Management. Usage data includes views of API and product details.
 services: api-management
 author: dlepow
 
@@ -16,6 +16,15 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 This article shows you how to enable Azure Monitor logs for auditing and troubleshooting usage of the API Management [developer portal](developer-portal-overview.md). When enabled through a diagnostic setting, the logs collect information about the requests that are received and processed by the developer portal.
+
+> [!NOTE]
+> Developer portal usage logs in API Management are currently in preview.
+
+Developer portal usage logs include data about activity in the developer portal, including:
+
+* User authentication actions, such as sign-in and sign-out
+* Views of API details, API operation details, and products
+* API testing in the interactive test console 
 
 ## Enable diagnostic setting for developer portal logs
 
