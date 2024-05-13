@@ -74,7 +74,7 @@ Some Azure Monitor experiences, including Azure Application Insights and Azure V
 
 You enable and disable workspace replication by using a REST command. The command triggers a long running operation, which means that it can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for all data types to begin replicating, and some data types might start replicating before others. Changes you make to table schemas after you enable workspace replication can take up to one hour to start replicating - for example, custom log tables or custom fields you create, or diagnostic logs set up for new resource types.
 
-### Using a dedicated cluster?
+### Enable cluster replication if you use a dedicated cluster
 
 If your workspace is linked to a dedicated cluster, you first enable replication on the cluster and then enable the feature on the linked workspace. This operation creates a second cluster in your secondary region, which allows your workspace to keep using the dedicated cluster when you switch over. (There are no extra charges beyond replication charges for the second cluster.) This process allows features like [customer managed keys (CMK)](customer-managed-keys.md) to continue to work (with the same key) during switchover.
 
@@ -133,6 +133,8 @@ body:
     "location": "<primary_location>"
 }
 ```
+
+Where:
 
 - `<subscription_id>`: Your account subscription ID.
 - `<resourcegroup_name>` : The resource group that contains your workspace resource.
