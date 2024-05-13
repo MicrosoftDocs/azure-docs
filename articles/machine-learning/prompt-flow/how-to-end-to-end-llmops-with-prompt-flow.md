@@ -190,7 +190,6 @@ git clone https://github.com/microsoft/llmops-promptflow-template.git
 2. **Set up env file**: create .env file at top folder level and provide information for items mentioned. Add as many connection names as needed. All the flow examples in this repo use AzureOpenAI connection named `aoai`. Add a line `aoai={"api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}` with updated values for api_key and api_base. If additional connections with different names are used in your flows, they should be added accordingly. Currently, flow with AzureOpenAI as provider as supported. 
 
 ```bash
-
 experiment_name=
 connection_name_1={ "api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}
 connection_name_2={ "api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}
@@ -198,9 +197,7 @@ connection_name_2={ "api_key": "","api_base": "","api_type": "azure","api_versio
 3. Prepare the local conda or virtual environment to install the dependencies.
 
 ```bash
-
 python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptflow[azure] openai promptflow-sdk[builtins] python-dotenv
-
 ```
 
 4. Bring or write your flows into the template based on documentation [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_onboard_new_flows.md).
