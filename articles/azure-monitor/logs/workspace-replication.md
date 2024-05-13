@@ -113,19 +113,9 @@ The `PUT` command is a long running operation that can take some time to complet
 
 ### Enable workspace replication
 
+To enable replication on your Log Analytics workspace, use this `PUT` command:
+
 You enable replication for one or more workspaces linked to a cluster with a `PUT` command that uses the following values:
-
-- `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `<workspace_name>`: The name of your workspace linked to your dedicated cluster.
-- `<primary_location>`: The primary region for your workspace.
-- `<secondary_location>`: The region to switch to when the primary workspace region isn't healthy.
-
-For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
-
-The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
-
-The following code demonstrates the `PUT` command to enable replication on the linked workspace:
 
 ```rest
 PUT 
@@ -143,6 +133,16 @@ body:
     "location": "<primary_location>"
 }
 ```
+
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your workspace resource.
+- `<workspace_name>`: The name of your workspace linked to your dedicated cluster.
+- `<primary_location>`: The primary region for your workspace.
+- `<secondary_location>`: The region to switch to when the primary workspace region isn't healthy.
+
+For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
+
+The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
 
 ### Check workspace state
 
