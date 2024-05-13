@@ -73,8 +73,10 @@ The following list provides details and more information about the supported Azu
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB
     - **Export** – when there's an issue related to Export RDB
-    - **AADAuthenticationFailure** - when there's an authentication failure using Microsoft Entra access token
-    - **AADTokenExpired** - when a Microsoft Entra access token used for authentication isn't renewed and it expires.
+    - **AADAuthenticationFailure** - deprecated
+    - **AADTokenExpired** - deprecated
+    - **MicrosoftEntraAuthenticationFailure** - when there's an authentication failure using Microsoft Entra access token
+    - **MicrosoftEntraTokenExpired** - when a Microsoft Entra access token used for authentication isn't renewed and it expires
 - Evicted Keys
   - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit.
   - This number maps to `evicted_keys` from the Redis INFO command.
