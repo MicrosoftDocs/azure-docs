@@ -77,7 +77,8 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Azure SQL Database supports **Recommended** and **Legacy** versions. See the corresponding sections for details.
+You can choose between **Recommended** and **Legacy** versions of Azure SQL Database connector. The **Recommended**
+version supports TLS 1.3. See the corresponding sections for details.
 
 - [Recommended version](#recommended-version)
 - [Legacy version](#legacy-version)
