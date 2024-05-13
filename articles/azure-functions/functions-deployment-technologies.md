@@ -70,10 +70,10 @@ You can sync triggers in one of three ways:
 
 
 When you deploy an updated version of the deployment package and maintain the same external package URL, you need to manually restart your function app. This indicates to the host that it should synchronize and redeploy your updates from the same package URL.
-The Azure Functions Host also performs background trigger syncing once the application has started. Howver for the Consumption and Elastic Premium plans we would recommend calling Sync Triggers as above for these scenarios.
+The Functions host also performs a background trigger sync after the application has started. However, for the Consumption and Elastic Premium hosting plans you should also [manually sync triggers](#trigger-syncing) in these scenarios:
 
-+ Deploying with an External Package URL using ARM or Terraform
-+ Updating the package at the External Package URL.
++ Deployments using an external package URL with either ARM Templates or Terraform.
++ When updating the deployment package at the same external package URL.
 
 
 
