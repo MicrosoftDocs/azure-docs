@@ -451,9 +451,50 @@ To delete a catalog:
 
 1. In the **Delete catalog** dialog, select **Continue** to delete the catalog.
 
-## Understand catalog sync errors
+## Troubleshoot catalog sync errors
 
-When you add or sync a catalog, you might encounter a sync error. A sync error indicates that some or all of the environment definitions have errors. Use the Azure CLI or the REST API to *GET* the catalog. The GET response shows you the type of error:
+When you add or sync a catalog, you might encounter a sync error. A sync error indicates that some or all of the environment definitions have errors. 
+
+### View catalog sync status
+
+In the Azure portal, you can get more information about the catalog sync status and any warnings or errors by selecting the status link. The status link opens a pane that shows the sync status, the number of environment definitions that were added, and the number of environment definitions that were ignored or failed.
+
+#### View catalog sync failures
+
+1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
+ 
+1. In the **Status** column, select the status link for the catalog that failed to sync.
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-fail.png" alt-text="Screenshot showing the Catalogs pane, with sync failed highlighted." lightbox="media/how-to-configure-catalog/catalog-items-fail.png":::
+ 
+1. You see a details pane that shows the changes in the last sync, the number of sync errors, and the type of errors. 
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-fail-details.png" alt-text="Screenshot showing the Catalog sync failures pane." lightbox="media/how-to-configure-catalog/catalog-items-fail-details.png":::
+
+#### View catalog sync warnings
+
+1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
+ 
+1. In the **Status** column, select the status link for the catalog that synced but reports a warning.
+ 
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-errors.png" alt-text="Screenshot showing the Catalogs pane, with Errors in 3 items highlighted." lightbox="media/how-to-configure-catalog/catalog-items-errors.png":::  
+ 
+1. You see a details pane that shows the changes in the last sync, the number of item errors, and the type and source of each error.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/catalog-items-error-details.png" alt-text="Screenshot showing the Catalog sync errors pane." lightbox="media/how-to-configure-catalog/catalog-items-error-details.png"::: 
+ 
+1. You can view items that have synced successfully from a catalog that also reports sync errors. From the **Catalogs** pane, select the catalog name.
+
+    :::image type="content" source="media/how-to-configure-catalog/catalog-with-error-view-successful-items.png" alt-text="Screenshot showing the Catalog pane, with a catalog name highlighted." lightbox="media/how-to-configure-catalog/catalog-with-error-view-successful-items.png":::
+
+
+1. You see a list of successfully synced catalog items.
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-successful.png" alt-text="Screenshot showing successfully synced catalog items." lightbox="media/how-to-configure-catalog/catalog-items-successful.png":::
+
+### Troubleshoot catalog sync errors by using the Azure CLI
+
+Use the Azure CLI or the REST API to *GET* the catalog. The GET response shows you the type of error:
 
 - Ignored environment definitions that were detected to be duplicates.
 - Invalid environment definitions that failed due to schema, reference, or validation errors.
