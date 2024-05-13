@@ -57,7 +57,7 @@ After you obtain the VPN client profile configuration package, extract the files
 1. On this screen, notice the connection values are populated using the values in the imported VPN client configuration file.
 
    * Verify that the **Certificate Information** value shows **DigiCert Global Root G2**, rather than the default or blank. Adjust the value if necessary.
-   * Notice the Client Authentication values align with the values that were used to configure the VPN gateway for Microsoft Entra ID authentication. The Audience ID in this example aligns with the Microsoft-registered App ID for Azure Public.
+   * Notice the Client Authentication values align with the values that were used to configure the VPN gateway for Microsoft Entra ID authentication. The Audience value in this example aligns with the Microsoft-registered App ID for Azure Public. If your P2S gateway is configured for a different Audience value, this field must reflect that value.
 
    :::image type="content" source="media/point-to-site-entra-vpn-client-mac/values.png" alt-text="Screenshot of Azure VPN Client saving the imported profile settings." lightbox="media/point-to-site-entra-vpn-client-mac/values.png":::
 
@@ -83,6 +83,7 @@ After you obtain the VPN client profile configuration package, extract the files
    * **Client Authentication**
      * **Authentication Type:** Microsoft Entra ID
      * **Tenant:** Name of the tenant.
+     * **Audience:** The Audience value must match the value that your P2S gateway is configured to use.
      * **Issuer:** Name of the issuer.
 1. After filling in the fields, click **Save**.
 1. In the VPN connections pane, select the connection profile that you configured. Then, click **Connect**.
