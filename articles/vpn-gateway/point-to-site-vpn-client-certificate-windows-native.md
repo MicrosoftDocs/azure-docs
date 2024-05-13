@@ -18,7 +18,7 @@ If your point-to-site (P2S) VPN gateway is configured to use IKEv2/SSTP and cert
 This article assumes that you've already performed the following prerequisites:
 
 * You created and configured your VPN gateway for point-to-site certificate authentication and an IKEv2/SSTP tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-gateway-certificate.md) for steps.
-* You downloaded the VPN client configuration files. See See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-gateway-certificate.md#profile-files) for steps.
+* You downloaded the VPN client configuration files. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-gateway-certificate.md#profile-files) for steps.
 
 ### Workflow
 

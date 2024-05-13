@@ -28,4 +28,4 @@ You can generate client certificates by using the following methods:
 
   * [MakeCert instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Use MakeCert if you don't have access to a Windows 10 or later computer for generating certificates. Although MakeCert is deprecated, you can still use it to generate certificates. You can install the generated certificates on any supported P2S client.
 
-  * [Linux instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md).
+  * Linux instructions: See [strongSwan](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md) and [OpenSSL](point-to-site-certificates-linux-openssl/md).

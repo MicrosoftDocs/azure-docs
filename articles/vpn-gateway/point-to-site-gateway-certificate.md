@@ -161,7 +161,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
 
 1. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
 
-   :::image type="content" source="./media/point-to-site-gateway-certificate/notepad-root-cert.png" alt-text="Screenshot showing root certificate information in Notepad." border="false" lightbox="./media/point-to-site-gateway-certificate/notepad-root-cert-expand.png":::
+   :::image type="content" source="./media/point-to-site-gateway-certificate/notepad-root-cert.png" alt-text="Screenshot showing root certificate information in Notepad." lightbox="./media/point-to-site-gateway-certificate/notepad-root-cert-expand.png":::
 1. Navigate to your **Virtual network gateway -> Point-to-site configuration** page in the **Root certificate** section. This section is only visible if you have selected **Azure certificate** for the authentication type.
 1. In the **Root certificate** section, you can add up to 20 trusted root certificates.
 
@@ -169,7 +169,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
    * **Name** the certificate.
 
    :::image type="content" source="./media/point-to-site-gateway-certificate/root-certificate.png" alt-text="Screenshot of certificate data field." lightbox="./media/point-to-site-gateway-certificate/root-certificate.png":::
-1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md). 
+1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md).
 1. Select **Save** at the top of the page to save all of the configuration settings.
 
    :::image type="content" source="./media/point-to-site-gateway-certificate/save-configuration.png" alt-text="Screenshot of P2S configuration with Save selected." lightbox="./media/point-to-site-gateway-certificate/save-configuration.png" :::
@@ -194,6 +194,7 @@ For steps to configure your VPN clients, and connect to Azure, see the following
 
 * [Windows](point-to-site-vpn-client-cert-windows.md)
 * [macOS-iOS](point-to-site-vpn-client-cert-mac.md)
+* Linux: [Azure VPN Client](point)
 * [Linux](point-to-site-vpn-client-cert-linux.md)
 
 ## <a name="verify"></a>To verify your connection
