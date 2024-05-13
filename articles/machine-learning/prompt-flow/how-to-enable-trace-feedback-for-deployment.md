@@ -102,7 +102,7 @@ Select **Metrics** tab in the left navigation. Select **promptflow standard metr
 
 Prompt flow serving provides a new `/feedback` API to help customer collect the feedback, the feedback payload can be any json format data, PF serving just helps customer save the feedback data to a trace span. Data will be saved to the trace exporter target customer configured. It also supports OpenTelemetry standard trace context propagation, saying it respects the trace context set in the request header and use that as the request parent span context. You can leverage the distributed tracing functionality to correlate the Feedback trace to its chat request trace. 
 
-Following is sample code showing how to score a flow deployed managed endpoint enabled tracing and send the feedback to the same trace span of scoring request. The flow has inputs `question` and `chat_hisotry`, and output `answer`. After scoring the endpoint, we collect a feedback and send to Application Insights specified when deploying the flow.
+Following is sample code showing how to score a flow deployed managed endpoint enabled tracing and send the feedback to the same trace span of scoring request. The flow has inputs `question` and `chat_hisotry`, and output `answer`. After scoring the endpoint, we collect a feedback and send to Application Insights specified when deploying the flow. You need to fill in the `api_key` value or modify the code according to your use case.
 
 ```python
 import urllib.request
@@ -130,8 +130,8 @@ data = {
 
 body = str.encode(json.dumps(data))
 
-url = 'https://basic-chat-endpoint-0506.eastus.inference.ml.azure.com/score'
-feedback_url = 'https://basic-chat-endpoint-0506.eastus.inference.ml.azure.com/feedback'
+url = 'https://basic-chat-endpoint.eastus.inference.ml.azure.com/score'
+feedback_url = 'https://basic-chat-endpoint.eastus.inference.ml.azure.com/feedback'
 # Replace this with the primary/secondary key, AMLToken, or Microsoft Entra ID token for the endpoint
 api_key = ''
 if not api_key:
