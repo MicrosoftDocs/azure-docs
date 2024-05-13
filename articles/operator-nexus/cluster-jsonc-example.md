@@ -331,7 +331,10 @@ ms.custom: template-how-to
             "value": "[parameters('clusterServicePrincipal')]"
           },
           "secretArchive": {
-            "value": "[parameters('secretArchive')]"
+            "value": {
+              "keyVaultId": "[parameters('secretArchive')]",
+              "useKeyVault": "True"
+
           },
           "sshKeyUrl": {
             "value": "[parameters('sshKeyUrl')]"
