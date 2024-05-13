@@ -114,9 +114,9 @@ Multiple address prefixes on a subnet is a feature that offers the ability to mo
 
 **Limitations**: 
 
-- Customers can only use a single customer address (CA) configuration per NIC
+- Customers can only use a single customer address (CA) configuration per NIC.
 
-- Customers can only use on VM and VMSS subnets. Delegated subnets aren't supported.
+- Customers can only use on VM and Virtual Machine Scale Sets subnets. Delegated subnets aren't supported.
 
 **Pricing**: Multiple address prefixes on a subnet is offered free of charge.
 
