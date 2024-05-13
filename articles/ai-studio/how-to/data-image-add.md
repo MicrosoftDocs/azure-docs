@@ -44,9 +44,9 @@ Use this article to learn how to provide your own image data for GPT-4 Turbo wit
 
 1. On the left pane, select the **Add your data** tab and select **Add a data source**.
 1. In the window that appears, select a data source option. Each option uses an Azure AI Search index that's trained on your images and can be used for retrieval augmented generation in the chat playground.
-   * [Azure AI Search](#add-your-image-data?tabs=azure-ai-search): If you have an existing [Azure AI Search](/azure/search/search-what-is-azure-search) index, you can use it as a data source.
-   * [Azure Blob Storage](#add-your-image-data?tabs=azure-blob-storage): The Azure Blob storage option is especially useful if you have a large number of image files and don't want to manually upload each one. Azure AI Studio will generate an image search index for you. 
-   * [Upload image files and metadata](#add-your-image-data?tabs=upload-image-files-and-metadata): You can upload image files and metadata using the playground. This option is useful if you have a small number of image files. Azure AI Studio will generate an image search index for you. 
+   * **Azure AI Search**: If you have an existing [Azure AI Search](/azure/search/search-what-is-azure-search) index, you can use it as a data source.
+   * **Azure Blob Storage**: The Azure Blob storage option is especially useful if you have a large number of image files and don't want to manually upload each one. Azure AI Studio will generate an image search index for you. 
+   * **Upload image files and metadata**: You can upload image files and metadata using the playground. This option is useful if you have a small number of image files. Azure AI Studio will generate an image search index for you. 
 
 ## Add your image data
 
