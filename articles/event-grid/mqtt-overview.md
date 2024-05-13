@@ -78,7 +78,12 @@ IoT applications are software designed to interact with and process data from Io
 
 ### Client authentication
 
-Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to MQTT broker, it needs to authenticate with MQTT broker based on credentials stored in the identity registry. MQTT broker supports [X.509 certificate authentication](mqtt-client-authentication.md) that is the industry authentication standard in IoT devices ,[Microsoft Entra IDauthentication](mqtt-client-microsoft-entra-token-and-rbac.md) that is Azure's authentication standard for applications and [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md) provides a lightweight, secure, and flexible option for MQTT clients that are not provisioned in Azure.[Learn more about MQTT client authentication.](mqtt-client-authentication.md)
+Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to MQTT broker, it needs to authenticate with MQTT broker based on credentials stored in the identity registry. MQTT broker supports the following client authentication mechanisms:
+
+- [X.509 certificate authentication](mqtt-client-authentication.md), which is the industry authentication standard in IoT devices.
+- [Microsoft Entra IDauthentication](mqtt-client-microsoft-entra-token-and-rbac.md), which is Azure's authentication standard for applications. [Learn more about MQTT client authentication.](mqtt-client-authentication.md)
+- [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md), which provides a lightweight, secure, and flexible option for MQTT clients that are not provisioned in Azure.
+
 
 ### Access control
 
