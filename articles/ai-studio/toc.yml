@@ -46,13 +46,13 @@ items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
       displayName: endpoint
-    - name: Deploy models as serverless API endpoints
+    - name: Deploy models as serverless API
       href: how-to/deploy-models-serverless.md
       displayName: maas, paygo, models-as-a-service
     - name: Consume serverless API models from a different project or hub
       href: how-to/deploy-models-serverless-connect.md
       displayName: maas, paygo, models-as-a-service
-    - name: Region availability for models in Serverless API endpoints
+    - name: Model and region availability for Serverless API deployments
       href: how-to/deploy-models-serverless-availability.md
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md

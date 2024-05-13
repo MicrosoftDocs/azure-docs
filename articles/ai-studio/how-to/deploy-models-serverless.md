@@ -21,8 +21,7 @@ ms.custom:
 
 In this article, you learn how to deploy a model from the model catalog as a serverless API with pay-as-you-go token based billing.
 
-Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
-
+[Certain models in the model catalog](deploy-models-serverless-availability.md) can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
 ## Prerequisites
 
@@ -94,7 +93,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 For models offered through the Azure Marketplace, you can deploy them to serverless API endpoints to consume their predictions. If it's your first time deploying the model in the project, you have to subscribe your project for the particular model offering from the Azure Marketplace. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
 
 > [!NOTE]
-> Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Region availability for models in Serverless API endpoints](deploy-models-serverless-availability.md) to verify which regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](deploy-models-serverless-connect.md).
+> Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Model and region availability for Serverless API deployments](deploy-models-serverless-availability.md) to verify which models and regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](deploy-models-serverless-connect.md).
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 
