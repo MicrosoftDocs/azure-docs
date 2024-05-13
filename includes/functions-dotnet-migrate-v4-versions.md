@@ -13,7 +13,6 @@ When you migrate your function app, you have the opportunity to choose the targe
 | .NET version | [.NET Official Support Policy] release type |  Functions process model<sup>1,3</sup> | 
 | --- | --- | --- |
 | .NET 8<sup>2</sup> | LTS | [Isolated worker model] | 
-| .NET 7 | STS (end of support May 14, 2024) |  [Isolated worker model] | 
 | .NET 6 | LTS (end of support November 12, 2024) |  [Isolated worker model],<br/>[In-process model]<sup>3</sup>  | 
 | .NET Framework 4.8 | [See policy][netfxpolicy] | [Isolated worker model] |  
 
