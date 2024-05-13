@@ -33,12 +33,6 @@ Evaluator is a new asset in Azure AI Studio. You can define a new evaluator in S
 
 Azure AI Monitoring for Generative AI Applications enables you to continuously track the overall health of your production Prompt Flow deployments. With this feature, you can monitor the quality of LLM responses in addition to obtaining full visibility into the performance of your application, thus, helping you maintain trust and compliance. For more information, see [Monitor quality and safety of deployed prompt flow applications](./how-to/monitor-quality-safety.md).
 
-### Speech analytics (Preview)
-
-[!INCLUDE [Feature preview](./includes/feature-preview.md)]
-
-With Speech analytics in AI Studio, you transcribe audio and video recordings and generate enhanced outputs like summaries, special industry record formats, captioning data, or extract valuable information such as key topics, sentiment, and more. The service also allows you to redact recordings to remove personal information or to remove disfluencies. To get started, use one of the provided out-of-box scenario templates and start retrieving results. For more information, see [Speech analytics](../ai-services/speech-service/speech-analytics-overview.md?context=/azure/ai-studio/context/context) and [Post-call transcription analytics (Preview)](../ai-services/speech-service/speech-analytics-post-call.md?context=/azure/ai-studio/context/context).
-
 #### View embeddings benchmarks  
 
 You can now compare benchmarks across embeddings models. For more information, see [Explore model benchmarks in Azure AI Studio](./how-to/model-benchmarks.md).
