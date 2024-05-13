@@ -826,6 +826,35 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 This site setting replaces the legacy [WEBSITE\_VNET\_ROUTE\_ALL](#website_vnet_route_all) setting.
 
+## Flex Consumption plan deprecations
+
+In the [Flex Consumption plan](./flex-consumption-plan.md), these site properties and application settings are deprecated and shouldn't be used when creating function app resources:
+
+| Property/setting | Reason | 
+| ----- | ----- | 
+| `properties.ftpsState` | FTPS not supported | 
+| `properties.use32BitWorkerProcess` |32-bit not supported |
+| `properties.isReserved` |Not valid|
+| `properties.IsXenon` |Not valid|
+| `properties.windowsFxVersion` |Not valid|
+| `properties.alwaysOn` |Not valid|
+| `properties.siteConfig.preWarmedInstanceCount` | Renamed as `` |
+| `properties.siteConfig.functionAppScaleLimit` |Renamed as `maximumInstanceCount`|
+| `properties.containerSize` |Renamed as `instanceMemoryMB`|
+| `properties.javaVersion` | Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.powerShellVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.netFrameworkVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.LinuxFxVersion` |Replaced by `properties.functionAppConfig.runtime`|
+| `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_EXTENSION_VERSION` |App Setting is set by the backend. A value of ~1 can be ignored. |
+| `FUNCTIONS_WORKER_RUNTIME` |Replaced by `name` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_WORKER_RUNTIME_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_MAX_HTTP_CONCURRENCY` |App Setting replaced by scale and concurrency's trigger section|
+| `FUNCTIONS_WORKER_PROCESS_COUNT` |Setting not valid|
+| `FUNCTIONS_WORKER_DYNAMIC_CONCURRENCY_ENABLED` |Setting not valid|
+| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |App Setting replaced by functionAppConfig's deployment section|
+| `WEBSITE_CONTENTSHARE` |App Setting replaced by functionAppConfig's deployment section|
+
 ## Next steps
 
 [Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#settings)
