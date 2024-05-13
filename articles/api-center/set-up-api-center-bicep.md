@@ -4,7 +4,7 @@ description: In this quickstart, use Bicep to set up an API center for API disco
 author: dlepow
 ms.service: api-center
 ms.topic: quickstart
-ms.date: 05/11/2024
+ms.date: 05/13/2024
 ms.author: danlep 
 ---
 
@@ -25,7 +25,9 @@ ms.author: danlep
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from
-[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-center-create).
+[Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/azure-api-center-create/). 
+
+In this example, the Bicep file creates an API center in the Free plan and registers a sample API in the default workspace. Currently, API Center supports a single, default workspace for all child resources.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.apicenter/azure-api-center-create/main.bicep":::
 
@@ -34,8 +36,6 @@ The following Azure resources are defined in the Bicep file:
 * [Microsoft.ApiCenter/services](/azure/templates/microsoft.apicenter/services)
 * [Microsoft.ApiCenter/services/workspaces](/azure/templates/microsoft.apicenter/services/workspaces)
 * [Microsoft.ApiCenter/services/workspaces/apis](/azure/templates/microsoft.apicenter/services/workspaces/apis)
-
-In this example, the Bicep file creates an API center in the Free plan and registers a sample API in the default workspace.
 
 ## Deploy the Bicep file
 

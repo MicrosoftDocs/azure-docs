@@ -4,7 +4,7 @@ description: In this quickstart, use an Azure Resource Manager template to set u
 author: dlepow
 ms.service: api-center
 ms.topic: quickstart
-ms.date: 05/11/2024
+ms.date: 05/13/2024
 ms.author: danlep 
 ---
 
@@ -29,7 +29,10 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](<https://azure.microsoft.com/resources/templates/azure-api-center-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/azure-api-center-create/).
+
+In this example, the template creates an API center in the Free plan and registers a sample API in the default workspace. Currently, API Center supports a single, default workspace for all child resources.
+
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.apicenter/azure-api-center-create/azuredeploy.json":::
 
@@ -38,8 +41,6 @@ The following Azure resources are defined in the template:
 * [Microsoft.ApiCenter/services](/azure/templates/microsoft.apicenter/services)
 * [Microsoft.ApiCenter/services/workspaces](/azure/templates/microsoft.apicenter/services/workspaces)
 * [Microsoft.ApiCenter/services/workspaces/apis](/azure/templates/microsoft.apicenter/services/workspaces/apis)
-
-In this example, the template creates an API center in the Free plan and registers a sample API in the default workspace.
 
 ## Deploy the template
 
