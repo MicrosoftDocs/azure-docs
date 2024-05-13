@@ -209,6 +209,14 @@ Get an at-scale view of all vaults across all subscriptions using Classic Alerts
 
 :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/properties.png" alt-text="Screenshot displays properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/properties.png":::
 
+### Manage Azure Site Recovery alerts in Backup Center
+
+To manage your alerts settings, do the following:
+
+1. Select *Click here to take action* to manage built-in alerts for site recovery. 
+1. Select **Manage alerts** to view alert configurations. Select **Create rule** to create alert processing rules to route alerts to different notification channels. 
+1. Check which vaults have classic alerts configured for Backup and Site Recovery. The two columns **Backup Classic Alerts** and **Site Recovery Classic Alerts** show **Yes** if classic alerts are on. We recommend, to switch to Azure Monitor based alerts for a better monitoring experience by selecting **Update**. 
+1. Select the options to only get Azure Monitor alerts and disable classic alerts. You can also choose to disable certain categories of built-in alerts that are enabled by default. Security alerts can't be disabled. Update settings and select **Update** to save. 
 
 
 ### View the generated Azure Site Recovery alerts in Backup Center
@@ -238,6 +246,18 @@ Follow these steps to view the alerts generated for a particular vault via the v
 2.	Select the **Alerts** section and filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts.   You can customize the values of the other filters to see alerts of a specific time range up to 30 days, for vaults, subscriptions, severity and alert state (user response).
 3.	Select any alert of your interest to see further details such as the affected VM, possible causes, recommended action, etc. 
 4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
+
+### View the generated Azure Site Recovery alerts in Azure Monitor
+
+Once alerts are generated, you can view and manage them from the Azure Monitor portal. Follow these steps:
+
+1.	On the [Azure portal](https://ms.portal.azure.com), go to **Azure Monitor** > **Alerts**.
+2.	Set the filter for **Monitor Service** = **Azure Site Recovery** to see Azure Site Recovery specific alerts. 
+    You can also customize the values of other filters to see alerts of a specific time range up to 30 days or for vaults, subscriptions, severity and alert state (user response).
+3.	Select any alert of your interest to see further details. For example, the affected VM, possible causes, recommended action, etc.
+4. Once the event is mitigated, you can modify its state to **Closed** or **Acknowledged**.
+
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png" alt-text="Screenshot displays Viewing alerts via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal-view-azmon.png":::
 
 
 ### View the generated Azure Site Recovery alerts in Business Continuity Center
