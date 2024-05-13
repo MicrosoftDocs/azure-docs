@@ -12,5 +12,5 @@ ms.custom:
   - build-2024
 ---
 
-- [Webhooks](../namespace-handler-webhook.md) **(preview)**.
-- [Event Hubs](../namespace-handler-event-hubs.md).
+- [Event Hubs](../namespace-handler-event-hubs.md)
+- [Webhooks](../namespace-handler-webhook.md) **(preview)**
