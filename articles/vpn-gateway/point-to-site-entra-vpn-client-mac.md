@@ -62,7 +62,7 @@ After you obtain the VPN client profile configuration package, extract the files
    :::image type="content" source="media/point-to-site-entra-vpn-client-mac/connect.png" alt-text="Screenshot of Azure VPN Client clicking Connect." lightbox="media/point-to-site-entra-vpn-client-mac/connect.png":::
 1. Once connected, the status changes to **Connected**. To disconnect from the session, click **Disconnect**.
 
-## To create a connection manually
+## Create a connection manually
 
 1. Open the Azure VPN Client. At the bottom of the client, select **Add** to create a new connection.
 
@@ -83,7 +83,7 @@ After you obtain the VPN client profile configuration package, extract the files
 1. After filling in the fields, click **Save**.
 1. In the VPN connections pane, select the connection profile that you configured. Then, click **Connect**.
 
-## To remove a VPN connection profile
+## Remove a VPN connection profile
 
 You can remove the VPN connection profile from your computer.
 
