@@ -14,7 +14,7 @@ ms.custom: [references_regions]
 
 # How to deploy JAIS with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 In this article, you learn how to use Azure AI Studio to deploy the JAIS model as serverless APIs with pay-as-you-go token-based billing.
 

@@ -16,6 +16,8 @@ ms.custom:
 
 # Azure AI Model Inference API
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 The Azure AI Model Inference is an API that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. Developers can talk with different models deployed in Azure AI Studio without changing the underlying code they are using.
 
 ## Benefits

@@ -16,6 +16,8 @@ ms.custom:
 
 # Reference: Chat Completions
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 Creates a model response for the given chat conversation.
 
 ```http
