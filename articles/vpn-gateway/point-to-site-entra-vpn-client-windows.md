@@ -18,7 +18,7 @@ This article helps you configure the Azure VPN Client on a Windows computer to c
 
 ## Prerequisites
 
-Complete the steps for the point-to-site server configuration. See [Configure a P2S VPN gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md).
+Configure your VPN gateway for point-to-site VPN connections that specify Microsoft Entra ID authentication. See [Configure a P2S VPN gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md).
 
 ## Workflow
 
