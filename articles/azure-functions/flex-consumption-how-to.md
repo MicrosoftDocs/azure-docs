@@ -496,7 +496,9 @@ You can't currently modify always ready instances using Visual Studio Code.
 
 ## Set HTTP concurrency limits
 
-By default, HTTP concurrency defaults for Flex Consumption plan apps are determined based on your instance size setting. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
+Unless you set specific limits, HTTP concurrency defaults for Flex Consumption plan apps are determined based on your instance size setting. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
+
+Here's how you can set HTTP concurrency limits for an existing app:
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -518,13 +520,13 @@ This example sets the HTTP trigger concurrency level to `10`. After you specific
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently modify always ready instances using Visual Studio Code. 
+You can't currently set HTTP concurrency limits using Visual Studio Code. 
 
 ---
 
 ## View currently supported regions
 
-During the preview, you're only able to run on the Flex Consumption plan in selected regions. To view the list of regions that currently support Flex Consumption plans: 
+During the preview, you're only able to run on the Flex Consumption plan onnly in selected regions. To view the list of regions that currently support Flex Consumption plans: 
 
 [!INCLUDE [functions-flex-supported-regions-cli](../../includes/functions-flex-supported-regions-cli.md)]
 
