@@ -17,9 +17,9 @@ ms.topic: how-to
 In this article, you create, view, and delete [**Azure Machine Learning hub workspaces**](concept-hub-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), with the [Azure portal](https://portal.azure.com).
 
 > [!TIP]
-> An Azure Machine Learning hub workspace and an Azure AI Studio hub are the same thing. Azure AI Studio brings multiple Azure AI resources together for a unified experience. Azure Machine Learning is one of the resources, and provides both Azure AI Studio hub and project workspaces.
+> An Azure Machine Learning hub workspace and an Azure AI Studio hub are the same thing. Azure AI Studio brings multiple Azure AI resources together for a unified experience. Azure Machine Learning is one of the resources, and provides both Azure AI Studio hub and project workspaces. Hub and project workspaces can be used from both Azure Machine Learning studio and Azure AI Studio.
 
-As your needs change or your automation requirements increase, you can manage workspaces [with the CLI](how-to-manage-workspace-cli.md), [Azure PowerShell](how-to-manage-workspace-powershell.md),  or [via the Visual Studio Code extension](how-to-setup-vs-code.md).
+As your needs change or your automation requirements increase, you can manage workspaces [with the CLI](how-to-manage-workspace-cli.md), [Azure PowerShell](how-to-manage-workspace-powershell.md), or [via the Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Use the following steps to create a hub from the Azure portal:
 
     :::image type="content" source="../ai-studio/media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set resource information." lightbox="../ai-studio/media/how-to/resource-create-resources.png"::: 
 
-1. Set up Network isolation. Read more on [network isolation](../ai-studio/configure-managed-network.md). For a walkthrough of creating a secure Azure AI hub, see [Create a secure Azure AI hub](../ai-studio/create-secure-ai-hub.md).
+1. Set up Network isolation. Read more on [network isolation](../ai-studio/how-to/configure-managed-network.md). For a walkthrough of creating a secure Azure AI hub, see [Create a secure Azure AI hub](../ai-studio/how-to/create-secure-ai-hub.md).
 
     :::image type="content" source="../ai-studio/media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set network isolation information." lightbox="../ai-studio/media/how-to/resource-create-networking.png":::  
 
@@ -75,7 +75,7 @@ Use the following steps to create a hub from the Azure portal:
 
 ### Manage access control
 
-Manage role assignments from **Access control (IAM)** within the Azure portal. Learn more about hub [role-based access control](../concepts/rbac-ai-studio.md).
+Manage role assignments from **Access control (IAM)** within the Azure portal. Learn more about hub [role-based access control](../ai-studio/concepts/rbac-ai-studio.md).
 
 To add grant users permissions: 
 1. Select **+ Add** to add users to your hub.
@@ -94,7 +94,7 @@ To add grant users permissions:
 
 Hub networking settings can be set during resource creation or changed in the **Networking** tab in the Azure portal view. Creating a new hub invokes a managed virtual network. This streamlines and automates your network isolation configuration with a built-in managed virtual network. The managed virtual network settings are applied to all project workspaces created within a hub. 
 
-At hub creation, select between the networking isolation modes: **Public**, **Private with Internet Outbound**, and **Private with Approved Outbound**. To secure your resource, select either **Private with Internet Outbound** or Private with Approved Outbound for your networking needs. For the private isolation modes, a private endpoint should be created for inbound access. For more information on network isolation, see [Managed virtual network isolation](../ai-studio/configure-managed-network.md). To create a secure hub, see [Create a secure Azure AI hub](../ai-studio/create-secure-ai-hub.md). 
+At hub creation, select between the networking isolation modes: **Public**, **Private with Internet Outbound**, and **Private with Approved Outbound**. To secure your resource, select either **Private with Internet Outbound** or Private with Approved Outbound for your networking needs. For the private isolation modes, a private endpoint should be created for inbound access. For more information on network isolation, see [Managed virtual network isolation](../ai-studio/how-to/configure-managed-network.md). To create a secure hub, see [Create a secure Azure AI hub](../ai-studio/how-to/create-secure-ai-hub.md). 
 
 At hub creation in the Azure portal, creation of associated Azure AI services, Storage account, Key vault, Application insights, and Container registry is given. These resources are found on the Resources tab during creation. 
 
@@ -105,7 +105,7 @@ To connect to Azure AI services (Azure OpenAI, Azure AI Search, and Azure AI Con
 Projects that use the same hub, share their encryption configuration. Encryption mode can be set only at the time of hub creation between Microsoft-managed keys and Customer-managed keys. 
 
 From the Azure portal view, navigate to the encryption tab, to find the encryption settings for your hub. 
-For hubs that use CMK encryption mode, you can update the encryption key to a new key version. This update operation is constrained to keys and key versions within the same Key Vault instance as the original key.
+For hubs that use customer-managed key encryption mode, you can update the encryption key to a new key version. This update operation is constrained to keys and key versions within the same Key Vault instance as the original key.
 
 :::image type="content" source="../ai-studio/media/how-to/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI hub in the Azure portal." lightbox="../ai-studio/media/how-to/resource-manage-encryption.png":::
 
