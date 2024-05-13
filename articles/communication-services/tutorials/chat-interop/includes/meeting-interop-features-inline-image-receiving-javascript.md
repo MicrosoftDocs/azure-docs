@@ -310,7 +310,7 @@ Now you've made all the changes you need to render inline images for messages th
 
 ### Run the code
 
-Webpack users can use `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+Webpack users can use `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local web server:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -437,7 +437,7 @@ That's it. Now run the code to see it in action.
 
 ### Run the code 
 
-Webpack users can use `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
+Webpack users can use `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local web server:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
