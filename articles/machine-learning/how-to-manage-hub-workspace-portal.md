@@ -49,6 +49,9 @@ Use the following steps to create a hub from the Azure portal:
 
 1. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
+    > [!TIP]
+    > You can skip selecting Azure AI Services if you plan to only work in Azure Machine Learning studio. Azure AI Services are required for Azure AI Studio.
+
     :::image type="content" source="../ai-studio/media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set resource information." lightbox="../ai-studio/media/how-to/resource-create-resources.png"::: 
 
 1. Set up Network isolation. Read more on [network isolation](../ai-studio/how-to/configure-managed-network.md). For a walkthrough of creating a secure Azure AI hub, see [Create a secure Azure AI hub](../ai-studio/how-to/create-secure-ai-hub.md).
@@ -62,8 +65,9 @@ Use the following steps to create a hub from the Azure portal:
 1. By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in Resources.
 
     :::image type="content" source="../ai-studio/media/how-to/resource-create-identity.png" alt-text="Screenshot of the Create an Azure AI hub with the option to select a managed identity." lightbox="../ai-studio/media/how-to/resource-create-identity.png":::
+   
     >[!Note]
-    >If you select **User assigned identity**, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new Azure AI hub.
+    >If you select **User assigned identity** and also selected an Azure AI Service, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new Azure AI hub.
     
 1. Add tags.
 
