@@ -36,7 +36,7 @@
     displayName: queries, powershell, Az.ResourceGraph
     href: ./paginate-powershell.md
   - name: Create alert on ARG query
-    displayName: alerts, portal, resource graph, monitor, log analytics, query
+    displayName: alerts, portal, resource graph, monitor agent, log analytics, query
     href: ./alerts-query-quickstart.md
   - name: Run ARG query with Power BI connector
     displayName: portal, resource graph, query, power bi connector
