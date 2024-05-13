@@ -61,6 +61,7 @@ An update run can be in one of the following states:
     - User has skipped upgrade for a member or one of its parents.
     - Member cluster is already at the target Kubernetes version (if update run mode is `Full` or `ControlPlaneOnly`).
     - Member cluster is already at the target Kubernetes version and all node pools are at the target node image version.
+    - When consistent node image is chosen for an upgrade run, if it's not possible to find the target image version for one of the node pools, then upgrade is skipped for that cluster. An example situation for this is when a new node pool with a new VM SKU is added after an update run has started.
   - **Group**:
     - All member clusters were detected as `Skipped` by the system.
     - User initiated a skip at the group level.
