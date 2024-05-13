@@ -19,7 +19,7 @@ In this article we describe how to retrieve the IP addresses of Azure API Manage
 
 ## IP addresses of API Management service
 
-Every API Management service instance in Developer, Basic, Standard, or Premium tier has dedicated public IP addresses, which are exclusive only to that service instance (they are not shared with other resources).
+Every API Management service instance in Developer, Basic, Standard, or Premium tier has public IP addresses, which are exclusive only to that service instance (they are not shared with other resources).
 
 You can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal.
 
@@ -136,11 +136,9 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * (Developer and Premium tiers) API Management service is moved to a different subnet, or [migrated](migrate-stv1-to-stv2.md) from the `stv1` to the `stv2` compute platform.
 * (Premium tier) [Availability zones](../reliability/migrate-api-mgt.md) are enabled, added, or removed.
 * (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
-
+    
     > [!IMPORTANT]
     > [!INCLUDE [api-management-publicip-change](../../includes/api-management-publicip-change.md)]
-
-    [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
 ## Related content
 

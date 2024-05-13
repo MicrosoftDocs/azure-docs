@@ -52,7 +52,7 @@ For configurations specific to the *external* mode, where the API Management end
 1. Select the **Internal** access type.
 1. In the list of locations (regions) where your API Management service is provisioned: 
     1. Choose a **Location**.
-    1. Select **Virtual network**, **Subnet**, and (optionally) **IP address**. If you provide a public IP address, it is used only for management operations.
+    1. Select **Virtual network** and **Subnet**.
         * The VNet list is populated with Resource Manager VNets available in your Azure subscriptions, set up in the region you are configuring.
 1. Select **Apply**. The **Virtual network** page of your API Management instance is updated with your new VNet and subnet choices.
    :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png" alt-text="Set up internal VNet in Azure portal":::
@@ -93,7 +93,7 @@ Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-
 
 
 > [!NOTE]
-> The API Management service does not listen to requests on its IP addresses. It only responds to requests to the host name configured on its endpoints. These endpoints include:
+> The API Management service does not listen to requests on its IP addresses. It only responds to requests to the hostname configured on its endpoints. These endpoints include:
 > * API gateway
 > * The Azure portal
 > * The developer portal
