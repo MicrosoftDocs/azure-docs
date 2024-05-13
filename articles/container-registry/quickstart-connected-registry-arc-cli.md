@@ -15,7 +15,7 @@ ai-usage: ai-assisted
  
 The connected registry is a pivotal tool for the edge customers for efficiently managing and accessing their containerized workloads, whether located on-premises or at remote sites. When connected registry integrates with Azure arc, the service ensures a seamless and unified lifecycle management experience for Kubernetes-based containerized workloads. Deployment of the connected registry arc extension on arc-enabled kubernetes clusters, simplifies the management and access of containerized workloads. 
 
-In this quickstart, you will learn how to deploy the Connected Registry Arc Extension using the CLI UX with secure-by-default settings, such as using HTTPS, Read Only, Trust Distribution, and Cert Manager service, so that you can ensure the secure and efficient operation of your services.
+In this Quickstart, you learn how to deploy the Connected Registry Arc Extension using the CLI UX with secure-by-default settings. The deployment uses HTTPS, Read Only, Trust Distribution, and Cert Manager service. So, that you can ensure the secure and efficient operation of your services.
 
 The quickstart also guides you through a streamlined approach to securely deploy a connected registry extension on an arc-enabled kubernetes cluster using secured-by-default settings to ensure robust security and operational integrity. The guide walks you through scenarios to upgrade, rollback, and update the connected registry extension with synchronization schedules and windows.
 
@@ -355,7 +355,8 @@ The connected registry extension deployment can be further secured with HTTP and
 
 - [Known issues: Connected Registry Arc Extension](troubleshoot-connected-registry-arc.md)
 
--->
+
+
 
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [k8s-extension]: /cli/azure/k8s-extension
