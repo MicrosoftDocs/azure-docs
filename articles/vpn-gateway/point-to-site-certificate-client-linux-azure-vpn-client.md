@@ -20,14 +20,12 @@ Verify that you are on the correct article. The following table shows the config
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
->[!IMPORTANT ]
->[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
+### Prerequisites
 
 This article assumes that you've already performed the following prerequisites:
 
-* You created and configured your VPN gateway for point-to-site certificate authentication and an IKEv2/SSTP tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal-certificate.md) for steps.
-* You downloaded the VPN client configuration files. See [Generate VPN client profile configuation files](vpn-gateway-howto-point-to-site-resource-manager-portal-certificate.md#profile-files) for steps.
+* The VPN gateway is configured for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal-certificate.md) for steps.
+* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuation files](vpn-gateway-howto-point-to-site-resource-manager-portal-certificate.md#profile-files) for steps.
 
 ### Workflow
 
