@@ -43,6 +43,9 @@ sections:
 
           Steps to take if your identity validation request fails:  
           - If the Microsoft validation team can't make a determination about your request based on the information that you provide (even after you provide more documentation if we request it), we can't set up Trusted Signing for you. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+      - question: What if I need assistance with Identity Validation?
+        answer: | 
+          For questions with Identity Validation reach out via Microsoft Q&A or Stack Overflow, tag: trusted-signing. Identity Validation issues aren't supported by Azure Support.
       - question: What is the cost of using Trusted Signing?
         answer: | 
           Trusted Signing is free for now in public preview. You're prompted to select a Basic SKU or Premium SKU when you create your account.
