@@ -50,7 +50,7 @@ Currently, there's no in-place upgrade. You should [create a new search service]
 
 ### After May 17, 2024
 
-S2, S3, and S3 HD have larger partition sizes starting on May 17, 2024.  If you created an S2 or higher search service after April 3, the higher partition size becomes available automatically. If you're runing an older search service, you must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
+S2, S3, and S3 HD have larger partition sizes starting on May 17, 2024. If you created an S2 or higher search service after April 3, the higher partition size becomes available automatically. If you're running an older search service, you must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
 
 Storage Optimized tiers (L1 and L2) now have larger partitions at the current pricing.
 
@@ -69,7 +69,7 @@ Storage Optimized tiers (L1 and L2) now have larger partitions at the current pr
 
 Services must be in one of the following regions to get the extra storage. Watch for announcements in [What's New in Azure AI Search](/azure/search/whats-new) for expansion to other regions.
 
-### Roll out on May 17, 2024
+### Roll out on May 17 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
@@ -78,7 +78,7 @@ Services must be in one of the following regions to get the extra storage. Watch
 | **Germany** | Germany North​, Germany West Central​ ​|
 | **Azure Government** | Texas, Arizona, Virginia |
 
-### Roll out on April, 2024
+### Roll out on April 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|

@@ -45,7 +45,7 @@ Paid (or billable) search occurs when you choose a billable tier (Basic or highe
 
 1. Select (**Create Resource"**) in the top-left corner.
 
-1. Use the search bar to find "Azure AI Search".
+1. Use the search bar to find "Azure AI Search*.
 
 :::image type="content" source="media/search-create-service-portal/find-search3.png" lightbox="media/search-create-service-portal/find-search3.png" alt-text="Screenshot of the Create Resource page in the portal." border="true":::
 
@@ -73,9 +73,9 @@ In Instance Details, provide a service name in the **URL** field. The name is pa
 Service name requirements:
 
 + Unique within the search.windows.net namespace
-+ Between 2 and 60 characters in length
++ Between 2-60 characters in length
 + Consist of lowercase letters, digits, or dashes (`-`)
-+ Don't use dashes in the first 2 characters or as the last single character
++ Don't use dashes in the first two characters or as the last single character
 + Don't use consecutive dashes anywhere
 
 > [!TIP]
@@ -90,7 +90,7 @@ Azure AI Search is available in most regions, as listed in the [**Products avail
 
 We strongly recommend the following regions because they provide [more storage per partition](search-limits-quotas-capacity.md#service-limits), three to seven times more depending on the tier, at the same billing rate. Extra capacity applies to search services created after specific dates.
 
-### Roll out on May 17, 2024
+### Roll out on May 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
@@ -99,7 +99,7 @@ We strongly recommend the following regions because they provide [more storage p
 | **Germany** | Germany North​, Germany West Central​ ​|
 | **Azure Government** | Texas, Arizona, Virginia |
 
-### Roll out on April, 2024
+### Roll out on April 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
@@ -214,7 +214,7 @@ Although most customers use just one service, service redundancy might be necess
 > [!NOTE]
 > In Azure AI Search, you cannot segregate indexing and querying operations; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 
-A second service isn't required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+A second service isn't required for high availability. High availability for queries is achieved when you use two or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## Add more services to a subscription
 
@@ -240,7 +240,7 @@ Azure AI Search restricts the [number of resources](search-limits-quotas-capacit
 
 1. In **Problem details**, select **Enter details**.
 
-1. In **Quota details**, specify the location, tier, and new quota. None of the values can be empty. Quota must be between 0 to 100, and it should be higher than the current quota.  For example, the maximum number of Basic services is 16, so your quota request should be higher than 16.
+1. In **Quota details**, specify the location, tier, and new quota. None of the values can be empty. Quota must be between 0 to 100, and it should be higher than the current quota. For example, the maximum number of Basic services is 16, so your quota request should be higher than 16.
 
    :::image type="content" source="media/search-create-service-portal/support-ticket-quota-details.png" alt-text="Screenshot of the quota details page.":::
 

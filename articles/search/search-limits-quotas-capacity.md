@@ -70,7 +70,7 @@ The maximum document size when calling an Index API is approximately 16 megabyte
 
 Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit realistically depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
 
-When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.
+When estimating document size, remember to consider only those fields that add value to your search scenarios, and exclude any source fields that have no purpose in the queries you intend to run.
 
 ## Vector index size limits
 
@@ -137,8 +137,6 @@ All other regions have these limits:
 
 ### Vector limits on services created before July 1, 2023
 
-These limits applied to private preview.
-
 | Tier   | Storage quota (GB) | Vector quota per partition (GB) |
 |--------|--------------------|--------------|
 | Basic | 2                  | 0.5           |
@@ -174,7 +172,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>5</sup> Regarding the 2 or 24 hour maximum duration for indexers: a 2-hour maximum is the most common and it's what you should plan for. The 24-hour limit is from an older indexer implementation. If you have unscheduled indexers that run continuously for 24 hours, it's because those indexers couldn't be migrated to the newer infrastructure. As a general rule, for indexing jobs that can't finish within two hours, put the indexer on a [2-hour schedule](search-howto-schedule-indexers.md). When the first 2-hour interval is complete, the indexer picks up where it left off when starting the next 2-hour interval.
 
-<sup>6</sup> Skillset execution, and image analysis in particular, are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads has been shortened to give other jobs in the queue more opportunity to run.
+<sup>6</sup> Skillset execution, and image analysis in particular, are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads is shorter so that other jobs in the queue have more opportunity to run.
 
 > [!NOTE]
 > As stated in the [Index limits](#index-limits), indexers will also enforce the upper limit of 3000 elements across all complex collections per document starting with the latest GA API version that supports complex types (`2019-05-06`) onwards. This means that if you've created your indexer with a prior API version, you will not be subject to this limit. To preserve maximum compatibility, an indexer that was created with a prior API version and then updated with an API version `2019-05-06` or later, will still be **excluded** from the limits. Customers should be aware of the adverse impact of having very large complex collections (as stated previously) and we highly recommend creating any new indexers with the latest GA API version.
@@ -241,7 +239,7 @@ Static rate request limits for operations related to a service:
 * The maximum number of clauses in `search` (expressions separated by AND or OR) is 1024
 * Maximum search term size is 32,766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 * Maximum search term size is 1,000 characters for [prefix search](query-simple-syntax.md#prefix-queries) and [regex search](query-lucene-syntax.md#bkmk_regex)
-* [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) and [Regular expression search](query-lucene-syntax.md#bkmk_regex) are limited to a maximum of 1000 states when processed by [Lucene](https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/util/automaton/RegExp.html). 
+* [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) and [Regular expression search](query-lucene-syntax.md#bkmk_regex) are limited to a maximum of 1,000 states when processed by [Lucene](https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/util/automaton/RegExp.html). 
 
 <sup>1</sup> In Azure AI Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that aren't otherwise constrained by theoretical limits (see [Supported data types](/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 

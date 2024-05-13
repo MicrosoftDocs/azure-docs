@@ -26,7 +26,7 @@ For each vector field, Azure AI Search constructs an internal vector index using
 
 + Vector quotas are based on memory constraints. All searchable vector indexes must be loaded into memory. At the same time, there must also be sufficient memory for other runtime operations. Vector quotas exist to ensure that the overall system remains stable and balanced for all workloads.
 
-+ Vector indexes are also subject to disk quota, in the sense that all indexes, vector and nonvector, are subject disk quota. There's no separate disk quota for vector indexes.
++ Vector indexes are also subject to disk quota, in the sense that all indexes are subject disk quota. There's no separate disk quota for vector indexes.
 
 + Vector quotas are enforced on the search service as a whole, per partition, meaning that if you add partitions, vector quota goes up. Per-partition vector quotas are higher on newer services:
 
@@ -230,4 +230,4 @@ To obtain the **vector index size**, multiply this **raw_size** by the **algorit
 
 ## How vector fields affect disk storage
 
-Most of this article provides information about the size of vectors in memory. If you want to know about vector size on disk, the disk consumption for vector data is roughly three times the size of the vector index in memory. For example, if your `vectorIndexSize` usage is at 100 megabytes (10 million bytes), you would have used least 300 megabytes of `storageSize` quota to accommodate your vector indexes
+Most of this article provides information about the size of vectors in memory. If you want to know about vector size on disk, the disk consumption for vector data is roughly three times the size of the vector index in memory. For example, if your `vectorIndexSize` usage is at 100 megabytes (10 million bytes), you would have used least 300 megabytes of `storageSize` quota to accommodate your vector indexes.
