@@ -97,4 +97,4 @@ productDirectory:
       imageSrc: ./media/index/split-experimentation.svg
       links:
         - url: ./split-experimentation/overview.md
-          text: Test different variants of a feature and monitor the impact at the feature-level. 
+          text: Gain quantifiable insights for new features and enable faster, safer product releases, natively within Azure.
