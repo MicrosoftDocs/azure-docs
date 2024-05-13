@@ -1,7 +1,7 @@
 ---
-title: How to create AI Studio resources using the Azure Machine Learning SDK
+title: How to create a hub and project using the Azure Machine Learning SDK
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to create AI Studio resources using the Azure Machine Learning SDK.
+description: This article provides instructions on how to create an AI Studio hub and project using the Azure Machine Learning SDK.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: how-to
@@ -11,11 +11,11 @@ ms.author: eur
 author: eric-urban
 ---
 
-# Create AI Studio resources using the Azure Machine Learning SDK
+# Create a hub and project using the Azure Machine Learning SDK
 
 [!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 
-In this article, you learn how to create these AI Studio resources using the Azure Machine Learning SDK:
+In this article, you learn how to create the following AI Studio resources using the Azure Machine Learning SDK:
 - An Azure AI Studio hub
 - An Azure AI Services connection
 - An Azure AI Studio project

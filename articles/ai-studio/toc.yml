@@ -88,8 +88,8 @@ items:
       href: how-to/create-azure-ai-resource.md
     - name: Create a secure hub
       href: how-to/create-secure-ai-hub.md
-    - name: Create AI Studio resources using the AzureML SDK
-      href: how-to/develop/create-resources-sdk.md
+    - name: Create a hub and project using the AzureML SDK
+      href: how-to/develop/create-hub-project-sdk.md
     - name: Create a hub from template
       href: how-to/create-azure-ai-hub-template.md
     - name: Create and manage compute
