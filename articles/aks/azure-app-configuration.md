@@ -1,7 +1,7 @@
 ---
 title: Azure App Configuration extension for Azure Kubernetes Service (Preview) 
 description: Install and configure Azure App Configuration extension on your Azure Kubernetes Service (AKS)
-author: junbchen
+author: RichardChen820
 ms.author: junbchen
 ms.service: azure-kubernetes-service
 ms.topic: article
@@ -57,7 +57,7 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 az provider register --namespace Microsoft.KubernetesConfiguration
 ```
 
-## Create the extension on your AKS cluster
+## Install the extension on your AKS cluster
 
 Create the Azure App Configuration extension, which installs Azure App Configuration Kubernetes Provider on your AKS
 
@@ -65,10 +65,11 @@ For example, install the latest version of Azure App Configuration Kubernetes Pr
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name appconfigurationkubernetesprovider \
---extension-type Microsoft.AppConfiguration
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name appconfigurationkubernetesprovider \
+    --extension-type Microsoft.AppConfiguration \
+    --release-train preview
 ```
 
 ### Configuring automatic updates
@@ -87,13 +88,13 @@ The same command-line argument is used for installing a specific version of Azur
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name appconfigurationkubernetesprovider \
---extension-type Microsoft.AppConfiguration \
---auto-upgrade-minor-version false \
---release-train preview \
---version 2.0.0-preview
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name appconfigurationkubernetesprovider \
+    --extension-type Microsoft.AppConfiguration \
+    --auto-upgrade-minor-version false \
+    --release-train preview \
+    --version 2.0.0-preview
 ```
 
 ## Extension versions
@@ -110,7 +111,7 @@ The Azure App Configuration extension is available in the following regions:
 
 ## Troubleshooting extension installation errors
 
-If the extension fails to create or update, try suggestions and solutions in the [Azure App Configuration extension troubleshooting guide](/troubleshoot/azure/azure-kubernetes/troubleshoot-app-configuration-extension-installation-errors).
+If the extension fails to create or update, try suggestions and solutions in the [Azure App Configuration extension troubleshooting guide](/troubleshoot/azure/azure-kubernetes/extensions/troubleshoot-app-configuration-extension-installation-errors).
 
 ## Troubleshooting Azure App Configuration Kubernetes Provider
 

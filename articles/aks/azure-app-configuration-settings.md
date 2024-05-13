@@ -1,7 +1,7 @@
 ---
 title: Configure the Azure App Configuration extension for your Azure Kubernetes Service (Preview)
 description: Learn how to configure the Azure App Configuration extension specifically for your Azure Kubernetes Service (AKS) 
-author: junbchen
+author: RichardChen820
 ms.author: junbchen
 ms.topic: article
 ms.custom: devx-track-azurecli
@@ -28,12 +28,12 @@ The default replica count is `1`. Create Azure App Configuration extension with 
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name appconfigurationkubernetesprovider \
---extension-type Microsoft.AppConfiguration \
---auto-upgrade-minor-version true \
---configuration-settings "replicaCount=3"
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name appconfigurationkubernetesprovider \
+    --extension-type Microsoft.AppConfiguration \
+    --auto-upgrade-minor-version true \
+    --configuration-settings "replicaCount=3"
 ```
 
 > [!NOTE]
@@ -45,13 +45,22 @@ The default log verbosity is `1`. Create Azure App Configuration extension with 
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name appconfigurationkubernetesprovider \
---extension-type Microsoft.AppConfiguration \
---auto-upgrade-minor-version true \
---configuration-settings "logVerbosity=3"
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name appconfigurationkubernetesprovider \
+    --extension-type Microsoft.AppConfiguration \
+    --auto-upgrade-minor-version true \
+    --configuration-settings "logVerbosity=3"
 ```
+
+Log verbosity levels follows the [klog](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/logging.md#what-method-to-use) convention:
+
+- `0`: Warning and error only.
+- `1`: Informational, this is default log verbosity level.
+- `2`: Detailed steady state information.
+- `3`: Extended information about changes.
+- `4`: Debug level verbosity.
+- `5`: Trace level verbosity.
 
 ## Configure the Azure App Configuration extension namespace
 
@@ -59,13 +68,13 @@ The Azure App Configuration extension gets installed in the `azappconfig-system`
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name appconfigurationkubernetesprovider \
---extension-type Microsoft.AppConfiguration \
---auto-upgrade-minor-version true \
---scope cluster \
---release-namespace custom-namespace
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name appconfigurationkubernetesprovider \
+    --extension-type Microsoft.AppConfiguration \
+    --auto-upgrade-minor-version true \
+    --scope cluster \
+    --release-namespace custom-namespace
 ```
 
 ## Show current configuration settings
@@ -83,27 +92,26 @@ az k8s-extension show --cluster-type managedClusters \
 
 To update your Azure App Configuration extension settings, recreate the extension with the desired state. For example, assume we've previously created and installed the extension using the following configuration:
 
-```azurecli-interactive
+```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name appconfigurationkubernetesprovider \
---extension-type Microsoft.AppConfiguration \
---auto-upgrade-minor-version true \  
---configuration-settings "replicaCount=2" 
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name appconfigurationkubernetesprovider \
+    --extension-type Microsoft.AppConfiguration \
+    --auto-upgrade-minor-version true \  
+    --configuration-settings "replicaCount=2" 
 ```
 
 To update the `replicaCount` from two to three, use the following command:
 
-```azurecli-interactive
+```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name appconfigurationkubernetesprovider \
---extension-type Microsoft.AppConfiguration \
---auto-upgrade-minor-version true \
---configuration-settings "global.ha.enabled=true" \
---configuration-settings "replicaCount=3"
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name appconfigurationkubernetesprovider \
+    --extension-type Microsoft.AppConfiguration \
+    --auto-upgrade-minor-version true \
+    --configuration-settings "replicaCount=3"
 ```
 
 ## Next Steps
