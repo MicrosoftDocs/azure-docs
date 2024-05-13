@@ -22,7 +22,7 @@ Connections are a way to authenticate and consume both Microsoft and other resou
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure AI Studio](https://azure.microsoft.com/free/) today.
-- An Azure AI Studio hub. For information on creating a hub, see [Create AI Studio resources with the SDK](./create-resources-sdk.md).
+- An Azure AI Studio hub. For information on creating a hub, see [Create AI Studio resources with the SDK](./create-hub-project-sdk.md).
 - A resource to create a connection to. For example, an AI Services resource. The examples in this article use placeholders that you must replace with your own values when running the code.
 
 ## Set up your environment

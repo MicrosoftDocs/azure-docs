@@ -46,6 +46,14 @@ items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
       displayName: endpoint
+    - name: Deploy models as serverless API
+      href: how-to/deploy-models-serverless.md
+      displayName: maas, paygo, models-as-a-service
+    - name: Consume serverless API models from a different project or hub
+      href: how-to/deploy-models-serverless-connect.md
+      displayName: maas, paygo, models-as-a-service
+    - name: Model and region availability for Serverless API deployments
+      href: how-to/deploy-models-serverless-availability.md
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md
     - name: Azure OpenAI models
@@ -60,7 +68,7 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Deploy Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
-    - name: Deploy Llama models
+    - name: Llama models
       items:
       - name: Deploy Llama family models
         href: how-to/deploy-models-llama.md
@@ -71,13 +79,29 @@ items:
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
-    - name: Deploy open models
-      href: how-to/deploy-models-open.md
-      displayName: oss, open source
     - name: Phi models
       items:
       - name: Fine-tune Phi 3 models
         href: how-to/fine-tune-phi-3-models.md
+    - name: Deploy open models
+      href: how-to/deploy-models-open.md
+      displayName: oss, open source
+    - name: Azure AI Model Inference API
+      items:
+        - name: What's the Azure AI Model Inference API?
+          href: reference/reference-model-inference-api.md
+        - name: Reference
+          items:
+            - name: Get Info
+              href: reference/reference-model-inference-info.md
+            - name: Embeddings
+              href: reference/reference-model-inference-embeddings.md
+            - name: Completions
+              href: reference/reference-model-inference-completions.md
+            - name: Chat Completions
+              href: reference/reference-model-inference-chat-completions.md
+            - name: Images Embeddings
+              href: reference/reference-model-inference-images-embeddings.md
   - name: Create AI Studio projects and resources
     items:
     - name: AI Studio hubs and projects overview
@@ -88,8 +112,8 @@ items:
       href: how-to/create-azure-ai-resource.md
     - name: Create a secure hub
       href: how-to/create-secure-ai-hub.md
-    - name: Create AI Studio resources using the AzureML SDK
-      href: how-to/develop/create-resources-sdk.md
+    - name: Create a hub and project using the AzureML SDK
+      href: how-to/develop/create-hub-project-sdk.md
     - name: Create a hub from template
       href: how-to/create-azure-ai-hub-template.md
     - name: Create and manage compute
