@@ -41,7 +41,7 @@ Microsoft Sentinel provides security content packaged in SIEM solutions that ena
 
 For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
-## Collect data at cloud scale
+## Collect data at scale
 
 Collect data across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
