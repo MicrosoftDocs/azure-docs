@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 
 # How to trace your application with prompt flow SDK
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Tracing is a powerful tool that offers developers an in-depth understanding of the execution process of their generative AI applications such as agents, [AutoGen](https://microsoft.github.io/autogen/docs/Use-Cases/agent_chat), and retrieval augmented generation (RAG) use cases. It provides a detailed view of the execution flow, including the inputs and outputs of each node within the application. This essential information proves critical while debugging complex applications or optimizing performance.
 
