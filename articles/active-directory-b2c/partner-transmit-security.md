@@ -40,7 +40,7 @@ A Transmit Detection and Response integration includes the following components:
 
 The following architecture diagram illustrates the implementation described in the guide:
 
-![Diagram of the Transmit and Azure AD B2C architecture](./media/partner-transmit-security/transmit-security-integration-diagram.png)
+[ ![Diagram of the Transmit and Azure AD B2C architecture.](./media/partner-transmit-security/transmit-security-integration-diagram.png) ](./media/partner-transmit-security/transmit-security-integration-diagram.png#lightbox)
 
 1. The user signs-in with Azure AD B2C.
 2. A custom page initializes the Transmit SDK, which starts streaming device information to Transmit.
@@ -87,35 +87,35 @@ To integrating Transmit DRS into the B2C sign-in page, follow these steps:
 
 1. Prepare a custom HTML file for your sign-in page based on the [sample templates](./customize-ui-with-html.md#sample-templates). Add the following script to load and initialize the Transmit SDK, and to obtain an action token. The returned action token should be stored in a hidden HTML element (`ts-drs-response` in this example).
 
-```html
+    ```html
     <!-- Function that obtains an action token -->
     <script>
     function fill_token() {
-        window.tsPlatform.drs.triggerActionEvent("login").then((actionResponse) => {
-            let actionToken = actionResponse.actionToken;
-            document.getElementById("ts-drs-response").value = actionToken;
-            console.log(actionToken);
-        });
+       window.tsPlatform.drs.triggerActionEvent("login").then((actionResponse) => {
+          let actionToken = actionResponse.actionToken;
+          document.getElementById("ts-drs-response").value = actionToken;
+          console.log(actionToken);
+       });
     }
     </script>
-
+    
     <!-- Loads DRS SDK -->
     <script src="https://platform-websdk.transmitsecurity.io/platform-websdk/latest/ts-platform-websdk.js" defer> </script>
-
+    
     <!-- Upon page load, initializes DRS SDK and calls the fill_token function -->
     <script defer>
     window.onload = function() {
-        if (window.tsPlatform) {
-            // Client ID found in the app settings in Transmit Admin portal
-            window.tsPlatform.initialize({ clientId: "[clientId]" });
-            console.log("Transmit Security platform initialized");
-            fill_token();
-        } else {/
-            console.error("Transmit Security platform failed to load");
-        }
+       if (window.tsPlatform) {
+          // Client ID found in the app settings in Transmit Admin portal
+          window.tsPlatform.initialize({ clientId: "[clientId]" });
+          console.log("Transmit Security platform initialized");
+          fill_token();
+       } else {/
+          console.error("Transmit Security platform failed to load");
+       }
     };
     </script>
-```
+    ```
 
 1. [Enable JavaScript and page layout versions in Azure AS B2C](./javascript-and-page-layout.md).
 
