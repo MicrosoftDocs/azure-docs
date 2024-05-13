@@ -828,4 +828,4 @@ The hub managed virtual network feature is free. However, you're charged for the
 
 ## Related content
 
-- [Create AI Studio resources using the SDK](./develop/create-resources-sdk.md)
+- [Create AI Studio hub and project using the SDK](./develop/create-hub-project.md)
