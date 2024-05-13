@@ -15,6 +15,8 @@ ms.custom: [references_regions]
 
 # How to deploy Phi-3 family of small language models with Azure AI Studio
 
+[!INCLUDE [feature-preview](../includes/feature-preview.md)]
+
 In this article, you learn about the Phi-3 family of small language models (SLMs). You also learn two ways to use Azure AI Studio to deploy models from this family: deploy as serverless APIs with pay-as-you-go token-based billing or deploy with hosted infrastructure in real-time endpoints.
 
 The Phi-3 family of SLMs is a collection of instruction-tuned generative text models. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across various language, reasoning, coding, and math benchmarks.
