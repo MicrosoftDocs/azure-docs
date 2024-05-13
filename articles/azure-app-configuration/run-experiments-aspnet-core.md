@@ -138,7 +138,7 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 
     * Adds an Application Insights telemetry client to the application.
     * Adds a telemetry initializer that appends targeting information to outgoing telemetry.
-    * Disables adaptive sampling. For more information about disabling adaptive sampling, go to [Troublehooting](../partner-solutions/split-experimentation/troubleshoot.md#Sampling-in-Application-Insights).
+    * Disables adaptive sampling. For more information about disabling adaptive sampling, go to [Troublehooting](../partner-solutions/split-experimentation/troubleshoot.md#sampling-in-application-insights).
 
 1. In the root folder *QuoteOfTheDay*, create a new file named *ExampleTargetingContextAccessor.cs*. This creates a new class named `ExampleTargetingContextAccessor`. Paste the content below into the file.
 
