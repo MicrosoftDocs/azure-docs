@@ -38,6 +38,8 @@ When you enable ingress, you can choose between two types of ingress:
 
 Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service.  In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
+When you configure the ingress and target port, the app will generate a new endpoint. Then, when you try to access the application URL, you will be redirected to the target port of the container image.
+
 ## Protocol types
 
 Container Apps supports two protocols for ingress: HTTP and TCP.
