@@ -14,9 +14,7 @@ ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 
 # Quickstart: Create a public load balancer to load balance VMs using a Bicep file
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs).
-
-This quickstart shows you how to deploy a standard load balancer to load balance virtual machines.
+In this quickstart, you learn to use a BICEP file to create a public Azure load balancer. The public load balancer distributes traffic to virtual machines in a virtual network located in the load balancer's backend pool. Along with the public load balancer, this template creates a virtual network, network interfaces, a NAT Gateway, and an Azure Bastion instance.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 
@@ -71,7 +69,6 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     New-AzResourceGroup -Name exampleRG -Location EastUS
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
     ```
-
     ---
 
     > [!NOTE]

@@ -24,8 +24,6 @@ The following diagram shows an overview of Azure Deployment Environments capabil
 
 :::image type="content" source="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios-sml.png" lightbox="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios.png" alt-text="Diagram that shows the Azure Deployment Environments scenario flow.":::
 
-Azure Deployment Environments currently supports only Azure Resource Manager (ARM) templates.
-
 You can [learn more about the key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
 
 ## Usage scenarios
