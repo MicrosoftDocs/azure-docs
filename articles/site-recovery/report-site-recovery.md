@@ -29,7 +29,7 @@ Azure Site Recovery reports are supported for the following scenarios:
 
 ## Configure reports
 
-To configure Azure Site Recovery reports, follow these steps:
+To start using Azure Site Recovery reports, follow these steps:
 
 ### Create a Log Analytics workspace or use an existing workspace
 
@@ -98,15 +98,14 @@ The reports do not display data for the current partial day. If you set the **Ti
 
 ## Troubleshoot
 
-If you don't see data in the reports or any discrepancy, check the following:
+If you don't see data in the reports or see any discrepancy, check the following:
 
 - Ensure that all vaults are sending the required [configurations](#configure-diagnostics-settings-for-your-vaults) to the Log Analytics workspace.
 - Ensure that you've selected correct filters in the reports.
-- Review the following limits in reports:
-    - Since it takes up to 24 hours for the initial data push to complete while configuring diagnostics settings, you might not see the data in the reports immediately.
-    - The reports only take full days (UTC) into consideration and don't include partial days. Consider these examples:
-        - If you select a time range from 4:30 PM on March 23 to 10:00 AM on March 24th, the query runs internally for the period between 12:00 AM UTC on March 23 and 11:59 PM UTC on March 24th. This means that the query overrides the time component of the datetime.
-        - If today's date is March 29, the data shown in the reports will only go up to the end of March 28 (11:59 PM UTC). Jobs created on March 29 won't be visible in the reports until the next day, March 30.
+- Note that, since it takes up to 24 hours for the initial data push to complete while configuring diagnostics settings, you might not see the data in the reports immediately. 
+- The reports only take full days (UTC) into consideration and don't include partial days. Consider these examples:
+    - If you select a time range from 4:30 PM on March 23 to 10:00 AM on March 24th, the query runs internally for the period between 12:00 AM UTC on March 23 and 11:59 PM UTC on March 24th. This means that the query overrides the time component of the datetime.
+    - If today's date is March 29, the data shown in the reports will only go up to the end of March 28 (11:59 PM UTC). Jobs created on March 29 won't be visible in the reports until the next day, March 30.
 
 If none of the above explains the data seen in the report, contact Microsoft Support. 
 
