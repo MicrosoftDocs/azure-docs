@@ -48,7 +48,7 @@ Private cluster is available in public regions, Azure Government, and Microsoft 
 Create a resource group using the [`az group create`][az-group-create] command. You can also use an existing resource group for your AKS cluster.
 
 ```azurecli-interactive
-az group create -l eastus -n myResourceGroup
+az group create --location eastus --name myResourceGroup
 ```
 
 ### Default basic networking
@@ -56,7 +56,7 @@ az group create -l eastus -n myResourceGroup
 Create a private cluster with default basic networking using the [`az aks create`][az-aks-create] command with the `--enable-private-cluster` flag.
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
+az aks create --name <private-cluster-name> --resource-group-name <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
 
 ### Advanced networking  
@@ -86,7 +86,7 @@ If you want to configure custom domains that can only be resolved internally, se
 Disable a public FQDN when creating a private AKS cluster using the `--disable-public-fqdn` flag.
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone <private-dns-zone-mode> --disable-public-fqdn
+az aks create --name <private-cluster-name> --resource-group <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone <private-dns-zone-mode> --disable-public-fqdn
 ```
 
 ### Disable a public FQDN on an existing cluster
@@ -94,7 +94,7 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 Disable a public FQDN on an existing AKS cluster using the [`az aks update`][az-aks-update] command with the `--disable-public-fqdn` flag.
 
 ```azurecli-interactive
-az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --disable-public-fqdn
+az aks update --name <private-cluster-name> --resource-group <private-cluster-resource-group> --disable-public-fqdn
 ```
 
 ## Configure a private DNS zone
@@ -128,7 +128,7 @@ You can configure private DNS zones using the following parameters:
 Create a private AKS cluster with a private DNS zone using the [`az aks create`][az-aks-create] command with the following flags:
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone [system|none]
+az aks create --name <private-cluster-name> --resource-group <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone [system|none]
 ```
 
 ### Create a private AKS cluster with a custom private DNS zone or private DNS subzone
@@ -138,7 +138,7 @@ Create a private AKS cluster with a custom private DNS zone or subzone using the
 ```azurecli-interactive
 # The custom private DNS zone name should be in the following format: "<subzone>.privatelink.<region>.azmk8s.io"
 
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone <custom private dns zone or custom private dns subzone resourceID>
+az aks create --name <private-cluster-name> --resource-group <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone <custom private dns zone or custom private dns subzone resourceID>
 ```
 
 ### Create a private AKS cluster with a custom private DNS zone and custom subdomain
@@ -148,7 +148,7 @@ Create a private AKS cluster with a custom private DNS zone and subdomain using 
 ```azurecli-interactive
 # The custom private DNS zone name should be in one of the following formats: "privatelink.<region>.azmk8s.io" or "<subzone>.privatelink.<region>.azmk8s.io"
 
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone <custom private dns zone resourceID> --fqdn-subdomain <subdomain>
+az aks create --name <private-cluster-name> --resource-group <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <resourceID> --private-dns-zone <custom private dns zone resourceID> --fqdn-subdomain <subdomain>
 ```
 
 ### Update a private cluster from a private DNS zone to public
@@ -159,7 +159,7 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 Update a private cluster from `byo` or `system` to `none` using the [`az aks update`][az-aks-update] command with the following flags:
 
 ```azurecli-interactive
-az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --private-dns-zone none
+az aks update --name <private-cluster-name> --resource-group <private-cluster-resource-group> --private-dns-zone none
 ```
 
 > [!NOTE]
