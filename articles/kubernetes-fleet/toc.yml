@@ -34,8 +34,8 @@
   items:
   - name: Intelligent Kubernetes resource placement based on member cluster properties
     href: intelligent-resource-placement.md
-  - name: Upgrade from hubless to hubful fleet
-    href: upgrade-hubless-hubful.md
+  - name: Upgrade hub cluster type
+    href: upgrade-hub-cluster-type.md
   - name: Orchestrate updates across multiple member clusters
     href: update-orchestration.md
   - name: Multi-cluster Layer 4 Load Balancing

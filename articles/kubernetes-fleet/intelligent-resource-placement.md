@@ -10,7 +10,7 @@ ms.service: kubernetes-fleet
 
 # Intelligent cross-cluster Kubernetes resource placement using Azure Kubernetes Fleet Manager (Preview).
 
-Application developers often need to deploy Kubernetes resources into multiple clusters. Fleet operators often need to pick the best clusters for placing the workloads based on heuristics such as cost of compute in the clusters or available resources such as memory and CPU. It's tedious to create, update, and track these Kubernetes resources across multiple clusters manually. This article covers how Azure Kubernetes Fleet Manager (Kubernetes Fleet) allows you to address these scenarios using the Kubernetes resource placement feature.
+Application developers often need to deploy Kubernetes resources into multiple clusters. Fleet operators often need to pick the best clusters for placing the workloads based on heuristics such as cost of compute in the clusters or available resources such as memory and CPU. It's tedious to create, update, and track these Kubernetes resources across multiple clusters manually. This article covers how Azure Kubernetes Fleet Manager (Kubernetes Fleet) allows you to address these scenarios using the intelligent Kubernetes resource placement feature.
 
 ## Overview
 
@@ -60,8 +60,7 @@ In each condition you specify:
 Fleet evaluates each cluster based on the properties specified in the condition. Failure to satisfy conditions listed under `requiredDuringSchedulingIgnoredDuringExecution` excludes this member cluster from resource placement.
 
 > [!NOTE]
-> If a member cluster does not possess the property expressed in the condition, it will automatically
-fail the matcher.
+> If a member cluster does not possess the property expressed in the condition, it will automatically fail the condition.
 
 Example placement policy to select only clusters with greater than or equal to five nodes for resource placement:
 
@@ -194,7 +193,7 @@ spec:
                   sortOrder: Descending
 ```
 
-In this example, Fleet will prefer clusters with higher node counts. The cluster with the highest node count would receive a weight of 20, and the cluster with the lowest would receive 0. Other clusters receive proportional weights calculated using the weight caclulation formula.
+In this example, Fleet will prefer clusters with higher node counts. The cluster with the highest node count would receive a weight of 20, and the cluster with the lowest would receive 0. Other clusters receive proportional weights calculated using the weight calculation formula.
 
 You may use both label selector and property sorter under `preferredDuringSchedulingIgnoredDuringExecution` affinity. A member cluster that fails the label selector won't receive any weight. Member clusters that satisfy the label selector receive proportional weights as specified under property sorter.
 
@@ -223,3 +222,19 @@ spec:
 ```
 
 In this example, a cluster would only receive extra weight if it has the label `env=prod`. If it satisfies that label based constraint, then the cluster is given proportional weight based on the amount of total CPU in that member cluster.
+
+
+## Clean up resources
+
+If you no longer wish to use the `ClusterResourcePlacement` objects created in this article, you can delete them using the `kubectl delete` command. For example:
+
+```bash
+kubectl delete clusterresourceplacement <name-of-the-crp-resource>
+```
+
+## Next steps
+
+To learn more about resource propagation, see the following resources:
+
+* [Intelligent cross-cluster Kubernetes resource placement based on member clusters properties](./intelligent-resource-placement.md)
+* [Upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md)
