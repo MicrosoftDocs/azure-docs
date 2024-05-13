@@ -16,12 +16,10 @@ In a Highly Available Azure Private 5G Core deployment, the Azure Kubernetes Ser
 
 This requires you to deploy a gateway router between the ASE cluster and:
 
-- the RAN equipment in the access network
+- the RAN equipment in the access network.
 - the data networks.
 
 The routers should rapidly detect the failure of an ASE device through a BFD session going down and immediately redirect all traffic to the other ASE. With the recommended settings, BFD should be able to detect failure in about one second, ensuring that traffic should be restored in less than 2.5 seconds. User plane state is replicated across the two ASEs to ensure the backup can take over immediately.
-
-:::image type="content" source="media/ha-summary.png" alt-text="Diagram showing the routing configuration in a highly available deployment.":::
 
 This how-to guide describes the configuration required on your router or routers to support an HA deployment. The gateway router for the access network and the gateway router for the data networks may be the same device or separate devices.
 

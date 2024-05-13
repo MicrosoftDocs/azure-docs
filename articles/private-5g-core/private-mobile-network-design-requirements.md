@@ -152,7 +152,7 @@ You need to document the IPv4 subnets that will be used for the deployment and a
 
 You can optionally deploy Azure Private 5G Core as a Highly Available (HA) service on a pair of Azure Stack Edge (ASE) devices. This requires a gateway router (strictly, a Layer 3 capable device – either a router or an L3 switch (router/switch hybrid)) between the ASE cluster and:
 
-- the RAN equipment in the access network
+- the RAN equipment in the access network.
 - the data network(s).
 
 For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).

@@ -159,7 +159,7 @@ If you're running other VMs on your Azure Stack Edge, we recommend that you stop
 
 1. For the **Node size**, select **Standard_F16s_HPN**.
 1. Ensure the **Arc enabled Kubernetes** checkbox is selected.
-1. Select the **Change** link and enter the Microsoft Entra application Object Id (OID) for the custom location which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
+1. Select the **Change** link and enter the Microsoft Entra application Object ID (OID) for the custom location which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
 
    :::image type="content" source="media/commission-cluster/commission-cluster-configure-kubernetes.png" alt-text="Screenshot of Configure Arc enabled Kubernetes pane, showing where to enter the custom location OID.":::
 

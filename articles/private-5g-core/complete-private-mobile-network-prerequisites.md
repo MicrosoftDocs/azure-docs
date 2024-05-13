@@ -42,7 +42,7 @@ Azure Private 5G Core is deployed as an Azure Kubernetes Service (AKS) cluster. 
 
 For an HA deployment, you will need to deploy a gateway router (strictly, a Layer 3 capable device – either a router or an L3 switch (router/switch hybrid)) between the ASE cluster and:
 
-- the RAN equipment in the access network
+- the RAN equipment in the access network.
 - the data network(s).
  
 The gateway router must support Bidirectional Forwarding Detection (BFD) and Mellanox-compatible SFPs (small form factor pluggable modules).
@@ -69,10 +69,7 @@ See [Supported network topologies](/azure/databox-online/azure-stack-edge-gpu-cl
 
 A two node ASE cluster requires a cluster witness, so that if one of the ASE nodes fails, the cluster witness accounts for the third vote, and the cluster stays online. The cluster witness runs in the Azure cloud.
 
-To configure an Azure cloud witness, see [https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness](/windows-server/failover-clustering/deploy-cloud-witness). Note the following:
-
--	The Replication field must be set to locally redundant storage (LRS)
--	Firewalls between the ASE cluster and the Azure storage account must allow outbound traffic to https://*.core.windows.net/* on port 443 (HTTPS).
+To configure an Azure cloud witness, see [https://learn.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness](/windows-server/failover-clustering/deploy-cloud-witness). The Replication field must be set to locally redundant storage (LRS). Firewalls between the ASE cluster and the Azure storage account must allow outbound traffic to https://*.core.windows.net/* on port 443 (HTTPS).
 
 ## Allocate subnets and IP addresses
 
