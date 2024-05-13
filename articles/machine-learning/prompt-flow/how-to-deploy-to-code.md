@@ -149,7 +149,7 @@ If you create a Kubernetes online endpoint, you need to specify the following ad
 For more configurations of endpoint, see [managed online endpoint schema](../reference-yaml-endpoint-online.md).
 
 > [!IMPORTANT]
-> If your flow uses Micorsoft Entra ID based authentication connections, no matter you use system-assigned identity or user-assigned identity, you always need to grant the managed identity appropriate roles of the corresponding resources so that it can make API calls to that resource. For example, if your Azure OpenAI connection uses Microsoft Entra ID based authentication, you need to grant your endpoint managed identity **Cognitive Services OpenAI User or Cognitive Services OpenAI Contributor role** of the corresponding Azure OpenAI resources.
+> If your flow uses Microsoft Entra ID based authentication connections, no matter you use system-assigned identity or user-assigned identity, you always need to grant the managed identity appropriate roles of the corresponding resources so that it can make API calls to that resource. For example, if your Azure OpenAI connection uses Microsoft Entra ID based authentication, you need to grant your endpoint managed identity **Cognitive Services OpenAI User or Cognitive Services OpenAI Contributor role** of the corresponding Azure OpenAI resources.
 
 ### Use user-assigned identity
 
@@ -474,7 +474,7 @@ You can view [general metrics of online deployment (request numbers, request lat
 
 You can also collect tracing data and prompt flow deployment specific metrics (token consumption, flow latency, etc.) during inference time to workspace linked Application Insights by adding a property `app_insights_enabled: true` in the deployment yaml file. Learn more about [trace and metrics of prompt flow deployment](./how-to-enable-trace-feedback-for-deployment.md).
 
-Prompt flow specific metrics and trace can be specified to other Application Insights other than the workspace linked one. You can speicify an environment variable in the deployment yaml file as following. You can find the connection string of your Application Insights in the Overview page in Azure portal.
+Prompt flow specific metrics and trace can be specified to other Application Insights other than the workspace linked one. You can specify an environment variable in the deployment yaml file as following. You can find the connection string of your Application Insights in the Overview page in Azure portal.
 
 ```yaml
 environment_variables:
@@ -490,7 +490,7 @@ environment_variables:
 
 ### Upstream request timeout issue when consuming the endpoint
 
-Such error is usually caused by timeout. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300000 ms. Following is example showing how to specify request time out in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
+Such error is usually caused by timeout. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300,000 ms. Following is example showing how to specify request timeout in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
 
 ```yaml
 request_settings:

@@ -45,7 +45,7 @@ You can also [deploy to other platforms, such as Docker container, Kubernetes cl
 
 If you're using studio UI to deploy, then you can turn-on **Application Insights diagnostics** in Advanced settings -> Deployment step in the deploy wizard, in which way the tracing data and system metrics are collected to workspace linked Application Insights.
 
-If you're using SDK or CLI, you can by adding a property `app_insights_enabled: true` in the deployment yaml file that will collect data to workspace linked Application Insights. You can also specify other Application Insights by an environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING` in the deployment yaml file as following. You can find the connection string of your Application Insights in the Overview page in Azure portal.
+If you're using SDK or CLI, you can add a property `app_insights_enabled: true` in the deployment yaml file that will collect data to workspace linked Application Insights. You can also specify other Application Insights by an environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING` in the deployment yaml file as following. You can find the connection string of your Application Insights in the Overview page in Azure portal.
 
 ```yaml
 # below is the property in deployment yaml
@@ -67,9 +67,9 @@ environment_variables:
 
 Traces record specific events or the state of an application during execution. It can include data about function calls, variable values, system events and more. Traces help break down an application's components into discrete inputs and outputs, which is crucial for debugging and understanding an application. To learn more, see [OpenTelemetry traces](https://opentelemetry.io/docs/concepts/signals/traces/) on traces. The trace data follows [OpenTelemetry specification](https://opentelemetry.io/docs/specs/otel/).
 
-You can view the detailed trace in the specified Application Insights. The following screenshot shows an example of an event of a deployed flow containing multiple nodes. In Application Insights -> Investigate -> Trasaction search, and you can select each node to view its detailed trace. 
+You can view the detailed trace in the specified Application Insights. The following screenshot shows an example of an event of a deployed flow containing multiple nodes. In Application Insights -> Investigate -> Transaction search, and you can select each node to view its detailed trace. 
 
-The **Dependency** type events record calls from your deployments. The name of that event is the name of flow folder. Learn more about [Transaction search and diagnostics in Application Insights](../../azure-monitor/app/transaction-search-and-diagnostics.md).
+The **Dependency** type events record calls from your deployments. The name of that event is the name of the flow folder. Learn more about [Transaction search and diagnostics in Application Insights](../../azure-monitor/app/transaction-search-and-diagnostics.md).
 
 :::image type="content" source="./media/how-to-enable-trace-feedback-for-deployment/tracing-app-insights.png" alt-text="Screenshot of tracing data in application insights. " lightbox = "./media/how-to-enable-trace-feedback-for-deployment/tracing-app-insights.png":::
 
@@ -79,12 +79,12 @@ The **Dependency** type events record calls from your deployments. The name of t
 | Metrics Name                         | Type      | Dimensions                                | Description                                                                     |
 |--------------------------------------|-----------|-------------------------------------------|---------------------------------------------------------------------------------|
 | token_consumption                    | counter   | - flow <br> - node<br> - llm_engine<br> - token_type:  `prompt_tokens`: LLM API input tokens;  `completion_tokens`: LLM API response tokens; `total_tokens` = `prompt_tokens + completion tokens`          | OpenAI token consumption metrics                                                |
-| flow_latency                         | histogram | flow,response_code,streaming,response_type| request execution cost, response_type means whether it's full/firstbyte/lastbyte|
-| flow_request                         | counter   | flow,response_code,exception,streaming    | flow request count                                                              |
+| flow_latency                         | histogram | flow, response_code, streaming, response_type| request execution cost, response_type means whether it's full/firstbyte/lastbyte|
+| flow_request                         | counter   | flow, response_code, exception, streaming    | flow request count                                                              |
 | node_latency                         | histogram | flow, node, run_status                      | node execution cost                                                             |
-| node_request                         | counter   | flow, node, exception,run_status            | node execution count                                                    |
+| node_request                         | counter   | flow, node, exception, run_status            | node execution count                                                    |
 | rpc_latency                          | histogram | flow, node, api_call                        | rpc cost                                                                        |
-| rpc_request                          | counter   | flow, node,api_call,exception              | rpc count                                                                       |
+| rpc_request                          | counter   | flow, node, api_call, exception              | rpc count                                                                       |
 | flow_streaming_response_duration     | histogram | flow                                      | streaming response sending cost, from sending first byte to sending last byte   |
 
 You can find the workspace default Application Insights in your workspace overview page in Azure portal.
@@ -177,7 +177,7 @@ You can view the trace of the request along with feedback in Application Insight
 :::image type="content" source="./media/how-to-enable-trace-feedback-for-deployment/feedback-trace.png" alt-text="Screenshot of feedback and trace data of a request in Application Insights. " lightbox = "./media/how-to-enable-trace-feedback-for-deployment/feedback-trace.png":::
 
 
-## Advanced usage: export trace to custom OpenTelemetry collector service
+## Advanced usage: Export trace to custom OpenTelemetry collector service
 
 In some cases, you may want to export the trace data to your deployed OTel collector service, enabled by setting "OTEL_EXPORTER_OTLP_ENDPOINT". Use this exporter when you want to customize our own span processing logic and your own trace persistent target.
 

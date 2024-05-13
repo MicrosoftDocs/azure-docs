@@ -142,7 +142,7 @@ If you created the associated endpoint with **User Assigned Identity**, user-ass
 See detailed guidance about how to grant permissions to the endpoint identity in [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint).
 
 > [!IMPORTANT]
-> If your flow uses Micorsoft Entra ID based authentication connections, no matter you use system-assigned identity or user-assigned identity, you always need to grant the managed identity appropriate roles of the corresponding resources so that it can make API calls to that resource. For example, if your Azure OpenAI connection uses Microsoft Entra ID based authentication, you need to grant your endpoint managed identity **Cognitive Services OpenAI User or Cognitive Services OpenAI Contributor role** of the corresponding Azure OpenAI resources.
+> If your flow uses Microsoft Entra ID based authentication connections, no matter you use system-assigned identity or user-assigned identity, you always need to grant the managed identity appropriate roles of the corresponding resources so that it can make API calls to that resource. For example, if your Azure OpenAI connection uses Microsoft Entra ID based authentication, you need to grant your endpoint managed identity **Cognitive Services OpenAI User or Cognitive Services OpenAI Contributor role** of the corresponding Azure OpenAI resources.
 
 ### Advanced settings - Deployment
 
@@ -297,7 +297,7 @@ You can view various metrics (request numbers, request latency, network bytes, C
 
 For more information on how to view online endpoint metrics, see [Monitor online endpoints](../how-to-monitor-online-endpoints.md#metrics).
 
-### View prompt flow endpoints specific metrcis and tracing data (optional)
+### View prompt flow endpoints specific metrics and tracing data (optional)
 
 If you enable **Application Insights diagnostics** in the UI deploy wizard, tracing data and prompt flow specific metrics will be collect to workspace linked Application Insights. See details about [enabling tracing for your deployment](./how-to-enable-trace-feedback-for-deployment.md).
 
