@@ -1,22 +1,20 @@
 ---
-title: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+title: Enable Unlimted Virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: This article shows you how to apply Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution to your Azure VMware Solution private cloud by configuring a placement policy.
+description: This article shows you how to enable unlimited virtualization, an Azure Hybrid Benefit, through applying licenses for SQL Server in Azure VMware Solution by configuring a VM-Host placement policy.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/13/2023
 ms.custom: engagement-fy23
 ---
 
-# Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+# Enable Unlimited Virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution
 
-In this article, learn how to configure Azure Hybrid Benefit for SQL Server in an Azure VMware Solution private cloud by configuring a placement policy. The placement policy defines the hosts that are running SQL Server and the virtual machines on that host.  
+In this article, learn how to enable unlimited virtualization through Azure Hybrid Benefit for SQL Server in an Azure VMware Solution private cloud. You can register the licenses by configuring a placement policy. The placement policy defines the hosts and the virtual machines on the hosts which are running SQL Server. 
 
 > [!IMPORTANT]
-> It's important to note that SQL Server benefits are applied at the host level.  
-
-For example, if each host in Azure VMware Solution has 36 cores and you intend to have two hosts run SQL Server, the Azure Hybrid Benefit applies to 72 cores, regardless of the number of SQL Server instances or other virtual machines are on that host. 
+> SQL Server licenses are applied at the host level and must cover all the physical cores on a host. For example, if each host in Azure VMware Solution has 36 cores and you intend to have two hosts run SQL Server, the Azure Hybrid Benefit applies to 72 cores, regardless of the number of SQL Server instances or other virtual machines are on that host.
 
 [View a video tutorial for configuring Azure Hybrid Benefit for SQL Server in Azure VMware Solution](https://www.youtube.com/watch?v=vJIQ1K2KTa0)
 
