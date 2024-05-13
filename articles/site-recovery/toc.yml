@@ -560,7 +560,9 @@
   - name: Configure Site Recovery reports
     href: report-site-recovery.md
   - name: Log analytics
-    href: reporting-log-analytics.md     
+    href: reporting-log-analytics.md
+  - name: Monitor using Backup center
+    href: ../backup/backup-azure-diagnostic-events.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json       
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure VMs
