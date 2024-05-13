@@ -6,6 +6,7 @@ ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: quickstart  #Don't change
 ms.date: 05/09/2024
+ai-usage: ai-assisted
 
 #customer intent: As a user, I want to learn how to deploy the Connected Registry Arc Extension using the CLI UX with secure-by-default settings, such as using HTTPS, Read Only, Trust Distribution, and Cert Manager service, so that I can ensure the secure and efficient operation of my services."
 ---
@@ -127,11 +128,12 @@ To verify the deployment of the connected registry extension on the arc-enabled 
 
     For each connected registry, you can view the status and state of the connected registry using the [az acr connected-registry list] command:
     
-        ```azurecli
-        az acr connected-registry list --registry myacrregistry --output table
-        ```
+    ```azurecli
+    az acr connected-registry list --registry myacrregistry --output table
+    ```
 
     **Example Output**
+
      ```console
     | NAME | MODE | CONNECTION STATE | PARENT | LOGIN SERVER | LAST SYNC(UTC) |
     |------|------|------------------|--------|--------------|----------------|
@@ -154,7 +156,8 @@ To verify the deployment of the connected registry extension on the arc-enabled 
    | myconnectedregistry | ReadWrite | online           | myacrregistry | myacrregistry.azurecr.io | 2024-05-09 12:00:00 | 0 0 * * *     | 00:00:00-23:59:59 |
     ```
 
->[!NOTE] These commands will verify the state of the extension deployment and provide details on the connected registry's connection status, last sync, sync window, sync schedule, and more.
+>[!NOTE] 
+>The [az k8s-extension show] command will verify the state of the extension deployment and provide details on the connected registry's connection status, last sync, sync window, sync schedule, and more.
 
 ### Pull an image from the connected registry successfully
 
@@ -173,12 +176,12 @@ To authenticate and pull an image from the locally deployed connected registry w
     ```
 
 >[!NOTE]
-> This command pulls an image from the connected registry by specifying the desired repository. Lear to create a client token [here](container-registry-repository-scoped-permissions#create-token---cli).
+> The `crictl pull` command pulls an image from the connected registry by specifying the desired repository. Lear to create a client token [here.](container-registry-repository-scoped-permissions#create-token---cli)
 
 
 ## Scenario: Deploy the connected registry Arc extension with HTTPS
 
-The connected registry extension deployment can be further secured by enabling TLS encryption between the connected registry and the client nodes within the cluster.
+The connected registry extension deployment can be further secured by enabling Transport Layer Security (TLS) encryption between the connected registry and the client nodes within the cluster.
 
 ### Deploy connected registry extension with HTTPS (TLS encryption)
 
@@ -198,7 +201,7 @@ While using a preinstalled cert-manager service on the cluster, you can deploy t
 
 ### Deploy connected registry with kubernetes secret management for TLS encryption 
 
-Follow the [Deploying the connected registry extension](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster), and add the Kubernetes TLS secret string variable + value pair. 
+Follow the [Deploying the connected registry extension,](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster) and add the Kubernetes TLS secret string variable + value pair. 
 
 1. Protected settings file example with secret in JSON format: 
 
@@ -232,7 +235,7 @@ Now, you can deploy the connected registry extension with HTTPS (TLS encryption)
 
 While using your own kubernetes secret or public certificate and private key pairs, you can deploy the connected registry extension with HTTPS (TLS encryption), inherent trust distribution, and reject connected registry trust distribution.
 
-1. Follow the [Deploying the connected registry extension](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster), to add either the Kubernetes secret or public certificate, and private key variable + value pairs in the protected settings file in JSON format.
+1. Follow the [Deploying the connected registry extension,](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster) to add either the Kubernetes secret or public certificate, and private key variable + value pairs in the protected settings file in JSON format.
 
 2. Run the [az k8s-extension create] command in [Deploying the connected registry extension](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster) and set the `trustDistribution.enabled=false`, `trustDistribution.skipNodeSelector=false` parameters to reject connected registry trust distribution:
 
@@ -252,7 +255,7 @@ With these parameters, cert-manager isn't installed or enabled, additionally, th
 
 The connected registry extension deployment can be further secured with HTTP and no TLS encryption.
 
-1. Follow the [Deploying the connected registry extension](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster), and edit the [az k8s-extension create] command with`add httpsEnabled=false`. You must also set both `cert-manager.enabled` and `cert-manager.install` values to false. These parameters, disables TLS encryption, additionally disables cert-manager. However trust must establish between the connected registry nodes and the client nodes.  
+1. Follow the [Deploying the connected registry extension](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster), and edit the [az k8s-extension create] command with`add httpsEnabled=false`. You must also set both `cert-manager.enabled` and `cert-manager.install` values to false. These parameters disable TLS encryption and cert-manager. However trust must establish between the connected registry nodes and the client nodes.  
 
     ```azurecli
     az k8s-extension create --cluster-name myarck8scluster 
