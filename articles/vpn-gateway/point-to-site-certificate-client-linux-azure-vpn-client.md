@@ -128,4 +128,4 @@ sudo apt remove microsoft-azurevpnclient
 
 For additional steps, return to the original point-to-site article that you were working from.
 
-* [P2S Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portalmd)
+* [P2S Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
