@@ -37,7 +37,7 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Micr
     ```azurecli-interactive
     MYACR=mycontainerregistry
 
-    az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
+    az acr create --name $MYACR --resource-group myContainerRegistryResourceGroup --sku basic
     ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
@@ -61,7 +61,7 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Micr
     ```azurecli-interactive
     MYACR=mycontainerregistry
 
-    az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
+    az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys --attach-acr $MYACR
     ```
 
     This command may take several minutes to complete.
@@ -97,10 +97,10 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Micr
 
     ```azurecli-interactive
     # Attach using acr-name
-    az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
+    az aks update --name myAKSCluster --resource-group myResourceGroup --attach-acr <acr-name>
 
     # Attach using acr-resource-id
-    az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
+    az aks update --name myAKSCluster --resource-group myResourceGroup --attach-acr <acr-resource-id>
     ```
 
     > [!NOTE]
@@ -127,10 +127,10 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Micr
 
     ```azurecli-interactive
     # Detach using acr-name
-    az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-name>
+    az aks update --name myAKSCluster --resource-group myResourceGroup --detach-acr <acr-name>
 
     # Detach using acr-resource-id
-    az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
+    az aks update --name myAKSCluster --resource-group myResourceGroup --detach-acr <acr-resource-id>
     ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
@@ -152,7 +152,7 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Micr
 * Import an image from Docker Hub into your ACR using the [`az acr import`][az-acr-import] command.
 
     ```azurecli-interactive
-    az acr import  -n <acr-name> --source docker.io/library/nginx:latest --image nginx:v1
+    az acr import --name <acr-name> --source docker.io/library/nginx:latest --image nginx:v1
     ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
@@ -172,7 +172,7 @@ The AKS to ACR integration assigns the [**AcrPull** role][acr-pull] to the [Micr
 1. Ensure you have the proper AKS credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g myResourceGroup -n myAKSCluster
+    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
 2. Create a file called **acr-nginx.yaml** using the following sample YAML and replace **acr-name** with the name of your ACR.
