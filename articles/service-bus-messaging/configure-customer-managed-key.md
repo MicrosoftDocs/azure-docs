@@ -60,7 +60,6 @@ After you enable customer-managed keys, you need to associate the customer manag
     ```azurecli-interactive
     az keyvault update --hsm-name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
     ```
-
 ---
 
 4. Create keys by following these steps:
@@ -197,7 +196,7 @@ This section shows you how to create an Azure Service Bus namespace with managed
  
 ### Grant Service Bus namespace identity access to key vault
 
-1. Set the key vault access policy so that the managed identity of the Service Bus namespace can access key value in the key vault. Use the ID of the Service Bus namespace from the previous section. 
+Set the key vault access policy so that the managed identity of the Service Bus namespace can access key value in the key vault. Use the ID of the Service Bus namespace from the previous section. 
 
     ```powershell
     $identity = (Get-AzureRmResource -ResourceId $ServiceBusNamespaceId -ExpandProperties).Identity
@@ -276,64 +275,63 @@ In this step, you update the Service Bus namespace with key vault information.
     }
     ``` 
 
-1. Create a template parameter file: **UpdateServiceBusNamespaceWithEncryptionParams.json**.
+2. Create a template parameter file: **UpdateServiceBusNamespaceWithEncryptionParams.json**.
 
-    > [!NOTE]
-    > Replace the following values: 
-    > - `<ServiceBusNamespaceName>` - Name of your Service Bus namespace
-    > - `<Location>` - Location of your Service Bus namespace
-    > - `<KeyVaultName>` - Name of your key vault
-    > - `<KeyName>` - Name of the key in the key vault 
+   > [!NOTE]
+   > Replace the following values: 
+   > - `<ServiceBusNamespaceName>` - Name of your Service Bus namespace
+   > - `<Location>` - Location of your Service Bus namespace
+   > - `<KeyVaultName>` - Name of your key vault
+   > - `<KeyName>` - Name of the key in the key vault 
 
-# [Key Vault](#tab/Key-Vault) 
+   # [Key Vault](#tab/Key-Vault) 
 
-```json
-{
-   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{
-      "namespaceName":{
-         "value":"<ServiceBusNamespaceName>"
-      },
-      "location":{
-         "value":"<Location>"
-      },
-      "keyName":{
-         "value":"<KeyName>"
-      },
-      "keyVaultUri":{
-         "value":"https://<KeyVaultName>.vault.azure.net"
+   ```json
+   {
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion":"1.0.0.0",
+      "parameters":{
+         "namespaceName":{
+            "value":"<ServiceBusNamespaceName>"
+         },
+         "location":{
+            "value":"<Location>"
+         },
+         "keyName":{
+            "value":"<KeyName>"
+         },
+         "keyVaultUri":{
+            "value":"https://<KeyVaultName>.vault.azure.net"
+         }
       }
    }
-}
-```
+   ```
 
-# [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
+   # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-```json
-{
-   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{
-      "namespaceName":{
-         "value":"<ServiceBusNamespaceName>"
-      },
-      "location":{
-         "value":"<Location>"
-      },
-      "keyName":{
-         "value":"<KeyName>"
-      },
-      "keyVaultUri":{
-         "value":"https://<KeyVaultName>.managedhsm.azure.net"
+   ```json
+   {
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion":"1.0.0.0",
+      "parameters":{
+         "namespaceName":{
+            "value":"<ServiceBusNamespaceName>"
+         },
+         "location":{
+            "value":"<Location>"
+         },
+         "keyName":{
+            "value":"<KeyName>"
+         },
+         "keyVaultUri":{
+            "value":"https://<KeyVaultName>.managedhsm.azure.net"
+         }
       }
    }
-}
-```
+   ```
+   ---
 
----
-
-1. Run the following PowerShell command to deploy the Resource Manager template. Replace `{MyRG}` with the name of your resource group before running the command. 
+3. Run the following PowerShell command to deploy the Resource Manager template. Replace `{MyRG}` with the name of your resource group before running the command. 
 
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
@@ -474,68 +472,66 @@ This section gives you an example that shows you how to do the following tasks u
     }        
     ```  
 
-1. Create a template parameter file: **CreateServiceBusNamespaceWithUserIdentityAndEncryptionParams.json**.
+2. Create a template parameter file: **CreateServiceBusNamespaceWithUserIdentityAndEncryptionParams.json**.
 
-# [Key Vault](#tab/Key-Vault) 
+   # [Key Vault](#tab/Key-Vault) 
 
-```json
-{
-   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{
-      "namespaceName":{
-         "value":"<ServiceBusNamespaceName>"
-      },
-      "location":{
-         "value":"<Location>"
-      },
-      "keyVaultUri":{
-         "value":"https://<KeyVaultName>.vault.azure.net"
-      },
-      "keyName":{
-         "value":"<KeyName>"
-      },
-      "identity": {
-      "value": {
-            "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
+   ```json
+   {
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion":"1.0.0.0",
+      "parameters":{
+         "namespaceName":{
+            "value":"<ServiceBusNamespaceName>"
+         },
+         "location":{
+            "value":"<Location>"
+         },
+         "keyVaultUri":{
+            "value":"https://<KeyVaultName>.vault.azure.net"
+         },
+         "keyName":{
+            "value":"<KeyName>"
+         },
+         "identity": {
+         "value": {
+               "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
+         }
+      }
       }
    }
-   }
-}
-```
+   ```
 
-# [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
+   # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-```json
-{
-   "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{
-      "namespaceName":{
-         "value":"<ServiceBusNamespaceName>"
-      },
-      "location":{
-         "value":"<Location>"
-      },
-      "keyVaultUri":{
-         "value":"https://<KeyVaultName>.managedhsm.azure.net"
-      },
-      "keyName":{
-         "value":"<KeyName>"
-      },
-      "identity": {
-      "value": {
-            "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
+   ```json
+   {
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion":"1.0.0.0",
+      "parameters":{
+         "namespaceName":{
+            "value":"<ServiceBusNamespaceName>"
+         },
+         "location":{
+            "value":"<Location>"
+         },
+         "keyVaultUri":{
+            "value":"https://<KeyVaultName>.managedhsm.azure.net"
+         },
+         "keyName":{
+            "value":"<KeyName>"
+         },
+         "identity": {
+         "value": {
+               "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
+         }
+      }
       }
    }
-   }
-}
-```
+   ```
+   ---
 
----
-
-   In the parameter file, replace placeholders with appropriate values.
-   
+   In the parameter file, replace placeholders with appropriate values.   
    | Placeholder | value | 
    | ----------- | ----- | 
    | `<ServiceBusNamespaceName>` | Name of the Service Bus namespace. | 
@@ -551,7 +547,6 @@ This section gives you an example that shows you how to do the following tasks u
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name CreateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./ CreateServiceBusNamespaceWithUserIdentityAndEncryption.json -TemplateParameterFile ./ CreateServiceBusNamespaceWithUserIdentityAndEncryptionParams.json        
     ```
-
 
 ## Use both user-assigned and system-assigned identities
 A namespace can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned`, `UserAssigned` as shown in the following example. 
