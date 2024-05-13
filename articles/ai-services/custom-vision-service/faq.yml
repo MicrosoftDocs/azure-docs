@@ -78,7 +78,7 @@ sections:
       - question: | 
           Can training images be exported with the tags that were added in the Custom Vision portal?
         answer: |
-          Yes, you can use the [GetImages API](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb4) to export with tags.
+          Yes, you can use the [GetImages API](/rest/api/customvision/training/images/list?view=rest-customvision-training-v3.3&tabs=HTTP) to export with tags.
 
       - question: |
           How can I write logs on this service?
