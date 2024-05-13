@@ -23,6 +23,7 @@ Global requests from clients can be processed by action group services in any re
 - You can add up to five action groups to an alert rule.
 - Action groups are executed concurrently, in no specific order.
 - Multiple alert rules can use the same action group.
+- Action Groups are defined by the unique set of actions and the users to be notified. For example, if you want to notify User1, User2 and User3 by email for two different alert rules, you only need to create one action group which you can apply to both alert rules.
 
 ## Create an action group in the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -109,7 +110,7 @@ When you create or update an action group in the Azure portal, you can test the 
 1. [Create an action group in the Azure portal](#create-an-action-group-in-the-azure-portal). 
 
    > [!NOTE]
-   > If you're editing an existing action group, save the changes to the action group before testing.
+   > The action group must be created and saved before testing. If you're editing an existing action group, save the changes to the action group before testing.
 
 1. On the action group page, select **Test action group**.
 
