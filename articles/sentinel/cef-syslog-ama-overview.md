@@ -11,7 +11,7 @@ ms.date: 04/22/2024
 
 # Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel
 
-The Syslog via AMA and Common Event Format (CEF) via AMA data connectors for Microsoft Sentinel filter and ingest Syslog messages, including those in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. These connectors install the Azure Monitor Agent (AMA) on any Linux machine from which you want to collect Syslog and/or CEF messages. This machine could be the originator of the messages, or it could be a forwarder that collects messages from other machines, such as network or security devices and appliances. The connector sends the agents instructions based on [Data Collection Rules (DCRs)](../azure-monitor/essentials/data-collection-rule-overview.md) that you define. DCRs specify the systems to monitor and the types of logs or messages to collect, and they define filters to apply to the messages before they're ingested, for better performance and more efficient querying and analysis.
+The Syslog via AMA and Common Event Format (CEF) via AMA data connectors for Microsoft Sentinel filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. These connectors install the Azure Monitor Agent (AMA) on any Linux machine from which you want to collect Syslog and/or CEF messages. This machine could be the originator of the messages, or it could be a forwarder that collects messages from other machines, such as network or security devices and appliances. The connector sends the agents instructions based on [Data Collection Rules (DCRs)](../azure-monitor/essentials/data-collection-rule-overview.md) that you define. DCRs specify the systems to monitor and the types of logs or messages to collect. They define filters to apply to the messages before they're ingested, for better performance and more efficient querying and analysis.
 
 Syslog and CEF are two common formats for logging data from different devices and applications. They help system administrators and security analysts to monitor and troubleshoot the network and identify potential threats or incidents.
 
@@ -37,7 +37,7 @@ This diagram shows Syslog messages being collected from a single individual Linu
 
 The data ingestion process using the Azure Monitor Agent uses the following components and data flows:
 
-- **Log sources:** These are your various Linux VMs in your environment that produce Syslog messages. These messages are collected by the local Syslog daemon on TCP or UDP port 514 (or another port per your preference).
+- **Log sources** are your various Linux VMs in your environment that produce Syslog messages. These messages are collected by the local Syslog daemon on TCP or UDP port 514 (or another port per your preference).
 
 - The local **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP or UDP port 514 (or another port per your preference). The daemon then sends these logs to the **Azure Monitor Agent**  in two different ways, depending on the AMA version:
      - AMA versions **1.28.11** and above receive logs on **TCP port 28330**.
@@ -57,9 +57,9 @@ This diagram shows Syslog and CEF messages being collected from a Linux-based lo
 
 The data ingestion process using the Azure Monitor Agent uses the following components and data flows:
 
-- **Log sources:** These are your various security devices and appliances in your environment that produce log messages in CEF format, or in plain Syslog. These devices are configured to send their log messages over TCP or UDP port 514 (or another port per your preference), *not* to their local Syslog daemon, but instead to the **Syslog daemon on the Log forwarder**.
+- **Log sources** are your various security devices and appliances in your environment that produce log messages in CEF format, or in plain Syslog. These devices are configured to send their log messages over TCP or UDP port 514 (or another port per your preference), *not* to their local Syslog daemon, but instead to the **Syslog daemon on the Log forwarder**.
 
-- **Log forwarder:** This is a dedicated Linux VM that your organization sets up to collect the log messages from your Syslog and CEF log sources. The VM can be on-premises, in Azure, or in another cloud. This log forwarder itself has two components:
+- **Log forwarder** is a dedicated Linux VM that your organization sets up to collect the log messages from your Syslog and CEF log sources. The VM can be on-premises, in Azure, or in another cloud. This log forwarder itself has two components:
     - The **Syslog daemon** (either `rsyslog` or `syslog-ng`) collects the log messages on TCP or UDP port 514 (or another port per your preference). The daemon then sends these logs to the **Azure Monitor Agent** in two different ways, depending on the AMA version:
       - AMA versions **1.28.11** and above receive logs on **TCP port 28330**.
       - Earlier versions of AMA receive logs via Unix domain socket.
@@ -71,34 +71,34 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 ---
 
-## Set up process to collect log messages
+## Setup process to collect log messages
 
 From the **Content hub** in Microsoft Sentinel, install the appropriate solution for **Syslog** or **Common Event Format**. This step installs the respective data connectors Syslog via AMA or Common Event Format (CEF) via AMA data connector. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-As part of the set up process, create a data collection rule and install the Azure Monitor Agent (AMA) on the log forwarder. Do these tasks either by using the Azure or Microsoft Defender portal or by using the Azure Monitor logs ingestion API.
+As part of the setup process, create a data collection rule and install the Azure Monitor Agent (AMA) on the log forwarder. Do these tasks either by using the Azure or Microsoft Defender portal or by using the Azure Monitor logs ingestion API.
 
 - When you configure the data connector for the Microsoft Sentinel in the Azure or Microsoft Defender portal, you can create, manage, and delete DCRs per workspace. The AMA is installed automatically on the VMs that you select in the connector configuration.
 
-- Alternatively, send HTTP requests to the Logs Ingestion API. With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels. In the Azure or Defender portal, you can only select a minimum log level. The downside to using this menthod is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
+- Alternatively, send HTTP requests to the Logs Ingestion API. With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels. In the Azure or Defender portal, you can only select a minimum log level. The downside to using this method is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
-After you create the DCR and AMA is installed, run the "installation" script on the log forwarder to configure the Syslog daemon to listen for messages from other machines, and to open the necessary local ports. Then configure the security devices or applicances.
+After you create the DCR, and AMA is installed, run the "installation" script on the log forwarder. This script configures the Syslog daemon to listen for messages from other machines, and to open the necessary local ports. Then configure the security devices, or appliances as needed.
 
-For more information, see the following topics:
+For more information, see the following articles:
 
 - [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
 - [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md)
 
-## Data ingestion duplication
+## Data ingestion duplication avoidance
 
-Using the same facility for both Syslog and CEF messages may result in data ingestion duplication between the CommonSecurityLog and Syslog tables. 
+Using the same facility for both Syslog and CEF messages might result in data ingestion duplication between the CommonSecurityLog and Syslog tables.
 
 To avoid this scenario, use one of these methods:
 
-- **If the source device enables configuration of the target facility**: On each source machine that sends logs to the log forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF won't also be sent in Syslog. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
+- **If the source device enables configuration of the target facility**: On each source machine that sends logs to the log forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF aren't also be sent in Syslog. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
 
     To see an example of how to arrange a DCR to ingest both Syslog and CEF messages from the same agent, go to [Syslog and CEF streams in the same DCR](connect-cef-syslog-ama.md#syslog-and-cef-streams-in-the-same-dcr).
 
-- **If changing the facility for the source appliance isn't applicable**: Use an ingest time transformation to filter out CEF messages from the Syslog stream to avoid duplication, as shown in the query example below. The data will be sent twice from the collector machine to the workspace.
+- **If changing the facility for the source appliance isn't applicable**: Use an ingest time transformation to filter out CEF messages from the Syslog stream to avoid duplication, as shown in the following query example.
 
     ```kusto
     source |

@@ -47,7 +47,7 @@ If you're collecting messages from a log forwarder, the following prerequisites 
 
 - For space requirements for your log forwarder, refer to the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516), which includes designs for scalable ingestion.
 
-- Your log sources, security devices and appliances, must be configured to send their log messages to the log forwarder's Syslog daemon instead of to their local Syslog daemon.
+- Your log sources, security devices, and appliances, must be configured to send their log messages to the log forwarder's Syslog daemon instead of to their local Syslog daemon.
 
 ### Machine security prerequisites
 
@@ -60,20 +60,12 @@ If your devices are sending Syslog and CEF logs over TLS because, for example, y
 
 ## Configure the data connector
 
-The setup process for the Syslog via AMA  or Common Event Format (CEF) via AMA data connectors includes the following steps that you can do in the Azure or Microsoft Defender portal or by using the Azure Monitor logs ingestion API. 
+The setup process for the Syslog via AMA  or Common Event Format (CEF) via AMA data connectors includes the following steps:
 
-- From the data connector in Microsoft Sentinel, create a data collection rule. As part 
-1. Install the Azure Monitor Agent and create a Data Collection Rule (DCR).
-    - [Using the Azure or Defender portal](?tabs=syslog%2Cportal#create-a-data-collection-rule)
-    - [Using the Azure Monitor Logs Ingestion API](?tabs=syslog%2Capi#install-the-azure-monitor-agent)
+1. Install the Azure Monitor Agent and create a Data Collection Rule (DCR) by using either of the following methods:
+    - [Azure or Defender portal](?tabs=syslog%2Cportal#create-data-collection-rule)
+    - [Azure Monitor Logs Ingestion API](?tabs=syslog%2Capi#install-the-azure-monitor-agent)
 1. If you're collecting logs from other machines using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon to listen for messages from other machines, and to open the necessary local ports.
-
-
-Set up the appropriate data connector in one of two ways:
-
-- Configure the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in the Azure or Microsoft Defender portal for Microsoft Sentinel. With this setup, you can create, manage, and delete DCRs per workspace. The AMA is installed automatically on the VMs that you select in the connector configuration.  
-    **&mdash;OR&mdash;**
-- Send HTTP requests to the Logs Ingestion API. With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level. The downside is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
 Select the appropriate tab for instructions.
 
@@ -144,7 +136,7 @@ After you complete all the tabs, review what you entered and create the data col
 
 ### Install the Azure Monitor Agent
 
-Follow the appropriate instructions from the Azure Monitor documentation to install the Azure Monitor Agent on your log forwarder. Remember to use the instructions for Linux, not those for Windows.
+Follow the appropriate instructions from the Azure Monitor documentation to install the Azure Monitor Agent on your log forwarder. Remember to use the instructions for Linux, not for Windows.
 - [Install the AMA using PowerShell](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-powershell)
 - [Install the AMA using the Azure CLI](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-cli)
 - [Install the AMA using an Azure Resource Manager template](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-resource-manager)
