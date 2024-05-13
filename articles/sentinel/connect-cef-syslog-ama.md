@@ -64,9 +64,8 @@ The setup process for the Syslog via AMA  or Common Event Format (CEF) via AMA d
 
 - From the data connector in Microsoft Sentinel, create a data collection rule. As part 
 1. Install the Azure Monitor Agent and create a Data Collection Rule (DCR).
-    - [Using the Azure portal](?tabs=syslog%2Cportal#install-the-ama-and-create-a-data-collection-rule-dcr)
-    - [Using the Azure Monitor Logs Ingestion API](?tabs=syslog%2Capi#install-the-ama-and-create-a-data-collection-rule-dcr)
-
+    - [Using the Azure or Defender portal](?tabs=syslog%2Cportal#create-a-data-collection-rule)
+    - [Using the Azure Monitor Logs Ingestion API](?tabs=syslog%2Capi#install-the-azure-monitor-agent)
 1. If you're collecting logs from other machines using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon to listen for messages from other machines, and to open the necessary local ports.
 
 
