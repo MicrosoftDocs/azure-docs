@@ -64,7 +64,7 @@ You must select one or more workspace subscriptions, one or more log analytics w
 
 **Following are some of the reports available in the Business Continuity Center:**
 
-#### Azure Site Recovery job history
+#### Azure Site Recovery Job History
 
 This report provides information about the Site Recovery jobs by operation type and completion status. This report includes  information on job status, start time, duration, vault, subscription, etc.
 
@@ -73,7 +73,7 @@ It also offers multiple filters for time range, operation, resource group, statu
 :::image type="content" source="./media/report-site-recovery/job-history.png" alt-text="Screenshot of Job history.":::
 
 
-#### Azure Site Recovery replication history 
+#### Azure Site Recovery Replication History 
 
 This report provides information about the Site Recovery replicated items and their status over a specified time period. This report also includes failover date and detailed replication health error list for troubleshooting. It offers filters for time range, vault subscription, resource group, and search item and enables focused report generation and visualization.
 
@@ -82,7 +82,7 @@ This report provides information about the Site Recovery replicated items and th
 
 ## Export to excel
 
-Export widget contents as an excel sheet with existing filters applied. You can increase the displayed table rows by adjusting **Rows Per Page** option at the top of each widget.
+Select the down arrow button at the top of any widget, for example, a table or chart, to export the contents of that widget as an Excel sheet with existing filters applied. To export more rows of a table to Excel, you can increase the number of rows displayed on the page by adjusting **Rows Per Page** option at the top of each widget.
 
 ## Pin to dashboard
 
