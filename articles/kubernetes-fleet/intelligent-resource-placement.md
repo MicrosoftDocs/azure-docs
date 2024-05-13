@@ -115,7 +115,7 @@ spec:
                       - "5"
 ```
 
-In this example, Kubernetes Fleet will only consider a cluster for resource placement if it has the `region=east` label and a node count greater than or equal to five.
+In this example, Kubernetes Fleet only considers a cluster for resource placement if it has the `region=east` label and a node count greater than or equal to five.
 
 ## Rank order clusters at the time of scheduling based on member cluster properties
 
@@ -126,7 +126,7 @@ A property sorter consists of:
 * **Name**: Name of the property with more information of the formatting of the property covered in the previous section.
 * **Sort order**: Sort order can be either `Ascending` or `Descending`. When `Ascending` order is used, Kubernetes Fleet prefers member clusters with lower observed values. When `Descending` order is used, member clusters with higher observed value are preferred.
 
-When using the sort order `Descending`, the proportional weight is calculated using the formula:
+For sort order `Descending`, the proportional weight is calculated using the formula:
 
 ```
 ((Observed Value - Minimum observed value) / (Maximum observed value - Minimum observed value)) * Weight
@@ -136,40 +136,40 @@ For example, let's say you want to rank clusters based on the property of availa
 
 | Cluster | Available CPU capacity |
 | -------- | ------- |
-| bravelion | 100 |
-| smartfish | 20 |
-| jumpingcat | 10 |
+| `bravelion` | 100 |
+| `smartfish` | 20 |
+| `jumpingcat` | 10 |
 
 In this case, the sorter computes the following weights:
 
 | Cluster | Available CPU capacity | Weight |
 | -------- | ------- | ------- | 
-| bravelion | 100 | (100 - 10) / (100 - 10) = 100% of the weight |
-| smartfish | 20 | (20 - 10) / (100 - 10) = 11.11% of the weight |
-| jumpingcat | 10 | (10 - 10) / (100 - 10) = 0% of the weight |
+| `bravelion` | 100 | (100 - 10) / (100 - 10) = 100% of the weight |
+| `smartfish` | 20 | (20 - 10) / (100 - 10) = 11.11% of the weight |
+| `jumpingcat` | 10 | (10 - 10) / (100 - 10) = 0% of the weight |
 
 
-When using the sort order `Ascending`, the proportional weight is calculated using the formula:
+For sort order `Ascending`, the proportional weight is calculated using the formula:
 
 ```
 (1 - ((Observed Value - Minimum observed value) / (Maximum observed value - Minimum observed value))) * Weight
 ```
 
-For example, let's say you want to rank clusters based on their per CPU core cost in ascending order and that you have a fleet of three clusters with the the following CPU core costs:
+For example, let's say you want to rank clusters based on their per-CPU-core-cost in ascending order and that you have a fleet of three clusters with the following CPU core costs:
 
-| Cluster | Per CPU core cost |
+| Cluster | Per-CPU core cost |
 | -------- | ------- |
-| bravelion | 1 |
-| smartfish | 0.2 |
-| jumpingcat | 0.1 |
+| `bravelion` | 1 |
+| `smartfish` | 0.2 |
+| `jumpingcat` | 0.1 |
 
 In this case, the sorter computes the following weights:
 
-| Cluster | Per CPU core cost | Weight |
+| Cluster | Per-CPU core cost | Weight |
 | -------- | ------- | ------- | 
-| bravelion | 1 | 1 - ((1 - 0.1) / (1 - 0.1)) = 0% of the weight |
-| smartfish | 0.2 | 1 - ((0.2 - 0.1) / (1 - 0.1)) = 88.89% of the weight |
-| jumpingcat | 0.1 | 1 - (0.1 - 0.1) / (1 - 0.1) = 100% of the weight |
+| `bravelion` | 1 | 1 - ((1 - 0.1) / (1 - 0.1)) = 0% of the weight |
+| `smartfish` | 0.2 | 1 - ((0.2 - 0.1) / (1 - 0.1)) = 88.89% of the weight |
+| `jumpingcat` | 0.1 | 1 - (0.1 - 0.1) / (1 - 0.1) = 100% of the weight |
 
 The example below showcases a property sorter using the `Descending` order:
 
@@ -194,7 +194,7 @@ spec:
                   sortOrder: Descending
 ```
 
-In this example, Fleet will prefer clusters with higher node counts. The cluster with the highest node count would receive a weight of 20, and the cluster with the lowest would receive 0. Other clusters receive proportional weights calculated using the weight calulation formula.
+In this example, Fleet will prefer clusters with higher node counts. The cluster with the highest node count would receive a weight of 20, and the cluster with the lowest would receive 0. Other clusters receive proportional weights calculated using the weight caclulation formula.
 
 You may use both label selector and property sorter under `preferredDuringSchedulingIgnoredDuringExecution` affinity. A member cluster that fails the label selector won't receive any weight. Member clusters that satisfy the label selector receive proportional weights as specified under property sorter.
 
@@ -222,5 +222,4 @@ spec:
                   sortOrder: Descending
 ```
 
-In this example, a cluster would only receive additional weight if it has the label
-`env=prod`. If it satisfies that label based constraint, then the cluster is given proportional weight based on the amount of total CPU in that member cluster.
+In this example, a cluster would only receive extra weight if it has the label `env=prod`. If it satisfies that label based constraint, then the cluster is given proportional weight based on the amount of total CPU in that member cluster.
