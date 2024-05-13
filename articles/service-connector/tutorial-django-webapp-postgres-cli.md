@@ -8,7 +8,6 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/13/2024
-zone_pivot_groups: postgres-server-options
 ---
 # Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service
 
