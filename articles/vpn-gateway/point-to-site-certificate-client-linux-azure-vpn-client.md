@@ -42,7 +42,7 @@ For certificate authentication, a client certificate must be installed on each c
 
 Generate the client public certificate data and private key in **.pem** format using the following commands. To run the commands, you need to have the public Root certificate **caCert.pem** and the private key of Root certificate **caKey.pem**. For more information, see [Generate and export certificates - Linux - OpenSSL](point-to-site-certificates-linux-openssl.md).
 
-```azurecli
+```
 export PASSWORD="password"
 export USERNAME=$(hostnamectl --static)
  

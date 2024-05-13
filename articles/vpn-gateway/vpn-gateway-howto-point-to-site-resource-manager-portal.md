@@ -9,7 +9,7 @@ ms.date: 05/13/2024
 ms.author: cherylmc
 
 ---
-# Configure server settings for P2S VPN Gateway connections - certificate authentication - Azure portal
+# Configure server settings for P2S VPN Gateway connections - certificate authentication
 
 This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. P2S VPN connections are useful when you want to connect to your VNet from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network (VNet). P2S connections don't require a VPN device or a public-facing IP address.
 
