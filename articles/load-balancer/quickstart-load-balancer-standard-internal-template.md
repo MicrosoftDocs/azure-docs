@@ -95,11 +95,9 @@ In this step, you deploy the template using Azure PowerShell with the `[New-AzRe
     - **adminUsername**: virtual machine administrator username.
     - **adminPassword**: virtual machine administrator password.
 
-It takes about 10 minutes to deploy the template. When completed, the output is similar to:
+It takes about 10 minutes to deploy the template. 
 
-![Azure Standard Load Balancer Resource Manager template PowerShell deployment output](./media/quickstart-load-balancer-standard-internal-template/deployment-commands-output.png)
-
-Azure PowerShell is used to deploy the template. You can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
+Azure PowerShell or Azure CLI is used to deploy the template. You can also use the Azure portal and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
 ## Review deployed resources
 
