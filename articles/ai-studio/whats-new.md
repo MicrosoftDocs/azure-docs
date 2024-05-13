@@ -39,15 +39,15 @@ You can now compare benchmarks across embeddings models. For more information, s
 
 ### Fine-tune and deploy Azure OpenAI models 
 
-Learn how to customize Azure OpenAI models by fine-tuning them which will allow you train on more examples and get higher quality results. For more information, see [Fine-tune and deploy Azure OpenAI models](../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context) and [Deploy Azure OpenAI models](./how-to/deploy-models-openai.md).
+Learn how to customize Azure OpenAI models with fine-tuning. You can train models on more examples and get higher quality results. For more information, see [Fine-tune and deploy Azure OpenAI models](../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context) and [Deploy Azure OpenAI models](./how-to/deploy-models-openai.md).
 
-### Service-side encryption of metadata (Simplified CMK architecture) 
+### Service-side encryption of metadata
 
 We release simplified management when using customer-managed key encryption for workspaces, with less resources hosted in your Azure subscription. This reduces operational cost, and mitigates policy conflicts compared to the current offering.
 
 ### Azure AI model Inference API 
 
-The Azure AI Model Inference is an API that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. Developers can talk with different models deployed in Azure AI without changing the underlying code they are using. For more information, see [Azure AI Model Inference API](./reference/reference-model-inference-api.md).
+The Azure AI Model Inference is an API that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. Developers can talk with different models deployed in Azure AI without changing the underlying code they're using. For more information, see [Azure AI Model Inference API](./reference/reference-model-inference-api.md).
 
 ### Perform tracing and debugging for GenAI applications  
 
@@ -60,7 +60,7 @@ Evaluators in the prompt flow SDK offer a streamlined, code-based experience�
 
 ### Use Prompty for engineering and sharing prompts 
 
-Prompty is a new prompt template part of the prompt flow SDK that can be run standalone and integrated into your code. You can download a prompty from the AI Studio playground, continue iterating on it in your local development environment and check it into your git repo to share and collaborate on prompts with others. The prompty format is supported in Semantic Kernel C# and LangChain as a community extension.  
+Prompty is a new prompt template part of the prompt flow SDK that can be run standalone and integrated into your code. You can download a prompty from the AI Studio playground, continue iterating on it in your local development environment, and check it into your git repo to share and collaborate on prompts with others. The prompty format is supported in Semantic Kernel C# and LangChain as a community extension.  
 
 ### Mistral Small
 
@@ -68,7 +68,7 @@ Mistral Small is available in the Azure AI model catalog. Mistral Small is Mistr
 
 Mistral Small is:
 
-- A small model optimized for low latency: Efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral 8x7B and has lower latency.
+- A small model optimized for low latency: Efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model.
 - Specialized in RAG: Crucial information isn't lost in the middle of long context windows. Supports up to 32K tokens.
 - Strong in coding: Code generation, review, and comments with support for all mainstream coding languages.
 - Multi-lingual by design: Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
