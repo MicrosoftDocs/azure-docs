@@ -112,6 +112,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | Tomcat 10.1, Java 11 | Windows Server 2022 | MSFT OpenJDK 11       |
 | Tomcat 10.1, Java 17 | Windows Server 2022 | MSFT OpenJDK 17       |
 | Tomcat 10.1, Java 21 | Windows Server 2022 | MSFT OpenJDK 21       |
+
 -----
 
 If you're [pinned](configure-language-java.md#choosing-a-java-runtime-version) to an older minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements are available only in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
