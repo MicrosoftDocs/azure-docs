@@ -134,7 +134,8 @@ source .venv/bin/activate
 
 Activating the Python environment means that when you run ```python``` or ```pip``` from the command line, you'll be using the Python interpreter contained in the ```.venv``` folder of your application.
 
-NOTE: you can use the ```deactivate``` command to exit the python virtual environment, and can later reactivate it when
+> [!NOTE]
+> You can use the ```deactivate``` command to exit the python virtual environment, and can later reactivate it when needed.
 
 ## Install the prompt flow SDK
 

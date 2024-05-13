@@ -71,7 +71,7 @@ Second, let's reference the model ID you found earlier.
 # You can find the model ID on the model catalog.
 model_id="azureml://registries/azureml-meta/models/Llama-2-70b-chat/versions/18" 
 ```
-Serverless API models from third party model providers require an Azure marketplace subscription in order to use the model. Let's create a marketplace subscription. 
+Serverless API models from third party model providers require an Azure Marketplace subscription in order to use the model. Let's create a marketplace subscription. 
 
 > [!NOTE] 
 > You can skip the part if you are deploying a Serverless API model from Microsoft, such as Phi-3.
