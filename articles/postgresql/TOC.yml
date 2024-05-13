@@ -413,6 +413,8 @@
         displayName: replica
   - name: Extensions
     items:
+    - name: Create embeddings with azure_local_ai (preview)
+      href: ./flexible-server/generative-ai-azure-local-ai.md
     - name: Overview
       href: flexible-server/concepts-extensions.md
     - name: Azure AI (azure_ai)
