@@ -41,7 +41,7 @@ To test the latest model:
 
 1. Navigate to Azure OpenAI Studio at https://oai.azure.com/ and sign-in with credentials that have access to your OpenAI resources.
 2. Select an Azure OpenAI resource in the **West US3** or **East US** regions. If you don't have a resource in one of these regions you will need to [create a resource](../how-to/create-resource.md).
-3. From the main [Azure OpenAI Studio](https://oai.azure.com/) page select the **Early Access Playground (Preview)** button from under the **Get started** section. (This button will only be visible when a resource in **West US3** or **East US** is selected.)
+3. From the main [Azure OpenAI Studio](https://oai.azure.com/) page select the **Early Access Playground (Preview)** button from under the **Get started** section. (This button will only be available when a resource in **West US3** or **East US** is selected.)
 4. Now you can start asking the model questions just as you would before in the existing [chat playground](../chatgpt-quickstart.md).
 
 ### GPT-4 Turbo
