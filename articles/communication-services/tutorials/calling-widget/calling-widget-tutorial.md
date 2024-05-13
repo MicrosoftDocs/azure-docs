@@ -47,17 +47,18 @@ Only use this step if you're creating a new application.
 To set up the react App, we use the `create-react-app` command line tool. This tool
 creates an easy to run TypeScript application powered by React.
 
-To make sure that you have Node installed on your machine run this command in powershell or terminal to see your Node version
+To make sure that you have Node installed on your machine, run this command in PowerShell or the terminal to see your Node version:
+
 ```bash
 node -v
 ```
 
-If you do not have `create-react-app` installed on your machine run the following to install it as a global command
+If you don't have `create-react-app` installed on your machine, run the following command to install it as a global command:
 
 ```bash
 npm install -g create-react-app
 ```
-Once that is installed run this next command to create a new react application to build the sample in.
+After that command is installed, run this next command to create a new react application to build the sample in:
 
 ```bash
 # Create an Azure Communication Services App powered by React.
@@ -69,7 +70,7 @@ cd ui-library-calling-widget-app
 
 ### Get your dependencies
 
-Then you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we're going to build to work:
+Then, you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we're going to build to work:
 
 ```json
 "@azure/communication-calling": "1.22.1",
@@ -81,7 +82,7 @@ Then you need to update the dependency array in the `package.json` to include so
 "@fluentui/react": "~8.98.3",
 ```
 
-Once you add these packages to your `package.json`, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
+After you add these packages to your `package.json`, you're all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
 
 ## Initial app setup
 
