@@ -36,35 +36,34 @@ After you enable customer-managed keys, you need to associate the customer manag
     > [!IMPORTANT]
     > Using customer-managed keys with Azure Event Hubs requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
 
-# [Key Vault](#tab/Key-Vault)
+   # [Key Vault](#tab/Key-Vault)
 
-1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+   2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
 
-    ```azurecli-interactive
-    az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
-    ```    
-1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
+      ```azurecli-interactive
+      az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+      ```    
+   3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
 
-    ```azurecli-interactive
-    az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
-    ```
+      ```azurecli-interactive
+      az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+      ```
 
-# [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
+   # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+   2. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
 
-    ```azurecli-interactive
-    az keyvault create --hsm-name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
-    ```    
-1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
+      ```azurecli-interactive
+      az keyvault create --hsm-name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+      ```    
+   3. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command.
 
-    ```azurecli-interactive
-    az keyvault update --hsm-name ContosoVault --resource-group ContosoRG --enable-purge-protection true
-    ```
+      ```azurecli-interactive
+      az keyvault update --hsm-name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+      ```
+   ---
 
----
-
-1. Create keys by following these steps:
+4. Create keys by following these steps:
     1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
         
         ![Select Generate/Import button](./media/configure-customer-managed-key/select-generate-import.png)
@@ -87,14 +86,12 @@ There are two types of managed identities that you can assign to an Event Hubs n
 
     For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
-
 ## Encrypt using system-assigned identities (template)
 This section shows how to do the following tasks using **Azure Resource Manager templates**. 
 
 1. Create an **Event Hubs namespace** with a managed service identity.
 2. Create a **key vault** and grant the service identity access to the key vault. 
 3. Update the Event Hubs namespace with the key vault information (key/value). 
-
 
 ### Create an Event Hubs cluster and namespace with managed service identity
 This section shows you how to create an Azure Event Hubs namespace with managed service identity by using an Azure Resource Manager template and PowerShell. 
@@ -204,13 +201,13 @@ This section shows you how to create an Azure Event Hubs namespace with managed 
  
 ### Grant Event Hubs namespace identity access to key vault
 
-1. Set the key vault access policy so that the managed identity of the Event Hubs namespace can access key value in the key vault. Use the ID of the Event Hubs namespace from the previous section. 
+Set the key vault access policy so that the managed identity of the Event Hubs namespace can access key value in the key vault. Use the ID of the Event Hubs namespace from the previous section. 
 
-    ```powershell
-    $identity = (Get-AzureRmResource -ResourceId $EventHubNamespaceId -ExpandProperties).Identity
-    
-    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
-    ```
+```powershell
+$identity = (Get-AzureRmResource -ResourceId $EventHubNamespaceId -ExpandProperties).Identity
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+```
 
 ### Encrypt data in Event Hubs namespace with customer-managed key from key vault
 You have done the following steps so far: 
@@ -302,56 +299,55 @@ In this step, you will update the Event Hubs namespace with key vault informatio
     > - `<KeyVaultName>` - Name of your key vault
     > - `<KeyName>` - Name of the key in the key vault
 
-# [Key Vault](#tab/Key-Vault) 
+   # [Key Vault](#tab/Key-Vault) 
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "clusterName":{
-             "value":"<EventHubsClusterName>"
-          },
-          "namespaceName":{
-             "value":"<EventHubsNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          },
-          "keyName":{
-             "value":"<KeyName>"
-          },
-          "keyVaultUri":{
-             "value":"https://<KeyVaultName>.vault.azure.net"
-          }
-       }
-    }
-    ```
+   ```json
+   {
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion":"1.0.0.0",
+      "parameters":{
+         "clusterName":{
+            "value":"<EventHubsClusterName>"
+         },
+         "namespaceName":{
+            "value":"<EventHubsNamespaceName>"
+         },
+         "location":{
+            "value":"<Location>"
+         },
+         "keyName":{
+            "value":"<KeyName>"
+         },
+         "keyVaultUri":{
+            "value":"https://<KeyVaultName>.vault.azure.net"
+         }
+      }
+   }
+   ```
 
-# [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
+   # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "namespaceName":{
-             "value":"<ServiceBusNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          },
-          "keyName":{
-             "value":"<KeyName>"
-          },
-          "keyVaultUri":{
-             "value":"https://<KeyVaultName>.managedhsm.azure.net"
-          }
-       }
-    }
-    ```
-
----
+   ```json
+   {
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion":"1.0.0.0",
+      "parameters":{
+         "namespaceName":{
+            "value":"<ServiceBusNamespaceName>"
+         },
+         "location":{
+            "value":"<Location>"
+         },
+         "keyName":{
+            "value":"<KeyName>"
+         },
+         "keyVaultUri":{
+            "value":"https://<KeyVaultName>.managedhsm.azure.net"
+         }
+      }
+   }
+   ```
+   ---
 
 3. Run the following PowerShell command to deploy the Resource Manager template. Replace `{MyRG}` with the name of your resource group before running the command. 
 
@@ -509,65 +505,64 @@ This section gives you an example that shows you how to do the following tasks u
        ]
     }        
     ```  
-1. Create a template parameter file: **CreateEventHubsNamespaceWithUserIdentityAndEncryptionParams.json**.
+2. Create a template parameter file: **CreateEventHubsNamespaceWithUserIdentityAndEncryptionParams.json**.
 
-# [Key Vault](#tab/Key-Vault) 
+   # [Key Vault](#tab/Key-Vault) 
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "namespaceName":{
-             "value":"<EventHubsNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          },
-          "keyVaultUri":{
-             "value":"https://<KeyVaultName>.vault.azure.net"
-          },
-          "keyName":{
-             "value":"<KeyName>"
-          },
-          "identity": {
-            "value": {
-                "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
-            }
+   ```json
+   {
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion":"1.0.0.0",
+      "parameters":{
+         "namespaceName":{
+            "value":"<EventHubsNamespaceName>"
+         },
+         "location":{
+            "value":"<Location>"
+         },
+         "keyVaultUri":{
+            "value":"https://<KeyVaultName>.vault.azure.net"
+         },
+         "keyName":{
+            "value":"<KeyName>"
+         },
+         "identity": {
+         "value": {
+               "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
          }
-       }
-    }
-    ```
+      }
+      }
+   }
+   ```
 
-# [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
+   # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "namespaceName":{
-             "value":"<ServiceBusNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          },
-          "keyVaultUri":{
-             "value":"https://<KeyVaultName>.managedhsm.azure.net"
-          },
-          "keyName":{
-             "value":"<KeyName>"
-          },
-          "identity": {
-            "value": {
-                "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
-            }
+   ```json
+   {
+      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion":"1.0.0.0",
+      "parameters":{
+         "namespaceName":{
+            "value":"<ServiceBusNamespaceName>"
+         },
+         "location":{
+            "value":"<Location>"
+         },
+         "keyVaultUri":{
+            "value":"https://<KeyVaultName>.managedhsm.azure.net"
+         },
+         "keyName":{
+            "value":"<KeyName>"
+         },
+         "identity": {
+         "value": {
+               "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
          }
-       }
-    }
-    ```
-
----
+      }
+      }
+   }
+   ```
+   ---
 
     In the parameter file, replace placeholders with appropriate values.
     
@@ -586,7 +581,6 @@ This section gives you an example that shows you how to do the following tasks u
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name CreateEventHubsNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./ CreateEventHubsNamespaceWithUserIdentityAndEncryption.json -TemplateParameterFile ./ CreateEventHubsNamespaceWithUserIdentityAndEncryptionParams.json        
     ```
-
 
 ## Use both user-assigned and system-assigned identities
 A namespace can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned`, `UserAssigned` as shown in the following example. 
