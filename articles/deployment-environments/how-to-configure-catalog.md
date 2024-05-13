@@ -31,7 +31,7 @@ In this article, you learn how to:
 1. [Add a catalog from Azure Repos or GitHub](#add-a-catalog)
 1. [Update a catalog](#update-a-catalog)
 1. [Delete a catalog](#delete-a-catalog)
-1. [Understand catalog sync errors](#understand-catalog-sync-errors)
+1. [Troubleshoot catalog sync errors](#troubleshoot-catalog-sync-errors)
 
 ## Configure project-level catalogs
 
@@ -453,7 +453,7 @@ To delete a catalog:
 
 ## Troubleshoot catalog sync errors
 
-When you add or sync a catalog, you might encounter a sync error. A sync error indicates that some or all of the environment definitions have errors. 
+When you add or sync a catalog, you might encounter a sync error or warning. A sync error indicates that a catalog failed to sync successfully, A sync warning indicates that some or all of the catalog items have errors. You can view the sync status and errors in the Azure portal, or use the Azure CLI and REST API to troubleshoot and resolve the errors.
 
 ### View catalog sync status
 
