@@ -64,6 +64,9 @@ To install the package:
    . ".\MMARemovalUtilityConsolidatedSetup.ps1"
    ```
 
+> [!IMPORTANT]  
+> Be sure to inlcude the **"."** at the start of the command when executing the script.
+
 1. Sign in to the Azure account by using the following PowerShell command:  
 
    ``` PowerShell
@@ -122,6 +125,8 @@ Point the current path to the folder that contains the extracted deployment pack
 CD "<LocalExtractedFolderPath>\AzTSMMARemovalUtilityDeploymentFiles"
 . ".\MMARemovalUtilitySetup.ps1"
 ```
+> [!IMPORTANT]  
+> Be sure to inlcude the **"."** at the start of the command when executing the script.
 
 #### Install required Az modules
 
@@ -349,6 +354,17 @@ The scope configuration file is a CSV file with a header row and three columns:
 ## Run the utility
 
 ### [Discovery](#tab/discovery)
+
+Go to the deployment folder and load the removal utility setup script.
+
+``` PowerShell
+CD "<LocalExtractedFolderPath>\AzTSMMARemovalUtilityDeploymentFiles"
+. ".\MMARemovalUtilitySetup.ps1"
+```
+
+> [!IMPORTANT]  
+> Be sure to inlcude the **"."** at the start of the command when executing the script.
+
 
 ``` PowerShell
 Update-AzTSMMARemovalUtilityDiscoveryTrigger ` 
