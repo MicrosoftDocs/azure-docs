@@ -1,11 +1,11 @@
 ### YamlMime:Hub
-title: Azure networking foundations
-summary: Learn about Azure networking foundation services that provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
+title: Azure Networking Foundations
+summary: Azure networking foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
   title: Azure Networking Foundation Services
-  summary: Azure networking foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
+  summary: Learn about Azure networking foundation services that provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
   ms.service: dns 
   ms.topic: hub-page
   author: greg-lindsay
@@ -14,36 +14,52 @@ metadata:
   ms.date: 05/03/2024
 
 productDirectory:
-  title: Foundation services documentation
+  title: Get starts
   items:
     - title: Azure Virtual Network
       imageSrc: ./media/virtual-network.svg
       summary: "Create your own private network infrastructure in the cloud."
-      url: /azure/virtual-network
+      url: /azure/virtual-network/virtual-networks-overview
     - title: Azure Private Link
       imageSrc: ./media/private-link-product.svg
       summary: "Private access to services hosted on the Azure platform, keeping your data on the Microsoft network."
-      url: /azure/private-link/
+      url: /azure/private-link/private-link-overview
     - title: Azure DNS
       imageSrc: ./media/dns.svg
       summary: "Set up public and private name resolution for your Azure services."
-      url: /azure/dns
+      url: /azure/dns/dns-overview
           
 additionalContent:
   sections:
     - title: Learn more
       items:
-        - title: "Learn about load balancing in Azure"
-          summary: "Learn more about how to load balance your applications and workloads in Azure."
-          url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
-        - title: "Networking architecture design"
-          summary: "Learn about sample architectures, solutions, and guides that can help you explore networking in Azure. ."
-          url: /architecture/networking
-        - title: "TBA"
-          summary: "Check out what is new in Azure Networking with Wired for Hybrid."
-          url: https://aka.ms/WiredForHybrid
-        - title: "Learn about content delivery in Azure"
-          summary: "Learn how to improve performance and globally scale your applications in Azure."
-          url: /training/modules/create-first-azure-front-door/
-        - title: "Configure Azure Load Balancer - Training | Microsoft Learn"
-          url: /training/modules/configure-azure-load-balancer/
+        - title: 'Azure Virtual Network'
+          links:
+            - text: Quickstart - Create a Virtual Network
+              url: /azure/virtual-network/quick-create-portal
+            - text: Azure Virtual Network concepts and best practices 
+              url: /azure/virtual-network/concepts-and-best-practices
+            - text: Plan virtual networks
+              url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+            - text: Azure Virtual Network FAQ
+              url: /azure/virtual-network/virtual-networks-faq
+        - title: 'Azure Private Link'
+          links:
+            - text: Quickstart - Create a Virtual Network
+              url: /azure/virtual-network/quick-create-portal
+            - text: Azure Virtual Network concepts and best practices 
+              url: /azure/virtual-network/concepts-and-best-practices
+            - text: Plan virtual networks
+              url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+            - text: Azure Virtual Network FAQ
+              url: /azure/virtual-network/virtual-networks-faq
+        - title: 'Azure DNS'
+          links:
+            - text: Quickstart - Create a Virtual Network
+              url: /azure/virtual-network/quick-create-portal
+            - text: Azure Virtual Network concepts and best practices 
+              url: /azure/virtual-network/concepts-and-best-practices
+            - text: Plan virtual networks
+              url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+            - text: Azure Virtual Network FAQ
+              url: /azure/virtual-network/virtual-networks-faq
