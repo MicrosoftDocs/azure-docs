@@ -16,17 +16,17 @@ ms.devlang: azurecli
 
 Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys that the customer manages as a second layer of encryption. When the Azure Cosmos DB account can no longer access the Azure Key Vault key per the Azure Cosmos DB account setting (see _KeyVaultKeyUri_), the account goes into revoke state. In this state, the only operations allowed are account updates that refresh the current assigned default identity or account deletion. Data plane operations like reading or writing documents are restricted. 
 
-This troubleshooting guide shows you how to restore access when running into the most common errors with Customer managed keys. Check either the error message received each time a restricted operation is performed or by reading the _CmkError_ property on your Azure Cosmos DB account. 
+This troubleshooting guide shows you how to restore access when running into the most common errors with Customer managed keys. Check either the error message received each time a restricted operation is performed or by reading the _customerManagedKeyStatus_ property on your Azure Cosmos DB account. 
 
 ## Default Identity is unauthorized to access the Azure Key Vault key 
 
 ### Reason for error
 
-You see the error when the default identity associated with the Azure Cosmos DB account is no longer authorized to perform either a get, a wrap or unwrap call to the Key Vault. 
+You see the error when the default identity associated with the Azure Cosmos DB account is no longer authorized to perform either a get, a wrap or unwrap call to the Key Vault or your key is disabled or expired. 
 
 ### Troubleshooting 
 
-When using access policies, verify that the get, wrap, and unwrap permissions on your Key Vault are assigned to the identity set as the default identity for the respective Azure Cosmos DB account. 
+Please verify that your key is neither disabled or expired. In the contrary, when using access policies, verify that the get, wrap, and unwrap permissions on your Key Vault are assigned to the identity set as the default identity for the respective Azure Cosmos DB account. 
 
 In case you're using RBAC, verify that the "Key Vault Crypto Service Encryption User" role to the default identity is assigned. 
 
@@ -59,6 +59,16 @@ You see this error when the Azure Key Vault or specified Key are not found.
 ### Troubleshooting 
 
 Check if the Azure Key Vault or the specified key exist and restore them if accidentally got deleted, then wait for one hour. If the issue isn't resolved after more than 2 hours, contact customer service. 
+
+## Azure key Disabled or expired 
+
+### Reason for error 
+
+You see this error when the Azure Key Vault key has been expired or deleted.
+
+### Troubleshooting 
+
+If your key has been disabled please enable it. If it has been expired please un-expire it, and once the account is not revoked anymore feel free to rotate the key as Azure Cosmos DB will update the key version once the account is online.
 
 ## Invalid Azure Cosmos DB default identity 
 

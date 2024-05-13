@@ -3,7 +3,6 @@ title: Rooms metrics definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of rooms metrics available in the Azure portal.
 author: mkhribech
-manager: timmitchell
 services: azure-communication-services
 ms.author: mkhribech
 ms.date: 06/26/2023

@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Migrate a VNet-injected API Management instance hosted on the stv1 platform to stv2
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article provides steps to migrate an API Management instance hosted on the `stv1` compute platform in-place to the `stv2` platform when the instance is injected (deployed) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet. For this scenario, migrate your instance by updating the VNet configuration settings. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
 If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
@@ -22,8 +24,6 @@ If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1
 > * Migrating your API Management instance to the `stv2` platform is a long-running operation. 
 > * The VIP address of your instance will change. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. Plan your migration accordingly.
 > * Migration to `stv2` is not reversible.
-
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-no-v2](../../includes/api-management-availability-premium-dev-standard-basic-no-v2.md)]
 
 ## What happens during migration?
 

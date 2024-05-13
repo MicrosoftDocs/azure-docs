@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/06/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Authenticate with managed identity
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
  Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme. API Management caches the token until it expires.
 
@@ -38,7 +40,7 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Examples
 
@@ -90,6 +92,6 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 
 ## Related policies
 
-* [API Management authentication policies](api-management-authentication-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

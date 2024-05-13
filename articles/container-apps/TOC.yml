@@ -11,7 +11,7 @@
     - name: Use serverless containers
       href: start-serverless-containers.md
     - name: Quickstarts
-      items: 
+      items:
       - name: Deploy from an existing container image
         items:
         - name: Azure portal
@@ -49,7 +49,7 @@
     - name: Environment
       href: environment.md
     - name: Containers
-      href: containers.md 
+      href: containers.md
     - name: Revisions
       href: revisions.md
     - name: Application lifecycle management
@@ -111,7 +111,9 @@
           href: tutorial-ci-cd-runners-jobs.md
           displayName: Deploy Azure DevOps (Azure Pipelines) agents and GitHub Actions runners
     - name: Revision management
-      href: revisions-manage.md    
+      href: revisions-manage.md
+    - name: Environment Variables
+      href: environment-variables.md
     - name: Use health probes
       href: health-probes.md
     - name: Storage mounts
@@ -134,8 +136,10 @@
   items:
     - name: Overview
       href: observability.md
-    - name: Application logging 
+    - name: Application logging
       href: logging.md
+    - name: Real time data
+      href: aspire-dashboard.md
     - name: Logging options
       href: log-options.md
     - name: Log streaming
@@ -160,14 +164,15 @@
   items:
   - name: Overview
     href: certificates-overview.md
-  - name: Set up custom domain with a free certificate
+  - name: Custom domain with a free certificate
     href: custom-domains-managed-certificates.md
     displayName: Set up custom domain with a managed certificate
   - name: Set up custom domain with existing certificate
-    href: custom-domains-certificates.md        
+    href: custom-domains-certificates.md
   - name: Set up environment custom DNS suffix
     href: environment-custom-dns-suffix.md
-
+  - name: Certificates from Key Vault
+    href: key-vault-certificates-manage.md
 - name: Authentication
   items:
     - name: Overview
@@ -181,7 +186,7 @@
         - name: GitHub
           href: authentication-github.md
         - name: Google
-          href: authentication-google.md
+          href: authentication-google.yml
         - name: Twitter
           href: authentication-twitter.md
         - name: Custom OpenID Connect
@@ -190,6 +195,8 @@
   items:
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Token store
+      href: token-store.md
     - name: Managed identities
       items:
         - name: Use managed identities
@@ -209,7 +216,7 @@
 - name: Dedicated hardware
   items:
     - name: Workload profiles
-      href: workload-profiles-overview.md    
+      href: workload-profiles-overview.md
     - name: Manage workload profiles
       items:
         - name: CLI
@@ -225,7 +232,7 @@
       - name: Get started
         items:
         - name: Connect to Azure services via Dapr components
-          href: dapr-component-connection.md        
+          href: dapr-component-connection.md
         - name: Enable Dapr
           href: enable-dapr.md
       - name: Configure
@@ -236,7 +243,7 @@
           href: dapr-component-resiliency.md
         - name: Scale Dapr apps with KEDA using Bicep
           href: dapr-keda-scaling.md
-        - name: Enable token authentication for Dapr requests 
+        - name: Enable token authentication for Dapr requests
           href: dapr-authentication-token.md
       - name: Tutorials
         items:
@@ -263,7 +270,7 @@
         - name: Deploy with an internal environment
           href: vnet-custom-internal.md
     - name: Ingress
-      items: 
+      items:
         - name: Overview
           href: ingress-overview.md
         - name: Configure ingress
@@ -307,26 +314,35 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Launch your first Java app
+        href: java-get-started.md
+        displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
         displayName: java
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
-      - name: Use Spring Cloud Eureka Server
-        href: spring-cloud-eureka-server-usage.md
-      - name: Use Spring Cloud Config Server
-        href: spring-cloud-config-server-usage.md
+      - name: Metrics
+        href: java-metrics.md
+        displayName: java
+      - name: Use Eureka Server for Spring
+        href: java-eureka-server-usage.md
+      - name: Use Config Server for Spring
+        href: java-config-server-usage.md
+        displayName: java
+      - name: Set dynamic logger level
+        href: java-dynamic-log-level.md
         displayName: java
       - name: Tutorials
         items:
-          - name: Deploy a WAR file
-            href: java-deploy-war-file.md
+          - name: Connect to Eureka Server for Spring
+            href: java-eureka-server.md
+          - name: Connect to Config Server for Spring
+            href: java-config-server.md
             displayName: java
-          - name: Connect to Spring Cloud Eureka Server
-            href: spring-cloud-eureka-server.md
-          - name: Connect to Spring Cloud Config Server
-            href: spring-cloud-config-server.md
+          - name: Query managed component logs
+            href: java-component-logs.md
             displayName: java
 - name: Billing & quotas
   items:

@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 02/28/2024
+ms.date: 04/05/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
@@ -230,6 +230,8 @@ $virtualNetworkLink2.ToJsonString()
 
 ## Create forwarding rules
 
+
+
 Create a forwarding rule for a ruleset to one or more target DNS servers. You must specify the fully qualified domain name (FQDN) with a trailing dot. The **New-AzDnsResolverTargetDnsServerObject** cmdlet sets the default port as 53, but you can also specify a unique port. 
 
 ```Azure PowerShell
@@ -246,6 +248,10 @@ In this example:
 - 10.0.0.4 is the resolver's inbound endpoint. 
 - 192.168.1.2 and 192.168.1.3 are on-premises DNS servers.
 - 10.5.5.5 is a protective DNS service.
+
+> [!IMPORTANT]
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ## Test the private resolver
 

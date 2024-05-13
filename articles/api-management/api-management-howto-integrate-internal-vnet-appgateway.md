@@ -13,6 +13,8 @@ ms.custom: engagement-fy23, devx-track-azurepowershell
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
+
 You can configure Azure API Management in a [virtual network in internal mode](api-management-using-with-internal-vnet.md), which makes it accessible only within the virtual network. [Azure Application Gateway](../application-gateway/overview.md) is a platform as a service (PaaS) that acts as a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offerings Azure Web Application Firewall (WAF).
 
 By combining API Management provisioned in an internal virtual network with the Application Gateway front end, you can:
@@ -27,8 +29,6 @@ For architectural guidance, see:
 
 > [!NOTE]
 > This article has been updated to use the [Application Gateway WAF_v2 SKU](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
-
-[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 

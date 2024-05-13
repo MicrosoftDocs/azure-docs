@@ -102,7 +102,6 @@ With these best practices in mind, create your target flexible server and then c
 * Next to configure the newly created target flexible server, proceed as follows:
   * The user performing the migration requires the following permissions:
     * To create tables on the target, the user must have the “CREATE” privilege.
-    * If migrating a table with “DATA DIRECTORY” or “INDEX DIRECTORY” partition options, the user must have the “FILE” privilege.
     * If migrating to a table with a “UNION” option, the user must have the “SELECT,” “UPDATE,” and “DELETE” privileges for the tables you map to a MERGE table.
     * If migrating views, you must have the “CREATE VIEW” privilege.
     Keep in mind that some privileges may be necessary depending on the contents of the views. Refer to the MySQL docs specific to your version for “CREATE VIEW STATEMENT” for details

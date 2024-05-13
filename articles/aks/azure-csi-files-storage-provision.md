@@ -6,6 +6,9 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-storage
 ms.date: 03/05/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -517,3 +520,4 @@ For associated best practices, see [Best practices for storage and backups in AK
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
 [azure-files-usage]: ../storage/files/understand-performance.md#choosing-a-performance-tier-based-on-usage-patterns
 [az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
+

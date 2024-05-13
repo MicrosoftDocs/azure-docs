@@ -3,11 +3,11 @@ title: Create a secure AI hub
 titleSuffix: Azure AI Studio
 description: Create an Azure AI hub inside a managed virtual network. The managed virtual network secures access to managed resources such as computes.
 ms.service: azure-ai-studio
+ms.topic: how-to
+ms.date: 03/22/2024
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/22/2024
-ms.topic: how-to
 # Customer intent: As an administrator, I want to create a secure AI hub and project with a managed virtual network so that I can secure access to the AI hub and project resources.
 ---
 

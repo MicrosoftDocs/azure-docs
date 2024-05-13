@@ -43,6 +43,8 @@ items:
     href: tutorial-delete-private-cloud.md
 - name: Cost optimization
   items:
+  - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
+    href: extended-security-updates-windows-sql-server.md
   - name: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance
@@ -70,7 +72,7 @@ items:
   - name: Migrate
     href: architecture-migrate.md
   - name: Well Architected Framework
-    href: https://learn.microsoft.com/azure/well-architected/azure-vmware/
+    href: /azure/well-architected/azure-vmware/
   - name: Cloud Adoption Framework
     items:
       - name: Azure VMware Solution landing zone accelerator
@@ -377,3 +379,5 @@ items:
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
     href: ./faq.yml
+  - name: Azure VMware Solution Master Diagrams File
+    href: https://github.com/Azure/azure-vmware-solution/blob/main/azure-vmware-master-diagrams

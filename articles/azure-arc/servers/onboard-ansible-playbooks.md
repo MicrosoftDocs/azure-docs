@@ -14,6 +14,8 @@ Before you get started, be sure to review the [prerequisites](prerequisites.md) 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
+
 ## Generate a service principal and collect Azure details
 
 Before you can run the script to connect your machines, you'll need to do the following:

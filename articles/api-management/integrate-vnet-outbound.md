@@ -5,18 +5,18 @@ author: dlepow
 ms.author: danlep
 ms.service: api-management
 ms.topic: how-to 
-ms.date: 11/20/2023
+ms.date: 03/13/2024
 ---
 
-# Integrate an Azure API Management instance with a private VNet for outbound connections (preview)
+# Integrate an Azure API Management instance with a private VNet for outbound connections
+
+[!INCLUDE [api-management-availability-standard-v2](../../includes/api-management-availability-standard-v2.md)] 
 
 This article guides you through the process of configuring *VNet integration* for your Azure API Management instance so that your API Management instance can make outbound requests to API backends that are isolated in the network.
 
 When an API Management instance is integrated with a virtual network for outbound requests, the API Management itself is not deployed in a VNet; the gateway and other endpoints remain publicly accessible. In this configuration, the API Management instance can reach both public and network-isolated backend services.
 
 :::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.svg" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
-
-[!INCLUDE [api-management-availability-standard-v2](../../includes/api-management-availability-standard-v2.md)] 
 
 ## Prerequisites
 

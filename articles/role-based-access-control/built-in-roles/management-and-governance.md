@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -345,6 +345,9 @@ Can read, write, delete and re-onboard Azure Connected Machines.
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/read | Reads any Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/write | Installs or Updates an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/delete | Deletes an Azure Arc runcommands |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -377,7 +380,10 @@ Can read, write, delete and re-onboard Azure Connected Machines.
         "Microsoft.HybridCompute/licenses/delete",
         "Microsoft.HybridCompute/machines/licenseProfiles/read",
         "Microsoft.HybridCompute/machines/licenseProfiles/write",
-        "Microsoft.HybridCompute/machines/licenseProfiles/delete"
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
+        "Microsoft.HybridCompute/machines/runCommands/read",
+        "Microsoft.HybridCompute/machines/runCommands/write",
+        "Microsoft.HybridCompute/machines/runCommands/delete"
       ],
       "notActions": [],
       "dataActions": [],
@@ -616,6 +622,47 @@ Can assign existing published blueprints, but cannot create new blueprints. Note
 }
 ```
 
+## Carbon Optimization Reader
+
+Allow read access to Azure Carbon Optimization data
+
+[Learn more](/azure/carbon-optimization/permissions)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Carbon](../permissions/management-and-governance.md#microsoftcarbon)/carbonEmissionReports/action | API for Carbon Emissions Reports |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allow read access to Azure Carbon Optimization data",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fa0d39e6-28e5-40cf-8521-1eb320653a4c",
+  "name": "fa0d39e6-28e5-40cf-8521-1eb320653a4c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Carbon/carbonEmissionReports/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Carbon Optimization Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Cost Management Contributor
 
 Can view costs and manage cost configuration (e.g. budgets, exports)
@@ -634,7 +681,7 @@ Can view costs and manage cost configuration (e.g. budgets, exports)
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/configurations/read | Get configurations |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/read | Reads recommendations |
 > | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
-> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read |  |
+> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read | Gets the billing properties for a subscription |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -693,7 +740,7 @@ Can view cost data and configuration (e.g. budgets, exports)
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/configurations/read | Get configurations |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/read | Reads recommendations |
 > | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
-> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read |  |
+> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read | Gets the billing properties for a subscription |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1425,6 +1472,69 @@ Users with rights to create/modify resource policy, create support ticket and re
     }
   ],
   "roleName": "Resource Policy Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Scheduled Patching Contributor
+
+Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments
+
+[Learn more](/azure/update-manager/scheduled-patching)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/read | Read maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/write | Create or update maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/delete | Delete maintenance configuration. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/read | Read maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/write | Create or update maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/delete | Delete maintenance configuration assignment. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/read | Read maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration assignment for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/read | Read maintenance configuration for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration for InGuestPatch maintenance scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/cd08ab90-6b14-449c-ad9a-8f8e549482c6",
+  "name": "cd08ab90-6b14-449c-ad9a-8f8e549482c6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Maintenance/maintenanceConfigurations/read",
+        "Microsoft.Maintenance/maintenanceConfigurations/write",
+        "Microsoft.Maintenance/maintenanceConfigurations/delete",
+        "Microsoft.Maintenance/configurationAssignments/read",
+        "Microsoft.Maintenance/configurationAssignments/write",
+        "Microsoft.Maintenance/configurationAssignments/delete",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/read",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/write",
+        "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/delete",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/read",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/write",
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Scheduled Patching Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

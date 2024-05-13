@@ -12,7 +12,7 @@ ms.service: iot-edge
 ---
 # Azure IoT Edge security manager
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. The security manager is the focal point for security hardening and provides technology integration point to original equipment manufacturers (OEM).
 
@@ -100,7 +100,7 @@ The IoT Edge module runtime uses an attestation process to guard this API. When 
 
 ### Integration and maintenance
 
-Microsoft maintains the main code base for the [IoT Edge module runtime](https://github.com/Azure/iotedge/tree/master/edgelet) and the [Azure IoT identity service](https://github.com/Azure/iot-identity-service) on GitHub.
+Microsoft maintains the main code base for the [IoT Edge module runtime](https://github.com/Azure/iotedge/tree/main/edgelet) and the [Azure IoT identity service](https://github.com/Azure/iot-identity-service) on GitHub.
 
 When you read the IoT Edge codebase, remember that the **module runtime** evolved from the **security daemon**. The codebase may still contain references to the security daemon.
 

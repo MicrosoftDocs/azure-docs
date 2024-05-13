@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
- author: eur
- ms.reviewer: eur
+title: include file
+description: include file
+author: eur
+ms.reviewer: eur
 ms.author: eric-urban
- ms.service: azure-ai-studio
- ms.topic: include
- ms.date: 03/28/2024
- ms.custom: include
+ms.service: azure-ai-studio
+ms.topic: include
+ms.date: 03/28/2024
+ms.custom: include
 ---
 
 To thoroughly assess the performance of your generative AI application when applied to a substantial dataset, you can initiate an evaluation process. During this evaluation, your application is tested with the given dataset, and its performance will be quantitatively measured with both mathematical based metrics and AI-assisted metrics. This evaluation run provides you with comprehensive insights into the application's capabilities and limitations.

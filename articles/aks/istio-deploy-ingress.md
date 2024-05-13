@@ -13,6 +13,9 @@ ms.author: shasb
 
 This article shows you how to deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 
+> [!NOTE]
+> When performing a [minor revision upgrade](./istio-upgrade.md#minor-revision-upgrades-with-the-ingress-gateway) of the Istio add-on, another deployment for the external / internal gateways will be created for the new control plane revision.
+
 ## Prerequisites
 
 This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster, deploy a sample application and set environment variables.
@@ -234,4 +237,10 @@ If you want to clean up all the resources created from the Istio how-to guidance
 az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 ```
 
+## Next steps
+
+* [Secure ingress gateway for Istio service mesh add-on][istio-secure-gateway]
+
 [istio-deploy-addon]: istio-deploy-addon.md
+[istio-secure-gateway]: istio-secure-gateway.md
+

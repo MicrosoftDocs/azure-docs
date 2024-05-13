@@ -3,13 +3,13 @@ title: Azure Monitor action groups
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure functions.
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 05/02/2023
+ms.date: 04/01/2024
 ms.reviewer: jagummersall
 ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 # Action groups
 
-When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
+When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences and actions which are performed when alert is triggered. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 This article shows you how to create and manage action groups. 
 
 Each action is made up of:
@@ -23,6 +23,7 @@ Global requests from clients can be processed by action group services in any re
 - You can add up to five action groups to an alert rule.
 - Action groups are executed concurrently, in no specific order.
 - Multiple alert rules can use the same action group.
+- Action Groups are defined by the unique set of actions and the users to be notified. For example, if you want to notify User1, User2 and User3 by email for two different alert rules, you only need to create one action group which you can apply to both alert rules.
 
 ## Create an action group in the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -109,7 +110,7 @@ When you create or update an action group in the Azure portal, you can test the 
 1. [Create an action group in the Azure portal](#create-an-action-group-in-the-azure-portal). 
 
    > [!NOTE]
-   > If you're editing an existing action group, save the changes to the action group before testing.
+   > The action group must be created and saved before testing. If you're editing an existing action group, save the changes to the action group before testing.
 
 1. On the action group page, select **Test action group**.
 
@@ -459,7 +460,7 @@ You might have a limited number of voice actions per action group.
 
 > [!NOTE]
 >
-> If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region.
+> If you can't select your country/region code in the Azure portal, voice calls aren't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party voice call provider that offers support in your country/region. If a country is marked with an '*' calls will come from a USA based phone number.
 ### Countries/Regions with Voice notification support
 | Country code | Country |
 |:---|:---|
@@ -469,15 +470,19 @@ You might have a limited number of voice actions per action group.
 | 55 | Brazil |
 | 1    |Canada |
 | 56 | Chile |
+| 86 | China* |
 | 420 | Czech Republic |
 | 45 | Denmark |
 | 372 | Estonia |
 | 358 | Finland |
 | 33 | France |
 | 49 | Germany |
-| 852 | Hong Kong |
+| 852 | Hong Kong* |
+| 91 | India* |
 | 353 | Ireland |
 | 972 | Israel |
+| 39 | Italy* |
+| 81 | Japan* |
 | 352 | Luxembourg |
 | 60 | Malaysia |
 | 52 | Mexico |
@@ -485,14 +490,16 @@ You might have a limited number of voice actions per action group.
 | 64 | New Zealand |
 | 47 | Norway |
 | 351 | Portugal |
-| 40 | Romania |
+| 40 | Romania* |
+| 7 | Russia* |
 | 65 | Singapore |
 | 27 | South Africa |
+| 82 | South Korea |
 | 34 | Spain |
 | 46 | Sweeden |
 | 41 | Switzerland |
-| 886 | Taiwan |
-| 971 | United Arab Emirates |
+| 886 | Taiwan* |
+| 971 | United Arab Emirates* |
 | 44 | United Kingdom |
 | 1 | United States |
 

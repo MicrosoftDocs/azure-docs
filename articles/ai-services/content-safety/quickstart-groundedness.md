@@ -26,7 +26,7 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 
 ## Check groundedness without reasoning
 
-In the simple case without the _reasoning_ feature, the Groundedness detection API classifies the ungroundedness of the submitted content as `true` or `false` and provides a confidence score.
+In the simple case without the _reasoning_ feature, the Groundedness detection API classifies the ungroundedness of the submitted content as `true` or `false`.
 
 #### [cURL](#tab/curl)
 
@@ -51,7 +51,7 @@ This section walks through a sample request with cURL. Paste the command below i
       "groundingSources": [
         "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service, I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? you have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**."
       ],
-      "reasoning": False
+      "reasoning": false
     }'
     ```
 
@@ -79,7 +79,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
       "groundingSources": [
         "I'm 21 years old and I need to make a decision about the next two years of my life. Within a week. I currently work for a bank that requires strict sales goals to meet. IF they aren't met three times (three months) you're canned. They pay me 10/hour and it's not unheard of to get a raise in 6ish months. The issue is, **I'm not a salesperson**. That's not my personality. I'm amazing at customer service, I have the most positive customer service \"reports\" done about me in the short time I've worked here. A coworker asked \"do you ask for people to fill these out? you have a ton\". That being said, I have a job opportunity at Chase Bank as a part time teller. What makes this decision so hard is that at my current job, I get 40 hours and Chase could only offer me 20 hours/week. Drive time to my current job is also 21 miles **one way** while Chase is literally 1.8 miles from my house, allowing me to go home for lunch. I do have an apartment and an awesome roommate that I know wont be late on his portion of rent, so paying bills with 20hours a week isn't the issue. It's the spending money and being broke all the time.\n\nI previously worked at Wal-Mart and took home just about 400 dollars every other week. So I know i can survive on this income. I just don't know whether I should go for Chase as I could definitely see myself having a career there. I'm a math major likely going to become an actuary, so Chase could provide excellent opportunities for me **eventually**."
       ],
-      "reasoning": False
+      "reasoning": false
     })
     headers = {
       'Ocp-Apim-Subscription-Key': '<your_subscription_key>',
@@ -104,19 +104,17 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
 ---
 
-> [!TIP]
-> To test a summarization task instead of a question answering (QnA) task, use the following sample JSON body:
->
-> ```json
-> {
->     "Domain": "Medical",
->     "Task": "Summarization",
->     "Text": "Ms Johnson has been in the hospital after experiencing a stroke.",
->     "GroundingSources": ["Our patient, Ms. Johnson, presented with persistent fatigue, unexplained weight loss, and frequent night sweats. After a series of tests, she was diagnosed with Hodgkin’s lymphoma, a type of cancer that affects the lymphatic system. The diagnosis was confirmed through a lymph node biopsy revealing the presence of Reed-Sternberg cells, a characteristic of this disease. She was further staged using PET-CT scans. Her treatment plan includes chemotherapy and possibly radiation therapy, depending on her response to treatment. The medical team remains optimistic about her prognosis given the high cure rate of Hodgkin’s lymphoma."],
->     "Reasoning": false
-> }
-> ```
+To test a summarization task instead of a question answering (QnA) task, use the following sample JSON body:
 
+```json
+{
+    "domain": "Medical",
+    "task": "Summarization",
+    "text": "Ms Johnson has been in the hospital after experiencing a stroke.",
+    "groundingSources": ["Our patient, Ms. Johnson, presented with persistent fatigue, unexplained weight loss, and frequent night sweats. After a series of tests, she was diagnosed with Hodgkin’s lymphoma, a type of cancer that affects the lymphatic system. The diagnosis was confirmed through a lymph node biopsy revealing the presence of Reed-Sternberg cells, a characteristic of this disease. She was further staged using PET-CT scans. Her treatment plan includes chemotherapy and possibly radiation therapy, depending on her response to treatment. The medical team remains optimistic about her prognosis given the high cure rate of Hodgkin’s lymphoma."],
+    "reasoning": false
+}
+```
 
 The following fields must be included in the URL:
 
@@ -134,7 +132,7 @@ The parameters in the request body are defined in this table:
 | - `query`       | (Optional) This represents the question in a QnA task. Character limit: 7,500. | String  |
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
 | **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
-| **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, you need to bring your own Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
+| **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, you need to bring your own Azure OpenAI GPT-4 Turbo resources to provide an explanation. Be careful: using reasoning increases the processing time.| Boolean   |
 
 ### Interpret the API response
 
@@ -157,10 +155,9 @@ The JSON objects in the output are defined here:
 | Name  | Description    | Type    |
 | :------------------ | :----------- | ------- |
 | **ungroundedDetected** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
-| **confidenceScore** | The confidence value of the _ungrounded_ designation. The score ranges from 0 to 1.	 | Float	 |
 | **ungroundedPercentage** | Specifies the proportion of the text identified as ungrounded, expressed as a number between 0 and 1, where 0 indicates no ungrounded content and 1 indicates entirely ungrounded content.| Float	 |
 | **ungroundedDetails** | Provides insights into ungrounded content with specific examples and percentages.| Array |
-| -**`Text`**   |  The specific text that is ungrounded.  | String   |
+| -**`text`**   |  The specific text that is ungrounded.  | String   |
 
 ## Check groundedness with reasoning
 
@@ -168,7 +165,10 @@ The Groundedness detection API provides the option to include _reasoning_ in the
 
 ### Bring your own GPT deployment
 
-In order to use your Azure OpenAI resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
+> [!TIP]
+> At the moment, we only support **Azure OpenAI GPT-4 Turbo** resources and do not support other GPT types. Your GPT-4 Turbo resources can be deployed in any region; however, we recommend that they be located in the same region as the content safety resources to minimize potential latency.
+
+In order to use your Azure OpenAI GPT4-Turbo resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
 
 1. Enable Managed Identity for Azure AI Content Safety.
 
@@ -188,7 +188,7 @@ In order to use your Azure OpenAI resource to enable the reasoning feature, use 
 
 ### Make the API request
 
-In your request to the Groundedness detection API, set the `"Reasoning"` body parameter to `true`, and provide the other needed parameters:
+In your request to the Groundedness detection API, set the `"reasoning"` body parameter to `true`, and provide the other needed parameters:
     
 ```json
  {
@@ -295,8 +295,8 @@ The parameters in the request body are defined in this table:
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
 | **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
 | **reasoning**  | (Optional) Set to `true`, the service uses Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
-| **llmResource**  | (Optional) If you want to use your own Azure OpenAI resources instead of our default GPT resources, add this field and include the subfields for the resources used. If you don't want to use your own resources, remove this field from the input. | String   |
-| - `resourceType `| Specifies the type of resource being used. Currently it only allows `AzureOpenAI`. | Enum|
+| **llmResource**  | (Required) If you want to use your own Azure OpenAI GPT4-Turbo resource to enable reasoning, add this field and include the subfields for the resources used. | String   |
+| - `resourceType `| Specifies the type of resource being used. Currently it only allows `AzureOpenAI`. We only support Azure OpenAI GPT-4 Turbo resources and do not support other GPT types. Your GPT-4 Turbo resources can be deployed in any region; however, we recommend that they be located in the same region as the content safety resources to minimize potential latency. | Enum|
 | - `azureOpenAIEndpoint `| Your endpoint URL for Azure OpenAI service.  | String |
 | - `azureOpenAIDeploymentName` | The name of the specific GPT deployment to use. | String|
 
@@ -312,13 +312,13 @@ After you submit your request, you'll receive a JSON response reflecting the Gro
         {
             "text": "12/hour.",
             "offset": {
-                "utF8": 0,
-                "utF16": 0,
+                "utf8": 0,
+                "utf16": 0,
                 "codePoint": 0
             },
             "length": {
-                "utF8": 8,
-                "utF16": 8,
+                "utf8": 8,
+                "utf16": 8,
                 "codePoint": 8
             },
             "reason": "None. The premise mentions a pay of \"10/hour\" but does not mention \"12/hour.\" It's neutral. "
@@ -332,10 +332,9 @@ The JSON objects in the output are defined here:
 | Name  | Description    | Type    |
 | :------------------ | :----------- | ------- |
 | **ungroundedDetected** | Indicates whether the text exhibits ungroundedness.  | Boolean    |
-| **confidenceScore** | The confidence value of the _ungrounded_ designation. The score ranges from 0 to 1.	 | Float	 |
 | **ungroundedPercentage** | Specifies the proportion of the text identified as ungrounded, expressed as a number between 0 and 1, where 0 indicates no ungrounded content and 1 indicates entirely ungrounded content.| Float	 |
 | **ungroundedDetails** | Provides insights into ungrounded content with specific examples and percentages.| Array |
-| -**`Text`**   |  The specific text that is ungrounded.  | String   |
+| -**`text`**   |  The specific text that is ungrounded.  | String   |
 | -**`offset`**   |  An object describing the position of the ungrounded text in various encoding.  | String   |
 | - `offset > utf8`       | The offset position of the ungrounded text in UTF-8 encoding.      | Integer   |
 | - `offset > utf16`      | The offset position of the ungrounded text in UTF-16 encoding.       | Integer |
@@ -344,7 +343,7 @@ The JSON objects in the output are defined here:
 | - `length > utf8`       | The length of the ungrounded text in UTF-8 encoding.      | Integer   |
 | - `length > utf16`      | The length of the ungrounded text in UTF-16 encoding.       | Integer |
 | - `length > codePoint`  | The length of the ungrounded text in terms of Unicode code points. |Integer    |
-| -**`Reason`** |  Offers explanations for detected ungroundedness. | String  |
+| -**`reason`** |  Offers explanations for detected ungroundedness. | String  |
 
 ## Clean up resources
 

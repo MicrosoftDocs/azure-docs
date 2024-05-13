@@ -2,14 +2,18 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI'
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: quickstart
-ms.date: 01/10/2024
-ms.custom: H1Hack27Feb2017, mvc, devcenter, devx-track-azurecli, mode-api
+ms.date: 04/09/2024
+author: tamram
+ms.author: tamram
+ms.custom: H1Hack27Feb2017, mvc, devcenter, devx-track-azurecli, mode-api, innovation-engine, linux-related-content
 #Customer intent: As a developer or cluster operator, I want to deploy an AKS cluster and deploy an application so I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you learn to:
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262758)
+
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you learn how to:
 
 - Deploy an AKS cluster using the Azure CLI.
 - Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
@@ -27,74 +31,71 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed there.
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command.
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set](/cli/azure/account#az-account-set) command. For more information, see [How to manage Azure subscriptions – Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli?tabs=bash#change-the-active-subscription).
+
+## Define environment variables
+
+Define the following environment variables for use throughout this quickstart:
+
+```azurecli-interactive
+export RANDOM_ID="$(openssl rand -hex 3)"
+export MY_RESOURCE_GROUP_NAME="myAKSResourceGroup$RANDOM_ID"
+export REGION="westeurope"
+export MY_AKS_CLUSTER_NAME="myAKSCluster$RANDOM_ID"
+export MY_DNS_LABEL="mydnslabel$RANDOM_ID"
+```
 
 ## Create a resource group
 
 An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Create a resource group using the [`az group create`][az-group-create] command.
 
-Create a resource group using the [az group create][az-group-create] command.
+```azurecli-interactive
+az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION
+```
 
-  ```azurecli
-  az group create --name myResourceGroup --location eastus
-  ```
-
-  The following sample output resembles successful creation of the resource group:
-
-  ```output
-  {
-    "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
-    "location": "eastus",
-    "managedBy": null,
-    "name": "myResourceGroup",
-    "properties": {
-      "provisioningState": "Succeeded"
-    },
-    "tags": null
-  }
-  ```
+Results:
+<!-- expected_similarity=0.3 -->
+```JSON
+{
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myAKSResourceGroupxxxxxx",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "testResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+```
 
 ## Create an AKS cluster
 
-To create an AKS cluster, use the [az aks create][az-aks-create] command. The following example creates a cluster named *myAKSCluster* with one node and enables a system-assigned managed identity.
+Create an AKS cluster using the [`az aks create`][az-aks-create] command. The following example creates a cluster with one node and enables a system-assigned managed identity.
 
-  ```azurecli
-  az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --enable-managed-identity \
-    --node-count 1 \
-    --generate-ssh-keys
-  ```
+```azurecli-interactive
+az aks create --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AKS_CLUSTER_NAME --enable-managed-identity --node-count 1 --generate-ssh-keys
+```
 
-  After a few minutes, the command completes and returns JSON-formatted information about the cluster.
-
-  > [!NOTE]
-  > When you create a new cluster, AKS automatically creates a second resource group to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
+> [!NOTE]
+> When you create a new cluster, AKS automatically creates a second resource group to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, call the [az aks install-cli][az-aks-install-cli] command.
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. To install `kubectl` locally, use the [`az aks install-cli`][az-aks-install-cli] command.
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli
-    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    ```azurecli-interactive
+    az aks get-credentials --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AKS_CLUSTER_NAME
     ```
 
 1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```azurecli
+    ```azurecli-interactive
     kubectl get nodes
-    ```
-
-    The following sample output shows the single node created in the previous steps. Make sure the node status is *Ready*.
-
-    ```output
-    NAME                                STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-11853318-vmss000000   Ready    agent   2m26s   v1.27.7
     ```
 
 ## Deploy the application
@@ -346,71 +347,73 @@ To deploy the application, you use a manifest file to create all the objects req
 
     If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
 
-1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
-    ```azurecli
+    ```azurecli-interactive
     kubectl apply -f aks-store-quickstart.yaml
-    ```
-
-    The following sample output shows the deployments and services:
-
-    ```output
-    deployment.apps/rabbitmq created
-    service/rabbitmq created
-    deployment.apps/order-service created
-    service/order-service created
-    deployment.apps/product-service created
-    service/product-service created
-    deployment.apps/store-front created
-    service/store-front created
     ```
 
 ## Test the application
 
-When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+You can validate that the application is running by visiting the public IP address or the application URL.
 
-1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make sure all pods are `Running` before proceeding.
+Get the application URL using the following commands:
 
-    ```console
-    kubectl get pods
-    ```
+```azurecli-interactive
+runtime="5 minute"
+endtime=$(date -ud "$runtime" +%s)
+while [[ $(date -u +%s) -le $endtime ]]
+do
+   STATUS=$(kubectl get pods -l app=store-front -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}')
+   echo $STATUS
+   if [ "$STATUS" == 'True' ]
+   then
+      export IP_ADDRESS=$(kubectl get service store-front --output 'jsonpath={..status.loadBalancer.ingress[0].ip}')
+      echo "Service IP Address: $IP_ADDRESS"
+      break
+   else
+      sleep 10
+   fi
+done
+```
 
-1. Check for a public IP address for the store-front application. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
+```azurecli-interactive
+curl $IP_ADDRESS
+```
 
-    ```azurecli
-    kubectl get service store-front --watch
-    ```
+Results:
+<!-- expected_similarity=0.3 -->
+```JSON
+<!doctype html>
+<html lang="">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="icon" href="/favicon.ico">
+      <title>store-front</title>
+      <script defer="defer" src="/js/chunk-vendors.df69ae47.js"></script>
+      <script defer="defer" src="/js/app.7e8cfbb2.js"></script>
+      <link href="/css/app.a5dc49f6.css" rel="stylesheet">
+   </head>
+   <body>
+      <div id="app"></div>
+   </body>
+</html>
+```
 
-    The **EXTERNAL-IP** output for the `store-front` service initially shows as *pending*:
+```JSON
+echo "You can now visit your web server at $IP_ADDRESS"
+```
 
-    ```output
-    NAME          TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-    store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
-    ```
-
-1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
-
-    The following sample output shows a valid public IP address assigned to the service:
-
-    ```output
-    NAME          TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)        AGE
-    store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
-    ```
-
-1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
-
-    :::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
+:::image type="content" source="media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
 ## Delete the cluster
 
-If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. Call the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+If you don't plan on going through the [AKS tutorial][aks-tutorial], clean up unnecessary resources to avoid Azure charges. You can remove the resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
 
-  ```azurecli
-  az group delete --name myResourceGroup --yes --no-wait
-  ```
-
-  > [!NOTE]
-  > The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
+> [!NOTE]
+> The AKS cluster was created with a system-assigned managed identity, which is the default identity option used in this quickstart. The platform manages this identity so you don't need to manually remove it.
 
 ## Next steps
 

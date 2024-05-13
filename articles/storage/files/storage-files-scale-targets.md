@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/22/2024
+ms.date: 04/11/2024
 ms.author: kendownie
 ---
 
@@ -39,7 +39,7 @@ Storage account scale targets apply at the storage account level. There are two 
 | Number of storage accounts per region per subscription | 250<sup>1</sup> | 250<sup>1</sup> |
 | Maximum storage account capacity | 5 PiB<sup>2</sup> | 100 TiB (provisioned) |
 | Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
-| Maximum concurrent request rate | 20,000 IOPS<sup>2</sup> | 100,000 IOPS |
+| Maximum concurrent request rate | 20,000 IOPS<sup>2</sup> | 102,400 IOPS |
 | Throughput (ingress + egress) for LRS/GRS<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
 | Throughput (ingress + egress) for ZRS<br /><ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | <ul><li>Ingress: 7,152 MiB/sec</li><li>Egress: 14,305 MiB/sec</li></ul> | 10,340 MiB/sec |
 | Throughput (ingress + egress) for redundancy/region combinations not listed in the previous row | <ul><li>Ingress: 2,980 MiB/sec</li><li>Egress: 5,960 MiB/sec</li></ul> | 10,340 MiB/sec |
@@ -62,7 +62,7 @@ Azure file share scale targets apply at the file share level.
 | Provisioned size increase/decrease unit | N/A | 1 GiB |
 | Maximum size of a file share | <ul><li>100 TiB, with large file share feature enabled<sup>2</sup></li><li>5 TiB, default</li></ul> | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
-| Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (10000, 3x IOPS per GiB), up to 100,000</li></ul> |
+| Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 102,400</li><li>IOPS bursting: Max (10,000, 3x IOPS per GiB), up to 102,400</li></ul> |
 | Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to storage account limits, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
 | Maximum object name length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters |
@@ -136,6 +136,7 @@ The following table indicates which targets are soft, representing the Microsoft
 | Resource | Target | Hard limit |
 |----------|--------------|------------|
 | Storage Sync Services per region | 100 Storage Sync Services | Yes |
+| Storage Sync Services per subscription | 15 Storage Sync Services | Yes |
 | Sync groups per Storage Sync Service | 200 sync groups | Yes |
 | Registered servers per Storage Sync Service | 99 servers | Yes |
 | Private endpoints per Storage Sync Service | 100 private endpoints | Yes |

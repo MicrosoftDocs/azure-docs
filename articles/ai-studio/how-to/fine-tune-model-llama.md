@@ -2,13 +2,14 @@
 title: Fine-tune a Llama 2 model in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to fine-tune a Llama 2 model in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
-ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.reviewer: shubhiraj
+reviewer: shubhirajMsft
+ms.author: ssalgado
+author: ssalgadodev
 ms.custom: references_regions
 ---
 
@@ -71,7 +72,7 @@ The supported file types are csv, tsv, and JSON Lines. Files are uploaded to the
 
 ## Fine-tune a Llama 2 model
 
-You can fine-tune a Llama 2 model in Azure AI Studio via the [model catalog](./model-catalog.md) or from your existing project. 
+You can fine-tune a Llama 2 model in Azure AI Studio via the [model catalog](./model-catalog-overview.md) or from your existing project. 
 
 To fine-tune a Llama 2 model in an existing Azure AI Studio project, follow these steps:
 

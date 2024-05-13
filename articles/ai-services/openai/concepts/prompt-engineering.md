@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to use prompt engineering to optimize your work with Azure OpenAI Service.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/21/2023
+ms.date: 03/29/2024
 ms.custom: references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle
@@ -24,7 +24,7 @@ Prompt construction can be difficult. In practice, the prompt acts to configure 
 
 This section covers the basic concepts and elements of GPT prompts.
 
-Text prompts are how users interact with GPT models. As with all generative language models, GPT models attempt to produce the next series of words that are most likely to follow from the previous text. It's as if we're saying *What is the first thing that comes to your mind when I say `<prompt>`?”*. The examples below demonstrate this behavior. Given the first words of famous content, the model is able to accurately continue the text.
+Text prompts are how users interact with GPT models. As with all generative language models, GPT models attempt to produce the next series of words that are most likely to follow from the previous text. It's as if we're saying *What is the first thing that comes to your mind when I say `<prompt>`?*. The examples below demonstrate this behavior. Given the first words of famous content, the model is able to accurately continue the text.
 
 | Prompt                             |Completion |
 |------------------------------------|-----------|
@@ -51,7 +51,7 @@ Simple instructions | Write an introduction for a weekly newsletter. | Welcome t
 
 ### Primary Content
 
-Primary content refers to some sort of text that is being processed or transformed by the model. Primary content is typically used in conjunction with instructions. A simple example would be language translation. In the example below, the English text would be considered the primary content while “Translate to French:” is an instruction.
+Primary content refers to some sort of text that is being processed or transformed by the model. Primary content is typically used in conjunction with instructions. A simple example would be language translation. In the example below, the English text would be considered the primary content while "Translate to French:" is an instruction.
 
 | Prompt | Completion|
 |--------|-----------|
@@ -79,18 +79,18 @@ Successful prompts often rely on the practice of “one-shot” or “few-shot�
 | Zero-shot | Headline: Coach confident injury won't derail Warriors<br>Topic:| The coach is confident that the injury won't derail the Warriors' season. The team is still focused on their goals and that they will continue to work hard to achieve them.|
 | Few-shot | Headline: Twins' Correa to use opt-out, test free agency<br>Topic: Baseball<br>Headline: Qatar World Cup to have zones for sobering up<br>Topic: Soccer<br>Headline: Yates: Fantasy football intel for Week 6<br>Topic: Football<br>Headline: Coach confident injury won't derail Warriors<br>Topic: | Basketball |
 
-The example above illustrates the utility of few-shot learning. Without the examples, the model seems to be guessing at the desired behavior, while the examples cleanly show the model how to operate. This also demonstrates the power of the model, it can infer the category of label that is wanted, even without a ‘basketball’ label in the examples.
+The example above illustrates the utility of few-shot learning. Without the examples, the model seems to be guessing at the desired behavior, while the examples cleanly show the model how to operate. This also demonstrates the power of the model, it can infer the category of label that is wanted, even without a "basketball" label in the examples.
 
 ### Cue
 
-Cues act as the “jumpstart” for the output of the model, helping to direct the model to the desired output. It is often a prefix that the model can build onto. In the example below, we show the cue directing the story to include key elements. Cues are often used along with instructions, but not always. In the examples below, the model is being used to summarize a long announcement email. A cue is used in one case to help focus the output of the model and to suggest a specific output format (bullet points) in the other.  
+Cues act as the "jumpstart" for the output of the model, helping to direct the model to the desired output. It is often a prefix that the model can build onto. In the example below, we show the cue directing the story to include key elements. Cues are often used along with instructions, but not always. In the examples below, the model is being used to summarize a long announcement email. A cue is used in one case to help focus the output of the model and to suggest a specific output format (bullet points) in the other.  
 
 In the context of the Chat Completion API instructions take the form of the system message, and few-shot examples are indicated by providing a series of example user/assistant interactions to help prime the model.
 
 | Number of Cues|Prompt | Completion|
 |----------|-------|-----------|
 | 0 | Performance reviews are a core component of our Performance & Development approach at Contoso. […] <br> Summarize the above email message: | The purpose of this email is to inform employees of recent changes to the performance review experience, which is part of Contoso's Performance & Development approach. The changes include an improved structure, upgraded in-tool user experience, and focused prompts. Additionally, there is now an optional Conversation Starters section for employees to flag topics they'd like to discuss with their managers. |
-| 1 | Performance reviews are a core component of our Performance & Development approach at Contoso. […] <br> Summarize the above email message:<br> The key takeaway of the message is | that Contoso is improving the performance review experience by making it more focused on core priorities, expectations and impact. Additionally, they are upgrading the in-tool user experience with tips, resources and guidance. Finally, they are adding guidance on how to activate company-wide core priorities. | 
+| 1 | Performance reviews are a core component of our Performance & Development approach at Contoso. […] <br> Summarize the above email message:<br> The key takeaway of the message is | that Contoso is improving the performance review experience by making it more focused on core priorities, expectations, and impact. Additionally, they are upgrading the in-tool user experience with tips, resources, and guidance. Finally, they are adding guidance on how to activate company-wide core priorities. | 
 |2 | Performance reviews are a core component of our Performance & Development approach at Contoso. […] <br> Summarize the above email message: <br>Key Points:<br>• | Contoso is introducing changes to the performance review experience, based on feedback from employees.<br>• The changes include a new focus on core priorities, expectations, and impact; an upgraded user experience; and new guidance on company-wide core priorities.<br>• Performance reviews are a time to reflect on past performance and learning as well as to plan for future priorities and growth opportunities.<br>• Employees and managers should write comments in advance of the performance review meeting.<br>• There should be at least two performance reviews per year.<br>• The time investment for each review should remain about the same. |
 
 ### Supporting content
@@ -106,13 +106,13 @@ Supporting content is information that the model can utilize to influence the ou
 
 - **Be Specific**. Leave as little to interpretation as possible. Restrict the operational space.
 - **Be Descriptive**. Use analogies.
-- **Double Down**. Sometimes you may need to repeat yourself to the model. Give instructions before and after your primary content, use an instruction and a cue, etc. 
-- **Order Matters**. The order in which you present information to the model may impact the output.  Whether you put instructions before your content (“summarize the following…”) or after (“summarize the above…”) can make a difference in output. Even the order of few-shot examples can matter. This is referred to as recency bias.
-- **Give the model an “out”**.  It can sometimes be helpful to give the model an alternative path if it is unable to complete the assigned task. For example, when asking a question over a piece of text you might include something like "respond with ‘not found’ if the answer is not present." This can help the model avoid generating false responses.
+- **Double Down**. Sometimes you might need to repeat yourself to the model. Give instructions before and after your primary content, use an instruction and a cue, etc. 
+- **Order Matters**. The order in which you present information to the model might impact the output. Whether you put instructions before your content (“summarize the following…”) or after (“summarize the above…”) can make a difference in output. Even the order of few-shot examples can matter. This is referred to as recency bias.
+- **Give the model an “out”**. It can sometimes be helpful to give the model an alternative path if it is unable to complete the assigned task. For example, when asking a question over a piece of text you might include something like "respond with "not found" if the answer is not present." This can help the model avoid generating false responses.
 
 ## Space efficiency
 
-While the input size increases with each new generation of GPT models, there will continue to be scenarios that provide more data than the model can handle. GPT models break words into “tokens”. While common multi-syllable words are often a single token, less common words are broken in syllables. Tokens can sometimes be counter-intuitive, as shown by the example below which demonstrates token boundaries for different date formats.  In this case, spelling out the entire month is more space efficient than a fully numeric date. The current range of token support goes from 2000 tokens with earlier GPT-3 models to up to 32,768 tokens with the 32k version of the latest GPT-4 model.
+While the input size increases with each new generation of GPT models, there will continue to be scenarios that provide more data than the model can handle. GPT models break words into "tokens." While common multi-syllable words are often a single token, less common words are broken in syllables. Tokens can sometimes be counter-intuitive, as shown by the example below which demonstrates token boundaries for different date formats. In this case, spelling out the entire month is more space efficient than a fully numeric date. The current range of token support goes from 2,000 tokens with earlier GPT-3 models to up to 32,768 tokens with the 32k version of the latest GPT-4 model.
 
 :::image type="content" source="../media/prompt-engineering/space-efficiency.png" alt-text="Screenshot of a string of text with highlighted colors delineating token boundaries." lightbox="../media/prompt-engineering/space-efficiency.png":::
 
@@ -122,4 +122,4 @@ Given this limited space, it is important to use it as efficiently as possible.
 
 ## Next steps
 
-[Learn more about Azure OpenAI](../overview.md)
+[Learn more about Azure OpenAI.](../overview.md)

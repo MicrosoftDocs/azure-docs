@@ -6,6 +6,9 @@ ms.topic: article
 ms.custom: build-2023, linux-related-content
 ms.reviewer: mattmcinnes
 ms.date: 04/19/2023
+author: nickomang
+ms.author: nickoman
+
 ms.subservice: aks-upgrade
 #Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance
 ---
@@ -122,3 +125,4 @@ For a detailed discussion of upgrade best practices and other considerations, se
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [node-image-upgrade]: node-image-upgrade.md
 [upgrade-operators-guide]: /azure/architecture/operator-guides/aks/aks-upgrade-practices
+

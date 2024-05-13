@@ -39,12 +39,6 @@ The application routing add-on uses a Kubernetes [custom resource definition (CR
 
 When you enable the application routing add-on with NGINX, it creates an ingress controller called `default` in the `app-routing-namespace` configured with a public facing Azure load balancer. That ingress controller uses an ingress class name of `webapprouting.kubernetes.azure.com`.
 
-You can modify the configuration of the default ingress controller by editing its configuration.
-
-```bash
-kubectl edit nginxingresscontroller default -n app-routing-system
-```
-
 ### Create another public facing NGINX ingress controller
 
 To create another NGINX ingress controller with a public facing Azure Load Balancer:

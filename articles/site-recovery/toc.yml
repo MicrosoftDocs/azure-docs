@@ -29,6 +29,8 @@
     items:
     - name: Set up disaster recovery for Azure VMs
       href: azure-to-azure-tutorial-enable-replication.md
+    - name: Set up disaster recovery using shared disk
+      href: tutorial-shared-disk.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
     - name: Run failover and reprotect
@@ -100,9 +102,7 @@
     - name: Move Azure VMs between Government & Public regions
       href: region-move-cross-geos.md
     - name: Move a vault to a different region
-      href: move-vaults-across-regions.md
-    - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-recovery-services-vault.md      
+      href: move-vaults-across-regions.md      
   - name: Migrate to Azure
     items:
     - name: Prepare Azure for on-premises replication
@@ -119,8 +119,6 @@
       href: tutorial-prepare-azure.md
     - name: Prepare on-premises VMware
       href: vmware-azure-tutorial-prepare-on-premises.md
-    - name: Set up replication
-      href: vmware-azure-set-up-replication-tutorial-modernized.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
     - name: Run VMware VMs failover to Azure
@@ -133,6 +131,8 @@
       href: azure-to-azure-support-matrix.md
     - name: VMware/physical to Azure
       href: vmware-physical-azure-support-matrix.md
+    - name: Azure to Azure shared disks
+      href: shared-disk-support-matrix.md
     - name: On-premises Hyper-V VMs to Azure
       href: hyper-v-azure-support-matrix.md
     - name: Support requirements for Azure Site Recovery replication appliance
@@ -155,6 +155,8 @@
     items:
     - name: Azure to Azure disaster recovery architecture
       href: azure-to-azure-architecture.md
+    - name: Azure trusted launch VMs
+      href: concepts-trusted-vm.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Accelerated networking for Azure VM disaster recovery
@@ -203,6 +205,12 @@
       href: concepts-public-ip-address-with-site-recovery.md
   - name: About recovery plans
     href: recovery-plan-overview.md
+  - name: Migrate
+    items:
+    - name: Migrate to Azure
+      href: migrate-overview.md
+    - name: Migration to availability zones 
+      href: ../availability-zones/migrate-recovery-services-vault.md     
   - name: Security
     items:
     - name: Security baseline
@@ -213,18 +221,10 @@
     items:
     - name: Classic
       href: vmware-azure-architecture.md
-
-  - name: About failover and failback
-    items:
-    - name: Classic
-      href: failover-failback-overview.md
-
   - name: Failback location options from Azure to VMware
     href: concepts-types-of-failback.md
   - name: Multitenant support for VMware disaster recovery
     href: vmware-azure-multi-tenant-overview.md
-  - name: About migration to Azure
-    href: migrate-overview.md
   - name: About role-based access control with Site Recovery
     href: site-recovery-role-based-linked-access-control.md
 - name: How-to Guides
@@ -541,16 +541,18 @@
     href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Monitoring
   items:
-  - name: Monitor and operate backups and disaster recovery using Backup center
-    href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
-  - name: Monitor Site Recovery
+  - name: Monitor
+    href: monitor-site-recovery.md
+  - name: Use Recovery Services dashboard
     href: site-recovery-monitor-and-troubleshoot.md
-  - name: Monitor Site Recovery with Azure Monitor Logs
+  - name: Use Azure Monitor Logs
     href: monitor-log-analytics.md
-  - name: Monitoring churn patterns on Virtual Machines
+  - name: Monitor churn patterns on virtual machines
     href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
+  - name: Monitor using Backup center
+    href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure VMs
@@ -597,6 +599,10 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST
     href: /rest/api/site-recovery
+  - name: Monitoring data reference
+    href: monitor-site-recovery-reference.md
+  - name: Azure Well-Architected Framework
+    href: /azure/well-architected
 - name: Related
   items:
   - name: Azure Backup

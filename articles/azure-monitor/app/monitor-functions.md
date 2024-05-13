@@ -146,7 +146,35 @@ To view more data from your Node Azure Functions applications than is [collected
 
 ## Distributed tracing for Python function apps
 
-To collect custom telemetry from services such as Redis, Memcached, and MongoDB, use the [OpenCensus Python extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](../../azure-functions/functions-reference-python.md?tabs=azurecli-linux%2capplication-level#log-custom-telemetry). You can find the list of supported services in this [GitHub folder](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
+To collect telemetry from services such as Requests, urllib3, httpx, PsycoPG2, and more, use the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python). Tracked incoming requests coming into your Python application hosted in Azure Functions will not be automatically correlated with telemetry being tracked within it. You can manually achieve trace correlation by extract the TraceContext directly as shown below:
+
+<!-- TODO: Remove after Azure Functions implements this automatically -->
+
+```python
+import azure.functions as func
+
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
+from opentelemetry.propagate import extract
+
+# Configure Azure monitor collection telemetry pipeline
+configure_azure_monitor()
+
+def main(req: func.HttpRequest, context) -> func.HttpResponse:
+   ...
+   # Store current TraceContext in dictionary format
+   carrier = {
+      "traceparent": context.trace_context.Traceparent,
+      "tracestate": context.trace_context.Tracestate,
+   }
+   tracer = trace.get_tracer(__name__)
+   # Start a span using the current context
+   with tracer.start_as_current_span(
+      "http_trigger_span",
+      context=extract(carrier),
+   ):
+      ...
+```
 
 ## Next steps
 

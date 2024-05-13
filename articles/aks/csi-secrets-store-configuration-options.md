@@ -69,6 +69,8 @@ To disable auto-rotation, you first need to disable the add-on. Then, you can re
     az aks addon enable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
     ```
 
+If you are already using a `SecretProviderClass`, you can update the add-on without disabling it first by using `az aks addon enable` without specifying the `enable-secret-rotation` parameter.
+
 ### Sync mounted content with a Kubernetes secret
 
 > [!NOTE]
@@ -226,3 +228,4 @@ To learn more about the Azure Key Vault provider for Secrets Store CSI Driver, s
 
 <!-- LINKS EXTERNAL -->
 [reloader]: https://github.com/stakater/Reloader
+
