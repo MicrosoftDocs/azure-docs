@@ -797,6 +797,37 @@
             - name: Output
               href: functions-bindings-azure-data-explorer-output.md
               displayName: Azure Data Explorer
+        - name: Azure OpenAPI
+          items:
+            - name: Overview
+              href: functions-bindings-openai.md
+              displayName: OpenAPI    
+            - name: Assistants 
+              items: 
+                - name: Trigger
+                  href: functions-bindings-openai-assistant-trigger.md  
+                  displayName: Assistants     
+                - name: Query input
+                  href: functions-bindings-openai-assistantquery-input.md 
+                  displayName: Assistants
+                - name: Create output
+                  href: functions-bindings-openai-assistantcreate-output.md
+                  displayName: Assistants   
+                - name: Post input
+                  href: functions-bindings-openai-assistantpost-input.md 
+                  displayName: Assistants
+            - name: Embeddings  
+              items: 
+                - name: Input
+                  href: functions-bindings-openai-embeddings-input.md 
+                  displayName: embeddings
+                - name: Store output
+                  href: functions-bindings-openai-embeddingsstore-output.md  
+                  displayName: embeddings
+            - name: Semantic search input
+              href: functions-bindings-openai-semanticsearch-input.md   
+            - name: Text Completion input
+              href: functions-bindings-openai-textcompletion-input.md                      
         - name: Azure SQL
           items:
             - name: Overview
