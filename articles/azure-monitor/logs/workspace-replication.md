@@ -148,20 +148,21 @@ The `PUT` command is a long running operation that can take some time to complet
 
 ### Check workspace state
 
-You can confirm successful completion of workspace replication operations by using a `GET` command with the following values:
-
-- `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `<workspace_name>`: The name of your workspace linked to your dedicated cluster.
- 
-The `GET` command verifies that the workspace provisioning state changes from "Updating" to "Succeeded," and the secondary region is set as expected.
-
-The following code demonstrates the `GET` command:
+To check the workspace state, run this `GET` command:
 
 ```http
 GET
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
 ```
+
+Where:
+
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>`: The resource group that contains your workspace resource.
+- `<workspace_name>`: The name of your workspace linked to your dedicated cluster.
+ 
+The `GET` command verifies that the workspace provisioning state changes from "Updating" to "Succeeded," and the secondary region is set as expected.
+
 
 > [!NOTE]
 > When you enable replication for workspaces that interact with Sentinel, it can take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
@@ -375,12 +376,6 @@ Here are some other considerations:
    > Because solution targeting can't work during switchover, solutions data is ingested from **all** agents during switchover.
 
 The following features are partially supported or not currently supported:
-
-<!-- Reviewer:
-
-   Can you provide more Notes descriptions for the partially supported features?
-
--->
 
 | Feature | Support | Notes |
 | --- | --- | --- |
