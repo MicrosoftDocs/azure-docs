@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/10/2024
+ms.date: 05/13/2024
 recommendations: false
 ---
 
@@ -19,6 +19,15 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## May 2024
+
+### GPT-4o preview model available for early access
+
+GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
+
+- GPT-4o integrates text, and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
+- GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in vision tasks, setting new benchmarks for AI capabilities.
+
+To start testing out the model today, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).
 
 ### GPT-4 Turbo model general availability (GA)
 
