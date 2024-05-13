@@ -4,13 +4,13 @@ description: Prerequisites and configuration steps to enable semantic caching fo
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 05/13/2024
 ms.author: danlep
 ---
 
 # Enable semantic caching for Azure OpenAI APIs in Azure API Management
 
-Enable semantic caching of responses to Azure OpenAI API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. [Learn more about using Azure Cache for Redis as a semantic cache](../azure-cache-for-redis/cache-tutorial-semantic-cache.md).
+Enable semantic caching of responses to Azure OpenAI API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Cache for Redis as a semantic cache](../azure-cache-for-redis/cache-tutorial-semantic-cache.md).
 
 ## Prerequisites
 
@@ -20,7 +20,10 @@ Enable semantic caching of responses to Azure OpenAI API requests to reduce band
     * Embeddings API - Deployment used for semantic caching
 * The API Management instance must be configured to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
 * [Azure Cache for Redis Enterprise](../azure-cache-for-redis/quickstart-create-redis-enterprise.md). The **RediSearch** module must be enabled on the Redis Enterprise cache.
+    > [!NOTE]
+    > You can only enable the **RediSearch** module when creating a new Redis Enterprise cache. You can't add a module to an existing cache. [Learn more](../azure-cache-for-redis/cache-redis-modules.md)
 * External cache configured in the Azure API Management instance. For steps, see [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md).
+
 
 ## Test Chat API deployment
 
