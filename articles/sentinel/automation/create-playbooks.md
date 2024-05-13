@@ -264,7 +264,7 @@ To use custom fields for incident triggers:
 
     :::image type="content" source="../media/playbook-triggers-actions/generate-schema-link.png" alt-text="Screenshot of selecting the use sample payload to generate schema link from Dynamic content option.":::
 
-1. Supply a sample payload. You can find a sample payload by looking in Log Analytics for another instance of this alert, and copying the custom details object (under **Extended Properties**). Access Log Analytics data either in the **Logs** page in the Azure portal or the **Advanced hunting** page in the Defender portal. In the screenshot below, we used the JSON code shown above.
+1. Supply a sample payload. For example, you can find a sample payload by looking in Log Analytics for another instance of this alert and copying the custom details object, found under **Extended Properties**. Access Log Analytics data either in the **Logs** page in the Azure portal or the **Advanced hunting** page in the Defender portal. In the screenshot below, we used the JSON code shown above.
 
     :::image type="content" source="../media/playbook-triggers-actions/sample-payload.png" alt-text="Screenshot of entering a sample JSON payload.":::
 
@@ -276,8 +276,7 @@ The custom fields are ready to be used as dynamic fields of type **Array**. For 
 
 Select the **Automation > Active playbooks** tab to view all the playbooks you have access to, filtered by your subscription view.
 
-- **In the Defender portal**, the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription.
-- **In the Azure portal**, edit the subscriptions you're showing from the **Directory + subscription** menu in the global Azure page header.
+After onboarding to the unified security operations platform, by default the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. **In the Azure portal**, edit the subscriptions you're showing from the **Directory + subscription** menu in the global Azure page header.
 
 While the **Active playbooks** tab displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
 

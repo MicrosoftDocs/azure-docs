@@ -19,7 +19,7 @@ Playbooks are collections of procedures that can be run from Microsoft Sentinel 
 This article describes how to attach playbooks to analytics rules or automation rules, or run playbooks manually on specific incidents, alerts, or entities.
 
 > [!NOTE]
-> Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), which means that you get all the power, customizability, and built-in templates of Logic Apps. Additional charges may apply. Visit the [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details.
+> Playbooks in Microsoft Sentinel are based on workflows built in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), which means that you get all the power, customizability, and built-in templates of Logic Apps. Additional charges might apply. Visit the [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
@@ -77,7 +77,7 @@ The **Microsoft Sentinel Automation Contributor** role has a fixed GUID of `f4c8
 }
 ```
 
-### Automate responses to incidents and alerts
+## Automate responses to incidents and alerts
 
 <a name="respond-to-incidents"></a><a name="respond-to-alerts"></a> <a name="respond-to-incidents-and-alerts"></a><!-- Anchor links included here for backward compatibility with, and redirection of, old headings -->
 
@@ -89,13 +89,13 @@ To respond automatically to entire incidents or individual alerts with a playboo
 
    :::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Screenshot showing how to add a new automation rule.":::
 
-1. The **Create new automation rule** panel opens. Enter a name for your rule.     Your options differ depending on whether your workspace is onboarded to the unified security operations platform. For example:
+1. The **Create new automation rule** panel opens. Enter a name for your rule. Your options differ depending on whether your workspace is onboarded to the unified security operations platform. For example:
 
-    #### [Onboarded workspaces](#tab/after-onboarding)
+    ### [Onboarded workspaces](#tab/after-onboarding)
 
     :::image type="content" source="../media/tutorial-respond-threats-playbook/create-automation-rule-onboarded.png" alt-text="Screenshot showing the automation rule creation wizard.":::
 
-    #### [Workspaces that aren't onboarded](#tab/before-onboarding)
+    ### [Workspaces that aren't onboarded](#tab/before-onboarding)
 
    :::image type="content" source="../media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Screenshot showing the automation rule creation wizard.":::
 
@@ -160,7 +160,7 @@ This procedure isn't supported in the unified security operations platform.
 
 In the Azure portal, select one of the following tabs as needed for your environment:
 
-# [Incident details page](#tab/incidents)
+#### [Incident details page](#tab/incidents)
 
 1. In the **Incidents** page, select an incident, and then select **View full details** to open the incident details page.
 
@@ -172,7 +172,7 @@ In the Azure portal, select one of the following tabs as needed for your environ
 
 1. Select **Run** on the line of a specific playbook to run it immediately.
 
-# [Investigation graph](#tab/cases)
+#### [Investigation graph](#tab/cases)
 
 1. In the **Incidents** page, select an incident, and then select **View full details** to open the incident details page.
 
@@ -215,7 +215,7 @@ This procedure differs, depending on if you're working in Microsoft Sentinel or 
 
 1. In the **Incidents** page, select an incident.
 
-1. From the incident details pane that appears on the side, select **Run Playbook**.
+1. From the incident details pane that appears on the side, select **Run Playbook (Preview)**.
 
 1. The **Run playbook on incident** panel opens on the side, with all related playbooks for the selected incident. In the **Action** column, select **Run playbook** for the playbook you want to run immediately.
 
