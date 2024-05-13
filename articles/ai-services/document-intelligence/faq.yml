@@ -472,7 +472,7 @@ sections:
 
             - **Contributor**: You need this role to create a resource group and resources.
 
-          Please note that having Contributor or Storage Account Contributor roles does not give you access to use your Document Intelligence resource or storage account if local (key-based) authentication is disabled.  You still need the basic roles (Cognitive Services User and Storage Data Blob Contributor) to use the functions on Document Intelligence Studio.
+          Please note that having Contributor or Storage Account Contributor role does not give you access to use your Document Intelligence resource or storage account if local (key-based) authentication is disabled.  You still need the basic roles (Cognitive Services User and Storage Data Blob Contributor) to use the functions on Document Intelligence Studio.
 
           For more information, see [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and the sections about Azure role assignments in the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md).
 
@@ -522,12 +522,12 @@ sections:
       - question: |
           Why an I receiving the error "PermissionDenied" when using prebuilt apps or opening my custom project?
         answer: |
-          If you received error "PermissionDenied: Principal does not have access to API/Operation" when analyzing against prebuilt models or opening a custom project, it is likely the local/key authentication is disabled for your Document Intelligence resource and your do not have enough permission to access the resource.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) to configure your access roles.
+          If you received error "PermissionDenied: Principal does not have access to API/Operation" when analyzing against prebuilt models or opening a custom project, it is likely the local (key-based) authentication is disabled for your Document Intelligence resource and your do not have enough permission to access the resource.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) to configure your access roles.
 
       - question: |
           Why an I receiving the error "AuthorizationPermissionMismatch" when opening my custom project?
         answer: |
-          If you received error "AuthorizationPermissionMismatch: This request is not authorized to perform this operation using this permission" when opening a custom project, it is likely the local/key authentication is disabled for your storage account and your do not have enough permission to access the blob data.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments-1) to configure your access roles.
+          If you received error "AuthorizationPermissionMismatch: This request is not authorized to perform this operation using this permission" when opening a custom project, it is likely the local (key-based) authentication is disabled for your storage account and your do not have enough permission to access the blob data.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments-1) to configure your access roles.
 
       - question: |
           Why am I not able to sign in to Document Intelligence Studio and keeps seeing InteractionRequiredAuthError error?
