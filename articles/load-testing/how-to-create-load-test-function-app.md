@@ -38,7 +38,7 @@ To create a load test for a function app:
 
     On this page, you can see the list of tests and the load test runs for this function app.
    
-    :::image type="content" source="./media/how-to-create-load-test-azure-functions/azure-functions-load-testing.png" lightbox="./media/how-to-create-load-test-azure-functions/azure-functions-load-testing.png" alt-text="Screenshot that shows Load Testing page in an app in Azure Functions.":::
+    :::image type="content" source="./media/how-to-create-load-test-azure-functions/azure-functions-load-test.png" lightbox="./media/how-to-create-load-test-azure-functions/azure-functions-load-test.png" alt-text="Screenshot that shows Load Testing page in an app in Azure Functions.":::
 
 1. Optionally, select **Create load testing resource** if you don't have a load testing resource yet.
 
