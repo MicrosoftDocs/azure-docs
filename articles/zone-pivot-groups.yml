@@ -3261,3 +3261,12 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+# Owner: micahvivion
+- id: acs-errorcodes-client-server
+  title: Code and subcode errors
+  prompt: Choose a location where the error was generated
+  pivots:
+  - id: platform-javascript
+    title: JavaScript
+  - id: platform-server
+    title: Server

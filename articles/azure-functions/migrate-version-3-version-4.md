@@ -36,7 +36,7 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 >
 > Although you can choose to instead use the in-process model, this is not recommended if it can be avoided. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 7 or .NET 6 on the isolated worker model. If you need to target these versions, you can adapt the .NET 8 isolated worker model examples.
+This guide doesn't present specific examples for .NET 6 on the isolated worker model. If you need to target that version, you can adapt the .NET 8 isolated worker model examples.
 
 ::: zone-end
 
