@@ -14,7 +14,7 @@ This quickstart describes how to view protectable resources in Azure Business Co
 
 As a business continuity and disaster recovery admin, first identify your critical resources that don't have backups or replications configured. If the protection isn't configured, you can't recover these resources in primary or secondary region in case of any outage, malicious attack, or operational failures, which lead to data loss.
 
-## View resources for protection
+## View unprotected resources
 
 To check the resources that require protection, follow these steps:
 
@@ -31,7 +31,7 @@ To check the resources that require protection, follow these steps:
    >- Currently, you can view the *unprotected Azure resources* under **Protectable resources** only.
    >- You can also query information on your protectable Azure resources at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions.
 
-   To check for the protectable Azure resources using ARG, use the *sample query* provided by selecting *Open query*.
+   Alternatively, you can check for the protectable Azure resources using ARG. To do so, use the *sample query* provided by selecting *Open query*.
  
    :::image type="content" source="./media/quick-view-protectable-resources/sample-query-to-find-protectable-resources.png" alt-text="Screenshot shows how to open sample query to find protectable resources." lightbox="./media/quick-view-protectable-resources/sample-query-to-find-protectable-resources.png":::
 
