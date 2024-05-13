@@ -116,7 +116,7 @@ For more information, see [Analyze unexpected charges](../understand/analyze-une
 
 Azure doesn't log most user actions. Instead, Azure logs resource usage for billing. If you notice a usage spike in the past and you didn't have logging enabled, Azure can't pinpoint the cause. Enable logging for the service that you want to view the increased usage for so that the appropriate technical team can assist you with the issue.
 
-## Next steps
+## Related content
 
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
