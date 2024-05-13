@@ -3,8 +3,8 @@
 # For more information, see https://review.learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata?branch=main
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
-title: Generate vector embeddings in PostgreSQL with azure_local_ai extension.
-description: Generate text embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns with azure_local_ai extension and locally deployed LLM.
+title: Generate vector embeddings in PostgreSQL with the azure_local_ai extension
+description: Generate text embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns with the azure_local_ai extension and locally deployed LLM.
 author:      jojohnso-msft # GitHub alias
 ms.author: jojohnso
 ms.service: postgresql
@@ -13,11 +13,11 @@ ms.date: 05/19/2024
 ms.subservice: flexible-server
 ---
 
-# Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (Preview)
+# Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (preview)
 
 ## Prerequisites
 
-1. An Azure Database for PostgreSQL Flexible Server instance running on a memory optimized VM SKU. Learn more about Azure memory optimized VMs here: [Azure VM sizes - Memory - Azure Virtual Machines | Microsoft Learn](/azure/virtual-machines/sizes-memory)
+1. An Azure Database for PostgreSQL Flexible Server instance running on a memory optimized VM SKU. Learn more about Azure memory optimized VMs here: [Azure VM sizes - Memory - Azure Virtual Machines](/azure/virtual-machines/sizes-memory)
 
 1. Enable the following extensions,
 
@@ -26,7 +26,7 @@ ms.subservice: flexible-server
    1. azure_local_ai
       
       
-Information on enabling extensions in Azure Database for PostgreSQL – Flexible Server, [How to enable extensions in Azure Database for PostgreSQL.](/azure/postgresql/flexible-server/concepts-extensions)
+For more information on enabling extensions in Azure Database for PostgreSQL – Flexible Server, see [How to enable extensions in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-extensions).
 
 
 > [!NOTE]  
@@ -35,7 +35,7 @@ Information on enabling extensions in Azure Database for PostgreSQL – Flexible
 
 ## Functions provided by the azure_local_ai extension
 
-The azure_local_ai extension provides a set of functions. These functions allow you to create vector embeddings from text data, making it easier to develop generative AI applications. The extension offers functions for creating embeddings, getting settings, and more. By using these functions, you can simplify the development process and reduce latency by eliminating the need for additional remote API calls to AI embedding models hosted outside of the PostgreSQL boundary.
+The **azure_local_ai extension** provides a set of functions. These functions allow you to create vector embeddings from text data, making it easier to develop generative AI applications. The extension offers functions for creating embeddings, getting settings, and more. By using these functions, you can simplify the development process and reduce latency by eliminating the need for additional remote API calls to AI embedding models hosted outside of the PostgreSQL boundary.
 
 |  Schema  |  Name  |  Result data type  |  Argument data types  |  
 |---|---|---|---|
@@ -149,7 +149,7 @@ select all_docs.doc_id, all_docs.doc , 1 - (all_docs.embedding::vector <=> targe
  limit 2;
 ```
 
-## ONNX Runtime Configuration
+## ONNX Runtime configuration
 
 ###  `azure_local_ai.get_setting`
 Used to obtain current values of configuration options.
@@ -158,7 +158,7 @@ Used to obtain current values of configuration options.
 SELECT azure_local_ai.get_setting(key TEXT)
 ```
 
-azure_local_ai supports reviewing the configuration parameters of ONNX Runtime thread-pool within the ONNX Runtime Service. Changes are not allowed at this time. [See ONNX Runtime performance tuning.](https://onnxruntime.ai/docs/performance/tune-performance/threading.html)
+The **azure_local_ai** extension supports reviewing the configuration parameters of ONNX Runtime thread-pool within the ONNX Runtime Service. Changes are not allowed at this time. [See ONNX Runtime performance tuning.](https://onnxruntime.ai/docs/performance/tune-performance/threading.html)
 
 
 #### Arguments
