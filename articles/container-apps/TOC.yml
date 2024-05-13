@@ -323,6 +323,9 @@
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
+      - name: Metrics
+        href: java-metrics.md
+        displayName: java
       - name: Use Eureka Server for Spring
         href: java-eureka-server-usage.md
       - name: Use Config Server for Spring

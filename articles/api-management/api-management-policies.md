@@ -78,6 +78,11 @@ More information about policies:
 |  [Get value from cache](cache-lookup-value-policy.md) | Retrieves a cached item by key. | Yes | Yes | Yes | Yes |
 |  [Store value in cache](cache-store-value-policy.md) | Stores an item in the cache by key. | Yes | Yes | Yes | Yes |
 |  [Remove value from cache](cache-remove-value-policy.md) | Removes an item in the cache by key. | Yes | Yes | Yes | Yes |
+|  [Get cached responses of Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) | Performs cache lookup using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes |
+|  [Store responses of Azure OpenAI API requests to cache](azure-openai-semantic-cache-store-policy.md) | Caches response according to the Azure OpenAI API cache configuration. | Yes | Yes | Yes | Yes |
+
+
+
 
 ## Transformation
 
