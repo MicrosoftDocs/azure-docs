@@ -30,7 +30,7 @@ monikerRange: '>=doc-intel-3.0.0'
 > [!TIP]
 > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll need a single-service resource if you intend to use [Microsoft Entra authentication](../../../active-directory/authentication/overview-authentication.md).
 > 
-> Also note that Document Intelligence now supports AAD token authentication additional to local/key-based authentication when accessing the Document Intelligence resources and storage accounts.  Be sure to follow below instructions to setup correct access roles, especially if your resources are applied with DisableLocalAuth policy.
+> Also note that Document Intelligence now supports AAD token authentication additional to local (key-based) authentication when accessing the Document Intelligence resources and storage accounts.  Be sure to follow below instructions to setup correct access roles, especially if your resources are applied with DisableLocalAuth policy.
 
 #### Azure role assignments
 
@@ -41,7 +41,7 @@ For document analysis and prebuilt models, following role assignments are requir
   * **Contributor**: you need this role to create resource group, Document Intelligence service, or Azure AI services resource.
 
 > [!NOTE]
-> If local/key authentication is disabled for your Document Intelligence service resource, be sure to obtain **Cognitive Services User** role and your AAD token will be used to authenticate requests on Document Intelligence Studio.  The **Contributor** role only allows you to list keys but does not give you permission to use the resource when key-access is disabled.
+> If local (key-based) authentication is disabled for your Document Intelligence service resource, be sure to obtain **Cognitive Services User** role and your AAD token will be used to authenticate requests on Document Intelligence Studio.  The **Contributor** role only allows you to list keys but does not give you permission to use the resource when key-access is disabled.
 
 ## Models
 
@@ -104,7 +104,7 @@ For custom projects, the following role assignments are required for different s
   * **Contributor**: You need this role to create a resource group and resources.
 
 > [!NOTE]
-> If local/key authentication is disabled for your Document Intelligence service resource and storage account, be sure to obtain **Cognitive Services User** and **Storage Blob Data Contributor** role respectively, and your AAD token will be used to authenticate requests on Document Intelligence Studio.  The **Storage Account Contributor** and **Contributor** roles only allow you to list keys but does not give you permission to use the resources when key-access is disabled.
+> If local (key-based) authentication is disabled for your Document Intelligence service resource and storage account, be sure to obtain **Cognitive Services User** and **Storage Blob Data Contributor** role respectively, and your AAD token will be used to authenticate requests on Document Intelligence Studio.  The **Storage Account Contributor** and **Contributor** roles only allow you to list keys but does not give you permission to use the resources when key-access is disabled.
 
 ### Configure CORS
 
