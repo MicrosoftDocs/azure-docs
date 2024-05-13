@@ -161,7 +161,7 @@ items:
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
       - name: Encryption of data at rest
         href: encrypt-data-at-rest.md
-      - name: Manage identity
+      - name: Managed identity
         href: ./how-to/managed-identity.md
       - name: Use Azure OpenAI on your data securely
         href: ./how-to/use-your-data-securely.md

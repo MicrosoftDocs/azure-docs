@@ -25,6 +25,9 @@ Assistants API supports persistent automatically managed threads. This means tha
 - [Code Interpreter](../how-to/code-interpreter.md)
 - [Function calling](../how-to/assistant-functions.md)
 
+> [!TIP]
+> There is no additional [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) or [quota](../quotas-limits.md) for using Assistants unless you use the [code interpreter](../how-to/code-interpreter.md) tool.
+
 Assistant API is built on the same capabilities that power OpenAI’s GPT product. Some possible use cases range from AI-powered product recommender, sales analyst app, coding assistant, employee Q&A chatbot, and more. Start building on the no-code Assistants playground on the Azure OpenAI Studio or start building with the API.
 
 > [!IMPORTANT]

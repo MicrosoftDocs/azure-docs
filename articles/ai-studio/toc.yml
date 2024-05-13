@@ -37,12 +37,22 @@ items:
 - name: How-to
   expanded: true
   items:
-  - name: Explore the model catalog
+  - name: Select and deploy AI models
     items:
     - name: Model catalog
-      href: how-to/model-catalog.md
+      href: how-to/model-catalog-overview.md
+    - name: Data, privacy, and security for Model Catalog
+      href: how-to/concept-data-privacy.md
     - name: Model benchmarks
       href: how-to/model-benchmarks.md
+    - name: Fine-tune models
+      href: concepts/fine-tuning-overview.md
+    - name: Azure OpenAI models
+      items:
+      - name: Deploy Azure OpenAI models
+        href: how-to/deploy-models-openai.md
+      - name: Fine-tune Azure OpenAI models
+        href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
     - name: Cohere models
       items:
       - name: Deploy Cohere Command models
@@ -182,8 +192,6 @@ items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
       displayName: endpoint
-    - name: Deploy Azure OpenAI models
-      href: how-to/deploy-models-openai.md
     - name: Monitor prompt flow deployments
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
