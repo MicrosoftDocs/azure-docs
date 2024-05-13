@@ -12,7 +12,7 @@ ms.custom: template-concept
 # Nexus workload Network Overview
 
 This article describes core concepts of Nexus workload Networks, and introduction to options to configure nexus workload networks with critical properties.
-Nexus workload Network enables application connect with on-premises network and other services over Azure public Cloud. It supports operator use cases with
+Nexus workload network enables application connect with on-premises network and other services over Azure public cloud. It supports operator use cases with
 standard industry technologies that are reliable, predictable, and familiar to operators and network equipment providers.
 
 Nexus offers several top-level API resources that categorically represent different types of networks with different input expectations.  
