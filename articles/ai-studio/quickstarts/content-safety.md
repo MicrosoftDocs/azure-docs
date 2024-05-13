@@ -17,7 +17,7 @@ author: PatrickFarley
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-In this quickstart, get started with the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service in Azure AI Studio. Content Safety detects harmful user-generated and AI-generated content in applications and services. 
+In this quickstart, you use the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service in Azure AI Studio to moderate text and images. Content Safety detects harmful user-generated and AI-generated content in applications and services. 
 
 > [!CAUTION]
 > Some of the sample content provided by Azure AI Studio might be offensive. Sample images are blurred by default. User discretion is advised.
@@ -26,19 +26,18 @@ In this quickstart, get started with the [Azure AI Content Safety](/azure/ai-ser
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region, and supported pricing tier. Then select **Create**.
-* An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio. 
+* An [AI Studio hub](../how-to/create-azure-ai-resource.md) in Azure AI Studio. 
 
 ## Setting up
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select the hub you'd like to work in.
 1. On the left nav menu, select **AI Services**. Select the **Content Safety** panel.
-
-:::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected.":::
+    :::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected." lightbox="../media/content-safety/select-panel.png":::
 
 ## Moderate text or images
 
-Select one of the following tabs to get started with content safety in Azure AI Studio.
+Select one of the following tabs to get started with Content Safety in Azure AI Studio.
 
 # [Moderate text content](#tab/moderate-text-content)
 

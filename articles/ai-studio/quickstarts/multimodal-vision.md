@@ -23,7 +23,7 @@ GPT-4 Turbo with Vision and [Azure AI Vision](../../ai-services/computer-vision/
 - Object grounding: Complements the GPT-4 Turbo with Vision text response with object grounding and outlines salient objects in the input images.
 - Video prompts: GPT-4 Turbo with Vision can answer questions by retrieving the video frames most relevant to the user's prompt.
 
-Extra usage fees might apply for using GPT-4 Turbo with Vision and Azure AI Vision functionality.
+Extra usage fees might apply when using GPT-4 Turbo with Vision and Azure AI Vision functionality.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Extra usage fees might apply for using GPT-4 Turbo with Vision and Azure AI Visi
 - Once you have your Azure subscription, <a href="/azure/ai-services/openai/how-to/create-resource?pivots=web-portal"  title="Create an Azure OpenAI resource."  target="_blank">create an Azure OpenAI resource </a>.
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md) with your Azure OpenAI resource added as a connection. 
 
-## Prepare media
+## Prepare your media
 
 You need an image to complete the image quickstarts. You can use this sample image or any other image you have available. 
 
@@ -48,9 +48,7 @@ For video prompts, you need a video that's under three minutes in length.
 1. On the gpt-4 page, select **Deploy**. In the window that appears, select your Azure OpenAI resource. Select `vision-preview` as the model version.
 1. Select **Deploy**.
 1. Next, go to your new model's page and select **Open in playground**. In the chat playground, the GPT-4 deployment you created should be selected in the **Deployment** dropdown.
-
-:::image type="content" source="../media/quickstarts/multimodal-vision/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground with mode and deployment highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-multi-modal-image-select.png":::
-
+    
 # [Image prompts](#tab/image-chat)
 
 In this chat session, you instruct the assistant to aid in understanding images that you input.
@@ -61,12 +59,9 @@ In this chat session, you instruct the assistant to aid in understanding images 
 1. Add the following question in the chat field: `"Describe this image"`, and then select the right arrow icon to send.
 1. The right arrow icon is replaced by a Stop button. If you select it, the assistant stops processing your request. For this quickstart, let the assistant finish its reply.
 1. The assistant replies with a description of the image.
-
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-reply-license.png" alt-text="Screenshot of the chat playground with the assistant's reply for basic image analysis." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-reply-license.png":::
-
 1. Ask a follow-up question related to the analysis of your image. You could enter, `"What should I highlight about this image to my insurance company?"`.
 1. You should receive a relevant response similar to what's shown here:
-
     ```
     When reporting the incident to your insurance company, you should highlight the following key points from the image:  
        
@@ -90,18 +85,14 @@ In this chat session, you instruct the assistant to aid in understanding images 
 In this chat session, you instruct the assistant to aid in understanding images that you input. Try out the capabilities of the augmented vision model.  
 
 1. In the **Enhancements** pane on the left side of the chat window, turn on the option for **Vision**. In the window that appears, select your Azure Computer Vision resource.
-1. In the **System message** text box on the **System message** tab, provide this prompt to guide the assistant: `"You're an AI assistant that helps people find information."` You can tailor the prompt to your image or scenario.
-1. Select **Apply changes** to save your changes. 
+1. In the **System message** text box on the **System message** tab, provide this prompt to guide the assistant: `"You're an AI assistant that helps people find information."` You can tailor the prompt to your image or scenario. Select **Apply changes** to save your changes. 
 1. In the chat session pane, select the attachment button and then **Upload image**. Choose your image.
 1. Add the following question in the chat field: `"Describe this image"`, and then select the right arrow icon to send.
 1. The right arrow icon is replaced by a Stop button. If you select it, the assistant stops processing your request. For this quickstart, let the assistant finish its reply.
 1. The assistant replies with a description of the image. It uses the Azure AI Vision service to extract more detail from the image you uploaded.
-
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-image-read-text.png" alt-text="Screenshot of the chat playground with the model output where the text in the image is read and returned." lightbox="../media/quickstarts/multimodal-vision/chat-image-read-text.png":::
-   
 1. Ask a follow-up question related to the analysis of your image. Enter, `"What should I highlight about this image to my insurance company?" `and then select the right arrow icon to send.
 1. You should receive a relevant response similar to what's shown here:
-
     ```
     When reporting the incident to your insurance company, you should highlight the following key points from the image:  
        
@@ -145,6 +136,7 @@ Below are the known limitations of the video prompt enhancements.
 
 ---
 
+## View and export code
 
 At any point in the chat session, you can enable the **Show raw JSON** switch at the top of the chat window to see the conversation formatted as JSON. Heres' what it looks like at the beginning of the quickstart chat session:
 

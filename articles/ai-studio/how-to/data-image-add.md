@@ -38,16 +38,15 @@ Use this article to learn how to provide your own image data for GPT-4 Turbo wit
 1. On the gpt-4 page, select **Deploy**. In the window that appears, select your Azure OpenAI resource. Select `vision-preview` as the model version.
 1. Select **Deploy**.
 1. Next, go to your new model's page and select **Open in playground**. In the chat playground, the GPT-4 deployment you created should be selected in the **Deployment** dropdown.
-
-:::image type="content" source="../media/quickstarts/multimodal-vision/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground with mode and deployment highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-multi-modal-image-select.png":::
-
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground with mode and deployment highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-multi-modal-image-select.png":::
+    
 ## Select your image data source
 
 1. On the left pane, select the **Add your data** tab and select **Add a data source**.
 1. In the window that appears, select a data source option. Each option uses an Azure AI Search index that's trained on your images and can be used for retrieval augmented generation in the chat playground.
-   * [Azure AI Search](?tabs=azure-ai-search): If you have an existing [Azure AI Search](/azure/search/search-what-is-azure-search) index, you can use it as a data source.
-   * [Azure Blob Storage](?tabs=azure-blob-storage): The Azure Blob storage option is especially useful if you have a large number of image files and don't want to manually upload each one. Azure AI Studio will generate an image search index for you. 
-   * [Upload image files and metadata](?tabs=upload-image-files-and-metadata): You can upload image files and metadata using the playground. This option is useful if you have a small number of image files. Azure AI Studio will generate an image search index for you. 
+   * [Azure AI Search](#add-your-image-data?tabs=azure-ai-search): If you have an existing [Azure AI Search](/azure/search/search-what-is-azure-search) index, you can use it as a data source.
+   * [Azure Blob Storage](#add-your-image-data?tabs=azure-blob-storage): The Azure Blob storage option is especially useful if you have a large number of image files and don't want to manually upload each one. Azure AI Studio will generate an image search index for you. 
+   * [Upload image files and metadata](#add-your-image-data?tabs=upload-image-files-and-metadata): You can upload image files and metadata using the playground. This option is useful if you have a small number of image files. Azure AI Studio will generate an image search index for you. 
 
 ## Add your image data
 
@@ -55,11 +54,10 @@ Use this article to learn how to provide your own image data for GPT-4 Turbo wit
 
 If you have an existing [Azure AI Search](/azure/search/search-what-is-azure-search) index, you can use it as a data source. If you don't already have a search index but you'd like to create one on your own, follow the [AI Search vector search repository on GitHub](https://github.com/Azure/cognitive-search-vector-pr), which provides scripts to create an index with your image files.
 
-In the playground's **Select or add data source** window, choose **Azure AI Search** and enter your index's details. Select the boxes to acknowledge that deployments and connections incur usage on your account
-
-Optionally enable the **Use custom field mapping** option. This lets you control the mapping between the custom fields in your search index and the standard fields that Azure OpenAI chat models use during retrieval augmented generation. 
-
-Select **Next** and review your settings on the next page. Then select **Save and close**.
+1. In the playground's **Select or add data source** window, choose **Azure AI Search** and enter your index's details. Select the boxes to acknowledge that deployments and connections incur usage on your account
+1. Optionally enable the **Use custom field mapping** option. This lets you control the mapping between the custom fields in your search index and the standard fields that Azure OpenAI chat models use during retrieval augmented generation. 
+1. Select **Next** and review your settings on the next page. Then select **Save and close**.
+1. In the chat playground, you can see that your data has been added.
 
 # [Azure Blob storage](#tab/azure-blob-storage)
 

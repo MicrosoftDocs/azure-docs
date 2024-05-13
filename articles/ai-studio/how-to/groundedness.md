@@ -33,9 +33,8 @@ Learn how to use Azure AI Content Safety Groundedness detection to check whether
    :::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected.":::
 1. Then, select **Groundedness detection**.
 1. On the next page, in the drop-down menu under **Try it out**, select the resource you want to use.
-
-:::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected.":::
-
+    :::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected.":::
+    
 ## Check groundedness without reasoning
 
 In the simple case without the _reasoning_ feature, the Groundedness detection API classifies the ungroundedness of the submitted content as `true` or `false`.
@@ -54,10 +53,10 @@ Enable the **Enable reasoning** switch on the page.
 
 Enter your Azure OpenAI endpoint and deployment name in the text fields.
 
+:::image type="content" source="../media/content-safety/groundedness-reasoning.png" alt-text="Screenshot of the Enable reasoning switch and Azure OpenAI resource input fields.":::
+
 > [!TIP]
 > At the moment, we only support **Azure OpenAI GPT-4 Turbo** resources and do not support other GPT types. Your GPT-4 Turbo resources can be deployed in any region; however, we recommend that they be located in the same region as the content safety resources to minimize potential latency.
-
-:::image type="content" source="../media/content-safety/groundedness-reasoning.png" alt-text="Screenshot of the Enable reasoning switch and Azure OpenAI resource input fields.":::
 
 In order to use your Azure OpenAI GPT4-Turbo resource to enable the reasoning feature, use Managed Identity to allow your Content Safety resource to access the Azure OpenAI resource:
 
