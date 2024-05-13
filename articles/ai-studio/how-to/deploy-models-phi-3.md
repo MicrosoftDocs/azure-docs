@@ -119,5 +119,4 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 ## Related content
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Fine-tune Phi-3 models in Azure AI Studio](fine-tune-phi-3-models.md)
 - [Azure AI FAQ article](../faq.yml)

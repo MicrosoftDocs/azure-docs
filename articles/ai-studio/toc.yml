@@ -60,7 +60,7 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Deploy Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
-    - name: Deploy Llama models
+    - name: Llama models
       items:
       - name: Deploy Llama family models
         href: how-to/deploy-models-llama.md
@@ -71,15 +71,15 @@ items:
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
-    - name: Deploy open models
-      href: how-to/deploy-models-open.md
-      displayName: oss, open source
     - name: Deploy Phi models
       items:
       - name: Deploy Phi-3 models
         href: how-to/deploy-models-phi-3.md
-      - name: Fine-tune Phi-3 models
-        href: how-to/fine-tune-phi-3-models.md
+    - name: Deploy TimeGEN-1 model
+      href: how-to/deploy-models-timegen-1.md
+    - name: Deploy open models
+      href: how-to/deploy-models-open.md
+      displayName: oss, open source
   - name: Create AI Studio projects and resources
     items:
     - name: AI Studio hubs and projects overview
