@@ -54,7 +54,7 @@ Next, you can go to the playground to test whether the content filter works as e
 
 The filter creation process gives you the option to apply the filter to the deployments you want. You can also change or remove content filters from your deployments at any time.
 
-Select **Deployments** on the left nav and choose one of your AI model deployments. On the deployment page, select **Edit**. a window with editing options will appear. There, you can update the appplied content filter by selecting from the drop-down menu.
+Select **Deployments** on the left nav and choose one of your AI model deployments. On the deployment page, select **Edit**. a window with editing options will appear. There, you can update the applied content filter by selecting from the drop-down menu.
 
 :::image type="content" source="../media/content-safety/content-filter/apply-content-filter.png" alt-text="Screenshot of apply content filter." lightbox="../media/content-safety/content-filter/apply-content-filter.png":::
 
