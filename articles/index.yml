@@ -1613,8 +1613,8 @@ productDirectory:
       url: /azure/copilot
     # Card
     - title: Data API builder for Azure Databases
-      summary: TODO
-      imageSrc: ./media/index/devtest-labs.svg
+      summary: Quickly create robust and stateless API endpoints on top of Azure databases
+      imageSrc: ./media/index/data-api-builder.svg
       azureCategories:
         - developer-tools
       url: /azure/data-api-builder/index.yml
