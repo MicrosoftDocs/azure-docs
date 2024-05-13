@@ -44,6 +44,9 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
   az extension update --name fleet
   ```
 
+> [!NOTE]
+> Update runs honor [planned maintenance windows set up by the user at the AKS cluster level](../aks/planned-maintenance.md). More information about how update runs handle member clusters that have been configured with planned maintenance windows can be found [here](./concepts-update-orchestration.md#planned-maintenance).
+
 ## Update all clusters one by one
 
 ### [Azure portal](#tab/azure-portal)

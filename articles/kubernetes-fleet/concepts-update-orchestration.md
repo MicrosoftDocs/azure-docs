@@ -32,6 +32,53 @@ The target node image versions are automatically selected for you based on your 
 
 You should choose `Latest` to use fresher image versions and minimize security risks, and choose `Consistent` to improve reliability by using and verifying those images in clusters in earlier stages before using them in later clusters.
 
+## Planned maintenance
+
+Update runs honor [planned maintenance windows set up by the user at the AKS cluster level](../aks/planned-maintenance.md)
+
+Within an update run (for both [One by one](./update-orchestration.md#update-all-clusters-one-by-one) or [Stages](./update-orchestration.md#update-clusters-in-a-specific-order) type update run), update run prioritizes upgrading the clusters in the following order:
+  1. Member with an open ongoing maintenance window.
+  1. Member with maintenance window opening in the next 4 hours.
+  1. Member with no maintenance window.
+  1. Member with a closed maintenance window.
+
+## Update run states
+
+An update run can be in one of the following states:
+
+- **NotStarted**: State of the update run before it is started.
+- **Running**: Upgrade is in progress for at least one of the clusters in the update run.
+- **Pending**: 
+  - **Member cluster**: A member cluster can be in the pending state for any of the following reasons and are surfaced under the message field - 
+    - Maintenance window is not open. Message indicates next opening time.
+    - Target Kubernetes version is not yet available in the region of the member. Message links to the release tracker so that user can check status of the release across regions.
+    - Target node image version is not yet available in the region of the member. Message links to the release tracker so that user can check status of the release across regions.
+  - **Group**: A group is in `Pending` state if all member in the groups are in `Pending` state or not started. When a member moves to `Pending`, the updaterun will attempt to upgrade the next member in the group. If all members are in `Pending` status, the group moves to `Pending` state. All groups must be in terminal state before moving to the next stage. That is, if a group is in `Pending` state, the update run waits for it to complete before moving on to the next stage for execution.
+  - **Stage**: A stage is in `Pending` if all groups under that stage are in `Pending` state or not started.
+  - **Run**: A run is in `Pending` state if the current stage that should be running is in `Pending` state.
+- **Skipped**: All levels of an update run can be skipped and this could either be system-detected or user-initiated.
+  - **Member**:
+    - User has skipped upgrade for a member or one of its parents.
+    - Member cluster is already at the target Kubernetes version (if update run mode is `Full` or `ControlPlaneOnly`).
+    - Member cluster is already at the target Kubernetes version and all node pools are at the target node image version.
+  - **Group**:
+    - All member clusters were detected as `Skipped` by the system.
+    - User initiated a skip at the group level.
+  - **Stage**:
+    - All groups in the stage where detected as `Skipped` by the system.
+    - User initiated a skip at the stage level.
+  - **Run**:
+    - All stages where detected as `Skipped` by the system.
+
+- **Stopped**: All levels of an update run can be stopped. There are two possibilities for entering a stopped state:
+  - User stops the update run, at which point update run stops tracking all operations. If an operation was already initiated by update run (for example, a cluster upgrade is in progress), then that operation is not aborted for that individual cluster.
+  - If a failure is encountered during the update run (for example upgrades failed on one of the clusters), the entire update run enters into a stop state and operated are not attempted for any subsequent cluster in the update run.
+
+- **Failed**: A failure to upgrade a cluster will result in the following actions:
+  - Marks the `MemberUpdateStatus` as `Failed` on the member cluster.
+  - Marks all parents (group -> stage -> run) as `Failed` with a summary error message.
+  - Stops the update run from progressing any further
+
 ## Next steps
 
 * [Orchestrate updates across multiple member clusters](./update-orchestration.md).
