@@ -1,5 +1,5 @@
 ---
-title: How to configure Index tuning
+title: How to configure index tuning
 description: This article describes how to configure the index tuning feature in Azure Database for PostgreSQL - Flexible Server.
 author: nachoalonsoportillo
 ms.author: ialonso
@@ -95,7 +95,7 @@ Disabling index tuning can also be achieved either changing the corresponding se
 
 When index tuning is enabled, it wakes up with a frequency configured in the `index_tuning.analysis_interval` server parameter (defaults to 720 minutes or 12 hours) and starts analyzing the workload recorded by Query Store during that period.
 
-Notice that if you change the the value for `index_tuning.analysis_interval`, it only is observed after the next scheduled execution completes. So, for example, if you enable index tuning one day at 10:00AM, because default value for `index_tuning.analysis_interval` is 720 minutes, the first execution will be scheduled to start at 10:00PM that same day. Any changes you make to the value of `index_tuning.analysis_interval` between 10:00AM and 10:00PM will not affect that initial schedule. Only when the scheduled run completes, it will read current value set for `index_tuning.analysis_interval` and will schedule next execution according to that value.
+Notice that if you change the value for `index_tuning.analysis_interval`, it only is observed after the next scheduled execution completes. So, for example, if you enable index tuning one day at 10:00AM, because default value for `index_tuning.analysis_interval` is 720 minutes, the first execution will be scheduled to start at 10:00PM that same day. Any changes you make to the value of `index_tuning.analysis_interval` between 10:00AM and 10:00PM will not affect that initial schedule. Only when the scheduled run completes, it will read current value set for `index_tuning.analysis_interval` and will schedule next execution according to that value.
 
 The following options are available for configuring index tuning parameters:
 
