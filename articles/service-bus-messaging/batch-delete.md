@@ -1,35 +1,35 @@
-# Batch delete messages in Azure Service Bus
+# Batch delete messages in Azure Service Bus (Preview)
 
-Azure Service Bus is a fully managed enterprise integration message broker that enables you to send and receive messages between decoupled applications and services.However, sometimes you may want to delete messages from a queue or subscription without processing them, for example, if they're expired, corrupted, or irrelevant. This article shows you how to delete messages in batches in Azure Service Bus. 
+Azure Service Bus is a fully managed enterprise integration message broker that enables you to send and receive messages between decoupled applications and services. However, sometimes you may want to delete messages from a queue or subscription without processing them, for example, if they're expired, corrupted, or irrelevant. This article shows you how to delete messages in batches in Azure Service Bus. 
 
 ## Scenarios for Batch deletion of messages
 
 There are several scenarios where you may want to use the batch delete messages feature in Azure Service Bus. Some of them are:
 
-- Expired Messages: Delete messages that exceed their "time to live" (TTL) value and are in the dead-letter queue or subscription.
-- Failed Validation or Processing: Remove messages that failed validation or processing logic and are in the dead-letter queue or subscription.
-- Irrelevant Messages: Delete messages no longer relevant for your application logic from the active queue or subscription.
-- Handling Duplicates or Incorrect Content: Remove duplicate or incorrect messages from the active queue or subscription.
+- Expired Messages: Delete messages that exceed their "time to live" (TTL) value and are in the dead-letter queue.
+- Failed Validation or Processing: Remove messages that failed validation or processing logic and are in the dead-letter queue.
+- Irrelevant Messages: Delete messages no longer relevant for your application logic from the active queue.
+- Handling Duplicates or Incorrect Content: Remove duplicate or incorrect messages from the active queue.
 
-By using the batch delete messages feature, you can delete multiple messages from a queue or subscription in one operation, instead of deleting them one by one. This operation can reduce the number of requests to the service, the network latency, and the resource consumption.
+By using the batch delete messages feature, you can delete multiple messages from a queue or subscription in one operation, instead of deleting them one by one. Since deletion is done at service side, you don't need to receive the messages before deleting them.This operation can reduce the number of requests to the service, the network latency, and the resource consumption. 
 
 >[!IMPORTANT]
-> You can delete a maximum of 4000 messages in a batch delete call. However, keep in mind that batch deletion is done on a best-effort basis and doesn’t guarantee the maximum number of messages will be deleted in every call.  
+> Batch delete is not supported with partitioned entities. You can delete a maximum of 4000 messages in a batch delete call. However, keep in mind that batch deletion is done on a best-effort basis and doesn’t guarantee the maximum number of messages will be deleted in every call.  
 
 ## How to batch delete messages in Service Bus
 
-Since there could be multiple messages in the entity, we recommend running batch delete call in loop to ensure all of the messages can be deleted. Here's the reference code to delete messages in batch from Service Bus:
+Since deletion is done in batches, we recommend running batch delete call in a loop to ensure all of the messages can be deleted.Here's the reference code to delete messages in batch from Service Bus:
 
 ```
 
 ```
->[!CAUTION]
-> From service side, both Maximummessagecount and EnqueuedTimeutc are required parameters. In case you are using Azure SDKs, EnqueuedTimeUtc takes Utc.now() as default value. Ensure to pass in the correct values to avoid unexpected deletion of messages.
+>[!IMPORTANT]
+> From service side, both Maximummessagecount and DeleteOlderThan are required parameters. In case you are using Azure SDKs, DeleteOlderThan takes Utc.Now() as default value. Ensure to pass in the correct values to avoid unexpected deletion of messages.
 
 
 ## Next steps
 
-To explore Azure Service Bus features.try the samples in language of your choice: 
+To explore Azure Service Bus features, try the samples in language of your choice: 
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
