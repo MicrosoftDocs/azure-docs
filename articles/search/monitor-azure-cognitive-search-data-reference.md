@@ -22,15 +22,68 @@ The following table lists the metrics available for the Microsoft.Search/searchS
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-search-searchservices-metrics-include.md)]
 
-SearchQueriesPerSecond shows the average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds appear in a metric like QPS. The minimum is the lowest value for search queries per second that was registered during that minute. Maximum is the highest value. Average is the aggregate across the entire minute.
+#### Search queries per second
+
+This metric shows the average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds appear in a metric like QPS. The minimum is the lowest value for search queries per second that was registered during that minute. Maximum is the highest value. Average is the aggregate across the entire minute.
+
+| Aggregation type | Description |
+|------------------|-------------|
+| Average | The average number of seconds within a minute during which query execution occurred.|
+| Count | The number of metrics emitted to the log within the one-minute interval. |
+| Maximum | The highest number of search queries per second registered during a minute. |
+| Minimum | The lowest number of search queries per second registered during a minute.  |
+| Sum | The sum of all queries executed within the minute.  |
 
 For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
+Another example: if a node emits 100 metrics, where the value of each metric is 40, then "Count" is 100, "Sum" is 4000, "Average" is 40, and "Max" is 40.
+
+#### Search latency
+
+Search latency indicates how long a query takes to complete.
+
+| Aggregation type | Latency |
+|------------------|---------|
+| Average | Average query duration in milliseconds. |
+| Count | The number of metrics emitted to the log within the one-minute interval. |
+| Maximum | Longest running query in the sample. |
+| Minimum | Shortest running query in the sample.  |
+| Total | Total execution time of all queries in the sample, executing within the interval (one minute).  |
+
+#### Throttled search queries percentage
+
+This metric refers to queries that are dropped instead of processed. Throttling occurs when the number of requests in execution exceed capacity. You might see an increase in throttled requests when a replica is taken out of rotation or during indexing. Both query and indexing requests are handled by the same set of resources.
+
+The service determines whether to drop requests based on resource consumption. The percentage of resources consumed across memory, CPU, and disk IO are averaged over a period of time. If this percentage exceeds a threshold, all requests to the index are throttled until the volume of requests is reduced.
+
+Depending on your client, a throttled request is indicated in these ways:
+
++ A service returns an error `"You are sending too many requests. Please try again later."` 
++ A service returns a 503 error code indicating the service is currently unavailable. 
++ If you're using the portal (for example, Search Explorer), the query is dropped silently and you need to select **Search** again.
+
+To confirm throttled queries, use **Throttled search queries** metric. You can explore metrics in the portal or create an alert metric as described in this article. For queries that were dropped within the sampling interval, use *Total* to get the percentage of queries that didn't execute.
+
+| Aggregation type | Throttling |
+|------------------|-----------|
+| Average | Percentage of queries dropped within the interval. |
+| Count | The number of metrics emitted to the log within the one-minute interval. |
+| Maximum | Percentage of queries dropped within the interval.|
+| Minimum | Percentage of queries dropped within the interval. |
+| Total | Percentage of queries dropped within the interval. |
+
+For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
+
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-Azure AI Search has the following dimensions associated with the metrics that capture a count of documents or skills that were executed, "Document processed count" and "Skill execution invocation count".
+Azure AI Search has dimensions associated with the following metrics that capture a count of documents or skills that were executed.
 
-| Dimension Name | Description |
+| Metric name  |  Description | Dimensions  | Sample use cases |
+|---|---|---|---|
+| **Document processed count**  | Shows the number of indexer processed documents.  | Data source name, failed, index name, indexer name, skillset name  | Can be referenced as a rough measure of throughput (number of documents processed by indexer over time) <br> - Set up to alert on failed documents |
+|  **Skill execution invocation count** | Shows the number of skill invocations. | Data source name, failed, index name, indexer name, skill name, skill type, skillset name | Reference to ensure skills are invoked as expected by comparing relative invocation numbers between skills and number of skill invocations to the number of documents. <br> - Set up to alert on failed skill invocations |
+
+| Dimension name | Description |
 | -------------- | ----------- |
 | **DataSourceName** | A named data source connection used during indexer execution. Valid values are one of the [supported data source types](search-indexer-overview.md#supported-data-sources). |
 | **Failed** | Indicates whether the instance failed. |

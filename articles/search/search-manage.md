@@ -87,14 +87,7 @@ By default, a search service accepts authenticated and authorized requests over 
 
 We recommend Log Analytics Workspace for durable storage so that you can run system queries in the portal.
 
-Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
-
-| Monitoring data | Retention |
-|-----------------|-----------|
-| Activity logs | 90 days on a rolling schedule |
-| Platform metrics | 93 days on a rolling schedule, except that portal visualization is limited to a 30 day window |
-| Resource logs | User-managed |
-| Telemetry | One and a half years |
+Internally, Microsoft collects telemetry data about your service and the platform. To learn more about data retention, see [Retention of metrics](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics).
 
 > [!NOTE]
 > See the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article for more information about data location and privacy.
