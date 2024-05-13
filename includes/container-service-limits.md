@@ -25,7 +25,7 @@ ms.custom: include file
 
 | Kubernetes Control Plane tier | Limit |
 |--|:-|
-| Standard tier | Automatically scales Kubernetes API server based on load. Larger control plane component limits and API server/etc instances. |
+| Standard tier | Automatically scales Kubernetes API server based on load. Larger control plane component limits and API server/etcd instances. |
 | Free tier | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls. Recommended node limit of 10 nodes per cluster. Best for experimenting, learning, and simple testing. **Not advised for production/critical workloads**. |
 
 <!-- LINKS - Internal -->
