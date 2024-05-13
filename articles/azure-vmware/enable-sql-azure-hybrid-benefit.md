@@ -1,8 +1,8 @@
 ---
-title: Enable Unlimted Virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+title: Enable Unlimited Virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: This article shows you how to enable unlimited virtualization, an Azure Hybrid Benefit, through applying licenses for SQL Server in Azure VMware Solution by configuring a VM-Host placement policy.
+description: This article shows you how to enable unlimited virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution. A VM-Host placement policy is configured to register the licenses to hosts and VMs.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/13/2023
@@ -20,11 +20,11 @@ In this article, learn how to enable unlimited virtualization through Azure Hybr
 
 ## Configure VM-Host placement policy
 
-Users can configure the VM-Host placement policy to enable Azure Hybrid Benefit for SQL Server through the Azure Portal or Azure CLI. 
+Users can configure the VM-Host placement policy to enable Azure Hybrid Benefit for SQL Server through the Azure portal or Azure CLI. 
 
 To enable through the Azure CLI, reference [az vmware placement-policy vm-host](/cli/azure/vmware/placement-policy/vm-host).
 
-For the Azure Portal step-by-step see below: 
+For the Azure portal step-by-step see: 
 
 1. From your Azure VMware Solution private cloud, select Azure Hybrid Benefit, then Create VM-Host placement policy.
     :::image type="content" source="media/sql-azure-hybrid-benefit/azure-hybrid-benefit.png" alt-text="Diagram that shows how to create a host new virtual machine placement policy.":::
