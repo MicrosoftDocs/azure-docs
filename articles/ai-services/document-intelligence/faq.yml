@@ -520,9 +520,19 @@ sections:
           - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
 
       - question: |
+          Why an I receiving the error "PermissionDenied" when using prebuilt apps or opening my custom project?
+        answer: |
+          If you received error "PermissionDenied: Principal does not have access to API/Operation" when analyzing against prebuilt models or opening a custom project, it is likely the local/key authentication is disabled for your Document Intelligence resource and your do not have enough permission to access the resource.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) to configure your access roles.
+
+      - question: |
+          Why an I receiving the error "AuthorizationPermissionMismatch" when opening my custom project?
+        answer: |
+          If you received error "AuthorizationPermissionMismatch: This request is not authorized to perform this operation using this permission" when opening a custom project, it is likely the local/key authentication is disabled for your storage account and your do not have enough permission to access the blob data.  Please reference [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments-1) to configure your access roles.
+
+      - question: |
           Why am I not able to sign in to Document Intelligence Studio and keeps seeing AADSTS50058:InteractionRequiredAuthError error?
         answer: |
-          This is due to 3rd-party cookies are blocked by your browser so we cannot successfully sign in your account.
+          If you received error "InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-request was sent but no user is signed in.", this is due to 3rd-party cookies are blocked by your browser so we cannot successfully sign in your account.
         
           For **Edge** users, please:
           - Go to **Settings** for Edge
