@@ -21,8 +21,7 @@ The copilot should answer questions about your products and services. It should 
 
 The steps in this tutorial are:
 
-1. Create an Azure AI Studio project.
-1. Deploy an Azure OpenAI model and chat with your data.
+1. Add your data to the chat playground.
 1. Create a prompt flow from the playground.
 1. Customize prompt flow with multiple data sources.
 1. Evaluate the flow using a question and answer evaluation dataset.
@@ -35,53 +34,19 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- You need an Azure AI Studio hub and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the hub. For more information, see [hubs](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
-    - If your role is **Contributor** or **Owner**, you can [create a hub in this tutorial](#create-a-project-in-azure-ai-studio). 
-    - If your role is **Azure AI Developer**, the hub must already be created. 
-
-- Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models-openai.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already.
 
 - You need a local copy of product and customer data. The [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [1-customer-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/1-customer-info) and [3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info). 
 
-## Create a project in Azure AI Studio
-
-Your project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow compute sessions, evaluations, and other resources. For more information about the projects and resources model, see [hubs](../concepts/ai-resources.md).
-
-[!INCLUDE [Create project](../includes/create-projects.md)]
-
-## Deploy a chat model
-
-[!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
-
-## Chat in the playground without your data
-
-In the [Azure AI Studio](https://ai.azure.com) playground you can observe how your model responds with and without your data. In this section, you test your model without your data. In the next section, you add your data to the model to help it better answer questions about your products.
-
-[!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
-
 ## Add your data and try the chat model again
+
+In the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) (that's a prerequisite for this tutorial), you can observe how your model responds without your data. Now you add your data to the model to help it answer questions about your products.
 
 [!INCLUDE [Chat with your data](../includes/chat-with-data.md)]
 
-## Create compute and compute sessions that are needed for prompt flow
-
-You use prompt flow to optimize the messages that are sent to the copilot's chat model. Prompt flow requires a compute instance and a compute session. If you already have a compute instance and a compute session, you can skip this section and remain in the playground.
-
-To create a compute instance and a compute session, follow these steps:
-1. If you don't have a compute instance, you can [create one in Azure AI Studio](../how-to/create-manage-compute.md). 
-1. Then create a compute session. by following the steps in [how to create a compute session](../how-to/create-manage-compute-session.md).
-
-To complete the rest of the tutorial, make sure that your compute session is in the **Running** status. You might need to select **Refresh** to see the updated status.
-
-> [!IMPORTANT]
-> You're charged for compute instances while they are running. To avoid incurring unnecessary Azure costs, pause the compute instance when you're not actively working in prompt flow. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
-
-
 ## Create a prompt flow from the playground
 
-Now that your [deployed chat model](#deploy-a-chat-model) is working in the playground [with your data](#add-your-data-and-try-the-chat-model-again), you could [deploy your copilot as a web app](deploy-chat-web-app.md#deploy-your-web-app) from the playground. 
-
-But you might ask "How can I further customize this copilot?" You might want to add multiple data sources, compare different prompts or the performance of multiple models. A [prompt flow](../how-to/prompt-flow.md) serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
+Now you might ask "How can I further customize this copilot?" You might want to add multiple data sources, compare different prompts or the performance of multiple models. A [prompt flow](../how-to/prompt-flow.md) serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
 
 In this section, you learn how to transition to prompt flow from the playground. You export the playground chat environment including connections to the data that you added. Later in this tutorial, you [evaluate the flow](#evaluate-the-flow-using-a-question-and-answer-evaluation-dataset) and then [deploy the flow](#deploy-the-flow) for [consumption](#use-the-deployed-flow).
 
@@ -142,39 +107,44 @@ Follow these instructions on how to create a new index:
 
     You're taken to the **Create an index** wizard. 
 
-1. On the Source data page, select **Upload folder** from the **Upload** dropdown. Select the customer info files that you downloaded or created earlier. See the [prerequisites](#prerequisites). 
+1. On the **Source data** page, select **Upload files** from the **Data source** dropdown. Then select **Upload** > **Upload folder** to browse your local files. 
+1. Select the customer info files that you downloaded or created earlier. See the [prerequisites](#prerequisites). Then select **Next**.
 
     :::image type="content" source="../media/tutorials/chat/add-index-dataset-upload-folder.png" alt-text="Screenshot of the customer data source selection options." lightbox="../media/tutorials/chat/add-index-dataset-upload-folder.png":::
 
-1. Select **Next** at the bottom of the page.
-1. Select the same Azure AI Search resource (*contoso-outdoor-search*) that you used for your product info index (*product-info*). Then select **Next**.
+1. Select the same Azure AI Search service connection (*contosooutdooraisearch*) that you used for your product info index. Then select **Next**.
+1. Enter **customer-info** for the index name. 
 
-    :::image type="content" source="../media/tutorials/chat/add-index-storage.png" alt-text="Screenshot of the selected Azure AI Search resource." lightbox="../media/tutorials/chat/add-index-storage.png":::
+    :::image type="content" source="../media/tutorials/chat/add-index-settings.png" alt-text="Screenshot of the Azure AI Search service and index name." lightbox="../media/tutorials/chat/add-index-settings.png":::
 
-1. Select **Hybrid + Semantic (Recommended)** for the **Search type**. This type should be selected by default. 
-1. Select *Default_AzureOpenAI* from the **Azure OpenAI resource** dropdown. Select the checkbox to acknowledge that an Azure OpenAI embedding model will be deployed if it's not already. Then select **Next**.
-
-    :::image type="content" source="../media/tutorials/chat/add-index-search-settings.png" alt-text="Screenshot of index search type options." lightbox="../media/tutorials/chat/add-index-search-settings.png":::
-
+1. Select a virtual machine to run indexing jobs. The default option is **Auto select**. Then select **Next**.
+1. On the **Search settings** page under **Vector settings**, deselect the **Add vector search to this search resource** checkbox. This setting helps determine how the model responds to requests. Then select **Next**.
+    
     > [!NOTE]
-    > The embedding model is listed with other model deployments in the **Deployments** page. 
+    > If you add vector search, more options would be available here for an additional cost. 
 
-1. Enter **customer-info** for the index name. Then select **Next**.
-
-    :::image type="content" source="../media/tutorials/chat/add-index-settings.png" alt-text="Screenshot of the index name and virtual machine options." lightbox="../media/tutorials/chat/add-index-settings.png":::
 
 1. Review the details you entered, and select **Create**. 
 
     :::image type="content" source="../media/tutorials/chat/add-index-review.png" alt-text="Screenshot of the review and finish index creation page." lightbox="../media/tutorials/chat/add-index-review.png":::
 
     > [!NOTE]
-    > You use the *customer-info* index and the *contoso-outdoor-search* Azure AI Search resource in prompt flow later in this tutorial. If the names you enter differ from what's specified here, make sure to use the names you entered in the rest of the tutorial.
+    > You use the *customer-info* index and the *contosooutdooraisearch* connection to your Azure AI Search service in prompt flow later in this tutorial. If the names you enter differ from what's specified here, make sure to use the names you entered in the rest of the tutorial.
 
-1. You're taken to the index details page where you can see the status of your index creation
+1. You're taken to the index details page where you can see the status of your index creation.
 
     :::image type="content" source="../media/tutorials/chat/add-index-created-details.png" alt-text="Screenshot of the customer info index details." lightbox="../media/tutorials/chat/add-index-created-details.png":::
 
 For more information on how to create an index, see [Create an index](../how-to/index-add.md).
+
+## Create a compute sessions that's needed for prompt flow
+
+You use prompt flow to optimize the messages that are sent to the copilot's chat model. Prompt flow requires a compute instance and a compute session. To create a compute instance and a compute session, follow the steps in [how to create a compute session](../how-to/create-manage-compute-session.md).
+
+To complete the rest of the tutorial, make sure that your compute session is in the **Running** status. You might need to select **Refresh** to see the updated status.
+
+> [!IMPORTANT]
+> You're charged for compute instances while they are running. To avoid incurring unnecessary Azure costs, pause the compute instance when you're not actively working in prompt flow. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
 
 ### Add customer information to the flow
 
@@ -213,7 +183,7 @@ After you're done creating your index, return to your prompt flow and follow the
     | **indexName** | string | *customer-info* |
     | **queries** | string | *${ExtractIntent.output.search_intents}* |
     | **queryType** | string | *simple* |
-    | **searchConnection** | Cognitive search | *contoso-outdoor-search* |
+    | **searchConnection** | Azure AI Search | *contosooutdooraisearch* |
     | **semanticConfiguration** | string | *None* |
     | **topK** | int | *5* |
 
@@ -342,7 +312,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 1. Select a model to use for evaluation. In this example, select **gpt-35-turbo-16k**. Then select **Next**.
 
     > [!NOTE]
-    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
+    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [the AI Studio chat playground quickstart](../quickstarts/get-started-playground.md#deploy-a-chat-model). Then return to this step and select the model you deployed.
 
 1. Select **Add new dataset**. Then select **Next**.
 
@@ -446,7 +416,7 @@ Your copilot application can use the deployed prompt flow to answer questions in
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
 
-You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com).
+You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com) as needed.
 
 
 ## Azure AI Studio enterprise chat solution demo
