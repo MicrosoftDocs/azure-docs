@@ -21,7 +21,6 @@ This article explains how Log Analytics workspace replication works, how to repl
 | Action | Permissions required |
 | --- | --- |
 | Enable workspace replication | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
-| Enable cluster replication | `Microsoft.OperationalInsights/clusters/write` permissions to dedicated cluster linked to a Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
 | Trigger switchover | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
 | Trigger switchover | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
 | Check workspace state | `Microsoft.OperationalInsights/workspaces/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
@@ -74,48 +73,9 @@ Some Azure Monitor experiences, including Azure Application Insights and Azure V
 
 You enable and disable workspace replication by using a REST command. The command triggers a long running operation, which means that it can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for all data types to begin replicating, and some data types might start replicating before others. Changes you make to table schemas after you enable workspace replication can take up to one hour to start replicating - for example, custom log tables or custom fields you create, or diagnostic logs set up for new resource types.
 
-### Enable cluster replication if you use a dedicated cluster
-
-If your workspace is linked to a dedicated cluster, you first enable replication on the cluster and then enable the feature on the linked workspace. This operation creates a second cluster in your secondary region, which allows your workspace to keep using the dedicated cluster when you switch over. (There are no extra charges beyond replication charges for the second cluster.) This process allows features like [customer managed keys (CMK)](customer-managed-keys.md) to continue to work (with the same key) during switchover.
-
-To enable replication on your dedicated cluster, use this `PUT` command:
-
-```http
-PUT 
-
-https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/clusters/<cluster_name>?api-version=2023-01-01-preview
-
-
-body:
-{
-    "properties": {
-        "replication": {
-            "enabled": true,
-            "location": "<secondary_location>"
-        }
-    },
-    "location": "<primary_location>"
-}
-```
-
-Where:
-
-- `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>` : The resource group that contains your cluster resource.
-- `<cluster_name>`: The name of your dedicated cluster resource.
-- `<primary_location>`: The original region where you created your dedicated cluster.
-- `<secondary_location>`: The region to switch to when the primary region isn't healthy.
-
-The secondary region of the workspaces linked to the dedicated cluster must be identical to the cluster's secondary region. For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
-
-The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 201. You can track the process, as described in [Check workspace state](#check-workspace-state).
-
-
 ### Enable workspace replication
 
 To enable replication on your Log Analytics workspace, use this `PUT` command:
-
-You enable replication for one or more workspaces linked to a cluster with a `PUT` command that uses the following values:
 
 ```http
 PUT 
@@ -137,9 +97,9 @@ body:
 Where:
 
 - `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `<workspace_name>`: The name of your workspace linked to your dedicated cluster.
-- `<primary_location>`: The primary region for your workspace.
+- `<resourcegroup_name>` : The resource group that contains your Log Analytics workspace resource.
+- `<workspace_name>`: The name of your workspace.
+- `<primary_location>`: The primary region for your Log Analytics workspace.
 - `<secondary_location>`: The region to switch to when the primary workspace region isn't healthy.
 
 For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
@@ -158,8 +118,8 @@ https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<res
 Where:
 
 - `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>`: The resource group that contains your workspace resource.
-- `<workspace_name>`: The name of your workspace linked to your dedicated cluster.
+- `<resourcegroup_name>`: The resource group that contains your Log Analytics workspace resource.
+- `<workspace_name>`: The name of your Log Analytics workspace.
  
 The `GET` command verifies that the workspace provisioning state changes from "Updating" to "Succeeded," and the secondary region is set as expected.
 
@@ -167,11 +127,13 @@ The `GET` command verifies that the workspace provisioning state changes from "U
 > [!NOTE]
 > When you enable replication for workspaces that interact with Sentinel, it can take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
 
-### Enable DCR replication
+### Associate data collection rules with the data collection endpoint
 
-When you enable replication on your workspace, a System [data collection endpoint](../essentials/data-collection-endpoint-overview.md) (DCE) is created. The name of the new DCE is identical to your workspace ID.
+When you enable replication on your workspace, Azure Monitor creates a system [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md). The name of the new DCE is identical to your workspace ID.
 
-Follow these steps to connect an existing DCR to a DCE for your workspace:
+Data you collect using Azure Monitor Agent and the Logs Ingestion API is managed via Data Collection Rules (DCR). Using a DCR provides better control over the scope of replication. You can configure the DCR to replicate one stream of logs - such as Security logs - and not replicating others - such as Perf logs. 
+
+To replicate data you collect using DCRs, associate your DCRs to the system data collection endpoint for your workspace:
 
 1. In the Azure portal, go to the DCR **Overview** page.
 
@@ -183,17 +145,10 @@ Follow these steps to connect an existing DCR to a DCE for your workspace:
 
    For details about the System DCE, check the workspace object properties.
 
-To learn more about how to link a DCR to a DCE during DCR creation, see step 5b in [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md?tabs=portal#create-a-data-collection-rule).
-
 > [!IMPORTANT]
->
-> There are several important points to consider when you enable replication of DCRs:
->
 > - If you use DCRs to send logs to your workspace, you must connect each DCR to the newly created DCE to support replication and switchover.
->
-> - Only DCRs connected to the workspace's System DCE enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you to control your replication costs.
->
-> - DCRs connected to a workspace's System DCE should target only that specific workspace. The DCRs **must not** target other destinations, such as additional workspaces or Azure Storage accounts.
+> - Only DCRs connected to the workspace's system DCE enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you to control your replication costs.
+> - DCRs connected to a workspace's system DCE can target only that specific workspace. The DCRs **must not** target other destinations, such as additional workspaces or Azure Storage accounts.
 
 ### Disable workspace replication
 
@@ -206,44 +161,12 @@ You disable replication for a workspace with a `PUT` command that uses the follo
 
 The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
 
-> [!NOTE]
-> If your workspace is linked to a dedicated cluster, disable replication for all workspaces linked to the cluster, and then disable replication for the cluster.
-
 The following code demonstrates the `PUT` command to disable replication for the workspace:
 
 ```http
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
-
-body:
-{
-    "properties": {
-        "replication": {
-            "enabled": false
-        }
-    },
-    "location": "<primary_location>"
-}
-```
-
-### Disable cluster replication
-
-After you disable replication for all workspaces linked to a dedicated cluster, you can disable replication for the cluster itself.
-
-You disable replication for the cluster with a `PUT` command that uses the following values:
-
-- `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>` : The resource group that contains your cluster resource.
-- `<cluster_name>`: The name of your dedicated cluster resource.
-- `<primary_location>`: The primary region for your dedicated cluster.
-
-The following code demonstrates the `PUT` command to disable replication for the cluster:
-
-```http
-PUT 
-
-https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/clusters/<cluster_name>?api-version=2023-01-01-preview
 
 body:
 {
