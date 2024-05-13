@@ -1,11 +1,11 @@
 ---
 title: How to deploy open models with Azure AI Studio
-titleSuffix: Azure AI Studio
+titleSuffix: AI Studio
 description: Learn how to deploy open models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 5/21/2024
 ms.reviewer: fasantia
 ms.author: mopeakande
 author: msakande
@@ -19,44 +19,53 @@ Deployment of a large language model (LLM) makes it available for use in a websi
 
 ## Deploy an Azure OpenAI model from the model catalog
 
-Follow the steps below to deploy an open model such as `distilbert-base-cased` to a real-time endpoint from the Azure AI Studio model catalog:
+Follow the steps below to deploy an Azure OpenAI model such as `gpt-4` to a real-time endpoint from the AI Studio [model catalog](./model-catalog-overview.md):
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Sign in to [AI Studio](https://ai.azure.com) and go to the **Home** page.
 1. Select **Model catalog** from the left sidebar.
-1. Select a model you want to deploy from the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). 
+1. In the **Collections** filter, select **Azure OpenAI**.
+
+    :::image type="content" source="../media/deploy-monitor/catalog-filter-azure-openai.png" alt-text="A screenshot showing how to filter by Azure OpenAI models in the catalog." lightbox="../media/deploy-monitor/catalog-filter-azure-openai.png"::: 
+
+1. Select a model such as `gpt-4` from the Azure OpenAI collection.
 1. Select **Deploy** to open the deployment window. 
-1. Choose the project you want to deploy the model to. 
+1. Select the hub that you want to deploy the model to.
+1. Specify the deployment name and modify other default settings depending on your requirements.
 1. Select **Deploy**.
-1. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
+1. You land on the deployment details page. From here, you can open the model in the playground to test it out or view code samples that can be used to consume the deployed model in your application.
 
 ## Deploy an Azure OpenAI model from your project
 
 Alternatively, you can initiate deployment by starting from your project in AI Studio.
 
-1. Go to your project in Azure AI Studio.
+1. Go to your project in AI Studio.
 1. Select **Components** > **Deployments**.
 1. Select **+ Create deployment**.
-1. Search for and select the model you want to deploy.
+1. In the **Collections** filter, select **Azure OpenAI**.
+1. Select a model such as `gpt-4` from the Azure OpenAI collection.
 1. Select **Confirm** to open the deployment window.
+1. Specify the deployment name and modify other default settings depending on your requirements.
 1. Select **Deploy**.
-1. You land on the deployment details page. Select **Consume** to obtain code samples that can be used to consume the deployed model in your application. 
+1. You land on the deployment details page. From here, you can open the model in the playground to test it out or view code samples that can be used to consume the deployed model in your application.
 
 ## Deploy and inference a Serverless API model with code
 
 ### Deploying a model
 
-Serverless API models are the models you can deploy with pay-as-you-go billing. Examples include Phi-3, Llama-2, Command R, Mistral Large, etc. For serverless API models, you are only charged for inferencing, unless you choose to fine-tune the model. [Learn more](../../machine-learning/how-to-deploy-models-serverless.md?tabs=python).
+Serverless API models are the models you can deploy with pay-as-you-go billing. Examples include Phi-3, Llama-2, Command R, Mistral Large, and more. For serverless API models, you are only charged for inferencing, unless you choose to fine-tune the model. 
 
 #### Get the model ID
 
-You can deploy Serverless API models using the Azure Machine Learning SDK, but first, let’s browse the model catalog and get the model ID you need for deployment.
+You can deploy Serverless API models using the Azure Machine Learning SDK, but first, let's browse the model catalog and get the model ID you need for deployment.
 
-1. Go to [**Azure AI Studio**](ai.azure.com).
-1. **Sign in** with your Azure subscription.
-1. Click **Model Catalog**.
-1. Select the **Serverless API filer option** to see available Serverless API models
-1. Select **a model of your choice**
-1. On the model details page, **copy the model ID**. It will look something like this: `azureml://registries/azureml-cohere/models/Cohere-command-r-plus/versions/3`
+1. Sign in to [AI Studio](https://ai.azure.com) and go to the **Home** page.
+1. Select **Model catalog** from the left sidebar.
+1. In the **Deployment options** filter, select **Serverless API**.
+
+    :::image type="content" source="../media/deploy-monitor/catalog-filter-serverless-api.png" alt-text="A screenshot showing how to filter by serverless API models in the catalog." lightbox="../media/deploy-monitor/catalog-filter-serverless-api.png"::: 
+
+1. Select a model.
+1. Copy the model ID from the details page of the model you selected. It will look something like this: `azureml://registries/azureml-cohere/models/Cohere-command-r-plus/versions/3`
 
 
 #### Install the Azure Machine Learning SDK
@@ -77,7 +86,7 @@ from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 from azure.ai.ml.entities import MarketplaceSubscription, ServerlessEndpoint
 
-# You can find your credential information on Azure AI Studio Project Settings 
+# You can find your credential information in project settings.
 client = MLClient(
     credential=DefaultAzureCredential(),
     subscription_id="your subscription name goes here",
@@ -89,15 +98,16 @@ Second, let's reference the model ID you found earlier.
 
 ```python
 # You can find the model ID on the model catalog.
-model_id="azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct" 
+model_id="azureml://registries/azureml-meta/models/Llama-2-70b-chat/versions/18" 
 ```
 Serverless API models from third party model providers require an Azure marketplace subscription in order to use the model. Let's create a marketplace subscription. 
 
-> [!NOTE] You can skip the part if you are deploying a Serverless API model from Microsoft, such as Phi-3.
+> [!NOTE] 
+> You can skip the part if you are deploying a Serverless API model from Microsoft, such as Phi-3.
 
 ```python
 # You can customize the subscription name.
-subscription_name="Meta-Llama-3-8B-Instruct" 
+subscription_name="Meta-Llama-2-70b-chat" 
 
 marketplace_subscription = MarketplaceSubscription(
     model_id=model_id,
@@ -112,7 +122,7 @@ Finally, let's create a serverless endpoint.
 
 ```python
 
-endpoint_name="meta-llama3-8b-qwerty" #your endpoint name must be unique
+endpoint_name="Meta-Llama-2-70b-chat-qwerty" # Your endpoint name must be unique
 
 serverless_endpoint = ServerlessEndpoint(
     name=endpoint_name,
@@ -140,16 +150,20 @@ To inference, you will want to use the code specifically catering to different m
 
 ### Deploying a model
 
-Azure AI model catalog offers over 1600 models, and the most common way to deploy these models is to use the Managed compute deployment option, which is also sometimes called Managed Online Endpoint.
+Azure AI model catalog offers over 1600 models, and the most common way to deploy these models is to use the managed compute deployment option, which is also sometimes referred to as a managed online deployment. 
 
 #### Get the model ID
 
-1. Go to [**Azure AI Studio**](ai.azure.com).
-1. **Sign in** with your Azure subscription.
-1. Click **Model Catalog**.
-1. Select the **Serverless API filer option** to see available Serverless API models
-1. Select **a model of your choice**
-6. On the model details page, copy the model ID. It will look something like this: `azureml://registries/azureml/models/deepset-roberta-base-squad2/versions/16`
+You can deploy managed compute models using the Azure Machine Learning SDK, but first, let's browse the model catalog and get the model ID you need for deployment.
+
+1. Sign in to [AI Studio](https://ai.azure.com) and go to the **Home** page.
+1. Select **Model catalog** from the left sidebar.
+1. In the **Deployment options** filter, select **Managed compute**.
+
+    :::image type="content" source="../media/deploy-monitor/catalog-filter-managed-compute.png" alt-text="A screenshot showing how to filter by managed compute models in the catalog." lightbox="../media/deploy-monitor/catalog-filter-managed-compute.png"::: 
+
+1. Select a model.
+1. Copy the model ID from the details page of the model you selected. It will look something like this: `azureml://registries/azureml/models/deepset-roberta-base-squad2/versions/16`
 
 #### Install the Azure Machine Learning SDK
 
@@ -178,7 +192,7 @@ client = MLClient(
 
 Let's deploy the model.
 
-For Managed compute deployment option, you need to create an endpoint before a model deployment. Think of endpoint as a container that can house multiple model deployments.
+For Managed compute deployment option, you need to create an endpoint before a model deployment. Think of endpoint as a container that can house multiple model deployments. The endpoint names need to be unique in a region, so in this example we're using the timestamp to create a unique endpoint name.
 
 ```python
 import time, sys
@@ -188,11 +202,11 @@ from azure.ai.ml.entities import (
     ProbeSettings,
 )
 
-# Create online endpoint - endpoint names need to be unique in a region, hence using timestamp to create unique endpoint name
+# Make the endpoint name unique
 timestamp = int(time.time())
 online_endpoint_name = "customize your endpoint name here" + str(timestamp)
 
-# create an online endpoint
+# Create an online endpoint
 endpoint = ManagedOnlineEndpoint(
     name=online_endpoint_name,
     auth_mode="key",
@@ -200,9 +214,10 @@ endpoint = ManagedOnlineEndpoint(
 workspace_ml_client.begin_create_or_update(endpoint).wait()
 ```
 
+
+Create a deployment. You can find the model ID in the model catalog.
+
 ```python
-# create a deployment
-# You can find the model ID on the model catalog.
 model_name = "azureml://registries/azureml/models/deepset-roberta-base-squad2/versions/16" 
 
 demo_deployment = ManagedOnlineDeployment(
@@ -252,10 +267,11 @@ You'll need a sample json data to test inferencing. Create `sample_score.json` w
   }
 }
 ```
-Let's inference with `sample_score.json`.
+
+Let's inference with `sample_score.json`. Change the location based on where you saved your sample json file.
 
 ```python
-scoring_file = "./sample_score.json" # Change the location based on where you saved your sample json file.
+scoring_file = "./sample_score.json" 
 response = workspace_ml_client.online_endpoints.invoke(
     endpoint_name=online_endpoint_name,
     deployment_name="demo",
@@ -267,13 +283,13 @@ print(json.dumps(response_json, indent=2))
 
 ## Delete the deployment endpoint
 
-To delete deployments in Azure AI Studio, select the **Delete** button on the top panel of the deployment details page.
+To delete deployments in AI Studio, select the **Delete** button on the top panel of the deployment details page.
 
 ## Quota considerations
 
-To deploy and perform inferencing with real-time endpoints, you consume Virtual Machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for a quota increase.  
+To deploy and perform inferencing with real-time endpoints, you consume Virtual Machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for a quota increase.  
 
 ## Next steps
 
-- Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
+- Learn more about what you can do in [AI Studio](../what-is-ai-studio.md)
 - Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)
