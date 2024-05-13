@@ -93,37 +93,37 @@ After submission, you can find the submitted batch run in the run list tab in pr
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-list.png" alt-text="Screenshot of prompt flow run list page where you find batch runs. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-list.png":::
 
-Select a run to navigate to the **run result page**, to check the results of this batch run. 
+Select a run to navigate to the **Run result** page, to check the results of this batch run. 
 
 ### Output
 
-**Basic result and trace**
+#### Basic result and trace
 
 This will firstly direct you to the **Output tab** to view the inputs and outputs line by line. The output tab page displays a table list of results, including the **line ID**， **input**, **output**, **status**, **system metrics**, and **created time**.
 
-For each line, clicking on **View trace** allows you to observe and debug that particular test case in its trace detailed page.
+For each line, selecting **View trace** allows you to observe and debug that particular test case in its trace detailed page.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-output.png" alt-text="Screenshot of batch run result page on the outputs tab where you check batch run outputs. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-output.png":::
 
 :::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
 
-**Append evaluation result and trace**
+#### Append evaluation result and trace*
 
-Clicking **Append evaluation output** allows you to select related evaluation runs and you see appended columns at the end of the table showing the evaluation result for each row of data. Multiple evaluation outputs can be appended for comparison.
+Selecting **Append evaluation output** allows you to select related evaluation runs and you see appended columns at the end of the table showing the evaluation result for each row of data. Multiple evaluation outputs can be appended for comparison.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-output-append-evaluation.png" alt-text="Screenshot of batch run outputs to append evaluation output. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-output-append-evaluation.png":::
 
 You can see the **latest evaluation metrics** in the left **Overview** panel.
 
-**Essential overview**
+#### Essential overview
 
 On the right side, the Overview offers overall information about the run, such as the number of per data point execution, total tokens, and duration of the run. 
 
-The latest evaluation run aggregated metrics are shown here by default, you can click on View evaluation run to jump to view the evaluation run itself. 
+The latest evaluation run aggregated metrics are shown here by default, you can select View evaluation run to jump to view the evaluation run itself. 
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-output-overview.png" alt-text="Screenshot of batch run overview information in output page. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-output-overview.png":::
 
-The overview can be expanded and collapsed here, and you can click on View full information which will direct you to the [Overview tab](#overview) beside the Output tab, where is containing more detailed information of this run.
+The overview can be expanded and collapsed here, and you can select View full information, which will direct you to the [Overview tab](#overview) beside the Output tab, where is containing more detailed information of this run.
 
 #### Start a new round of evaluation
 
@@ -141,18 +141,17 @@ After setting up the configuration, you can select **"Submit"** for this new rou
 
 To learn more about the metrics calculated by the built-in evaluation methods, navigate to [understand the built-in evaluation metrics](#understand-the-built-in-evaluation-metrics).
 
-
 ### Overview
 
-Clicking the **Overview tab** shows comprehensive information about the run, including run properties, input dataset, output dataset, tags, and description.
+Selecting the **Overview tab** shows comprehensive information about the run, including run properties, input dataset, output dataset, tags, and description.
 
 ### Logs
 
-Clicking the **Logs tab** allows you to view the run logs, which can be useful for detailed debugging of execution errors. You can download the log files to your local machine.
+Selecting the **Logs tab** allows you to view the run logs, which can be useful for detailed debugging of execution errors. You can download the log files to your local machine.
 
 ### Snapshot
 
-Clicking the **Snapshot tab** shows you the run snapshot. You can view the DAG of your flow. Additionally, you have the option to **Clone** it to create a new flow. You can also **Deploy** it as an online endpoint.
+Selecting the **Snapshot tab** shows you the run snapshot. You can view the DAG of your flow. Additionally, you have the option to **Clone** it to create a new flow. You can also **Deploy** it as an online endpoint.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-snapshot.png" alt-text="Screenshot of batch run snapshot." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-snapshot.png":::
 
