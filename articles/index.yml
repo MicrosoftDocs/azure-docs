@@ -1561,7 +1561,7 @@ productDirectory:
       imageSrc: ./media/index/data-api-builder.svg
       azureCategories:
         - developer-tools
-      url: /azure/data-api-builder/index.yml
+      url: /azure/data-api-builder/
       
 tools:
   title: Languages and tools
