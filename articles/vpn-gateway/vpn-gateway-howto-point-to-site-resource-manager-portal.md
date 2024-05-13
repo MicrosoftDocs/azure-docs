@@ -103,7 +103,7 @@ The **Point-to-site configuration** page contains the configuration information 
 
 The client address pool is a range of private IP addresses that you specify. The clients that connect over a point-to-site VPN dynamically receive an IP address from this range. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or the VNet that you want to connect to. If you configure multiple protocols and SSTP is one of the protocols, then the configured address pool is split between the configured protocols equally.
 
-   :::image type="content" source="./media/vpn-gateway-point-to-site-resource-manager-portalconfiguration-address-pool.png" alt-text="Screenshot of Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-point-to-site-resource-manager-portalconfiguration-address-pool.png":::
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png" alt-text="Screenshot of Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png":::
 
 1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
 
@@ -115,17 +115,17 @@ The client address pool is a range of private IP addresses that you specify. The
 > If you don't see tunnel type or authentication type on the **Point-to-site configuration** page, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
 >
 
-In this section, you specify the tunnel type and the authentication type. These settings can become complex, depending on the tunnel type you require and the VPN client software that will be used to make the connection from the user's operating system. The steps in this article will walk you through basic configuration settings and choices.
+In this section, you specify the tunnel type and the authentication type. These settings can become complex, depending on the tunnel type you require and the VPN client software that will be used to make the connection from the user's operating system. The steps in this article walk you through basic configuration settings and choices.
 
 You can select options that contain multiple tunnel types from the dropdown - such as *IKEv2 and OpenVPN(SSL)* or *IKEv2 and SSTP (SSL)*, however, only certain combinations of tunnel types and authentication types are supported. For example, Microsoft Entra authentication can only be used when you select *OpenVPN (SSL)* from the tunnel type dropdown, and not *IKEv2 and OpenVPN(SSL)*.
 
-Additionally, the tunnel type and the authentication type you choose impact the VPN client software that can be used to connect to Azure. Some VPN client software can only connect via IKEv2, others can only connect via OpenVPN. And some client software, while it supports a certain tunnel type, may not support the authentication type you choose.
+Additionally, the tunnel type and the authentication type you choose impact the VPN client software that can be used to connect to Azure. Some VPN client software can only connect via IKEv2, others can only connect via OpenVPN. And some client software, while it supports a certain tunnel type, might not support the authentication type you choose.
 
-As you can tell, planning the tunnel type and authentication type is important when you have a variety of VPN clients connecting from different operating systems. Consider the following criteria when you choose your tunnel type in combination with **Azure certificate** authentication. Other authentication types have different considerations.
+As you can tell, planning the tunnel type and authentication type is important when you have various VPN clients connecting from different operating systems. Consider the following criteria when you choose your tunnel type in combination with **Azure certificate** authentication. Other authentication types have different considerations.
 
 * **Windows**:
 
-  * Windows computers connecting via the native VPN client already installed in the operating system will try IKEv2 first and, if that doesn't connect, they fall back to SSTP (if you selected both IKEv2 and SSTP from the tunnel type dropdown).
+  * Windows computers connecting via the native VPN client already installed in the operating system tries IKEv2 first and, if that doesn't connect, they fall back to SSTP (if you selected both IKEv2 and SSTP from the tunnel type dropdown).
   * If you select the OpenVPN tunnel type, you can connect using an OpenVPN Client or the Azure VPN Client.
   * The Azure VPN Client can support additional [optional configuration settings](azure-vpn-client-optional-configurations.md) such as custom routes and forced tunneling.
 
@@ -159,7 +159,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
 
 1. Make sure that you exported the root certificate as a **Base-64 encoded X.509 (.CER)** file in the previous steps. You need to export the certificate in this format so you can open the certificate with text editor. You don't need to export the private key.
 
-1. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
+1. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You might need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert.png" alt-text="Screenshot showing root certificate information in Notepad." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert-expand.png":::
 1. Navigate to your **Virtual network gateway -> Point-to-site configuration** page in the **Root certificate** section. This section is only visible if you have selected **Azure certificate** for the authentication type.
@@ -186,16 +186,13 @@ The VPN client profile configuration files that you generate are specific to the
 
 ### Azure portal
 
-[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
+[!INCLUDE [Azure VPN Client install link table](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 ## <a name="clientconfig"></a>Configure VPN clients and connect to Azure
 
-For steps to configure your VPN clients, and connect to Azure, see the following articles:
+For steps to configure your VPN clients and connect to Azure, see the following articles:
 
-* [Windows](point-to-site-vpn-client-cert-windows.md)
-* [macOS-iOS](point-to-site-vpn-client-cert-mac.md)
-* Linux: [Azure VPN Client](point)
-* [Linux](point-to-site-vpn-client-cert-linux.md)
+[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
 
 ## <a name="verify"></a>To verify your connection
 

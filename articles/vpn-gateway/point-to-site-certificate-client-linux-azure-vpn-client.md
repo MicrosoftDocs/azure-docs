@@ -26,15 +26,15 @@ Verify that you are on the correct article. The following table shows the config
 
 This article assumes that you've already performed the following prerequisites:
 
-* You created and configured your VPN gateway for point-to-site certificate authentication and an IKEv2/SSTP tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-gateway-certificate.md) for steps.
-* You downloaded the VPN client configuration files. See [Generate VPN client profile configuation files](point-to-site-gateway-certificate.md#profile-files) for steps.
+* You created and configured your VPN gateway for point-to-site certificate authentication and an IKEv2/SSTP tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal-certificate.md) for steps.
+* You downloaded the VPN client configuration files. See [Generate VPN client profile configuation files](vpn-gateway-howto-point-to-site-resource-manager-portal-certificate.md#profile-files) for steps.
 
 ### Workflow
 
 The basic workflow is as follows:
 
 1. Generate and install client certificates.
-1. Locate the VPN client profile configuration package that you generated in the [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-gateway-certificate.md#profile-files) article.
+1. Locate the VPN client profile configuration package that you generated in the [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) article.
 1. Download and configure Azure VPN Client for Linux.
 1. Connect to Azure.
 
