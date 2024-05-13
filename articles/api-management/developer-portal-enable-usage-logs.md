@@ -1,13 +1,13 @@
 ---
 title: Enable usage logs - Developer portal - Azure API Management
-description: Learn how to use metrics, alerts, activity logs, and resource logs to monitor your APIs in Azure API Management.
+description: Learn how to enable resource logs to monitor usage of the developer portal in Azure API Management.
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.custom: 
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 05/13/2024
 ms.author: danlep
 ---
 
@@ -15,45 +15,47 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-This article shows you how to enable Azure Monitor logs for auditing and troubleshooting usage of the developer portal. When enabled through a diagnostic setting, the logs collect information about the requests that are received and processed by the developer portal.
+This article shows you how to enable Azure Monitor logs for auditing and troubleshooting usage of the API Management [developer portal](developer-portal-overview.md). When enabled through a diagnostic setting, the logs collect information about the requests that are received and processed by the developer portal.
 
-To configure resource logs:
+## Enable diagnostic setting for developer portal logs
+
+To configure a diagnostic setting for developer portal usage logs:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-2. Select **Diagnostic settings**.
+1. In the left menu, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Screenshot of Diagnostic settings item in Monitoring menu in the portal.":::
-
-1. Select **+ Add diagnostic setting**.
-1. Select the logs or metrics that you want to collect.
-
-   You have several options about where to send the logs and metrics. For example, archive resource logs along with metrics to a storage account, stream them to an event hub, or send them to a Log Analytics workspace.
-
-  1. After configuring details for the log destination or destinations, select **Save**. 
-
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
+    :::image type="content" source="media/developer-portal-enable-usage-logs/monitoring-menu.png" alt-text="Screenshot of adding a diagnostic setting in the portal":::
+1. On the **Diagnostic setting** blade, enter or select details for the setting:
+    1. **Diagnostic setting name**: Enter a descriptive name.
+    1. **Category groups**: Optionally make a selection for your scenario. 
+    1. Under **Categories**: Select **Logs related to Developer Portal usage**. Optionally select other categories as needed.
+    1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account, stream them to an event hub, or send them to a Log Analytics workspace or partner solution. [Learn more](../azure-monitor/essentials/diagnostic-settings.md)
+    1. Select **Save**. 
  
-## View diagnostic data in Azure Monitor
+## View diagnostic log data
 
-If you enable collection of logs or metrics in a Log Analytics workspace, it can take a few minutes for data to appear in Azure Monitor. 
+Depending on the log destination you choose, it can take a few minutes for data to appear. 
 
-To view the data:
+If you send logs to a storage account, you can access the data in the Azure portal and download it for analysis.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to the storage account destination.
+1. In the left menu, select **Storage Browser**.
+1. Under **Blob containers**, select **insights-logs-developerportalauditlogs**.
+1. Navigate to the container for the logs in your API Management instance. The logs are partitioned in intervals of 1 hour.
+1. To retrieve the data for further analysis, select **Download**.
+
+If you selected a Log Analytics workspace as a destination, you can view the data in the Azure portal. To query the data:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select **Logs** from the left menu.
+1. In the left menu, select **Logs**.
+1. Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the DeveloperPortalAuditLogs table:
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu in the portal.":::
-
-1. Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves ...
-
-    ```kusto
-    ....
-    | where TimeGenerated > ago(1d) 
-    ```
-
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/query-resource-logs.png" alt-text="Screenshot of querying ApiManagementGatewayLogs table in the portal." lightbox="media/api-management-howto-use-azure-monitor/query-resource-logs.png":::
-
-For more information about using resource logs for API Management, see:
+```kusto
+DeveloperPortalAuditLogs
+| where TimeGenerated > ago(1d)
+```
+        
+## Related content
 
 * [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md), or try the [Log Analytics demo environment](https://ms.portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView).
 
@@ -61,38 +63,3 @@ For more information about using resource logs for API Management, see:
 
 * [API Management resource log schema reference](gateway-log-schema-reference.md). 
 
-## Modify API logging settings
-
-By default, when you create a diagnostic setting to enable collection of resource logs, logging is enabled for all APIs, with default settings. You can adjust the logging settings for all APIs, or override them for individual APIs. For example, adjust the sampling rate or the verbosity of the data, or disable logging for some APIs.
-
-For details about the logging settings, see [Diagnostic logging settings reference](diagnostic-logs-reference.md).
-
-To configure logging settings for all APIs:
-
-1. In the left menu of your API Management instance, select **APIs** > **All APIs**.
-1. Select the **Settings** tab from the top bar.
-1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**.
-
-To configure logging settings for a specific API:
-
-1. In the left menu of your API Management instance, select **APIs** and then the name of the API.
-1. Select the **Settings** tab from the top bar.
-1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**.
-
-## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * View metrics of your API
-> * Set up an alert rule
-> * View activity logs
-> * Enable and view resource logs
-
-
-Advance to the next tutorial:
-
-> [!div class="nextstepaction"]
-> [Trace calls](api-management-howto-api-inspector.md)
