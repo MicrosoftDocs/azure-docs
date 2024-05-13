@@ -16,8 +16,6 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Document Intelligence Studio
 
-:::image type="content" source="media/studio/welcome-to-studio.png" alt-text="Screenshot of the Document Intelligence Studio logo on the studio homepage.":::
-
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [preview-version-notice](includes/preview-notice.md)]
 
