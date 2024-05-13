@@ -43,7 +43,7 @@ In this section we will create a client secret and record the value for use late
 
 ## Create definition and assignment
 
-Inn this section we will create an Entra ID role definition and assign that role with permissions to read and write items in the containers.
+In this section we will create a Microsoft Entra ID role definition and assign that role with permissions to read and write items in the containers.
 
 1. Create a role using the `az role definition create` command. Pass in the Azure Cosmos DB for NoSQL account name and resource group, followed by a body of JSON that defines the custom role. The role is also scoped to the account level using `/`. Ensure that you provide a unique name for your role using the `RoleName` property of the request body.
 
