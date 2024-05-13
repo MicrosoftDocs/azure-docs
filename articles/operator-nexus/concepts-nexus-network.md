@@ -27,7 +27,7 @@ wishes those networks are to be exposed within their cluster.
 
  * TrunkedNetwork: The Nexus workload TrunkedNetwork resource allows association with multiple IsolationDomains, enabling customers to create a custom VLAN trunk range that workloads can access. The TrunkedNetwork defines the allowable VLAN set that workloads can directly tag traffic on. Tagged traffic for VLANs not specified in the TrunkedNetwork resource will be dropped. This custom VLAN trunk range can span across the same IsolationDomain or multiple L3IsolationDomains and/or L2IsolationDomains.
 
-## Nexus workload Network plugins
+## Nexus workload network plugins
 
 Network plugin is the feature to configuration how application use the underlying Networks when attaching networks to application VMs or Pods.
 The type of plugins supported for different network types. 
