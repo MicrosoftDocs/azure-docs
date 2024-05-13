@@ -89,7 +89,7 @@ Either create a new resource group, or select an existing resource group hosting
 Run the following command to retrieve the DiskEncryptionSet value and set a variable:
 
 ```azurecli-interactive
-diskEncryptionSetId=$(az disk-encryption-set show --name mydiskEncryptionSetName --resource-gorup myResourceGroup --query "[id]" -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show --name mydiskEncryptionSetName --resource-group myResourceGroup --query "[id]" -o tsv)
 ```
 
 If you want to create a new resource group for the cluster, run the following command:
