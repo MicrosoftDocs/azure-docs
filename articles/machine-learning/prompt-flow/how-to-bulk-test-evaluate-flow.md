@@ -99,7 +99,7 @@ Select a run to navigate to the **Run result** page, to check the results of thi
 
 #### Basic result and trace
 
-This will firstly direct you to the **Output tab** to view the inputs and outputs line by line. The output tab page displays a table list of results, including the **line ID**， **input**, **output**, **status**, **system metrics**, and **created time**.
+This will firstly direct you to the **Output tab** to view the inputs and outputs line by line. The output tab page displays a table list of results, including the **line ID**, **input**, **output**, **status**, **system metrics**, and **created time**.
 
 For each line, selecting **View trace** allows you to observe and debug that particular test case in its trace detailed page.
 
@@ -107,7 +107,7 @@ For each line, selecting **View trace** allows you to observe and debug that par
 
 :::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
 
-#### Append evaluation result and trace*
+#### Append evaluation result and trace
 
 Selecting **Append evaluation output** allows you to select related evaluation runs and you see appended columns at the end of the table showing the evaluation result for each row of data. Multiple evaluation outputs can be appended for comparison.
 

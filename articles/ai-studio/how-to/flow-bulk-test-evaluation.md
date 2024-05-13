@@ -80,7 +80,7 @@ In the run detail page, you can select **Details** to check the details of this 
 
 #### Basic result and trace
 
-This will firstly direct you to the **Output tab** to view the inputs and outputs line by line. The output tab page displays a table list of results, including the **line ID**， **input**, **output**, **status**, **system metrics**, and **created time**.
+This will firstly direct you to the **Output tab** to view the inputs and outputs line by line. The output tab page displays a table list of results, including the **line ID**, **input**, **output**, **status**, **system metrics**, and **created time**.
 
 For each line, selecting **View trace** allows you to observe and debug that particular test case in its trace detailed page.
 
