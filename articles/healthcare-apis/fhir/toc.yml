@@ -12,7 +12,7 @@ items:
       href: fhir-rest-api-capabilities.md
     - name: Versioning policy and history management
       href: fhir-versioning-policy-and-history-management.md
-    - name: Migration from Azure API for FHIRLearn to deidentify FHIR data with the FHIR® service’s export feature. Use our sample config file for HIPAA Safe Harbor compliance and privacy protection.
+    - name: Migration from Azure API for FHIR
       href: migration-strategies.md
     - name: SMART on FHIR
       href: smart-on-fhir.md
