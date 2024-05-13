@@ -376,7 +376,7 @@ When you change the password for the *admin*, *cyberx*, or *cyberx_host* user, t
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**admin**     |   `system password`      |   <username>      |
+|**admin**     |   `system password`      |   `<username>`      |
 |**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
 |**cyberx_host**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)  |   `passwd` | No attributes   |
 
@@ -432,7 +432,7 @@ For more information, see [Define maximum number of failed sign-ins](manage-user
 ### Network settings
 
 #### Change networking configuration or reassign network interface roles
-
+<!-- what are the params for the config command??   is it network reconfigure ???-->
 Use the following command to rerun the OT monitoring software configuration wizard, which helps you define or reconfigure the following OT sensor settings:
 
 - Enable/disable SPAN monitoring interfaces
@@ -453,7 +453,6 @@ root@xsense:/# sudo dpkg-reconfigure iot-sensor
 
 The configuration wizard starts automatically after you run this command.
 For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
-
 
 #### Validate and show network interface configuration
 
@@ -488,6 +487,7 @@ Use the following commands to send a ping message from the OT sensor.
 |**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `ping <IP address>`      |   No attributes |
 
 In these commands, `<IP address>` is the IP address of a valid IPv4 network host accessible from the management port on your OT sensor.
+
 ```bash
 shell> network ping 170.20.248.140
 PING 170.20.248.140 (170.20.248.140) 56(84) bytes of data.
@@ -497,7 +497,7 @@ PING 170.20.248.140 (170.20.248.140) 56(84) bytes of data.
 ```
 
 #### Check network interface current load
-
+<!-- this command doesnt seem to exist -->
 Use the following command to display network traffic and bandwidth using a six-second test.
 
 |User  |Command  |Full command syntax   |
@@ -522,6 +522,54 @@ local_listener (virtual adiot0):
         Received: 0.0 Bit Sent: 0.0 Bit
 root@xsense:/#
 ```
+#### statistics
+<!-- is this connected to nload, instead?? -->
+Use the following command to display network traffic statistics.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)   |   `network statistics`      |   No attributes     |
+
+```bash
+shell> network
+network> statistics
+local_player
+NIC statistics:
+     peer_ifindex: 3
+     rx_queue_0_xdp_packets: 0
+     rx_queue_0_xdp_bytes: 0
+     rx_queue_0_drops: 0
+     rx_queue_0_xdp_redirect: 0
+     rx_queue_0_xdp_drops: 0
+     rx_queue_0_xdp_tx: 0
+     rx_queue_0_xdp_tx_errors: 0
+     tx_queue_0_xdp_xmit: 0
+     tx_queue_0_xdp_xmit_errors: 0
+
+local_listener
+NIC statistics:
+     peer_ifindex: 4
+     rx_queue_0_xdp_packets: 0
+     rx_queue_0_xdp_bytes: 0
+     rx_queue_0_drops: 0
+     rx_queue_0_xdp_redirect: 0
+     rx_queue_0_xdp_drops: 0
+     rx_queue_0_xdp_tx: 0
+     rx_queue_0_xdp_tx_errors: 0
+     tx_queue_0_xdp_xmit: 0
+     tx_queue_0_xdp_xmit_errors: 0
+```
+
+#### syslog add
+
+param
+
+
+#### syslog flush
+
+
+#### syslog show
+
 
 #### Check internet connection
 
@@ -537,7 +585,6 @@ Checking internet connectivity...
 The machine was successfully able to connect the internet.
 root@xsense:/#
 ```
-
 
 ### Set bandwidth limit for the management network interface
 
