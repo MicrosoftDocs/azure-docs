@@ -184,5 +184,5 @@ Valid values for the `key` are:
 
 
 ## Related content
-- Concepts: Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (Preview)
+- [Concepts: Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (Preview)](generative-ai-azure-local-ai.md)
 - [How to enable and use `pgvector` on Azure Database for PostgreSQL - Flexible Server](how-to-use-pgvector.md)
