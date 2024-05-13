@@ -133,6 +133,12 @@ To support your function code, you need to create three resources:
 
 [!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
 
+6. Select **Review + create** to review the app configuration you chose, and then select **Create** to provision and deploy the function app.
+
+7. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
+
+8. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+
 ### [Visual Studio Code](#tab/vs-code)
 
 1.  Press F1, and in the command pallet enter **Azure Functions: Create function app in Azure...(Advanced)**.
@@ -216,6 +222,103 @@ You can use Maven to create a Flex Consumption hosted function app and required 
     Maven uses settings in the pom.xml template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. Should these resources already exist, the code is deployed to your function app, overwriting any existing code.
 ::: zone-end  
 
+## Enable virtual network integration
+
+You can enable [virtual network integration](functions-networking-options.md#virtual-network-integration) for your app in a Flex Consumption plan. The examples in this section assume that you already have [created a virtual network with subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet) in your account. You can enable virtual network integration when you create your app or at a later time.
+
+To enable virtual networking when you create you app:
+
+### [Azure CLI](#tab/azure-cli)
+
+You can enable virtal network integration by your run the [`az functionapp create`] command by including the `--vnet` and `--subnet` parameters.
+
+1. [Created the virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet), if you haven't already done so.
+
+1. Complete steps 1-4 in [Create a Flex Consumption app](#create-a-flex-consumption-app) to create the resources required by your app.
+
+1. Run the [`az functionapp create`] command, including the `--vnet` and `--subnet` parameters, as in this example:
+
+    ```azurecli
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime <RUNTIME_NAME> --runtime-version <RUNTIME_VERSION> --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
+    ```
+
+    The `<VNET_RESOURCE_ID>` value is the resource ID for the virtual network, which is in the format: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCER_GROUP>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>`. You can use this command to get a list of virtual network IDs, filtered by `<RESOURCE_GROUP>`: `az network vnet list --resource-group <RESOURCE_GROUP> --output tsv --query "[]".id`. 
+
+### [Azure portal](#tab/azure-portal)
+
+Use these steps to create your function app with virtual network integration and related Azure resources. 
+
+[!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
+
+6. In the **Networking** tab, set **Enable public access** to **Off** and **Enable network injection** to **On**.
+
+7. For **Virtual network**, select or create a virtual network that is in the same region as your app.
+
+8. Set **Enable VNet integration** to **On** and select or create a subnet.
+
+6. Select **Review + create** to review the app configuration you chose, and then select **Create** to provision and deploy the function app with virtual networking.
+
+7. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
+
+8. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+
+### [Visual Studio Code](#tab/vs-code)
+
+You can't currently enable virtual networking when you use Visual Studio Code to create your app.
+
+---
+
+For end-to-end examples of how to create apps in Flex Consumption with virtual network integration see these resources:
+
++ [Flex Consumption: HTTP to Event Hubs using VNET Integration](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/E2E/HTTP-VNET-EH/README.md)
++ [Flex Consumption: triggered from Service Bus using VNET Integration](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/E2E/SB-VNET/README.md)
+
+To modify or delete virtual network integration in an existing app:
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the [`az functionapp vnet-integration add`](/cli/azure/functionapp/vnet-integration#az-functionapp-vnet-integration-add) command to enable virtual network integration to an existing function app:
+
+```azurecli
+az functionapp vnet-integration add --resource-group <RESOURCE_GROUP> --name <APP_NAME> --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
+```
+
+Use the [`az functionapp vnet-integration remove`](/cli/azure/functionapp/vnet-integration#az-functionapp-vnet-integration-remove) command to disable virtual network integration in your app:
+
+```azurecli
+az functionapp vnet-integration remove --resource-group <RESOURCE_GROUP> --name <APP_NAME>
+```
+
+Use the [`az functionapp vnet-integration list`](/cli/azure/functionapp/vnet-integration#az-functionapp-vnet-integration-list) command to list the current virtual network integrations for your app:
+
+```azurecli
+az functionapp vnet-integration list --resource-group <RESOURCE_GROUP> --name <APP_NAME>
+```
+
+### [Azure portal](#tab/azure-portal)
+
+You can integrate your existing app with an existing virtual network and subnet in the portal. 
+
+1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Networking**.
+
+1. Under **Outbound traffic configuration**, select **Not configured**.
+
+1. In the **Virtual Network Integration** page, select **Add virtual network integration**.
+
+1. Select an existing **Virtual network** and **Subnet** and select **Connect**.
+
+### [Visual Studio Code](#tab/vs-code)
+
+You can't currently configure virtual networking in Visual Studio Code.
+
+---
+
+When choosing a subnet, these considerations apply:
+
++ The subnet you choose can't already be used for other purposes, such as with private endpoints or service endpoints, or be delegated to any other hosting plan or service. 
++ You can share the same subnet with more than one app running in a Flex Consumptionk plan. Because the networking resources are shared across all apps, one function app might impact the performance of others on the same subnet.
++ In a Flex Consumption plan, a single function app might use up to 40 IP addresses, even when the app scales beyond 40 instances. While this rule of thumb is helpful when estimating the subnet size you need, it's not strictly enforced.  
+
 ## Configure the deployment storage account
 
 In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a blob storage container. By default, deployments use the same storage account and connection string (`AzureWebJobsStorage`) used by the Functions runtime to maintain your app. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. 
@@ -245,8 +348,6 @@ This example creates a function app in the Flex Consumption plan with a separate
 az functionapp create --resource-grpoup <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type storageAccountConnectionString --deployment-storage-auth-value <DEPLOYMENT_CONNECTION_STRING_NAME>"
 ```
 
-You can also modify the deployment storage configuration used to deploy to an existing app.
-
 ### [Azure portal](#tab/azure-portal)
 
 You can't currently configure deployment storage when creating your app in the Azure portal. To configure deployment storage during app creation, instead use the Azure CLI to create your app. 
@@ -259,9 +360,11 @@ You can't currently configure deployment storage when creating your app in Azure
 
 ---
 
+You can also modify the deployment storage configuration for an existing app.
+
 ### [Azure CLI](#tab/azure-cli)  
 
-You can also use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration: 
+Use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration: 
 
 ```azurecli
 az functionapp deployment config set --resource-grpoup <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
@@ -315,7 +418,7 @@ At any point, you can change the instance memory size setting used by your app.
 This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 512 MB: 
 
 ```azurecli
-az functionapp scale config set -g <resourceGroup> --name <APP_NAME> --instance-memory 512
+az functionapp scale config set --resource-group <resourceGroup> --name <APP_NAME> --instance-memory 512
 ```
 
 ### [Azure portal](#tab/azure-portal)

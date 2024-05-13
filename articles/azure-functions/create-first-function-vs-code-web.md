@@ -34,8 +34,14 @@ You must have a function app to host the execution of your functions in the Flex
 Use these steps to create your function app and related Azure resources. 
 
 [!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
-::: zone pivot="programming-language-csharp,programming-language-java"
 
+6. Select **Review + create** to review the app configuration you chose, and then select **Create** to provision and deploy the function app.
+
+7. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
+
+8. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+
+::: zone pivot="programming-language-csharp,programming-language-java"
 At this point, under **Create functions in your preferred environment** select your choice of local development environments. This link takes you to one of these quickstart articles, the first part of which tells you how to create a code project with an HTTP triggered function:
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  

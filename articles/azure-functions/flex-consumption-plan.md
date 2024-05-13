@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Azure Functions Flex Consumption plan hosting
 
-Flex Consumption is a linux-based Azure Functions hosting plan that builds on the Consumption pay for what you use serverless billing model. It gives you more flexibility and customizability by introducing private networking, instance memory size selection, and fast and large scale out features on a <em>serverless</em> model.
+Flex Consumption is a linux-based Azure Functions hosting plan that builds on the Consumption pay for what you use serverless billing model. It gives you more flexibility and customizability by introducing private networking, instance memory size selection, and fast and large scale-out features on a <em>serverless</em> model.
 
 
 > [!IMPORTANT]
@@ -24,36 +24,34 @@ The Flex Consumption plan builds on the strengths of the Consumption plan, which
 + [Always-ready instances](#always-ready-instances) 
 + [Virtual network integration](#virtual-network-integration)
 + Fast scaling based on concurrency for both HTTP and non-HTTP apps
-+ Multiple choices for instance memory size
-+ No enforced function execution timeouts <sup>1</sup>
++ Multiple choices, for instance, memory size
 
 This table helps you directly compare the features of Flex Consumption with the Consumption hosting plan:
 
 | Feature | Consumption | Flex Consumption |
 | ----- | ---- | ---- |
-| Scaling | [Event driven](event-driven-scaling.md)  | [Event driven](event-driven-scaling.md) |
+| Scale to zero| ✅ Yes | ✅ Yes   |
+| Scale behavior | [Event driven](event-driven-scaling.md) | [Event driven](event-driven-scaling.md) (fast) |
+| Virtual networks |❌ Not supported | ✅ Supported | 
+| Dedicated compute (mitigate cold starts) | ❌ None | ✅ Always ready instances (optional) | 
 | Billing | Execution-time only | Execution-time + always-ready instances |
-| Timeout (max) | 10 min | Unlimited<sup>1</sup>  |
-| Start-up | From zero instances | Always ready instances |
-| Virtual networks | Not supported | Supported | 
-
-<sup>1</sup>In Flex Consumption the functions host does not enforce an execution time limit. While no timeout is enforced, there is no current guarantees as the platform might need to terminate your instances during scale in, deployment, or updates.
+| Scale-out instances (max) | 200 | 1000 |
 
 For a complete comparison of the Flex Consumption plan against the Consumption plan and all other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
 ## Virtual network integration
 
-Flex Consumption expands on the traditional benefits of Consumption plan by adding support for virtual network integration. By running in a Flex Consumption plan, your apps can connect to other Azure services secured inside a virtual network. All while still allowing you to take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan.
+Flex Consumption expands on the traditional benefits of Consumption plan by adding support for [virtual network integration](./functions-networking-options.md#virtual-network-integration). When your apps run in a Flex Consumption plan, they can connect to other Azure services secured inside a virtual network. All while still allowing you to take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan. For more information, see [Enable virtual network integration](./flex-consumption-how-to.md#enable-virtual-network-integration).
 
 ## Instance memory
 
-When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. See [Billing](#billing) to learn how this affects the costs of your function app. 
+When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. See [Billing](#billing) to learn how instance memory sizes affect the costs of your function app. 
 
 Currently, Flex Consumption offers these instance memory size options: 512 MB, 2,048 MB, and 4,096 MB.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
-+ The 2,048 MB instance memory size is the default and should be used for most scenarios. The 512 MB and 4,096 MB instance memory sizes are available for scenarios that best suit your application's concurrency or processing power requirements. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
++ The 2,048-MB instance memory size is the default and should be used for most scenarios. The 512 MB and 4,096-MB instance memory sizes are available for scenarios that best suit your application's concurrency or processing power requirements. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
 + You can change the instance memory size at any time. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory).
 + Instance resources are shared between your function code and the Functions host.
 + The larger the instance memory size, the more each instance can handle as far as concurrent executions or more intensive CPU or memory workloads. Specific scale decisions are workload-specific.
@@ -66,17 +64,19 @@ Flex Consumption includes an _always ready_ feature that lets you choose instanc
 
 For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running and assigned to your app for your HTTP functions in the app. Those instances are processing your function executions, but depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
 
+To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
+
 ## Per-function scaling
 
 Concurrency is a key factor that determines how Flex Consumption function apps scale. To improve the scale performance of apps with various trigger types, the Flex Consumption plan provides a more deterministic way of scaling your app on a per-function basis. 
 
 This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
 
-In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app will be grouped and scaled together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) will be grouped and scaled together in the same instances. Any other function in the app will be treated and scaled individually.
+In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app are grouped and scale together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) are grouped and scale together in the same instances. All other functions in the app are scaled individually.
 
 ## Concurrency
 
-Concurrency refers to the number of parallel executions of a function on an instance of your app. You can set a maximum number of concurrent executions that each instance should handle at any given time. Concurrency has a direct impact on how your app scales because at lower concurrency levels, you need more instances to handle the event-driven demand for a function. While you can control and fine tune the concurrency, we provide defaults that work for most cases.
+Concurrency refers to the number of parallel executions of a function on an instance of your app. You can set a maximum number of concurrent executions that each instance should handle at any given time. Concurrency has a direct effect on how your app scales because at lower concurrency levels, you need more instances to handle the event-driven demand for a function. While you can control and fine tune the concurrency, we provide defaults that work for most cases.
 
 ## Deployment storage account
 
@@ -86,7 +86,7 @@ Unlike other plans, project code is deployed to apps in a Flex Consumption plan 
 
 [!INCLUDE [functions-flex-consumption-billing-table](../../includes/functions-flex-consumption-billing-table.md)]
 
-The minimum billable execution period for both execution modes is 1000 ms. Past that, the billable activity period is rounded up to the nearest 100 ms.
+The minimum billable execution period for both execution modes is 1,000 ms. Past that, the billable activity period is rounded up to the nearest 100 ms. You can find details on the Flex Consumption plan billing meters in the [Monitoring reference](monitor-functions-reference.md?tab=flex-consumption-plan#metrics).
 
 For details about how costs are calculated when you run in a Flex Consumption plan, including examples, see [Consumption-based costs](functions-consumption-costs.md?tabs=flex-consumtion-plan#consumption-based-costs). 
 
@@ -104,8 +104,12 @@ This table shows the language stack versions that are currently supported for Fl
 | PowerShell | PowerShell 7.4   |
 | Python | Python 3.10, Python 3.11  | 
 
-<sup>1</sup>[C# in-process mode](./functions-dotnet-class-library.md) isn't currently supported.  
+<sup>1</sup>[C# in-process mode](./functions-dotnet-class-library.md) isn't supported. You instead need to [migrate your .NET code project to run in the isolated worker model](migrate-dotnet-to-isolated-model.md).  
 <sup>2</sup>Requires version `1.20.0` or later of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker) and version `1.16.2` or later of [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk).
+
+## Regional subscription memory quotas
+
+Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans in that region. If your apps require a larger quota, raise a support ticket to request a quota increase.
 
 ## Deprecated properties and settings
 

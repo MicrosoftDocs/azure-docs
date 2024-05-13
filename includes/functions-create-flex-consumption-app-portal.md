@@ -23,9 +23,3 @@ ms.author: glenga
     |**Instance size** | Default | Determines the amount of instance memory allocated for each instance of your app. For more information, see [Instance memory](../articles/azure-functions/flex-consumption-plan.md#instance-memory).|
 
 1. Accept the default options in the remaining tabs, including the default behavior of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance. 
-
-1. Select **Review + create** to review the app configuration you chose, and then select **Create** to provision and deploy the function app.
-
-1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
-
-1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
