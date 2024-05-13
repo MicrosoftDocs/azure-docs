@@ -53,7 +53,7 @@ code_interpreter_tool = AzureCodeInterpreterToolSpec(
 agent = ReActAgent.from_tools(code_interpreter_tool.to_tool_list(), llm=llm, verbose=True)
 ```
 
-When it needs to perform calculations, the agent uses the code interpreter in *AzureCodeInterpreterToolSpec* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent runs multiple Python code snippets, it uses the same session. To ensure each end user has a unique session, use a separate agent and tool for each user.
+When it needs to perform calculations, the agent uses the code interpreter in *AzureCodeInterpreterToolSpec* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent uses the same tool to run multiple Python code snippets, it uses the same session. To ensure each end user has a unique session, use a separate agent and tool for each user.
 
 *AzureCodeInterpreterToolSpec* is available in the [`llama-index-tools-azure-code-interpreter`](https://pypi.org/project/llama-index-tools-azure-code-interpreter/) package.
 
