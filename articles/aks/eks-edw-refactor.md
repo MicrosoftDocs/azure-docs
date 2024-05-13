@@ -9,7 +9,7 @@ ms.author: jenhayes
 
 # Refactor application code for the event-driven workflow (EDW) workload
 
-To replicate the EDW workload in Azure, you need to refactor your application code to use Azure SDKs. This article outlines the key changes that are needed, including example code to support the workflow in Azure.
+To replicate the EDW workload in Azure you will use Azure services and you need to refactor your application code to use Azure SDKs to access those services. This article outlines the key changes that are needed, including example code to support the workflow in Azure.
 
 ## Update data access code
 
@@ -66,7 +66,7 @@ aws iam attach-role-policy --role-name keda-sample-iam-role --policy-arn=arn:aws
 
 ### Azure service-to-service authentication implementation
 
-To control data plane access to the Azure Storage Queue and the Azure Cosmos DB database, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles are not bundled with the resource, but rather assigned to a given resource at a given scope. The user-assigned managed identity security principal linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Cosmos DB automatically use the context of the security principal to access data in both resources.
+Next, we’ll explore how to perform similar AWS service-to-service logic within the Azure environment using AKS. To control data plane access to the Azure Storage Queue and the Azure Cosmos DB database, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles are not bundled with the resource, but rather assigned to a given resource at a given scope. The user-assigned managed identity security principal linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Cosmos DB automatically use the context of the security principal to access data in both resources.
 
 The **Storage Queue Data Contributor** role definition is shown below. Note the data actions which permit the role assignee to read, write, or delete against the Azure Storage Queue.
 
@@ -78,7 +78,7 @@ The **Storage Queue Data Contributor** role definition is shown below. Note the 
   "createdBy": null,
   "createdOn": "2017-12-21T00:01:24.797231+00:00",
   "description": "Allows for read, write, and delete access to Azure Storage queues and queue messages",
-  "id": "/subscriptions/43763bcd-8f74-45ca-829a-866ae1e1ee1d/providers/Microsoft.Authorization/roleDefinitions/974c5e8b-45b9-4653-ba55-5f855dd0fb88",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/974c5e8b-45b9-4653-ba55-5f855dd0fb88",
   "name": "974c5e8b-45b9-4653-ba55-5f855dd0fb88",
   "permissions": [
     {
@@ -107,7 +107,7 @@ The **Storage Queue Data Contributor** role definition is shown below. Note the 
 }
 ```
 
-The **Cosmos DB Built-in Data Contributor** role works differently, and it can't be assigned directly in the Azure portal or through `az role assignment` using the Azure CLI. Instead, a resource [Microsoft.DocumentDB databaseAccounts/sqlRoleAssignments](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments?pivots=deployment-language-bicep) can be used. To simplify assignment, you can also use the following Azure CLI command to assign this role:
+The **Cosmos DB Built-in Data Contributor** role works differently than previously applied RBAC roles, and it can't be assigned directly in the Azure portal or through `az role assignment` using the Azure CLI. Instead, a resource [Microsoft.DocumentDB databaseAccounts/sqlRoleAssignments](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments?pivots=deployment-language-bicep) can be used. To simplify assignment, you can also use the following Azure CLI command to assign this role:
 
 ```azurecli
 az cosmosdb sql role assignment create --account-name MyAccountName --resource-group MyResourceGroup --role-assignment-id 00000000-0000-0000-0000-000000000002 --role-definition-name "Cosmos DB Built-in Data Contributor" --scope "/dbs/mydb/collections/mycontainer" --principal-id 00000000-0000-0000-0000-000000000000
@@ -115,15 +115,15 @@ az cosmosdb sql role assignment create --account-name MyAccountName --resource-g
 # Replace --principal-id with the objectid of the security principal used. In our case this is the objectid associated with the user-assigned managed identity that is bound to the AKS workload identity.
 ```
 
-To create the EDW workload in Azure, you need to set up service-to-service authentication for AKS to Azure Queue Service and Azure Cosmos DB, in a manner similar to EKS to SQS/DynamoDB. The following steps show how to use Azure CLI to create a single AKS cluster that will let an application access Azure Queue Service and Azure Cosmos DB from a pod using workload identity.
+To create the EDW workload in Azure, you need to set up service-to-service authentication to allow application code running AKS to authenticate to both Azure Storage Queues and Azure Cosmos DB, in a manner similar to EKS to SQS/DynamoDB. The following steps show how to use Azure CLI to create a single AKS cluster that will let an application access Azure Queue Service and Azure Cosmos DB from a pod using workload identity.
 
-1. Enable the AKS cluster for workload identity:
+1. Enable the AKS cluster for workload identity and enable the OIDC issuer:
 
    ```azurecli
    az aks update -g "${RESOURCE_GROUP}" -n $AKS_CLUSTER_NAME --enable-oidc-issuer --enable-workload-identity
    ```
 
-1. Retrieve the OIDC Issuer URL from the AKS cluster:
+1. You need to configure an identity from an external OpenID Connect Provider (AKS) to get tokens as the user assigned managed identity to access [Microsoft Entra ID protected services](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc) such as Azure Storage Queues or Cosmos DB. Retrieve the OIDC Issuer URL from the AKS cluster before creating the managed identity:
 
    ```azurecli
    KS_OIDC_ISSUER=$(az aks show --name $AKS_CLUSTER_NAME --resource-group "$RESOURCE_GROUP_NAME" --query "oidcIssuerProfile.issuerUrl" -otsv)
@@ -144,7 +144,7 @@ To create the EDW workload in Azure, you need to set up service-to-service authe
    kubectl annotate serviceaccount "$SERVICE_ACCOUNT_NAME" -n "$SERVICE_ACCOUNT_NAMESPACE" "azure.workload.identity/client-id=$workloadManagedIdentityClientId"
    ```
 
-1. Establish a federated identity credential:
+1. Establish a federated identity credential to link the managed identity and Kubernetes service account:
 
    ```azurecli
    az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name ${WORKLOAD_MANAGED_IDENTITY_NAME} --resource-group "$RESOURCE_GROUP_NAME" --issuer ${AKS_OIDC_ISSUER} --subject system=serviceaccount=${SERVICE_ACCOUNT_NAMESPACE}=${SERVICE_ACCOUNT_NAME}
@@ -164,7 +164,7 @@ To create the EDW workload in Azure, you need to set up service-to-service authe
 
 ## Producer code changes
 
-For storage queue access, the AWS boto3 library is used to interact with AWS SQS queues. You will refactor the application code to use the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) to interact with Azure Storage Queue services.
+In the original AWS code for storage queue access, the AWS boto3 library is used to interact with AWS SQS queues. You will refactor the application code to use the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) to interact with Azure Storage Queue services.
 
 ### AWS producer code implementation
 
@@ -188,6 +188,8 @@ In Azure, an equivalent means of making connections to Azure Storage Queue is to
 > [!NOTE]
 >
 > `DefaultAzureCredential` also exists in Azure SDKs for other popular programming languages including [JavaScript](/javascript/api/overview/azure/identity-readme), [Java](/java/api/overview/azure/identity-readme), [Go](/azure/developer/go/azure-sdk-authentication?tabs=bash), and [.NET](/dotnet/api/azure.identity.defaultazurecredential). This example uses Python, but applications written in any of these programming languages would authenticate easily in a similar manner to what is shown below.
+>
+> For more fine-grained control over credential discovery, you may also look at using the [ChainedTokenCredential](https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.chainedtokencredential?view=azure-python) which also exists in the languages listed above.
 
 For Azure, update your code to:
 
@@ -209,7 +211,7 @@ TODO: Insert link to final python code file from the sample (keda-aqs-reader.py)
 
 ## Consumer code changes
 
-For DynamoDB access, the AWS boto3 library is used to interact with AWS SQS queues. You will refactor the application code to use the Azure SDK for Python to interact with CosmosDB services.
+In the original AWS code for DynamoDB access, the AWS boto3 library is used to interact with AWS SQS queues. You will refactor the application code to use the Azure SDK for Python to interact with CosmosDB services.
 
 ### AWS consumer code implementation
 

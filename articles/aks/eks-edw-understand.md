@@ -9,7 +9,7 @@ ms.author: jenhayes
 
 # Understand platform differences for the event-driven workflow (EDW) workload
 
-Before you replicate the EDW workload in Azure, make sure you understand the key differences between the AWS and Azure platforms operate, especially those areas that are relevant to how the workload operates.
+Before you replicate the EDW workload in Azure, ensure you have a good grasp of the distinctive operational nuances between the AWS and Azure platforms, especially those areas that are relevant to how the workload operates.
 
 This article walks through some of the key concepts that are especially useful to understand, and provides links to resources for further learning.
 

@@ -11,13 +11,13 @@ ms.author: jenhayes
 
 The AWS workload is designed to be deployed using Bash, CloudFormation, and AWS CLI. The producer/consumer app is distributed as a container containing the Python scripts, which will work unchanged with Azure Kubernetes Service (AKS). In the following sections, you'll make changes to several Bash shell scripts, and make modifications to the Kubernetes deployment manifests to configure KEDA to use a Azure Storage Queue scaler in place of the Amazon Simple Queue Service (SQS) scaler.
 
-For Karpenter, you'll use the [AKS Node Autoprovisioning (NAP)](/azure/aks/node-autoprovision) feature, which is based on Karpenter. This greatly simplifies the deployment and usage of Karpenter on AKS. If you need to deploy Karpenter directly, this can be done using the AKS [Karpenter provider on Github](https://github.com/Azure/karpenter-provider-azure).
+For Karpenter, you'll use the [AKS Node Autoprovisioning (NAP)](/azure/aks/node-autoprovision) feature, which is based on Karpenter. This greatly simplifies the deployment and usage of Karpenter on AKS by eliminating the need to use Helm to deploy Karpenter explicitly. However, if you have a need to deploy Karpenter directly, this can be done using the AKS [Karpenter provider on Github](https://github.com/Azure/karpenter-provider-azure).
 
 ## Configure Kubernetes deployment manifest
 
-A Kubernetes deployment YAML manifest is used to deploy the AWS Workload to EKS. The deployment YAML has references to SQS and DynamoDB for KEDA scalers, so you'll need to change them to specify values that KEDA can use to connect to the Azure-specific infrastructure. To do so, configure the [Azure Storage Queue KEDA scaler](https://keda.sh/docs/1.4/scalers/azure-storage-queue/).
+A Kubernetes deployment YAML manifest is used to deploy the AWS Workload to EKS. The deployment YAML has references to SQS and DynamoDB for KEDA scalers, so you'll need to change them to specify values that KEDA equivalent Azure scalers can use to connect to the Azure-specific infrastructure. To do so, configure the [Azure Storage Queue KEDA scaler](https://keda.sh/docs/1.4/scalers/azure-storage-queue/).
 
-The following snippets show the differences between the manifest in AWS and Azure.
+The following snippets show the differences between the YAML manifest in AWS and Azure.
 
 ### AWS workload deployment manifest example
 
