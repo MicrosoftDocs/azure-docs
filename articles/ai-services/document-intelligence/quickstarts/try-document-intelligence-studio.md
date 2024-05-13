@@ -29,6 +29,8 @@ monikerRange: '>=doc-intel-3.0.0'
 
 > [!TIP]
 > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll need a single-service resource if you intend to use [Microsoft Entra authentication](../../../active-directory/authentication/overview-authentication.md).
+> 
+> Also note that Document Intelligence now supports AAD token authentication additional to local/key-based authentication when accessing the Document Intelligence resources and storage accounts.  Be sure to follow below instructions to setup correct access roles, especially if your resources are applied with DisableLocalAuth policy.
 
 #### Azure role assignments
 
