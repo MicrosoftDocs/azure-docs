@@ -26,22 +26,21 @@ When Event Grid receives an error for an event delivery attempt, Event Grid deci
 
 If the error returned by the subscribed endpoint is a configuration-related error that can't be fixed with retries, Event Grid sends the event to a configured dead-letter destination. If no dead-letter is configured, the event is dropped. For example, an event is dead-lettered or dropped when the endpoint configured on the event subscription can't be reached because it was deleted. Delivery retry doesn't happen for the following conditions and errors:
 
-| Condition     |
-| --------------|
-| `ArgumentException` | 
-| `TimeoutException` |
-| `UnauthorizedAccessException` |
-| `OperationCanceledException` |
-| `SocketException` |
+**Conditions**: 
 
+- `ArgumentException`
+- `TimeoutException`
+- `UnauthorizedAccessException`
+- `OperationCanceledException`
+- `SocketException` |
 
-| HTTP error codes  |
-|-------------------|
-| `404 - NotFound`  |
-| `401 - Unauthorized` |
-| `403 - Forbidden` |
-| `400 -BadRequest` |
-| `414 RequestUriTooLong`|
+**Error codes**
+
+- `404 - NotFound`
+- `401 - Unauthorized`
+- `403 - Forbidden`
+- `400 -BadRequest`
+- `414 RequestUriTooLong`
  
 > [!NOTE]
 > If dead-letter isn't configured for an endpoint, events will be dropped when the above errors or conditions happen. Consider configuring dead-letter on your event subscription if you don't want these kinds of events to be dropped. Dead lettered events will be dropped when the dead-letter destination isn't found.
