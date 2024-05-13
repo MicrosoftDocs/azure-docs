@@ -219,7 +219,7 @@
       href: grpc-api.md
     - name: Azure OpenAI
       items:
-      - name: Import Azure OpenAI API as REST API
+      - name: Import Azure OpenAI API
         href: azure-openai-api-from-specification.md
       - name: Authenticate and authorize to Azure OpenAI
         href: api-management-authenticate-authorize-azure-openai.md
@@ -486,6 +486,10 @@
       href: authentication-certificate-policy.md
     - name: authentication-managed-identity
       href: authentication-managed-identity-policy.md
+    - name: azure-openai-emit-token-metric
+      href: azure-openai-emit-token-metric-policy.md
+    - name: azure-openai-token-limit
+      href: azure-openai-token-limit-policy.md
     - name: cache-lookup
       href: cache-lookup-policy.md
     - name: cache-lookup-value

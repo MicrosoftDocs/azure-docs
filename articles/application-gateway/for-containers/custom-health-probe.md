@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
@@ -30,7 +30,6 @@ The following properties make up custom health probes:
 | timeout | How long in seconds the request should wait until it's marked as a failure  The minimum interval must be > 0 seconds. |
 | healthyThreshold | Number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
 | unhealthyTreshold | Number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
-| protocol| Specifies either nonencrypted `HTTP` traffic or encrypted traffic via TLS as `HTTPS` |
 | (http) host | The hostname specified in the request to the backend target. |
 | (http) path | The specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
@@ -55,6 +54,9 @@ When the default health probe is used, the following values for each health prob
 | protocol | HTTP for HTTP and HTTPS when TLS is specified |
 | (http) host | localhost |
 | (http) path | / |
+
+>[!Note]
+>Health probes are initiated with the `User-Agent` value of `Microsoft-Azure-Application-LB/AGC`.
 
 ## Custom health probe
 
