@@ -10,87 +10,90 @@ ms.author: wiassaf
 ms.date: 05/13/2024
 ---
 
-# Azure AI Services
+# Azure AI services
 
-## Important
+Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models.
 
-Starting on the 20th of September, 2023 you won’t be able to create new Anomaly Detector resources. The Anomaly Detector service is being retired on the 1st of October, 2026.
+SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources. Synapse Spark provide built-in SynapseML libraries including synapse.ml.services.
+
+> [!IMPORTANT]
+> Starting on the 20th of September, 2023 you won’t be able to create new Anomaly Detector resources. The Anomaly Detector service is being retired on the 1st of October, 2026.
 
 ## Prerequisites on Azure Synapse Analytics
 
 The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse), walks you through a couple steps you need to perform before using Azure AI services in Synapse Analytics.
 
-[Azure AI services](https://azure.microsoft.com/services/ai-services/) is a suite of APIs, SDKs, and services that developers can use to add intelligent features to their applications. AI services empower developers even when they don't have direct AI or data science skills or knowledge. Azure AI services help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure AI services can be categorized into five main pillars: Vision, Speech, Language, Web search, and Decision.
+[Azure AI services](https://azure.microsoft.com/products/ai-services/) is a suite of APIs, SDKs, and services that developers can use to add intelligent features to their applications. AI services empower developers even when they don't have direct AI or data science skills or knowledge. Azure AI services help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure AI services can be categorized into five main pillars: Vision, Speech, Language, Web search, and Decision.
 
 ## Usage
 
 ### Vision
 
 [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
-- Describe: provides description of an image in human readable language ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/vision/DescribeImage.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.DescribeImage))
-- Analyze (color, image type, face, adult/racy content): analyzes visual features of an image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/vision/AnalyzeImage.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.AnalyzeImage))
-- OCR: reads text from an image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/vision/OCR.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.OCR))
-- Recognize Text: reads text from an image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/vision/RecognizeText.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.RecognizeText))
-- Thumbnail: generates a thumbnail of user-specified size from the image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/vision/GenerateThumbnails.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.GenerateThumbnails))
-- Recognize domain-specific content: recognizes domain-specific content (celebrity, landmark) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/vision/RecognizeDomainSpecificContent.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.RecognizeDomainSpecificContent))
-- Tag: identifies list of words that are relevant to the input image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/vision/TagImage.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.TagImage))
+- Describe: provides description of an image in human readable language ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/vision/DescribeImage.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.DescribeImage))
+- Analyze (color, image type, face, adult/racy content): analyzes visual features of an image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/vision/AnalyzeImage.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.AnalyzeImage))
+- OCR: reads text from an image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/vision/OCR.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.OCR))
+- Recognize Text: reads text from an image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/vision/RecognizeText.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.RecognizeText))
+- Thumbnail: generates a thumbnail of user-specified size from the image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/vision/GenerateThumbnails.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.GenerateThumbnails))
+- Recognize domain-specific content: recognizes domain-specific content (celebrity, landmark) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/vision/RecognizeDomainSpecificContent.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.RecognizeDomainSpecificContent))
+- Tag: identifies list of words that are relevant to the input image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/vision/TagImage.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.vision.html#module-synapse.ml.services.vision.TagImage))
 
 [**Face**](https://azure.microsoft.com/services/cognitive-services/face/)
-- Detect: detects human faces in an image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/face/DetectFace.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.DetectFace))
-- Verify: verifies whether two faces belong to a same person, or a face belongs to a person ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/face/VerifyFaces.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.VerifyFaces))
-- Identify: finds the closest matches of the specific query person face from a person group ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/face/IdentifyFaces.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.IdentifyFaces))
-- Find similar: finds similar faces to the query face in a face list ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/face/FindSimilarFace.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.FindSimilarFace))
-- Group: divides a group of faces into disjoint groups based on similarity ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/face/GroupFaces.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.GroupFaces))
+- Detect: detects human faces in an image ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/face/DetectFace.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.DetectFace))
+- Verify: verifies whether two faces belong to a same person, or a face belongs to a person ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/face/VerifyFaces.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.VerifyFaces))
+- Identify: finds the closest matches of the specific query person face from a person group ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/face/IdentifyFaces.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.IdentifyFaces))
+- Find similar: finds similar faces to the query face in a face list ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/face/FindSimilarFace.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.FindSimilarFace))
+- Group: divides a group of faces into disjoint groups based on similarity ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/face/GroupFaces.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.face.html#module-synapse.ml.services.face.GroupFaces))
 
 ### Speech
 
 [**Speech Services**](https://azure.microsoft.com/products/ai-services/ai-speech)
-- Speech-to-text: transcribes audio streams ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/speech/SpeechToText.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.speech.html#module-synapse.ml.services.speech.SpeechToText))
-- Conversation Transcription: transcribes audio streams into live transcripts with identified speakers. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/speech/ConversationTranscription.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.speech.html#module-synapse.ml.services.speech.ConversationTranscription))
-- Text to Speech: Converts text to realistic audio ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/speech/TextToSpeech.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.speech.html#module-synapse.ml.services.speech.TextToSpeech))
+- Speech-to-text: transcribes audio streams ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/speech/SpeechToText.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.speech.html#module-synapse.ml.services.speech.SpeechToText))
+- Conversation Transcription: transcribes audio streams into live transcripts with identified speakers. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/speech/ConversationTranscription.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.speech.html#module-synapse.ml.services.speech.ConversationTranscription))
+- Text to Speech: Converts text to realistic audio ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/speech/TextToSpeech.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.speech.html#module-synapse.ml.services.speech.TextToSpeech))
 
 ### Language
 
 [**AI Language**](https://azure.microsoft.com/products/ai-services/ai-language)
-- Language detection: detects language of the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/text/LanguageDetector.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.LanguageDetector))
-- Key phrase extraction: identifies the key talking points in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/text/KeyPhraseExtractor.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.KeyPhraseExtractor))
-- Named entity recognition: identifies known entities and general named entities in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/text/NER.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.NER))
-- Sentiment analysis: returns a score between 0 and 1 indicating the sentiment in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/text/TextSentiment.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.TextSentiment))
-- Healthcare Entity Extraction: Extracts medical entities and relationships from text. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/text/AnalyzeHealthText.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.AnalyzeHealthText))
+- Language detection: detects language of the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/text/LanguageDetector.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.LanguageDetector))
+- Key phrase extraction: identifies the key talking points in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/text/KeyPhraseExtractor.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.KeyPhraseExtractor))
+- Named entity recognition: identifies known entities and general named entities in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/text/NER.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.NER))
+- Sentiment analysis: returns a score between 0 and 1 indicating the sentiment in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/text/TextSentiment.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.TextSentiment))
+- Healthcare Entity Extraction: Extracts medical entities and relationships from text. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/text/AnalyzeHealthText.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.text.html#module-synapse.ml.services.text.AnalyzeHealthText))
 
 ### Translation
 
 [**Translator**](https://azure.microsoft.com/products/ai-services/translator)
-- Translate: Translates text. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/translate/Translate.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.Translate))
-- Transliterate: Converts text in one language from one script to another script. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/translate/Transliterate.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.Transliterate))
-- Detect: Identifies the language of a piece of text. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/translate/Detect.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.Detect))
-- BreakSentence: Identifies the positioning of sentence boundaries in a piece of text. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/translate/BreakSentence.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.BreakSentence))
-- Dictionary Lookup: Provides alternative translations for a word and a small number of idiomatic phrases. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/translate/DictionaryLookup.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.DictionaryLookup))
-- Dictionary Examples: Provides examples that show how terms in the dictionary are used in context. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/translate/DictionaryExamples.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.DictionaryExamples))
-- Document Translation: Translates documents across all supported languages and dialects while preserving document structure and data format. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/translate/DocumentTranslator.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.DocumentTranslator))
+- Translate: Translates text. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/translate/Translate.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.Translate))
+- Transliterate: Converts text in one language from one script to another script. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/translate/Transliterate.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.Transliterate))
+- Detect: Identifies the language of a piece of text. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/translate/Detect.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.Detect))
+- BreakSentence: Identifies the positioning of sentence boundaries in a piece of text. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/translate/BreakSentence.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.BreakSentence))
+- Dictionary Lookup: Provides alternative translations for a word and a small number of idiomatic phrases. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/translate/DictionaryLookup.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.DictionaryLookup))
+- Dictionary Examples: Provides examples that show how terms in the dictionary are used in context. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/translate/DictionaryExamples.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.DictionaryExamples))
+- Document Translation: Translates documents across all supported languages and dialects while preserving document structure and data format. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/translate/DocumentTranslator.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.translate.html#module-synapse.ml.services.translate.DocumentTranslator))
 
-### Form Recognizer
+### Document Intelligence
 
-[**Form Recognizer**](https://azure.microsoft.com/services/form-recognizer/)
-- Analyze Layout: Extract text and layout information from a given document. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeLayout.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeLayout))
-- Analyze Receipts: Detects and extracts data from receipts using optical character recognition (OCR) and our receipt model, enabling you to easily extract structured data from receipts such as merchant name, merchant phone number, transaction date, transaction total, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeReceipts.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeReceipts))
-- Analyze Business Cards: Detects and extracts data from business cards using optical character recognition (OCR) and our business card model, enabling you to easily extract structured data from business cards such as contact names, company names, phone numbers, emails, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeBusinessCards.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeBusinessCards))
-- Analyze Invoices: Detects and extracts data from invoices using optical character recognition (OCR) and our invoice understanding deep learning models, enabling you to easily extract structured data from invoices such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, line items and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeInvoices.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeInvoices))
-- Analyze ID Documents: Detects and extracts data from identification documents using optical character recognition (OCR) and our ID document model, enabling you to easily extract structured data from ID documents such as first name, last name, date of birth, document number, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeIDDocuments.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeIDDocuments))
-- Analyze Custom Form: Extracts information from forms (PDFs and images) into structured data based on a model created from a set of representative training forms. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeCustomModel.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeCustomModel))
-- Get Custom Model: Get detailed information about a custom model. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/GetCustomModel.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/ListCustomModels.html))
-- List Custom Models: Get information about all custom models. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/form/ListCustomModels.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.ListCustomModels))
+[**Document Intelligence**](https://azure.microsoft.com/products/ai-services/ai-document-intelligence/)
+- Analyze Layout: Extract text and layout information from a given document. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeLayout.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeLayout))
+- Analyze Receipts: Detects and extracts data from receipts using optical character recognition (OCR) and our receipt model, enabling you to easily extract structured data from receipts such as merchant name, merchant phone number, transaction date, transaction total, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeReceipts.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeReceipts))
+- Analyze Business Cards: Detects and extracts data from business cards using optical character recognition (OCR) and our business card model, enabling you to easily extract structured data from business cards such as contact names, company names, phone numbers, emails, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeBusinessCards.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeBusinessCards))
+- Analyze Invoices: Detects and extracts data from invoices using optical character recognition (OCR) and our invoice understanding deep learning models, enabling you to easily extract structured data from invoices such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, line items and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeInvoices.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeInvoices))
+- Analyze ID Documents: Detects and extracts data from identification documents using optical character recognition (OCR) and our ID document model, enabling you to easily extract structured data from ID documents such as first name, last name, date of birth, document number, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeIDDocuments.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeIDDocuments))
+- Analyze Custom Form: Extracts information from forms (PDFs and images) into structured data based on a model created from a set of representative training forms. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/AnalyzeCustomModel.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.AnalyzeCustomModel))
+- Get Custom Model: Get detailed information about a custom model. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/GetCustomModel.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/ListCustomModels.html))
+- List Custom Models: Get information about all custom models. ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/form/ListCustomModels.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.form.html#module-synapse.ml.services.form.ListCustomModels))
 
 ### Decision
 
 [**Anomaly Detector**](https://azure.microsoft.com/products/ai-services/ai-anomaly-detector)
-- Anomaly status of latest point: generates a model using preceding points and determines whether the latest point is anomalous ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/anomaly/DetectLastAnomaly.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.anomaly.html#module-synapse.ml.services.anomaly.DetectLastAnomaly))
-- Find anomalies: generates a model using an entire series and finds anomalies in the series ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/anomaly/DetectAnomalies.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.anomaly.html#module-synapse.ml.services.anomaly.DetectAnomalies))
+- Anomaly status of latest point: generates a model using preceding points and determines whether the latest point is anomalous ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/anomaly/DetectLastAnomaly.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.anomaly.html#module-synapse.ml.services.anomaly.DetectLastAnomaly))
+- Find anomalies: generates a model using an entire series and finds anomalies in the series ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/anomaly/DetectAnomalies.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.anomaly.html#module-synapse.ml.services.anomaly.DetectAnomalies))
 
 ### Search
 
-* [**Bing Image search**](https://azure.microsoft.com/services/services-services/bing-image-search-api/) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
-* [**Azure Cognitive search**](/azure/search/search-what-is-azure-search) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.2/scala/com/microsoft/azure/synapse/ml/services/search/AzureSearchWriter$.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.2/pyspark/synapse.ml.services.search.html#module-synapse.ml.services.search.AzureSearchWriter))
+* [**Bing Image search**](https://azure.microsoft.com/services/services-services/bing-image-search-api/) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
+* [**Azure Cognitive search**](/azure/search/search-what-is-azure-search) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/search/AzureSearchWriter$.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.search.html#module-synapse.ml.services.search.AzureSearchWriter))
 
 ## Prepare your system
 
@@ -106,13 +109,13 @@ from pyspark.sql.functions import col
 
 ```
 
-Import Azure AI services libraries and replace the keys in the following code snippet with your Azure AI services key.
+Import Azure AI services libraries and replace the keys and locations in the following code snippet with your Azure AI services key and location.
 
 ```python
 from synapse.ml.services import *
 from synapse.ml.core.platform import *
 
-# A general AI services key for Text Analytics, Computer Vision and Form Recognizer (or use separate keys that belong to each service)
+# A general AI services key for AI Language, Computer Vision and Document Intelligence (or use separate keys that belong to each service)
 service_key = find_secret(
     secret_name="ai-services-api-key", keyvault="mmlspark-build-keys"
 )  # Replace the call to find_secret with your key as a python string. e.g. service_key="27snaiw..."
@@ -245,7 +248,7 @@ display(
 
 ## Extract information from a document into structured data
 
-[Form Recognizer](https://azure.microsoft.com/services/form-recognizer/) is a part of Azure Applied AI Services that lets you build automated data processing software using machine learning technology. With Form Recognizer, you can identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more.
+[Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence/) is a part of Azure Applied AI Services that lets you build automated data processing software using machine learning technology. With Azure AI Document Intelligence, you can identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more.
 
 The following code sample analyzes a business card image and extracts its information into structured data.
 
@@ -288,7 +291,7 @@ display(
 
 [Azure AI Vision](https://azure.microsoft.com/products/ai-services/ai-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
 
-The following code sample analyzes images and labels them with tags. Tags are one-word descriptions of things in the image, such as recognizable objects, people, scenery, and actions.
+The following code sample analyzes images and labels them with *tags*. Tags are one-word descriptions of things in the image, such as recognizable objects, people, scenery, and actions.
 
 ```python
 # Create a dataframe with the image URLs
@@ -322,9 +325,9 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ```
 
-## Bing Image Search sample
+## Search for images that are related to a natural language query
 
-[Bing Image Search](https://www.microsoft.com/bing/apis/bing-image-search-api) searches the web to retrieve images related to a user's natural language query.
+[Bing Image Search](https://www.microsoft.com/bing/apis/bing-image-search-api) searches the web to retrieve images related to a user's natural language query. 
 
 The following code sample uses a text query that looks for images with quotes. The output of the code is a list of image URLs that contain photos related to the query.
 
@@ -386,9 +389,9 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 ```
 
-## Text-to-Speech sample
+## Transform text to speech
 
-[Text to speech](https://azure.microsoft.com/products/ai-services/text-to-speech/) is a service that allows you to build applications that speak naturally. You can choose from more than 270 neural voices across 119 languages.
+[Text to speech](https://azure.microsoft.com/products/ai-services/text-to-speech/) is a service that allows you to build apps and services that speak naturally, choosing from more than 270 neural voices across 119 languages and variants.
 
 The following code sample transforms text into an audio file that contains the content of the text.
 
