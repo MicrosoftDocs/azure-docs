@@ -39,7 +39,7 @@ Attaching catalogs at the project level enables platform engineers to provide cu
  
 Platform engineers have full control over the use of catalogs at the project level. The use of project level catalogs must be enabled at the dev center level before a catalog can be added to a project. Platform engineers can also configure which types of catalogs items, such as environment definitions, can be consumed at the project level.
  
-By default, use of catalogs at the project level is disabled and none of the catalog item types are enabled.
+By default, use of catalogs at the project level is disabled and none of the catalog item types are enabled. Environment definitions from a project-level catalog are synced and usable only when both project-based catalogs are activated at the corresponding dev center level and environment definitions are enabled for the project.
 
 ## Configure a managed identity
 
