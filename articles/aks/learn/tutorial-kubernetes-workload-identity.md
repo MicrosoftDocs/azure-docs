@@ -1,9 +1,13 @@
 ---
 title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
+author: tamram
+
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 05/24/2023
+ms.date: 05/13/2024
+ms.author: tamram
+<! -- As an x, i want to y -->
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -26,7 +30,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 * This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-* The identity you use to create your cluster must have the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
+* The identity that you use to create your cluster must have the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account set][az-account-set] command.
 
 ## Create a resource group
@@ -64,7 +68,7 @@ To help simplify steps to configure the identities required, the steps below def
 
     ```bash
     export RESOURCE_GROUP="myResourceGroup"
-    export LOCATION="westcentralus"
+    export LOCATION="eastus"
     export SERVICE_ACCOUNT_NAMESPACE="default"
     export SERVICE_ACCOUNT_NAME="workload-identity-sa"
     export SUBSCRIPTION="$(az account show --query id --output tsv)"
@@ -174,7 +178,7 @@ To help simplify steps to configure the identities required, the steps below def
     The following output resembles successful creation of the identity:
 
     ```output
-    Serviceaccount/workload-identity-sa created
+    serviceaccount/workload-identity-sa created
     ```
 
 ## Establish federated identity credential
