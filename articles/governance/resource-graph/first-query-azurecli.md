@@ -1,115 +1,108 @@
 ---
-title: "Quickstart: Your first Azure CLI query"
-description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and run your first query.
-ms.date: 08/17/2021
+title: "Quickstart: Run Resource Graph query using Azure CLI"
+description: In this quickstart, you run an Azure Resource Graph query using the extension for Azure CLI.
+ms.date: 04/22/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
-# Quickstart: Run your first Resource Graph query using Azure CLI
 
-The first step to using Azure Resource Graph is to check that the extension for [Azure
-CLI](/cli/azure/) is installed. This quickstart walks you through the process of adding the
-extension to your Azure CLI installation. You can use the extension with Azure CLI installed locally
-or through the [Azure Cloud Shell](https://shell.azure.com).
+# Quickstart: Run Resource Graph query using Azure CLI
 
-At the end of this process, you'll have added the extension to your Azure CLI installation of choice
-and run your first Resource Graph query.
+This quickstart describes how to run an Azure Resource Graph query using the extension for Azure CLI. The article also shows how to order (sort) and limit the query's results. You can run a query for resources in your tenant, management groups, or subscriptions. When you're finished, you can remove the extension.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli) must be version 2.22.0 or higher for the Resource Graph extension.
+- [Visual Studio Code](https://code.visualstudio.com/).
 
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
+## Connect to Azure
 
-## Add the Resource Graph extension
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
 
-To enable Azure CLI to query Azure Resource Graph, the extension must be added. This extension
-works wherever Azure CLI can be used, including [bash on Windows 10](/windows/wsl/install-win10),
-[Cloud Shell](https://shell.azure.com) (both standalone and inside the portal), the [Azure CLI
-Docker image](https://hub.docker.com/_/microsoft-azure-cli), or locally installed.
+```azurecli
+az login
 
-1. Check that the latest Azure CLI is installed (at least **2.0.76**). If it isn't yet installed,
-   follow [these instructions](/cli/azure/install-azure-cli-windows).
+# Run these commands if you have multiple subscriptions
+az account list --output table
+az account set --subscription <subscriptionID>
+```
 
-1. In your Azure CLI environment of choice, import it with the following command:
+## Install the extension
+
+To enable Azure CLI to query resources using Azure Resource Graph, the Resource Graph extension must be installed. You can manually install the extension with the following steps. Otherwise, the first time you run a query with `az graph` you're prompted to install the extension.
+
+1. List the available extensions and versions:
 
    ```azurecli
-   # Add the Resource Graph extension to the Azure CLI environment
+   az extension list-available --output table
+   ```
+
+1. Install the extension:
+
+   ```azurecli
    az extension add --name resource-graph
    ```
 
-1. Validate that the extension has been installed and is the expected version (at least **1.0.0**):
+1. Verify the extension was installed:
 
    ```azurecli
-   # Check the extension list (note that you may have other extensions installed)
-   az extension list
-
-   # Run help for graph query options
-   az graph query -h
+   az extension list --output table
    ```
 
-## Run your first Resource Graph query
-
-With the Azure CLI extension added to your environment of choice, it's time to try out a simple
-tenant-based Resource Graph query. The query returns the first five Azure resources with the
-**Name** and **Resource Type** of each resource. To query by
-[management group](../management-groups/overview.md) or subscription, use the `--managementgroups`
-or `--subscriptions` arguments.
-
-1. Run your first Azure Resource Graph query using the `graph` extension and `query` command:
+1. Display the extension's syntax:
 
    ```azurecli
-   # Login first with az login if not using Cloud Shell
-
-   # Run Azure Resource Graph query
-   az graph query -q 'Resources | project name, type | limit 5'
+   az graph query --help
    ```
 
-   > [!NOTE]
-   > As this query example does not provide a sort modifier such as `order by`, running this query
-   > multiple times is likely to yield a different set of resources per request.
+   For more information about Azure CLI extensions, go to [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-1. Update the query to `order by` the **Name** property:
+## Run a query
+
+After the Azure CLI extension is added to your environment, you can run a tenant-based query. The query in this example returns five Azure resources with the `name` and `type` of each resource. To query by [management group](../management-groups/overview.md) or subscription, use the `--management-groups` or `--subscriptions` arguments.
+
+1. Run an Azure Resource Graph query:
 
    ```azurecli
-   # Run Azure Resource Graph query with 'order by'
-   az graph query -q 'Resources | project name, type | limit 5 | order by name asc'
+   az graph query --graph-query 'Resources | project name, type | limit 5'
    ```
 
-   > [!NOTE]
-   > Just as with the first query, running this query multiple times is likely to yield a different
-   > set of resources per request. The order of the query commands is important. In this example,
-   > the `order by` comes after the `limit`. This command order first limits the query results and
-   > then orders them.
+   This query example doesn't use a sort modifier like `order by`. If you run the query multiple times, it might yield a different set of resources for each request.
 
-1. Update the query to first `order by` the **Name** property and then `limit` to the top five
-   results:
+1. Update the query to `order by` the `name` property:
 
    ```azurecli
-   # Run Azure Resource Graph query with `order by` first, then with `limit`
-   az graph query -q 'Resources | project name, type | order by name asc | limit 5'
+   az graph query --graph-query 'Resources | project name, type | limit 5 | order by name asc'
    ```
 
-When the final query is run several times, assuming that nothing in your environment is changing,
-the results returned are consistent and ordered by the **Name** property, but still limited to the
-top five results.
+   Like the previous query, if you run this query multiple times it might yield a different set of resources for each request. The order of the query commands is important. In this example, the `order by` comes after the `limit`. The query limits the results to five resources and then orders those results by name.
+
+1. Update the query to `order by` the `name` property and then `limit` the output to five results:
+
+   ```azurecli
+   az graph query --graph-query 'Resources | project name, type | order by name asc | limit 5'
+   ```
+
+   If this query is run several times with no changes to your environment, the results are consistent and ordered by the `name` property, but still limited to five results. The query orders the results by name and then limits the output to five resources.
 
 ## Clean up resources
 
-If you wish to remove the Resource Graph extension from your Azure CLI environment, you can do so by
-using the following command:
+To remove the Resource Graph extension, run the following command:
 
 ```azurecli
-# Remove the Resource Graph extension from the Azure CLI environment
-az extension remove -n resource-graph
+az extension remove --name resource-graph
+```
+
+To sign out of your Azure CLI session:
+
+```azurecli
+az logout
 ```
 
 ## Next steps
 
-In this quickstart, you've added the Resource Graph extension to your Azure CLI environment and run
-your first query. To learn more about the Resource Graph language, continue to the query language
-details page.
+In this quickstart, you ran Azure Resource Graph queries using the extension for Azure CLI. To learn more, go to the query language details article.
 
 > [!div class="nextstepaction"]
-> [Get more information about the query language](./concepts/query-language.md)
+> [Understanding the Azure Resource Graph query language](./concepts/query-language.md)

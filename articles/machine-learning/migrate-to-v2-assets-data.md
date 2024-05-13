@@ -8,7 +8,7 @@ ms.subservice: mldata
 ms.topic: reference
 author: SturgeonMi
 ms.author: xunwan
-ms.date: 02/13/2023
+ms.date: 04/15/2024
 ms.reviewer: franksolomon
 ms.custom: migration
 monikerRange: 'azureml-api-1 || azureml-api-2'
@@ -17,13 +17,13 @@ monikerRange: 'azureml-api-1 || azureml-api-2'
 # Upgrade data management to SDK v2
 
 In V1, an Azure Machine Learning dataset can either be a `Filedataset` or a `Tabulardataset`.
-In V2, an Azure Machine Learning data asset can be a `uri_folder`, `uri_file` or `mltable`.
-You can conceptually map `Filedataset` to `uri_folder` and `uri_file`, `Tabulardataset` to `mltable`.
+In V2, an Azure Machine Learning data asset can be a `uri_folder`, `uri_file`, or `mltable`.
+Conceptually, you can map `Filedataset` to `uri_folder`, and `uri_file` or `Tabulardataset` to `mltable`.
 
-* URIs (`uri_folder`, `uri_file`) - a Uniform Resource Identifier that is a reference to a storage location on your local computer or in the cloud, that makes it easy to access data in your jobs.
-* MLTable - a method to abstract the tabular data schema definition, to make it easier for consumers of that data to materialize the table into a Pandas/Dask/Spark dataframe.
+* URIs (`uri_folder`, `uri_file`) - a Uniform Resource Identifier is a reference to a storage location on your local computer or in the cloud, for easy access to data in your jobs.
+* MLTable - a method to abstract the tabular data schema definition; consumers of that data can more easily materialize the table into a Pandas/Dask/Spark dataframe.
 
-This article compares data scenario(s) in SDK v1 and SDK v2.
+This article compares data scenarios in SDK v1 and SDK v2.
 
 ## Create a `filedataset`/ uri type of data asset
 

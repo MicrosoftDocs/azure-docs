@@ -72,6 +72,6 @@ Enterprise administrators can create subscriptions. They can also enable account
 - To request a service credit, indirect EA customers must contact their partner administrator, who is the authorized representative of the EA enrollment.
 
 
-## Next steps
+## Related content
 
 - Learn more about EA administrative tasks at [EA Billing administration on the Azure portal](direct-ea-administration.md).

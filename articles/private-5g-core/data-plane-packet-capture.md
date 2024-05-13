@@ -6,13 +6,13 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 10/26/2023
+ms.date: 04/24/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Perform packet capture on a packet core instance
 
-Packet capture for control or data plane packets is performed using the **MEC-Dataplane Trace** tool. MEC-Dataplane (MEC-DP) Trace is similar to **tcpdump**, a data-network packet analyzer computer program that runs on a command line interface (CLI). You can use MEC-DP Trace to monitor and record packets on any user plane interface on the access network (N3 interface) or data network (N6 interface) on your device, as well as the control plane (N2 interface). You can access MEC-DP Trace using the Azure portal or the Azure CLI.
+Packet capture for control or data plane packets is performed using the **MEC-Dataplane Trace** tool. MEC-Dataplane (MEC-DP) Trace is similar to **tcpdump**, a data-network packet analyzer computer program that runs on a command line interface (CLI). You can use MEC-DP Trace to monitor and record packets on any user plane interface on the access network (N3 interface) or data network (N6 interface) on your device, and the control plane (N2 interface). You can access MEC-DP Trace using the Azure portal or the Azure CLI.
 
 Packet capture works by mirroring packets to a Linux kernel interface, which can then be monitored using tcpdump. In this how-to guide, you'll learn how to perform packet capture on a packet core instance.
 
@@ -34,12 +34,15 @@ To perform packet capture using the command line, you must:
 
 [!INCLUDE [](includes/include-diagnostics-storage-account-setup.md)]
 
+>[!IMPORTANT]
+> Once you have created the user-assigned managed identity, you must refresh the packet core configuration by making a dummy configuration change. This could be a change that will have no impact on your deployment and can be left in place, or a change that you immediately revert. See [Modify a packet core instance](modify-packet-core.md). If you do not refresh the packet core configuration, packet capture will fail.
+
 ### Start a packet capture
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the **Packet Core Control Pane** overview page of the site you want to run a packet capture in.
 1. Select **Packet Capture** under the **Help** section on the left side. This will open a **Packet Capture** view.
-1. If this is the first time you've taken a packet capture using the portal, you will see an error message prompting you to configure a storage account. If so:
+1. If this is the first time you've taken a packet capture using the portal, you'll see an error message prompting you to configure a storage account. If so:
     1. Follow the link in the error message.
     1. Enter the **Storage account container URL** that was configured for diagnostics storage and select **Modify**.
         > [!TIP]
@@ -52,8 +55,15 @@ To perform packet capture using the command line, you must:
     1. Return to the **Packet Capture** view.
 1. Select **Start packet capture**.
 1. Fill in the details on the **Start packet capture** pane and select **Create**.
+
+    The **Maximum bytes per session** limit is applied per node. In highly available (HA) deployments, it's likely that the packet capture will reach this limit and complete on one node before the other, so a packet capture will still be running when the first has completed. You should stop any running packet captures before starting a new one.
+
 1. The page will refresh every few seconds until the packet capture has completed. You can also use the **Refresh** button to refresh the page. If you want to stop the packet capture early, select **Stop packet capture**.
+
 1. Once the packet capture has completed, the AP5GC online service will save the output at the provided storage account URL.
+
+    In HA deployments, two packet capture files will be uploaded, one for each node. The files will be labelled with a `0` or a `1`, corresponding to the `core-mec-dp-0` or `core-mec-dp-1` pod. If one packet capture fails, the status page will show an error, but the successful capture results will upload as normal.
+
 1. To download the packet capture output, you can use the **Copy to clipboard** button in the **Storage** or **File name** columns to copy those details and then paste them into the **Search** box in the portal. To download the output, right-click the file and select **Download**.
 
 ## Performing packet capture using the Azure CLI
@@ -63,6 +73,9 @@ To perform packet capture using the command line, you must:
     ```azurecli
     kubectl exec -it -n core core-mec-dp-0 -c troubleshooter -- bash
     ```
+
+    > [!NOTE]
+    > In an HA deployment, `core-mec-dp-0` may not exist because the node is down. In that case, enter `core-mec-dp-1` instead.
 
 1. View the list of configured user plane interfaces:
 
@@ -99,7 +112,7 @@ To perform packet capture using the command line, you must:
     kubectl cp -n core core-mec-dp-0:<path to output file> <location to copy to> -c troubleshooter
     ```
 
-    The `tcpdump` might have been stopped in the middle of writing a packet, which can cause this step to produce an error stating `unexpected EOF`. However, your file should have copied successfully, but you can check your target output file to confirm.
+    The tcpdump might have been stopped in the middle of writing a packet, which can cause this step to produce an error stating `unexpected EOF`. However, your file should have copied successfully, and you can check your target output file to confirm.
 
 1. Remove the output files:
 
@@ -112,4 +125,4 @@ To perform packet capture using the command line, you must:
 For more options to monitor your deployment and view analytics:
 
 - [Learn more about monitoring Azure Private 5G Core using Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md)
-- If you have found identified a problem and don't know how to resolve it, you can [Get support for your Azure Private 5G Core service](open-support-request.md)
+- If you have found a problem and don't know how to resolve it, you can [Get support for your Azure Private 5G Core service](open-support-request.md)

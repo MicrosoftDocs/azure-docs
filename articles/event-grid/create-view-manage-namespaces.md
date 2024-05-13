@@ -33,7 +33,7 @@ This article shows you how to use the Azure portal to create, view and manage an
     1. Enter a **name** for the namespace.
     1. Select the region or **location** where you want to create the namespace. 
     1. If the selected region supports availability zones, the **Availability zones** checkbox can be enabled or disabled. The checkbox is selected by default if the region supports availability zones. However, you can uncheck and disable availability zones if needed. The selection cannot be changed once the namespace is created.
-    1. Use the slider or text box to specify the number of **throughput units** for the namespace.
+    1. Use the slider or text box to specify the number of **throughput units** for the namespace. Throughput units (TUs) define the ingress and egress event rate capacity in namespaces.
     1. Select **Next: Networking** at the bottom of the page. 
     
         :::image type="content" source="media/create-view-manage-namespaces/create-namespace-basics-page.png" alt-text="Screenshot showing the Basics tab of Create namespace page.":::        

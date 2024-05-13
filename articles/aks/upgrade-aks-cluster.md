@@ -25,6 +25,7 @@ When you perform an upgrade from an *unsupported version* that skips two or more
 * If you're using the Azure CLI, this article requires Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 * If you're using Azure PowerShell, this article requires Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
 * Performing upgrade operations requires the `Microsoft.ContainerService/managedClusters/agentPools/write` RBAC role. For more on Azure RBAC roles, see the [Azure resource provider operations][azure-rp-operations].
+* Starting with 1.30 kubernetes version and 1.27 LTS versions the beta apis will be disabled by default when you upgrade to them.
 
 > [!WARNING]
 > An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade might fail. For more information, see [increase quotas](../azure-portal/supportability/regional-quota-requests.md).
@@ -243,10 +244,10 @@ At times, you may have a long running workload on a certain pod and it can't be 
 
     ```azurecli-interactive
     # Set drain timeout for a new node pool
-    az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster   --drainTimeoutInMinutes 100
+    az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster  --drain-timeout 100
 
     # Update drain timeout for an existing node pool
-    az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --drainTimeoutInMinutes 45
+    az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --drain-timeout 45
     ```
 
 #### Set node soak time value

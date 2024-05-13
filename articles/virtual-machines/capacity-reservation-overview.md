@@ -57,17 +57,33 @@ From this example accumulation of Minutes Not Available, here's the calculation 
 - Creating capacity reservation is currently limited to certain VM Series and Sizes. The Compute [Resource SKUs list](/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
 - The following VM Series support creation of capacity reservations: 
     - Av2 
-    - B 
-    - D series, v2 and newer; AMD and Intel 
-    - E series, all versions; AMD and Intel 
-    - F series, all versions 
+    - B
+    - Bsv2 (Intel) and Basv2 (AMD)
+    - D series, v2 and newer; AMD and Intel
+    - DCsv2 series
+    - DCasv5 series
+    - DCesv5 and DCedsv5 series
+    - Dplsv5 series
+    - Dpsv series, v5 and newer
+    - Dpdsv6 series
+    - Dplsv6 series
+    - Dpldsv6 series
+    - Dlsv5 and newer series
+    - Dldsv5 and newer series
+    - E series, all versions; AMD and Intel
+    - Eav4 and Easv4 series
+    - ECasv5 and ECadsv5 series
+    - ECesv5 and ECedsv5 series
+    - F series, all versions
+    - Fasv6 and Falsv6 series
+    - Fx series
     - Lsv3 (Intel) and Lasv3 (AMD)
     - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation.
 - Support for below VM Series for Capacity Reservation is in Public Preview: 
     - M-series, v3
+    - NC-series,v3
+    - NV-series,v3 and newer
     - Lsv2
-    - NC-series,v3 and newer
-    - NV-series,v2 and newer
     - For above mentioned N series, at VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
 - Support for other VM Series isn't currently available:  
     - M series, v1 and v2 
@@ -91,7 +107,10 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - VMs requiring vnet encryption
 - Pinned subscription cannot use the feature
 - Only the subscription that created the reservation can use it. 
-- Reservations are only available to paid Azure customers. Sponsored accounts such as Free Trial and Azure for Students aren't eligible to use this feature. 
+- Reservations are only available to paid Azure customers. Sponsored accounts such as Free Trial and Azure for Students aren't eligible to use this feature.
+- Clouds supported for capacity reservation:
+   - Azure Cloud
+   - Azure for Government
 
 
 ## Pricing and billing 
