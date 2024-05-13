@@ -11,14 +11,14 @@ metadata:
   author: greg-lindsay
   ms.author: greglin
   manager: kumudD
-  ms.date: 05/03/2024
+  ms.date: 05/13/2024
 
 productDirectory:
-  title: Get starts
+  title: Get started
   items:
     - title: Azure Virtual Network
       imageSrc: ./media/virtual-network.svg
-      summary: "Create your own private network infrastructure in the cloud."
+      summary: "Your own private network infrastructure in the cloud."
       url: /azure/virtual-network/virtual-networks-overview
     - title: Azure Private Link
       imageSrc: ./media/private-link-product.svg
@@ -26,7 +26,7 @@ productDirectory:
       url: /azure/private-link/private-link-overview
     - title: Azure DNS
       imageSrc: ./media/dns.svg
-      summary: "Set up public and private name resolution for your Azure services."
+      summary: "Public and private name resolution for your Azure services."
       url: /azure/dns/dns-overview
           
 additionalContent:
@@ -45,21 +45,21 @@ additionalContent:
               url: /azure/virtual-network/virtual-networks-faq
         - title: 'Azure Private Link'
           links:
-            - text: Quickstart - Create a Virtual Network
-              url: /azure/virtual-network/quick-create-portal
-            - text: Azure Virtual Network concepts and best practices 
-              url: /azure/virtual-network/concepts-and-best-practices
-            - text: Plan virtual networks
-              url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
-            - text: Azure Virtual Network FAQ
-              url: /azure/virtual-network/virtual-networks-faq
+            - text: Quickstart - Create a private endpoint
+              url: /azure/private-link/create-private-endpoint-portal
+            - text: What is a private endpoint? 
+              url: /azure/private-link/private-endpoint-overview
+            - text: What is Azure Private Link service?
+              url: /azure/private-link/private-link-service-overview
+            - text: Azure Private Link FAQ
+              url: /azure/private-link/private-link-faq
         - title: 'Azure DNS'
           links:
-            - text: Quickstart - Create a Virtual Network
-              url: /azure/virtual-network/quick-create-portal
-            - text: Azure Virtual Network concepts and best practices 
-              url: /azure/virtual-network/concepts-and-best-practices
-            - text: Plan virtual networks
-              url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
-            - text: Azure Virtual Network FAQ
-              url: /azure/virtual-network/virtual-networks-faq
+            - text: Quickstart - Create a public DNS zone
+              url: /azure/dns/dns-getstarted-portal
+            - text: What is an Azure Private DNS zone?
+              url: /azure/dns/private-dns-privatednszone
+            - text: What is Azure DNS Private Resolver?
+              url: /azure/dns/dns-private-resolver-overview
+            - text: Azure DNS FAQ
+              url: /azure/dns/dns-faq
