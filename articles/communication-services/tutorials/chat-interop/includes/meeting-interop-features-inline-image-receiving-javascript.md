@@ -9,7 +9,7 @@ ms.service: azure-communication-services
 
 In this tutorial, you learn how to enable inline image support by using the Azure Communication Services Chat SDK for JavaScript.
 
-Inline images are images that are copied and pasted directly into the send box of the Teams client. For images uploaded via the **Upload from this device** menu or via drag-and-drop, such as images dragged directly to the send box in Teams, you need to refer to [this tutorial](../meeting-interop-features-file-attachment.md) as the part of the file-sharing feature. (See the section "Handle Image Attachments.")
+Inline images are images that are copied and pasted directly into the send box of the Teams client. For images uploaded via the **Upload from this device** menu or via drag-and-drop, such as images dragged directly to the send box in Teams, you need to refer to [this tutorial](../meeting-interop-features-file-attachment.md) as the part of the file-sharing feature. (See the section "Handle image attachments.")
 
 To copy an image, Teams users have two options:
 
