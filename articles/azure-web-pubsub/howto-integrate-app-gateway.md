@@ -340,7 +340,7 @@ az webapp up \
 > To switch subscription, follow the command mentioned in [this documentation article](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?tabs=bash#change-the-active-subscription).
 
 #### Set environment variable 
-When the "publish.js" program starts, App Service makes the environment variables available for your program to consume. 
+When the `publish.js` program starts, App Service makes the environment variables available for your program to consume. 
 
 There are two environment variables we need to set and make available to `publish.js`.
 
@@ -379,7 +379,7 @@ Now, open your web browser and enter the domain name of your Web App. If you ins
 :::image type="content" source="media/howto-integrate-app-gateway/connect-with-webpubsub-indirect-azure.jpg" alt-text="Screenshot of successfully establishing a WebSocket connection through Application Gateway":::
 
 If you have the Console panel open, you see the broadcasted messages, as well. 
-:::image type="content" source="media/howto-integrate-app-gateway/connect-with-webpubsub-indirect-azure.jpg" alt-text="Screenshot of getting messages from Application Gateway, which proxies traffic for Web PubSub":::
+:::image type="content" source="media/howto-integrate-app-gateway/connect-with-webpubsub-indirect-azure-messages.jpg" alt-text="Screenshot of getting messages from Application Gateway, which proxies traffic for Web PubSub":::
 
 
 ## Note about using service SDK
