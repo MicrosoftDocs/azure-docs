@@ -422,7 +422,7 @@
       - name: Overview  
         href: flexible-server/azure-local-ai.md
       - name: Create embeddings with azure_local_ai
-        href: ./flexible-server/generative-ai-azure-local-ai.md
+        href: flexible-server/generative-ai-azure-local-ai.md
     - name: Azure Storage (pg_azure_storage)
       href: flexible-server/reference-pg-azure-storage.md
     - name: Vector similarity search (pgvector)
