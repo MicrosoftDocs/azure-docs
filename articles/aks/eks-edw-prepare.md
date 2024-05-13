@@ -77,7 +77,6 @@ Open the `environmentVariables.sh` file, add values for your Azure environment. 
 - `AZURE_COSMOSDB_TABLE`: The name of the Azure CosmosDB to which table the app code writes the processed messages
 - `RESOURCE_GROUP_NAME`: Name of the resource group for the solution
 - `RESOURCE_GROUP_LOCATION`: Location of the resource group
-- `KEY_VAULT_NAME`: Name of the key vault used to store secrets
 - `STORAGE_ACCOUNT_NAME`: Name of the storage account
 - `STORAGE_ACCOUNT_SKU`: SKU of the storage account
 - `STORAGE_ACCOUNT_KIND`: Kind of the storage account

@@ -54,19 +54,9 @@ Once the script confirms that all prerequisites are met, it creates the [resourc
 
 Next, you select whether to use an existing [Azure storage account](/azure/storage/common/storage-account-overview), or let the script create one, using the name you set in the environment variable `STORAGE_ACCOUNT_NAME`.
 
-### Set up Azure Key Vault
-
-The script asks whether you want to use an existing [Azure Key Vault](/azure/key-vault/general/basic-concepts). If so, enter the name of the Key Vault resource. If not, the script creates one for you, using the name you set in the environment variable `KEY_VAULT_NAME`.
-
-Next, the script assigns the Key Vault Administrator role to the object ID of the principal running the script, so that it's able to perform all data plane Key Vault operations.
-
-Finally, it checks whether the `PrimaryAccessKey` and `SecondaryAccessKey` secrets for your storage account exists in the Key Vault. If not, the necessary secrets are created.
-
 ### Set up Azure Container Registry
 
 The script asks whether you want to use an existing Azure Container Registry (ACR). If so, enter the name of the ACR resource. If not, the script creates one for you, using the name you set in the environment variable `ACR_NAME`.
-
-Next, the script checks whether the service principal ID and password exist as secrets in your Key Vault. If not, the necessary secrets are created.
 
 Finally, the script creates a new user-assigned managed identity for your AKS cluster, using the name you set in the environment variable `AKS_MANAGED_IDENTITY_NAME`, and assigns the **ACRPull** role to this identity to permit data plane operations against the registry.
 
