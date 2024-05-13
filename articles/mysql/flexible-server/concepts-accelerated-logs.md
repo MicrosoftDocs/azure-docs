@@ -82,7 +82,7 @@ This section provides details specifically for enabling the accelerated logs fea
 
     :::image type="content" source="media/concepts-accelerated-logs/accelerated-logs-mysql-portal-create.png" alt-text="Screenshot shows accelerated logs during server create." lightbox="media/concepts-accelerated-logs/accelerated-logs-mysql-portal-create.png":::
 
-1. Enable the checkbox for **Accelerated logs** to enable the feature. If the high availability option is checked, the accelerated logs feature isn't available to choose. Learn more about [limitations](#limitations) during.
+1. Enable the checkbox for **Accelerated logs** to enable the feature. If the high availability option is checked, the accelerated logs feature isn't available to choose. To learn more, visit [limitations](#limitations).
 
 1. Select the **Compute size** from the dropdown list. Select **Save** and deploy your Azure Database for MySQL flexible server instance following instructions from [how-to create a server](quickstart-create-server-portal.md).
 
