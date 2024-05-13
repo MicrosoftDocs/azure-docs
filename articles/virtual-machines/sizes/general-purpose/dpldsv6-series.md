@@ -119,14 +119,14 @@ Network interface info for each size
 
 | Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
 | --- | --- | --- |
-| Standard_D2pds_v6 | 2 | 12500 |
-| Standard_D4pds_v6 | 2 | 12500 |
-| Standard_D8pds_v6 | 4 | 15000 |
-| Standard_D16pds_v6 | 8 | 15000 |
-| Standard_D32pds_v6 | 8 | 20000 |
-| Standard_D48pds_v6 | 8 | 30000 |
-| Standard_D64pds_v6 | 8 | 40000 |
-| Standard_D96pds_v6 | 8 | 60000 |
+| Standard_D2plds_v6 | 2 | 12500 |
+| Standard_D4plds_v6 | 2 | 12500 |
+| Standard_D8plds_v6 | 4 | 15000 |
+| Standard_D16plds_v6 | 8 | 15000 |
+| Standard_D32plds_v6 | 8 | 20000 |
+| Standard_D48plds_v6 | 8 | 30000 |
+| Standard_D64plds_v6 | 8 | 40000 |
+| Standard_D96plds_v6 | 8 | 60000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](../../../virtual-network/network-overview.md)
