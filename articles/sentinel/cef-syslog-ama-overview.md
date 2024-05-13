@@ -25,7 +25,7 @@ The Azure Monitor Agent supports Syslog RFCs 3164 and 5424.
 
 CEF, or Common Event Format, is a vendor-neutral format for logging data from network and security devices and appliances, such as firewalls, routers, detection and response solutions, and intrusion detection systems, as well as from other kinds of systems such as web servers. An extension of Syslog, it was developed especially for security information and event management (SIEM) solutions. CEF messages have a standard header that contains information such as the device vendor, the device product, the device version, the event class, the event severity, and the event ID. CEF messages also have a variable number of extensions that provide more details about the event, such as the source and destination IP addresses, the username, the file name, or the action taken.
 
-## How Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent
+## Collection of Syslog and CEF messages with AMA
 
 The following diagrams illustrate the architecture of Syslog and CEF message collection in Microsoft Sentinel, using the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors.
 
