@@ -81,10 +81,10 @@ items:
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
-    - name: Phi models
-      items:
-      - name: Fine-tune Phi 3 models
-        href: how-to/fine-tune-phi-3-models.md
+    - name: Deploy Phi-3 models
+      href: how-to/deploy-models-phi-3.md
+    - name: Deploy TimeGEN-1 model
+      href: how-to/deploy-models-timegen-1.md
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
