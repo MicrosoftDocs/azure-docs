@@ -164,7 +164,7 @@ After you update the VNet configuration, the status of your API Management insta
 
    Yes, VNet-injected instances can be migrated by changing the subnet configuration(s) in the **Network** blade.
 
-- **Can I preserve the public IP address of the instance?**
+- **Can I preserve the IP address of the instance?**
 
    There's no way currently to preserve the IP address if your instance is injected into a VNet.
    
@@ -206,7 +206,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Do we need a public IP even if the API Management instance is VNet injected in internal mode only?**
 
-   API Management uses an Azure-managed public IP even in internal mode for management traffic. You may optionally supply your own public IP when migrating from the `stv1` to `stv2` platform. This public IP is only used for Azure internal management operations and doesn't expose your instance to the internet. Public (internet-facing) backends may see the instance's public IP as the origin of the request. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+   API Management uses an Azure-managed public IP even in internal mode for management traffic. In internal mode, you may optionally supply your own public IP when migrating from the `stv1` to `stv2` platform. This public IP is only used for Azure internal management operations and doesn't expose your instance to the internet. Public (internet-facing) backends may see the instance's public IP as the origin of the request. More details [here](./api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
 
 - **Can I upgrade my stv1 instance to the same subnet?**
 
