@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: build-2023, build-2023-dataai
 ms.topic: reference
-ms.date: 03/20/2023
+ms.date: 05/13/2024
 ---
 
 # Azure Container for PyTorch (ACPT)
