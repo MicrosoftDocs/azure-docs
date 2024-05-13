@@ -165,7 +165,7 @@ Index tuning feature is available in the following regions:
 Index tuning is supported on all [currently available tiers](concepts-compute.md): Burstable, General Purpose, and Memory Optimized, and on any [currently supported compute SKU](concepts-compute.md) with at least 4 vCores.
 
 > [!IMPORTANT]  
-> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will be automatically disabled.
+> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. However, if you plan to enable the feature in a server which is less than 4 vCores, the change will be rejected and a descriptive error will be reported back to the user. If you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
 
 ### Supported versions of PostgreSQL
 
@@ -175,7 +175,7 @@ Index tuning is supported on [major versions](concepts-supported-versions.md) **
 
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only modes, such as when the `default_transaction_read_only` parameter is set to `on,` or if the read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store doesn't capture any data.
 
-Also, index tuning isn't supported currently on read replicas.
+Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, is one that has been produced on the primary replica after having analyzed the workload recorded in it.
 
 ### Important considerations
 
