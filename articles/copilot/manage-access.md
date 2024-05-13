@@ -13,7 +13,7 @@ author: JnHs
 > [!NOTE]
 > We're currently in the process of rolling out Microsoft Copilot for Azure (preview) to all Azure tenants. We'll remove this note once the functionality is available to all users.
 
-By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to limit access to Copilot for Azure for their organization. If you turn access off for your tenant, you can still grant access to specific Microsoft Entra users or groups.
+By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to limit access to Copilot for Azure for their organization. If you turn off access for your tenant, you can still grant access to specific Microsoft Entra users or groups.
 
 As always, Microsoft Copilot for Azure only has access to resources that the user has access to. It can only take actions that the user has permission to perform, and requires confirmation before making changes. Copilot for Azure complies with all existing access management rules and protections such as Azure role-based access control (Azure RBAC), Privileged Identity Management, Azure Policy, and resource locks.
 
