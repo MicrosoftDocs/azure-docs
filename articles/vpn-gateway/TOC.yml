@@ -210,7 +210,7 @@
           - name: Linux clients
             items:
             - name: Azure VPN client
-              href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
+              href: point-to-site-certificate-client-linux-azure-vpn-client.md
             - name: OpenVPN client
               href: point-to-site-vpn-client-cert-linux.md#openvpn
             - name: IKEv2 -strongSwan
