@@ -1,24 +1,23 @@
 ---
-title: Configure settings for $convert-data using the Azure portal - Azure Health Data Services
-description: Learn how to configure settings for $convert-data using the Azure portal.
+title: Configure $convert-data settings for the FHIR service in Azure Health Data Services
+description: Learn how to configure settings for the $convert-data operation to convert healthcare data into FHIR R4 format.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 05/13/2024
 ms.author: jasteppe
 ---
 
-# Configure settings for $convert-data using the Azure portal
+# Configure settings for $convert-data by using the Azure portal
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
 
-In this article, learn how to configure settings for `$convert-data` using the Azure portal to convert your existing health data into [FHIR R4](https://www.hl7.org/fhir/R4/index.html).
+In this article, learn how to configure settings for `$convert-data` using the Azure portal to convert health data into [FHIR&reg; R4](https://www.hl7.org/fhir/R4/index.html).
 
 ## Default templates
 
-Microsoft publishes a set of predefined sample Liquid templates from the FHIR Converter project to support FHIR data conversion. These templates are only provided to help get you started with your data conversion workflow. It's recommended that you customize and host your own templates that support your own data conversion requirements. For information on customized templates, see [Customize templates](#customize-templates).
+Microsoft publishes a set of predefined sample Liquid templates from the FHIR Converter project to support FHIR data conversion. These templates are only provided to help get you started with your data conversion workflow. We recommend that you customize and host your own templates that support your own data conversion requirements. For information on customized templates, see [Customize templates](#customize-templates).
     
 The default templates are hosted in a public container registry and require no further configurations or settings for your FHIR service.
 To access and use the default templates for your conversion requests, ensure that when invoking the `$convert-data` operation, the `templateCollectionReference` request parameter has the appropriate value based on the type of data input. 
@@ -38,7 +37,7 @@ To access and use the default templates for your conversion requests, ensure tha
 > 3. Use your registered templates in your API calls.
 > 4. Verify that the conversion behavior meets your requirements.
 >
-> For more information on hosting your own templates, see [Host your own templates](configure-settings-convert-data.md#host-your-own-templates) 
+> For more information on hosting your own templates, see [Host your own templates](convert-data-configuration.md#host-your-own-templates) 
 
 ## Customize templates
 
@@ -104,7 +103,7 @@ In the example code, two example custom fields `customfield_message` and `custom
  
 ## Host your own templates
 
-It's recommended that you host your own copy of templates in an [Azure Container Registry](../../container-registry/container-registry-intro.md) (ACR) instance. ACR can be used to host your custom templates and support with versioning.
+We recommend that you host your own copy of templates in an [Azure Container Registry](../../container-registry/container-registry-intro.md) (ACR) instance. ACR can be used to host your custom templates and support with versioning.
 
 Hosting your own templates and using them for `$convert-data` operations involves the following seven steps:
 
@@ -124,7 +123,7 @@ Read the [Introduction to container registries in Azure](../../container-registr
 
 After you create an ACR instance, you can use the **FHIR Converter: Push Templates** command in the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to push your custom templates to your ACR instance. Alternatively, you can use the [Template Management CLI tool](https://github.com/microsoft/FHIR-Converter/blob/main/docs/TemplateManagementCLI.md) for this purpose.
 
-To maintain different versions of custom templates in your Azure Container Registry, you may push the image containing your custom templates into your ACR instance with different image tags. 
+To maintain different versions of custom templates in your Azure Container Registry, you can push the image containing your custom templates into your ACR instance with different image tags. 
 * For more information about ACR registries, repositories, and artifacts, see [About registries, repositories, and artifacts](../../container-registry/container-registry-concepts.md).
 * For more information about image tag best practices, see [Recommendations for tagging and versioning container images](../../container-registry/container-registry-image-tag-version.md).
 
@@ -136,8 +135,6 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 2. Change the **Status** to **On** and select **Save** to enable the system-managed identity in the FHIR service.
 
-:::image type="content" source="media/convert-data/configure-settings-convert-data/fhir-managed-identity-enabled.png" alt-text="Screenshot of the FHIR pane for enabling the managed identity feature." lightbox="media/convert-data/configure-settings-convert-data/fhir-managed-identity-enabled.png":::
-
 ### Step 4: Provide Azure Container Registry access to the FHIR service managed identity
 
 1. In your resource group, go to your **Container Registry** instance, and then select the **Access control (IAM)** tab.
@@ -148,7 +145,7 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 3. On the **Role** pane, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
 
-   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot showing the Add role assignment pane." lightbox="../../../includes/role-based-access-control/media/add-role-assignment-page.png"::: 
+   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot showing the add role assignment pane." lightbox="../../../includes/role-based-access-control/media/add-role-assignment-page.png"::: 
 
 4. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
@@ -169,8 +166,6 @@ To use the Azure portal:
 1. In your FHIR service instance, under **Transfer and transform data**, select **Artifacts**. A list of currently registered Azure Container Registry servers is displayed. 
 3. Select **Add** and then, in the dropdown list, select your registry server. 
 4. Select **Save**. 
-
-   :::image type="content" source="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png" alt-text="Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service." lightbox="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png":::
 
 You can register up to 20 ACR servers in the FHIR service.
 
@@ -202,21 +197,10 @@ You should receive a `bundle` response that contains the health data converted i
 
 ## Next steps
 
-In this article, you've learned how to configure the settings for `$convert-data` to begin converting various health data formats into the FHIR format.
+[Overview of $convert-data](convert-data-overview.md)
 
-For an overview of `$convert-data`, see
- 
-> [!div class="nextstepaction"]
-> [Overview of $convert-data](overview-of-convert-data.md)
+[Troubleshoot $convert-data](convert-data-troubleshoot.md)
 
-To learn how to troubleshoot `$convert-data`, see
- 
-> [!div class="nextstepaction"]
-> [Troubleshoot $convert-data](troubleshoot-convert-data.md)
+[$convert-data FAQ](convert-data-faq.md)
 
-To learn about the frequently asked questions (FAQs) for `$convert-data`, see
- 
-> [!div class="nextstepaction"]
-> [Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
