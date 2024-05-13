@@ -64,7 +64,7 @@ Applying licenses at the VM scope could fit your needs for scenarios such as
 
 Each VM does require a minimum number of licenses to be applied:
 
-- ****Windows Server**** - You need a minimum of 8 core licenses (Datacenter or Standard) per VM. For example, 8 core licenses are still required if you run a 4-core VM. You may also run VMs larger than 8 cores by allocating licenses equal to the core size of the VM. For example, 12 core licenses are required for a 12-core VM. For customers with processor licenses, each 2-core processor license is equivalent to 16 core licenses.
+- ****Windows Server**** - You need a minimum of 8 core licenses (Datacenter or Standard) per VM. For example, 8 core licenses are still required if you run a 4-core VM. You may also run VMs larger than 8 cores by allocating licenses equal to the core size of the VM. For example, 12 core licenses are required for a 12-core VM. 
 
 - ****SQL Server**** - A minimum of 4 core licenses (Enterprise or Standard) per VM.
 
