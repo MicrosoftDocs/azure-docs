@@ -59,7 +59,7 @@ react_agent = agents.create_react_agent(
 )
 ```
 
-When it needs to perform calculations, the agent uses the *SessionPythonREPLTool* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent runs multiple Python code snippets, it uses the same session.
+When it needs to perform calculations, the agent uses the *SessionPythonREPLTool* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent uses the tool to run multiple Python code snippets, it uses the same session. To ensure each end user has a unique session, use a separate agent and tool for each user.
 
 *SessionPythonREPLTool* is available in the [`langchain-azure-dynamic-sessions`](https://pypi.org/project/langchain-azure-dynamic-sessions/) package.
 

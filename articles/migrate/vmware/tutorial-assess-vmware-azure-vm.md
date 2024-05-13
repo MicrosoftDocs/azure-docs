@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 02/26/2024
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy24
+ms.custom: vmware-scenario-422, MVC, engagement-fy24
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Before you follow this tutorial to assess your servers for migration to Azure VMs, make sure you've discovered the servers you want to assess:
 
 - To discover servers using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md). 
-- To discover servers using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
+- To discover servers using an imported CSV file, [follow this tutorial](../tutorial-discover-import.md).
 
 
 ## Decide which assessment to run
@@ -54,11 +54,11 @@ Run an assessment as follows:
 
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-   ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
+   ![Screenshot of Get started screen.](../media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Discovery and assessment**, select **Assess** and select **Azure VM**.
 
-    ![Screenshot of Discovery and assessment screen.](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
+    ![Screenshot of Discovery and assessment screen.](../media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
@@ -68,18 +68,18 @@ Run an assessment as follows:
     
 1. Select **Edit** to review the assessment properties.
 
-    ![Screenshot of View all button to review assessment properties.](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
+    ![Screenshot of View all button to review assessment properties.](../media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
 1. In **Assessment properties** > **Target Properties**:
    - In **Target location**, specify the Azure region to which you want to migrate.
    - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
-   - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government).
+   - In Azure Government, you can target assessments in [these regions](../migrate-support-matrix.md#azure-government).
    - In **Storage type**,
      - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
      - Alternatively, select the storage type you want to use for VM when you migrate it.
    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
-     - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
-     - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+     - [Azure reservations](../../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
+     - [Azure Savings Plan](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
      - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
      - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
 1. In **VM Size**:
@@ -114,7 +114,7 @@ Run an assessment as follows:
 
 1. In **Select or create a group**, select **Create New** and specify a group name. 
     
-     ![Screenshot of adding VMs to a group.](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
+     ![Screenshot of adding VMs to a group.](../media/tutorial-assess-vmware-azure-vm/assess-group.png)
 
 
 1. Select the appliance, and select the VMs you want to add to the group. Then select **Next**.
@@ -173,7 +173,7 @@ The assessment summary shows the estimated compute and storage cost of running V
 
 Azure Migrate assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
 
-![Screenshot of Confidence rating.](./media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
+![Screenshot of Confidence rating.](../media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
 
 The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
@@ -190,15 +190,15 @@ Confidence ratings are as follows.
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](../concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
 
 ### Review issues
 
 In the Assessment report, you can see a list of errors if there are any issues faced by the assessment service for any VM. To troubleshoot the issues, select **Details** in the **Issues** column to view errors corresponding to a VM. A context pane will open with detailed information about the errors. Use this information to resolve the issues.
 
-![Screenshot of issue details.](./media/tutorial-assess-vmware-azure-vm/issue-details.png)
+![Screenshot of issue details.](../media/tutorial-assess-vmware-azure-vm/issue-details.png)
 
 ## Next steps
 
-- Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
-- Set up [agentless](how-to-create-group-machine-dependencies-agentless.md) or [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Find server dependencies using [dependency mapping](../concepts-dependency-visualization.md).
+- Set up [agentless](../how-to-create-group-machine-dependencies-agentless.md) or [agent-based](../how-to-create-group-machine-dependencies.md) dependency mapping.
