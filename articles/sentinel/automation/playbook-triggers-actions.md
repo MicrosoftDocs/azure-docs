@@ -37,7 +37,7 @@ The Microsoft Sentinel connector, and therefore Microsoft Sentinel playbooks, su
 
 - **Microsoft Sentinel incident (Preview)**. Recommended for most incident automation scenarios.
 
-    The playbook receives incident objects, including both entities and alerts. This trigger allows you to attach a playbook to an automation rule that it can be triggered whenever an incident is created or updated in Microsoft Sentinel.<!--does this say anything? All the [benefits of handing automation rules](./automate-incident-handling-with-automation-rules.md) can be applied to the incident.-->
+    The playbook receives incident objects, including both entities and alerts. This trigger allows you to attach a playbook to an automation rule that can be triggered whenever an incident is created or updated in Microsoft Sentinel, applying all the [benefits of automation rules](./automate-incident-handling-with-automation-rules.md) to the incident.
 
 - **Microsoft Sentinel alert (Preview)**. Recommended for playbooks that must be run manually on alerts, or for scheduled analytics rules that don't generate incidents for their alerts.
 

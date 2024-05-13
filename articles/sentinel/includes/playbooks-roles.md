@@ -8,7 +8,7 @@ ms.topic: include
 
 |Role  |Description  |
 |---------|---------|
-| **Owner** | Lets you grant access to playbooks and run playbooks manually. |
+| **Owner** | Lets you grant access to playbooks in the resource group. |
 | **Logic App Contributor**        |   Lets you manage logic apps and run playbooks. Doesn't allow you to grant access to playbooks. |
 | **Logic App Operator**     |    Lets you read, enable, and disable logic apps. Doesn't allow you to edit or update logic apps.
 |    **Microsoft Sentinel Contributor**     |  Lets you attach a playbook to an analytics or automation rule.      |

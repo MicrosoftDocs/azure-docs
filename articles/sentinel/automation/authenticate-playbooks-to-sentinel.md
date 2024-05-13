@@ -44,8 +44,6 @@ The Microsoft Sentinel connector in Logic Apps, and its component triggers and a
 
 Regardless of the authentication method, the following permissions are required by the authenticated identity to use various components of the Microsoft Sentinel connector. "Write" actions include actions like such as updating incidents or adding a comment.
 
-<!--use links for all roles-->
-
 | Roles | Use triggers | Use "Read" actions | Use "Write" actions|
 | ------------- | :-----------: | :------------: | :-----------: |
 | **[Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader)** | &#10003; | &#10003; | **-** |
