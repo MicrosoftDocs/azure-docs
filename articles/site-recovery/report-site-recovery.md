@@ -70,17 +70,17 @@ This report provides information about the Site Recovery jobs by operation type 
 
 It also offers multiple filters for time range, operation, resource group, status, and search item, enabling you to generate focused reports and visualizations.
 
-:::image type="content" source="./media/report-site-recovery/job-history.png" alt-text="Screenshot of Job history.":::
+:::image type="content" source="./media/report-site-recovery/job-history.png" alt-text="Screenshot of Job history."lightbox="./media/report-site-recovery/job-history.png":::
 
 
 #### Azure Site Recovery Replication History 
 
 This report provides information about the Site Recovery replicated items and their status over a specified time period. This report also includes failover date and detailed replication health error list for troubleshooting. It offers filters for time range, vault subscription, resource group, and search item and enables focused report generation and visualization.
 
-:::image type="content" source="./media/report-site-recovery/replication-history.png" alt-text="Screenshot of Replication history.":::
+:::image type="content" source="./media/report-site-recovery/replication-history.png" alt-text="Screenshot of Replication history."lightbox="./media/report-site-recovery/replication-history.png":::
 
 
-## Export to excel
+## Export to Excel
 
 Select the down arrow button at the top of any widget, for example, a table or chart, to export the contents of that widget as an Excel sheet with existing filters applied. To export more rows of a table to Excel, you can increase the number of rows displayed on the page by adjusting **Rows Per Page** option at the top of each widget.
 
@@ -109,7 +109,7 @@ If you don't see data in the reports or see any discrepancy, check the following
 
 If none of the above explains the data seen in the report, contact Microsoft Support. 
 
-## PowerBI reports
+## Power BI reports
 
 The Power BI template app for reporting, which sources data from an Azure storage account, is being deprecated. We recommend, that you begin sending vault diagnostic data to Log Analytics to view reports instead. 
 
