@@ -176,7 +176,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
 
 ## <a name="profile-files"></a>Generate VPN client profile configuration files
 
-All of the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. You can generate client profile configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
+All the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. You can generate client profile configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
 
 The VPN client profile configuration files that you generate are specific to the P2S VPN gateway configuration for the VNet. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
 
@@ -186,13 +186,13 @@ The VPN client profile configuration files that you generate are specific to the
 
 ### Azure portal
 
-[!INCLUDE [Azure VPN Client install link table](../../includes/vpn-gateway-vpn-client-install-articles.md)]
+[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
 
 ## <a name="clientconfig"></a>Configure VPN clients and connect to Azure
 
 For steps to configure your VPN clients and connect to Azure, see the following articles:
 
-[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
+[!INCLUDE [Azure VPN Client install link table](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 ## <a name="verify"></a>To verify your connection
 
