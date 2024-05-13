@@ -2,7 +2,7 @@
 title: 'Sample code to send data to Azure Monitor using Logs ingestion API'
 description: Sample code using REST API and client libraries for Logs ingestion API in Azure Monitor.
 ms.topic: tutorial
-ms.date: 03/12/2024
+ms.date: 04/15/2024
 ---
 
 # Sample code to send data to Azure Monitor using Logs ingestion API
@@ -129,12 +129,12 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
 
 ## [Go](#tab/go)
 
-The following sample code uses the [Azure Monitor Ingestion client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest).
+The following sample code uses the [Azure Monitor Ingestion Logs client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs).
 
-1. Use [go get] to install the Azure Monitor Ingestion and Azure Identity client modules for Go. The Azure Identity module is required for the authentication used in this sample.
+1. Use `go get` to install the Azure Monitor Ingestion Logs and Azure Identity client modules for Go. The Azure Identity module is required for the authentication used in this sample.
 
     ```bash
-    go get github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest
+    go get github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     ```
 
@@ -156,7 +156,7 @@ The following sample code uses the [Azure Monitor Ingestion client module for Go
         "time" 
     
         "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-        "github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest"
+        "github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs"
     )
     
     // logs ingestion URI 
@@ -180,7 +180,7 @@ The following sample code uses the [Azure Monitor Ingestion client module for Go
             //TODO: handle error
         }
     
-        client, err := azingest.NewClient(endpoint, cred, nil)
+        client, err := azlogs.NewClient(endpoint, cred, nil)
     
         if err != nil {
             //TODO: handle error

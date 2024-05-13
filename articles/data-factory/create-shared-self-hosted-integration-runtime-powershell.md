@@ -16,6 +16,9 @@ ms.date: 08/10/2023
 
 This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. Then you can use the shared self-hosted integration runtime in another data factory.
 
+> [!NOTE]
+> As you share your self hosted integration runtime among more data factories, increased workload can sometimes lead to longer queue times. If queue times become excessive, you can scale up your node or scale out by adding additional nodes. You can add up to 4 nodes.
+
 ## Create a shared self-hosted integration runtime in Azure Data Factory
 
 You can reuse an existing self-hosted integration runtime infrastructure that you already set up in a data factory. This reuse lets you create a linked self-hosted integration runtime in a different data factory by referencing an existing shared self-hosted IR.

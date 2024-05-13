@@ -87,7 +87,7 @@ The semantics of the five consistency models in Azure Cosmos DB are described [h
 
 Next learn how to configure global distribution by using the following articles:
 
-* [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Add/remove regions from your database account](how-to-manage-database-account.yml#add-remove-regions-from-your-database-account)
 * [How to create a custom conflict resolution policy](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 

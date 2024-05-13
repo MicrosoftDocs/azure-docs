@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 04/24/2024
 ms.author: danlep
 ---
 
@@ -67,7 +67,7 @@ API Management only supports:
 | Size limit | Description |
 | ---------- | ----------- |
 | **Up to 4 MB** | When an OpenAPI specification is imported inline to API Management. |
-| **Size limit doesn't apply** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. |
+| **Azure Resource Manager API request size** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. See [Azure subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). |
 
 #### Supported extensions
 

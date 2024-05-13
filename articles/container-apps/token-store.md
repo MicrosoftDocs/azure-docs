@@ -76,7 +76,7 @@ az containerapp auth update \
   --token-store true
 ```
 
-Additionally, you can create your token store with the `sasUrlSettingName` property using an [ARM template](/rest/api/containerapps/container-apps-auth-configs/create-or-update?view=rest-containerapps-2023-11-02-preview&tabs=HTTP&preserve-view=true#blobstoragetokenstore).
+Additionally, you can create your token store with the `sasUrlSettingName` property using an [ARM template](/azure/templates/microsoft.app/2023-11-02-preview/containerapps/authconfigs?pivots=deployment-language-arm-template#blobstoragetokenstore-1).
 
 ## Next steps
 

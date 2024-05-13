@@ -548,7 +548,7 @@ You can see that the `chat_completion` function does the following:
 
 Now, you improve the prompt used in the chat function and later evaluate how well the quality of the copilot responses improved.
 
-You use the following evaluation dataset, which contains a bunch of example questions and answers. The evaluation dataset is located at `src/copilot_aisdk/system-message.jinja2` in the copilot sample repository.
+You use the following evaluation dataset, which contains a bunch of example questions and answers. The evaluation dataset is located at `src/tests/evaluation_dataset.jsonl` in the copilot sample repository.
 
 ```jsonl
 {"question": "Which tent is the most waterproof?", "truth": "The Alpine Explorer Tent has the highest rainfly waterproof rating at 3000m"}

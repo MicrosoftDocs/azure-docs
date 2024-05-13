@@ -429,7 +429,7 @@ In this tutorial, you:
 
 You can deploy different preconfigured NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking), which provide many useful network functions. 
 
-To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
+To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.yml).
 
 To learn how to restrict network access to PaaS resources with virtual network service endpoints, advance to the next tutorial.
 

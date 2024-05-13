@@ -22,7 +22,7 @@ The transit option is available for peering between the same, or different deplo
 
 In hub-and-spoke network architecture, gateway transit allows spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. Routes to the gateway-connected virtual networks or on-premises networks propagate to the routing tables for the peered virtual networks using gateway transit. 
 
-You can disable the automatic route propagation from the VPN gateway. Create a routing table with the "**Disable BGP route propagation**" option, and associate the routing table to the subnets to prevent the route distribution to those subnets. For more information, see [Virtual network routing table](../virtual-network/manage-route-table.md).
+You can disable the automatic route propagation from the VPN gateway. Create a routing table with the "**Disable BGP route propagation**" option, and associate the routing table to the subnets to prevent the route distribution to those subnets. For more information, see [Virtual network routing table](../virtual-network/manage-route-table.yml).
 
 There are two scenarios in this article. Select the scenario that applies to your environment. Most people use the **Same deployment model** scenario. If you aren't working with a classic deployment model VNet (legacy VNet) that already exists in your environment, you won't need to work with the **Different deployment models** scenario.
 

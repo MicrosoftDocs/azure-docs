@@ -30,8 +30,10 @@ ms.date: 02/01/2024
 Install the OpenAI Python client library with:
 
 ```console
-pip install openai
+pip install openai==v1.20.0
 ```
+
+[!INCLUDE [Assistants v2 note](./assistants-v2-note.md)]
 
 > [!NOTE]
 > This library is maintained by OpenAI. Refer to the [release history](https://github.com/openai/openai-python/releases) to track the latest updates to the library.

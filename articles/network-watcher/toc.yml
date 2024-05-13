@@ -93,7 +93,7 @@
       href: ../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json
     - name: Update to latest version
       href: ../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json
-  - name: View network topology
+  - name: View topology
     href: network-insights-topology.md
   - name: Create a connection monitor
     items:
@@ -110,7 +110,7 @@
     - name: From Connection monitor (classic)
       href: migrate-to-connection-monitor-from-connection-monitor-classic.md
   - name: Connection monitor using Azure Monitor agent
-    items: 
+    items:
     - name: Monitor connectivity using Azure Monitor agent
       href: azure-monitor-agent-with-connection-monitor.md
     - name: Install Azure Connected Machine agent
@@ -197,10 +197,12 @@
         href: vnet-flow-logs-powershell.md
       - name: Azure CLI
         href: vnet-flow-logs-cli.md
+      - name: Built-in Policy
+        href: vnet-flow-logs-policy.md
     - name: Migrate NSG flow logs
       href: nsg-flow-logs-migrate.md
-    - name: Read NSG flow logs
-      href: network-watcher-read-nsg-flow-logs.md
+    - name: Read flow logs
+      href: flow-logs-read.md
     - name: Analyze NSG flow logs
       items:
       - name: Use Power BI
@@ -215,19 +217,10 @@
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics using Azure policy
       href: traffic-analytics-policy-portal.md
-    - name: View network security groups
-      items:
-      - name: PowerShell
-        href: network-watcher-security-group-view-powershell.md
-      - name: Azure CLI
-        href: network-watcher-security-group-view-cli.md
     - name: Perform compliance and audit your network
       href: network-watcher-nsg-auditing-powershell.md
   - name: Determine relative latency between a location and Azure region
     href: view-relative-latencies.md
-  - name: Monitor network performance
-    href: /previous-versions/azure/azure-monitor/insights/network-performance-monitor
-    maintainContext: true
 - name: Reference
   items:
   - name: Azure CLI

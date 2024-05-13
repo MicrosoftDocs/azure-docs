@@ -2,8 +2,7 @@
 title: Logs Ingestion API in Azure Monitor
 description: Send data to a Log Analytics workspace using REST API or client libraries.
 ms.topic: conceptual
-ms.date: 03/23/2024
-
+ms.date: 04/15/2024
 ---
 
 # Logs Ingestion API in Azure Monitor
@@ -42,15 +41,12 @@ If you're sending data to a table that already exists, then you must create the 
 | `transformKql` | KQL query to be applied to the incoming data. If the schema of the incoming data matches the schema of the table, then you can use `source` for the transformation which will pass on the incoming data unchanged. Otherwise, use a query that will transform the data to match the table schema. |
 | `outputStream` | Name of the table to send the data. For a custom table, add the prefix *Custom-\<table-name\>*. For a built-in table, add the prefix *Microsoft-\<table-name\>*. |
 
-
-
-
-
 ## Client libraries
+
 In addition to making a REST API call, you can use the following client libraries to send data to the Logs ingestion API. The libraries require the same components described in [Configuration](#configuration). For examples using each of these libraries, see [Sample code to send data to Azure Monitor using Logs ingestion API](../logs/tutorial-logs-ingestion-code.md).
 
 - [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme)
-- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs)
 - [Java](/java/api/overview/azure/monitor-ingestion-readme)
 - [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme)
 - [Python](/python/api/overview/azure/monitor-ingestion-readme)

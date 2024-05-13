@@ -36,7 +36,7 @@ Azure RBAC can be assigned to a Language resource. To grant access to an Azure r
 1. On the **Members** tab, select a user, group, service principal, or managed identity.
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml).
 
 ## Language role types
 
@@ -79,7 +79,7 @@ A user that should only be validating and reviewing the Language apps, typically
       Only Export POST operation under: 
          * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
       All the Batch Testing Web APIs
-         *[Language Runtime CLU APIs](/rest/api/language/2023-04-01/conversation-analysis-runtime)
+         *[Language Runtime CLU APIs](/rest/api/language)
          *[Language Runtime Text Analysis APIs](https://go.microsoft.com/fwlink/?linkid=2239169)
     :::column-end:::
 :::row-end:::

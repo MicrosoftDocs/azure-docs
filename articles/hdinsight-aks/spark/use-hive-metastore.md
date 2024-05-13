@@ -40,7 +40,7 @@ While you create the cluster, HDInsight service needs to connect to the external
     |Object	|Role|Remarks|
     |-|-|-|
     |User Assigned Managed Identity(the same UAMI as used by the HDInsight cluster) |Key Vault Secrets User | Learn how to [Assign role to UAMI](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md)|
-    |User(who creates secret in Azure Key Vault) | Key Vault Administrator| Learn how to [Assign role to user](../../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page). |
+    |User(who creates secret in Azure Key Vault) | Key Vault Administrator| Learn how to [Assign role to user](../../role-based-access-control/role-assignments-portal.yml#step-2-open-the-add-role-assignment-page). |
 
     > [!NOTE]
     > Without this role, user can't create a secret.
