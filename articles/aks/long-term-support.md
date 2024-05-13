@@ -32,7 +32,7 @@ LTS intends to give you an extended period of time to plan and test for upgrades
 
 ## Enable long-term support
 
-Enabling and disabling long-term support is a combination of moving your cluster to the Premium tier and explicitly selecting the LTS support plan.  
+Enabling and disabling long-term support is a combination of moving your cluster to the Premium tier and explicitly selecting the LTS support plan.
 
 > [!NOTE]
 > While it's possible to enable LTS when the cluster is in Community support, you'll be charged once you enable the Premium tier.
@@ -70,7 +70,6 @@ See the following table for a list of add-ons and features that aren't supported
 | Keda | Unable to guarantee future version compatibility with Kubernetes 1.27 |
 | Calico  |  Requires Calico Enterprise agreement past Community support |
 | Cillium  |  Requires Cillium Enterprise agreement past Community support |
-| Azure Linux | Support timeframe for Azure Linux 2 ends during this LTS cycle |
 | Key Management Service (KMS) | KMSv2 replaces KMS during this LTS cycle |
 | Dapr | AKS extensions are not supported |
 | Application Gateway Ingress Controller | Migration to App Gateway for Containers happens during LTS period |
@@ -122,8 +121,10 @@ To carry out an in-place upgrade to the latest LTS version, you need to specify 
 ```azurecli
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.32.2
 ```
+> [!NOTE]
+>If you use any programming/scripting logic to list and select a minor version of Kubernetes before creating clusters with the `ListKubernetesVersions` API, note that starting from Kubernetes v1.27, the API returns `SupportPlan` as `[KubernetesOfficial, AKSLongTermSupport]`. Please ensure you update any logic to exclude `AKSLongTermSupport` versions to avoid any breaks and choose `KubernetesOfficial` support plan versions.  Otherwise, if LTS is indeed your path forward please first opt-into the Premium tier and the `AKSLongTermSupport` support plan versions from the `ListKubernetesVersions` API before creating clusters.
 
 > [!NOTE]
-> Kubernetes version 1.32 is the next Long Term Support Version after 1.27. Customers will get a minimum 6 months of overlap between 1.27 LTS and 1.32 LTS versions to plan upgrades.  
+> The next Long Term Support Version after 1.27 is to be determined. However Customers will get a minimum 6 months of overlap between 1.27 LTS and the next LTS version to plan upgrades.  
 > Kubernetes 1.32.2 is used as an example version in this article. Check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.
 

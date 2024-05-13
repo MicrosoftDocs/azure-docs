@@ -187,7 +187,7 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Germany North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Israel Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Italy North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -211,6 +211,8 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Taiwan North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Taiwan Northwest | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | UAE Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

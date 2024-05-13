@@ -45,6 +45,21 @@ Scheduled patching fails with a `TimeOut` or `Failed` error after you move a VM 
 
 This is a known bug, and we're working on resolving it. If you encounter this problem, contact the support team for assistance.
 
+### Unable to delete configuration assignment
+
+#### Problem
+
+Configuration assignment couldn't be removed or deleted from a particular maintenance configuration
+
+#### Resolution
+
+Use the following steps to mitigate this issue:
+
+1. Delete the existing maintenance configuration in which you are encountering this issue.
+1. Create a new maintenance configuration and assign the required set of dynamic scope and VMs as attached in the deleted maintenance configuration.
+
+If you want to create new maintenance configuration with the same name as the deleted maintenance configuration, you will have to wait 20 minutes for the cleanup to take place in the backend. The system won't allow the creation of maintenance configuration with the same name if cleanup is not performed in the backend. 
+
 ### Scheduled patching stops working after the resource is moved
 
 #### Problem
@@ -53,22 +68,33 @@ If you move a resource to a different resource group or subscription, scheduled 
 
 #### Resolution
 
-The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move.
+The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a pre requisite, first remove the assignment before following the steps.** 
 
-If you're using a static scope:
+If you're using a `static` scope:
 
-1. Remove the resource assignment.
 1. Move the resource to a different resource group or subscription.
 1. Re-create the resource assignment.
 
-If you're using a dynamic scope:
+If you're using a `dynamic` scope:
 
-1. Remove the resource assignment.
 1. Initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, so you can proceed with the next steps.
 1. Move the resource to a different resource group or subscription.
 1. Re-create the resource assignment.
 
-If you miss any of the preceding steps, you can reassign the resource to the original assignment and repeat the steps sequentially.
+If any of the steps are missed, please move the resource to the previous resource group or subscription ID and reattempt the steps.
+
+> [!NOTE]
+> If the resource group is deleted, recreate it with the same name. If the subscription ID is deleted, reach out to the support team for mitigation.
+
+### Maintenance Configuration didn't trigger on the configured date time
+
+#### Problem
+
+After creating a Maintenance Configuration with a repeat value of either week or month, you expect the schedule to start at the specified date and time and then recur based on the chosen interval. However, the schedule didn't trigger at the start date and time.
+
+#### Resolution
+
+The Maintenance Configuration first run occurs on the first recurrence value following the specified start date, not necessarily on the start date itself. For example, if the maintenance configuration starts on January 17th (Wednesday) and is set to recur every Monday, the first run of the schedule will be on the first Monday after January 17th, which is January 22nd.
 
 ### Creation of a dynamic scope fails
 

@@ -346,6 +346,14 @@ Data support tagging, which is extra metadata applied to the data in the form of
 
 You can add tags to existing data.
 
+### Data preview
+
+You can browse the folder structure and preview the file in the Data details page.
+We support data preview for the following types:
+- Data file types will be supported via preview API: ".tsv", ".csv", ".parquet", ".jsonl".
+- Other file types, Studio UI will attempt to preview the file in the browser natively. So the supported file types may depend on the browser itself.
+Normally for images, these are supported: ".png", ".jpg", ".gif". And normally, these are support ".ipynb", ".py", ".yml", ".html".
+
 ## Next steps
 
 - Learn how to [create a project in Azure AI Studio](./create-projects.md).

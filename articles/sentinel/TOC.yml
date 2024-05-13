@@ -716,6 +716,8 @@
       href: data-connectors/snowflake.md
     - name: Sonrai Data Connector
       href: data-connectors/sonrai-data-connector.md
+    - name: SonicWall Firewall 
+      href: data-connectors/sonicwall-firewall.md
     - name: Sophos Cloud Optix
       href: data-connectors/sophos-cloud-optix.md
     - name: Sophos Endpoint Protection (using Azure Functions)
@@ -1107,6 +1109,12 @@
         href: automation/define-playbook-access-restrictions.md
       - name: Create and perform advanced incident tasks using playbooks
         href: automation/create-tasks-playbook.md
+- name: Optimize your security operations
+  items:
+  - name: SOC optimizations overview
+    href: soc-optimization/soc-optimization-access.md
+  - name: SOC optimization reference
+    href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
   items:
   - name: Manage costs and billing

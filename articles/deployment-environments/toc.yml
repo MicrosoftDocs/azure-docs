@@ -13,8 +13,6 @@ items:
   items:
     - name: Create and configure a dev center
       href: quickstart-create-and-configure-devcenter.md
-    - name: Create and configure a project
-      href: quickstart-create-and-configure-projects.md
     - name: Create dev center and project (Azure Resource Manager)
       href: quickstart-create-dev-center-project-azure-resource-manager.md
       displayName: Azure Deployment Environments, ADE, environments, quickstart
@@ -76,8 +74,6 @@ items:
       href: how-to-manage-environments.md
     - name: Create environments with Azure CLI
       href: how-to-create-access-environments.md
-    - name: Custom image support with Terraform
-      href: how-to-configure-extensibility-terraform-container-image.md
 - name: Manage costs
   expanded: false
   items:
@@ -106,12 +102,12 @@ items:
 - name: Reference
   expanded: false
   items:
+    - name: ADE CLI reference
+      href: reference-deployment-environment-cli.md
     - name: ADE CLI variables
       href: reference-deployment-environment-variables.md
     - name: Install Azure CLI extension
       href: how-to-install-devcenter-cli-extension.md
-    - name: ADE CLI reference
-      href: reference-deployment-environment-cli.md  
     - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API
