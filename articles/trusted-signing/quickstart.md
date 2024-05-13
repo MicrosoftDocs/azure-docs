@@ -178,16 +178,16 @@ To create a Trusted Signing account by using the Azure CLI:
    To create a Trusted Signing account that has a Basic SKU:
 
    ```azurecli
-   trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
+  az trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
    ```
 
    To create a Trusted Signing account that has a Premium SKU:
 
    ```azurecli
-   trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
+  az trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
    ```
 
-1. Verify your Trusted Signing account by using the `trustedsigning show -g MyResourceGroup -n MyAccount` command.
+1. Verify your Trusted Signing account by using the `az trustedsigning show -g MyResourceGroup -n MyAccount` command.
 
    > [!NOTE]
    > If you use an earlier version of the Azure CLI from the Trusted Signing private preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
@@ -196,10 +196,10 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 
 | Command                                                                                  | Description                               |  
 |:-----------------------------------------------------------------------------------------|:------------------------------------------|
-| `trustedsigning -h`                                                                      | Shows help commands and detailed options.   |
-| `trustedsigning show -n MyAccount  -g MyResourceGroup`                                   | Shows the details of an account.            |
-| `trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Updates tags.                               |
-| `trustedsigning list -g MyResourceGroup`                                                 | Lists all accounts that are in a resource group. |
+| `az trustedsigning -h`                                                                      | Shows help commands and detailed options.   |
+| `az trustedsigning show -n MyAccount  -g MyResourceGroup`                                   | Shows the details of an account.            |
+| `az trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Updates tags.                               |
+| `az trustedsigning list -g MyResourceGroup`                                                 | Lists all accounts that are in a resource group. |
 
 ---
 
@@ -323,7 +323,7 @@ To create a certificate profile by using the Azure CLI:
 1. Create a certificate profile by using the following command:
 
    ```azurecli
-   trustedsigning certificate-profile create -g MyResourceGroup --a
+   az trustedsigning certificate-profile create -g MyResourceGroup --a
    account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
    ```
 
@@ -332,22 +332,22 @@ To create a certificate profile by using the Azure CLI:
 1. Create a certificate profile that includes optional fields (street address or postal code) in the subject name of the certificate by using the following command:
 
    ```azurecli
-   trustedsigning certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
+  az trustedsigning certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
    ```
 
 1. Verify that you successfully created a certificate profile by using the following command:
 
    ```azurecli
-   trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
+  az trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
    ```
 
 The following table lists *helpful commands* to use when you create a certificate profile by using the Azure CLI:
 
 | Command                               | Description  |
 | :----------------------------------- | :------------------- |
-| `trustedsigning certificate-profile create -–help`                            | Shows help for sample commands, and shows detailed parameter descriptions.              |
-| `trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            | Lists all certificate profiles that are associated with a Trusted Signing account.          |
-| `trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Gets the details for a certificate profile.              |
+| `az trustedsigning certificate-profile create -–help`                            | Shows help for sample commands, and shows detailed parameter descriptions.              |
+| `az trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            | Lists all certificate profiles that are associated with a Trusted Signing account.          |
+| `az trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Gets the details for a certificate profile.              |
 
 ---
 
@@ -386,7 +386,7 @@ To delete Trusted Signing resources by using the Azure CLI:
 To delete a Trusted Signing certificate profile, run this command:
 
 ```azurecli
-trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
+az trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
 ```
 
 > [!NOTE]
@@ -399,7 +399,7 @@ You can use the Azure CLI to delete Trusted Signing resources.
 To delete a Trusted Signing account, run this command:
 
 ```azurecli
-trustedsigning delete -n MyAccount -g MyResourceGroup
+az trustedsigning delete -n MyAccount -g MyResourceGroup
 ```
 
 > [!NOTE]
@@ -414,3 +414,7 @@ In this quickstart, you created a Trusted Signing account, an identity validatio
 - Learn more about [signing integrations](how-to-signing-integrations.md).
 - Learn more about the [trust models that Trusted Signing supports](concept-trusted-signing-trust-models.md).
 - Learn more about [certificate management](concept-trusted-signing-cert-management.md).
+- Need assistance with your setup:
+    - Reach out via Azure Support through Azure portal.
+    - Post your query on Stack Overflow or Microsoft Q&A, use the tag: trusted-signing. 
+        - Identity Validation issues can only be addressed with Stack Overflow or Microsoft Q&A.

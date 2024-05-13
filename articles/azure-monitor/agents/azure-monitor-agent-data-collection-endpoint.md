@@ -35,7 +35,7 @@ Data Collection Endpoints public IP addresses are not part of the abovementioned
 | Microsoft Azure operated by 21Vianet | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 
 >[!NOTE]
-> If you use private links on the agent, you must **only** add the [private data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). The agent does not use the non-private endpoints listed above when using private links/data collection endpoints.
+> If you use private links on the agent, you must **only** add the [private data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-dce). The agent does not use the non-private endpoints listed above when using private links/data collection endpoints.
 > The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure operated by 21Vianet clouds.
 
 ## Proxy configuration
@@ -265,7 +265,7 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 1. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`.
-   (If you're using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).)
+   (If you're using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-dce).)
 1. Add the **data ingestion endpoint URL** to the allowlist for the gateway
    `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`.
 1. Restart the **OMS Gateway** service to apply the changes
