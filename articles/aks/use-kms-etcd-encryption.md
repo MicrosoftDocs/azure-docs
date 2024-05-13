@@ -370,7 +370,7 @@ Beginning in AKS version 1.27, turning on the KMS feature configures KMS v2. Wit
 
 ### Migrate to KMS v2
 
-If your cluster version is later than 1.27 and you already turned on KMS, the upgrade to KMS 1.27 or later is blocked. Use the following steps to migrate to KMS v2:
+If your cluster version is older than 1.27 and you already turned on KMS, the upgrade to KMS 1.27 or later is blocked. Use the following steps to migrate to KMS v2:
 
 1. Turn off KMS on the cluster.
 1. Perform the storage migration.
