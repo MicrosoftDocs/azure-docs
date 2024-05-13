@@ -2,7 +2,7 @@
 title: Create your first function using Visual Studio Code for the Web
 description: Learn how to create your first Flex Consumption hosted function using Visual Studio Code for the Web in the Azure portal.
 ms.topic: quickstart
-ms.date: 05/06/2024
+ms.date: 05/14/2024
 zone_pivot_groups: programming-languages-set-functions
 
 #customer intent: As an Azure developer, I want learn how to use Visual Studio Code for the Web to create functios that run in the Flex Consumption plan so that I can develop my function code directly in the Azure portal.
@@ -16,9 +16,9 @@ This quickstart creates an HTTP triggered function using Visual Studio Code for 
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-csharp" 
 >[!IMPORTANT]
->Visual Studio Code for the Web in the Azure portal is currently only supported for Node.js, PowerShell, and Python apps hosted in the Flex Consumption plan, which is currently in preview. You can instead download a starter code project from the portal, develop your code locally, and then [deploy to your Flex Consumption plan app](./flex-consumption-how-to.md#deploy-your-code-project). 
+>Visual Studio Code for the Web in the Azure portal is currently only supported for Node.js, PowerShell, and Python apps hosted in the Flex Consumption plan, which is currently in preview. For C# and Java apps, you should instead complete [Create a Flex Consumption app](flex-consumption-how-to.md#create-a-flex-consumption-app). 
 ::: zone-end
-
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-typescript,programming-language-python"  
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -41,19 +41,6 @@ Use these steps to create your function app and related Azure resources.
 
 8. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 
-::: zone pivot="programming-language-csharp,programming-language-java"
-At this point, under **Create functions in your preferred environment** select your choice of local development environments. This link takes you to one of these quickstart articles, the first part of which tells you how to create a code project with an HTTP triggered function:
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
-+ [Create an Azure Functions project from the command line](create-first-function-cli-csharp.md)  
-+ [Create an Azure Functions project using Visual Studio](./functions-create-your-first-function-visual-studio.md)  
-+ [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-csharp.md) 
-::: zone-end  
-::: zone pivot="programming-language-java" 
-+ [Create an Azure Functions project from the command line](create-first-function-cli-java.md)  
-+ [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-java.md)
-::: zone-end
-::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"
 Next, create a function in the new function app in the portal using Visual Studio Code for Web.
 
 ## Create an HTTP trigger function
@@ -66,7 +53,6 @@ Next, create a function in the new function app in the portal using Visual Studi
 
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
-::: zone-end  
 ## Test the function
 
 [!INCLUDE [functions-test-function-portal](../../includes/functions-test-function-portal.md)]
@@ -78,3 +64,5 @@ Next, create a function in the new function app in the portal using Visual Studi
 ## Next steps
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+::: zone-end

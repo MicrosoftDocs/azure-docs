@@ -77,7 +77,9 @@ In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are speci
 
 ## Concurrency
 
-Concurrency refers to the number of parallel executions of a function on an instance of your app. You can set a maximum number of concurrent executions that each instance should handle at any given time. Concurrency has a direct effect on how your app scales because at lower concurrency levels, you need more instances to handle the event-driven demand for a function. While you can control and fine tune the concurrency, we provide defaults that work for most cases.
+Concurrency refers to the number of parallel executions of a function on an instance of your app. You can set a maximum number of concurrent executions that each instance should handle at any given time. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
+
+Concurrency has a direct effect on how your app scales because at lower concurrency levels, you need more instances to handle the event-driven demand for a function. While you can control and fine tune the concurrency, we provide defaults that work for most cases. To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP concurrency limits](flex-consumption-how-to.md#set-http-concurrency-limits).
 
 ## Deployment storage account
 
@@ -110,7 +112,15 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans in that region. If your apps require a larger quota, raise a support ticket to request a quota increase.
+Currently, each region in a given subscription has a memory limit of 512,000 MB for all instances of apps running on Flex Consumption plans in that region. This means that in a given subscription and region, you could have any of the following combinations of maximum instance sizes and counts, all of which reach the current 512,000 MB limit:
+
+| Instance memory size (MB) | Max instance counts (per region) |
+| ----- | ---- |
+| `512 MB` | 1,000 |
+| `2048 MB` | 250 |
+| `4096 MB` | 125 |
+
+You could have any other combination of instance memory sizes and counts in a given region, as long as they stay under the 512,000 MB limit. If your apps require a larger quota, you can create a support ticket to request a quota increase.
 
 ## Deprecated properties and settings
 
