@@ -189,18 +189,17 @@ sections:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to use Document Intelligence Studio.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to read/write data and is **required to call the API**.
 
           - Advanced
 
-            - **Contributor**: You need this role to create a resource group or a Document Intelligence resource. The Contributor role doesn't allow you to list keys for Cognitive Services. To use Document Intelligence Studio, you still need the Cognitive Services User role.
+            - **Contributor**: You need this role to create a resource group or a Document Intelligence resource. The Contributor role doesn't allow you to list keys for Cognitive Services and doesn't give you access to use the created resources or storage, it only allows a user to read/write the resource itself. To use Document Intelligence Studio, you still need the Cognitive Services User role.
 
           For custom model projects, here are the role requirements for user scenarios:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to read/write data and is 
-              **required to call the API**.  This role is also the minimum necessary to train a custom model or analyze with trained models. 
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to read/write data and is **required to call the API**.  This role is also the minimum necessary to train a custom model or analyze with trained models.
 
             - **Storage Blob Data Contributor**: You need this role for a storage account to create project and label data.
 
@@ -210,7 +209,7 @@ sections:
 
               The Contributor role doesn't allow you to access data in your blob. To use Document Intelligence Studio, you still need the Storage Blob Data Contributor role.
 
-            - **Contributor**: You need this role to create a resource group and resources. The Contributor role doesn't give you access to use the created resources or storage it only allow a user to read/write the resource itself. To use Document Intelligence Studio, you still need basic roles.
+            - **Contributor**: You need this role to create a resource group and resources. The Contributor role doesn't give you access to use the created resources or storage, it only allows a user to read/write the resource itself. To use Document Intelligence Studio, you still need basic roles.
 
           For more information, see [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and the sections about Azure role assignments in the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md).
 
