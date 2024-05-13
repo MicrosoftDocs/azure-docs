@@ -53,7 +53,7 @@ To enable the `pg_partman` extension, follow these steps:
 >
 > - When an identity feature uses sequences, the data from the parent table gets new sequence values. It doesn't generate new sequence values when the data is directly added to the child table.
 >
-> - `pg_partman` uses a template to control whether the table is `UNLOGGED`. This means the `ALTER TABLE` command can't change this status for a partition set. By changing the status on the template, you can apply it to all future partitions. But for existing child tables, you must use the `ALTER TABLE` command manually. [This bug](https://www.postgresql.org/message-id/flat/15954-b61523bed4b110c4%40postgresql.org) shows why.  
+> - The `pg_partman` extension uses a template to control whether the table is `UNLOGGED`. This means the `ALTER TABLE` command can't change this status for a partition set. By changing the status on the template, you can apply it to all future partitions. But for existing child tables, you must use the `ALTER TABLE` command manually. [This bug](https://www.postgresql.org/message-id/flat/15954-b61523bed4b110c4%40postgresql.org) shows why.  
 
 ## Set up permissions
 
@@ -74,7 +74,7 @@ GRANT TEMPORARY ON DATABASE <databasename> to partman_role; --  This allows tem
 
 ## Create partitions
 
-`pg_partman` supports range-type partitions only, not trigger-based partitions. The following code shows how `pg_partman` assists with partitioning a table:
+The `pg_partman` extension supports range-type partitions only, not trigger-based partitions. The following code shows how `pg_partman` assists with partitioning a table:
 
 ```sql
 CREATE SCHEMA partman; 
@@ -109,7 +109,7 @@ The preceding command divides `p_parent_table` into smaller parts based on the `
 
 The example creates 20 future partitions in advance, instead of using the default value of `4`. It also specifies `p_start_partition`, where you mention the past date from which the partitions should start.
 
-The `create_parent()` function populates two tables: `part_config` and `part_config_sub`. There's a maintenance function, `run_maintenance()`. You can schedule a `cron` job for this procedure to run on a periodic basis. This function checks all parent tables in a `part_config` table and creates new partitions for them, or it runs the tables' set retention policy. To learn more about the functions and tables in `pg_partman`, see [PostgreSQL Partition Manager Extension](https://github.com/pgpartman/pg_partman/blob/master/doc/pg_partman.md).
+The `create_parent()` function populates two tables: `part_config` and `part_config_sub`. There's a maintenance function, `run_maintenance()`. You can schedule a `cron` job for this procedure to run on a periodic basis. This function checks all parent tables in a `part_config` table and creates new partitions for them, or it runs the tables' set retention policy. To learn more about the functions and tables in `pg_partman`, see the [PostgreSQL Partition Manager Extension](https://github.com/pgpartman/pg_partman/blob/master/doc/pg_partman.md) documentation on GitHub.
 
 To create new partitions every time the `run_maintenance()` is run in the background through the `pg_partman_bgw` extension, run the following `UPDATE` statement:
 
@@ -117,9 +117,9 @@ To create new partitions every time the `run_maintenance()` is run in the backgr
 UPDATE partman.part_config SET premake = premake+1 WHERE parent_table = 'partman.partition_test'; 
 ```
 
-If the premake is the same and your `run_maintenance()` procedure is run, no new partitions are created for that day. For the next day, as the premake defines from the current day, a new partition for a day is created with the execution of your `run_maintenance()` function.
+If the premake is the same and your `run_maintenance()` procedure is run, no new partitions are created for that day. For the next day, because the premake defines from the current day, a new partition for a day is created with the execution of your `run_maintenance()` function.
 
-By using the following `INSERT` commands, insert 100,000 rows for each month:
+By using the following `INSERT INTO` commands, insert 100,000 rows for each month:
 
 ```sql
 INSERT INTO partman.partition_test SELECT GENERATE_SERIES(1,100000),GENERATE_SERIES(1, 100000) || 'abcdefghijklmnopqrstuvwxyz', 
@@ -166,7 +166,7 @@ SELECT partman.run_maintenance(p_parent_table:='partman.partition_test');
 > [!WARNING]
 > If you insert data before creating partitions, the data goes to the default partition. If the default partition has data that belongs to a new partition that you want create later, you get a default partition violation error and the procedure doesn't work. Change the premake value recommended earlier and then run the procedure.
 
-## Schedule a maintenance procedure by using `pg_cron`
+## Schedule a maintenance procedure
 
 Run the maintenance procedure by using `pg_cron`:
 
@@ -180,7 +180,7 @@ Run the maintenance procedure by using `pg_cron`:
 
 2. Select the **Save** button and let the deployment finish.
 
-   After the deployment finishes, `pg_cron` is automatically created. If you still try to install it, you get the following message:
+   After the deployment finishes, `pg_cron` is created automatically. If you try to install it, you get the following message:
 
    ```sql
    CREATE EXTENSION pg_cron;   
@@ -242,7 +242,7 @@ Run the maintenance procedure by using `pg_cron`:
 
 - How do I set the partitions to start from the previous day?
 
-    `p_start_partition` refers to the date from which the partition must be created. Run the following command:
+    The `p_start_partition` function refers to the date from which the partition must be created. Run the following command:
 
     ```sql
     SELECT public.create_parent( 
