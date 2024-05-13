@@ -46,7 +46,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 | Maximum [suggesters](/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |
-| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.88 TB | 2.34 TB | 100 GB| N/A | N/A |
+| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.88&nbsp;TB | 2.34&nbsp;TB | 100 GB| N/A | N/A |
 
 <sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only tier with a lower limit of 100 fields per index. 
 
@@ -92,27 +92,27 @@ Vector limits vary by service creation date and tier. To check the age of your s
 
 The highest vector limits are available on search services created after May 17, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
 
-| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-|--------|--------------------|--------------------------------------------|------------------------------|
-| Basic | 15                  | 5                                          | 1,100 million              |
-| S1    | 160                 | 35                                         | 8,200 million              |
-| S2    | 512                 | 150                                        | 23,500 million             |
-| S3    | 1,024               | 300                                        | 47,000 million             |
-| L1    | 2,048               | 150                                         | 2,800 million              |
-| L2    | 4,096               | 300                                         | 8,400 million              |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) | 
+|--------|--------------------|---------------------------------|
+| Basic | 15                  | 5      |
+| S1    | 160                 | 35     |
+| S2    | 512                 | 150    |
+| S3    | 1,024               | 300    |
+| L1    | 2,048               | 150    |
+| L2    | 4,096               | 300    |
 
 ### Vector limits on services created between April 3, 2024 and May 17, 2024
 
 The following vector limits are available on search services created after April 3, 2024 in a [supported region](#supported-regions-with-higher-storage-limits).
 
-| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-|--------|--------------------|--------------------------------------------|------------------------------|
-| Basic | 15                  | 5                                          | 1,100 million              |
-| S1    | 160                 | 35                                         | 8,200 million              |
-| S2    | 350                 | 100                                        | 23,500 million             |
-| S3    | 700                 | 200                                        | 47,000 million             |
-| L1    | 1,000               | 12                                         | 2,800 million              |
-| L2    | 2,000               | 36                                         | 8,400 million              |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) |
+|--------|--------------------|---------|
+| Basic | 15                  | 5       |
+| S1    | 160                 | 35      |
+| S2    | 350                 | 100     |
+| S3    | 700                 | 200     |
+| L1    | 1,000               | 12      |
+| L2    | 2,000               | 36      |
 
 Notice that L1 and L2 limits are unchanged in the April 3 rollout.
 
@@ -126,27 +126,27 @@ The following limits applied to new services created between July 1 and April 3,
 
 All other regions have these limits:
 
-| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-|--------|--------------------|--------------------------------------------|------------------------------|
-| Basic | 2                  | 1                                          | 235 million                  |
-| S1    | 25                 | 3                                          | 700 million                  |
-| S2    | 100                | 12                                         | 2,800 million                |
-| S3    | 200                | 36                                         | 8,400 million                |
-| L1    | 1,000              | 12                                         | 2,800 million                |
-| L2    | 2,000              | 36                                         | 8,400 million                |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) |
+|--------|--------------------|---------------|
+| Basic | 2                  | 1              |
+| S1    | 25                 | 3              |
+| S2    | 100                | 12             |
+| S3    | 200                | 36             |
+| L1    | 1,000              | 12             |
+| L2    | 2,000              | 36             |
 
 ### Vector limits on services created before July 1, 2023
 
 These limits applied to private preview.
 
-| Tier   | Storage quota (GB) | Vector quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
-|--------|--------------------|--------------------------------------------|------------------------------|
-| Basic | 2                  | 0.5                                        | 115 million                  |
-| S1    | 25                 | 1                                          | 235 million                  |
-| S2    | 100                | 6                                          | 1,400 million                |
-| S3    | 200                | 12                                         | 2,800 million                |
-| L1    | 1,000              | 12                                         | 2,800 million                |
-| L2    | 2,000              | 36                                         | 8,400 million                |
+| Tier   | Storage quota (GB) | Vector quota per partition (GB) |
+|--------|--------------------|--------------|
+| Basic | 2                  | 0.5           |
+| S1    | 25                 | 1             |
+| S2    | 100                | 6             |
+| S3    | 200                | 12            |
+| L1    | 1,000              | 12            |
+| L2    | 2,000              | 36            |
 
 ## Indexer limits
 
