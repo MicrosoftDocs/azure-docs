@@ -12,7 +12,7 @@ ms.date: 05/09/2023
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2404 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
 
-This article applies to the AP5GC 2404 release (2404.0-2). This release is compatible with the Azure Stack Edge (ASE) Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2403 release and supports the 2024-04-01, 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
+This article applies to the AP5GC 2404 release (2404.0-3). This release is compatible with the Azure Stack Edge (ASE) Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2403 release and supports the 2024-04-01, 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
 For more information about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
 
@@ -49,7 +49,7 @@ ISSU is supported for deployments on a 2-node cluster, software upgrades can be 
 
 This feature allows you to monitor the health of your control plane resource using Azure Resource Health.  Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
 
-For more information, see [Resource Health overview](resource-health-overview.md).
+For more information, on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
 
 ### NAS Encryption
 
