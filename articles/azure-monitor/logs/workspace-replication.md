@@ -26,8 +26,8 @@ This article explains how Log Analytics workspace replication works, how to repl
 | --- | --- |
 | Enable workspace replication | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
 | Enable cluster replication | `Microsoft.OperationalInsights/clusters/write` permissions to dedicated cluster linked to a Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
-| Trigger failover | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
-| Trigger failback | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Trigger switchover | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Trigger switchover | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
 | Check workspace state | `Microsoft.OperationalInsights/workspaces/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 
 ## How Log Analytics workspace replication works
@@ -45,7 +45,7 @@ When you switch over, the secondary workspace becomes active and your primary be
 > [!IMPORTANT]
 > If the primary region can't process incoming log data, Azure Monitor buffers the data in the secondary region for up to 11 days. During the first four days, Azure Monitor automatically reattempts to replicate the data periodically. If your primary workspace isn't functional for a longer period, contact Microsoft to initiate replication.
 
-:::image type="content" source="media/workspace-replication/ingestion-flows.png" alt-text="Diagram that shows ingestion flows during normal and failover modes." lightbox="media/workspace-replication/ingestion-flows.png" border="false":::
+:::image type="content" source="media/workspace-replication/ingestion-flows.png" alt-text="Diagram that shows ingestion flows during normal and switchover modes." lightbox="media/workspace-replication/ingestion-flows.png" border="false":::
 
 
 ### Supported regions
@@ -70,11 +70,11 @@ Different customers have different data residency requirements, so it's importan
 
 ### Support for Sentinel and other products
 
-Various products and service features that interact with Log Analytics workspaces are compatible with workspace replication and failover. They can work with workspaces that trigger failover and switch to another region, which allows them to gain improved resilience "by proxy."
+Various products and service features that interact with Log Analytics workspaces are compatible with workspace replication and switchover. They can work with workspaces that trigger switchover and switch to another region, which allows them to gain improved resilience "by proxy."
 
-One product that's compatible with workspace replication is Sentinel. If a regional network issue causes log ingestion latency, Sentinel customers are also impacted. Customers that use replicated workspaces can trigger workspace failover to switch to another region, which benefits both Log Analytics and Sentinel. However, when the network issue impacts Sentinel operations directly regardless of Log Analytics, switching to another region doesn't mitigate the issue.
+One product that's compatible with workspace replication is Sentinel. If a regional network issue causes log ingestion latency, Sentinel customers are also impacted. Customers that use replicated workspaces can trigger workspace switchover to switch to another region, which benefits both Log Analytics and Sentinel. However, when the network issue impacts Sentinel operations directly regardless of Log Analytics, switching to another region doesn't mitigate the issue.
 
-Some Azure Monitor experiences are currently only partially compatible with workspace replication and failover, including Azure Application Insights and Azure Virtual Machines Insights. For the full list, see [Restrictions and limitations](#restrictions-and-limitations).
+Some Azure Monitor experiences are currently only partially compatible with workspace replication and switchover, including Azure Application Insights and Azure Virtual Machines Insights. For the full list, see [Restrictions and limitations](#restrictions-and-limitations).
 
 ## Enable and disable workspace replication
 
@@ -82,7 +82,7 @@ You enable and disable workspace replication by using a REST command. The comman
 
 ### Using a dedicated cluster?
 
-If your workspace is linked to a dedicated cluster, you first enable replication on the cluster and then enable the feature on the linked workspace. This operation creates a second cluster in your secondary region to allow your workspace to keep using the dedicated cluster even if you switch over. (There are no extra charges beyond replication charges for the second cluster.) This process allows features like cluster managed keys (CMK) to continue to work (with the same key) during failover.
+If your workspace is linked to a dedicated cluster, you first enable replication on the cluster and then enable the feature on the linked workspace. This operation creates a second cluster in your secondary region to allow your workspace to keep using the dedicated cluster even if you switch over. (There are no extra charges beyond replication charges for the second cluster.) This process allows features like cluster managed keys (CMK) to continue to work (with the same key) during switchover.
 
 You enable replication on your dedicated cluster with a `PUT` command that uses the following values:
 
@@ -191,9 +191,9 @@ To learn more about how to link a DCR to a DCE during DCR creation, see step 5b 
 >
 > There are several important points to consider when you enable replication of DCRs:
 >
-> - If you use DCRs to send logs to your workspace, you must connect each DCR to the newly created DCE to support replication and failover.
+> - If you use DCRs to send logs to your workspace, you must connect each DCR to the newly created DCE to support replication and switchover.
 >
-> - Only DCRs connected to the workspace's System DCE enable replication and failover. This behavior lets you specify the set of log streams to replicate, which helps you to control your replication costs.
+> - Only DCRs connected to the workspace's System DCE enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you to control your replication costs.
 >
 > - DCRs connected to a workspace's System DCE should target only that specific workspace. The DCRs **must not** target other destinations, such as additional workspaces or Azure Storage accounts.
 
@@ -279,15 +279,15 @@ Service Health notifications are useful for service-wise issues. To identify iss
 
 You can use log queries to monitor your secondary workspace, but keep in mind that logs replication is done in batch operations. The measured latency can fluctuate and doesn't indicate any health issue with your secondary workspace. For more information, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
-## Explore failover for replicated workspaces
+## Explore switchover for replicated workspaces
 
-When you enable workspace replication, you have a choice whether to trigger failover or [failback](#explore-failback-for-replicated-workspaces). It's a good practice to base your decision on continuous performance and health monitoring data for your workspace, and according to your system standards and requirements. 
+When you enable workspace replication, you have a choice whether to trigger switchover or [failback](#explore-failback-for-replicated-workspaces). It's a good practice to base your decision on continuous performance and health monitoring data for your workspace, and according to your system standards and requirements. 
 
-The failover process uses your secondary workspace and secondary region. During failover, most operations work the same as when you use the primary workspace and region. However, some operations have slightly different behavior or are blocked.
+The switchover process uses your secondary workspace and secondary region. During switchover, most operations work the same as when you use the primary workspace and region. However, some operations have slightly different behavior or are blocked.
 
-The failover process updates your Domain Name System (DNS) records. After the DNS records update, it can take extra time for all clients to receive the updated DNS settings and resume routing to the primary workspace. For more information, see [Client behavior during failover](#client-behavior-during-failover).
+The switchover process updates your Domain Name System (DNS) records. After the DNS records update, it can take extra time for all clients to receive the updated DNS settings and resume routing to the primary workspace. For more information, see [Client behavior during switchover](#client-behavior-during-switchover).
 
-There are several points to consider in your plan for failover:
+There are several points to consider in your plan for switchover:
 
 - Type and scope of the issue
 - Duration of the issue, momentary or continuous
@@ -297,40 +297,40 @@ The following sections explore these considerations.
 
 ### Issue type and scope
 
-When you're deciding whether to implement failover, you should clearly identify the type and extent (scope) of the issue. In certain scenarios, failover isn't an appropriate choice.
+When you're deciding whether to implement switchover, you should clearly identify the type and extent (scope) of the issue. In certain scenarios, switchover isn't an appropriate choice.
 
-The failover process routes ingestion and query requests to your secondary region. This approach commonly bypasses any faulty component that might be causing latency or failure on your primary region. As a result, failover isn't an ideal solution under the following conditions:
+The switchover process routes ingestion and query requests to your secondary region. This approach commonly bypasses any faulty component that might be causing latency or failure on your primary region. As a result, switchover isn't an ideal solution under the following conditions:
 
 - You know there's a cross-regional issue with an underlying resource. For example, if the same resource types fail in both your primary and secondary regions, you might discover that your secondary region experiences the same issues as the primary region.
 
-- You experience an issue related to workspace management, such as changing workspace retention. Workspace management operations are always handled in your primary region. During failover, workspace management operations are blocked.
+- You experience an issue related to workspace management, such as changing workspace retention. Workspace management operations are always handled in your primary region. During switchover, workspace management operations are blocked.
 
 ### Issue duration
 
-Failover isn't instantaneous. The process of rerouting requests relies on DNS updates, where some clients update within minutes while others can take more time. As a result, it's helpful to understand whether the issue is momentary and can be resolved within minutes. If the observed issue is consistent or continuous, don't delay resolving the issue. Here are some examples:
+Switchover isn't instantaneous. The process of rerouting requests relies on DNS updates, where some clients update within minutes while others can take more time. As a result, it's helpful to understand whether the issue is momentary and can be resolved within minutes. If the observed issue is consistent or continuous, don't delay resolving the issue. Here are some examples:
 
-- **Ingestion**: Issues with the ingestion pipeline on your primary region can affect the replication to your secondary workspace because replication is done at the end of the pipeline. During failover, logs are instead sent to the ingestion pipeline on the secondary region.
+- **Ingestion**: Issues with the ingestion pipeline on your primary region can affect the replication to your secondary workspace because replication is done at the end of the pipeline. During switchover, logs are instead sent to the ingestion pipeline on the secondary region.
 
-- **Query**: If queries on your primary workspace fail or timeout, Log search alerts can be affected. In this scenario, trigger failover to make sure all your alerts are triggered correctly.
+- **Query**: If queries on your primary workspace fail or timeout, Log search alerts can be affected. In this scenario, trigger switchover to make sure all your alerts are triggered correctly.
 
 ### Secondary workspace data
 
-When you consider whether to trigger failover, it's important to be aware of what data is available on your secondary workspace.
+When you consider whether to trigger switchover, it's important to be aware of what data is available on your secondary workspace.
 
 Logs replication to your secondary workspace starts after you enable workspace replication. Replication for current logs isn't applied retroactively. Logs already ingested to your primary workspace aren't copied to the secondary workspace. 
 
-After you enable replication, all logs ingested to your primary workspace eventually (and asynchronously) replicate to your secondary workspace. If you enabled workspace replication three hours ago and you now trigger failover, your queries can only return data from the last three hours.
+After you enable replication, all logs ingested to your primary workspace eventually (and asynchronously) replicate to your secondary workspace. If you enabled workspace replication three hours ago and you now trigger switchover, your queries can only return data from the last three hours.
 
-## Trigger failover
+## Trigger switchover
 
-Before you trigger failover, you should confirm that the workspace replication operation completed successfully. Failover only succeeds when the secondary workspace is configured correctly. You can use a [GET request to verify the workspace state](#check-workspace-state) is "Succeeded," and confirm the secondary location is set as expected.
+Before you trigger switchover, you should confirm that the workspace replication operation completed successfully. Switchover only succeeds when the secondary workspace is configured correctly. You can use a [GET request to verify the workspace state](#check-workspace-state) is "Succeeded," and confirm the secondary location is set as expected.
 
-You trigger failover by using a `POST` command with the following values:
+You trigger switchover by using a `POST` command with the following values:
 
 - `<subscription_id>`: Your account subscription ID.
 - `<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `<secondary_location>`: The region to switch to during failover.
-- `<workspace_name>`: The name of the workspace to switch to during failover.
+- `<secondary_location>`: The region to switch to during switchover.
+- `<workspace_name>`: The name of the workspace to switch to during switchover.
 
 The `POST` command is a long running operation that can take some time to complete. The call to the command returns 202. You can track the process, as described in [Check workspace state](#check-workspace-state).
 
@@ -343,39 +343,39 @@ https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<res
 Expected response: 202 Accepted
 ```
 
-### Client behavior during failover
+### Client behavior during switchover
 
-Log ingestion to your primary workspace can use different types of clients, including MMA (legacy), Azure Monitor Agent, code (by using the HTTP data collection API), custom logs, and other services, such as Sentinel. All ingestion requests sent while the primary workspace is in failover reroute to your secondary region for processing. Rerouting is accomplished by updating the DNS mapping of the ingestion endpoints.
+Log ingestion to your primary workspace can use different types of clients, including MMA (legacy), Azure Monitor Agent, code (by using the HTTP data collection API), custom logs, and other services, such as Sentinel. All ingestion requests sent while the primary workspace is in switchover reroute to your secondary region for processing. Rerouting is accomplished by updating the DNS mapping of the ingestion endpoints.
 
-After the DNS records update, most clients resume routing to the primary workspace endpoints within minutes. Some HTTP clients might have "sticky connections" that can take more time to create new connections. During failover, these clients might attempt to ingest logs through the primary region for some time.
+After the DNS records update, most clients resume routing to the primary workspace endpoints within minutes. Some HTTP clients might have "sticky connections" that can take more time to create new connections. During switchover, these clients might attempt to ingest logs through the primary region for some time.
 
 #### Azure Monitor Agent 
 
 Azure Monitor Agent uses DCRs to send logs to the workspace. When you enable workspace replication, a special System DCE is created with the required configuration according to the workspace object properties.
 
-To configure traffic from Azure Monitor Agent to support failover, you need to manually update your DCRs to use this System DCE. DCRs that point to a System DCE must not send logs to any destination except the workspace that owns the DCE.
+To configure traffic from Azure Monitor Agent to support switchover, you need to manually update your DCRs to use this System DCE. DCRs that point to a System DCE must not send logs to any destination except the workspace that owns the DCE.
 
 > [!WARNING]
-> When Azure Monitor Agent uses DCRs that don't point to the workspace DCE, the DCRs don't receive the replication settings. As a result, logs collected by these DCRs aren't replicated and aren't available during failover.
+> When Azure Monitor Agent uses DCRs that don't point to the workspace DCE, the DCRs don't receive the replication settings. As a result, logs collected by these DCRs aren't replicated and aren't available during switchover.
 
 ### Restrictions and limitations
 
-Before you switch regions during failover, your secondary workspace needs to contain a useful volume of logs. The recommendation is to wait at least one week after you enable replication and before you trigger failover. The seven days allow for sufficient data to be available on your secondary region.
+Before you switch regions during switchover, your secondary workspace needs to contain a useful volume of logs. The recommendation is to wait at least one week after you enable replication and before you trigger switchover. The seven days allow for sufficient data to be available on your secondary region.
 
 Here are some other considerations:
 
 - When you enable replication for workspaces that interact with Sentinel, it can take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
 
-- During failover, workspace management operations aren't supported, including:
+- During switchover, workspace management operations aren't supported, including:
    - Change workspace retention, pricing tier, daily cap, and so on
    - Change network settings
    - Change schema through new custom logs or connecting platform logs from new resource providers, such as sending diagnostic logs from a new resource type
    - Any other management operation of the workspace
 
-- The solution targeting capability of MMA agents isn't supported during failover.
+- The solution targeting capability of MMA agents isn't supported during switchover.
 
    > [!WARNING]
-   > Because solution targeting can't work during failover, solutions data is ingested from **all** agents during failover.
+   > Because solution targeting can't work during switchover, solutions data is ingested from **all** agents during switchover.
 
 The following features are partially supported or not currently supported:
 
@@ -387,7 +387,7 @@ The following features are partially supported or not currently supported:
 
 | Feature | Support | Notes |
 | --- | --- | --- |
-| Search jobs, Restore | Partial support| Both search jobs and restore operations create tables and populate them with the operation outputs (the search results or restored data). After you enable workspace replication, new tables created for these operations in the future replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you trigger failover, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
+| Search jobs, Restore | Partial support| Both search jobs and restore operations create tables and populate them with the operation outputs (the search results or restored data). After you enable workspace replication, new tables created for these operations in the future replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you trigger switchover, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
 | Azure Application Insights over Log Analytics workspaces | Partial support | |
 | Azure Virtual Machines Insights | Partial support | |
 | Container Insights | Partial support | |
@@ -395,13 +395,13 @@ The following features are partially supported or not currently supported:
 
 ## Explore failback for replicated workspaces
 
-The failback process cancels the rerouting of queries and log ingestion requests to the secondary workspace that are implemented during failover. When you trigger failback, routing of queries and log ingestion requests returns to your primary workspace. 
+The failback process cancels the rerouting of queries and log ingestion requests to the secondary workspace that are implemented during switchover. When you trigger failback, routing of queries and log ingestion requests returns to your primary workspace. 
 
-During failover, logs ingest to your secondary workspace and then (asynchronously) replicate to your primary workspace. While failover is in progress, if an outage impacts the log ingestion process on the primary region, it can take time for the logs to complete the ingestion process.
+During switchover, logs ingest to your secondary workspace and then (asynchronously) replicate to your primary workspace. While switchover is in progress, if an outage impacts the log ingestion process on the primary region, it can take time for the logs to complete the ingestion process.
 
 There are several points to consider in your plan for failback:
 
-- Complete replication for logs ingested during failover
+- Complete replication for logs ingested during switchover
 - No outstanding Service Health notifications
 - Proper logs ingestion and query processing
 
@@ -409,7 +409,7 @@ The following sections explore these considerations.
 
 ### Logs ingestion replication state
 
-Before you trigger failback, verify all logs ingested during failover complete their replication to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
+Before you trigger failback, verify all logs ingested during switchover complete their replication to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
 
 You can query your primary workspace in the Azure portal for the inactive region and check the replication status for each log. For more information, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
@@ -420,7 +420,7 @@ There are two important health items to check in preparation for failback to you
 - Confirm there are no outstanding Service Health notifications for the primary workspace and region.
 - Confirm your primary workspace is ingesting logs and processing queries as expected.
 
-For examples on how to query your primary workspace during failover, and bypass the rerouting of requests to your secondary workspace, see [Audit the inactive workspace](#audit-the-inactive-workspace).
+For examples on how to query your primary workspace during switchover, and bypass the rerouting of requests to your secondary workspace, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
 ## Trigger failback
 
@@ -447,9 +447,9 @@ Expected response: 202 Accepted
 
 ## Audit the inactive workspace
 
-By default, queries that target your workspace are sent to the _active_ region. The active region is typically your primary region in your primary workspace. When the primary workspace is in failover, the secondary workspace is in use and the primary region is _inactive_. The secondary region is then active and handles all queries.
+By default, queries that target your workspace are sent to the _active_ region. The active region is typically your primary region in your primary workspace. When the primary workspace is in switchover, the secondary workspace is in use and the primary region is _inactive_. The secondary region is then active and handles all queries.
 
-In some scenarios, you might want to intentionally query the _inactive_ region. A common use is to check the secondary workspace before you trigger failover for your primary workspace. You want to ensure your secondary workspace has complete replication of ingested logs before initiating failover.
+In some scenarios, you might want to intentionally query the _inactive_ region. A common use is to check the secondary workspace before you trigger switchover for your primary workspace. You want to ensure your secondary workspace has complete replication of ingested logs before initiating switchover.
 
 ### Enable query of inactive region
 
@@ -467,22 +467,22 @@ Follow these steps to query the available logs on the inactive workspace:
 
 After you enable the **Query inactive region** option, the queries update to show log results for the inactive region rather than the active region.
 
-When your workspace is in failover, queries route to the secondary region as the active region. If you enable the **Query inactive region** option in this scenario, the queries show log results for the primary region because it's currently inactive.
+When your workspace is in switchover, queries route to the secondary region as the active region. If you enable the **Query inactive region** option in this scenario, the queries show log results for the primary region because it's currently inactive.
 
 ### Use LAQueryLogs schema properties
 
-Query auditing lets you discover the workspace region target for a query. You can also determine whether the workspace was in failover during the query.
+Query auditing lets you discover the workspace region target for a query. You can also determine whether the workspace was in switchover during the query.
 
 To support query auditing, the following properties are available in the LAQueryLogs schema:
 
-- `isWorkspaceInFailover`: Indicates whether the workspace was in failover mode during the query. The data type is Boolean (True, False).
+- `isWorkspaceInFailover`: Indicates whether the workspace was in switchover mode during the query. The data type is Boolean (True, False).
 - `workspaceRegion`: The region of the workspace targeted by the query. The data type is String.
 
 ## Use queries to monitor workspace performance
 
-You can monitor your workspace by using queries to create alert rules. The queries can send you notifications about possible workspace health or performance issues. The results can you help determine whether to trigger failover for your workspace.  
+You can monitor your workspace by using queries to create alert rules. The queries can send you notifications about possible workspace health or performance issues. The results can you help determine whether to trigger switchover for your workspace.  
 
-In the query rule, you can define a condition to trigger failover after a specified number of violations occurs. For more information, see [Create or edit an alert rule](../alerts/alerts-create-metric-alert-rule.yml).
+In the query rule, you can define a condition to trigger switchover after a specified number of violations occurs. For more information, see [Create or edit an alert rule](../alerts/alerts-create-metric-alert-rule.yml).
 
 Two significant measurements of workspace performance include _ingestion latency_ and _ingestion volume_. The following sections explore these monitoring options.
 
