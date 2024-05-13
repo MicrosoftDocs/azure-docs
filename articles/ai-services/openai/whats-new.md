@@ -20,6 +20,21 @@ This article provides a summary of the latest releases and major documentation u
 
 ## May 2024
 
+### Assistants v2 (preview)
+
+A refresh of the Assistants API is now publicly available. It contains the following updates:
+
+* [retrieval tool and vector storage](./how-to/file-retrieval.md)
+* [max completion and max prompt token support](./concepts/assistants.md#context-window-management) for managing token usage.
+* `tool_choice` [parameter](./assistants-reference-runs.md#run-object) for forcing the Assistant to use use a specified tool. 
+* New [assistant role](.//assistants-reference-messages.md#create-message) for creating custom conversation histories. 
+* Support for `temperature`, `top_p`, `response_format` [parameters](./assistants-reference.md#create-an-assistant).
+* Support for fine-tuned `gpt-3.5-turbo-0125` [models](./concepts/models.md#assistants-preview) in the following regions:
+    * East US 2
+    * Sweden Central
+* Support for [customer-managed keys](./encrypt-data-at-rest.md).
+
+
 ### GPT-4o preview model available for early access
 
 GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
