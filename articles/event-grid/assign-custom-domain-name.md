@@ -259,36 +259,36 @@ To prove your domain ownership, follow these steps:
         {
             "properties": {
                 "topicsConfiguration": {
-                    "hostname": " MyNS.westus2-1.eventgrid.azure.net",
+                    "hostname": "HOSTNAME",
                     "customDomains": [
                         {
-                            "fullyQualifiedDomainName": "www.contoso-http.com",
+                            "fullyQualifiedDomainName": "www.HTTPDOMAINNAME.com",
                             "identity": {
                                 "type": "SystemAssigned"
                             },
                             "certificateInfo": {
-                                "keyVaultArmId": " /subscriptions/<subscription id>/resourceGroups/<resource group name> /providers/Microsoft.KeyVault/vaults/<key vault > ",
-                                "certificateName": "<certificate name>"
+                                "keyVaultArmId": " /subscriptions/AZURESUBCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
+                                "certificateName": "CERTIFICATENAME"
                             }
                         }
                     ]
                 },
                 "topicSpacesConfiguration": {
                     "state": " Enabled",
-                    "routeTopicResourceId": " /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/namespaces/MSNS/topics/<topic name>",
-                    "hostname": " MyNS.westus2-1.ts.eventgrid.azure.net",
+                    "routeTopicResourceId": " /subscriptions/AZURESUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventGrid/namespaces/NAMESPACENAME/topics/TOPICNAME",
+                    "hostname": "HOSTNAME",
                     "routingIdentityInfo": {
                         "type": "None"
                     },
                     "customDomains": [
                         {
-                            "fullyQualifiedDomainName": " www.contoso-mqtt.com ",
+                            "fullyQualifiedDomainName": "www.MQTTDOMAINNAME.com ",
                             "identity": {
                                 "type": "SystemAssigned"
                             },
                             "certificateInfo": {
-                                "keyVaultArmId": "/subscriptions/<subscription id>/resourceGroups/<resource group name> /providers/Microsoft.KeyVault/vaults/<key vault > ",
-                                "certificateName": "<certificate name >"
+                                "keyVaultArmId": "/subscriptions/AZURESUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
+                                "certificateName": "CERTIFICATENAME"
                             }
                         }
                     ]
