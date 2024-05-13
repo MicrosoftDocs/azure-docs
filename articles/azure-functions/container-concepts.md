@@ -21,9 +21,9 @@ There are several options for hosting your containerized function apps in Azure:
 | Hosting option | Benefits |
 | --- | --- |  
 | **[Azure Container Apps]** | Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Container Apps hosting lets you run your functions in a managed Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and KEDA. Container Apps uses the power of the underlying Azure Kubernetes Service (AKS) while removing the complexity of having to work with Kubernetes APIs. | 
-| **Azure Arc-enabled Kubernetes clusters (preview)** | You can host your function apps on Azure Arc-enabled Kubernetes clusters as either a [code-only deployment](./create-first-function-arc-cli.md) or in a [custom Linux container](./create-first-function-arc-custom-container.md). Azure Arc lets you to attach Kubernettes clusters so that you can manage and configure them in Azure. _Hosting Azure Functions containers on Azure Arc-enabled Kubernetes clusters is currently in preview._ |
+| **Azure Arc-enabled Kubernetes clusters (preview)** | You can host your function apps on Azure Arc-enabled Kubernetes clusters as either a [code-only deployment](./create-first-function-arc-cli.md) or in a [custom Linux container](./create-first-function-arc-custom-container.md). Azure Arc lets you attach Kubernetes clusters so that you can manage and configure them in Azure. _Hosting Azure Functions containers on Azure Arc-enabled Kubernetes clusters is currently in preview._ |
 | **[Azure Functions]** | You can deploy your containerized function apps to run in either an [Elastic Premium plan](./functions-premium-plan.md) or a [Dedicated plan](./dedicated-plan.md). Premium plan hosting provides you with the benefits of dynamic scaling. You might want to use Dedicated plan hosting to take advantage of existing unused App Service plan resources. |  
-| **[Kubernettes]** | Because the Azure Functions runtime provides flexibility in hosting where and how you want, you can host and manage your function app containers directly in Kubernettes clusters. [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes. Just keep in mind that running your containerized function apps on Kubernetes, either by using KEDA or by direct deployment, is an open-source effort that you can use free of cost, with best-effort support provided by contributors and from the community. |
+| **[Kubernetes]** | Because the Azure Functions runtime provides flexibility in hosting where and how you want, you can host and manage your function app containers directly in Kubernetes clusters. [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes. Just keep in mind that running your containerized function apps on Kubernetes, either by using KEDA or by direct deployment, is an open-source effort that you can use free of cost, with best-effort support provided by contributors and from the community. |
 
 ## Getting started
 
@@ -34,7 +34,7 @@ There are several options for hosting your containerized function apps in Azure:
 | Create my first containerized functions | [Create a function app in a local Linux container](functions-create-container-registry.md)  |  
 | Create and deploy functions to Azure Container Apps | [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md) |
 | Create and deploy containerized functions to Azure Functions | [Create your first containerized Azure Functions](functions-deploy-container.md)|
-| Create and deploy functions to Azure Arc-enabled Kubernettes | [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md) |
+| Create and deploy functions to Azure Arc-enabled Kubernetes | [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md) |
 
 ## Related articles
 
@@ -42,6 +42,6 @@ There are several options for hosting your containerized function apps in Azure:
 
 
 [Azure Container Apps]: functions-container-apps-hosting.md
-[Kubernettes]: functions-kubernetes-keda.md
+[Kubernetes]: functions-kubernetes-keda.md
 [Azure Functions]: functions-how-to-custom-container.md?pivots=azure-functions#azure-portal-create-using-containers
 [Azure Arc-enabled Kubernetes clusters]
