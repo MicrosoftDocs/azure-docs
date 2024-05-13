@@ -92,3 +92,4 @@ ml_client = MLClient(workspace_name=my_project_name, resource_group_name=my_reso
 
 - [Get started building a chat app using the prompt flow SDK](../../quickstarts/get-started-code.md)
 - [Work with projects in VS Code](vscode.md)
+- [Configure a managed network](../configure-managed-network.md?tabs=python)

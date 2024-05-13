@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/21/2024
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist
@@ -25,19 +25,19 @@ We have two network isolation aspects. One is the network isolation to access an
 You need to configure following network isolation configurations.
 
 - Choose network isolation mode. You have two options: allow internet outbound mode or allow only approved outbound mode.
-- Create private endpoint outbound rules to your private Azure resources. Note that private Azure AI services and Azure AI Search are not supported yet. 
+- Create private endpoint outbound rules to your private Azure resources. Private Azure AI services and Azure AI Search aren't supported yet. 
 - If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described in the [use Visual Studio Code](#scenario-use-visual-studio-code) section.
 - If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described in the [use HuggingFace models](#scenario-use-huggingface-models) section.
 
 ## Network isolation architecture and isolation modes
 
-When you enable managed virtual network isolation, a managed virtual network is created for the hub. Managed compute resources you create for the hub automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your hub, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
+When you enable managed virtual network isolation, a managed virtual network is created for the hub. Managed compute resources you create for the hub automatically use this managed virtual network. The managed virtual network can use private endpoints for Azure resources that are used by your hub, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
-There are three different configuration modes for outbound traffic from the managed VNet:
+There are three different configuration modes for outbound traffic from the managed virtual network:
 
 | Outbound mode | Description | Scenarios |
 | ----- | ----- | ----- |
-| Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | You want unrestricted access to machine learning resources on the internet, such as python packages or pretrained models.<sup>1</sup> |
+| Allow internet outbound | Allow all internet outbound traffic from the managed virtual network. | You want unrestricted access to machine learning resources on the internet, such as python packages or pretrained models.<sup>1</sup> |
 | Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | * You want to minimize the risk of data exfiltration, but you need to prepare all required machine learning artifacts in your private environment.</br>* You want to configure outbound access to an approved list of services, service tags, or FQDNs. |
 | Disabled | Inbound and outbound traffic isn't restricted. | You want public inbound and outbound from the hub. |
 
@@ -52,28 +52,103 @@ There are three different configuration modes for outbound traffic from the mana
 * Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall.
 * The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add might increase your risk.
 
-The managed VNet is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your hub, the hub's default storage, container registry, and key vault if they're configured as private or the hub isolation mode is set to allow only approved outbound. After choosing the isolation mode, you only need to consider other outbound requirements you might need to add.
+The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your hub, the hub's default storage, container registry, and key vault if they're configured as private or the hub isolation mode is set to allow only approved outbound. After choosing the isolation mode, you only need to consider other outbound requirements you might need to add.
 
-The following diagram shows a managed VNet configured to __allow internet outbound__:
+The following diagram shows a managed virtual network configured to __allow internet outbound__:
 
-:::image type="content" source="../media/how-to/network/internet-outbound.svg" alt-text="Diagram of managed VNet isolation configured for internet outbound." lightbox="../media/how-to/network/internet-outbound.png":::
+:::image type="content" source="../media/how-to/network/internet-outbound.svg" alt-text="Diagram of managed virtual network isolation configured for internet outbound." lightbox="../media/how-to/network/internet-outbound.png":::
 
-The following diagram shows a managed VNet configured to __allow only approved outbound__:
+The following diagram shows a managed virtual network configured to __allow only approved outbound__:
 
 > [!NOTE]
 > In this configuration, the storage, key vault, and container registry used by the hub are flagged as private. Since they are flagged as private, a private endpoint is used to communicate with them.
 
-:::image type="content" source="../media/how-to/network/only-approved-outbound.svg" alt-text="Diagram of managed VNet isolation configured for allow only approved outbound." lightbox="../media/how-to/network/only-approved-outbound.png":::
+:::image type="content" source="../media/how-to/network/only-approved-outbound.svg" alt-text="Diagram of managed virtual network isolation configured for allow only approved outbound." lightbox="../media/how-to/network/only-approved-outbound.png":::
+
+## Prerequisites
+
+Before following the steps in this article, make sure you have the following prerequisites:
+
+# [Azure portal](#tab/portal)
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin.
+
+* The __Microsoft.Network__ resource provider must be registered for your Azure subscription. This resource provider is used by the hub when creating private endpoints for the managed virtual network.
+
+    For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
+
+* The Azure identity you use when deploying a managed network requires the following [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) actions to create private endpoints:
+
+    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read
+    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
+
+# [Azure CLI](#tab/azure-cli)
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin.
+
+* The __Microsoft.Network__ resource provider must be registered for your Azure subscription. This resource provider is used by the hub when creating private endpoints for the managed virtual network.
+
+    For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
+
+* The Azure identity you use when deploying a managed network requires the following [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) actions to create private endpoints:
+
+    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read
+    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
+
+* The [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](/azure/machine-learning/how-to-configure-cli).
+
+* The CLI examples in this article assume that you're using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
+
+* The Azure CLI examples in this article use `ws` to represent the name of the hub, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
+
+# [Python SDK](#tab/python)
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
+* The __Microsoft.Network__ resource provider must be registered for your Azure subscription. This resource provider is used by hub when creating private endpoints for the managed virtual network.
+
+    For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
+
+* The Azure identity you use when deploying a managed network requires the following [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) actions to create private endpoints:
+
+    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read
+    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
+
+* The Azure Machine Learning Python SDK v2. For more information on the SDK, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
+
+* The examples in this article assume that your code begins with the following Python. This code imports the classes required when creating a hub with managed virtual network, sets variables for your Azure subscription and resource group, and creates the `ml_client`:
+
+    ```python
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import (
+        Hub,
+        ManagedNetwork,
+        IsolationMode,
+        ServiceTagDestination,
+        PrivateEndpointDestination,
+        FqdnDestination
+    )
+    from azure.identity import DefaultAzureCredential
+
+    # Replace with the values for your Azure subscription and resource group.
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+
+    # get a handle to the subscription
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
+    ```
+
+---
 
 ## Limitations
 
-* Azure AI Studio currently doesn't support bring your own virtual network, it only supports managed VNet isolation.
-* Once you enable managed VNet isolation of your Azure AI, you can't disable it.
-* Managed VNet uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
-* The managed VNet is deleted when the Azure AI is deleted. 
+* Azure AI Studio currently doesn't support bringing your own virtual network, it only supports managed virtual network isolation.
+* Once you enable managed virtual network isolation of your Azure AI, you can't disable it.
+* Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
+* The managed virtual network is deleted when the Azure AI is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
-* Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
-* When using a compute instance with a managed network, you can't connect to the compute instance using SSH.
+* Using FQDN outbound rules increases the cost of the managed virtual network because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* When using a compute instance with a managed network, use the `az ml compute connect-ssh` command to connect to the compute using SSH.
 
 ### Connectivity to other services
 
@@ -100,7 +175,7 @@ The following diagram shows a managed VNet configured to __allow only approved o
     1. To add an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Outbound rules__ sidebar, provide the following information:
     
         * __Rule name__: A name for the rule. The name must be unique for this hub.
-        * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound. Hub managed VNet doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
+        * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound. Hub managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
         * __Subscription__: The subscription that contains the Azure resource you want to add a private endpoint for.
         * __Resource group__: The resource group that contains the Azure resource you want to add a private endpoint for.
         * __Resource type__: The type of the Azure resource.
@@ -113,25 +188,25 @@ The following diagram shows a managed VNet configured to __allow only approved o
 
 * __Update an existing hub__:
 
-    1. Sign in to the [Azure portal](https://portal.azure.com), and select the hub that you want to enable managed VNet isolation for.
+    1. Sign in to the [Azure portal](https://portal.azure.com), and select the hub that you want to enable managed virtual network isolation for.
     1. Select __Networking__, then select __Private with Internet Outbound__.
 
         * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Outbound rules__ sidebar, provide the same information as used when creating a hub in the 'Create a new hub' section.
 
         * To __delete__ an outbound rule, select __delete__ for the rule.
 
-    1. Select __Save__ at the top of the page to save the changes to the managed VNet.
+    1. Select __Save__ at the top of the page to save the changes to the managed virtual network.
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure a managed VNet that allows internet outbound communications, you can use either the `--managed-network allow_internet_outbound` parameter or a YAML configuration file that contains the following entries:
+To configure a managed virtual network that allows internet outbound communications, you can use either the `--managed-network allow_internet_outbound` parameter or a YAML configuration file that contains the following entries:
 
 ```yml
 managed_network:
   isolation_mode: allow_internet_outbound
 ```
 
-You can also define _outbound rules_ to other Azure services that the hub relies on. These rules define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource.
+You can also define _outbound rules_ to other Azure services that the hub relies on. These rules define _private endpoints_ that allow an Azure resource to securely communicate with the managed virtual network. The following rule demonstrates adding a private endpoint to an Azure Blob resource.
 
 ```yml
 managed_network:
@@ -145,23 +220,23 @@ managed_network:
     type: private_endpoint
 ```
 
-You can configure a managed VNet using either the `az ml workspace-hub create` or `az ml workspace-hub update` commands:
+You can configure a managed virtual network using either the `az ml workspace create` or `az ml workspace update` commands:
 
 * __Create a new hub__:
 
-    The following example creates a new hub. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the hub:
+    The following example creates a new hub. The `--managed-network allow_internet_outbound` parameter configures a managed virtual network for the hub:
 
     ```azurecli
-    az ml workspace-hub create --name ws --resource-group rg --managed-network allow_internet_outbound
+    az ml workspace create --name ws --resource-group rg --kind hub --managed-network allow_internet_outbound
     ```
 
     To create a hub using a YAML file instead, use the `--file` parameter and specify the YAML file that contains the configuration settings:
 
     ```azurecli
-    az ml workspace-hub create --file hub.yaml --resource-group rg --name ws
+    az ml workspace create --file hub.yaml --resource-group rg --name ws --kind hub
     ```
 
-    The following YAML example defines a hub with a managed VNet:
+    The following YAML example defines a hub with a managed virtual network:
 
     ```yml
     name: myhub
@@ -174,19 +249,19 @@ You can configure a managed VNet using either the `az ml workspace-hub create` o
 
     [!INCLUDE [managed-vnet-update](../../machine-learning/includes/managed-vnet-update.md)]
 
-    The following example updates an existing hub. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the hub:
+    The following example updates an existing hub. The `--managed-network allow_internet_outbound` parameter configures a managed virtual network for the hub:
 
     ```azurecli
-    az ml workspace-hub update --name ws --resource-group rg --managed-network allow_internet_outbound
+    az ml workspace update --name ws --resource-group rg --kind hub --managed-network allow_internet_outbound
     ```
 
     To update an existing hub using the YAML file, use the `--file` parameter and specify the YAML file that contains the configuration settings:
 
     ```azurecli
-    az ml workspace-hub update --file hub.yaml --name ws --resource-group MyGroup
+    az ml workspace update --file hub.yaml --name ws --kind hub --resource-group MyGroup
     ```
 
-    The following YAML example defines a managed VNet for the hub. It also demonstrates how to add a private endpoint connection to a resource used by the hub; in this example, a private endpoint for a blob store:
+    The following YAML example defines a managed virtual network for the hub. It also demonstrates how to add a private endpoint connection to a resource used by the hub; in this example, a private endpoint for a blob store:
 
     ```yml
     name: myhub
@@ -203,8 +278,68 @@ You can configure a managed VNet using either the `az ml workspace-hub create` o
 
 # [Python SDK](#tab/python)
 
-Not available.
+To configure a managed virtual network that allows internet outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOW_INTERNET_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new hub or update an existing one. To define _outbound rules_ to Azure services that the hub relies on, use the `PrivateEndpointDestination` class to define a new private endpoint to the service.
 
+* __Create a new hub__:
+
+    The following example creates a new hub named `myhub`, with an outbound rule named `myrule` that adds a private endpoint for an Azure Blob store:
+
+    ```python
+    # Basic managed VNet configuration
+    network = ManagedNetwork(isolation_mode=IsolationMode.ALLOW_INTERNET_OUTBOUND)
+
+    # Hub configuration
+    ws = Hub(
+        name="myhub",
+        location="eastus",
+        managed_network=network
+    )
+
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
+    subresource_target = "blob"
+    spark_enabled = True
+
+    # Add the outbound 
+    ws.managed_network.outbound_rules = [PrivateEndpointDestination(
+        name=rule_name, 
+        service_resource_id=service_resource_id, 
+        subresource_target=subresource_target, 
+        spark_enabled=spark_enabled)]
+
+    # Create the hub
+    ws = ml_client.workspaces.begin_create(ws).result()
+    ```
+
+* __Update an existing hub__:
+
+    The following example demonstrates how to create a managed virtual network for an existing hub named `myhub`:
+    
+    ```python
+    # Get the existing hub
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myhub")
+    ws = ml_client.workspaces.get()
+    
+    # Basic managed VNet configuration
+    my_hub.managed_network = ManagedNetwork(isolation_mode=IsolationMode.ALLOW_INTERNET_OUTBOUND)
+
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
+    subresource_target = "blob"
+    spark_enabled = True
+
+    # Add the outbound 
+    ws.managed_network.outbound_rules = [PrivateEndpointDestination(
+        name=rule_name, 
+        service_resource_id=service_resource_id, 
+        subresource_target=subresource_target, 
+        spark_enabled=spark_enabled)]
+
+    # Update the hub
+    ml_client.workspaces.begin_update(ws)
+    ```
 ---
 
 ## Configure a managed virtual network to allow only approved outbound
@@ -256,18 +391,18 @@ Not available.
 
 * __Update an existing hub__:
 
-    1. Sign in to the [Azure portal](https://portal.azure.com), and select the hub that you want to enable managed VNet isolation for.
+    1. Sign in to the [Azure portal](https://portal.azure.com), and select the hub that you want to enable managed virtual network isolation for.
     1. Select __Networking__, then select __Private with Approved Outbound__.
 
         * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Outbound rules__ sidebar, provide the same information as when creating a hub in the previous 'Create a new hub' section.
 
         * To __delete__ an outbound rule, select __delete__ for the rule.
 
-    1. Select __Save__ at the top of the page to save the changes to the managed VNet.
+    1. Select __Save__ at the top of the page to save the changes to the managed virtual network.
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure a managed VNet that allows only approved outbound communications, you can use either the `--managed-network allow_only_approved_outbound` parameter or a YAML configuration file that contains the following entries:
+To configure a managed virtual network that allows only approved outbound communications, you can use either the `--managed-network allow_only_approved_outbound` parameter or a YAML configuration file that contains the following entries:
 
 ```yml
 managed_network:
@@ -304,17 +439,17 @@ managed_network:
     type: private_endpoint
 ```
 
-You can configure a managed VNet using either the `az ml workspace-hub create` or `az ml workspace-hub update` commands:
+You can configure a managed virtual network using either the `az ml workspace create` or `az ml workspace update` commands:
 
 * __Create a new hub__:
 
-    The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed VNet:
+    The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed virtual network:
 
     ```azurecli
-    az ml workspace-hub create --name ws --resource-group rg --managed-network allow_only_approved_outbound
+    az ml workspace create --name ws --resource-group rg --kind hub --managed-network allow_only_approved_outbound
     ```
 
-    The following YAML file defines a hub with a managed VNet:
+    The following YAML file defines a hub with a managed virtual network:
 
     ```yml
     name: myhub
@@ -326,20 +461,20 @@ You can configure a managed VNet using either the `az ml workspace-hub create` o
     To create a hub using the YAML file, use the `--file` parameter:
 
     ```azurecli
-    az ml workspace-hub create --file hub.yaml --resource-group rg --name ws
+    az ml workspace create --file hub.yaml --resource-group rg --name ws --kind hub
     ```
 
 * __Update an existing hub__
 
     [!INCLUDE [managed-vnet-update](../../machine-learning/includes/managed-vnet-update.md)]
 
-    The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed VNet for an existing hub:
+    The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed virtual network for an existing hub:
 
     ```azurecli
-    az ml workspace-hub update --name ws --resource-group rg --managed-network allow_only_approved_outbound
+    az ml workspace update --name ws --resource-group rg --kind hub --managed-network allow_only_approved_outbound
     ```
 
-    The following YAML file defines a managed VNet for the hub. It also demonstrates how to add an approved outbound to the managed VNet. In this example, an outbound rule is added for both a service tag:
+    The following YAML file defines a managed virtual network for the hub. It also demonstrates how to add an approved outbound to the managed virtual network. In this example, an outbound rule is added for both a service tag:
 
     > [!WARNING]
     > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
@@ -368,7 +503,143 @@ You can configure a managed VNet using either the `az ml workspace-hub create` o
 
 # [Python SDK](#tab/python)
 
-Not available.
+To configure a managed virtual network that allows only approved outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOw_ONLY_APPROVED_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new hub or update an existing one. To define _outbound rules_, use the following classes:
+
+| Destination | Class |
+| ----------- | ----- |
+| __Azure service that the hub relies on__ | `PrivateEndpointDestination` |
+| __Azure service tag__ | `ServiceTagDestination` |
+| __Fully qualified domain name (FQDN)__ | `FqdnDestination` |
+
+* __Create a new hub__:
+
+    The following example creates a new hub named `myhub`, with several outbound rules:
+
+    * `myrule` - Adds a private endpoint for an Azure Blob store.
+    * `datafactory` - Adds a service tag rule to communicate with Azure Data Factory.
+
+    > [!IMPORTANT]
+    > * Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
+    > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
+
+    > [!WARNING]
+    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
+
+    ```python
+    # Basic managed VNet configuration
+    network = ManagedNetwork(isolation_mode=IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND)
+
+    # Hub configuration
+    ws = Hub(
+        name="myhub",
+        location="eastus",
+        managed_network=network
+    )
+
+    # Append some rules
+    ws.managed_network.outbound_rules = []
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
+    subresource_target = "blob"
+    spark_enabled = True
+    ws.managed_network.outbound_rules.append(
+        PrivateEndpointDestination(
+            name=rule_name, 
+            service_resource_id=service_resource_id, 
+            subresource_target=subresource_target, 
+            spark_enabled=spark_enabled
+        )
+    )
+
+    # Example service tag rule
+    rule_name = "datafactory"
+    service_tag = "DataFactory"
+    protocol = "TCP"
+    port_ranges = "80, 8080-8089"
+    ws.managed_network.outbound_rules.append(
+        ServiceTagDestination(
+            name=rule_name, 
+            service_tag=service_tag, 
+            protocol=protocol, 
+            port_ranges=port_ranges
+        )
+    )
+
+    # Example FQDN rule
+    ws.managed_network.outbound_rules.append(
+        FqdnDestination(
+            name="fqdnrule", 
+            destination="pypi.org"
+        )
+    )
+
+    # Create the hub
+    ws = ml_client.workspaces.begin_create(ws).result()
+    ```
+
+* __Update an existing hub__:
+
+    The following example demonstrates how to create a managed virtual network for an existing Azure Machine Learning hub named `myhub`. The example also adds several outbound rules for the managed virtual network:
+
+    * `myrule` - Adds a private endpoint for an Azure Blob store.
+    * `datafactory` - Adds a service tag rule to communicate with Azure Data Factory.
+
+    > [!TIP]
+    > Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
+
+    > [!WARNING]
+    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
+    
+    ```python
+    # Get the existing hub
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myhub")
+    ws = ml_client.workspaces.get()
+
+    # Basic managed VNet configuration
+    ws.managed_network = ManagedNetwork(isolation_mode=IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND)
+
+    # Append some rules
+    ws.managed_network.outbound_rules = []
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>"
+    subresource_target = "blob"
+    spark_enabled = True
+    ws.managed_network.outbound_rules.append(
+        PrivateEndpointDestination(
+            name=rule_name, 
+            service_resource_id=service_resource_id, 
+            subresource_target=subresource_target, 
+            spark_enabled=spark_enabled
+        )
+    )
+
+    # Example service tag rule
+    rule_name = "datafactory"
+    service_tag = "DataFactory"
+    protocol = "TCP"
+    port_ranges = "80, 8080-8089"
+    ws.managed_network.outbound_rules.append(
+        ServiceTagDestination(
+            name=rule_name, 
+            service_tag=service_tag, 
+            protocol=protocol, 
+            port_ranges=port_ranges
+        )
+    )
+
+    # Example FQDN rule
+    ws.managed_network.outbound_rules.append(
+        FqdnDestination(
+            name="fqdnrule", 
+            destination="pypi.org"
+        )
+    )
+
+    # Update the hub
+    ml_client.workspaces.begin_update(ws)
+    ```
 
 ---
 
@@ -377,7 +648,7 @@ Not available.
 
 # [Azure portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and select the hub that you want to enable managed VNet isolation for.
+1. Sign in to the [Azure portal](https://portal.azure.com), and select the hub that you want to enable managed virtual network isolation for.
 1. Select __Networking__. The __Azure AI Outbound access__ section allows you to manage outbound rules.
 
 * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Azure AI outbound rules__ sidebar, provide the following information:
@@ -388,19 +659,19 @@ Not available.
 
 # [Azure CLI](#tab/azure-cli)
 
-To list the managed VNet outbound rules for a hub, use the following command:
+To list the managed virtual network outbound rules for a hub, use the following command:
 
 ```azurecli
 az ml workspace outbound-rule list --workspace-name myhub --resource-group rg
 ```
 
-To view the details of a managed VNet outbound rule, use the following command:
+To view the details of a managed virtual network outbound rule, use the following command:
 
 ```azurecli
 az ml workspace outbound-rule show --rule rule-name --workspace-name myhub --resource-group rg
 ```
 
-To remove an outbound rule from the managed VNet, use the following command:
+To remove an outbound rule from the managed virtual network, use the following command:
 
 ```azurecli
 az ml workspace outbound-rule remove --rule rule-name --workspace-name myhub --resource-group rg
@@ -408,7 +679,24 @@ az ml workspace outbound-rule remove --rule rule-name --workspace-name myhub --r
 
 # [Python SDK](#tab/python)
 
-Not available.
+The following example demonstrates how to manage outbound rules for a hub named `myhub`:
+
+```python
+# Connect to the hub
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myhub")
+
+# Specify the rule name
+rule_name = "<some-rule-name>"
+
+# Get a rule by name
+rule = ml_client._workspace_outbound_rules.get(resource_group, ws_name, rule_name)
+
+# List rules for a hub
+rule_list = ml_client._workspace_outbound_rules.list(resource_group, ws_name)
+
+# Delete a rule from a hub
+ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_name).result()
+```
 
 ---
 
@@ -418,8 +706,8 @@ Not available.
 > These  rules are automatically added to the managed VNet.
 
 __Private endpoints__:
-* When the isolation mode for the managed VNet is `Allow internet outbound`, private endpoint outbound rules are automatically created as required rules from the managed VNet for the hub and associated resources __with public network access disabled__ (Key Vault, Storage Account, Container Registry, hub).
-* When the isolation mode for the managed VNet is `Allow only approved outbound`, private endpoint outbound rules are automatically created as required rules from the managed VNet for the hub and associated resources __regardless of public network access mode for those resources__ (Key Vault, Storage Account, Container Registry, hub).
+* When the isolation mode for the managed virtual network is `Allow internet outbound`, private endpoint outbound rules are automatically created as required rules from the managed virtual network for the hub and associated resources __with public network access disabled__ (Key Vault, Storage Account, Container Registry, hub).
+* When the isolation mode for the managed virtual network is `Allow only approved outbound`, private endpoint outbound rules are automatically created as required rules from the managed virtual network for the hub and associated resources __regardless of public network access mode for those resources__ (Key Vault, Storage Account, Container Registry, hub).
 
 __Outbound__ service tag rules:
 
@@ -427,7 +715,7 @@ __Outbound__ service tag rules:
 * `Azure Machine Learning`
 * `BatchNodeManagement.region`
 * `AzureResourceManager`
-* `AzureFrontDoor.firstparty`
+* `AzureFrontDoor.FirstParty`
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
@@ -526,14 +814,18 @@ When you create a private endpoint, you provide the _resource type_ and _subreso
 
 When you create a private endpoint for hub dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the hub.
 
-A private endpoint is automatically created for a connection if the target resource is an Azure resource listed above. A valid target ID is expected for the private endpoint. A valid target ID for the connection can be the ARM ID of a parent resource. The target ID is also expected in the target of the connection or in `metadata.resourceid`. For more on connections, see [How to add a new connection in Azure AI Studio](connections-add.md).
+A private endpoint is automatically created for a connection if the target resource is an Azure resource listed above. A valid target ID is expected for the private endpoint. A valid target ID for the connection can be the Azure Resource Manager ID of a parent resource. The target ID is also expected in the target of the connection or in `metadata.resourceid`. For more on connections, see [How to add a new connection in Azure AI Studio](connections-add.md).
 
 ## Pricing
 
-The hub managed VNet feature is free. However, you're charged for the following resources that are used by the managed VNet:
+The hub managed virtual network feature is free. However, you're charged for the following resources that are used by the managed virtual network:
 
-* Azure Private Link - Private endpoints used to secure communications between the managed VNet and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
+* Azure Private Link - Private endpoints used to secure communications between the managed virtual network and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 * FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. Azure Firewall SKU is standard. Azure Firewall is provisioned per hub.
 
     > [!IMPORTANT]
     > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+## Related content
+
+- [Create AI Studio hub and project using the SDK](./develop/create-hub-project-sdk.md)
