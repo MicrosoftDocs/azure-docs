@@ -16,10 +16,6 @@ Replicating your Log Analytics workspace across regions increases resilience by 
 
 This article explains how Log Analytics workspace replication works, how to replicate your workspace, and how to switch over and back.
 
-## Prerequisites
-
-- For limits and restrictions related to workspace replication in Log Analytics, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
-
 ## Permissions required
 
 | Action | Permissions required |
