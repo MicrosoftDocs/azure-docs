@@ -67,8 +67,6 @@ landingContent:
             url: how-to/develop/sdk-overview.md
           - text: Work with Azure AI projects in VS Code
             url: how-to/develop/vscode.md
-          - text: Try speech analytics with post-call transcriptions
-            url: ../ai-services/speech-service/speech-analytics-post-call.md?context=/azure/ai-studio/context/context
       - linkListType: concept
         links:
           - text: Connections for flows and indexing
