@@ -56,7 +56,7 @@ Yes. To change the size of your standby pool update the max ready capacity setti
 Ensure you have enough quota to complete the standby pool creation. Insufficient quota results in the platform attempting to create the virtual machines in the standby pool but unable to successfully complete the create operation. Check for multiple types of quotas such as Cores, Network Interfaces, IP Addresses, etc.
 
 ### I increased my scale set instance count but the virtual machines in my standby pool weren't used. 
-Ensure that the virtual machines in your standby pool are in the desired state prior to attempting a scale-out event. For example, if using a standby pool with the virtual machine states set to deallocated, the standby pool will only give out instances that are in the deallocated state. If instances are in any other states such as creating, running, updating, etc., the scale set will default to net new virtual machine creation. 
+Ensure that the virtual machines in your standby pool are in the desired state prior to attempting a scale-out event. For example, if using a standby pool with the virtual machine states set to deallocated, the standby pool will only give out instances that are in the deallocated state. If instances are in any other states such as creating, running, updating, etc., the scale set will default to creating a new instance directly in the scale set.
 
 
 ## Next steps
