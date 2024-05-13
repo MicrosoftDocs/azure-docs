@@ -1,106 +1,49 @@
-### YamlMime:Marketing
-title: Azure Network Foundation Services
+### YamlMime:Hub
+title: Azure networking foundations
+summary: Learn about Azure networking foundation services that provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
 brand: azure ## Used for color theming of icons and hero area 
-metadata:
-  title: Azure Network Foundation Services
-  description: Learn about the various Azure network foundation services available that provide core infrastructure and connectivity for your Azure resources. 
-  services: azure-resource-manager
-  ms.service: dns
+
+metadata: 
+  title: Azure Networking Foundation Services
+  summary: Azure networking foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
+  ms.service: dns 
   ms.topic: hub-page
   author: greg-lindsay
   ms.author: greglin
-  ms.date: 04/01/2024
-sections:
-  # Intro
-  - componentType: text 
-    title: Azure Networking Foundation Services
-    summary: Foundation services provide core infrastructure and connectivity for your Azure resources.
-    links:
-    - componentType: link
-      url: ../fundamentals/networking-overview.md
-      text: Azure networking services overview    
- 
-# cards section (4)
-  - componentType: grid
-    title: Architecture
-    blocks:
-    - componentType: icon-card
-      title: Azure Virtual Network
-      summary: The fundamental building block for your private network in Azure.
-      url: ../../virtual-network/virtual-networks-overview.md 
-      icon: 
-        componentType: image
-        src: media/vnet.svg                         
-    - componentType: icon-card
-      title: Private Link
-      summary: Private connectivity from a virtual network to your services. 
-      url: ../../private-link/private-link-overview.md    
-      icon: 
-        componentType: image
-        src: media/private_link_product.svg      
-    - componentType: icon-card
-      title: DNS
-      summary: Public and private name resolution for your Azure services. 
-      url: ../../dns/dns-overview.md
-      icon: 
-        componentType: image
-        src: media/dns.svg  
-    - componentType: icon-card
-      title: Traffic Manager
-      summary: DNS-based traffic load balancing service. 
-      url: ../../dns/traffic-manager-overview.md
-      icon: 
-        componentType: image
-        src: media/dns.svg   
-     
-  # Summary cards grid
-  - componentType: grid
-    backgroundColor: "alternating-grey"
-    title: Workloads
-    blocks:
-      - componentType: summary-card
-        title: Oracle on IaaS
-        summary: Host Oracle workloads on Azure, which includes not only Oracle Databases, but also applications such as Siebel, Peoplesoft, JD Edwards. 
-        url: ./oracle-iaas/overview.md
-      - componentType: summary-card
-        title: SAP
-        summary: Evaluate, design, and optimize an SAP workload from premigration to operations. 
-        url: ./sap/quick-links.yml    
-      - componentType: summary-card
-        title: Mission-critical
-        summary: Design and operationalize workloads that are expected to be always available and resilient to failures.
-        url: ./mission-critical/index.yml
-      - componentType: summary-card
-        title: Hybrid
-        summary: Build applications running across on-premises, multicloud, and the edge, ensuring uncompromised security and developer agility.
-        url: ./hybrid/hybrid-overview.md
-      - componentType: summary-card
-        title: Sustainability
-        summary: Plan your path forward, improve your sustainability posture, and create new business value while reducing your operational footprint.
-        url: ./sustainability/index.yml
-      - componentType: summary-card
-        title: IoT
-        summary: Resolve architectural challenges for designing, building, and operating IoT solutions according to your requirements and constraints.
-        url: ./iot/iot-overview.md
-      - componentType: summary-card
-        title: Azure VMware Solution
-        summary: Relocate legacy application virtual machines to Azure VMware Solution as a staging area for the first phase of your migration and modernization strategy.
-        url: ./azure-vmware/index.yml
-      - componentType: summary-card
-        title: Azure Virtual Desktop
-        summary: Run Windows desktops and applications on Azure from any device and location.
-        url: ./azure-virtual-desktop/index.yml
-    addendum:
-      text: See example workloads that apply Well-Architected tenets in the 
-      link:
-        text: Azure Architecture Center
-        url: /azure/architecture/browse/
-  
-  #Text section
-  - componentType: text
-    title: Azure service guides
-    links:
-    - componentType: link
-      url: ./service-guides/
-      text: Browse the service guides
+  manager: kumudD
+  ms.date: 05/03/2024
 
+productDirectory:
+  title: Foundation services documentation
+  items:
+    - title: Azure Virtual Network
+      imageSrc: ./media/virtual-network.svg
+      summary: "Create your own private network infrastructure in the cloud."
+      url: /azure/virtual-network
+    - title: Azure Private Link
+      imageSrc: ./media/private-link-product.svg
+      summary: "Private access to services hosted on the Azure platform, keeping your data on the Microsoft network."
+      url: /azure/private-link/
+    - title: Azure DNS
+      imageSrc: ./media/dns.svg
+      summary: "Set up public and private name resolution for your Azure services."
+      url: /azure/dns
+          
+additionalContent:
+  sections:
+    - title: Learn more
+      items:
+        - title: "Learn about load balancing in Azure"
+          summary: "Learn more about how to load balance your applications and workloads in Azure."
+          url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
+        - title: "Networking architecture design"
+          summary: "Learn about sample architectures, solutions, and guides that can help you explore networking in Azure. ."
+          url: /architecture/networking
+        - title: "TBA"
+          summary: "Check out what is new in Azure Networking with Wired for Hybrid."
+          url: https://aka.ms/WiredForHybrid
+        - title: "Learn about content delivery in Azure"
+          summary: "Learn how to improve performance and globally scale your applications in Azure."
+          url: /training/modules/create-first-azure-front-door/
+        - title: "Configure Azure Load Balancer - Training | Microsoft Learn"
+          url: /training/modules/configure-azure-load-balancer/
