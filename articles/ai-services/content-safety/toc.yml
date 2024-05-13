@@ -44,8 +44,12 @@ items:
     href: /legal/cognitive-services/content-safety/data-privacy?context=/azure/ai-services/content-safety/context/context
 - name: How-to guides
   items:
+  - name: Use custom categories
+    href: how-to/custom-categories.md
   - name: Use a blocklist
     href: how-to/use-blocklist.md
+  - name: Handle harmful content incidents
+    href: how-to/incident-response.md
   - name: Encryption of data at rest
     href: how-to/encrypt-data-at-rest.md
   - name: Migrate from public preview to GA
@@ -58,10 +62,14 @@ items:
   items:
   - name: Harm categories
     href: concepts/harm-categories.md
+  - name: Custom categories
+    href: concepts/custom-categories.md
   - name: Prompt Shields
     href: concepts/jailbreak-detection.md
   - name: Groundedness detection
     href: concepts/groundedness.md
+  - name: Incident response
+    href: concepts/incident-response.md
 - name: Reference
   items:
   - name: Azure AI Content Safety REST API
