@@ -102,10 +102,10 @@ For more information about the repository, see [Linux Software Repository for Mi
 
    :::image type="content" source="./media/azure-vpn-client-certificate-linux/import.png" alt-text="Screenshot of Azure VPN Client for Linux with Import." lightbox="./media/azure-vpn-client-certificate-linux/import.png":::
 1. In the window, navigate to the **azurevpnconfig.xml** file, select it, then select **Open**.
-1. To add **Client Certificate Public Data**, use the file picker in the left pane and locate the related **.pem** files.
+1. To add **Client Certificate Public Data**, use the file picker and locate the related **.pem** files.
 
    :::image type="content" source="./media/azure-vpn-client-certificate-linux/client-certificate-data.png" alt-text="Screenshot of Azure VPN Client for Linux with client certificate data selected." lightbox="./media/azure-vpn-client-certificate-linux/client-certificate-data.png":::
-1. To add the **Client Certificate Private Key**, use the picker on the right and select the certificate files path in the text boxes for the private key, with file extension **.pem**.
+1. To add the **Client Certificate Private Key**, use the picker and select the certificate files path in the text boxes for the private key, with file extension **.pem**.
 1. After the import validates (imports with no errors), select **Save**.
 1. In the left pane, locate the VPN connection profile you created. Select **Connect**.
 
