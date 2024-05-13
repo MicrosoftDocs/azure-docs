@@ -17,7 +17,7 @@ Azure AI services help developers and organizations rapidly create intelligent, 
 SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources. Synapse Spark provide built-in SynapseML libraries including synapse.ml.services.
 
 > [!IMPORTANT]
-> Starting on the 20th of September, 2023 you won’t be able to create new Anomaly Detector resources. The Anomaly Detector service is being retired on the 1st of October, 2026.
+> Starting on September 20th, 2023 you won’t be able to create new Anomaly Detector resources. The Anomaly Detector service is being retired on October 1st, 2026.
 
 ## Prerequisites on Azure Synapse Analytics
 
