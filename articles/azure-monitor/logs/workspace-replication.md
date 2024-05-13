@@ -41,7 +41,7 @@ When you switch over, the secondary workspace becomes active and your primary be
 > [!IMPORTANT]
 > If the primary region can't process incoming log data, Azure Monitor buffers the data in the secondary region for up to 11 days. During the first four days, Azure Monitor automatically reattempts to replicate the data periodically. If your primary workspace isn't functional for a longer period, contact Microsoft to initiate replication.
 
-:::image type="content" source="media/workspace-replication/ingestion-flows.png" alt-text="Diagram that shows ingestion flows during normal and switchover modes." lightbox="media/workspace-replication/ingestion-flows.png" border="false":::
+:::image type="content" source="media/workspace-replication/log-analyics-workspace-replication-ingestion-flows.png" alt-text="Diagram that shows ingestion flows during normal and switchover modes." lightbox="media/workspace-replication/log-analyics-workspace-replication-ingestion-flows.png" border="false":::
 
 
 ### Supported regions
