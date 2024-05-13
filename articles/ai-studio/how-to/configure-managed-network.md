@@ -825,3 +825,7 @@ The hub managed virtual network feature is free. However, you're charged for the
 
     > [!IMPORTANT]
     > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+## Related content
+
+- [Create AI Studio resources using the SDK](./develop/create-resources-sdk.md)
