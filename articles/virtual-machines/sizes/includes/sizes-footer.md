@@ -13,11 +13,11 @@
 
 ## Other size information
 
-List of all available sizes : [Sizes](../../sizes.md)
+List of all available sizes: [Sizes](../../sizes.md)
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-Information on Disks Types : [Disk Types](../../disks-types.md)
+Information on Disk Types: [Disk Types](../../disks-types.md)
 
 ## Next steps
 
@@ -25,4 +25,4 @@ Learn more about how [Azure compute units (ACU)](../../acu.md) can help you comp
 
 Check out [Azure Dedicated Hosts](../../../virtual-machines/dedicated-hosts.md) for physical servers able to host one or more virtual machines assigned to one Azure subscription.
 
-Learn how to [Monitor Azure virtual machines](../../../virtual-machines/monitor-vm.md)
+Learn how to [Monitor Azure virtual machines](../../../virtual-machines/monitor-vm.md).
