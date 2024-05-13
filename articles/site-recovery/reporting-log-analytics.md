@@ -1,9 +1,9 @@
 ---
 title: Log Analytics data model for Azure Site Recovery
-description: In this article, learn about the Azure Monitor Log Analytics data model details for Azure Backup data.
+description: In this article, learn about the Azure Monitor Log Analytics data model details for Azure Site Recovery data.
 ms.topic: how-to
 ms.service: site-recovery
-ms.date: 05/10/2024
+ms.date: 05/13/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -19,7 +19,7 @@ To understand the fields of each Site Recovery table in Log Analytics, review th
 
 | Category | Category Display Name | Log Table | [Supports basic log plan](../azure-monitor/logs/basic-logs-configure.md#compare-the-basic-and-analytics-log-data-plans) | [Supports ingestion-time transformation](../azure-monitor/essentials/data-collection-transformations.md) | Example queries | Costs to export |
 | --- | --- | --- | --- | --- | --- | --- |
-| *ASRReplicatedItems* | Azure Site Recovery Replicated Item Details | [ASRReplicatedItems](/azure-monitor-ref/tables/asrreplicateditems.md) <br> This table contains details of Azure Site Recovery replicated items, such as associated vault, policy, replication health, failover readiness. etc. Data is pushed once a day to this table for all replicated items, to provide the latest information for each item. | No | No | [Queries](/azure-monitor-ref/queries/asrreplicateditems.md) | Yes | 
+| *ASRReplicatedItems* | Azure Site Recovery Replicated Item Details | [ASRReplicatedItems](/azure/azure-monitor-ref/tables/asrreplicateditems) <br> This table contains details of Azure Site Recovery replicated items, such as associated vault, policy, replication health, failover readiness. etc. Data is pushed once a day to this table for all replicated items, to provide the latest information for each item. | No | No | [Queries](/azure-monitor-ref/queries/asrreplicateditems.md) | Yes | 
 | *AzureSiteRecoveryJobs* | Azure Site Recovery Jobs | [ASRJobs](/azure-monitor-ref/tables/asrjobs.md) <br> This table contains records of Azure Site Recovery jobs such as failover, test failover, reprotection etc., with key details for monitoring and diagnostics, such as the replicated item information, duration, status, description, and so on. Whenever an ASR job is completed (that is, succeeded or failed), a corresponding record for the job is sent to this table. You can view history of ASR jobs by querying this table over a larger time range, provided your workspace has the required retention configured. | No | No | [Queries](/azure-monitor-ref/queries/asrjobs.md) | No |
 | *AzureSiteRecoveryEvents* | Azure Site Recovery Events | [AzureDiagnostics](/azure-monitor-ref/queries/azurediagnostics.md) <br> Logs from multiple Azure resources. | No | No | [Queries](/azure-monitor-ref/queries/azurediagnostics.md) | No |
 | *AzureSiteRecoveryProtectedDiskDataChurn* | Azure Site Recovery Protected Disk Data Churn | [AzureDiagnostics](/azure-monitor-ref/tables/azurediagnostics.md) <br> Logs from multiple Azure resources. | No | No | [Queries](/azure-monitor-ref/queries/azurediagnostics.md#queries-for-microsoftrecoveryservices) | No | 
