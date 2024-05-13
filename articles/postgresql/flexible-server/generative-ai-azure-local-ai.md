@@ -84,6 +84,8 @@ azure_local_ai.create_embeddings(model_uri text, array[input text, input text], 
 
 ### Use azure_local_ai and the locally deployed multilingual-e5-small model to create embeddings and store them as vectors
 
+Below are examples that can be used in your own environment to test embedding generation with the locally deployed multilingual-e5 model. 
+
 ```sql
 --Create docs table
 CREATE TABLE docs(doc_id int generated always as identity primary key, doc text not null, embedding float4[], last_update timestamptz default now());
@@ -117,6 +119,8 @@ SELECT azure_local_ai.create_embeddings('multilingual-e5-small:v1', array['Recom
 
 
 ### Update embeddings upon insertion
+
+Below are examples that can be used in your own environment to test embedding generation with the locally deployed multilingual-e5 model.
 
 ```sql
 -- Update embeddings upon insertion
