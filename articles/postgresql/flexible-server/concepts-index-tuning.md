@@ -140,7 +140,7 @@ Explore all the details about correct configuration of index tuning feature in [
 Index tuning in Azure Database for PostgreSQL - Flexible Server has the following limitations:
 
 - Index tuning is currently in preview and might have some limitations or restrictions.
-- The feature is available in specific regions, including East Asia, Central India, North Europe, Southeast Asia, South Central US, UK South, and West US 3. It's planned to be available in more regions in the future.
+- The feature is available in specific regions, including East Asia, Central India, North Europe, Southeast Asia, South Central US, UK South, and West US 3. 
 - Index tuning is supported on all currently available tiers (Burstable, General Purpose, and Memory Optimized) and on any currently supported compute SKU with at least 4 vCores.
 - The feature is supported on major versions 14 or greater of Azure Database for PostgreSQL Flexible Server.
 - When an instance is in read-only mode or has read replicas configured, index tuning isn't supported.
