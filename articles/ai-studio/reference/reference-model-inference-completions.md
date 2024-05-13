@@ -16,7 +16,7 @@ ms.custom:
 
 # Reference: Completions
 
-[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Creates a completion for the provided prompt and parameters.
 

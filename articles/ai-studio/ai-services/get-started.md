@@ -13,7 +13,7 @@ author: eric-urban
 
 # Get started with AI services in Azure AI Studio
 
-[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 This article describes how to get started with AI services in [Azure AI Studio](https://ai.azure.com). You can connect to AI services in Azure AI Studio to use AI capabilities such as Azure OpenAI, Speech, Language, Translator, Vision, Document Intelligence, and Content Safety.
 

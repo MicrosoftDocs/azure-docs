@@ -16,7 +16,7 @@ ms.custom:
 
 # Reference: Image Embeddings
 
-[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Creates an embedding vector representing the input image and text pair.
 

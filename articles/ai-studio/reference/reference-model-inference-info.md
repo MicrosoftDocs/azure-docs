@@ -16,7 +16,7 @@ ms.custom:
 
 # Reference: Info
 
-[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Returns the information about the model deployed under the endpoint.
 

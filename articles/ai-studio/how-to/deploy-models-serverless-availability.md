@@ -18,7 +18,7 @@ ms.custom:
 
 # Region availability for models in Serverless API endpoints
 
-[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 In this article, you learn about which regions are available for each of the models supporting serverless API endpoint deployments.
 

@@ -16,7 +16,7 @@ ms.custom:
 
 # Reference: Embeddings
 
-[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Creates an embedding vector representing the input text.
 

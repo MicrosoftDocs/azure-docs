@@ -16,7 +16,7 @@ ms.custom: [references_regions]
 
 # How to deploy a TimeGEN-1 model with Azure AI Studio
 
-[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 In this article, you learn how to use Azure AI Studio to deploy the TimeGEN-1 model as a service with pay-as you go billing.
 You filter on the Nixtla collection to browse the TimeGEN-1 model in the [Model Catalog](model-catalog.md).
