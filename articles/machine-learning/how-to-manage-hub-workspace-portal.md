@@ -14,40 +14,16 @@ ms.topic: how-to
 
 # Manage Azure Machine Learning hub workspaces in the portal
 
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+In this article, you create, view, and delete [**Azure Machine Learning hub workspaces**](concept-hub-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), with the [Azure portal](https://portal.azure.com).
 
-In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), with the [Azure portal](https://portal.azure.com) or the [SDK for Python](https://aka.ms/sdk-v2-install).
+> [!TIP]
+> An Azure Machine Learning hub workspace and an Azure AI Studio hub are the same thing. Azure AI Studio brings multiple Azure AI resources together for a unified experience. Azure Machine Learning is one of the resources, and provides both Azure AI Studio hub and project workspaces.
 
 As your needs change or your automation requirements increase, you can manage workspaces [with the CLI](how-to-manage-workspace-cli.md), [Azure PowerShell](how-to-manage-workspace-powershell.md),  or [via the Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-* With the Python SDK:
-   1. [Install the SDK v2](https://aka.ms/sdk-v2-install).
-   1. Install azure-identity: `pip install azure-identity`. If in a notebook cell, use `%pip install azure-identity`.
-   1. Provide your subscription details:
-
-      [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-
-      [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]
-
-   1. Get a handle to the subscription. All the Python code in this article uses `ml_client`:
-
-      [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ml_client)]
-      
-        * (Optional) If you have multiple accounts, add the tenant ID of the Microsoft Entra ID you wish to use into the `DefaultAzureCredential`. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Microsoft Entra ID, External Identities**.
-                
-            ```python
-            DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
-            ```
-                
-        * (Optional) If you're working in the [Azure Government - US](https://azure.microsoft.com/explore/global-infrastructure/government/) or [Azure China 21Vianet](/azure/china/overview-operations), you need to specify the cloud into which you want to authenticate. You can specify these regions in `DefaultAzureCredential`.
-                
-            ```python
-            from azure.identity import AzureAuthorityHosts
-            DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_GOVERNMENT))
-            ```
 
 ## Limitations
 
@@ -61,358 +37,86 @@ As your needs change or your automation requirements increase, you can manage wo
 
 [!INCLUDE [application-insight](includes/machine-learning-application-insight.md)]
 
-## Create a workspace
+## Create a hub
 
-You can create a workspace [directly in Azure Machine Learning studio](./quickstart-create-resources.md#create-the-workspace), with limited options available. You can also use one of these methods for more control of options:
+Use the following steps to create a hub from the Azure portal:
 
-# [Python SDK](#tab/python)
+1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**
+1. Enter your AI hub name, subscription, resource group, and location details.
+1. For advanced settings, select **Next: Resources** to specify resources, networking, encryption, identity, and tags. 
 
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+    :::image type="content" source="../ai-studio/media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI hub basic information." lightbox="../ai-studio/media/how-to/resource-create-basics.png":::
 
-* **Default specification.** By default, dependent resources and the resource group are created automatically. This code creates a workspace named `myworkspace`, and a resource group named `myresourcegroup` in `eastus2`.
+1. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
-   [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
+    :::image type="content" source="../ai-studio/media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set resource information." lightbox="../ai-studio/media/how-to/resource-create-resources.png"::: 
 
-* **Use existing Azure resources**. You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal, or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
+1. Set up Network isolation. Read more on [network isolation](../ai-studio/configure-managed-network.md). For a walkthrough of creating a secure Azure AI hub, see [Create a secure Azure AI hub](../ai-studio/create-secure-ai-hub.md).
 
-   [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_ex_workspace_name)]
+    :::image type="content" source="../ai-studio/media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set network isolation information." lightbox="../ai-studio/media/how-to/resource-create-networking.png":::  
 
-For more information, see [Workspace SDK reference](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace).
+1. Set up data encryption. You can either use **Microsoft-managed keys** or enable **Customer-managed keys**. 
 
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+    :::image type="content" source="../ai-studio/media/how-to/resource-create-encryption.png" alt-text="Screenshot of the Create an Azure AI hub with the option to select your encryption type." lightbox="../ai-studio/media/how-to/resource-create-encryption.png":::
 
-# [Portal](#tab/azure-portal)
+1. By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in Resources.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for your Azure subscription.
+    :::image type="content" source="../ai-studio/media/how-to/resource-create-identity.png" alt-text="Screenshot of the Create an Azure AI hub with the option to select a managed identity." lightbox="../ai-studio/media/how-to/resource-create-identity.png":::
+    >[!Note]
+    >If you select **User assigned identity**, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new Azure AI hub.
+    
+1. Add tags.
 
-1. In the upper-left corner of Azure portal, select **+ Create a resource**.
+    :::image type="content" source="../ai-studio/media/how-to/resource-create-tags.png" alt-text="Screenshot of the Create an Azure AI hub with the option to add tags." lightbox="../ai-studio/media/how-to/resource-create-tags.png":::
 
-    :::image type="content" source="media/how-to-manage-workspace/create-workspace.gif" alt-text="Screenshot show how to create a  workspace in Azure portal.":::
+1. Select **Review + create**
 
-1. Use the search bar to find **Machine Learning**.
+## Manage your hub from the Azure portal
 
-1. Select **Machine Learning**.
+### Manage access control
 
-1. In the **Machine Learning** pane, select **Create** to begin.
+Manage role assignments from **Access control (IAM)** within the Azure portal. Learn more about hub [role-based access control](../concepts/rbac-ai-studio.md).
 
-1. Provide the following information to configure your new workspace:
+To add grant users permissions: 
+1. Select **+ Add** to add users to your hub.
 
-   Field|Description 
-   ---|---
-   Workspace name |Enter a unique name that identifies your workspace. This example uses **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and that differentiates from workspaces created by others. The workspace name is case-insensitive.
-   Subscription |Select the Azure subscription that you want to use.
-   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. You need *contributor* or *owner* role to use an existing resource group. For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
-   Region | Select the Azure region closest both to your users and the data resources, to create your workspace.
-   | Storage account | The default storage account for the workspace. By default, a new one is created. |
-   | Key Vault | The Azure Key Vault used by the workspace. By default, a new one is created. |
-   | Application Insights | The application insights instance for the workspace. By default, a new one is created. |
-   | Container Registry | The Azure Container Registry for the workspace. By default, a new one isn't initially created for the workspace. Instead, creation of a Docker image during training or deployment additionally creates that Azure Container Registry for the workspace once you need it. |
+1. Select the **Role** you want to assign.
 
-   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Screenshot shows where you configure your workspace.":::
+    :::image type="content" source="../ai-studio/media/how-to/resource-rbac-role.png" alt-text="Screenshot of the page to add a role within the Azure AI hub Azure portal view." lightbox="../ai-studio/media/how-to/resource-rbac-role.png":::
 
-1. When you finish the workspace configuration, select **Review + Create**. Optionally, use the [Networking](#networking), [Encryption](#encryption), [Identity](#identity), and  [Tags](#tags) sections to configure more workspace settings.
+1. Select the **Members** you want to give the role to.  
 
-1. Review the settings and make any other changes or corrections. When you're satisfied with the settings, select **Create**.
+    :::image type="content" source="../ai-studio/media/how-to/resource-rbac-members.png" alt-text="Screenshot of the add members page within the Azure AI hub Azure portal view." lightbox="../ai-studio/media/how-to/resource-rbac-members.png":::
 
-   > [!Warning]
-   > It can take several minutes to create your workspace in the cloud.
-
-   When the process completes, a deployment success message appears.
-
-1. To view the new workspace, select **Go to resource**.
-
-1. To start using the workspace, select the **Studio web URL** link on the top right. You can also select the workspace from the [Azure Machine Learning studio](https://ml.azure.com) home page.
-
----
+1. **Review + assign**. It can take up to an hour for permissions to be applied to users.
 
 ### Networking
 
-> [!IMPORTANT]
-> For more information about use of a private endpoint and virtual network with your workspace, see [Network isolation and privacy](how-to-network-security-overview.md).
+Hub networking settings can be set during resource creation or changed in the **Networking** tab in the Azure portal view. Creating a new hub invokes a managed virtual network. This streamlines and automates your network isolation configuration with a built-in managed virtual network. The managed virtual network settings are applied to all project workspaces created within a hub. 
 
-# [Python SDK](#tab/python)
+At hub creation, select between the networking isolation modes: **Public**, **Private with Internet Outbound**, and **Private with Approved Outbound**. To secure your resource, select either **Private with Internet Outbound** or Private with Approved Outbound for your networking needs. For the private isolation modes, a private endpoint should be created for inbound access. For more information on network isolation, see [Managed virtual network isolation](../ai-studio/configure-managed-network.md). To create a secure hub, see [Create a secure Azure AI hub](../ai-studio/create-secure-ai-hub.md). 
 
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+At hub creation in the Azure portal, creation of associated Azure AI services, Storage account, Key vault, Application insights, and Container registry is given. These resources are found on the Resources tab during creation. 
 
-[!Notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_private_link_workspace_name)]
-
-This class requires an existing virtual network.
-
-# [Portal](#tab/azure-portal)
-
-1. The default network configuration uses a **Public endpoint**, which is accessible on the public internet. However, you can select **Private with Internet Outbound** or **Private with Approved Outbound** to limit access to your workspace to an Azure Virtual Network you created. Then scroll down to configure the settings.
-
-   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Screenshot of the private endpoint selection.":::
-
-1. Under **Workspace Inbound access** select **Add** to open the **Create private endpoint** form.
-1. On the **Create private endpoint** form, set the location, name, and virtual network to use. To use the endpoint with a Private DNS Zone, select **Integrate with private DNS zone** and select the zone using the **Private DNS Zone** field. Select **OK** to create the endpoint.
-
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Screenshot of the private endpoint creation.":::
-
-1. If you selected **Private with Internet Outbound**, use the **Workspace Outbound access** section to configure the network and outbound rules.
-
-1. If you selected **Private with Approved Outbound**, use the **Workspace Outbound access** section to add more rules to the required set.
-
-1. When you finish the network configuration, you can select **Review + Create**, or advance to the optional **Encryption** configuration.
-
----
+To connect to Azure AI services (Azure OpenAI, Azure AI Search, and Azure AI Content Safety) or storage accounts in Azure AI Studio, create a private endpoint in your virtual network. Ensure the public network access (PNA) flag is disabled when creating the private endpoint connection. For more about Azure AI services connections, see [Azure AI services and virtual networks]](../../ai-services/cognitive-services-virtual-networks.md). You can optionally bring your own (BYO) search, but this requires a private endpoint connection from your virtual network.
 
 ### Encryption
 
-By default, an Azure Cosmos DB instance stores the workspace metadata. Microsoft maintains this Cosmos DB instance. Microsoft-managed keys encrypt this data.
+Projects that use the same hub, share their encryption configuration. Encryption mode can be set only at the time of hub creation between Microsoft-managed keys and Customer-managed keys. 
 
-#### Use your own data encryption key
+From the Azure portal view, navigate to the encryption tab, to find the encryption settings for your hub. 
+For hubs that use CMK encryption mode, you can update the encryption key to a new key version. This update operation is constrained to keys and key versions within the same Key Vault instance as the original key.
 
-You can provide your own key for data encryption. Using your own key creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
+:::image type="content" source="../ai-studio/media/how-to/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI hub in the Azure portal." lightbox="../ai-studio/media/how-to/resource-manage-encryption.png":::
 
-Use these steps to provide your own key:
+### Update Azure Application Insights and Azure Container Registry
 
-> [!IMPORTANT]
-> Before you follow these steps, you must first perform these actions:
->
-> Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
->
-> * Register the Azure Cosmos DB provider
-> * Create and configure an Azure Key Vault
-> * Generate a key
+To use custom environments for Prompt Flow, you're required to configure an Azure Container Registry for your AI hub. To use Azure Application Insights for Prompt Flow deployments, a configured Azure Application Insights resource is required for your AI hub.
 
-# [Python SDK](#tab/python)
+You can configure your hub for these resources during creation or update after creation. To update Azure Application Insights from the Azure portal, navigate to the **Properties** for your hub in the Azure portal, then select **Change Application Insights**. You can also use the Azure SDK/CLI options or infrastructure-as-code templates to update both Azure Application Insights and Azure Container Registry for the AI Hub.
 
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-
-```python
-
-from azure.ai.ml.entities import Workspace, CustomerManagedKey
-
-# specify the workspace details
-ws = Workspace(
-    name="my_workspace",
-    location="eastus",
-    display_name="My workspace",
-    description="This example shows how to create a workspace",
-    customer_managed_key=CustomerManagedKey(
-        key_vault="/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/microsoft.keyvault/vaults/<VAULT_NAME>"
-        key_uri="<KEY-IDENTIFIER>"
-    )
-    tags=dict(purpose="demo")
-)
-
-ml_client.workspaces.begin_create(ws)
-```
-
-# [Portal](#tab/azure-portal)
-
-1. Select **Customer-managed keys**, and then select **Click to select key**.
-
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Screenshot of the customer-managed keys.":::
-
-1. On the **Select key from Azure Key Vault** form, select an existing Azure Key Vault, a key that it contains, and the key version. This key encrypts the data stored in Azure Cosmos DB. Finally, use the **Select** button to use this key.
-
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Screenshot of the selecting a key from a key vault.":::
-
----
-
-### Identity
-
-In the portal, use the **Identity** page to configure managed identity, storage account access, and data impact. For the Python SDK, see the links in the following sections.
-
-#### Managed identity
-
-A workspace can be given either a system assigned identity or a user assigned identity. This identity is used to access resources in your subscription. For more information, see [Set up authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md).
-
-#### Storage account access
-
-Choose between **Credential-based access** or **Identity-based access** when connecting to the default storage account. For identity-based authentication, the Storage Blob Data Contributor role must be granted to the workspace managed identity on the storage account.
-
-#### Data impact
-
-To limit the data that Microsoft collects on your workspace, select **High business impact workspace** in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
-
-> [!IMPORTANT]
-> Selecting high business impact can only happen when creating a workspace. You can't change this setting after workspace creation.
-
-### Tags
-
-Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
-
-Assign tags for the workspace by entering the name/value pairs.  For more information, see [Use tags to organize your Azure resources](/azure/azure-resource-manager/management/tag-resources).
-
-Also use tags to [enforce workspace policies)(#enforce-policies).
-
-
-
-### Download a configuration file
-
-If you run your code on a [compute instance](quickstart-create-resources.md), skip this step. The compute instance creates and stores a copy of this file for you.
-
-To use code on your local environment that references this workspace, download the file:
-
-1. Select your workspace in [Azure studio](https://ml.azure.com)
-1. At the top right, select the workspace name, then select  **Download config.json**
-
-   ![Download config.json](./media/how-to-manage-workspace/configure.png)
-
-Place the file in the directory structure that holds your Python scripts or Jupyter Notebooks. The same directory, a subdirectory named *.azureml*, or a parent directory can hold this file. When you create a compute instance, this file is added to the correct directory on the VM for you.
-
-## Enforce policies
-
-You can turn on/off these features of a workspace:
-
-* Feedback opportunities in the workspace.  Opportunities include occasional in-product surveys and the smile-frown feedback tool in the banner of the workspace.
-* Ability to [try out preview features](how-to-enable-preview-features.md) in the workspace.
-
-These features are on by default.  To turn them off:
-
-* When creating the workspace, turn off features from the [Tags](#tags) section:
-
-   1. Turn off feedback by adding the pair "ADMIN_HIDE_SURVEY: TRUE"
-   1. Turn off previews by adding the pair "AZML_DISABLE_PREVIEW_FEATURE": "TRUE"
-
-* For an existing workspace, turn off features from the **Tags** section:
-
-   1. Go to workspace resource in the [Azure portal](https://portal.azure.com)
-   1. Open **Tags** from left navigation panel
-   1. Turn off feedback by adding the pair "ADMIN_HIDE_SURVEY: TRUE"
-   1. Turn off previews by adding the pair "AZML_DISABLE_PREVIEW_FEATURE: TRUE"
-   1. Select **Apply**.  
-
-:::image type="content" source="media/how-to-manage-workspace/tags.png" alt-text="Screenshot shows setting tags to prevent feedback in the workspace.":::
-
-You can turn off previews at a subscription level, ensuring that it's off for all workspace in the subscription.  In this case, users in the subscription also can't access the preview tool before selecting a workspace. This setting is useful for administrators who want to ensure that preview features aren't used in their organization. 
-
-If the preview setting is disabled at the subscription level, setting it on individual workspaces is ignored.
-
-To disable preview features at the subscription level:
-
-1. Go to subscription resource in the [Azure portal](https://portal.azure.com)
-1. Open **Tags** from left navigation panel
-1. Turn off previews for all workspaces in the subscription by adding the pair "AZML_DISABLE_PREVIEW_FEATURE": "TRUE"
-1. Select **Apply**.  
-
-## Connect to a workspace
-
-When running machine learning tasks with the SDK, you require a MLClient object that specifies the connection to your workspace. You can create an `MLClient` object from parameters, or with a configuration file.
-
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-
-* **With a configuration file:** This code reads the contents of the configuration file to find your workspace. It opens a prompt to sign in if you didn't already authenticate.
-
-    ```python
-    from azure.ai.ml import MLClient
-    
-    # read the config from the current directory
-    ws_from_config = MLClient.from_config(credential=DefaultAzureCredential())
-    ```
-* **From parameters**: There's no need to have a config.json file available if you use this approach.
-    
-    [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws)]
-
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
-
-## Find a workspace
-
-See a list of all the workspaces you have available. You can also search for a workspace inside Studio. See [Search for Azure Machine Learning assets (preview)](how-to-search-assets.md).
-
-# [Python SDK](#tab/python)
-
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-
-[!Notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=my_ml_client)]
-[!Notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_name)]
-
-To obtain specific workspace details:
-
-[!Notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_location)]
-
-# [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. In the top search field, type **Machine Learning**.
-
-1. Select **Machine Learning**.
-
-   :::image type="content" source="./media/how-to-manage-workspace/find-workspaces.png" alt-text="Screenshot of searching for an Azure Machine Learning workspace.":::
-
-1. Look through the list of workspaces. You can filter based on subscription, resource groups, and locations.
-
-1. To display properties, select the workspace.
-
----
-
-## Delete a workspace
-
-When you no longer need a workspace, delete it.
-
-[!INCLUDE [machine-learning-delete-workspace](includes/machine-learning-delete-workspace.md)]
-
-> [!TIP]
-> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](./concept-soft-delete.md).
-
-# [Python SDK](#tab/python)
-
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-
-```python
-ml_client.workspaces.begin_delete(name=ws_basic.name, delete_dependent_resources=True)
-```
-
-The default action doesn't automatically delete resources associated with the workspace. Set `delete_dependent_resources` to True to delete these resources as well.
-
-- container registry
-- storage account
-- key vault
-- application insights
-
-# [Portal](#tab/azure-portal)
-
-In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top of the workspace you want to delete.
-
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Screenshot of deleting a workspace.":::
-
----
-
-## Clean up resources
-
-[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
-
-## Troubleshooting
-
-* **Supported browsers in Azure Machine Learning studio**: We suggest that you use the most up-to-date browser that's compatible with your operating system. These browsers are supported:
-  * Microsoft Edge (The new Microsoft Edge, latest version. Note: Microsoft Edge legacy isn't supported)
-  * Safari (latest version, Mac only)
-  * Chrome (latest version)
-  * Firefox (latest version)
-
-* **Azure portal**:
-  * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. Additionally, in this scenario, you can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
-  * All assets (Data, Experiments, Computes, and so on) are only available in [Azure Machine Learning studio](https://ml.azure.com). The Azure portal doesn't* offer them.
-  * Attempting to export a template for a workspace from the Azure portal might return an error similar to this text: `Could not get resource of the type <type>. Resources of this type will not be exported.` As a workaround, use one of the templates provided at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) as the basis for your template.
-
-### Workspace diagnostics
-
-[!INCLUDE [machine-learning-workspace-diagnostics](includes/machine-learning-workspace-diagnostics.md)]
-
-### Resource provider errors
-
-[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
-
-### Deleting the Azure Container Registry
-
-The Azure Machine Learning workspace uses the Azure Container Registry (ACR) for some operations. It automatically creates an ACR instance when it first needs one.
-
-[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
-
-## Examples
-
-Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/workspace/workspace.ipynb).
+:::image type="content" source="../ai-studio/media/how-to/resource-manage-update-associated-resources.png" alt-text="Screenshot of the properties page of the Azure AI resource in the Azure portal." lightbox="../ai-studio/media/how-to/resource-manage-update-associated-resources.png":::
 
 ## Next steps
 
-Once you have a workspace, learn how to [Train and deploy a model](tutorial-train-deploy-notebook.md).
-
-To learn more about planning a workspace for your organization's requirements, visit [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
-
-* If you need to move a workspace to another Azure subscription, visit [How to move a workspace](how-to-move-workspace.md).
-
-For information on how to keep your Azure Machine Learning up to date with the latest security updates, visit [Vulnerability management](concept-vulnerability-management.md).
+Once you have a workspace hub, you can Create a project using [Azure Machine Learning studio](how-to-manage-workspace.md?tabs=mlstudio), [AI Studio](../ai-studio/how-to/create-projects.md), [Azure SDK](how-to-manage-workspace.md?tabs=python), or [Using automation templates](how-to-create-workspace-template.md).
