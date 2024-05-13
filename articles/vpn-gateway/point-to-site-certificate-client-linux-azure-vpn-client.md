@@ -12,9 +12,17 @@ ms.author: cherylmc
 
 # Configure Azure VPN Client for Linux - P2S certificate authentication
 
-This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) and **Certificate authentication** from a Linux client via the Azure VPN Client for Linux. The Azure VPN Client for Linux requires the OpenVPN tunnel type.
+This article helps you connect to your Azure virtual network (VNet) from the Azure VPN Client for Linux using VPN Gateway point-to-site (P2S) **Certificate authentication**. The Azure VPN Client for Linux requires the OpenVPN tunnel type.
 
 ## Before you begin
+
+Verify that you are on the correct article. The following table shows the configuration articles available for Azure VPN Gateway P2S VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
+
+[!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
+
+>[!IMPORTANT ]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 This article assumes that you've already performed the following prerequisites:
 
@@ -23,18 +31,12 @@ This article assumes that you've already performed the following prerequisites:
 
 ### Workflow
 
-Before beginning, verify that you are on the correct article. The following table shows the configuration articles available for Azure VPN Gateway P2S VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
+The basic workflow is as follows:
 
-[!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
-
-> [!IMPORTANT ]
-> [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
-
-In this article:
-
-1. Locate the VPN client profile configuration package that you generated in the [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-gateway-certificate.md#profile-files) article.
 1. Generate and install client certificates.
-1. Install the Azure VPN Client for Linux.
+1. Locate the VPN client profile configuration package that you generated in the [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-gateway-certificate.md#profile-files) article.
+1. Download and configure Azure VPN Client for Linux.
+1. Connect to Azure.
 
 ## Generate certificates
 
