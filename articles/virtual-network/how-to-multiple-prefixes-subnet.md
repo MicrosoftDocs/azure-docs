@@ -73,7 +73,7 @@ If you choose to install and use PowerShell locally, this article requires the A
     
     - To register the feature, use the following commands:
     
-    ```azurepowershell
+    ```azurecli
     az feature register --namespace Microsoft.Network --name AllowMultipleAddressPrefixesOnSubnet
 
     az feature register --namespace Microsoft.Network --name AllowDeletionOfIpPrefixFromSubnet
