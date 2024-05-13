@@ -26,26 +26,11 @@ Before beginning the workflow, verify that you're on the correct article. The fo
 
 In this article, we start with generating VPN client configuration files and client certificates:
 
-1. [Generate files to configure the VPN client](#1-generate-vpn-client-configuration-files).
 1. [Generate certificates for the VPN client](#2-generate-client-certificates).
 1. [Configure the VPN client](#3-configure-the-vpn-client). The steps you use to configure your VPN client depend on the tunnel type for your P2S VPN gateway, and the VPN client on the client computer. Links are provided to configuration articles for the specific tunnel and corresponding client.
 
    * **IKEv2 and SSTP - native VPN client** -  If your P2S VPN gateway is configured to use IKEv2/SSTP and certificate authentication, you connect to your VNet using the native VPN client that's part of your Windows operating system. This configuration doesn't require additional client software. For steps, see [IKEv2 and SSTP - native VPN client](point-to-site-vpn-client-certificate-windows-native.md).
    * **OpenVPN - Azure VPN Client and OpenVPN client** - If your P2S VPN gateway is configured to use an OpenVPN tunnel and certificate authentication, you have the option to connect using either the [Azure VPN Client](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md), or the [OpenVPN client](point-to-site-vpn-client-certificate-windows-openvpn-client.md).
-
-## 1. Generate VPN client configuration files
-
-All of the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. You can generate client profile configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
-
-The VPN client profile configuration files that you generate are specific to the P2S VPN gateway configuration for the VNet. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
-
-### PowerShell
-
-[!INCLUDE [Generate profile configuration files - PowerShell](../../includes/vpn-gateway-generate-profile-powershell.md)]
-
-### Azure portal
-
-[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
 
 ## 2. Generate client certificates
 
