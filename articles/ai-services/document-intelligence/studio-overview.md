@@ -51,11 +51,11 @@ Your organization can opt to disable local authentication and enforce Microsoft 
   * [Disable local authentication for Azure AI Services](../disable-local-auth.md).
   * [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md)
 
-* **Designating role assignments**. Document Intelligence Studio basic access requires the [`Cognitive Services User`](../../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-user). For more information, *see* [Document Intelligence role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio-).
+* **Designating role assignments**. Document Intelligence Studio basic access requires the [`Cognitive Services User`](../../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-user) role. For more information, *see* [Document Intelligence role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio-).
 
 ## Authentication
 
-Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window appears prompting you to configure your service resource. In accordance with your organization's policy you have one or two options:
+Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window appears prompting you to configure your service resource. In accordance with your organization's policy, you have one or two options:
 
 * **Microsoft Entra authentication: access by Resource (recommended)**.
 
