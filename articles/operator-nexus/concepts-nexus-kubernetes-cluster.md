@@ -21,7 +21,7 @@ deployments, backed by a robust set of APIs for management operations. See [What
 
 ## Nexus Kubernetes Service
 
-Nexus Kubernetes Cluster Service is a Kubernetes distribution designed for on-premises deployment over Nexus instances. It's engineered to streamline the automated creation of containers, and optimized to run workloads associated for data-intensive network functions.
+Nexus Kubernetes Cluster Service is a Kubernetes distribution designed for on-premises deployment over Nexus instances. It's engineered to streamline the automated creation of containers, and is optimized to run workloads associated for data-intensive network functions.
 
 Like any Kubernetes cluster, Nexus Kubernetes cluster has two components:
 
