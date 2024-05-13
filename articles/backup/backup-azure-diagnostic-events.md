@@ -77,9 +77,9 @@ After data flows into the Log Analytics workspace, dedicated tables for each of 
 
 ## Legacy event
 
-Traditionally, for Recovery Services vaults, all backup-related diagnostics data for a vault was contained in a single event called AzureBackupReport. The six events described here are, in essence, a decomposition of all the data contained in AzureBackupReport.
+Traditionally, for Recovery Services vaults, all backup-related diagnostics data for a vault was contained in a single event called Azure Backup Reporting Data. The six events described here are, in essence, a decomposition of all the data contained in Azure Backup Reporting Data.
 
-Currently, we continue to support the *AzureBackupReport* event for Recovery Services vaults, backward compatibility in cases where you've existing custom queries on this event. For example, custom log alerts and custom visualizations. *We recommend that you move to the [new events](#diagnostics-events-available-for-azure-backup-users) as early as possible*. The new events:
+Currently, we continue to support the *Azure Backup Reporting Data* event for Recovery Services vaults, backward compatibility in cases where you've existing custom queries on this event. For example, custom log alerts and custom visualizations. *We recommend that you move to the [new events](#diagnostics-events-available-for-azure-backup-users) as early as possible*. The new events:
 
 * Make the data much easier to work with in log queries.
 * Provide better discoverability of schemas and their structure.
@@ -150,7 +150,7 @@ To summarize:
 * If you also want to onboard onto new tables, as we recommend, create a **new** diagnostics setting, select **Resource specific**, and select the six new events.
 * If you're currently sending Azure Site Recovery events to Log Analytics, *do not* choose the resource-specific mode for these events. Otherwise, data for these events won't flow into your Log Analytics workspace. Instead, create an additional diagnostic setting, select **Azure diagnostics**, and select the relevant Azure Site Recovery events.
 
-The following image shows an example of a user who has three diagnostics settings for a vault. The first setting, named **Setting1**, sends data from an AzureBackupReport event to a Log Analytics workspace in Azure diagnostics mode. The second setting, named **Setting2**, sends data from the six new Azure Backup events to a Log Analytics workspace in the resource-specific mode. The third setting, named **Setting3**, sends data from the Azure Site Recovery events to a Log Analytics workspace in Azure diagnostics mode.
+The following image shows an example of a user who has three diagnostics settings for a vault. The first setting, named **Setting1**, sends data from an Azure Backup Reporting Data event to a Log Analytics workspace in Azure diagnostics mode. The second setting, named **Setting2**, sends data from the six new Azure Backup events to a Log Analytics workspace in the resource-specific mode. The third setting, named **Setting3**, sends data from the Azure Site Recovery events to a Log Analytics workspace in Azure diagnostics mode.
 
 ![Three settings](./media/backup-azure-diagnostics-events/three-settings-example.png)
 

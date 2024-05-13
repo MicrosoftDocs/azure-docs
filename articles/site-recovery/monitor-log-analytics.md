@@ -49,7 +49,7 @@ Azure Site Recovery provides the following Resource specific and legacy tables. 
 - Azure Site Recovery Events
 - Azure Site Recovery Replicated Items  
 - Azure Site Recovery Replication Stats 
-- Azure Site Recovery Recovery Points 
+- Azure Site Recovery Points 
 - Azure Site Recovery Replication Data Upload Rate 
 - Azure Site Recovery Protected Disk Data Churn
 - Azure Site Recovery Replicated Item Details 

@@ -203,11 +203,11 @@ You can view the alerts settings under **Recovery Services Vault** > **Settings*
 
 To manage your alerts settings, go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** option. Select **Manage alerts** > **Manage built-in alert settings for resources** option.  
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/bccproperties.png" alt-text="Screenshot displays properties for alerting feature in Business Continuity Center." lightbox="./media/site-recovery-monitor-and-troubleshoot/bccproperties.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center-properties.png" alt-text="Screenshot displays properties for alerting feature in Business Continuity Center." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center-properties.png":::
 
 Get an at-scale view of all vaults across all subscriptions using Classic Alerts for Backup and Site Recovery. You can update the alert settings for each vault by selecting **Update**. You can also select only get Azure Monitor alerts and disable classic alerts. You can also choose to disable certain categories of built-in alerts that are enabled by default. Update settings and select **Update** to save. 
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/bcc.png" alt-text="Screenshot displays opt-in properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/bcc.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center.png" alt-text="Screenshot displays opt-in properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center.png":::
 
 ### Manage Azure Site Recovery alerts in Backup Center
 

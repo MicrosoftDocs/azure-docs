@@ -53,7 +53,7 @@ This table provides information about core backup entities, such as vaults and b
 | OldestRecoveryPointTime           | DateTime      | Recovery Services vault | Date time of the latest recovery point for the backup item   |
 | PolicyUniqueId                    | Text          | Recovery Services vault, Backup vault | Unique ID to identify the policy                             |
 | ProtectedContainerFriendlyName    | Text          | Recovery Services vault | Friendly name of the protected server                        |
-| ProtectedContainerLocation        | Text          | Recovery Services vault | Whether the Protected  Container is located On-premises or in Azure |
+| ProtectedContainerLocation        | Text          | Recovery Services vault | Whether the Protected  Container is located on-premises or in Azure |
 | ProtectedContainerName            | Text          | Recovery Services vault | Name of the Protected   Container                            |
 | ProtectedContainerOSType          | Text          | Recovery Services vault | OS Type of the  Protected Container                          |
 | ProtectedContainerOSVersion       | Text          | Recovery Services vault | OS Version of the Protected Container                        |
@@ -303,7 +303,7 @@ This table provides details about storage-related fields.
 
 ## AzureBackupOperations
 
-This table lists operations such as adhoc backup/restore of on-prem machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-prem agent.
+This table lists operations such as adhoc backup/restore of on-premises machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-premises agent.
 
 | **Field**     | **Data Type**   |	**Applicable Resource Types** | **Description**      |
 | ------------------------------- | ------------- | -------------|---------------------- |
@@ -345,7 +345,7 @@ Each record in the above tables has an associated **Operation Name**. An Operati
 | AddonAzureBackupProtectedInstance | ProtectedInstance | Represents a record containing the protected instance count for each container or backup item. For Azure VM backup, the protected instance count is available at the backup item level, for other workloads it is available at the protected container level. |
 | AddonAzureBackupPolicy | Policy |  Represents a record containing all details of a backup and retention policy. For example, ID, name, retention settings, etc. |
 | AddonAzureBackupPolicy | PolicyAssociation | Represents a mapping between a backup item and the backup policy applied to it. | 
-| AzureBackupOperations | Job | Represents a record containing operations like adhoc backup/restore of on-prem machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-prem agent. |
+| AzureBackupOperations | Job | Represents a record containing operations like adhoc backup/restore of on-prem machine, modification of backup policy, stopping protection with retain/delete data, and changing passphrase in on-premises scenario where audit logs are not available when being performed from the on-premises agent. |
 
 # [Backup vaults](#tab/backup-vaults)
 
