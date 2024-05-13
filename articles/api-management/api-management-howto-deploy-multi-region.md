@@ -33,7 +33,7 @@ When adding a region, you configure:
 ## Prerequisites
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address (if required) in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
+* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network and subnet in the location that you plan to add, and within the same subscription. In external VNet mode, optionally set up a new public IP. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional region
 
@@ -42,7 +42,7 @@ When adding a region, you configure:
 1. Select the added location from the dropdown list.
 1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
 1. Optionally select one or more [**Availability zones**](../reliability/migrate-api-mgt.md). 
-1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location. Select an existing virtual network, subnet, and public IP address (if required) that are available in the location.
+1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location. Select an existing virtual network and subnet that are available in the location. In external VNet mode, selecting a publiC IP address is optional.
 1. Select **Add** to confirm.
 1. Repeat this process until you configure all locations.
 1. Select **Save** in the top bar to start the deployment process.
