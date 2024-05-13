@@ -24,8 +24,8 @@ Verify that you are on the correct article. The following table shows the config
 
 This article assumes that you've already performed the following prerequisites:
 
-* The VPN gateway is configured for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal-certificate.md) for steps.
-* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuation files](vpn-gateway-howto-point-to-site-resource-manager-portal-certificate.md#profile-files) for steps.
+* The VPN gateway is configured for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
+* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuation files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
 
 ### Workflow
 
@@ -108,7 +108,7 @@ For more information about the repository, see [Linux Software Repository for Mi
 1. After the import validates (imports with no errors), select **Save**.
 1. In the left pane, locate the VPN connection profile you created. Select **Connect**.
 
-   :::image type="content" source="./media/azure-vpn-client-certificate-linux/connect.png" alt-text="Screenshot of Azure VPN Client for Linux with client certificate data selected." lightbox="./media/azure-vpn-client-certificate-linux/connect.png":::
+   :::image type="content" source="./media/azure-vpn-client-certificate-linux/connect.png" alt-text="Screenshot of Azure VPN Client for Linux Connect." lightbox="./media/azure-vpn-client-certificate-linux/connect.png":::
 1. When the client is successfully connected, the status shows as **Connected** with a green icon.
 
    :::image type="content" source="./media/azure-vpn-client-certificate-linux/connected.png" alt-text="Screenshot of Azure VPN Client for Linux with client showing Connected." lightbox="./media/azure-vpn-client-certificate-linux/connected.png":::
