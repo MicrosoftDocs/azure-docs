@@ -26,7 +26,7 @@ We recommend using assistants with the latest models to take advantage of the ne
 
 ### API Version
 
-* TBD
+* 2024-05-01-preview
 
 ### Supported file types
 
