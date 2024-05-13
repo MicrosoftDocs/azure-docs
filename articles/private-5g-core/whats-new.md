@@ -98,13 +98,13 @@ The SUPI (subscription permanent identifier) secret needs to be encrypted before
 For more information, see [Enable SUPI concealment](supi-concealment.md).
 
 ## February 2024
-### New Entra ID user role needed for distributed tracing tool
+### New Microsoft Entra ID user role needed for distributed tracing tool
 
 **Type:** New feature
 
 **Date available:** February 21, 2024
 
-Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you are using Microsoft Entra ID authentication, you should create this user prior to upgrading to version 2402 to avoid losing access to the tracing tool. Entra ID access to the packet core dashboards is unchanged.
+Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you are using Microsoft Entra ID authentication, you should create this user prior to upgrading to version 2402 to avoid losing access to the tracing tool. Microsoft Entra ID access to the packet core dashboards is unchanged.
 
 See [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md) for details.
 
@@ -258,10 +258,10 @@ The 2306 release for the Azure Private 5G Core packet core is now available. For
 **Date available:** July 10, 2023
 
 It's now possible to:
-- attach a new or existing data network
-- modify an attached data network's configuration
+- attach a new or existing data network.
+- modify an attached data network's configuration.
   
-followed by a few minutes of downtime, but not a packet core reinstall.
+This is followed by a few minutes of downtime, but not a packet core reinstall.
 
 For details, see [Modify a packet core instance](modify-packet-core.md).
 
