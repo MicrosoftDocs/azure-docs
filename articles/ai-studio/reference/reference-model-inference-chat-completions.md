@@ -193,7 +193,7 @@ The reason the model stopped generating tokens. This will be `stop` if the model
 | Name | Type | Description |
 | --- | --- | --- |
 | function | [Function](#function) | The function that the model called. |
-| id  | string | The ID of the tool call. |
+| ID  | string | The ID of the tool call. |
 | type | [ToolType](#tooltype) | The type of the tool. Currently, only `function` is supported. |
 
 ### ChatCompletionObject
@@ -341,7 +341,7 @@ Represents a chat completion response returned by model, based on the provided i
 | --- | --- | --- |
 | choices | [Choices](#choices)\[\] | A list of chat completion choices. Can be more than one if `n` is greater than 1. |
 | created | integer | The Unix timestamp (in seconds) of when the chat completion was created. |
-| id  | string | A unique identifier for the chat completion. |
+| ID  | string | A unique identifier for the chat completion. |
 | model | string | The model used for the chat completion. |
 | object | [ChatCompletionObject](#chatcompletionobject) | The object type, which is always `chat.completion`. |
 | system\_fingerprint | string | This fingerprint represents the backend configuration that the model runs with.<br><br>Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism. |

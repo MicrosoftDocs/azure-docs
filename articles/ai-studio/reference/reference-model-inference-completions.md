@@ -216,7 +216,7 @@ Represents a completion response from the API. Note: both the streamed and nonst
 | --- | --- | --- |
 | choices | [Choices](#choices)\[\] | The list of completion choices the model generated for the input prompt. |
 | created | integer | The Unix timestamp (in seconds) of when the completion was created. |
-| id  | string | A unique identifier for the completion. |
+| ID  | string | A unique identifier for the completion. |
 | model | string | The model used for completion. |
 | object | [TextCompletionObject](#textcompletionobject) | The object type, which is always "text\_completion" |
 | system\_fingerprint | string | This fingerprint represents the backend configuration that the model runs with.<br><br>Can be used with the `seed` request parameter to understand when backend changes have been made that might impact determinism. |
