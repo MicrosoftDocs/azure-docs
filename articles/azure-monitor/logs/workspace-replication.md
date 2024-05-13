@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Increase data and service reslience by replicating your Log Analytics workspace across regions
 
-Replicating your Log Analytics workspace across regions increases resilience by enabling you to switch over to the replicated workspace and continue operations in the event of a regional failure. Your original workspace and region are referred to as the _primary_. The replicated workspace and alternate region are referred to as the _secondary_.
+Replicating your Log Analytics workspace across regions increases resilience by enabling you to switch over to the replicated workspace and continue operations in the event of a regional failure. Your original workspace and region are referred to as the **primary**. The replicated workspace and alternate region are referred to as the **secondary**.
 
 This article explains how Log Analytics workspace replication works, how to replicate your workspace, and how to switch over and back.
 
@@ -46,16 +46,14 @@ When you switch over, the secondary workspace becomes active and your primary be
 
 ### Supported regions
 
-Each workspace has a primary location, which is the region in which the workspace resides. When you enable replication, you choose a secondary location - another region in which a "shadow" workspace is created, and that you can later switch to.
+Workspace replication is currently supported for workspaces in a limited set of regions, organized by region groups (groups of geographically adjacent regions). When you enable replication, select a secondary location from the list of supported regions in the same region group as the workspace primary location. For example, a workspace in West Europe can be replicated in North Europe, but not in West US 2, since these regions are in different region groups. 
 
-Workspace replication is currently supported for workspaces in a limited set of regions, organized by region groups (groups of geographically adjacent regions). When you enable replication, select a secondary location from the list of supported regions, and from the same region group as the workspace primary location. For example, a workspace in West Europe can have a replication in North Europe, but not in West US 2, since these regions are in different region groups. 
-
-The following region groups and regions are currently supported:
+These region groups and regions are currently supported:
 
 | Region group | Regions | JSON value | Notes |
 | --- | --- | --- | --- |
-| **US (United States)** | East US | `eastus`  | Replication isn't supported to or from East US 2 region. |
-|                        | East US 2 | `eastus2` | Replication isn't supported to or from East US region. |
+| **US (United States)** | East US | `eastus`  | Replication isn't supported to or from the East US 2 region. |
+|                        | East US 2 | `eastus2` | Replication isn't supported to or from the East US region. |
 |                        | West US 2 | `westus2` | 
 | **European**           | West Europe  | `westeurope`  |
 |                        | North Europe | `northeurope` |
@@ -64,13 +62,13 @@ The following region groups and regions are currently supported:
 
 Different customers have different data residency requirements, so it's important that you control where your data is stored. Workspace logs are stored only in the primary and secondary locations that you chose, and processed in one or more Azure geographies based on your selected regions. For more information, see [Supported regions and region groups](#support-for-regions-and-region-groups).
 
-### Support for Sentinel and other products
+### Support for Sentinel and other services
 
-Various products and service features that interact with Log Analytics workspaces are compatible with workspace replication and switchover. They can work with workspaces that trigger switchover and switch to another region, which allows them to gain improved resilience "by proxy."
+Various services and features that use Log Analytics workspaces are compatible with workspace replication and switchover. These services and features continue to work when you switch over to a replicated workspace in another region.
 
-One product that's compatible with workspace replication is Sentinel. If a regional network issue causes log ingestion latency, Sentinel customers are also impacted. Customers that use replicated workspaces can trigger workspace switchover to switch to another region, which benefits both Log Analytics and Sentinel. However, when the network issue impacts Sentinel operations directly regardless of Log Analytics, switching to another region doesn't mitigate the issue.
+For example, regional network issues that cause log ingestion latency can impact Sentinel customers. Customers that use replicated workspaces can switch over to their secondary region to continue working with their Log Analytics workspace and Sentinel. However, if the network issue impacts the Sentinel service health, switching to another region doesn't mitigate the issue.
 
-Some Azure Monitor experiences are currently only partially compatible with workspace replication and switchover, including Azure Application Insights and Azure Virtual Machines Insights. For the full list, see [Restrictions and limitations](#restrictions-and-limitations).
+Some Azure Monitor experiences, including Azure Application Insights and Azure Virtual Machines Insights, are currently only partially compatible with workspace replication and switchover. For the full list, see [Restrictions and limitations](#restrictions-and-limitations).
 
 ## Enable and disable workspace replication
 
@@ -78,21 +76,9 @@ You enable and disable workspace replication by using a REST command. The comman
 
 ### Using a dedicated cluster?
 
-If your workspace is linked to a dedicated cluster, you first enable replication on the cluster and then enable the feature on the linked workspace. This operation creates a second cluster in your secondary region to allow your workspace to keep using the dedicated cluster even if you switch over. (There are no extra charges beyond replication charges for the second cluster.) This process allows features like cluster managed keys (CMK) to continue to work (with the same key) during switchover.
+If your workspace is linked to a dedicated cluster, you first enable replication on the cluster and then enable the feature on the linked workspace. This operation creates a second cluster in your secondary region, which allows your workspace to keep using the dedicated cluster when you switch over. (There are no extra charges beyond replication charges for the second cluster.) This process allows features like [customer managed keys (CMK)](customer-managed-keys.md) to continue to work (with the same key) during switchover.
 
-You enable replication on your dedicated cluster with a `PUT` command that uses the following values:
-
-- `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>` : The resource group that contains your cluster resource.
-- `<cluster_name>`: The name of your dedicated cluster resource.
-- `<primary_location>`: The original region where you created your dedicated cluster.
-- `<secondary_location>`: The region to switch to when the primary region isn't healthy.
-
-The secondary region of the workspaces linked to the dedicated cluster must be identical to the cluster's secondary region. For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
-
-The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 201. You can track the process, as described in [Check workspace state](#check-workspace-state).
-
-The following code demonstrates the `PUT` command to enable replication on the dedicated cluster:
+To enable replication on your dedicated cluster, use this `PUT` command:
 
 ```rest
 PUT 
@@ -111,6 +97,19 @@ body:
     "location": "<primary_location>"
 }
 ```
+
+Where:
+
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your cluster resource.
+- `<cluster_name>`: The name of your dedicated cluster resource.
+- `<primary_location>`: The original region where you created your dedicated cluster.
+- `<secondary_location>`: The region to switch to when the primary region isn't healthy.
+
+The secondary region of the workspaces linked to the dedicated cluster must be identical to the cluster's secondary region. For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
+
+The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 201. You can track the process, as described in [Check workspace state](#check-workspace-state).
+
 
 ### Enable workspace replication
 
