@@ -2,7 +2,7 @@
 title: Azure OpenAI Extension for Azure Functions
 description: Learn to configure the Azure OpenAI extension to be able to integrate your Azure Functions code executions with Azure OpenAI APIs. 
 ms.topic: reference
-ms.date: 05/07/2024
+ms.date: 05/14/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -33,45 +33,34 @@ The extension NuGet package you install depends on the C# mode [in-process](func
 
 ### [Isolated process](#tab/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI).
+Add the Azure OpenAI extension to your project by installing the [Microsoft.Azure.Functions.Worker.Extensions.OpenAI](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI) NuGet package, which you can do using the .NET CLI:
 
-If you are using a vector database for content, install one of the following:
-
-Azure AI Search [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.AzureAISearch)
-
-Azure Cosmos DB for MongoDB [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBSearch)
-
-Azure Data Explorer [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.Kusto)
-
-
-Using the .NET CLI:
-
-```dotnetcli
+```dotnet
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.OpenAI  --prerelease
-``` 
+```
+When using a vector database for storing content, you should also install at least one of these NuGet packages:
+
++ Azure AI Search: [Microsoft.Azure.Functions.Worker.Extensions.OpenAI.AzureAISearch](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.AzureAISearch)
++ Azure Cosmos DB for MongoDB: [Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBSearch](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBSearch)
++ Azure Data Explorer: [Microsoft.Azure.Functions.Worker.Extensions.OpenAI.Kusto](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.Kusto)
 
 ### [In-process](#tab/in-process)
 
-This extension is available by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI).
+Add the Azure OpenAI extension to your project by installing the [Microsoft.Azure.WebJobs.Extensions.OpenAI](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI) NuGet package, which you can do using the .NET CLI:
 
-If you are using a vector database for content, install one of the following:
-
-Azure AI Search [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.AzureAISearch)
-
-Azure Cosmos DB for MongoDB [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBSearch)
-
-Azure Data Explorer [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.Kusto)
-
-Using the .NET CLI:
-
-```dotnetcli
+```dotnet
 dotnet add package Microsoft.Azure.WebJobs.Extensions.OpenAI --prerelease
-``` 
+```
+
+When using a vector database for storing content, you should also install at least one of these NuGet packages:
+
++ Azure AI Search: [Microsoft.Azure.WebJobs.Extensions.OpenAI.AzureAISearch](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.AzureAISearch)
++ Azure Cosmos DB for MongoDB: [Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBSearch](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBSearch)
++ Azure Data Explorer: [Microsoft.Azure.WebJobs.Extensions.OpenAI.Kusto](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.Kusto)
 
 ---
 
 ::: zone-end
-
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 
 ## Install bundle
