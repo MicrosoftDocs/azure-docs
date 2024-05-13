@@ -182,6 +182,7 @@ The process event schema references the following entities, which are central to
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
+| **ParentProcessCommandLine**       | Optional     | String     |   The command line used to run the parent process. <br><br>Example: `"choco.exe" -v`    |
 | **ParentProcessName**              | Optional     | string     | The name of the parent process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.<br><br>Example: `C:\Windows\explorer.exe` |
 | **ParentProcessFileCompany**       | Optional     | String     |The name of the company that created the parent process image file.            <br><br>    Example:  `Microsoft`   |
 | **ParentProcessFileDescription**   | Optional     | String     |  The description from the version information in the parent process image file.    <br><br>Example: `Notepad++ : a free (GPL) source code editor`|
