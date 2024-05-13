@@ -1,5 +1,5 @@
 ---
-title: ND sub-family VM size series
+title: ND sub-family virtual machine size series
 description: Overview of the 'ND' sub-family of virtual machine sizes
 author: mattmcinnes
 ms.service: virtual-machines
