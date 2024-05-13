@@ -43,9 +43,41 @@ The following limitations apply during the public preview:
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
+- To access the multiple subnet prefix preview feature you'll need to register it in your Azure subscription. For more information about registering preview features in your subscription, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
+
+    - Azure Feature Exposure Control (AFEC) is available through the Microsoft.Features namespace. For this feature, two AFEC flags will need to be registered in your subscription:
+        
+        - **Microsoft.Features/providers/Microsoft.Network/features/AllowMultipleAddressPrefixesOnSubnet**
+        
+        - **Microsoft.Features/providers/Microsoft.Network/features/AllowDeletionOfIpPrefixFromSubnet**
+    
+    - To register the feature, use the following commands:
+    
+    ```azurepowershell
+    Register-AzProviderFeature -FeatureName AllowMultipleAddressPrefixesOnSubnet -ProviderNamespace Microsoft.Network
+
+    Register-AzProviderFeature -FeatureName AllowDeletionOfIpPrefixFromSubnet -ProviderNamespace Microsoft.Network
+    ```
+
 # [CLI](#tab/cli)
 
 - The how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+- To access the multiple subnet prefix preview feature you'll need to register it in your Azure subscription. For more information about registering preview features in your subscription, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
+
+    - Azure Feature Exposure Control (AFEC) is available through the Microsoft.Features namespace. For this feature, two AFEC flags will need to be registered in your subscription:
+        
+        - **Microsoft.Features/providers/Microsoft.Network/features/AllowMultipleAddressPrefixesOnSubnet**
+        
+        - **Microsoft.Features/providers/Microsoft.Network/features/AllowDeletionOfIpPrefixFromSubnet**
+    
+    - To register the feature, use the following commands:
+    
+    ```azurepowershell
+    az feature register --namespace Microsoft.Network --name AllowMultipleAddressPrefixesOnSubnet
+
+    az feature register --namespace Microsoft.Network --name AllowDeletionOfIpPrefixFromSubnet
+    ```
 
 ---
 
