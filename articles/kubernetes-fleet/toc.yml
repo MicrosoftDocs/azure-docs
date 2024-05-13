@@ -22,6 +22,8 @@
     href: concepts-fleet.md
   - name: Choosing a fleet type
     href: concepts-choosing-fleet.md
+  - name: Grant access to resources with Azure RBAC
+    href: concepts-rbac.md
   - name: Scheduler and scheduling framework
     href: concepts-scheduler-scheduling-framework.md
   - name: Update orchestration across multiple member clusters
