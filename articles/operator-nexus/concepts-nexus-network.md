@@ -19,7 +19,7 @@ Nexus offers several top-level API resources that categorically represent differ
 These network types represent logical attachments but also Layer3 information as well.  Essentially, they encapsulate how the customer 
 wishes those networks are to be exposed within their cluster.
 
-## Nexus workload Network Types
+## Nexus workload network types
 
  * L3Network: The Nexus workload L3Network resource can be shared and reused across standalone virtual machines and Nexus Kubernetes clusters. Its primary purpose is to define a network that supports Layer 3 properties, which are coordinated between the virtualized workloads and the integrated Nexus Managed Fabric L3IsolationDomain. Additionally, it provides DualStack allocation capabilities (both IPv4 and IPv6) and directly references Azure Managed Network Fabric resources representing the VRF and VLAN associated with this network
 
