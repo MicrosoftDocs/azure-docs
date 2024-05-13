@@ -60,7 +60,7 @@ These region groups and regions are currently supported:
 
 ### Data residency requirements
 
-Different customers have different data residency requirements, so it's important that you control where your data is stored. Workspace logs are stored only in the primary and secondary locations that you chose, and processed in one or more Azure geographies based on your selected regions. For more information, see [Supported regions and region groups](#support-for-regions-and-region-groups).
+Different customers have different data residency requirements, so it's important that you control where your data is stored. Azure Monitor process and stores logs in the primary and secondary regions that you choose. For more information, see [Supported regions and region groups](#support-for-regions-and-region-groups).
 
 ### Support for Sentinel and other services
 
@@ -80,7 +80,7 @@ If your workspace is linked to a dedicated cluster, you first enable replication
 
 To enable replication on your dedicated cluster, use this `PUT` command:
 
-```rest
+```http
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/clusters/<cluster_name>?api-version=2023-01-01-preview
@@ -117,7 +117,7 @@ To enable replication on your Log Analytics workspace, use this `PUT` command:
 
 You enable replication for one or more workspaces linked to a cluster with a `PUT` command that uses the following values:
 
-```rest
+```http
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
@@ -158,7 +158,7 @@ The `GET` command verifies that the workspace provisioning state changes from "U
 
 The following code demonstrates the `GET` command:
 
-```rest
+```http
 GET
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
 ```
@@ -210,7 +210,7 @@ The `PUT` command is a long running operation that can take some time to complet
 
 The following code demonstrates the `PUT` command to disable replication for the workspace:
 
-```rest
+```http
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
@@ -239,7 +239,7 @@ You disable replication for the cluster with a `PUT` command that uses the follo
 
 The following code demonstrates the `PUT` command to disable replication for the cluster:
 
-```rest
+```http
 PUT 
 
 https://management.azure.com/subscriptions/<subscription_id>/resourcegroups/<resourcegroup_name>/providers/microsoft.operationalinsights/clusters/<cluster_name>?api-version=2023-01-01-preview
@@ -333,7 +333,7 @@ The `POST` command is a long running operation that can take some time to comple
 
 The following code demonstrates the `POST` command:
 
-```rest
+```http
 POST 
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/locations/<secondary_location>/workspaces/<workspace_name>/failover?api-version=2023-01-01-preview
 
@@ -435,7 +435,7 @@ The `POST` command is a long running operation that can take some time to comple
 
 The following code demonstrates the `POST` command:
 
-```rest
+```http
 POST
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/failback?api-version=2023-01-01-preview
 
