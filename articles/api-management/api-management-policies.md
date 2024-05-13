@@ -66,7 +66,7 @@ More information about policies:
 |Policy  |Description  | Classic | V2  | Consumption |Self-hosted  |
 |---------|---------|---------|---------|---------|--------|
 |  [Forward request](forward-request-policy.md) | Forwards the request to the backend service. | Yes | Yes | Yes | Yes |
-|  [Set backend service](set-backend-service-policy.md) | Changes the backend service base URL of an incoming request to a URL or a [backend](backends.md). Referencing a backend resource allows you to manage the backend service base URL and other settings in a single place. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests. | Yes | Yes | Yes | Yes |
+|  [Set backend service](set-backend-service-policy.md) | Changes the backend service base URL of an incoming request to a URL or a [backend](backends.md). Referencing a backend resource allows you to manage the backend service base URL and other settings in a single place. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool) and [circuit breaker rules](backends.md#circuit-breaker) to protect the backend from too many requests. | Yes | Yes | Yes | Yes |
 |  [Set HTTP proxy](proxy-policy.md) | Allows you to route forwarded requests via an HTTP proxy. | Yes | Yes | Yes | Yes |
 
 ## Caching
