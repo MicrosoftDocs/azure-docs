@@ -5,7 +5,7 @@ description: Azure AI Studio safety evaluations intended purpose, capabilities, 
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: article
-ms.date: 03/28/2024
+ms.date: 5/21/2024
 ms.reviewer: mithigpe
 ms.author: lagayhar
 author: lgayhardt

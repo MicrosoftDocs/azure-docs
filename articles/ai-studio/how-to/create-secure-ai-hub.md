@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Create an Azure AI Studio hub inside a managed virtual network. The managed virtual network secures access to managed resources such as computes.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 5/21/2024
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist

@@ -5,7 +5,7 @@ description: Learn how to use images in prompt flow.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 2/26/2024
+ms.date: 5/21/2024
 ms.reviewer: jinzhong
 ms.author: lagayhar
 author: lgayhardt

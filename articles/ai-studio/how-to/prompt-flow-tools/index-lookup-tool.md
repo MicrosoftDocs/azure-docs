@@ -5,7 +5,7 @@ description: This article introduces you to the Index Lookup tool for flows in A
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 3/6/2024
+ms.date: 5/21/2024
 ms.reviewer: estraight
 ms.author: lagayhar
 author: lgayhardt

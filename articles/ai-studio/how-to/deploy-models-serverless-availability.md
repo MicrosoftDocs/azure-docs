@@ -5,7 +5,7 @@ description: Learn about the regions where each model is available for deploymen
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 5/21/2024
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.author: fasantia

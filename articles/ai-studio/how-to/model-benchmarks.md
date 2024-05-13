@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
 ms.topic: how-to
-ms.date: 5/6/2024
+ms.date: 5/21/2024
 ms.reviewer: jcioffi
 ms.author: eur
 author: eric-urban

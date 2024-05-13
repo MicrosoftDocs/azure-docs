@@ -5,7 +5,7 @@ description: Learn how to deploy Phi-3 family of small language models with Azur
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 5/21/2024
 ms.reviewer: kritifaujdar 
 reviewer: fkriti
 ms.author: mopeakande

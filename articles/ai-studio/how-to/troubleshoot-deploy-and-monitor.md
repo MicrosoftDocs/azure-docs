@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 5/21/2024
 ms.reviewer: fasantia
 reviewer: santiagxf
 ms.author: mopeakande
