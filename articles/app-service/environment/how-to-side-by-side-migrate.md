@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 4/9/2024
+ms.date: 4/26/2024
 ms.author: jordanselig
 ---
 # Use the side-by-side migration feature to migrate App Service Environment v2 to App Service Environment v3
@@ -29,7 +29,7 @@ Ensure that there are no locks on your virtual network, resource groups, resourc
 
 Ensure that no Azure policies are blocking actions that are required for the migration, including subnet modifications and Azure App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
 
-Since your App Service Environment v3 is in a different subnet in your virtual network, you need to ensure that you have an available subnet in your virtual network that meets the [subnet requirements for App Service Environment v3](./networking.md#subnet-requirements). The subnet you select must also be able to communicate with the subnet that your existing App Service Environment is in. Ensure there's nothing blocking communication between the two subnets. If you don't have an available subnet, you need to create one before migrating. Creating a new subnet might involve increasing your virtual network address space. For more information, see [Create a virtual network and subnet](../../virtual-network/manage-virtual-network.md).
+Since your App Service Environment v3 is in a different subnet in your virtual network, you need to ensure that you have an available subnet in your virtual network that meets the [subnet requirements for App Service Environment v3](./networking.md#subnet-requirements). The subnet you select must also be able to communicate with the subnet that your existing App Service Environment is in. Ensure there's nothing blocking communication between the two subnets. If you don't have an available subnet, you need to create one before migrating. Creating a new subnet might involve increasing your virtual network address space. For more information, see [Create a virtual network and subnet](../../virtual-network/manage-virtual-network.yml).
 
 Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete.
 
@@ -238,7 +238,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ## 10. Get the inbound IP addresses for your new App Service Environment v3 and update dependent resources
 
-You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new IP inbound address for your new App Service Environment v3. For internal facing (ILB) App Service Environments, you need to update your private DNS zones to point to the new inbound IP address. This step is where you can validate your new environment and make any remaining necessary updates to your dependent resources.
+You have two App Service Environments at this stage in the migration process. Your apps are running in both environments. You need to update any dependent resources to use the new IP inbound address for your new App Service Environment v3. For internal facing (ILB) App Service Environments, you need to update your private DNS zones to point to the new inbound IP address.
 
 You can get the new inbound IP address for your new App Service Environment v3 by running the following command that corresponds to your App Service Environment load balancer type. It's your responsibility to make any necessary updates. 
 
@@ -256,9 +256,9 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 
 ## 11. Redirect customer traffic, validate your App Service Environment v3, and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues that means you're ready to complete the migration. If you want to test your App Service Environment v3 front ends, you can do so by using the inbound IP address you got in the previous step.
+This step is your opportunity to test and validate your new App Service Environment v3. By default, traffic is sent to your App Service Environment v2 front ends. If you're using an ILB App Service Environment v3, you can test your App Service Environment v3 front ends by updating your private DNS zone with the new inbound IP address. If you're using an ELB App Service Environment v3, the process for testing is dependent on your specific network configuration. One simple method to test for ELB environments is to update your hosts file to use your new App Service Environment v3 inbound IP address. If you have custom domains assigned to your individual apps, you can alternatively update their DNS to point to the new inbound IP. Testing this change allows you to fully validate your App Service Environment v3 before initiating the final step of the migration where your old App Service Environment is deleted. If you're able to access your apps without issues that means you're ready to complete the migration.
 
-Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 by running the following command. This command also deletes your old environment.
+Once you confirm your apps are working as expected, you can redirect customer traffic to your new App Service Environment v3 by running the following command. This command also deletes your old environment. You have 14 days to complete this step. If you don't complete this step in 14 days, your migration is automatically reverted back to an App Service Environment v2. If you need more than 14 days to complete this step, contact support.
 
 If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to revert the migration. Don't run the DNS change command if you need to revert the migration. For more information, see [Revert migration](./side-by-side-migrate.md#redirect-customer-traffic-validate-your-app-service-environment-v3-and-complete-migration).
 

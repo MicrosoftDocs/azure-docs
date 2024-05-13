@@ -4,7 +4,7 @@ description: Follow this Apache HBase tutorial to start using hadoop on HDInsigh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 04/26/2023
+ms.date: 05/10/2024
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight

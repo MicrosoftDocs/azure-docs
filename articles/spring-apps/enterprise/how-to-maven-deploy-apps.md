@@ -6,7 +6,7 @@ ms.author: jialuogan
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: tutorial
-ms.date: 04/07/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -70,7 +70,7 @@ To create a Spring project for use in this article, use the following steps:
 To build the project by using Maven, run the following commands:
 
 ```azurecli
-cd hellospring 
+cd hellospring
 mvn clean package -DskipTests -Denv=cloud
 ```
 

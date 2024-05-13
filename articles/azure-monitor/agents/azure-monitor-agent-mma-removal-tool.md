@@ -13,6 +13,8 @@ ms.custom:
 # MMA Discovery and Removal Utility
 
 After you migrate your machines to the Azure Monitor Agent (AMA), you need to remove the Log Analytics Agent (also called the Microsoft Management Agent or MMA) to avoid duplication of logs. The Azure Tenant Security Solution (AzTS) MMA Discovery and Removal Utility can centrally remove the MMA extension from Azure virtual machines (VMs), Azure virtual machine scale sets, and Azure Arc servers from a tenant.  
+> [!NOTE]
+> This utility is used to discover and remove MMA extensions. This will not remove OMS extensions, OMS will need to be removed manually by running the purge script here: [Purge the Linux Agent](../agents/agent-linux-troubleshoot.md#purge-and-reinstall-the-linux-agent)
 
 The utility works in two steps:
 

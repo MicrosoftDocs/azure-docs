@@ -2,7 +2,7 @@
 title: 'App Service Environment version comparison'
 description: This article provides an overview of the App Service Environment versions and feature differences between them.
 author: seligj95
-ms.date: 7/24/2023
+ms.date: 4/22/2024
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -65,6 +65,7 @@ App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../..
 |---------|---------|---------|---------|
 |IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps     |Yes         |Yes         |No         |
 |Custom domain suffix    |Yes (requires SNI based TLS connection)        |Yes (only supported with certain API versions)         |[Yes](how-to-custom-domain-suffix.md)         |
+|Default host name|If you have a custom domain suffix, the default host name includes your custom domain suffix and is in the form *APP-NAME.internal.contoso.com*. |If you have a custom domain suffix, the default host name includes your custom domain suffix and is in the form *APP-NAME.internal.contoso.com*. |The default host name always uses the App Service Environment default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. App Service Environment v3 keeps the default domain suffix when you add a custom domain suffix. If you add a custom domain suffix, the custom domain suffix configuration is under the `customDnsSuffixConfiguration` property. |
 |Support for App Service Managed Certificates   |No         |No         |No        |
 
 ### Backup and restore

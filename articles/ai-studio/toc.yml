@@ -6,9 +6,6 @@ items:
   items:
   - name: What is Azure AI Studio?
     href: what-is-ai-studio.md
-  - name: What are AI services?
-    href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
-    displayName: applied, cognitive, form recognizer
   - name: Azure AI Studio architecture
     href: concepts/architecture.md
   - name: Region support
@@ -20,7 +17,7 @@ items:
 - name: Quickstarts
   items:
   - name: Get started with Assistants and code interpreter in the playground
-    href: quickstarts/assistants.md
+    href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
   - name: Hear and speak with chat in the playground
     href: quickstarts/hear-speak-playground.md
   - name: Moderate text and images with content safety
@@ -40,24 +37,47 @@ items:
 - name: How-to
   expanded: true
   items:
-  - name: Explore Azure AI Studio
+  - name: Select and deploy AI models
     items:
     - name: Model catalog
-      href: how-to/model-catalog.md
-    - name: Azure AI capabilities
-      href: how-to/models-foundation-azure-ai.md
-  - name: SDK and CLI
-    items:
-    - name: Azure AI Generative SDK
+      href: how-to/model-catalog-overview.md
+    - name: Data, privacy, and security for Model Catalog
+      href: how-to/concept-data-privacy.md
+    - name: Model benchmarks
+      href: how-to/model-benchmarks.md
+    - name: Fine-tune models
+      href: concepts/fine-tuning-overview.md
+    - name: Azure OpenAI models
       items:
-      - name: Overview
-        href: how-to/sdk-generative-overview.md
-      - name: Get started with the Azure AI SDK
-        href: how-to/sdk-install.md
-    - name: Get started with the Azure AI CLI
-      href: how-to/cli-install.md
-    - name: Work with Azure AI projects in VS Code
-      href: how-to/develop-in-vscode.md
+      - name: Deploy Azure OpenAI models
+        href: how-to/deploy-models-openai.md
+      - name: Fine-tune Azure OpenAI models
+        href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
+    - name: Cohere models
+      items:
+      - name: Deploy Cohere Command models
+        href: how-to/deploy-models-cohere-command.md
+      - name: Deploy Cohere Embed models
+        href: how-to/deploy-models-cohere-embed.md
+    - name: Deploy Llama models
+      items:
+      - name: Deploy Llama family models
+        href: how-to/deploy-models-llama.md
+      - name: Fine-tune Llama 2 family models
+        href: how-to/fine-tune-model-llama.md
+    - name: Deploy Mistral family models
+      href: how-to/deploy-models-mistral.md
+      displayName: maas
+    - name: Deploy open models
+      href: how-to/deploy-models-open.md
+      displayName: oss, open source
+  - name: AI Services
+    items:
+    - name: What are AI services?
+      href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
+      displayName: applied, cognitive, form recognizer
+    - name: Try out Azure AI services
+      href: how-to/models-foundation-azure-ai.md
   - name: Create Azure AI projects and resources
     items:
     - name: Azure AI hub resources overview
@@ -159,7 +179,7 @@ items:
         href: concepts/evaluation-approach-gen-ai.md
       - name: Evaluation and monitoring metrics for generative AI
         href: concepts/evaluation-metrics-built-in.md
-      - name: Harms mitigation strategies with Azure AI
+      - name: Content risk mitigation strategies with Azure AI
         href: concepts/evaluation-improvement-strategies.md
     - name: Evaluate with Azure AI Studio and SDK
       href: how-to/evaluate-generative-ai-app.md
@@ -167,32 +187,11 @@ items:
       href: how-to/evaluate-prompts-playground.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md
-  - name: Fine-tune models
-    items:
-    - name: Fine-tune Llama 2 family models
-      href: how-to/fine-tune-model-llama.md
   - name: Deploy and monitor
     items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
       displayName: endpoint
-    - name: Deploy Azure OpenAI models
-      href: how-to/deploy-models-openai.md
-    - name: Deploy Cohere models
-      items:
-      - name: Deploy Cohere Command models
-        href: how-to/deploy-models-cohere-command.md
-      - name: Deploy Cohere Embed models
-        href: how-to/deploy-models-cohere-embed.md
-    - name: Deploy Llama 2 family models
-      href: how-to/deploy-models-llama.md
-      displayName: maas
-    - name: Deploy Mistral family models
-      href: how-to/deploy-models-mistral.md
-      displayName: maas
-    - name: Deploy open models
-      href: how-to/deploy-models-open.md
-      displayName: oss, open source
     - name: Monitor prompt flow deployments
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
@@ -230,6 +229,14 @@ items:
         href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
     - name: Vulnerability management
       href: concepts/vulnerability-management.md
+  - name: Azure AI Generative SDK
+    items:
+    - name: Overview
+      href: how-to/sdk-generative-overview.md
+    - name: Get started with the Azure AI SDK
+      href: how-to/sdk-install.md
+    - name: Work with Azure AI projects in VS Code
+      href: how-to/develop-in-vscode.md
 - name: Responsible AI
   items:
   - name: Overview
@@ -246,9 +253,18 @@ items:
     href: ./concepts/safety-evaluations-transparency-note.md
 - name: Reference
   items:
-  - name: Azure AI SDK for Python
-    href: /python/api/overview/azure/ai
-    displayName: reference
+  - name: Azure Machine Learning Python SDK
+    href: /python/api/overview/azure/ai-ml-readme
+  - name: Azure Machine Learning REST API
+    href: /rest/api/azureml
+  - name: Azure AI services SDKs
+    displayName: client library libraries development kit
+    href: ../ai-services/reference/sdk-package-resources.md?context=/azure/ai-studio/context/context
+  - name: Azure AI services REST APIs
+    displayName: swagger http
+    href: ../ai-services/reference/rest-api-resources.md?context=/azure/ai-studio/context/context
+  - name: Prompt flow Python SDK
+    href: https://microsoft.github.io/promptflow/reference/index.html#
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../ai-services/policy-reference.md?context=/azure/ai-studio/context/context

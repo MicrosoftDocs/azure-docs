@@ -20,7 +20,7 @@ ms.custom: mode-other
 - Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 - [Python](https://www.python.org/downloads/) 3.7+.
-- (Optional) A Microsoft Teams user with a phone license. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).
+- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).  For more information to enable `voice` on your phone system, see [setting up your phone system](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
 

@@ -13,13 +13,13 @@ ms.date: 04/10/2024
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-You have launched an app. Word of mouth spreads slowly, and a small but loyal user base forms. They diligently give you feedback, helping you improve it. As you continue to fix issues and add features, more and more users fall in love with your app, and your users grows like a snowball rolling down a hill. Celebrities and influencers endorse it; teenagers use its name as an everyday verb. Suddenly, your app's usage skyrockets, and you watch in awe as the user count soars, anticipating your creation to become a staple on devices worldwide.
+You have launched an app using [MongoDB](https://www.mongodb.com/) as its database. Word of mouth spreads slowly, and a small but loyal user base forms. They diligently give you feedback, helping you improve it. As you continue to fix issues and add features, more and more users fall in love with your app, and your users grows like a snowball rolling down a hill. Celebrities and influencers endorse it; teenagers use its name as an everyday verb. Suddenly, your app's usage skyrockets, and you watch in awe as the user count soars, anticipating your creation to become a staple on devices worldwide.
 
 But, timeouts become increasingly frequent, especially when traffic spikes. The rapid growth and unpredictable demand push your infrastructure to its limits, making scalability a pressing issue. Yet overhauling your data pipeline is out of the question given your resource and time constraints.
 
 You chose MongoDB for its flexibility. Now, when you face demanding requirements on scalability, availability, continuity, and cost, Azure Cosmos DB for MongoDB comes to the rescue.
 
-You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose the underlying service to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from choosing either of the two available architectures:
+You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose its underlying service to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. When you use its API [for MongoDB](introduction.md), you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, while reaping the following benefits from choosing either of the two available architectures:
 
 ## Dynamically scale your MongoDB app
 
@@ -27,7 +27,7 @@ You point your app to the connection string of this fully managed database, whic
 
 [A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
 
-- **Integrated Vector Database: Seamlessly integrate your AI-based applications using the integrated vector database. This integration offers an all-in-one solution, allowing you to store your operational/transactional data and vector data together. Unlike other vector database solutions that involve sending your data between service integrations, this approach saves on cost and complexity.
+- **Integrated Vector Database**: Seamlessly integrate your AI-based applications using the integrated vector database. This integration offers an all-in-one solution, allowing you to store your operational/transactional data and vector data together. Unlike other vector database solutions that involve sending your data between service integrations, this approach saves on cost and complexity.
 
 - **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model, based on compute (vCores & RAM) and storage (disks).
 
@@ -67,4 +67,4 @@ You point your app to the connection string of this fully managed database, whic
 ## How to connect a MongoDB application
 
 - [Connect to vCore-based model](vcore/migration-options.md) and [FAQ](vcore/faq.yml)
-- [Connect to RU-based model](connect-account.md) and [FAQ](faq.yml)
+- [Get answers to frequently asked questions about Azure Cosmos DB for MongoDB RU](faq.yml)

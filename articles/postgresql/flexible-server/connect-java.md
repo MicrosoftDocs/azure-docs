@@ -1,15 +1,21 @@
 ---
-title: 'Quickstart: Use Java and JDBC'
+title: "Quickstart: Use Java and JDBC"
 description: In this quickstart, you learn how to use Java and JDBC with an Azure Database for PostgreSQL - Flexible Server instance.
+author: agapovm
+ms.author: maximagapov
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, passwordless-java, devx-track-extended-java
 ms.topic: quickstart
+ms.custom:
+  - mvc
+  - devcenter
+  - devx-track-azurecli
+  - mode-api
+  - passwordless-java
+  - devx-track-extended-java
 ms.devlang: java
-ms.date: 01/23/2024
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for PostgreSQL - Flexible Server

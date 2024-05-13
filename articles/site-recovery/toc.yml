@@ -29,6 +29,8 @@
     items:
     - name: Set up disaster recovery for Azure VMs
       href: azure-to-azure-tutorial-enable-replication.md
+    - name: Set up disaster recovery using shared disk
+      href: tutorial-shared-disk.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
     - name: Run failover and reprotect
@@ -117,8 +119,6 @@
       href: tutorial-prepare-azure.md
     - name: Prepare on-premises VMware
       href: vmware-azure-tutorial-prepare-on-premises.md
-    - name: Set up replication
-      href: vmware-azure-set-up-replication-tutorial-modernized.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
     - name: Run VMware VMs failover to Azure
@@ -131,6 +131,8 @@
       href: azure-to-azure-support-matrix.md
     - name: VMware/physical to Azure
       href: vmware-physical-azure-support-matrix.md
+    - name: Azure to Azure shared disks
+      href: shared-disk-support-matrix.md
     - name: On-premises Hyper-V VMs to Azure
       href: hyper-v-azure-support-matrix.md
     - name: Support requirements for Azure Site Recovery replication appliance
@@ -153,6 +155,8 @@
     items:
     - name: Azure to Azure disaster recovery architecture
       href: azure-to-azure-architecture.md
+    - name: Azure trusted launch VMs
+      href: concepts-trusted-vm.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Accelerated networking for Azure VM disaster recovery

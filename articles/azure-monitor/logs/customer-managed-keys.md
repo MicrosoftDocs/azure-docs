@@ -174,7 +174,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 # [REST](#tab/rest)
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2022-10-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -323,7 +323,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # [REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2021-06-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -377,7 +377,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # [REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2021-06-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -447,8 +447,6 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
 - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
 
 - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
-
-- [Search jobs asynchronous queries](./search-jobs.md) aren't supported in Customer-managed key scenario currently.
 
 ## Troubleshooting
 

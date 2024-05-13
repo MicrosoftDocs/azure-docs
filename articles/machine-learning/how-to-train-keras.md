@@ -10,7 +10,7 @@ author: balapv
 ms.reviewer: sgilley
 ms.date: 10/05/2022
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, update-code
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
