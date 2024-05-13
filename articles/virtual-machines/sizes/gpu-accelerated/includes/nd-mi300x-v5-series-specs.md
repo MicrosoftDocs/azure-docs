@@ -12,8 +12,8 @@ ms.custom: include file
 ---
 | Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
 |---|---|---|
-| Processor        | 96<sup>vCores   | Intel® Xeon® Scalable (Sapphire Rapids)           |
-| Memory           | 1850<sup>GiB    |                                                |
-| Data Disks       | 32<sup>Disks     |  40800<sup>IOPS</sup> / 612<sup>MBps    |
-| Network          | 8<sup>NICs       |  80000<sup>Mbps                                 |
-| Accelerators     | 8<sup>GPUs</sup>  | AMD MI300X 192<sup>GiB </sup> <br> 1,535<sup>GiB</sup> per VM |
+| Processor        | 96 <sup>vCores   | Intel® Xeon® Scalable (Sapphire Rapids)           |
+| Memory           | 1850 <sup>GiB    |                                                |
+| Data Disks       | 32 <sup>Disks     |  40800 <sup>IOPS</sup> / 612 <sup>MBps    |
+| Network          | 8 <sup>NICs       |  80000 <sup>Mbps                                 |
+| Accelerators     | 8 <sup>GPUs</sup>  | AMD MI300X 192 <sup>GiB </sup> <br> 1,535 <sup>GiB</sup> per VM |
