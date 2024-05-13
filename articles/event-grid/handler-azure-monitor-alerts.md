@@ -36,19 +36,9 @@ Creating alerts from Event Grid events provides you with the following benefits.
 - **Easier viewing experience of events/alerts**: You can view all alerts on their resources from all alert types in one place, including alerts portal experience, Azure Mobile app experience, Azure Resource Graph queries, etc.
 - **Alert processing rules**: You can use alert processing rules, for example, to suppress notifications during planned maintenance.  
 
-## See also
+## Related content
 See the following How-to articles to learn how to handle Azure Key Vault and Health Resources events using Azure Monitor alerts. 
 
 - [Handle Azure Key Vault events using Azure Monitor alerts](handle-key-vault-events-using-azure-monitor-alerts.md)
 - [Handle Health Resources events using Azure Monitor alerts](handle-health-resources-events-using-azure-monitor-alerts.md)
 
-## Related content
-
-See the following articles:
-
-- [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md)
-- [Manage Azure Monitor alert rules](../azure-monitor/alerts/alerts-manage-alert-rules.md)
-- [Pull delivery overview](pull-delivery-overview.md)
-- [Push delivery overview](push-delivery-overview.md)
-- [Concepts](concepts.md)
-- Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md)
