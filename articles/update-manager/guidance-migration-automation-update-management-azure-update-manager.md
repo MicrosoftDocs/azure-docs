@@ -4,7 +4,7 @@ description: Guidance overview on migration from Automation Update Management to
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 05/06/2024
+ms.date: 05/09/2024
 ms.author: sudhirsneha
 ---
 
@@ -129,7 +129,6 @@ At a high level, you need to follow the below steps to migrate your machines and
 
 ### Unsupported scenarios
 
-- Update schedules having Pre/Post tasks won't be migrated for now.
 - Non-Azure Saved Search Queries won't be migrated; these have to be migrated manually.
 
 For the complete list of limitations and things to note, see the last section of this article.
@@ -146,6 +145,7 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
 
 #### Prerequisite 2: Create User Identity and Role Assignments by running PowerShell script
 
+
 **A. Prerequisites to run the script**
 
    - Run the command `Install-Module -Name Az -Repository PSGallery -Force` in PowerShell. The prerequisite script depends on Az.Modules. This step is required if Az.Modules aren't present or updated.
@@ -157,7 +157,7 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
 
 **B. Run the script** 
 
-   Download and run the PowerShell script [`MigrationPrerequisiteScript`](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/main/MigrationPrerequisites.ps1) locally. This script takes AutomationAccountResourceId of the Automation account to be migrated as the input.
+   Download and run the PowerShell script [`MigrationPrerequisiteScript`](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/main/MigrationPrerequisites.ps1) locally. This script takes AutomationAccountResourceId of the Automation account to be migrated and AutomationAccountAzureEnvironment as the inputs. The accepted values for AutomationAccountAzureEnvironment are AzureCloud, AzureUSGovernment and AzureChina signifying the cloud to which the automation account belongs.
     
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-script.png" alt-text="Screenshot that shows how to download and run the script." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-script.png":::
 
@@ -173,7 +173,8 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
 
 **D. Backend operations by the script**
 
- 1. Updating the Az.Modules for the Automation account, which will be required for running migration and deboarding scripts
+ 1. Updating the Az.Modules for the Automation account, which will be required for running migration and deboarding scripts.
+ 1. Creates an automation variable with name AutomationAccountAzureEnvironment which will store the Azure Cloud Environment to which Automation Account belongs.
  1. Creation of User Identity in the same Subscription and resource group as the Automation Account. The name of User Identity will be like *AutomationAccount_aummig_umsi*. 
  1. Attaching the User Identity to the Automation Account.
  1. The script assigns the following permissions to the user managed identity: [Update Management Permissions Required](../automation/automation-role-based-access-control.md#update-management-permissions).
@@ -182,6 +183,7 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
      1. For this, the script fetches all the machines onboarded to Automation Update Management under this automation account and parse their subscription IDs to be given the required RBAC to the User Identity. 
      1. The script gives a proper RBAC to the User Identity on the subscription to which the automation account belongs so that the MRP configs can be created here.
      1. The script assigns the required roles for the Log Analytics workspace and solution. 
+ 1. Registration of required subscriptions to Microsoft.Maintenance and Microsoft.EventGrid Resource Providers.
  
 #### Step 1: Migration of machines and schedules
 
@@ -234,12 +236,12 @@ The migration of runbook does the following tasks:
 
 The following is the behavior of the migration script:
 
-- Check if a resource group with the name taken as input is already present in the subscription of the automation account or not. If not, then create a resource group with the name specified by the Cx. This resource group is used for creating the MRP configs for V2. 
-- The script ignores the update schedules that have pre and post scripts associated with them. For pre and post scripts update schedules, migrate them manually.
+- Check if a resource group with the name taken as input is already present in the subscription of the automation account or not. If not, then create a resource group with the name specified by the customer. This resource group is used for creating the MRP configs for V2. 
 - RebootOnly Setting isn't available in Azure Update Manager. Schedules having RebootOnly Setting aren't migrated.
 - Filter out SUCs that are in the errored/expired/provisioningFailed/disabled state and mark them as **Not Migrated**, and print the appropriate logs indicating that such SUCs aren't migrated. 
 - The config assignment name is a string that will be in the format **AUMMig_AAName_SUCName** 
 - Figure out if this Dynamic Scope is already assigned to the Maintenance config or not by checking against Azure Resource Graph. If not assigned, then only assign with assignment name in the format **AUMMig_ AAName_SUCName_SomeGUID**.
+- For schedules having pre/post tasks configured, the script will create an automation webhook for the runbooks in pre/post tasks and event grid subscriptions for pre/post maintenance events. For more information, see [how pre/post works in Azure Update Manager](tutorial-webhooks-using-runbooks.md)
 - A summarized set of logs is printed to the Output stream to give an overall status of machines and SUCs. 
 - Detailed logs are printed to the Verbose Stream.  
 - Post-migration, a Software Update Configuration can have any one of the following four migration statuses:
@@ -255,10 +257,10 @@ The below table shows the scenarios associated with each Migration Status.
 |---|---|---|---|
 |Failed to create Maintenance Configuration for the Software Update Configuration.| Non-Zero number of Machines where Patch-Settings failed to apply.| Failed to get software update configuration from the API due to some client/server error like maybe **internal Service Error**.|  |
 |  | Non-Zero number of Machines with failed Configuration Assignments.| Software Update Configuration is having reboot setting as reboot only. This isn't supported today in Azure Update Manager.|  |
-|  | Non-Zero number of Dynamic Queries failed to resolve that is failed to execute the query against Azure Resource Graph.| Software Update Configuration is having Pre/Post Tasks. Currently, Pre/Post in Preview in Azure Update Manager and such schedules won't be migrated.|  |
+|  | Non-Zero number of Dynamic Queries failed to resolve that is failed to execute the query against Azure Resource Graph.| |  |
 |  | Non-Zero number of Dynamic Scope Configuration assignment failures.| Software Update Configuration isn't having succeeded provisioning state in DB.|  |
 |  | Software Update Configuration is having Saved Search Queries.| Software Update Configuration is in errored state in DB.|  |
-|  |  | Schedule associated with Software Update Configuration is already expired at the time of migration.|  |
+|  | Software Update Configuration is having pre/post tasks which have not been migrated successfully. | Schedule associated with Software Update Configuration is already expired at the time of migration.|  |
 |  |  | Schedule associated with Software Update Configuration is disabled.|  |
 |  |  | Unhandled exception while migrating software update configuration.| Zero Machines where Patch-Settings failed to apply.<br><br> **And** <br><br> Zero Machines with failed Configuration Assignments. <br><br> **And** <br><br> Zero Dynamic Queries failed to resolve that is failed to execute the query against Azure Resource Graph. <br><br> **And** <br><br> Zero Dynamic Scope Configuration assignment failures. <br><br> **And** <br><br> Software Update Configuration has zero Saved Search Queries.|
 
@@ -309,7 +311,6 @@ You can also search with the name of the update schedule to get logs specific to
  
 **Callouts for the migration process:**
 
-- Schedules having pre/post tasks won't be migrated for now.
 - Non-Azure Saved Search Queries won't be migrated. 
 - The Migration and Deboarding Runbooks need to have the Az.Modules updated to work. 
 - The prerequisite script updates the Az.Modules to the latest version 8.0.0.
@@ -344,7 +345,7 @@ Guidance to move various capabilities is provided in table below:
 4 | Dynamic Update deployment schedules (Defining scope of machines using resource group, tags, etc. that is evaluated dynamically at runtime).| Same as static update schedules. | Same as static update schedules. | [Add a dynamic scope](manage-dynamic-scoping.md#add-a-dynamic-scope) | [Create a dynamic scope]( tutorial-dynamic-grouping-for-scheduled-patching.md#create-a-dynamic-scope) |
 5 | Deboard from Azure Automation Update management. | After you complete the steps 1, 2, and 3, you need to clean up Azure Update management objects. | |  [Remove Update Management solution](../automation/update-management/remove-feature.md#remove-updatemanagement-solution) </br> | NA |
 6 | Reporting | Custom update reports using Log Analytics queries. | Update data is stored in Azure Resource Graph (ARG). Customers can query ARG data to build custom dashboards, workbooks etc. | The old Automation Update Management data stored in Log analytics can be accessed, but there's no provision to move data to ARG. You can write ARG queries to access data that will be stored to ARG after virtual machines are patched via Azure Update Manager. With ARG queries you can, build dashboards and workbooks using following instructions: </br> 1. [Log structure of Azure Resource graph updates data](query-logs.md) </br> 2. [Sample ARG queries](sample-query-logs.md) </br> 3. [Create workbooks](manage-workbooks.md) | NA |
-7 | Customize workflows using pre and post scripts. | Available as Automation runbooks. | We recommend that you try out the Public Preview for pre and post scripts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Manage pre and post events (preview)](manage-pre-post-events.md) | |
+7 | Customize workflows using pre and post scripts. | Available as Automation runbooks. | We recommend that you try out the Public Preview for pre and post scripts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Manage pre and post events (preview)](manage-pre-post-events.md) and [Tutorial: Create pre and post events using a webhook with Automation](tutorial-webhooks-using-runbooks.md) | |
 8 | Create alerts based on updates data for your environment | Alerts can be set up on updates data stored in Log Analytics. | We recommend that you try out the Public Preview for alerts on your non-production machines and use the feature on production workloads once the feature enters General Availability. |[Create alerts (preview)](manage-alerts.md) | |
 
 
