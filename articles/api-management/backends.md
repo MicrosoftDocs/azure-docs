@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: concept article
-ms.date: 05/05/2024
+ms.date: 05/13/2024
 ms.author: danlep 
 ms.custom:
 ---
@@ -210,17 +210,15 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-previ
   properties: {
     description: 'Load balancer for multiple backends'
     type: 'Pool'
-    protocol: 'http'
-    url: 'https://example.com'
     pool: {
       services: [
         {
-          id: '/backends/backend-1'
+          id: '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ApiManagement/service/<APIManagementName>/backends/backend-1'
           priority: 1
           weight: 3
         }
         {
-          id: '/backends/backend-2'
+          id: '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ApiManagement/service/<APIManagementName>/backends/backend-2'
           priority: 1
           weight: 1
         }
@@ -231,7 +229,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-previ
 ```
 #### [ARM](#tab/arm)
 
-Include a JSON snippet similar to the following in your ARM template for a backend resource with a load-balanced pool:
+Include a JSON snippet similar to the following in your ARM template for a backend resource with a load-balanced pool. 
 
 ```json
 {
@@ -241,17 +239,15 @@ Include a JSON snippet similar to the following in your ARM template for a backe
   "properties": {
     "description": "Load balancer for multiple backends",
     "type": "Pool",
-    "protocol": "http",
-    "url": "https://example.com",
     "pool": {
       "services": [
         {
-          "id": "/backends/backend-1",
+          "id": "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ApiManagement/service/<APIManagementName>/backends/backend-1",
           "priority": "1", 
           "weight": "3" 
         },
         {
-          "id": "/backends/backend-2",
+          "id": "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ApiManagement/service/<APIManagementName>/backends/backend-2",
           "priority": "1",
           "weight": "1"    
         }
