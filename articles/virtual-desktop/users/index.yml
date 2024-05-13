@@ -27,7 +27,6 @@ landingContent:
           - text: Remote Desktop clients overview
             url: remote-desktop-clients-overview.md
 
-
   # Card
   - title: Connect to Azure Virtual Desktop with Windows App
     linkLists:
@@ -37,16 +36,16 @@ landingContent:
             url: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
       - linkListType: how-to-guide
         links:
-          - text: Connect using the Remote Desktop client for Windows
-            url: ./users/connect-windows.md
-          - text: Connect using the Remote Desktop client from a web browser
-            url: ./users/connect-web.md
-          - text: Connect using the Remote Desktop client for macOS
-            url: ./users/connect-macos.md
-          - text: Connect using the Remote Desktop client for iOS/iPadOS
-            url: ./users/connect-ios-ipados.md
-          - text: Connect using the Remote Desktop client for Android/Chrome OS
-            url: ./users/connect-android-chrome-os.md
+          - text: Device actions
+            url: /windows-app/device-actions
+          - text: Configure display settings
+            url: /windows-app/display-settings
+          - text: Manage user accounts
+            url: /windows-app/user-account-settings-add-remove-manage
+          - text: Use keyboard, mouse, touch, and pen
+            url: /windows-app/input-keyboard-mouse-touch-pen
+          - text: Redirect local devices, audio, and folders
+            url: /windows-app/device-audio-folder-redirection-teams
 
   # Card
   - title: Connect to Azure Virtual Desktop with the Remote Desktop client
@@ -54,15 +53,15 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Connect from Windows
-            url: ./users/connect-windows.md
+            url: onnect-windows.md
           - text: Connect from a web browser
-            url: ./users/connect-web.md
+            url: connect-web.md
           - text: Connect from macOS
-            url: ./users/connect-macos.md
+            url: connect-macos.md
           - text: Connect from iOS/iPadOS
-            url: ./users/connect-ios-ipados.md
+            url: connect-ios-ipados.md
           - text: Connect from Android/Chrome OS
-            url: ./users/connect-android-chrome-os.md
+            url: connect-android-chrome-os.md
       - linkListType: how-to-guide
         links:
           - text: Windows client features
