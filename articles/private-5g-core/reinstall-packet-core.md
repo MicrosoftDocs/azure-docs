@@ -86,6 +86,11 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 ## Verify reinstall
 
 1. Navigate to the **Packet Core Control Plane** resource and check that the **Packet core installation state** field contains **Installed**, as described in [View the packet core instance's installation status](#view-the-packet-core-instances-installation-status).
+1. Select **Resource Health** under the **Help** section on the left side.
+
+    - Check that the resource is healthy and there are no unexpected alerts.
+    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
 
 ## Next steps
