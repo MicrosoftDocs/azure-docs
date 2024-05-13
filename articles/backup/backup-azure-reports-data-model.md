@@ -192,7 +192,7 @@ This table provides details about job-related fields.
 | DatasourceResourceId           | Text          | Backup vault | Azure Resource Manager (ARM) ID of the datasource being backed up                    |
 | DatasourceType                 | Text          | Backup vault | Type of the datasource being backed up, for example, Microsoft.DBforPostgreSQL/servers/databases                    |
 | DatasourceFriendlyName         | Text          | Backup vault | Friendly name of the datasource being backed up                    |
-| SubscriptionId                 | Text          | Backup vault | Subscription id of the vault                   |
+| SubscriptionId                 | Text          | Backup vault | Subscription ID of the vault                   |
 | ResourceGroupName              | Text          | Backup vault | Resource Group of the vault                    |
 | VaultName                      | Text          | Backup vault | Name of the vault                    |
 | VaultTags                      | Text          | Backup vault | Tags of the vault                    |
@@ -313,7 +313,7 @@ This table lists operations such as adhoc backup/restore of on-premises machine,
 | OperationStartTime   | DateTime  | Recovery Services vault | The start time of the operation. |
 | ExtendedProperties   | Dynamic   | Recovery Services vault | Additional properties applicable to the operation, for example, the associated backup item or server.  |
 | BackupManagementType | Text      | Recovery Services vault | Type of workload associated with the operation, for example, DPM, Azure Backup Server, Azure Backup Agent (MAB). |
-| OperationType | Text | Recovery Services vault |Type of the azure backup operation being executed, for example, changing passphrase.     |
+| OperationType | Text | Recovery Services vault |Type of the azure Backup operation being executed, for example, changing passphrase.     |
 | SchemaVersion | Text | Recovery Services vault | Version of the schema. For example, **V2**. |
 | SourceSystem  | Text | Recovery Services vault | Source system of the current data - Azure.  |
 | Type          | Text | Recovery Services vault | The name of the table.                      |
