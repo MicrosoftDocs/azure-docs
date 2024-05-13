@@ -551,6 +551,8 @@
     href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
+  - name: Monitoring data reference
+    href: monitor-site-recovery-reference.md  
   - name: Monitor using Backup center
     href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: Reporting
@@ -558,9 +560,7 @@
   - name: Configure Site Recovery reports
     href: report-site-recovery.md
   - name: Log analytics
-    href: reporting-log-analytics.md  
-  - name: Monitoring data reference
-    href: monitor-site-recovery-reference.md     
+    href: reporting-log-analytics.md     
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure VMs
