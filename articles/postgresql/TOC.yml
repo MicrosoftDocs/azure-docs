@@ -169,6 +169,8 @@
           href: flexible-server/concepts-query-store-best-practices.md
         - name: Query Performance Insight
           href: flexible-server/concepts-query-performance-insight.md
+        - name: Index tuning (preview)
+          href: flexible-server/concepts-index-tuning.md
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Read replicas
@@ -392,6 +394,12 @@
         href: flexible-server/how-to-configure-and-access-logs.md
     - name: Intelligent performance
       items:
+        - name: Index tuning
+          items:
+          - name: Configure index tuning
+            href: flexible-server/how-to-configure-index-tuning.md
+          - name: Use index recommendations
+            href: flexible-server/how-to-get-and-apply-recommendations-from-index-tuning.md
         - name: Intelligent tuning
           items:
           - name: Azure portal
