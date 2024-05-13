@@ -32,7 +32,7 @@ If your scale set is part of a Service Fabric cluster, *Automatic* mode is the o
 
 ### Manual upgrade policy
 > [!NOTE]
-> Manual upgrade policy is available for both Virtual Machine Scale Sets with Uniform Orchestration and Virtual Machine Scale Sets with Flexible Orchestration. 
+> Manual upgrade policy is generally available for Virtual Machine Scale Sets with Uniform Orchestration. 
 >
 >**Manual upgrade policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
@@ -42,7 +42,9 @@ Manual upgrade policy is best suited for workloads where you require more contro
 
 ### Rolling upgrade policy
 > [!NOTE]
-> Rolling upgrade policy is available for both Virtual Machine Scale Sets with Uniform Orchestration and Virtual Machine Scale Sets with Flexible Orchestration. 
+> Rolling upgrade policy is generally available for Virtual Machine Scale Sets with Uniform Orchestration. 
+>
+>**Rolling upgrade policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
 With a rolling upgrade policy, the scale set performs updates in batches. You also get more control over the upgrades with settings like batch size, max healthy percentage, prioritizing unhealthy instances and enabling upgrades across availability zones. 
 

@@ -12,9 +12,10 @@ ms.custom: upgradepolicy
 # Configure rolling upgrades on Virtual Machine Scale Sets
 
 > [!NOTE]
-> Rolling upgrade policy is available for both Virtual Machine Scale Sets with Uniform Orchestration and Virtual Machine Scale Sets with Flexible Orchestration. 
+> Rolling upgrade policy is generally available for Virtual Machine Scale sets with Uniform Orchestration. 
 >
->**Rolling upgrade policy for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
+>**Rolling upgrade policy is available for Virtual Machine scale Sets with Flexible Orchestration and is currently in preview.**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+
 
 Rolling upgrade policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances available to take traffic, meaning you don't need to take down your entire workload to make a change. 
 
