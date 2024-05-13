@@ -434,7 +434,7 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
 -H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
-### Document extractive summarization example JSON response
+### Text extractive summarization example JSON response
 
 ```json
 {
@@ -444,7 +444,7 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
     "expirationDateTime": "2022-09-29T19:33:42Z",
     "status": "succeeded",
     "errors": [],
-    "displayName": "Document ext Summarization Task Example",
+    "displayName": "Text ext Summarization Task Example",
     "tasks": {
         "completed": 1,
         "failed": 0,
@@ -453,7 +453,7 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
         "items": [
             {
                 "kind": "ExtractiveSummarizationLROResults",
-                "taskName": "Document Extractive Summarization Task 1",
+                "taskName": "Text Extractive Summarization Task 1",
                 "lastUpdateDateTime": "2022-09-28T19:33:43.6712507Z",
                 "status": "succeeded",
                 "results": {

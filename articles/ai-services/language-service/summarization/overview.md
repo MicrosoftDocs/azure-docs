@@ -74,9 +74,14 @@ This documentation contains the following article types:
 
 # [Document summarization](#tab/document-summarization)
 
+This documentation contains the following article types:
+
+* **[Quickstarts](quickstart.md?pivots=rest-api&tabs=text-summarization)** are getting-started instructions to guide you through making requests to the service.
+* **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
+
+Document summarization uses natural language processing techniques to generate a summary for documents. There are two supported API approaches to automatic summarization: extractive and abstractive. 
 
 ---
-
 
 # [Text summarization](#tab/text-summarization)
 
@@ -139,8 +144,11 @@ Conversation summarization feature would simplify the text as follows:
 
 # [Conversation summarization](#tab/conversation-summarization)
 
+No information currently available.
+
 # [Document summarization](#tab/document-summarization)
 
+No information currently available.
 
 ---
 
