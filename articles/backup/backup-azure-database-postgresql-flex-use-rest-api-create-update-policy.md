@@ -36,7 +36,7 @@ This object defines the type of backups that are triggered, the way they are tri
 
 To create an Azure Backup policy, use the following *PUT* operation:
 
->[Important]
+>[!Important]
 >Currently, updating or modifying an existing policy isn't supported. Alternatively, you can create a new policy with the required details and assign it to the relevant backup instance.
 
 ```HTTP
@@ -59,7 +59,7 @@ For the complete list of definitions in the request body, see the [backup policy
 
 The policy says that:
 
-- It's scheduled to triggrr weekly backup and choose the start time (Time + P1W).
+- It's scheduled to trigger weekly backup and choose the start time (Time + P1W).
 - Datastore is vault store, as the backups are directly transferred to the vault.
 - The backups are retained in the vault for three months (P3M).
 
