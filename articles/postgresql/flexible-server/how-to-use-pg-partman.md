@@ -39,7 +39,7 @@ To enable the `pg_partman` extension, follow these steps:
 
    You can use server parameters in the Azure portal to change the following configuration options that affect the Background Writer (BGW) process:
 
-   - `pg_partman_bgw.dbname`: Required. This parameter should contain one or more databases where `run_maintenance()` needs to run. If there's more than one, use a comma-separated list. If nothing is set, `pg_partman_bgw` doesn't run the procedure.
+   - `pg_partman_bgw.dbname`: Required. This parameter should contain one or more databases where `run_maintenance()` needs to run. If there's more than one database, use a comma-separated list. If nothing is set, `pg_partman_bgw` doesn't run the procedure.
 
    - `pg_partman_bgw.interval`: The number of seconds between calls to the `run_maintenance()` procedure. Default is `3600` (1 hour). You can update this value based on the requirements of the project.
 
@@ -222,7 +222,7 @@ Run the maintenance procedure by using `pg_cron`:
    SELECT * FROM cron.job_run_details; 
    ```
 
-   The results show 0 records because the you haven't run the job yet.
+   The results show zero records because you haven't run the job yet.
 
 6. To unschedule the `cron` job, use the following command:
 
