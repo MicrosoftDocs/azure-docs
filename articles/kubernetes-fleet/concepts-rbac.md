@@ -12,19 +12,19 @@ ms.topic: conceptual
 
 [Azure role-based access control (Azure RBAC)][azure-rbac-overview] is an authorization system built on Azure Resource Manager that provides fine-grained access management to Azure resources.
 
-This article provides an overview of the various built-in Azure RBAC roles that you can use to access Azure Kubernetes Fleet Manager (Fleet) resources.
+This article provides an overview of the various built-in Azure RBAC roles that you can use to access Azure Kubernetes Fleet Manager (Kubernetes Fleet) resources.
 
 ## Control plane
 
-This role grants access to Azure Resource Manager (ARM) Fleet resources and subresources, and is applicable both to hubless and hubful Fleets.
+This role grants access to Azure Resource Manager (ARM) Fleet resources and subresources, and is applicable both Kubernetes Fleet resource with and without a hub cluster.
 
 |Role name|Description|Usage|
 |---------|-----------|-----|
-|[Azure Kubernetes Fleet Manager Contributor][azure-rbac-fleet-manager-contributor-role]|This role grants read and write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, and more.|You can use this role to grant Contributor permissions that apply solely to Fleet resources and subresources. For example, this role can be given to an Azure administrator tasked with defining and maintaining Fleet resources.|
+|[Azure Kubernetes Fleet Manager Contributor][azure-rbac-fleet-manager-contributor-role]|This role grants read and write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, and more.|You can use this role to grant Contributor permissions that apply solely to Kubernetes Fleet resources and subresources. For example, this role can be given to an Azure administrator tasked with defining and maintaining Fleet resources.|
 
 ## Data plane
 
-These roles grant access to Fleet hub Kubernetes objects, and are therefore only applicable to hubful Fleets.
+These roles grant access to Fleet hub Kubernetes objects, and are therefore only applicable to Kubernetes Fleet resources with a hub cluster.
 
 You can assign data plane roles at the Fleet hub cluster scope, or at an individual Kubernetes namespace scope by appending `/namespace/<namespace>` to the role assignment scope.
 
@@ -37,7 +37,7 @@ You can assign data plane roles at the Fleet hub cluster scope, or at an individ
 
 ## Example role assignments
 
-You can grant Azure RBAC roles using the [Azure CLI][azure-cli-overview]. For example, to create a role assignment at the Fleet hub cluster scope:
+You can grant Azure RBAC roles using the [Azure CLI][azure-cli-overview]. For example, to create a role assignment at the Kubernetes Fleet hub cluster scope:
 
 ```azurecli-interactive
 IDENTITY=$(az ad signed-in-user show --output tsv --query id)
@@ -46,7 +46,7 @@ FLEET_ID=$(az fleet show --resource-group $GROUP --name $FLEET --output tsv --qu
 az role assignment create --role 'Azure Kubernetes Fleet Manager RBAC Reader' --assignee "$IDENTITY" --scope "$FLEET_ID"
 ```
 
-You can also scope role assignments to an individual Kubernetes namespace. For example, to create a role assignment for a Fleet hub's default Kubernetes namespace:
+You can also scope role assignments to an individual Kubernetes namespace. For example, to create a role assignment for a Kubernetes Fleet hub's default Kubernetes namespace:
 
 ```azurecli-interactive
 IDENTITY=$(az ad signed-in-user show --output tsv --query id)

@@ -49,7 +49,7 @@ An update run can be in one of the following states:
 - **NotStarted**: State of the update run before it is started.
 - **Running**: Upgrade is in progress for at least one of the clusters in the update run.
 - **Pending**: 
-  - **Member cluster**: A member cluster can be in the pending state for any of the following reasons and are surfaced under the message field - 
+  - **Member cluster**: A member cluster can be in the pending state for any of the following reasons and are surfaced under the message field.
     - Maintenance window is not open. Message indicates next opening time.
     - Target Kubernetes version is not yet available in the region of the member. Message links to the release tracker so that you can check status of the release across regions.
     - Target node image version is not yet available in the region of the member. Message links to the release tracker so that you can check status of the release across regions.
@@ -64,7 +64,7 @@ An update run can be in one of the following states:
     - When consistent node image is chosen for an upgrade run, if it's not possible to find the target image version for one of the node pools, then upgrade is skipped for that cluster. An example situation for this is when a new node pool with a new VM SKU is added after an update run has started.
   - **Group**:
     - All member clusters were detected as `Skipped` by the system.
-    - You initiated a skip at the group level
+    - You initiated a skip at the group level.
   - **Stage**:
     - All groups in the stage were detected as `Skipped` by the system.
     - You initiated a skip at the stage level.

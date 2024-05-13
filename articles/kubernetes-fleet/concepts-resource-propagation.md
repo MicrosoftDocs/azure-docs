@@ -62,7 +62,12 @@ The `ClusterResourcePlacement` object supports [using ConfigMap to envelope the 
 
 For more information, see the [`ClusterResourcePlacement` API reference][clusterresourceplacement-api].
 
-Once you select the resources, multiple placement policies are available:
+When creating the `ClusterResourcePlacement`, the following affinity types can be specified:
+
+- **requiredDuringSchedulingIgnoredDuringExecution**: As this affinity is of the required type during scheduling, it **filters** the clusters based on their properties.
+- **preferredDuringSchedulingIgnoredDuringExecution**: As this affinity is only of the preferred type, but is not required during scheduling, it provides preferential ranking to clusters based on properties specified by you such as cost or resource availability.
+
+Multiple placement types are available for controlling the number of clusters to which the Kubernetes resource needs to be propagated:
 
 * `PickAll` places the resources into all available member clusters. This policy is useful for placing infrastructure workloads, like cluster monitoring or reporting applications.
 * `PickFixed` places the resources into a specific list of member clusters by name.

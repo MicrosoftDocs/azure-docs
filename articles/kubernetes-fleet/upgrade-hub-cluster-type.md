@@ -1,18 +1,17 @@
 ---
-title: "How to upgrade an Azure Kubernetes Fleet Manager resource from hubless to hubful"
+title: "How to upgrade an Azure Kubernetes Fleet Manager resource between hub types"
 description: Learn how to upgrade an Azure Kubernetes Fleet Manager resource from hubless to hubful.
 ms.topic: how-to
 ms.date: 05/02/2024
-author: nickomang
-ms.author: nickoman
+author: shashankbarsin
+ms.author: shasb
 ms.service: kubernetes-fleet
 
-#customer intent: As a fleet operator, I want to learn how to upgrade from hubless to hubful fleets so that I can take advantage of the full feature set.
 ---
 
-# Upgrade an Azure Kubernetes Fleet Manager resource from hubless to hubful
+# Upgrade hub cluster type for Azure Kubernetes Fleet Manager resource
 
-In this article, you learn how to upgrade an Azure Kubernetes Fleet Manager (Fleet) resource from hubless to hubful. Fleet resources are hubless by default, which means they don't rely on a central Azure Kubernetes Service (AKS) cluster. A hubful fleet uses an AKS cluster to store and propagate configuration details to enable the full Fleet feature set, which includes scenarios such as workload orchestration and layer-4 load balancing.
+In this article, you learn how to upgrade an Azure Kubernetes Fleet Manager (Kubernetes Fleet) resource without a hub cluster to a Kubernetes Fleet resource that has a hub cluster. When a Kubernetes Fleet resource is created without a hub cluster, a central Azure Kubernetes Service (AKS) cluster isn't created for the Kubernetes Fleet resource. When a Kubernetes Fleet resource with a hub cluster is created, a central and managed AKS cluster is created to enable scenarios such as workload orchestration and layer-4 load balancing.
 
 For more information, see [Choosing an Azure Kubernetes Fleet Manager option][concepts-choose-fleet].
 
@@ -21,16 +20,18 @@ For more information, see [Choosing an Azure Kubernetes Fleet Manager option][co
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- You must have an existing hubless fleet resource. The steps in this article show you how to create a hubless fleet, but you already have one you can substitute your existing resource.
+- You must have an existing Kubernetes Fleet resource without a hub cluster. The steps in this article show you how to create a Kubernetes Fleet resource without a hub cluster. If you already have one, you can skip the initial setup and begin at [Upgrade hub cluster type for the Kubernetes Fleet resource](#upgrade-hub-cluster-type-for-the-kubernetes-fleet-resource).
 - This article also includes steps on joining member clusters. If you plan to follow along, you need at least one AKS cluster.
 
-- Hubless fleet resources can be upgraded to hubful, but hubful resources can't be downgraded to hubless.
-- All configuration options and settings associated with hubful fleets are immutable and can't be changed after creation or upgrade time.
-- Upgrading from hubless to hubful can only be done through the Azure CLI, and currently there's no equivalent Azure portal experience.
+
+> [!IMPORTANT]
+> Kubernetes Fleet resources without a hub cluster can be upgraded to a Kubernetes Fleet resource with a hub cluster. However, a Kubernetes Fleet resource that already has a hub cluster can't be downgraded to a Kubernetes Fleet resource without a hub cluster.
+> All configuration options and settings associated with Kubernetes Fleet resource that has a hub cluster are immutable and can't be changed after creation or upgrade time.
+> Upgrading from a Kubernetes Fleet resource without a hub cluster to one with a hub cluster can only be done through the Azure CLI. Currently there's no equivalent Azure portal experience.
 
 ## Initial setup
 
-To begin, create a resource group and a hubless fleet resource, and join your existing AKS cluster as a member. You'll need to repeat the `az fleet member create` command for each individual member cluster you want to associate with the fleet resource.
+To begin, create a resource group and a Kubernetes Fleet resource without a hub cluster, and join your existing AKS cluster as a member. You'll need to repeat the `az fleet member create` command for each individual member cluster you want to associate with the fleet resource.
 
 ```azurecli-interactive
 RG=myResourceGroup
@@ -47,16 +48,16 @@ az group create -n $RG -l $LOCATION
 az fleet create -g $RG -n $FLEET
 
 # Join member cluster to hubless fleet resource
-az fleet member create -n $FLEET_MEMBER -f $FLEET -g $RG --member-cluster-id /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.ContainerService/managedClusters/$CLUSTER
+az fleet member create --name $FLEET_MEMBER --fleet-name $FLEET --resource-group $RG --member-cluster-id /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.ContainerService/managedClusters/$CLUSTER
 ```
 
-## Upgrade the fleet resource
+## Upgrade hub cluster type for the Kubernetes Fleet resource
 
-To upgrade your hubless fleet resource to hubful, use the `az fleet create` command with the `--enable-hub` flag set. Be sure to include any other relevant configuration options, as the fleet resource will become immutable after this operation is complete.
+To upgrade the hub cluster type for the Kubernetes Fleet resource, use the `az fleet create` command with the `--enable-hub` flag set. Be sure to include any other relevant configuration options, as the fleet resource will become immutable after this operation is complete.
 
 ```azurecli-interactive
-# Upgrade the hubless fleet resource to a hubful fleet resource
-az fleet create -n $FLEET -g $RG --enable-hub 
+# Upgrade the Kubernetes fleet resource without a hub cluster to one with a hub cluster
+az fleet create --name $FLEET --resource-group $RG --enable-hub 
 
 ```
 
@@ -112,7 +113,9 @@ For each member cluster that you rejoin to the newly upgraded fleet, view the ou
 
 ## Verify functionality
 
-To verify that your newly upgraded fleet resource is functioning properly and member clusters joined successfully, confirm that you're able to access the API server using the `kubectl get memberclusters` command.
+You need access to the Kubernetes API of the hub cluster. If you don't have access, see [Access the Kubernetes API of the Fleet resource with Azure Kubernetes Fleet Manager](./quickstart-access-fleet-kubernetes-api.md).
+
+To verify that your newly upgraded Kubernetes Fleet resource is functioning properly and that the member clusters joined successfully, confirm that you're able to access the hub cluster's API server using the `kubectl get memberclusters` command.
 
 If successful, your output should look similar to the following example output:
 
@@ -133,7 +136,7 @@ az group delete -n $RG
 
 ## Next steps
 
-Now that your hubless fleet resource is upgraded to a hubful fleet resource, you can take advantage of features that were previously unavailable to you. For example, see:
+Now that your Kubernetes Fleet resource is upgraded to have a hub cluster, you can take advantage of features that were previously unavailable to you. For example, see:
 
 > [!div class="nextstepaction"]
 > [Layer-4 load balancing across Fleet member clusters](l4-load-balancing.md)
