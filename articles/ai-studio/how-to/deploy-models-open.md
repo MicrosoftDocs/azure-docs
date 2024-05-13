@@ -52,7 +52,7 @@ Alternatively, you can initiate deployment by starting from your project in AI S
 
 ### Deploying a model
 
-Serverless API models are the models you can deploy with pay-as-you-go billing. Examples include Phi-3, Llama-2, Command R, Mistral Large, and more. For serverless API models, you are only charged for inferencing, unless you choose to fine-tune the model. 
+Serverless API models are the models you can deploy with pay-as-you-go billing. Examples include Phi-3, Llama-2, Command R, Mistral Large, and more. For serverless API models, you're only charged for inferencing, unless you choose to fine-tune the model. 
 
 #### Get the model ID
 
@@ -65,7 +65,7 @@ You can deploy Serverless API models using the Azure Machine Learning SDK, but f
     :::image type="content" source="../media/deploy-monitor/catalog-filter-serverless-api.png" alt-text="A screenshot showing how to filter by serverless API models in the catalog." lightbox="../media/deploy-monitor/catalog-filter-serverless-api.png"::: 
 
 1. Select a model.
-1. Copy the model ID from the details page of the model you selected. It will look something like this: `azureml://registries/azureml-cohere/models/Cohere-command-r-plus/versions/3`
+1. Copy the model ID from the details page of the model you selected. It looks something like this: `azureml://registries/azureml-cohere/models/Cohere-command-r-plus/versions/3`
 
 
 #### Install the Azure Machine Learning SDK
@@ -79,7 +79,7 @@ pip install azure-identity
 
 #### Deploy the serverless API model
 
-First, you will need to authenticate into Azure AI.
+First, you need to authenticate into Azure AI.
 
 ```python
 from azure.ai.ml import MLClient
@@ -144,13 +144,13 @@ print(endpoint_keys.secondary_key)
 
 #### Inference the deployment
 
-To inference, you will want to use the code specifically catering to different model types and SDKs you are using. You can find code samples on [our sample repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models).
+To inference, you want to use the code specifically catering to different model types and SDK you're using. You can find code samples at the [Azure/azureml-examples sample repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models).
 
 ## Deploy and inference a managed compute deployment with code
 
 ### Deploying a model
 
-Azure AI model catalog offers over 1600 models, and the most common way to deploy these models is to use the managed compute deployment option, which is also sometimes referred to as a managed online deployment. 
+The AI Studio [model catalog](../how-to/model-catalog-overview.md) offers over 1,600 models, and the most common way to deploy these models is to use the managed compute deployment option, which is also sometimes referred to as a managed online deployment. 
 
 #### Get the model ID
 
@@ -163,7 +163,7 @@ You can deploy managed compute models using the Azure Machine Learning SDK, but 
     :::image type="content" source="../media/deploy-monitor/catalog-filter-managed-compute.png" alt-text="A screenshot showing how to filter by managed compute models in the catalog." lightbox="../media/deploy-monitor/catalog-filter-managed-compute.png"::: 
 
 1. Select a model.
-1. Copy the model ID from the details page of the model you selected. It will look something like this: `azureml://registries/azureml/models/deepset-roberta-base-squad2/versions/16`
+1. Copy the model ID from the details page of the model you selected. It looks something like this: `azureml://registries/azureml/models/deepset-roberta-base-squad2/versions/16`
 
 #### Install the Azure Machine Learning SDK
 
@@ -247,7 +247,7 @@ workspace_ml_client.begin_create_or_update(endpoint).result()
 ```
 
 #### Inference the deployment
-You'll need a sample json data to test inferencing. Create `sample_score.json` with the following example. 
+You need a sample json data to test inferencing. Create `sample_score.json` with the following example. 
 
 ```python
 {

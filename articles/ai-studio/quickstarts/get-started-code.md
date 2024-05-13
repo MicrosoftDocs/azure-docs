@@ -25,7 +25,7 @@ Before you can follow this quickstart, you first need to create the resources yo
 - An Azure AI services resource connected to your project, for providing intelligent APIs and models
 - An Azure OpenAI chat model deployment (gpt-35-turbo or gpt-4)
 
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already. You can also create these resources by following the [Create resources using SDK how-to article](../how-to/develop/create-resources-sdk.md) article.
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already. You can also create these resources by following the [SDK guide to create a hub and project](../how-to/develop/create-hub-project-sdk.md) article.
 
 Also, you must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
 
@@ -95,7 +95,7 @@ After you install the Azure CLI, login using the ``az login`` command and sign-i
 az login
 ```
 
-Now we'll create our app and call the Azure OpenAI Service from code.
+Now we create our app and call the Azure OpenAI Service from code.
 
 ## Create a new Python environment
 
@@ -134,20 +134,20 @@ source .venv/bin/activate
 
 Activating the Python environment means that when you run ```python``` or ```pip``` from the command line, you'll be using the Python interpreter contained in the ```.venv``` folder of your application.
 
-NOTE: you can use the ```deactivate``` command to exit the python virtual environment, and can later re-activate it when
+NOTE: you can use the ```deactivate``` command to exit the python virtual environment, and can later reactivate it when
 
 ## Install the prompt flow SDK
 
 In this section, we use prompt flow to build our application. [https://microsoft.github.io/promptflow/](Prompt flow) is a suite of development tools designed to streamline the end-to-end development cycle of LLM-based AI applications, from ideation, prototyping, testing, evaluation to production deployment and monitoring.
 
-Use pip to install the prompt flow SDK into the virtual environment that you created
+Use pip to install the prompt flow SDK into the virtual environment that you created.
 ```
 pip install promptflow
 pip install azure-identity
 ```
 
 The prompt flow SDK takes a dependency on multiple packages, that you can choose to separately install if you don't want all of them:
- * ```promptflow-core```: contains the core promptflow runtime used for executing LLM code
+ * ```promptflow-core```: contains the core prompt flow runtime used for executing LLM code
  * ```promptflow-tracing```: lightweight library used for emitting OpenTelemetry traces in standards
  * ```promptflow-devkit```: contains the prompt flow test bed and trace viewer tools for local development environments
  * ```openai```: client libraries for using the Azure OpenAI service
@@ -258,7 +258,7 @@ Yes, other Azure AI services also support various capabilities and features. Som
 
 ## Trace the execution of your chat code
 
-Now we'll take a look at how prompt flow tracing can provide insights into the various LLM calls that are happening in our Python scripts.
+Now we take a look at how prompt flow tracing can provide insights into the various LLM calls that are happening in our Python scripts.
 
 At the start of your ```chat.py``` file, add the following code to enable prompt flow tracing:
 ```Python
@@ -266,12 +266,12 @@ from promptflow.tracing import start_trace
 start_trace()
 ```
 
-Re-run your ```chat.py``` again:
+Rerun your ```chat.py``` again:
 ```bash
 python chat.py
 ```
 
-This time you'll see a link in the output to view a prompt flow trace of the execution:
+This time you see a link in the output to view a prompt flow trace of the execution:
 ```terminal
 Starting prompt flow service...
 Start prompt flow service on port 23333, version: 1.10.1.
@@ -281,7 +281,7 @@ You can view the trace detail from the following URL:
 http://localhost:23333/v1.0/ui/traces/?#collection=aistudio-python-quickstart&uiTraceId=0x59e8b9a3a23e4e8893ec2e53d6e1e521
 ```
 
-If you click that link, you'll then see the trace showing the steps of the program execution, what was passed to the LLM and the response output.
+If you select that link, you'll then see the trace showing the steps of the program execution, what was passed to the LLM and the response output.
 
 :::image type="content" source="../media/quickstarts/promptflow-sdk/promptflow-tracing.png" alt-text="Screenshot of the trace showing the steps of the program execution." lightbox="../media/quickstarts/promptflow-sdk/promptflow-tracing.png":::
 
@@ -289,7 +289,7 @@ Prompt flow tracing also allows you to trace specific function calls and log tra
 
 ## Evaluate your prompt
 
-Now let's show how we can use prompt flow evaluators to generate metrics that can score the quality of the conversation on a scale from 0 to 5. We'll run the prompt again but this time we'll store the results into an array containing the full conversation, and then pass that to a ```ChatEvaluator``` to score.
+Now let's show how we can use prompt flow evaluators to generate metrics that can score the quality of the conversation on a scale from 0 to 5. We run the prompt again but this time we store the results into an array containing the full conversation, and then pass that to a ```ChatEvaluator``` to score.
 
 First, install the ```promptflow-evals package```:
 ```
@@ -344,7 +344,7 @@ You should see an output that looks like this:
 
 Looks like we scored 5 for coherence and fluency of the LLM responses on this conversation! 
 
-For more information on how to use prompt flow evaluators, including how to make your own custom evaluators and log evaluation results to AI Studio, be sure to check out [Evaluate your app using the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md)
+For more information on how to use prompt flow evaluators, including how to make your own custom evaluators and log evaluation results to AI Studio, be sure to check out [Evaluate your app using the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md).
 
 
 ## Related content
