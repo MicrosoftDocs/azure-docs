@@ -48,12 +48,13 @@ For more information, see [Develop C# class library functions using Azure Functi
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
-| .NET 7 | GA | [May 14, 2024][dotnet-policy] |
 | .NET 6 | GA | [November 12, 2024][dotnet-policy] |
 | .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
+
+.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
