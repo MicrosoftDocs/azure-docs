@@ -203,19 +203,21 @@
             href: point-to-site-how-to-vpn-client-install-azure-cert.md
           - name: Windows clients
             items:
-            - name: Native VPN client - Windows
+            - name: Native VPN client
               href: point-to-site-vpn-client-certificate-windows-native.md
-            - name: Azure VPN client - Windows
+            - name: Azure VPN client
               href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
           - name: Linux clients
             items:
+            - name: Azure VPN client
+              href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
             - name: OpenVPN client
               href: point-to-site-vpn-client-cert-linux.md#openvpn
             - name: IKEv2 -strongSwan
               href: point-to-site-vpn-client-cert-linux.md#ike
           - name: macOS and iOS clients
             items:
-            - name: Native VPN client - macOS
+            - name: Native VPN client
               href: point-to-site-vpn-client-cert-mac.md
             - name: OpenVPN client - macOS
               href: point-to-site-vpn-client-cert-mac.md
