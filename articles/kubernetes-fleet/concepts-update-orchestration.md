@@ -53,7 +53,7 @@ An update run can be in one of the following states:
     - Maintenance window is not open. Message indicates next opening time.
     - Target Kubernetes version is not yet available in the region of the member. Message links to the release tracker so that you can check status of the release across regions.
     - Target node image version is not yet available in the region of the member. Message links to the release tracker so that you can check status of the release across regions.
-  - **Group**: A group is in `Pending` state if all member in the groups are in `Pending` state or not started. When a member moves to `Pending`, the update run will attempt to upgrade the next member in the group. If all members are in `Pending` status, the group moves to `Pending` state. All groups must be in terminal state before moving to the next stage. That is, if a group is in `Pending` state, the update run waits for it to complete before moving on to the next stage for execution.
+  - **Group**: A group is in `Pending` state if all members in the groups are in `Pending` state or not started. When a member moves to `Pending`, the update run will attempt to upgrade the next member in the group. If all members are in `Pending` status, the group moves to `Pending` state. All groups must be in terminal state before moving to the next stage. That is, if a group is in `Pending` state, the update run waits for it to complete before moving on to the next stage for execution.
   - **Stage**: A stage is in `Pending` if all groups under that stage are in `Pending` state or not started.
   - **Run**: A run is in `Pending` state if the current stage that should be running is in `Pending` state.
 - **Skipped**: All levels of an update run can be skipped and this could either be system-detected or user-initiated.
@@ -66,7 +66,7 @@ An update run can be in one of the following states:
     - All member clusters were detected as `Skipped` by the system.
     - You initiated a skip at the group level
   - **Stage**:
-    - All groups in the stage where detected as `Skipped` by the system.
+    - All groups in the stage were detected as `Skipped` by the system.
     - You initiated a skip at the stage level.
   - **Run**:
     - All stages were detected as `Skipped` by the system.
