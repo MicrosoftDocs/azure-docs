@@ -89,7 +89,7 @@ To create a deployment:
 
 1. Select **Open in playground** to start interacting with the model. 
 
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions. For more information on using the APIs, see [Reference: Chat Completions](../reference/reference-model-inference-chat-completions.md).
+1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions.
 
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
@@ -104,7 +104,7 @@ Models deployed as a service can be consumed using the chat API, depending on th
 
 1. Copy the **Target** URL and the **Key** value.
 
-1. Make an API request using the `/v1/chat/completions` API using `<target_url>/v1/chat/completions`. For more information on using the APIs, see the [Reference: Chat Completions](../reference/reference-model-inference-chat-completions.md).
+1. Make an API request using the `/v1/chat/completions` API using `<target_url>/v1/chat/completions`.
 
 ## Cost and quotas
 
