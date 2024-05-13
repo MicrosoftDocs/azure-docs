@@ -70,8 +70,6 @@ Now that you’ve connected the Application Insights (preview) resource to the A
 
 In this example, you create an ASP.NET web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can hit the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message will increase the number of users who like the quote. You create the _Greeting_ feature flag in Azure App Configuration with two variants, _Off_ and _On_. Users who receive the _Off_ variant will see a standard title. Users who receive the _On_ variant will get a greeting message. You collect and save the telemetry of your user interactions in Application Insights. With Split Experimentation Workspace, you can analyze the effectiveness of your experiment.
 
-Either follow the steps below to learn how to create this new app to run an experiment, or, to complete this tutorial faster, download/clone the app code available from the [App Configuration repository](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore)<!--update when app PR is merged-->, then create a user secret for the application and another one that holds the connection string for Application Insights by running the steps 2 and 3 below, and directly move on to [the build and run section](#build-and-run-the-app) below.
-
 ### Create an app and add user secrets
 
 1. Open a command prompt and run the following code. This creates a new Razor Pages application in ASP.NET Core, using Individual account auth, and places it in an output folder named *QuoteOfTheDay*.
@@ -140,7 +138,7 @@ Either follow the steps below to learn how to create this new app to run an expe
 
     * Adds an Application Insights telemetry client to the application.
     * Adds a telemetry initializer that appends targeting information to outgoing telemetry.
-    * Disables adaptive sampling. <!-- Once troublehooting doc is merged, add Refer to [Troublehooting](./partner-solutions/split-experimentation/troubleshoot.md#Sampling-in-Application-Insights) for more information on why adaptive sampling is disabled.-->
+    * Disables adaptive sampling. For more information about disabling adaptive sampling, go to [Troublehooting](../partner-solutions/split-experimentation/troubleshoot.md#sampling-in-application-insights).
 
 1. In the root folder *QuoteOfTheDay*, create a new file named *ExampleTargetingContextAccessor.cs*. This creates a new class named `ExampleTargetingContextAccessor`. Paste the content below into the file.
 
@@ -493,9 +491,4 @@ Any edit to a variant feature flag generates a new version of the experimentatio
 
 ## Next step
 
-> [!div class="nextstepaction"]
-> [Manage feature flags](./manage-feature-flags.md)
-
-<!-- update to following next step when doc is published
-> [!div class="nextstepaction"]
-> [Use cases for experimentation](./linktbd.md) -->
+> [Experimentation](./concept-experimentation.md)
