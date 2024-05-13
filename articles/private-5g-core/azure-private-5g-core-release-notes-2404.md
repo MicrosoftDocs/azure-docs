@@ -42,11 +42,13 @@ We're excited to announce that AP5GC is now resilient to system failures when ru
 ### In Service Software Upgrade 
 
 In our commitment to continuous improvement and minimizing service impact we’re excited to announce that, upgrading from this version to a future release will include the capability for In-Service Software Upgrades (ISSU).
+
 ISSU is supported for deployments on a 2-node cluster, software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade completes with no loss of sessions or registrations and minimal packet loss and packet reordering. Should the upgrade fail, the software will automatically roll back to the previous version, also with minimal service disruption.
 
 ### Azure Resource Health 
 
 This feature allows you to monitor the health of your control plane resource using Azure Resource Health.  Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
+
 For more information, see [Resource Health overview](resource-health-overview.md).
 
 ### NAS Encryption
@@ -55,14 +57,16 @@ NAS (Non-Access-Stratum) encryption configuration determines the encryption algo
 
 You can change the preferred encryption level after deployment by [modifying the packet core configuration](modify-packet-core.md).
 
-## Issues fixed in the AP5GC 2404 release
+<!--## Issues fixed in the AP5GC 2404 release
+# NO FIXED ISSUES IN AP5GC2404
 
 The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue |  SKU Fixed In |
   |-----|---------|-------|---------------|
   | 1   |         |       |               | 
-  
+ -->
+
 ## Known issues in the AP5GC 2404 release
 <!-- All known issues need a [customer facing summary](https://eng.ms/docs/strategic-missions-and-technologies/strategic-missions-and-technologies-organization/azure-for-operators/packet-core/private-mobile-network/azure-private-5g-core/cross-team/developmentprocesses/customer-facing-bug-summary)-->
 
@@ -70,7 +74,6 @@ The following table provides a summary of issues fixed in this release.
   |-----|---------|-------|---------------------|
   | 1 | Local distributed tracing | Local Dashboard Unavailable for 5-10 minutes after device failure | After the failure of a device in a two-node cluster, Azure Private 5G Core local dashboards won't be available for five to ten minutes. Once they recover, information for the time that they weren't available isn't shown. |
   | 2 | Local distributed tracing | When deployed on a two-node cluster, Azure Private 5G Core local dashboards can show an incorrect count for the number of PDU Sessions.   | |
-  | 3 | | **TODO SAS Incomplete Trails** | |
 
 The following table provides a summary of known issues carried over from the previous releases.
 

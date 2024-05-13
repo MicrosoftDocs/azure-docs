@@ -38,11 +38,13 @@ We're excited to announce that AP5GC is now resilient to system failures when ru
 ### In Service Software Upgrade 
 
 In our commitment to continuous improvement and minimizing service impact we’re excited to announce that when upgrading from this version to a future release, updates will include the capability for In-Service Software Upgrades (ISSU).
+
 ISSU is supported for deployments on a 2-node cluster, software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade completes with no loss of sessions or registrations and minimal packet loss and packet reordering. Should the upgrade fail, the software will automatically roll back to the previous version, also with minimal service disruption.
 
 ### Azure Resource Health 
 
 This feature allows you to monitor the health of your control plane resource using Azure Resource Health. Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
+
 For more information, see [Resource Health overview](resource-health-overview).
 
 ### NAS Encryption
