@@ -214,10 +214,15 @@ At runtime, connection strings are available as environment variables, prefixed 
 * MySQL: `MYSQLCONNSTR_` 
 * SQLAzure: `SQLAZURECONNSTR_` 
 * Custom: `CUSTOMCONNSTR_`
-* PostgreSQL: `POSTGRESQLCONNSTR_`  
+* PostgreSQL: `POSTGRESQLCONNSTR_`
+* Notification Hub: `NOTIFICATIONHUBCONNSTR_`
+* Service Bus: `SERVICEBUSCONNSTR_`
+* Event Hub: `EVENTHUBCONNSTR_`
+* Document Db: `DOCDBCONNSTR_`
+* Redis Cache: `REDISCACHECONNSTR_`
 
 >[!Note]
-> .NET apps targeting PostgreSQL should set the connection string to **Custom** as workaround for a [knows issue in .NET EnvironmentVariablesConfigurationProvider](https://github.com/dotnet/runtime/issues/36123) 
+> .NET apps targeting PostgreSQL, Notification Hub, Service Bus, Event Hub, Document Db and Redis Cache should set the connection string to **Custom** as workaround for a [knows issue in .NET EnvironmentVariablesConfigurationProvider](https://github.com/dotnet/runtime/issues/36123) 
 >
 
 For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
