@@ -155,7 +155,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
       > [!NOTE]
       >
-      > - Certificate validation is always be performed against the latest version of the local access certificate in the Key Vault.
+      > - Certificate validation is always performed against the latest version of the local access certificate in the Key Vault.
       > - If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
 
    1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
