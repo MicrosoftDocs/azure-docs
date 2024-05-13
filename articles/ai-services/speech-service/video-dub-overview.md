@@ -24,17 +24,17 @@ The process of replacing the original language of a video with audio recorded in
 
 The video dubbing feature provided by Azure AI Speech has a wide range of use cases across various industries and content types. Here are some key applications: 
 
-- **Vlog + short video**: Content creators can easily translate and dub their vlogs and short videos to reach international audiences, expanding their viewership and engagement. 
+- **News + interviews**: News organizations can translate and dub news segments and interviews to provide accurate and timely information to audiences worldwide. 
+
+- **Advertisement + marketing**: Businesses can localize their advertising and marketing videos to resonate with target audiences in different markets, enhancing brand awareness and customer engagement.
 
 - **Education + learning**: Educational institutions and e-learning platforms can dub their instructional videos and lectures into different languages, making learning more accessible and inclusive. 
 
-- **News + interviews**: News organizations can translate and dub news segments and interviews to provide accurate and timely information to audiences worldwide. 
+- **Film + TV show**: Film studios and production companies can dub their movies and TV shows for international distribution, reaching a broader audience and maximizing revenue potential. 
+
+- **Vlog + short video**: Content owners can easily translate and dub their vlogs and short videos to reach international audiences, expanding their viewership and engagement. 
 
 - **Enterprise training**: Corporations can localize their training videos for employees in different regions, ensuring consistent and effective communication across their workforce. 
-
-- **Advertisement + marketing**: Businesses can localize their advertising and marketing videos to resonate with target audiences in different markets, enhancing brand awareness and customer engagement. 
-
-- **Film + TV show**: Film studios and production companies can dub their movies and TV shows for international distribution, reaching a broader audience and maximizing revenue potential. 
 
 ## Supported regions and languages
 
