@@ -7,8 +7,8 @@
         },
         {
             "source_path_from_root": "/articles/ai-studio/how-to/vscode-web.md",
-            "redirect_url": "/azure/ai-studio/how-to/develop-in-vscode",
-            "redirect_document_id": true
+            "redirect_url": "/azure/ai-studio/how-to/develop/vscode",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/ai-studio/how-to/deploy-models.md",
@@ -37,7 +37,7 @@
         },
         {
             "source_path_from_root": "/articles/ai-studio/tutorials/deploy-copilot-sdk.md",
-            "redirect_url": "/azure/ai-studio/tutorials/deploy-copilot-ai-studio",
+            "redirect_url": "/azure/ai-studio/quickstarts/get-started-code",
             "redirect_document_id": true
         },
         {
@@ -53,6 +53,11 @@
         {
             "source_path_from_root": "/articles/ai-studio/how-to/models-foundation-azure-ai.md",
             "redirect_url": "/azure/ai-studio/ai-services/connect-ai-services",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/develop-in-vscode.md",
+            "redirect_url": "/azure/ai-studio/how-to/develop/vscode",
             "redirect_document_id": true
         },
         {

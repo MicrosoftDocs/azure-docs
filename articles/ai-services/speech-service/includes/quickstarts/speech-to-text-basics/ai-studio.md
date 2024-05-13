@@ -6,6 +6,8 @@ ms.date: 5/21/2024
 ms.author: eur
 ---
 
+[!INCLUDE [Feature preview](../../../../../ai-studio/includes/feature-preview.md)]
+
 In this quickstart, you try real-time speech to text in [Azure AI Studio](https://ai.azure.com). 
 
 ## Prerequisites

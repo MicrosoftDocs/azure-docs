@@ -969,6 +969,6 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 ## Related content
 
 - Learn about quality [benchmark](https://aka.ms/pronunciationassessment/techblog).
-- Try [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md).
+- Try [pronunciation assessment in the studio](pronunciation-assessment-tool.md).
 - Check out an easy-to-deploy Pronunciation Assessment [demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS).
 - Watch the [video demo](https://www.youtube.com/watch?v=NQi4mBiNNTE) of pronunciation assessment.
