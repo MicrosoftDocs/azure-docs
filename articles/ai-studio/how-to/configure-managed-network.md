@@ -138,6 +138,8 @@ Before following the steps in this article, make sure you have the following pre
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
     ```
 
+---
+
 ## Limitations
 
 * Azure AI Studio currently doesn't support bringing your own virtual network, it only supports managed virtual network isolation.
@@ -713,7 +715,7 @@ __Outbound__ service tag rules:
 * `Azure Machine Learning`
 * `BatchNodeManagement.region`
 * `AzureResourceManager`
-* `AzureFrontDoor.firstparty`
+* `AzureFrontDoor.FirstParty`
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 

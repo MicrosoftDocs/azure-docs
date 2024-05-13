@@ -977,7 +977,7 @@ __Outbound__ service tag rules:
 * `AzureMachineLearning`
 * `BatchNodeManagement.region`
 * `AzureResourceManager`
-* `AzureFrontDoor`
+* `AzureFrontDoor.FirstParty`
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
