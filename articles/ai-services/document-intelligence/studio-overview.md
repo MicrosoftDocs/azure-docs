@@ -40,11 +40,18 @@ The studio supports Document Intelligence v3.0 and later API versions for model 
 
 ## Authorization policies
 
-Organizations can opt to disable local authentication and enforce Microsoft Entra (formerly Azure Active Directory) authentication for Azure AI Document Intelligence resources and Azure blob storage. For more information, *see* the following guidance:
+Your organization can opt to disable local authentication and enforce Microsoft Entra (formerly Azure Active Directory) authentication for Azure AI Document Intelligence resources and Azure blob storage. 
 
-* [Disable local authentication for Azure AI Services](../disable-local-auth.md).
-* [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md)
-* **Designating role assignments**. The access role requirements remain the same for authorization policies. For more information, *see* [Azure role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio-).
+* Using Microsoft Entra authentication requires that key based authorization is disabled. After key access is disabled, Microsoft Entra ID is the only available authorization method.
+
+* Microsoft Entra allows granting minimum privileges and granular control for Azure resources.
+
+* For more information*see* the following guidance:
+
+  * [Disable local authentication for Azure AI Services](../disable-local-auth.md).
+  * [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md)
+
+* **Designating role assignments**. Document Intelligence Studio basic access requires the [`Cognitive Services User`](../../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-user). For more information, *see* [Document Intelligence role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio-).
 
 ## Authentication
 

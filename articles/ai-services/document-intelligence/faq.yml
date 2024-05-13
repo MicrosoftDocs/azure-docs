@@ -341,6 +341,13 @@ sections:
   - name: Service limits and pricing
     questions:
       - question: |
+          Is Document Intelligence REST API version 2024-02-29-preview available in my region?
+        answer: |
+          The REST API version 2024-02-29-preview version is available in the following regions:
+            - East US
+            - West US2
+            - West Europe
+      - question: |
          How does Azure calculate the price for using Document Intelligence?
         answer: |
          Document Intelligence billing is calculated monthly based on the model type and the number of pages analyzed. Here are some details:
