@@ -58,13 +58,14 @@ openssl x509 -req -days 365 -in "${USERNAME}Req.pem" -CA caCert.pem -CAkey caKey
 
 ## View VPN client profile configuration files
 
-All of the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files that you generate are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
+When you generate a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
-Locate and unzip the VPN client profile configuration package you generated. For P2S **Certificate authentication** and with an **OpenVPN** tunnel type, you'll see the **AzureVPN** folder. Locate the **azurevpnconfig.xml** file. This file contains the settings you use to configure the VPN client profile.
+Locate and unzip the VPN client profile configuration package you generated. For P2S **Certificate authentication** and with an **OpenVPN** tunnel type, you'll see the **AzureVPN** folder. In the AzureVPN folder, locate the **azurevpnconfig.xml** file. This file contains the settings you use to configure the VPN client profile.
 
 If you don't see the **azurevpnconfig.xml** file, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
+* Verify your P2S configuration is set for certificate authentication.
 * If you're using Microsoft Entra ID authentication, you might not have an AzureVPN folder. See the [Microsoft Entra ID](point-to-site-entra-gateway.md) configuration article instead.
 
 ## Download the Azure VPN Client
@@ -126,6 +127,4 @@ sudo apt remove microsoft-azurevpnclient
 
 ## Next steps
 
-For additional steps, return to the original point-to-site article that you were working from.
-
-* [P2S Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+For additional steps, return to the [P2S Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.
