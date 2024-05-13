@@ -220,20 +220,20 @@ managed_network:
     type: private_endpoint
 ```
 
-You can configure a managed virtual network using either the `az ml workspace-hub create` or `az ml workspace-hub update` commands:
+You can configure a managed virtual network using either the `az ml workspace create` or `az ml workspace update` commands:
 
 * __Create a new hub__:
 
     The following example creates a new hub. The `--managed-network allow_internet_outbound` parameter configures a managed virtual network for the hub:
 
     ```azurecli
-    az ml workspace-hub create --name ws --resource-group rg --managed-network allow_internet_outbound
+    az ml workspace create --name ws --resource-group rg --kind hub --managed-network allow_internet_outbound
     ```
 
     To create a hub using a YAML file instead, use the `--file` parameter and specify the YAML file that contains the configuration settings:
 
     ```azurecli
-    az ml workspace-hub create --file hub.yaml --resource-group rg --name ws
+    az ml workspace create --file hub.yaml --resource-group rg --name ws --kind hub
     ```
 
     The following YAML example defines a hub with a managed virtual network:
@@ -252,13 +252,13 @@ You can configure a managed virtual network using either the `az ml workspace-hu
     The following example updates an existing hub. The `--managed-network allow_internet_outbound` parameter configures a managed virtual network for the hub:
 
     ```azurecli
-    az ml workspace-hub update --name ws --resource-group rg --managed-network allow_internet_outbound
+    az ml workspace update --name ws --resource-group rg --kind hub --managed-network allow_internet_outbound
     ```
 
     To update an existing hub using the YAML file, use the `--file` parameter and specify the YAML file that contains the configuration settings:
 
     ```azurecli
-    az ml workspace-hub update --file hub.yaml --name ws --resource-group MyGroup
+    az ml workspace update --file hub.yaml --name ws --kind hub --resource-group MyGroup
     ```
 
     The following YAML example defines a managed virtual network for the hub. It also demonstrates how to add a private endpoint connection to a resource used by the hub; in this example, a private endpoint for a blob store:
@@ -439,14 +439,14 @@ managed_network:
     type: private_endpoint
 ```
 
-You can configure a managed virtual network using either the `az ml workspace-hub create` or `az ml workspace-hub update` commands:
+You can configure a managed virtual network using either the `az ml workspace create` or `az ml workspace update` commands:
 
 * __Create a new hub__:
 
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed virtual network:
 
     ```azurecli
-    az ml workspace-hub create --name ws --resource-group rg --managed-network allow_only_approved_outbound
+    az ml workspace create --name ws --resource-group rg --kind hub --managed-network allow_only_approved_outbound
     ```
 
     The following YAML file defines a hub with a managed virtual network:
@@ -461,7 +461,7 @@ You can configure a managed virtual network using either the `az ml workspace-hu
     To create a hub using the YAML file, use the `--file` parameter:
 
     ```azurecli
-    az ml workspace-hub create --file hub.yaml --resource-group rg --name ws
+    az ml workspace create --file hub.yaml --resource-group rg --name ws --kind hub
     ```
 
 * __Update an existing hub__
@@ -471,7 +471,7 @@ You can configure a managed virtual network using either the `az ml workspace-hu
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed virtual network for an existing hub:
 
     ```azurecli
-    az ml workspace-hub update --name ws --resource-group rg --managed-network allow_only_approved_outbound
+    az ml workspace update --name ws --resource-group rg --kind hub --managed-network allow_only_approved_outbound
     ```
 
     The following YAML file defines a managed virtual network for the hub. It also demonstrates how to add an approved outbound to the managed virtual network. In this example, an outbound rule is added for both a service tag:
@@ -828,4 +828,4 @@ The hub managed virtual network feature is free. However, you're charged for the
 
 ## Related content
 
-- [Create AI Studio hub and project using the SDK](./develop/create-hub-project.md)
+- [Create AI Studio hub and project using the SDK](./develop/create-hub-project-sdk.md)
