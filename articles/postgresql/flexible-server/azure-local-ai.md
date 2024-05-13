@@ -36,7 +36,7 @@ Before you can enable azure_local_ai on your Azure Database for PostgreSQL fle
 > Hosting language models in the database requires a large memory footprint. To support this requirement, azure_local_ai is only supported on memory-optimized Azure SKUs.
 
 
-Select "Server parameters" from the Settings section of the Resource Menu in the Azure Database for PostgreSQL Flexible Server Azure portal page.
+Select **Server parameters** from the Settings section of the Resource Menu in the Azure Database for PostgreSQL Flexible Server Azure portal page.
 
 :::image type="content" source="media/azure-local-ai/pgsql-server-parameters-2.png" alt-text="Screenshot of PostgreSQL server parameters page.":::
 
@@ -48,7 +48,7 @@ Select AZURE_LOCAL_AI from the extensions list.
 
 :::image type="content" source="media/azure-local-ai/extensions-allow-list-2.png" alt-text="Screenshot of Extensions allowlist screenshot for Azure Local AI extension." lightbox="media/azure-local-ai/extensions-allow-list-2.png":::
 
-Select "Save" to apply the changes and begin the allowlist deployment process.
+Select **Save** to apply the changes and begin the allowlist deployment process.
 
 :::image type="content" source="media/azure-local-ai/extensions-allow-list-3.png" alt-text="Screenshot of Extensions saved to allowlist for Azure Local AI extension." lightbox="media/azure-local-ai/extensions-allow-list-3.png":::
 
