@@ -820,8 +820,6 @@
         href: cef-syslog-ama-overview.md  
       - name: CEF and Syslog via AMA
         href: connect-cef-syslog-ama.md
-      - name: Configure devices to forward logs       
-        href: unified-connectors-configure-devices.md        
       - name: CEF over Syslog sources (legacy)
         href: connect-common-event-format.md
       - name: Deploy a log forwarder (legacy)

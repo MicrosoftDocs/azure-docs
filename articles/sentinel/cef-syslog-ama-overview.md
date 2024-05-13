@@ -1,15 +1,15 @@
 ---
-title:  Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel
-description: Learn how Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent.
+title:  Syslog and CEF AMA connectors - Microsoft Sentinel
+description: Learn how Microsoft Sentinel collects Syslog and Common Event Format (CEF) messages with the Azure Monitor Agent.
 author: yelevin
 ms.author: yelevin
 ms.topic: concept
 ms.custom: linux-related-content
-ms.date: 04/22/2024
+ms.date: 05/13/2024
 #Customer intent: As a security operator, I want to understand how Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent so that I can determine if this solution fits my organization's needs.  
 ---
 
-# Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel
+# Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel
 
 The Syslog via AMA and Common Event Format (CEF) via AMA data connectors for Microsoft Sentinel filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. These connectors install the Azure Monitor Agent (AMA) on any Linux machine from which you want to collect Syslog and/or CEF messages. This machine could be the originator of the messages, or it could be a forwarder that collects messages from other machines, such as network or security devices and appliances. The connector sends the agents instructions based on [Data Collection Rules (DCRs)](../azure-monitor/essentials/data-collection-rule-overview.md) that you define. DCRs specify the systems to monitor and the types of logs or messages to collect. They define filters to apply to the messages before they're ingested, for better performance and more efficient querying and analysis.
 
@@ -81,12 +81,9 @@ As part of the setup process, create a data collection rule and install the Azur
 
 - Alternatively, send HTTP requests to the Logs Ingestion API. With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels. In the Azure or Defender portal, you can only select a minimum log level. The downside to using this method is that you have to manually install the Azure Monitor Agent on the log forwarder before creating a DCR.
 
-After you create the DCR, and AMA is installed, run the "installation" script on the log forwarder. This script configures the Syslog daemon to listen for messages from other machines, and to open the necessary local ports. Then configure the security devices, or appliances as needed.
+After you create the DCR, and AMA is installed, run the "installation" script on the log forwarder. This script configures the Syslog daemon to listen for messages from other machines, and to open the necessary local ports. Then configure the security devices or appliances as needed.
 
-For more information, see the following articles:
-
-- [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
-- [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md)
+For more information, see [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md).
 
 ## Data ingestion duplication avoidance
 
@@ -104,8 +101,6 @@ To avoid this scenario, use one of these methods:
     source |
     where ProcessName !contains "CEF"
     ```
-
-
 
 ## Next steps
 

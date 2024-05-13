@@ -5,13 +5,13 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 05/09/2024
+ms.date: 05/13/2024
 #Customer intent: As a security operator, I want to ingest and filter Syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
 # Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent
 
-This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
+This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
 
 ## Prerequisites
 
@@ -110,7 +110,7 @@ In the **Resources** tab, select the machines on which you want to install the A
 
 ### Select facilities and severities
 
-Be aware that using the same facility for both Syslog and CEF messages might result in data ingestion duplication. For more information, see [Data ingestion duplication](cef-syslog-ama-overview.md#data-ingestion-duplication-avoidance).
+Be aware that using the same facility for both Syslog and CEF messages might result in data ingestion duplication. For more information, see [Data ingestion duplication avoidance](cef-syslog-ama-overview.md#data-ingestion-duplication-avoidance).
 
 1. In the **Collect** tab, select the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
 
@@ -347,10 +347,6 @@ If you're using a log forwarder, configure the Syslog daemon to listen for messa
     > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
     > For more information, see [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
 
-## Configure the security device or appliance
-
-Go to [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md) to get specific instructions to configure your security device or appliance. Contact the solution provider for more information or where information is unavailable.
-
 ## Test the connector
 
 Verify that logs messages from your linux machine or security devices and appliances are ingested into Microsoft Sentinel. 
@@ -403,6 +399,5 @@ Verify that logs messages from your linux machine or security devices and applia
 
 ## Related content
 
-- [Syslog via AMA and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md)
+- [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
-- [Configure specific devices for Microsoft Sentinel syslog or CEF AMA data connectors](unified-connectors-configure-devices.md)
