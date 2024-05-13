@@ -56,6 +56,7 @@ The automatically collected metrics for Azure Communications Gateway include the
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 - BotType
+
 - Region
 
   The Service Locations defined in your Azure Communications Gateway resource.
@@ -70,6 +71,8 @@ The automatically collected metrics for Azure Communications Gateway include the
 ## Resource logs
 
 Azure Communications Gateway doesn't collect logs.
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
 ## Related content
 

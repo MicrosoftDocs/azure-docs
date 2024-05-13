@@ -22,21 +22,14 @@ The following sections describe the specific data gathered for Azure Communicati
 > [!TIP]
 > To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md).
 
-<!-- ## Resource types -->
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure Communications Gateway, see [Azure Communications Gateway monitoring data reference](monitoring-azure-communications-gateway-data-reference.md).
 
-<!-- ## Data storage -->
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-<!-- ## Azure Monitor platform metrics -->
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 For a list of available metrics for Azure Communications Gateway, see [Azure Communications Gateway monitoring data reference](monitoring-azure-communications-gateway-data-reference.md#metrics).
-
-<!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
-If your service uses any non-Azure Monitor based metrics, add the following include and more information.
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
 
 ## Analyzing, filtering and splitting metrics in Azure Monitor
 
@@ -50,30 +43,15 @@ For more information on filtering and splitting, see [Advanced features of Azure
 
 [!INCLUDE [horz-monitor-no-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
 
-<!-- ## Activity log 
-[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)] -->
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-<!-- ## Analyze monitoring data -->
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
-<!-- ### Azure Monitor export tools -->
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-<!-- ## Kusto queries 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
-<!-- No Kusto queries in existing content -->
-<!-- REQUIRED. Add sample Kusto queries for your service here. -->
 
-<!-- ## Alerts -->
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
-
-<!-- OPTIONAL. ONLY if your service (Azure VMs, AKS, or Log Analytics workspaces) offer out-of-the-box recommended alerts, add the following include. 
-[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-recommended-alert-rules.md)]
-
-<!-- OPTIONAL. ONLY if applications run on your service that work with Application Insights, add the following include. 
-[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
-
-<!-- ### [TODO-replace-with-service-name] alert rules. REQUIRED. -->
 
 ## What is Azure Resource Health?
 
@@ -98,9 +76,6 @@ To access Resource Health for Azure Communications Gateway:
 1. In the menu in the left pane, select **Resource health**.
 
 You can also [configure Resource Health alerts in the Azure portal](../service-health/resource-health-alert-monitor-guide.md). These alerts can notify you in near real-time when these resources have a change in their health status.
-
-<!-- ### Advisor recommendations 
-[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)] -->
 
 ## Related content
 
