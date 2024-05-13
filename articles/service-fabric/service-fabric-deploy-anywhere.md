@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure and standalone Service Fabric clusters 
-description: Analysis of differences between Azure and standlone Service Fabric clusters on Windows Server and Linux machines.
+description: Analysis of differences between Azure and standalone Service Fabric clusters on Windows Server and Linux machines.
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
