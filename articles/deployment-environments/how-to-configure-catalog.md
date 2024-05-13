@@ -415,13 +415,31 @@ Get the path to the secret you created in the key vault.
 
 ## Update a catalog
 
-If you update the Azure Resource Manager template (ARM template) contents or definition in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog.
+If you update the definition or template contents in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog. You can sync a catalog manually or automatically.
 
-To sync an updated catalog in Azure Deployment Environments:
+### Manually sync a catalog
+
+When you manually sync a catalog, Deployment Environments scans through the repository and makes the latest list of environment definitions available to all of the associated projects in the dev center.
 
 1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**.
 
-1. Select the specific catalog, and then select **Sync**. The service scans through the repository and makes the latest list of environment definitions available to all of the associated projects in the dev center.
+1. Select the specific catalog, and then from the command bar, select **Sync**.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/catalog-manual-sync.png" alt-text="Screenshot showing the Sync button in the command bar." lightbox="media/how-to-configure-catalog/catalog-manual-sync.png":::
+ 
+### Automatically sync a catalog
+
+When you configure a catalog to sync automatically, Deployment Environments scans through the repository every 30 minutes and makes the latest list of environment definitions available to all of the associated projects in the dev center.
+
+1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**.
+
+1. Select the specific catalog, and then select edit.
+
+    :::image type="content" source="media/how-to-configure-catalog/catalog-automatic-sync.png" alt-text="Screenshot showing the edit button for a catalog." lightbox="media/how-to-configure-catalog/catalog-automatic-sync.png":::  
+ 
+1. In the **Edit catalog** pane, select **Automatically sync this catalog**, and then select **Save**.
+
+    :::image type="content" source="media/how-to-configure-catalog/catalog-automatic-sync-pane.png" alt-text="Screenshot showing the edit details pane for a catalog, with Automatically sync this catalog highlighted." lightbox="media/how-to-configure-catalog/catalog-automatic-sync-pane.png":::  
 
 ## Delete a catalog
 
