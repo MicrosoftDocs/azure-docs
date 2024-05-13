@@ -7,7 +7,7 @@ author: JnHs
 ms.author: jenhayes
 ---
 
-# Deploy the event-driven workflow (EDW) workload to Azure
+# Deploy the AWS event-driven workflow (EDW) workload to Azure
 
 Now that you've set your environment variables and made the necessary code changes, you're ready to deploy the EDW workload to Azure.
 
@@ -50,7 +50,7 @@ The script continues on to perform the following tasks, requesting your input wh
 
 ### Set up the storage account
 
-Once the script confirms that all prerequisites are met, it creates the [resource group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview) with the name you set in the environment variable `RESOURCE_GROUP_NAME` if the resource group doesn't already exist. All new resources for this workload are created in this resource group.
+Once the script confirms that all prerequisites are met, it creates the [resource group](/azure/azure-resource-manager/management/overview) with the name you set in the environment variable `RESOURCE_GROUP_NAME` if the resource group doesn't already exist. All new resources for this workload are created in this resource group.
 
 Next, you select whether to use an existing [Azure storage account](/azure/storage/common/storage-account-overview), or let the script create one, using the name you set in the environment variable `STORAGE_ACCOUNT_NAME`.
 

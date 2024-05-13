@@ -189,7 +189,7 @@ In Azure, an equivalent means of making connections to Azure Storage Queue is to
 >
 > `DefaultAzureCredential` also exists in Azure SDKs for other popular programming languages including [JavaScript](/javascript/api/overview/azure/identity-readme), [Java](/java/api/overview/azure/identity-readme), [Go](/azure/developer/go/azure-sdk-authentication?tabs=bash), and [.NET](/dotnet/api/azure.identity.defaultazurecredential). This example uses Python, but applications written in any of these programming languages would authenticate easily in a similar manner to what is shown below.
 >
-> For more fine-grained control over credential discovery, you could use the [ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential?view=azure-python), which also exists in all of the languages listed above.
+> For more fine-grained control over credential discovery, you could use the [ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential), which also exists in all of the languages listed above.
 
 For Azure, update your code to:
 
