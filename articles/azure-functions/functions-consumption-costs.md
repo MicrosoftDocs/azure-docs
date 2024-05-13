@@ -23,7 +23,7 @@ Azure Functions currently offers four different hosting plans for your function 
 
 You should always choose the plan that best supports the feature, performance, and cost requirements for your function executions. To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-This article deals only with Consumption and Flex Consumption plans, since these plans result in variable costs. 
+This article focuses on Consumption and Flex Consumption plans because in these plans billing depends on active periods of executions inside each instance. 
 
 Durable Functions can also run in both of these plans. To learn more about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable/durable-functions-billing.md).
 
