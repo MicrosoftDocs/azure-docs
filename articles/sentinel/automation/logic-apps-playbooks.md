@@ -32,7 +32,7 @@ Within the Microsoft Sentinel connector, use triggers, actions, and dynamic fiel
 |**Actions**     |   Actions are all the steps that happen after the trigger. Actions can be arranged sequentially, in parallel, or in a matrix of complex conditions. |
 |**Dynamic fields**     |    Dynamic fields are temporary fields that can be used in the actions that follow your trigger. Dynamic fields are determined by the output schema of triggers and actions, and are populated by their actual output.  |
 
-Azure Logic Apps also supports other types of connectors, such as managed connectors, which wrap around API calls, or custom connectors. For more inforamtion, see [Azure Logic Apps connectors and their documentation](/connectors/connector-reference/connector-reference-logicapps-connectors) and [Create your own custom Azure Logic Apps connectors](/connectors/custom-connectors/create-logic-apps-connector).
+Azure Logic Apps also supports other types of connectors, such as managed connectors, which wrap around API calls, or custom connectors. For more information, see [Azure Logic Apps connectors and their documentation](/connectors/connector-reference/connector-reference-logicapps-connectors) and [Create your own custom Azure Logic Apps connectors](/connectors/custom-connectors/create-logic-apps-connector).
 
 ## Supported logic app types
 

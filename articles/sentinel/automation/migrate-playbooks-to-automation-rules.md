@@ -30,7 +30,7 @@ Playbooks that are invoked by automation rules instead of analytics rules have t
 
 - Use a single automation rule triggering playbooks for multiple analytics rules, instead of configuring each analytics rule separately.
 
-- Define the order in which alert playbooks are be executed.
+- Define the order in which alert playbooks are to be executed.
 
 - Support for scenarios that set an expiration date for running a playbook.
 
