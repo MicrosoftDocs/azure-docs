@@ -31,7 +31,7 @@ These metrics are used specifically when [estimating Consumption plan costs](fun
 
 #### [Flex Consumption plan](#tab/flex-consumption-plan)
 
-These metrics are used to estimate the costs associated with _on demand_ and _always ready_ meters used for billing:
+These metrics are used to estimate the costs associated with _on demand_ and _always ready_ meters used for billing in a [Flex Consumption plan]:
 
 | Metric | Description | Meter calculation |
 | ------ | ---------- | ----------------- |
