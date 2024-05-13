@@ -519,6 +519,33 @@ sections:
           
           - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
 
+      - question: |
+          Why am I not able to sign in to Document Intelligence Studio and keeps seeing AADSTS50058:InteractionRequiredAuthError error?
+        answer: |
+          This is due to 3rd-party cookies are blocked by your browser so we cannot successfully sign in your account.
+        
+          For **Edge** users, please:
+          - Go to **Settings** for Edge
+          - Search for "**third-party**"
+          - Go to **Manage and delete cookies and site data**
+          - Turn off the setting of **Block third-party cookies**
+
+          For **Chrome** users, please:
+          - Go to **Settings** for Chrome
+          - Search for "**Third-party**"
+          - Under **Default behavior**, select **Allow third-party cookies**
+
+          For **Firefox** users, please:
+          - Go to **Settings** for Firefox
+          - Search for "**cookies**"
+          - Under **Enhanced Tracking Protection**, select **Manage Exceptions**
+          - Add exception for **https://documentintelligence.ai.azure.com** or the Document Intelligence Studio URL of your environment
+
+          For **Safari** users, please:
+          - Choose **Safari** > **Preferences**
+          - Click **Privacy**
+          - Deselect **Block all cookies**
+
   - name: Containers
     questions:
       - question: |
