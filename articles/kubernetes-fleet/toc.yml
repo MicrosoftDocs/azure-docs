@@ -32,6 +32,8 @@
     href: concepts-l4-load-balancing.md
 - name: How-to guides
   items:
+  - name: Intelligent Kubernetes resource placement based on member cluster properties
+    href: intelligent-resource-placement.md
   - name: Upgrade from hubless to hubful fleet
     href: upgrade-hubless-hubful.md
   - name: Orchestrate updates across multiple member clusters
