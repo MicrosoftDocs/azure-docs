@@ -63,7 +63,7 @@ The following upgrade channels are available. You're allowed to choose one of th
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Set the node os auto-upgrade channel on an existing cluster using the [`az aks update`][az-aks-update] command with the `--node-os-upgrade-channel` parameter. The following example sets the node OS auto-upgrade channel to `SecurityPatch`. Use CLI version 2.61.0 or above for `SecurityPatch` channel. 
+* Set the node os auto-upgrade channel on an existing cluster using the [`az aks update`][az-aks-update] command with the `--node-os-upgrade-channel` parameter. The following example sets the node OS auto-upgrade channel to `SecurityPatch`.
 
     ```azurecli-interactive
     az aks update --resource-group myResourceGroup --name myAKSCluster --node-os-upgrade-channel SecurityPatch
@@ -113,7 +113,7 @@ The default cadence means there's no planned maintenance window applied.
 - The `SecurityPatch` channel isn't supported on Windows OS node pools. 
  
  > [!NOTE]
- > By default, any new cluster created with an API version of `06-01-2023` or later (including 06-02-preview)  will set the node OS auto-upgrade channel value to `NodeImage`. Any existing clusters created with an API version earlier than `06-01-2023` will have the node OS auto-upgrade channel value set to `None` by default.
+ >  Use CLI version 2.61.0 or above for `SecurityPatch` channel. 
 
 
 ## Node OS planned maintenance windows
