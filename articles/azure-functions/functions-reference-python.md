@@ -490,7 +490,7 @@ Azure Functions triggers and bindings allow you to easily integrate event and da
 
 Azure Storage Blob SDK type bindings are supported for Azure Functions in Python. When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
 
-Note that SDK type bindings support for Python is currently in preview, and is only supported for the v2 programming model.
+Note that SDK type bindings support for Python is currently in preview, and is only supported for the v2 programming model. Currently, only synchronous SDK types are supported.
 
 ### Prerequisites
 
@@ -576,7 +576,7 @@ Note that HTTP streaming support for Python is currently in preview, and is only
 
 ### Prerequisites
 
-* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python) 4.34+
+* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python) 4.34.1+
 * [Python](https://www.python.org/downloads/) version 3.8+
 
 ### Enable streams
@@ -597,6 +597,10 @@ Add the library with the relevant responses to the `function_app.py` file in the
 ```python
 from azurefunctions.extensions.http.fastapi import Request, StreamingResponse
 ```
+
+### Add the app setting
+
+If you are using Linux Consumption, add the following app setting. Modify the `local.settings.json` project file to include `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`.
 
 ### Examples
 
