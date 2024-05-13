@@ -59,7 +59,7 @@ Azure Container Apps ensures compatibility with Dapr open source tooling, such a
 
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Any Dapr sidecar annotations not listed in [the Dapr enablement guide][dapr-enable]**
-- **APIs and components support**: Only the Dapr APIs and components [listed as GA, Tier 1, or Tier 2 in this article](#supported-dapr-apis-and-components) are supported in Azure Container Apps.
+- **APIs and components support**: Only the Dapr APIs and components [listed as GA, Tier 1, or Tier 2 in this article](#supported-dapr-apis-components-and-tooling) are supported in Azure Container Apps.
 - **Actor reminders**: Require a minReplicas of 1+ to ensure reminders is always active and fires correctly.
 - **Jobs**: Dapr isn't supported for jobs.
 

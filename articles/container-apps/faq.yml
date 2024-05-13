@@ -88,7 +88,7 @@ sections:
         answer: |
           Azure Container Apps offers developers the flexibility to experiment with the latest Dapr alpha APIs and standard-level components on a self-service, opt-in basis. Although the availability of these alpha APIs and standard-level components isn't guaranteed, you can stay ahead of the curve and explore cutting-edge technologies as they become available. 
 
-          While components with standard-level support are "as-is" and "as available", managed components are fully supported, including their dependencies, like SDKs. [Learn more.](./dapr-overview.md#supported-dapr-apis-and-components)
+          While components with standard-level support are "as-is" and "as available", managed components are fully supported, including their dependencies, like SDKs. [Learn more.](./dapr-overview.md#supported-dapr-apis-components-and-tooling)
 
       - question: |
           What is the Dapr version release cadence in Azure Container Apps?
