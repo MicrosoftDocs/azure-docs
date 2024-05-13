@@ -24,7 +24,7 @@ You can perform both *Original-Location Recovery (OLR)* (restoring in the AKS cl
 
 Initialize the variables with required details related to each resource to be used in commands:
 
-- Subscription Id of the Backup Vault
+- Subscription ID of the Backup Vault
 
     ```azurepowershell
     $vaultSubId = "xxxxxxxx-xxxx-xxxx-xxxx"
@@ -46,7 +46,7 @@ Initialize the variables with required details related to each resource to be us
     $restoreLocation = "vaultRegion" #example eastus
     ```
 
-- Id of the target AKS cluster, in case the restore will be performed to an alternate AKS cluster
+- ID of the target AKS cluster, in case the restore will be performed to an alternate AKS cluster
 
     ```azurepowershell
     $targetAKSClusterId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.ContainerService/managedClusters/PSAKSCluster2"
