@@ -15,17 +15,19 @@ ai-usage: ai-assisted
  
 The connected registry is a pivotal tool for the edge customers for efficiently managing and accessing their containerized workloads, whether located on-premises or at remote sites. When connected registry integrates with Azure arc, the service ensures a seamless and unified lifecycle management experience for Kubernetes-based containerized workloads. Deployment of the connected registry arc extension on arc-enabled kubernetes clusters, simplifies the management and access of containerized workloads. 
 
-The quickstart guides you through a streamlined approach to securely deploy a connected registry extension on an arc-enabled kubernetes cluster using secured-by-default settings to ensure robust security and operational integrity.
+In this quickstart, you will learn how to deploy the Connected Registry Arc Extension using the CLI UX with secure-by-default settings, such as using HTTPS, Read Only, Trust Distribution, and Cert Manager service, so that you can ensure the secure and efficient operation of your services.
+
+The quickstart also guides you through a streamlined approach to securely deploy a connected registry extension on an arc-enabled kubernetes cluster using secured-by-default settings to ensure robust security and operational integrity. The guide walks you through scenarios to upgrade, rollback, and update the connected registry extension with synchronization schedules and windows.
 
 ## Prerequisites
 
 * Use an existing Azure Container Registry (ACR) or follow the [quickstart](container-registry-get-started-azure-cli.md) to create a new ACR registry.
 
-* Use an existing Azure Kubernetes Service (AKS) cluster or follow the [tutorial](tutorial-kubernetes-deploy-cluster.md) to create a new AKS cluster.
+* Use an existing Azure Kubernetes Service (AKS) cluster or follow the [tutorial][tutorial-aks-cluster] to create a new AKS cluster.
 
 * Set up the firewall access and communication between the ACR registry and the connected registry by enabling the [dedicated data endpoints.](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints)
 
-* Set up the connection between the Kubernetes cluster and Azure Arc by following the [quickstart.](quickstart-connect-cluster.md)
+* Set up the connection between the Kubernetes cluster and Azure Arc by following the [quickstart.][quickstart-connect-cluster]
 
 * [Install Azure CLI] to connect to Azure and Kubernetes.
 
@@ -41,7 +43,7 @@ The quickstart guides you through a streamlined approach to securely deploy a co
     az provider register --namespace Microsoft.KubernetesConfiguration
     ```
 
-## Deploy the connected registry arc extension using secure-by-default settings
+## Deploy the connected registry arc extension with secure-by-default settings
 
 Once the prerequisites and necessary conditions and components are in place, follow the streamlined approach and securely deploy a connected registry extension on an arc-enabled kubernetes cluster using secure-by-default settings. The secure-by-default settings define the following configuration with HTTPS, Read Only, Trust Distribution, Cert Manager service. Follow the steps for a successful deployment: 
 
@@ -126,20 +128,20 @@ To verify the deployment of the connected registry extension on the arc-enabled 
 
 2. Verify the connected registry status and state
 
-    For each connected registry, you can view the status and state of the connected registry using the [az acr connected-registry list] command:
+For each connected registry, you can view the status and state of the connected registry using the [az acr connected-registry list] command:
     
-    ```azurecli
+```azurecli
     az acr connected-registry list --registry myacrregistry --output table
-    ```
+```
 
-    **Example Output**
+**Example Output**
 
-     ```console
+```console
     | NAME | MODE | CONNECTION STATE | PARENT | LOGIN SERVER | LAST SYNC(UTC) |
     |------|------|------------------|--------|--------------|----------------|
     | myconnectedregistry | ReadWrite | online | myacrregistry | myacrregistry.azurecr.io | 2024-05-09 12:00:00 |
     | myreadonlyacr | ReadOnly | offline | myacrregistry | myacrregistry.azurecr.io | 2024-05-09 12:00:00 |
-    ```
+```
 
 3. Verify the specific connected registry details
 
@@ -157,7 +159,7 @@ To verify the deployment of the connected registry extension on the arc-enabled 
     ```
 
 >[!NOTE] 
->The [az k8s-extension show] command will verify the state of the extension deployment and provide details on the connected registry's connection status, last sync, sync window, sync schedule, and more.
+> The [az k8s-extension show] command will verify the state of the extension deployment and provide details on the connected registry's connection status, last sync, sync window, sync schedule, and more.
 
 ### Pull an image from the connected registry successfully
 
@@ -176,10 +178,10 @@ To authenticate and pull an image from the locally deployed connected registry w
     ```
 
 >[!NOTE]
-> The `crictl pull` command pulls an image from the connected registry by specifying the desired repository. Lear to create a client token [here.](container-registry-repository-scoped-permissions#create-token---cli)
+> The `crictl pull` command pulls an image from the connected registry by specifying the desired repository. Lear to create a client token [here.](container-registry-repository-scoped-permissions.md#create-token---cli)
 
 
-## Scenario: Deploy the connected registry Arc extension with HTTPS
+## Deploy the connected registry Arc extension with HTTPS
 
 The connected registry extension deployment can be further secured by enabling Transport Layer Security (TLS) encryption between the connected registry and the client nodes within the cluster.
 
@@ -267,7 +269,7 @@ The connected registry extension deployment can be further secured with HTTP and
     --config-protected-file <JSON file path>
     ```
 
-## Scenario: Deploy the connected registry Arc extension with upgrades/rollbacks
+## Deploy the connected registry Arc extension with upgrades/rollbacks
 
 ### Deploy the connected registry Arc extension with autoupgrade
 
@@ -309,7 +311,7 @@ The connected registry extension deployment can be further secured with HTTP and
     --version 0.6.1 
     ```
 
-## Scenario: Update the connected registry arc extension with synchronization schedule/window
+## Update the connected registry arc extension with synchronization schedule/window
 
 ### Update the connected registry to sync every day at midnight
 
@@ -349,12 +351,14 @@ The connected registry extension deployment can be further secured with HTTP and
     az acr connected-registry delete --name myarcakscluster --resource-group myresourcegroup 
     ```
 
-## Next steps 
+## Next steps
 
-> [Known issues: Connected Registry Arc Extension](troubleshoot-connected-registry-arc-cli.md)
+- [Known issues: Connected Registry Arc Extension](troubleshoot-connected-registry-arc.md)
 
 -->
 
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [k8s-extension]: /cli/azure/k8s-extension
 [azure-resource-provider-requirements]: /azure/azure-arc/kubernetes/system-requirements#azure-resource-provider-requirements
+[quickstart-connect-cluster]: /azure/azure-arc/kubernetes/quickstart-connect-cluster
+[tutorial-aks-cluster]: /azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli
