@@ -126,29 +126,13 @@ Use the following command to update your namespace with the custom domain config
 az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name> --is-full-object --properties @./resources/NS.json 
 ```
 
-Replace the following placeholders with appropriate values, save it to a file named `NS.json`, and run the CLI command. 
-
-| Place holder | Description | 
-| ------------ | ----------- |
-| `HOSTNAME` | You can get the host name from the **Overview** page of your Event Grid namespace in the Azure portal. |
-| `NAMESPACENAME` | Name of the Event Grid namespace. |
-| `TOPICNAME` | Name of the topic in the namespace. |
-| `HTTPDOMAINNAME` | Name of the HTTP domain. |
-| `MQTTDOMAINNAME` | Name of the MQTT domain. |
-| `SUBSCRIPTIONID` | Azure subscription ID. |
-| `RESOURCEGROUPNAME` | Name of the Azure resource group. |
-| `KEYVAULTNAME` | Name of the key vault. |
-| `CERTIFICATENAME` | Name of the certificate. |
-
-
-
 **NS.json**
 
 ```json
 {
     "properties": {
         "topicsConfiguration": {
-            "hostname": "",
+            "hostname": "HOSTNAME",
             "customDomains": [
                 {
                     "fullyQualifiedDomainName": "www.HTTPDOMAINNAME.com",
@@ -186,6 +170,21 @@ Replace the following placeholders with appropriate values, save it to a file na
 }
 ```
 
+Replace the following placeholders with appropriate values, save it to a file named `NS.json`, and run the CLI command. 
+
+| Place holder | Description | 
+| ------------ | ----------- |
+| `HOSTNAME` | You can get the host name from the **Overview** page of your Event Grid namespace in the Azure portal. |
+| `NAMESPACENAME` | Name of the Event Grid namespace. |
+| `TOPICNAME` | Name of the topic in the namespace. |
+| `HTTPDOMAINNAME` | Name of the HTTP domain. |
+| `MQTTDOMAINNAME` | Name of the MQTT domain. |
+| `SUBSCRIPTIONID` | Azure subscription ID. |
+| `RESOURCEGROUPNAME` | Name of the Azure resource group. |
+| `KEYVAULTNAME` | Name of the key vault. |
+| `CERTIFICATENAME` | Name of the certificate. |
+
+
 The identity type (`type`) can be either `SystemAssigned` or `UserAssigned`. If `UserAssigned` is selected, specify the user assigned identity using the `userAssignedIdentity` property. 
 
 The response to this operation includes the DNS information in the form of the following properties: `expectedTxtRecordName` and `expectedTxtRecordValue`. Save this information as you need to use these values to prove your custom domain ownership. Here's a sample response: 
@@ -194,17 +193,17 @@ The response to this operation includes the DNS information in the form of the f
 {
     "properties": {
         "topicsConfiguration": {
-            "hostname": " MyNS.westus2-1.eventgrid.azure.net",
+            "hostname": "HOSTNAME",
             "customDomains": [
                 {
-                    "fullyQualifiedDomainName": "www.contoso-http.com",
+                    "fullyQualifiedDomainName": "www.HTTPDOMAINNAME.com",
                     "validationState": "Pending",
                     "identity": {
                         "type": "SystemAssigned"
                     },
                     "certificateInfo": {
-                        "keyVaultArmId": " /subscriptions/<subscription id>/resourceGroups/<resource group name> /providers/Microsoft.KeyVault/vaults/<key vault > ",
-                        "certificateName": "<certificate name>"
+                        "keyVaultArmId": " /subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
+                        "certificateName": "CERTIFICATENAME"
                     },
                     "expectedTxtRecordName": "_eg. www.contoso-http.com",
                     "expectedTxtRecordValue": "<random string>"
@@ -213,21 +212,21 @@ The response to this operation includes the DNS information in the form of the f
         },
         "topicSpacesConfiguration": {
             "state": " Enabled",
-            "routeTopicResourceId": " /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.EventGrid/namespaces/MSNS/topics/<topic name>",
-            "hostname": " MyNS.westus2-1.ts.eventgrid.azure.net",
+            "routeTopicResourceId": " /subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventGrid/namespaces/MSNS/topics/TOPICNAME",
+            "hostname": "HOSTNAME",
             "routingIdentityInfo": {
                 "type": "None"
             },
             "customDomains": [
                 {
-                    "fullyQualifiedDomainName": " www.contoso-mqtt.com ",
+                    "fullyQualifiedDomainName": " www.MQTTDOMAINNAME.com ",
                     "validationState": "Pending",
                     "identity": {
                         "type": "SystemAssigned"
                     },
                     "certificateInfo": {
-                        "keyVaultArmId": "/subscriptions/<subscription id>/resourceGroups/<resource group name> /providers/Microsoft.KeyVault/vaults/<key vault > ",
-                        "certificateName": "<certificate name >"
+                        "keyVaultArmId": "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
+                        "certificateName": "CERTIFICATENAME"
                     },
                     "expectedTxtRecordName": "_eg. www.contoso-mqtt.com",
                     "expectedTxtRecordValue": "<random string>"
