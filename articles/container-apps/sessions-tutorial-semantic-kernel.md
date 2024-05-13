@@ -54,7 +54,7 @@ sessions_tool = SessionsPythonTool(
 kernel.add_plugin(sessions_tool, "SessionsTool")
 ```
 
-When it needs to perform calculations, the agent uses the code interpreter in *SessionsPythonTool* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent uses the tool to run multiple Python code snippets, it uses the same session.
+When it needs to perform calculations, the kernel uses the code interpreter in *SessionsPythonTool* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent runs multiple Python code snippets, it uses the same session. To ensure each end user has a unique session, use a separate kernel and tool for each user.
 
 *SessionsPythonTool* is available in version `0.9.8b1` or later of the [`semantic-kernel`](https://pypi.org/project/semantic-kernel/) package.
 
