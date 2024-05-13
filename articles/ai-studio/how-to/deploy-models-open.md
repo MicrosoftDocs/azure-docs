@@ -17,36 +17,7 @@ author: msakande
 
 Deployment of a large language model (LLM) makes it available for use in a website, an application, or other production environment. Deployment typically involves hosting the model on a server or in the cloud and creating an API or other interface for users to interact with the model. You can invoke the deployment for real-time inference of generative AI applications such as chat and copilot.
 
-## Deploy an Azure OpenAI model from the model catalog
-
-Follow the steps below to deploy an Azure OpenAI model such as `gpt-4` to a real-time endpoint from the AI Studio [model catalog](./model-catalog-overview.md):
-
-1. Sign in to [AI Studio](https://ai.azure.com) and go to the **Home** page.
-1. Select **Model catalog** from the left sidebar.
-1. In the **Collections** filter, select **Azure OpenAI**.
-
-    :::image type="content" source="../media/deploy-monitor/catalog-filter-azure-openai.png" alt-text="A screenshot showing how to filter by Azure OpenAI models in the catalog." lightbox="../media/deploy-monitor/catalog-filter-azure-openai.png"::: 
-
-1. Select a model such as `gpt-4` from the Azure OpenAI collection.
-1. Select **Deploy** to open the deployment window. 
-1. Select the hub that you want to deploy the model to.
-1. Specify the deployment name and modify other default settings depending on your requirements.
-1. Select **Deploy**.
-1. You land on the deployment details page. From here, you can open the model in the playground to test it out or view code samples that can be used to consume the deployed model in your application.
-
-## Deploy an Azure OpenAI model from your project
-
-Alternatively, you can initiate deployment by starting from your project in AI Studio.
-
-1. Go to your project in AI Studio.
-1. Select **Components** > **Deployments**.
-1. Select **+ Create deployment**.
-1. In the **Collections** filter, select **Azure OpenAI**.
-1. Select a model such as `gpt-4` from the Azure OpenAI collection.
-1. Select **Confirm** to open the deployment window.
-1. Specify the deployment name and modify other default settings depending on your requirements.
-1. Select **Deploy**.
-1. You land on the deployment details page. From here, you can open the model in the playground to test it out or view code samples that can be used to consume the deployed model in your application.
+In this article, you learn how to deploy large language models in Azure AI Studio. You can deploy models from the model catalog or from your project. You can also deploy models using the Azure Machine Learning SDK. The article also covers how to perform inference on the deployed model.
 
 ## Deploy and inference a Serverless API model with code
 
