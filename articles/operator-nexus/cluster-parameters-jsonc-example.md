@@ -19,37 +19,37 @@ ms.custom: template-how-to
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": "clustername"
+      "value": "$CLUSTER_NAME"
     },
     "resourceGroupName": {
-      "value": ""
+      "value": "$CLUSTER_RG"
     },
     "managedResourceGroupName": {
-      "value": ""
+      "value": "$MRG_NAME"
     },
     "clusterLawName": {
-      "value": ""
+      "value": "$LAW_NAME"
     },
-    "networkFabricId": {
+    "networkFabricId": {$
       "value": ""
     },
     "clusterType": {
-      "value": ""
+      "value": "$CLUSTER_TYPE"
     },
     "skipHardwareValidation": {
       "value": "false"
     },
     "clusterVersion": {
-      "value": ""
+      "value": "$CLUSTER_VERSION"
     },
     "clusterLocation": {
-      "value": ""
+      "value": "$CLUSTER_LOCATION"
     },
     "customLocation": {
-      "value": ""
+      "value": "$CL_NAME"
     },
     "secretArchive": {
-      "value": ""
+      "value": "$KV_RESOURCE_ID"
     },
     "sshKeyUrl": {
       "value": "https://"
