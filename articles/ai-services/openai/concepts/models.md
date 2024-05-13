@@ -28,7 +28,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 ## GPT-4o and GPT-4 Turbo
 
-GPT-4o is the latest preview model from OpenAI. GPT-4o integrates  and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions. GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and vision tasks, setting new benchmarks for AI capabilities.
+GPT-4o is the latest preview model from OpenAI. GPT-4o integrates text and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions. GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and vision tasks, setting new benchmarks for AI capabilities.
 
 ### Early access playground
 
