@@ -531,7 +531,8 @@ This section gives you an example that shows you how to do the following tasks u
    ```
    ---
 
-   In the parameter file, replace placeholders with appropriate values.   
+   In the parameter file, replace placeholders with appropriate values. 
+     
    | Placeholder | value | 
    | ----------- | ----- | 
    | `<ServiceBusNamespaceName>` | Name of the Service Bus namespace. | 
