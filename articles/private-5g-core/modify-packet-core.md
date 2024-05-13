@@ -81,6 +81,11 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
+1. Verify the system is healthy before making any changes.
+   - Select **Resource Health** under the **Help** section on the left side.
+   - Check that the resource is healthy and there are no unexpected alerts.
+   - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+   - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 1. Select **Modify packet core**.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
@@ -168,6 +173,12 @@ This change will require a manual packet core reinstall to take effect, see [Nex
 
     - If you made changes to the packet core configuration, check that the fields under **Connected ASE device**, **Azure Arc Custom Location** and **Access network** contain the updated information.
     - If you made changes to the attached data networks, check that the fields under **Data networks** contain the updated information.
+  
+1. Select **Resource Health** under the **Help** section on the left side.
+
+    - Check that the resource is healthy and there are no unexpected alerts.
+    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 
 ## Remove data network resource
 
