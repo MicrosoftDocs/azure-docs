@@ -15,7 +15,7 @@ ms.author: pafarley
 
 Get started with facial recognition using the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
 
-[Reference documentation](/python/api/azure-ai-vision-face/azure.ai.vision.face) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/azure/ai/vision/face) | [Package (PiPy)](https://pypi.org/project/azure-ai-vision-face/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/samples)
+[Reference documentation](/python/api/azure-ai-vision-face/azure.ai.vision.face) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/azure/ai/vision/face) | [Package (PiPy)](https://aka.ms/azsdk-python-face-pkg) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/samples)
 
 ## Prerequisites
 
