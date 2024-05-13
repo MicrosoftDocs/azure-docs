@@ -19,7 +19,7 @@ You can use this information to create a site in an existing private mobile netw
 
 ## Prerequisites
 
-- You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+- Complete the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - If you want to give Azure role-based access control (Azure RBAC) to storage accounts, you must have the relevant permissions on your account.
 - Make a note of the resource group that contains your private mobile network that was collected in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). We recommend that the mobile network site resource you create in this procedure belongs to the same resource group.
 
@@ -29,7 +29,7 @@ Choose the service plan that best fits your requirements and verify pricing and 
 
 ## Collect mobile network site resource values
 
-Collect all the values in the following table for the mobile network site resource that will represent your site.
+Collect all the values in the following table for the mobile network site resource that represents your site.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
@@ -44,7 +44,7 @@ Collect all the values in the following table for the mobile network site resour
 
 ## Collect packet core configuration values
 
-Collect all the values in the following table for the packet core instance that will run in the site.
+Collect all the values in the following table for the packet core instance that runs in the site.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
@@ -54,7 +54,7 @@ Collect all the values in the following table for the packet core instance that 
 
 ## Collect access network values
 
-Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces. The field name displayed in the Azure portal will depend on the value you have chosen for **Technology type**, as described in [Collect packet core configuration values](#collect-packet-core-configuration-values).
+Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces. The field name displayed in the Azure portal depends on the value you have chosen for **Technology type**, as described in [Collect packet core configuration values](#collect-packet-core-configuration-values).
 
 :::zone pivot="ase-pro-gpu"
    |Value  |Field name in Azure portal  |
@@ -83,8 +83,8 @@ If you want to configure UE usage tracking for your site, collect all the values
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The namespace for the Azure Event Hubs instance that your site will use for UE usage tracking. |**Azure Event Hub Namespace**|
-   |The name of the Azure Event Hubs instance that your site will use for UE usage tracking.|**Event Hub name**|
+   |The namespace for the Azure Event Hubs instance that your site uses for UE usage tracking. |**Azure Event Hub Namespace**|
+   |The name of the Azure Event Hubs instance that your site uses for UE usage tracking.|**Event Hub name**|
    |The user assigned managed identity that has the **Resource Policy Contributor** role for the Event Hubs instance. <br /> **Note:** The managed identity must be assigned to the Packet Core Control Plane for the site and assigned to the Event Hubs instance via the instance's **Identity and Access Management (IAM)** blade. <br /> **Note:** Only assign one managed identity to the site. This managed identity must be used for any UE usage tracking for the site after upgrade and site configuration modifications.<br /><br /> See [Use a user-assigned managed identity to capture events](/azure/event-hubs/event-hubs-capture-managed-identity) for more information on managed identities.  |**User Assigned Managed Identity**|
 
 ## Collect data network values
@@ -155,7 +155,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
       > [!NOTE]
       >
-      > - Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
+      > - Certificate validation is always be performed against the latest version of the local access certificate in the Key Vault.
       > - If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
 
    1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
