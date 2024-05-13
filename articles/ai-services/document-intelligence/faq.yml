@@ -256,6 +256,17 @@ sections:
 
           - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
 
+      - question: |
+         Are there separate URL endpoints for Document Intelligence sovereign cloud regions?
+        answer: |
+
+          Yes. Document Intelligence Studio has separate URL endpoints for sovereign cloud regions. For example,
+
+          - "Here is the URL for the Azure US Government cloud (Azure Fairfax): [Document Intelligence Studio US Government](https://formrecognizer.appliedai.azure.us/studio)".
+
+          - "Here is the URL Microsoft Azure operated by 21Vianet (Azure in China): [Document Intelligence Studio China](https://formrecognizer.appliedai.azure.cn/studio)".
+
+
   - name: App development
     questions:
       - question: |
