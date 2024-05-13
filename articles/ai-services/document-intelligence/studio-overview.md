@@ -46,7 +46,7 @@ Your organization can opt to disable local authentication and enforce Microsoft 
 
 * Microsoft Entra allows granting minimum privileges and granular control for Azure resources.
 
-* For more information*see* the following guidance:
+* For more information *see* the following guidance:
 
   * [Disable local authentication for Azure AI Services](../disable-local-auth.md).
   * [Prevent Shared Key authorization for an Azure Storage account](../../storage/common/shared-key-authorization-prevent.md)
