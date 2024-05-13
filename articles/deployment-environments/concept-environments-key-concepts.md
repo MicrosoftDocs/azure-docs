@@ -74,12 +74,6 @@ Deployment environments scan the specified folder of the repository to find [env
 
 An environment definition is a combination of an IaC template and an environment file that acts as a manifest. The template defines the environment, and the environment file provides metadata about the template. Your development teams use the items that you provide in the catalog to create environments in Azure.
 
-### ARM templates
-
-[ARM templates](../azure-resource-manager/templates/overview.md) help you implement the IaC for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
-
-To learn about the structure of an ARM template, the sections of a template, and the properties that are available in those sections, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
-
 ## Built-in roles
 
 Azure Deployment Environments supports three [built-in roles](../role-based-access-control/built-in-roles.md):
