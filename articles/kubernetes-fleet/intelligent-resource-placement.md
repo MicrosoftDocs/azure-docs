@@ -1,6 +1,6 @@
 ---
 title: "Intelligent cross-cluster Kubernetes resource placement using Azure Kubernetes Fleet Manager (Preview)"
-description: Learn how to use Kubernetes Fleet to intelligently place your workloads on AKS clusters based on cost and resource availability.
+description: Learn how to use Kubernetes Fleet to intelligently place your workloads on target member clusters based on cost and resource availability.
 ms.topic: how-to
 ms.date: 05/13/2024
 author: shashankbarsin
@@ -10,7 +10,7 @@ ms.service: kubernetes-fleet
 
 # Intelligent cross-cluster Kubernetes resource placement using Azure Kubernetes Fleet Manager (Preview).
 
-Application developers often need to deploy Kubernetes resources into multiple clusters. While sometimes they need to replicate the same resource across multiple clusters, other times they need to pick the best clusters for placing the workloads based on heuristics such as cost of compute in the clusters, available memory, available CPU, or a mix of multiple weighted metrics. It's tedious to create, update, and track these Kubernetes resources across multiple clusters manually. This article covers how Azure Kubernetes Fleet Manager (Kubernetes Fleet) allows you to address these scenarios using the Kubernetes resource placement feature.
+Application developers often need to deploy Kubernetes resources into multiple clusters. Fleet operators often need to pick the best clusters for placing the workloads based on heuristics such as cost of compute in the clusters or available resources such as memory and CPU. It's tedious to create, update, and track these Kubernetes resources across multiple clusters manually. This article covers how Azure Kubernetes Fleet Manager (Kubernetes Fleet) allows you to address these scenarios using the Kubernetes resource placement feature.
 
 ## Overview
 
@@ -33,7 +33,7 @@ Kubernetes Fleet provides resource placement capability that can make scheduling
 
 **requiredDuringSchedulingIgnoredDuringExecution** affinity type allows for **filtering** the member clusters eligible for placement using property selectors. A property selector is an array of expression conditions against cluster properties.
 
-In each condition you will specify:
+In each condition you specify:
 
 * **Name**: Name of the property, which should be in the following format:
 
@@ -55,9 +55,9 @@ In each condition you will specify:
     * `Eq` (Equal to): a cluster's observed value of the given property must be equal to the value in the condition before it can be picked for resource placement.
     * `Ne` (Not equal to): a cluster's observed value of the given property must be not equal to the value in the condition before it can be picked for resource placement.
 
-    Note that if you use the operator `Gt`, `Ge`, `Lt`, `Le`, `Eq`, or `Ne`, the list of values in the condition should have exactly one value.
+    If you use the operator `Gt`, `Ge`, `Lt`, `Le`, `Eq`, or `Ne`, the list of values in the condition should have exactly one value.
 
-Fleet will evaluate each cluster based on the properties specified in the condition. Failure to satisfy conditions listed under `requiredDuringSchedulingIgnoredDuringExecution` will exclude this member cluster from resource placement.
+Fleet evaluates each cluster based on the properties specified in the condition. Failure to satisfy conditions listed under `requiredDuringSchedulingIgnoredDuringExecution` excludes this member cluster from resource placement.
 
 > [!NOTE]
 > If a member cluster does not possess the property expressed in the condition, it will automatically
@@ -115,7 +115,7 @@ spec:
                       - "5"
 ```
 
-In the example above, Kubernetes Fleet will only consider a cluster for resource placement if it has the `region=east` label and a node count greater than or equal to five.
+In this example, Kubernetes Fleet will only consider a cluster for resource placement if it has the `region=east` label and a node count greater than or equal to five.
 
 ## Rank order clusters at the time of scheduling based on member cluster properties
 
@@ -123,8 +123,8 @@ When `preferredDuringSchedulingIgnoredDuringExecution` is used, a property sorte
 
 A property sorter consists of:
 
-* **Name**: Name of the property with more information of the formatting of the property covered in the above section.
-* **Sort order**: Sort order can be either `Ascending` or `Descending`. When `Ascending` order is used, Kubernetes Fleet will prefer member clusters with lower observed values. When `Descending` order is used, member clusters with higher observed value are preferred.
+* **Name**: Name of the property with more information of the formatting of the property covered in the previous section.
+* **Sort order**: Sort order can be either `Ascending` or `Descending`. When `Ascending` order is used, Kubernetes Fleet prefers member clusters with lower observed values. When `Descending` order is used, member clusters with higher observed value are preferred.
 
 When using the sort order `Descending`, the proportional weight is calculated using the formula:
 
@@ -132,7 +132,7 @@ When using the sort order `Descending`, the proportional weight is calculated us
 ((Observed Value - Minimum observed value) / (Maximum observed value - Minimum observed value)) * Weight
 ```
 
-For example, let's say you want to rank clusters based on the property of available CPU capacity in descending order and that you have a fleet of 3 clusters with the following available CPU:
+For example, let's say you want to rank clusters based on the property of available CPU capacity in descending order and that you have a fleet of three clusters with the following available CPU:
 
 | Cluster | Available CPU capacity |
 | -------- | ------- |
@@ -140,7 +140,7 @@ For example, let's say you want to rank clusters based on the property of availa
 | smartfish | 20 |
 | jumpingcat | 10 |
 
-The sorter would yield the weights below:
+In this case, the sorter computes the following weights:
 
 | Cluster | Available CPU capacity | Weight |
 | -------- | ------- | ------- | 
@@ -155,7 +155,7 @@ When using the sort order `Ascending`, the proportional weight is calculated usi
 (1 - ((Observed Value - Minimum observed value) / (Maximum observed value - Minimum observed value))) * Weight
 ```
 
-For example, let's say you want to rank clusters based on their per CPU core cost in ascending order and that you have a fleet of 3 clusters with the the following CPU core costs:
+For example, let's say you want to rank clusters based on their per CPU core cost in ascending order and that you have a fleet of three clusters with the the following CPU core costs:
 
 | Cluster | Per CPU core cost |
 | -------- | ------- |
@@ -163,7 +163,7 @@ For example, let's say you want to rank clusters based on their per CPU core cos
 | smartfish | 0.2 |
 | jumpingcat | 0.1 |
 
-The sorter would yield the weights below:
+In this case, the sorter computes the following weights:
 
 | Cluster | Per CPU core cost | Weight |
 | -------- | ------- | ------- | 
@@ -194,9 +194,7 @@ spec:
                   sortOrder: Descending
 ```
 
-In this example, Fleet will prefer clusters with higher node counts. The cluster with the highest
-node count would receive a weight of 20, and the cluster with the lowest would receive 0. Other
-clusters receive proportional weights calculated using the formulas above.
+In this example, Fleet will prefer clusters with higher node counts. The cluster with the highest node count would receive a weight of 20, and the cluster with the lowest would receive 0. Other clusters receive proportional weights calculated using the weight calulation formula.
 
 You may use both label selector and property sorter under `preferredDuringSchedulingIgnoredDuringExecution` affinity. A member cluster that fails the label selector won't receive any weight. Member clusters that satisfy the label selector receive proportional weights as specified under property sorter.
 
@@ -224,5 +222,5 @@ spec:
                   sortOrder: Descending
 ```
 
-In the example above, a cluster would only receive additional weight if it has the label
+In this example, a cluster would only receive additional weight if it has the label
 `env=prod`. If it satisfies that label based constraint, then the cluster is given proportional weight based on the amount of total CPU in that member cluster.
