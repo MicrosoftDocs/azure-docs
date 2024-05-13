@@ -38,7 +38,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## Get a static inbound IP
 
-Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
+Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](./configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
 
 ## When outbound IPs change
 
@@ -81,11 +81,21 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 ## Get a static outbound IP
+
 You can control the IP address of outbound traffic from your app by using regional VNet integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Regional VNet integration](./overview-vnet-integration.md) is available on **Basic**, **Standard**, **Premium**, **PremiumV2** and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](./networking/nat-gateway-integration.md).
+
+## Service tag
+
+By using the `AppService` service tag, you can define network access for the Azure App Service service without specifying individual IP addresses. The service tag is a group of IP address prefixes that you use to minimize the complexity of creating security rules. When you use service tags, Azure automatically updates the IP addresses as they change for the service. However, the service tag isn't a security control mechanism. The service tag is merely a list of IP addresses.
+
+The `AppService` service tag includes only the inbound IP addresses of multi-tenant apps. Inbound IP addresses from apps deployed in isolated (App Service Environment) and apps using [IP-based TLS bindings](./configure-ssl-bindings.md) are not included. Further all outbound IP addresses used in both multi-tenant and isolated are not included in the tag.
+
+The tag can be used to allow outbound traffic in a Network security group (NSG) to apps. If the app is using IP-based TLS or the app is deployed in isolated mode, you must use the dedicated IP address instead.
+
+> [!NOTE]
+> Service tag helps you define network access, but it shouldn't be considered as a replacement for proper network security measures as it doesn't provide granular control over individual IP addresses.
 
 ## Next steps
 
-Learn how to restrict inbound traffic by source IP addresses.
-
-> [!div class="nextstepaction"]
-> [Static IP restrictions](app-service-ip-restrictions.md)
+* Learn how to [restrict inbound traffic](./app-service-ip-restrictions.md) by source IP addresses.
+* Learn more about [service tags](../virtual-network/service-tags-overview.md).
