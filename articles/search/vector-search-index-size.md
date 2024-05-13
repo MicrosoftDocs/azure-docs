@@ -15,7 +15,7 @@ ms.date: 05/21/2024
 For each vector field, Azure AI Search constructs an internal vector index using the algorithm parameters specified on the field. Because Azure AI Search imposes quotas on vector index size, you should know how to estimate and monitor vector size to ensure you stay under the limits.
 
 > [!NOTE]
-> A note about terminology. Internally, the physical data structures of a search index include raw content (used for retrieval patterns requiring non-tokenized content), inverted indexes (used for searchable text fields), and vector indexes (used for searchable vector fields). This article explains the limits for the internal vector indexes that back each of your vector fields. 
+> A note about terminology. Internally, the physical data structures of a search index include raw content (used for retrieval patterns requiring non-tokenized content), inverted indexes (used for searchable text fields), and vector indexes (used for searchable vector fields). This article explains the limits for the internal vector indexes that back each of your vector fields.
 
 > [!TIP]
 > [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now in preview. Use capabilities like narrow data types, scalar quantization, and elimination of redundant storage to stay under vector quota and storage quota.

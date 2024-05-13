@@ -46,7 +46,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 | Maximum [suggesters](/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |
-| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.92 TB | 2.4 TB | 100 GB| N/A | N/A |
+| Maximum index size&nbsp;<sup>4</sup> | N/A | N/A | N/A | 1.88 TB | 2.34 TB | 100 GB| N/A | N/A |
 
 <sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only tier with a lower limit of 100 fields per index. 
 
