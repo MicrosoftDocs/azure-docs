@@ -17,7 +17,7 @@ ms.custom:
 
 # Consume serverless API endpoints from a different Azure AI Studio project or hub
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](./includes/feature-preview.md)]
 
 In this article, you learn how to configure an existing serverless API endpoint in a different project or hub than the one that was used to create the deployment.
 

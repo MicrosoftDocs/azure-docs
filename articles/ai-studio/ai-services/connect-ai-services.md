@@ -15,6 +15,8 @@ author: eric-urban
 
 # Connect AI services to your hub in Azure AI Studio
 
+[!INCLUDE [Feature preview](./includes/feature-preview.md)]
+
 You can try out AI services for free in Azure AI Studio as described in the [getting started with AI services](get-started.md) article. This article describes how to use AI services connections to do more via Azure AI Studio, SDKs, and APIs. 
 
 After you create a hub with AI services, you can use the AI services connection via the AI Studio UI, APIs, and SDKs. For example, you can try out AI services via **Home** > **AI Services** in the AI Studio UI as shown here.

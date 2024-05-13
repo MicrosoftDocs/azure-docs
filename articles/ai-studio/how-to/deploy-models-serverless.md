@@ -17,7 +17,7 @@ ms.custom:
 
 # Deploy models as serverless APIs
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](./includes/feature-preview.md)]
 
 In this article, you learn how to deploy a model from the model catalog as a serverless API with pay-as-you-go token based billing.
 
