@@ -6,10 +6,8 @@ description: Explanation of the factors affecting the size of a vector index.
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 05/21/2024
 ---
 
 # Vector index size and staying under limits
@@ -32,7 +30,8 @@ For each vector field, Azure AI Search constructs an internal vector index using
 
 + Vector quotas are enforced on the search service as a whole, per partition, meaning that if you add partitions, vector quota goes up. Per-partition vector quotas are higher on newer services:
 
-  + [Vector quota for services created after April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-april-3-2024-in-supported-regions)
+  + [Vector quota for services created after May 17, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-may-17-2024)
+  + [Vector quota for services between April 3, 2024 and May 17, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-april-3-2024-and-may-17-2024)
   + [Vector quota for services created between July 1, 2023 and April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-july-1-2023-and-april-3-2024)
   + [Vector quota for services created before July 1, 2023](search-limits-quotas-capacity.md#vector-limits-on-services-created-before-july-1-2023)
 
@@ -64,7 +63,8 @@ Newer services created after April 3, 2024 offer five to ten times more vector s
 
 1. Now that you know the age of your search service, review the vector quota limits based on service creation:
 
-   + [After April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-april-3-2024-in-supported-regions)
+   + [After May 17, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-may-17-2024)
+   + [Between April 3, 2024 and May 17, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-april-3-2024-and-may-17-2024)
    + [Between July 1, 2023 and April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-july-1-2023-and-april-3-2024)
    + [Before July 1, 2023](search-limits-quotas-capacity.md#vector-limits-on-services-created-before-july-1-2023)
 
@@ -97,7 +97,7 @@ Use the following data plane REST APIs (version 2023-10-01-preview, 2023-11-01, 
 + [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up. 
 + [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) returns usage for a given index.
 
-Usage and quota are reported in bytes. 
+Usage and quota are reported in bytes.
 
 Here's GET Service Statistics:
 
@@ -141,7 +141,7 @@ Response includes metrics for `storageSize`, which doesn't distinguish between v
 }
 ```
 
-You can also send a GET Index Statistics to get the physical size of the index on disk, plus the in-memory size of the vector fields. 
+You can also send a GET Index Statistics to get the physical size of the index on disk, plus the in-memory size of the vector fields.
 
 ```http
 GET {{baseUrl}}/indexes/vector-healthplan-idx/stats?api-version=2023-11-01  HTTP/1.1
@@ -159,6 +159,7 @@ Response includes usage information at the index level. This example is based on
     "vectorIndexSize": 915484
 }
 ```
+
 ---
 
 ## Factors affecting vector index size
@@ -200,7 +201,7 @@ The following table summarizes the overhead percentages observed in internal tes
   
 | Dimensions | HNSW Parameter (m) | Overhead Percentage |  
 |-------------------|--------------------|---------------------|
-| 96                | 4                  | 20%              |    
+| 96                | 4                  | 20%              |
 | 200               | 4                  | 8%               |  
 | 768               | 4                  | 2%               |  
 | 1536              | 4                  | 1%               |  

@@ -50,7 +50,7 @@ Currently, there's no in-place upgrade. You should [create a new search service]
 
 ### After May 17, 2024
 
-S2, S3, and S3 HD have larger partition sizes starting on May 17, 2024.  If you created an S2 or higher search service after April 3, the higher partition size becomes available automatically. If you're running an older search service, you must [create a new search service](/azure/search/search-createservice-portal)  to get the higher limits.
+S2, S3, and S3 HD have larger partition sizes starting on May 17, 2024.  If you created an S2 or higher search service after April 3, the higher partition size becomes available automatically. If you're running an older search service, you must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
 
 Storage Optimized tiers (L1 and L2) now have larger partitions at the current pricing.
 
