@@ -37,7 +37,7 @@ Existing Azure OpenAI customers can test out GPT-4o in the **NEW** Azure OpenAI 
 To test the latest model:
 
 > [!NOTE]
-> The GPT-4o early access playground is currently only available for resources in **West US3** and **East US**, and is limited to 10 requests every five minutes. Azure OpenAI content filters are enabled at the default configuration and cannot be modified. GPT-4o is a preview model and is currently not available for deployment/direct API access.
+> The GPT-4o early access playground is currently only available for resources in **West US3** and **East US**, and is limited to 10 requests every five minutes. Azure OpenAI service abuse monitoring is enabled for all early access playground users even if approved for modification; default content filters are enabled and cannot be modified. GPT-4o is a preview model and is currently not available for deployment/direct API access.
 
 1. Navigate to Azure OpenAI Studio at https://oai.azure.com/ and sign-in with credentials that have access to your OpenAI resources.
 2. Select an Azure OpenAI resource in the **West US3** or **East US** regions. If you don't have a resource in one of these regions you will need to [create a resource](../how-to/create-resource.md).
