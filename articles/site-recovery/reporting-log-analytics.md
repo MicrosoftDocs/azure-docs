@@ -144,4 +144,4 @@ This table contains records of Azure Site Recovery jobs such as failover, test f
 
 ## Next steps
 
-- To learn more about the Azure Monitor Log Analytics data model, see [Azure Monitor Log Analytics data model](../azure-monitor/long-query/log-query-overview.md)
+- To learn more about the Azure Monitor Log Analytics data model, see [Azure Monitor Log Analytics data model](https://learn.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
