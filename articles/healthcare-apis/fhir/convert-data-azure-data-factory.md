@@ -1,36 +1,34 @@
 ---
-title: Transform HL7v2 data to FHIR R4 with $convert-data and Azure Data Factory - Azure Health Data Services
-description: Learn how to transform HL7v2 data to FHIR R4 with $convert-data and Azure Data Factory
+title: Transform HL7v2 data to FHIR R4 with $convert-data in the FHIR service for Azure Health Data Services
+description: Learn how to transform HL7v2 data into FHIR R4 by using Azure Data Factory’s $convert-data operation. Explore prerequisites, configuration, and pipeline creation for data conversion and storage with Azure Data Lake Storage Gen2 capabilities.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 05/13/2024
 ms.author: jasteppe
 ---
 
 # Transform HL7v2 data to FHIR R4 with $convert-data and Azure Data Factory
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
 
-In this article, we detail how to use [Azure Data Factory (ADF)](../../data-factory/introduction.md) with the `$convert-data` operation to transform [HL7v2](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185) data to [FHIR R4](https://www.hl7.org/fhir/R4/). The transformed results are then persisted within an [Azure storage account](../../storage/common/storage-account-overview.md) with [Azure Data Lake Storage (ADLS) Gen2](../../storage/blobs/data-lake-storage-introduction.md) capabilities.
+In this article, we detail how to use [Azure Data Factory (ADF)](../../data-factory/introduction.md) with the `$convert-data` operation to transform [HL7v2](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185) data to [FHIR&reg; R4](https://www.hl7.org/fhir/R4/). The transformed results are then persisted within an [Azure storage account](../../storage/common/storage-account-overview.md) with [Azure Data Lake Storage (ADLS) Gen2](../../storage/blobs/data-lake-storage-introduction.md) capabilities.
 
 ## Prerequisites
 
-Before getting started, ensure you have taken the following steps:
+Before getting started, do these steps:
 
-1. Deploy an instance of the [FHIR service](fhir-portal-quickstart.md). The FHIR service is used to invoke the [`$convert-data`](overview-of-convert-data.md) operation.
-2. By default, the ADF pipeline in this scenario uses the [predefined templates provided by Microsoft](configure-settings-convert-data.md#default-templates) for conversion. If your use case requires customized templates, set up your [Azure Container Registry instance to host your own templates](configure-settings-convert-data.md#host-your-own-templates) to be used for the conversion operation. 
-3. Create storage account(s) with [Azure Data Lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace and container(s) to store the data to read from and write to.
+1. Deploy an instance of the [FHIR service](fhir-portal-quickstart.md). The FHIR service is used to invoke the [`$convert-data`](convert-data-overview.md) operation.
+2. By default, the ADF pipeline in this scenario uses the [predefined templates provided by Microsoft](convert-data-configuration.md#default-templates) for conversion. If your use case requires customized templates, set up your [Azure Container Registry instance to host your own templates](convert-data-configuration.md#host-your-own-templates) to be used for the conversion operation. 
+3. Create storage accounts with [Azure Data Lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace and container to store the data to read from and write to.
 
-   > [!NOTE]
-   > You can create and use either one or separate ADLS Gen2 accounts and containers to:
-   > * Store the HL7v2 data to be transformed (for example: the source account and container the pipeline will read the data to be transformed from).
-   > * Store the transformed FHIR R4 bundles (for example: the destination account and container the pipeline will write the transformed result to).
-   > * Store the errors encountered during the transformation (for example: the destination account and container the pipeline will write execution errors to).
+   You can create and use either one or separate ADLS Gen2 accounts and containers to:
+   - Store the HL7v2 data to be transformed (for example: the source account and container the pipeline reads the data to be transformed from).
+   - Store the transformed FHIR R4 bundles (for example: the destination account and container the pipeline writes the transformed result to).
+   - Store the errors encountered during the transformation (for example: the destination account and container the pipeline writes execution errors to).
 
-4. Create an instance of [ADF](../../data-factory/quickstart-create-data-factory.md), which serves as a business logic orchestrator. Ensure that a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md) has been enabled. 
+4. Create an instance of [ADF](../../data-factory/quickstart-create-data-factory.md), which serves as a business logic orchestrator. Ensure that a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md) is enabled. 
 5. Add the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) assignments to the ADF system-assigned managed identity:
    * **FHIR Data Converter** role to [grant permission to the FHIR service](../../healthcare-apis/configure-azure-rbac.md#assign-roles-for-the-fhir-service).
    * **Storage Blob Data Contributor** role to [grant permission to the ADLS Gen2 account](../../storage/blobs/assign-azure-role-data-access.md?tabs=portal).
@@ -41,7 +39,7 @@ In this example, an ADF [pipeline](../../data-factory/concepts-pipelines-activ
  
 1. From the Azure portal, open your Azure Data Factory instance and select **Launch Studio** to begin. 
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-launch-studio.png" alt-text="Screenshot of Azure Data Factory." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-launch-studio.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-launch-studio.png" alt-text="Screenshot showing Azure Data Factory." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-launch-studio.png":::
 
 ## Create a pipeline
 
@@ -49,25 +47,25 @@ Azure Data Factory pipelines are a collection of activities that perform a t
 
 1. Select **Author** from the navigation menu. In the **Factory Resources** pane, select the **+** to add a new resource. Select **Pipeline** and then **Template gallery** from the menu.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/open-template-gallery.png" alt-text="Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service." lightbox="media/convert-data/convert-data-with-azure-data-factory/open-template-gallery.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/open-template-gallery.png" alt-text="Screenshot showing the Artifacts screen for registering an Azure Container Registry with a FHIR service." lightbox="media/convert-data/convert-data-with-azure-data-factory/open-template-gallery.png"::: 
 
 2. In the Template gallery, search for **HL7v2**. Select the **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2** tile and then select **Continue**. 
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/search-for-template.png" alt-text="Screenshot of the search for the Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2 template." lightbox="media/convert-data/convert-data-with-azure-data-factory/search-for-template.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/search-for-template.png" alt-text="Screenshot showing the search for the Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2 template." lightbox="media/convert-data/convert-data-with-azure-data-factory/search-for-template.png":::
 
 3. Select **Use this template** to create the new pipeline.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/use-this-template.png" alt-text="Screenshot of the Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2 template preview." lightbox="media/convert-data/convert-data-with-azure-data-factory/use-this-template.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/use-this-template.png" alt-text="Screenshot showing the Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2 template preview." lightbox="media/convert-data/convert-data-with-azure-data-factory/use-this-template.png"::: 
   
    ADF imports the template, which is composed of an end-to-end main pipeline and a set of individual pipelines/activities. The main end-to-end pipeline for this scenario is named **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2** and can be accessed by selecting **Pipelines**. The main pipeline invokes the other individual pipelines/activities under the subcategories of **Extract**, **Load**, and **Transform**.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/overview-pipeline-template.png" alt-text="Screenshot of the Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2 Azure Data Factory template." lightbox="media/convert-data/convert-data-with-azure-data-factory/overview-pipeline-template.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/overview-pipeline-template.png" alt-text="Screenshot showing the Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2 Azure Data Factory template." lightbox="media/convert-data/convert-data-with-azure-data-factory/overview-pipeline-template.png"::: 
 
    If needed, you can make any modifications to the pipelines/activities to fit your scenario (for example: if you don't intend to persist the results in a destination ADLS Gen2 storage account, you can modify the pipeline to remove the **Write converted result to ADLS Gen2** pipeline altogether).
 
 4. Select the **Parameters** tab and provide values based your configuration/setup. Some of the values are based on the resources setup as part of the [prerequisites](#prerequisites).
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/input-pipeline-parameters.png" alt-text="Screenshot of the pipeline parameters options." lightbox="media/convert-data/convert-data-with-azure-data-factory/input-pipeline-parameters.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/input-pipeline-parameters.png" alt-text="Screenshot showing the pipeline parameters options." lightbox="media/convert-data/convert-data-with-azure-data-factory/input-pipeline-parameters.png"::: 
 
    * **fhirService** – Provide the URL of the FHIR service to target for the `$convert-data` operation. For example: `https://**myservice-fhir**.fhir.azurehealthcareapis.com/`
    * **acrServer** – Provide the name of the ACR server to pull the Liquid templates to use for conversion. By default, option is set to `microsofthealth`, which contains the predefined template collection published by Microsoft. To use your own template collection, replace this value with your ACR instance that hosts your templates and is registered to your FHIR service. 
@@ -95,27 +93,27 @@ Azure Data Factory pipelines are a collection of activities that perform a t
 
 5. You can configure more pipeline settings under the **Settings** tab based on your requirements.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/settings-tab-overview.png" alt-text="Screenshot of the Settings option." lightbox="media/convert-data/convert-data-with-azure-data-factory/settings-tab-overview.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/settings-tab-overview.png" alt-text="Screenshot showing the Settings option." lightbox="media/convert-data/convert-data-with-azure-data-factory/settings-tab-overview.png":::
 
 6. You can also optionally debug your pipeline to verify the setup. Select **Debug**. 
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/debug-pipeline.png" alt-text="Screenshot of the Azure Data Factory debugging option." lightbox="media/convert-data/convert-data-with-azure-data-factory/debug-pipeline.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/debug-pipeline.png" alt-text="Screenshot showing the Azure Data Factory debugging option." lightbox="media/convert-data/convert-data-with-azure-data-factory/debug-pipeline.png"::: 
 
 7. Verify your pipeline run parameters and select **OK**. 
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/verify-pipeline-parameters.png" alt-text="Screenshot of the Azure Data Factory verify pipeline parameters." lightbox="media/convert-data/convert-data-with-azure-data-factory/verify-pipeline-parameters.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/verify-pipeline-parameters.png" alt-text="Screenshot showing the Azure Data Factory verify pipeline parameters." lightbox="media/convert-data/convert-data-with-azure-data-factory/verify-pipeline-parameters.png"::: 
 
 8. You can monitor the debug execution of the pipeline under the **Output** tab. 
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/output-pipeline-status.png" alt-text="Screenshot of the pipeline output status." lightbox="media/convert-data/convert-data-with-azure-data-factory/output-pipeline-status.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/output-pipeline-status.png" alt-text="Screenshot showing the pipeline output status." lightbox="media/convert-data/convert-data-with-azure-data-factory/output-pipeline-status.png"::: 
 
 9. Once you're satisfied with your pipeline setup, select **Publish all**.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-publish-all.png" alt-text="Screenshot of the Azure Data Factory Publish all option." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-publish-all.png"::: 
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-publish-all.png" alt-text="Screenshot showing the Azure Data Factory Publish all option." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-publish-all.png"::: 
 
 10. Select **Publish** to save your pipeline within your own ADF instance.
 
-    :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-publish.png" alt-text="Screenshot of the Azure Data Factory Publish option." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-publish.png"::: 
+    :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-publish.png" alt-text="Screenshot showing the Azure Data Factory Publish option." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-publish.png"::: 
 
 ## Executing a pipeline
 
@@ -141,15 +139,15 @@ To configure the pipeline to automatically run whenever a new HL7v2 blob file in
 
 1. Select **Author** from the navigation menu. Select the pipeline configured in the previous section and select **Add trigger** and **New/Edit** from the menu bar. 
    
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-add-trigger.png" alt-text="Screenshot of the Azure Data Factory Add trigger and New/Edit options." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-add-trigger.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/select-add-trigger.png" alt-text="Screenshot showing the Azure Data Factory add trigger and new or edit options." lightbox="media/convert-data/convert-data-with-azure-data-factory/select-add-trigger.png":::
 
-2.	In the **Add triggers** panel, select the **Choose trigger** dropdown and then select **New**. 
+2.	In the **Add triggers** panel, select the **Choose trigger** dropdown, and then select **New**. 
 3.	Enter a **Name** and **Description** for the trigger.
 4.	Select **Storage events** as the **Type**.
 5.	Configure the storage account details containing the source HL7v2 data to transform (for example: ADLS Gen2 storage account name, container name, blob path, etc.) to reference for the trigger.
 6.	Select **Blob created** as the **Event**.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/create-new-storage-event-trigger.png" alt-text="Screenshot of creating a new storage event trigger." lightbox="media/convert-data/convert-data-with-azure-data-factory/create-new-storage-event-trigger.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/create-new-storage-event-trigger.png" alt-text="Screenshot showing creating a new storage event trigger." lightbox="media/convert-data/convert-data-with-azure-data-factory/create-new-storage-event-trigger.png":::
 
 7.	Select **Continue** to see the **Data preview** for the configured settings.
 8.	Select **Continue** again at **Data preview**  to continue configuring the trigger run parameters. 
@@ -172,7 +170,7 @@ For the **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2
 
 2. Select **OK** to create the new trigger. Be sure to select **Publish** on the menu bar to begin your trigger running on the defined schedule.
 
-   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/trigger-run-parameters.png" alt-text="Screenshot of Azure Data Factory trigger parameters." lightbox="media/convert-data/convert-data-with-azure-data-factory/trigger-run-parameters.png":::
+   :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/trigger-run-parameters.png" alt-text="Screenshot showing Azure Data Factory trigger parameters." lightbox="media/convert-data/convert-data-with-azure-data-factory/trigger-run-parameters.png":::
 
 After the trigger is published, it can be triggered manually using the **Trigger now** option. If the start time was set for a value in the past, the pipeline starts immediately. 
 
@@ -180,7 +178,7 @@ After the trigger is published, it can be triggered manually using the **Trigg
 
 Trigger runs and their associated pipeline runs can be viewed in the **Monitor** tab. Here, users can browse when each pipeline ran, how long it took to execute, and potentially debug any problems that arose. 
 
-:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/monitor-pipeline-runs.png" alt-text="Screenshot of monitoring Azure Data Factory pipeline runs." lightbox="media/convert-data/convert-data-with-azure-data-factory/monitor-pipeline-runs.png":::
+:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/monitor-pipeline-runs.png" alt-text="Screenshot showing monitoring Azure Data Factory pipeline runs." lightbox="media/convert-data/convert-data-with-azure-data-factory/monitor-pipeline-runs.png":::
 
 ## Pipeline execution results
 
@@ -188,31 +186,18 @@ Trigger runs and their associated pipeline runs can be viewed in the **Monitor
 
 Successful pipeline executions result in the transformed FHIR R4 bundles as JSON files in the configured destination ADLS Gen2 storage account and container.
 
-:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/transformed-fhir-results.png" alt-text="Screenshot of transformed FHIR results." lightbox="media/convert-data/convert-data-with-azure-data-factory/transformed-fhir-results.png":::
+:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/transformed-fhir-results.png" alt-text="Screenshot showing transformed FHIR results." lightbox="media/convert-data/convert-data-with-azure-data-factory/transformed-fhir-results.png":::
 
 ### Errors
 
-Errors encountered during conversion, as part of the pipeline execution, result in error details captured as JSON file in the configured error destination ADLS Gen2 storage account and container. For information on how to troubleshoot `$convert-data`, see [Troubleshoot $convert-data](troubleshoot-convert-data.md).
+Errors encountered during conversion, as part of the pipeline execution, result in error details captured as JSON file in the configured error destination ADLS Gen2 storage account and container. For information on how to troubleshoot `$convert-data`, see [Troubleshoot $convert-data](convert-data-troubleshoot.md).
 
-:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png" alt-text="Screenshot of Azure Data Factory errors." lightbox="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png":::
+:::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png" alt-text="Screenshot showing Azure Data Factory errors." lightbox="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png":::
 
 ## Next steps
 
-In this article, you learned how to use Azure Data Factory templates to create a pipeline to transform HL7v2 data to FHIR R4 persisting the results within an Azure Data Lake Storage Gen2 account. You also learned how to configure a trigger to automate the pipeline execution based on incoming HL7v2 data to be transformed.
+[Configure settings for $convert-data](convert-data-azure-data-factory.md)
 
-For an overview of `$convert-data`, see
- 
-> [!div class="nextstepaction"]
-> [Overview of $convert-data](overview-of-convert-data.md)
+[Troubleshoot $convert-data](convert-data-troubleshoot.md)
 
-To learn how to configure settings for `$convert-data` using the Azure portal, see
- 
-> [!div class="nextstepaction"]
-> [Configure settings for $convert-data using the Azure portal](convert-data-with-azure-data-factory.md)
-
-To learn how to troubleshoot `$convert-data`, see
- 
-> [!div class="nextstepaction"]
-> [Troubleshoot $convert-data](troubleshoot-convert-data.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
