@@ -64,7 +64,7 @@ For more information, see the [`ClusterResourcePlacement` API reference][cluster
 
 When creating the `ClusterResourcePlacement`, the following affinity types can be specified:
 
-- **requiredDuringSchedulingIgnoredDuringExecution**: As this affinity is of the required type during scheduling, it **filters** the clusters based on their properties
+- **requiredDuringSchedulingIgnoredDuringExecution**: As this affinity is of the required type during scheduling, it **filters** the clusters based on their properties.
 - **preferredDuringSchedulingIgnoredDuringExecution**: As this affinity is only of the preferred type, but is not required during scheduling, it provides preferential ranking to clusters based on properties specified by you such as cost or resource availability.
 
 Multiple placement types are available for controlling the number of clusters to which the Kubernetes resource needs to be propagated:

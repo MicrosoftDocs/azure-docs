@@ -11,7 +11,7 @@ ms.service: kubernetes-fleet
 
 # Upgrade hub cluster type for Azure Kubernetes Fleet Manager resource
 
-In this article, you learn how to upgrade an Azure Kubernetes Fleet Manager (Kubernetes Fleet) resource without any hub cluster to a Kubernetes Fleet resource having a hub cluster. When a Kubernetes Fleet resource is created without a hub cluster, a central Azure Kubernetes Service (AKS) cluster isn't created for the Kubernetes Fleet resource. When a Kubernetes Fleet resource with hub cluster is created, a central and managed AKS cluster is created to enable scenarios such as workload orchestration and layer-4 load balancing.
+In this article, you learn how to upgrade an Azure Kubernetes Fleet Manager (Kubernetes Fleet) resource without a hub cluster to a Kubernetes Fleet resource that has a hub cluster. When a Kubernetes Fleet resource is created without a hub cluster, a central Azure Kubernetes Service (AKS) cluster isn't created for the Kubernetes Fleet resource. When a Kubernetes Fleet resource with a hub cluster is created, a central and managed AKS cluster is created to enable scenarios such as workload orchestration and layer-4 load balancing.
 
 For more information, see [Choosing an Azure Kubernetes Fleet Manager option][concepts-choose-fleet].
 
@@ -20,14 +20,14 @@ For more information, see [Choosing an Azure Kubernetes Fleet Manager option][co
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- You must have an existing Kubernetes Fleet resource without the hub cluster. The steps in this article show you how to create such a Kubernetes Fleet resource without the hub cluster, but you already have one you can substitute your existing resource.
+- You must have an existing Kubernetes Fleet resource without a hub cluster. The steps in this article show you how to create a Kubernetes Fleet resource without a hub cluster. If you already have one, you can skip the initial setup and begin at [Upgrade hub cluster type for the Kubernetes Fleet resource](#upgrade-hub-cluster-type-for-the-kubernetes-fleet-resource).
 - This article also includes steps on joining member clusters. If you plan to follow along, you need at least one AKS cluster.
 
 
 > [!IMPORTANT]
-> Kubernetes Fleet resources without a hub cluster can be upgraded to fleet resource having a hub cluster. However, a Kubernetes Fleet resource already having a hub cluster can't be downgraded to Kubernetes Fleet resource without hub cluster.
-> All configuration options and settings associated with the hub cluster based Kubernetes Fleet resource are immutable and can't be changed after creation or upgrade time.
-> Upgrading from Kubernetes Fleet without hub cluster to one with a hub cluster can only be done through the Azure CLI. Currently there's no equivalent Azure portal experience.
+> Kubernetes Fleet resources without a hub cluster can be upgraded to a Kubernetes Fleet resource with a hub cluster. However, a Kubernetes Fleet resource that already has a hub cluster can't be downgraded to a Kubernetes Fleet resource without a hub cluster.
+> All configuration options and settings associated with Kubernetes Fleet resource that has a hub cluster are immutable and can't be changed after creation or upgrade time.
+> Upgrading from a Kubernetes Fleet resource without a hub cluster to one with a hub cluster can only be done through the Azure CLI. Currently there's no equivalent Azure portal experience.
 
 ## Initial setup
 
@@ -48,16 +48,16 @@ az group create -n $RG -l $LOCATION
 az fleet create -g $RG -n $FLEET
 
 # Join member cluster to hubless fleet resource
-az fleet member create -n $FLEET_MEMBER -f $FLEET -g $RG --member-cluster-id /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.ContainerService/managedClusters/$CLUSTER
+az fleet member create --name $FLEET_MEMBER --fleet-name $FLEET --resource-group $RG --member-cluster-id /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG/providers/Microsoft.ContainerService/managedClusters/$CLUSTER
 ```
 
 ## Upgrade hub cluster type for the Kubernetes Fleet resource
 
-To upgrade hub cluster type for the Kubernetes Fleet resource, use the `az fleet create` command with the `--enable-hub` flag set. Be sure to include any other relevant configuration options, as the fleet resource will become immutable after this operation is complete.
+To upgrade the hub cluster type for the Kubernetes Fleet resource, use the `az fleet create` command with the `--enable-hub` flag set. Be sure to include any other relevant configuration options, as the fleet resource will become immutable after this operation is complete.
 
 ```azurecli-interactive
-# Upgrade the Kubernetes fleet resource without hub cluster to one with a hub cluster
-az fleet create -n $FLEET -g $RG --enable-hub 
+# Upgrade the Kubernetes fleet resource without a hub cluster to one with a hub cluster
+az fleet create --name $FLEET --resource-group $RG --enable-hub 
 
 ```
 
@@ -115,7 +115,7 @@ For each member cluster that you rejoin to the newly upgraded fleet, view the ou
 
 You need access to the Kubernetes API of the hub cluster. If you don't have access, see [Access the Kubernetes API of the Fleet resource with Azure Kubernetes Fleet Manager](./quickstart-access-fleet-kubernetes-api.md).
 
-To verify that your newly upgraded fleet resource is functioning properly and member clusters joined successfully, confirm that you're able to access the hub cluster's API server using the `kubectl get memberclusters` command.
+To verify that your newly upgraded Kubernetes Fleet resource is functioning properly and that the member clusters joined successfully, confirm that you're able to access the hub cluster's API server using the `kubectl get memberclusters` command.
 
 If successful, your output should look similar to the following example output:
 

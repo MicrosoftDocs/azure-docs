@@ -8,16 +8,16 @@ ms.author: shasb
 ms.service: kubernetes-fleet
 ---
 
-# Intelligent cross-cluster Kubernetes resource placement using Azure Kubernetes Fleet Manager (Preview).
+# Intelligent cross-cluster Kubernetes resource placement using Azure Kubernetes Fleet Manager (Preview)
 
 Application developers often need to deploy Kubernetes resources into multiple clusters. Fleet operators often need to pick the best clusters for placing the workloads based on heuristics such as cost of compute in the clusters or available resources such as memory and CPU. It's tedious to create, update, and track these Kubernetes resources across multiple clusters manually. This article covers how Azure Kubernetes Fleet Manager (Kubernetes Fleet) allows you to address these scenarios using the intelligent Kubernetes resource placement feature.
 
 ## Overview
 
 Kubernetes Fleet provides resource placement capability that can make scheduling decisions based on the following properties:
-- Node count.
-- Cost of compute in target member clusters.
-- Resource (CPU/Memory) availability in target member clusters.
+- Node count
+- Cost of compute in target member clusters
+- Resource (CPU/Memory) availability in target member clusters
 
 [!INCLUDE [preview-callout](./includes/preview/preview-callout.md)]
 
@@ -38,10 +38,10 @@ In each condition you specify:
 * **Name**: Name of the property, which should be in the following format:
 
     ```
-    resources.kubernetes-fleet.io/[CAPACITY-TYPE]-[RESOURCE-NAME]
+    resources.kubernetes-fleet.io/<CAPACITY-TYPE>-<RESOURCE-NAME>
     ```
 
-    `[CAPACITY-TYPE]` is one of `total`, `allocatable`, or `available`, depending on which capacity (usage information) you would like to check against, and `[RESOURCE-NAME]` is the name of the resource (CPU/memory).
+    `<CAPACITY-TYPE>` is one of `total`, `allocatable`, or `available`, depending on which capacity (usage information) you would like to check against, and `<RESOURCE-NAME>` is the name of the resource (CPU/memory).
 
     For example, if you would like to select clusters based on the available CPU capacity of a cluster, the name used in the property selector should be `resources.kubernetes-fleet.io/available-cpu`. For allocatable memory capacity, you can use `resources.kubernetes-fleet.io/allocatable-memory`.
 
