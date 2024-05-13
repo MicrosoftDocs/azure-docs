@@ -119,7 +119,7 @@ To integrating Transmit DRS into the B2C sign-in page, follow these steps:
 
 1. [Enable JavaScript and page layout versions in Azure AS B2C](./javascript-and-page-layout.md).
 
-1. Host the HTML page on a Cross-Origin Resource Sharing (CORS) enabled web endpoint by [creating a storage account](/storage/common/storage-account-create.md?tabs=azure-portal&toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) and [adding CORS support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+1. Host the HTML page on a Cross-Origin Resource Sharing (CORS) enabled web endpoint by [creating a storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create) and [adding CORS support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
 ## Step 3: Create an Azure Function
 
