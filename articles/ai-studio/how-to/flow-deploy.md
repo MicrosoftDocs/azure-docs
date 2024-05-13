@@ -130,6 +130,7 @@ The endpoint needs to access Azure resources such as the Azure Container Registr
 System-assigned identity will be autocreated after your endpoint is created, while user-assigned identity is created by user. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ##### System-assigned
+
 You notice there's an option whether *Enforce access to connection secrets (preview)*. If your flow uses connections, the endpoint needs to access connections to perform inference. The option is by default enabled, the endpoint is granted **Azure Machine Learning Workspace Connection Secrets Reader** role to access connections automatically if you have connection secrets reader permission. If you disable this option, you need to grant this role to the system-assigned identity manually by yourself or ask help from your admin. [Learn more about how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
 
 ##### User-assigned
@@ -146,7 +147,6 @@ If you created the associated endpoint with **User Assigned Identity**, the user
 |AI Studio project|**Workspace metrics writer**| After you deploy then endpoint, if you want to monitor the endpoint related metrics like CPU/GPU/Disk/Memory utilization, you need to give this permission to the identity.<br/><br/>Optional|
 
 See detailed guidance about how to grant permissions to the endpoint identity in [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint).
-
 
 ### Advanced settings - Outputs & Connections
 
@@ -232,10 +232,6 @@ You need to input values for `RequestBody` or `data` and `api_key`. For example,
 "url": "<the_url_to_be_classified>"
 }
 ```
-
-
-
-
 
 ## Clean up resources
 
