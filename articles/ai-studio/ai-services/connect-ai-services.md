@@ -45,7 +45,6 @@ Here are examples of more ways to use AI services in the AI Studio UI.
 
 - [Get started with assistants and code interpreters in the AI Studio playground](../../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context)
 - [Hear and speak with chat models in the AI Studio playground](../quickstarts/hear-speak-playground.md)
-- [Post-call speech analytics with Azure AI Speech](../../ai-services/speech-service/speech-analytics-post-call.md?context=/azure/ai-studio/context/context)
 - [Analyze images and videos using GPT-4 Turbo with Vision](../quickstarts/multimodal-vision.md)
 - [Use your image data with Azure OpenAI](../how-to/data-image-add.md)
 
