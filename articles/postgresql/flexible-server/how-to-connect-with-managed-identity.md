@@ -4,11 +4,12 @@ description: Learn about how to connect and authenticate using managed identity 
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 03/27/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
 ---
 
 # Connect with managed identity to Azure Database for PostgreSQL - Flexible Server
@@ -25,8 +26,8 @@ You learn how to:
 
 ## Prerequisites
 
-- If you're not familiar with the managed identities for Azure resources feature, visit [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with a role assignment, see [Assign Azure roles using the Azure portal](../../../articles/role-based-access-control/role-assignments-portal.md).
+- If you're not familiar with the managed identities for Azure resources feature, see this [overview](../../../articles/active-directory/managed-identities-azure-resources/overview.md). If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+- To do the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with a role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../../articles/role-based-access-control/role-assignments-portal.yml).
 - You need an Azure VM (for example, running Ubuntu Linux) that you'd like to use to access your database using Managed Identity
 - You need an Azure Database for PostgreSQL flexible server instance that has [Microsoft Entra authentication](how-to-configure-sign-in-azure-ad-authentication.md) configured
 - To follow the C# example, first, complete the guide on how to [Connect with C#](connect-csharp.md)

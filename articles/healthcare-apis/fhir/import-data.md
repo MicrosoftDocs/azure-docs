@@ -29,7 +29,7 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 
 - Allows you to load `lastUpdated` and `versionId` values from resource metadata if they're present in the resource JSON.
 
-- Allows you to load resources in a non-sequential order of versions.
+- Allows you to load resources in a nonsequential order of versions.
  
   - If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in the FHIR service.
 
@@ -42,7 +42,7 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 >
 > Also, if multiple resources share the same resource ID, only one of those resources is imported at random. An error is logged for the resources that share the same resource ID.
 
-This table shows the difference between import modes
+This table shows the difference between import modes.
 
 |Areas|Initial mode  |Incremental mode  |
 |:------------- |:-------------|:-----|
@@ -50,7 +50,7 @@ This table shows the difference between import modes
 |Concurrent API calls|Blocks concurrent write operations|Data can be ingested concurrently while executing API CRUD operations on the FHIR server.|
 |Ingestion of versioned resources|Not supported|Enables ingestion of  multiple versions of FHIR resources in single batch while maintaining resource history.|
 |Retain lastUpdated field value|Not supported|Retain the lastUpdated field value in FHIR resources during the ingestion process.|
-|Billing| Does not incur any charge|Incurs charges based on successfully ingested resources. Charges are incurred per API pricing.|
+|Billing| Doesn't incur any charge|Incurs charges based on successfully ingested resources. Charges are incurred per API pricing.|
 
 ## Performance considerations
 
@@ -70,11 +70,8 @@ To achieve the best performance with the `import` operation, consider these fact
 
 - Configure the FHIR server. The FHIR data must be stored in resource-specific files in FHIR NDJSON format on the Azure blob store. For more information, see [Configure import settings](configure-import-data.md).
 
-- All the resources in a file must be the same type. You can have multiple files for each resource type.
-
 - The data must be in the same tenant as the FHIR service.
 
-- The maximum number of files allowed for each `import` operation is 10,000.
 
 ### Make a call
 
@@ -99,7 +96,7 @@ Content-Type:application/fhir+json
 | ----------- | ----------- | ----------- | ----------- |
 | `type`|  Resource type of the input file. | 0..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
 |`url`|  Azure storage URL of the input file.   | 1..1 | URL value of the input file. The value can't be modified. |
-| `etag`|  ETag of the input file in the Azure storage. It's used to verify that the file content isn't changed after `import` registration. | 0..1 |  ETag value of the input file.|
+| `etag`|  ETag of the input file in the Azure storage. Used to verify that the file content isn't changed after `import` registration. | 0..1 |  ETag value of the input file.|
 
 ```json
 {
@@ -204,7 +201,7 @@ The following table describes the important fields in the response body:
 
 Incremental-mode import supports ingestion of soft-deleted resources. You need to use the extension to ingest soft-deleted resources in the FHIR service.
 
-Add the extension to the resource to inform the FHIR service that the resource was soft deleted:
+Add the extension to the resource to inform the FHIR service that the resource was soft-deleted:
 
 ```ndjson
 {"resourceType": "Patient", "id": "example10", "meta": { "lastUpdated": "2023-10-27T04:00:00.000Z", "versionId": 4, "extension": [ { "url": "http://azurehealthcareapis.com/data-extensions/deleted-state", "valueString": "soft-deleted" } ] } }
@@ -267,7 +264,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
 }
 ```
 
-**Solution:** Verify that the link to the Azure storage is correct. Check the network and firewall settings to make sure that the FHIR server can access the storage. If your service is in a virtual network, ensure that the storage is in the same virtual network or in a virtual network that's peered with the FHIR service's virtual network.
+**Solution:** Verify that the link to the Azure storage is correct. Check the network and firewall settings to make sure that the FHIR server can access the storage. If your service is in a virtual network, ensure that the storage is in the same virtual network or in a virtual network peered with the FHIR service's virtual network.
 
 #### 403 Forbidden
 
@@ -289,7 +286,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
 
 **Cause:** The FHIR service uses a managed identity for source storage authentication. This error indicates a missing or incorrect role assignment.
 
-**Solution:** Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md?tabs=current).
+**Solution:** Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current).
 
 #### 500 Internal Server Error
 
@@ -313,9 +310,13 @@ Here are the error messages that occur if the `import` operation fails, along wi
 
 **Solution:** Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
 
+## Limitations
+- The maximum number of files allowed for each `import` operation is 10,000.
+- The number of files ingested in the FHIR server with same lastUpdated field value upto milliseconds can't exceed beyond 10,000.
+
 ## Next steps
 
-[Convert your data to FHIR](convert-data.md)
+[Convert your data to FHIR](convert-data-overview.md)
 
 [Configure export settings and set up a storage account](configure-export-data.md)
 

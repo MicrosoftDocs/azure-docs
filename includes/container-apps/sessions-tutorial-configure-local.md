@@ -15,7 +15,7 @@ ms.author: antchu
     source .venv/bin/activate
     ```
 
-    Change the Python version in the command if you're using a different version. It's recommended to use Python 3.8 or later.
+    Change the Python version in the command if you're using a different version. It's recommended to use Python 3.10 or later.
 
     > [!NOTE]
     > If you're using Windows, replace `.venv/bin/activate` with `.venv\Scripts\activate`.
@@ -89,7 +89,7 @@ ms.author: antchu
 
         ```bash
         az role assignment create \
-            --role "/providers/Microsoft.Authorization/roleDefinitions/0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+            --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
             --assignee <CLI_USERNAME> \
             --scope <SESSION_POOL_RESOURCE_ID>
         ```

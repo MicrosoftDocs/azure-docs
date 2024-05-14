@@ -78,7 +78,7 @@ The following shows an example configuration for the stage:
 | Topic | `azure-iot-operations/data/opc-ua-connector-0/#` |
 | Data format | `JSON` |
 
-This example shows the topic used in the [Quickstart: Use Azure IoT Data Processor Preview pipelines to process data from your OPC UA assets](../get-started/quickstart-process-telemetry.md). This configuration then generates messages that look like the following example:
+This configuration then generates messages that look like the following example:
 
 ```json
 {

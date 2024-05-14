@@ -42,62 +42,74 @@ You then need to configure managed identity for the app and assign it the proper
         --system-assigned
     ```
 
-1. Get the managed identity's principal ID and fully qualified domain name (FQDN):
+1. For the app to access Azure OpenAI and the session pool, you need to assign the managed identity the proper roles.
+
+    1. Retrieve the managed identity's principal ID:
+
+        ```bash
+        az containerapp show \
+            --name $CONTAINER_APP_NAME \
+            --resource-group $RESOURCE_GROUP_NAME \
+            --query identity.principalId \
+            --output tsv
+        ```
+
+    1. Retrieve the session pool resource ID:
+
+        ```bash
+        az containerapp sessionpool show \
+            --name $SESSION_POOL_NAME \
+            --resource-group $RESOURCE_GROUP_NAME \
+            --query id \
+            --output tsv
+        ```
+
+    1. Assign the managed identity the `Azure ContainerApps Session Creator` and `Contributor` roles on the session pool:
+
+        Before you run the following command, replace `<PRINCIPAL_ID>` and `<SESSION_POOL_RESOURCE_ID>` with the values you retrieved in the previous steps.
+
+        ```bash
+        # Assign the Azure ContainerApps Session Creator role using its ID
+        az role assignment create \
+            --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+            --assignee <PRINCIPAL_ID> \
+            --scope <SESSION_POOL_RESOURCE_ID>
+
+        az role assignment create \
+            --role "Contributor" \
+            --assignee <PRINCIPAL_ID> \
+            --scope <SESSION_POOL_RESOURCE_ID>
+        ```
+
+    1. Retrieve the Azure OpenAI account resource ID:
+
+        ```bash
+        az cognitiveservices account show \
+            --name $AZURE_OPENAI_NAME \
+            --resource-group $RESOURCE_GROUP_NAME \
+            --query id \
+            --output tsv
+        ```
+
+    1. Assign the managed identity the `Cognitive Services OpenAI User` role on the Azure OpenAI account:
+
+        Before you run the following command, replace `<PRINCIPAL_ID>` and `<AZURE_OPENAI_RESOURCE_ID>` with the values you retrieved in the previous steps.
+
+        ```bash
+        az role assignment create \
+            --role "Cognitive Services OpenAI User" \
+            --assignee <PRINCIPAL_ID> \
+            --scope <AZURE_OPENAI_RESOURCE_ID>
+        ```
+
+1. Retrieve the app's fully qualified domain name (FQDN):
 
     ```bash
     az containerapp show \
         --name $CONTAINER_APP_NAME \
         --resource-group $RESOURCE_GROUP_NAME \
-        --query "{principalId:identity.principalId, fqdn:properties.configuration.ingress.fqdn}" \
-        --output json
-    ```
-
-1. Get the session pool resource ID:
-
-    ```bash
-    az containerapp sessionpool show \
-        --name $SESSION_POOL_NAME \
-        --resource-group $RESOURCE_GROUP_NAME \
-        --query id \
+        --query properties.configuration.ingress.fqdn \
         --output tsv
     ```
 
-1. Assign the managed identity the `Azure ContainerApps Session Creator` and `Contributor` roles on the session pool:
-
-    Before you run the following command, replace `<PRINCIPAL_ID>` and `<SESSION_POOL_RESOURCE_ID>` with the values you retrieved in the previous steps.
-
-    ```bash
-    # Assign the Azure ContainerApps Session Creator role using its ID
-    az role assignment create \
-        --role "/providers/Microsoft.Authorization/roleDefinitions/0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
-        --assignee <PRINCIPAL_ID> \
-        --scope <SESSION_POOL_RESOURCE_ID>
-
-    az role assignment create \
-        --role "Contributor" \
-        --assignee <PRINCIPAL_ID> \
-        --scope <SESSION_POOL_RESOURCE_ID>
-    ```
-
-1. Get the Azure OpenAI account resource ID:
-
-    ```bash
-    az cognitiveservices account show \
-        --name $AZURE_OPENAI_NAME \
-        --resource-group $RESOURCE_GROUP_NAME \
-        --query id \
-        --output tsv
-    ```
-
-1. Assign the managed identity the `Cognitive Services OpenAI User` role on the Azure OpenAI account:
-
-    Before you run the following command, replace `<PRINCIPAL_ID>` and `<AZURE_OPENAI_RESOURCE_ID>` with the values you retrieved in the previous steps.
-
-    ```bash
-    az role assignment create \
-        --role "Cognitive Services OpenAI User" \
-        --assignee <PRINCIPAL_ID> \
-        --scope <AZURE_OPENAI_RESOURCE_ID>
-    ```
-
-1. Open the browser to `https://<fqdn>/docs` to test the deployed app.
+1. Open the browser to `https://<FQDN>/docs` to test the deployed app.

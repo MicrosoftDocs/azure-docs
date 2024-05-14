@@ -55,7 +55,7 @@ sections:
 
           Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via transport layer security (TLS/SSL). In any examples you build, use TLS/SSL version 1.2.
 
-          For more information, see [Connect to your API for MongoDB (RU) database](connect-account.md).
+          For more information, see [Connect to your API for MongoDB RU database](connect-account.yml).
       - question: |
           What do the error codes mean while using Azure Cosmos DB for MongoDB (RU)?
         answer: |

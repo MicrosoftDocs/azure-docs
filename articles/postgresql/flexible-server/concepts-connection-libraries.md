@@ -1,12 +1,13 @@
 ---
 title: Connection libraries
 description: This article describes several libraries and drivers that you can use when coding applications to connect and query Azure Database for PostgreSQL - Flexible Server.
+author: olmoloce
+ms.author: olmoloce
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: olmoloce
-author: olmoloce
-ms.date: 01/23/2024
 ---
 
 # Connection libraries for Azure Database for PostgreSQL - Flexible Server
@@ -29,7 +30,7 @@ Most language client libraries used to connect to Azure Database for PostgreSQL 
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | Pure Go postgres driver | [Install](https://github.com/lib/pq/blob/master/README.md) |
 | C\#/ .NET | [Npgsql](https://www.npgsql.org/) | ADO.NET Data Provider | [Download](https://dotnet.microsoft.com/download) |
 | ODBC | [psqlODBC](https://odbc.postgresql.org/) | ODBC Driver | [Download](https://www.postgresql.org/ftp/odbc/versions/) |
-| C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Primary C language interface | Included |
+| C | [libpq](https://www.postgresql.org/docs/current/static/libpq.html) | Primary C language interface | Included |
 | C++ | [libpqxx](http://pqxx.org/) | New-style C++ interface | [Download](https://pqxx.org/libpqxx/) |
 
 ## Next steps

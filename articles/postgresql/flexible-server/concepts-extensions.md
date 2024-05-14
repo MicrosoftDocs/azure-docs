@@ -3,7 +3,8 @@ title: Extensions
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 04/07/2024
+ms.reviewer: maghan
+ms.date: 05/8/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -31,7 +32,7 @@ Using [Azure CLI](/cli/azure/):
 
    You can allowlist extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true).
 
-   ```bash
+   ```azurecli
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
    ```
 
@@ -40,55 +41,30 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
 ```json
 {
-
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-
     "contentVersion": "1.0.0.0",
-
     "parameters": {
-
         "flexibleServers_name": {
-
             "defaultValue": "mypostgreserver",
-
             "type": "String"
-
         },
-
         "azure_extensions_set_value": {
-
             "defaultValue": " dblink,dict_xsyn,pg_buffercache",
-
             "type": "String"
-
         }
-
     },
-
     "variables": {},
-
     "resources": [
-
         {
-
             "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
-
             "apiVersion": "2021-06-01",
-
             "name": "[concat(parameters('flexibleServers_name'), '/azure.extensions')]",
-
             "properties": {
-
                 "value": "[parameters('azure_extensions_set_value')]",
-
                 "source": "user-override"
-
             }
-
         }
-
     ]
-
 }
   ```
 
@@ -106,7 +82,7 @@ Using [Azure CLI](/cli/azure/):
 
    You can set `shared_preload_libraries` via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true).
 
-   ```bash
+   ```azurecli
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name shared_preload_libraries --value <extension name>,<extension name>
    ```
 
@@ -124,6 +100,39 @@ The following extensions are available in Azure Database for PostgreSQL flexible
 > Extensions in the following table with the :heavy_check_mark: mark, require their corresponding libraries to be enabled in the `shared_preload_libraries` server parameter.
 
 [!INCLUDE [extensions-table](./includes/extensions-table.md)]
+
+## Upgrading PostgreSQL extensions
+In-place upgrades of database extensions are allowed through a simple command. This feature enables customers to automatically update their third-party extensions to the latest versions, maintaining current and secure systems without manual effort.
+
+### Updating Extensions
+To update an installed extension to the latest available version supported by Azure, use the following SQL command:
+
+```sql
+ALTER EXTENSION <extension-name> UPDATE;
+```
+
+This command simplifies the management of database extensions by allowing users to manually upgrade to the latest version approved by Azure, enhancing both compatibility and security.
+
+### Limitations
+While updating extensions is straightforward, there are certain limitations:
+- **Specific Version Selection**: The command does not support updating to intermediate versions of an extension. It will always update to the [latest available version](#extension-versions).
+- **Downgrading**: Does not support downgrading an extension to a previous version. If a downgrade is necessary, it might require support assistance and depends on the availability of previous version.
+
+#### Viewing Installed Extensions
+To list the extensions currently installed on your database, use the following SQL command:
+
+```sql
+SELECT * FROM pg_extension;
+```
+
+#### Available Extension Versions
+To check which versions of an extension are available for your current database installation, execute:
+
+```sql
+SELECT * FROM pg_available_extensions WHERE name = 'azure_ai';
+```
+
+These commands provide necessary insights into the extension configurations of your database, helping maintain your systems efficiently and securely. By enabling easy updates to the latest extension versions, Azure Database for PostgreSQL continues to support the robust, secure, and efficient management of your database applications.
 
 ## dblink and postgres_fdw
 
@@ -145,31 +154,31 @@ Some examples:
 
 To delete old data on Saturday at 3:30am (GMT).
 
-```
+```sql
 SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
 ```
 To run vacuum every day at 10:00am (GMT) in default database `postgres`.
 
 
-```
+```sql
 SELECT cron.schedule('0 10 * * *', 'VACUUM');
 ```
 
 To unschedule all tasks from `pg_cron`.
 
-```
+```sql
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
 To see all jobs currently scheduled with `pg_cron`.
 
 
-```
+```sql
 SELECT * FROM cron.job;
 ```
 To run vacuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account.
 
 
-```
+```sql
 SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null,TRUE);
 ```
 
@@ -182,7 +191,7 @@ Some examples:
 
 To delete old data on Saturday at 3:30am (GMT) on database DBName.
 
-```
+```sql
 SELECT cron.schedule_in_database('JobName', '30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$,'DBName');
 ```
 > [!NOTE]  
@@ -190,7 +199,7 @@ SELECT cron.schedule_in_database('JobName', '30 3 * * 6', $$DELETE FROM events W
 
 To update or change the database name for the existing schedule
 
-```
+```sql
 SELECT cron.alter_job(job_id:=MyJobID,database:='NewDBName');
 ```
 
@@ -293,7 +302,7 @@ To do so, you should do following
    1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
    1. Create a target Azure Database for PostgreSQL flexible server instance and database
    1. Enable Timescale extension as shown above
-   1. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
+   1. Grant `azure_pg_admin` role to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
    1. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
 More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup).  
@@ -341,7 +350,7 @@ Using the [Azure portal](https://portal.azure.com/):
 You can now enable pg_hint_plan your Azure Database for PostgreSQL flexible server database. Connect to the database and issue the following command:
 
 ```sql
-CREATE EXTENSION pg_hint_plan ;
+CREATE EXTENSION pg_hint_plan;
 ```
 
 ## pg_buffercache

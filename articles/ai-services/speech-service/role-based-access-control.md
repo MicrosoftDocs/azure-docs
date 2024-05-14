@@ -39,7 +39,7 @@ A role definition is a collection of permissions. When you create a Speech resou
 
 Keep the built-in roles if your Speech resource can have full read and write access to the projects. 
 
-For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.md?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload custom speech datasets, but without permission to deploy a custom speech model to an endpoint. 
+For finer-grained resource access control, you can [add or remove roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current) using the Azure portal. For example, you could create a custom role with permission to upload custom speech datasets, but without permission to deploy a custom speech model to an endpoint. 
 
 ## Authentication with keys and tokens
 

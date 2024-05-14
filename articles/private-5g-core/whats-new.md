@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Private 5G Core?
-description: Discover what's new in Azure Private 5G Core
+description: Discover what's new in Azure Private 5G Core.
 author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
@@ -22,6 +22,37 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## May 2024
+### Packet core 2404
+
+**Type:** New release
+
+**Date available:** May 13, 2024
+
+The 2404 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2404 release notes](azure-private-5g-core-release-notes-2404.md).
+
+### High Availability
+
+We're excited to announce that AP5GC is now resilient to system failures when run on a two-node ASE cluster. Userplane traffic, sessions, and registrations are unaffected on failure of any single pod, physical interface, or ASE device.
+
+### In Service Software Upgrade 
+
+In our commitment to continuous improvement and minimizing service impact we’re excited to announce that when upgrading from this version to a future release, updates will include the capability for In-Service Software Upgrades (ISSU).
+
+ISSU is supported for deployments on a 2-node cluster, software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade completes with no loss of sessions or registrations and minimal packet loss and packet reordering. Should the upgrade fail, the software will automatically roll back to the previous version, also with minimal service disruption.
+
+### Azure Resource Health 
+
+This feature allows you to monitor the health of your control plane resource using Azure Resource Health. Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
+
+For more information, on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
+
+### NAS Encryption
+
+NAS (Non-Access-Stratum) encryption configuration determines the encryption algorithm applied to the management traffic between the UEs and the AMF(5G) or MME(4G). By default, for security reasons, Packet Core deployments will be configured to preferentially use NEA2/EEA2 encryption.
+
+You can change the preferred encryption level after deployment by [modifying the packet core configuration](modify-packet-core.md).
+
 ## April 2024
 ### Packet core 2403
 
@@ -37,19 +68,9 @@ TCP session initial setup messages that include a Maximum Segment Size (MSS) val
 
 ### Improved Packet Core Scaling 
 
-In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario. 
-The following table lists the new maximum supported limits.
+In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario.
 
-| Element                | Maximum supported |
-|------------------------|-------------------|
-| PDU sessions           | Enterprise radios typically support up to 1000 simultaneous PDU sessions per radio |
-| Bandwidth              | Over 25 Gbps per ASE |
-| RAN nodes (eNB/gNB)    | 200 per packet core |
-| Active UEs             | 10,000 per deployment (all sites) |
-| SIMs                   | 20,000 per ASE |
-| SIM provisioning       | 10,000 per JSON file via Azure portal, 4 MB per REST API call  |
-
-For more information, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
+For details, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
 
 ## March 2024
 
@@ -77,13 +98,13 @@ The SUPI (subscription permanent identifier) secret needs to be encrypted before
 For more information, see [Enable SUPI concealment](supi-concealment.md).
 
 ## February 2024
-### New Entra ID user role needed for distributed tracing tool
+### New Microsoft Entra ID user role needed for distributed tracing tool
 
 **Type:** New feature
 
 **Date available:** February 21, 2024
 
-Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you are using Microsoft Entra ID authentication, you should create this user prior to upgrading to version 2402 to avoid losing access to the tracing tool. Entra ID access to the packet core dashboards is unchanged.
+Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you are using Microsoft Entra ID authentication, you should create this user prior to upgrading to version 2402 to avoid losing access to the tracing tool. Microsoft Entra ID access to the packet core dashboards is unchanged.
 
 See [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md) for details.
 
@@ -237,10 +258,10 @@ The 2306 release for the Azure Private 5G Core packet core is now available. For
 **Date available:** July 10, 2023
 
 It's now possible to:
-- attach a new or existing data network
-- modify an attached data network's configuration
+- attach a new or existing data network.
+- modify an attached data network's configuration.
   
-followed by a few minutes of downtime, but not a packet core reinstall.
+This is followed by a few minutes of downtime, but not a packet core reinstall.
 
 For details, see [Modify a packet core instance](modify-packet-core.md).
 

@@ -10,11 +10,28 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 04/18/2024
+ms.date: 05/13/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
+
+This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
+
+## May 2024
+
+### GPT-4o preview model available for early access
+
+GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
+
+- GPT-4o integrates text, and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
+- GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in vision tasks, setting new benchmarks for AI capabilities.
+
+To start testing out the model today, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).
+
+### GPT-4 Turbo model general availability (GA)
+
+[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
 
 ## April 2024
 
@@ -177,8 +194,8 @@ You can now use Azure OpenAI On Your Data in the following Azure region:
 
 GPT-4 Turbo with Vision on Azure OpenAI service is now in public preview. GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
 
-- Explore the capabilities of GPT-4 Turbo with Vision in a no-code experience using the [Azure Open AI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./gpt-v-quickstart.md).
-- Vision enhancement using GPT-4 Turbo with Vision is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, object grounding, image support for "add your data," and support for video prompt.
+- Explore the capabilities of GPT-4 Turbo with Vision in a no-code experience using the [Azure OpenAI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./gpt-v-quickstart.md).
+- Vision enhancement using GPT-4 Turbo with Vision is now available in the [Azure OpenAI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, object grounding, image support for "add your data," and support for video prompt.
 - Make calls to the chat API directly using the [REST API](https://aka.ms/gpt-v-api-ref).
 - Region availability is currently limited to `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, and `AustraliaEast`  
 - Learn more about the known limitations of GPT-4 Turbo with Vision and other [frequently asked questions](/azure/ai-services/openai/faq#gpt-4-with-vision).
@@ -289,7 +306,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 
 ### Embedding input array increase
 
-- Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.md#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
+- Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.yml#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
 
 ### New Regions
 

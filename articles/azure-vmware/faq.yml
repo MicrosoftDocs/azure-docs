@@ -115,7 +115,7 @@ sections:
          Remember that you can only resize a VM within the same series or to an available series in the same Azure region. Ensure the new plan supports your VM's storage and networking configurations.
 
       - question: Is VMware HCX supported on VPNs?
-        answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
+        answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.9/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
 
       - question: What versions of VMware software are used in private clouds?
         answer: |

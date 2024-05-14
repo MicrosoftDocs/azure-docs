@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/25/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -25,7 +25,7 @@ Before you begin this quickstart, you must complete the following quickstarts:
 
 - [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
-- [Quickstart: Use Azure IoT Data Processor Preview pipelines to process data from your OPC UA assets](quickstart-process-telemetry.md)
+- [Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ](quickstart-upload-telemetry-to-cloud.md)
 
 You'll also need either a **Power BI Pro** or **Power BI Premium Per User** license. If you don't have one of these licenses, you can try Power BI Pro for free at [Power BI Pro](https://powerbi.microsoft.com/power-bi-pro/).
 
@@ -35,104 +35,81 @@ Using this license, download and sign into [Power BI Desktop](/power-bi/fundamen
 
 Once your OPC UA data has been processed and enriched in the cloud, you'll have a lot of information available to analyze. You might want to create reports containing graphs and visualizations to help you organize and derive insights from this data. The template and steps in this quickstart illustrate how you can connect that data to Power BI to build such reports.
 
-## Create a new dataset in the lakehouse
+## Update lakehouse semantic model
 
-This section prepares your lakehouse data to be a source for Power BI. You'll create a new dataset in your lakehouse that contains the contextualized telemetry table you created in the [previous quickstart](quickstart-process-telemetry.md).
+This section prepares your lakehouse data to be a source for Power BI. You'll update the default semantic model for your lakehouse to include the telemetry from the *OPCUA* table you created in the [previous quickstart](quickstart-upload-telemetry-to-cloud.md).
 
-1. In the lakehouse menu, select **New semantic model**.
+1. Select **Lakehouse** in the top right corner and change it to **SQL analytics endpoint**.
 
-    :::image type="content" source="media/quickstart-get-insights/new-semantic-model.png" alt-text="Screenshot of a Fabric lakehouse showing the New Semantic Model button.":::
+    :::image type="content" source="media/quickstart-get-insights/sql-analytics-endpoint.png" alt-text="Screenshot of a Fabric lakehouse showing the SQL analytics endpoint option.":::
 
-1. Enter a memorable name for your dataset, select *OPCUA* (the contextualized telemetry table from the previous quickstart), and confirm. This action creates a new dataset and opens a new page.
+1. Switch to the **Reporting** tab. Verify that the *OPCUA* table is open, and select **Automatically update semantic model**.
 
-1. In this new page, create four measures. **Measures** in Power BI are custom calculators that perform math or summarize data from your table, to help you find answers from your data. To learn more, see [Create measures for data analysis in Power BI Desktop](/power-bi/transform-model/desktop-measures).
+    :::image type="content" source="media/quickstart-get-insights/automatically-update-semantic-model.png" alt-text="Screenshot of a Fabric lakehouse showing the Add to default semantic model option.":::
 
-    To create a measure, select **New measure** from the menu, enter one line of measure text from the following code block, and select **Commit**. Complete this process four times, once for each line of measure text:
-    
-    ```power-bi
-    MinTemperature = CALCULATE(MINX(OPCUA, OPCUA[CurrentTemperature]))
-    MaxTemperature = CALCULATE(MAXX(OPCUA, OPCUA[CurrentTemperature]))
-    MinPressure = CALCULATE(MINX(OPCUA, OPCUA[Pressure]))
-    MaxPressure = CALCULATE(MAXX(OPCUA, OPCUA[Pressure]))
-    ```
-
-    Make sure you're selecting **New measure** each time, so the measures are not overwriting each other.
-    
-    :::image type="content" source="media/quickstart-get-insights/power-bi-new-measure.png" alt-text="Screenshot of Power BI showing the creation of a new measure.":::
+    After a short wait, you'll see a notification confirming that Fabric has successfully updated the semantic model. The default semantic model's name is *aiomqdestination*, named after the lakehouse.
 
 ## Configure Power BI report
 
-In this section, you'll import a Power BI report template and configure it to pull data from your data sources. 
+In this section, you'll import a Power BI report template and configure it to pull data from your data sources.
 
 These steps are for Power BI Desktop, so open that application now.
 
 ### Import template and load Asset Registry data
 
-1. Download the following Power BI template: [insightsTemplate.pbit](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/dashboard/insightsTemplate.pbit).
-1. Open a new instance of Power BI Desktop.
-1. Exit the startup screen and select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
-1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you've created your assets and select **Load**. This loads your sample asset data into Power BI using a custom [Power Query M](/powerquery-m/) script.
+1. Download the following Power BI template: [quickstartInsightsTemplate.pbit](https://github.com/Azure-Samples/explore-iot-operations/raw/main/samples/dashboard/quickstartInsightsTemplate.pbit).
+1. Open a new instance of Power BI Desktop. Close any startup screens and open a new blank report.
+1. Select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
+1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you created your assets and select **Load**. This imports a template that uses a custom [Power Query M](/powerquery-m/) script to display visuals of the sample asset data. You may be prompted to sign in to your Azure account to access the data.
 
-    You may see an error pop up for **DirectQuery to AS**. This is normal, and will be resolved later by configuring the data source. Close the error.
+    >[!NOTE]
+    >As the file imports, you see an error for **DirectQuery to AS**. This is normal, and will be resolved later by configuring the data source. Close the error.
+    >:::image type="content" source="media/quickstart-get-insights/power-bi-import-error.png" alt-text="Screenshot of Power BI showing an error labeled DirectQuery to AS - quickStartDataset.":::
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-import-error.png" alt-text="Screenshot of Power BI showing an error labeled DirectQuery to AS - quickStartDataset.":::
-
-1. The template has now been imported, although it still needs some configuration to be able to display the data. If you see an option to **Apply changes** that are pending for your queries, select it and let the dashboard reload.
+1. The template has now been imported, although the visuals are missing, because it still needs some configuration to connect to your data. If you see an option to **Apply changes** that are pending for your queries, select it and let the dashboard reload.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-initial-report.png" alt-text="Screenshot of Power BI Desktop showing a blank report." lightbox="media/quickstart-get-insights/power-bi-initial-report.png":::
 
-1. Optional: To view the script that imports the asset data, right select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
+1. Optional: To view the script that imports the asset data from the Azure Device Registry, right-select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button." lightbox="media/quickstart-get-insights/power-bi-edit-query.png":::
     
-    You'll see a few queries in the Power Query Editor window that comes up. Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**.
+    You'll see a few queries in the Power Query Editor window that comes up. Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**. These queries retrieve the custom property values from the thermostat asset that you created in a previous quickstart. These custom property values provide contextual information such as the batch number and asset location.
     
     :::image type="content" source="media/quickstart-get-insights/power-bi-advanced-editor.png" alt-text="Screenshot of Power BI showing the advanced editor.":::
     
     When you're finished, exit the Power Query Editor window.
 
-### Configure remaining report visuals
+### Connect data source
 
-At this point, the visuals in the Power BI report still display errors. That's because you need to get the telemetry data.
+At this point, the visuals in the Power BI report display errors. That's because you need to connect your telemetry data source.
 
 1. Select **File** > **Options and Settings** > **Data source settings**.  
 1. Select **Change Source**. 
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-change-data-source.png" alt-text="Screenshot of Power BI showing the Data source settings.":::
 
-    This displays a list of data source options. Select the dataset you created in the previous section and select **Create**.
+    This displays a list of data source options. Select *aiomqdestination* (the default dataset you updated in the previous section) and select **Create**.
 
-1. In the **Connect to your data** box that opens, expand your dataset and select the *OPCUA* contextualized telemetry table. Select **Submit**.
+1. In the **Connect to your data** box that opens, expand your dataset and select the *OPCUA* telemetry table. Select **Submit**.
 
     :::image type="content" source="media/quickstart-get-insights/power-bi-connect-to-your-data.png" alt-text="Screenshot of Power BI showing the Connect to your data options.":::
 
-    Close the data source settings. The dashboard should now load visual data.
+    Close the data source settings.
 
-1. In the left pane menu, select the icon for **Model view**.
+The dashboard now loads visual data.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-model-view.png" alt-text="Screenshot of Power BI showing the Model View button." lightbox="media/quickstart-get-insights/power-bi-model-view.png":::
-
-1. Drag **assetName** in the **Asset** box to **AssetName** in the **OPCUA** box, to create a relationship between the tables.
-
-1. In the **Create relationship** box, set **Cardinality** to _One to many (1:*)_, and set **Cross filter direction** to *Both*. Select **OK**.
-
-    :::image type="content" source="media/quickstart-get-insights/power-bi-create-relationship.png" alt-text="Screenshot of Power BI Create relationship options." lightbox="media/quickstart-get-insights/power-bi-create-relationship.png":::
-
-1. Return to the **Report view** using the left pane menu. All the visuals should display data now without error.
-
-    :::image type="content" source="media/quickstart-get-insights/power-bi-page-1.png" alt-text="Screenshot of Power BI showing the report view." lightbox="media/quickstart-get-insights/power-bi-page-1.png":::
+:::image type="content" source="media/quickstart-get-insights/power-bi-complete.png" alt-text="Screenshot of Power BI showing the report view." lightbox="media/quickstart-get-insights/power-bi-complete.png":::
 
 ## View insights
 
 In this section, you'll review the report that was created and consider how such reports can be used in your business.
 
-The report is split into two pages, each offering a different view of the asset and telemetry data. On Page 1, you can view each asset and their associated telemetry. Page 2 allows you to view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period.
+This report offers a view of your asset and telemetry data. You can use the asset checkboxes to view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period.
 
-:::image type="content" source="media/quickstart-get-insights/power-bi-page-2.png" alt-text="Screenshot of Power BI showing page 2 of the report view." lightbox="media/quickstart-get-insights/power-bi-page-2.png":::
+Take some time to explore the filters for each visual to explore and do more with your data.
 
-For this quickstart, you only created one asset. However, if you experiment with adding other assets, you'll be able to select them independently on this report page by using *CTRL+Select*. Take some time to explore the various filters for each visual to explore and do more with your data.
-
-With data connected from various sources at the edge being related to one another in Power BI, the visualizations and interactive features in the report allow you to gain deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
+By relating edge data from various sources together in Power BI, this report uses visualizations and interactive features to offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
 
 ## How did we solve the problem?
 
@@ -140,7 +117,7 @@ In this quickstart, you prepared your lakehouse data to be a source for Power BI
 
 ## Clean up resources
 
-If you're not going to continue to use this deployment, delete the Kubernetes cluster that you deployed Azure IoT Operations to and remove the Azure resource group that contains the cluster.
+If you're not going to continue to use this deployment, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contains the cluster.
 
 You can delete your Microsoft Fabric workspace and your Power BI report.
 
