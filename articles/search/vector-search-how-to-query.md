@@ -6,10 +6,8 @@ description: Learn how to build queries for vector search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 05/21/2024
 ---
 
 # Create a vector query in Azure AI Search
@@ -30,16 +28,18 @@ This article uses REST for illustration. For code samples in other languages, se
 
 + [A vector index on Azure AI Search](vector-search-how-to-create-index.md).
 
-+ Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. See [Quickstart: Azure AI Search using REST](search-get-started-rest.md) for help with getting started.
++ Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. To get started with the REST client, see [Quickstart: Azure AI Search using REST](search-get-started-rest.md).
 
 > [!TIP]
-> To quickly determine whether your index has vectors, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute, and a `vectorSearchProfile` assignment.
+> To quickly determine whether your index has vectors, look for a `vectorSearch` section in your index.
 
 ## Convert a query string input into a vector
 
-To query a vector field, the query itself must be a vector. One approach for converting a user's text query string into its vector representation is to call an embedding library or API in your application code. As a best practice, *always use the same embedding models used to generate embeddings in the source documents*.
+To query a vector field, the query itself must be a vector. 
 
-You can find code samples showing [how to generate embeddings](vector-search-how-to-generate-embeddings.md) in the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository.
+One approach for converting a user's text query string into its vector representation is to call an embedding library or API in your application code. As a best practice, *always use the same embedding models used to generate embeddings in the source documents*. You can find code samples showing [how to generate embeddings](vector-search-how-to-generate-embeddings.md) in the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository.
+
+A second approach is [using integrated vectorization](#query-with-integrated-vectorization-preview), currently in public preview, to have Azure AI Search handle your query vectorization inputs and outputs.
 
 Here's a REST API example of a query string submitted to a deployment of an Azure OpenAI embedding model:
 
@@ -53,6 +53,7 @@ api-key: {{admin-api-key}}
 ```
 
 The expected response is 202 for a successful call to the deployed model. 
+
 The "embedding" field in the body of the response is the vector representation of the  query string "input". For testing purposes, you would copy the value of the "embedding" array into "vectorQueries.vector" in a query request, using syntax shown in the next several sections. 
 
 The actual response for this POST call to the deployed model includes 1536 embeddings, trimmed here to just the first few vectors for readability.
@@ -81,9 +82,6 @@ The actual response for this POST call to the deployed model includes 1536 embed
 ```
 
 In this approach, your application code is responsible for connecting to a model, generating embeddings, and handling the response.
-
-> [!TIP]
-> Try [Query with integrated vectorization](#query-with-integrated-vectorization-preview), currently in public preview, to have Azure AI Search handle your query vectorization inputs and outputs.
 
 ## Vector query request
 
@@ -216,30 +214,6 @@ Use Search explorer to formulate a vector query. Search explorer has a **Query v
 
    :::image type="content" source="media/vector-search-how-to-query/paste-vector-query.png" alt-text="Screenshot of the JSON query." border="true":::
 
-### [**.NET**](#tab/dotnet-vector-query)
-
-+ Use the [**Azure.Search.Documents 11.5.0**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0) package or later for vector scenarios. 
-
-+ See the [.NET SDK samples for vector search](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/search/Azure.Search.Documents/samples).
-
-+ See the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) GitHub repository for more .NET code samples.
-
-### [**Python**](#tab/python-vector-query)
-
-+ Use the [**Azure.Search.Documents 11.4.0**](https://pypi.org/project/azure-search-documents) package or later for vector scenarios. 
-
-+ See the [Python SDK samples for vector search](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/search/azure-search-documents/samples).
-
-+ See the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python) GitHub repository for Python code samples.
-
-### [**JavaScript**](#tab/js-vector-query)
-
-+ Use the [**@azure/search-documents 12.0.0-beta.4**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.4) package for vector scenarios.  
-
-+ See the [JavaScript SDK samples for vector search](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/search-documents/samples/v12/javascript)
-
-+ See the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
-
 ---
 
 ## Vector query response
@@ -301,9 +275,9 @@ If you do want vector fields in the result, here's an example of the response st
 
 ## Vector query with filter
 
-A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to `filterable` text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, a query can specify filters on other fields in the same index.
+A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to `filterable` nonvector fields, either a string field or numeric, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, filters can be applied to other fields in the same index.
 
-In newer API versions, you can set a filter mode to apply filters before or after vector query execution. For a comparison of each mode and the expected performance based on index size, see [Filters in vector queries](vector-search-filters.md).
+You can apply filters as exclusion criteria before the query executes, or after query execution to filter search results. For a comparison of each mode and the expected performance based on index size, see [Filters in vector queries](vector-search-filters.md).
 
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
@@ -558,23 +532,7 @@ The scored results from all four queries are fused using [RRF ranking](hybrid-se
 > [!NOTE]
 > Vectorizers are used during indexing and querying. If you don't need data chunking and vectorization in the index, you can skip steps like creating an indexer, skillset, and data source. In this scenario, the vectorizer is used only at query time to convert a text string to an embedding.
 
-<!-- ## Configure a query response
-
-When you're setting up the vector query, think about the response structure. The response is a flattened rowset. Parameters on the query determine which fields are in each row and how many rows are in the response. The search engine ranks the matching documents and returns the most relevant results.
-
-### Fields in a response
-
-Search results are composed of "retrievable" fields from your search index. A result is either:
-
-+ All "retrievable" fields (a REST API default).
-+ Fields explicitly listed in a "select" parameter on the query. 
-
-The examples in this article used a "select" statement to specify text (nonvector) fields in the response.
-
-> [!NOTE]
-> Vectors aren't designed for readability, so avoid returning them in the response. Instead, choose non-vector fields that are representative of the search document. For example, if the query targets a "descriptionVector" field, return an equivalent text field if you have one ("description") in the response. -->
-
-## Quantity of ranked results in a vector query response
+## Number of ranked results in a vector query response
 
 A vector query specifies the `k` parameter, which determines how many matches are returned in the results. The search engine always returns `k` number of matches. If `k` is larger than the number of documents in the index, then the number of documents determines the upper limit of what can be returned.
 
