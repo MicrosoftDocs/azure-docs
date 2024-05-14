@@ -29,8 +29,7 @@ let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredenti
 
 await chatClient.startRealtimeNotifications(); 
 chatClient.on("chatMessageEdited", (e) => { 
-    if (e.messageBody == "" &&
-        e.sender.kind == "microsoftTeamsUser") {
+    if (e.policyViolation.result == "contentBlocked") {
         // Show UI message blocked
     }
 });
@@ -40,8 +39,7 @@ chatClient.on("chatMessageEdited", (e) => {
 ```javascript
 const messages = chatThreadClient.listMessages();
 for await (const message of messages) {
-    if (message.content?.message == "" &&
-        message.sender?.kind == "microsoftTeamsUser") {
+    if (message.policyViolation.result == "contentBlocked") {
         // Show UI message blocked 
     }
 }
