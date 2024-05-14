@@ -75,7 +75,7 @@ The following example shows a request passing the parameter `safe_prompt` suppor
 __Request__
 
 ```HTTP/1.1
-POST /chat/completions?api-version=2024-05-01-preview
+POST /chat/completions?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 extra-parameters: allow
@@ -112,7 +112,7 @@ The following example shows the response for a chat completion request indicatin
 __Request__
 
 ```HTTP/1.1
-POST /chat/completions?api-version=2024-05-01-preview
+POST /chat/completions?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 ```
@@ -198,7 +198,7 @@ wget -d --header="Authorization: Bearer <TOKEN>" <ENDPOINT_URI>/swagger.json
 Use the **Endpoint URI** and the **Key** to submit requests. The following example sends a request to a Cohere embedding model:
 
 ```HTTP/1.1
-POST /embeddings?api-version=2024-05-01-preview
+POST /embeddings?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
 ```
