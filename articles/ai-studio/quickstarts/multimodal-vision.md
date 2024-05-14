@@ -59,7 +59,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 1. Add the following question in the chat field: `"Describe this image"`, and then select the right arrow icon to send.
 1. The right arrow icon is replaced by a Stop button. If you select it, the assistant stops processing your request. For this quickstart, let the assistant finish its reply.
 1. The assistant replies with a description of the image.
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-reply-license.png" alt-text="Screenshot of the chat playground with the assistant's reply for basic image analysis." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-reply-license.png":::
+    <!--:::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-reply-license.png" alt-text="Screenshot of the chat playground with the assistant's reply for basic image analysis." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-reply-license.png":::-->
 1. Ask a follow-up question related to the analysis of your image. You could enter, `"What should I highlight about this image to my insurance company?"`.
 1. You should receive a relevant response similar to what's shown here:
     ```
@@ -90,7 +90,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 1. Add the following question in the chat field: `"Describe this image"`, and then select the right arrow icon to send.
 1. The right arrow icon is replaced by a Stop button. If you select it, the assistant stops processing your request. For this quickstart, let the assistant finish its reply.
 1. The assistant replies with a description of the image. It uses the Azure AI Vision service to extract more detail from the image you uploaded.
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-image-read-text.png" alt-text="Screenshot of the chat playground with the model output where the text in the image is read and returned." lightbox="../media/quickstarts/multimodal-vision/chat-image-read-text.png":::
+    <!--:::image type="content" source="../media/quickstarts/multimodal-vision/chat-image-read-text.png" alt-text="Screenshot of the chat playground with the model output where the text in the image is read and returned." lightbox="../media/quickstarts/multimodal-vision/chat-image-read-text.png":::-->
 1. Ask a follow-up question related to the analysis of your image. Enter, `"What should I highlight about this image to my insurance company?" `and then select the right arrow icon to send.
 1. You should receive a relevant response similar to what's shown here:
     ```

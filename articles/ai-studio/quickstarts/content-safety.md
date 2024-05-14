@@ -46,7 +46,7 @@ Azure AI Studio provides a capability for you to quickly try out text moderation
 1. Select the **Moderate text content** panel on the **Content Safety** page in Azure AI Studio.
 1. Select your AI Services resource or Content Safety resource name from the dropdown menu.
 1. You can either choose a pre-written text sample, or write your own sample text in the input field.
-    :::image type="content" source="../media/quickstarts/content-safety-text.png" alt-text="Screenshot of the moderate image content page." lightbox="../media/quickstarts/content-safety-text.png":::
+    <!--:::image type="content" source="../media/quickstarts/content-safety-text.png" alt-text="Screenshot of the moderate image content page." lightbox="../media/quickstarts/content-safety-text.png":::-->
 1. Optionally, configure the content filters in the **Configure filters** tab. Use the sliders to determine which severity level in each category should be rejected by the model. The service still returns all the harm categories that were detected, along with the severity level for each (0-Safe, 2-Low, 4-Medium, 6-High), but the **Allowed**/**Blocked** result depends on how you configure the filter.
 1. Optionally, set up a blocklist with the **Use blocklist** tab. You can choose a blocklist you've already created or create a new one here. Use the **Edit** button to add and remove terms. You can stack multiple blocklists in the same filter.
 1. When your filters are ready, select **Run test**.
@@ -58,7 +58,7 @@ Azure AI Studio provides a capability for you to quickly try out image moderatio
 1. Select the **Moderate image content** panel on the **Content Safety** page in Azure AI Studio.
 1. Select your AI Services resource or Content Safety resource name from the dropdown menu.
 1. You can either use a sample image or upload your own. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats. You have the option to blur the images you use.
-    :::image type="content" source="../media/quickstarts/content-safety-image.png" alt-text="Screenshot of the moderate image content page." lightbox="../media/quickstarts/content-safety-image.png":::
+    <!--:::image type="content" source="../media/quickstarts/content-safety-image.png" alt-text="Screenshot of the moderate image content page." lightbox="../media/quickstarts/content-safety-image.png":::-->
 1. Optionally, configure the content filters in the **Configure filters** tab. Use the sliders to determine which severity level in each category should be rejected by the model. The service still returns all the harm categories that were detected, along with the severity level for each (0-Safe, 2-Low, 4-Medium, 6-High), but the **Allowed**/**Blocked** result depends on how you configure the filter.
 1. When your filters are ready, select **Run test**.
 
