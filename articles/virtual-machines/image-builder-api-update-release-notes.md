@@ -123,10 +123,10 @@ New portal functionality has been added for Azure Image Builder. Search “Image
 ### Version 2024-02-01 
 
 **Improvements**
-- New `autoRun` property which allows you to run the image template build on template creation or update.
-- New `managedResourceTags` property which allows you to apply tags to the resource group and/or resources created by the Azure VM Image Builder service.
+- New `autoRun` property which allows you to run the image template build on template creation or update. For more information, see [Properties: autoRun](../virtual-machines/linux/image-builder-json.md#properties-autorun).
+- New `managedResourceTags` property which allows you to apply tags to the resource group and/or resources created by the Azure VM Image Builder service. For more information, see [Properties: managedResourceTags](../virtual-machines/linux/image-builder-json.md#properties-managedresourcetags).
 - New `containerInstanceSubnetId` property which allows you to specify a pre-existing subnet on which the build VM and validation VM will be deployed. For more information, see [
-Bring your own Build VM subnet and bring your own ACI subnet](./security-isolated-image-builds-image-builder.md#bring-your-own-build-vm-subnet-and-bring-your-own-ACI-subnet).
+Bring your own Build VM subnet and bring your own ACI subnet](./security-isolated-image-builds-image-builder.md#bring-your-own-build-vm-subnet-and-bring-your-own-aci-subnet).
 - Added support for updating the `vmProfile` property including the following fields:
     - `vmSize`
     - `osDiskSizeGB`
