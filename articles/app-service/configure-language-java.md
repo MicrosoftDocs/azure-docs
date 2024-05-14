@@ -644,7 +644,7 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
     Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
 
-    # [Tomcat)](#tab/tomcat)
+    # [Tomcat](#tab/tomcat)
     Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
 
     # [JBoss EAP](#tab/jboss)
@@ -1109,7 +1109,7 @@ There are three core steps when [registering a data source with JBoss EAP](https
 
 To confirm that the datasource was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
 
-::: end-zone
+::: zone-end
 
 ---
 
