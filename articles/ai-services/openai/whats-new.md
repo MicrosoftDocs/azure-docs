@@ -32,7 +32,6 @@ A refresh of the Assistants API is now publicly available. It contains the follo
 * Support for fine-tuned `gpt-3.5-turbo-0125` [models](./concepts/models.md#assistants-preview) in the following regions:
     * East US 2
     * Sweden Central
-* Support for [customer-managed keys](./encrypt-data-at-rest.md).
 
 
 ### GPT-4o preview model available for early access
