@@ -3,7 +3,7 @@ title: Bicep functions - objects
 description: Describes the functions to use in a Bicep file for working with objects.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/09/2024
+ms.date: 05/13/2024
 ---
 
 # Object functions for Bicep
@@ -387,7 +387,7 @@ The output from the preceding example with the default values is:
 
 ## objectKeys
 
-`objectKey(object)`
+`objectKeys(object)`
 
 Returns the keys from an object, where an object is a collection of key-value pairs.
 
@@ -420,6 +420,8 @@ The output from the preceding example is:
 | keyArray | Array | [ "a", "b" ] |
 
 **keyArray** returns a list of keys of the input object.
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 ## union
 
