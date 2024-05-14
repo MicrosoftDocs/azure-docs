@@ -3,12 +3,12 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 04/11/2024
+ms.date: 05/14/2024
 ---
 
 # Deployment stacks (Preview)
 
-An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as an atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC).
+An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as an atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC). 
 
 To create and update a deployment stack, you can utilize Azure CLI, Azure PowerShell, or the Azure portal along with Bicep files. These Bicep files are transpiled into ARM JSON templates, which are then deployed as a deployment object by the stack. The deployment stack offers additional capabilities beyond the [familiar deployment resources](./deploy-cli.md), serving as a superset of those capabilities.
 
@@ -41,6 +41,13 @@ Deployment stacks provide the following benefits:
 - Deleting resource groups currently bypasses deny assignments. When creating a deployment stack in the resource group scope, the Bicep file doesn't contain the definition for the resource group. Despite the deny assignment setting, it's possible to delete the resource group and its contained stack. However, if a [lock](../management/lock-resources.md) is active on any resource within the group, the delete operation will fail.
 - [What-if](./deploy-what-if.md) isn't available in the preview.
 - A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
+
+## Built-in roles
+
+There are two built-in roles for deployment stack:
+
+- **Azure Deployment Stack Contributor**: Allows users to manage deployment stacks, but cannot create or delete deny assignments within the deployment stacks.
+- **Azure Deployment Stack Owner**: Alls users to manage deployment stacks, including those with deny assignments.
 
 ## Create deployment stacks
 
@@ -594,12 +601,13 @@ To delete a managed resource, remove the resource definition from the underlying
 
 When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
 
-A specific permission is required at the stack scope in order to do any of the following:
-
-- Create or update a deployment stack and set the deny setting to a value other than "None".
-- Update or delete a deployment stack with an existing deny setting of something other than "None"
-
-The built-in owners role has this permission by default. However, the built-in contributor role doesn't have this permission.
+> [!NOTE]
+> The latest release requires specific permissions at the stack scope in order to do:
+>
+> - Create or update a deployment stack and set the deny setting to a value other than "None".
+> - Update or delete a deployment stack with an existing deny setting of something other than "None"
+>
+> The built-in owner role has these permissions by default. However, the built-in contributor role doesn't have this permission.
 
 # [PowerShell](#tab/azure-powershell)
 
