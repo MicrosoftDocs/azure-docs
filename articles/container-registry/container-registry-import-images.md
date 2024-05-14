@@ -27,7 +27,7 @@ Image import into an Azure container registry has the following benefits over us
 
 * If you import multi-architecture images (such as official Docker images), images for all architectures and platforms specified in the manifest list get copied.
 
-* If you access to the target registry, it doesn't have to use the registry's public endpoint.
+* If you have access to the target registry, you don't require the registry's public endpoint.
 
 > [!IMPORTANT]
 >* Importing images requires the external registry support  [RFC 7233](https://www.rfc-editor.org/rfc/rfc7233#section-2.3). We recommend using a registry that supports RFC 7233 ranges while using az acr import command with the registry URI to avoid failures.
@@ -300,7 +300,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ### Cross-tenant import with access token
 
-* Cross tenant for image transfer is possible even if the source registry has public access disabled. However, you need to use the resource ID of the source registry for authentication purposes. you cannot use both resource ID and login server together for cross-tenant transfers. The only way to achieve this is by specifying the IP range of the ACR service tag in the source registry's firewall.
+* Cross tenant for image transfer is possible even if the source registry has public access disabled. However, you need to use the resource ID of the source registry for authentication purposes. You cannot use both resource ID and login server together for cross-tenant transfers. The only way to achieve using both resource ID and login server together is by specifying the IP range of the ACR service tag in the source registry's firewall.
 
 * Cross-tenant doesn't work across the clouds. Cross-tenant import over private endpoints is also not supported.
 
