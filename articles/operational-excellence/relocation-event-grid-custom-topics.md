@@ -1,13 +1,17 @@
 ---
-title: Move Azure Event Grid custom topics to another region
+title: Relocate Azure Event Grid custom topics to another region
 description: This article shows you how to move Azure Event Grid custom topics from one region to another region.  
-ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 08/28/2020
+author: anaharris-ms
+ms.author: anaharris
+ms.date: 05/14/2024
+ms.service: event-grid
+ms.topic: concept
+ms.custom:
+  - subject-relocation
 #Customer intent: As an Azure service administrator, I want to be able to move Event Grid custom topics from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 ---
 
-# Move Azure Event Grid custom topics to another region
+# Relocate Azure Event Grid custom topics to another region
 You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
 Here are the high-level steps covered in this article: 
@@ -22,22 +26,24 @@ Here are the high-level steps covered in this article:
 - To **complete the move**, delete custom topic from the source region. 
 
 ## Prerequisites
-- Complete the [Quickstart: Route custom events to web endpoint](custom-event-quickstart-portal.md) in the source region. Do this step so that you can test steps in this article. 
+
+- Complete the [Quickstart: Route custom events to web endpoint](../event-grid/custom-event-quickstart-portal.md) in the source region. Do this step so that you can test steps in this article. 
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 ## Prepare
+
 To get started, export a Resource Manager template for the custom topic. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type **Event Grid topics**, and select **Event Grid Topics** from the results list. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/search-topics.png" alt-text="Search for and select Event Grid topics":::
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/search-topics.png" alt-text="Search for and select Event Grid topics":::
 3. Select the **topic** that you want to export to a Resource Manager template. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Select the custom topic":::   
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Select the custom topic":::   
 4. On the **Event Grid Topic** page, select **Export Template** under **Settings** on the left menu, and then select **Download** on the toolbar. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Export template -> Download":::   
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/export-template-download.png" alt-text="Export template -> Download":::   
 
     > [!IMPORTANT]
     > Only the topic is exported to the template. Subscriptions for the topic aren't exported. So, you need to create subscriptions for the topic after you move the topic to the target region. 
@@ -53,7 +59,8 @@ To get started, export a Resource Manager template for the custom topic.
     ```
 1. **Save** the template. 
 
-## Recreate 
+## Redeploy
+
 Deploy the template to create a custom topic in the target region. 
 
 1. In the Azure portal, select **Create a resource**.
@@ -70,21 +77,22 @@ Deploy the template to create a custom topic in the target region.
     1. For the **topic name**, enter a new name for the topic. 
     1. Select **Review + create** at the bottom of the page. 
     
-        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Custom deployment":::
+        :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/deploy-template.png" alt-text="Custom deployment":::
     1. On the **Review + create** page, review settings, and select **Create**. 
 
 ## Verify
 
 1. After the deployment succeeds, select **Go to resource**. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Go to resource":::
+    :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Go to resource":::
 1. Confirm that you see the **Event Grid Topic** page for the custom topic.   
-1. Follow steps in the [Route custom events to a web endpoint](custom-event-quickstart-portal.md#send-an-event-to-your-topic) to send events to the topic. Verify that the webhook event handler is invoked. 
+1. Follow steps in the [Route custom events to a web endpoint](../event-grid/custom-event-quickstart-portal.md#send-an-event-to-your-topic) to send events to the topic. Verify that the webhook event handler is invoked. 
 
 ## Discard or clean up
+
 To complete the move, delete the custom topic in the source region.  
 
-If you want to start over, delete the topic in the target region, and repeat steps in the [Prepare](#prepare) and [Recreate](#recreate) sections of this article.
+If you want to start over, delete the topic in the target region, and repeat steps in the [Prepare](#prepare) and [Recreate](#redeploy) sections of this article.
 
 To delete a custom topic by using the Azure portal:
 
@@ -98,10 +106,8 @@ To delete the resource group that contains the custom topic by using the Azure p
 2. Select the resource group to delete, and select **Delete** from the toolbar. 
 3. On the confirmation page, enter the name of the resource group, and select **Delete**.  
 
-## Next steps
-You learned how to move an Event Grid custom topic from one region to another region. See the following articles for moving system topics, domains, and partner namespaces across regions.
+## Related content
 
-- [Move system topics across regions](move-system-topics-across-regions.md). 
-- [Move domains across regions](move-domains-across-regions.md). 
-
-To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+- [Relocate system topics across regions](relocation-event-grid-system-topics.md). 
+- [Relocate domains across regions](relocation-event-grid-domains.md). 
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).

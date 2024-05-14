@@ -4,7 +4,7 @@ description: This article shows you how to move Azure Event Grid domains from on
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
-ms.service: application-gateway
+ms.service: event-grid
 ms.topic: concept
 ms.custom:
   - subject-relocation
@@ -37,13 +37,13 @@ To get started, export a Resource Manager template for the domain.
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type **Event Grid Domains**, and select **Event Grid Domains** from the results list. 
 
-    :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Search for and select Event Grid domains":::
+    :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/search-domains.png" alt-text="Search for and select Event Grid domains":::
 3. Select the **domain** that you want to export to a Resource Manager template. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Select the domain":::   
+    :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/select-domain.png" alt-text="Select the domain":::   
 4. On the **Event Grid Domain** page, select **Export Template** under **Settings** on the left menu, and then select **Download** on the toolbar. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Export template -> Download" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/export-template-download.png" alt-text="Export template -> Download" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > Domain and domain topics are exported. Subscriptions for domain topics aren't exported. So, you need to create subscriptions for domain topics after you move domain topics. 
@@ -76,7 +76,7 @@ Deploy the template to create the domain and domain topics in the target region.
     1. For the **domain name**, enter a new name for the domain. 
     1. Select **Review + create**. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Deploy template":::        
+        :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/deploy-template.png" alt-text="Deploy template":::        
     1. After the validation of the template succeeds, select **Create** at the bottom of the page to deploy the resource. 
     1. After the deployment succeeds, select **Go to resource group** to navigate to the resource group page. Confirm that there's a domain in the resource group. Select the domain. Confirm that there are domain topics in the domain. 
 
@@ -85,7 +85,7 @@ Deploy the template to create the domain and domain topics in the target region.
 ## Discard or clean up
 To complete the move, delete the domain in the source region.  
 
-If you want to start over, delete the domain in the target region, and repeat steps in the [Prepare](#prepare) and [Recreate](#recreate) sections of this article.
+If you want to start over, delete the domain in the target region, and repeat steps in the [Prepare](#prepare) and [Recreate](#redeploy) sections of this article.
 
 To delete a domain by using the Azure portal:
 

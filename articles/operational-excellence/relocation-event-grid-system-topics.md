@@ -1,9 +1,13 @@
 ---
 title: Relocate Azure Event Grid system topics to another region
 description: This article shows you how to move Azure Event Grid system topics from one region to another region.  
-ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 08/28/2020
+author: anaharris-ms
+ms.author: anaharris
+ms.date: 05/14/2024
+ms.service: event-grid
+ms.topic: concept
+ms.custom:
+  - subject-relocation
 #Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 ---
 
@@ -19,7 +23,7 @@ Here are the high-level steps covered in this article:
 - To **complete the move**, delete resources (event source and system topic) from the source region. 
 
 ## Prerequisites
-- Complete the [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md) in the source region. This step is **optional**. Do it to test steps in this article. Keep the storage account in a separate resource group from the App Service and App Service plan. 
+- Complete the [Quickstart: Route Blob storage events to web endpoint with the Azure portal](../event-grid/blob-event-quickstart-portal.md) in the source region. This step is **optional**. Do it to test steps in this article. Keep the storage account in a separate resource group from the App Service and App Service plan. 
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 ## Prepare
@@ -28,10 +32,10 @@ To get started, export a Resource Manager template for the resource group that c
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups** on the left menu. Then, select the resource group that contains the event source for which the system topic was created. In the following example, it's the **Azure Storage** account. The resource group contains the storage account and its associated system topic. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Resource group page":::        
+    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/resource-group-page.png" alt-text="Resource group page":::        
 3. On the left menu, select **Export template** under **Settings**, and then, select **Download** on the toolbar. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Stroage account - Export template page":::        
+    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/export-template-menu.png" alt-text="Stroage account - Export template page":::        
 5. Locate the **.zip** file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains template and parameters JSON files. 
 1. Open the **template.json** in an editor of your choice. 
 1. URL for the Webhook isn't exported to the template. So, do the following steps:
@@ -87,7 +91,7 @@ Deploy the template to create a storage account and a system topic for the stora
     1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account.  
     1. For the **storage account name**, enter a name for the storage account to be created in the target region. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
+        :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
     5. Select **Review + create** at the bottom of the page. 
     1. On the **Review + create** page, review settings, and select **Create**. 
 
@@ -99,14 +103,14 @@ Deploy the template to create a storage account and a system topic for the stora
 ## Discard or clean up
 To complete the move, delete the resource group that contains the storage account and its associated system topic in the source region.  
 
-If you want to start over, delete the resource group in the target region, and repeat steps in the [Prepare](#prepare) and [Recreate](#recreate) sections of this article.
+If you want to start over, delete the resource group in the target region, and repeat steps in the [Prepare](#prepare) and [Recreate](#redeploy) sections of this article.
 
 To delete a resource group (source or target) by using the Azure portal:
 
 1. In the search window at the top of Azure portal, type **Resource groups**, and select **Resource groups** from search results. 
 2. Select the resource group to delete, and select **Delete** from the toolbar. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Delete resource group":::
+    :::image type="content" source="media/relocation/event-grid/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Delete resource group":::
 3. On the confirmation page, enter the name of the resource group, and select **Delete**.  
 
 ## Related content
