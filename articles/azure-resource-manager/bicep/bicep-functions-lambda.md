@@ -3,7 +3,7 @@ title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/25/2024
+ms.date: 05/13/2024
 ---
 # Lambda functions for Bicep
 
@@ -163,9 +163,9 @@ The output from the preceding example is:
 
 **dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
 
-## mapValue
+## mapValues
 
-`mapValue(inputObject, lambda expression)`
+`mapValues(inputObject, lambda expression)`
 
 Creates an object from an input object, using a lambda expression to map values.
 
@@ -184,7 +184,7 @@ An object.
 
 ### Example
 
-The following example shows how to use the `mapValue` function.
+The following example shows how to use the `mapValues` function.
 
 ```bicep
 var inputObject = { foo: 'foo', bar: 'bar' }

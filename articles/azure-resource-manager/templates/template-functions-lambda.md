@@ -3,7 +3,7 @@ title: Template functions - lambda
 description: Describes the lambda functions to use in an Azure Resource Manager template (ARM template)
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 01/25/2024
+ms.date: 05/13/2024
 ---
 
 # Lambda functions for ARM templates
@@ -227,13 +227,13 @@ The output from the preceding example is:
 
 **dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
 
-## mapValue
+## mapValues
 
-`mapValue(inputObject, lambda expression)`
+`mapValues(inputObject, lambda expression)`
 
 Creates an object from an input object, using a lambda expression to map values.
 
-In Bicep, use the [mapValue](../bicep/bicep-functions-lambda.md#mapvalue) function.
+In Bicep, use the [mapValues](../bicep/bicep-functions-lambda.md#mapvalues) function.
 
 ### Parameters
 
@@ -248,7 +248,7 @@ An object.
 
 ### Example
 
-The following example shows how to use the `mapValue` function.
+The following example shows how to use the `mapValues` function.
 
 ```json
 {
