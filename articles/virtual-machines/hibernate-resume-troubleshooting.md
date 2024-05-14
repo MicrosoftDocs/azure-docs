@@ -11,10 +11,6 @@ ms.reviewer: mattmcinnes
 
 # Troubleshooting hibernation in Azure
 
-> [!IMPORTANT]
-> Azure Virtual Machines - Hibernation is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Hibernating a virtual machine allows you to persist the VM state to the OS disk. This article describes how to troubleshoot issues with the hibernation feature, issues creating hibernation enabled VMs, and issues with hibernating a VM.
 
 For information specific to Linux VMs, check out the [Linux VM hibernation troubleshooting guide](./linux/hibernate-resume-troubleshooting-linux.md).
@@ -35,6 +31,7 @@ If you're unable to create a VM with hibernation enabled, ensure that you're usi
 | OperationNotAllowed | Referencing a Capacity Reservation Group isn't supported for a VM with Hibernation capability. |  |
 | OperationNotAllowed | Hibernation can't be enabled on Virtual Machine since the OS Disk Size ({0} bytes) should at least be greater than the VM memory ({1} bytes). | Ensure the OS disk has enough space to be able to persist the RAM contents once the VM is hibernated |
 | OperationNotAllowed | Hibernation can't be enabled on Virtual Machines created in an Availability Set. | Hibernation is only supported for standalone VMs & Virtual Machine Scale Sets Flex VMs |
+
 
 
 ## Unable to hibernate a VM
