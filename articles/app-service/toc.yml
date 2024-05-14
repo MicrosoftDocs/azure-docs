@@ -56,6 +56,8 @@
           href: configure-language-python.md
         - name: Configure Java SE, Tomcat, or JBoss
           href: configure-language-java.md
+        - name: Configure Java SE, Tomcat, or JBoss -1
+          href: configure-language-java.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR
