@@ -4,7 +4,7 @@ description: This article is an overview of the Azure Web Application Firewall J
 services: web-application-firewall
 author: sowmyam2019
 ms.service: web-application-firewall
-ms.date: 05/03/2024
+ms.date: 05/14/2024
 ms.author: victorh
 ms.topic: concept-article
 
@@ -28,12 +28,6 @@ The JavaScript challenge is an invisible web challenge used to distinguish betwe
 Here's an example JavaScript challenge page:
 
 :::image type="content" source="media/waf-javascript-challenge/javascript-challenge-page.png" alt-text="Screenshot showing the JavaScript challenge page.":::
-
-## Localization
-
-The JavaScript challenge page localizes to adapt to the language and culture of a specific market. The read-only `Navigator.language` property determines the locale. The supported languages codes are:
-
-`cd, de, en, es, fr, hu, id, it, ja, ko, nl, pl, pt-BR, pt-PT, ru, sv, tr, zh-Hans, zh-Hant`.
 
 ## Expiration
 

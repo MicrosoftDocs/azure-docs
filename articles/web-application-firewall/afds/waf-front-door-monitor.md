@@ -41,10 +41,10 @@ The following filters are provided as part of this metric:
 - **PolicyName**: This is the WAF policy name
 - **Rule**: This can be any custom rule or bot rule
 - **Action**: There are four possible values for JS Challenge action
-- **Issued**:  JS Challenge is invoked the first time
-- **Passed**: JS Challenge computation succeeded and an answer was received
-- **Valid**: JS Challenge validity cookie was present
-- **Blocked**: JS Challenge computation failed
+   - **Issued**:  JS Challenge is invoked the first time
+   - **Passed**: JS Challenge computation succeeded and an answer was received
+   - **Valid**: JS Challenge validity cookie was present
+   - **Blocked**: JS Challenge computation failed
 
 :::image type="content" source="../media/waf-frontdoor-monitor/javascript-challenge-metrics.png" alt-text="Screenshot showing the JavaScript challenge metrics.":::
 
