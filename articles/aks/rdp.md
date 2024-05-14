@@ -26,7 +26,7 @@ This article assumes that you have an existing AKS cluster with a Windows Server
 If you need to reset the password, use `az aks update` to change the password.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster --windows-admin-password $WINDOWS_ADMIN_PASSWORD
+az aks update --resource-group myResourceGroup --name myAKSCluster --windows-admin-password $WINDOWS_ADMIN_PASSWORD
 ```
 
 If you need to reset the username and password, see [Reset Remote Desktop Services or its administrator password in a Windows VM
@@ -68,10 +68,10 @@ You need to get the subnet ID used by your Windows Server node pool and query fo
 * The subnet ID
 
 ```azurecli-interactive
-CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
-VNET_NAME=$(az network vnet list -g $CLUSTER_RG --query [0].name -o tsv)
-SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
-SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
+CLUSTER_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+VNET_NAME=$(az network vnet list --resource-group $CLUSTER_RG --query [0].name -o tsv)
+SUBNET_NAME=$(az network vnet subnet list --resource-group $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
+SUBNET_ID=$(az network vnet subnet show --resource-group $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
 ```
 
 Now that you've the SUBNET_ID, run the following command in the same Azure Cloud Shell window to create the VM:
@@ -170,8 +170,8 @@ AKS node pool subnets are protected with NSGs (Network Security Groups) by defau
 First, get the resource group and name of the NSG to add the rule to:
 
 ```azurecli-interactive
-CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
-NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+CLUSTER_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list --resource-group $CLUSTER_RG --query [].name -o tsv)
 ```
 
 Then, create the NSG rule:
@@ -305,8 +305,8 @@ az network public-ip delete \
 Delete the NSG rule:
 
 ```azurecli-interactive
-CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
-NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
+CLUSTER_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+NSG_NAME=$(az network nsg list --resource-group $CLUSTER_RG --query [].name -o tsv)
 az network nsg rule delete \
  --resource-group $CLUSTER_RG \
  --nsg-name $NSG_NAME \
@@ -362,7 +362,7 @@ Go to the node resource group of the AKS cluster. Run the command below in the A
 #### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az aks show -n myAKSCluster -g myResourceGroup --query 'nodeResourceGroup' -o tsv
+az aks show --name myAKSCluster --resource-group myResourceGroup --query 'nodeResourceGroup' -o tsv
 ```
 
 #### [Azure PowerShell](#tab/azure-powershell)

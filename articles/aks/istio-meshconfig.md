@@ -23,7 +23,7 @@ This guide assumes you followed the [documentation][istio-deploy-addon] to enabl
 1. Find out which revision of Istio is deployed on the cluster:
 
     ```bash
-    az aks show -n $CLUSTER -g $RESOURCE_GROUP --query 'serviceMeshProfile'
+    az aks show --name $CLUSTER --resource-group $RESOURCE_GROUP --query 'serviceMeshProfile'
     ```
 
     Output:
