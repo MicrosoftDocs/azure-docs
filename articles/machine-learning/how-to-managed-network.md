@@ -100,8 +100,6 @@ Before following the steps in this article, make sure you have the following pre
 
 * The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
 
-* With Azure CLI and managed VNet, SSH using public IP works, but SSH using private IP doesn't work. 
-
 # [Python SDK](#tab/python)
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
@@ -1105,6 +1103,7 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed VNet.
 * Kubernetes and attached VMs aren't supported in an Azure Machine Learning managed VNet.
 * Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* If your compute instance is in a managed network and is also configured for no public IP, use the `az ml compute connect-ssh` command to connect to it using SSH.
 
 ### Migration of compute resources
 
