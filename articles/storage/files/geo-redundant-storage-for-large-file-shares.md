@@ -35,9 +35,9 @@ If the primary region becomes unavailable for any reason, you can [initiate an a
 > [!NOTE]  
 > Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured as GRS or GZRS. The file shares won't be accessible in the secondary region unless a failover occurs.
 
-## Large file share limits
+## New limits for geo-redundant shares
 
-Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) significantly increases your standard file share capacity and performance limits: 
+In regions that are now generally available, all standard SMB file shares that are geo-redundant (both new and existing) now support up to 100TiB capacity and have much higher performance limits: 
 
 | **Attribute** | **Previous limit** | **New limit** |
 |---------------|-------------------|---------------|
@@ -54,7 +54,7 @@ Pricing is based on the standard file share tier and redundancy option configure
 
 ## Register for the feature
 
-To get started, register for the feature using Azure portal or PowerShell. This step is required for regions that are generally available or in preview.
+To get started, register for the feature using Azure portal or PowerShell. This step is required for regions that are in preview and is no longer required for regions that are generally available. 
 
 # [Azure portal](#tab/portal)
 
