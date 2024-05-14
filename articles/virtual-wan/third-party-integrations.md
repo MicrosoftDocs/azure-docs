@@ -6,7 +6,7 @@ author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 04/26/2024
-ma.author: wellee
+ms.author: wellee
 # Customer intent: As someone with a networking background, I want to learn about third-party integrations in a Virtual WAN hub.
 ---
 # Third-party integrations with Virtual WAN Hub
@@ -17,8 +17,7 @@ This article focuses on third-party integrations with the Virtual Hub. To facili
 
 ## Integrated Network Virtual Appliances
 
-
-Integrated Network Virtual Appliances (NVAs) are Microsoft-managed infrastructure-as-a-service solutions that Microsoft and select NVA providers jointly develop and offer. Integrated Network Virtual Appliances are typically deployed through Azure Marketplace Managed Applications or directly from  NVA orchestration software.  The backing infrastructure of Network Virtual Appliances is deployed into the Virtual WAN Hub as a Microsoft-owned and managed Virtual Machine scale-set with Azure Load Balancers. directly into the Virtual WAN hub. A subset of Azure infrastructure configurations are available for you to manage, scale and troubleshoot your NVA deployments in the Virtual WAN hub.
+Integrated Network Virtual Appliances (NVAs) are Microsoft-managed infrastructure-as-a-service solutions that Microsoft and select NVA providers jointly develop and offer. Integrated Network Virtual Appliances are typically deployed through Azure Marketplace Managed Applications or directly from  NVA orchestration software.  The backing infrastructure of Network Virtual Appliances is deployed into the Virtual WAN Hub as a Microsoft-owned and managed Virtual Machine scale-set with Azure Load Balancers directly into the Virtual WAN hub. A subset of Azure infrastructure configurations are available for you to manage, scale and troubleshoot your NVA deployments in the Virtual WAN hub.
 
 :::image type="content" source="./media/third-party-solutions/integrated-network-virtual-appliances.png" alt-text="Integrated NVA architecture diagram." lightbox="./media/third-party-solutions/integrated-network-virtual-appliances.png":::
 
@@ -30,7 +29,17 @@ Integrated NVAs typically fall into three categories based on their capabilities
 * **Next-generation Firewall**: NVAs in the hub serve as a security appliance in the Virtual WAN hub, allowing you to inspect traffic between on-premises, Azure Virtual Networks and the Internet.
 * **Dual-role connectivity and Firewall**: NVAs in the hub that provide both connectivity and next-generation firewall security capabiliites on the same device.  
 
-For more information on  Integrated NVAs in the Virtual WAN hub, see [NVA in the hub documentation](about-nva-hub.md). For the list of NVAs that can be deployed in Virtual WAN see [NVA in the hub partners](about-nva-hub.md#partners).
+For more information on  Integrated NVAs in the Virtual WAN hub, see [NVA in the hub documentation](about-nva-hub.md). 
+
+The following solutions are currently available as Integrated NVA partners:
+
+|Capability Type(s)| Available Partners|
+|--|--|
+|Connectivity|Barracuda, VMware SD-WAN (formerly known as Velocloud), Cisco SD-WAN, Aruba, Versa |
+|Next-Generation Firewall (NGFW)|Check Point, Fortinet|
+| Dual-role connectivity and NGFW | Fortinet |
+
+For additional documentation and resources on each Integrated NVA solution, see [NVA in the hub partners](about-nva-hub.md#partners).
 
 
 
@@ -51,4 +60,6 @@ Azure Firewall Manager security partner integrations automates connecting Virtua
 
 :::image type="content" source="./media/third-party-solutions/security-as-a-service.png" alt-text="SECaaS architecture diagram." lightbox="./media/third-party-solutions/security-as-as-service.png":::
 
-Configuration and infrastructure management on the SECaaS solution are available via SECaas provided management tools. For more information about Azure Firewall Manager security partner providers, see [Azure Firewall Manager documentation](../firewall-manager/trusted-security-partners.md) and your preferred provider's documentation.
+Configuration and infrastructure management on the SECaaS solution are available via SECaas provided management tools. 
+
+The following partners are available as SECaaS solutions in Virtual WAN: Check Point, iBoss and zScalar. For more information about Azure Firewall Manager security partner providers, see [Azure Firewall Manager documentation](../firewall-manager/trusted-security-partners.md) and your preferred provider's documentation.
