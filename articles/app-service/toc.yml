@@ -57,7 +57,7 @@
         - name: Configure Java SE, Tomcat, or JBoss
           href: configure-language-java.md
         - name: Configure Java SE, Tomcat, or JBoss -1
-          href: configure-language-java.md
+          href: configure-language-java-1.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR

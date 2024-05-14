@@ -560,6 +560,7 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
     Note the values for `connectionString` and `instrumentationKey`, you'll need these values in the next step.
 
+    > [!NOTE]
     > To retrieve a list of other locations, run `az account list-locations`.
 
 3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
@@ -796,26 +797,26 @@ For Windows apps, create a file named `startup.cmd` or `startup.ps1` in the `www
 Here's a PowerShell script that completes these steps:
 
 ```powershell
-    # Check for marker file indicating that config has already been done
-    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
-        return 0
-    }
+# Check for marker file indicating that config has already been done
+if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
+    return 0
+}
 
-    # Delete previous Tomcat directory if it exists
-    # In case previous config isn't completed or a new config should be forcefully installed
-    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
-        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
-    }
+# Delete previous Tomcat directory if it exists
+# In case previous config isn't completed or a new config should be forcefully installed
+if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+    Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
+}
 
-    # Copy Tomcat to local
-    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
-    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
+# Copy Tomcat to local
+# Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
 
-    # Perform the required customization of Tomcat
-    {... customization ...}
+# Perform the required customization of Tomcat
+{... customization ...}
 
-    # Mark that the operation was a success
-    New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+# Mark that the operation was a success
+New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
 ```
 
 ##### Transforms
@@ -1275,19 +1276,20 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 On Linux, it has all of the same customization, plus:
  
 * Adds some error and reporting pages to the valve:
- ```xml
-                <xsl:attribute name="appServiceErrorPage">
-                    <xsl:value-of select="'${appService.valves.appServiceErrorPage}'"/>
-                </xsl:attribute>
- 
-                <xsl:attribute name="showReport">
-                    <xsl:value-of select="'${catalina.valves.showReport}'"/>
-                </xsl:attribute>
-                
-                <xsl:attribute name="showServerInfo">
-                    <xsl:value-of select="'${catalina.valves.showServerInfo}'"/>
-                </xsl:attribute>
- ```
+
+    ```xml
+    <xsl:attribute name="appServiceErrorPage">
+        <xsl:value-of select="'${appService.valves.appServiceErrorPage}'"/>
+    </xsl:attribute>
+    
+    <xsl:attribute name="showReport">
+        <xsl:value-of select="'${catalina.valves.showReport}'"/>
+    </xsl:attribute>
+    
+    <xsl:attribute name="showServerInfo">
+        <xsl:value-of select="'${catalina.valves.showServerInfo}'"/>
+    </xsl:attribute>
+    ```
 
 ::: zone-end
 
