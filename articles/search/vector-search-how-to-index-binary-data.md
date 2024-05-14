@@ -36,7 +36,7 @@ This article assumes you're familiar with [creating an index in Azure AI Search]
 
 Vector search algorithms are used to create the query navigation structures during index. For binary data fields, vector comparisons are performed using the Hamming distance. Configuration of a vector search algorithm is in a search index.
 
-1. to add a binary field to an index, set up a [`Create or Update Index`](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) request using the **2024-05-01-preview REST API** or the Azure portal.
+1. To add a binary field to an index, set up a [`Create or Update Index`](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) request using the **2024-05-01-preview REST API** or the Azure portal.
 
 1. In the index schema, add a `vectorSearch` section that specifies profiles and algorithms.
 
