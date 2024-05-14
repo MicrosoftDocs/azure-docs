@@ -4,12 +4,10 @@ description: This article describes the storage options in Azure Database for Po
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/30/2024
+ms.date: 05/13/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.custom:
-  - ignite-2023
 ---
 
 # Storage options in Azure Database for PostgreSQL - Flexible Server
@@ -59,7 +57,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 #### Premium SSD v2 early preview limitations
 
-- Azure Database for PostgreSQL flexible server with Premium SSD V2 disk can be deployed only in East US2, West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
+- Azure Database for PostgreSQL flexible server with Premium SSD V2 disk can be deployed only in Central US, East US, East US2, SouthCentralUS West US2, West Europe, Switzerland North regions during early preview. Support for more regions is coming soon.
 
 - During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Auto-grow features.
 
@@ -134,7 +132,7 @@ Remember that storage can only be scaled up, not down.
 > [!NOTE]  
 > Storage auto-grow never triggers an offline increase.
 
-## IOPS (preview)
+## IOPS
 
 Azure Database for PostgreSQL flexible server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time.
 

@@ -229,6 +229,6 @@ You might receive a 401 error (unauthorized) expiration error. The error is norm
 
 You might receive 400 and 404 (unavailable) errors returned from an API call when there's no current data available for the date range selected. For example, this error might occur because an enrollment transfer was recently initiated. Data from a specific date and later now resides in a new enrollment. Otherwise, the error might occur if you're using a new enrollment number to retrieve information that resides in an old enrollment.
 
-## Next steps
+## Related content
 
 - Azure EA administrators should read [EA Billing administration on the Azure portal](direct-ea-administration.md).

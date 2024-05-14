@@ -7,7 +7,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 05/06/2024
 ms.author: banders
 ---
 
@@ -301,11 +301,13 @@ The invoice status shows *paid* within 24 hours.
 
 If you have a Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
 
+You can see a complete list of all the counties/regions where the **Pay now** option is available at [Settle balance might be Pay now](../manage/resolve-past-due-balance.md#settle-balance-might-be-pay-now).
+
 Based on the default payment method and invoice amount, the **Pay now** option might be unavailable. Check your invoice for payment instructions.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## Next steps
+## Related content
 
 - To become eligible to pay by wire transfer, see [how to pay by invoice](../manage/pay-by-invoice.md)

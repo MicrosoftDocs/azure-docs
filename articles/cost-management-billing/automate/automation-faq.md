@@ -76,6 +76,6 @@ The Marketplaces API is deprecated. The date that the API will be turned off is 
 
 The Forecasts API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Management Forecast API](/rest/api/cost-management/forecast). We recommend that you migrate to it as soon as possible.
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).

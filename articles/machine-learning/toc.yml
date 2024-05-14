@@ -121,6 +121,8 @@
         href: concept-azure-machine-learning-v2.md
       - name: Workspaces
         href: concept-workspace.md
+      - name: Hub workspaces
+        href: concept-hub-workspace.md
       - name: Searching for Assets and Resources
         href: how-to-search-assets.md
       - name: Compute
@@ -590,6 +592,8 @@
   items:
     - name: Model Catalog Overview
       href: concept-model-catalog.md
+    - name: Data, privacy, and security for Model Catalog
+      href: concept-data-privacy.md
     - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
@@ -670,6 +674,8 @@
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Deploy a flow to online endpoint for real-time inference with CLI 
               href: ./prompt-flow/how-to-deploy-to-code.md
+            - name: Enable trace and collect feedback for a flow deployment 
+              href: ./prompt-flow/how-to-enable-trace-feedback-for-deployment.md
             - name: How to use streaming endpoints deployed from prompt flow
               href: ./prompt-flow/how-to-enable-streaming-mode.md
             - name: Set up end-to-end LLMOps with prompt flow and GitHub 
@@ -1284,6 +1290,12 @@
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
+    - name: Create & manage hub workspaces
+      items:
+        - name: Use Azure portal
+          href: how-to-manage-hub-workspace-portal.md
+        - name: Use Resource Manager template
+          href: how-to-manage-hub-workspace-template.md
     - name: Create & manage registries
       href: how-to-manage-registries.md
     - name: Create & manage compute resources
