@@ -2,7 +2,7 @@
 author: jiyoonlee
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 10/16/2022
+ms.date: 05/14/2024
 ms.author: jiyoonlee
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
