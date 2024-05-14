@@ -77,7 +77,7 @@ Register-AzProviderFeature -FeatureName AllowLfsForGRS -ProviderNamespace Micros
 
 In regions that are now generally available:
 - All standard SMB file shares (new and existing) support up to 100 TiB capacity and you can select any redundancy option supported in the region. Since all standard SMB file shares now support up to 100 TiB capacity, the LargeFileSharesState property on storage accounts is no longer used and will be removed in the future. 
-- If you have existing file shares, you can now increase the file share size up to 100 TiB (share quotas are not automatically increased).
+- If you have existing file shares, you can now increase the file share size up to 100 TiB (share quotas aren't automatically increased).
 - Performance limits (IOPS and throughput) for your file shares have automatically increased to the storage account limits. 
 
 Perform the following steps to configure 100TiB shares and geo-redundancy for new and existing SMB file shares:
@@ -92,11 +92,11 @@ Perform the following steps to configure geo-redundancy for a new Azure file sha
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
 1. [Change the redundancy option](../common/redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) for your storage account to GRS or GZRS.
-2. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) will default to 100 TiB.
+2. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) default to 100 TiB.
 
 #### Existing storage accounts with a redundancy option of GRS, GZRS, RA-GRS, or RA-GZRS
 
-1. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) will default to 100 TiB.
+1. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) default to 100 TiB.
 
 ## Snapshot and sync frequency
 
