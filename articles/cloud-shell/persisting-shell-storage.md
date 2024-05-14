@@ -2,7 +2,7 @@
 description: Walkthrough of how Azure Cloud Shell persists files.
 ms.contributor: jahelmic
 ms.date: 05/02/2024
-ms.topic: article
+ms.topic: how-to
 tags: azure-resource-manager
 ms.custom:
 title: Persist files in Azure Cloud Shell

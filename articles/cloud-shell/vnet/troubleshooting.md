@@ -4,7 +4,7 @@ description: >
   Azure Cloud Shell.
 ms.contributor: jahelmic
 ms.date: 10/26/2023
-ms.topic: article
+ms.topic: troubleshooting
 title: Troubleshoot Azure Cloud Shell in a private virtual network
 ---
 # Troubleshoot Azure Cloud Shell in a private virtual network
