@@ -55,6 +55,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --network fabric-id "$NFC_ID" \
   --cluster-service-principal application-id="$SP_APP_ID" \
     password="$SP_PASS" principal-id="$SP_ID" tenant-id="$TENANT_ID" \
+  --subscription "$SUBSCRIPTION_ID" \
   --secret-archive "{key-vault-id:$KVRESOURCE_ID, use-key-vault:true}" \
   --cluster-type "$CLUSTER_TYPE" --cluster-version "$CLUSTER_VERSION" \
   --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2"
@@ -69,7 +70,7 @@ You can instead create a Cluster with ARM template/parameter files in
 | Parameter name            | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | CLUSTER_NAME              | Resource Name of the Cluster                                                                                          |
-| LOCATION                  | The Azure Region where the Cluster is deployed                                                                   |
+| LOCATION                  | The Azure Region where the Cluster is deployed                                                                        |
 | CL_NAME                   | The Cluster Manager Custom Location from Azure portal                                                                 |
 | CLUSTER_RG                | The cluster resource group name                                                                                       |
 | LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                            |
@@ -100,6 +101,7 @@ You can instead create a Cluster with ARM template/parameter files in
 | SP_PASS                   | Service Principal Password                                                                                            |
 | SP_ID                     | Service Principal ID                                                                                                  |
 | TENANT_ID                 | Subscription tenant ID                                                                                                |
+| SUBSCRIPTION_ID           | Subscription ID                                                                                                       |
 | KV_RESOURCE_ID            | Key Vault ID                                                                                                          |
 | CLUSTER_TYPE              | Type of cluster, Single or MultiRack                                                                                  |
 | CLUSTER_VERSION           | NC Version of cluster                                                                                                 |
@@ -150,7 +152,7 @@ Deploy the on-premises Cluster:
 ```azurecli
 az networkcloud cluster deploy \
   --name "$CLUSTER_NAME" \
-  --resource-group "$CLUSTER_RESOURCE_GROUP" \
+  --resource-group "$CLUSTER_RG" \
   --subscription "$SUBSCRIPTION_ID" \
   --no-wait --debug
 ```
@@ -192,7 +194,7 @@ Additionally, nodes skipped don't count against the total used by threshold calc
 ```azurecli
 az networkcloud cluster deploy \
   --name "$CLUSTER_NAME" \
-  --resource-group "$CLUSTER_RESOURCE_GROUP" \
+  --resource-group "$CLUSTER_RG" \
   --subscription "$SUBSCRIPTION_ID" \
   --skip-validations-for-machines "$COMPX_SVRY_SERVER_NAME"
 ```
@@ -238,7 +240,7 @@ View the status of the cluster on the portal, or via the Azure CLI:
 
 ```azurecli
 az networkcloud cluster show --resource-group "$CLUSTER_RG" \
-  --cluster-name "$CLUSTER_RESOURCE_NAME"
+  --name "$CLUSTER_NAME"
 ```
 
 The Cluster deployment is in-progress when detailedStatus is set to `Deploying` and detailedStatusMessage shows the progress of deployment. 
@@ -255,7 +257,7 @@ The Cluster deployment is complete when detailedStatus is set to `Running` and d
 View the management version of the cluster:
 
 ```azurecli
-az k8s-extension list --cluster-name <cluster> --resource-group "$MANAGED_CLUSTER_RG" --cluster-type connectedClusters --query "[?name=='nc-platform-extension'].{name:name, extensionType:extensionType, releaseNamespace:scope.cluster.releaseNamespace,provisioningState:provisioningState,version:version}" -o table --subscription "$SUBSCRIPTION_ID"
+az k8s-extension list --cluster-name "$CLUSTER_NAME" --resource-group "$MRG_NAME" --cluster-type connectedClusters --query "[?name=='nc-platform-extension'].{name:name, extensionType:extensionType, releaseNamespace:scope.cluster.releaseNamespace,provisioningState:provisioningState,version:version}" -o table --subscription "$SUBSCRIPTION_ID"
 ```
 
 ## Cluster deployment Logging
