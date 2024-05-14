@@ -12,7 +12,7 @@ ms.custom: include file
 
 ## Define a stored access policy
 
-A stored access policy provides an additional level of control over a service-level shared access signature (SAS) on the server side. Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy.
+A stored access policy provides an additional level of control over a service-level shared access signature (SAS) on the server side. Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy. With stored access policy, you can grant or revoke permissions for specific operations such as read, write, delete, list, and more. 
 
 You can use a stored access policy to change the start time, expiry time, or permissions for a signature. You can also use a stored access policy to revoke a signature after it has been issued. This section focuses on blob containers, but stored access policies are also supported for file shares, queues, and tables.
 
