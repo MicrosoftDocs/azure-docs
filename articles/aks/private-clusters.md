@@ -106,7 +106,7 @@ You can configure private DNS zones using the following parameters:
 * **CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID**: This requires you to create a private DNS zone in the following format for Azure global cloud: `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`. You'll need the resource ID of the private DNS zone for future use. You also need a user-assigned identity or service principal with the [Private DNS Zone Contributor][private-dns-zone-contributor-role] and [Network Contributor][network-contributor-role] roles. When deploying using API server VNet integration, a private DNS zone supports the naming format of `private.<region>.azmk8s.io` or `<subzone>.private.<region>.azmk8s.io`.
   * If the private DNS zone is in a different subscription than the AKS cluster, you need to register the Azure provider **Microsoft.ContainerServices** in both subscriptions.
   * "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`.
-  * If your AKS cluster is configured with an Active Directory service principal, AKS doesn't support using a system-assigned managed identity with custom private DNS zone. The cluster must use [user-assigned managed identity authentication](../../aks/use-managed-identity.md).
+  * If your AKS cluster is configured with an Active Directory service principal, AKS doesn't support using a system-assigned managed identity with custom private DNS zone. The cluster must use [user-assigned managed identity authentication](../aks/use-managed-identity.md).
     
   * If you are specifying a `<subzone>` there is a 32 character limit for the `<subzone>` name.
 
