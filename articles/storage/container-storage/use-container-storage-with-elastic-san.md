@@ -19,7 +19,7 @@ ms.custom: references_regions
 
 - If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
 
-- Ensure your subscription has [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles/general.md#owner) role. For Azure Container Storage to successfully communicate with Elastic SAN's API, it needs special permissions that the Owner role will grant.
+- Ensure your subscription has either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role. For Azure Container Storage to successfully communicate with Elastic SAN's API, it needs special permissions that either of those two roles will grant.
 
 > [!NOTE]
 > To use Azure Container Storage with Azure Elastic SAN, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
@@ -80,18 +80,15 @@ Follow these steps to create a storage pool with Azure Elastic SAN.
 
 When the storage pool is created, Azure Container Storage will create a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It will also create an Azure Elastic SAN resource.
 
-## Assign Contributor role to AKS managed identity on Azure Elastic SAN subscription
+## Assign Azure Container Storage Operator role to AKS managed identity on Azure Elastic SAN subscription
 
-Next, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity on your Azure Elastic SAN subscription. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+Next, you must assign the [Azure Container Storage Operator](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-operator) role to the AKS managed identity on your Azure Elastic SAN subscription. You'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
 1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
-1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**, then select **Next**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
-   
-   :::image type="content" source="media/install-container-storage-aks/add-role-assignment.png" alt-text="Screenshot showing how to use the Azure portal to add Contributor role to the AKS managed identity." lightbox="media/install-container-storage-aks/add-role-assignment.png":::
-   
+1. Under the **Job function roles** tab, select or search for **Azure Container Storage Operator**, then select **Next**. If you don't have an Azure Container Storage Owner or Azure Container Storage Contributor role on the subscription, you won't be able to add the Azure Container Storage Operator role.
 1. Under **Assign access to**, select **Managed identity**.
 1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
 1. Under **Managed identity**, select **User-assigned managed identity**.
