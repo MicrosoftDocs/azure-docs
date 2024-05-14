@@ -9,6 +9,7 @@ ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
+zone_pivot_groups: acs-plat-web-ios-android-windows
 
 #Customer intent: As a developer, I want to join a Teams meeting.
 ---
