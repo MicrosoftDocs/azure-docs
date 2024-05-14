@@ -10,7 +10,9 @@ ms.author: danlep
 
 # Quickstart: Create your API center - Azure CLI
 
-[!INCLUDE [quickstart-intro-prerequisites](includes/quickstart-intro-prerequisites.md)]
+[!INCLUDE [quickstart-intro](includes/quickstart-intro.md)]
+
+[!INCLUDE [quickstart-prerequisites](includes/quickstart-prerequisites.md)]
 
 * For Azure CLI:
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
