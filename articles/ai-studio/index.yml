@@ -43,10 +43,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Get started building a chat app using the prompt flow SDK
+            url: quickstarts/get-started-code.md
           - text: Use Azure OpenAI Assistants in the playground
             url: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
-          - text: Hear and speak with chat in the playground
-            url: quickstarts/hear-speak-playground.md
           - text: Moderate text and images
             url: quickstarts/content-safety.md
           - text: Get started using GPT-4 Turbo with Vision
@@ -66,9 +66,7 @@ landingContent:
           - text: Get started with the Azure AI SDK
             url: how-to/develop/sdk-overview.md
           - text: Work with Azure AI projects in VS Code
-            url: how-to/develop-in-vscode.md
-          - text: Try speech analytics with post-call transcriptions
-            url: ../ai-services/speech-service/speech-analytics-post-call.md?context=/azure/ai-studio/context/context
+            url: how-to/develop/vscode.md
       - linkListType: concept
         links:
           - text: Connections for flows and indexing

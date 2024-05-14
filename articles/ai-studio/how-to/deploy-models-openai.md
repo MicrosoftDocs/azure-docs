@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 5/21/2024
 ms.reviewer: fasantia
 ms.author: mopeakande
 author: msakande
@@ -17,35 +17,53 @@ author: msakande
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-In this article, you learn to create Azure OpenAI model deployments in Azure AI Studio and consume the deployments with prompt flow.
+In this article, you learn to create Azure OpenAI model deployments in Azure AI Studio.
 
 Azure OpenAI service offers a diverse set of models with different capabilities and price points. When you deploy Azure OpenAI models in Azure AI Studio, you can consume the deployments, using prompt flow or another tool. Model availability varies by region. To learn more about the details of each model see [Azure OpenAI Service models](../../ai-services/openai/concepts/models.md).
 
 To modify and interact with an Azure OpenAI model in the [Azure AI Studio](https://ai.azure.com) playground, first you need to deploy a base Azure OpenAI model to your project. Once the model is deployed and available in your project, you can consume its REST API endpoint as-is or customize further with your own data and other components (embeddings, indexes, and more).  
- 
-1. Choose a model you want to deploy from Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Alternatively, you can initiate deployment by selecting **+ Create** from `your project`>`deployments` 
 
-To modify and interact with an Azure OpenAI model in the [Azure AI Studio](https://ai.azure.com) playground, first you need to deploy a base Azure OpenAI model to your project. Once the model is deployed and available in your project, you can consume its REST API endpoint as-is or customize it further with your own data and other components (embeddings, indexes, and more).  
+## Deploy an Azure OpenAI model from the model catalog
 
-Use the following steps to deploy an Azure OpenAI model, such as *gpt-4*, to a real-time endpoint in Azure AI Studio.
+Follow the steps below to deploy an Azure OpenAI model such as `gpt-4` to a real-time endpoint from the AI Studio [model catalog](./model-catalog-overview.md):
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Sign in to [AI Studio](https://ai.azure.com) and go to the **Home** page.
 1. Select **Model catalog** from the left sidebar.
-1. Select a model you want to deploy from the Azure AI Studio [model catalog](../how-to/model-catalog.md). 
-1. Select **Deploy** to open the deployment window.
-1. Select the Azure AI Studio hub to use. For Azure OpenAI models, the Azure AI Content safety filter is on by default. 
+1. In the **Collections** filter, select **Azure OpenAI**.
+
+    :::image type="content" source="../media/deploy-monitor/catalog-filter-azure-openai.png" alt-text="A screenshot showing how to filter by Azure OpenAI models in the catalog." lightbox="../media/deploy-monitor/catalog-filter-azure-openai.png"::: 
+
+1. Select a model such as `gpt-4` from the Azure OpenAI collection.
+1. Select **Deploy** to open the deployment window. 
+1. Select the hub that you want to deploy the model to. If you don't have a hub, you can create one.
+1. Specify the deployment name and modify other default settings depending on your requirements.
 1. Select **Deploy**.
-
-1. Alternatively, you can initiate deployment by starting from your project in AI Studio
-
-    1. Select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
-    1. Search for and select the model you want to deploy.
-    1. Select **Confirm** to open the deployment window.
-    1. Select **Deploy**.
-
 1. You land on the deployment details page. Select **Open in playground**.
 1. Select **View Code** to obtain code samples that can be used to consume the deployed model in your application.
+
+## Deploy an Azure OpenAI model from your project
+
+Alternatively, you can initiate deployment by starting from your project in AI Studio.
+
+1. Go to your project in AI Studio.
+1. Select **Components** > **Deployments**.
+1. Select **+ Create deployment**.
+1. In the **Collections** filter, select **Azure OpenAI**.
+1. Select a model such as `gpt-4` from the Azure OpenAI collection.
+1. Select **Confirm** to open the deployment window.
+1. Specify the deployment name and modify other default settings depending on your requirements.
+1. Select **Deploy**.
+1. You land on the deployment details page. Select **Open in playground**.
+1. Select **View Code** to obtain code samples that can be used to consume the deployed model in your application.
+
+## Inferencing the Azure OpenAI model
+
+To perform inferencing on the deployed model, you can use the playground or code samples. The playground is a web-based interface that allows you to interact with the model in real-time. You can use the playground to test the model with different prompts and see the model's responses. 
+
+For more examples of how to consume the deployed model in your application, see the following Azure OpenAI quickstarts:
+
+- [Get started with Assistants and code interpreter in the playground](../../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context)
+- [Chat quickstart](../../ai-services/openai/chatgpt-quickstart.md)
 
 ## Regional availability and quota limits of a model
 

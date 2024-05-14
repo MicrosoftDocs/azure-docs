@@ -5,7 +5,7 @@ description: Get started using GPT-4 Turbo with Vision on your images and videos
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: quickstart
-ms.date: 05/10/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: pafarley
 author: PatrickFarley

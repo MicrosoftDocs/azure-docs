@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 5/21/2024
 ms.reviewer: jhirono
 ms.author: larryfr
 author: Blackmist
@@ -226,7 +226,7 @@ To enable public access, use the following steps:
 Use the following Azure CLI command to enable public access:
 
 ```azurecli
-az ml workspace-hub update \
+az ml workspace update \
     --set public_network_access=Enabled \
     -n <workspace-name> \
     -g <resource-group-name>

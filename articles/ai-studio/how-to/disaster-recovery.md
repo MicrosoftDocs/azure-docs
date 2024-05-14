@@ -13,6 +13,8 @@ ms.date: 5/21/2024
 
 # Customer enabled disaster recovery
 
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery with Azure AI Studio. Since Azure AI Studio builds on [Azure Machine Learning architecture](/azure/machine-learning/concept-workspace), it's beneficial to reference the foundational architecture.
 
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages might occur. We recommend having a disaster recovery plan in place for handling regional service outages. In this article, you learn how to:

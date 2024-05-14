@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 2/22/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-This article talks about the importance and need for Retrieval Augmented Generation (RAG) and Index in generative AI. 
+This article talks about the importance and need for Retrieval Augmented Generation (RAG) and index in generative AI. 
 
 ## What is RAG?
 
@@ -30,17 +30,13 @@ RAG is a pattern which uses your data with an LLM to generate answers specific t
 :::image type="content" source="../media/index-retrieve/rag-pattern.png" alt-text="Screenshot of the RAG pattern." lightbox="../media/index-retrieve/rag-pattern.png":::
 
 
-## What is an Index and why do I need it?
+## What is an index and why do I need it?
 
-RAG uses your data to generate answers to the user question. For RAG to work well, we need to find a way to search and send your data in an easy and cost efficient manner to the LLMs. This is achieved by using an Index. An Index is a data store which allows you to search data efficiently. This is very useful in RAG. An Index can be optimized for LLMs by creating Vectors (text/data converted to number sequences using an embedding model). A good Index usually has efficient search capabilities like keyword searches, semantic searches, vector searches or a combination of these. This optimized RAG pattern can be illustrated as follows.
+RAG uses your data to generate answers to the user question. For RAG to work well, we need to find a way to search and send your data in an easy and cost efficient manner to the LLMs. This is achieved by using an index. An index is a data store which allows you to search data efficiently. This is very useful in RAG. An index can be optimized for LLMs by creating vectors (text data converted to number sequences using an embedding model). A good index usually has efficient search capabilities like keyword searches, semantic searches, vector searches or a combination of these. This optimized RAG pattern can be illustrated as follows.
 
 :::image type="content" source="../media/index-retrieve/rag-pattern-with-index.png" alt-text="Screenshot of the RAG pattern with index." lightbox="../media/index-retrieve/rag-pattern-with-index.png":::
 
-
-Azure AI provides an Index asset to use with RAG pattern. The Index asset contains important information like where is your index stored, how to access your index, what are the modes in which your index can be searched, does your index have vectors, what is the embedding model used for vectors etc. The Azure AI Index uses [Azure AI Search](/azure/search/search-what-is-azure-search) as the primary / recommended Index store. Azure AI Search is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes.
-
-Azure AI Index also supports [FAISS](https://github.com/facebookresearch/faiss) (Facebook AI Similarity Search) which is an open source library that provides a local file-based store. FAISS supports vector only search capabilities and is supported via SDK only.
-
+Azure AI provides an index asset to use with RAG pattern. The index asset contains important information like where is your index stored, how to access your index, what are the modes in which your index can be searched, does your index have vectors, what is the embedding model used for vectors etc. The Azure AI index uses [Azure AI Search](/azure/search/search-what-is-azure-search) as the primary and recommended index store. Azure AI Search is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes.
 
 ## Next steps
 

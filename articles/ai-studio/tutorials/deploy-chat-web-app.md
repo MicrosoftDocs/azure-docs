@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure AI Enterprise Chat web app in the Azure AI Studio playground
+title: Deploy an Enterprise Chat web app in the Azure AI Studio playground
 titleSuffix: Azure AI Studio
 description: Use this article to deploy an enterprise chat web app in the Azure AI Studio playground.
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: aahi
 author: aahill
 ---
 
-# Tutorial: Deploy an Azure AI Enterprise Chat web app
+# Tutorial: Deploy an Enterprise Chat web app
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
@@ -36,21 +36,13 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already.
 
 - You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 
-## Deploy a chat model
-
-[!INCLUDE [Deploy chat model](../includes/deploy-chat-model.md)]
-
-## Chat in the playground without your data
-
-In the [Azure AI Studio](https://ai.azure.com) playground you can observe how your model responds with and without your data. In this section, you test your model without your data. In the next section, you add your data to the model to help it better answer questions about your products.
-
-[!INCLUDE [Chat without your data](../includes/chat-without-data.md)]
-
 ## Add your data and try the chat model again
+
+In the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) (that's a prerequisite for this tutorial), you can observe how your model responds without your data. Now you add your data to the model to help it answer questions about your products.
 
 [!INCLUDE [Chat with your data](../includes/chat-with-data.md)]
 
@@ -71,7 +63,6 @@ Follow these steps to navigate from Azure AI Studio to your resource group in th
 
 1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the hub. Keep this page open in a browser tab - you return to it later.
 
-
 ### Deploy the web app
 
 Publishing creates an Azure App Service in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
@@ -81,7 +72,7 @@ To deploy the web app:
 1. Complete the steps in the previous section to [add your data](#add-your-data-and-try-the-chat-model-again) to the playground. 
 
     > [!NOTE]
-    > You can deploy a web app with or without your own data, but at least you need a deployed model as described in [deploy and test a chat model without your data](#chat-in-the-playground-without-your-data).
+    > You can deploy a web app with or without your own data, but at least you need a deployed model as described in the [AI Studio playground quickstart](../quickstarts/get-started-playground.md).
 
 1. Select **Deploy to a web app**.
 

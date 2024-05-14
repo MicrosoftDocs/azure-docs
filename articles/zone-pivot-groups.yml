@@ -2029,6 +2029,20 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-fine-tuning-new
+  title: Programming languages
+  prompt: Choose your preferred fine-tuning method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-ai-studio
+    title: AI Studio (Preview)
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+
+# Owner: mbullwin
 - id: openai-embeddings
   title: Programming languages
   prompt: Choose your preferred usage method
@@ -3270,3 +3284,12 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+# Owner: micahvivion
+- id: acs-errorcodes-client-server
+  title: Code and subcode errors
+  prompt: Choose a location where the error was generated
+  pivots:
+  - id: platform-javascript
+    title: JavaScript
+  - id: platform-server
+    title: Server

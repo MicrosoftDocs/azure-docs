@@ -5,7 +5,7 @@ description: Learn how to deploy Mistral Large with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 5/21/2024
 ms.reviewer: kritifaujdar 
 reviewer: fkriti
 ms.author: mopeakande
@@ -122,13 +122,19 @@ You can consume Mistral family models by using the chat API.
 
 1. Copy the **Target** URL and the **Key** value.
 
-1. Make an API request using the [`/v1/chat/completions`](#chat-api) API using [`<target_url>/v1/chat/completions`](#chat-api).
+1. Make an API request using to either the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Mistral Chat API](#mistral-chat-api) on `/v1/chat/completions`.
 
 For more information on using the APIs, see the [reference](#reference-for-mistral-family-of-models-deployed-as-a-service) section.
 
 ### Reference for Mistral family of models deployed as a service
 
-#### Chat API
+Mistral models accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Mistral Chat API](#mistral-chat-api) on `/v1/chat/completions`. 
+
+### Azure AI Model Inference API
+
+The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
+
+#### Mistral Chat API
 
 Use the method `POST` to send the request to the `/v1/chat/completions` route:
 

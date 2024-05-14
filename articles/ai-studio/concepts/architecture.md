@@ -5,7 +5,7 @@ description: Learn about the architecture of Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 5/21/2024
 ms.reviewer: deeikele
 ms.author: larryfr
 author: Blackmist

@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-python
 ms.topic: how-to
-ms.date: 2/6/2024
+ms.date: 5/21/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt

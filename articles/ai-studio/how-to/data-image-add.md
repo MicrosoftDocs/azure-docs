@@ -5,7 +5,7 @@ description: Use this article to learn about using your image data for image gen
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: pafarley
 author: PatrickFarley

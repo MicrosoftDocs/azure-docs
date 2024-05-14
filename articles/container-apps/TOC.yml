@@ -56,6 +56,10 @@
       href: application-lifecycle-management.md
     - name: Jobs
       href: jobs.md
+    - name: Dynamic sessions
+      items:
+      - name: Code interpreter sessions
+        href: sessions-code-interpreter.md
     - name: Microservices
       href: microservices.md
     - name: Build and deliver apps with Container Apps (video)
@@ -122,6 +126,16 @@
           href: storage-mounts.md
         - name: Create an Azure Files storage mount
           href: storage-mounts-azure-files.md
+    - name: Use dynamic sessions
+      items:
+        - name: Code interpreter sessions
+          items:
+          - name: LangChain
+            href: sessions-tutorial-langchain.md
+          - name: LlamaIndex
+            href: sessions-tutorial-llamaindex.md
+          - name: Semantic Kernel
+            href: sessions-tutorial-semantic-kernel.md
     - name: Event-driven processing
       items:
         - name: With an app
@@ -164,14 +178,15 @@
   items:
   - name: Overview
     href: certificates-overview.md
-  - name: Set up custom domain with a free certificate
+  - name: Custom domain with a free certificate
     href: custom-domains-managed-certificates.md
     displayName: Set up custom domain with a managed certificate
   - name: Set up custom domain with existing certificate
     href: custom-domains-certificates.md
   - name: Set up environment custom DNS suffix
     href: environment-custom-dns-suffix.md
-
+  - name: Certificates from Key Vault
+    href: key-vault-certificates-manage.md
 - name: Authentication
   items:
     - name: Overview
@@ -322,10 +337,16 @@
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
+      - name: Metrics
+        href: java-metrics.md
+        displayName: java
       - name: Use Eureka Server for Spring
         href: java-eureka-server-usage.md
       - name: Use Config Server for Spring
         href: java-config-server-usage.md
+        displayName: java
+      - name: Set dynamic logger level
+        href: java-dynamic-log-level.md
         displayName: java
       - name: Tutorials
         items:
@@ -333,6 +354,9 @@
             href: java-eureka-server.md
           - name: Connect to Config Server for Spring
             href: java-config-server.md
+            displayName: java
+          - name: Query managed component logs
+            href: java-component-logs.md
             displayName: java
 - name: Billing & quotas
   items:

@@ -5,13 +5,15 @@ description: This article describes how to get started with AI services in Azure
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 2/5/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
 ---
 
 # Get started with AI services in Azure AI Studio
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 This article describes how to get started with AI services in [Azure AI Studio](https://ai.azure.com). You can connect to AI services in Azure AI Studio to use AI capabilities such as Azure OpenAI, Speech, Language, Translator, Vision, Document Intelligence, and Content Safety.
 
@@ -32,7 +34,7 @@ Azure AI Studio supports the following AI services:
 | ![Document Intelligence icon](../../ai-services/media/service-icons/document-intelligence.svg) [Document Intelligence](../../ai-services/document-intelligence/index.yml) | Turn documents into intelligent data-driven solutions.<br/><br/>Go to **Home** > **AI Services** > **Vision + Document**. |
 | ![Face icon](../../ai-services/media/service-icons/face.svg) [Face](../../ai-services/computer-vision/overview-identity.md) | Detect and identify people and emotions in images.<br/><br/>Go to **Home** > **AI Services** > **Vision + Document**. |
 | ![Language icon](../../ai-services/media/service-icons/language.svg) [Language](../../ai-services/language-service/index.yml) | Build apps with industry-leading natural language understanding capabilities.<br/><br/>Go to **Home** > **AI Services** > **Language + Translator**. |
-| ![Speech icon](../../ai-services/media/service-icons/speech.svg) [Speech](../../ai-services/speech-service/index.yml) | Give your apps the ability to hear, understand, and even talk to your customers with features like speech to text and text to speech.<br/><br/>Go to **Home** > **AI Services** > **Speech**.<br/><br/>You can also try speech to text and text to speech capabilities in the Azure AI Studio playground. For more information, see [Hear and speak with chat in the playground](../quickstarts/hear-speak-playground.md). |
+| ![Speech icon](../../ai-services/media/service-icons/speech.svg) [Speech](../../ai-services/speech-service/index.yml) | Give your apps the ability to hear, understand, and even talk to your customers with features like speech to text and text to speech.<br/><br/>Go to **Home** > **AI Services** > **Speech**.<br/><br/>You can also try speech to text and text to speech capabilities in the Azure AI Studio playground. For more information, see [Real-time speech to text](../../ai-services/speech-service/get-started-speech-to-text.md?context=/azure/ai-studio/context/context), and [Pronunciation assessment](../../ai-services/speech-service/pronunciation-assessment-tool.md?context=/azure/ai-studio/context/context). |
 | ![Translator icon](../../ai-services/media/service-icons/translator.svg) [Translator](../../ai-services/translator/index.yml) | Use AI-powered translation technology to translate more than 100 in-use, at-risk, and endangered languages and dialects.<br/><br/>Go to **Home** > **AI Services** > **Language + Translator**. |
 | ![Vision icon](../../ai-services/media/service-icons/vision.svg) [Vision](../../ai-services/computer-vision/index.yml) | Analyze content in images and videos.<br/><br/>Go to **Home** > **AI Services** > **Vision + Document**. |
 

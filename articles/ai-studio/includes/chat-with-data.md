@@ -6,13 +6,19 @@ ms.reviewer: eur
 ms.author: eric-urban
 ms.service: azure-ai-studio
 ms.topic: include
-ms.date: 2/22/2024
+ms.date: 5/21/2024
 ms.custom: include
 ---
 
 To complete this section, you need a local copy of product data. The [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info). 
 
-Follow these steps to add your data in the chat playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. 
+> [!IMPORTANT]
+> The **Add your data** feature in the Azure AI Studio playground doesn't support using a virtual network or private endpoint on the following resources:
+> * Azure AI Search
+> * Azure OpenAI
+> * Storage resource 
+
+Follow these steps to add your data in the chat playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription.
 
 1. Go to your project in [Azure AI Studio](https://ai.azure.com). 
 1. Select **Playgrounds** > **Chat** from the left pane.
@@ -44,9 +50,7 @@ Follow these steps to add your data in the chat playground to help the assistant
 
     :::image type="content" source="../media/tutorials/chat/add-your-data-connect-search-add.png" alt-text="Screenshot of the page to add a search service connection." lightbox="../media/tutorials/chat/add-your-data-connect-search-add.png":::
 
-1. For the **Index name**, enter *product-info-trailwalker* and select **Next**.
-
-    :::image type="content" source="../media/tutorials/chat/add-your-data-review-finish.png" alt-text="Screenshot of the page to enter the search index name." lightbox="../media/tutorials/chat/add-your-data-review-finish.png":::
+1. For the **Index name**, enter *product-info* and select **Next**.
 
 1. On the **Search settings** page under **Vector settings**, deselect the **Add vector search to this search resource** checkbox. This setting helps determine how the model responds to requests. Then select **Next**.
     
@@ -55,7 +59,7 @@ Follow these steps to add your data in the chat playground to help the assistant
 
 1. Review your settings and select **Create**.
 
-1. In the playground, you can see that your data ingestion is in progress. Before proceeding, wait until you see the data source and index name in place of the status.
+1. In the playground, you can see that your data ingestion is in progress. This process might take several minutes. Before proceeding, wait until you see the data source and index name in place of the status. 
 
    :::image type="content" source="../media/tutorials/chat/add-your-data-ingestion-in-progress.png" alt-text="Screenshot of the chat playground with the status of data ingestion in view." lightbox="../media/tutorials/chat/add-your-data-ingestion-in-progress.png":::
 

@@ -121,6 +121,8 @@
         href: concept-azure-machine-learning-v2.md
       - name: Workspaces
         href: concept-workspace.md
+      - name: Hub workspaces
+        href: concept-hub-workspace.md
       - name: Searching for Assets and Resources
         href: how-to-search-assets.md
       - name: Compute
@@ -608,6 +610,8 @@
       items:
         - name: How to deploy Llama family models
           href: how-to-deploy-models-llama.md
+    - name: How to deploy JAIS models
+      href: deploy-jais-models.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
@@ -670,6 +674,8 @@
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Deploy a flow to online endpoint for real-time inference with CLI 
               href: ./prompt-flow/how-to-deploy-to-code.md
+            - name: Enable trace and collect feedback for a flow deployment 
+              href: ./prompt-flow/how-to-enable-trace-feedback-for-deployment.md
             - name: How to use streaming endpoints deployed from prompt flow
               href: ./prompt-flow/how-to-enable-streaming-mode.md
             - name: Set up end-to-end LLMOps with prompt flow and GitHub 
@@ -1278,6 +1284,12 @@
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
+    - name: Create & manage hub workspaces
+      items:
+        - name: Use Azure portal
+          href: how-to-manage-hub-workspace-portal.md
+        - name: Use Resource Manager template
+          href: how-to-manage-hub-workspace-template.md
     - name: Create & manage registries
       href: how-to-manage-registries.md
     - name: Create & manage compute resources
@@ -1584,6 +1596,40 @@
               href: reference-yaml-component-command.md
             - name: Pipeline
               href: reference-yaml-component-pipeline.md
+        - name: Connection
+          items:
+            - name: Azure AI Services
+              href: reference-yaml-connection-ai-services.md
+            - name: Azure OpenAI
+              href: reference-yaml-connection-azure-openai.md
+            - name: Azure AI Content Safety
+              href: reference-yaml-connection-ai-content-safety.md
+            - name: Azure AI Speech
+              href: reference-yaml-connection-speech.md
+            - name: Azure AI Search
+              href: reference-yaml-connection-ai-search.md
+            - name: Blob store
+              href: reference-yaml-connection-blob.md
+            - name: Azure Data Lake Store Gen2
+              href: reference-yaml-connection-data-lake.md
+            - name: Microsoft OneLake
+              href: reference-yaml-connection-onelake.md
+            - name: Serverless
+              href: reference-yaml-connection-serverless.md
+            - name: Git
+              href: reference-yaml-connection-git.md
+            - name: Serp
+              href: reference-yaml-connection-serp.md
+            - name: OpenAI
+              href: reference-yaml-connection-openai.md
+            - name: Python feed
+              href: reference-yaml-connection-python-feed.md
+            - name: Azure Container Registry
+              href: reference-yaml-connection-container-registry.md
+            - name: API key
+              href: reference-yaml-connection-api-key.md
+            - name: Custom
+              href: reference-yaml-connection-custom-key.md
         - name: Registry
           items:
             - name: Registry
