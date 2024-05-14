@@ -26,7 +26,6 @@ You can also use Call Recording to record complex PSTN or VoIP inbound and outbo
 
 Regardless of how you established the call, Call Recording enables you to produce mixed or unmixed media files that are stored for 24 hours on a built-in temporary storage. You can retrieve the files, move them in your own Azure Blob Store [Bring Your Own Storage](../../quickstarts\call-automation\call-recording\bring-your-own-storage.md), or a storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
-Regardless of how you established the call, Call Recording enables you to produce mixed or unmixed media files that are stored for 24 hours in a built-in temporary storage. You can retrieve the files and take them to the long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
 ![Diagram showing call recording architecture.](../media/call-recording-with-call-automation.png)
 
