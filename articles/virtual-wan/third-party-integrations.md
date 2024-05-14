@@ -56,7 +56,7 @@ Palo Alto Networks Cloud NGFW is the only SaaS solution available in Virtual WAN
 
 Azure Firewall Manager security partner integrations automates connecting Virtual WAN to a third-party security-as-a-service (SECaaS) offering to protect internet access for your users. SECaaS solutions are hosted by the SECaaS provider and aren't deployed directly into the Virtual WAN hub. When a SECaaS solution is deployed via Azure Firewall Manager, a Site-to-site VPN tunnel between the third-party security infrastructure and your Virtual WAN hub's Site-to-site VPN Gateway is created automatically.
 
-:::image type="content" source="./media/third-party-solutions/security-as-a-service.png" alt-text="SECaaS architecture diagram."./media/third-party-solutions/security-as-a-service.png":::
+:::image type="content" source="./media/third-party-solutions/security-as-a-service.png" alt-text="SECaaS architecture diagram. lightbox="./media/third-party-solutions/security-as-a-service.png":::
 
 Configuration and infrastructure management on the SECaaS solution are available via SECaas provided management tools. 
 
