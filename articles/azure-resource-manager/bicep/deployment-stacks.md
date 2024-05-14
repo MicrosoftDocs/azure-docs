@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ms.date: 05/14/2024
 ---
 
-# Deployment stacks (Preview)
+# Deployment stacks
 
 An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as an atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC). 
 
