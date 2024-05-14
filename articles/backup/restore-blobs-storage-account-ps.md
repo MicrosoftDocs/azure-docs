@@ -34,7 +34,7 @@ $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -Resourc
 
 **Choose a backup tier**:
 
-# [Point-in-time Restore](#tab/point-intime-restore)
+# [Operational backup](#tab/operational-backup)
 
 ### Fetching the valid time range for restore
 

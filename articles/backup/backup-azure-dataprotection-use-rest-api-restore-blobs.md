@@ -2,7 +2,7 @@
 title: Restore blobs in a storage account using Azure Data Protection REST API
 description: In this article, learn how to restore blobs of a storage account using REST API.
 ms.topic: conceptual
-ms.date: 09/20/2023
+ms.date: 05/14/2024
 ms.custom: engagement-fy24
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
 author: AbhishekMallick-MS
@@ -11,16 +11,20 @@ ms.author: v-abhmallick
 
 # Restore Azure blobs to point-in-time using Azure Data Protection REST API
 
-This article describes how to restore [blobs](blob-backup-overview.md) to any point-in-time using Azure Backup.
+This article describes how to restore [blobs](blob-backup-overview.md) using Azure Backup.
 
 > [!IMPORTANT]
 > Before proceeding to restore Azure blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).
 
 ## Prerequisites
 
-This article assumes that you have an operational-blob-backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md), if not done.
+This article considers that you have a backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md) if not configured.
 
 To illustrate the restoration steps in this article, we will refer to blobs in a storage account named `"msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d"` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
+
+**Choose the backup tier**:
+
+# [Restore using operational backup](#tab/restore-using-operational-backup)
 
 ## Fetching the valid time range for restore
 
@@ -191,6 +195,12 @@ The key points to remember in this scenario are:
   }
 }
 ```
+
+# [Restore using vaulted backup](#tab/restore-using-vaulted-backup)
+
+[!INCLUDE [blob-vaulted-backup-restore-restapi.md](../../includes/blob-vaulted-backup-restore-restapi.md)]
+
+---
 
 ## Validate restore requests
 
