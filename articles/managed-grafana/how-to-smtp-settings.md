@@ -92,7 +92,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 >     ```bash
 >     # fill in all the empty values for the following parameters
 >     host="" # SMTP host name with port separated by a ":", e.g. smtp.office365.com:587
->     user="" # email address, e.g. team1@microsoft.com
+>     user="" # email address, e.g. team1@fabrikam.com
 >     password="" # password
 >     fromAddress="" # source email address (usually the same as user above), e.g. team1@contoso.com
 >     toAddress="" # destination email address, e.g. team2@contoso.com
