@@ -32,6 +32,12 @@ A refresh of the Assistants API is now publicly available. It contains the follo
 * Support for fine-tuned `gpt-3.5-turbo-0125` [models](./concepts/models.md#assistants-preview) in the following regions:
     * East US 2
     * Sweden Central
+* Expanded regional support for:
+    * Japan East
+    * UK South
+    * India South
+    * West US
+    * West US 3.
 
 
 ### GPT-4o preview model available for early access
