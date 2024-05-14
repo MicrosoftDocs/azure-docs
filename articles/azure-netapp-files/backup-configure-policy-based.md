@@ -66,7 +66,7 @@ The following example configuration has a backup policy configured for daily bac
 
 ## Assign backup vault and backup policy to a volume
 
-Every Azure NetApp Files volume must have a backup vault assigned before any backups (policy-based or manual) can be taken. 
+Every Azure NetApp Files volume must have a [backup vault](backup-vault-manage.md) assigned before any backups (policy-based or manual) can be taken. 
 
 After you assign a backup vault to the volume, you need to assign a backup policy to the volume for policy-based backups to take effects. (For manual backups, a backup policy is optional.)
 
