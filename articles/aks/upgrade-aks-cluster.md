@@ -230,10 +230,10 @@ AKS accepts both integer values and a percentage value for max surge. An integer
 
     ```azurecli-interactive
     # Set max surge for a new node pool
-    az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33%
+    az aks nodepool add --name mynodepool --resource-group MyResourceGroup --cluster-name MyManagedCluster --max-surge 33%
 
     # Update max surge for an existing node pool 
-    az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 5
+    az aks nodepool update --name mynodepool --resource-group MyResourceGroup --cluster-name MyManagedCluster --max-surge 5
     ```
 
 #### Set node drain timeout value
@@ -244,10 +244,10 @@ At times, you may have a long running workload on a certain pod and it can't be 
 
     ```azurecli-interactive
     # Set drain timeout for a new node pool
-    az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster  --drain-timeout 100
+    az aks nodepool add --name mynodepool --resource-group MyResourceGroup --cluster-name MyManagedCluster  --drain-timeout 100
 
     # Update drain timeout for an existing node pool
-    az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --drain-timeout 45
+    az aks nodepool update --name mynodepool --resource-group MyResourceGroup --cluster-name MyManagedCluster --drain-timeout 45
     ```
 
 #### Set node soak time value
@@ -258,13 +258,13 @@ To allow for a duration of time to wait between draining a node and proceeding t
 
     ```azurecli-interactive
     # Set node soak time for a new node pool
-    az aks nodepool add -n MyNodePool -g MyResourceGroup --cluster-name MyManagedCluster --node-soak-duration 10
+    az aks nodepool add --name MyNodePool --resource-group MyResourceGroup --cluster-name MyManagedCluster --node-soak-duration 10
 
     # Update node soak time for an existing node pool
-    az aks nodepool update -n MyNodePool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33% --node-soak-duration 5
+    az aks nodepool update --name MyNodePool --resource-group MyResourceGroup --cluster-name MyManagedCluster --max-surge 33% --node-soak-duration 5
 
     # Set node soak time when upgrading an existing node pool
-    az aks nodepool upgrade -n MyNodePool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33% --node-soak-duration 20
+    az aks nodepool upgrade --name MyNodePool --resource-group MyResourceGroup --cluster-name MyManagedCluster --max-surge 33% --node-soak-duration 20
     ```
 
 ## View upgrade events
