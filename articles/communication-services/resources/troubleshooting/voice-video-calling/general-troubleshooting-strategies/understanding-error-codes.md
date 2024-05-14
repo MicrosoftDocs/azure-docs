@@ -28,7 +28,7 @@ The Calling SDK and respective server infrastructure use a unified framework to 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
 ## Azure Communication Services Calling End call codes and subcodes
-When a call happens there are a variety of reasons of why a call ended. Below are a the defination of end of call codes and subcodes of how a call can end.
+There are different explanations for why a call ended. Here are the meanings of the end of call codes and subcodes that show how a call can end.
 
 | Subcode | Code | Message  (public preview *) | Result Categories (public preview *) | Advice |
 |---------|------|---------|--------------------------------------|--------|
