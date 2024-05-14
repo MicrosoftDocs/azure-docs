@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use a workload identity with an application on Azure Kubernetes Service (AKS)
+title: Use a workload identity with an application on AKS
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 author: tamram
 
@@ -7,7 +7,6 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 05/13/2024
 ms.author: tamram
-<! -- As an x, i want to y -->
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -15,7 +14,7 @@ ms.author: tamram
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this tutorial, you:
 
 * Deploy an AKS cluster using the Azure CLI with OpenID Connect (OIDC) Issuer and managed identity.
-* Create an Azure Key Vault and secret.
+* Create an Azure key vault and secret.
 * Create a Microsoft Entra Workload ID and Kubernetes service account.
 * Configure the managed identity for token federation.
 * Deploy the workload and verify authentication with the workload identity.
@@ -88,7 +87,7 @@ To help simplify steps to configure the identities required, the steps below def
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-2. Get the OIDC Issuer URL and save it to an environmental variable using the following command. Replace the default value for the arguments `-n`, which is the name of the cluster.
+1. Get the OIDC Issuer URL and save it to an environmental variable using the following command. Replace the default value for the arguments `-n`, which is the name of the cluster.
 
     ```azurecli-interactive
     export AKS_OIDC_ISSUER="$(az aks show --name myAKSCluster --resource-group "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
@@ -102,9 +101,9 @@ To help simplify steps to configure the identities required, the steps below def
 
     By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com`, where the value for `{region}` matches the location the AKS cluster is deployed in.
 
-## Create an Azure Key Vault and secret
+## Create an Azure key vault and secret
 
-1. Create an Azure Key Vault in resource group you created in this tutorial using the [az keyvault create][az-keyvault-create] command.
+1. Create an Azure key vault in resource group you created in this tutorial using the [az keyvault create][az-keyvault-create] command.
 
     ```azurecli-interactive
     az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --name "${KEYVAULT_NAME}" --enable-rbac-authorization false
@@ -117,13 +116,13 @@ To help simplify steps to configure the identities required, the steps below def
 
     At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
-2. Add a secret to the vault using the [az keyvault secret set][az-keyvault-secret-set] command. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello!** in it.
+1. Add a secret to the vault using the [az keyvault secret set][az-keyvault-secret-set] command. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello!** in it.
 
     ```azurecli-interactive
     az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!'
     ```
 
-3. Add the Key Vault URL to the environment variable `KEYVAULT_URL` using the [az keyvault show][az-keyvault-show] command.
+1. Add the key vault URL to the environment variable `KEYVAULT_URL` using the [az keyvault show][az-keyvault-show] command.
 
     ```bash
     export KEYVAULT_URL="$(az keyvault show --resource-group "${RESOURCE_GROUP}" --name ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
@@ -137,13 +136,13 @@ To help simplify steps to configure the identities required, the steps below def
     az account set --subscription "${SUBSCRIPTION}"
     ```
 
-2. Create a managed identity using the [az identity create][az-identity-create] command.
+1. Create a managed identity using the [az identity create][az-identity-create] command.
 
     ```azurecli-interactive
     az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
     ```
 
-3. Set an access policy for the managed identity to access the Key Vault secret using the following commands.
+1. Set an access policy for the managed identity to access the key vault secret using the following commands.
 
     ```azurecli-interactive
     export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -otsv)"
@@ -161,7 +160,7 @@ To help simplify steps to configure the identities required, the steps below def
     az aks get-credentials --name myAKSCluster --resource-group "${RESOURCE_GROUP}"
     ```
 
-2. Copy the following multi-line input into your terminal and run the command to create the service account.
+1. Copy the following multi-line input into your terminal and run the command to create the service account.
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -226,13 +225,13 @@ To help simplify steps to configure the identities required, the steps below def
     pod/quick-start created
     ```
 
-2. Check whether all properties are injected properly with the webhook using the [kubectl describe][kubelet-describe] command.
+1. Check whether all properties are injected properly with the webhook using the [kubectl describe][kubelet-describe] command.
 
     ```bash
     kubectl describe pod quick-start
     ```
 
-3. Verify the pod can get a token and access the secret from the Key Vault using the [kubectl logs][kubelet-logs] command.
+1. Verify the pod can get a token and access the secret from the key vault using the [kubectl logs][kubelet-logs] command.
 
     ```bash
     kubectl logs quick-start
@@ -254,13 +253,13 @@ You may wish to leave these resources in place. If you no longer need these reso
     kubectl delete pod quick-start
     ```
 
-2. Delete the service account using the `kubectl delete sa` command.
+1. Delete the service account using the `kubectl delete sa` command.
 
     ```bash
     kubectl delete sa "${SERVICE_ACCOUNT_NAME}" --namespace "${SERVICE_ACCOUNT_NAMESPACE}"
     ```
 
-3. Delete the Azure resource group and all its resources using the [az group delete][az-group-delete] command.
+1. Delete the Azure resource group and all its resources using the [az group delete][az-group-delete] command.
 
     ```azurecli-interactive
     az group delete --name "${RESOURCE_GROUP}"

@@ -1,45 +1,44 @@
 ---
-title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
+title: Deploy and configure an AKS cluster with workload identity
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with a Microsoft Entra Workload ID.
+author: tamram
+
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 02/22/2024
-author: tamram
+ms.date: 05/13/2024
 ms.author: tamram
-
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this article, you will:
 
-* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and a Microsoft Entra Workload ID
-* Grant access to your Azure Key Vault
-* Create a Microsoft Entra Workload ID and Kubernetes service account
+* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect issuer and a Microsoft Entra Workload ID.
+* Grant access to your Azure key vault.
+* Create a Microsoft Entra Workload ID and Kubernetes service account.
 * Configure the managed identity for token federation.
 
 This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Microsoft Entra Workload ID, see the following [Overview][workload-identity-overview] article.
 
-- This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
+* Make sure that the identity that you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
-- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account][az-account] command.
+* If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account][az-account] command.
 
 > [!NOTE]
-> Instead of configuring all steps manually, there is another implementation called _Service Connector_ which will help you configure some steps automatically and achieve the same outcome. See also: [Tutorial: Connect to Azure storage account in Azure Kubernetes Service (AKS) with Service Connector using workload identity][tutorial-python-aks-storage-workload-identity].
+> You can use _Service Connector_ to help you configure some steps automatically. See also: [Tutorial: Connect to Azure storage account in Azure Kubernetes Service (AKS) with Service Connector using workload identity][tutorial-python-aks-storage-workload-identity].
 
 ## Export environment variables
 
-To help simplify steps to configure the identities required, the steps below define
-environment variables for reference on the cluster.
+To help simplify the steps to configure the identities required, the steps below define environment variables for reference on the cluster.
 
-Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME`.
+Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME` with your own values.
 
 ```bash
 export RESOURCE_GROUP="myResourceGroup"
-export LOCATION="westcentralus"
+export LOCATION="eastus"
 export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
@@ -47,9 +46,36 @@ export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
 export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
 ```
 
-## Create AKS cluster
+## Create a resource group
 
-Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation.
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+
+* Create a resource group using the [az group create][az-group-create] command.
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location eastus
+    ```
+
+    The following output example resembles successful creation of the resource group:
+
+    ```json
+    {
+      "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
+      "location": "eastus",
+      "managedBy": null,
+      "name": "myResourceGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      },
+      "tags": null
+    }
+    ```
+
+## Create an AKS cluster
+
+Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to enable the OIDC issuer. The following example creates a cluster named _myAKSCluster_ with one node in the _myResourceGroup_:
 
 ```azurecli-interactive
 az aks create --resource-group "${RESOURCE_GROUP}" --name myAKSCluster --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
@@ -62,27 +88,27 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Update an existing AKS cluster
 
-You can update an AKS cluster using the [az aks update][az aks update] command with the `--enable-oidc-issuer` and the `--enable-workload-identity` parameter to use the OIDC Issuer and enable workload identity. The following example updates a cluster named *myAKSCluster*:
+You can update an AKS cluster using the [az aks update][az aks update] command with the `--enable-oidc-issuer` and the `--enable-workload-identity` parameter to use the OIDC issuer and enable workload identity. The following example updates a cluster named _myAKSCluster_:
 
 ```azurecli-interactive
 az aks update --resource-group "${RESOURCE_GROUP}" --name myAKSCluster --enable-oidc-issuer --enable-workload-identity
 ```
 
-## Retrieve the OIDC Issuer URL
+## Retrieve the OIDC issuer URL
 
-To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `--name`, which is the name of the cluster:
+To get the OIDC issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `--name`, which is the name of the cluster:
 
 ```bash
 export AKS_OIDC_ISSUER="$(az aks show --name myAKSCluster --resource-group "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
 ```
 
-The variable should contain the Issuer URL similar to the following example:
+The variable should contain the issuer URL similar to the following example:
 
 ```output
 https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/11111111-1111-1111-1111-111111111111/
 ```
 
-By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{tenant_id}/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key.
+By default, the issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{tenant_id}/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key.
 
 ## Create a managed identity
 
@@ -139,41 +165,47 @@ az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_N
 
 ## Deploy your application
 
-When you deploy your application pods, the manifest should reference the service account created in the **Create Kubernetes service account** step. The following manifest shows how to reference the account, specifically *metadata\namespace* and *spec\serviceAccountName* properties:
+When you deploy your application pods, the manifest should reference the service account created in the **Create Kubernetes service account** step. The following manifest shows how to reference the account, specifically _metadata\namespace_ and _spec\serviceAccountName_ properties:
 
 ```yml
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
-  name: your-pod
-  namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
+  name: sample-workload-identity
+  namespace: ${SERVICE_ACCOUNT_NAMESPACE}
   labels:
-    azure.workload.identity/use: "true"  # Required, only the pods with this label can use workload identity
+    azure.workload.identity/use: "true"  # Required. Only pods with this label can use workload identity.
 spec:
-  serviceAccountName: "${SERVICE_ACCOUNT_NAME}"
+  serviceAccountName: ${SERVICE_ACCOUNT_NAME}
   containers:
-    - image: <your image>
-      name: <containerName>
+    - image: ghcr.io/azure/azure-workload-identity/msal-go
+      name: oidc
+      env:
+      - name: KEYVAULT_URL
+        value: ${KEYVAULT_URL}
+      - name: SECRET_NAME
+        value: ${KEYVAULT_SECRET_NAME}
+  nodeSelector:
+    kubernetes.io/os: linux
 EOF
 ```
 
 > [!IMPORTANT]
-> Ensure your application pods using workload identity have added the following label `azure.workload.identity/use: "true"` to your pod spec, otherwise the pods fail after their restarted.
+> Ensure that the application pods using workload identity include the label `azure.workload.identity/use: "true"` in the pod spec. Otherwise the pods will fail after they are restarted.
 
+## Grant permissions to access Azure Key Vault
 
-## Optional - Grant permissions to access Azure Key Vault
-
-This step is necessary if you need to access secrets, keys, and certificates that are mounted in Azure Key Vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure Key Vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
+This step is necessary if you need to access secrets, keys, or certificates that are mounted in an Azure key vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure key vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
 
 Before proceeding, you need the following information:
 
-* Name of the Key Vault
-* Resource group holding the Key Vault
+* Name of the key vault
+* Resource group holding the key vault
 
 You can retrieve this information using the Azure CLI command: [az keyvault list][az-keyvault-list].
 
-1. Set an access policy for the managed identity to access secrets in your Key Vault by running the following commands:
+1. Set an access policy for the managed identity to access secrets in your key vault by running the following commands:
 
     ```azurecli-interactive
     export KEYVAULT_RESOURCE_GROUP="myResourceGroup"
@@ -183,7 +215,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
     az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
     ```
 
-2. Create a secret in Key Vault:
+1. Create a secret in key vault:
 
     ```azurecli-interactive
     export KEYVAULT_SECRET_NAME="my-secret"
@@ -193,12 +225,13 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
        --value "Hello\!"
     ```
 
-3. Export Key Vault URL:
+1. Export key vault URL:
+
     ```azurecli-interactive
     export KEYVAULT_URL="$(az keyvault show --resource-group ${KEYVAULT_RESOURCE_GROUP} --name ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
     ```
 
-4. Deploy a pod that references the service account and Key Vault URL above:
+1. Deploy a pod that references the service account and key vault URL above:
 
     ```yml
     cat <<EOF | kubectl apply -f -
@@ -231,6 +264,7 @@ kubectl describe pod quick-start | grep "SECRET_NAME:"
 ```
 
 If successful, the output should be similar to the following:
+
 ```bash
       SECRET_NAME:                 ${KEYVAULT_SECRET_NAME}
 ```
@@ -242,6 +276,7 @@ kubectl logs quick-start
 ```
 
 If successful, the output should be similar to the following:
+
 ```bash
 I0114 10:35:09.795900       1 main.go:63] "successfully got secret" secret="Hello\\!"
 ```
@@ -263,9 +298,6 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 
 <!-- INTERNAL LINKS -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-feature-show]: /cli/azure/feature#az-feature-show
 [workload-identity-overview]: workload-identity-overview.md
 [create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [az-keyvault-list]: /cli/azure/keyvault#az-keyvault-list
@@ -281,4 +313,3 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [workload-identity-migration]: workload-identity-migrate-from-pod-identity.md
 [azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
-
