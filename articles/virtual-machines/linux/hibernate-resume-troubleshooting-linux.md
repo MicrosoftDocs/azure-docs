@@ -11,10 +11,6 @@ ms.reviewer: mattmcinnes
 
 # Troubleshooting hibernation on Linux VMs
 
-> [!IMPORTANT]
-> Azure Virtual Machines - Hibernation is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Hibernating a virtual machine allows you to persist the VM state to the OS disk. This article describes how to troubleshoot issues with the hibernation feature on Linux, issues creating hibernation enabled Linux VMs, and issues with hibernating a Linux VM.
 
 To view the general troubleshooting guide for hibernation, check out [Troubleshoot hibernation in Azure](../hibernate-resume-troubleshooting.md).
