@@ -34,7 +34,7 @@ Follow the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driv
 * Enable auto-rotation of secrets on a new cluster using the [`az aks create`][az-aks-create] command and enable the `enable-secret-rotation` add-on.
 
     ```azurecli-interactive
-    az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation
+    az aks create --name myAKSCluster2 --resource-group myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation
     ```
 
 #### Enable auto-rotation on an existing AKS cluster
@@ -42,7 +42,7 @@ Follow the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driv
 * Update an existing cluster to enable auto-rotation of secrets using the [`az aks addon update`][az-aks-addon-update] command and the `enable-secret-rotation` parameter.
 
     ```azurecli-interactive
-    az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation
+    az aks addon update --resource-group myResourceGroup --name myAKSCluster2 --addon azure-keyvault-secrets-provider --enable-secret-rotation
     ```
 
 #### Specify a custom rotation interval
@@ -50,7 +50,7 @@ Follow the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driv
 * Specify a custom rotation interval using the [`az aks addon update`][az-aks-addon-update] command with the `rotation-poll-interval` parameter.
 
     ```azurecli-interactive
-    az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
+    az aks addon update --resource-group myResourceGroup --name myAKSCluster2 --addon azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
     ```
 
 #### Disable auto-rotation
@@ -60,13 +60,13 @@ To disable auto-rotation, you first need to disable the add-on. Then, you can re
 1. Disable the secrets provider add-on using the [`az aks addon disable`][az-aks-addon-disable] command.
 
     ```azurecli-interactive
-    az aks addon disable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+    az aks addon disable --resource-group myResourceGroup --name myAKSCluster2 --addon azure-keyvault-secrets-provider
     ```
 
 2. Re-enable the secrets provider add-on without the `enable-secret-rotation` parameter using the [`az aks addon enable`][az-aks-addon-enable] command.
 
     ```azurecli-interactive
-    az aks addon enable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+    az aks addon enable --resource-group myResourceGroup --name myAKSCluster2 --addon azure-keyvault-secrets-provider
     ```
 
 If you are already using a `SecretProviderClass`, you can update the add-on without disabling it first by using `az aks addon enable` without specifying the `enable-secret-rotation` parameter.
