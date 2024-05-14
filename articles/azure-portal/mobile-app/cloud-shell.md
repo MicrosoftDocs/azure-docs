@@ -29,7 +29,7 @@ If you haven't used Cloud Shell before, you'll need to create a new storage acco
 
 ## Use toolbar actions
 
-The Cloud Shell toolbar in the Azure mobile app offers several toolbar helpful commands:
+The Cloud Shell toolbar in the Azure mobile app offers several helpful commands:
 
 :::image type="content" source="media/cloud-shell/cloud-shell-toolbar.png" alt-text="Screenshot showing the Cloud Shell toolbar in the Azure mobile app.":::
 
