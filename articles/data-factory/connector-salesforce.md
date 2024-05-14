@@ -22,7 +22,7 @@ This article outlines how to use Copy Activity in Azure Data Factory and Azure S
 >The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, supported as-is for backward compatibility only, refer to [Salesforce connector (legacy)](connector-salesforce-legacy.md) article.
 
 >[!IMPORTANT]
->Please [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) before October 11, 2024. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. Your pipeline using the legacy Salesforce connector will start to fail after October 11, 2024. 
+>Please [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) before October 11, 2024. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. Your pipeline using the legacy Salesforce connector will start to fail after **October 11, 2024**. 
 
 ## Supported capabilities
 
