@@ -392,18 +392,18 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Message**: `No such host is known`
 
-- **Cause**: While migrating logins using PowerShell command [New-AzDataMigrationLoginsMigration](https://learn.microsoft.com/powershell/module/az.datamigration/new-azdatamigrationloginsmigration?), it fails with above message.
+- **Cause**: While migrating logins using PowerShell command [New-AzDataMigrationLoginsMigration](/powershell/module/az.datamigration/new-azdatamigrationloginsmigration), it fails with the previous message.
 
 - **Recommendation**: To resolve this issue, upgrade the Microsoft Azure PowerShell - Database Migration Service cmdlets - Az.DataMigration above minimum 0.14.5 version.
-  Latest version of Az.Datamigration can be downloaded from [here](https://www.powershellgallery.com/packages/Az.DataMigration/) or below command can be used to upgrade.
+  Latest version of Az.Datamigration can be downloaded from [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DataMigration/) or the following command can be used to upgrade.
 ```Command
  Update-Module -Name Az.DataMigration
 ```
 - **Message**: `urlopen error [Errno 11001] getaddrinfo failed`
 
-- **Cause**: While migrating logins using Azure CLI [Az dataMigration login-migration](https://learn.microsoft.com/cli/azure/datamigration?view=azure-cli-latest), it fails with above message.
+- **Cause**: While migrating logins using Azure CLI [Az dataMigration login-migration](/cli/azure/datamigration), it fails with the previous message.
 
-- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure CLI - Database Migration Service extension - az dataMigration above minimum 1.0.0b1 version. Run the below command to upgrade.
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure CLI - Database Migration Service extension - az dataMigration to 1.0.0b1 or a later version. Run the following command to upgrade.
 ```Command
  az extension update -n datamigration
 ```
