@@ -29,7 +29,7 @@ wishes those networks are to be exposed within their cluster.
 
 ## Nexus workload network plugins
 
-Network plugin is the feature to configuration how application use the underlying Networks when attaching networks to application VMs or Pods.
+Network plugin is the feature to configuration how applications use the underlying Networks when attaching networks to application VMs or Pods.
 The type of plugins supported for different network types. 
 
 | Plugin Name | Available Network Types |
