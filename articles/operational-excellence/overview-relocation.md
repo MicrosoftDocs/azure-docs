@@ -65,6 +65,9 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Database for MariaDB Server](../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Database for MySQL Server](../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)✅ | ✅|  ❌  |
 [Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)| ✅ | ✅| ❌ |
+[Azure Event Grid domains](relocation-event-grid-domains.md)| ✅ | ❌| ❌ |
+[Azure Event Grid custom topics](relocation-event-grid-custome-topics.md)| ✅ | ❌| ❌ |
+[Azure Event Grid system topics](relocation-event-grid-system-topics.md)| ✅ | ❌| ❌ |
 [Azure Functions](../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |❌  | ❌ |
 [Azure Logic apps](../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
 [Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ✅| ❌ | ❌ |

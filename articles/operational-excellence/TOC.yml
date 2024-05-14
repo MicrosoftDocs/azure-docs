@@ -48,6 +48,14 @@
         href: ../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Database for PostgreSQL
         href: relocation-postgresql-flexible-server.md
+      - name: Azure Event Grid
+        items:
+        - name: Relocate Azure Event Grid domains
+          href: relocation-event-grid-domains.md
+        - name: Relocate Azure Event Grid custom topics
+          href: relocation-event-grid-custome-topics.md
+        - name: Relocate Azure Event Grid system topics
+          href: relocation-event-grid-system-topics.md
       - name: Azure Functions
         href: ../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Logic apps
