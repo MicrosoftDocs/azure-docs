@@ -16,7 +16,7 @@ The spread operator is used to expand an iterable array or object into individua
 
 ### Examples
 
-The following example shows the spread operator used in an oject: 
+The following example shows the spread operator used in an object: 
 
 ```bicep
 var objA = { bar: 'bar' }
@@ -47,6 +47,7 @@ The following example shows spread used multiple times in a single operation:
 ```bicep
 var arrA = [ 2, 3 ]
 var arrC = [ 1, ...arrA, 4, ...arrA ] 
+```
 
 Output from the example:
 
@@ -65,11 +66,11 @@ output combined object = {
 } 
 ```
 
-In this usage, comma is not used between the two lines.  Output from the example:
+In this usage, comma isn't used between the two lines.  Output from the example:
 
 | Name | Type | Value |
 |------|------|-------|
-| `objB` | object | { foo: 'foo', bar: 'bar' } |
+| `combined` | object | { foo: 'foo', bar: 'bar' } |
 
 The spread operation can be used to avoid setting an optional property. For example:
 
