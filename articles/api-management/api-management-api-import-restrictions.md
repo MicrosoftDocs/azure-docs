@@ -46,7 +46,7 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 
 | Requirement | Description |
 | ----------- | ----------- |
-| **Unique names for required path and query parameters** | In OpenAPI: <ul><li>A parameter name only needs to be unique within a location, for example path, query, header.</li></ul>In API Management:<ul><li>We allow operations to be discriminated by both path and query parameters.</li><li>OpenAPI doesn't support this discrimination, so we require parameter names to be unique within the entire URL template.</li><li>Required query parameters must be case-insensitive unique.</li></ul>  |
+| **Unique names for required path and query parameters** | In OpenAPI: <ul><li>A parameter name only needs to be unique within a location, for example path, query, header.</li></ul>In API Management:<ul><li>We allow operations to be discriminated by both path and query parameters.</li><li>OpenAPI doesn't support this discrimination, so we require parameter names to be unique within the entire URL template. Names are case-insensitive.</li></ul>  |
 | **Defined URL parameter** | Must be part of the URL template. |
 | **Available source file URL** | Applied to relative server URLs. |
 | **`\$ref` pointers** | Can't reference external files. |
