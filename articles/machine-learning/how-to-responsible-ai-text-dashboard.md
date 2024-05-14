@@ -15,47 +15,51 @@ ms.custom: responsible-ml, build-2023
 
 # Use the responsible AI text dashboard (preview)
 
-The [Responsible AI (RAI) dashboard](concept-responsible-ai-dashboard.md) brings together several Responsible AI tools in a single interface to help you make informed data-driven decisions. Responsible AI dashboard functions help you determine how and why AI systems behave the way they do, identify and diagnose issues, and use that knowledge to take targeted steps to improve performance.
+The [Responsible AI (RAI) dashboard](concept-responsible-ai-dashboard.md) brings together several Responsible AI tools in a single interface to help you make informed data-driven decisions. RAI dashboard debugging capabilities and visualizations now support text data.
 
-RAI dashboard debugging capabilities and visualizations now support text data. The Responsible AI Toolbox for text data is a customizable, interoperable tool where you can select components to perform model assessment and debugging. This article describes how to access and configure RAI text dashboard components, options, and functionality.
+The Responsible AI Toolbox for text data is a customizable, interoperable tool where you can select components to perform model assessment and debugging. This article describes how to access and configure RAI text dashboard components, options, and functionality.
 
 > [!IMPORTANT]
 > The Responsible AI text dashboard is currently in public preview. This preview is provided without a service-level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-- An Azure subscription and Azure Machine Learning workspace
-- A registered model in the workspace with a responsible AI text dashboard created
+- An Azure subscription and Azure Machine Learning workspace.
+- A registered model in the workspace that has a responsible AI text dashboard.
 
   You can create an RAI text dashboard by using:
 
   - [The Azure Machine Learning studio UI](how-to-responsible-ai-insights-ui.md)
   - [YAML and Python via a pipeline job](how-to-responsible-ai-insights-sdk-cli.md)
-  - A preconfigured Jupyter Notebook file like [Financial_News_Text_classifier.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/text/responsibleaidashboard-text-classification-financial-news/responsibleaidashboard-text-classification-financial-news.ipynb)
+  - A preconfigured sample Jupyter Notebook like [Financial_News_Text_classifier.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/text/responsibleaidashboard-text-classification-financial-news/responsibleaidashboard-text-classification-financial-news.ipynb)
 
-  Once the dashboard creation is complete, you can select your registered model in the **Models** list of Machine Learning studio, select **Responsible AI** at the top of the model page, and then select and view your Responsible AI text dashboard.
+  Once the Responsible AI text dashboard creation is complete, select your registered model in the **Models** list in Machine Learning studio, select **Responsible AI** at the top of the model page, and select the name of your Responsible AI text dashboard.
+
+  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/select-dashboard.png" alt-text="Screenshot of the Responsible AI page with the text dashboard listed." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/select-dashboard.png":::
+
+  The Responsible AI text dashboard opens.
 
   :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/rai-text-dashboard.png" alt-text="Screenshot of a Responsible AI text dashboard." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/rai-text-dashboard.png":::
 
 ## Cohorts
 
-At the top of the RAI text dashboard, you can select or create data *cohorts*, which are subsets of data created by manually adding filters or saving selected data. The default dashboard view shows the **Global cohort**, which is all of the data. You can view, create, edit, duplicate, and delete cohorts.
+In the RAI text dashboard, you can select or create data *cohorts*, which are subsets of data created by manually adding filters or saving selected data. You can view, create, edit, duplicate, and delete cohorts.
 
-At the top of the dashboard, select **Switch cohort** to select a different cohort or **New cohort** to add a new one.
+The default dashboard view shows the **Global cohort**, which is all of the data. At the top of the dashboard, select **Switch cohort** to select a different cohort or **New cohort** to create a new cohort. You can also select the **Settings** icon to open a side panel that lists the names and details of all cohorts, and lets you switch or create new cohorts.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-global-cohort.png" alt-text="Screenshot of the top section of Responsible AI Toolbox showing global cohorts." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-global-cohort.png":::
-
-You can also select the **Settings** icon to open a side panel that lists the names and details of all cohorts, and lets you switch or create new cohorts.
-
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/cohort-setting.png" alt-text="Screenshot of the cohort setting side panel.":::
 
 Selecting **Switch cohort** at the top of the dashboard or in the **Cohort settings** sidebar opens a popup that lets you select and apply a different cohort to the dashboard.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/switch-cohort.png" alt-text="Screenshot of a popup for switch cohort." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/switch-cohort.png":::
 
-Selecting **Create new cohort** at the top of the dashboard or in the **Cohort settings** sidebar opens a sidebar to create a new cohort. To create a new cohort:
+Selecting **Create new cohort** at the top of the dashboard or in the **Cohort settings** sidebar opens a sidebar that lets you create a new cohort.
 
-1. Under **Dataset cohort name**, enter a name for the new cohort.
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/cohort-sidebar.png" alt-text="Screenshot of cohort sidebars highlighting the location of the following settings." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/cohort-sidebar.png":::
+
+To create a new cohort:
+
+1. Under **Dataset cohort name**, enter a name for the cohort.
 
 1. Under **Select filter**, select one of the following data filters and configure the **Included values**.
 
@@ -69,7 +73,6 @@ Selecting **Create new cohort** at the top of the dashboard or in the **Cohort s
 
 1. When you finish configuring and adding filters, select **Save** or **Save and switch** to finalize the new cohort.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/cohort-sidebar.png" alt-text="Screenshot of cohort sidebars highlighting the location of the following settings." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/cohort-sidebar.png":::
 
 ## RAI text dashboard components
 
@@ -77,19 +80,19 @@ The RAI text dashboard includes **Error analysis**, **Model overview**, **Data a
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/dashboard-settings.png" alt-text="Screenshot of the dashboard configuration icon.":::
 
-Selecting the icon opens a side panel showing details of the dashboard layout.
+Selecting the icon opens a side panel showing details of the dashboard layout. You can select the garbage can icon next to a component to remove the component from the dashboard.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/dashboard-configuration.png" alt-text="Screenshot of the dashboard configuration.":::
 
-You can select the garbage can icon next to a component to remove the component from the dashboard.
-
-The following sections describe the components and their functionality.
+The following sections describe the Responsible AI text dashboard components and their functionality.
 
 ### Error analysis
 
-The error analysis component helps you analyze failure patterns in your model. The default metric is **Error rate**. You can select a different metric from the **Select metric** dropdown list to learn more about your error and success nodes' performance. This metric selection doesn't impact the way your error tree is generated.
+The **Error analysis** component helps you analyze failure patterns in your model. The default metric is **Error rate**. You can select a different metric from the **Select metric** dropdown list to learn more about your error and success nodes' performance. This metric selection doesn't impact the way your error tree is generated.
 
-The right side of the screen shows **Basic Information** about the current cohort and filters applied.
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis.png" alt-text="Screenshot of the error analysis component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis.png":::
+
+The right side of the **Error analysis** screen shows **Basic Information** about the current cohort and filters applied.
 
 - **Instances in global cohort** displays the total number of points and the number of correctly and incorrectly predicted points in the entire dataset.
 - **Instances in the selected cohort** displays the total number of points and the number of correctly and incorrectly predicted points in the current cohort.
@@ -103,9 +106,9 @@ You can view the error analysis component in **Tree map** or **Heat map** views 
 
 The **Tree map** view illustrates how model failure is distributed across different feature cohorts. For text data, the tree view is trained on tabular features extracted from text data and any added metadata features that users bring in.
 
-The tree visualization uses the mutual information between each feature and the error to best separate error instances from success instances hierarchically in the data. This visualization simplifies the process of discovering and highlighting common failure patterns.
+The tree visualization uses the mutual information between each feature and the error to separate error instances from success instances hierarchically in the data. This visualization simplifies the process of discovering and highlighting common failure patterns.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png" alt-text="Screenshot of the error analysis component in the tree view." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png" alt-text="Screenshot of the tree map view in the error analysis component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png":::
 
 In the tree view, each *node* represents a dataset cohort, potentially with filters applied, and shows the number of errors in that node compared to the total number of datapoints in the cohort. Hover over or select a node to display the **Error coverage**, or percentage of errors in the dataset that are in the selected node, and **Error rate**, the failure percentage of the datapoints in the selected node.
 
@@ -115,7 +118,7 @@ To find important failure patterns, look for nodes with darker colors indicating
 
 To edit the list of features the tree uses to train the tree map, select **Feature list** at the top of the view.
 
-In the **Feature list** pane, **Features** lists the names of the feature in the dataset. You can search to find specific features. **Importances** visualizes the relative importance of each feature in the dataset. You can select or deselect the check boxes next to each feature to add or remove the feature from the tree map.
+In the **Feature list** pane, **Features** lists the names of the features in the dataset. You can search to find specific features. **Importances** visualizes the relative importance of each feature in the dataset. You can select or deselect the check boxes next to each feature to add or remove the feature from the tree map.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-feature-list.png" alt-text="Screenshot of the error analysis feature list." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-feature-list.png":::
 
@@ -135,7 +138,7 @@ You can use the **Heat map** view to focus on specific intersectional feature fi
 
 In the **Heat map** view:
 
-- **Cells** displays the number of cells selected. If no cells are selected, the view shows all cells and the same data as if all cells were selected.
+- **Cells** displays the number of cells selected. If no cells are selected, the view shows all cells with the same data as if all cells were selected.
 - **Error coverage** displays the percentage of errors in the dataset that are in the selected cells.
 - **Error rate** displays the failure percentage of the datapoints in the selected cells.
 
@@ -146,13 +149,24 @@ To configure the view:
 1. Optionally enable **Quantile binning** to distribute values evenly across varying ranges of bins.
 1. Set the **Binning threshold** to configure the number of values required before binning.
 
-The cells represent cohorts of the dataset, with filters applied. Each cell shows the percentage of errors out of the total number of datapoints in the cohort. Selected cells are outlined, and cell color darkness represents the concentration of failures. Hover over a cell to display the number correct, number incorrect, error coverage, and error rate for that cell.
+The cells represent cohorts of the dataset, with filters applied. Each cell shows the percentage of errors out of the total number of datapoints in the cohort.
+
+Selected cells are outlined, and cell color darkness represents the concentration of failures. Hover over a cell to display the number correct, number incorrect, error coverage, and error rate for that cell.
 
 ### Model overview
 
 The **Model overview** component displays model and dataset statistics computed for cohorts across the dataset.
 
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/model-overview-top.png" alt-text="Screenshot of the top part of the Model overview component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/model-overview-top.png":::
+
 You can choose between **Dataset cohorts** or **Feature cohorts** by selecting either tab at the top of the component. For either view, select **Metric(s)** from the dropdown list or select **Help me choose metrics** to open a sidebar screen that explains, recommends, and lets you select metrics to display.
+
+For either view:
+
+- You can enable **Show heatmaps**.
+- At the bottom of the component, you can choose to view **Metrics visualizations** or a **Confusion matrix**.
+
+  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png" alt-text="Screenshot of the top part of the Model overview component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png":::
 
 #### Dataset cohorts and Feature cohorts
 
@@ -164,18 +178,13 @@ You can choose between **Dataset cohorts** or **Feature cohorts** by selecting e
 
   :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/model-overview-feature-cohort.png" alt-text="Screenshot of the model overview on the feature cohorts tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/model-overview-feature-cohort.png":::
 
-For either view:
-
-- You can enable **Show heatmaps**.
-- You can choose to view **Metrics visualizations** or a **Confusion matrix**.
-
 ### Data analysis
 
 The **Data analysis** component creates dataset cohorts to analyze dataset statistics along filters such as predicted outcome, dataset features, and error groups. You can choose between **Table view** or **Chart view** by selecting either tab at the top of the component.
 
 #### Table view
 
-**Table view** has the true and predicted values and the tabular extracted features.
+**Table view** shows the true and predicted values and the tabular extracted features.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-table-view.png" alt-text="Screenshot of data analysis on the table view tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-table-view.png":::
 
@@ -185,26 +194,24 @@ The **Data analysis** component creates dataset cohorts to analyze dataset stati
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-view.png" alt-text="Screenshot of data analysis on the chart view tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-view.png":::
 
-In the chart view, the X and Y axes show the values being plotted horizontally and vertically. Select either label to open the **Select your axis value** sidebar panel to change and configure the axis.
+In the chart view, the X axis and Y axis show the values being plotted horizontally and vertically. You can select either label to open a sidebar pane to select and configure the axis.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/axis-value.png" alt-text="Screenshot of the select your axis value sidebar.":::
 
-Depending on the axis value, you can configure more options such as **Apply binning to data**, **Enable logarithmic scaling**, or **Treat as categorical**.
-
-- **Should dither** adds optional noise to the data to avoid overlapping points in the scatterplot.
+In the **Select your axis value** pane, depending on the value, you can configure options such as **Apply binning to data**, **Enable logarithmic scaling**, or **Treat as categorical**. **Should dither** adds optional noise to the data to avoid overlapping points in the scatterplot.
 
 Under **Chart type**, you can select whether to aggregate values across all datapoints.
 
 - **Aggregate plot** displays data in bins or categories along the X-axis.
 - **Individual datapoints** shifts to a disaggregated view of the data.
 
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png" alt-text="Screenshot of data analysis on the chart view tab with individual datapoints option highlighted." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png":::
+In the **Individual datapoints** view, you can select the type of legend used to group datapoints. Selecting the label under **Color value** opens the **Select your axis value** sidebar with the same options that you use to create the chart axes.
 
-  In the **Individual datapoints** view, you can select the type of legend used to group datapoints. Selecting the label under **Color value** opens the **Select your axis value** sidebar with the same options that you use to create the chart axes.
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png" alt-text="Screenshot of data analysis on the chart view tab with individual datapoints option highlighted." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png":::
 
 ### Feature importances
 
-For this component, you can choose between **Aggregate feature importance** or **Individual feature importance** by selecting either tab at the top of the component.
+In the **Feature importances** component, you can choose between **Aggregate feature importance** or **Individual feature importance** by selecting either tab at the top of the component.
 
 #### Aggregate feature importance
 
@@ -229,4 +236,3 @@ In the local explanation chart, you can configure:
 
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View sample [YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai) to generate Responsible AI dashboards with YAML or Python.
-- Learn about how the Responsible AI text dashboard was used by ERM for a [business use case](https://aka.ms/erm-customer-story).
