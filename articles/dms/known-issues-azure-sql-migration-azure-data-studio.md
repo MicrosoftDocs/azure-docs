@@ -388,6 +388,26 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
 
+## Error code: No such host is known OR urlopen error [Errno 11001] getaddrinfo failed
+
+- **Message**: `No such host is known`
+
+- **Cause**: While migrating logins using PowerShell command [New-AzDataMigrationLoginsMigration](https://learn.microsoft.com/powershell/module/az.datamigration/new-azdatamigrationloginsmigration?view=azps-11.6.0), it fails with above message.
+
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure PowerShell - Database Migration Service cmdlets - Az.DataMigration above minimum 0.14.5 version.
+  Latest version of Az.Datamigration can be downloaded from [here](https://www.powershellgallery.com/packages/Az.DataMigration/0.14.6) or below command can be used to upgrade.
+```Command
+ Update-Module -Name Az.DataMigration
+```
+- **Message**: `urlopen error [Errno 11001] getaddrinfo failed`
+
+- **Cause**: While migrating logins using Azure CLI [Az dataMigration login-migration](https://learn.microsoft.com/en-us/cli/azure/datamigration?view=azure-cli-latest), it fails with above message.
+
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure CLI - Database Migration Service extension - az dataMigration above minimum 1.0.0b1 version. Run the below command to upgrade.
+```Command
+ az extension update -n datamigration
+```
+
 ## Azure Database Migration Service Naming Rules
 
 If your DMS service failed with "Error: Service name 'x_y_z' is not valid", then you need to follow the Azure Database Migration Service Naming Rules. As Azure Database Migration Service uses Azure Data factory for its compute, it follows the exact same naming rules as mentioned [here](../data-factory/naming-rules.md).
