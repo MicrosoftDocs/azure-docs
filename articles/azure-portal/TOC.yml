@@ -68,6 +68,8 @@
   - name: Alerts and notifications
     href: mobile-app/alerts-notifications.md
     displayName: mobile, app, push
+  - name: Cloud Shell
+    displayName: mobile, prompt, command, bash, powershell
   - name: Microsoft Entra ID
     href: mobile-app/microsoft-entra-id.md
     displayName: mobile, app
