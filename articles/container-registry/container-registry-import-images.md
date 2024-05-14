@@ -165,7 +165,7 @@ You can import an image from an Azure container registry in the same AD tenant u
 
 * The registry can be in the same or a different Azure subscription in the same Active Directory tenant.
 
-* [Public access](container-registry-access-selected-networks.md#disable-public-network-access) to the source registry may be disabled. If public access is disabled, specify the source registry by resource ID instead of by registry login server name.
+* [Public access](container-registry-access-selected-networks.md#disable-public-network-access) to the source registry is disabled. If public access is disabled, specify the source registry by resource ID instead of by registry login server name.
 
 * The source registry and/or the target registry with a private endpoint or registry firewall rules must ensure the restricted registry [allows trusted services](allow-access-trusted-services.md) to access the network.
 
