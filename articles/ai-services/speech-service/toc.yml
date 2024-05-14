@@ -301,7 +301,7 @@ items:
         href: language-learning-overview.md
       - name: Pronunciation Assessment with speech to text
         items:
-        - name: Reading and speaking assessment in Speech Studio
+        - name: Reading and speaking assessment in AI Studio
           href: pronunciation-assessment-tool.md
           displayName: pronounce, learn language, assess pron
     - name: Azure OpenAI speech to speech chat
@@ -570,6 +570,8 @@ items:
         - name: Conversation transcription REST APIs
           href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
           displayName: reference
+        - name: Ingestion service REST API
+          href: https://eastus.ingestion.speech.microsoft.com/swagger/index.html?urls.primaryName=v0.2-preview
 - name: Responsible AI
   items:
     - name: Speech to text

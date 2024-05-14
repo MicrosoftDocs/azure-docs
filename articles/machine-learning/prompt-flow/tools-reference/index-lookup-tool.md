@@ -152,7 +152,7 @@ The following JSON format response is an example returned by the tool that inclu
 
 ## How to migrate from legacy tools to the Index Lookup tool
 
-The Index Lookup tool looks to replace the three deprecated legacy index tools, the [Vector Index Lookup tool](./vector-index-lookup-tool.md), the [Vector DB Lookup tool](./vector-db-lookup-tool.md) and the [Faiss Index Lookup tool](./faiss-index-lookup-tool.md).
+The Index Lookup tool looks to replace the three deprecated legacy index tools, the Vector Index Lookup tool, the Vector DB Lookup tool and the Faiss Index Lookup tool.
 If you have a flow that contains one of these tools, follow the steps below to upgrade your flow.
 
 ### Upgrade your tools
