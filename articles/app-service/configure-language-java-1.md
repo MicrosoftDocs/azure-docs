@@ -6,16 +6,20 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/14/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
 ---
 
-# Configure a Tomcat, JBoss, or Java SE app for Azure App Service
+# Configure a Tomcat, JBoss, or Java SE app for Azure App Service - alterative pivot
+
+::: zone pivot="java-javase"
 
 > [!NOTE]
 > For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. See [Java Workload Destination Guidance](https://aka.ms/javadestinations) for advice.
+
+::: zone-end
 
 Azure App Service lets Java developers to quickly build, deploy, and scale their Java SE, Tomcat, and JBoss EAP web applications on a fully managed service. Deploy applications with Maven plugins, from the command line, or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
@@ -23,7 +27,7 @@ This guide provides key concepts and instructions for Java developers using App 
 
 ## Show Java version
 
-::: zone pivot="platform-windows"  
+# [Windows](#tab/windows)
 
 To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -37,9 +41,7 @@ To show all supported Java versions, run the following command in the [Cloud She
 az webapp list-runtimes --os windows | grep java
 ```
 
-::: zone-end
-
-::: zone pivot="platform-linux"
+# [Linux](#tab/linux)
 
 To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -53,7 +55,7 @@ To show all supported Java versions, run the following command in the [Cloud She
 az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 ```
 
-::: zone-end
+---
 
 For more information on version support, see [App Service language runtime support policy](language-support-policy.md).
 
@@ -158,31 +160,28 @@ Azure provides seamless Java App Service development experience in popular Java 
 
 ### Kudu API
 
-# [Java SE (Spring Boot, Embedded Tomcat, Quarkus, etc.)](#tab/javase)
+::: zone pivot="java-javase"
 
 To deploy .jar files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 > [!NOTE]
 > Your .jar application must be named `app.jar` for App Service to identify and run your application. The [Maven plugin](#maven) does this for you automatically during deployment. If you don't wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](./faq-app-service-linux.yml) textbox in the Configuration section of the portal. The startup script doesn't run from the directory into which it's placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
 
-# [Tomcat](#tab/tomcat)
+::: zone-end
+
+::: zone pivot="java-tomcat"
 
 To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
-::: zone pivot="platform-linux"
+::: zone-end
 
-# [JBoss EAP](#tab/jboss)
-
-> [!NOTE]
-> JBoss EAP is available only for Linux
+::: zone pivot="java-jboss"
 
 To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
-
----
 
 Don't deploy your .war or .jar using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It's not the optimal choice for deploying web apps.
 
@@ -192,30 +191,25 @@ Performance reports, traffic visualizations, and health checkups are available f
 
 ### Stream diagnostic logs
 
-::: zone pivot="platform-windows"
+# [Windows](#tab/windows)
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-::: zone-end
-::: zone pivot="platform-linux"
+# [Linux](#tab/linux)
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
-::: zone-end
+---
 
 For more information, see [Stream logs in Cloud Shell](troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
-::: zone pivot="platform-linux"
-
-### SSH console access
+### SSH console access in Linux
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-### Troubleshooting tools
+### Linux troubleshooting tools
 
 The built-in Java images are based on the [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) operating system. Use the `apk` package manager to install any troubleshooting tools or commands.
-
-::: zone-end
 
 ### Java Profiler
 
@@ -227,7 +221,7 @@ To learn more about the Java Profiler, visit the [Azure Application Insights doc
 
 All Java runtimes on App Service come with the Java Flight Recorder. You can use it to record JVM, system, and application events and troubleshoot problems in your Java applications.
 
-::: zone pivot="platform-windows"
+# [Windows](#tab/windows)
 
 #### Timed Recording
 
@@ -239,8 +233,7 @@ Next, open the **Debug Console** in the top toolbar of the SCM site and run the 
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="C:\home\timed_recording_example.JFR"
 ```
 
-::: zone-end
-::: zone pivot="platform-linux"
+# [Linux](#tab/linux)
 
 SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to jcmd itself, you should see your Java application running with a process ID number (pid).
 
@@ -273,7 +266,7 @@ Once the recording starts, you can dump the current recording data at any time u
 jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 ```
 
-::: zone-end
+---
 
 #### Analyze `.jfr` files
 
@@ -281,18 +274,29 @@ Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To an
 
 ### App logging
 
-::: zone pivot="platform-windows"
+# [Windows](#tab/windows)
 
-Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it's configured. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
+Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it's configured. If you need longer retention, configure the application to write output to a Blob storage container. 
+
+::: zone pivot="java-javase,java-tomcat"
+
+Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
 
 ::: zone-end
-::: zone pivot="platform-linux"
 
-Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
+# [Linux](#tab/linux)
+
+Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. If you need longer retention, configure the application to write output to a Blob storage container. 
+
+::: zone pivot="java-javase,java-tomcat"
+
+Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
+
+::: zone-end
 
 Azure Blob Storage logging for Linux based apps can only be configured using [Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
-::: zone-end
+---
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#explore-java-trace-logs-in-application-insights).
 
@@ -317,7 +321,23 @@ Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the l
 
 To set allocated memory or other JVM runtime options, create an [app setting](configure-common.md#configure-app-settings) named `JAVA_OPTS` with the options. App Service passes this setting as an environment variable to the Java runtime when it starts.
 
-In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` for Java SE or `CATALINA_OPTS` for Tomcat that includes other settings, such as `-Xms512m -Xmx1204m`.
+::: zone pivot="java-javase"
+
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes other settings, such as `-Xms512m -Xmx1204m`.
+
+::: zone-end
+
+::: zone pivot="java-tomcat"
+
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `CATALINA_OPTS` that includes other settings, such as `-Xms512m -Xmx1204m`.
+
+::: zone-end
+
+::: zone pivot="java-jboss"
+
+For JBoss EAP, `[TODO]`
+
+::: zone-end
 
 To configure the app setting from the Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heap size:
 
@@ -330,7 +350,7 @@ To configure the app setting from the Maven plugin, add setting/value tags in th
 </appSettings>
 ```
 
-::: zone pivot="platform-windows"
+::: zone pivot="java-tomcat"
 
 > [!NOTE]
 > You don't need to create a web.config file when using Tomcat on Windows App Service.
@@ -389,9 +409,13 @@ Alternatively, you can configure the app setting using the App Service Maven plu
 </appSettings>
 ```
 
+::: zone pivot="java-tomcat"
+
 ### Pre-Compile JSP files
 
 To improve performance of Tomcat applications, you can compile your JSP files before deploying to App Service. You can use the [Maven plugin](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) provided by Apache Sling, or using this [Ant build file](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
+
+::: zone-end
 
 ## Secure applications
 
@@ -401,11 +425,13 @@ Java applications running in App Service have the same set of [security best pra
 
 Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Microsoft Entra ID or social sign-ins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Microsoft Entra sign-in](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md).
 
-# [Java SE (Spring Boot, Embedded Tomcat, Quarkus, etc.)](#tab/javase)
+::: zone pivot="java-javase"
 
 Spring Boot developers can use the [Microsoft Entra Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your *application.properties* file. We suggest a value of `16384`.
 
-# [Tomcat](#tab/tomcat)
+::: zone-end
+
+::: zone pivot="java-tomcat"
 
 Your Tomcat application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The `Map` object maps each claim type to a collection of the claims for that type. In the following code example, `request` is an instance of `HttpServletRequest`.
 
@@ -439,12 +465,13 @@ public int getServerPort()
 
 To disable this feature, create an Application Setting named `WEBSITE_AUTH_SKIP_PRINCIPAL` with a value of `1`. To disable all servlet filters added by App Service, create a setting named `WEBSITE_SKIP_FILTERS` with a value of `1`.
 
-# [JBoss EAP](#tab/jboss)
+::: zone-end
 
-> [!NOTE] 
-> JBoss EAP is available only in Linux
+::: zone pivot="java-jboss"
 
----
+For JBoss EAP, `[TODO]`.
+
+::: zone-end
 
 ### Configure TLS/SSL
 
@@ -456,22 +483,32 @@ To upload an existing TLS/SSL certificate and bind it to your application's doma
 
 First, follow the instructions for [granting your app access to a key vault](app-service-key-vault-references.md#grant-your-app-access-to-a-key-vault) and [making a KeyVault reference to your secret in an Application Setting](app-service-key-vault-references.md#source-app-settings-from-key-vault). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
 
-To inject these secrets in your Spring or Tomcat configuration file, use environment variable injection syntax (`${MY_ENV_VAR}`). For Spring configuration files, see this documentation on [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+::: zone pivot="java-javase"
 
-::: zone pivot="platform-linux"
+For Spring configuration files, see this documentation on [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
-### Use the Java Key Store
+To inject these secrets in your Spring configuration file, use environment variable injection syntax (`${MY_ENV_VAR}`).
 
-By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) are loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you'll need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
+::: zone-end
 
-More configuration might be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Refer to the documentation for your chosen JDBC driver.
+::: zone pivot="java-tomcat"
+
+To inject these secrets in your Tomcat configuration file, use environment variable injection syntax (`${MY_ENV_VAR}`).
+
+::: zone-end
+
+### Use the Java key store in Linux
+
+By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) are loaded into the respective Java key stores as the container starts. After uploading your certificate, you'll need to restart your App Service for it to be loaded into the Java key store. Public certificates are loaded into the key store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
+
+More configuration might be necessary for encrypting your JDBC connection with certificates in the Java key store. Refer to the documentation for your chosen JDBC driver.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/ssl/)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### Initialize the Java Key Store
+#### Initialize the Java key store in Linux
 
 To initialize the `import java.security.KeyStore` object, load the keystore file with the password. The default password for both key stores is `changeit`.
 
@@ -487,13 +524,11 @@ keyStore.load(
     "changeit".toCharArray());
 ```
 
-#### Manually load the key store
+#### Manually load the key store in Linux
 
 You can load certificates manually to the key store. Create an app setting, `SKIP_JAVA_KEYSTORE_LOAD`, with a value of `1` to disable App Service from loading the certificates into the key store automatically. All public certificates uploaded to App Service via the Azure portal are stored under `/var/ssl/certs/`. Private certificates are stored under `/var/ssl/private/`.
 
 You can interact or debug the Java Key Tool by [opening an SSH connection](configure-linux-open-ssh-session.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. For more information on the KeyStore API, see [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
-
-::: zone-end
 
 ## Configure APM platforms
 
@@ -527,31 +562,27 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
     > To retrieve a list of other locations, run `az account list-locations`.
 
-::: zone pivot="platform-windows"
-
 3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
+
+    # [Windows](#tab/windows)
 
     ```azurecli
     az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
     ```
 
-::: zone-end
-
-::: zone pivot="platform-linux"
-
-3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
-
+    # [Linux](#tab/linux)
+    
     ```azurecli
     az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
     ```
 
-::: zone-end
+    ---
 
 ---
 
 ### Configure New Relic
 
-::: zone pivot="platform-windows"
+# [Windows](#tab/windows)
 
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
 2. Download the Java agent from NewRelic. It has a file name similar to *newrelic-java-x.x.x.zip*.
@@ -561,24 +592,25 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 6. Modify the YAML file at */home/site/wwwroot/apm/newrelic/newrelic.yml* and replace the placeholder license value with your own license key.
 7. In the Azure portal, browse to your application in App Service and create a new Application Setting.
 
-    # [Java SE (Spring Boot, Embedded Tomcat, Quarkus, etc.)](#tab/javase)
+    ::: zone pivot="java-javase"
     
-    For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
-    # [Tomcat](#tab/tomcat)
+    ::: zone-end
 
-    For **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    ::: zone pivot="java-tomcat"
 
-    # [JBoss EAP](#tab/jboss)
+    Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
-    > [!NOTE]
-    > JBoss EAP is available only on Linux.
+    ::: zone-end
 
-    ---
+    ::: zone pivot="java-jboss"
 
-::: zone-end
+    For **JBoss EAP**, `[TODO]`.
 
-::: zone pivot="platform-linux"
+    ::: zone-end
+
+# [Linux](#tab/linux)
 
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
 2. Download the Java agent from NewRelic. It has a file name similar to *newrelic-java-x.x.x.zip*.
@@ -588,26 +620,32 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 6. Modify the YAML file at */home/site/wwwroot/apm/newrelic/newrelic.yml* and replace the placeholder license value with your own license key.
 7. In the Azure portal, browse to your application in App Service and create a new Application Setting.
 
-    # [Java SE (Spring Boot, Embedded Tomcat, Quarkus, etc.)](#tab/javase)
+    ::: zone pivot="java-javase"
     
-    For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
-    # [Tomcat](#tab/tomcat)
+    ::: zone-end
 
-    For **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    ::: zone pivot="java-tomcat"
 
-    # [JBoss EAP](#tab/jboss)
+    Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
 
-    ---
+    ::: zone-end
 
-::: zone-end
+    ::: zone pivot="java-jboss"
+
+    For **JBoss EAP**, `[TODO]`.
+
+    ::: zone-end
+
+---
 
 > [!NOTE]
 > If you already have an environment variable for `JAVA_OPTS` or `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
 
 ### Configure AppDynamics
 
-::: zone pivot="platform-windows"
+# [Windows](#tab/windows)
 
 1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Download the Java agent from the AppDynamics website. The file name is similar to *AppServerAgent-x.x.x.xxxxx.zip*
@@ -615,24 +653,25 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 4. Upload the Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/appdynamics*.
 5. In the Azure portal, browse to your application in App Service and create a new Application Setting.
 
-    # [Java SE (Spring Boot, Embedded Tomcat, Quarkus, etc.)](#tab/javase)
+    ::: zone pivot="java-javase"
     
-   For **Java SE** apps, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `JAVA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
 
-    # [Tomcat](#tab/tomcat)
+    ::: zone-end
 
-   For **Tomcat** apps, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+    ::: zone pivot="java-tomcat"
 
-    # [JBoss EAP](#tab/jboss)
+    Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
 
-    > [!NOTE]
-    > JBoss EAP is available only on Linux.
+    ::: zone-end
 
-    ---
+    ::: zone pivot="java-jboss"
 
-::: zone-end
+    For **JBoss EAP**, `[TODO]`.
 
-::: zone pivot="platform-linux"
+    ::: zone-end
+
+# [Linux](#tab/linux)
 
 1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Download the Java agent from the AppDynamics website. The file name is similar to *AppServerAgent-x.x.x.xxxxx.zip*
@@ -640,25 +679,33 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 4. Upload the Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/appdynamics*.
 5. In the Azure portal, browse to your application in App Service and create a new Application Setting.
 
-    # [Java SE (Spring Boot, Embedded Tomcat, Quarkus, etc.)](#tab/javase)
+    ::: zone pivot="java-javase"
 
-    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `JAVA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
 
-    # [Tomcat)](#tab/tomcat)
-    Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
+    ::: zone-end
 
-    # [JBoss EAP](#tab/jboss)
+    ::: zone pivot="java-tomcat"
 
-    ---
+    Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
 
-::: zone-end
+    ::: zone-end
+
+    ::: zone pivot="java-jboss"
+
+    For **JBoss EAP**, `[TODO]`.
+
+    ::: zone-end
+
+
+---
 
 > [!NOTE]
-> If you already have an environment variable for `JAVA_OPTS` or `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
+> 
 
 ## Configure data sources
 
-# [Java SE (Spring Boot, Embedded Tomcat, Quarkus, etc.)](#tab/javase)
+::: zone pivot="java-javase"
 
 To connect to data sources in Spring Boot applications, we suggest creating connection strings and injecting them into your *application.properties* file.
 
@@ -674,7 +721,9 @@ To connect to data sources in Spring Boot applications, we suggest creating conn
 
 For more information, see the [Spring Boot documentation on data access](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) and [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
-# [Tomcat](#tab/tomcat)
+::: zone-end
+
+::: zone pivot="java-tomcat"
 
 These instructions apply to all database connections. You need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
@@ -727,7 +776,7 @@ Next, determine if the data source should be available to one application or to 
     </resource-env-ref>
     ```
 
-::: zone pivot="platform-windows"
+# [Windows](#tab/windows)
 
 #### Shared server-level resources
 
@@ -755,12 +804,11 @@ Here's a PowerShell script that completes these steps:
     # Delete previous Tomcat directory if it exists
     # In case previous config isn't completed or a new config should be forcefully installed
     if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
-        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" -Recurse
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
     }
 
     # Copy Tomcat to local
     # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
-    New-Item "$Env:LOCAL_EXPANDED\tomcat" -ItemType Directory
     Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
 
     # Perform the required customization of Tomcat
@@ -970,9 +1018,7 @@ Finally, you place the driver JARs in the Tomcat classpath and restart your App 
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --target-path <jar-name>.jar
 ```
 
-::: zone-end
-
-::: zone pivot="platform-linux"
+# [Linux](#tab/linux)
 
 #### Shared server-level resources
 
@@ -1062,11 +1108,11 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar
 
 If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
 
+---
+
 ::: zone-end
 
-::: zone pivot="platform-linux"
-
-# [JBoss EAP](#tab/jboss)
+::: zone pivot="java-jboss"
 
 There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): uploading the JDBC driver, adding the JDBC driver as a module, and registering the module. App Service is a stateless hosting service, so the configuration commands for adding and registering the data source module must be scripted and applied as the container starts.
 
@@ -1111,21 +1157,23 @@ To confirm that the datasource was added to the JBoss server, SSH into your weba
 
 ::: end-zone
 
----
-
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
 ## Choosing a Java runtime version
 
 App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, such as 1.8.0_232 or 11.0.5. You can also choose to have the patch version automatically updated as new minor versions become available. In most cases, production apps should use pinned patch JVM versions. This prevents unanticipated outages during a patch version autoupdate. All Java web apps use 64-bit JVMs, and it's not configurable.
 
+::: zone pivot="java-jboss"
+
 If you're using Tomcat, you can choose to pin the patch version of Tomcat. On Windows, you can pin the patch versions of the JVM and Tomcat independently. On Linux, you can pin the patch version of Tomcat; the patch version of the JVM is also pinned but isn't separately configurable.
+
+::: zone-end
 
 If you choose to pin the minor version, you need to periodically update the JVM minor version on the app. To ensure that your application runs on the newer minor version, create a staging slot and increment the minor version on the staging slot. Once you confirm the application runs correctly on the new minor version, you can swap the staging and production slots.
 
-::: zone pivot="platform-linux"
+::: zone pivot="java-jboss"
 
-## Clustering in JBoss EAP
+## Clustering
 
 App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. The JBoss EAP instances communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
 
@@ -1149,13 +1197,20 @@ When configuring autoscale rules for horizontal scaling, it's important to remov
 
 You don't need to incrementally add instances (scaling out), you can add multiple instances to the cluster at a time.
 
-## JBoss EAP App Service Plans
+## App Service plans
 
 <a id="jboss-eap-hardware-options"></a>
 
 JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
 
+::: zone-end
+
+::: zone pivot="java-tomcat"
+
 ## Tomcat baseline configuration
+
+> [!NOTE]
+> This section applies to Linux only.
 
 Java developers can customize the server settings, troubleshoot issues, and deploy applications to Tomcat with confidence if they know about the server.xml file and configuration details of Tomcat. Possible customizations include:
 

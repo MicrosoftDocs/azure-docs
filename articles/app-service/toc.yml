@@ -54,7 +54,7 @@
           href: configure-language-php.md
         - name: Configure Python
           href: configure-language-python.md
-        - name: Configure Java
+        - name: Configure Java SE, Tomcat, or JBoss
           href: configure-language-java.md
     - name: Deployment methods
       items:

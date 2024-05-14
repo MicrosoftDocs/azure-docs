@@ -1301,11 +1301,11 @@ groups:
   title: App Service Java hosting
   prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: java-maven-javase
-    title: Embed your own server
-  - id: java-maven-tomcat
+  - id: java-javase
+    title: Embed your own server (e.g. Embedded Tomcat, Quarkus, Spring Boot)
+  - id: java-tomcat
     title: To a Tomcat server
-  - id: java-maven-jboss
+  - id: java-jboss
     title: To a JBoss server
 - id: app-service-containers-windows-linux
   title: App Service with custom containers

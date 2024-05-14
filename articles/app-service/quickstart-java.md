@@ -19,19 +19,19 @@ ms.author: cephalin
 # Quickstart: Create a Java app on Azure App Service
 
 
-::: zone pivot="java-maven-tomcat"
+::: zone pivot="java-tomcat"
 
 [!INCLUDE [quickstart-java-linux-maven-pivot.md](./includes/quickstart-java/quickstart-java-tomcat.md)]
 
 ::: zone-end
 
-::: zone pivot="java-maven-javase"
+::: zone pivot="java-javase"
 
 [!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-javase.md)]
 
 ::: zone-end
 
-::: zone pivot="java-maven-jboss"
+::: zone pivot="java-jboss"
 
 [!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-jboss.md)]
 
