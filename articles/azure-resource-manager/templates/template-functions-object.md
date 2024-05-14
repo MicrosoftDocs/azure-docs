@@ -3,7 +3,7 @@ title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/09/2024
+ms.date: 05/13/2024
 ---
 
 # Object functions for ARM templates
@@ -411,7 +411,7 @@ The output from the preceding example is:
 
 ## objectKeys
 
-`objectKey(object)`
+`objectKeys(object)`
 
 Returns the keys from an object, where an object is a collection of key-value pairs.
 
@@ -456,6 +456,8 @@ The output from the preceding example is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | keyArray | Array | [ "a", "b" ] |
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 ## union
 
