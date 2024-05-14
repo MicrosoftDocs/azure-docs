@@ -61,7 +61,7 @@ Choosing a networking model is the first step in selecting a CNI plugin. The two
 - **Flat Networking Model**
 
   - Pods get full VNet connectivity and can be directly reached via their private IP address from connected networks.
-  - Requires large VNet IP address space.
+  - Requires large, non-fragmented VNet IP address space.
 
 
 When choosing a networking model, consider the following:
