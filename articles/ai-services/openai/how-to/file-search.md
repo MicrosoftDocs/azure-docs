@@ -18,11 +18,18 @@ File Search augments the Assistant with knowledge from outside its model, such a
 
 ## File search support
 
-### Supported models
+### Supported regions
 
-The [models](../concepts/models.md) page contains the most up-to-date information on regions/models where Assistants and file search are supported.
-
-We recommend using assistants with the latest models to take advantage of the new features, as well as the larger context windows, and more up-to-date training data.
+File search is available in the following regions:
+* Canada East
+* East US
+* East US 2
+* France Central
+* Japan East
+* South India
+* Sweden Central
+* West US 3
+* UK South
 
 ### API Version
 
