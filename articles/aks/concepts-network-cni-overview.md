@@ -42,7 +42,7 @@ Unlike an overlay network, a flat network model in AKS assigns IP addresses to p
 
 Azure Kubernetes Service provides two CNI plugins for flat networking. This article does not go into depth for each plug in option. For more information, see the linked documentation:
 - [Azure CNI Podsubnet][azure-cni-podsubnet], the recommended CNI plugin for flat networking scenarios.
-- [Azure CNI Nodesubnet][azure-cni-nodesubnet], a legacy flat network model CNI.
+- [Azure CNI Nodesubnet][azure-cni-nodesubnet], a legacy flat network model CNI generally only recommended if you _**need**_ a managed VNet for your cluster. 
 
 ## Choosing a CNI
 
@@ -99,7 +99,7 @@ There are several requirements and considerations to keep in mind when planning 
 
 - The virtual network for the AKS cluster must allow outbound internet connectivity.
 - AKS clusters can't use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range, or cluster virtual network address range.
-- The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
+- In BYO CNI scenarios, the cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
   - `Microsoft.Network/virtualNetworks/subnets/join/action`
   - `Microsoft.Network/virtualNetworks/subnets/read`
   - `Microsoft.Authorization/roleAssignments/write`
