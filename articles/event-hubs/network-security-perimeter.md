@@ -23,7 +23,7 @@ Integrating Event Hubs Kafka within this framework enhances data streaming capab
 
 Operating as a service under Azure Private Link, the Network Security Perimeter facilitates secure communication for PaaS services deployed outside the virtual network. It enables seamless interaction among PaaS services within the perimeter and facilitates communication with external resources through carefully configured access rules, empowering organizations to uphold stringent security standards and protect sensitive data assets in their Azure environments.
 
-## Associate Event Hubs with a Network Security Perimeter in the Azure portal\
+## Associate Event Hubs with a Network Security Perimeter in the Azure portal
 1. Search for "Network Security Perimeter" in the Portal search bar and then click on **Create** button and create the resource
 1. In the first screen provide a Name and Region and choose the subscription
 1. Under the **Resources** section click on the **Associate** button and navigate to the Event Hubs namespace you want to add. 
