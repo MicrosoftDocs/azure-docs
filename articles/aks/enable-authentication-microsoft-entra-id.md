@@ -54,7 +54,7 @@ The following requirements need to be met in order to properly install the AKS a
 2. Create an AKS cluster and enable administration access for your Microsoft Entra group using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
+    az aks create --resource-group myResourceGroup --name myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
     ```
 
     A successful creation of an AKS-managed Microsoft Entra ID cluster has the following section in the response body:
@@ -77,7 +77,7 @@ The following requirements need to be met in order to properly install the AKS a
 Enable AKS-managed Microsoft Entra integration on your existing Kubernetes RBAC enabled cluster using the [`az aks update`][az-aks-update] command. Make sure to set your admin group to keep access on your cluster.
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id-1>,<id-2> [--aad-tenant-id <id>]
+az aks update --resource-group MyResourceGroup --name myManagedCluster --enable-aad --aad-admin-group-object-ids <id-1>,<id-2> [--aad-tenant-id <id>]
 ```
 
 A successful activation of an AKS-managed Microsoft Entra ID cluster has the following section in the response body:
@@ -106,7 +106,7 @@ If your cluster uses legacy Microsoft Entra integration, you can upgrade to AKS-
 > After the upgrade, the kubeconfig content changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to merge the new credentials into the kubeconfig file. 
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
+az aks update --resource-group myResourceGroup --name myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
 ```
 
 A successful migration of an AKS-managed Microsoft Entra ID cluster has the following section in the response body:

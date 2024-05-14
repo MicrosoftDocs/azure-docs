@@ -151,13 +151,13 @@ This process is better than updating Linux-based kernels manually because Linux 
           - name: Upgrade node images
             uses: Azure/cli@v1.0.8
             with:
-              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
+              inlineScript: az aks upgrade --resource-group <resourceGroupName> --name <aksClusterName> --node-image-only --yes
     ```
 
     > [!TIP]
-    > You can decouple the `-g` and `-n` parameters from the command by creating new repository secrets like you did for `AZURE_CREDENTIALS`.
+    > You can decouple the `--resource-group` and `--name` parameters from the command by creating new repository secrets like you did for `AZURE_CREDENTIALS`.
     >
-    > If you create secrets for these parameters, you need to replace the `{resourceGroupName}` and `{aksClusterName}` placeholders with their secret counterparts. For example, `${{secrets.RESOURCE_GROUP_NAME}}` and `${{secrets.AKS_CLUSTER_NAME}}`
+    > If you create secrets for these parameters, you need to replace the `<resourceGroupName>` and `<aksClusterName>` placeholders with their secret counterparts. For example, `${{secrets.RESOURCE_GROUP_NAME}}` and `${{secrets.AKS_CLUSTER_NAME}}`
 
 6. Rename the YAML to `upgrade-node-images.yml`.
 7. Select **Commit changes...**, add a commit message, and then select **Commit changes**.
@@ -170,7 +170,7 @@ You can run the workflow manually in addition to the scheduled run by adding a n
 > If you want to upgrade a single node pool instead of all node pools on the cluster, add the `--name` parameter to the `az aks nodepool upgrade` command to specify the node pool name. For example:
 >
 > ```azurecli-interactive
-> az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
+> az aks nodepool upgrade --resource-group <resourceGroupName> --cluster-name <aksClusterName> --name <nodePoolName> --node-image-only
 > ```
 
 * Add the `workflow_dispatch` trigger under the `on` key:
