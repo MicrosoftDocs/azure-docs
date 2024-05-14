@@ -142,7 +142,7 @@ The output from the preceding example:
 
 `groupBy(inputArray, lambda expression)`
 
-Creates an object with array values from an array, using a grouping condition:
+Creates an object with array values from an array, using a grouping condition.
 
 In Bicep, use the [groupBy](../bicep/bicep-functions-lambda.md#groupby) function.
 
@@ -159,7 +159,7 @@ An object.
 
 ### Examples
 
-The following example show how to use the `groupBy` function.
+The following example shows how to use the `groupBy` function.
 
 ```json
 {
