@@ -80,7 +80,7 @@ Although it's technically possible to specify a service address range within the
 
 * **Is the maximum number of pods deployable to a node configurable?**
 
-  Yes, when you deploy a cluster with the Azure CLI or a Resource Manager template. See [Maximum pods per node](#maximum-pods-per-node).
+  Yes, when you deploy a cluster with the Azure CLI or a Resource Manager template. See [Maximum pods per node][max-pods].
 
   You can't change the maximum number of pods per node on an existing cluster.
 
@@ -128,6 +128,7 @@ Learn more about networking in AKS in the following articles:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[max-pods]: concepts-network-ip-address-planning.md/#maximum-pods-per-node
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models

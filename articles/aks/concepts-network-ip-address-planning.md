@@ -25,7 +25,7 @@ With overlay networks like [Azure CNI Overlay][azure-cni-overlay], your subnet n
 
 Ensuring you allot enough space in your Private CIDR range for your pods to account for scaling is still an important factor and you should calculate your maximum pod count when planning your IP address range sizes. Each node in your cluster is assigned a /24 (256 IP addresses) subnet for pods and you should plan your Overlay network subnet to accommodate the maximum number of nodes you expect to run.
 
-# Flat Networks
+## Flat Networks
 
 Flat networks like [Azure CNI PodSubnet][azure-cni-podsubnet] require a large enough subnet to accommodate both nodes _and_ pods. Since nodes and pods receive IPs from your VNet, you need to plan for the maximum number of nodes and pods you expect to run. Azure CNI Podsubnet uses a subnet for your Nodes and a separate subnet for your Pods, so you need to plan for both.
 
@@ -93,6 +93,11 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 ### Configure maximum pods per node for existing clusters
 
 The _maxPods_ per node setting can be defined when you create a new node pool. If you need to increase the _maxPods_ setting on an existing cluster, add a new node pool with the new desired _maxPods_ count. After migrating your pods to the new pool, delete the older pool. To delete any older pool in a cluster, ensure you're setting node pool modes as defined in the [system node pools document][system-node-pools].
+
+## Next Steps
+
+- [Azure CNI Overlay][azure-cni-overlay]
+- [Azure CNI PodSubnet][azure-cni-podsubnet]
 
 <!-- LINKS - Internal -->
 [azure-cni-overlay]: concepts-network-azure-cni-overlay.md
