@@ -112,7 +112,7 @@ The client address pool is a range of private IP addresses that you specify. The
 ## <a name="type"></a>Specify tunnel and authentication type
 
 > [!NOTE]
-> If you don't see tunnel type or authentication type on the **Point-to-site configuration** page, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
+> If you don't see tunnel type or authentication type on the **Point-to-site configuration** page, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and re-create the gateway using a different gateway SKU.
 >
 
 In this section, you specify the tunnel type and the authentication type. These settings can become complex, depending on the tunnel type you require and the VPN client software that will be used to make the connection from the user's operating system. The steps in this article walk you through basic configuration settings and choices.
@@ -125,7 +125,7 @@ As you can tell, planning the tunnel type and authentication type is important w
 
 * **Windows**:
 
-  * Windows computers connecting via the native VPN client already installed in the operating system tries IKEv2 first and, if that doesn't connect, they fall back to SSTP (if you selected both IKEv2 and SSTP from the tunnel type dropdown).
+  * Windows computers connecting via the native VPN client already installed in the operating system try IKEv2 first and, if that doesn't connect, they fall back to SSTP (if you selected both IKEv2 and SSTP from the tunnel type dropdown).
   * If you select the OpenVPN tunnel type, you can connect using an OpenVPN Client or the Azure VPN Client.
   * The Azure VPN Client can support additional [optional configuration settings](azure-vpn-client-optional-configurations.md) such as custom routes and forced tunneling.
 

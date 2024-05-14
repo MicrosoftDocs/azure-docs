@@ -32,7 +32,7 @@ In this article, we start with generating VPN client configuration files and cli
    * **IKEv2 and SSTP - native VPN client** -  If your P2S VPN gateway is configured to use IKEv2/SSTP and certificate authentication, you connect to your VNet using the native VPN client that's part of your Windows operating system. This configuration doesn't require additional client software. For steps, see [IKEv2 and SSTP - native VPN client](point-to-site-vpn-client-certificate-windows-native.md).
    * **OpenVPN - Azure VPN Client and OpenVPN client** - If your P2S VPN gateway is configured to use an OpenVPN tunnel and certificate authentication, you have the option to connect using either the [Azure VPN Client](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md), or the [OpenVPN client](point-to-site-vpn-client-certificate-windows-openvpn-client.md).
 
-## 2. Generate client certificates
+## Generate client certificates
 
 For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
@@ -41,7 +41,7 @@ In many cases, you can install the client certificate directly on the client com
 * For information about working with certificates, see [Point-to site: Generate certificates](vpn-gateway-certificates-point-to-site.md).
 * To view an installed client certificate, open **Manage User Certificates**. The client certificate is installed in **Current User\Personal\Certificates**.
 
-## 3. Configure the VPN client
+## Configure the VPN client
 
 Next, configure the VPN client. Select from the following instructions:
 
