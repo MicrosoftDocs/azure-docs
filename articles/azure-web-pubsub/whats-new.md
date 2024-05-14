@@ -30,7 +30,7 @@ Developers can manage Azure Web PubSub resources on Azure portal or using Azure 
 - Copy connection string or endpoint of the service to clipboard
 - Switch the anonymous connect policy of hub setting
 - Attach [Azure Web PubSub local tunnel tool](./howto-web-pubsub-tunnel-tool.md)
-- View realtime resource logging during development through [LiveTrace tool](./howto-troubleshoot-resource-logs.md)
+- View real-time resource logging during development through [LiveTrace tool](./howto-troubleshoot-resource-logs.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about the new VS Code extension](./tutorial-develop-with-visual-studio-code.md)
