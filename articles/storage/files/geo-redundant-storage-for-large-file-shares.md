@@ -73,34 +73,30 @@ Register-AzProviderFeature -FeatureName AllowLfsForGRS -ProviderNamespace Micros
 ```
 ---
 
-## Enable geo-redundancy and large file shares for standard SMB file shares
+## Configure geo-redundancy and 100TiB capacity for standard SMB file shares 
 
-With Azure Files geo-redundancy for large file shares, you can enable geo-redundancy and large file shares for new and existing standard SMB file shares.
+In regions that are now generally available:
+- All standard SMB file shares (new and existing) support up to 100 TiB capacity and you can select any redundancy option supported in the region. Since all standard SMB file shares now support up to 100TiB capacity, the LargeFileSharesState property on storage accounts is no longer used and will be removed in the future. 
+- If you have existing file shares, you can now increase the file share size up to 100TiB (share quotas are not automatically increased).
+- Performance limits (IOPS and throughput) for your file shares have automatically increased to the storage account limits. 
+
+Perform the following steps to configure 100TiB shares and geo-redundancy for new and existing SMB file shares:
 
 ### Create a new storage account and file share
 
-Perform the following steps to configure geo-redundancy and large file shares for a new Azure file share.
+Perform the following steps to configure geo-redundancy for a new Azure file share.
 
-1. [Create a standard storage account](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account).
-   - Select geo-redundant storage (GRS) or geo-zone redundant storage (GZRS) for the **Redundancy** option.
-   - In the Advanced section, select **Enable large file shares**.
-
+1. [Create a standard storage account](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) and select geo-redundant storage (GRS) or geo-zone redundant storage (GZRS) for the **Redundancy** option.
 2. [Create an SMB Azure file share](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share).
-
-### Existing storage accounts and file shares  
-
-The steps to enable geo-redundancy for large file shares will vary based on the redundancy option that's currently configured for your storage account. Follow the steps below based on the appropriate redundancy option for your storage account.
 
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
 1. [Change the redundancy option](../common/redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) for your storage account to GRS or GZRS.
-1. Verify that the [large file shares setting is enabled](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) on your storage account.
-1. **Optional:** [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB.
+2. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) will default to 100TiB.
 
 #### Existing storage accounts with a redundancy option of GRS, GZRS, RA-GRS, or RA-GZRS
 
-1. Enable the [large file shares](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) setting on your storage account.
-1. **Optional:** [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB.
+1. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) will default to 100TiB.
 
 ## Snapshot and sync frequency
 
