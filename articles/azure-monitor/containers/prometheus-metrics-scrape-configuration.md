@@ -511,15 +511,15 @@ basic_auth:
 
 ### TLS based scraping
 
-If you are using `tls_config` setting in your prometheus configuration, please follow the steps -
+If you have a Prometheus instance served with TLS and you want to scrape metrics from it, you need to set scheme to `https` and set the TLS settings in your configmap or respective CRD. 
+Please follow the below steps.
 
-Below is an example of creating a secret.
-
-1. Create a secret object in the **kube-system** namespace named **ama-metrics-mtls-secret**. 
+1. Create a secret object in the **kube-system** namespace named **ama-metrics-mtls-secret**.
+Example command for creating secret: kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem --from-file=secret_kube-system_ama-metrics-mtls-secret_client-key.pem=secret_kube-system_ama-metrics-mtls-secret_client-key.pem -n kube-system.
 
 
 The value for password1 is **base64encoded**
-The key *password1* can be anything, but just needs to match your scrapeconfig *password_file* filepath.
+The key *password1* can be anything, but just needs to match with the keys/filenames mentioned in your CRD/Configmap.
 
 ```yaml
 apiVersion: v1
@@ -568,17 +568,14 @@ tlsConfig:
         name: "ama-metrics-mtls-secret"
     insecureSkipVerify: false
 ```
+
 > [!NOTE]
->
-> Make sure that the certificate file name and key name inside the mtls app is in the following format in case of a CRD based scraping. For example: secret_kube-system_ama-metrics-mtls-secret_cert-name.pem and secret_kube-system_ama-metrics-mtls-secret_key-name.pem.
-> The CRD needs to be created in kube-system namespace.
-> The secret name should exactly be ama-metrics-mtls-secret in kube-system namespace. An example command for creating secret: kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem=secret_kube-system_ama-metrics-mtls-secret_client-cert.pem --from-file=secret_kube-system_ama-metrics-mtls-secret_client-key.pem=secret_kube-system_ama-metrics-mtls-secret_client-key.pem -n kube-system
-> If you have a Prometheus instance served with TLS and you want to scrape metrics from it, you need to set scheme to `https` and set the TLS settings in your configmap or respective CRD. You can use the `tls_config` configuration property inside a custom scrape job to configure the TLS settings either using a CRD or a configmap. You need to provide a CA certificate to validate API server certificate with. The CA certificate is used to verify the authenticity of the server's certificate when Prometheus connects to the target over TLS. It helps ensure that the server's certificate is signed by a trusted authority.
-> The secret should be created in kube-system namespace and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
-> To read more on TLS authentication, the following documents might be helpful. 
 > 
-> - Generating TLS certificates -> https://o11y.eu/blog/prometheus-server-tls/
-> - Configurations -> https://prometheus.io/docs/alerting/latest/configuration/#tls_config
+> Make sure that the certificate file name and key name inside the mtls app is in the following format in case of a CRD based scraping. For example: secret_kube-system_ama-metrics-mtls-secret_cert-name.pem and secret_kube-system_ama-metrics-mtls-secret_key-name.pem.
+> 
+> The secret should be created in kube-system namespace and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
+> 
+> To read more on TLS configuration settings, please follow this [Configurations](https://aka.ms/tlsconfigsetting).
 
 ## Next steps
 
