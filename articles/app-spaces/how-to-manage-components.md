@@ -1,6 +1,6 @@
 ---
 title: Manage components in App Spaces
-description: Learn how to manage Azure App Spaces in the Azure portal.
+description: Learn how to manage App Spaces in the Azure portal.
 ms.author: msangapu
 author: msangapu-msft
 ms.service: app-spaces

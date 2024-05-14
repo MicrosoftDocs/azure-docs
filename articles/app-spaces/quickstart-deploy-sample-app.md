@@ -1,6 +1,6 @@
 ---
-title: Deploy a template with Azure App Spaces
-description: Learn how to deploy a template to create a web application with Azure App Spaces.
+title: Deploy a template with App Spaces
+description: Learn how to deploy a template to create a web application with App Spaces.
 ms.service: app-spaces
 ms.topic: how-to
 ms.author: msangapu
@@ -9,14 +9,14 @@ ms.date: 05/20/2024
 zone_pivot_groups: app-spaces-frontend-backend
 ---
 
-# Deploy a sample app with Azure App Spaces
+# Deploy a sample app with App Spaces
 
-[Azure App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a sample app to Azure App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About Azure App Spaces](overview.md). 
+[App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a sample app to App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About App Spaces](overview.md). 
 
 
 ## Prerequisites
 
-To deploy a sample app for Azure App Spaces, you must have the following items:
+To deploy a sample app for App Spaces, you must have the following items:
 
 - [Azure account and subscription](https://signup.azure.com/). You can only deploy with a subscription that you own.
 - [GitHub account](https://github.com/)

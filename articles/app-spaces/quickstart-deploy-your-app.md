@@ -1,6 +1,6 @@
 ---
-title: Deploy a web app with Azure App Spaces
-description: Learn how to deploy a custom app with Azure App Spaces in the Azure portal.
+title: Deploy your app with App Spaces
+description: Learn how to deploy your app with App Spaces in the Azure portal.
 ms.author: msangapu
 author: msangapu-msft
 ms.service: app-spaces
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 05/20/2024
 ---
 
-# Quickstart: Deploy a custom app with Azure App Spaces
+# Quickstart: Deploy your app with App Spaces
 
-In this quickstart, you learn to connect to GitHub and deploy your code to a recommended Azure service with Azure App Spaces. For more information, see [Azure App Spaces overview](overview.md).
+In this quickstart, you learn to connect to GitHub and deploy your code to a recommended Azure service with App Spaces. For more information, see [App Spaces overview](overview.md).
 
 ## Prerequisites
 
 To deploy your repository to App Spaces, you must have the following items:
 
 - [Azure account and subscription](https://signup.azure.com/)
-- [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository). If you don't have your own repository, see [Deploy an Azure App Spaces sample app](quickstart-deploy-sample-web-app-template.md).
+- [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository). If you don't have your own repository, see [Deploy an App Spaces sample app](quickstart-deploy-sample-web-app-template.md).
 - Write access to your chosen GitHub repository to deploy with GitHub Actions.
 
 ## Deploy your app

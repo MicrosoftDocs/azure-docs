@@ -1852,11 +1852,11 @@
         },
         {
             "source_path_from_root": "/articles/app-spaces/quickstart-deploy-web-app.md",
-            "redirect_url": "/azure/app-spaces/quickstart-deploy-sample-web-app-template"
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-sample-app"
         },
         {
             "source_path_from_root": "/articles/app-spaces/deploy-app-spaces-template.md",
-            "redirect_url": "/azure/app-spaces/quickstart-deploy-custom-web-app"        
+            "redirect_url": "/azure/app-spaces/quickstart-deploy-your-app"        
         },
         {
             "source_path_from_root": "/articles/application-insights/app-insights-analytics-reference.md",
