@@ -12,20 +12,97 @@ The spread operator is used to expand an iterable array or object into individua
 
 ## Spread
 
-`...<variableName or parameterName>`
+`...`
 
-The object *objB* in the following example is equivalent to { foo: 'foo', bar: 'bar' }:
+### Examples
+
+The following example shows the spread operator used in an oject: 
 
 ```bicep
 var objA = { bar: 'bar' }
-var objB = { foo: 'foo', ...objA } 
+output objB object = { foo: 'foo', ...objA } 
 ```
 
-The array *arrB* in the following example is equivalent to [ 1, 2, 3, 4 ]:
+Output from the example:
+
+| Name | Type | Value |
+|------|------|-------|
+| `objB` | object | { foo: 'foo', bar: 'bar' } |
+
+The following example shows the spread operator used in an array: 
 
 ```bicep
 var arrA = [ 2, 3 ]
-var arrB = [ 1, ...arrA, 4 ] 
+output arrB object = [ 1, ...arrA, 4 ] 
+```
+
+Output from the example:
+
+| Name | Type | Value |
+|------|------|-------|
+| `arrB` | array | [ 1, 2, 3, 4 ] |
+
+The following example shows spread used multiple times in a single operation:
+
+```bicep
+var arrA = [ 2, 3 ]
+var arrC = [ 1, ...arrA, 4, ...arrA ] 
+
+Output from the example:
+
+| Name | Type | Value |
+|------|------|-------|
+| `arrC` | array | [ 1, 2, 3, 4, 2, 3 ] |
+
+The following example shows spread used in a multi-line operation:
+
+```bicep
+var objA = { foo: 'foo' }
+var objB = { bar: 'bar' }
+output combined object = { 
+  ...objA
+  ...objB
+} 
+```
+
+In this usage, comma is not used between the two lines.  Output from the example:
+
+| Name | Type | Value |
+|------|------|-------|
+| `objB` | object | { foo: 'foo', bar: 'bar' } |
+
+The spread operation can be used to avoid setting an optional property. For example:
+
+```bicep
+param vmImageResourceId string = ''
+
+var bar = vmImageResourceId != '' ? {
+  id: vmImageResourceId
+} : {}
+
+output foo object = {
+  ...bar
+  alwaysSet: 'value'
+}
+```
+
+Output from the example:
+
+| Name | Type | Value |
+|------|------|-------|
+| `foo` | object | {"alwaysSet":"value"} |
+
+The preceding example can also be written as:
+
+```bicep
+param vmImageResourceId string = ''
+
+output foo object = {
+  ...(vmImageResourceId != '' ? {
+    id: vmImageResourceId
+  } : {})
+  alwaysSet: 'value'
+}
 ```
 
 ## Next steps
