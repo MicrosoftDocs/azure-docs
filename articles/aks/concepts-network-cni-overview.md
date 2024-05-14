@@ -2,7 +2,7 @@
 title: Concepts - CNI Networking in AKS
 description: Learn about CNI networking in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 05/14/2024
 author: schaffererin
 ms.author: schaffererin
 
@@ -92,6 +92,17 @@ Besides having to consider specific use cases, you might also want to compare th
 | Default Azure DNS and Private Zones            | Supported         | Supported           | Supported                     | Supported               |
 | VNet Subnet sharing across multiple clusters   | Supported         | Supported           | Supported                     | Not Supported           |
 
+### Support scope between network models
+
+Depending on the CNI you use, your cluster virtual network resources can be deployed in one of the following ways:
+
+- The Azure platform can automatically create and configure the virtual network resources when you create an AKS cluster. like in Azure CNI Overlay, Azure CNI Nodesubnet, and Kubenet.
+- You can manually create and configure the virtual network resources and attach to those resources when you create your AKS cluster.
+
+Although capabilities like service endpoints or UDRs are supported, the [support policies for AKS][support-policies] define what changes you can make. For example:
+
+- If you manually create the virtual network resources for an AKS cluster, you're supported when configuring your own UDRs or service endpoints.
+- If the Azure platform automatically creates the virtual network resources for your AKS cluster, you can't manually change those AKS-managed resources to configure your own UDRs or service endpoints.
 
 ## Prerequisites
 
@@ -127,3 +138,4 @@ There are several requirements and considerations to keep in mind when planning 
 [ip-address-planning]: concepts-network-ip-address-planning.md]
 [kubenet]: concepts-network-legacy-cni.md#kubenet
 [legacy-cni-options]: concepts-network-legacy-cni.md
+[support-policies]: support-policies.md

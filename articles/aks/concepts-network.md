@@ -2,7 +2,7 @@
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
 description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 05/14/2024
 author: schaffererin
 ms.author: schaffererin
 ms.custom: fasttrack-edit
@@ -49,80 +49,15 @@ In the context of the Azure platform:
 
 In AKS, you can deploy a cluster that uses one of the following network models:
 
-- **Kubenet* networking**
+- Overlay Networking Model
 
-  The network resources are typically created and configured as the AKS cluster is deployed.
+  Overlay networking is the most common networking model used in Kubernetes. Pods are given an IP address from a private, logically separate CIDR from the Azure VNet subnet where AKS nodes are deployed. This allows for simpler and often better scalability than the flat network model.
 
-- ***Azure Container Networking Interface (CNI)* networking**
+- Flat Networking Model
+  
+  Unlike an overlay network, a flat network model in AKS assigns IP addresses to pods from a subnet from the same Azure VNet as the AKS nodes. This means that traffic leaving your clusters is not SNAT'd, and the pod IP address is directly exposed to the destination. This can be useful for some scenarios, such as when you need to expose pod IP addresses to external services.
 
-  The AKS cluster is connected to existing virtual network resources and configurations.
-
-### Kubenet (basic) networking
-
-The *kubenet* networking option is the default configuration for AKS cluster creation. With *kubenet*:
-
-1. Nodes receive an IP address from the Azure virtual network subnet.
-1. Pods receive an IP address from a logically different address space than the nodes' Azure virtual network subnet.
-1. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network.
-1. The source IP address of the traffic is translated to the node's primary IP address.
-
-Nodes use the kubenet Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet.
-
-Only the nodes receive a routable IP address. The pods use NAT to communicate with other resources outside the AKS cluster. This approach reduces the number of IP addresses you need to reserve in your network space for pods to use.
-
-> [!NOTE]
-> While kubenet is the default networking option for an AKS cluster to create a virtual network and subnet, it isn't recommended for production deployments. For most production deployments, you should plan for and use Azure CNI networking due to its superior scalability and performance characteristics.
-
-For more information, see [Configure kubenet networking for an AKS cluster][aks-configure-kubenet-networking].
-
-### Azure CNI (advanced) networking
-
-With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be planned in advance and unique across your network space. Each node has a configuration parameter for the maximum number of pods it supports. The equivalent number of IP addresses per node are then reserved up front. This approach can lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow, so it's important to plan properly. To avoid these planning challenges, it's possible to enable the feature [Azure CNI networking for dynamic allocation of IPs and enhanced subnet support][configure-azure-cni-dynamic-ip-allocation].
-
-> [!NOTE]
-> Due to Kubernetes limitations, the Resource Group name, the Virtual Network name and the subnet name must be 63 characters or less.
-
-Unlike kubenet, traffic to endpoints in the same virtual network isn't translated (NAT) to the node's primary IP. The source address for traffic inside the virtual network is the pod IP. Traffic that's external to the virtual network still NATs to the node's primary IP.
-
-Nodes use the [Azure CNI][cni-networking] Kubernetes plugin.
-
-![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram]
-
-For more information, see [Configure Azure CNI for an AKS cluster][aks-configure-advanced-networking].
-
-### Azure CNI Overlay networking
-
-[Azure CNI Overlay][azure-cni-overlay] represents an evolution of Azure CNI, addressing scalability and planning challenges arising from the assignment of virtual network IPs to pods. Azure CNI Overlay assigns private CIDR IPs to pods. The private IPs are separate from the virtual network and can be reused across multiple clusters. Azure CNI Overlay can scale beyond the 400 node limit enforced in Kubenet clusters. Azure CNI Overlay is the recommended option for most clusters.
-
-### Azure CNI Powered by Cilium
-
-[Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement. It integrates natively with [Azure CNI Overlay][azure-cni-overlay] for scalable IP address management (IPAM).
-
-Additionally, Cilium enforces network policies by default, without requiring a separate network policy engine. Azure CNI Powered by Cilium can scale beyond [Azure Network Policy Manager's limits of 250 nodes / 20-K pod][use-network-policies] by using ePBF programs and a more efficient API object structure.
-
-Azure CNI Powered by Cilium is the recommended option for clusters that require network policy enforcement.
-
-### Bring your own CNI
-
-It's possible to install in AKS a non-Microsoft CNI using the [Bring your own CNI][use-byo-cni] feature.
-
-### Compare network models
-
-Both kubenet and Azure CNI provide network connectivity for your AKS clusters. However, there are advantages and disadvantages to each. At a high level, the following considerations apply:
-
-For more information on Azure CNI and kubenet and to help determine which option is best for you, see [Configure Azure CNI networking in AKS][azure-cni-aks] and [Use kubenet networking in AKS][aks-configure-kubenet-networking].
-
-### Support scope between network models
-
-Whatever network model you use, both kubenet and Azure CNI can be deployed in one of the following ways:
-
-- The Azure platform can automatically create and configure the virtual network resources when you create an AKS cluster.
-- You can manually create and configure the virtual network resources and attach to those resources when you create your AKS cluster.
-
-Although capabilities like service endpoints or UDRs are supported with both kubenet and Azure CNI, the [support policies for AKS][support-policies] define what changes you can make. For example:
-
-- If you manually create the virtual network resources for an AKS cluster, you're supported when configuring your own UDRs or service endpoints.
-- If the Azure platform automatically creates the virtual network resources for your AKS cluster, you can't manually change those AKS-managed resources to configure your own UDRs or service endpoints.
+For more information on networking models in AKS, see [CNI Networking in AKS][network-cni-overview].
 
 ## Ingress controllers
 
@@ -237,10 +172,10 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [agic-overview]: ../application-gateway/ingress-controller-overview.md
+[network-cni-overview]: concepts-network-cni-overview.md
 [configure-azure-cni-dynamic-ip-allocation]: configure-azure-cni-dynamic-ip-allocation.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
-[support-policies]: support-policies.md
 [limit-egress]: limit-egress-traffic.md
 [k8s-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ip-preservation]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-client-source-ip-preservation-works-for-loadbalancer/ba-p/3033722#:~:text=Enable%20Client%20source%20IP%20preservation%201%20Edit%20loadbalancer,is%20the%20same%20as%20the%20source%20IP%20%28srjumpbox%29.
