@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 Azure Files geo-redundancy for large file shares significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. 
 
-Azure Files has offered 100 TiB standard SMB shares for years with locally redundant storage (LRS) and zone-redundant storage (ZRS). However, geo-redundant file shares had a 5 TiB capacity limit and were sometimes throttled due to IO operations per second (IOPS) and throughput limits. Now, geo-redundant standard SMB file shares support up to 100 TiB capacity with significantly improved IOPS and throughput limits.
+Azure Files has offered 100 TiB standard SMB shares for years with locally redundant storage (LRS) and zone-redundant storage (ZRS). However, geo-redundant file shares had a 5 TiB capacity limit and were sometimes throttled due to IO operations per second (IOPS) and throughput limits. Now, geo-redundant standard SMB file shares support up to 100 TiB capacity with improved IOPS and throughput limits.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -37,7 +37,7 @@ If the primary region becomes unavailable for any reason, you can [initiate an a
 
 ## New limits for geo-redundant shares
 
-In regions that are now generally available, all standard SMB file shares that are geo-redundant (both new and existing) now support up to 100TiB capacity and have much higher performance limits: 
+In regions that are now generally available, all standard SMB file shares that are geo-redundant (both new and existing) now support up to 100TiB capacity and have higher performance limits: 
 
 | **Attribute** | **Previous limit** | **New limit** |
 |---------------|-------------------|---------------|
@@ -46,7 +46,7 @@ In regions that are now generally available, all standard SMB file shares that a
 | Max throughput per share | Up to 60 MiB/s | Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) (150x increase) |
 
 ## Region availability
-Azure Files geo-redundancy for large file shares is generally available in all regions except China East 2 and China North 2 which are still in preview. 
+Azure Files geo-redundancy for large file shares is generally available in all regions except China East 2 and China North 2, which are still in preview. 
 
 ## Pricing
 
@@ -73,11 +73,11 @@ Register-AzProviderFeature -FeatureName AllowLfsForGRS -ProviderNamespace Micros
 ```
 ---
 
-## Configure geo-redundancy and 100TiB capacity for standard SMB file shares 
+## Configure geo-redundancy and 100 TiB capacity for standard SMB file shares 
 
 In regions that are now generally available:
-- All standard SMB file shares (new and existing) support up to 100 TiB capacity and you can select any redundancy option supported in the region. Since all standard SMB file shares now support up to 100TiB capacity, the LargeFileSharesState property on storage accounts is no longer used and will be removed in the future. 
-- If you have existing file shares, you can now increase the file share size up to 100TiB (share quotas are not automatically increased).
+- All standard SMB file shares (new and existing) support up to 100 TiB capacity and you can select any redundancy option supported in the region. Since all standard SMB file shares now support up to 100 TiB capacity, the LargeFileSharesState property on storage accounts is no longer used and will be removed in the future. 
+- If you have existing file shares, you can now increase the file share size up to 100 TiB (share quotas are not automatically increased).
 - Performance limits (IOPS and throughput) for your file shares have automatically increased to the storage account limits. 
 
 Perform the following steps to configure 100TiB shares and geo-redundancy for new and existing SMB file shares:
@@ -92,15 +92,15 @@ Perform the following steps to configure geo-redundancy for a new Azure file sha
 #### Existing storage accounts with a redundancy option of LRS or ZRS
 
 1. [Change the redundancy option](../common/redundancy-migration.md?tabs=portal#change-the-redundancy-configuration-using-azure-portal-powershell-or-azure-cli) for your storage account to GRS or GZRS.
-2. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) will default to 100TiB.
+2. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) will default to 100 TiB.
 
 #### Existing storage accounts with a redundancy option of GRS, GZRS, RA-GRS, or RA-GZRS
 
-1. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) will default to 100TiB.
+1. [Increase the file share quota](storage-how-to-create-file-share.md?tabs=azure-portal#expand-existing-file-shares) up to 100 TiB. [New file shares that are created](storage-how-to-create-file-share.md?tabs=azure-portal#create-a-file-share) will default to 100 TiB.
 
 ## Snapshot and sync frequency
 
-To ensure file shares are in a consistent state when a failover occurs, a system snapshot is created in the primary region every 15 minutes and is replicated to the secondary region. When a failover occurs to the secondary region, the share state will be based on the latest system snapshot in the secondary region. Due to geo-lag or other issues, the latest system snapshot in the secondary region may be older than 15 minutes.
+To ensure file shares are in a consistent state when a failover occurs, a system snapshot is created in the primary region every 15 minutes and is replicated to the secondary region. When a failover occurs to the secondary region, the share state is based on the latest system snapshot in the secondary region. Due to geo-lag or other issues, the latest system snapshot in the secondary region may be older than 15 minutes.
 
 The Last Sync Time (LST) property on the storage account indicates the last time that data from the primary region was written successfully to the secondary region. For Azure Files, the Last Sync Time is based on the latest system snapshot in the secondary region. You can use PowerShell or Azure CLI to [check the Last Sync Time](../common/last-sync-time-get.md#get-the-last-sync-time-property) for a storage account.
 
@@ -114,11 +114,11 @@ It's important to understand the following about the Last Sync Time property:
 
 This section lists considerations that might impact your ability to fail over to the secondary region.
 
-- Storage account failover will be blocked if a system snapshot doesn't exist in the secondary region.
-- Storage account failover will be blocked if the storage account contains more than 100,000 file shares. To failover the storage account, open a support request.
+- Storage account failover is blocked if a system snapshot doesn't exist in the secondary region.
+- Storage account failover is blocked if the storage account contains more than 100,000 file shares. To failover the storage account, open a support request.
 - File handles and leases aren't retained on failover, and clients must unmount and remount the file shares.
 - File share quota might change after failover. The file share quota in the secondary region will be based on the quota that was configured when the system snapshot was taken in the primary region.
-- Copy operations in progress will be aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
+- Copy operations in progress are aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
 
 To failover a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
 
