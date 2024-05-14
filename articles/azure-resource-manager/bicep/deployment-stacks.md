@@ -594,6 +594,13 @@ To delete a managed resource, remove the resource definition from the underlying
 
 When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
 
+A specific permission is required at the stack scope in order to do any of the following:
+
+- Create or update a deployment stack and set the deny setting to a value other than "None".
+- Update or delete a deployment stack with an existing deny setting of something other than "None"
+
+The built-in owners role has this permission by default. However, the built-in contributor role doesn't have this permission.
+
 # [PowerShell](#tab/azure-powershell)
 
 The Azure PowerShell includes these parameters to customize the deny assignment:
