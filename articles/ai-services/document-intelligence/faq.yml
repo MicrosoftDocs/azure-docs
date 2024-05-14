@@ -76,7 +76,7 @@ sections:
           Does Document Intelligence integrate with other Microsoft services?
         answer: |
 
-          Yes, Document Intelligence integrates with the following services:
+          "Yes, Document Intelligence integrates with the following services:"
 
           - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json)
 
@@ -260,11 +260,11 @@ sections:
          Are there separate URL endpoints for Document Intelligence sovereign cloud regions?
         answer: |
 
-          Yes. Document Intelligence Studio has separate URL endpoints for sovereign cloud regions. For example,
+          "Yes. Document Intelligence Studio has separate URL endpoints for sovereign cloud regions:"
 
-          - "Here is the URL for the Azure US Government cloud (Azure Fairfax): [Document Intelligence Studio US Government](https://formrecognizer.appliedai.azure.us/studio)".
+          - "URL for the Azure US Government cloud (Azure Fairfax): [Document Intelligence Studio US Government](https://formrecognizer.appliedai.azure.us/studio)".
 
-          - "Here is the URL Microsoft Azure operated by 21Vianet (Azure in China): [Document Intelligence Studio China](https://formrecognizer.appliedai.azure.cn/studio)".
+          - "URL Microsoft Azure operated by 21Vianet (Azure in China): [Document Intelligence Studio China](https://formrecognizer.appliedai.azure.cn/studio)".
 
 
   - name: App development
