@@ -54,7 +54,7 @@ See the following table for the input limitations of the service.
 |       Number of concurrent builds (processes) per category      |       1       |
 |       Inference operations per second           |    10          |
 |        Number of custom categories in one text analyze request          |       5       |
-|        Number of samples in a category version          |        minimum 50, maximum 10K (no dupilicate samples allowed)      |
+|        Number of samples in a category version          |        minimum 50, maximum 10K (no duplicate samples allowed)      |
 |       Sample file size       |     maximum 128000 bytes         |
 |       Length of a text sample           |          maximum 125K characters   |
 |        Length of a category definition          |       maximum 1000 characters     |
