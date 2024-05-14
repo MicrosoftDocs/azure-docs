@@ -1,10 +1,10 @@
 ---
-title: "include file"
-description: "include file"
+title: "Include file"
+description: "Include file"
 services: healthcare-apis
 ms.service: fhir
-ms.topic: "include"
-ms.date: 07/25/2023
+ms.topic: "Include"
+ms.date: 05/14/2024
 ms.author: kesheth
 ms.custom: "include file"
 ---
@@ -65,9 +65,9 @@ For a batch, each entry is treated as an individual interaction or operation.
 > [!NOTE]
 > For batch bundles there are no interdependencies between different entries in a FHIR bundle. The success or failure of one entry doesn't impact the success or failure of another entry.
 
-For a transaction bundle, all interactions or operations either succeed or fail together. When a transaction bundle fails the FHIR service returns a single `OperationOutcome`. 
+For a transaction bundle, all interactions or operations either succeed or fail together. When a transaction bundle fails, the FHIR service returns a single `OperationOutcome`. 
 
-Transaction bundles doesn't support:
+Transaction bundles don't support:
 - Conditional delete
 - Search operations using _search 
 
@@ -76,5 +76,5 @@ Transaction bundles doesn't support:
 Batch and transaction bundles are executed serially in the FHIR service. To improve performance and throughput, we enabled parallel processing of bundles.
 
 To use parallel batch bundle processing:
-- Set header “x-bundle-processing-logic” value to “parallel”. 
-- Ensure there's no overlapping resource ID that executes on DELETE, POST, PUT or PATCH operations in the same bundle.
+- Set header `x-bundle-processing-logic` value to 1parallel`.
+- Ensure there's no overlapping resource ID that executes on DELETE, POST, PUT, or PATCH operations in the same bundle.
