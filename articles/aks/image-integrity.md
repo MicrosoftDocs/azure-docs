@@ -87,7 +87,7 @@ Image Integrity uses Ratify, Azure Policy, and Gatekeeper to validate signed ima
 
     ```azurecli-interactive
     export SCOPE="/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}"
-    export LOCATION=$(az group show -n ${RESOURCE_GROUP} --query location -o tsv)
+    export LOCATION=$(az group show --name ${RESOURCE_GROUP} --query location -o tsv)
 
     az policy assignment create --name 'deploy-trustedimages' --policy-set-definition 'af28bf8b-c669-4dd3-9137-1e68fdc61bd6' --display-name 'Audit deployment with unsigned container images' --scope ${SCOPE} --mi-system-assigned --role Contributor --identity-scope ${SCOPE} --location ${LOCATION}
     ```
@@ -98,8 +98,8 @@ Image Integrity uses Ratify, Azure Policy, and Gatekeeper to validate signed ima
 > The policy deploys the Image Integrity feature on your cluster when it detects any update operation on the cluster. If you want to enable the feature immediately, you need to create a policy remediation using the [`az policy remediation create`][az-policy-remediation-create] command.
 >
 > ```azurecli-interactive
-> assignment_id=$(az policy assignment show -n 'deploy-trustedimages' --scope ${SCOPE} --query id -o tsv)
-> az policy remediation create  -a "$assignment_id" --definition-reference-id deployAKSImageIntegrity -n remediation -g ${RESOURCE_GROUP}
+> assignment_id=$(az policy assignment show --name 'deploy-trustedimages' --scope ${SCOPE} --query id -o tsv)
+> az policy remediation create --policy-assignment "$assignment_id" --definition-reference-id deployAKSImageIntegrity --name remediation --resource-group ${RESOURCE_GROUP}
 > ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -218,7 +218,7 @@ If you want to use your own images, see the [guidance for image signing](../cont
 * Disable Image Integrity on your cluster using the [`az aks update`][az-aks-update] command with the `--disable-image-integrity` flag.
 
     ```azurecli-interactive
-    az aks update -g myResourceGroup -n MyManagedCluster --disable-image-integrity
+    az aks update --resource-group myResourceGroup --name MyManagedCluster --disable-image-integrity
     ```
 
 ### Remove policy initiative
