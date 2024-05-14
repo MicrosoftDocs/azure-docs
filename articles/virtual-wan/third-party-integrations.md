@@ -29,7 +29,7 @@ Integrated NVAs typically fall into three categories based on their capabilities
 * **Next-generation Firewall**: NVAs in the hub serve as a security appliance in the Virtual WAN hub, allowing you to inspect traffic between on-premises, Azure Virtual Networks and the Internet.
 * **Dual-role connectivity and Firewall**: NVAs in the hub that provide both connectivity and next-generation firewall security capabiliites on the same device.  
 
-For more information on  Integrated NVAs in the Virtual WAN hub, see [NVA in the hub documentation](about-nva-hub.md). 
+For more information on  Integrated NVAs in the Virtual WAN hub, see [NVA in the hub documentation](about-nva-hub.md).
 
 The following solutions are currently available as Integrated NVA partners:
 
@@ -41,8 +41,6 @@ The following solutions are currently available as Integrated NVA partners:
 
 For additional documentation and resources on each Integrated NVA solution, see [NVA in the hub partners](about-nva-hub.md#partners).
 
-
-
 ## Software-as-a-service (SaaS) solutions
 
 SaaS solutions in Virtual WAN are SaaS provider-managed software offerings that are deployed through Azure Marketplace directly into your Virtual WAN hub. Software-as-a-service solutions are deployed and transacted through Azure Marketplace. SaaS abstracts the underlying infrastructure that's needed to run networking and security software in Virtual WAN and provides customers a cloud-native operational interface to program and customize SaaS configurations.
@@ -50,7 +48,7 @@ SaaS solutions in Virtual WAN are SaaS provider-managed software offerings that 
 
 The SaaS provider is also in charge of the end-to-end lifecycle management of the software, management and configuration of Azure infrastructure, and scalability of the SaaS solution. For more information on the available configurations and architecture of Virtual WAN SaaS solutions, reference your SaaS provider's documentation.
 
-:::image type="content" source="./media/third-party-solutions/software-as-a-service.png" alt-text="SaaS architecture diagram." lightbox="./media/third-party-solutions/software-as-as-service.png":::
+:::image type="content" source="./media/third-party-solutions/software-as-a-service.png" alt-text="SaaS architecture diagram." lightbox="./media/third-party-solutions/software-as-a-service.png":::
 
 Palo Alto Networks Cloud NGFW is the only SaaS solution available in Virtual WAN today and enables next-generation firewall inspection use cases. For more information on the SaaS solution provided by Palo Alto Networks, see [Palo Alto Networks Cloud NGFW documentation](how-to-palo-alto-cloud-ngfw.md)
 
@@ -58,7 +56,7 @@ Palo Alto Networks Cloud NGFW is the only SaaS solution available in Virtual WAN
 
 Azure Firewall Manager security partner integrations automates connecting Virtual WAN to a third-party security-as-a-service (SECaaS) offering to protect internet access for your users. SECaaS solutions are hosted by the SECaaS provider and aren't deployed directly into the Virtual WAN hub. When a SECaaS solution is deployed via Azure Firewall Manager, a Site-to-site VPN tunnel between the third-party security infrastructure and your Virtual WAN hub's Site-to-site VPN Gateway is created automatically.
 
-:::image type="content" source="./media/third-party-solutions/security-as-a-service.png" alt-text="SECaaS architecture diagram." lightbox="./media/third-party-solutions/security-as-as-service.png":::
+:::image type="content" source="./media/third-party-solutions/security-as-a-service.png" alt-text="SECaaS architecture diagram."./media/third-party-solutions/security-as-a-service.png":::
 
 Configuration and infrastructure management on the SECaaS solution are available via SECaas provided management tools. 
 
