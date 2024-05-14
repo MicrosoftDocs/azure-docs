@@ -28,7 +28,8 @@ ___
 **Browser version:** Safari 17 and up. <br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** A bug was found in one of the updates of the macOS Safari 17 that is causing our background effects implementation frame capture to skip frames and hence might cause video flashing both in the local preview and the remote side.<br>
-- A fix is available starting from Safari version 17.5 (macOS Sonoma 14.5).
+- A fix is available starting from Safari version 17.5 (macOS Sonoma 14.5).<br>
+
 **Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v17.5) where this issue has been resolved.<br>
 
 ### Incoming and outgoing video blinking issue on macOS Sonoma with Safari versions up to 17.1
