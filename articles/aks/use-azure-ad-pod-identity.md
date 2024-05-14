@@ -91,7 +91,7 @@ Create an AKS cluster with Azure CNI and pod-managed identity enabled. The follo
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network-plugin azure
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-pod-identity --network-plugin azure
 ```
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your development computer.
@@ -108,7 +108,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 Update an existing AKS cluster with Azure CNI to include pod-managed identity.
 
 ```azurecli-interactive
-az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity
+az aks update --resource-group $MY_RESOURCE_GROUP --name $MY_CLUSTER --enable-pod-identity
 ```
 
 <a name='using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities'></a>
@@ -155,7 +155,7 @@ spec:
 Create an AKS cluster with Kubenet network plugin and pod-managed identity enabled.
 
 ```azurecli-interactive
-az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+az aks create --resource-group $MY_RESOURCE_GROUP --name $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## Update an existing AKS cluster with Kubenet network plugin
@@ -163,7 +163,7 @@ az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enabl
 Update an existing AKS cluster with Kubenet network plugin to include pod-managed identity.
 
 ```azurecli-interactive
-az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+az aks update --resource-group $MY_RESOURCE_GROUP --name $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## Create an identity
@@ -178,8 +178,8 @@ az group create --name myIdentityResourceGroup --location eastus
 export IDENTITY_RESOURCE_GROUP="myIdentityResourceGroup"
 export IDENTITY_NAME="application-identity"
 az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
-export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
-export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
+export IDENTITY_CLIENT_ID="$(az identity show --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME} --query clientId -o tsv)"
+export IDENTITY_RESOURCE_ID="$(az identity show --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME} --query id -o tsv)"
 ```
 
 ## Assign permissions for the managed identity
@@ -190,10 +190,10 @@ To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Mac
 
 ```azurecli-interactive
 # Obtain the name of the resource group containing the Virtual Machine Scale set of your AKS cluster, commonly called the node resource group
-NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 
 # Obtain the id of the node resource group 
-NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+NODES_RESOURCE_ID=$(az group show --name $NODE_GROUP -o tsv --query "id")
 
 # Create a role assignment granting your managed identity permissions on the node resource group
 az role assignment create --role "Virtual Machine Contributor" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
@@ -334,7 +334,7 @@ az aks pod-identity delete --name ${POD_IDENTITY_NAME} --namespace ${POD_IDENTIT
 ```
 
 ```azurecli
-az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
+az identity delete --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
 ```
 
 ```azurecli
