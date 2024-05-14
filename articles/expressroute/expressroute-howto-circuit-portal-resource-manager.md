@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create, provision, verify, upd
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 05/09/2024
+ms.date: 05/14/2024
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: mode-ui
@@ -255,7 +255,7 @@ To modify an ExpressRoute circuit, select **Configuration**.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovision-after-deletion.png" alt-text="Screenshot of deprovisioning the ExpressRoute circuit.":::
 
-1. After your circuit service provider has confirmed that they've deprovisioned the circuit, confirm that the *Provider status* changes to **Not provisioned** in the Azure portal. Once the *Provider status* is **Not provisioned**, you are able to delete the circuit.
+1. After your circuit service provider has confirmed that they've deprovisioned the circuit, confirm that the *Provider status* changes to **Not provisioned** in the Azure portal. Once the *Provider status* is **Not provisioned**, you'll be able to delete the circuit.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovisioned.png" alt-text="Screenshot of deprovisioned circuit.":::
 
