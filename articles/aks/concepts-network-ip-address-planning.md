@@ -69,8 +69,8 @@ The maximum number of pods per node in an AKS cluster is 250. The _default_ maxi
 |---------------------|------------------|----------------------------|
 | Azure CNI Overlay   | 250              | Yes (up to 250)            |
 | Azure CNI Podsubnet | 110              | Yes (up to 250)            |
-| Azure CNI (Legacy)  | 110              | Yes (up to 250)            |
-| Kubenet             | 30               | Yes (up to 250)            |
+| Azure CNI (Legacy)  | 30               | Yes (up to 250)            |
+| Kubenet             | 110              | Yes (up to 250)            |
 
 ### Configure maximum pods per node for new clusters
 
