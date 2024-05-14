@@ -3,7 +3,7 @@ title: Connect Microsoft Entra data to Microsoft Sentinel | Microsoft Docs
 description: Learn how to collect data from Microsoft Entra ID, and stream Microsoft Entra sign-in, audit, and provisioning logs into Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 12/23/2021
+ms.date: 05/13/2024
 ms.author: yelevin
 ---
 
@@ -24,6 +24,7 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Micros
 - [**Audit logs**](../active-directory/reports-monitoring/concept-audit-logs.md), which contain information about system activity relating to user and group management, managed applications, and directory activities.
 
 - [**Provisioning logs**](../active-directory/reports-monitoring/concept-provisioning-logs.md) (also in **PREVIEW**), which contain system activity information about users, groups, and roles provisioned by the Microsoft Entra provisioning service. 
+- [**Microsoft Graph activity logs**](/graph/microsoft-graph-activity-logs-overview), which contain information about HTTP requests accessing your tenant’s resources through the Microsoft Graph API.
 
 > [!IMPORTANT]
 > Some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -61,6 +62,7 @@ After a successful connection is established, the data appears in **Logs**, unde
 - `AADServicePrincipalSignInLogs`
 - `AADManagedIdentitySignInLogs`
 - `AADProvisioningLogs`
+- `MSGraphActivityLogs`
 
 To query the Microsoft Entra logs, enter the relevant table name at the top of the query window.
 
