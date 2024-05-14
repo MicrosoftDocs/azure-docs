@@ -121,6 +121,7 @@ The following functions are available for working with objects. All of these fun
 * [json](./bicep-functions-object.md#json)
 * [length](./bicep-functions-object.md#length)
 * [objectKeys](./bicep-functions-object.md#objectkeys)
+* [shallowMerge](./bicep-functions-object.md#shallowmerge)
 * [union](./bicep-functions-object.md#union)
 
 ## Parameters file functions

@@ -4,12 +4,10 @@ description: This article describes the storage options in Azure Database for Po
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/30/2024
+ms.date: 05/13/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.custom:
-  - ignite-2023
 ---
 
 # Storage options in Azure Database for PostgreSQL - Flexible Server
@@ -134,7 +132,7 @@ Remember that storage can only be scaled up, not down.
 > [!NOTE]  
 > Storage auto-grow never triggers an offline increase.
 
-## IOPS (preview)
+## IOPS
 
 Azure Database for PostgreSQL flexible server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time.
 
