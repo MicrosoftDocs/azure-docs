@@ -16,17 +16,17 @@ On this page, you can read about recent updates about Azure Web PubSub. As we ma
 
 ## Q1 2024
 
-### Web PubSub VS Code extension is in public preview
+### Service VS Code extension is in public preview
 Developers can manage Azure Web PubSub resources on Azure portal or using Azure CLI. Now with the release of Web PubSub service’s VS Code extension, developers who use VS Code enjoy the benefit of managing their Web PubSub resources right from within their code editor. This extension minimizes context switching and improves developers’ productivity.
 
 **Features included:**
 - View, create, delete, and restart Azure Web PubSub resources
 - View, create, delete hub settings
-- View, create, delete and update event handlers
+- View, create, delete, and update event handlers
 - View resource metrics
 - Scale up and scale out
 - Check resource health
-- Re-generate access key
+- Regenerate access key
 - Copy connection string or endpoint of the service to clipboard
 - Switch the anonymous connect policy of hub setting
 - Attach [Azure Web PubSub local tunnel tool](./howto-web-pubsub-tunnel-tool.md)
