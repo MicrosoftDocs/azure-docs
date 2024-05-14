@@ -21,7 +21,7 @@ If the User Principal Name for a user isn't a member of the supplied group, the 
 > [!NOTE]
 > There is currently a transitional period where specifying User Principal Names is optional. In a future release, it will become mandatory and Microsoft Entra ID validation will be enforced for all users. Users are encouraged to add User Principal Names to their keysets before the transitional period ends (planned for July 2024) to avoid keysets being invalidated. Note that if any User Principal Names are added to a keyset, even if they are not added for all users, Microsoft Entra ID validation will be enabled, and this will result in the entire keyset being invalidated if the Group ID specified is not valid.
 
-When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine actionreimage` or `az networkcloud baremetalmachine actionreplace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
+When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine reimage` or `az networkcloud baremetalmachine replace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
 
 There's no limit to the number of users in a group.
 
@@ -56,21 +56,21 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset create \
-  --name <bare metal machine Keyset Name> \
-  --extended-location name=<Extended Location ARM ID> \
+  --name "<bare metal machine Keyset Name>" \
+  --extended-location name="<Extended Location ARM ID>" \
     type="CustomLocation" \
-  --location <Azure Region> \
-  --azure-group-id <Azure Group ID> \
-  --expiration <Expiration Timestamp> \
-  --jump-hosts-allowed <List of jump server IP addresses> \
-  --os-group-name <Name of the Operating System Group> \
-  --privilege-level <"Standard" or "Superuser"> \
+  --location "<Azure Region>" \
+  --azure-group-id "<Azure Group ID>" \
+  --expiration "<Expiration Timestamp>" \
+  --jump-hosts-allowed "<List of jump server IP addresses>" \
+  --os-group-name "<Name of the Operating System Group>" \
+  --privilege-level "<"Standard" or "Superuser">" \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
     "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
     "userPrincipalName":""}]', \
-  --tags key1=<Key Value> key2=<Key Value> \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --tags key1="<Key Value>" key2="<Key Value>" \
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### Create Arguments
@@ -100,7 +100,7 @@ az networkcloud cluster baremetalmachinekeyset create \
   --privilege-level                           [Required] : The access level allowed for the users
                                                            in this key set.  Allowed values:
                                                            "Standard" or "Superuser".
-  --resource-group -g                         [Required] : Name of resource group. Optional if
+  --resource-group -g                         [Required] : Name of cluster resource group. Optional if
                                                            configuring the default group using `az
                                                            configure --defaults group=<name>`.
   --user-list                                 [Required] : The unique list of permitted users.
@@ -149,9 +149,9 @@ This example creates a new keyset with two users that have standard access from 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset create \
   --name "bareMetalMachineKeySetName" \
-  --extended-location name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName" \
+  --extended-location name="/subscriptions/subscriptionId/resourceGroups/cluster_RG/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName" \
     type="CustomLocation" \
-  --location "location" \
+  --location "eastus" \
   --azure-group-id "f110271b-XXXX-4163-9b99-214d91660f0e" \
   --expiration "2022-12-31T23:59:59.008Z" \
   --jump-hosts-allowed "192.0.2.1" "192.0.2.5" \
@@ -161,7 +161,7 @@ az networkcloud cluster baremetalmachinekeyset create \
   {"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userXYZ","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, "userPrincipalName":"example@contoso.com"}]' \
   --tags key1="myvalue1" key2="myvalue2" \
   --cluster-name "clusterName"
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_RG"
 ```
 
 For assistance in creating the `--user-list` structure, see [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md).
@@ -174,9 +174,9 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset delete \
-  --name <bare metal machine Keyset Name> \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group Name>
+  --name "<bare metal machine Keyset Name>" \
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### Delete Arguments
@@ -185,7 +185,7 @@ az networkcloud cluster baremetalmachinekeyset delete \
     --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key set to be
                                                              deleted.
     --cluster-name                              [Required] : The name of the cluster.
-    --resource-group -g                         [Required] : Name of resource group. Optional if configuring the
+    --resource-group -g                         [Required] : Name of cluster resource group. Optional if configuring the
                                                              default group using `az configure --defaults
                                                              group=<name>`.
     --no-wait                                              : Do not wait for the long-running operation to
@@ -199,7 +199,7 @@ This example removes the "bareMetalMachineKeysetName" keyset group in the "clust
 az networkcloud cluster baremetalmachinekeyset delete \
   --name "bareMetalMachineKeySetName" \
   --cluster-name "clusterName" \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_RG"
 ```
 
 ## Updating a Bare Metal Machine Keyset
@@ -210,15 +210,15 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset update \
-  --name <bare metal machine Keyset Name> \
-  --jump-hosts-allowed <List of jump server IP addresses> \
-  --privilege-level <"Standard" or "Superuser"> \
+  --name "<bare metal machine Keyset Name>" \
+  --jump-hosts-allowed "<List of jump server IP addresses>" \
+  --privilege-level "<"Standard" or "Superuser">" \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
    "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
    "userPrincipalName":""}]', \
-  --tags key1=<Key Value> key2=<Key Value> \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --tags key1="<Key Value>" key2="<Key Value> "\
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### Update Arguments
@@ -245,7 +245,7 @@ az networkcloud cluster baremetalmachinekeyset update \
       userPrincipalName: Optional. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
-  --resource-group -g                         [Required] : Name of resource group. Optional if
+  --resource-group -g                         [Required] : Name of cluster resource group. Optional if
                                                            configuring the default group using `az
                                                            configure --defaults group=<name>`.
   --tags                                                 : Space-separated tags: key[=value]
@@ -270,7 +270,7 @@ az networkcloud cluster baremetalmachinekeyset update \
     "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, \
     "userPrincipalName":"example@contoso.com"}]' \
    --cluster-name "clusterName" \
-  --resource-group "resourceGroupName"
+  --resource-group "cluster_RG"
 ```
 
 ## Listing Bare Metal Machine Keysets
@@ -281,15 +281,15 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset list \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### List Arguments
 
 ```azurecli
   --cluster-name                              [Required] : The name of the cluster.
-  --resource-group -g                         [Required] : Name of resource group. Optional if
+  --resource-group -g                         [Required] : Name of cluster resource group. Optional if
                                                            configuring the default group using `az
                                                            configure --defaults group=<name>`.
 ```
@@ -302,8 +302,8 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset show \
-  --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --cluster-name "<Cluster Name>" \
+  --resource-group "<cluster_RG>"
 ```
 
 ### Show Arguments
@@ -312,7 +312,7 @@ az networkcloud cluster baremetalmachinekeyset show \
   --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key
                                                            set.
   --cluster-name                              [Required] : The name of the cluster.
-  --resource-group -g                         [Required] : Name of resource group. You can
+  --resource-group -g                         [Required] : Name of cluster resource group. You can
                                                            configure the default group using `az
                                                            configure --defaults group=<name>`.
 ```
