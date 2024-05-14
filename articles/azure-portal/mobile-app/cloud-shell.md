@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Use Cloud Shell in the Azure mobile app
 
-The Azure Cloud Shell feature in the Azure mobile app provides an interactive, authenticated, browser-accessible terminal for managing Azure resources. for managing your Azure resources.
+The Azure Cloud Shell feature in the Azure mobile app provides an interactive, authenticated, browser-accessible terminal for managing Azure resources.
 
 You can execute commands in Cloud Shell through either Bash or PowerShell, and you can switch shells anytime.
 
@@ -15,7 +15,7 @@ You can execute commands in Cloud Shell through either Bash or PowerShell, and y
 
 ## Access Cloud Shell in the Azure mobile app
 
-To launch Cloud Shell from within the Azure mobile app, selet the **Cloud Shell** card on the [Azure mobile app **Home**](home.md). If you don't see the **Cloud Shell** card, you may need to scroll down. You can rearrange the order in which cards are displayed by selecting the **Edit** (pencil) icon on Azure mobile app **Home**.
+To launch Cloud Shell from within the Azure mobile app, select the **Cloud Shell** card on the [Azure mobile app **Home**](home.md). If you don't see the **Cloud Shell** card, you may need to scroll down. You can rearrange the order in which cards are displayed by selecting the **Edit** (pencil) icon on Azure mobile app **Home**.
 
 :::image type="content" source="media/cloud-shell/cloud-shell-home.png" alt-text="Screenshot showing the Azure mobile app Home with the Cloud Shell card.":::
 
@@ -23,7 +23,7 @@ To launch Cloud Shell from within the Azure mobile app, selet the **Cloud Shell*
 
 Cloud Shell requires a storage account to be associated with your sessions (or an [ephemeral session](/azure/cloud-shell/get-started/ephemeral)). If you already set up a storage account for Cloud shell, or you opted to use ephemeral sessions, that selection is remembered when you launch Cloud Shell in the Azure mobile app.
 
-If you haven't used Cloud Shell before, you'll need to create a new storage account for Cloud Shell. When you first launch Cloud Shell, you'll be prompted to select a subscrpition in which a new storage account will be created.
+If you haven't used Cloud Shell before, you need to create a new storage account for Cloud Shell. When you first launch Cloud Shell, you'll be prompted to select a subscription in which a new storage account will be created.
 
 :::image type="content" source="media/cloud-shell/cloud-shell-storage.png" alt-text="Screenshot of Cloud Shell in the Azure mobile app for a new user. ":::
 
