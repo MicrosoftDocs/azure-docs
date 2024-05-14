@@ -11,10 +11,6 @@ ms.reviewer: mattmcinnes
 
 # Troubleshooting hibernation on Windows VMs
 
-> [!IMPORTANT]
-> Azure Virtual Machines - Hibernation is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Hibernating a virtual machine allows you to persist the VM state to the OS disk. This article describes how to troubleshoot issues with the hibernation feature in Windows, issues creating hibernation enabled Windows VMs, and issues with hibernating a Windows VM.
 
 To view the general troubleshooting guide for hibernation, check out [Troubleshoot hibernation in Azure](../hibernate-resume-troubleshooting.md).
@@ -137,7 +133,8 @@ Commonly seen issues:
 
 | Issue | Action |
 |--|--|
-| Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. | [Ensure that Hyper-V Guest Shutdown Service isn't disabled.](/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service) Enabling this service should resolve the issue. |
+| Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. | [Ensure that Hyper-V Guest Shutdown Service isn't disabled.](/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service) Enabling this service should resolve the issue. You can check the status of Shutdown Service by running *sc query vmicshutdown*|
+| Guest fails to hibernate because Power Service is disabled. | [Ensure that Power Service isn't disabled.](/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server#power) Enabling Power Service and rebooting your guest should resolve the issue. You can check the status of Power Service by running *sc query power*|
 | Guest fails to hibernate because HVCI (Memory integrity) is enabled. | If Memory Integrity is enabled in the guest and you're trying to hibernate the VM, then ensure your guest is running the minimum OS build required to support hibernation with Memory Integrity. <br /> <br /> Win 11 22H2 – Minimum OS Build - 22621.2134 <br /> Win 11 21H1 - Minimum OS Build - 22000.2295 <br /> Win 10 22H2 - Minimum OS Build - 19045.3324 |
 
 Logs needed for troubleshooting:
