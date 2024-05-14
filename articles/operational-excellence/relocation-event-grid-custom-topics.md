@@ -1,6 +1,6 @@
 ---
 title: Relocate Azure Event Grid custom topics to another region
-description: This article shows you how to move Azure Event Grid custom topics from one region to another region.  
+description: This article shows you how to move Azure Event Grid custom topics to another region.  
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024

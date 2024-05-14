@@ -1,6 +1,6 @@
 ---
 title: Relocate an Azure Event Grid domains to another region
-description: This article shows you how to move Azure Event Grid domains from one region to another.
+description: This article shows you how to move Azure Event Grid domains to another region.
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
@@ -43,7 +43,7 @@ To get started, export a Resource Manager template for the domain.
     :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/select-domain.png" alt-text="Select the domain":::   
 4. On the **Event Grid Domain** page, select **Export Template** under **Settings** on the left menu, and then select **Download** on the toolbar. 
 
-    :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/export-template-download.png" alt-text="Export template -> Download" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="media/relocation/event-grid/move-domains-across-regions/export-template-download.png" alt-text="Export template -> Download" lightbox="media/relocation/event-grid/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > Domain and domain topics are exported. Subscriptions for domain topics aren't exported. So, you need to create subscriptions for domain topics after you move domain topics. 
