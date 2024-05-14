@@ -24,7 +24,7 @@ Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to
 
 ### Region and model support
 
-The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are currently supported.
+The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are currently supported. Some [tools](#tools) may have limited regional or model support. For more information, see the article for the tools you want to use.
 
 ### API Version
 
@@ -64,7 +64,7 @@ The [models page](../concepts/models.md#assistants-preview) contains the most up
 
 ### Tools
 
-An individual assistant can access up to 128 tools including `code interpreter`, but you can also define your own custom tools via [functions](./assistant-functions.md).
+An individual assistant can access up to 128 tools including [code interpreter](./code-interpreter.md) and [file search](./file-search.md), but you can also define your own custom tools via [functions](./assistant-functions.md).
 
 ### Files
 

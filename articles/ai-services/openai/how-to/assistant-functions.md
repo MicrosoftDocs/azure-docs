@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 02/01/2024
+ms.date: 05/14/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -25,7 +25,7 @@ The Assistants API supports function calling, which allows you to describe the s
 
 The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are supported.
 
-To use all features of function calling including parallel functions, you need to use the latest models.
+To use all features of function calling including parallel functions, you need to use a model that was released after November 6th 2023.
 
 ### API Version
 
