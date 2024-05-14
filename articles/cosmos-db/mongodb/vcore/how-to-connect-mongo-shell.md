@@ -23,7 +23,7 @@ Here are some prerequisites.
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
 - An installed version of the MongoShell from the community site.
 - Ensure you're setting up the necessary environment variables post installation for your operating system
-- Ensure the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure CosmosDB](../../../cosmos-db/how-to-configure-firewall.md)
+- Ensure the firewall settings to allow the machine to connect. Follow the guidelines for [configuring the firewall for Azure Cosmos DB](../../../cosmos-db/how-to-configure-firewall.md)
     - You can choose to allow requests from your current IP, requests from cloud services or requests from virtual machines - specific IP Ranges
     
 ![Illustration that shows Firewall Settings update for MongoDB Vcore.](media/connect-using-mongo-shell/firewall-settings.gif)
@@ -35,7 +35,7 @@ If you accidentally open all the ports, you're warned before saving the changes.
 To add your Azure Cosmos DB cluster to Mongo shell, perform the following steps:
 1. Retrieve the connection information for your Azure Cosmos DB for MongoDB vCore using the instructions [here](quickstart-portal.md#get-cluster-credentials).
 
-![GIF for getting connection string](./media/connect-using-mongo-shell/get-connections-string-portal.gif)
+![Illustration that shows getting connection string.](./media/connect-using-mongo-shell/get-connection-string-portal.gif)
 Once you have the connection string, you can either 
 - Have the shell prompt you to enter the password or
 - Provide the password as a part of the connection string 
@@ -70,7 +70,7 @@ Here's an example of how the command looks like:
 ```
  mongosh "mongodb+srv://mongodbvcoretesting.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" --username "testuser" -password "******"
 ```
-![Screenshot that shows a password as a part of a connection string.](./media/connect-using-mongo-shell/connectionstring-with-password.PNG)
+![Screenshot that shows a password as a part of a connection string.](./media/connect-using-mongo-shell/connection-string-with-password.PNG)
 
 ## Next step
 
