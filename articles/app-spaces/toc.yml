@@ -11,7 +11,7 @@
     - name: Deploy a sample app
       href: quickstart-deploy-sample-app.md
     - name: Deploy your app
-      href: quickstart-deploy-web-app.md
+      href: quickstart-deploy-your-app.md
 - name: How-to guides
   expanded: true
   items:
