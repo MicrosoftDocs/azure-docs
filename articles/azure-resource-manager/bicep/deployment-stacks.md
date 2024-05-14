@@ -47,7 +47,7 @@ Deployment stacks provide the following benefits:
 There are two built-in roles for deployment stack:
 
 - **Azure Deployment Stack Contributor**: Allows users to manage deployment stacks, but cannot create or delete deny assignments within the deployment stacks.
-- **Azure Deployment Stack Owner**: Alls users to manage deployment stacks, including those with deny assignments.
+- **Azure Deployment Stack Owner**: Allows users to manage deployment stacks, including those with deny assignments.
 
 ## Create deployment stacks
 
@@ -602,12 +602,12 @@ To delete a managed resource, remove the resource definition from the underlying
 When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
 
 > [!NOTE]
-> The latest release requires specific permissions at the stack scope in order to do:
+> The latest release requires specific permissions at the stack scope in order to:
 >
 > - Create or update a deployment stack and set the deny setting to a value other than "None".
 > - Update or delete a deployment stack with an existing deny setting of something other than "None"
 >
-> The built-in owner role has these permissions by default. However, the built-in contributor role doesn't have this permission.
+> Use the [built-in roles](#built-in-roles) to grant the permissions.
 
 # [PowerShell](#tab/azure-powershell)
 
