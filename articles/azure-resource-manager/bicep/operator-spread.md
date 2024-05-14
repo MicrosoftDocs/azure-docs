@@ -33,7 +33,7 @@ The following example shows the spread operator used in an array:
 
 ```bicep
 var arrA = [ 2, 3 ]
-output arrB object = [ 1, ...arrA, 4 ] 
+output arrB array = [ 1, ...arrA, 4 ] 
 ```
 
 Output from the example:
@@ -46,7 +46,7 @@ The following example shows spread used multiple times in a single operation:
 
 ```bicep
 var arrA = [ 2, 3 ]
-var arrC = [ 1, ...arrA, 4, ...arrA ] 
+output arrC array = [ 1, ...arrA, 4, ...arrA ] 
 ```
 
 Output from the example:
