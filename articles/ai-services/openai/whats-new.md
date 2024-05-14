@@ -37,7 +37,7 @@ A refresh of the Assistants API is now publicly available. It contains the follo
     * UK South
     * India South
     * West US
-    * West US 3.
+    * West US 3
 
 
 ### GPT-4o preview model available for early access
