@@ -44,7 +44,7 @@ Once you have the connection string, you can either
 
 **A. By entering the password in the MongoShell Prompt**
 
-![Screenshot that shows the prompt for a password for MongoShell.](./media/connect-using-mongo-shell/password-shell-prompt.PNG)
+![Screenshot that shows the prompt for a password for MongoShell.](./media/connect-using-mongo-shell/password-shell-prompt.png)
 
 Your connection string would look like this:
     ```
@@ -70,7 +70,7 @@ Here's an example of how the command looks like:
 ```
  mongosh "mongodb+srv://mongodbvcoretesting.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000" --username "testuser" -password "******"
 ```
-![Screenshot that shows a password as a part of a connection string.](./media/connect-using-mongo-shell/connection-string-with-password.PNG)
+![Screenshot that shows a password as a part of a connection string.](./media/connect-using-mongo-shell/connection-string-with-password.png)
 
 ## Next step
 
