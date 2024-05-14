@@ -107,13 +107,13 @@ Migration is only supported between `loadBalancer`, `managedNATGateway` (if usin
 ### Update cluster from loadbalancer to managedNATGateway  
 
 ```azurecli-interactive
-az aks update -g <resourceGroup> -n <clusterName> --outbound-type managedNATGateway --nat-gateway-managed-outbound-ip-count <number of managed outbound ip>
+az aks update --resource-group <resourceGroup> --name <clusterName> --outbound-type managedNATGateway --nat-gateway-managed-outbound-ip-count <number of managed outbound ip>
 ```
 
 ### Update cluster from managedNATGateway to loadbalancer
 
 ```azurecli-interactive
-az aks update -g <resourceGroup> -n <clusterName> \
+az aks update --resource-group <resourceGroup> --name <clusterName> \
 --outbound-type loadBalancer \
 <--load-balancer-managed-outbound-ip-count <number of managed outbound ip>| --load-balancer-outbound-ips <outbound ip ids> | --load-balancer-outbound-ip-prefixes <outbound ip prefix ids> >
 ```
@@ -126,7 +126,7 @@ az aks update -g <resourceGroup> -n <clusterName> \
 - Add route `0.0.0.0/0` to default route table. Please refer to [Customize cluster egress with a user-defined routing table in Azure Kubernetes Service (AKS)](egress-udr.md)
 
 ```azurecli-interactive
-az aks update -g <resourceGroup> -n <clusterName> --outbound-type userDefinedRouting
+az aks update --resource-group <resourceGroup> --name <clusterName> --outbound-type userDefinedRouting
 ```
 
 ### Update cluster from loadbalancer to userAssignedNATGateway in BYO vnet scenario
@@ -134,7 +134,7 @@ az aks update -g <resourceGroup> -n <clusterName> --outbound-type userDefinedRou
 - Associate nat gateway with subnet where the workload is associated with. Refer to [Create a managed or user-assigned NAT gateway](nat-gateway.md)
 
 ```azurecli-interactive
-az aks update -g <resourceGroup> -n <clusterName> --outbound-type userAssignedNATGateway
+az aks update --resource-group <resourceGroup> --name <clusterName> --outbound-type userAssignedNATGateway
 ```
 
 ## Next steps
