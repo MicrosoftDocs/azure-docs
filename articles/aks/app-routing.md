@@ -54,7 +54,7 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying the `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing
+az aks create --resource-group <ResourceGroupName> --name <ClusterName> --location <Location> --enable-app-routing
 ```
 
 ### Enable on an existing cluster
@@ -62,7 +62,7 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command.
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 # [Open Service Mesh (OSM) (retired)](#tab/with-osm)
@@ -79,7 +79,7 @@ The following add-ons are required to support this configuration:
 Enable application routing on a new AKS cluster using the [`az aks create`][az-aks-create] command specifying the `--enable-app-routing` flag and the `--enable-addons` parameter with the `open-service-mesh` add-on:
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing --enable-addons open-service-mesh 
+az aks create --resource-group <ResourceGroupName> --name <ClusterName> --location <Location> --enable-app-routing --enable-addons open-service-mesh 
 ```
 
 ### Enable on an existing cluster
@@ -87,8 +87,8 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command and the [`az aks enable-addons`][az-aks-enable-addons] command with the `--addons` parameter set to `open-service-mesh`:
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
-az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-service-mesh
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
+az aks enable-addons --resource-group <ResourceGroupName> --name <ClusterName> --addons open-service-mesh
 ```
 
 > [!NOTE]
@@ -104,7 +104,7 @@ az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-servi
 To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing
+az aks create --resource-group <ResourceGroupName> --name <ClusterName> --location <Location> --enable-app-routing
 ```
 
 ### Enable on an existing cluster
@@ -112,7 +112,7 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 To enable application routing on an existing cluster,  use the [`az aks approuting enable`][az-aks-approuting-enable] command:
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 ---
@@ -124,7 +124,7 @@ To connect to the Kubernetes cluster from your local computer, you use [kubectl]
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command.
 
 ```azurecli-interactive
-az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
+az aks get-credentials --resource-group <ResourceGroupName> -name <ClusterName>
 ```
 
 ## Deploy an application
