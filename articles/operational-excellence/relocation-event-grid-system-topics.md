@@ -98,7 +98,7 @@ Deploy the template to create a storage account and a system topic for the stora
 ## Verify
 1. After the deployment succeeds, select **Goto resource group**. 
 1. On the **Resource group** page, verify that the event source (in this example, Azure Storage account) and the system topic are created. 
-1. Upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. For more information, see [Send an event to your endpoint](blob-event-quickstart-portal.md#send-an-event-to-your-endpoint).
+1. Upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. For more information, see [Send an event to your endpoint](../event-grid/blob-event-quickstart-portal.md#send-an-event-to-your-endpoint).
 
 ## Discard or clean up
 To complete the move, delete the resource group that contains the storage account and its associated system topic in the source region.  
@@ -114,6 +114,7 @@ To delete a resource group (source or target) by using the Azure portal:
 3. On the confirmation page, enter the name of the resource group, and select **Delete**.  
 
 ## Related content
+
 
 - [Relocate custom topics across regions](move-custom-topics-across-regions.md). 
 - [Relocate domains across regions](move-domains-across-regions.md). 

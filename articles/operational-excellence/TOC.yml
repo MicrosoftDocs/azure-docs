@@ -53,7 +53,7 @@
         - name: Relocate Azure Event Grid domains
           href: relocation-event-grid-domains.md
         - name: Relocate Azure Event Grid custom topics
-          href: relocation-event-grid-custome-topics.md
+          href: relocation-event-grid-custom-topics.md
         - name: Relocate Azure Event Grid system topics
           href: relocation-event-grid-system-topics.md
       - name: Azure Functions

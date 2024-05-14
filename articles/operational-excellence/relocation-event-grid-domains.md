@@ -1,6 +1,6 @@
 ---
 title: Relocate an Azure Event Grid domains to another region
-description: This article shows you how to move Azure Event Grid domains from one region to another region.  
+description: This article shows you how to move Azure Event Grid domains from one region to another.
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
@@ -101,6 +101,8 @@ To delete the resource group that contains the domain by using the Azure portal:
 
 ## Related content
 
-- [Relocate system topics across regions](move-system-topics-across-regions.md). 
-- [Relocate custom topics across regions](move-custom-topics-across-regions.md). 
+- [Relocate system topics across regions](relocation-event-grid-system-topics.md). 
+- [Relocate custom topics across regions](relocation-event-grid-custom-topics.md). 
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 
