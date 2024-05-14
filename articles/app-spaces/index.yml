@@ -22,7 +22,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy a sample app
-            url: quickstart-deploy-sample-web-app-template.md
+            url: quickstart-deploy-sample-app.md
           - text: Deploy your app
             url: quickstart-deploy-your-app.md            
       - linkListType: how-to-guide

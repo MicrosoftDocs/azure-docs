@@ -108,4 +108,4 @@ For more information about managing App Spaces, see [Manage components](how-to-m
 ## Related articles
 
 - [App Spaces overview](overview.md)
-- [Deploy a web app with App Spaces](quickstart-deploy-custom-web-app.md)
+- [Deploy your app with App Spaces](quickstart-deploy-your-app.md)

@@ -16,7 +16,13 @@ You can manage the components of your App Space by selecting the App component o
 
 ### Deployment
 
-Shows deployment details
+#### [App Component (Backend app)](#tab/app-component/)
+
+#### [Static App Component (Frontend app)](#tab/static-app-component/)
+
+* * *
+
+Shows the app deployment details in App Space. Here you can view the GitHub actions workflow
 
 ### Logs
 

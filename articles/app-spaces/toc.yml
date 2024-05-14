@@ -9,7 +9,7 @@
   expanded: true
   items:
     - name: Deploy a sample app
-      href: quickstart-deploy-sample-web-app-template.md
+      href: quickstart-deploy-sample-app.md
     - name: Deploy your app
       href: quickstart-deploy-web-app.md
 - name: How-to guides

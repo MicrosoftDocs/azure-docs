@@ -17,7 +17,7 @@ In this quickstart, you learn to connect to GitHub and deploy your code to a rec
 To deploy your repository to App Spaces, you must have the following items:
 
 - [Azure account and subscription](https://signup.azure.com/)
-- [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository). If you don't have your own repository, see [Deploy an App Spaces sample app](quickstart-deploy-sample-web-app-template.md).
+- [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository). If you don't have your own repository, see [Deploy an App Spaces sample app](quickstart-deploy-sample-app.md).
 - Write access to your chosen GitHub repository to deploy with GitHub Actions.
 
 ## Deploy your app
@@ -67,4 +67,4 @@ The deployment can take a few minutes to complete. During deployment, App Spaces
 ## Related articles
 
 - [App Spaces overview](overview.md)
-- [Deploy an App Spaces template](quickstart-deploy-sample-web-app-template.md)
+- [Deploy an App Spaces template](quickstart-deploy-sample-app.md)
