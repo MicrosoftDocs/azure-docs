@@ -1,7 +1,7 @@
 ---
 title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
-author: lakmeedee
+author: howieasmerom
 ms.author: howieasmerom
 ms.reviewer: jushiman
 ms.service: virtual-machines
@@ -373,7 +373,7 @@ The resulting image version can be used only to create Azure Trusted launch VMs.
 2. To create an Azure Compute Gallery Image from a VM, open an existing Trusted launch VM and select **Capture**.
 3. In the Create an Image page that follows, allow the image to be shared to the gallery as a VM image version. Creation of Managed Images isn't supported for Trusted Launch VMs.
 4. Create a new target Azure Compute Gallery or select an existing gallery.
-5. Select the **Operating system state** as either **Generalized** or **Specialized**. If you want to create a generalized image, ensure that you [generalize the VM to remove machine specific information](generalize.md) before selecting this option. If Bitlocker based encryption is enabled on your Trusted launch Windows VM, you may not be able to generalize the same.
+5. Select the **Operating system state** as either **Generalized** or **Specialized**. If you want to create a generalized image, ensure that you [generalize the VM to remove machine specific information](generalize.yml) before selecting this option. If Bitlocker based encryption is enabled on your Trusted launch Windows VM, you may not be able to generalize the same.
 6. Create a new image definition by providing a name, publisher, offer, and SKU details. The **Security Type** of the image definition should already be set to **Trusted launch**.
 7. Provide a version number for the image version.
 8. Modify replication options if necessary.
@@ -426,7 +426,7 @@ az sig image-definition create --resource-group MyResourceGroup --location eastu
 --features SecurityType=TrustedLaunch
 ```
 
-To create an image version, we can capture an existing Linux based Trusted launch VM. [Generalize the Trusted launch VM](generalize.md) before creating the image version.
+To create an image version, we can capture an existing Linux based Trusted launch VM. [Generalize the Trusted launch VM](generalize.yml) before creating the image version.
 
 ```azurecli-interactive
 az sig image-version create --resource-group MyResourceGroup \
@@ -470,7 +470,7 @@ $features = @($SecurityType)
 New-AzGalleryImageDefinition -ResourceGroupName $rgName -GalleryName $galleryName -Name $galleryImageDefinitionName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -HyperVGeneration "V2" -OsState "Generalized" -OsType "Windows" -Description $description -Feature $features
 ```
 
-To create an image version, we can capture an existing Windows based Trusted launch VM. [Generalize the Trusted launch VM](generalize.md) before creating the image version.
+To create an image version, we can capture an existing Windows based Trusted launch VM. [Generalize the Trusted launch VM](generalize.yml) before creating the image version.
 
 ```azurepowershell-interactive
 $rgName = "MyResourceGroup"
