@@ -295,7 +295,7 @@ ml_client.environments.archive(name="docker-image-example", version="1")
 ---
 
 > [!IMPORTANT]
-> Archiving an environment's version does not delete the cached image in the container registry. If you wish to delete the cached image associated with a specific environment, you can use the command [az acr repository delete](https://learn.microsoft.com/cli/azure/acr/repository?view=azure-cli-latest#az-acr-repository-delete) on the environment's associated repository.
+> Archiving an environment's version does not delete the cached image in the container registry. If you wish to delete the cached image associated with a specific environment, you can use the command [az acr repository delete](/cli/azure/acr/repository?view=azure-cli-latest#az-acr-repository-delete) on the environment's associated repository.
 
 
 ## Use environments for training
