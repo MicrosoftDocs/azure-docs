@@ -467,7 +467,7 @@
       },
       {
         "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-api-capabilities.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/api-capabilities",
+        "redirect_url": "/azure/healthcare-apis/fhir/rest-api-capabilities",
         "redirect_document_id": true
       },
       {

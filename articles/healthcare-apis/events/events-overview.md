@@ -39,7 +39,7 @@ Events support these operations:
 | DicomImageDeleted   | A DICOM image was deleted.        |
 | DicomImageUpdated   | A DICOM image was updated.        |
 
-For more information about delete types in the FHIR service, see [FHIR REST API capabilities in Azure Health Data Services](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
+For more information about delete types in the FHIR service, see [FHIR REST API capabilities in Azure Health Data Services](../../fhir/rest-api-capabilities.md).
 
 > [!IMPORTANT] 
 > Event notifications are sent only when the capability is turned on. The events capability doesn't send messages for past changes or when the capability is turned off.
