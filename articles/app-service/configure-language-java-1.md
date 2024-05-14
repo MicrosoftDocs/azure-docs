@@ -12,7 +12,7 @@ author: cephalin
 ms.author: cephalin
 ---
 
-# Configure a Tomcat, JBoss, or Java SE app for Azure App Service - alterative pivot
+# Configure a Tomcat, JBoss, or Java SE app in Azure App Service - alterative pivot
 
 ::: zone pivot="java-javase"
 
@@ -21,7 +21,11 @@ ms.author: cephalin
 
 ::: zone-end
 
-Azure App Service lets Java developers to quickly build, deploy, and scale their Java SE, Tomcat, and JBoss EAP web applications on a fully managed service. Deploy applications with Maven plugins, from the command line, or in editors like IntelliJ, Eclipse, or Visual Studio Code.
+Azure App Service runs Java web applications on a fully managed servcie in three variants:
+
+* Java SE - Can run an app deployed as a JAR package that contains an embedded server (such as Spring Boot and Dropwizard, or one with an embeded Tomcat or Jetty server).   
+* Tomcat - The built-in Tomcat server can run an app deployed as a WAR package.
+* JBoss EAP - Supported for Linux apps in the Premium v3 and Isolated v2 pricing tiers only. The built-in JBoss EAP server can run an app deployed as a WAR or EAR package.
 
 This guide provides key concepts and instructions for Java developers using App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.yml).
 
