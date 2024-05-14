@@ -5,10 +5,9 @@ metadata:
   author: laujan
   manager: nitinme
   ms.service: azure-ai-document-intelligence
-  ms.custom:
-    - ignite-2023
+  ms.custom: references_regions
   ms.topic: faq
-  ms.date: 11/21/2023
+  ms.date: 05/13/2024
   ms.author: lajanuar
 title: Azure AI Document Intelligence FAQ
 summary: |
@@ -28,7 +27,7 @@ sections:
           Document Intelligence is part of Azure AI services. Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
 
           The previous name for Document Intelligence was Azure AI Form Recognizer. Form Recognizer officially became Document Intelligence in July 2023.
-          
+
           There are no changes to pricing. The names Cognitive Services and Applied AI Services continue to be used in Azure billing, cost analysis, price lists, and price APIs.
 
           There are no breaking changes to APIs or client libraries (SDKs). REST APIs and SDK versions 2024-02-29-preview, 2023-10-31-preview, and later are renamed `document intelligence`.
@@ -178,6 +177,84 @@ sections:
           - A single file that contains multiple instances of the same document. An example is a collection of scanned invoices.
 
           For more information, see the [overview of custom classification models](concept-custom-classifier.md).
+  - name: Document Intelligence Studio
+    questions:
+      - question: |
+          What permissions do I need to access Document Intelligence Studio?
+        answer: |
+
+          You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a Reader role to access Document Intelligence Studio.
+
+          For document analysis and prebuilt models, here are the role requirements for user scenarios:
+
+          - Basic
+
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to read/write data and is **required to call the API**.
+
+          - Advanced
+
+            - **Contributor**: You need this role to create a resource group or a Document Intelligence resource. The Contributor role doesn't allow you to list keys for Cognitive Services and doesn't give you access to use the created resources or storage, it only allows a user to read/write the resource itself. To use Document Intelligence Studio, you still need the Cognitive Services User role.
+
+          For custom model projects, here are the role requirements for user scenarios:
+
+          - Basic
+
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to read/write data and is **required to call the API**.  This role is also the minimum necessary to train a custom model or analyze with trained models.
+
+            - **Storage Blob Data Contributor**: You need this role for a storage account to create project and label data.
+
+          - Advanced
+
+            - **Storage Account Contributor**: You need this role for the storage account to set up cross-origin resource sharing (CORS) settings. It's a one-time effort if you reuse the same storage account.
+
+              The Contributor role doesn't allow you to access data in your blob. To use Document Intelligence Studio, you still need the Storage Blob Data Contributor role.
+
+            - **Contributor**: You need this role to create a resource group and resources. The Contributor role doesn't give you access to use the created resources or storage, it only allows a user to read/write the resource itself. To use Document Intelligence Studio, you still need basic roles.
+
+          For more information, see [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and the sections about Azure role assignments in the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md).
+
+      - question: |
+          I have multiple pages in a document. Why are only two pages analyzed in Document Intelligence Studio?
+        answer: |
+
+          For free-tier (F0) resources, only the first two pages are analyzed whether you're using Document Intelligence Studio, the REST API, or SDKs.
+
+          In Document Intelligence Studio, select the **Settings** (gear) button, select the **Resources** tab, and check the price tier that you're using to analyze the documents. If you want to analyze all pages in a document, change to a paid (S0) resource.
+
+      - question: |
+          How can I change directories or subscriptions in Document Intelligence Studio?
+        answer: |
+
+          To change a directory in Document Intelligence Studio, select the **Settings** (gear) button. Under **Directory**, select the directory from the list, and then select **Switch Directory**. You're prompted to sign in again after you switch the directory.
+
+          To change a subscription or resource, go to the **Resource** tab under **Settings**.
+
+      - question: |
+          Why am I receiving a storage error on a project sharing, automatic labeling, or OCR upgrade operation when my storage account resource is configured with a firewall or virtual network?
+        answer: |
+
+          Refer to [Managed identities for Document Intelligence](managed-identities.md) to set up your Azure resources.
+
+      - question: |
+          Why am I receiving the error "Access denied due to Virtual Network/Firewall rules" on an automatic labeling or OCR upgrade operation when my Document Intelligence resource is configured with a firewall or virtual network?
+        answer: |
+
+          You need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.
+
+      - question: |
+          Can I reuse or customize the labeling experience from Document Intelligence Studio and build it into my own application?
+        answer: |
+
+          Yes. The labeling experience from Document Intelligence Studio is open sourced in the [Toolkit repo](https://github.com/microsoft/Form-Recognizer-Toolkit).
+
+      - question: |
+          Why am I receiving the error "Form Recognizer Not Found" when opening my custom project?
+        answer: |
+          Your Document Intelligence resource bound to this custom project was deleted or moved to another resource group. There are two ways to resolve this problem:
+
+          - Re-create the Document Intelligence resource under the same subscription and resource group with the same name.
+
+          - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
 
   - name: App development
     questions:
@@ -263,6 +340,13 @@ sections:
   - name: Service limits and pricing
     questions:
       - question: |
+          Is Document Intelligence REST API version 2024-02-29-preview available in my region?
+        answer: |
+          The REST API version 2024-02-29-preview version is available in the following regions:
+            - East US
+            - West US2
+            - West Europe
+      - question: |
          How does Azure calculate the price for using Document Intelligence?
         answer: |
          Document Intelligence billing is calculated monthly based on the model type and the number of pages analyzed. Here are some details:
@@ -311,7 +395,7 @@ sections:
           The time to analyze a document depends on the size (for example, number of pages) and associated content on each page.
 
           Document Intelligence is a multitenant service where latency for similar documents is comparable but not always identical. Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any microservice-based, stateless, asynchronous service that processes images and large documents at scale.
-          
+
           Although we're continuously scaling up the hardware and capacity and scaling capabilities, you might still have latency issues at runtime.
 
   - name: Custom models
@@ -440,84 +524,7 @@ sections:
 
             Learn how to [create and use a managed identity for your Document Intelligence resource](managed-identities.md).
 
-  - name: Document Intelligence Studio
-    questions:
-      - question: |
-          What permissions do I need to access Document Intelligence Studio?
-        answer: |
 
-          You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a Reader role to access Document Intelligence Studio.
-
-          For document analysis and prebuilt models, here are the role requirements for user scenarios:
-
-          - Basic
-
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to use Document Intelligence Studio.
-
-          - Advanced
-
-            - **Contributor**: You need this role to create a resource group or a Document Intelligence resource. The Contributor role doesn't allow you to list keys for Cognitive Services. To use Document Intelligence Studio, you still need the Cognitive Services User role.
-
-          For custom model projects, here are the role requirements for user scenarios:
-
-          - Basic
-
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to train a custom model or analyze with trained models.
-
-            - **Storage Blob Data Contributor**: You need this role for a storage account to create project and label data.
-
-          - Advanced
-
-            - **Storage Account Contributor**: You need this role for the storage account to set up cross-origin resource sharing (CORS) settings. It's a one-time effort if you reuse the same storage account.
-
-              The Contributor role doesn't allow you to access data in your blob. To use Document Intelligence Studio, you still need the Storage Blob Data Contributor role.
-
-            - **Contributor**: You need this role to create a resource group and resources. The Contributor role doesn't give you access to use the created resources or storage. To use Document Intelligence Studio, you still need basic roles.
-
-          For more information, see [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and the sections about Azure role assignments in the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md).
-
-      - question: |
-          I have multiple pages in a document. Why are only two pages analyzed in Document Intelligence Studio?
-        answer: |
-
-          For free-tier (F0) resources, only the first two pages are analyzed whether you're using Document Intelligence Studio, the REST API, or SDKs.
-          
-          In Document Intelligence Studio, select the **Settings** (gear) button, select the **Resources** tab, and check the price tier that you're using to analyze the documents. If you want to analyze all pages in a document, change to a paid (S0) resource.
-
-      - question: |
-          How can I change directories or subscriptions in Document Intelligence Studio?
-        answer: |
-
-          To change a directory in Document Intelligence Studio, select the **Settings** (gear) button. Under **Directory**, select the directory from the list, and then select **Switch Directory**. You're prompted to sign in again after you switch the directory.
-
-          To change a subscription or resource, go to the **Resource** tab under **Settings**.
-
-      - question: |
-          Why am I receiving a storage error on a project sharing, automatic labeling, or OCR upgrade operation when my storage account resource is configured with a firewall or virtual network?
-        answer: |
-
-          Refer to [Managed identities for Document Intelligence](managed-identities.md) to set up your Azure resources.
-
-      - question: |
-          Why am I receiving the error "Access denied due to Virtual Network/Firewall rules" on an automatic labeling or OCR upgrade operation when my Document Intelligence resource is configured with a firewall or virtual network?
-        answer: |
-
-          You need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.
-
-      - question: |
-          Can I reuse or customize the labeling experience from Document Intelligence Studio and build it into my own application?
-        answer: |
-
-          Yes. The labeling experience from Document Intelligence Studio is open sourced in the [Toolkit repo](https://github.com/microsoft/Form-Recognizer-Toolkit).
-
-      - question: |
-          Why am I receiving the error "Form Recognizer Not Found" when opening my custom project?
-        answer: |
-          Your Document Intelligence resource bound to this custom project was deleted or moved to another resource group. There are two ways to resolve this problem:
-          
-          - Re-create the Document Intelligence resource under the same subscription and resource group with the same name.
-          
-          - Re-create a custom project with the migrated Document Intelligence resource and specify the same storage account.
 
   - name: Containers
     questions:
@@ -564,7 +571,7 @@ sections:
           What is the best practice for scaling up?
         answer: |
 
-          For asynchronous calls, you can run multiple containers with shared storage. The container that's processing the `POST` analyze call stores the output in the storage. Then, any other container can fetch the results from the storage and serve the `GET` calls. The request ID isn't tied to a container. 
+          For asynchronous calls, you can run multiple containers with shared storage. The container that's processing the `POST` analyze call stores the output in the storage. Then, any other container can fetch the results from the storage and serve the `GET` calls. The request ID isn't tied to a container.
 
           For synchronous calls, you can run multiple containers, but only one container serves a request. Because it's a blocking call, any container from the pool can serve the request and send the response. Here, only one container is tied to a request at a time, and no polling is required.
 
@@ -573,7 +580,7 @@ sections:
         answer: |
 
           The containers use the `Mounts:Shared` property while starting up for specifying the shared storage to store the processing files. To see the use of this property, refer to the [containers documentation](containers/install-run.md?view=doc-intel-3.0.0&tabs=custom#create-a-folder-for-storing-internal-processing-shared-between-the-containers).
-          
+
   - name: Security and privacy
     questions:
       - question: |
