@@ -1297,8 +1297,8 @@ groups:
     title: Linux
   - id: platform-sphere
     title: Azure Sphere
-- id: app-service-java-hosting
-  title: App Service Java hosting
+- id: app-service-java-deploy
+  title: App Service Java deployment
   prompt: Choose how you want to deploy your Java app
   pivots:
   - id: java-javase
@@ -1307,6 +1307,16 @@ groups:
     title: To a Tomcat server
   - id: java-jboss
     title: To a JBoss server
+- id: app-service-java-hosting
+  title: App Service Java hosting
+  prompt: Choose how your Java app is hosted
+  pivots:
+  - id: java-javase
+    title: Java SE (e.g. Embedded Tomcat, Quarkus, Spring Boot)
+  - id: java-tomcat
+    title: Tomcat
+  - id: java-jboss
+    title: JBoss EAP
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform

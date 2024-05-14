@@ -7,7 +7,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/10/2024
 ms.custom: mvc, mode-other, devdivchpfy22, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee, devx-track-extended-java
-zone_pivot_groups: app-service-java-hosting
+zone_pivot_groups: app-service-java-deploy
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
