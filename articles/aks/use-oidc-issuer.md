@@ -79,10 +79,10 @@ az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuer
 The output should resemble the following:
 
 ```output
-https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/11111111-1111-1111-1111-111111111111/
 ```
 
-By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key, which is a randomly generated guid for each cluster that is immutable.
+By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{tenant_id}/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key, which is a randomly generated guid for each cluster that is immutable.
 
 ### Get the discovery document
 
