@@ -108,7 +108,7 @@ jobs:
         az logout
 ```
 
-# [Java](#tab/java)
+# [Java SE](#tab/java)
 
 Build and deploy a Java Spring app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
