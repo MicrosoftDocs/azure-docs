@@ -14,7 +14,7 @@ services: azure-maps
 
 This guide describes how to use [Azure Maps] and NVIDIA cuOpt to build an itinerary optimization service that automates the process of building itineraries for multiple agents and mixed fleets, and optimizes their route across multiple destinations.
 
-This is a two-step process that requires a cost matrix for the travel time and a solver to optimize the problem and generate an outcome. A cost matrix represents the cost of traveling between each two sets of locations in the problem, which includes the travel time cost and other costs of travel.
+This is a two-step process that requires a cost matrix for the travel time and a solver to optimize the problem and generate an outcome. A cost matrix represents the cost of traveling between every two sets of locations in the problem, which includes the travel time cost and other costs of travel.
 
 :::image type="content" source="media/multi-itinerary-optimization-service/itinerary-optimization-workflow.png" alt-text="A screenshot showing the Itinerary optimization workflow.":::
 
@@ -105,7 +105,7 @@ https://atlas.microsoft.com/route/matrix/json?api-version=1.0&routeType=shortest
 } 
 ```
 
-The Route Matrix response returns a 5x5 multi-dimensional array where each row represents the origins and columns represent the destinations. Use the field `travelTimeInSeconds` to get the time cost for every location pair. The time unit should be consistent across the solution. Once the preprocessing stage is complete, the order, depot, fleet info and the cost matrix, are sent over and imported to the cuOpt Server via API calls.
+The Route Matrix response returns a 5x5 multi-dimensional array where each row represents the origins and columns represent the destinations. Use the field `travelTimeInSeconds` to get the time cost for each location pair. The time unit should be consistent across the solution. Once the preprocessing stage is complete, the order, depot, fleet info and the cost matrix, are sent over and imported to the cuOpt Server via API calls.
 
 The following JSON sample shows what is returned in the body of the HTTP response of the cost matrix sample:
 
@@ -148,7 +148,7 @@ Parse the Azure Maps Route Matrix API response to get the travel time between lo
     }}}
 ```
 
-Multiple cost matrices can optionally be provided depending on the types of vehicles. Some vehicles may travel faster while others may incur additional costs when traveling through certain areas. This can be modeled using additional cost matrices one for each vehicle type. The next example has two matrices, “0” represents first vehicle, which could be a car and “1” represents second vehicle, which could be a truck. Note, if your fleet has vehicles with similar profiles you need to specify the cost matrix only once.
+Multiple cost matrices can optionally be provided depending on the types of vehicles. Some vehicles can travel faster while others might incur additional costs when traveling through certain areas. This can be modeled using additional cost matrices one for each vehicle type. The next example has two matrices, “0” represents first vehicle, which could be a car and “1” represents second vehicle, which could be a truck. Note, if your fleet has vehicles with similar profiles you need to specify the cost matrix only once.
 
 ```json
 "data": {" cost_matrix_data ": {
@@ -196,11 +196,11 @@ Fleet data could describe the fleet description like the number of vehicles, the
     }
 ```
 
-- Vehicle locations - In the above example, fleet data indicates two vehicles, one array for each vehicle. Both vehicles start at location 0 and end trip at location 1. In the context of a cost matrix description of the environment, these vehicle locations correspond to row (or column) indices in the cost matrix.
-- Capacities - The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task json that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data.
+- **Vehicle locations**: In the above example, fleet data indicates two vehicles, one array for each vehicle. Both vehicles start at location 0 and end trip at location 1. In the context of a cost matrix description of the environment, these vehicle locations correspond to row (or column) indices in the cost matrix.
+- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task json that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data.
 For example, if there are two vehicles in the fleet with a capacity of two and three that indicates the number of people it can accommodate on a single trip and the demand is three for a delivery location, the solver would use the vehicle with a capacity of three to carry out the task.
-- Vehicle time windows – Time windows specify the operating time of the vehicle to complete the tasks. This could be the agent’s shift start and end time. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
-- Vehicle breaks – Vehicle break windows and duration can also be specified. This could represent the agent’s lunch break, or other breaks as needed. The break window format would be same as the vehicle time window format. All time/cost units provided to the cuOpt solver should be in the same unit.
+- **Vehicle time windows**: Time windows specify the operating time of the vehicle to complete the tasks. This could be the agent’s shift start and end time. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
+- **Vehicle breaks**: Vehicle break windows and duration can also be specified. This could represent the agent’s lunch break, or other breaks as needed. The break window format would be same as the vehicle time window format. All time/cost units provided to the cuOpt solver should be in the same unit.
 
 ### Set task data
 
@@ -215,10 +215,10 @@ Tasks define the objective that must be fulfilled within the constraints. In the
 }
 ```
 
-- Task location – In the above example, task_locations indicate the delivery location located at positions 1,2,3 and 4. These locations correspond to row (or column) indices in the cost matrix.
-- Demand – The demand array indicates the demand quantity at each location; the first location has a demand of 3, second and third location has 4 and the last location has 3. The count of demand dimensions should correspond to the number of capacity dimensions for each vehicle.
-- Task time window – Time windows constraints specifies when a task should be completed. Each task is assigned a start and end time window, and the task must be completed within that. Raw data may include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
-- Service times – This represents the duration required to complete the tasks. The service_times array specifies the time duration for each task location. All time/cost units provided to the cuOpt solver should be in the same unit.
+- **Task location**: In the above example, task_locations indicate the delivery location located at positions 1, 2, 3 and 4. These locations correspond to row (or column) indices in the cost matrix.
+- **Demand**: The demand array indicates the demand quantity at each location; the first location has a demand of 3, second and third location has 4 and the last location has 3. The count of demand dimensions should correspond to the number of capacity dimensions for each vehicle.
+- **Task time window**: Time windows constraints specifies when a task should be completed. Each task is assigned a start and end time window, and the task must be completed within that. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
+- **Service times**: This represents the duration required to complete the tasks. The service_times array specifies the time duration for each task location. All time/cost units provided to the cuOpt solver should be in the same unit.
 
 ### Set Solver config (optional)
 
@@ -235,7 +235,7 @@ You can optionally specify solver configuration to allot a maximum time to find 
 
 ## How to use the cuOpt response
 
-The cuOpt solver returns the optimized stop for each vehicle and the travel itinerary . You will need to parse the response and convert each location to a coordinate point before calling the Azure Maps Route Directions API to get the routes. These optimized routes will include the route path and driving directions for each agent.
+The cuOpt solver returns the optimized stop for each vehicle and the travel itinerary. Parse the response and convert each location to a coordinate point before calling the Azure Maps Route Directions API to get the routes. These optimized routes include the route path and driving directions for each agent.
 
 Sample request data
 
@@ -313,7 +313,7 @@ Sample response
 
 ## Call Azure Maps Route Directions API for routing
 
-After the location in the cuOpt response is mapped to the corresponding coordinate, you can call the Azure Maps [Route Directions] API for automobile, commercial trucks and walking routes and directions. You can color code the route path for individual vehicle based on the assigned stops and display it on the Azure Maps base data for visualization.
+After the location in the cuOpt response is mapped to the corresponding coordinate, you can call the Azure Maps [Route Directions] API for automobile, commercial trucks, and walking routes and directions. You can color code the route path for individual vehicle based on the assigned stops and display it on the Azure Maps base data for visualization.
 
 :::image type="content" source="media/multi-itinerary-optimization-service/multi-itinerary-route.png" alt-text="A screenshot showing the multi-itinerary route on a map.":::
 
