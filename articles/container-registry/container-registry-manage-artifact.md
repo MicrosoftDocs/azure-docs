@@ -506,7 +506,7 @@ In the output, the signature is untagged, but tracked as a `oci.artifact.manifes
 
 ### Deleting all artifacts in the graph
 
-Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the subject artifact. Use the [`oras delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
+Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the subject artifact. Use the [`oras manifest delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
 
 ```azurecli
 oras manifest delete -f $REGISTRY/$REPO:$TAG
