@@ -121,7 +121,7 @@ Where:
 - `<resourcegroup_name>`: The resource group that contains your Log Analytics workspace resource.
 - `<workspace_name>`: The name of your Log Analytics workspace.
  
-The `GET` command verifies that the workspace provisioning state changes from "Updating" to "Succeeded," and the secondary region is set as expected.
+The `GET` command verifies that the workspace provisioning state changes from `Updating` to `Succeeded`, and the secondary region is set as expected.
 
 
 > [!NOTE]
@@ -179,30 +179,27 @@ The `PUT` command is a long running operation that can take some time to complet
 
 Ingestion latency or query failures are examples of issues that can often be handled by failing over to your secondary region. Such issues can be detected by using Service Health notifications and log queries.
 
-### Service health notifications
-
-Service Health notifications are useful for service-wise issues. To identify issues impacting your specific workspace (and possibly not the entire service), you can use other measures:
+Service Health notifications are useful for service-related issues. To identify issues impacting your specific workspace (and possibly not the entire service), you can use other measures:
 
 - [Create alerts based on the workspace resource health](log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts)
 - Set your own thresholds for [workspace health metrics](log-analytics-workspace-health.md#view-log-analytics-workspace-health-metrics)
-- Create your own monitoring queries to serve as custom health indicators for your workspace, as described in [Use queries to monitor workspace performance](#use-queries-to-monitor-workspace-performance). This option allows you to accomplish many tasks:
-   - Measure ingestion latency, per data type or for all types
-   - Identify the cause of latency, from agents other from the ingestion pipeline
-   - Monitor ingestion volume anomalies, per data type and resource
-   - Monitor query success rate, per data type, user, or resource
+- Create your own monitoring queries to serve as custom health indicators for your workspace, as described in [Use queries to monitor workspace performance](#use-queries-to-monitor-workspace-performance), to:
+   - Measure ingestion latency per table
+   - Identify whether the source of latency is the collection agents or the ingestion pipeline
+   - Monitor ingestion volume anomalies per table and resource
+   - Monitor query success rate per table, user, or resource
    - Create alerts based on your queries
 
-### Log queries
+> [!NOTE]
+> You can also use log queries to monitor your secondary workspace, but keep in mind that logs replication is done in batch operations. The measured latency can fluctuate and doesn't indicate any health issue with your secondary workspace. For more information, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
-You can use log queries to monitor your secondary workspace, but keep in mind that logs replication is done in batch operations. The measured latency can fluctuate and doesn't indicate any health issue with your secondary workspace. For more information, see [Audit the inactive workspace](#audit-the-inactive-workspace).
+## Switch over to the secondary workspace
 
-## Explore switchover for replicated workspaces
+During switchover, most operations work the same as when you use the primary workspace and region. However, some operations have slightly different behavior or are blocked.
 
-When you enable workspace replication, you have a choice whether to trigger switchover or [failback](#explore-failback-for-replicated-workspaces). It's a good practice to base your decision on continuous performance and health monitoring data for your workspace, and according to your system standards and requirements. 
+### When should I switch over and switch back?
 
-The switchover process uses your secondary workspace and secondary region. During switchover, most operations work the same as when you use the primary workspace and region. However, some operations have slightly different behavior or are blocked.
-
-The switchover process updates your Domain Name System (DNS) records. After the DNS records update, it can take extra time for all clients to receive the updated DNS settings and resume routing to the primary workspace. For more information, see [Client behavior during switchover](#client-behavior-during-switchover).
+You decide when to switch over to your secondary workspace and switch back to your primary workspace based on ongoing performance and health monitoring and your system standards and requirements. 
 
 There are several points to consider in your plan for switchover:
 
@@ -212,31 +209,24 @@ There are several points to consider in your plan for switchover:
 
 The following sections explore these considerations.
 
-### Issue type and scope
+#### Issue type and scope
 
-When you're deciding whether to implement switchover, you should clearly identify the type and extent (scope) of the issue. In certain scenarios, switchover isn't an appropriate choice.
+The switchover process routes ingestion and query requests to your secondary region, which usally bypasses any faulty component that might be causing latency or failure on your primary region. As a result, switchover isn't likely to help if:
 
-The switchover process routes ingestion and query requests to your secondary region. This approach commonly bypasses any faulty component that might be causing latency or failure on your primary region. As a result, switchover isn't an ideal solution under the following conditions:
-
-- You know there's a cross-regional issue with an underlying resource. For example, if the same resource types fail in both your primary and secondary regions, you might discover that your secondary region experiences the same issues as the primary region.
-
+- There's a cross-regional issue with an underlying resource. For example, if the same resource types fail in both your primary and secondary regions.
 - You experience an issue related to workspace management, such as changing workspace retention. Workspace management operations are always handled in your primary region. During switchover, workspace management operations are blocked.
 
-### Issue duration
+#### Issue duration
 
-Switchover isn't instantaneous. The process of rerouting requests relies on DNS updates, where some clients update within minutes while others can take more time. As a result, it's helpful to understand whether the issue is momentary and can be resolved within minutes. If the observed issue is consistent or continuous, don't delay resolving the issue. Here are some examples:
+Switchover isn't instantaneous. The process of rerouting requests relies on DNS updates, which some clients pick up within minutes while others can take more time. Therefore, it's helpful to understand whether the issue can be resolved within a few minutes. If the observed issue is consistent or continuous, don't wait to switch over. Here are some examples:
 
-- **Ingestion**: Issues with the ingestion pipeline on your primary region can affect the replication to your secondary workspace because replication is done at the end of the pipeline. During switchover, logs are instead sent to the ingestion pipeline on the secondary region.
+- **Ingestion**: Issues with the ingestion pipeline in your primary region can affect data replication to your secondary workspace. During switchover, logs are instead sent to the ingestion pipeline in the secondary region.
 
-- **Query**: If queries on your primary workspace fail or timeout, Log search alerts can be affected. In this scenario, trigger switchover to make sure all your alerts are triggered correctly.
+- **Query**: If queries in your primary workspace fail or timeout, Log search alerts can be affected. In this scenario, trigger switchover to make sure all your alerts are triggered correctly.
 
-### Secondary workspace data
+#### Secondary workspace data
 
-When you consider whether to trigger switchover, it's important to be aware of what data is available on your secondary workspace.
-
-Logs replication to your secondary workspace starts after you enable workspace replication. Replication for current logs isn't applied retroactively. Logs already ingested to your primary workspace aren't copied to the secondary workspace. 
-
-After you enable replication, all logs ingested to your primary workspace eventually (and asynchronously) replicate to your secondary workspace. If you enabled workspace replication three hours ago and you now trigger switchover, your queries can only return data from the last three hours.
+When you enable replication, all logs ingested to your primary workspace eventually (and asynchronously) replicate to your secondary workspace. Logs ingested to your primary workspace before you enable replication aren't copied to the secondary workspace. If you enabled workspace replication three hours ago and you now trigger switchover, your queries can only return data from the last three hours.
 
 ## Trigger switchover
 
