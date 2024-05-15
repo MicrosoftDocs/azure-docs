@@ -32,7 +32,7 @@ Here is a summary of the supported RESTful capabilities. For more information on
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
 | patch                          | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](rest-api-capabilities.md#patch-and-conditional-patch) only. |
-| patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](rest-api-capabilities.md.md#patch-and-conditional-patch) only. |
+| patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](rest-api-capabilities.md#patch-and-conditional-patch) only. |
 | history                        | Yes       | Yes       |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
