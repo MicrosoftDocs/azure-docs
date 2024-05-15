@@ -112,6 +112,7 @@ To check the provisioning state of your request, run this `GET` command:
 
 ```http
 GET
+
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>?api-version=2023-01-01-preview
 ```
 
@@ -220,7 +221,9 @@ Switchover isn't instantaneous. The process of rerouting requests relies on DNS 
 
 #### Secondary workspace data
 
-When you enable replication, all logs ingested to your primary workspace eventually (and asynchronously) replicate to your secondary workspace. Logs ingested to your primary workspace before you enable replication aren't copied to the secondary workspace. If you enabled workspace replication three hours ago and you now trigger switchover, your queries can only return data from the last three hours.
+Logs ingested to your primary workspace before you enable replication aren't copied to the secondary workspace. If you enabled workspace replication three hours ago and you now trigger switchover, your queries can only return data from the last three hours.
+
+Before you switch regions during switchover, your secondary workspace needs to contain a useful volume of logs. We recommend waiting at least one week after you enable replication before you trigger switchover. The seven days allow for sufficient data to be available in your secondary region.
 
 ### Trigger switchover
 
@@ -242,45 +245,27 @@ Where:
 
 The `POST` command is a long running operation that can take some time to complete. A successful call returns a `202` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
 
-### Client behavior during switchover
-
-Log ingestion to your primary workspace can use different types of clients, including MMA (legacy), Azure Monitor Agent, code (by using the HTTP data collection API), custom logs, and other services, such as Sentinel. All ingestion requests sent while the primary workspace is in switchover reroute to your secondary region for processing. Rerouting is accomplished by updating the DNS mapping of the ingestion endpoints.
-
-After the DNS records update, most clients resume routing to the primary workspace endpoints within minutes. Some HTTP clients might have "sticky connections" that can take more time to create new connections. During switchover, these clients might attempt to ingest logs through the primary region for some time.
-
-#### Azure Monitor Agent 
-
-Azure Monitor Agent uses DCRs to send logs to the workspace. When you enable workspace replication, a special System DCE is created with the required configuration according to the workspace object properties.
-
-To configure traffic from Azure Monitor Agent to support switchover, you need to manually update your DCRs to use this System DCE. DCRs that point to a System DCE must not send logs to any destination except the workspace that owns the DCE.
-
-> [!WARNING]
-> When Azure Monitor Agent uses DCRs that don't point to the workspace DCE, the DCRs don't receive the replication settings. As a result, logs collected by these DCRs aren't replicated and aren't available during switchover.
-
-### Restrictions and limitations
-
-Before you switch regions during switchover, your secondary workspace needs to contain a useful volume of logs. The recommendation is to wait at least one week after you enable replication and before you trigger switchover. The seven days allow for sufficient data to be available on your secondary region.
-
-Here are some other considerations:
+#### Restrictions and limitations
 
 - When you enable replication for workspaces that interact with Sentinel, it can take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
-
 - During switchover, workspace management operations aren't supported, including:
    - Change workspace retention, pricing tier, daily cap, and so on
    - Change network settings
    - Change schema through new custom logs or connecting platform logs from new resource providers, such as sending diagnostic logs from a new resource type
    - Any other management operation of the workspace
-
 - The solution targeting capability of MMA agents isn't supported during switchover.
 
    > [!WARNING]
    > Because solution targeting can't work during switchover, solutions data is ingested from **all** agents during switchover.
 
+- The failover process updates your Domain Name System (DNS) records to reroute all ingestion requests to your secondary region for processing. Some HTTP clients have "sticky connections" and might take longer to pick up the DNS updated DNS. During switchover, these clients might attempt to ingest logs through the primary region for some time. You might be ingesting logs to your primary workspace using various clients, including the legacy Log Analytics Agent, Azure Monitor Agent, code (using the Logs Ingestion API or the legacy HTTP data collection API), and other services, such as Sentinel. 
+   
+
 The following features are partially supported or not currently supported:
 
 | Feature | Support | Notes |
 | --- | --- | --- |
-| Search jobs, Restore | Partial support| Both search jobs and restore operations create tables and populate them with the operation outputs (the search results or restored data). After you enable workspace replication, new tables created for these operations in the future replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you trigger switchover, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
+| Search jobs, Restore | Partial support| Both search jobs and restore operations create tables and populate them with the operation outputs (the search results or restored data). After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
 | Azure Application Insights over Log Analytics workspaces | Partial support | |
 | Azure Virtual Machines Insights | Partial support | |
 | Container Insights | Partial support | |
