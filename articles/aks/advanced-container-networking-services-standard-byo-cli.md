@@ -1,6 +1,6 @@
 ---
-title: "Setup of Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana - BYO Prometheus and Grafana"
-description: Get started with Advanced Container Networking Services - Standard for your AKS cluster using BYO Prometheus and Grafana.
+title: "Setup of Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana - BYO Prometheus and Grafana"
+description: Get started with Advanced Container Networking Services Standard for your AKS cluster using BYO Prometheus and Grafana.
 author: Khushbu-Parekh
 ms.author: kparekh
 ms.service: azure-kubernetes-service
@@ -10,14 +10,14 @@ ms.date: 05/10/2024
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Setup of Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
+# Setup of Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
-Advanced Container Networking Services - Standard is used to collect the network traffic data of your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, Prometheus collects metrics, and Grafana can be used to visualize them. Advanced Container Networking Services - Standard also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters . In this article, learn how to enable these features and use BYO Prometheus and Grafana to visualize the scraped metrics.
+Advanced Container Networking Services Standard is used to collect the network traffic data of your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, Prometheus collects metrics, and Grafana can be used to visualize them. Advanced Container Networking Services Standard also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters . In this article, learn how to enable these features and use BYO Prometheus and Grafana to visualize the scraped metrics.
 
-For more information about Advanced Container Networking Services - Standard  for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-standard-overview.md).
+For more information about Advanced Container Networking Services Standard  for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-standard-overview.md).
 
 > [!IMPORTANT]
-> Advanced Container Networking Services - Standard is currently in PREVIEW.
+> Advanced Container Networking Services Standard is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
@@ -85,9 +85,9 @@ Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create). The fo
 
 # [**Non-Cilium**](#tab/non-cilium)
 
-Non-Cilium clusters support the enablement of Advanced Container Networking Services - Standard on an existing cluster or during the creation of a new cluster. 
+Non-Cilium clusters support the enablement of Advanced Container Networking Services Standard on an existing cluster or during the creation of a new cluster. 
 
-Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Advanced Container Networking Services - Standard on non-Cilium.
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Advanced Container Networking Services Standard on non-Cilium.
 
 ## New cluster
 
@@ -123,7 +123,7 @@ az aks create \
 
 ## Enable on Existing cluster
 
-Use [az aks update](/cli/azure/aks#az-aks-update) to enable Advanced Container Networking Services - Standard for an existing cluster.
+Use [az aks update](/cli/azure/aks#az-aks-update) to enable Advanced Container Networking Services Standard for an existing cluster.
 
 > [!NOTE]
 > Run the below command only if you are using non-cilium cluster
@@ -571,9 +571,9 @@ the AKS cluster and the other resources created in this article with the followi
 
 ## Next steps
 
-In this how-to article, you learned how to install and enable Advanced Container Networking Services - Standard for your AKS cluster.
+In this how-to article, you learned how to install and enable Advanced Container Networking Services Standard for your AKS cluster.
 
-- For more information about Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-standard-overview.md).
+- For more information about Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-standard-overview.md).
 
-- To create an Advanced Container Networking Services - Standard and BYO Prometheus and Grafana, see [Setup Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](advanced-container-networking-services-standard--byo-cli.md).
+- To create an Advanced Container Networking Services Standard and BYO Prometheus and Grafana, see [Setup Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](advanced-container-networking-services-standard--byo-cli.md).
 
