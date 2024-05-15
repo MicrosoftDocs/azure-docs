@@ -116,7 +116,7 @@
             - name: Custom container
               displayName: Arc, container, Kubernetes, Docker
               href: create-first-function-arc-custom-container.md  
-        - name: Azure Container Apps (preview)
+        - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA 
     - name: Connect to storage
