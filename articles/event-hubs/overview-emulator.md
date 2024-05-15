@@ -57,7 +57,7 @@ Since Emulator is only meant for development and test purpose, there are functio
 
 >[!CAUTION]
 >The emulator is intended solely for development and testing scenarios.Any kind of Production use is strictly discouraged. There is no official support provided for emulator.
-> Any issues/suggestions should be reported via GitHub issues on emulator GitHub project.
+> Any issues/suggestions should be reported via GitHub issues on emulator [GitHub project](https://github.com/Azure/azure-event-hubs-emulator/issues).
 
 ### Managing Quotas and Configuration
 
@@ -75,7 +75,7 @@ Maximum event retention time | 1 hr | No
 
 ### Making configuration changes
 
-You could use config.json to configure quotas associated with Event Hubs. By default, emulator would run with following [configuration](EventHub/Common/Config.json). Under the configuration file, you could make following edits as per needs: 
+You could use config.json to configure quotas associated with Event Hubs. By default, emulator would run with following [configuration](https://github.com/Azure/azure-event-hubs-emulator/blob/main/EventHub-Emulator/Config/Config.json). Under the configuration file, you could make following edits as per needs: 
 
 - **Entities**: You could add more entities (event hubs), with customized partition count and consumer groups count as per supported quotas.
 - **Logging**: Emulator supports Logging in file or console or both. You could set as per your personal preference.
