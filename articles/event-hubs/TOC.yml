@@ -108,7 +108,9 @@
     - name: Log compaction
       href: log-compaction.md
     - name: Application groups
-      href: resource-governance-overview.md     
+      href: resource-governance-overview.md  
+    - name: Local emulator
+      href: overview-emulator.md
     - name: Tiers 
       items: 
       - name: Premium tier
@@ -208,6 +210,8 @@
           href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=/azure/event-hubs/toc.json
         - name: Exchange events between applications using different protocols
           href: event-hubs-exchange-events-different-protocols.md
+        - name: Test locally with Event Hubs emulator
+          href: test-locally-with-event-hub-emulator.md
         - name: Programming language samples
           items:
             - name: .NET samples in GitHub
