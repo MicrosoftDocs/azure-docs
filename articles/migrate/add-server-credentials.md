@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 05/15/2024
 ms.custom: engagement-fy24
 ---
 
@@ -66,4 +66,6 @@ Feature | Windows credentials | Linux credentials
 
 ## Next steps
 
-Review the tutorials for discovery of servers running in your [VMware environment](tutorial-discover-vmware.md) or [Hyper-V environment](tutorial-discover-hyper-v.md) or for [discovery of physical servers](tutorial-discover-physical.md).
+- [Steps to add credentials in VMware appliance](./tutorial-discover-vmware.md#provide-server-credentials).
+- [Steps to add credentials in Hyper-V appliance](tutorial-discover-hyper-v.md#start-continuous-discovery#provide-server-credentials).
+- [Steps to add credentials in physical appliance](tutorial-discover-physical.md#start-continuous-discovery). 
