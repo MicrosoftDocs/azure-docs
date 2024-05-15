@@ -1,6 +1,6 @@
 ---
-title: "Setup of Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
-description: Get started with Advanced Container Networking Services - Standard for your AKS cluster using Azure managed Prometheus and Grafana.
+title: "Setup of Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana - BYO Prometheus and Grafana"
+description: Get started with Advanced Container Networking Services - Standard for your AKS cluster using BYO Prometheus and Grafana.
 author: Khushbu-Parekh
 ms.author: kparekh
 ms.service: azure-kubernetes-service
@@ -12,7 +12,7 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 # Setup of Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
-Advanced Container Networking Services - Standard is used to collect the network traffic data of your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, Prometheus collects metrics, and Grafana can be used to visualize them. Advanced Container Networking Services - Standard also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters. In this article, learn how to enable these features and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
+Advanced Container Networking Services - Standard is used to collect the network traffic data of your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, Prometheus collects metrics, and Grafana can be used to visualize them. Advanced Container Networking Services - Standard also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters . In this article, learn how to enable these features and use BYO Prometheus and Grafana to visualize the scraped metrics.
 
 For more information about Advanced Container Networking Services - Standard  for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services - Standard for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-standard-overview.md).
 
@@ -197,32 +197,23 @@ az aks update \
 ## Visualization using Grafana
 
 > [!NOTE]
-> The following section requires deployments of Azure managed Prometheus and Grafana.
+> The following section requires installations of Prometheus and Grafana.
 
-1. Use the following example to verify the Azure Monitor pods are running. 
+Use the following example to configure scrape jobs on Prometheus and enable visualization on Grafana for your AKS cluster.
 
-```azurecli-interactive
-  kubectl get po -owide -n kube-system | grep ama-
-```
+1. Add the following scrape job to your existing Prometheus configuration and restart your Prometheus server:
 
-```output
-  ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
-  ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
-  ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
-  ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
-  ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
-  ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
-```
+    ```yml
 
-1. We have created sample dashboards. They can be found under the **Dashboards > Azure Managed Prometheus** folder. They have names like **"Kubernetes / Networking / <name>"**. The suite of dashboards includes:
-    * **Clusters:** shows Node-level metrics for your clusters.
-    * **DNS (Cluster):** shows DNS metrics on a cluster or selection of Nodes.
-    * **DNS (Workload):** shows DNS metrics for the specified workload (e.g. Pods of a DaemonSet or Deployment such as CoreDNS).
-    * **Drops (Workload):** shows drops to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
-    * **Pod Flows (Namespace):** shows L4/L7 packet flows to/from the specified namespace (i.e. Pods in the
-    Namespace).
-    * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
+    ``` 
 
+1. In **Targets** of Prometheus, verify the **network-obs-pods** are present.
+
+1. Sign in to Grafana and import following example dashboards using ID's to get started:
+
+    * DNS (Cluster): This dashboard provides insights into your cluster's DNS activity (**ID: 20925**).
+    * DNS (Workload): This dashboard focuses on DNS activity for your workloads (**ID: 20926**).
+    * Drops (Workload): This dashboard helps you analyze dropped packets within your workloads (**ID: 20927**).
 
 ## Get cluster credentials 
 
