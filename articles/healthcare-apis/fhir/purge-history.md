@@ -41,4 +41,4 @@ DELETE https://workspace-fhir.fhir.azurehealthcareapis.com/Observation/123/$purg
 
 [REST API capabilities in the FHIR service in Azure Health Data Services](rest-api-capabilities.md)
 
-[!INCLUDE [FHIR trademark statement](./includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

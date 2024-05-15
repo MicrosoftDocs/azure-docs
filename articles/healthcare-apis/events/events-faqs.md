@@ -28,7 +28,7 @@ Events are generated from these FHIR service types:
 
 - **FhirResourceDeleted**. The event emitted after a FHIR resource is soft deleted.
 
-For more information about delete types in the FHIR service, see [REST API capabilities in the FHIR service in Azure Health Data Services](../../fhir/rest-api-capabilities.md).
+For more information about delete types in the FHIR service, see [REST API capabilities in the FHIR service in Azure Health Data Services](../fhir/fhir-rest-api-capabilities.md).
 
 **Does events support FHIR bundles?**
 

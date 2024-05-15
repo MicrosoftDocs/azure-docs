@@ -10,7 +10,7 @@ ms.custom: "include file"
 ---
 
 ## Batch and transaction bundles 
-In FHIR, bundles are considered a container that holds multiple resources. Batch and transaction bundles enable users to submit a set of actions to be performed on a server in single HTTP request/response.
+In the FHIR service, bundles are considered a container that holds multiple resources. Batch and transaction bundles enable users to submit a set of actions to be performed on a server in single HTTP request/response.
 The actions can be performed independently as a batch, or as a single atomic transaction where the entire set of changes succeed or fail as a single entity. Actions on multiple resources of the same or different types can be submitted, such as create, update, or delete. For more information, see [FHIR bundles](http://hl7.org/fhir/R4/http.html#transaction). 
 
 A batch or transaction bundle interaction with the FHIR service is performed with HTTP POST command at base URL.  

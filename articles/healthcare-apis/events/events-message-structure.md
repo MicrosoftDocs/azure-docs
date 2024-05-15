@@ -15,7 +15,7 @@ ms.author: jasteppe
 In this article, learn about the events message structures, required and nonrequired elements, and see samples of events message payloads.
 
 > [!IMPORTANT]
-> Events currently supports the following operations:
+> Events currently supports these operations:
 >
 > * **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
@@ -29,7 +29,7 @@ In this article, learn about the events message structures, required and nonrequ
 > 
 > * **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
 >
-> For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../fhir/rest-api-capabilities.md)
+> For more information about the FHIR service delete types, see [REST API capabilities in the FHIR service in Azure Health Data Services](../fhir/rest-api-capabilities.md)
 
 ## FHIR events message structure
 

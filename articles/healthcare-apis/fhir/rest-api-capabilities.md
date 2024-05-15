@@ -67,7 +67,7 @@ After you find the record to restore, use the `PUT` operation to recreate the re
 > [!NOTE]
 > There is no time-based expiration for history or soft delete data. The only way to remove history or soft-deleted data is with a hard delete or the purge history operation.
 
-[!INCLUDE [Bundle details](./includes/rest-api-bundle.md)]
+[!INCLUDE [Bundle details](../includes/rest-api-bundle-common.md)]
 
 ## Patch and conditional patch
 
@@ -165,4 +165,4 @@ Content-Type: `application/json`
 
 [Overview of FHIR search](overview-of-search.md)
 
-[!INCLUDE [FHIR trademark statement](././includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

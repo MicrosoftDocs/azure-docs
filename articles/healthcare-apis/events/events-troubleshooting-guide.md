@@ -38,7 +38,7 @@ This article provides resources to troubleshoot events.
 > 
 > * **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
 > 
-> For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../fhir/rest-api-capabilities.md).
+> For more information about the FHIR service delete types, see [REST API capabilities in the FHIR service in Azure Health Data Services](../../fhir/rest-api-capabilities.md).
 
 ### Events message structures
 
