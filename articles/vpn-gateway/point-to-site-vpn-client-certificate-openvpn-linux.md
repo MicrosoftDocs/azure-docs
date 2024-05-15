@@ -1,21 +1,22 @@
 ---
-title: 'Configure P2S VPN clients - certificate authentication - iOS OpenVPN client'
+title: 'Configure P2S VPN clients - certificate authentication -OpenVPN - Linux'
 titleSuffix: Azure VPN Gateway
-description: Learn how to configure the VPN client for VPN Gateway P2S configurations that use certificate authentication. This article applies to iOS OpenVPN client.
+description: Learn how to configure a Linux VPN client solution for VPN Gateway P2S configurations that use certificate authentication and an OpenVPN client.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/14/2024
+ms.date: 05/04/2023
 ms.author: cherylmc
 ---
 
-# Configure point-to-site VPN clients: certificate authentication - iOS OpenVPN client
+# Configure P2S VPN clients: certificate authentication - OpenVPN client - Linux
 
-This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) and **Certificate authentication** on iOS using an OpenVPN client.
+This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) and **Certificate authentication** from Linux using an OpenVPN client.
 
 ## Before you begin
 
-Before you begin configuring your client, verify that you're on the correct article. The following table shows the configuration articles available for Azure VPN Gateway P2S VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
+Verify that you are on the correct article. The following table shows the configuration articles available for Azure VPN Gateway P2S VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
@@ -43,18 +44,18 @@ The workflow for this article is:
 1. Configure the OpenVPN client.
 1. Connect to Azure.
 
-## Generate client certificates
+## Generate certificates
 
 For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
-For information about working with certificates, see [Point-to site: Generate certificates - Linux](vpn-gateway-certificates-point-to-site.md).
+For information about working with certificates, see [Point-to site: Generate certificates](vpn-gateway-certificates-point-to-site-linux.md).
 
-## Configure the OpenVPN client
+## <a name="openvpn"></a>OpenVPN steps
 
-The following example uses **OpenVPN Connect** from the App store.
+This section helps you configure Linux clients for certificate authentication that uses the OpenVPN tunnel type. To connect to Azure, download the OpenVPN client and configure the connection profile.
 
-[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
+[!INCLUDE [Configuration steps for OpenVPN Linux](../../includes/vpn-gateway-config-openvpn-linux.md)]
 
 ## Next steps
 
-Follow up with any additional server or connection settings. See [Point-to-site configuration steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+For additional steps, return to the [P2S Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.
