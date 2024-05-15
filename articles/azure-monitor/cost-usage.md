@@ -48,18 +48,21 @@ There are two primary tools to view, analyze, and optimize your Azure Monitor co
 ## Azure Cost Management + Billing
 To get started analyzing your Azure Monitor charges, open [Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) in the Azure portal. This tool includes several built-in dashboards for deep cost analysis like cost by resource and invoice details. Select **Cost Management** and then **Cost analysis**. Select your subscription or another [scope](../cost-management-billing/costs/understand-work-scopes.md).
 
+Next, create a **Daily Costs** view, and change the **Group by** to show costs by **Meter** so that you can see each the costs from each feature. The meter names for each Azure Monitor feature are listed [here](cost-meters.md).
+
 >[!NOTE]
 >You might need additional access to use Cost Management data. See [Assign access to Cost Management data](../cost-management-billing/costs/assign-access-acm-data.md).
 
 
 :::image type="content" source="media/usage-estimated-costs/010.png" lightbox="media/usage-estimated-costs/010.png" alt-text="Screenshot that shows Azure Cost Management with cost information.":::
 
-To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**. See [Azure Monitor billing meter names](cost-meters.md) for the different billing meters that are included in each service.
-
+To limit the view to Azure Monitor charges, [create a filter](../cost-management-billing/costs/group-filter.md) for the following **Service names**. 
 - Azure Monitor
 - Log Analytics
 - Insight and Analytics
 - Application Insights
+
+See [Azure Monitor billing meter names](cost-meters.md) for a list of all Azure Monitor billing meters that are included in each of these services.
 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for details on using this view.
 
