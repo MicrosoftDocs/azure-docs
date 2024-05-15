@@ -141,4 +141,4 @@ Learn how to create [metric alerts][metric-alert] to get notified when a metric 
 [azure-monitoring]: ../azure-monitor/overview.md
 [metric-alert]: ..//azure-monitor/alerts/alerts-metric.md
 [monitor-dimension]: ../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics
-[supported-metrics]: monitor-azure-container-instances-reference#metrics
+[supported-metrics]: monitor-azure-container-instances-reference.md#metrics
