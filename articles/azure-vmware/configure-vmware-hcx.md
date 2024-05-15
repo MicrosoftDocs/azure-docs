@@ -3,7 +3,7 @@ title: Configure VMware HCX in Azure VMware Solution
 description: In this tutorial, learn how to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 5/15/2024
 ms.custom: engagement-fy23
 ---
 
@@ -28,7 +28,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - If you plan to [enable VMware HCX MON](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html), make sure you have:  
 
-   - NSX-T Data Center or vSphere Distributed Switch (vDS) on-premises for HCX Network Extension (vSphere Standard Switch not supported).
+   - VMware NSX or vSphere Distributed Switch (vDS) on-premises for HCX Network Extension (vSphere Standard Switch not supported).
 
    - One or more active stretched network segments.
 
