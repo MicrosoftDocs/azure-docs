@@ -78,11 +78,11 @@ Latency is the time it takes an application to receive a single request, send it
 
 When you optimize your application to get higher IOPS and throughput, it affects the latency of your application. After you tune the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.
 
-The following control plane operations on managed disks might involve movement of the disk from one storage location to another. This movement is orchestrated via the background copy of data, which can take several hours to complete. Typically, the time is less than 24 hours depending on the amount of data in the disks. During that time, your application can experience higher than usual read latency because some reads can get redirected to the original location and take longer to complete.
+Some control plane operations on managed disks might move the disk from one storage location to another. Moving the disk between storage locations is orchestrated via a background copy of data, which can take several hours to complete. Typically, the time is less than 24 hours depending on the amount of data in the disks. During that time, your application can experience higher than usual read latency because some reads can get redirected to the original location and take longer to complete.
 
-There's no effect on write latency during this period. For Premium SSD v2 and Ultra Disks, if the disk has a 4K sector size, it experiences higher read latency. If the disk has a 512e sector size, it experiences both higher read and write latency.
+During a background copy, there's no effect on write latency for most disk types. For Premium SSD v2 and Ultra Disks, if the disk has a 4K sector size, it experiences higher read latency. If the disk has a 512e sector size, it experiences both higher read and write latency.
 
-Control plane operations are used to:
+The following control plane operations might move the disk between storage locations:
 
 - Update the storage type.
 - Detach and attach a disk from one VM to another.
