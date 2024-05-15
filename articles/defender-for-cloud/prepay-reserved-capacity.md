@@ -15,25 +15,9 @@ The prepurchase discount applies only to the MCU usage. Other charges such as co
 
 ## Determine the right size to buy
 
-Defender for Cloud prepurchase applies to all Defender for Cloud plans. You can think of the prepurchase as a pool of prepaid Defender for Cloud commit units. Usage is deducted from the pool, regardless of the workload or tier. Usage is deducted in the following ratios:
+Defender for Cloud prepurchase applies to all Defender for Cloud plans. You can think of the prepurchase as a pool of prepaid Defender for Cloud commit units. Usage is deducted from the pool, regardless of the workload or tier. Usage is deducted according to the plan price.
 
-| Workload | MCU application ratio - Standard tier | MCU application ratio - Premium tier |
-| --- | --- | --- |
-| All-purpose compute | 0.4 | 0.55 |
-| Jobs compute | 0.15 | 0.30 |
-| Jobs light compute | 0.07 | 0.22 |
-| SQL compute | N/A | 0.22 |
-| SQL Pro compute | N/A | 0.55 |
-| Serverless SQL | N/A | 0.70 |
-| Serverless real-time inference | N/A | 0.082 |
-| Model training | N/A | 0.65 |
-| Delta Live Tables | NA | 0.30 (core), 0.38 (pro), 0.54 (advanced) |
-| All Purpose Photon | NA | 0.55 |
-
-For example, when All-purpose compute – Standard Tier capacity gets consumed, the prepurchased Defender for Cloud commit units get deducted by 0.4 units. When Jobs light compute – Standard Tier capacity gets used, the prepurchased Defender for Cloud commit unit gets deducted by 0.07 units.
-
->[!NOTE]
-> Enabling Photon increases the MCU count.
+For example, a customer purchases 5,000 Commit Units for a one-year term. With a 20% discount on Defender for Cloud products at this tier, they can apply it to services like D4Servers P2 and Defender CSPM plans.
 
 Before you buy, calculate the total MCU quantity consumed for different workloads and tiers. Use the preceding ratios to normalize to MCU and then run a projection of total usage over next one or three years.
 
