@@ -1,9 +1,9 @@
 ---
 title: Azure Event Grid on Kubernetes - Event schemas
 description: This article describes event schemas that are supported by Event Grid on Azure Arc for Kubernetes  
-author: jfggdl
+author: robece
 ms.subservice: kubernetes
-ms.author: jafernan
+ms.author: robece
 ms.date: 05/25/2021
 ms.topic: conceptual
 ---
