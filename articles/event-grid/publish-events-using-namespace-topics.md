@@ -3,8 +3,8 @@ title: Publish and consume events using namespace topics
 description: This article provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and consume those events by using the pull delivery model.
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.author: jafernan
-author: jfggdl
+ms.author: robece
+author: robece
 ms.date: 02/20/2024
 ---
 

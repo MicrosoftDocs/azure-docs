@@ -7,7 +7,7 @@ author: spelluru
 ms.date: 02/20/2024
 ---
 
-# Deliver events to Azure Event Hubs using namespace topics (preview) - Azure portal
+# Deliver events to Azure Event Hubs using namespace topics - Azure portal
 
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and deliver those events by using the push delivery model. 
 
@@ -109,7 +109,7 @@ Create an Event Hubs resource that is used as the handler destination for the na
 1. On the **Event Hubs** page, select **+ Event hub** on the command bar.
     :::image type="content" source="./media/publish-events-using-namespace-topics-portal/event-hubs-page.png" alt-text="Screenshot that shows Event Hubs page with + Event hub selected." lightbox="./media/publish-events-using-namespace-topics-portal/event-hubs-page.png":::
 1. On the **Create Event hub** page, enter a name for the event hub, and then select **Review + create**.
-    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-event-hub.png" alt-text="Screenshot that shows the Create Event Hub page." lightbox="./media/publish-events-using-namespace-topics-portal/create-event-hub.png":::
+    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-event-hub.png" alt-text="Screenshot that shows the Create event hub page." lightbox="./media/publish-events-using-namespace-topics-portal/create-event-hub.png":::
 1. On the **Review + create** page, select **Create**.
 
 

@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: What is AKS?
             url: what-is-aks.md
+          - text: What is AKS Automatic?
+            url: intro-aks-automatic.md
           - text: Get started with AKS
             url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
@@ -53,6 +55,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: AKS Automatic
+            url: ./learn/quick-kubernetes-automatic-deploy.md
           - text: Azure CLI
             url: ./learn/quick-kubernetes-deploy-cli.md
           - text: Azure PowerShell

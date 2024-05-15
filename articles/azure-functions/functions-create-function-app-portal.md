@@ -112,24 +112,7 @@ If you aren't able to create your function code in the portal, you can instead c
 ::: zone-end  
 ## Test the function
 
-> [!TIP]
-> The **Code + Test** functionality in the portal works even for functions that are read-only and can't be edited in the portal.
-
-1. In the portal, locate the HTTP triggered function in your new function app, select **Code + Test** from the left menu, and then select **Get function URL** from the top menu.
-
-    :::image type="content" source="./media/functions-create-first-azure-function/function-app-http-example-get-function-url.png" alt-text="Screenshot of Get function URL window.":::
-
-1. In the **Get function URL** dialog, select **default** from the drop-down list, and then select the **Copy to clipboard** icon.
-
-    :::image type="content" source="./media/functions-create-first-azure-function/function-app-develop-tab-testing.png" alt-text="Screenshot of Copy the function URL window from the Azure portal.":::
-
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. The browser must display a response message that echoes back your query string value.
-
-    If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you selected **Function** instead of **Anonymous** access level when creating the function. In this case, you must instead append `&name=<your_name>`.
-
-1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page. Call your function again to see the trace output written to the logs.
-
-    :::image type="content" source="media/functions-create-first-azure-function/function-app-log-view.png" alt-text="Screenshot of Functions log viewer in the Azure portal.":::
+[!INCLUDE [functions-test-function-portal](../../includes/functions-test-function-portal.md)]
 
 ## Clean up resources
 

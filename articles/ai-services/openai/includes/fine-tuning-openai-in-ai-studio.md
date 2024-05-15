@@ -9,7 +9,7 @@
  ms.custom: include
 ---
 
-[!INCLUDE [Azure AI Studio preview](../../../ai-studio/includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../../../ai-studio/includes/feature-preview.md)]
 
 ## Prerequisites
 
@@ -145,7 +145,7 @@ After it guides you through the process of implementing suggested changes, the t
 
 To fine-tune an Azure OpenAI model in an existing Azure AI Studio project, follow these steps:
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project already, first create a project.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project. If you don't have a project already, first [create a project](../../../ai-studio/how-to/create-projects.md).
 
 1. From the collapsible left menu, select **Fine-tuning** > **+ Fine-tune model**.
 
@@ -157,7 +157,7 @@ To fine-tune an Azure OpenAI model in an existing Azure AI Studio project, follo
 
     :::image type="content" source="../media/fine-tuning/ai-studio/fine-tune-gpt-35-turbo.png" alt-text="Screenshot of option to select a model to fine-tune." lightbox="../media/fine-tuning/ai-studio/fine-tune-gpt-35-turbo.png":::
 
-1. For `gpt-35-turbo` we have different versions available for fine-tuning, so please choose which version you'd like to fine-tune. We will choose (0125). 
+1. For `gpt-35-turbo` we have different versions available for fine-tuning, so please choose which version you'd like to fine-tune. We will choose (0301). 
 
 1. We also recommend including the `suffix` parameter to make it easier to distinguish between different iterations of your fine-tuned model. `suffix` takes a string, and is set to identify the fine-tuned model. With the OpenAI Python API a string of up to 18 characters is supported that will be added to your fine-tuned model name.
 
@@ -218,9 +218,7 @@ Review your choices and select **Submit** to start training your new fine-tuned 
 
 ## Check the status of your fine-tuned model
 
-After you submit your fine-tuning job, you see a page with details about your fine-tuned model. You can find the status and more information about your fine-tuned model on the **Build** > **Fine-tuning** > **Models** page in Azure AI Studio.
-
-:::image type="content" source="../media/fine-tuning/ai-studio/fine-tune-details.png" alt-text="Screenshot of the page with the fine-tuned model status and other information." lightbox="../media/fine-tuning/ai-studio/fine-tune-details.png":::
+After you submit your fine-tuning job, you see a page with details about your fine-tuned model. You can find the status and more information about your fine-tuned model on the **Fine-tuning** > **Models** page in Azure AI Studio.
 
 Your job might be queued behind other jobs on the system. Training your model can take minutes or hours depending on the model and dataset size.
 

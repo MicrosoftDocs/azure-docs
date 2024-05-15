@@ -48,10 +48,10 @@ Before you enable hibernation on your dev box, review the following consideratio
 
 - Hibernation doesn't support hypervisor-protected code integrity (HVCI)/ Memory Integrity features. Dev box disables this feature automatically.
 
-- Auto-stop schedules still shutdown the dev boxes. If you want to hibernate your dev box, you can do it through the developer portal or by using the Azure CLI.
- 
-   > [!NOTE]
-   > The functionality to schedule dev boxes to hibernate automatically is available in preview. You can sign up for the preview at [Microsoft Dev Box - Auto-Hibernation Schedules Preview](https://aka.ms/DevBoxHibernationSchedulesPrivatePreviewSignUp). 
+- Auto-stop schedules will hibernate Dev Boxes that were created after you enabled hibernation on the associated Dev Box definition. Dev Boxes that were created before you enabled hibernation on the Dev Box definition will continue to shut down.
+
+  > [!NOTE]
+  > The functionality to schedule dev boxes to hibernate automatically is available as a public preview. You can read more about the announcement at [Microsoft Dev Box - Auto-Hibernation Schedules Preview](https://aka.ms/devbox/preview/hibernate-on-schedule). 
 
 ### Settings not compatible with hibernation
 

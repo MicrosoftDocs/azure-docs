@@ -938,6 +938,31 @@ groups:
     title: CLI
   - id: programming-language-rest
     title: REST
+- id: programming-languages-speech-services-studio
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: ai-studio
+    title: AI Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-cli
+    title: CLI
+  - id: programming-language-rest
+    title: REST
 - id: programming-languages-ai-services
 # Owner: eur
   title: Programming languages
@@ -1000,6 +1025,15 @@ groups:
   pivots:
   - id: speech-studio
     title: Speech Studio
+  - id: rest-api
+    title: REST
+- id: ai-studio-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: ai-studio
+    title: AI Studio
   - id: rest-api
     title: REST
 - id: speech-cli-rest
@@ -2535,6 +2569,17 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: asabbour
+- id: bicep-azure-cli-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: bicep
+    title: Bicep
 # Owner: ruslany
 - id: azure-cli-bicep
   title: Interaction type

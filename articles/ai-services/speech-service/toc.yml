@@ -182,7 +182,7 @@ items:
             href: professional-voice-deploy-endpoint.md
         - name: Custom neural voice lite (preview)
           href: custom-neural-voice-lite.md
-        - name: Personal voice (preview)
+        - name: Personal voice
           items:
           - name: Personal voice overview
             href: personal-voice-overview.md
@@ -238,12 +238,20 @@ items:
       href: faq-tts.yml
 - name: Speech translation
   items:
-    - name: Speech translation overview
-      href: speech-translation.md
-    - name: Speech translation quickstart
-      href: get-started-speech-translation.md
-    - name: How to recognize and translate speech
-      href: how-to-translate-speech.md
+    - name: Real-time speech translation
+      items:
+       - name: Speech translation overview
+         href: speech-translation.md
+       - name: Speech translation quickstart
+         href: get-started-speech-translation.md
+       - name: How to recognize and translate speech
+         href: how-to-translate-speech.md
+    - name: Video dubbing (preview)
+      items:
+       - name: Video dubbing overview
+         href: video-dub-overview.md
+       - name: Video dubbing in the studio
+         href: video-dub-studio.md
 - name: Intent recognition
   items:
     - name: Intent recognition overview
@@ -301,7 +309,7 @@ items:
         href: language-learning-overview.md
       - name: Pronunciation Assessment with speech to text
         items:
-        - name: Reading and speaking assessment in Speech Studio
+        - name: Reading and speaking assessment in AI Studio
           href: pronunciation-assessment-tool.md
           displayName: pronounce, learn language, assess pron
     - name: Azure OpenAI speech to speech chat
@@ -570,6 +578,8 @@ items:
         - name: Conversation transcription REST APIs
           href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
           displayName: reference
+        - name: Ingestion service REST API
+          href: https://eastus.ingestion.speech.microsoft.com/swagger/index.html?urls.primaryName=v0.2-preview
 - name: Responsible AI
   items:
     - name: Speech to text

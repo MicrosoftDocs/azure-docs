@@ -104,94 +104,25 @@ The previously mentioned Cohere models can be consumed using the chat API.
 1. Copy the **Target** URL and the **Key** token values.
 1. Cohere exposes two routes for inference with the Embed v3 - English and Embed v3 - Multilingual models. `v1/embeddings` adheres to the Azure AI Generative Messages API schema, and `v1/embed` supports Cohere's native API schema.
 
-For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
 
 ## Embed API reference for Cohere Embed models deployed as a service
 
-### v1/embeddings 
-#### Request
+Cohere Embed v3 - English and Embed v3 - Multilingual accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/embeddings` (for text) and `/images/embeddings` (for images), and the native [Cohere Embed v3 API](#cohere-embed-v3) on `/embed`. 
 
-```
-    POST /v1/embeddings HTTP/1.1
-    Host: <DEPLOYMENT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-type: application/json
-```
+### Azure AI Model Inference API
 
-#### v1/embeddings request schema
+The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the following articles:
 
-Cohere Embed v3 - English and Embed v3 - Multilingual accept the following parameters for a `v1/embeddings` API call:
+* [Reference for Text Embeddings](reference-model-inference-embeddings.md)
+* [Reference for Image Embeddings](reference-model-inference-images-embeddings.md) 
 
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-|`input` |`array of strings` |Required |An array of strings for the model to embed. Maximum number of texts per call is 96. We recommend reducing the length of each text to be under 512 tokens for optimal quality. |
+An [OpenAPI specification can be obtained from the endpoint itself](reference-model-inference-api.md?tabs=rest#getting-started).
 
-#### v1/embeddings response schema
+### Cohere Embed v3
 
-The response payload is a dictionary with the following fields:
+The following contains details about Cohere Embed v3 API.
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | A unique identifier for the completion. |
-| `object` | `enum`|The object type, which is always `list` |
-| `data` | `array` | The Unix timestamp (in seconds) of when the completion was created. |
-| `model` | `string` | The model_id used for creating the embeddings. |
-| `usage` | `object` | Usage statistics for the completion request. |
-
-The `data` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `index` | `integer` |The index of the embedding in the list of embeddings. |
-| `object` | `enum` | The object type, which is always "embedding." |
-| `embedding` | `array` | The embedding vector, which is a list of floats. |
-
-The `usage` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `prompt_tokens` | `integer` | Number of tokens in the prompt. |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens` | `integer` | Total tokens. |
-
-
-### v1/embeddings examples
-
-Request:
-
-```json
-    {    
-    "input": ["hi"]
-    }
-```
-
-Response:
-
-```json
-    {
-        "id": "87cb11c5-2316-4c88-af3c-4b2b77ed58f3",
-        "object": "list",
-        "data": [
-            {
-                "index": 0,
-                "object": "embedding",
-                "embedding": [
-                    1.1513672,
-                    1.7060547,
-                    ...
-                ]
-            }
-        ],
-        "model": "tmp",
-        "usage": {
-            "prompt_tokens": 1,
-            "completion_tokens": 0,
-            "total_tokens": 1
-        }
-    }
-```
-
-### v1/embed 
 #### Request
 
 ```

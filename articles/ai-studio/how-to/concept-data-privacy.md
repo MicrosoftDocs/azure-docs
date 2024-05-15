@@ -6,7 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 5/6/2024
+ms.date: 5/21/2024
 ms.reviewer: shubhirajMsft
 ms.author: scottpolly
 author: s-polly

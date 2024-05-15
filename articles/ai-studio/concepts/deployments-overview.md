@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 12/7/2023
+ms.date: 5/21/2024
 ms.reviewer: fasantia
 ms.author: mopeakande
 author: msakande
@@ -15,7 +15,7 @@ author: msakande
 
 # Overview: Deploy models, flows, and web apps with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio supports deploying large language models (LLMs), flows, and web apps. Deploying an LLM or flow makes it available for use in a website, an application, or other production environments. This typically involves hosting the model on a server or in the cloud, and creating an API or other interface for users to interact with the model. 
 
@@ -71,7 +71,7 @@ Whichever way you choose to create a flow in Azure AI Studio, you can deploy it 
 
 ## Deploying web apps
 
-The model or flow that you deploy can be used in a web application hosted in Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [chat with your data tutorial](../tutorials/deploy-chat-web-app.md).
+The model or flow that you deploy can be used in a web application hosted in Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [Azure AI Enterprise Chat tutorial](../tutorials/deploy-chat-web-app.md).
 
 
 ## Planning AI safety for a deployed model
