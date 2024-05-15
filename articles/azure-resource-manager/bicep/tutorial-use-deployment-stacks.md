@@ -1,7 +1,7 @@
 ---
 title: Use deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack.
-ms.date: 07/06/2023
+ms.date: 05/15/2024
 ms.topic: tutorial
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ---
@@ -78,6 +78,7 @@ az stack group create \
   --name 'demoStack' \
   --resource-group 'demoRg' \
   --template-file './main.bicep' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -94,6 +95,7 @@ New-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
   -TemplateFile "./main.bicep" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -328,6 +330,7 @@ az stack group create \
   --name 'demoStack' \
   --resource-group 'demoRg' \
   --template-file './main.bicep' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -340,6 +343,7 @@ Set-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
   -TemplateFile "./main.bicep" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -383,6 +387,7 @@ az stack group create \
   --name 'demoStack' \
   --resource-group 'demoRg' \
   --template-file './main.bicep' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -393,6 +398,7 @@ Set-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
   -TemplateFile "./main.bicep" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -445,6 +451,7 @@ az stack group create \
   --name 'demoStack' \
   --resource-group 'demoRg' \
   --template-file './main.bicep' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -455,6 +462,7 @@ Set-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
   -TemplateFile "./main.bicep" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -523,6 +531,7 @@ az stack group create \
   --name 'demoStack' \
   --resource-group 'demoRg' \
   --template-file './main.bicep' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -533,6 +542,7 @@ Set-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
   -TemplateFile "./main.bicep" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -561,7 +571,7 @@ You shall see three managed resources.
 
 ### Delete a managed resource
 
-At the end of the previous step, you have one stack with three managed resources. In one of the previous steps, you detached a managed resource. Sometimes, you might want to delete a resource instead of detaching one. To delete a resource, you use a delete-resources switch with the create/set command.
+At the end of the previous step, you have one stack with three managed resources. In one of the previous steps, you detached a managed resource. Sometimes, you might want to delete resources instead of detaching one. To delete a resource, you use a action-on-unmanage switch with the create/set command.
 
 Edit the **main.bicep** file to remove the following storage account definition:
 
@@ -576,7 +586,7 @@ resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 }
 ```
 
-Run the following command with the delete-resources switch:
+Run the following command with the `--action-on-unmanage 'deleteResources'` switch:
 
 # [CLI](#tab/azure-cli)
 
@@ -585,11 +595,11 @@ az stack group create \
   --name 'demoStack' \
   --resource-group 'demoRg' \
   --template-file './main.bicep' \
-  --deny-settings-mode 'none' \
-  --delete-resources
+  --action-on-unmanage 'deleteResources' \
+  --deny-settings-mode 'none' 
 ```
 
-In addition to the `delete-resources` switch, there are two other switches available: `delete-all` and `delete-resource-groups`. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion).
+In addition to `deleteResources`, there are two other values available: `deleteAll` and `detachAll`. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -598,11 +608,11 @@ Set-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
   -TemplateFile "./main.bicep" `
-  -DenySettingsMode "none" `
-  -DeleteResources
+  -ActionOnUnmanage "deleteResources" `
+  -DenySettingsMode "none"
 ```
 
-In addition to the `DeleteResources` switch, there are two other switches available: `DeleteAll` and `DeleteResourceGroups`. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion).
+In addition to the `-ActionOnUnmanage "deleteResources"`, there are two other values available: `deleteAll` and `detachAll`. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion).
 
 ---
 
@@ -678,6 +688,7 @@ az stack group create \
   --name 'demoStack' \
   --resource-group 'demoRg' \
   --template-file './main.bicep' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'denyDelete'
 ```
 
@@ -688,6 +699,7 @@ Set-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
   -TemplateFile "./main.bicep" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "DenyDelete"
 ```
 
@@ -722,6 +734,7 @@ az stack group create \
   --name 'demoStack' \
   --resource-group 'demoRg' \
   --template-file './main.bicep' \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -732,6 +745,7 @@ Set-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
   -TemplateFile "./main.bicep" `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
 
@@ -771,22 +785,17 @@ To delete the deployment stack, and the managed resources, run the following com
 az stack group delete \
   --name 'demoStack' \
   --resource-group 'demoRg' \
-  --delete-all
+  --action-on-unmanage 'deleteAll' 
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
+To delete the deployment stack, but detach the managed resources:
 
 ```azurecli
 az stack group delete \
   --name 'demoStack' \
-  --resource-group 'demoRg'
+  --resource-group 'demoRg' \
+  --action-on-unmanage 'detachAll' 
 ```
-
-The following parameters can be used to control between detach and delete.
-
-- `--delete-all`: Delete both the resources and the resource groups.
-- `--delete-resources`: Delete the resources only.
-- `--delete-resource-groups`: Delete the resource groups only.
 
 For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
 
@@ -796,22 +805,17 @@ For more information, see [Delete deployment stacks](./deployment-stacks.md#dele
 Remove-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg" `
-  -DeleteAll
+  -ActionOnUnmanage "deleteAll" 
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
+To delete the deployment stack, but detach the managed resources:
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
   -ResourceGroupName "demoRg"
+  -ActionOnUnmanage "detachAll" `
 ```
-
-The following parameters can be used to control between detach and delete.
-
-- `DeleteAll`: delete both resource groups and the managed resources.
-- `DeleteResources`: delete the managed resources only.
-- `DeleteResourceGroups`: delete the resource groups only.
 
 For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
 

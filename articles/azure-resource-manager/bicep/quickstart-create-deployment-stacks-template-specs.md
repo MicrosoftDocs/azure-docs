@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep from template specs
 description: Learn how to use Bicep to create and deploy a deployment stack from template specs.
-ms.date: 07/06/2023
+ms.date: 05/15/2024
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack from a template spec.
@@ -119,6 +119,7 @@ az stack group create \
   --name demoStack \
   --resource-group 'demoRg' \
   --template-spec $id \
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -135,6 +136,7 @@ New-AzResourceGroupDeploymentStack `
   -Name 'demoStack' `
   -ResourceGroupName 'demoRg' `
   -TemplateSpecId $id `
+  -ActionOnUnmanage "detachAll" `
   -DenySettingsMode none
 ```
 
@@ -335,22 +337,17 @@ To delete the deployment stack, and the managed resources:
 az stack group delete \
   --name 'demoStack' \
   --resource-group 'demoRg' \
-  --delete-all
+  --action-on-unmanage 'deleteAll' 
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
+To delete the deployment stack, but detach the managed resources. For example:
 
 ```azurecli
 az stack group delete \
   --name 'demoStack' \
-  --resource-group 'demoRg'
+  --resource-group 'demoRg' \
+  --action-on-unmanage 'detachAll' 
 ```
-
-The following parameters can be used to control between detach and delete.
-
-- `--delete-all`: Delete both the resources and the resource groups.
-- `--delete-resources`: Delete the resources only.
-- `--delete-resource-groups`: Delete the resource groups only.
 
 For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
 
@@ -360,15 +357,16 @@ For more information, see [Delete deployment stacks](./deployment-stacks.md#dele
 Remove-AzResourceGroupDeploymentStack `
   -Name demoStack `
   -ResourceGroupName demoRg `
-  -DeleteAll
+  -ActionOnUnmanage "deleteAll"
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
+To delete the deployment stack, but detach the managed resources. For example:
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
   -Name "demoStack" `
-  -ResourceGroupName "demoRg"
+  -ResourceGroupName "demoRg" `
+  -ActionOnUnmanage "detachAll"
 ```
 
 The following parameters can be used to control between detach and delete.
