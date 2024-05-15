@@ -478,6 +478,226 @@ When the function is invoked, the HTTP request is passed to the function as `req
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
 
+## SDK type bindings (Preview)
+::: zone pivot="python-mode-configuration"  
+Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered. 
+
+To use SDK type bindings in Azure Functions with Python, please use the v2 programming model.
+::: zone-end
+
+::: zone pivot="python-mode-decorators" 
+Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered.   
+
+Azure Storage Blob SDK type bindings are supported for Azure Functions in Python. When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
+
+Note that SDK type bindings support for Python is currently in preview, and is only supported for the v2 programming model. Currently, only synchronous SDK types are supported.
+
+### Prerequisites
+
+* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python) 4.34+
+* [Python](https://www.python.org/downloads/) version 3.9+
+
+### Enable SDK type bindings for Azure Storage Blob
+
+#### Install the extension package
+
+Add the extension package to the `requirements.txt` file in the project.
+
+```
+azure-functions
+azurefunctions-extensions-bindings-blob
+```
+
+#### Import the library
+
+Add the library to the `function_app.py` file in the project.
+
+```python
+import azurefunctions.extensions.bindings.blob as blob
+```
+
+### Examples
+
+The following sample demonstrates how to obtain BlobClient from a Azure Blob Storage trigger or input function application.
+
+```python
+import logging
+import azure.functions as func
+import azurefunctions.extensions.bindings.blob as blob
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+
+@app.blob_trigger(
+    arg_name="client", path="PATH/TO/BLOB", connection="AzureWebJobsStorage"
+)
+def blob_trigger(client: blob.BlobClient):
+    file = client.download_blob().readall()
+    logging.info(
+        f"Python blob trigger function processed blob \n"
+        f"Properties: {client.get_blob_properties()}\n"
+        f"{len(file)} bytes"
+    )
+
+
+@app.route(route="file")
+@app.blob_input(
+    arg_name="client", path="PATH/TO/BLOB", connection="AzureWebJobsStorage"
+)
+def blob_input(req: func.HttpRequest, client: blob.BlobClient):
+    file = client.download_blob().readall()
+    logging.info(
+        f"Python blob input function processed blob \n"
+        f"Properties: {client.get_blob_properties()}\n"
+        f"{len(file)} bytes"
+    )
+    return "ok"
+```
+
+Check out more examples, including using ContainerClient and StorageStreamDownloader types on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-blob/samples].
+
+::: zone-end
+
+## HTTP streams (Preview)
+::: zone pivot="python-mode-configuration" 
+
+Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. This features allows for streaming HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
+
+To use HTTP streams in Azure Functions with Python, please use the v2 programming model.
+
+::: zone-end
+
+::: zone pivot="python-mode-decorators"
+Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. This features allows for streaming HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
+
+For scenarios where real time exchange and interaction between client and server over HTTP connections is needed, this feature will be helpful. Additionally, FastAPI response types are also supported when using HTTP streaming.
+
+Note that HTTP streaming support for Python is currently in preview, and is only supported for the v2 programming model.
+
+### Prerequisites
+
+* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python) 4.34.1+
+* [Python](https://www.python.org/downloads/) version 3.8+
+
+### Enable streams
+
+#### Install the extension package
+
+Add the extension package to the `requirements.txt` file in the project.
+
+```
+azure-functions
+azurefunctions-extensions-http-fastapi
+```
+
+#### Import the library
+
+Add the library with the relevant responses to the `function_app.py` file in the project.
+
+```python
+from azurefunctions.extensions.http.fastapi import Request, StreamingResponse
+```
+
+### Add the app setting
+
+If you are using Linux Consumption, add the following app setting. Modify the `local.settings.json` project file to include `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`.
+
+### Examples
+
+Once you've enabled the HTTP streaming feature using the above steps, you can create functions that stream large amounts of data. 
+
+Following is an example of an HTTP triggered Azure Function that streams data as the response to incoming HTTP GET requests. This example demonstrates download capabilities which can be helpful for scenarios like sending event data through a pipeline for real time visualization, or detecting anaomalies in large sets of data and providing instant notifications.
+
+```python
+import time
+import azure.functions as func
+from azurefunctions.extensions.http.fastapi import Request, StreamingResponse
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+
+def generate_count():
+    """Generate a stream of chronological numbers."""
+    count = 0
+    while True:
+        yield f"counting, {count}\n\n"
+        count += 1
+
+@app.route(route="stream", methods=[func.HttpMethod.GET])
+async def stream_count(req: Request) -> StreamingResponse:
+    """Endpoint to stream of chronological numbers."""
+    return StreamingResponse(generate_count(), media_type="text/event-stream")
+```
+
+Check out additional samples for HTTP streaming downloading on [GitHub](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download).
+
+Following is an example of a HTTP triggered Azure Function which receives streaming data from a client via an HTTP POST request and processes it in real-time. It demonstrates streaming upload capabilities which can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
+
+```python
+import azure.functions as func
+from azurefunctions.extensions.http.fastapi import JSONResponse, Request
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+
+@app.route(route="streaming_upload", methods=[func.HttpMethod.POST])
+async def streaming_upload(req: Request) -> JSONResponse:
+    """Handle streaming upload requests."""
+    # Process each chunk of data as it arrives
+    async for chunk in req.stream():
+        process_data_chunk(chunk)
+
+    # Once all data is received, return a JSON response indicating successful processing
+    return JSONResponse({"status": "Data uploaded and processed successfully"})
+
+def process_data_chunk(chunk: bytes):
+    """Process each data chunk."""
+    # Add custom processing logic here
+    print(chunk)
+```
+
+Note, you will need to use an HTTP client library to make streaming calls to the Fast API endpoints for the functions. The client tool or browser you are using may not natively support streaming or may only return the first chunk of data, which is why the script can be helpful to test the function locally. Alternatively, you can leverage tools that support HTTP streaming. Following is an example client script:
+
+```python
+import httpx # Be sure to add 'httpx' to 'requirements.txt'
+import asyncio
+
+async def stream_generator(file_path):
+    chunk_size = 2 * 1024  # Define your own chunk size
+    with open(file_path, 'rb') as file:
+        while chunk := file.read(chunk_size):
+            yield chunk
+            print(f"Sent chunk: {len(chunk)} bytes")
+
+async def stream_to_server(url, file_path):
+    timeout = httpx.Timeout(60.0, connect=60.0)
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        response = await client.post(url, content=stream_generator(file_path))
+        return response
+
+async def stream_response(response):
+    if response.status_code == 200:
+        async for chunk in response.aiter_raw():
+            print(f"Received chunk: {len(chunk)} bytes")
+    else:
+        print(f"Error: {response}")
+
+async def main():
+    print('helloworld')
+    # Customize your streaming endpoint served from core tool in variable 'url' if different.
+    url = 'http://localhost:7071/api/streaming_upload'
+    file_path = r'<file path>'
+
+    response = await stream_to_server(url, file_path)
+    print(response)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+Check out this example and more for HTTP streaming uploading on [GitHub](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload).
+
+::: zone-end
 
 ## Outputs
 
