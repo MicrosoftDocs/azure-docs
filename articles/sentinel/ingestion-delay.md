@@ -78,6 +78,25 @@ CommonSecurityLog
 | where ingestion_time() > ago(rule_look_back)
 ```
 
+*Note:* the strategy above will only resolve ingestion delay issues for cases where you are searching for a single event. In cases where there are multiple events you are correlating on there is a possible race condition if the ingestion delay for the events you mean to correlate on differs. Consider the following case:
+
+There exist two alerts, a1 and a2, that are intended to be correlated together with no defined upper limit for the time (based on the time the event actually occurred on the system) that has elapsed between them (the time period for which correlation should occur in this hypothetical case isn’t important to the problem description so long as a2 occurs after a1 based on the raw event time). The search uses the design pattern above, executing every 15 minutes and only looking at events that have been indexed in the last 15 minutes.
+
+Suppose a1 and a2 have the following ingestion and actual event times:
+
+a1 raw event time: 10:09:03, a1 ingestion time: 10:15:03
+a2 raw event time: 10:10:00, a2 ingestion time: 10:13:00
+
+And the search executes at 10:00, 10:15 and 10:30.
+
+In the case above event a1 has a raw event time (the time the event actually occurred on the system) of 10:09:03 and an ingestion time (the time in which the event was ingested by Splunk) of 10:15:03 and a2 has a raw event time (the time the event actually occurred on the system) of 10:10:00 and an ingestion time (the time in which the event was ingested by Splunk) of 10:13:00.
+
+If the ingestion delay were the same for both events the design pattern recommended above would suffice to account for the delay. However, given the ingestion delay varies between the two events the search would fail to pick up the case above as a1 would only be considered by search execution that started at 10:30 while a2 would only be considered by the search execution that started at 10:15.
+
+Put generally, because the ingestion delay may vary between the two events, it’s still possible, even though both events will still be considered by a search at some point, that, if the time they are generated and indexed falls close to the time a search will be kicked off, that they are considered by different search execution and therefor correlation does not occur.
+
+You will have to account for this type of variance in ingestion delays for searches which involve more than a single event.
+
 
 ## Calculate ingestion delay
 
