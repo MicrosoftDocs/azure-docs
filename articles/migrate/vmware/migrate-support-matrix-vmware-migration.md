@@ -85,9 +85,6 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/>- CentOS 9.x (Release and Stream), 8.x (Release and Stream), 7.9, 7.7, 7.6, 7.5, 7.4, 6.x<br/>- SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 11, 10, 9, 8, 7<br/>- Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
 
 > [!NOTE]
-> vSphere ESXi host	Inbound on TCP port 902 for the appliance to replicate data from snapshots. Outbound port 902 from ESXi host is required for sending heartbeat traffic to vCenter. 
-
-> [!NOTE]
 > Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
 >  - Non-ASCII characters. [Learn more](https://en.wikipedia.org/wiki/ASCII).
 >  - Ampersand (&)
