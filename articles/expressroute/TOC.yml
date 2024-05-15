@@ -333,8 +333,6 @@
       href: /events/ignite-2015/brk1454
     - name: Set up Microsoft peering for your circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
-    - name: Set up public peering for your circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
   - name: Classic and legacy articles
     items:
     - name: Modify a circuit
