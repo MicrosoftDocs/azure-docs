@@ -94,14 +94,120 @@ The following add-on capabilities are available for`2024-02-29-preview`, `2024-0
 
 The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes, and orientations. Moreover, the text can be broken into separate parts or connected with other symbols. Document Intelligence now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
 
-### REST API
-
 ::: moniker range="doc-intel-4.0.0"
-
+### [REST API](#tab/rest-api)
 ```bash
 {your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=ocrHighResolution
 ```
 
+### [Sample code](#tab/sample-code)
+```Python
+if result.styles and any([style.is_handwritten for style in result.styles]):
+    print("Document contains handwritten content")
+else:
+    print("Document does not contain handwritten content")
+
+for page in result.pages:
+    print(f"----Analyzing layout from page #{page.page_number}----")
+    print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
+
+    if page.lines:
+        for line_idx, line in enumerate(page.lines):
+            words = get_words(page, line)
+            print(
+                f"...Line # {line_idx} has word count {len(words)} and text '{line.content}' "
+                f"within bounding polygon '{line.polygon}'"
+            )
+
+            for word in words:
+                print(f"......Word '{word.content}' has a confidence of {word.confidence}")
+
+    if page.selection_marks:
+        for selection_mark in page.selection_marks:
+            print(
+                f"Selection mark is '{selection_mark.state}' within bounding polygon "
+                f"'{selection_mark.polygon}' and has a confidence of {selection_mark.confidence}"
+            )
+
+if result.tables:
+    for table_idx, table in enumerate(result.tables):
+        print(f"Table # {table_idx} has {table.row_count} rows and " f"{table.column_count} columns")
+        if table.bounding_regions:
+            for region in table.bounding_regions:
+                print(f"Table # {table_idx} location on page: {region.page_number} is {region.polygon}")
+        for cell in table.cells:
+            print(f"...Cell[{cell.row_index}][{cell.column_index}] has text '{cell.content}'")
+            if cell.bounding_regions:
+                for region in cell.bounding_regions:
+                    print(f"...content on page {region.page_number} is within bounding polygon '{region.polygon}'")   
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Add-on_capabilities/sample_analyze_addon_highres.py)
+
+### [Output](#tab/output)
+```json
+{
+"result": {
+"styles": [true],
+"pages": [
+{
+"page_number": 1,
+"width": 1000,
+"height": 800,
+"unit": "px",
+"lines": [
+{
+"line_idx": 1,
+"content": "This",
+"polygon": [10, 20, 30, 40],
+"words": [
+{
+"content": "This",
+"confidence": 0.98
+}
+]
+}
+],
+"selection_marks": [
+{
+"state": "selected",
+"polygon": [50, 60, 70, 80],
+"confidence": 0.91
+}
+]
+}
+],
+"tables": [
+{
+"table_idx": 1,
+"row_count": 3,
+"column_count": 4,
+"bounding_regions": [
+{
+"page_number": 1,
+"polygon": [100, 200, 300, 400]
+}
+],
+"cells": [
+{
+"row_index": 1,
+"column_index": 1,
+"content": "Content 1",
+"bounding_regions": [
+{
+"page_number": 1,
+"polygon": [110, 210, 310, 410]
+}
+]
+}
+]
+}
+]
+}
+}
+
+```
+---
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
