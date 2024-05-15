@@ -143,7 +143,7 @@ spec:
     - name: http-web
       protocol: TCP
       port: 9090
-      targetPort: 9090
+      targetPort: http-web # this information should be the same as the selector port configuration
 ```
 
 1. Run the following command to add the private link service to the Prometheus server.
