@@ -142,7 +142,7 @@ Use the [`az aks create`][az-aks-create] command to create a new cluster, and in
 > After you disable the SSH service, you can't SSH into the cluster to perform administrative tasks or to troubleshoot.
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myManagedCluster --ssh-access disabled
+az aks create --resource-group myResourceGroup --name myManagedCluster --ssh-access disabled
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following example resembles the output and the results related to disabling SSH:
@@ -158,7 +158,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 Use the [`az aks update`][az-aks-update] command to update an existing cluster, and include the `--ssh-access disabled` argument to disable SSH (preview) on all the node pools in the cluster.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myManagedCluster --ssh-access disabled
+az aks update --resource-group myResourceGroup --name myManagedCluster --ssh-access disabled
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following example resembles the output and the results related to disabling SSH:
@@ -221,7 +221,7 @@ az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --reso
 Use the [`az aks update`][az-aks-update] command to update an existing cluster, and include the `--ssh-access localuser` argument to re-enable SSH (preview) on all the node pools in the cluster.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myManagedCluster --ssh-access localuser
+az aks update --resource-group myResourceGroup --name myManagedCluster --ssh-access localuser
 ```
 
 The following message is returned while the process is performed:
