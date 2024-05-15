@@ -18,12 +18,12 @@ This article summarizes the steps to develop and test locally with Event hubs em
   - 2GB RAM
   - 5GB of Disk space
 - WSL Enablement (Only for Windows):
-  - [Install Windows Subsystem for Linux (WSL) | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/install)
+  - [Install Windows Subsystem for Linux (WSL) | Microsoft Learn](/windows/wsl/install)
   -  [Configure Docker to use WSL](https://docs.docker.com/desktop/wsl/#:~:text=Turn%20on%20Docker%20Desktop%20WSL%202%201%20Download,engine%20..%20...%206%20Select%20Apply%20%26%20Restart.)
 
 >[!NOTE]
 >Before you continue with the subsequent steps, make sure Docker Desktop is operational in the background.
----
+
 ## Running the emulator 
 
 This section highlights different steps to run Event Hubs emulator. Details are as follows:
@@ -86,7 +86,7 @@ name: microsoft-azure-eventhubs
 services:
   emulator:
     container_name: "eventhubs-emulator"
-    image: "messagingemulators.azurecr.io/microsoft/azure/eventhubs/emulator:latest"
+    image: "mcr.microsoft.com/azure-messaging/eventhubs-emulator:latest"
     volumes:
       - "${CONFIG_PATH}:/Eventhubs_Emulator/ConfigFiles/Config.json"
     ports:
