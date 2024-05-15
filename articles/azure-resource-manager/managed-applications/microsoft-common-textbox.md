@@ -1,7 +1,7 @@
 ---
 title: TextBox UI element
 description: Describes the Microsoft.Common.TextBox UI element for Azure portal that's used for adding unformatted text.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/23/2022
 ---
 

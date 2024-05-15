@@ -1,7 +1,7 @@
 ---
 title: Overview of view definition
 description: Describes the concept of creating view definition for Azure Managed Applications.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 08/25/2022
 ---
 
