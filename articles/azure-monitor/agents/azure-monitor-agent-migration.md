@@ -17,9 +17,11 @@ ms.custom:
 If you're currently using the Log Analytics agent with Azure Monitor or [other supported features and services](#migrate-additional-services-and-features), start planning your migration to Azure Monitor Agent by using the information in this article. If you are using the Log Analytics Agent for SCOM, you need to [migrate to the SCOM Agent](/system-center/scom/manage-deploy-windows-agent-manually?view=sc-om-2022).
 
 The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). You can expect the following when you use the MMA or OMS agent after this date.
-> - **Data upload**: You can still upload data. At some point when major customers have finished migrating and data volumes significantly drop, upload will be suspended. You can expect this to take at least 6 to 9 months.  You will not receive a breaking change notification of the suspension. 
-> - **Install or reinstall**: You can still install and reinstall the legacy agents. You will not be able to get support for installing or reinstalling issues.
-> - **Customer Support**: You can expect support for MMA/OMS for security issues.
+
+> - **Data upload:** Cloud ingestion services will gradually reduce support for MMA agents, which may result in decreased support and potential compatibility issues for MMA agents over time.
+> - **Installation:** The ability to install the legacy agents will be removed from the Azure Portal and installation policies for legacy agents will be removed.
+> - **Customer Support:** You will not be able to get support for legacy agent issues.
+> - **OS Support:** Support for new Linux or Windows distros (incl. service packs) will not be added after the deprecation of the legacy agents.
 
 ## Benefits
 
