@@ -230,9 +230,16 @@ When you enable replication, all logs ingested to your primary workspace eventua
 
 ## Trigger switchover
 
-Before you trigger switchover, you should confirm that the workspace replication operation completed successfully. Switchover only succeeds when the secondary workspace is configured correctly. You can use a [GET request to verify the workspace state](#check-workspace-state) is "Succeeded," and confirm the secondary location is set as expected.
+Before you trigger switchover, [confirm that the workspace replication operation completed successfully](#check-workspace-replication-provisioning-state). Switchover only succeeds when the secondary workspace is configured correctly. 
 
-You trigger switchover by using a `POST` command with the following values:
+To switch over to your secondary workspace, use this `POST` command:
+
+```http
+POST 
+https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/locations/<secondary_location>/workspaces/<workspace_name>/failover?api-version=2023-01-01-preview
+```
+
+Where:
 
 - `<subscription_id>`: Your account subscription ID.
 - `<resourcegroup_name>` : The resource group that contains your workspace resource.
@@ -240,15 +247,6 @@ You trigger switchover by using a `POST` command with the following values:
 - `<workspace_name>`: The name of the workspace to switch to during switchover.
 
 The `POST` command is a long running operation that can take some time to complete. The call to the command returns 202. You can track the process, as described in [Check workspace state](#check-workspace-state).
-
-The following code demonstrates the `POST` command:
-
-```http
-POST 
-https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/locations/<secondary_location>/workspaces/<workspace_name>/failover?api-version=2023-01-01-preview
-
-Expected response: 202 Accepted
-```
 
 ### Client behavior during switchover
 
