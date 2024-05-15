@@ -409,6 +409,16 @@
       href: ../network-bandwidth.md
 - name: How to
   items:
+    - name: Configure vector database capabilities
+      items:
+      - name: .NET
+        href: how-to-dotnet-vector-index-query.md
+      - name: Python
+        href: how-to-python-vector-index-query.md
+      - name: JavaScript
+        href: how-to-javascript-vector-index-query.md
+      - name: Java
+        href: how-to-java-vector-index-query.md
     - name: Access preview features
       href: ../access-previews.md
     - name: Develop applications
