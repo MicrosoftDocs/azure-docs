@@ -17,6 +17,6 @@ ms.topic: include
 | | OpenVPN  |iOS |[OpenVPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-ios.md)|
 | | OpenVPN |Linux | [Azure VPN Client](../articles/vpn-gateway/point-to-site-certificate-client-linux-azure-vpn-client.md)<br>[OpenVPN client](../articles/vpn-gateway/point-to-site-vpn-client-cert-linux.md)|
 | **Microsoft Entra ID** |    | |  |
-|   | OpenVPN| Windows | [Azure VPN client](../articles/vpn-gateway/openvpn-azure-ad-client.md)<br>[OpenVPN client](../articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client.md) |
-|  | OpenVPN| macOS |[Azure VPN Client](../articles/vpn-gateway/openvpn-azure-ad-client-mac.md) |
+|   | OpenVPN| Windows | [Azure VPN client](../articles/vpn-gateway/point-to-site-entra-vpn-client-windows.md)|
+|  | OpenVPN| macOS |[Azure VPN Client](../articles/vpn-gateway/point-to-site-entra-vpn-client-mac.md) |
 |  | OpenVPN| Linux |[Azure VPN Client](../articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md) |

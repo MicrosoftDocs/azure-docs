@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: howto
-ms.date: 05/06/2024
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---
@@ -52,9 +52,11 @@ When your P2S configuration specifies Microsoft Entra ID authentication, the VPN
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/import.png" alt-text="Screenshot that shows the Add button selected and the Import action highlighted in the lower left-side of the window." lightbox="./media/point-to-site-entra-vpn-client-windows/import.png":::
 
-1. Change the name of the Connection name (optional). Click **Save** to save the connection profile.
+1. Change the name of the Connection name (optional). In this example, you'll notice that the Audience value shown is the new Azure Public value associated to the Microsoft-registered Azure VPN Client App ID. The value in this field must match the value that your P2S VPN gateway is configured to use.
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/connection-properties.png" alt-text="Screenshot shows Save the profile." lightbox="./media/point-to-site-entra-vpn-client-windows/connection-properties.png":::
+
+1. Click **Save** to save the connection profile.
 
 1. In the left pane, select the connection profile that you want to use. Then click **Connect** to initiate the connection.
 

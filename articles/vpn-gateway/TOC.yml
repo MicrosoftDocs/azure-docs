@@ -127,7 +127,7 @@
         href: vpn-gateway-connect-different-deployment-models-powershell.md
   - name: Point-to-site
     items:
-    - name: Server configuration
+    - name: P2S Server configuration
       items:
       - name: Azure certificate authentication
         items:
@@ -185,7 +185,7 @@
         href: vpn-gateway-p2s-advertise-custom-routes.md
       - name: Create custom IPsec policies for point-to-site
         href: create-custom-policies-p2s-ps.md
-    - name: Client configuration
+    - name: P2S Client configuration
       items:
       - name: Certificate authentication
         items:
@@ -220,21 +220,11 @@
       - name: Microsoft Entra ID authentication
         items:
         - name: Windows clients
-          items:
-          - name: Microsoft-registered VPN client app
-            href: point-to-site-entra-vpn-client-windows.md
-          - name: Manually registered VPN client app
-            href: openvpn-azure-ad-client.md
+          href: point-to-site-entra-vpn-client-windows.md
         - name: Linux clients
-          items:
-          - name: Microsoft-registered VPN client app
-            href: point-to-site-entra-vpn-client-linux.md
+          href: point-to-site-entra-vpn-client-linux.md
         - name: macOS clients
-          items:
-          - name: Microsoft-registered VPN client app
-            href: point-to-site-entra-vpn-client-mac.md
-          - name: Manually registered VPN client app
-            href: openvpn-azure-ad-client-mac.md
+          href: point-to-site-entra-vpn-client-mac.md
       - name: RADIUS authentication
         items:
         - name: Certificate authentication clients
