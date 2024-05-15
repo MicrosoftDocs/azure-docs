@@ -12,21 +12,6 @@ ms.author: v-abhmallick
 
 This article describes how to back up [Azure Blobs](./blob-backup-overview.md) using Azure CLI.
 
-> [!IMPORTANT]
-> Support for Azure Blobs backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
-
-In this article, you'll learn how to:
-
-- Before you start
-
-- Create a Backup vault
-
-- Create a Backup policy
-
-- Configure Backup of an Azure Blob
-
-- Run an on-demand backup job
-
 For information on the Azure Blobs regions availability, supported scenarios, and limitations, see the [support matrix](blob-backup-support-matrix.md).
 
 ## Before you start
@@ -73,10 +58,15 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 
 After creating a vault, let's create a Backup policy to protect Azure Blobs in a storage account.
 
-## Create a Backup policy
+## Create a backup policy
 
-> [!IMPORTANT]
-> Read [this section](blob-backup-configure-manage.md#before-you-start) before creating the policy and configure backups for Azure Blobs.
+You can create a backup policy for *operational backup* and *vaulted backup* for Azure Blobs using Azure CLI.
+
+**Choose a backup tier**:
+
+# [Operational backup](#tab/operational-backup)
+
+Before creating the policy and configure backups for Azure Blobs, see the [prerequisites](blob-backup-configure-manage.md#before-you-start).
 
 To understand the inner components of a Backup policy for Azure Blobs backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-get-default-policy-template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
@@ -180,6 +170,12 @@ az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVau
   }
 ```
 
+# [Vaulted backup](#tab/vaulted-backup)
+
+[!INCLUDE [blob-backup-create-policy-cli.md](../../includes/blob-backup-create-policy-cli.md)]
+
+---
+
 ## Configure backup
 
 Once the vault and policy are created, there are two critical points that you need to consider to protect all Azure Blobs within a storage account.
@@ -204,7 +200,7 @@ You need to assign a few permissions via RBAC to vault (represented by vault MSI
 
 ### Prepare the request
 
-Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command. Then, we submit the request to protect the disk using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
+Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command. Then, we submit the request using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance initialize --datasource-type AzureBlob  -l southeastasia --policy-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
