@@ -63,7 +63,7 @@ To learn more about creating a container using the Azure Blob Storage client mod
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/create-container/create_container.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/create-container/create_container.go) from this article (GitHub)
 
 ### REST API operations
 

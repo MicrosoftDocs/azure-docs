@@ -75,7 +75,7 @@ To learn more about setting and retrieving container properties and metadata usi
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/container-properties-metadata/container_properties_metadata.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/container-properties-metadata/container_properties_metadata.go) from this article (GitHub)
 
 ### REST API operations
 

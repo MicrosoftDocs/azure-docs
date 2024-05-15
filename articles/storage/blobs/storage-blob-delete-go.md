@@ -84,7 +84,7 @@ To learn more about how to delete blobs and restore deleted blobs using the Azur
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/delete_blob/delete_blob.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/delete_blob/delete_blob.go) from this article (GitHub)
 
 ### REST API operations
 

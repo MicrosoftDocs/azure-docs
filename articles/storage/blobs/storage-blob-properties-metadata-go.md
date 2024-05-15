@@ -86,7 +86,7 @@ To learn more about how to manage system properties and user-defined metadata us
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/blob-properties-metadata/blob_properties_metadata.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/blob-properties-metadata/blob_properties_metadata.go) from this article (GitHub)
 
 ### REST API operations
 

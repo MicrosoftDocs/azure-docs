@@ -59,7 +59,7 @@ To learn more about deleting a container using the Azure Blob Storage client mod
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/delete-container/delete_container.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/delete-container/delete_container.go) from this article (GitHub)
 
 ### REST API operations
 

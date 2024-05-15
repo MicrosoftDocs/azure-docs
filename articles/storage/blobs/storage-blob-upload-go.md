@@ -88,7 +88,7 @@ To learn more about uploading blobs using the Azure Blob Storage client module f
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/upload-blob/upload_blob.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/upload-blob/upload_blob.go) from this article (GitHub)
 
 ### REST API operations
 

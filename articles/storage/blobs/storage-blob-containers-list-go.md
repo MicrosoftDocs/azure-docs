@@ -79,7 +79,7 @@ To learn more about listing containers using the Azure Blob Storage client modul
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/list-containers/list_containers.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/list-containers/list_containers.go) from this article (GitHub)
 
 ### REST API operations
 

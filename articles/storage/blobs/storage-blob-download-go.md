@@ -57,7 +57,7 @@ To learn more about how to download blobs using the Azure Blob Storage client mo
 
 ### Code samples
 
-- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/cmd/download-blob/download_blob.go) from this article (GitHub)
+- View [code samples](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/download-blob/download_blob.go) from this article (GitHub)
 
 ### REST API operations
 
