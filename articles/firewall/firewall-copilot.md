@@ -133,9 +133,9 @@ Get **information from documentation** about using Azure Firewall's IDPS feature
 >Copilot for Security may also use the *Ask Microsoft Documentation* capability to provide information on how to use Azure Firewall's IDPS feature to secure your environment.
 
 
-## Your feedback
+## Provide feedback
 
-Your Azure Firewall integration with Copilot for Security feedback is vital to guide the current and planned development of the product. The best way to provide this feedback is directly in the product. Select **How’s this response?** at the bottom of each completed prompt and choose any of the following options:
+Your feedback is vital to guide the current and planned development of the product. The best way to provide this feedback is directly in the product. Select **How’s this response?** at the bottom of each completed prompt and choose any of the following options:
 - **Looks right** - Select if the results are accurate, based on your assessment. 
 - **Needs improvement** - Select if any detail in the results is incorrect or incomplete, based on your assessment. 
 - **Inappropriate** - Select if the results contain questionable, ambiguous, or potentially harmful information.
