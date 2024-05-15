@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.autovacuum_diagnostics](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring)      |
+| Documentation  | [metrics.autovacuum_diagnostics](concepts-monitoring.md)      |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.collector_database_activity](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring) |
+| Documentation  | [metrics.collector_database_activity](concepts-monitoring.md) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.pgbouncer_diagnostics](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-monitoring)       |
+| Documentation  | [metrics.pgbouncer_diagnostics](concepts-monitoring.md)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
