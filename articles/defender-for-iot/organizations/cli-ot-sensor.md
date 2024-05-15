@@ -64,9 +64,19 @@ At each level of the CLI you can use the following commands:
 
 - back - returns to the previous CLI level.
 - exit - exits the CLI connection.
-- help - lists available commands.
+- help - lists available commands. 
 
-when you need to enter a password, you have three attempts before the command closes and returns you to the previous command line.
+#### Control user session timeouts
+
+Define the time after which users are automatically signed out of the OT sensor. Define this value in a properties file saved on the sensor.
+not that
+For more information, see [Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts).
+
+#### Define maximum number of failed sign-ins
+<!-- is this the same as entering a password for a command? -->
+When entering a password, you have three attempts before the command closes and you return to the previous command line. To change the number of maximum failed sign-ins before an OT sensor will prevent the user from signing in again from the same IP address. Define this value in a properties file saved on the sensor.
+
+For more information, see [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins).
 
 ### Reboot and shutdown
 
@@ -414,19 +424,6 @@ passwd: all authentication tokens updated successfully.
 cyberx_host@xsense:/#
 ```
 
-<!-- are these 2 still relevant??-->
-### Control user session timeouts
-
-Define the time after which users are automatically signed out of the OT sensor. Define this value in a properties file saved on the sensor.
-not that
-For more information, see [Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts).
-
-### Define maximum number of failed sign-ins
-
-Define the number of maximum failed sign-ins before an OT sensor will prevent the user from signing in again from the same IP address. Define this value in a properties file saved on the sensor.
-
-For more information, see [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins).
-
 ## Network configuration
 
 ### Network settings
@@ -689,7 +686,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 837196  bytes 259542408 (259.5 MB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-
+<!-- remove the rest of the page??? ARIEL-->
 ## Traffic capture filters
 
 
