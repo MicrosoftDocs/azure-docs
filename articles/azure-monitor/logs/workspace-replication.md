@@ -294,21 +294,21 @@ The `POST` command is a long running operation that can take some time to comple
 
 ## Audit the inactive workspace
 
-By default, queries that target your workspace are sent to the _active_ region. The active region is typically your primary region in your primary workspace. When the primary workspace is in switchover, the secondary workspace is in use and the primary region is _inactive_. The secondary region is then active and handles all queries.
+By default, Azure Monitor run queries in your _active_ region. The active region is typically your primary region in your primary workspace. During switchover, the secondary workspace becomes _active_ and the primary region is _inactive_. 
 
-In some scenarios, you might want to intentionally query the _inactive_ region. A common use is to check the secondary workspace before you trigger switchover for your primary workspace. You want to ensure your secondary workspace has complete replication of ingested logs before initiating switchover.
+In some cases, you might want to query the _inactive_ region. For example, you might want to ensure that your secondary workspace has complete replication of ingested logs before triggering switchover.
 
-### Enable query of inactive region
+### Query inactive region
 
-Follow these steps to query the available logs on the inactive workspace:
+To query the available logs on the inactive workspace:
 
-1. In the Azure portal, go to your workspace.
+1. In the Azure portal, go to your Log Analytics workspace.
 
 1. On the left, select **Logs**.
 
-1. On the query toolbar, select **More options** (...) at the right.
+1. On the query toolbar, select **More tools** (...) at the right.
 
-1. In the dropdown menu, enable the **Query inactive region** option:
+1. Enable **Query inactive region**.
 
    :::image type="content" source="media/workspace-replication/query-inactive-region.png" alt-text="Screenshot that shows how to query the inactive region through the workspace Logs page in the Azure portal." lightbox="media/workspace-replication/query-inactive-region.png":::
 
