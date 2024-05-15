@@ -3,7 +3,7 @@ title: Deploy template - IntelliJ IDEA
 description: Learn how to create your first Azure Resource Manager template (ARM template) using the IntelliJ IDEA, and how to deploy it.
 ms.devlang: java
 ms.date: 06/23/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-java, devx-track-arm-template
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the IntelliJ IDEA to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---

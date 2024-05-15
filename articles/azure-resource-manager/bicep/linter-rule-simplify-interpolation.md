@@ -1,7 +1,7 @@
 ---
 title: Linter rule - simplify interpolation
 description: Linter rule - simplify interpolation
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 03/20/2024
 ---

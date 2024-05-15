@@ -1,7 +1,7 @@
 ---
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: devx-track-arm-template
 ms.date: 09/22/2023
 ---

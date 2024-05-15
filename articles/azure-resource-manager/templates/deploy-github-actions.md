@@ -1,7 +1,7 @@
 ---
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/23/2023
 ms.custom: github-actions-azure, devx-track-arm-template
 ---

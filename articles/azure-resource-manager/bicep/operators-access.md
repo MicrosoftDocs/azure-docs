@@ -1,7 +1,7 @@
 ---
 title: Bicep accessor operators
 description: Describes Bicep resource access operator and property access operator.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 06/23/2023
 ---

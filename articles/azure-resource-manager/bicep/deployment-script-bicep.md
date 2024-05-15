@@ -2,7 +2,7 @@
 title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2023
 ---
 

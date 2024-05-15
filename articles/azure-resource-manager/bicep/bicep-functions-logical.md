@@ -1,7 +1,7 @@
 ---
 title: Bicep functions - logical
 description: Describes the functions to use in a Bicep file to determine logical values.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 03/20/2024
 ---
