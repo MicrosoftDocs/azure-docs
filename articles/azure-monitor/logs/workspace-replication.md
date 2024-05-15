@@ -104,11 +104,11 @@ Where:
 
 For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
 
-The `PUT` command is a long running operation that can take some time to complete. A successful call returns a `200` status code. You can track the provisioning state of your request, as described in [Check workspace state](#check-workspace-state).
+The `PUT` command is a long running operation that can take some time to complete. A successful call returns a `200` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
 
-### Check workspace replication provisioning state
+### Check request provisioning state
 
-To check the Log Analytics workspace replication provisioning state, run this `GET` command:
+To check the provisioning state of your request, run this `GET` command:
 
 ```http
 GET
@@ -173,7 +173,7 @@ Where:
 - `<workspace_name>`: The name of your workspace.
 - `<primary_location>`: The primary region for your workspace.
 
-The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
+The `PUT` command is a long running operation that can take some time to complete. A successful call returns a `200` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
 
 ## Monitor workspace and service health
 
@@ -201,13 +201,7 @@ During switchover, most operations work the same as when you use the primary wor
 
 You decide when to switch over to your secondary workspace and switch back to your primary workspace based on ongoing performance and health monitoring and your system standards and requirements. 
 
-There are several points to consider in your plan for switchover:
-
-- Type and scope of the issue
-- Duration of the issue, momentary or continuous
-- Data available in your secondary workspace
-
-The following sections explore these considerations.
+There are several points to consider in your plan for switchover, as described in the following subsections.
 
 #### Issue type and scope
 
@@ -228,7 +222,7 @@ Switchover isn't instantaneous. The process of rerouting requests relies on DNS 
 
 When you enable replication, all logs ingested to your primary workspace eventually (and asynchronously) replicate to your secondary workspace. Logs ingested to your primary workspace before you enable replication aren't copied to the secondary workspace. If you enabled workspace replication three hours ago and you now trigger switchover, your queries can only return data from the last three hours.
 
-## Trigger switchover
+### Trigger switchover
 
 Before you trigger switchover, [confirm that the workspace replication operation completed successfully](#check-workspace-replication-provisioning-state). Switchover only succeeds when the secondary workspace is configured correctly. 
 
@@ -246,7 +240,7 @@ Where:
 - `<secondary_location>`: The region to switch to during switchover.
 - `<workspace_name>`: The name of the workspace to switch to during switchover.
 
-The `POST` command is a long running operation that can take some time to complete. The call to the command returns 202. You can track the process, as described in [Check workspace state](#check-workspace-state).
+The `POST` command is a long running operation that can take some time to complete. A successful call returns a `202` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
 
 ### Client behavior during switchover
 
