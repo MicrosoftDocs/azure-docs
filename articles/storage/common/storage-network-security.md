@@ -343,9 +343,9 @@ The following restrictions apply to IP address ranges:
 
 To grant access from your on-premises networks to your storage account by using an IP network rule, you must identify the internet-facing IP addresses that your network uses. Contact your network administrator for help.
 
-If you're using [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) from your premises, for public peering or Microsoft peering, you need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit (by default) uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, either the service provider or the customer provides the NAT IP addresses.
+If you're using [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) from your premises, you need to identify the NAT IP addresses used for Microsoft peering. Either the service provider or the customer provides the NAT IP addresses.
 
-To allow access to your service resources, you must allow these public IP addresses in the firewall setting for resource IPs. To find your IP addresses for public-peering ExpressRoute circuits, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. [Learn more about NAT for ExpressRoute public peering and Microsoft peering](../../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering).
+To allow access to your service resources, you must allow these public IP addresses in the firewall setting for resource IPs.
 
 ### Managing IP network rules
 
