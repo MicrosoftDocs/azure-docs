@@ -92,7 +92,7 @@ jobs:
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication/'
 ```
 
-# [Java](#tab/java)
+# [Java SE](#tab/java)
 
 Build and deploy a Java Spring app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
