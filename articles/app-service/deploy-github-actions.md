@@ -246,6 +246,20 @@ Check out references on Azure GitHub Actions and workflows:
 
 ## Frequently Asked Questions
 
+### Deploy WAR file through Maven plugin and OIDC 
+
+In case you configured your Java Tomcat project with the [Maven plugin](https://github.com/microsoft/azure-maven-plugins), you can also deploy to Azure App Service through this plugin. If you use the [Azure CLI GitHub action](https://github.com/Azure/cli) it will make use of your Azure login credentials.
+
+```yaml
+    - name: Azure CLI script file
+      uses: azure/cli@v2
+      with:
+        inlineScript: |
+          mvn package azure-webapp:deploy
+```
+
+More information on the Maven plugin and how to use and configure it can be found in the [Maven plugin wiki for Azure App Service](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
+
 - [Deploy WAR file through Maven plugin and OIDC](https://github.com/microsoft/azure-maven-plugins/wiki)
 - [Deploy WAR file through Az CLI and OIDC]()
 - [Deploy to a Container](https://learn.microsoft.com/en-us/azure/app-service/deploy-container-github-action)
