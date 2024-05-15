@@ -8,7 +8,7 @@ metadata:
   ms.author: malev
   ms.service: azure-app-configuration
   ms.topic: landing-page
-  ms.date: 04/11/2023
+  ms.date: 05/10/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -58,8 +58,7 @@ landingContent:
           url: concept-soft-delete.md
         - text: Geo-replication 
           url: concept-geo-replication.md
-          
-        
+
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
@@ -132,6 +131,8 @@ landingContent:
         links:
           - text: What are feature flags?
             url: concept-feature-management.md
+          - text: Experimentation
+            url: concept-experimentation.md
       - linkListType: quickstart
         links:
         - text: Manage feature flags
@@ -150,6 +151,8 @@ landingContent:
           url: use-feature-flags-spring-boot.md
         - text: Enable a feature for specified users/groups
           url: howto-targetingfilter-aspnet-core.md
+        - text: Run experiments with variant feature flags
+          url: run-experiments-aspnet-core.md
       - linkListType: reference
         links:
         - text: .NET library
