@@ -421,6 +421,8 @@
         href: how-to-java-vector-index-query.md
     - name: Access preview features
       href: ../access-previews.md
+    - name: Change capacity mode
+      href: how-to-change-capacity-mode.md
     - name: Develop applications
       items:
         - name: Create account
