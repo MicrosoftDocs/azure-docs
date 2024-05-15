@@ -137,7 +137,7 @@ The following table shows the SDK name used for different Azure IoT SDKs:
 | com.microsoft.azure.sdk.iot.iot-device-client | Java device SDK |
 | com.microsoft.azure.sdk.iot.iot-service-client | Java service SDK |
 | C | Embedded C |
-| C + (OSSimplified = Azure RTOS) | Azure RTOS |
+| C + (OSSimplified = Eclipse ThreadX) | Eclipse ThreadX |
 
 You can extract the SDK version property when you perform queries against IoT Hub resource logs. For example, the following query extracts the SDK version property (and device ID) from the properties returned by Connections operations. These two properties are written to the results along with the time of the operation and the resource ID of the IoT hub that the device is connecting to.
 

@@ -210,7 +210,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    if %ERRORLEVEL%== 0 echo %date% %time% : Successfully downloaded .NET framework %netfx% setup file. >> %startuptasklog%
    goto install
 
-   install:
+   :install
    REM ***** Installing .NET *****
    echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService Startup Task" >> %startuptasklog%
    start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >> %startuptasklog% 2>>&1

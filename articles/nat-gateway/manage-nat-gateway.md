@@ -77,7 +77,7 @@ To use Azure CLI for this article, you need:
 
 - Azure CLI version 2.31.0 or later. Azure Cloud Shell uses the latest version.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 # [**Bicep**](#tab/manage-nat-bicep)
 

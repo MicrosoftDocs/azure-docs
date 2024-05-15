@@ -16,7 +16,7 @@ Face Liveness detection can be used to determine if a face in an input video str
 
 The goal of liveness detection is to ensure that the system is interacting with a physically present live person at the time of authentication. Such systems have become increasingly important with the rise of digital finance, remote access control, and online identity verification processes.
 
-The liveness detection solution successfully defends against a variety of spoof types ranging from paper printouts, 2d/3d masks, and spoof presentations on phones and laptops. Liveness detection is an active area of research, with continuous improvements being made to counteract increasingly sophisticated spoofing attacks over time. Continuous improvements will be rolled out to the client and the service components over time as the overall solution gets more robust to new types of attacks.
+The liveness detection solution successfully defends against various spoof types ranging from paper printouts, 2d/3d masks, and spoof presentations on phones and laptops. Liveness detection is an active area of research, with continuous improvements being made to counteract increasingly sophisticated spoofing attacks over time. Continuous improvements will be rolled out to the client and the service components over time as the overall solution gets more robust to new types of attacks.
 
 [!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
 
@@ -40,7 +40,7 @@ Once you have access to the SDK, follow instruction in the [azure-ai-vision-sdk]
 - For Swift iOS, follow the instructions in the [iOS sample](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme) 
 - For Kotlin/Java Android, follow the instructions in the [Android sample](https://aka.ms/liveness-sample-java) 
 
-Once you've added the code into your application, the SDK will handle starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
+Once you've added the code into your application, the SDK handles starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
 
 ### Orchestrate the liveness solution
 
@@ -86,7 +86,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
 1. The SDK then starts the camera, guides the user to position correctly and then prepares the payload to call the liveness detection service endpoint. 
  
-1. The SDK calls the Azure AI Vision Face service to perform the liveness detection. Once the service responds, the SDK will notify the mobile application that the liveness check has been completed. 
+1. The SDK calls the Azure AI Vision Face service to perform the liveness detection. Once the service responds, the SDK notifies the mobile application that the liveness check has been completed. 
 
 1. The mobile application relays the liveness check completion to the app server. 
 
@@ -110,7 +110,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
                 "method": "POST",
                 "contentLength": 352568,
                 "contentType": "multipart/form-data; boundary=--------------------------482763481579020783621915",
-                "userAgent": "PostmanRuntime/7.34.0"
+                "userAgent": ""
             },
             "response": {
                 "body": {
@@ -162,12 +162,12 @@ Use the following tips to ensure that your input images give the most accurate r
 #### Composition requirements:
 -	Photo is clear and sharp, not blurry, pixelated, distorted, or damaged. 
 -	Photo is not altered to remove face blemishes or face appearance.
--	Photo must be in an RGB color supported format (JPEG, PNG, WEBP, BMP). Recommended Face size is 200 pixels x 200 pixels. Face sizes larger than 200 pixels x 200 pixels will not result in better AI quality, and no larger than 6MB in size.
+-	Photo must be in an RGB color supported format (JPEG, PNG, WEBP, BMP). Recommended Face size is 200 pixels x 200 pixels. Face sizes larger than 200 pixels x 200 pixels will not result in better AI quality, and no larger than 6 MB in size.
 -	User is not wearing glasses, masks, hats, headphones, head coverings, or face coverings. Face should be free of any obstructions.
 -	Facial jewelry is allowed provided they do not hide your face. 
 -	Only one face should be visible in the photo.
 -	Face should be in neutral front-facing pose with both eyes open, mouth closed, with no extreme facial expressions or head tilt.
--	Face should be free of any shadows or red eyes. Please retake photo if either of these occur.
+-	Face should be free of any shadows or red eyes. Retake photo if either of these occur.
 -	Background should be uniform and plain, free of any shadows. 
 -	Face should be centered within the image and fill at least 50% of the image.
 
@@ -243,7 +243,7 @@ The high-level steps involved in liveness with verification orchestration are il
                 "method": "POST",
                 "contentLength": 352568,
                 "contentType": "multipart/form-data; boundary=--------------------------590588908656854647226496",
-                "userAgent": "PostmanRuntime/7.34.0"
+                "userAgent": ""
             },
             "response": {
                 "body": {
@@ -294,5 +294,4 @@ See the Azure AI Vision SDK reference to learn about other options in the livene
 
 See the Session REST API reference to learn more about the features available to orchestrate the liveness solution.
 
-- [Liveness Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectliveness-singlemodal)
-- [Liveness-With-Verify Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectlivenesswithverify-singlemodal)
+- [Liveness Session Operations](/rest/api/face/liveness-session-operations)

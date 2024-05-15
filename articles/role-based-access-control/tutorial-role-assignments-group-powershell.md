@@ -1,10 +1,8 @@
 ---
 title: "Tutorial: Grant a group access to Azure resources using Azure PowerShell - Azure RBAC"
 description: Learn how to grant a group access to Azure resources using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
-services: active-directory
 author: rolyon
 manager: amycolannino
-
 ms.service: role-based-access-control
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.topic: tutorial

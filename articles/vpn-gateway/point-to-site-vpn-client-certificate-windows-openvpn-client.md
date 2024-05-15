@@ -1,5 +1,5 @@
 ---
-title: 'Configure P2S VPN clients: certificate authentication: OpenVPN Client'
+title: 'Configure P2S VPN clients: certificate authentication: OpenVPN Client - Windows'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN clients for P2S configurations that use certificate authentication. This article applies to Windows and the OpenVPN Client.
 author: cherylmc
@@ -9,7 +9,7 @@ ms.date: 02/21/2024
 ms.author: cherylmc
 ---
 
-# Configure the OpenVPN Client for P2S Certificate Authentication connections
+# Configure OpenVPN client for P2S certificate authentication connections - Windows
 
 If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certificate authentication, you can connect to your virtual network using the OpenVPN Client. This article walks you through the steps to configure the **OpenVPN client** and connect to your virtual network.
 

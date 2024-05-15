@@ -2,8 +2,8 @@
 title: Use Azure Private Link
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use Azure Private Link to connect to Azure Cosmos DB for MongoDB vCore over a private endpoint in a virtual network.
-author: gahl-levy
-ms.author: gahllevy
+author: khelanmodi
+ms.author: khelanmodi
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
@@ -13,7 +13,7 @@ ms.date: 11/01/2023
 # CustomerIntent: As a security administrator, I want to use Azure Private Link so that I can ensure that database connections occur over privately-managed virtual network endpoints.
 ---
 
-# Use Azure Private Link in Azure Cosmos DB for MongoDB vCore
+# Enable Private access in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
@@ -31,78 +31,78 @@ To establish a connection, Azure Cosmos DB for MongoDB vCore with Private Link s
 - An existing Azure Cosmos DB for MongoDB vCore cluster.
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for MongoDB vCore cluster](quickstart-portal.md).
-- Access to an active Virtual network and Subnet.
-  - If you don’t have a Virtual network, [create a virtual network using the Azure portal](../../../virtual-network/quick-create-portal.md)
-- Verify your access to Azure Cosmos DB for MongoDB vCore Private Endpoint.
-  - If you don’t have access, you can request it by following the steps below.
 
 
-## Requesting Access to Azure Cosmos DB for MongoDB vCore Private Endpoint via Azure Portal
+## Create a cluster with a private endpoint by using the Azure portal
 
-To request access for a private endpoint for an existing Azure Cosmos DB for MongoDB vCore cluster, follow these steps using the Azure portal:
+Follow these steps to create a new Azure Cosmos DB for MongoDB vCore cluster with a private endpoint by using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and search for **Preview Features** in the search bar.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Create a resource** in the upper left-hand corner of the Azure portal. 
 
-1. Choose **Azure Cosmos DB for MongoDB vCore Private Endpoint** from the available options list and click "register."
+1. On the **Create a resource** page, select **Databases** and then select **Azure Cosmos DB**.
 
-1. You will receive a notification once access to the Private Endpoint is granted.
+1. On the Select API option page, on the **MongoDB** tile, select Create.
 
+1. Choose the **vCore cluster** resource type.
 
-## Create a private endpoint by using the Azure portal
+1. On the **Create an Azure Cosmos DB for MongoDB vCore** cluster page, select or create a **Resource group**, enter a **Cluster name** and Location, and enter and confirm the administrator Password.
 
-Follow these steps to create a private endpoint for an existing Azure Cosmos DB for MongoDB vCore cluster by using the Azure portal:
+1. Select Next: **Networking**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select an Azure Cosmos DB for MongoDB vCore cluster.
+1. Select **Networking** tab, for Connectivity method, select **Private access**.
 
-1. Select **Networking** from the list of settings, and then select **Visit Link Center** under the **Private Endpoints** section:
-
-1. In the **Create a private endpoint - Basics** pane, enter or select the following details:
+1. On the Create private endpoint screen, enter or select appropriate values for:
 
     | Setting | Value |
     | ------- | ----- |
-    | **Project details** | |
-    | Subscription | Select your subscription. |
     | Resource group | Select a resource group.|
-    | **Instance details** |  |
     | Name | Enter any name for your private endpoint. If this name is taken, create a unique one. |
     | Network Interface name | Enter any name for your Network Interface. If this name is taken, create a unique one. |
-    | Region | Select the region where you want to deploy Private Link. Create the private endpoint in the same location where your virtual network exists.|
-
-1. Select **Next: Resource**.
-
-1. In the **Create a private endpoint - Resource** pane, enter or select the following details:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Connection Method | Choose one of your resources or connect to someone else's resource with a resource ID or alias that is shared with you. |
-    | Subscription | Select the subscription containing the resource you're connecting to.|
-    | Resource Type | Select the resource type you're connecting to. |
-    | Resource | Select the resource type you're connecting to. |
+    | Location | Select the region where you want to deploy Private Link. Create the private endpoint in the same location where your virtual network exists.|
     | Target subresource | Select the type of subresource for the resource selected previously that your private endpoint should have the ability to access. |
-
-1. Select **Next: Virtual Network**.
-
-1. In the **Create a private endpoint - Virtual Network** pane, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Virtual network| Select your virtual network. |
+    | Virtual network | Select your virtual network. |
     | Subnet | Select your subnet. |
-
-1. Select **Next: DNS**.
-
-1. In the **Create a private endpoint - DNS** pane, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
     | Integrate with private DNS zone | Select **Yes**. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines. When you select yes for this option, a private DNS zone group is also created. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS zone when there's an update to the private endpoint. For example, when you add or remove regions, the private DNS zone is automatically updated. |
     | Configuration name |Select your subscription and resource group. The private DNS zone is determined automatically. You can't change it by using the Azure portal.|
 
-1. Select **Next: Tags** > **Review + create**. On the **Review + create** page, Azure validates your configuration.
+1. Select **Ok**. 
 
-1. When you see the **Validation passed** message, select **Create**.
+1. Select **Next: Tags** > **Review + create**. On the **Review + create** page, then select **Create**.
 
-When you have an approved Private Endpoint for an Azure Cosmos DB account, in the Azure portal, the **All networks** option in the **Firewall and virtual networks** pane is unavailable.
+## Enable private access on an existing cluster
+
+To create a private endpoint to a node in an existing cluster, open the
+**Networking** page for the cluster.
+
+1. Select **Add private endpoint**.
+
+   :::image type="content" source="media/howto-private-access/networking.jpg" alt-text="Screenshot of selecting Add private endpoint on the Networking screen.":::
+
+2. On the **Basics** tab of the **Create a private endpoint** screen, confirm the **Subscription**, **Resource group**, and
+   **Region**. Enter a **Name** for the endpoint, such as *my-cluster-1*, and a **Network interface name**, such as *my-cluster-1-nic*.
+
+   > [!NOTE]
+   >
+   > Unless you have a good reason to choose otherwise, we recommend picking a
+   > subscription and region that match those of your cluster. The
+   > default values for the form fields might not be correct. Check them and
+   > update if necessary.
+
+3. Select **Next: Resource**. For **Target sub-resource**, choose the target
+   node of the cluster. Usually **coordinator** is the desired node.
+
+4. Select **Next: Virtual Network**. Choose the desired **Virtual network** and
+   **Subnet**. Under **Private IP configuration**, select **Statically allocate IP address** or keep the default, **Dynamically allocate IP address**.
+
+5. Select **Next: DNS**.
+
+6. Under **Private DNS integration**, for **Integrate with private DNS zone**, keep the default **Yes** or select **No**.
+
+7. Select **Next: Tags**, and add any desired tags.
+
+8. Select **Review + create**. Review the settings, and select
+   **Create** when satisfied.
+
 
 ## Create a private endpoint by using Azure CLI
 
@@ -186,14 +186,6 @@ az network private-link-resource list \
   -n <resource-name> \
   --type Microsoft.DocumentDB/mongoClusters 
 ```
-
-## View private endpoints by using the Azure portal
-
-Follow these steps to view a private endpoint for an existing Azure Cosmos DB account by using the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com), then select Private Link under Azure Services.
-
-1. Select **Private Endpoint** from the list of settings to view all Private endpoints.
 
 ## Next step
 

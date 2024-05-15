@@ -5,7 +5,7 @@ author: settiy
 ms.author: settiy
 ms.date: 08/18/2023
 ms.service: confidential-ledger
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to create a logic app to process Azure Monitor alerts.
 author: EdB-MSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 03/10/2024
 ms.reviewer: edbaynash
 
 # Customer intent: As an administrator, I want to create a logic app that's triggered by an alert so that I can send emails or Teams messages when an alert is fired.

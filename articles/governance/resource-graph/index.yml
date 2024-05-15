@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 01/05/2024
+  ms.date: 02/22/2024
 
 landingContent:
   - title: About Azure Resource Graph
@@ -42,6 +42,8 @@ landingContent:
             url: ./first-query-rest-api.md
           - text: Create alert on ARG query
             url: ./alerts-query-quickstart.md
+          - text: Run ARG query with Power BI connector
+            url: ./power-bi-connector-quickstart.md
           - text: Share queries (Portal)
             url: ./tutorials/create-share-query.md
       - linkListType: concept

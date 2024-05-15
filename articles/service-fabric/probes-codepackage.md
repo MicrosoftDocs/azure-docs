@@ -105,6 +105,10 @@ The HTTP probe has additional properties that you can set:
 
 * `host`: The host IP address to connect to.
 
+> [!NOTE]
+> Port and scheme is not supported for non-containerized applications. For this scenario please use **EndpointRef="EndpointName"** attribute. Replace 'EndpointName' with the name from the Endpoint defined in ServiceManifest.xml.
+>
+
 ### TCP probe
 
 For a TCP probe, Service Fabric will try to open a socket on the container by using the specified port. If it can establish a connection, the probe is considered successful. Here's an example of how to specify a probe that uses a TCP socket:

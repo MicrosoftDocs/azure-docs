@@ -1,6 +1,5 @@
 ---
 title: Publish and subscribe MQTT messages using Azure IoT MQ
-titleSuffix: Azure IoT MQ
 description: Use Azure IoT MQ to publish and subscribe to messages. Destinations include other MQTT brokers, Azure IoT Data Processor, and Azure cloud services.
 author: PatAltimore
 ms.author: patricka
@@ -13,9 +12,11 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to understand how to I can use Azure IoT MQ to publish and subscribe MQTT topics.
 ---
 
-# Publish and subscribe MQTT messages using Azure IoT MQ
+# Publish and subscribe MQTT messages using Azure IoT MQ Preview
 
-Azure IoT MQ features an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Azure IoT MQ Preview features an enterprise-grade, standards-compliant MQTT Broker that is scalable, highly available and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 
 ## MQTT compliant
@@ -24,7 +25,7 @@ IoT MQ features a standards-compliant MQTT Broker that supports both MQTT v3.1.1
 
 Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
-IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in Azure IoT MQ](../reference/mqtt-support.md).
+IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in Azure IoT MQ Preview](../reference/mqtt-support.md).
 
 ## Highly available and scalable
 
@@ -83,4 +84,4 @@ The goals of the architecture are:
 
 ## Next steps
 
-[Deploy a solution in Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
+[Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md)

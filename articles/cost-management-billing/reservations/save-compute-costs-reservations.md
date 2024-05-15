@@ -20,7 +20,7 @@ You can buy a reservation in the [Azure portal](https://portal.azure.com/#blade/
 
 ## Why buy a reservation?
 
-If you have consistent resource usage that supports reservations, buying a reservation gives you the option to reduce your costs. For example, when you continuously run instances of a service without a reservation, you're charged at pay-as-you-go rates. When you buy a reservation, you immediately get the reservation discount. The resources are no longer charged at the pay-as-you-go rates.
+If you have consistent resource usage that supports reservations, buying a reservation gives you the option to reduce your costs. For example, when you continuously run instances of a service without a reservation, you're charged at pay-as-you-go rates. Once a reservation purchase is complete, you get the reservation discount. The resources are no longer charged at the pay-as-you-go rates.
 
 ## How reservation discount is applied
 

@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 11/15/2023
+ms.date: 2/24/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban

@@ -1,62 +1,26 @@
 ---
-title: Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service (preview)
-description: Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service (preview)
+title: Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service
+description: Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 12/04/2023
+ms.author: shasb
+author: shashankbarsin
 ---
 
-# Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service (preview)
+# Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service
 
-In the Istio-based service mesh addon for Azure Kubernetes Service (preview), by default the Istio certificate authority (CA) generates a self-signed root certificate and key and uses them to sign the workload certificates. To protect the root CA key, you should use a root CA, which runs on a secure machine offline. You can use the root CA to issue intermediate certificates to the Istio CAs that run in each cluster. An Istio CA can sign workload certificates using the administrator-specified certificate and key, and distribute an administrator-specified root certificate to the workloads as the root of trust. This article addresses how to bring your own certificates and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+In the Istio-based service mesh addon for Azure Kubernetes Service, by default the Istio certificate authority (CA) generates a self-signed root certificate and key and uses them to sign the workload certificates. To protect the root CA key, you should use a root CA, which runs on a secure machine offline. You can use the root CA to issue intermediate certificates to the Istio CAs that run in each cluster. An Istio CA can sign workload certificates using the administrator-specified certificate and key, and distribute an administrator-specified root certificate to the workloads as the root of trust. This article addresses how to bring your own certificates and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
 
 [ ![Diagram that shows root and intermediate CA with Istio.](./media/istio/istio-byo-ca.png) ](./media/istio/istio-byo-ca.png#lightbox)
 
 This article addresses how you can configure the Istio certificate authority with a root certificate, signing certificate and key provided as inputs using Azure Key Vault to the Istio-based service mesh add-on.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Before you begin
 
-### Verify Azure CLI and aks-preview extension versions
+### Verify Azure CLI version
 
-The add-on requires:
-* Azure CLI version 2.49.0 or later installed. To install or upgrade, see [Install Azure CLI][install-azure-cli].
-* `aks-preview` Azure CLI extension of version 0.5.163 or later installed
-
-You can run `az --version` to verify above versions.
-
-To install the aks-preview extension, run the following command:
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
-
-### Register the _AzureServiceMeshPreview_ feature flag
-
-Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-```
-
-It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az --version` to verify version. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### Set up Azure Key Vault
 
@@ -90,6 +54,9 @@ az provider register --namespace Microsoft.ContainerService
 
     az keyvault set-policy --name $AKV_NAME --object-id $OBJECT_ID --secret-permissions get list
     ```
+
+    > [!NOTE]
+    > If you created your Key Vault with Azure RBAC Authorization for your permission model instead of Vault Access Policy, follow the instructions [here][akv-rbac-guide] to create permissions for the managed identity. Add an Azure role assignment for `Key Vault Reader` for the add-on's user-assigned managed identity. 
 
 ## Set up Istio-based service mesh addon with plug-in CA certificates
 
@@ -286,6 +253,7 @@ You may need to periodically rotate the certificate authorities for security or 
 
 [akv-quickstart]: ../key-vault/general/quick-create-cli.md
 [akv-addon]: ./csi-secrets-store-driver.md
+[akv-rbac-guide]: ../key-vault/general/rbac-guide.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
@@ -293,3 +261,4 @@ You may need to periodically rotate the certificate authorities for security or 
 [az-aks-mesh-disable]: /cli/azure/aks/mesh#az-aks-mesh-disable
 [istio-generate-certs]: https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/#plug-in-certificates-and-key-into-the-cluster
 [istio-mtls-reference]: https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication
+

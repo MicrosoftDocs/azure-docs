@@ -7,7 +7,7 @@ ms.subservice: gallery
 ms.topic: tutorial
 ms.date: 01/25/2023
 ms.author: mattmcinnes
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 ms.reviewer: cynthn
 #Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
 ---

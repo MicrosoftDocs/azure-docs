@@ -12,8 +12,6 @@ ms.topic: conceptual
 
 This article covers the frequently asked questions for Azure Kubernetes Fleet Manager.
 
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
-
 ## Relationship to Azure Kubernetes Service clusters
 
 Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since the Kubernetes control plane is managed by Azure, you only manage and maintain the agent nodes. You run your actual workloads on the AKS clusters.
@@ -61,4 +59,4 @@ The roadmap for Azure Kubernetes Fleet Manager resource is available [here](http
 
 ## Next steps
 
-* Create an [Azure Kubernetes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md)
+* [Create a fleet and join member clusters](./quickstart-create-fleet-and-members.md).

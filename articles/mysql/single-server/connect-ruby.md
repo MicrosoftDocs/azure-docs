@@ -7,7 +7,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.devlang: ruby
 ms.topic: quickstart
-ms.custom: mvc, mode-other, linux-related-content
+ms.custom: mvc, mode-other
 ms.date: 05/03/2023
 ---
 

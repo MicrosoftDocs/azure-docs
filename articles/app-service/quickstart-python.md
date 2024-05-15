@@ -105,7 +105,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using [Azure portal](https://portal.azure.com/), [VS Code](https://code.visualstudio.com/), [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or Azure CLI.
+To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the Azure CLI, [VS Code](https://code.visualstudio.com/), [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or [Azure portal](https://portal.azure.com/).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -156,13 +156,13 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
-### [Deploy using VS Code](#tab/vscode-deploy)
-
-[!INCLUDE [Deploy VS Code](./includes/quickstart-python/deploy-visual-studio-code.md)]
-
 ### [Deploy using Azure CLI](#tab/azure-cli-deploy)
 
 [!INCLUDE [Deploy Azure CLI](./includes/quickstart-python/deploy-cli.md)]
+
+### [Deploy using VS Code](#tab/vscode-deploy)
+
+[!INCLUDE [Deploy VS Code](./includes/quickstart-python/deploy-visual-studio-code.md)]
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
@@ -194,7 +194,7 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
+:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="9-29" highlight="11,24,27":::
 
 ### [Django](#tab/django)
 
@@ -202,21 +202,7 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ---
 
-The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
-
-### [Azure portal](#tab/azure-portal)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](./includes/quickstart-python/stream-logs-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-1-240px.png" alt-text="A screenshot of the location in the Azure portal where to enable streaming logs." lightbox="./media/quickstart-python/stream-logs-azure-portal-1.png"::: |
-| [!INCLUDE [Stream logs from Azure portal 2](./includes/quickstart-python/stream-logs-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-2-240px.png" alt-text="A screenshot of how to view logs in the Azure portal." lightbox="./media/quickstart-python/stream-logs-azure-portal-2.png"::: |
-
-### [VS Code](#tab/vscode-aztools)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](./includes/quickstart-python/stream-logs-visual-studio-code-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-1-240px.png" alt-text="A screenshot of how to start streaming logs with the VS Code extension." lightbox="./media/quickstart-python/stream-logs-vs-code-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](./includes/quickstart-python/stream-logs-visual-studio-code-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-2-240px.png" alt-text="A screenshot of an example of streaming logs in the VS Code Output window." lightbox="./media/quickstart-python/stream-logs-vs-code-2.png"::: |
+The contents of the App Service diagnostic logs can be reviewed using the Azure CLI, VS Code, or Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -245,6 +231,20 @@ Starting Live Log Stream ---
 2021-12-23T02:16:01.430740060Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 304 0 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
 ```
 
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from VS Code 1](./includes/quickstart-python/stream-logs-visual-studio-code-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-1-240px.png" alt-text="A screenshot of how to start streaming logs with the VS Code extension." lightbox="./media/quickstart-python/stream-logs-vs-code-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](./includes/quickstart-python/stream-logs-visual-studio-code-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-2-240px.png" alt-text="A screenshot of an example of streaming logs in the VS Code Output window." lightbox="./media/quickstart-python/stream-logs-vs-code-2.png"::: |
+
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Azure portal 1](./includes/quickstart-python/stream-logs-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-1-240px.png" alt-text="A screenshot of the location in the Azure portal where to enable streaming logs." lightbox="./media/quickstart-python/stream-logs-azure-portal-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](./includes/quickstart-python/stream-logs-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-2-240px.png" alt-text="A screenshot of how to view logs in the Azure portal." lightbox="./media/quickstart-python/stream-logs-azure-portal-2.png"::: |
+
 ---
 
 Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
@@ -252,23 +252,6 @@ Having issues? Refer first to the [Troubleshooting guide](./configure-language-p
 ## Clean up resources
 
 When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
-
-### [Azure portal](#tab/azure-portal)
-
-Follow these steps while signed-in to the Azure portal to delete a resource group.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](./includes/quickstart-python/remove-resource-group-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-1-240px.png" alt-text="A screenshot of how to search for and navigate to a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-1.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 2](./includes/quickstart-python/remove-resource-group-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-2-240px.png" alt-text="A screenshot of the location of the Delete Resource Group button in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-2.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 3](./includes/quickstart-python/remove-resource-group-azure-portal-3.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-3.png"::: |
-
-### [VS Code](#tab/vscode-aztools)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](./includes/quickstart-python/remove-resource-group-visual-studio-code-1.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-visual-studio-code-1-240px.png" alt-text="A screenshot of how to delete a resource group in VS Code using the Azure Tools extension." lightbox="./media/quickstart-python/remove-resource-group-visual-studio-code-1.png"::: |
-| [!INCLUDE [Remove resource group VS Code 2](./includes/quickstart-python/remove-resource-group-visual-studio-code-2.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-visual-studio-code-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/quickstart-python/remove-resource-group-visual-studio-code-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -281,6 +264,23 @@ az group delete \
 ```
 
 The `--no-wait` argument allows the command to return before the operation is complete.
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group VS Code 1](./includes/quickstart-python/remove-resource-group-visual-studio-code-1.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-visual-studio-code-1-240px.png" alt-text="A screenshot of how to delete a resource group in VS Code using the Azure Tools extension." lightbox="./media/quickstart-python/remove-resource-group-visual-studio-code-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](./includes/quickstart-python/remove-resource-group-visual-studio-code-2.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-visual-studio-code-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/quickstart-python/remove-resource-group-visual-studio-code-2.png"::: |
+
+### [Azure portal](#tab/azure-portal)
+
+Follow these steps while signed-in to the Azure portal to delete a resource group.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group Azure portal 1](./includes/quickstart-python/remove-resource-group-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-1-240px.png" alt-text="A screenshot of how to search for and navigate to a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](./includes/quickstart-python/remove-resource-group-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-2-240px.png" alt-text="A screenshot of the location of the Delete Resource Group button in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](./includes/quickstart-python/remove-resource-group-azure-portal-3.md)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-3.png"::: |
 
 ---
 

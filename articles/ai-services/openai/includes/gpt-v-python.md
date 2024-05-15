@@ -20,9 +20,9 @@ Use this article to get started using the Azure OpenAI Python SDK to deploy and 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription. 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - The following Python libraries: `os`
-- An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. See [GPT-4 and GPT-4 Turbo Preview model availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability) for available regions. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+- An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. See [GPT-4 and GPT-4 Turbo Preview model availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability) for available regions. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 - For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource, in the paid (S1) tier.
 
 ## Set up 
@@ -54,7 +54,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     from openai import AzureOpenAI
     
     api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
-    api_key= os.getenv("AZURE_OPENAI_KEY")
+    api_key= os.getenv("AZURE_OPENAI_API_KEY")
     deployment_name = '<your_deployment_name>'
     api_version = '2023-12-01-preview' # this might change in the future
     
@@ -117,7 +117,7 @@ The **object grounding** integration brings a new layer to data analysis and use
     from openai import AzureOpenAI
     
     api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
-    api_key= os.getenv("AZURE_OPENAI_KEY")
+    api_key= os.getenv("AZURE_OPENAI_API_KEY")
     deployment_name = '<your_deployment_name>'
     api_version = '2023-12-01-preview' # this might change in the future
     

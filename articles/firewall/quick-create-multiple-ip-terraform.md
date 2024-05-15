@@ -10,6 +10,7 @@ ms.author: victorh
 ms.date: 10/15/2023
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - Terraform

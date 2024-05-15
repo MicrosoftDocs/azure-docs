@@ -34,10 +34,12 @@ This article supports both programming models.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 ::: zone-end
 ## Example
 
-Unless otherwise noted, examples in this article target version 3.x of the [Azure Cosmos DB extension](functions-bindings-cosmosdb-v2.md). For use with extension version 4.x, you need to replace the string `collection` in property and attribute names with `container`.
+Unless otherwise noted, examples in this article target version 3.x of the [Azure Cosmos DB extension](functions-bindings-cosmosdb-v2.md). For use with extension version 4.x, you need to replace the string `collection` in property and attribute names with `container` and `connection_string_setting` with `connection`.
 
 ::: zone pivot="programming-language-csharp"
 

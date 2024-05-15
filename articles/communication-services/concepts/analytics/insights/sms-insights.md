@@ -2,9 +2,9 @@
 title: Azure Communication Services SMS Insights Dashboard
 titleSuffix: An Azure Communication Services concept document
 description: Descriptions of data visualizations available for SMS Communications Services via Workbooks
-author:  timmitchell
+author:  mkhribech
 services: azure-communication-services
-ms.author: timmitchell
+ms.author: mkhribech
 ms.date: 03/16/2021
 ms.topic: conceptual
 ms.service: azure-communication-services

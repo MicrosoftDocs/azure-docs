@@ -3,18 +3,21 @@ title: Use features of the Remote Desktop Web client - Azure Virtual Desktop
 description: Learn how to use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 02/07/2024
 ms.author: daknappe
 ---
 
 # Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop
+
+Autoscale support for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Once you've connected to Azure Virtual Desktop using the Remote Desktop client, it's important to know how to use the features. This article shows you how to use the features available in the Remote Desktop Web client. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop Web client](connect-web.md).
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
 > [!NOTE]
-> Your admin can choose to override some of these settings in Azure Virtual Desktop, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
+>* Your admin can choose to override some of these settings in Azure Virtual Desktop, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
+>* Users can now only see the new client version of the Azure Virtual Desktop Web client user experience. 
 
 ## Display preferences
 
@@ -31,17 +34,11 @@ Native resolution is set to off by default. To turn on native resolution:
 
 1. Set **Enable native display resolution** to **On**.
 
-### New user interface
-
-A new user interface is available by default. It is recommended to use the New Client, as the original version will be deprecated soon.  
-
-To revert to the original user interface, toggle the New Client to **Off** on the top navigation bar.
-
 ### Grid view and list view 
 
 You can change the view of remote resources assigned to you between grid view (default) and list view. To change between grid view and list view:
 
-1. Sign in to the Remote Desktop Web client and make sure the New Client toggle is set to **On**. Then, select **Settings** on the taskbar. 
+1. Sign in to the Remote Desktop Web client and select **Settings** on the taskbar. 
 
 1. In the top-right hand corner, select the **Grid View** icon or the **List View** icon. The change will take effect immediately.
 
@@ -49,7 +46,7 @@ You can change the view of remote resources assigned to you between grid view (d
 
 You can change between light mode (default) and dark mode. To change between light mode and dark mode:
 
-1. Sign in to the Remote Desktop Web client and make sure the New Client toggle is set to **On**. Then, select **Settings** on the taskbar. 
+1. Sign in to the Remote Desktop Web client and select **Settings** on the taskbar. 
 
 1. Toggle **Dark Mode** to **On** to use dark mode, or **Off** to use light mode. The change will take effect immediately.
 
@@ -168,7 +165,7 @@ If you have another Remote Desktop client installed, you can download an RDP fil
 
 If you want to reset your user settings back to the default, you can do this in the web client for the current browser. To reset user settings:
 
-1. Sign in to the Remote Desktop Web client and make sure you have toggled **New Client** to **On**, then select **Settings** on the taskbar.
+1. Sign in to the Remote Desktop Web client and select **Settings** on the taskbar.
 
 1. Select **Reset user settings**. You'll need to confirm that you want reset the web client settings to default.
 

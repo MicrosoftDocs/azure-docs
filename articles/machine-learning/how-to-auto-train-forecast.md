@@ -1585,7 +1585,7 @@ Also see the [demand forecasting with hierarchical time series notebook](https:/
 
 ## Forecasting at scale: distributed DNN training
 
-* To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training). 
+* To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training-preview). 
 * See our [setup distributed training for tabular data](how-to-configure-auto-train.md#automl-at-scale-distributed-training) article section for code samples. 
 
 ## Example notebooks

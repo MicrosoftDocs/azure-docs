@@ -19,13 +19,13 @@ This article explains the different ways to create a container in Azure Cosmos D
 This article explains the different ways to create a container in Azure Cosmos DB for Table. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container.md), [API for Cassandra](../cassandra/how-to-create-container.md), [API for Gremlin](../gremlin/how-to-create-container.md), and [API for NoSQL](../how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
-> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don't create two containers with the same name but different casing. That's because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ## <a id="portal-table"></a>Create using Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-an-azure-cosmos-db-account), or select an existing account.
+1. [Create a new Azure Cosmos DB account](../how-to-manage-database-account.yml), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 

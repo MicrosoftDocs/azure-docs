@@ -5,8 +5,8 @@ description: Learn how to deploy Azure Load Testing in a virtual network (virtua
 services: load-testing
 ms.service: load-testing
 ms.custom: devx-track-azurecli
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 05/12/2023
 ms.topic: how-to
 ---

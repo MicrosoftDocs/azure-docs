@@ -59,7 +59,8 @@ In this case, we want to execute a batch endpoint using the identity of the user
 1. Once authenticated, use the following command to run a batch deployment job:
 
     ```azurecli
-    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                                --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci
     ```
 
 # [Python](#tab/sdk)
@@ -93,7 +94,9 @@ When working with REST, we recommend invoking batch endpoints using a service pr
 1. The simplest way to get a valid token for your user account is to use the Azure CLI. In a console, run the following command:
 
     ```azurecli
-    az account get-access-token --resource https://ml.azure.com --query "accessToken" --output tsv
+    az account get-access-token --resource https://ml.azure.com \
+                                --query "accessToken" \
+                                --output tsv
     ```
 
 1. Take note of the generated output.
@@ -114,9 +117,9 @@ When working with REST, we recommend invoking batch endpoints using a service pr
     {
         "properties": {
             "InputData": {
-            "mnistinput": {
-                "JobInputType" : "UriFolder",
-                "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
+                "mnistinput": {
+                    "JobInputType" : "UriFolder",
+                    "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
                 }
             }
         }
@@ -135,13 +138,17 @@ In this case, we want to execute a batch endpoint using a service principal alre
 1. To authenticate using a service principal, use the following command. For more details see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli
-    az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
+    az login --service-principal \
+             --tenant <tenant> \
+             -u <app-id> \
+             -p <password-or-cert> 
     ```
 
 1. Once authenticated, use the following command to run a batch deployment job:
 
     ```azurecli
-    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                                --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/
     ```
 
 # [Python](#tab/sdk)
@@ -193,7 +200,7 @@ In this case, we want to execute a batch endpoint using a service principal alre
     ```
 
     > [!IMPORTANT]
-    > Notice that the resource scope for invoking a batch endpoints (`https://ml.azure.com) is different from the resource scope used to manage them. All management APIs in Azure use the resource scope `https://management.azure.com`, including Azure Machine Learning.
+    > Notice that the resource scope for invoking a batch endpoints (`https://ml.azure.com`) is different from the resource scope used to manage them. All management APIs in Azure use the resource scope `https://management.azure.com`, including Azure Machine Learning.
 
 3. Once authenticated, use the query to run a batch deployment job:
 
@@ -211,9 +218,9 @@ In this case, we want to execute a batch endpoint using a service principal alre
     {
         "properties": {
             "InputData": {
-            "mnistinput": {
-                "JobInputType" : "UriFolder",
-                "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
+                "mnistinput": {
+                    "JobInputType" : "UriFolder",
+                    "Uri":  "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci"
                 }
             }
         }
@@ -237,7 +244,8 @@ az login --identity
 Once authenticated, use the following command to run a batch deployment job:
 
 ```azurecli
-az ml batch-endpoint invoke --name $ENDPOINT_NAME --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci
+az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                            --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci
 ```
 
 # [Python](#tab/sdk)
@@ -298,7 +306,6 @@ To successfully invoke a batch endpoint you need the following explicit actions 
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/read",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/write",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments/read",
-    "Microsoft.MachineLearningServices/workspaces/batchEndpoints/write",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments/write",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/deployments/jobs/write",
     "Microsoft.MachineLearningServices/workspaces/batchEndpoints/jobs/write",

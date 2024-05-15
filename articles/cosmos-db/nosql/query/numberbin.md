@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Rounds the numeric expression's value down to a multiple of specified bin size.
 
 ## Syntax
 
-```sql
+```nosql
 NumberBin(<numeric_expr> [, <bin_size>])
 ```
 
@@ -39,7 +40,7 @@ Returns a numeric value.
 
 This first example bins a single static number with various bin sizes.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/numberbin/query.novalidate.sql" highlight="2-7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/numberbin/query.novalidate.sql" highlight="2-7":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/numberbin/result.novalidate.json":::
 
@@ -49,7 +50,7 @@ This next example uses a field from an existing item.
 
 This query rounds the previous field using the function.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/numberbin-field/query.novalidate.sql" highlight="3":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/numberbin-field/query.novalidate.sql" highlight="3":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/numberbin-field/result.novalidate.json":::
 

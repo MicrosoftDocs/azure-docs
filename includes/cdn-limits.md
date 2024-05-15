@@ -18,6 +18,7 @@ ms.author: magattus
 | Maximum number of actions per rule	| 5 |
 | Maximum bandwidth per profile* | 75 Gbps |
 | Maximum requests per second per profile | 100,000 |
+| HTTP header size limit (per header) | 32 KB |
 
 *These two limits are only applicable to Azure CDN Standard from Microsoft (classic). If the traffic is not globally distributed and concentrated in one or two regions, or if a higher quota limit is needed, create an [Azure Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 

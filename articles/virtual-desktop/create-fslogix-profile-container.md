@@ -24,7 +24,9 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 
 ## Considerations 
 
-FSLogix profile containers on Azure NetApp Files can be accessed by users authenticating from Active Directory Domain Services (AD DS) and from [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), allowing Microsoft Entra users to access profile containers without requiring line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined virtual machines (VMs). For more information, see [Access SMB volumes from Microsoft Entra joined Windows VMs](../azure-netapp-files/access-smb-volume-from-windows-client.md).
+* To optimize performance and scalability, the number of _concurrent_ users accessing FSLogix profile containers stored on a single Azure NetApp Files regular volume should be limited to 3,000. Having more than 3,000 _concurrent_ users on a single volume causes significant increased latency on the volume. If your scenario requires more than 3,000 _concurrent_ users, divide users across multiple regular volumes or use a large volume. A single large volume can store FSLogix profiles for up to 50,000 _concurrent_ users. For more information on large volumes, see [Requirements and considerations for large volumes](../azure-netapp-files/large-volumes-requirements-considerations.md).
+
+* FSLogix profile containers on Azure NetApp Files can be accessed by users authenticating from Active Directory Domain Services (AD DS) and from [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), allowing Microsoft Entra users to access profile containers without requiring line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined virtual machines (VMs). For more information, see [Access SMB volumes from Microsoft Entra joined Windows VMs](../azure-netapp-files/access-smb-volume-from-windows-client.md).
 
 ## Prerequisites
 
@@ -39,45 +41,22 @@ To get started, you need to set up an Azure NetApp Files account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Make sure your account has contributor or administrator permissions.
 
-2. Select the **Azure Cloud Shell icon** to the right of the search bar to open Azure Cloud Shell.
-
-3. Once Azure Cloud Shell is open, select **PowerShell**.
-
-4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Azure Virtual Desktop.
-
-   > [!div class="mx-imgBorder"]
-   > ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
-
-5. Once Azure Cloud Shell loads, run the following two cmdlets.
-
-   ```azurecli
-   az account set --subscription <subscriptionID>
-   ```
-
-   ```azurecli
-   az provider register --namespace Microsoft.NetApp --wait
-   ```
-
-6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
+1. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
    > [!div class="mx-imgBorder"]
    > ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/azure-netapp-files-search-box.png)
 
 
-7. Select **Azure NetApp Files** in the search results, then select **Create**.
+1. Select **Azure NetApp Files** in the search results, then select **Create**.
 
-8. Select the **Add** button.
-9. When the **New NetApp account** tab opens, enter the following values:
+1. When the **New NetApp account** tab opens, enter the following values:
 
     - For **Name**, enter your NetApp account name.
     - For **Subscription**, select the subscription for the storage account you set up in step 4 from the drop-down menu.
     - For **Resource group**, either select an existing resource group from the drop-down menu or create a new one by selecting **Create new**.
     - For **Location**, select the region for your NetApp account from the drop-down menu. This region must be the same region as your session host VMs.
 
-   >[!NOTE]
-   >Azure NetApp Files currently doesn't support mounting of a volume across regions.
-
-10. When you're finished, select **Create** to create your NetApp account.
+1. When you're finished, select **Create** to create your NetApp account.
 
 ## Create a capacity pool
 

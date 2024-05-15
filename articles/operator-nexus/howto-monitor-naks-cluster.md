@@ -53,7 +53,7 @@ The following resources provide you with support:
 [!INCLUDE [dcr.sh](./includes/dcr.md)]
 - `assign.sh`: use the script to create a policy to associate the DCR with all Arc-enabled servers in a resource group
 [!INCLUDE [assign.sh](./includes/assign.md)]
-- `install.sh`: Arc-enable Nexus Kubernetes cluster VMs and install Azure Monitoring Agent on each VM
+- `install.sh`: Install Azure Monitoring Agent on each VM to collect monitoring data from Azure Virtual Machines. 
 [!INCLUDE [install.sh](./includes/install.md)]
 
 ### Prerequisites-VM
@@ -169,12 +169,13 @@ For convenience, the provided **`assign.sh`** script assigns the built-in policy
 ./assign.sh
 ```
 
-#### Connect Arc-enabled servers and install Azure monitoring agent
+#### Install Azure monitoring agent
 
-Use the included **`install.sh`** script to Arc-enroll all server VMs that represent the nodes of the Nexus Kubernetes cluster.
-This script creates a Kubernetes daemonSet on the Nexus Kubernetes cluster.
-It deploys a pod to each cluster node, connecting each VM to Arc-enabled servers and installing the Azure Monitoring Agent (AMA).
+Use the included **`install.sh`** which creates a Kubernetes daemonSet on the Nexus Kubernetes cluster.
+It deploys a pod to each cluster node and installs the Azure Monitoring Agent (AMA).
 The `daemonSet` also includes a liveness probe that monitors the server connection and AMA processes.
+> [!NOTE]
+> To install Azure Monitoring Agent, you must first Arc connect the Nexus Kubernetes cluster VMs. This process is automated if you are using the latest version bundle. However, if the version bundle you use does not support cluster VM Arc enrollment by default, you will need to upgrade your cluster to the latest version bundle. For more information about the version bundle, please refer [Nexus Kubernetes cluster supported versions](reference-nexus-kubernetes-cluster-supported-versions.md)
 
 1. Set the environment as specified in [Environment Setup](#environment-setup). Set the current `kubeconfig` context for the Nexus Kubernetes cluster VMs.
 2. Permit `Kubectl` access to the Nexus Kubernetes cluster.
@@ -191,7 +192,6 @@ kubectl logs <podname>
 ```
 
 On completion, the system logs the message "Server monitoring configured successfully".
-At that point, the Arc-enabled servers appear as resources within the selected resource group.
 
 > [!NOTE]
 > Associate these connected servers to the [DCR](#associate-arc-enabled-server-resources-to-dcr).
@@ -277,7 +277,7 @@ Validate the successful deployment of monitoring agents’ enablement on Nexus K
 az k8s-extension show --name azuremonitor-containers \
   --cluster-name "<Nexus Kubernetes cluster Name>" \
   --resource-group "<Nexus Kubernetes cluster Resource Group>" \
-  --cluster-type conectedClusters
+  --cluster-type connectedClusters
 ```
 
 Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extension create" command may have also returned the status.

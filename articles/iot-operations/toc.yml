@@ -2,17 +2,17 @@ items:
   - name: Azure IoT Operations
     href: index.yml
     items:
+    - name: Overview
+      href: get-started/overview-iot-operations.md
     - name: Get started
       expanded: true
       items:
-      - name: Overview
-        href: get-started/overview-iot-operations.md
       - name: Deploy Azure IoT Operations
         href: get-started/quickstart-deploy.md
       - name: Add OPC UA assets to your cluster
         href: get-started/quickstart-add-assets.md
-      - name: Use pipelines to process data
-        href: get-started/quickstart-process-telemetry.md
+      - name: Upload data to the cloud
+        href: get-started/quickstart-upload-telemetry-to-cloud.md
       - name: Get insights from your data
         href: get-started/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations components
@@ -46,19 +46,23 @@ items:
       - name: Overview
         href: manage-devices-assets/overview-manage-assets.md
       - name: Concepts
-        items: 
+        items:
         - name: Akri overview
           href: manage-devices-assets/overview-akri.md
         - name: Akri architecture
           href: manage-devices-assets/concept-akri-architecture.md
         - name: OPC UA broker overview
           href: manage-devices-assets/overview-opcua-broker.md
-      - name: How to 
+        - name: OPC UA certificates infrastructure overview
+          href: manage-devices-assets/overview-opcua-broker-certificates-management.md
+      - name: How to
         items:
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md
         - name: Discover OPC UA data sources
           href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
+        - name: Configure OPC UA certificates infrastructure
+          href: manage-devices-assets/howto-configure-opcua-certificates-infrastructure.md
         - name: Configure an OPC PLC simulator
           href: manage-devices-assets/howto-configure-opc-plc-simulator.md
         - name: Configure OPC UA authentication options
@@ -80,7 +84,7 @@ items:
       - name: Configure authorization
         href: manage-mqtt-connectivity/howto-configure-authorization.md
       - name: Test connection
-        href: manage-mqtt-connectivity/howto-test-connection.md  
+        href: manage-mqtt-connectivity/howto-test-connection.md
       - name: Manage secrets
         href: manage-mqtt-connectivity/howto-manage-secrets.md
     - name: Process data
@@ -88,7 +92,7 @@ items:
       - name: Overview
         href: process-data/overview-data-processor.md
       - name: Concepts
-        items: 
+        items:
         - name: Message structure
           href: process-data/concept-message-structure.md
         - name: Supported message formats
@@ -107,6 +111,8 @@ items:
           href: process-data/howto-configure-datasource-http.md
         - name: Configure a pipeline SQL Server source stage
           href: process-data/howto-configure-datasource-sql.md
+        - name: Configure a pipeline InfluxDB source stage
+          href: process-data/howto-configure-datasource-influxdb.md
       - name: Process data
         items:
         - name: Aggregate data in a pipeline
@@ -135,6 +141,8 @@ items:
         items:   
         - name: Send data to a gRPC endpoint
           href: process-data/howto-configure-destination-grpc.md
+        - name: Send data to an HTTP endpoint
+          href: process-data/howto-configure-destination-http.md
         - name: Publish data to an MQTT broker
           href: process-data/howto-configure-destination-mq-broker.md
       - name: jq guide
@@ -160,11 +168,19 @@ items:
         href: connect-to-cloud/howto-configure-destination-data-explorer.md
       - name: Send data to Microsoft Fabric from a pipeline
         href: connect-to-cloud/howto-configure-destination-fabric.md
+      - name: Send data to Azure Blob Storage from a pipeline
+        href: connect-to-cloud/howto-configure-destination-blob.md
 
     - name: Monitor service and asset health
       items:
-      - name: Configure observability
+      - name: Get started with observability
         href: monitor/howto-configure-observability.md
+      - name: Configure observability manually
+        href: monitor/howto-configure-observability-manual.md
+      - name: Add a cluster to observability infrastructure
+        href: monitor/howto-add-cluster.md
+      - name: Clean up observability resources
+        href: monitor/howto-clean-up-observability-resources.md
       - name: Configure MQ diagnostic service settings
         href: monitor/howto-configure-diagnostics.md
     - name: Manage layered network
@@ -205,12 +221,16 @@ items:
       items:
       - name: About distributed apps
         href: develop/concept-about-distributed-apps.md
+      - name: Dapr apps
+        items:
+        - name: Deploy Dapr
+          href: develop/howto-deploy-dapr.md
+        - name: Develop Dapr apps
+          href: develop/howto-develop-dapr-apps.md
+        - name: Build an event-driven app with Dapr
+          href: develop/tutorial-event-driven-with-dapr.md
       - name: About the MQ state store protocol 
         href: develop/concept-about-state-store-protocol.md
-      - name: Develop Dapr apps
-        href: develop/howto-develop-dapr-apps.md
-      - name: Build event-driven apps with Dapr
-        href: develop/tutorial-event-driven-with-dapr.md
       - name: Develop MQTTnet apps
         href: develop/howto-develop-mqttnet-apps.md
 

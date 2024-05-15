@@ -12,6 +12,8 @@ ms.author: danlep
 
 # Reuse policy configurations in your API Management policy definitions
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows you how to create and use *policy fragments* in your API Management policy definitions. Policy fragments are centrally managed, reusable XML snippets containing one or more API Management [policy](api-management-howto-policies.md) configurations. 
 
 Policy fragments help you configure policies consistently and maintain policy definitions without needing to repeat or retype XML code.

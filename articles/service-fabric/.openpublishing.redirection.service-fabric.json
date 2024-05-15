@@ -1,0 +1,224 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/service-fabric/how-to-enable-managed-cluster-disk-encryption.md",
+            "redirect_url": "/azure/service-fabric/how-to-managed-cluster-enable-disk-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
+            "redirect_url": "/azure/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/policy-samples.md",
+            "redirect_url": "/azure/service-fabric/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/scripts/service-fabric-powershell-create-test-cluster.md",
+            "redirect_url": "/azure/service-fabric/scripts/service-fabric-powershell-create-secure-cluster-cert",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-security-attributes.md",
+            "redirect_url": "/azure/service-fabric/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-security-controls.md",
+            "redirect_url": "/azure/service-fabric/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-application-lifecycle-azure-cli-2-0.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-application-lifecycle-sfctl",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-patterns-and-scenarios.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-application-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-backuprestoreservice-ondemand-backup.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-backup-restore-service-ondemand-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-azure-cli.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-azure-cli-2-0.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-get-started-standalone-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-for-windows-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-cluster-creation-via-visual-studio.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-cluster-creation-with-windows-azure-vms.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-update-vmss-sku.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-reliable-actors-get-started-java.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-linux-overview.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-deploy-anywhere",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-deploy-multiple-apps.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-deploy-existing-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-automate-powershell.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-deploy-remove-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-get-started-with-a-local-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-deploy-remove-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostic-collect-logs-without-an-agent.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostic-how-to-use-elasticsearch.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-how-to-setup-lad.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-lad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-how-to-setup-wad.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-containers-windowsserver.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-oms-containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-deploy-container.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-deploy-container-linux.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-patch-orchestration-application-linux.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-patch-orchestration-application#frequently-asked-questions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-add-a-web-frontend.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-reliable-services-communication-webapi.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-reliable-services-platform-architecture.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-reliable-services-reliable-collections-internals.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-reliable-services-advanced-usage.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-lifecycle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-scale-up-node-type.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-use-data-loss-api.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-testability-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-create-your-first-application-in-visual-studio.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-dotnet-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-get-started-azure-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-tutorial-create-cluster-azure-ps.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-cluster-delete.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-delete-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-set-up-continuous-integration.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-vso-load-test.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+            "redirect_document_id": false
+        }
+    ]
+}

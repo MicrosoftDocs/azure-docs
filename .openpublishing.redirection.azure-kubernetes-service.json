@@ -352,12 +352,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/delete-cluster.md",
-            "redirect_url": "/cli/azure/aks#az_aks_delete",
-            "redirect_document_id": false
-        },
-
-        {
             "source_path": "articles/aks/view-master-logs.md",
             "redirect_url": "/azure/aks/view-control-plane-logs",
             "redirect_document_id": false
@@ -463,8 +457,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/ai-toolchain-operator.md",
-            "redirect_url": "https://azure.microsoft.com/updates/preview-ai-toolchain-operator-addon-for-aks/",
+            "source_path_from_root": "/articles/aks/operator-best-practices-run-at-scale.md",
+            "redirect_url": "/azure/aks/best-practices-performance-scale-large",
             "redirect_document_id": false
         }
     ]

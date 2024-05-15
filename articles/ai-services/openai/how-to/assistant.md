@@ -1,7 +1,7 @@
 ---
 title: 'How to create Assistants with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to create helpful AI Assistants with tools like Code Interpreter
+description: Learn how to create helpful AI Assistants with tools like Code Interpreter.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -16,7 +16,9 @@ recommendations: false
 
 # Getting started with Azure OpenAI Assistants (Preview)
 
-Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. In this article we'll provide an in-depth walkthrough of getting started with the Assistants API.
+Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. In this article, we provide an in-depth walkthrough of getting started with the Assistants API.
+
+[!INCLUDE [Assistants v2 note](../includes/assistants-v2-note.md)]
 
 ## Assistants support
 
@@ -94,7 +96,7 @@ import json
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -149,7 +151,7 @@ print(assistant.model_dump_json(indent=2))
 
 ### Create a thread
 
-Now let's create a thread
+Now let's create a thread.
 
 ```python
 # Create a thread
@@ -161,9 +163,9 @@ print(thread)
 Thread(id='thread_6bunpoBRZwNhovwzYo7fhNVd', created_at=1705972465, metadata={}, object='thread')
 ```
 
-A thread is essentially the record of the conversation session between the assistant and the user. It's similar to the messages array/list in a typical chat completions API call. One of the key differences, is unlike a chat completions messages array, you don't need to track tokens with each call to make sure that you're remaining below the context length of the model. Threads abstract away this management detail and will compress the thread history as needed in order to allow the conversation to continue. The ability for threads to accomplish this with larger conversations is enhanced when using the latest models, which have larger context lengths as well as support for the latest features.
+A thread is essentially the record of the conversation session between the assistant and the user. It's similar to the messages array/list in a typical chat completions API call. One of the key differences, is unlike a chat completions messages array, you don't need to track tokens with each call to make sure that you're remaining below the context length of the model. Threads abstract away this management detail and will compress the thread history as needed in order to allow the conversation to continue. The ability for threads to accomplish this with larger conversations is enhanced when using the latest models, which have larger context lengths and support for the latest features.
 
-Next create the first user question to add to the thread
+Next create the first user question to add to the thread.
 
 ```python
 # Add a user question to the thread
@@ -365,7 +367,7 @@ We had requested that the model generate an image of a sine wave. In order to do
 
 ```python
 data = json.loads(messages.model_dump_json(indent=2))  # Load JSON data into a Python object
-image_file_id = data['data'][1]['content'][0]['image_file']['file_id']
+image_file_id = data['data'][0]['content'][0]['image_file']['file_id']
 
 print(image_file_id)  # Outputs: assistant-1YGVTvNzc2JXajI5JU9F0HMD
 ```
@@ -388,7 +390,7 @@ image = Image.open("sinewave.png")
 image.show()
 ```
 
-:::image type="content" source="../media/how-to/assistants/sine-wave.png" alt-text="Screenshot of code interpreter generated sinewave." lightbox="../media/how-to/assistants/sine-wave.png":::
+:::image type="content" source="../media/how-to/assistants/sine-wave.png" alt-text="Screenshot of code interpreter generated sine wave." lightbox="../media/how-to/assistants/sine-wave.png":::
 
 ### Ask a follow-up question on the thread
 
@@ -840,7 +842,7 @@ image = Image.open("dark_sine.png")
 image.show()
 ```
 
-:::image type="content" source="../media/how-to/assistants/dark-mode.png" alt-text="Screenshot of code interpreter generated sinewave in darkmode." lightbox="../media/how-to/assistants/dark-mode.png":::
+:::image type="content" source="../media/how-to/assistants/dark-mode.png" alt-text="Screenshot of code interpreter generated sine wave in dark mode." lightbox="../media/how-to/assistants/dark-mode.png":::
 
 ## Additional reference
 
@@ -868,7 +870,7 @@ When annotations are present in the Message content array, you'll see illegible 
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )

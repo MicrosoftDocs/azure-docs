@@ -6,16 +6,16 @@ ms.custom: devx-track-arm-template
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.reviewer: yagil
-ms.date: 12/28/2022
+ms.date: 04/01/2024
 ---
 
-# Resource Manager template samples for Azure Monitor activity log alert rules 
+# Resource Manager template samples for Azure Monitor activity log alert rules (Administrative category) 
 
-This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure activity log alerts in Azure Monitor. 
+This article includes examples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure activity log alerts for Administrative events in Azure Monitor. 
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-## Activity log alert rule using the **Administrative** condition:
+## Activity log alert rule condition for the **Administrative** event category:
 
 This example sets the condition to the **Administrative** category:
 

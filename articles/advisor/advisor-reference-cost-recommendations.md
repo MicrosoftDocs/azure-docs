@@ -136,7 +136,7 @@ Learn more about [Log Analytics workspace - DeleteRestoredTables (Consider remov
 
 ### Consider enabling autopause on Spark compute
 
-Auto-pause releases and shuts down unused Compute resources after a set idle period of inactivity.
+Autopause releases and shuts down unused Compute resources after a set idle period of inactivity.
 
 Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoPauseGuidance (Consider enabling autopause feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoPauseGuidance).
 
@@ -154,15 +154,15 @@ Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoScaleGuidance
 
 Customers running high IO workloads in Standard HDDs can upgrade to Standard SSDs and benefit from better performance and SLA and now experience a limit on the maximum number of billed transactions.
 
-Learn more about [Disk - UpgradeHDDtoSDD (Standard SSD disks billing caps.)]().
+Learn more about [Understand Azure Disk Storage billing](/azure/virtual-machines/disks-understand-billing).
 
 ### Underutilized Disks Identified
 
 You have disks that are utilized less than 10%, right-size to save cost.
 
-Learn more about [Disk - wiprounderutilizeddisks (Underutilized Disks Identified)]().
+Learn more about [Managed disks: Find and delete unattached disks](/azure/virtual-machines/disks-find-unattached-portal).
 
-### You have disks that have not been attached to a VM for more than 30 days. Evaluate if you still need the disk.
+### You have disks that haven't been attached to a VM for more than 30 days. Evaluate if you still need the disk.
 
 We've observed that you have disks that haven't been attached to a VM for more than 30 days. Evaluate if you still need the disk. If you decide to delete the disk, recovery isn't possible. We recommend that you create a snapshot before deletion or ensure the data in the disk is no longer required.
 
@@ -176,7 +176,7 @@ Learn more about [Virtual machine scale set - LowUsageVmss (Right-size or shutdo
 
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 
-With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
+With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
 
 Learn more about [Subscription - EphemeralOsDisk (Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance)](/azure/virtual-machines/windows/ephemeral-os-disks).
 
@@ -205,7 +205,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlCpuRightSize (Right-size un
 
 ### Review the configuration of your Azure Cosmos DB free tier account
 
-Your Azure Cosmos DB free tier account currently contains resources with a total provisioned throughput exceeding 1000 Request Units per second (RU/s). Because the free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s is billed at the regular pricing. As a result, we anticipate that you're charged for the throughput currently provisioned on your Azure Cosmos DB account.
+Your Azure Cosmos DB free tier account currently contains resources with a total provisioned throughput exceeding 1,000 Request Units per second (RU/s). Because the free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s is billed at the regular pricing. As a result, we anticipate that you're charged for the throughput currently provisioned on your Azure Cosmos DB account.
 
 Learn more about [Azure Cosmos DB account - CosmosDBFreeTierOverage (Review the configuration of your Azure Cosmos DB free tier account)](../cosmos-db/understand-your-bill.md#azure-free-tier).
 
@@ -256,13 +256,13 @@ Learn more about [ExpressRoute circuit - ExpressRouteCircuit (Delete ExpressRout
 
 ### Repurpose or delete idle virtual network gateways
 
-We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. Reconfigure this gateway, or delete it if you do not intend to use it anymore.
+We noticed that your virtual network gateway has been idle for over 90 days. This gateway is being billed hourly. Reconfigure this gateway, or delete it if you don't intend to use it anymore.
 
 Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete idle virtual network gateways)](https://aka.ms/aa_idlevpngateway_learnmore).
 
 ### Consider migrating to Front Door Standard/Premium
 
-Your Front Door Classic tier contains a large number of domains or routing rules, which adds extra charges. Front Door Standard or Premium do not charge per additional domain or routing rule. Consider migrating to save costs.
+Your Front Door Classic tier contains a large number of domains or routing rules, which adds extra charges. Front Door Standard or Premium tiers don't charge per additional domain or routing rule. Consider migrating to save costs.
 
 Learn more about [Front Door pricing](https://aka.ms/afd-pricing).
 
@@ -488,10 +488,7 @@ Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
 ### Unused/Empty App Service plans
 
-Your App Service plan has no apps running for at least three days. Consider deleting the resource to save costs or add new apps under it.
-
-> [!NOTE]
-> It might take up to 48 hours for this recommendation to refresh after you take an action.
+Your App Service plan does not have any running applications associated with it. Consider deleting the resource to reduce expenses, or add new applications under it to utilize its capabilities.
  
 Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 

@@ -3,7 +3,7 @@ title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2022
+ms.date: 02/22/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -43,6 +43,9 @@ The following items help you transition to MCA APIs.
 ## EA APIs replaced with MCA APIs
 
 EA APIs use an API key for authentication and authorization. MCA APIs use Microsoft Entra authentication.
+
+> [!NOTE]
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
 | Purpose | EA API | MCA API |
 | --- | --- | --- |
@@ -221,7 +224,7 @@ Use the Price Sheet API to view all Azure Consumption services Price Sheet data 
 
 Using the API returns the price sheet for the entire account. However, you can also get a condensed version of the price sheet in PDF format. The summary includes Azure Consumption and Marketplace consumption services that are billed for a specific invoice. The invoice is identified by the {invoiceId}, which is the same as the **Invoice Number** shown in the Invoice Summary PDF files. Here's an example.
 
-![Example image showing the Invoice Number that corresponds to the InvoiceId](./media/migrate-cost-management-api/invoicesummary.png)
+:::image type="content" border="true" source="./media/migrate-cost-management-api/invoicesummary.png" alt-text="Screenshot showing the Invoice Number that corresponds to the Invoice ID.":::
 
 To view invoice information with the Price Sheet API in CSV format:
 
@@ -470,6 +473,6 @@ To get reservation summaries with the Reservation Summaries API:
 
 You can also use Power BI for cost reporting. The [Cost Management connector](/power-bi/desktop-connect-azure-cost-management) for Power BI Desktop can be used to create powerful, customized reports that help you better understand your Azure spend. The Cost Management connector currently supports customers with either a Microsoft Customer Agreement or an Enterprise Agreement (EA).
 
-## Next steps
+## Related content
 
 - Read the [Cost Management documentation](../index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.

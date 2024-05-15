@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 01/21/2024
+ms.date: 04/02/2024
 ---
 
 # Regional availability for Azure Cosmos DB for PostgreSQL
@@ -27,7 +27,7 @@ Azure Cosmos DB for PostgreSQL is available in the following Azure regions:
 | Central US | :heavy_check_mark: | :heavy_check_mark: | East US 2 |
 | East Asia | :heavy_check_mark: | :heavy_check_mark: | Southeast Asia |
 | East US | :heavy_check_mark: | :heavy_check_mark: | West US |
-| East US 2 | :heavy_check_mark: | :x: | Central US |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | Central US |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | Japan West |
@@ -45,7 +45,7 @@ Azure Cosmos DB for PostgreSQL is available in the following Azure regions:
 | Switzerland West † | :heavy_check_mark: | N/A | Switzerland North |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | West Central US | :heavy_check_mark: | N/A | West US 2 |
-| West Europe | :heavy_check_mark: | :x: | North Europe |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | North Europe |
 | West US | :heavy_check_mark: | :x: | East US |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | West Central US |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |

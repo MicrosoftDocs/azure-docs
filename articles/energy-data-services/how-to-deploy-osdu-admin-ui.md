@@ -2,6 +2,7 @@
 title: Deploy OSDU Admin UI on top of Azure Data Manager for Energy
 description: Learn how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy instance.
 ms.service: energy-data-services
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.reviewer: shikhagarg
 ms.author: eihaugho
@@ -23,7 +24,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
   > The following API permissions are required on the App Registration for the Admin UI to function properly.
   >   - [Application.Read.All](/graph/permissions-reference#applicationreadall)
   >   - [User.Read](/graph/permissions-reference#applicationreadall)
-  >   - [User.Read.All](/graph/permissions-reference#userreadall)
+  >   - [User.ReadBasic.All](/graph/permissions-reference#userreadbasicall)
   > 
   > Upon first login to the Admin UI it will request the necessary permissions. You can also grant the required permissions in advance, see [App Registration API Permission documentation](/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
 
@@ -87,7 +88,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 1. Enter the required environment variables on the terminal.
    ```bash
     export ADMINUI_CLIENT_ID="" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
-    export WEBSITE_NAME="" ## Unique name of the static web app or storage account that will be generated
+    export WEBSITE_NAME="" ## Unique name of the static web app or storage account that will be generated. Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     export RESOURCE_GROUP="" ## Name of resource group
     export LOCATION="" ## Azure region to deploy to, i.e. "westeurope"
    ```
@@ -128,7 +129,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
         --public-access blob
     ```
 
-1. Add the redirect URI to the App Registration.
+1. Add the redirect URI to the App Registration. 
     ```azurecli
     export REDIRECT_URI=$(az storage account show --resource-group $RESOURCE_GROUP --name $WEBSITE_NAME --query "primaryEndpoints.web") && \
     echo "Redirect URL: $REDIRECT_URI" && \

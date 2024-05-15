@@ -42,6 +42,8 @@
     items:
     - name: Manage your Academic Grant
       href: hub-overview-page.md
+    - name: How to set up a custom tenant
+      href: custom-tenant-set-up-classroom.md
     - name: Create an assignment and allocate credit
       href: create-assignment-allocate-credit.md
     - name: Service desk
@@ -76,5 +78,7 @@
       href: find-ids.md
 - name: Troubleshooting
   items:
+  - name: Frequently asked questions
+    href: faq.md
   - name: Login errors
     href: azure-dev-tools-teaching/troubleshoot-login.md

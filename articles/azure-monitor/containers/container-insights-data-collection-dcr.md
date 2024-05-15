@@ -1,5 +1,5 @@
 ---
-title: Configure Container insights data collection using data collection rule
+title: Configure data collection and cost optimization in Container insights using data collection rule
 description: Describes how you can configure cost optimization and other data collection for Container insights using a data collection rule.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
@@ -7,22 +7,23 @@ ms.date: 12/19/2023
 ms.reviewer: aul
 ---
 
-# Configure data collection in Container insights using data collection rule
+# Configure data collection and cost optimization in Container insights using data collection rule
 
-This article describes how to configure data collection in Container insights using the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for the cluster. A DCR is created when you onboard a cluster to Container insights. This DCR is used by the containerized agent to define data collection for the cluster.
+This article describes how to configure data collection in Container insights using the [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) for your Kubernetes cluster. This includes preset configurations for optimizing your costs. A DCR is created when you onboard a cluster to Container insights. This DCR is used by the containerized agent to define data collection for the cluster.
 
 The DCR is primarily used to configure data collection of performance and inventory data and to configure cost optimization.
 
 Specific configuration you can perform with the DCR includes:
 
-- Enable/disable collection and namespace filtering for performance and inventory data
+- Enable/disable collection and namespace filtering for performance and inventory data.
 - Define collection interval for performance and inventory data
-- Enable/disable collection of stdout and stderr logs
 - Enable/disable Syslog collection
 - Select log schema
 
-> [!NOTE]
-> See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) to configure data collection using a DCR which allows you to configure different settings.
+> [!IMPORTANT]
+> Complete configuration of data collection in Container insights may require editing of both the DCR and the ConfigMap for the cluster since each method allows configuration of a different set of settings. 
+> 
+> See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) for a list of settings and the process to configure data collection using ConfigMap.
 
 ## Prerequisites
 
@@ -61,11 +62,12 @@ You can use the Azure portal to enable cost optimization on your existing cluste
 ### Cost presets
 When you use the Azure portal to configure cost optimization, you can select from the following preset configurations. You can select one of these or provide your own customized settings. By default, Container insights uses the *Standard* preset.
 
-| Cost preset | Collection frequency | Namespace filters | Syslog collection |
-| --- | --- | --- | --- |
-| Standard | 1 m | None | Not enabled |
-| Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
-| Syslog | 1 m | None | Enabled by default |
+| Cost preset | Collection frequency | Namespace filters | Syslog collection | Collected data |
+| --- | --- | --- | --- | --- |
+| Standard | 1 m | None | Not enabled | All standard container insights tables |
+| Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled | All standard container insights tables |
+| Syslog | 1 m | None | Enabled by default | All standard container insights tables |
+| Logs and Events | 1 m | None | Not enabled | ContainerLog/ContainerLogV2<br> KubeEvents<br>KubePodInventory |
 
 ### Collected data
 The **Collected data** option allows you to select the tables that are populated for the cluster. This is the equivalent of the `streams` parameter when performing the configuration with CLI or ARM. If you select any option other than **All (Default)**, the Container insights experience becomes unavailable, and you must use Grafana or other methods to analyze collected data.
@@ -86,10 +88,10 @@ The **Collected data** option allows you to select the tables that are populated
 
 > [!NOTE]
 > Minimum version required for Azure CLI is 2.51.0.
-    - For AKS clusters, [aks-preview](../../aks/cluster-configuration.md#install-the-aks-preview-azure-cli-extension) version 0.5.147 or higher
-    - For Arc enabled Kubernetes and AKS hybrid, [k8s-extension](../../azure-arc/kubernetes/extensions.md#prerequisites) version 1.4.3 or higher
-
-## AKS cluster
+```
+- For AKS clusters, [aks-preview](../../aks/cluster-configuration.md) version 0.5.147 or higher
+- For Arc enabled Kubernetes and AKS hybrid, [k8s-extension](../../azure-arc/kubernetes/extensions.md#prerequisites) version 1.4.3 or higher
+```## AKS cluster
 
 When you use CLI to configure monitoring for your AKS cluster, you provide the configuration as a JSON file using the following format. Each of these settings is described in [Data collection parameters](#data-collection-parameters).
 
@@ -214,7 +216,7 @@ The following table describes the supported data collection settings and the nam
 |:---|:---|
 | Collection frequency<br>CLI: `interval`<br>ARM: `dataCollectionInterval` | Determines how often the agent collects data.  Valid values are 1m - 30m in 1m intervals The default value is 1m. If the value is outside the allowed range, then it defaults to *1 m*. |
 | Namespace filtering<br>CLI: `namespaceFilteringMode`<br>ARM: `namespaceFilteringModeForDataCollection` | *Include*: Collects only data from the values in the *namespaces* field.<br>*Exclude*: Collects data from all namespaces except for the values in the *namespaces* field.<br>*Off*: Ignores any *namespace* selections and collect data on all namespaces.
-| Namespace filtering<br>CLI: `namespaces`<br>ARM: `namespacesForDataCollection` | Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_.<br>For example, *namespaces = \["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
+| Namespace filtering<br>CLI: `namespaces`<br>ARM: `namespacesForDataCollection` | Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_.<br>For example, *namespaces = ["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
 | Enable ContainerLogV2<br>CLI: `enableContainerLogV2`<br>ARM: `enableContainerLogV2` | Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logs-schema.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
 | Collected Data<br>CLI: `streams`<br>ARM: `streams` | An array of container insights table streams. See the supported streams above to table mapping. |
 
@@ -251,7 +253,7 @@ The settings for **collection frequency** and **namespace filtering** don't appl
 When you specify the tables to collect using CLI or ARM, you specify a stream name that corresponds to a particular table in the Log Analytics workspace. The following table lists the stream name for each table.
 
 > [!NOTE]
-> If your familiar with the [structure of a data collection rule](../essentials/data-collection-rule-structure.md), the stream names in this table are specified in the [dataFlows](../essentials/data-collection-rule-structure.md#dataflows) section of the DCR.
+> If you're familiar with the [structure of a data collection rule](../essentials/data-collection-rule-structure.md), the stream names in this table are specified in the [dataFlows](../essentials/data-collection-rule-structure.md#dataflows) section of the DCR.
 
 | Stream | Container insights table |
 | --- | --- |

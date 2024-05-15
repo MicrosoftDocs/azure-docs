@@ -39,11 +39,13 @@ Before you start developing a Python function app, you must meet these requireme
     root_logger = logging.getLogger()
     root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
     profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
+    ```
 
 3. Apply the following decorator above any functions that need memory profiling. The decorator doesn't work directly on the trigger entrypoint `main()` method. You need to create subfunctions and decorate them. Also, due to a memory-profiler known issue, when applying to an async coroutine, the coroutine return value is always `None`.
 
     ```python
     @memory_profiler.profile(stream=profiler_logstream)
+    ```
 
 4. Test the memory profiler on your local machine by using Azure Functions Core Tools command `func host start`. When you invoke the functions, they should generate a memory usage report. The report contains file name, line of code, memory usage, memory increment, and the line content in it.
 

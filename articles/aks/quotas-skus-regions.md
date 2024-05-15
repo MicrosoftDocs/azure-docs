@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn about the default quotas, restricted node VM SKU sizes, and region availability of the Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 01/12/2024
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
@@ -32,8 +35,13 @@ The list of supported VM sizes in AKS is evolving with the release of new VM SKU
 ## Restricted VM sizes
 
 VM sizes with fewer than two CPUs may not be used with AKS.
+Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure that the required *kube-system* pods and your applications can reliably be scheduled, **don't use [B series VMs][b-series-vm] and the following VM SKUs in AKS on system node pools**:
 
-Each node in an AKS cluster contains a fixed amount of compute resources such as vCPU and memory. If an AKS node contains insufficient compute resources, pods might fail to run correctly. To ensure the required *kube-system* pods and your applications can be reliably scheduled, AKS requires nodes use VM sizes with at least two CPUs.
+- Standard_A0
+- Standard_A1
+- Standard_A1_v2
+- Standard_F1
+- Standard_F1s
 
 For more information on VM types and their compute resources, see [Sizes for virtual machines in Azure][vm-skus].
 
@@ -84,4 +92,7 @@ You can increase certain default limits and quotas. If your resource supports an
 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/sizes.md
-[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[b-series-vm]: ../virtual-machines/sizes-b-series-burstable.md
+
+

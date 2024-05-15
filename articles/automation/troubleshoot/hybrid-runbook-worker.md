@@ -4,7 +4,7 @@ description: This article tells how to troubleshoot and resolve issues that aris
 services: automation
 ms.date: 09/17/2023
 ms.topic: troubleshooting
-ms.custom: linux-related-content, has-azure-ad-ps-ref
+ms.custom: linux-related-content, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 
 # Troubleshoot agent-based Hybrid Runbook Worker issues in Automation
@@ -339,7 +339,7 @@ Hybrid workers send [Runbook output and messages](../automation-runbook-output-a
 
 #### Issue
 
-A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice) for connection.
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands#using-connect-mggraph) for connection.
 
 If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information about proxy.​
 
@@ -349,14 +349,14 @@ The connection to Active Directory Federation Services (AD FS) on the server can
 
 #### Resolution
 
-You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Microsoft Entra modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
+You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Microsoft Entra modules instead of the PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
-​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specify values for the `ComputerName` and `Credential` parameters.
+​If you want to continue to use the module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specify values for the `ComputerName` and `Credential` parameters.
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential​
 Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential
-{ Connect-MsolService … }​
+{ Connect-MgGraph … }​
 ```
 
 This code change starts an entirely new PowerShell session under the context of the specified credentials. It should enable the traffic to flow through a proxy server that's authenticating the active user.

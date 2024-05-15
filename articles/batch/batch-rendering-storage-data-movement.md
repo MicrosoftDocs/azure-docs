@@ -3,6 +3,7 @@ title: Storage and data movement for rendering
 description: Learn about the various storage and data movement options for rendering asset and output file workloads.
 services: batch
 ms.service: batch
+ms.custom: linux-related-content
 ms.date: 08/02/2018
 ms.topic: how-to
 ---

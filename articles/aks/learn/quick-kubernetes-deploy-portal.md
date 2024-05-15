@@ -3,8 +3,10 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the A
 titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using the Azure portal.
 ms.topic: quickstart
-ms.date: 01/11/2024
-ms.custom: mvc, mode-ui, linux-related-content
+ms.date: 05/13/2024
+ms.custom: mvc, mode-ui
+ms.author: schaffererin
+author: schaffererin
 #Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -68,7 +70,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
         :::image type="content" source="media/quick-kubernetes-deploy-portal/create-node-pool-linux.png" alt-text="Screenshot showing how to create a node pool running Ubuntu Linux." lightbox="media/quick-kubernetes-deploy-portal/create-node-pool-linux.png":::
 
-1. Leave all settings on the other tabs set to their defaults.
+1. Leave all settings on the other tabs set to their defaults, except for the settings on the **Monitoring** tab. By default, the [Azure Monitor features][azure-monitor-features-containers] Container insights, Azure Monitor managed service for Prometheus, and Azure Managed Grafana are enabled. You can save costs by disabling them.
 
 1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
 
@@ -400,7 +402,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make all pods are `Running` before proceeding.
+1. Check the status of the deployed pods using the [kubectl get pods][kubectl-get] command. Make sure all pods are `Running` before proceeding.
 
     ```console
     kubectl get pods
@@ -466,3 +468,4 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
 [baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+[azure-monitor-features-containers]: ../../azure-monitor/containers/container-insights-overview.md

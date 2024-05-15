@@ -53,7 +53,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
     ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
-     ```
+    ```
 
     > [!NOTE]
     > TypeScript definitions can be imported into your application by adding the following code:

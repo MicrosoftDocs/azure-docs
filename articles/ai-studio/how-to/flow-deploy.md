@@ -2,15 +2,15 @@
 title: Deploy a flow as a managed online endpoint for real-time inference
 titleSuffix: Azure AI Studio
 description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.date: 2/24/2024
+ms.reviewer: likebupt
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Deploy a flow for real-time inference
@@ -23,11 +23,11 @@ You can invoke the endpoint for real-time inference for chat, copilot, or anothe
 
 In this article, you learn how to deploy a flow as a managed online endpoint for real-time inference. The steps you take are:
 
-- Test your flow and get it ready for deployment
-- Create an online deployment
-- Grant permissions to the endpoint
-- Test the endpoint
-- Consume the endpoint
+- Test your flow and get it ready for deployment.
+- Create an online deployment.
+- Grant permissions to the endpoint.
+- Test the endpoint.
+- Consume the endpoint.
 
 ## Prerequisites
 
@@ -196,7 +196,7 @@ See detailed guidance about how to grant permissions to the endpoint identity in
 
 ### Advanced settings - Outputs & Connections
 
-In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy. By default all flow outputs are selected.
+In this step, you can view all flow outputs, and specify which outputs to include in the response of the endpoint you deploy. By default all flow outputs are selected.
 
 You can also specify the connections used by the endpoint when it performs inference. By default they're inherited from the flow.
 
@@ -254,7 +254,7 @@ You can also directly go to the **Deployments** page from the left navigation, s
 
 ## Test the endpoint
 
-In the endpoint detail page, switch to the **Test** tab.
+In the deployment detail page, switch to the **Test** tab.
 
 For endpoints deployed from standard flow, you can input values in form editor or JSON editor to test the endpoint.
 
@@ -266,7 +266,21 @@ The `chat_input` was set during development of the chat flow. You can input the 
 
 ## Consume the endpoint
 
-In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There's also sample code for you to consume the endpoint in different languages.
+In the deployment detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There's also sample code for you to consume the endpoint in different languages. 
+
+:::image type="content" source="../media/prompt-flow/how-to-deploy-for-real-time-inference/consume-sample-code.png" alt-text="Screenshot of sample code of consuming endpoints." lightbox = "../media/prompt-flow/how-to-deploy-for-real-time-inference/consume-sample-code.png":::
+
+You need to input values for `RequestBody` or `data` and `api_key`. For example, if your flow has 2 inputs `location` and `url`, then you need to specify data as following.
+
+```json
+ {
+"location": "LA",
+"url": "<the_url_to_be_classified>"
+}
+```
+
+
+
 
 
 ## Clean up resources

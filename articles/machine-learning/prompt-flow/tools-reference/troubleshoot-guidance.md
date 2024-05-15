@@ -69,7 +69,7 @@ There are possible reasons for this issue:
 
     :::image type="content" source="../media/faq/storage-account-networking-firewall.png" alt-text="Screenshot that shows firewall setting on storage account." lightbox = "../media/faq/storage-account-networking-firewall.png":::
 
-- There are some cases, the account key in data store is out of sync with the storage account, you can try to update the account key in data store detail page to fix this.
+- There are some cases. The account key in data store is out of sync with the storage account, you can try to update the account key in data store detail page to fix this.
 
     :::image type="content" source="../media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "../media/faq/datastore-with-wrong-account-key.png":::
  
@@ -181,6 +181,21 @@ Follow these steps to find Python packages installed in compute instance runtime
 
   :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot that shows finding Python packages installed in runtime." lightbox = "../media/faq/list-packages.png":::
 
+### Runtime start failures using custom environment
+
+#### CI (Compute instance) runtime start failure using custom environment
+
+To use prompt flow as runtime on CI, you need to use the base image provide by prompt flow. If you want to add extra packages to the base image, you need to follow the [Customize environment with Docker context for runtime](../how-to-customize-environment-runtime.md) to create a new environment. Then use it to create CI runtime.
+
+If you got `UserError: FlowRuntime on compute instance is not ready`, you need sign-in into to terminal of CI and run `journalctl -u c3-progenitor.serivice` to check the logs.
+
+#### Automatic runtime start failure with requirements.txt or custom base image
+
+Automatic runtime support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more then python packages, you need to follow the [Customize environment with Docker context for runtime](../how-to-customize-environment-runtime.md) to create build a new image base on top of prompt flow base image. Then use it in `flow.dag.yaml`. Learn more about [Customize environment with Docker context for runtime](../how-to-create-manage-runtime.md#update-an-automatic-runtime-preview-on-a-flow-page).
+
+- You cannot use arbitrary base image to create runtime, you need to use the base image provide by prompt flow.
+- Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
+
 ## Flow run related issues
 
 ### How to find the raw inputs and outputs of in LLM tool for further investigation?
@@ -198,3 +213,19 @@ In prompt flow, on flow page with successful run and run detail page, you can fi
 You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../../ai-services/openai/quotas-limits.md).
 
 :::image type="content" source="../media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/faq/429-rate-limit.png":::
+
+## Authentication and identity related issues
+
+### How do I use credential-less data store in prompt flow?
+
+You can follow [Identity-based data authentication](../../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your data store credential-less. 
+
+To use credential-less data store in prompt flow, you need to grand enough permissions to user identity or managed identity to access the data store.
+- If you're using user identity this default option in prompt flow, you need to make sure the user identity has following role on the storage account:
+    - `Storage Blob Data Contributor` on the storage account, at least need read/write (better have delete) permission.
+    - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better have delete) permission
+- If you're using user assigned managed identity, you need to make sure the managed identity has following role on the storage account:
+    - `Storage Blob Data Contributor` on the storage account, at least need read/write (better have delete) permission.
+    - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better have delete) permission
+    - Meanwhile, you need to assign user identity `Storage Blob Data Read` role to storage account, if your want use prompt flow to authoring and test flow.
+ 

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ The optional ``ORDER BY`` clause specifies the sorting order for results returne
 
 ## Syntax
 
-```sql
+```nosql
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
 <sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]
@@ -46,19 +47,19 @@ For the examples in this section, this reference set of items is used. Each item
 
 In this first example, the ``ORDER BY`` clause is used to sort a field by the default sort order, ascending.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/order-by/query.sql" range="1-6,9-10" highlight="7-8":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/order-by/query.sql" range="1-6,9-10" highlight="7-8":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/order-by/result.json":::
 
 In this next example, the sort order is explicitly specified to be descending.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/order-by-desc/query.sql" range="1-6,9-10" highlight="7-8":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/order-by-desc/query.sql" range="1-6,9-10" highlight="7-8":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/order-by-desc/result.json":::
 
 In this final example, the items are sorted using two fields, in a specific order using explicitly specified ordering. A query that sorts using two or more fields requires a [composite index](../../index-policy.md#composite-indexes).
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/order-by-multiple/query.novalidate.sql" range="1-6,9-11" highlight="7-9":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/order-by-multiple/query.novalidate.sql" range="1-6,9-11" highlight="7-9":::
 
 ## Remarks  
 

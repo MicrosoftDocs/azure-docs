@@ -84,6 +84,12 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 **Severity**: Medium
 
+### [(Preview) Azure DevOps repositories should have API security testing findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/d42301a5-4d23-4457-97c8-f2f2e9eb979e)
+
+**Description**: API security vulnerabilities have been found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
+
+**Severity**: Medium
+
 ### GitHub recommendations
 
 ### [GitHub repositories should have secret scanning enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/b6ad173c-0cc6-4d44-b954-8217c8837a8e/showSecurityCenterCommandBar~/false)
@@ -118,7 +124,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [GitHub repositories should have dependency vulnerability scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/945f7b1c-8def-4ab3-a44d-1416060104b3/showSecurityCenterCommandBar~/false)
 
-**Description**: GitHub repositories should have dependency vulnerability scanning findings resolved
+**Description**: GitHub repositories should have dependency vulnerability scanning findings resolved.
 
 **Severity**: Medium
 
@@ -192,7 +198,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [GitLab projects should have dependency vulnerability scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/1bc53aae-c92e-406b-9693-d46caf3934fa/showSecurityCenterCommandBar~/false)
 
-**Description**: GitHub repositories should have dependency vulnerability scanning findings resolved
+**Description**: GitHub repositories should have dependency vulnerability scanning findings resolved.
 
 **Severity**: Medium
 
@@ -213,7 +219,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [Code repositories should have secret scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/4e07c7d0-e06c-47d7-a4a9-8c7b748d1b27/showSecurityCenterCommandBar~/false)
 
-**Description**: DevOps security in Defender for Cloud has found a secret in code repositories.â€¯ This should be remediated immediately to prevent a security breach.â€¯ Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results may not reflect the complete status of secrets in your repositories.
+**Description**: DevOps security in Defender for Cloud has found a secret in code repositories. This should be remediated immediately to prevent a security breach. Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results might not reflect the complete status of secrets in your repositories.
  (No related policy)
 
 **Severity**: High

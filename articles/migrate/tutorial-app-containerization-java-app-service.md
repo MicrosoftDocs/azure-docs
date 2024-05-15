@@ -7,12 +7,12 @@ ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.custom: devx-track-extended-java
-ms.date: 02/14/2024
+ms.date: 04/03/2024
 ---
 # Java web app containerization and migration to Azure App Service
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In this article, you'll learn how to containerize Java web applications (running on Apache Tomcat) and migrate them to [Azure App Service](https://azure.microsoft.com/services/app-service/) using the Azure Migrate: App Containerization tool. The containerization process doesn’t require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure App Service.
 
@@ -31,7 +31,8 @@ The Azure Migrate: App Containerization tool helps you to:
 - **Deploy to Azure App Service**:  The tool then generates the deployment files needed to deploy the containerized application to Azure App Service.
 
 > [!NOTE]
-> The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md).
+> - The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md).
+> - App Containerization Tool skips the discovery of some default Tomcat web apps, such as "docs", "examples", "host-manager", "manager" and "ROOT".
 
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
@@ -106,6 +107,9 @@ If you just created a free Azure account, you're the owner of your subscription.
    ```powershell
    .\AppContainerizationInstaller.ps1
    ```
+
+> [!NOTE]
+> For Windows Server 2022, edit line 135 and remove `PowerShell-ISE` from the feature list, as it's no longer supported.
 
 ## Launch the App Containerization tool
 

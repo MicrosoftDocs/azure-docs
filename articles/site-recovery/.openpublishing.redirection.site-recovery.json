@@ -11,13 +11,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/site-recovery/hyper-v-vmm-secondary-support-matrix.",
-            "redirect_url": "/azure/site-recovery/hyper-v-azure-support-matrix",
+            "source_path_from_root": "/articles/site-recovery/hyper-v-vmm-secondary-support-matrix.md",
+            "redirect_url": "/azure/site-recovery/recovery-plan-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/site-recovery/hyper-v-vmm-secondary-support-matrix.md",
-            "redirect_url": "/azure/site-recovery/azure-to-azure-autoupdate",
+            "source_path_from_root": "/articles/site-recovery/failover-failback-overview.md.",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-support-matrix",
             "redirect_document_id": false
         },
         {

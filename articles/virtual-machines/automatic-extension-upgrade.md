@@ -46,14 +46,14 @@ For a group of virtual machines undergoing an update, the Azure platform orchest
 **Within a 'set':**
 - All VMs in a common availability set or scale set aren't updated concurrently.  
 - VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.  
-- VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries.
+- VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries. [Upgrade policies](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy) defined on the scale set are honored during the update. If upgrade policy is set to Manual, VMs won't get updated even if automatic extension upgrade is enabled. 
 
 ### Upgrade process for Virtual Machine Scale Sets
 1. Before the upgrade process starts, the orchestrator ensures that no more than 20% of VMs in the entire scale set are unhealthy (for any reason).
 
-2. The upgrade orchestrator identifies the batch of VM instances to upgrade. An upgrade batch can have a maximum of 20% of the total VM count, subject to a minimum batch size of one virtual machine.
+2. The upgrade orchestrator identifies the batch of VM instances to upgrade. An upgrade batch can have a maximum of 20% of the total VM count, subject to a minimum batch size of one virtual machine. Definition of Upgrade Policy and Availability Zones is considered while identifying the batch.  
 
-3. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes (or the defined health probe configuration) for the VM to become healthy before upgrading the next batch. If a VM doesn't recover its health after an upgrade, then by default the previous extension version on the VM is reinstalled.
+3. After the upgrade, the VM health is always monitored before moving to the next batch. For scale sets with configured application health probes or Application Health extension, application health is also monitored. The upgrade waits up to 5 minutes (or the defined health probe configuration) for the VM to become healthy before upgrading the next batch. If a VM doesn't recover its health after an upgrade, then by default the previous extension version on the VM is reinstalled.
 
 4. The upgrade orchestrator also tracks the percentage of VMs that become unhealthy after an upgrade. The upgrade stops if more than 20% of upgraded instances become unhealthy during the upgrade process.
 
@@ -186,6 +186,68 @@ az vmss extension set \
     --version 9.5 \
     --enable-auto-upgrade true
 ```
+
+### ARM template for Virtual Machines
+The following example describes how to set automatic extension upgrades for an extension (Dependency Agent Extension in this example) on a Virtual Machine using Azure Resource Manager
+
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "location": "[resourceGroup().location]",
+    "name": "<extensionName>",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "type": "DependencyAgentWindows",
+        "typeHandlerVersion": "9.5",
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": true,
+        "settings": {
+            "enableAMA": "true"
+        }
+    }
+}
+```
+
+### ARM template for Virtual Machine Scale Sets
+Use the following example to set automatic extension upgrade on the extension within the scale set model:
+
+```json
+{
+   "type": "Microsoft.Compute/virtualMachineScaleSets",
+   "apiVersion": "2023-09-01",
+   "name": "[variables('vmScaleSetName')]",
+   "location": "[resourceGroup().location]",
+   "properties": {
+   	    "virtualMachineProfile": {
+            "extensionProfile": {
+       	        "extensions": [{
+                     "name": "<extensionName>",
+                     "properties": {
+                          "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+                          "type": "DependencyAgentWindows",
+                          "typeHandlerVersion": "9.5",
+                          "autoUpgradeMinorVersion": true,
+                          "enableAutomaticUpgrade": true,
+                     }
+                }]
+    	    }
+    	}
+    }
+}
+```
+
+### Using Azure Portal
+You can use Azure Portal - Extension blade to enable automatic upgrade of extensions on existing Virtual Machines and Virtual Machine Scale Sets. 
+1. Navigate to [Virtual Machines](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines) or [Virtual Machines Scale Sets](https://ms.portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FvirtualMachineScaleSets) blade and select the resource by clicking on its name.
+2. Navigate to "Extenisons + applications" blade under Settings to view all extensions installed on the resource. The "Automatic Upgrade Status" column tells if Automatic upgrade of the extension is enabled, disabled or not-supported.
+3. Navigate to Extension details blade by clicking on the extension name.
+4. Click "Enable automatic upgrade" to enable automatic upgrade of the extension. This button can also be used to disable automatic upgrade when required.   
+![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/52047624/6f5f888f-e4b3-41b6-a26e-25816932028a)
+
+![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/52047624/4999f38d-4f06-4183-b64c-0450cd80bac7)
 
 ## Extension upgrades with multiple extensions
 

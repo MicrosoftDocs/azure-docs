@@ -11,6 +11,8 @@ ms.topic: how-to
 
 # Integrate Google Tag Manager to API Management developer portal
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 [Google Tag Manager](https://developers.google.com/tag-manager) is a tag management system created by Google. You can use it to manage JavaScript and HTML tags used for tracking and analytics on websites. For example, you can use Google Tag Manager to integrate Google Analytics, heatmaps, or chatbots like LiveChat.
 
 Follow the steps in this article to plug Google Tag Manager into your managed or self-hosted developer portal in Azure API Management.

@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 04/03/2023
+ms.date: 02/28/2024
 ms.custom: template-overview
 # Customer intent: As a solution builder, I want a high-level overview of the options for extending an IoT solution so that I can easily find relevant content for my scenario.
 ---
@@ -31,7 +31,7 @@ A typical IoT solution includes the analysis and visualization of the data from 
 
 ### Integration with other services
 
-An IoT solution may include other systems such as asset management, work scheduling, and control automation systems. Such systems might:
+An IoT solution might include other systems such as asset management, work scheduling, and control automation systems. Such systems might:
 
 - Use data from your IoT devices as input to predictive maintenance systems that generate entries in a work scheduling system.
 - Update the device registry to ensure it has up to date data from your asset management system.
@@ -39,11 +39,7 @@ An IoT solution may include other systems such as asset management, work schedul
 
 ## Azure Data Health Services
 
-[Azure Health Data Services](../healthcare-apis/healthcare-apis-overview.md) is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. An IoT solution can use these services to integrate IoT data into a healthcare solution. To learn more, see [Deploy and review the continuous patient monitoring application template (IoT Central)](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md)
-
-## Industrial IoT (IIoT)
-
-Azure IIoT lets you integrate data from assets and sensors, including those systems that are already operating on your factory floor, into your Azure IoT solution. To learn more, see [Microsoft OPC Publisher and Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/main/readme.md).
+[Azure Health Data Services](../healthcare-apis/healthcare-apis-overview.md) is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. An IoT solution can use these services to integrate IoT data into a healthcare solution.
 
 ## Extensibility mechanisms
 

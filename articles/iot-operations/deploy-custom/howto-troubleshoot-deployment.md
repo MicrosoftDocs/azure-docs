@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot - Azure IoT Orchestrator
+title: Troubleshoot Azure IoT Orchestrator
 description: Guidance and suggested steps for troubleshooting an Orchestrator deployment of Azure IoT Operations components.
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
+ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom:
   - ignite-2023
@@ -12,7 +12,9 @@ ms.date: 11/02/2023
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
 
-# Troubleshoot Orchestrator deployments
+# Troubleshoot Azure IoT Orchestrator Preview deployments
+
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 If you need to troubleshoot a deployment, you can find error details in the Azure portal to understand which resources failed or succeeded and why.
 

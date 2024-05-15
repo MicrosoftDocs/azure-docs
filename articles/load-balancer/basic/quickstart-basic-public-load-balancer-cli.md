@@ -6,7 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 04/10/2023
+ms.date: 03/12/2024
+ROBOTS: NOINDEX, NOFOLLOW
 ms.custom: template-quickstart, devx-track-azurecli
 ---
 
@@ -16,7 +17,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -3,7 +3,7 @@ title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/21/2023
+ms.date: 03/20/2024
 ---
 
 # Resource declaration in Bicep

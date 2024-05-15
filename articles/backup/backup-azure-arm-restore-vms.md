@@ -1,9 +1,9 @@
 ---
-title: Restore VMs by using the Azure portal
+title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 04/04/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -128,7 +128,7 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 As one of the [restore options](#restore-options), you can create a disk from a restore point. Then with the disk, you can do one of the following actions:
 
 - Use the template that's generated during the restore operation to customize settings, and trigger VM deployment. You edit the default template settings, and submit the template for VM deployment.
-- [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.md) to an existing VM.
+- [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.yml) to an existing VM.
 - [Create a new VM](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**. 
@@ -191,6 +191,21 @@ As one of the [restore options](#restore-options), you can replace an existing V
 
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
+## Assign network access settings during restore (preview)
+
+Azure Backup also allows you to configure the access options for the restored disks once the restore operation is complete. You can set the disk access preferences at the time of initiating the restore.
+
+>[!Note]
+>This feature is currently in preview and is available only for backed-up VMs that use private endpoint-enabled disks. 
+
+To enable disk access on restored disks during [VM restore](#choose-a-vm-restore-configuration), choose one of the following options:
+
+- **Use the same network configurations as the source disk(s)**: This option allows the restored disks to use the disk access and network configurations same as that of the source disks.
+- **Enable public access from all networks**: This option allows the restored disk to be publicly accessible from all networks. 
+- **Disable public access and enable private access (using disk access)**: This option allows you to disable the public access and assign disk access to the restored disks for private access.
+
+ :::image type="content" source="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png" alt-text="Screenshot shows the access configuration options for restored disks." lightbox="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png":::
+
 ## Cross Region Restore
 
 As one of the [restore options](#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region.
@@ -220,7 +235,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
 
-Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) is _36 hours_. This is because the RPO in the primary region is _24 hours_ and can take up to _12 hours_ to replicate the backup data from the primary to the secondary region.
+Currently, secondary region [RPO](azure-backup-glossary.md#recovery-point-objective-rpo) is _36 hours_. This is because the RPO in the primary region is _24 hours_ and can take up to _12 hours_ to replicate the backup data from the primary to the secondary region.
 
 ![Choose VM to restore](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
@@ -320,22 +335,23 @@ If you choose to select system-assigned or user-assigned managed identities, che
 
 ```json
 "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Authorization/*/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-                ],
-                "notActions": [],
-                "dataActions": [
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
-                ],
-                "notDataActions": []
-            }
+  {
+    "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+    ],
+    "notActions": [],
+    "dataActions": [
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+    ],
+    "notDataActions": []
+  }
+]
 ```
 
 Or, add the role assignment on the staging location (Storage Account) to have [Storage account Backup Contributor](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) and [Storage Blob data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the successful restore operation.
@@ -384,7 +400,7 @@ There are a few things to note after restoring a VM:
   - Manually install VM agent if Azure Agent is found to be unresponsive by following this [link](/troubleshoot/azure/virtual-machines/install-vm-agent-offline).
   - Enable Serial Console access on VM to allow command-line access to VM
 
-  ```cmd
+    ```cmd
     bcdedit /store <drive letter>:\boot\bcd /enum
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5

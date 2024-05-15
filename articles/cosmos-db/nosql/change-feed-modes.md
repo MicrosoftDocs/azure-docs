@@ -152,7 +152,7 @@ The response object is an array of items that represent each change. The array l
          },  
         "metadata": {
             "lsn": <A number that represents the batch ID. Many items can have the same lsn.>, 
-            "changeType": <The type of change, either 'create', 'replace', or 'delete'.>, 
+            "operationType": <The type of change, either 'create', 'replace', or 'delete'.>, 
             "previousImageLSN" : <A number that represents the batch ID of the change prior to this one.>, 
             "timeToLiveExpired" : <For delete changes, it will be 'true' if it was deleted due to a TTL expiration and 'false' if it wasn't.>, 
             "crts": <A number that represents the Conflict Resolved Timestamp. It has the same format as _ts.> 

@@ -15,6 +15,8 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 > [!NOTE]
 > *Origin* and *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
 >

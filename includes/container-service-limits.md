@@ -12,7 +12,7 @@ ms.custom: include file
 | Resource | Limit |
 |--|:-|
 | Maximum clusters per subscription | 5000 <br />Note: spread clusters across different regions to account for Azure API throttling limits |
-| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 5000 across all [node pools][node-pool] (default limit: 1000)  <br />Note: Running more than a 1000 nodes per cluster requires increasing the default node limit quota. [Contact support][Contact Support] for assistance. |
+| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 5000 across all [node-pools][node-pool] <br />Note: If you are unable to scale up to 5000 nodes per cluster, see [Best Practices for Large Clusters](../articles/aks/best-practices-performance-scale-large.md). |
 | Maximum nodes per node pool (Virtual Machine Scale Sets node pools) | 1000 |
 | Maximum node pools per cluster | 100 |
 | Maximum pods per node: with [Kubenet][Kubenet] networking plug-in<sup>1</sup> | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30 |

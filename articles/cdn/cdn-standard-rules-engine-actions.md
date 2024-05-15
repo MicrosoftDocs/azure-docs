@@ -1,25 +1,24 @@
 ---
-title: Actions in the Standard rules engine for Azure CDN | Microsoft Docs
-description: Reference documentation for actions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
+title: Actions in the Standard rules engine for Azure Content Delivery Network
+description: Reference documentation for actions in the Standard rules engine for Azure Content Delivery Network.
 services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 03/20/2024
 ms.author: duau
-
 ---
 
-# Actions in the Standard rules engine for Azure CDN
+# Actions in the Standard rules engine for Azure Content Delivery Network
 
-In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the actions you can use in the Standard rules engine for Azure CDN.
+In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network, a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the actions you can use in the Standard rules engine for Azure Content Delivery Network.
 
 The second part of a rule is an action. An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies.
 
 ## Actions
 
-The following actions are available to use in the Standard rules engine for Azure CDN. 
+The following actions are available to use in the Standard rules engine for Azure Content Delivery Network.
 
 ### Cache expiration
 
@@ -27,17 +26,17 @@ Use this action to overwrite the time to live (TTL) value of the endpoint for re
 
 #### Required fields
 
-Cache behavior |  Description              
----------------|----------------
-Bypass cache | When this option is selected and the rule matches, the content isn't cached.
-Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action. This behavior is only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable.
-Set if missing | When this option gets selected and the rule matches, if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior only gets applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable.
+| Cache behavior | Description |
+|--|--|
+| Bypass cache | When this option is selected and the rule matches, the content isn't cached. |
+| Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action. This behavior is only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable. |
+| Set if missing | When this option gets selected and the rule matches, if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior only gets applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action isn't applicable. |
 
 #### Extra fields
 
-Days | Hours | Minutes | Seconds
------|-------|---------|--------
-Int | Int | Int | Int 
+| Days | Hours | Minutes | Seconds |
+|--|--|--|--|
+| Int | Int | Int | Int |
 
 ### Cache key query string
 
@@ -47,10 +46,10 @@ Use this action to modify the cache key based on query strings.
 
 Behavior | Description
 ---------|------------
-Include | When this option gets selected and the rule matches, query strings specified in the parameters get included when the cache key gets generated. 
-Cache every unique URL | When this option is selected and the rule matches, each unique URL has its own cache key. 
+Include | When this option gets selected and the rule matches, query strings specified in the parameters get included when the cache key gets generated.
+Cache every unique URL | When this option is selected and the rule matches, each unique URL has its own cache key.
 Exclude | When this option is selected and the rule matches, query strings specified in the parameters get excluded when the cache key gets generated.
-Ignore query strings | When this option is selected and the rule matches, query strings aren't considered when the cache key is generated. 
+Ignore query strings | When this option is selected and the rule matches, query strings aren't considered when the cache key is generated.
 
 ### Modify request header
 
@@ -78,20 +77,21 @@ Delete | When this option is selected, the rule matches, and the header specifie
 
 ### URL redirect
 
-Use this action to redirect clients to a new URL. 
+Use this action to redirect clients to a new URL.
 
 #### Required fields
 
-Field | Description 
+Field | Description
 ------|------------
 Type | Select the response type to return to the requestor: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
 Protocol | Match Request, HTTP, HTTPS.
 Hostname | Select the host name you want the request to be redirected to. Leave blank to preserve the incoming host.
-Path | Define the path to use in the redirect. Leave blank to preserve the incoming path.  
-Query string | Define the query string used in the redirect. Leave blank to preserve the incoming query string. 
-Fragment | Define the fragment to use in the redirect. Leave blank to preserve the incoming fragment. 
+Path | Define the path to use in the redirect. Leave blank to preserve the incoming path.
 
-We highly recommend that you use an absolute URL. Using a relative URL might redirect Azure CDN URLs to an invalid path. 
+Query string | Define the query string used in the redirect. Leave blank to preserve the incoming query string.
+Fragment | Define the fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+
+We highly recommend that you use an absolute URL. Using a relative URL might redirect Azure Content Delivery Network URLs to an invalid path.
 
 ### URL rewrite
 
@@ -99,15 +99,15 @@ Use this action to rewrite the path of a request that's en route to your origin.
 
 #### Required fields
 
-Field | Description 
+Field | Description
 ------|------------
 Source pattern | Define the source pattern in the URL path to replace. To match all URL paths, use a forward slash (**/**) as the source pattern value.
 Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern.
-Preserve unmatched path | If set to **Yes**, the remaining path after the source pattern is appended to the new destination path. 
+Preserve unmatched path | If set to **Yes**, the remaining path after the source pattern is appended to the new destination path.
 
 ## Next steps
 
-- [Azure CDN overview](cdn-overview.md)
+- [Azure Content Delivery Network overview](cdn-overview.md)
 - [Standard rules engine reference](cdn-standard-rules-engine-reference.md)
 - [Match conditions in the Standard rules engine](cdn-standard-rules-engine-match-conditions.md)
 - [Enforce HTTPS by using the Standard rules engine](cdn-standard-rules-engine.md)

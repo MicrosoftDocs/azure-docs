@@ -22,7 +22,12 @@ This how-to guide shows how to create an example integration workflow that runs 
 
 * You can locally create, run, and test workflows using the Visual Studio Code development environment.
 
-  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
+  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. 
+
+   > [!NOTE]
+   > Deploying your logic app to a Kubernetes cluster is currently in public preview. 
+   
+    For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
 
 While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 

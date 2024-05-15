@@ -1,18 +1,22 @@
 ---
-title: How to monitor Azure Data Share 
-description: Learn how to monitor invitation status, share subscriptions, and snapshot history in Azure Data Share 
+title: Monitor Azure Data Share status and history
+description: Learn how to monitor invitation status, share subscriptions, and snapshot history for Azure Data Share 
 author: sidontha
 ms.author: sidontha
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 02/29/2024
 ---
 
-# Monitor Azure Data Share  
+# Monitor Azure Data Share status and history
 
-This article explains how you can monitor your data shares using Azure Data Share. As a data provider, you're able to monitor various aspects of your data sharing relationships. Details such as whether your data consumers have accepted your invitation to the data share, and whether they have created a share subscription and started to use your data are all available to monitor.
+This article explains how you can monitor your Azure Data Share status and history.
 
-As a data consumer, you can monitor the snapshots that have been triggered into your Azure subscription.
+- As a data provider, you can monitor various aspects of your data sharing relationships. Details such as whether your data consumers have accepted your invitation to the data share, and whether they have created a share subscription and started to use your data, are all available to monitor.
+
+- As a data consumer, you can monitor the snapshots that have been triggered into your Azure subscription.
+
+You can also see Azure Monitor metrics, collect logs, analyze monitoring data, and create alerts for your Data Share shares. For information about all the monitoring options that are available for Data Share, see [Monitor Azure Data Share](monitor-data-share.md).
 
 ## Monitor invitation status
 
@@ -43,12 +47,8 @@ You can view more details about each snapshot run by selecting the run start dat
 
 Up to 30 days of snapshot history is displayed. If you need to save and see more than 30 days worth of history, you can use diagnostic setting.
 
-## Diagnostic setting
-
-You can configure diagnostic setting to save log data or events. Navigate to Monitoring -> Diagnostic settings and select **Add diagnostic setting**. Select the log data or events that you're interested in, and where you want to store or send them.
-
-![Screenshot shows the Diagnostic settings page in the Azure portal.](./media/diagnostic-settings.png "Diagnostic settings")
-
 ## Next steps
 
-Learn more about [Azure Data Share terminology](terminology.md)
+- Learn more about [Azure Data Share terminology](terminology.md).
+- See [Monitor Data Share](monitor-data-share.md) for more details about monitoring Data Share.
+

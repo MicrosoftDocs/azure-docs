@@ -75,9 +75,9 @@ Template models rely on a defined visual template, changes to the template resul
 * Supported file formats:
 
     |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
-    |--------|:----:|:-----:|:---------------:
+    |--------|:----:|:-----:|:---------------:|
     |Read            | ✔    | ✔    | ✔  |
-    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
+    |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview or later)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
     |Custom          |  ✔  | ✔ |   |
@@ -104,16 +104,16 @@ Template models rely on a defined visual template, changes to the template resul
 
 ::: moniker range="doc-intel-4.0.0"
 
-Custom template models are generally available with the [v4.0 API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP). If you're starting with a new project or have an existing labeled dataset, use the v3.1 or v3.0 API with Document Intelligence Studio to train a custom template model.
+Custom template models are generally available with the [v4.0 API](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true). If you're starting with a new project or have an existing labeled dataset, use the v3.1 or v3.0 API with Document Intelligence Studio to train a custom template model.
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom template  | [v3.1 API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom template  | [v3.1 API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
 
 With the v3.0 and later APIs, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
 
 ```REST
-https://{endpoint}/documentintelligence/documentModels:build?api-version=2023-10-31-preview
+https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-02-29-preview
 
 {
   "modelId": "string",

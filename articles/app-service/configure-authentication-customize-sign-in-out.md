@@ -62,6 +62,9 @@ The token format varies slightly according to the provider. See the following ta
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<access_token_secret>"}` | |
 | | | |
 
+> [!NOTE]
+> The GitHub provider for App Service authentication does not support customized sign-in and sign-out.
+
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
 
 ```json

@@ -18,6 +18,9 @@ ms.custom: devx-track-azurecli
 > Key Vault Managed Storage Account Keys (legacy) is supported as-is with no more updates planned. Only Account SAS are supported with SAS definitions signed storage service version no later than 2018-03-28.
 
 > [!IMPORTANT]
+> Support for Managed Storage Account Keys in **Azure CLI was removed in version 2.54**, you must use **Azure CLI version 2.53.1 or former** for commands in this tutorial.
+
+> [!IMPORTANT]
 > We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs, queues, and tables](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
 > Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
 

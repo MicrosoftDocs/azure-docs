@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: concept-article
-ms.date: 9/13/2023
+ms.date: 02/29/2024
 
 #CustomerIntent: As a network administrator, I want learn about Azure CNI networking so that I can deploy Azure CNI networking in an AKS cluster.
 ---
@@ -15,7 +15,11 @@ ms.date: 9/13/2023
 
 By default, AKS clusters use [kubenet][kubenet] and create a virtual network and subnet. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
-With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
+With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.  
+
+> [!NOTE]
+> 
+> This article is only introducing traditional Azure CNI. For [Azure CNI Overlay][azure-cni-overlay], [Azure CNI VNet for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], and [Azure CNI VNet - Static Block Allocation (Preview)][configure-azure-cni-static-block-allocation]. Please refer to their documentation instead.  
 
 ## Prerequisites
 
@@ -120,11 +124,13 @@ Although it's technically possible to specify a service address range within the
 
 * **Can I deploy VMs in my cluster subnet?**
 
-  Yes.
+  Yes. But for [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], the VMs cannot be deployed in pod's subnet. 
 
 * **What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?**
 
   Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod.
+  
+  But for [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], no matter the connection is inside the same virtual network or cross virtual networks, the pod IP is always the source address for any traffic from the pod. This is because the [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation] implements [Microsoft Azure Container Networking][github-azure-container-networking] infrastructure, which gives end-to-end experience. Hence, it eliminates the use of [`ip-masq-agent`][ip-masq-agent], which is still used by traditional Azure CNI.  
 
 * **Can I configure per-pod network policies?**
 
@@ -155,15 +161,7 @@ Learn more about networking in AKS in the following articles:
 
 * [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
 
-* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-
-* [Enable the HTTP application routing add-on][aks-http-app-routing]
-
-* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-
-* [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
-
-* [Create an ingress controller with a static public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+* [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
@@ -174,6 +172,8 @@ Learn more about networking in AKS in the following articles:
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: concepts-network.md#kubenet-basic-networking
 [github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
+[github-azure-container-networking]: https://github.com/Azure/azure-container-networking
+[ip-masq-agent]: https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
@@ -181,11 +181,6 @@ Learn more about networking in AKS in the following articles:
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
 [aks-network-concepts]: concepts-network.md
 [aks-network-nsg]: concepts-network.md#network-security-groups
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-http-app-routing]: http-application-routing.md
-[aks-ingress-internal]: ingress-internal-ip.md
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [az-feature-register]: /cli/azure/feature#az_feature_register
@@ -196,3 +191,7 @@ Learn more about networking in AKS in the following articles:
 [network-comparisons]: concepts-network.md#compare-network-models
 [system-node-pools]: use-system-pools.md
 [prerequisites]: configure-azure-cni.md#prerequisites
+[azure-cni-overlay]: azure-cni-overlay.md
+[configure-azure-cni-dynamic-ip-allocation]: configure-azure-cni-dynamic-ip-allocation.md
+[configure-azure-cni-static-block-allocation]: configure-azure-cni-static-block-allocation.md
+

@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -60,7 +60,7 @@ The supported source paths are shown in Azure AI Studio. You can create a data f
 # [Python SDK](#tab/python)
 
 
-If you're using SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
+If you're using the SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
 
 |Location  | Examples  |
 |---------|---------|
@@ -345,6 +345,14 @@ Data support tagging, which is extra metadata applied to the data in the form of
 - Identify whether data is approved from a responsible AI (RAI) audit. For example, `RAI_audit:approved`/`RAI_audit:todo`.
 
 You can add tags to existing data.
+
+### Data preview
+
+You can browse the folder structure and preview the file in the Data details page.
+We support data preview for the following types:
+- Data file types will be supported via preview API: ".tsv", ".csv", ".parquet", ".jsonl".
+- Other file types, Studio UI will attempt to preview the file in the browser natively. So the supported file types may depend on the browser itself.
+Normally for images, these are supported: ".png", ".jpg", ".gif". And normally, these are support ".ipynb", ".py", ".yml", ".html".
 
 ## Next steps
 

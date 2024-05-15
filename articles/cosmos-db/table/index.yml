@@ -21,7 +21,7 @@ landingContent:
           - text: What is Azure Cosmos DB for Table?
             url: introduction.md
           - text: FAQ
-            url: table-api-faq.yml
+            url: faq.yml
       - linkListType: concept
         links:
           - text: Differences between API for Table and Azure Table storage

@@ -379,8 +379,12 @@
         href: service-fabric-cluster-resource-manager-autoscaling.md
       - name: Node tagging
         href: service-fabric-cluster-resource-manager-node-tagging.md
+      - name: InBuild replicas per node throttling
+        href: service-fabric-cluster-resource-manager-inbuild-throttling.md
   - name: Monitoring and diagnostics
     items:
+    - name: Monitor
+      href: monitor-service-fabric.md
     - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
     - name: Application monitoring
@@ -481,6 +485,8 @@
       href: how-to-managed-cluster-troubleshoot-snat-port-exhaustion-issues.md
     - name: Use Azure Application Gateway in a Service Fabric managed cluster
       href: how-to-managed-cluster-application-gateway.md
+    - name: Enable Safe Deployment Process
+      href: how-to-managed-cluster-enable-safe-deployment-process.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -636,6 +642,8 @@
           href: service-fabric-cluster-security-roles.md
         - name: Patch cluster nodes (Windows)
           href: how-to-patch-cluster-nodes-windows.md
+    - name: Migrate a cluster to TLS 1.3
+      href: how-to-migrate-transport-layer-security.md
     - name: Visualize using Service Fabric Explorer
       href: service-fabric-visualizing-your-cluster.md
     - name: Connect to a secure cluster
@@ -898,7 +906,7 @@
             href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
           - name: How to deploy application with a user-assigned managed identity
             href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
-    - name: Use MITS with Service Fabric application code
+    - name: Use Managed Identity with Service Fabric application code
       href: how-to-managed-identity-service-fabric-app-code.md
     - name: Grant access to other Azure resources
       href: how-to-grant-access-other-resources.md
@@ -973,6 +981,8 @@
     href: /azure/templates/microsoft.servicefabric/clusters
   - name: Service Fabric events
     href: service-fabric-diagnostics-event-generation-operational.md
+  - name: Monitoring data reference
+    href: monitor-service-fabric-reference.md
   - name: Configure cluster settings and fabric upgrade policy
     href: service-fabric-cluster-fabric-settings.md
   - name: Service model XML schema

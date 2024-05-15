@@ -9,9 +9,12 @@ author: TomArcherMsft
 ms.author: tarcher
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure API Management instance using Terraform
+
+[!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
 
 This article shows how to use [Terraform](/azure/terraform) to create an API Management instance on Azure. You can also use Terraform for common management tasks such as importing APIs in your API Management instance. 
 
@@ -35,7 +38,7 @@ In this article, you learn how to:
 
 - For Azure CLI:
 
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - For Azure PowerShell:
 

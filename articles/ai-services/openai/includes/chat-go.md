@@ -44,7 +44,7 @@ import (
 )
 
 func main() {
-	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
+	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
     //modelDeploymentID = deployment name, if model name and deployment name do not match change this value to name chosen when you deployed the model.
 	modelDeploymentID := "gpt-35-turbo" 
 

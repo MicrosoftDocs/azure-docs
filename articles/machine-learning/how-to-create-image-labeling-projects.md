@@ -219,6 +219,10 @@ After a machine learning model is trained on your manually labeled data, the mod
 [!INCLUDE [initialize](includes/machine-learning-data-labeling-initialize.md)]
 
 
+## Troubleshooting
+
+[!INCLUDE [troubleshoot](includes/machine-learning-data-labeling-troubleshoot.md)]
+
 
 ## Next steps
 

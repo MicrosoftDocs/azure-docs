@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi
 ms.author: nkondamudi
-ms.date: 02/20/2024
+ms.date: 04/26/2024
 ---
 
 # Control your data in the cloud by using Managed HSM
@@ -30,8 +30,8 @@ Secure key management is essential to protect and control data in the cloud. Azu
 - **Azure platform encryption** is a *platform-managed* encryption solution that encrypts by using host-level encryption. Platform-managed keys are encryption keys that are generated, stored, and managed entirely by Azure.
 - **Customer-managed keys** are keys that are created, read, deleted, updated, and administered entirely by the customer. Customer-managed keys can be stored in a cloud key management service like Azure Key Vault.
 - **Azure Key Vault Standard** encrypts by using a software key and is FIPS 140-2 Level 1 compliant.
-- **Azure Key Vault Premium** encrypts by using FIPS 140-2 Level 2 HSM-protected keys.
-- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-2 Level 3 HSM protected keys and is fully managed by Microsoft. It provides customers with sole control of the cryptographic keys.
+- **Azure Key Vault Premium** encrypts by using keys protected by [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).
+- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-2 Level 3 HSM protected keys and is fully managed by Microsoft.
 
 For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM, you can [bring your own key (BYOK)](../keys/hsm-protected-keys-byok.md) and import HSM-protected keys from an on-premises HSM.
 
@@ -40,7 +40,7 @@ For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM,
 |  | Azure Key Vault Standard | Azure Key Vault Premium | Azure Key Vault Managed HSM |
 |:-|-|-|-|
 | **Tenancy** | Multitenant | Multitenant | Single-tenant |
-| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-2 Level 2 | FIPS 140-2 Level 3 |
+| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-2 Level 3 | FIPS 140-2 Level 3 |
 | **High availability** | Automatic | Automatic | Automatic |
 | **Use cases** | Encryption at rest | Encryption at rest | Encryption at rest |
 | **Key controls** | Customer | Customer | Customer |

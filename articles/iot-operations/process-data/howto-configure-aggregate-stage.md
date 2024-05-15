@@ -1,6 +1,6 @@
 ---
 title: Aggregate data in a pipeline
-description: Configure an aggregate pipeline stage to aggregate data in a Data Processor pipeline to enable batching and down-sampling scenarios.
+description: Configure an aggregate pipeline stage to aggregate data in an Azure IoT Data Processor pipeline to enable batching and down-sampling scenarios.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,7 +12,7 @@ ms.date: 10/03/2023
 #CustomerIntent: As an operator, I want to aggregate data in a pipeline so that I can down-sample or batch messages.
 ---
 
-# Aggregate data in a pipeline
+# Aggregate data in an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -27,7 +27,7 @@ Use an aggregate stage to accumulate messages over a defined [window](#windows) 
 
 ## Prerequisites
 
-To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
+To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview.
 
 ## Configure the stage
 
@@ -44,12 +44,12 @@ The aggregate stage JSON configuration defines the details of the stage. To auth
 
 You can define multiple **Properties** configurations in one aggregate stage. For example, calculate the sum of temperature and calculate the average of pressure.  
 
-Input path<sup>1</sup>:
+<sup>1</sup>Input path:
 
 - The data type of the value of the input path property must be compatible with the type of [function](#functions) defined.
 - You can provide the same input path across multiple aggregation configurations to calculate multiple functions over the same input path property. Make sure the output paths are different to avoid overwriting the results.  
 
-Output path<sup>2</sup>:
+<sup>2</sup>Output path:
 
 - Output paths can be the same as or different from the input path. Use different output paths if you're calculating multiple aggregations on the same input path property.
 - Configure distinct output paths to avoid overwriting aggregate values.

@@ -11,6 +11,8 @@ ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-e
 
 # What is distributed tracing and telemetry correlation?
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 Modern cloud and [microservices](https://azure.com/microservices) architectures have enabled simple, independently deployable services that reduce costs while increasing availability and throughput. However, it has made overall systems more difficult to reason about and debug. Distributed tracing solves this problem by providing a performance profiler that works like call stacks for cloud and microservices architectures.
 
 Azure Monitor provides two experiences for consuming distributed trace data: the [transaction diagnostics](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics) view for a single transaction/request and the [application map](./app-map.md) view to show how systems interact.
@@ -188,7 +190,7 @@ This feature is enabled by default for JavaScript and the headers are automatica
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 
-If the XMLHttpRequest or Fetch Ajax requests are sent to a different domain host, including subdomains, the correlation headers aren't included by default. To enable this feature, set the [`enableCorsCorrelation` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to `true`. If you set `enableCorsCorrelation` to `true`, all XMLHttpRequest and Fetch Ajax requests include the correlation headers. As a result, if the application on the server that is being called doesn't support the `traceparent` header, the request might fail, depending on whether the browser / version can validate the request based on which headers the server accepts.
+If the XMLHttpRequest or Fetch Ajax requests are sent to a different domain host, including subdomains, the correlation headers aren't included by default. To enable this feature, set the [`enableCorsCorrelation` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to `true`. If you set `enableCorsCorrelation` to `true`, all XMLHttpRequest and Fetch Ajax requests include the correlation headers. As a result, if the application on the server that is being called doesn't support the `traceparent` header, the request might fail, depending on whether the browser / version can validate the request based on which headers the server accepts. You can use the [`correlationHeaderExcludedDomains` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to exclude the server's domain from cross-component correlation header injection. For example, you can use `correlationHeaderExcludedDomains: ['*.auth0.com']` to exclude correlation headers from requests sent to the Auth0 identity provider.
 
 > [!IMPORTANT]
 > To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-distributed-tracing).

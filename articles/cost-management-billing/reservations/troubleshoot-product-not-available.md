@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 11/17/2023
+ms.date: 03/21/2024
 ---
 
 # Troubleshoot reservation type not available
@@ -21,9 +21,9 @@ This article helps you understand and troubleshoot reserved instances appearing 
 3. Select the **All Products** tab.
 4. In the list of products select one. You might see one of the following messages:
     - `Product unavailable for the selected subscription or region. Contact support.`  
-        :::image type="content" source="./media/troubleshoot-product-not-available/product-unavailable-message.png" alt-text="Example showing the Product unavailable for the selected subscription or region message" lightbox="./media/troubleshoot-product-not-available/product-unavailable-message.png" :::
+        :::image type="content" source="./media/troubleshoot-product-not-available/product-unavailable-message.png" alt-text="Screenshot showing the Product unavailable for the selected subscription or region message." lightbox="./media/troubleshoot-product-not-available/product-unavailable-message.png" :::
     - `The selected subscription does not have enough core quota remaining to purchase this product. Request quota increase`  
-        :::image type="content" source="./media/troubleshoot-product-not-available/not-enough-core-quota-message.png" alt-text="Example showing the not enough core quota message" lightbox="./media/troubleshoot-product-not-available/not-enough-core-quota-message.png" :::
+        :::image type="content" source="./media/troubleshoot-product-not-available/not-enough-core-quota-message.png" alt-text="Screenshot showing the not enough core quota message." lightbox="./media/troubleshoot-product-not-available/not-enough-core-quota-message.png" :::
 
 ## Cause
 

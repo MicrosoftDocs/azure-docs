@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.date: 02/02/2024
 ms.service: notification-hubs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ---
 

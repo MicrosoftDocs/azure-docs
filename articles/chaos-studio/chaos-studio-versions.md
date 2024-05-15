@@ -12,9 +12,6 @@ ms.service: chaos-studio
 
 # Azure Chaos Studio version compatibility
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
-
 The following reference shows relevant version support and compatibility for features within Chaos Studio. 
 
 ## Operating systems supported by the agent
@@ -26,9 +23,9 @@ The Chaos Studio agent is tested for compatibility with the following operating 
 | Windows Server 2019             | ✓ |   |
 | Windows Server 2016             | ✓ |   |
 | Windows Server 2012 R2          | ✓ |   |
+| Azure Linux (Mariner)           | ✓ | Installing `stress-ng` [manually](https://github.com/ColinIanKing/stress-ng) required for CPU Pressure, Physical Memory Pressure, Disk I/O Pressure, and Stress-ng faults |
 | Red Hat Enterprise Linux 8      | ✓ | Currently tested up to 8.9 |
 | openSUSE Leap 15.2              | ✓ |   |
-| CentOS 8                        | ✓ |   |
 | Debian 10 Buster                | ✓ | Installation of `unzip` utility required |
 | Oracle Linux 8.3                | ✓ |   |
 | Ubuntu Server 18.04 LTS         | ✓ |   |

@@ -1,14 +1,15 @@
 ---
 title: Generate vector embeddings with Azure OpenAI
-description: Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server.
+description: Use vector indexes and Azure OpenAI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
 author: mulander
 ms.author: adamwolk
-ms.date: 01/02/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server (Preview)
@@ -19,16 +20,17 @@ Invoke [Azure OpenAI embeddings](../../ai-services/openai/reference.md#embedding
 
 ## Prerequisites
 
-1. Create an Open AI account and [request access to Azure OpenAI Service](https://aka.ms/oai/access).
+1. [Enable and configure](generative-ai-azure-overview.md#enable-the-azure_ai-extension) the `azure_ai` extension.
+1. Create an OpenAI account and [request access to Azure OpenAI Service](https://aka.ms/oai/access).
 1. Grant Access to Azure OpenAI in the desired subscription.
 1. Grant permissions to [create Azure OpenAI resources and to deploy models](../../ai-services/openai/how-to/role-based-access-control.md).
 1. [Create and deploy an Azure OpenAI service resource and a model](../../ai-services/openai/how-to/create-resource.md), for example deploy the embeddings model [text-embedding-ada-002](../../ai-services/openai/concepts/models.md#embeddings-models). Copy the deployment name as it is needed to create embeddings. 
 ## Configure OpenAI endpoint and key
 
-In the Azure OpenAI resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint and the keys for your Azure OpenAI resource. Use the endpoint and one of the keys to enable `azure_ai` extension to invoke the model deployment.
+In the Azure OpenAI resource, under **Resource Management** > **Keys and Endpoints** you can find the endpoint and the keys for your Azure OpenAI resource. To invoke the model deployment, enable the `azure_ai` extension using the endpoint and one of the keys.
 
-```postgresql
-select azure_ai.set_setting('azure_openai.endpoint','https://<endpoint>.openai.azure.com'); 
+```sql
+select azure_ai.set_setting('azure_openai.endpoint', 'https://<endpoint>.openai.azure.com'); 
 select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>'); 
 ```
 
@@ -36,10 +38,10 @@ select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>');
 
 Invokes the Azure OpenAI API to create embeddings using the provided deployment over the given input.
 
-```postgresql
-azure_openai.create_embeddings(deployment_name text, input text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true)
+```sql
+azure_openai.create_embeddings(deployment_name text, input text, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
+azure_openai.create_embeddings(deployment_name text, input text[], batch_size integer DEFAULT 100, timeout_ms integer DEFAULT 3600000, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 ```
-
 ### Arguments
 
 #### `deployment_name`
@@ -48,7 +50,11 @@ azure_openai.create_embeddings(deployment_name text, input text, timeout_ms inte
 
 #### `input`
 
-`text` input used to create embeddings.
+`text` or `text[]` single text or array of texts, depending on the overload of the function used, for which embeddings are created.
+
+#### `batch_size`
+
+`integer DEFAULT 100` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
 
 #### `timeout_ms`
 
@@ -58,13 +64,21 @@ azure_openai.create_embeddings(deployment_name text, input text, timeout_ms inte
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
+#### `max_attempts`
+
+`integer DEFAULT 1` number of times the extension will retry calling the Azure OpenAI endpoint for embedding creation if it fails with any retryable error.
+
+#### `retry_delay_ms`
+
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure OpenAI endpoint for embedding creation, when it fails with any retryable error.
+
 ### Return type
 
-`real[]` a vector representation of the input text when processed by the selected deployment.
+`real[]` or `TABLE(embedding real[])` a single element or a single-column table, depending on the overload of the function used, with vector representations of the input text, when processed by the selected deployment.
 
 ## Use OpenAI to create embeddings and store them in a vector data type
 
-```postgresql
+```sql
 -- Create tables and populate data
 DROP TABLE IF EXISTS conference_session_embeddings;
 DROP TABLE IF EXISTS conference_sessions;

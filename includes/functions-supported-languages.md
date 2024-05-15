@@ -19,6 +19,8 @@ Your function code runs in a separate .NET worker process. Use with [supported v
 
 ### [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
+
 Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
 
 ---
@@ -43,15 +45,16 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v4.x](#tab/v4/isolated-process)
 
-| Supported version | Support level<sup>1</sup> | Expected community EOL date |
+| Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
-| .NET 7 | GA | [May 14, 2024][dotnet-policy] |
 | .NET 6 | GA | [November 12, 2024][dotnet-policy] |
 | .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
+
+.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
@@ -80,8 +83,8 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| [Node.js 20](https://endoflife.date/nodejs) | Preview | April 30, 2026 |
-| [Node.js 18](https://endoflife.date/nodejs) | GA | April 2025|
+| [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
+| [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
 | [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
 | [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
 

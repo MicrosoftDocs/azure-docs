@@ -1,24 +1,24 @@
 ---
 title: "Cache the authentication token"
 titleSuffix: Azure AI services
-description: This article will show you how to cache the authentication token.
-author: rwallerms
+description: Learn how to cache the authentication token in the Immersive Reader app.
+author: sharmas
 manager: nitinme
 
 ms.service: azure-ai-immersive-reader
 ms.topic: how-to
-ms.date: 01/14/2020
-ms.author: rwaller
+ms.date: 02/26/2024
+ms.author: sharmas
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # How to cache the authentication token
 
-This article demonstrates how to cache the authentication token in order to improve performance of your application.
+This article demonstrates how to cache the authentication token in order to improve the performance of your application.
 
 ## Using ASP.NET
 
-Import the **Microsoft.Identity.Client** NuGet package, which is used to acquire a token.
+Import the `Microsoft.Identity.Client` NuGet package, which is used to acquire a token. For details, see [Install Identity Client NuGet package](quickstarts/client-libraries.md?pivots=programming-language-csharp#install-identity-client-nuget-package).
 
 Create a confidential client application property.
 
@@ -42,7 +42,7 @@ private IConfidentialClientApplication ConfidentialClientApplication
 Next, use the following code to acquire an `AuthenticationResult`, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
 
 > [!IMPORTANT]
-> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../../active-directory/develop/msal-migration.md) for more details.
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020. We strongly encourage you to upgrade. To learn more, see the [migration guide](../../active-directory/develop/msal-migration.md).
 
 
 ```csharp
@@ -59,11 +59,11 @@ public async Task<string> GetTokenAsync()
 }
 ```
 
-The `AuthenticationResult` object has an `AccessToken` property which is the actual token you will use when launching the Immersive Reader using the SDK. It also has an `ExpiresOn` property which denotes when the token will expire. Before launching the Immersive Reader, you can check whether the token has expired, and acquire a new token only if it has expired.
+The `AuthenticationResult` object has an `AccessToken` property, which is the actual token you use when launching the Immersive Reader using the SDK. It also has an `ExpiresOn` property that denotes when the token expires. Before launching the Immersive Reader, you can check whether the token is expired, and acquire a new token only if it expired.
 
 ## Using Node.JS
 
-Add the [**request**](https://www.npmjs.com/package/request) npm package to your project. Use the following code to acquire a token, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
+Add the [request](https://www.npmjs.com/package/request) npm package to your project. Use the following code to acquire a token, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
 
 ```javascript
 router.get('/token', function(req, res) {
@@ -89,7 +89,7 @@ router.get('/token', function(req, res) {
 });
 ```
 
-The `expires_on` property is the date and time at which the token expires, expressed as the number of seconds since January 1, 1970 UTC. Use this value to determine whether your token has expired before attempting to acquire a new one.
+The `expires_on` property is the date and time at which the token expires, expressed as the number of seconds since January 1, 1970 UTC. Use this value to determine whether your token is expired before attempting to acquire a new one.
 
 ```javascript
 async function getToken() {
@@ -100,6 +100,7 @@ async function getToken() {
 }
 ```
 
-## Next steps
+## Next step
 
-* Explore the [Immersive Reader SDK Reference](./reference.md)
+> [!div class="nextstepaction"]
+> [Explore the Immersive Reader SDK reference](reference.md)

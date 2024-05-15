@@ -1,20 +1,23 @@
 ---
-title: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
-description: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview).
+title: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service
+description: Upgrade Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: conceptual
 ms.date: 05/04/2023
-
+ms.author: shasb
+author: shashankbarsin
 ---
 
-# Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+# Upgrade Istio-based service mesh add-on for Azure Kubernetes Service
 
 This article addresses upgrade experiences for Istio-based service mesh add-on for Azure Kubernetes Service (AKS).
 
-## Minor version upgrade
+Announcements about the releases of new minor revisions or patches to the Istio-based service mesh add-on are published in the [AKS release notes][aks-release-notes].
 
-Istio add-on allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new (canary) revision is deployed alongside the old (stable) revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't observe any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
+## Minor revision upgrade
 
-If the cluster is currently using a supported minor version of Istio, upgrades are only allowed one minor version at a time. If the cluster is using an unsupported version of Istio, you must upgrade to the lowest supported minor version of Istio for that Kubernetes version. After that, upgrades can again be done one minor version at a time.
+Istio add-on allows upgrading the minor revision using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new (canary) revision is deployed alongside the old (stable) revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't observe any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
+
+If the cluster is currently using a supported minor revision of Istio, upgrades are only allowed one minor revision at a time. If the cluster is using an unsupported revision of Istio, you must upgrade to the lowest supported minor revision of Istio for that Kubernetes version. After that, upgrades can again be done one minor revision at a time.
 
 The following example illustrates how to upgrade from revision `asm-1-18` to `asm-1-19`. The steps are the same for all minor upgrades.
 
@@ -31,7 +34,7 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 1. Initiate a canary upgrade from revision `asm-1-18` to `asm-1-19` using [az aks mesh upgrade start](/cli/azure/aks/mesh#az-aks-mesh-upgrade-start):
 
     ```bash
-    az aks mesh upgrade start --resource-group $RESOURCE_GROUP --name $CLUSTER --revision asm-1-18
+    az aks mesh upgrade start --resource-group $RESOURCE_GROUP --name $CLUSTER --revision asm-1-19
     ```
 
     A canary upgrade means the 1.18 control plane is deployed alongside the 1.17 control plane. They continue to coexist until you either complete or roll back the upgrade.
@@ -100,7 +103,7 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 
     * **Rollback the canary upgrade**: In case you observe any issues with the health of your workloads, you can roll back to the previous revision of Istio:
 
-      * Relabel the namespace to the previous revision
+      * Relabel the namespace to the previous revision:
 
           ```bash
           kubectl label namespace default istio.io/rev=asm-1-18 --overwrite
@@ -118,10 +121,16 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
           az aks mesh upgrade rollback --resource-group $RESOURCE_GROUP --name $CLUSTER
           ```
 
-1. If [mesh configuration][meshconfig] was set up for the revisions in previous steps, you can now delete the ConfigMap for the revision that was removed from the cluster on completing or rolling back the upgrade.
+1. If [mesh configuration][meshconfig] was previously set up for the revisions, you can now delete the ConfigMap for the revision that was removed from the cluster during complete/rollback.
 
 > [!NOTE]
 > Manually relabeling namespaces when moving them to a new revision can be tedious and error-prone. [Revision tags](https://istio.io/latest/docs/setup/upgrade/canary/#stable-revision-labels) solve this problem. Revision tags are stable identifiers that point to revisions and can be used to avoid relabeling namespaces. Rather than relabeling the namespace, a mesh operator can simply change the tag to point to a new revision. All namespaces labeled with that tag will be updated at the same time. However, note that you still need to restart the workloads to make sure the correct version of `istio-proxy` sidecars are injected.
+
+### Minor revision upgrades with the ingress gateway
+
+If you're currently using [Istio ingress gateways](./istio-deploy-ingress.md) and are performing a minor revision upgrade, keep in mind that Istio ingress gateway pods / deployments are deployed per-revision. However, we provide a single LoadBalancer service across all ingress gateway pods over multiple revisions, so the external/internal IP address of the ingress gateways will not change throughout the course of an upgrade. 
+
+Thus, during the canary upgrade, when two revisions exist simultaneously on the cluster, incoming traffic will be served by the ingress gateway pods of both revisions. 
 
 ## Patch version upgrade
 
@@ -179,3 +188,4 @@ The following example illustrates how to upgrade from revision `asm-1-18` to `as
 [istio-canary-upstream]: https://istio.io/latest/docs/setup/upgrade/canary/
 [meshconfig]: ./istio-meshconfig.md
 [meshconfig-canary-upgrade]: ./istio-meshconfig.md#mesh-configuration-and-upgrades
+

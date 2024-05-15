@@ -41,10 +41,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 ### Hitachi
 |Solution and version |Kubernetes version |Azure Arc-enabled data services version |SQL engine version |PostgreSQL server version|
 |-----|-----|-----|-----|-----|
+|[Hitachi UCP with Microsoft AKS-HCI](https://www.hitachivantara.com/en-us/solutions/hybrid-cloud-infrastructure.html)|1.27.3|1.29.0_2024-04-09*|16.0.5290.8214|14.5 (Ubuntu 20.04)|
 |[Hitachi UCP with Red Hat OpenShift](https://www.hitachivantara.com/en-us/solutions/hybrid-cloud-infrastructure.html)|1.25.11|1.25.0_2023-11-14|16.0.5100.7246|Not validated|
 |Hitachi Virtual Storage Software Block software-defined storage (VSSB)|1.24.12 |1.20.0_2023-06-13 |16.0.5100.7242 |14.5 (Ubuntu 20.04)|
 |Hitachi Virtual Storage Platform (VSP) |1.24.12 |1.19.0_2023-05-09 |16.0.937.6221 |14.5 (Ubuntu 20.04)|
-|[Hitachi UCP with VMware Tanzu](https://www.hitachivantara.com/en-us/solutions/hybrid-cloud-infrastructure.html)|1.23.8 |1.16.0_2023-02-14 |16.0.937.6221 |14.5 (Ubuntu 20.04)|
+
+*: The solution was validated in indirect mode only (learn more about [the different connectivity modes](../data/connectivity.md)).
 
 ### HPE
 
@@ -84,10 +86,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ### Red Hat
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|Solution and version |Kubernetes version |Azure Arc-enabled data services version |SQL engine version |PostgreSQL server version|
 |-----|-----|-----|-----|-----|
-| [OpenShift 4.13.4](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html) | 1.26.5 | 1.21.0_2023-07-11 | 16.0.5100.7242 |  14.5 (Ubuntu 20.04) |
-| OpenShift 4.10.16 | 1.23.5 | 1.11.0_2022-09-13 | 16.0.312.4243 |  12.3 (Ubuntu 12.3-1)|
+|[OpenShift 4.15.0](https://docs.openshift.com/container-platform/4.15/release_notes/ocp-4-15-release-notes.html)|1.28.6|1.27.0_2024-02-13|16.0.5100.7246|Not validated|
+|[OpenShift 4.13.4](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html) |1.26.5 |1.21.0_2023-07-11 |16.0.5100.7242 |14.5 (Ubuntu 20.04) |
+|OpenShift 4.10.16 |1.23.5 |1.11.0_2022-09-13 |16.0.312.4243 |12.3 (Ubuntu 12.3-1)|
 
 ### VMware
 
@@ -126,9 +129,7 @@ The conformance tests run as part of the Azure Arc-enabled Data services validat
 
 These tests verify that the product is compliant with the requirements of running and operating data services. This process helps assess if the product is enterprise ready for deployments.
 
-The tests for data services cover the following in indirectly connected mode
-
-1. Deploy data controller in indirect mode
+1. Deploy data controller in both indirect and direct connect modes (learn more about [connectivity modes](/azure/azure-arc/data/connectivity))
 2. Deploy [SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)
 3. Deploy [Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 

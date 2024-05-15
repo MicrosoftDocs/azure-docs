@@ -6,7 +6,7 @@ author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 10/16/2023
+ms.date: 03/11/2024
 ms.service: azure-data-lake-storage
 ---
 
@@ -15,11 +15,7 @@ ms.service: azure-data-lake-storage
 This article shows you how to simplify the migration by using the Azure portal.
 
 > [!NOTE]
-> On **Feb. 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date.
->
-> Since **April 1, 2023** Microsoft has been freezing Data Lake Storage Gen1 accounts that have zero read or write transactions in the last 180 days. If any of your accounts match that profile, please identify which ones you intend to migrate so that they won't be frozen. Contact your Microsoft account team or send a message to [ADLSGen1toGen2MigrationQA@service.microsoft.com](mailto:ADLSGen1toGen2MigrationQA@service.microsoft.com).
-
- You can provide your consent in the Azure portal and then migrate your data and metadata (such as timestamps and ACLs) automatically from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2.
+> Azure Data Lake Storage Gen1 is now retired. See the retirement announcement [here](https://aka.ms/data-lake-storage-gen1-retirement-announcement). Data Lake Storage Gen1 resources are no longer accessible. If you require special assistance, please [contact us](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Here's a video that tells you more about it.
 
@@ -111,17 +107,17 @@ Whichever option you choose, after you've migrated and verified that all your wo
 3. Select the **Migrate data** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Button to migrate](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
+   > ![Screenshot of the button to migrate.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
 
 4. Select **Copy data to a new Gen2 account**.
 
    > [!div class="mx-imgBorder"]
-   > ![Copy data option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-data-option.png)
+   > ![Screenshot of the copy data option.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-data-option.png)
 
 5. Give Microsoft consent to perform the data migration by selecting the checkbox. Then, select the **Apply** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Checkbox to provide consent](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
+   > ![Screenshot of the checkbox to provide consent.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
    A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration. Because the time to complete each task varies, the progress bar won't advance at a consistent rate. For example, the progress bar might quickly advance to 50 percent, but then take a bit more time to complete the remaining 50 percent. 
 
@@ -134,7 +130,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
    You can stop the migration at any time by selecting the **Stop migration** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Stop migration option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
+   > ![Screenshot of the stop migration option.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
 
 ### Option 2: Perform a complete migration
 
@@ -145,17 +141,17 @@ Whichever option you choose, after you've migrated and verified that all your wo
 3. Select the **Migrate data** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Migrate button](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
+   > ![Screenshot of the migrate button.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
 
 4. Select **Complete migration to a new Gen2 account**.
 
    > [!div class="mx-imgBorder"]
-   > ![Complete migration option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-complete-option.png)
+   > ![Screenshot of the complete migration option.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-complete-option.png)
 
 5. Give Microsoft consent to perform the data migration by selecting the checkbox. Then, select the **Apply** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
+   > ![Screenshot of the consent checkbox.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
    A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration. Because the time to complete each task varies, the progress bar won't advance at a consistent rate. For example, the progress bar might quickly advance to 50 percent, but then take a bit more time to complete the remaining 50 percent. 
 
@@ -172,7 +168,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
    You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Migration stop button](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
+   > ![Screenshot of the migration stop button.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
 
 ## Step 6: Verify that the migration completed
 
@@ -295,7 +291,7 @@ Make sure all your Azure Data lake Analytics accounts are [migrated to Azure Syn
 
 If you used [Option 1: Copy data from Gen1 to Gen2](#option-1-copy-data-from-gen1-to-gen2) mentioned above, then both the Gen1 and Gen2 accounts are available for reads and writes post migration. However, if you used [Option 2: Perform a complete migration](#option-2-perform-a-complete-migration), then going back to the Gen1 account isn't supported. In Option 2, after the migration completes, the data in your Gen1 account won't be accessible and will be deleted after 30 days. You can continue to view the Gen1 account in the Azure portal, and when you're ready, you can delete the Gen1 account.
 
-#### I would like to enable Geo-redundant storage (GRS) on the Gen2-enabled account, how do I do that?
+#### I would like to enable Geo-redundant storage (GRS) on the Gen2-enabled account. How do I do that?
 
 Once the migration is complete, both in "Copy data" and "Complete migration" options, you can go ahead and change the redundancy option to GRS as long as you don't plan to use the application compatibility layer. The application compatibility won't work on accounts that use GRS redundancy.
 
@@ -307,7 +303,7 @@ When we copy the data over to your Gen2-enabled account, we automatically create
 
 When you copy the data over to your Gen2-enabled account, two factors that can affect performance are the number of files and the amount of metadata you have. For example, many small files can affect the performance of the migration.
 
-#### Will WebHDFS File System APIs supported on Gen2 account post migration?
+#### Will WebHDFS File System APIs be supported on Gen2 account post-migration?
 
 WebHDFS File System APIs of Gen1 will be supported on Gen2 but with certain deviations, and only limited functionality is supported via the compatibility layer. Customers should plan to leverage Gen2-specific APIs for better performance and features.
 

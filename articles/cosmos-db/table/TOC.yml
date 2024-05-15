@@ -5,7 +5,7 @@
     - name: What is Azure Cosmos DB for Table?
       href: introduction.md
     - name: FAQ
-      href: table-api-faq.yml
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: .NET
@@ -166,7 +166,7 @@
                       href: ../latest-restore-timestamp-continuous-backup.md
                     - name: Auditing restore action with continuous backup
                       href: ../audit-restore-continuous.md
-                - name: Restore in the same account (preview)
+                - name: Restore in the same account
                   items:
                     - name: Introduction
                       href: ../restore-in-account-continuous-backup-introduction.md
@@ -191,10 +191,16 @@
           displayName: session, consistency prefix, strong, eventual, bounded staleness
           href: ../consistency-levels.md
         - name: High availability
-          href: ../high-availability.md
-        - name: Conflict types and resolution policies
-          displayName: last write wins, custom, multi-region writes, multi-master
-          href: ../conflict-resolution-policies.md
+          items:
+              - name: High availability overview
+                href: ../high-availability.md
+              - name: Multi-region writes
+                items:
+                  - name: Understanding multi-region writes
+                    href: ../multi-region-writes.md
+                  - name: Conflict resolution
+                    displayName: last write wins, custom, multi-region writes, multi-master
+                    href: ../conflict-resolution-policies.md
         - name: Global distribution - under the hood
           href: ../global-dist-under-the-hood.md
     - name: Security
@@ -268,8 +274,12 @@
       items:
         - name: Set up CI/CD with Azure Pipelines
           href: ../tutorial-setup-ci-cd.md
-        - name: Use Azure Cosmos DB Explorer
-          href: ../data-explorer.md
+        - name: Azure Cosmos DB Explorer
+          items:
+            - name: Use explorer
+              href: ../data-explorer.md
+            - name: Keyboard shorcuts
+              href: ../data-explorer-shortcuts.md
     - name: Migrate data
       items:
         - name: Desktop data migration tool
@@ -277,7 +287,7 @@
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
-          href: ../how-to-manage-database-account.md
+          href: ../how-to-manage-database-account.yml
         - name: Manage using PowerShell
           href: powershell-samples.md
         - name: Manage using Azure CLI
@@ -306,7 +316,7 @@
               items:
                 - name: Restore to a different account
                   href: ../restore-account-continuous-backup.md
-                - name: Restore in the same account (preview)
+                - name: Restore in the same account
                   href: ../how-to-restore-in-account-continuous-backup.md
                 - name: Get the latest restorable timestamp
                   href: ../get-latest-restore-timestamp.md
@@ -347,7 +357,7 @@
           href: ../access-previews.md
     - name: Monitor
       items:
-        - name: Monitor Azure Cosmos DB
+        - name: Monitor
           href: ../monitor.md
         - name: Use Azure monitor metrics
           items:

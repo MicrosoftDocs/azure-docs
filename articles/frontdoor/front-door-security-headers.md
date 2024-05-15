@@ -13,6 +13,8 @@ ms.custom: template-tutorial, engagement-fy23
 
 # Tutorial: Add Security headers with Rules Engine
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 This tutorial shows how to implement security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, or X-Frame-Options. Security-based attributes can also be defined with cookies.
 
 The following example shows you how to add a Content-Security-Policy header to all incoming requests that match the path defined in the route your Rules Engine configuration is associated with. Here, we only allow scripts from our trusted site, **https://apiphany.portal.azure-api.net** to run on our application.

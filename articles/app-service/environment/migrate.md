@@ -3,19 +3,19 @@ title: Migrate to App Service Environment v3 by using the in-place migration fea
 description: Overview of the in-place migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 02/15/2024
+ms.date: 04/08/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
 # Migration to App Service Environment v3 using the in-place migration feature
 
 > [!NOTE]
-> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you're looking for information on the side by side migration feature, see [Migrate to App Service Environment v3 by using the side by side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
+> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you're looking for information on the side-by-side migration feature, see [Migrate to App Service Environment v3 by using the side-by-side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
 
 App Service can automate migration of your App Service Environment v1 and v2 to an [App Service Environment v3](overview.md). There are different migration options. Review the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree) to decide which option is best for your use case. App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue. 
 
-The in-place migration feature automates your migration to App Service Environment v3 by upgrading your existing App Service Environment in the same subnet. This migration option is best for customers who want to migrate to App Service Environment v3 with minimal changes to their networking configurations and can support about one hour of application downtime. If you can't support downtime, see the [side migration feature](side-by-side-migrate.md) or the [manual migration options](migration-alternatives.md).
+The in-place migration feature automates your migration to App Service Environment v3 by upgrading your existing App Service Environment in the same subnet. This migration option is best for customers who want to migrate to App Service Environment v3 with minimal changes to their networking configurations. You must also be able to support about one hour of application downtime. If you can't support downtime, see the [side migration feature](side-by-side-migrate.md) or the [manual migration options](migration-alternatives.md).
 
 > [!IMPORTANT]
 > It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
@@ -82,7 +82,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Migrate can only be called on an ASE in ARM VNET and this ASE is in Classic VNET.     |App Service Environments in Classic VNets can't migrate using the in-place migration feature.       |Migrate using one of the [manual migration options](migration-alternatives.md).  |
 |ASEv3 Migration is not yet ready.     |The underlying infrastructure isn't ready to support App Service Environment v3.         |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately. Otherwise, wait for the in-place migration feature to be available in your region.  |
 |Migration cannot be called on this ASE, please contact support for help migrating.     |Support needs to be engaged for migrating this App Service Environment. This issue is potentially due to custom settings used by this environment.         |Open a support case to engage support to resolve your issue.  |
-|Migrate cannot be called if IP SSL is enabled on any of the sites.|App Service Environments that have sites with IP SSL enabled can't be migrated using the migration feature at this time. |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately.  |
+|Migrate cannot be called if IP SSL is enabled on any of the sites.|App Service Environments that have sites with IP SSL enabled can't be migrated using the migration feature.  |Remove the IP SSL from all of your apps in the App Service Environment to enable the migration feature. |
 |Full migration cannot be called before IP addresses are generated. |This error appears if you attempt to migrate before finishing the premigration steps. |Ensure you complete all premigration steps before you attempt to migrate. See the [step-by-step guide for migrating](how-to-migrate.md).  |
 |Migration to ASEv3 is not allowed for this ASE. |You can't migrate using the migration feature. |Migrate using one of the [manual migration options](migration-alternatives.md).  |
 |Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) is met. |Remove unneeded environments or contact support to review your options.  |
@@ -90,12 +90,18 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. In some cases, an upgrade is initiated when visiting the migration page if your App Service Environment isn't on the current build.  |Wait until the upgrade finishes and then migrate.   |
 |App Service Environment management operation in progress.    |Your App Service Environment is undergoing a management operation. These operations can include activities such as deployments or upgrades. Migration is blocked until these operations are complete.   |You can migrate once these operations are complete.  |
 |Migrate is not available for this subscription.|Support needs to be engaged for migrating this App Service Environment.|Open a support case to engage support to resolve your issue.|
-|Your InteralLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately. |
+|Your InteralLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. The InternalLoadBalancingMode must be manually changed by the Microsoft team. |Open a support case to engage support to resolve your issue. Request an update to the InternalLoadBalancingMode to allow migration. |
 |Migration is invalid. Your ASE needs to be upgraded to the latest build to ensure successful migration. We will upgrade your ASE now. Please try migrating again in few hours once platform upgrade has finished. |Your App Service Environment isn't on the minimum build required for migration. An upgrade is started. Your App Service Environment won't be impacted, but you won't be able to scale or make changes to your App Service Environment while the upgrade is in progress. You won't be able to migrate until the upgrade finishes. |Wait until the upgrade finishes and then migrate. |
 
 ## Overview of the migration process using the in-place migration feature
 
 In-place migration consists of a series of steps that must be followed in order. Key points are given for a subset of the steps. It's important to understand what happens during these steps and how your environment and apps are impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
+
+### Validate that migration is supported using the in-place migration feature for your App Service Environment
+
+The platform validates that your App Service Environment can be migrated using the in-place migration feature. If your App Service Environment doesn't pass all validation checks, you can't migrate at this time using the in-place migration feature. See the [troubleshooting](#troubleshooting) section for details of the possible causes of validation failure. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates. If you can't migrate using the in-place migration feature, see the [manual migration options](migration-alternatives.md).
+
+The validation also checks if your App Service Environment is on the minimum build required for migration. The minimum build is updated periodically to ensure the latest bug fixes and improvements are available. If your App Service Environment isn't on the minimum build, you need to start the upgrade yourself. This upgrade is a standard process where your App Service Environment isn't impacted, but you can't scale or make changes to your App Service Environment while the upgrade is in progress. You can't migrate until the upgrade finishes. Upgrades can take 8-12 hours to complete or longer depending on the size of your environment. If you plan a specific time window for your migration, you should run the validation check 24-48 hours before your planned migration time to ensure you have time for an upgrade if one is needed.
 
 ### Generate IP addresses for your new App Service Environment v3
 
@@ -106,6 +112,10 @@ When completed, you'll be given the new IPs that your future App Service Environ
 ### Update dependent resources with new IPs
 
 Once the new IPs are created, you have the new default outbound to the internet public addresses. In preparation for the migration, you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs. For ELB App Service Environment, you also have the new inbound IP address that you can use to set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md). **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer health probe, which now uses port 80.
+
+> [!IMPORTANT]
+> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change again once the [migration step](#migrate-to-app-service-environment-v3) is complete. Be prepared to update your dependent resources again with the new inbound IP address after the migration step is complete. This bug is being addressed and will be fixed as soon as possible. Open a support case if you have any questions or concerns about this issue or need help with the migration process.
+>
 
 ### Delegate your App Service Environment subnet
 
@@ -133,7 +143,7 @@ Your App Service Environment v3 can be deployed across availability zones in the
 
 If your existing App Service Environment uses a custom domain suffix, you're prompted to configure a custom domain suffix for your new App Service Environment v3. You need to provide the custom domain name, managed identity, and certificate. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). You must configure a custom domain suffix for your new environment even if you no longer want to use it. Once migration is complete, you can remove the custom domain suffix configuration if needed.
 
-If your migration includes a custom domain suffix, for App Service Environment v3, the custom domain isn't displayed in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly.  
+If your migration includes a custom domain suffix, for App Service Environment v3, the custom domain isn't displayed in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. Also, on App Service Environment v2, if you have a custom domain suffix, the default host name includes your custom domain suffix and is in the form *APP-NAME.internal.contoso.com*. On App Service Environment v3, the default host name always uses the default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. This difference is because App Service Environment v3 keeps the default domain suffix when you add a custom domain suffix. With App Service Environment v2, there's only a single domain suffix.
 
 ### Migrate to App Service Environment v3
 
@@ -148,8 +158,19 @@ Migration requires a three to six hour service window for App Service Environmen
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
 - All App Service plans in the App Service Environment are converted from the Isolated to Isolated v2 tier.
 - All of the apps that are on your App Service Environment are temporarily down. **You should expect about one hour of downtime during this period**.
-  - If you can't support downtime, see the [side by side migration feature](side-by-side-migrate.md) or the[migration-alternatives](migration-alternatives.md#migrate-manually).
+  - If you can't support downtime, see the [side-by-side migration feature](side-by-side-migrate.md) or the [migration-alternatives](migration-alternatives.md#migrate-manually).
 - The public addresses that are used by the App Service Environment change to the IPs generated during the IP generation step.
+
+The following statuses are available during the migration process:
+
+|Status      |Description  |
+|------------|-------------|
+|Validating and preparing the migration.     |The platform is validating migration support and performing necessary checks.     |
+|Deploying App Service Environment v3 infrastructure.    |Your new App Service Environment v3 infrastructure is provisioning.          |
+|Waiting for infrastructure to complete.  |The platform is validating your new infrastructure and performing necessary checks.         |
+|Setting up networking. Migration downtime period has started. Applications are not accessible.  |The platform is deleting your old infrastructure and moving all of your apps to your new App Service Environment v3. Your apps are down and aren't accepting traffic.         |
+|Running post migration validations.  |The platform is performing necessary checks to ensure the migration succeeded.         |
+|Finalizing migration.  |The platform is finalizing the migration.         |
 
 As in the IP generation step, you can't scale, modify your App Service Environment, or deploy apps to it during this process. When migration is complete, the apps that were on the old App Service Environment are running on the new App Service Environment v3.
 

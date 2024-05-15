@@ -75,6 +75,8 @@ For information about quota limits, refer to [Front Door limits, quotas and cons
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 A Rules engine configuration allows you to customize how HTTP requests get handled at the Front Door edge and provides controlled behavior to your web application. Rules Engine for Azure Front Door (classic) has several key features, including:
 
 * Enforces HTTPS to ensure all your end users interact with your content over a secure connection.

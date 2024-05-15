@@ -27,7 +27,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 
 ```json
 {
-  "modelVersion": "2023-10-01",
+  "modelVersion": "2024-02-01",
   "metadata": {
     "width": 300,
     "height": 231

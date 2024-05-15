@@ -8,7 +8,7 @@ ms.author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/05/2024
 ms.subservice: B2C
 

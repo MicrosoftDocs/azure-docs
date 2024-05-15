@@ -16,7 +16,7 @@ ms.date: 02/01/2023
 - Access granted to Azure OpenAI in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 - Azure OpenAI Assistants are currently available in Sweden Central, East US 2, and Australia East. For more information about model availability in those regions, see the [models guide](../concepts/models.md).
 - We recommend reviewing the [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) and other [Responsible AI resources](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) to familiarize yourself with the capabilities and limitations of the Azure OpenAI Service.
 - An Azure OpenAI resource with the `gpt-4 (1106-preview)` model deployed was used testing this example.
@@ -36,7 +36,7 @@ To successfully make a call against Azure OpenAI, you'll need the following:
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
+:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an Azure OpenAI resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
 Create and assign persistent environment variables for your key and endpoint.
 
@@ -51,7 +51,7 @@ Create and assign persistent environment variables for your key and endpoint.
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "instructions": "You are an AI assistant that can write code to help answer math questions.",
@@ -71,7 +71,7 @@ An individual assistant can access up to 128 tools including `code interpreter`,
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d ''
 
 ```
@@ -81,7 +81,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads \
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/messages \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -d '{
       "role": "user",
       "content": "I need to solve the equation `3x + 11 = 14`. Can you help me?"
@@ -92,7 +92,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/me
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/runs \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "assistant_id": "asst_abc123",
@@ -103,7 +103,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/ru
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/runs/run_abc123 \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
 ```
 
 ### Assistant response
@@ -111,7 +111,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/ru
 ```
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/thread_abc123/messages \
   -H "Content-Type: application/json" \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
 ```
 
 
@@ -139,7 +139,7 @@ It is important to remember that while code interpreter gives the model the capa
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)

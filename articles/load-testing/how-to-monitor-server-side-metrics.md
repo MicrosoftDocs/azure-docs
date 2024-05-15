@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to capture and monitor server-side application metrics when running a load test with Azure Load Testing. Add Azure app components and resource metrics to your load test configuration.
 services: load-testing
 ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 01/16/2024
 ms.topic: how-to
 

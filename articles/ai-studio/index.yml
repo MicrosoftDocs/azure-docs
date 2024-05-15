@@ -41,6 +41,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Use Azure OpenAI Assistants in the playground
+            url: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
           - text: Hear and speak with chat in the playground
             url: quickstarts/hear-speak-playground.md
           - text: Moderate text and images
@@ -63,8 +65,6 @@ landingContent:
         links:
           - text: Get started with the Azure AI SDK
             url: how-to/sdk-install.md
-          - text: Get started with the Azure AI CLI
-            url: how-to/cli-install.md
           - text: Work with Azure AI projects in VS Code
             url: how-to/develop-in-vscode.md
       - linkListType: concept

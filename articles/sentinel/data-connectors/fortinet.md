@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Fortinet connector for Microsoft Sentinel

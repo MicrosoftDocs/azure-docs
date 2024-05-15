@@ -22,7 +22,7 @@ This sample CLI script creates and manages [read replicas](../concepts-read-repl
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

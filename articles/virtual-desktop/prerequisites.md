@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: references_regions
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/06/2023
+ms.date: 04/17/2024
 ---
 # Prerequisites for Azure Virtual Desktop
 
@@ -92,14 +92,14 @@ To access desktops and applications from your session hosts, your users need to 
 
 You need to join session hosts that provide desktops and applications to the same Microsoft Entra tenant as your users, or an Active Directory domain (either AD DS or Microsoft Entra Domain Services).
 
+> [!NOTE]
+> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain.
+
 To join session hosts to Microsoft Entra ID or an Active Directory domain, you need the following permissions:
 
 - For Microsoft Entra ID, you need an account that can join computers to your tenant. For more information, see [Manage device identities](../active-directory/devices/manage-device-identities.md#configure-device-settings). To learn more about joining session hosts to Microsoft Entra ID, see [Microsoft Entra joined session hosts](azure-ad-joined-session-hosts.md).
 
 - For an Active Directory domain, you need a domain account that can join computers to your domain. For Microsoft Entra Domain Services, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-
-> [!NOTE]
-> Adding session hosts on Azure Stack HCI only supports using Active Directory Domain Services.
 
 ### Users
 
@@ -130,10 +130,10 @@ For more detailed information about supported identity scenarios, including sing
 
 ### FSLogix Profile Container
 
-To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you need to [store profiles on Azure Files](create-profile-container-azure-ad.md) or [Azure NetApp Files](create-fslogix-profile-container.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). You must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
+To use [FSLogix Profile Container](/fslogix/configure-profile-container-tutorial) when joining your session hosts to Microsoft Entra ID, you need to [store profiles on Azure Files](create-profile-container-azure-ad.yml) or [Azure NetApp Files](create-fslogix-profile-container.md) and your user accounts must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md). You must create these accounts in AD DS and synchronize them to Microsoft Entra ID. To learn more about deploying FSLogix Profile Container with different identity scenarios, see the following articles:
 
 - [Set up FSLogix Profile Container with Azure Files and Active Directory Domain Services or Microsoft Entra Domain Services](fslogix-profile-container-configure-azure-files-active-directory.md).
-- [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.md).
+- [Set up FSLogix Profile Container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml).
 - [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)
 
 ### Deployment parameters
@@ -149,11 +149,11 @@ You need to enter the following identity parameters when deploying session hosts
 
 ## Operating systems and licenses
 
-You have a choice of operating systems (OS) that you can use for session hosts to provide desktops and applications. You can use different operating systems with different host pools to provide flexibility to your users. We support the following 64-bit versions of these operating systems, where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/).
+You have a choice of operating systems (OS) that you can use for session hosts to provide desktops and applications. You can use different operating systems with different host pools to provide flexibility to your users. We support the 64-bit operating systems and SKUs in the following table lists (where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/)), along with the licensing methods applicable for each commercial purpose:
 
 [!INCLUDE [Operating systems and user access rights](includes/include-operating-systems-user-access-rights.md)]
 
-To learn more, see about licenses you can use, including per-user access pricing, see [Licensing Azure Virtual Desktop](licensing.md).
+To learn more about licenses you can use, including per-user access pricing, see [Licensing Azure Virtual Desktop](licensing.md).
 
 > [!IMPORTANT]
 > - The following items are not supported:
@@ -170,7 +170,7 @@ For Azure, you can use operating system images provided by Microsoft in the [Azu
 
 - [Custom image templates in Azure Virtual Desktop](custom-image-templates.md)
 - [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
-- [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
+- [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.yml).
 
 Alternatively, for Azure Stack HCI you can use operating system images from:
 
@@ -187,6 +187,9 @@ You can deploy a virtual machines (VMs) to be used as session hosts from these i
 If your license entitles you to use Azure Virtual Desktop, you don't need to install or apply a separate license, however if you're using per-user access pricing for external users, you need to [enroll an Azure Subscription](remote-app-streaming/per-user-access-pricing.md). You need to make sure the Windows license used on your session hosts is correctly assigned in Azure and the operating system is activated. For more information, see [Apply Windows license to session host virtual machines](apply-windows-license.md).
 
 For session hosts on Azure Stack HCI, you must license and activate the virtual machines you use before you use them with Azure Virtual Desktop. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
+
+> [!NOTE]
+> To ensure continued functionality with the latest security update, update your VMs on Azure Stack HCI to the latest cumulative update by June 17, 2024. This update is essential for VMs to continue using Azure benefits. For more information, see [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification?tabs=wac#benefits-available-on-azure-stack-hci).
 
 > [!TIP]
 > To simplify user access rights during initial development and testing, Azure Virtual Desktop supports [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/). If you deploy Azure Virtual Desktop in an Azure Dev/Test subscription, end users may connect to that deployment without separate license entitlement in order to perform acceptance tests or provide feedback.
@@ -234,7 +237,7 @@ Consider the following points when managing session hosts:
 
 ## Azure regions
 
-You can deploy session hosts in any Azure region to use with Azure Virtual Desktop. For host pools, workspaces, and application groups, you can deploy them in the following Azure regions:
+You can deploy host pools, workspaces, and application groups in the following Azure regions. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts for the user sessions can be located in any Azure region, and on-premises when using [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md), enabling you to deploy compute resources close to your users. For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 :::row:::
     :::column:::
@@ -261,9 +264,7 @@ You can deploy session hosts in any Azure region to use with Azure Virtual Deskt
     :::column-end:::
 :::row-end:::
 
-This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region, and on-premises when using [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md). Azure Virtual Desktop is also available in sovereign clouds, such as [Azure for US Government](https://azure.microsoft.com/explore/global-infrastructure/government/) and [Azure operated by 21Vianet](https://docs.azure.cn/virtual-desktop/) in China.
-
-
+Azure Virtual Desktop is also available in sovereign clouds, such as [Azure for US Government](https://azure.microsoft.com/explore/global-infrastructure/government/) and [Azure operated by 21Vianet](https://docs.azure.cn/virtual-desktop/) in China.
 
 To learn more about the architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 

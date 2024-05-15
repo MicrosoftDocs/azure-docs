@@ -6,7 +6,7 @@ author: ralphe
 manager: cpoulain
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 2/24/2024
 ms.author: ralphe
 zone_pivot_groups: programming-languages-set-nine
 ms.devlang: cpp
@@ -19,7 +19,7 @@ ms.custom: cogserv-non-critical-speech, devx-track-csharp, mode-other
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/header.md)]
 
 > [!NOTE]
-> The Speech SDK for Java, JavaScript, Objective-C, and Swift support Multi-device Conversation, but we haven't yet included a guide here. 
+> The Speech SDK for Java, JavaScript, Objective-C, and Swift support multi-device conversation, but we haven't yet included a guide here. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/csharp/header.md)]

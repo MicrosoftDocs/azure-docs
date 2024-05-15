@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Control flow
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `choose` policy to conditionally apply policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md). Use the policy for control flow similar to an if-then-else or a switch construct in a programming language.
 
@@ -52,7 +54,7 @@ The `choose` policy must contain at least one `<when/>` element. The `<otherwise
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Examples
 
@@ -117,6 +119,6 @@ This example shows how to perform content filtering by removing data elements fr
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Policy control and flow](api-management-policies.md#policy-control-and-flow)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

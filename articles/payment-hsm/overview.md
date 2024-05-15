@@ -22,11 +22,15 @@ The Azure Payment HSM solution uses hardware from [Thales](https://cpl.thalesgro
 
 ## Azure payment HSM high-level architecture
 
-After a Payment HSM is provisioned, the HSM device is connected directly to a customer's virtual network, with full remote HSM management capabilities, through Thales payShield Manager and the payShield Trusted Management Device (TMD).
+After a payment HSM is provisioned, the HSM device is connected directly to a customer's virtual network, with full remote HSM management capabilities, through Thales payShield Manager and the payShield Trusted Management Device (TMD).
 
 Two host network interfaces and one management network interface are created at HSM provision.
 
 :::image type="content" source="./media/high-level-architecture.png" lightbox="./media/high-level-architecture.png" alt-text="An architecture diagram, showing a provisioned Payment HSM and the network interfaces.":::
+
+With the Azure Payment HSM provisioning service, customers have native access to two host network interfaces and one management interface on the payment HSM. This screenshot displays the Azure Payment HSM resources within a resource group.
+
+:::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="A screenshot illustrating that the owner of a payment HSM has access to two host network interfaces and one management interface.":::
 
 ## Why use Azure Payment HSM?
 

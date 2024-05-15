@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: devx-track-azurecli
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 02/22/2024
 ms.author: aahi
 # https://github.com/Azure/cognitiveservices-aci
 #Customer intent: As a potential customer, I want to know more about how Azure AI services provides and supports Docker containers for each service.

@@ -46,7 +46,7 @@ Create an application rule collection that allows the cluster to send and receiv
 
 1. Navigate to **Settings** > **Rules** > **Application rule collection** > **+ Add application rule collection**.
 
-    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="Title: Add application rule collection":::
+    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="Title: Add application rule collection.":::
 
 1. On the **Add application rule collection** screen, provide the following information:
 
@@ -73,7 +73,7 @@ Create an application rule collection that allows the cluster to send and receiv
     | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | Replace `storage_account_name` with your actual storage account name. Make sure ["secure transfer required"](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account. If you are using Private endpoint to access storage accounts, this step is not needed and storage traffic is not forwarded to the firewall.|
     | Rule_5 | * | http:80 | azure.archive.ubuntu.com | Allows Ubuntu security updates to be installed on the cluster |
 
-   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Title: Enter application rule collection details":::
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Title: Enter application rule collection details.":::
 
 1. Select **Add**.
 
@@ -100,7 +100,7 @@ Create the network rules to correctly configure your HDInsight cluster.
     | Rule_6 | TCP | * | SQL | 1433 , 11000-11999 | If you are using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you are using custom SQL server for Ambari, Oozie, Ranger and Hive metastores then you only need to allow the traffic to your own custom SQL Servers. Refer to [Azure SQL Database and Azure Synapse Analytics connectivity architecture](/azure/azure-sql/database/connectivity-architecture) to see why 11000-11999 port range is also needed in addition to 1433. |
     | Rule_7 | TCP | * | Azure Monitor | * | (optional) Customers who plan to use auto scale feature should add this rule. |
     
-   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Title: Enter application rule collection":::
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Title: Enter application rule collection.":::
 
 1. Select **Add**.
 

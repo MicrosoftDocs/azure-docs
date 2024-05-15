@@ -1,7 +1,6 @@
 ---
 title: Configure TLS with automatic certificate management to secure MQTT communication
-titleSuffix: Azure IoT MQ
-description: Configure TLS with automatic certificate management to secure MQTT communication between the MQTT broker and client.
+description: Configure TLS with automatic certificate management to secure MQTT communication between the Azure IoT MQ MQTT broker and client.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: mq
@@ -13,7 +12,7 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure IoT MQ to use TLS so that I have secure communication between the MQTT broker and client.
 ---
 
-# Configure TLS with automatic certificate management to secure MQTT communication
+# Configure TLS with automatic certificate management to secure MQTT communication in Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -21,7 +20,7 @@ You can configure TLS to secure MQTT communication between the MQTT broker and c
 
 ## Verify cert-manager installation
 
-With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations in the `azure-iot-operations` namespace already. Verify the installation before proceeding.
+With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations Preview in the `azure-iot-operations` namespace already. Verify the installation before proceeding.
 
 1. Use `kubectl` to check for the pods matching the cert-manager app labels.
 
@@ -40,10 +39,10 @@ With automatic certificate management, you use cert-manager to manage the TLS se
 
 ## Create an Issuer for the TLS server certificate
 
-The cert-manager Issuer resource defines how certificates are automatically issued. Cert-manager [supports several Issuers types natively](https://cert-manager.io/docs/configuration/). It also supports an [external](https://cert-manager.io/docs/configuration/external/) issuer type for extending functionality beyond the natively supported issuers. IoT MQ can be used with any type of cert-manager issuer.
+The cert-manager Issuer resource defines how certificates are automatically issued. Cert-manager [supports several Issuers types natively](https://cert-manager.io/docs/configuration/). It also supports an [external](https://cert-manager.io/docs/configuration/external/) issuer type for extending functionality beyond the natively supported issuers. Azure IoT MQ Preview can be used with any type of cert-manager issuer.
 
 > [!IMPORTANT]
-> During initial deployment, Azure IoT Operations is installed with a default Issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer with Azure IoT Operations](#default-root-ca-and-issuer-with-azure-iot-operations). The steps below are only required if you want to use a different issuer.
+> During initial deployment, Azure IoT Operations is installed with a default Issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer with Azure IoT Operations](#default-root-ca-and-issuer-with-azure-iot-operations-preview). The steps below are only required if you want to use a different issuer.
 
 The approach to create the issuer is different depending on your scenario. The following sections list examples to help you get started.
 
@@ -112,7 +111,7 @@ kubectl get secret test-ca -n azure-iot-operations -o json | jq -r '.data["tls.c
 
 This certificate must be distributed and trusted by all clients. For example, use `--cafile` flag for a mosquitto client.
 
-You can use Azure Key Vault to manage secrets for Azure IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
+You can use Azure Key Vault to manage secrets for IoT MQ instead of Kubernetes secrets. To learn more, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
 ### Create issuer based on CA certificate
 
@@ -261,7 +260,7 @@ Replace `$HOST` with the appropriate host:
 
 Remember to specify authentication methods if needed. For example, username and password.
 
-## Default root CA and issuer with Azure IoT Operations
+## Default root CA and issuer with Azure IoT Operations Preview
 
 To help you get started, Azure IoT Operations is deployed with a default "quickstart" root CA and issuer for TLS server certificates. You can use this issuer for development and testing. 
 

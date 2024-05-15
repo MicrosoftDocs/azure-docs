@@ -2,7 +2,7 @@
 title: Vector DB Lookup tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces the Vector DB Lookup tool for flows in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
@@ -16,6 +16,9 @@ author: lgayhardt
 # Vector DB Lookup tool for flows in Azure AI Studio
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#migrate-from-legacy-tools-to-the-index-lookup-tool)
 
 The prompt flow *Vector DB Lookup* tool is a vector search tool that allows users to search top-k similar vectors from vector database. This tool is a wrapper for multiple third-party vector databases. The list of current supported databases is as follows.
 
@@ -44,7 +47,7 @@ The tool searches data from a third-party vector database. To use it, you should
 
 ## Build with the Vector DB Lookup tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Vector DB Lookup** to add the Vector DB Lookup tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/vector-db-lookup-tool.png" alt-text="Screenshot of the Vector DB Lookup tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/embedding-tool.png":::

@@ -283,6 +283,13 @@ The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of pla
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md#azure-monitor-logs-tables)  
 
+## Analyzing Load Balancer Traffic with NSG Flow Logs 
+
+[NSG flow logs](../network-watcher/nsg-flow-logs-overview.md) is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
+
+NSG flow logs can be used to analyze traffic flowing through the load balancer. Note, NSG flow logs do not contain the load balancers frontend IP address. To analyze the traffic flowing into a load balancer, the NSG flow logs would need to be filtered by the private IP addresses of the load balancer’s backend pool members.
+    
+
 ## Alerts
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks

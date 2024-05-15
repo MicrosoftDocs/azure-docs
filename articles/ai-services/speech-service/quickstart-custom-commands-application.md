@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 02/19/2022
+ms.date: 2/24/2024
 ms.author: eur
 ms.custom: cogserv-non-critical-speech, references_regions
 ---
@@ -24,8 +24,7 @@ At this time, custom commands support speech resources created in regions that h
 
 > [!div class="checklist"]
 > * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create a Speech resource in a region that supports custom commands.</a> Refer to the **Region Availability** section above for list of supported regions.
-> * Download the sample
-[Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
+> * Download the sample [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
 
 ## Go to the Speech Studio for custom commands

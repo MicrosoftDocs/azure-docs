@@ -53,7 +53,7 @@ Update your Azure Cosmos DB account to enable "Delete by partition key" feature 
     ```
 
 - Step 4: Update Cosmos DB account to enable "Delete items by partition key" feature
-     ```azurecli-interactive
+    ```azurecli-interactive
         az cosmosdb update --capabilities $capabilities \
          -n $accountName -g $resourceGroupName
     ```

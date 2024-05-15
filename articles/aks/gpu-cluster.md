@@ -3,7 +3,11 @@ title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
+ms.subservice: aks-developer
 ms.date: 04/10/2023
+author: schaffererin
+ms.author: schaffererin
+
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
 
@@ -24,7 +28,6 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 * If you're using an Azure Linux GPU-enabled node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
 * [NVadsA10](../virtual-machines/nva10v5-series.md) v5-series are *not* a recommended SKU for GPU VHD.
-* AKS doesn't support Windows GPU-enabled node pools.
 * Updating an existing node pool to add GPU isn't supported.
 
 ## Before you begin
@@ -46,7 +49,7 @@ Using NVIDIA GPUs involves the installation of various NVIDIA software component
 
 ### Skip GPU driver installation (preview)
 
-AKS has automatic GPU driver installation enabled by default. In some cases, such as installing your own drivers or using the NVIDIA GPU Operator, you may want to skip GPU driver installation.
+AKS has automatic GPU driver installation enabled by default. In some cases, such as installing your own drivers or using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html), you may want to skip GPU driver installation.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -70,7 +73,6 @@ AKS has automatic GPU driver installation enabled by default. In some cases, suc
         --node-count 1 \
         --skip-gpu-driver-install \
         --node-vm-size Standard_NC6s_v3 \
-        --node-taints sku=gpu:NoSchedule \
         --enable-cluster-autoscaler \
         --min-count 1 \
         --max-count 3
@@ -80,7 +82,7 @@ AKS has automatic GPU driver installation enabled by default. In some cases, suc
 
 ### NVIDIA device plugin installation
 
-NVIDIA device plugin installation is required when using GPUs on AKS. In some cases, the installation is handled automatically, such as when using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html) or the [AKS GPU image (preview)](#use-the-aks-gpu-image-preview). Alternatively, you can manually install the NVIDIA device plugin.
+NVIDIA device plugin installation is required when using GPUs on AKS. In some cases, the installation is handled automatically, such as when using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html) or the [AKS GPU image (preview)](#use-the-aks-gpu-image-preview). Alternatively, you can manually install the NVIDIA device plugin.
 
 #### Manually install the NVIDIA device plugin
 
@@ -221,7 +223,7 @@ The NVIDIA GPU Operator automates the management of all NVIDIA software componen
 
 1. Skip automatic GPU driver installation by creating a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command with `--skip-gpu-driver-install`. Adding the `--skip-gpu-driver-install` flag during node pool creation skips the automatic GPU driver installation. Any existing nodes aren't changed. You can scale the node pool to zero and then back up to make the change take effect.
 
-2. Follow the NVIDIA documentation to [Install the GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/openshift/latest/install-gpu-ocp.html#install-nvidiagpu:~:text=NVIDIA%20GPU%20Operator-,Installing%20the%20NVIDIA%20GPU%20Operator,-%EF%83%81).
+2. Follow the NVIDIA documentation to [Install the GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html).
 
 3. Now that you successfully installed the GPU Operator, you can check that your [GPUs are schedulable](#confirm-that-gpus-are-schedulable) and [run a GPU workload](#run-a-gpu-enabled-workload).
 
@@ -521,3 +523,4 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [NVadsA10]: /azure/virtual-machines/nva10v5-series
+

@@ -9,7 +9,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ---
 
-# Premigration validations for the migrations service in Azure Database for PostgreSQL Preview
+# Premigration validations for the migrations service in Azure Database for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 

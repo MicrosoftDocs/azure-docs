@@ -21,7 +21,7 @@ A search service imports and indexes text and vectors in JSON, used in full text
 
 Once data is indexed, the physical data structures of the index are locked in. For guidance on what can and can't be changed, see [Drop and rebuild an index](search-howto-reindex.md).
 
-Indexing isn't a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#add-or-reduce-replicas-and-partitions) or identify periods of low query activity for loading an index.
+Indexing isn't a background process. A search service will balance indexing and query workloads, but if [query latency is too high](search-performance-analysis.md#impact-of-indexing-on-queries), you can either [add capacity](search-capacity-planning.md#adjust-capacity) or identify periods of low query activity for loading an index.
 
 ## Load documents
 
@@ -45,7 +45,7 @@ If indexers are already defined, you can [reset and run an indexer](search-howto
 
 [Documents - Index (REST)](/rest/api/searchservice/documents) is the means by which you can import data into a search index. The @search.action parameter determines whether documents are added in full, or partially in terms of new or replacement values for specific fields.
 
-[**REST Quickstart: Create, load, and query an index**](search-get-started-rest.md) explains the steps. The following example is a modified version of the example. It's been trimmed for brevity and the first HotelId value has been altered to avoid overwriting an existing document.
+[**Quickstart: Text search using REST**](search-get-started-rest.md) explains the steps. The following example is a modified version of the example. It's been trimmed for brevity and the first HotelId value has been altered to avoid overwriting an existing document.
 
 1. Formulate a POST call specifying the index name, the "docs/index" endpoint, and a request body that includes the @search.action parameter.
 

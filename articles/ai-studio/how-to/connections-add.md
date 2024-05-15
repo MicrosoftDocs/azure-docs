@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
 ms.reviewer: larryfr
 ms.author: larryfr
 author: Blackmist
@@ -40,7 +40,7 @@ Here's a table of the available connection types in Azure AI Studio with descrip
 ## Create a new connection
 
 1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. If you don't have a project already, first create a project.
-1. Select **Settings** from the collapsible left menu. 
+1. Select **AI project settings** from the collapsible left menu. 
 1. Select **View all** from the **Connections** section.
 1. Select **+ Connection** under **Resource connections**.
 1. Select the service you want to connect to from the list of available external resources.
@@ -116,6 +116,30 @@ When you [create a new connection](#create-a-new-connection), you enter the foll
 > Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you would not need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you will have to manage authenticate on your own.
 
 ---
+
+## Network isolation
+
+If your hub is configured for [network isolation](configure-managed-network.md), you might need to create an outbound private endpoint rule to connect to **Azure Blob Storage**, **Azure Data Lake Storage Gen2**, or **Microsoft OneLake**. A private endpoint rule is needed if one or both of the following are true:
+
+- The managed network for the hub is configured to [allow only approved outbound traffic](configure-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). In this configuration, you must explicitly create outbound rules to allow traffic to other Azure resources.
+- The data source is configured to disallow public access. In this configuration, the data source can only be reached through secure methods, such as a private endpoint.
+
+To create an outbound private endpoint rule to the data source, use the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure AI hub.
+1. Select **Networking**, then **Workspace managed outbound access**.
+1. To add an outbound rule, select **Add user-defined outbound rules**. From the **Workspace outbound rules** sidebar, provide the following information:
+    
+    - **Rule name**: A name for the rule. The name must be unique for the AI hub.
+    - **Destination type**: Private Endpoint.
+    - **Subscription**: The subscription that contains the Azure resource you want to connect to.
+    - **Resource type**: `Microsoft.Storage/storageAccounts`. This resource provider is used for Azure Storage, Azure Data Lake Storage Gen2, and Microsoft OneLake.
+    - **Resource name**: The name of the Azure resource (storage account).
+    - **Sub Resource**: The sub-resource of the Azure resource. Select `blob` in the case of Azure Blob storage. Select `dfs` for Azure Data Lake Storage Gen2 and Microsoft OneLake. 
+  
+  Select **Save** to create the rule.
+
+1. Select **Save** at the top of the page to save the changes to the managed network configuration.
 
 ## Next steps
 

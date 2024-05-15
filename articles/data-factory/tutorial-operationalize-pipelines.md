@@ -3,8 +3,8 @@ title: Operationalize Data Pipelines
 description: Learn about how to deliver service level agreements for data pipelines
 ms.service: data-factory
 ms.subservice: orchestration
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: tutorial
 ms.date: 08/10/2023

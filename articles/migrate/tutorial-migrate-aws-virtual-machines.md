@@ -97,7 +97,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 ### Create an Azure network
 
-[Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, the Azure VMs that are created are joined to the Azure virtual network that you specified when you set up migration.
+[Set up](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, the Azure VMs that are created are joined to the Azure virtual network that you specified when you set up migration.
 
 ## Prepare AWS instances for migration
 
@@ -181,6 +181,26 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
+1. Extract the contents of the installer tarball to a local folder (for example, /tmp/MobSvcInstaller) on the AWS VM, as follows:
+
+    ```
+    mkdir /tmp/MobSvcInstaller
+    tar -C /tmp/MobSvcInstaller -xvf <Installer tarball>
+    cd /tmp/MobSvcInstaller
+    ```  
+
+1. Run the installer script:
+
+    ```
+    sudo ./install -r MS -v VmWare -q -c CSLegacy
+    ```  
+
+1. Register the agent with the replication appliance:
+
+    ```
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
+    ```
+
 ## Enable replication for AWS VMs
 
 > [!NOTE]
@@ -220,7 +240,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
     - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
-   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
+   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.

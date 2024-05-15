@@ -104,7 +104,7 @@ landingContent:
         links:
           - text: Standard Load Balancer diagnostics with metrics, alerts and resource health
             url: load-balancer-standard-diagnostics.md
-          - text: Test reachability of Azure Load Balancer front-ends
+          - text: Test reachability of Azure Load Balancer frontends
             url: load-balancer-test-frontend-reachability.md
           - text: Troubleshoot Azure Load Balancer
             url: load-balancer-troubleshoot.md

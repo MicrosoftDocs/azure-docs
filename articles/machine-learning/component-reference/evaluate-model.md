@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
+ms.date: 02/27/2024
 ---
 # Evaluate Model component
 
@@ -97,7 +97,7 @@ The following metrics are reported when evaluating binary classification models.
  
 The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
- The following metrics are reported for evaluating regression models.
+ The following metrics are reported for evaluating linear regression models. Other re gression models such as [Fast Forest Quantile Regression](./fast-forest-quantile-regression.md) may have different metrics.
   
 - **Mean absolute error (MAE)** measures how close the predictions are to the actual outcomes; thus, a lower score is better.  
   

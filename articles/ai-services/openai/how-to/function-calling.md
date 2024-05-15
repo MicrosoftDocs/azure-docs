@@ -31,11 +31,13 @@ Parallel function calls are supported with:
 ### Supported models
 
 * `gpt-35-turbo` (1106)
-* `gpt-4` (1106-preview)
+* `gpt-35-turbo` (0125)
+* `gpt-4` (1106-Preview)
+* `gpt-4` (0125-Preview)
 
-### Supported API versions
+### API support
 
-* [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
+Support for parallel function was first added in API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 
 Parallel function calls allow you to perform multiple function calls together, allowing for parallel execution and retrieval of results. This reduces the number of calls to the API that need to be made and can improve overall performance.
 
@@ -57,8 +59,8 @@ import json
 
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
-  api_version="2023-12-01-preview"
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+  api_version="2024-03-01-preview"
 )
 
 
@@ -149,12 +151,15 @@ When functions are provided, by default the `function_call` is set to `"auto"` a
 
 # [OpenAI Python 0.28.1](#tab/python)
 
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+
 ```python
 
 import os
 import openai
 
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_version = "2023-07-01-preview"
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
@@ -215,7 +220,7 @@ import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
   api_version="2023-10-01-preview",
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
@@ -274,7 +279,7 @@ print(response.choices[0].message.model_dump_json(indent=2))
 
 ```powershell-interactive
 $openai = @{
-    api_key     = $Env:AZURE_OPENAI_KEY
+    api_key     = $Env:AZURE_OPENAI_API_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # should look like https:/YOUR_RESOURCE_NAME.openai.azure.com/
     api_version = '2023-10-01-preview' # may change in the future
     name        = 'YOUR-DEPLOYMENT-NAME-HERE' # the custom name you chose for your deployment

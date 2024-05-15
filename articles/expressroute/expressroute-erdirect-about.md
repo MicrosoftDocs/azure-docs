@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/05/2024
+ms.date: 03/28/2024
 ms.author: duau
 ---
 
@@ -64,7 +64,7 @@ Each peering location has access to the Microsoft global network and can access 
 
 The functionality in most scenarios is equivalent to circuits that use an ExpressRoute service provider to operate. To support further granularity and new capabilities offered using ExpressRoute Direct, there are certain key capabilities that exist only with ExpressRoute Direct circuits.
 
-You can enable or disable rate limiting (preview) for ExpressRoute Direct circuits at the circuit level. For more information, see [Rate limiting for ExpressRoute Direct circuits (Preview)](rate-limit.md).
+You can enable or disable rate limiting for ExpressRoute Direct circuits at the circuit level. For more information, see [Rate limiting for ExpressRoute Direct circuits](rate-limit.md).
 
 ## Circuit SKUs
 
@@ -126,4 +126,4 @@ For details on how ExpressRoute Direct is billed, see [ExpressRoute FAQ](express
 ## Next steps
 
 - Learn how to [configure ExpressRoute Direct](expressroute-howto-erdirect.md).
-- Learn how to [Enable Rate limiting for ExpressRoute Direct circuits (Preview)](rate-limit.md).
+- Learn how to [Enable Rate limiting for ExpressRoute Direct circuits](rate-limit.md).

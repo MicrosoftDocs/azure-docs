@@ -1,20 +1,20 @@
 ---
 title: "How to launch the Immersive Reader"
 titleSuffix: Azure AI services
-description: Learn how to launch the Immersive reader using JavaScript, Python, Android, or iOS. Immersive Reader uses proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences.
-author: rwallerms
+description: Learn how to launch the Immersive reader using JavaScript, Python, Android, or iOS.
+author: sharmas
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: how-to
-ms.date: 03/04/2021
-ms.author: rwaller
+ms.date: 02/21/2024
+ms.author: sharmas
 ms.custom: devx-track-js, devx-track-extended-java, devx-track-python
 zone_pivot_groups: immersive-reader-how-to-guides
 ---
 
 # How to launch the Immersive Reader
 
-In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. This article demonstrates how to launch the Immersive Reader JavaScript, Python, Android, or iOS. 
+In the [overview](./overview.md), you learned about the Immersive Reader and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. This article demonstrates how to launch the Immersive Reader using JavaScript, Python, Android, or iOS.
 
 ::: zone pivot="programming-language-javascript"
 

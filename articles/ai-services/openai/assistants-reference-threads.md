@@ -9,10 +9,12 @@ ms.date: 02/01/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-ms.custom:
+ms.custom: devx-track-python
 ---
 
 # Assistants API (Preview) threads reference
+
+[!INCLUDE [Assistants v2 note](includes/assistants-v2-note.md)]
 
 This article provides reference documentation for Python and REST for the new Assistants API (Preview). More in-depth step-by-step guidance is provided in the [getting started guide](./how-to/assistant.md).
 
@@ -43,7 +45,7 @@ A [thread object](#thread-object).
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -56,7 +58,7 @@ print(empty_thread)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d ''
 ```
@@ -90,7 +92,7 @@ The thread object matching the specified ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -103,7 +105,7 @@ print(my_thread)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
 
@@ -112,7 +114,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 ## Modify thread
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads{thread_id}?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
 ```
 
 Modifies a thread.
@@ -141,7 +143,7 @@ The modified [thread object](#thread-object) matching the specified ID.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -160,7 +162,7 @@ print(my_updated_thread)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
       "metadata": {
@@ -175,7 +177,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 ## Delete thread
 
 ```http
-DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads{thread_id}?api-version=2024-02-15-preview
+DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
 ```
 
 Delete a thread
@@ -198,7 +200,7 @@ Deletion status.
 from openai import AzureOpenAI
     
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-02-15-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
@@ -211,7 +213,7 @@ print(response)
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
-  -H "api-key: $AZURE_OPENAI_KEY" \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X DELETE
 ```

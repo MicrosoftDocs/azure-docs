@@ -5,7 +5,7 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 10/20/2020
+ms.date: 02/29/2024
 ms.author: midesa
 ---
 
@@ -35,14 +35,17 @@ Create an Apache Spark Pool by following the [Create an Apache Spark pool tutori
 3. Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a DataFrame directly. Create a Spark DataFrame by retrieving the data via the Open Datasets API. Here, we use the Spark DataFrame *schema on read* properties to infer the datatypes and schema.
 
    ```python
-   from azureml.opendatasets import NycTlcYellow
-   from datetime import datetime
-   from dateutil import parser
+    from azureml.opendatasets import NycTlcYellow
+    
+    from datetime import datetime
+    from dateutil import parser
+    
+    end_date = parser.parse('2018-05-08 00:00:00')
+    start_date = parser.parse('2018-05-01 00:00:00')
+    
+    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+    filtered_df = spark.createDataFrame(nyc_tlc.to_pandas_dataframe())
 
-   end_date = parser.parse('2018-06-06')
-   start_date = parser.parse('2018-05-01')
-   nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
-   df = nyc_tlc.to_spark_dataframe()
    ```
 
 4. After the data is read, we'll want to do some initial filtering to clean the dataset. We might remove unneeded columns and add columns that extract important information. In addition, we'll filter out anomalies within the dataset.

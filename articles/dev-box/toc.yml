@@ -16,6 +16,7 @@ items:
       displayName: Resource Manager
       href: quickstart-configure-dev-box-arm-template.md  
     - name: Spin up a new dev box
+      displayName: connect, access dev box
       href: quickstart-create-dev-box.md
 - name: Concepts
   expanded: true
@@ -23,6 +24,9 @@ items:
     - name: Architecture overview
       displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
       href: concept-dev-box-architecture.md
+    - name: Network requirements
+      displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags
+      href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
 - name: Configure resources
@@ -58,7 +62,8 @@ items:
   items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
-  - name: Connect with Remote Desktop App 
+  - name: Connect with Remote Desktop App
+    displayName: connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
@@ -72,10 +77,14 @@ items:
     href: how-to-dev-box-user.md 
   - name: Configure conditional access policies
     href: how-to-configure-intune-conditional-access-policies.md
+  - name: Configure elevated privilege for dev boxes
+    href: how-to-elevate-privilege-dev-box.md
+    displayName: run as, administrator, Intune, EPM, policy
+  - name: Enable single sign-on for dev boxes
+    href: how-to-enable-single-sign-on.md
+    displayName: SSO
 - name: Manage costs
   items:
-  - name: Determine resource usage and quota
-    href: how-to-determine-your-quota-usage.md
   - name: Request a quota limit increase
     href: how-to-request-quota-increase.md
   - name: Configure Dev Box Hibernation

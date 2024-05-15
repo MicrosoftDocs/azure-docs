@@ -11,6 +11,7 @@ ms.author: tarcher
 ms.service: cognitive-search
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Deploy Azure AI Search service using Terraform

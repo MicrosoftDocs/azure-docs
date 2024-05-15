@@ -165,7 +165,7 @@
     - name: Move Key Vault to Another Subscription
       href: move-subscription.md
     - name: Move Key Vault to Another Region
-      href: move-region.md
+      href: ../../operational-excellence/relocation-key-vault.md?toc=/azure/key-vault/general/toc.json
 - name: Reference
   items:
   - name: What's new

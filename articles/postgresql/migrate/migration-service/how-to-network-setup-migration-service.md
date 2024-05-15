@@ -10,11 +10,27 @@ ms.service: postgresql
 ms.topic: how-to
 ---
 
-# Network guide for migration service in Azure Database for PostgreSQL Preview
+# Network guide for migration service in Azure Database for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
 
 This document outlines various scenarios for connecting a source database to an Azure Database for PostgreSQL using the migration service. Each scenario presents different networking requirements and configurations to establish a successful connection for migration. Specific details vary based on the actual network setup and requirements of the source and target environments.
+
+The below table summarizes the different scenarios for connecting a source database to an Azure Database for PostgreSQL using the migration service. It indicates whether each scenario is supported based on the configurations of the source and target environments.
+
+| PostgreSQL Source | Target | Supported |
+|------------------------|-------------------|------------------| 
+| On-premises with public IP | Azure Database for PostgreSQL - Flexible Server with public access | Yes |
+| On-premises with private IP via VPN/ExpressRoute | VNet-integrated Azure Database for PostgreSQL - Flexible Server | Yes |
+| AWS RDS for PostgreSQL with public IP | Azure Database for PostgreSQL - Flexible Server with public access | Yes |
+| AWS RDS for PostgreSQL with private access via VPN/ExpressRoute | VNet-integrated Azure Database for PostgreSQL - Flexible Server | Yes |
+| PostgreSQL installed Azure VM in same/different VNet | VNet-integrated Azure Database for PostgreSQL - Flexible Server in same/different VNet | Yes |
+| Azure Database for PostgreSQL - Single Server with public access | VNet-integrated Azure Database for PostgreSQL - Flexible Server | Yes |
+| Azure Database for PostgreSQL - Single Server with private endpoint | VNet-integrated Azure Database for PostgreSQL - Flexible Server | Yes |
+| Azure Database for PostgreSQL - Single Server with private endpoint | Azure Database for PostgreSQL - Flexible Server with private endpoint | Planned for future release |
+| On-premises/Azure VM/AWS with private access | Azure Database for PostgreSQL - Flexible Server with private endpoint | Planned for future release |
+| On-premises/Azure VM/AWS with private access | Azure Database for PostgreSQL - Flexible Server with public access | Planned for future release |
+
 
 ## Scenario 1: On-premises source to Azure Database for PostgreSQL with public access
 
@@ -77,6 +93,65 @@ When an Azure VM and Azure Database for PostgreSQL are within the same virtual n
 - Ensure that the VM and the PostgreSQL server are in the same virtual network.
 - Configure NSG rules to allow traffic within the virtual network on the PostgreSQL port.
 - No other firewall rules are needed for the Azure Database for PostgreSQL since the traffic is internal to the virtual network.
+
+## Scenario 6: Azure Database for PostgreSQL - Single server to VNet-Integrated Azure Database for PostgreSQL - Flexible server
+
+To facilitate connectivity between an Azure Database for PostgreSQL - Single Server with public access and a Vnet-Integrated Flexible Server, you need to configure the Single Server to allow connections from the subnet where the Flexible Server is deployed. Here's a brief outline of the steps to set up this connectivity:
+
+**Add VNet Rule to Single Server:**
+
+- Navigate to the Azure portal and open your PostgreSQL Single Server instance.
+- Go to the "Connection Security" settings.
+- Locate the "VNet rules" section and click on "Add existing virtual network".
+- This action allows you to specify which virtual network can connect to your Single Server.
+
+    :::image type="content" source="media\how-to-network-setup-migration-service\add-vnet-rule-single-server.png" alt-text="Screenshot of adding a vnet rule in single server." lightbox="media\how-to-network-setup-migration-service\add-vnet-rule-single-server.png":::
+
+**Configure Rule Settings:**
+
+- In the configuration panel that appears, enter a name for the new VNet rule.
+- Select the subscription where your Flexible Server is located.
+- Choose the virtual network (VNet) and the specific subnet associated with your Flexible Server.
+- Confirm the settings by clicking "OK".
+
+    :::image type="content" source="media\how-to-network-setup-migration-service\allow-flexible-server-subnet.png" alt-text="Screenshot of allowing the flexible server subnet." lightbox="media\how-to-network-setup-migration-service\allow-flexible-server-subnet.png":::
+
+After completing these steps, the Single Server will be configured to accept connections from the Flexible Server's subnet, enabling secure communication between the two servers.
+
+## Scenario 7: Azure Database for PostgreSQL - Single server with private endpoint to VNet-Integrated Azure Database for PostgreSQL - Flexible server
+
+To facilitate connectivity from an Azure Database for PostgreSQL Single Server with a private endpoint to a VNet-integrated Flexible Server, follow these steps:
+
+**Get private endpoint details:**
+
+- In the Azure portal, navigate to the Single Server instance and click on the private endpoint to view its VNet and subnet details.
+- Access the Networking blade of the Flexible Server to note its VNet and subnet information.
+
+     :::image type="content" source="media\how-to-network-setup-migration-service\private-endpoint-single-server.png" alt-text="Screenshot of private endpoint connection in single server." lightbox="media\how-to-network-setup-migration-service\allow-flexible-server-subnet.png":::
+
+    :::image type="content" source="media\how-to-network-setup-migration-service\vnet-details-single-server.png" alt-text="Screenshot showing vnet and subnet details of single server's private endpoint." lightbox="media\how-to-network-setup-migration-service\vnet-details-single-server.png":::
+
+**Assess VNet Peering Requirements**
+- If both are in different VNets, you need to enable VNet peering to establish connection from one VNet to another. If they are in the same VNet but in different subnets, peering isn't required. Make sure that there are no network security groups(NSG) blocking the traffic from flexible server to single server.
+
+**Private DNS Zone Configuration**
+- Go to the **Networking** blade on the flexible server and check if a private DNS zone is being used. If used, open this private DNS zone in portal. In the left pane, click on the **Virtual network links** and check if the Vnet of single server and flexible server is added to this list.
+
+    :::image type="content" source="media\how-to-network-setup-migration-service\private-dns-zone-vnet-link.png" alt-text="Screenshot vnet linked to a private DNS Zone." lightbox="media\how-to-network-setup-migration-service\private-dns-zone-vnet-link.png":::
+
+    If not, click on the **Add** button and create a link for the VNets of single and flexible server to this private DNS zone.
+
+- Go to the private endpoint on your single server and click on the **DNS configuration** blade. Check if a private DNS zone is attached with this end point. If not, attach a private DNS zone by clicking on the **Add Configuration** button.
+
+    :::image type="content" source="media\how-to-network-setup-migration-service\private-dns-zone-private-end-point.png" alt-text="Screenshot showing a private DNS Zone used in private end point." lightbox="media\how-to-network-setup-migration-service\private-dns-zone-private-end-point.png":::
+
+- Click on the Private DNS zone on your single server private end point and check if the Vnets of single server and flexible server are added to the Virtual network links. If not, follow the steps mentioned in the above step to add the links to the Vnets of single and flexible server to this private DNS zone.
+
+- The final check would be to go the private DNS zone of the private end point on your single server and check if there exists an **A record** for your single server that points a private IP address.
+
+    :::image type="content" source="media\how-to-network-setup-migration-service\private-dns-zone-arecord.png" alt-text="Screenshot showing a private IP address assigned to private end point." lightbox="media\how-to-network-setup-migration-service\private-dns-zone-arecord.png":::
+
+Completing these steps will enable the Azure Database for PostgreSQL - Flexible Server to connect to the Azure Database for PostgreSQL - Single Server
 
 ## Resources for Networking Setup
 

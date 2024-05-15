@@ -108,15 +108,14 @@
 
 - name: Logs and monitoring
   items:
-  - name: Monitor in Azure portal
+  - name: Monitor
+    href: monitor-cache.md
+  - name: Monitor Azure Cache for Redis
     href: cache-how-to-monitor.md
-  - name: Set alerts for exceptions
-    href: cache-how-to-monitor.md#create-alerts
+  - name: Use insights to understand performance and utilization
+    href: cache-insights-overview.md
   - name: Monitor with diagnostic logs
     href: cache-monitor-diagnostic-settings.md
-  - name: Use Insights to understand performance and utilization
-    href: cache-insights-overview.md
-
 - name: Scaling and performance
   items:
   - name: Change the size and tier of a cache
@@ -296,6 +295,8 @@
     href: ./policy-reference.md
   - name: Redis commands
     href: https://redis.io/commands#
+  - name: Monitoring data reference
+    href: monitor-cache-reference.md
 
 - name:  Resources
   items:

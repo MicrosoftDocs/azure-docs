@@ -59,14 +59,39 @@ To mitigate the impact of large inputs and outputs to APIs, you may choose to de
 
 That said the best practice for dealing with _large_ data is to keep it in external storage and to only materialize that data inside Activities, when needed. When taking this approach, instead of communicating the data itself as inputs and/or outputs of Durable Functions APIs, you can pass in some lightweight identifier that allows you to retrieve that data from external storage when needed in your Activities.
 
+### Keep Entity data small
+
+Just like for inputs and outputs to Durable Functions APIs, if an entity's explicit state is too large, you may run into memory issues. In particular, an Entity state needs to be serialized and de-serialized from storage on any request, so large states add serialization latency to each invocation. Therefore, if an Entity needs to track large data, it's recommended to offload the data to external storage and track some lightweight identifier in the entity that allows you to materialize the data from storage when needed.
+
+
 ### Fine tune your Durable Functions concurrency settings
 
 A single worker instance can execute multiple work items concurrently to increase efficiency. However, processing too many work items concurrently risks exhausting resources like CPU capacity, network connections, etc. In many cases, this shouldn’t be a concern because scaling and limiting work items are handled automatically for you. That said, if you’re experiencing performance issues (such as orchestrators taking too long to finish, are stuck in pending, etc.) or are doing performance testing, you could [configure concurrency limits](durable-functions-perf-and-scale.md#configuration-of-throttles) in the host.json file.
 
 > [!NOTE]
 > This is not a replacement for fine-tuning the performance and concurrency settings of your language runtime in Azure Functions. The Durable Functions concurrency settings only determine how much work can be assigned to a given VM at a time, but it does not determine the degree of parallelism in processing that work inside the VM. The latter requires fine-tuning the language runtime performance settings.
- 
- 
+
+### Use unique names for your external events
+
+As with activity functions, external events have an _at-least-once_ delivery guarantee. This means that, under certain _rare_ conditions (which may occur during restarts, scaling, crashes, etc.), your application may receive duplicates of the same external event. Therefore, we recommend that external events contain an ID that allows them to be manually de-duplicated in orchestrators.
+
+> [!NOTE]
+> The [MSSQL](./durable-functions-storage-providers.md#mssql) storage provider consumes external events and updates orchestrator state transactionally, so in that backend there should be no risk of duplicate events, unlike with the default [Azure Storage storage provider](./durable-functions-storage-providers.md). That said, it is still recommended that external events have unique names so that code is portable across backends.
+
+### Invest in stress testing
+
+As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.
+
+### Avoid sensitive data in inputs, outputs, and exceptions
+
+Inputs and outputs (including exceptions) to and from Durable Functions APIs are [durably persisted](./durable-functions-serialization-and-persistence.md) in your [storage provider of choice](./durable-functions-storage-providers.md). If those inputs, outputs, or exceptions contain sensitive data (such as secrets, connection strings, personally identifiable information, etc.) then anyone with read access to your storage provider's resources would be able to obtain them. To safely deal with sensitive data, it is recommended for users to fetch that data _within activity functions_ from either Azure Key Vault or environment variables, and to never communicate that data directly to orchestrators or entities. That should help prevent sensitive data from leaking into your storage resources.
+
+> [!NOTE]
+> This guidance also applies to the `CallHttp` orchestrator API, which also persists its request and response payloads in storage. If your target HTTP endpoints require authentication, which may be sensitive, it is recommended that users implement the HTTP Call themselves inside of an activity, or to use the [built-in managed identity support offered by `CallHttp`](./durable-functions-http-features.md#managed-identities), which does not persist any credentials to storage.
+
+> [!TIP]
+> Similarly, avoid logging data containing secrets as anyone with read access to your logs (for example in Application Insights), would be able to obtain those secrets.
+
 ## Diagnostic tools
 
 There are several tools available to help you diagnose problems.

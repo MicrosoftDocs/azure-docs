@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 12/20/2023
+ms.date: 04/22/2024
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -30,14 +30,14 @@ More information and configuration options are provided in the following section
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.19.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.5.2.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.4.19.jar` is located.
+If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.5.2.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -60,7 +60,7 @@ Or you can set the connection string by using the Java system property `applicat
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.4.19.jar` is located.
+If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.5.2.jar` is located.
 
 ```json
 {
@@ -72,7 +72,7 @@ The file should contain only the connection string and nothing else.
 
 Not setting the connection string disables the Java agent.
 
-If you have multiple applications deployed in the same JVM and want them to send telemetry to different connection strings, see [Connection string overrides (preview)](#connection-string-overrides-preview).
+If you have multiple applications deployed in the same Java Virtual Machine (JVM) and want them to send telemetry to different connection strings, see [Connection string overrides (preview)](#connection-string-overrides-preview).
 
 ## Cloud role name
 
@@ -173,9 +173,7 @@ You can also set the sampling percentage by using the environment variable `APPL
 > [!NOTE]
 > For the sampling percentage, choose a percentage that's close to 100/N, where N is an integer. Currently, sampling doesn't support other values.
 
-## Sampling overrides (preview)
-
-This feature is in preview, starting from 3.0.3.
+## Sampling overrides
 
 Sampling overrides allow you to override the [default sampling percentage](#sampling). For example, you can:
 
@@ -185,9 +183,9 @@ Sampling overrides allow you to override the [default sampling percentage](#samp
 
 For more information, see the [Sampling overrides](./java-standalone-sampling-overrides.md) documentation.
 
-## JMX metrics
+## Java Management Extensions metrics
 
-If you want to collect some other JMX metrics:
+If you want to collect some other Java Management Extensions (JMX) metrics:
 
 ```json
 {
@@ -209,12 +207,12 @@ If you want to collect some other JMX metrics:
 In the preceding configuration example:
 
 * `name` is the metric name that is assigned to this JMX metric (can be anything).
-* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect.  Wildcard character asterisk (*) is supported.
+* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect. Wildcard character asterisk (*) is supported.
 * `attribute` is the attribute name inside of the `JMX MBean` that you want to collect.
 
 Numeric and Boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false and `1` for true.
 
-See the [JMX metrics](./java-jmx-metrics-configuration.md) documentation for more details.
+For more information, see the [JMX metrics](./java-jmx-metrics-configuration.md) documentation.
 
 ## Custom dimensions
 
@@ -251,7 +249,7 @@ Starting with version 3.2.0, you can set a custom dimension programmatically on 
 }
 ```
 
-and then at the beginning of each request, call:
+And then at the beginning of each request, call:
 
 ```java
 Span.current().setAttribute("mycustomer", "xyz");
@@ -322,17 +320,17 @@ add this property to your json configuration:
 }
 ```
 
-and add `applicationinsights-core` to your application:
+Add `applicationinsights-core` to your application:
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>3.4.19</version>
+  <version>3.5.2</version>
 </dependency>
 ```
 
-and use the static `configure(String)` method in the class
+Use the static `configure(String)` method in the class
 `com.microsoft.applicationinsights.connectionstring.ConnectionString`.
 
 > [!NOTE]
@@ -387,7 +385,7 @@ It automatically modifies to return:
 </html>
 ```
 
-The script is aiming at helping customers to track the web user data, and sent the collecting server-side telemetry back to users' Azure portal. Details can be found at [ApplicationInsights-JS](https://github.com/microsoft/ApplicationInsights-JS)
+The script is aiming at helping customers to track the web user data, and sent the collecting server-side telemetry back to users' Azure portal. Details can be found at [ApplicationInsights-JS](https://github.com/microsoft/ApplicationInsights-JS).
 
 If you want to enable this feature, add the below configuration option:
 
@@ -415,6 +413,23 @@ For more information, see the [Telemetry processor](./java-standalone-telemetry-
 > [!NOTE]
 > If you want to drop specific (whole) spans for controlling ingestion cost, see [Sampling overrides](./java-standalone-sampling-overrides.md).
 
+## Custom instrumentation (preview)
+
+Starting from verion 3.3.1, you can capture spans for a method in your application:
+
+```json
+{
+  "preview": {
+    "customInstrumentation": [
+      {
+        "className": "my.package.MyClass",
+        "methodName": "myMethod"
+      }
+    ]
+  }
+}
+```
+
 ## Autocollected logging
 
 Log4j, Logback, JBoss Logging, and java.util.logging are autoinstrumented. Logging performed via these logging frameworks is autocollected.
@@ -424,8 +439,8 @@ Logging is only captured if it:
 * Meets the configured level for the logging framework.
 * Also meets the configured level for Application Insights.
 
-For example, if your logging framework is configured to log `WARN` (and aforementioned) from the package `com.example`,
-and Application Insights is configured to capture `INFO` (and aforementioned), Application Insights only captures `WARN` (and more severe) from the package `com.example`.
+For example, if your logging framework is configured to log `WARN` (and you configured it as described earlier) from the package `com.example`,
+and Application Insights is configured to capture `INFO` (and you configured as described), Application Insights only captures `WARN` (and more severe) from the package `com.example`.
 
 The default level configured for Application Insights is `INFO`. If you want to change this level:
 
@@ -515,7 +530,7 @@ Also, if your application uses [Spring Boot Actuator](https://docs.spring.io/spr
 
 To send custom metrics using micrometer:
 
-1. Add Micrometer to your application:
+1. Add Micrometer to your application as shown in the following example.
     
     ```xml
     <dependency>
@@ -525,13 +540,13 @@ To send custom metrics using micrometer:
     </dependency>
     ```
 
-1. Use the Micrometer [global registry](https://micrometer.io/?/docs/concepts#_global_registry) to create a meter:
+1. Use the Micrometer [global registry](https://micrometer.io/?/docs/concepts#_global_registry) to create a meter as shown in the following example.
 
     ```java
     static final Counter counter = Metrics.counter("test.counter");
     ```
 
-1. Use the counter to record metrics:
+1. Use the counter to record metrics by using the following command.
 
     ```java
     counter.increment();
@@ -560,9 +575,9 @@ To disable autocollection of Micrometer metrics and Spring Boot Actuator metrics
 }
 ```
 
-## JDBC query masking
+## Java Database Connectivity query masking
 
-Literal values in JDBC queries are masked by default to avoid accidentally capturing sensitive data.
+Literal values in Java Database Connectivity (JDBC) queries are masked by default to avoid accidentally capturing sensitive data.
 
 Starting from 3.4.0, this behavior can be disabled. For example:
 
@@ -676,6 +691,9 @@ Starting from version 3.0.3, specific autocollected telemetry can be suppressed 
     "kafka": {
       "enabled": false
     },
+    "logging": {
+      "enabled": false
+    },
     "micrometer": {
       "enabled": false
     },
@@ -705,6 +723,7 @@ You can also suppress these instrumentations by setting these environment variab
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
@@ -774,7 +793,7 @@ The setting applies to the following metrics:
 
 * **Default performance counters**: For example, CPU and memory
 * **Default custom metrics**: For example, garbage collection timing
-* **Configured JMX metrics**: [See the JMX metric section](#jmx-metrics)
+* **Configured JMX metrics**: [See the JMX metric section](#java-management-extensions-metrics)
 * **Micrometer metrics**: [See the Autocollected Micrometer metrics section](#autocollected-micrometer-metrics-including-spring-boot-actuator-metrics)
 
 ## Heartbeat
@@ -858,7 +877,7 @@ In the preceding configuration example:
 
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.19.jar` is located.
+`applicationinsights-agent-3.5.2.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.

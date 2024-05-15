@@ -3,12 +3,12 @@ title: Use the Language SDK and REST API
 titleSuffix: Azure AI services
 description: Learn about how to integrate the Language service SDK and REST API into your applications.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 # SDK and REST developer guide for the Language service
@@ -121,7 +121,7 @@ It additionally enables you to use the following features, without creating any 
 * [Conversation summarization](../summarization/quickstart.md?pivots=rest-api&tabs=conversation-summarization)
 * [Personally Identifiable Information (PII) detection for conversations](../personally-identifiable-information/how-to-call-for-conversations.md?tabs=rest-api#examples)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/2023-04-01/conversation-analysis-runtime) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language) for additional information.
 
 
 ### Text analysis authoring API

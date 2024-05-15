@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall Standard features
-description: Learn about Azure Firewall features
+description: Learn about Azure Firewall features.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -53,7 +53,7 @@ There's no extra cost for a firewall deployed in more than one Availability Zone
 
 As the firewall scales, it creates instances in the zones it's in. So, if the firewall is in Zone 1 only, new instances are created in Zone 1. If the firewall is in all three zones, then it creates instances across the three zones as it scales.
 
-Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md)
+Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md).
 
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
@@ -96,7 +96,7 @@ With DNS proxy enabled, Azure Firewall can process and forward DNS queries from 
 
 ## Custom DNS
 
-Custom DNS allows you to configure Azure Firewall to use your own DNS server, while ensuring the firewall outbound dependencies are still resolved with Azure DNS. You may configure a single DNS server or multiple servers in Azure Firewall and Firewall Policy DNS settings. Learn more about Custom DNS, see [Azure Firewall DNS settings](dns-settings.md).
+Custom DNS allows you to configure Azure Firewall to use your own DNS server, while ensuring the firewall outbound dependencies are still resolved with Azure DNS. You can configure a single DNS server or multiple servers in Azure Firewall and Firewall Policy DNS settings. Learn more about Custom DNS, see [Azure Firewall DNS settings](dns-settings.md).
 
 Azure Firewall can also resolve names using Azure Private DNS. The virtual network where the Azure Firewall resides must be linked to the Azure Private Zone. To learn more, see [Using Azure Firewall as DNS Forwarder with Private Link](https://github.com/adstuart/azure-privatelink-dns-azurefirewall).
 
@@ -110,7 +110,7 @@ The specified FQDNs in your rule collections are translated to IP addresses base
 
 The Azure Firewall service requires a public IP address for operational purposes. While secure, some deployments prefer not to expose a public IP address directly to the Internet. 
 
-In such cases, you can deploy Azure Firewall in Forced Tunnel mode. This configuration creates a management NIC that is used by Azure Firewall for its operations. The Tenant Datapath network can be configured without a public IP address, and Internet traffic can be forced tunneled to another firewall or completely blocked.
+In such cases, you can deploy Azure Firewall in Forced Tunnel mode. This configuration creates a management NIC that is used by Azure Firewall for its operations. The Tenant Datapath network can be configured without a public IP address, and Internet traffic can be forced tunneled to another firewall or blocked.
 
 Forced Tunnel mode can't be configured at run time. You can either redeploy the Firewall or use the stop and start facility to reconfigure an existing Azure Firewall in Forced Tunnel mode. Firewalls deployed in Secure Hubs are always deployed in Forced Tunnel mode.
 
@@ -121,6 +121,8 @@ All outbound virtual network traffic IP addresses are translated to the Azure Fi
 If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
 You can monitor SNAT port utilization in Azure Firewall metrics. Learn more and see our recommendation on SNAT port utilization in our [firewall logs and metrics documentation](logs-and-metrics.md#metrics).
+
+For more detailed information about Azure Firewall NAT behaviors, see [Azure Firewall NAT Behaviors](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834).
 
 ## Inbound DNAT support
 
@@ -148,7 +150,7 @@ Azure Firewall Workbook provides a flexible canvas for Azure Firewall data analy
 
 ## Forced tunneling
 
-You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
+You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you can have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
 ## Web categories
 

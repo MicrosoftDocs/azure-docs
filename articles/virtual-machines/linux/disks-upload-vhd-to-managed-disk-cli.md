@@ -7,7 +7,7 @@ ms.author: rogarana
 ms.date: 10/17/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure CLI

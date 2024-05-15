@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service content filtering
 titleSuffix: Azure OpenAI
-description: Learn about the content filtering capabilities of Azure OpenAI in Azure AI services
+description: Learn about the content filtering capabilities of Azure OpenAI in Azure AI services.
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
@@ -14,13 +14,13 @@ manager: nitinme
 # Content filtering
 
 > [!IMPORTANT]
-> The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](models.md#whisper-preview).
+> The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](models.md#whisper).
 
 Azure OpenAI Service includes a content filtering system that works alongside core models. This system works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design might affect completions and thus filtering behavior.
 
 The content filtering models for the hate, sexual, violence, and self-harm categories have been specifically trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
-In addition to the content filtering system, the Azure OpenAI Service performs monitoring to detect content and/or behaviors that suggest use of the service in a manner that might violate applicable product terms. For more information about understanding and mitigating risks associated with your application, see the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?tabs=text). For more information about how data is processed in connection with content filtering and abuse monitoring, see [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context#preventing-abuse-and-harmful-content-generation).  
+In addition to the content filtering system, the Azure OpenAI Service performs monitoring to detect content and/or behaviors that suggest use of the service in a manner that might violate applicable product terms. For more information about understanding and mitigating risks associated with your application, see the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?tabs=text). For more information about how data is processed for content filtering and abuse monitoring, see [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context#preventing-abuse-and-harmful-content-generation).  
 
 The following sections provide information about the content filtering categories, the filtering severity levels and their configurability, and API scenarios to be considered in application design and implementation. 
 
@@ -28,21 +28,29 @@ The following sections provide information about the content filtering categorie
 
 The content filtering system integrated in the Azure OpenAI Service contains: 
 * Neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
-* Additional optional classification models aimed at detecting jailbreak risk and known content for text and code; these models are binary classifiers that flag whether user or model behavior qualifies as a jailbreak attack or match to known text or source code. The use of these models is optional, but use of protected material code model may be required for Customer Copyright Commitment coverage.
+* Other optional classification models aimed at detecting jailbreak risk and known content for text and code; these models are binary classifiers that flag whether user or model behavior qualifies as a jailbreak attack or match to known text or source code. The use of these models is optional, but use of protected material code model may be required for Customer Copyright Commitment coverage.
 
-## Harm categories
+## Risk categories
 
 |Category|Description|
 |--------|-----------|
-| Hate and fairness   |Hate and fairness-related harms refer to any content that attacks or uses pejorative or discriminatory language with reference to a person or Identity groups on the basis of certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity groups and expression, sexual orientation, religion, immigration status, ability status, personal appearance and body size. </br></br> Fairness is concerned with ensuring that AI systems treat all groups of people equitably without contributing to existing societal inequities. Similar to hate speech, fairness-related harms hinge upon disparate treatment of Identity groups.    |
-| Sexual | Sexual describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, pregnancy, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one’s will, prostitution, pornography and abuse.   |
+| Hate and fairness   |Hate and fairness-related harms refer to any content that attacks or uses pejorative or discriminatory language with reference to a person or Identity groups on the basis of certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity groups and expression, sexual orientation, religion, immigration status, ability status, personal appearance, and body size. </br></br> Fairness is concerned with ensuring that AI systems treat all groups of people equitably without contributing to existing societal inequities. Similar to hate speech, fairness-related harms hinge upon disparate treatment of Identity groups.    |
+| Sexual | Sexual describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, pregnancy, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one’s will, prostitution, pornography, and abuse.   |
 | Violence | Violence describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, guns and related entities, such as manufactures, associations, legislation, etc.    |
 | Self-Harm | Self-harm describes language related to physical actions intended to purposely hurt, injure, damage one’s body or kill oneself.|
-| Jailbreak risk | Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. Such attacks can vary from intricate role play to subtle subversion of the safety objective. |
 | Protected Material for Text<sup>*</sup> | Protected material text describes known text content (for example, song lyrics, articles, recipes, and selected web content) that can be outputted by large language models.
 | Protected Material for Code | Protected material code describes source code that matches a set of source code from public repositories, which can be outputted by large language models without proper citation of source repositories.
 
 <sup>*</sup> If you are an owner of text material and want to submit text content for protection, please [file a request](https://aka.ms/protectedmaterialsform).
+
+## Prompt Shields
+
+|Type| Description|
+|--|--|
+|Prompt Shield for Jailbreak Attacks |Jailbreak Attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. Such attacks can vary from intricate roleplay to subtle subversion of the safety objective. |
+|Prompt Shield for Indirect Attacks |Indirect Attacks, also referred to as Indirect Prompt Attacks or Cross-Domain Prompt Injection Attacks, are a potential vulnerability where third parties place malicious instructions inside of documents that the Generative AI system can access and process. Requires [document embedding and formatting](#embedding-documents-in-your-prompt). |
+
+
 
 [!INCLUDE [text severity-levels, four-level](../../content-safety/includes/severity-levels-text-four.md)]
 
@@ -55,7 +63,7 @@ The default content filtering configuration is set to filter at the medium sever
 
 | Severity filtered | Configurable for prompts | Configurable for completions | Descriptions |
 |-------------------|--------------------------|------------------------------|--------------|
-| Low, medium, high | Yes | Yes | Strictest filtering configuration. Content detected at severity levels low, medium and high is filtered.|
+| Low, medium, high | Yes | Yes | Strictest filtering configuration. Content detected at severity levels low, medium, and high is filtered.|
 | Medium, high      | Yes | Yes | Default setting. Content detected at severity level low isn't filtered, content at medium and high is filtered.|
 | High              | Yes| Yes | Content detected at severity levels low and medium isn't filtered. Only content at severity level high is filtered.|
 | No filters | If approved<sup>\*</sup>| If approved<sup>\*</sup>| No content is filtered regardless of severity level detected. Requires approval<sup>\*</sup>.|
@@ -68,7 +76,7 @@ Content filtering configurations are created within a Resource in Azure AI Studi
 
 ## Scenario details
 
-When the content filtering system detects harmful content, you'll receive either an error on the API call if the prompt was deemed inappropriate or the `finish_reason` on the response will be `content_filter` to signify that some of the completion was filtered. When building your application or system, you'll want to account for these scenarios where the content returned by the Completions API is filtered, which might result in content that is incomplete. How you act on this information will be application specific. The behavior can be summarized in the following points:
+When the content filtering system detects harmful content, you receive either an error on the API call if the prompt was deemed inappropriate, or the `finish_reason` on the response will be `content_filter` to signify that some of the completion was filtered. When building your application or system, you'll want to account for these scenarios where the content returned by the Completions API is filtered, which might result in content that is incomplete. How you act on this information will be application specific. The behavior can be summarized in the following points:
 
 -	Prompts that are classified at a filtered category and severity level will return an HTTP 400 error.
 -	Non-streaming completions calls won't return any content when the content is filtered. The `finish_reason` value will be set to content_filter. In rare cases with longer responses, a partial result can be returned. In these cases, the `finish_reason` will be updated.
@@ -181,8 +189,8 @@ The table below outlines the various ways content filtering can appear:
 
 ### Scenario: You make a streaming completions call; no output content is classified at a filtered category and severity level
 
-**HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
+|**HTTP Response Code** | **Response behavior**|
+|------------|------------------------|
 |200|In this case, the call will stream back with the full generation and `finish_reason` will be either 'length' or 'stop' for each generated response.|
 
 **Example request payload:**
@@ -216,8 +224,8 @@ The table below outlines the various ways content filtering can appear:
 
 ### Scenario: You make a streaming completions call asking for multiple completions and at least a portion of the output content is filtered
 
-**HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
+|**HTTP Response Code** | **Response behavior**|
+|------------|------------------------|
 | 200 | For a given generation index, the last chunk of the generation includes a non-null `finish_reason` value. The value is `content_filter` when the generation was filtered.|
 
 **Example request payload:**
@@ -290,10 +298,11 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-## Annotations (preview)
+## Annotations
 
-### Main content filters
-When annotations are enabled as shown in the code snippet below, the following information is returned via the API for the main categories (hate and fairness, sexual, violence, and self-harm): 
+### Content filters
+
+When annotations are enabled as shown in the code snippet below, the following information is returned via the API for the categories hate and fairness, sexual, violence, and self-harm:
 - content filtering category (hate, sexual, violence, self_harm)
 - the severity level (safe, low, medium or high) within each content category
 - filtering status (true or false).
@@ -302,39 +311,54 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Optional models can be enabled in annotate (returns information when content was flagged, but not filtered) or filter mode (returns information when content was flagged and filtered).  
 
-When annotations are enabled as shown in the code snippet below, the following information is returned by the API for optional models jailbreak risk, protected material text and protected material code:
-- category (jailbreak, protected_material_text, protected_material_code),
-- detected (true or false),
-- filtered (true or false).
+When annotations are enabled as shown in the code snippets below, the following information is returned by the API for optional models:
 
-For the protected material code model, the following additional information is returned by the API:
-- an example citation of a public GitHub repository where a code snippet was found
-- the license of the repository.
+|Model| Output|
+|--|--|
+|jailbreak|detected (true or false), </br>filtered (true or false)|
+|indirect attacks|detected (true or false), </br>filtered (true or false)|
+|protected material text|detected (true or false), </br>filtered (true or false)|
+|protected material code|detected (true or false), </br>filtered (true or false), </br>Example citation of public GitHub repository where code snippet was found, </br>The license of the repository|
 
 When displaying code in your application, we strongly recommend that the application also displays the example citation from the annotations. Compliance with the cited license may also be required for Customer Copyright Commitment coverage.
 
-Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
+See the following table for the annotation availability in each API version:
 
-# [OpenAI Python 0.28.1](#tab/python)
+|Category |2024-02-01 GA| 2024-04-01-preview | 2023-10-01-preview | 2023-06-01-preview| 
+|--|--|--|--|
+| Hate | ✅ |✅ |✅ |✅ |
+| Violence | ✅ |✅ |✅ |✅ |
+| Sexual |✅ |✅ |✅ |✅ |
+| Self-harm |✅ |✅ |✅ |✅ |
+| Prompt Shield for jailbreak attacks|✅ |✅ |✅ |✅ |
+|Prompt Shield for indirect attacks|  | ✅ | | |
+|Protected material text|✅ |✅ |✅ |✅ |
+|Protected material code|✅ |✅ |✅ |✅ |
+|Profanity blocklist|✅ |✅ |✅ |✅ |
+|Custom blocklist| | ✅ |✅ |✅ |
+
+
+# [OpenAI Python 1.x](#tab/python-new)
 
 ```python
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
 
 import os
-import openai
-openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+from openai import AzureOpenAI
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-03-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") 
+    )
 
-response = openai.Completion.create(
-    engine="gpt-35-turbo", # engine = "deployment_name".
-    messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "Example prompt that leads to a protected code completion that was detected, but not filtered"}]     # Content that is detected at severity level medium or high is filtered, 
+response = client.completions.create(
+    model="gpt-35-turbo-instruct", # model = "deployment_name".
+    prompt="{Example prompt where a severity level of low is detected}" 
+    # Content that is detected at severity level medium or high is filtered, 
     # while content detected at severity level low isn't filtered by the content filters.
 )
 
-print(response)
-
+print(response.model_dump_json(indent=2))
 ```
 
 ### Output
@@ -344,7 +368,6 @@ print(response)
   "choices": [ 
     { 
       "content_filter_results": { 
-        "custom_blocklists": [], 
         "hate": { 
           "filtered": false, 
           "severity": "safe" 
@@ -384,12 +407,16 @@ print(response)
   ], 
   "created": 1699386280, 
   "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
-  "model": "gpt-35-turbo", 
-  "object": "chat.completion", 
+  "model": "gpt-35-turbo-instruct", 
+  "object": "text.completion",
+  "usage": { 
+    "completion_tokens": 40, 
+    "prompt_tokens": 11, 
+    "total_tokens": 417 
+  },  
   "prompt_filter_results": [ 
     { 
       "content_filter_results": { 
-        "custom_blocklists": [], 
         "hate": { 
           "filtered": false, 
           "severity": "safe" 
@@ -417,12 +444,118 @@ print(response)
       }, 
       "prompt_index": 0 
     } 
+  ]
+} 
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```python
+# os.getenv() for the endpoint and key assumes that you are using environment variables.
+
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_version = "2024-03-01-preview" # API version required to use Annotations
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+
+response = openai.Completion.create(
+    engine="gpt-35-turbo-instruct", # engine = "deployment_name".
+    messages=[{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "Example prompt that leads to a protected code completion that was detected, but not filtered"}]     # Content that is detected at severity level medium or high is filtered, 
+    # while content detected at severity level low isn't filtered by the content filters.
+)
+
+print(response)
+
+```
+
+### Output
+
+```json
+{ 
+  "choices": [ 
+    { 
+      "content_filter_results": { 
+        "hate": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "protected_material_code": { 
+          "citation": { 
+            "URL": " https://github.com/username/repository-name/path/to/file-example.txt", 
+            "license": "EXAMPLE-LICENSE" 
+          }, 
+          "detected": true,
+          "filtered": false 
+        }, 
+        "protected_material_text": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "self_harm": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "sexual": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "violence": { 
+          "filtered": false, 
+          "severity": "safe" 
+        } 
+      }, 
+      "finish_reason": "stop", 
+      "index": 0, 
+      "message": { 
+        "content": "Example model response will be returned ", 
+        "role": "assistant" 
+      } 
+    } 
   ], 
+  "created": 1699386280, 
+  "id": "chatcmpl-8IMI4HzcmcK6I77vpOJCPt0Vcf8zJ", 
+  "model": "gpt-35-turbo-instruct", 
+  "object": "text.completion",
   "usage": { 
     "completion_tokens": 40, 
     "prompt_tokens": 11, 
     "total_tokens": 417 
-  } 
+  },  
+  "prompt_filter_results": [ 
+    { 
+      "content_filter_results": { 
+        "hate": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "jailbreak": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "profanity": { 
+          "detected": false, 
+          "filtered": false 
+        }, 
+        "self_harm": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "sexual": { 
+          "filtered": false, 
+          "severity": "safe" 
+        }, 
+        "violence": { 
+          "filtered": false, 
+          "severity": "safe" 
+        } 
+      }, 
+      "prompt_index": 0 
+    } 
+  ]
 } 
 ```
 
@@ -435,8 +568,8 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_version = "2023-06-01-preview" # API version required to test out Annotations preview
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_version = "2024-03-01-preview" # API version required to use  Annotations
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 try:
     response = openai.Completion.create(
@@ -455,29 +588,6 @@ except openai.error.InvalidRequestError as e:
         for category, details in content_filter_result.items():
             print(f"{category}:\n filtered={details['filtered']}\n severity={details['severity']}")
 
-```
-
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-# os.getenv() for the endpoint and key assumes that you are using environment variables.
-
-import os
-from openai import AzureOpenAI
-client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2023-10-01-preview",
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT") 
-    )
-
-response = client.completions.create(
-    model="gpt-35-turbo-instruct", # model = "deployment_name".
-    prompt="{Example prompt where a severity level of low is detected}" 
-    # Content that is detected at severity level medium or high is filtered, 
-    # while content detected at severity level low isn't filtered by the content filters.
-)
-
-print(response.model_dump_json(indent=2))
 ```
 
 # [JavaScript](#tab/javascrit)
@@ -550,9 +660,9 @@ main().catch((err) => {
 ```powershell-interactive
 # Env: for the endpoint and key assumes that you are using environment variables.
 $openai = @{
-    api_key     = $Env:AZURE_OPENAI_KEY
+    api_key     = $Env:AZURE_OPENAI_API_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-    api_version = '2023-10-01-preview' # this may change in the future
+    api_version = '2024-03-01-preview' # this may change in the future
     name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
 }
 
@@ -589,7 +699,7 @@ violence  : @{filtered=False; severity=safe}
 
 ---
 
-For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using `2023-06-01-preview`.
+For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using any preview API version starting from `2023-06-01-preview`, as well as the GA API version `2024-02-01`.
 
 ### Example scenario: An input prompt containing content that is classified at a filtered category and severity level is sent to the completions API
 
@@ -626,6 +736,81 @@ For details on the inference REST API endpoints for Azure OpenAI and how to crea
         }
     }
 }
+```
+
+## Document embedding in prompts
+
+A key aspect of Azure OpenAI's Responsible AI measures is the content safety system. This system runs alongside the core GPT model to monitor any irregularities in the model input and output. Its performance is improved when it can differentiate between various elements of your prompt like system input, user input, and AI assistant's output. 
+ 
+For enhanced detection capabilities, prompts should be formatted according to the following recommended methods.
+
+### Chat Completions API
+
+The Chat Completion API is structured by definition. It consists of a list of messages, each with an assigned role. 
+
+The safety system will parse this structured format and apply the following behavior: 
+- On the latest “user” content, the following categories of RAI Risks will be detected: 
+    - Hate 
+    - Sexual 
+    - Violence 
+    - Self-Harm 
+    - Jailbreak (optional) 
+
+This is an example message array: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model."}, 
+{"role": "user", "content": "Example question goes here."}, 
+{"role": "assistant", "content": "Example answer goes here."}, 
+{"role": "user", "content": "First question/message for the model to actually respond to."} 
+```
+
+### Embedding documents in your prompt  
+
+In addition to detection on last user content, Azure OpenAI also supports the detection of specific risks inside context documents via Prompt Shields – Indirect Prompt Attack Detection. You should identify parts of the input that are a document (e.g. retrieved website, email, etc.) with the following document delimiter.  
+
+```
+<documents> 
+*insert your document content here* 
+</documents>
+```
+
+When you do so, the following options are available for detection on tagged documents: 
+- On each tagged “document” content, detect the following categories: 
+    - Indirect attacks (optional) 
+
+Here is an example chat completion messages array: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model, including document context. \"\"\" <documents>\n*insert your document content here*\n<\\documents> \"\"\""}, 
+
+{"role": "user", "content": "First question/message for the model to actually respond to."} 
+```
+
+#### JSON escaping 
+
+When you tag unvetted documents for detection, the document content should be JSON-escaped to ensure successful parsing by the Azure OpenAI safety system. 
+
+For example, see the following email body: 
+
+```
+Hello Josè, 
+
+I hope this email finds you well today.
+```
+
+With JSON escaping, it would read: 
+
+```
+Hello Jos\u00E9,\nI hope this email finds you well today. 
+```
+
+The escaped text in a chat completion context would read: 
+
+```json
+{"role": "system", "content": "Provide some context and/or instructions to the model, including document context. \"\"\" <documents>\n Hello Jos\\u00E9,\\nI hope this email finds you well today. \n<\\documents> \"\"\""}, 
+
+{"role": "user", "content": "First question/message for the model to actually respond to."}
 ```
 
 ## Content streaming
@@ -797,7 +982,7 @@ data: [DONE]
 ```
 
 > [!IMPORTANT]
-> When content filtering is triggered for a prompt and a `"status": 400` is received as part of the response there may be a charge for this request as the prompt was evaluated by the service. [Charges will also occur](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) when a `"status":200` is received with `"finish_reason": "content_filter"`. In this case the prompt did not have any issues, but the completion generated by the model was detected to violate the content filtering rules which results in the completion being filtered.
+> When content filtering is triggered for a prompt and a `"status": 400` is received as part of the response there will be a charge for this request as the prompt was evaluated by the service. [Charges will also occur](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) when a `"status":200` is received with `"finish_reason": "content_filter"`. In this case the prompt did not have any issues, but the completion generated by the model was detected to violate the content filtering rules which results in the completion being filtered.
 
 ## Best practices
 

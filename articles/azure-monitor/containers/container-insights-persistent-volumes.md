@@ -2,7 +2,7 @@
 title: Configure PV monitoring with Container insights | Microsoft Docs
 description: This article describes how you can configure monitoring Kubernetes clusters with persistent volumes with Container insights.
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 2/28/2024
 ms.reviewer: aul
 ---
 
@@ -46,6 +46,11 @@ You can find an overview of persistent volume inventory in the **Persistent Volu
 
 ### Persistent Volume Usage recommended alert
 You can enable a recommended alert to alert you when average PV usage for a pod is above 80%. To learn more about alerting, see [Metric alert rules in Container insights (preview)](./container-insights-metric-alerts.md). To learn how to override the default threshold, see the [Configure alertable metrics in ConfigMaps](./container-insights-metric-alerts.md#configure-alertable-metrics-in-configmaps) section.
+
+## Limitations
+Persistent volumes where storage class is "azureblob-*" won't collect PV metrics due to a limitation in CAdvisor. The following command will show persistent volumes and their properties (including storage class). 
+ 
+```kubectl get pvc```
 
 ## Next steps
 

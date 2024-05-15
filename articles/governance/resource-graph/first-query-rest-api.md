@@ -153,8 +153,7 @@ For more examples of REST API calls for Azure Resource Graph, see the
 
 ## Clean up resources
 
-REST API has no libraries or modules to uninstall. If you installed a tool such as _ARMClient_ or
-_Postman_ to make the calls and no longer need it, you may uninstall the tool now.
+REST API has no libraries or modules to uninstall. If you installed a tool like _ARMClient_ to make the calls and no longer need it, you may uninstall the tool now.
 
 ## Next steps
 

@@ -5,8 +5,9 @@ author: mbender-ms
 ms.service: load-balancer
 ms.author: mbender
 ms.topic: overview
-ms.date: 04/11/2023
+ms.date: 03/12/2024
 ms.custom: template-overview, engagement-fy23
+ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # What is Basic Azure Load Balancer?

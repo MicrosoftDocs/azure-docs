@@ -12,7 +12,7 @@ ms.date: 09/26/2023
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
 
-Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
+Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
 This tutorial helps you use NSG flow logs to log a virtual machine's network traffic that flows through the [network security group](../virtual-network/network-security-groups-overview.md) associated to its network interface.
 
@@ -285,7 +285,7 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 
 ## Related content
 
-- To learn more about NSG flow logs, see [Flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md).
-- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logging.md).
+- To learn more about NSG flow logs, see [Flow logging for network security groups](nsg-flow-logs-overview.md).
+- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logs-portal.md).
 - To learn about Traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
 
