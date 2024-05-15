@@ -38,6 +38,24 @@ groups:
     title: Single Server
   - id: postgres-flexible-server
     title: Flexible Server
+# Owner: ialonso
+- id: postgresql-server-version
+  title: PostgreSQL Server Versions
+  prompt: Choose a PostgreSQL version
+  pivots:
+  - id: postgresql-16
+    title: PostgreSQL 16
+  - id: postgresql-15
+    title: PostgreSQL 15
+  - id: postgresql-14
+    title: PostgreSQL 14
+  - id: postgresql-13
+    title: PostgreSQL 13
+  - id: postgresql-12
+    title: PostgreSQL 12
+  - id: postgresql-11
+    title: PostgreSQL 11
+# Owner: kraigb
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages
