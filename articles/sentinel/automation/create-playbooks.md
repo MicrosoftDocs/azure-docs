@@ -68,7 +68,7 @@ Select one of the following tabs for details about how to create a logic app for
 
 The **Create playbook** wizard appears after selecting the trigger you want to use, including an incident, alert, or entity trigger. For example:
 
-:::image type="content" source="../media/tutorial-respond-threats-playbook/create-playbook-basics.png" alt-text="Create a logic app":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/create-playbook-basics.png" alt-text="Screenshot of Create a logic app.":::
 
 Do the following to create your playbook:
 
@@ -104,7 +104,7 @@ Since playbooks based on the Standard workflow don't support playbook templates,
 
 After selecting the **Blank playbook** option, a new browser tab opens with the **Create Logic App** wizard. For example:
 
-:::image type="content" source="../media/tutorial-respond-threats-playbook/create-logic-app-basics.png" alt-text="Create a Standard logic app.":::
+:::image type="content" source="../media/tutorial-respond-threats-playbook/create-logic-app-basics.png" alt-text="Screenshot of Create a Standard logic app.":::
 
 #### Create a logic app
 
@@ -167,7 +167,7 @@ After selecting the **Blank playbook** option, a new browser tab opens with the 
 
     For example:
 
-    :::image type="content" source="../media/tutorial-respond-threats-playbook/sentinel-triggers.png" alt-text="Choose a trigger for your playbook":::
+    :::image type="content" source="../media/tutorial-respond-threats-playbook/sentinel-triggers.png" alt-text="Screenshot of how to choose a trigger for your playbook.":::
 
 1. If you choose the **Microsoft Sentinel entity** trigger, select the type of entity you want this playbook to receive as an input. For example:
 

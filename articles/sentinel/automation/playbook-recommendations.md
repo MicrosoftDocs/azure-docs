@@ -18,7 +18,7 @@ This article lists sample use cases for Microsoft Sentinel playbooks, as well as
 
 ## Recommended playbook use cases
 
-We recommend starting with Microsoft Sentinel playbooks for the following SOC scenarios, for which we provide ready-made [playbook tempaltes](../use-playbook-templates.md) out-of-the-box.
+We recommend starting with Microsoft Sentinel playbooks for the following SOC scenarios, for which we provide ready-made [playbook templates](../use-playbook-templates.md) out-of-the-box.
 
 ### Enrichment: Collect and attach data to an incident to make smarter decisions
 
@@ -75,7 +75,7 @@ This section provides two examples, responding to threats of a compromised user 
     > [!NOTE]
     > This particular Microsoft Entra action does not initiate any enforcement activity on the user, nor does it initiate any configuration of enforcement policy. It only tells Microsoft Entra ID Protection to apply any already defined policies as appropriate. Any enforcement depends entirely on the appropriate policies being defined in Microsoft Entra ID Protection.
 
-**In case of a comporimised machine**, such as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
+**In case of a compromised machine**, such as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
 
 1. Start your playbook when a [new Microsoft Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
@@ -83,7 +83,7 @@ This section provides two examples, responding to threats of a compromised user 
 
 1. Configure your playbook to issue a command to Microsoft Defender for Endpoint to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
 
-### Respond manually duing an investigation or while hunting without leaving context
+### Respond manually during an investigation or while hunting without leaving context
 
 Use the entity trigger to take immediate action on individual threat actors you discover during an investigation, one at a time, right from within your investigation. This option is also available in the threat hunting context, unconnected to any particular incident. 
 
@@ -144,11 +144,11 @@ This section provides sample screenshots of how you might use a playbook to upda
 
 **Update an incident based on a new incident** (incident trigger):
 
-![Screenshot of an incident trigger simple update flow example](../media/playbook-triggers-actions/incident-simple-flow.png)
+![Screenshot of an incident trigger simple update flow example.](../media/playbook-triggers-actions/incident-simple-flow.png)
 
 **Update an incident based on a new alert** (alert trigger):
 
-![Screenshot of an alert trigger simple update incident flow example](../media/playbook-triggers-actions/alert-update-flow.png)
+![Screenshot of an alert trigger simple update incident flow example.](../media/playbook-triggers-actions/alert-update-flow.png)
 
 ### Use incident details in your flow
 
@@ -156,11 +156,11 @@ This section provides sample screenshots of how you might use your playbook to u
 
 **Send incident details by mail, using a playbook triggered by a new incident**: 
 
-![Screenshot of an incident trigger simple get flow example](../media/playbook-triggers-actions/incident-simple-mail-flow.png)
+![Screenshot of an incident trigger simple get flow example.](../media/playbook-triggers-actions/incident-simple-mail-flow.png)
 
 **Send incident details by mail, using a playbook triggered by a new alert**:
 
-![Screenshot of an alert trigger simple get incident flow example](../media/playbook-triggers-actions/alert-simple-mail-flow.png)
+![Screenshot of an alert trigger simple get incident flow example.](../media/playbook-triggers-actions/alert-simple-mail-flow.png)
 
 ### Add a comment to an incident
 
@@ -168,11 +168,11 @@ This section provides sample screenshots of how you might use your playbook to a
 
 **Add a comment to an incident, using a playbook triggered by a new incident**:
 
-![Screenshot of an incident trigger simple add comment example](../media/playbook-triggers-actions/incident-comment.png)
+![Screenshot of an incident trigger simple add comment example.](../media/playbook-triggers-actions/incident-comment.png)
 
 **Add a comment to an incident, using a playbook triggered by a new alert**:
 
-![Screenshot of an alert trigger simple add comment example"](../media/playbook-triggers-actions/alert-comment.png)
+![Screenshot of an alert trigger simple add comment example.](../media/playbook-triggers-actions/alert-comment.png)
 
 ### Disable a user
 

@@ -99,7 +99,7 @@ Currently supported entity types include:
 
 The following image shows an example of available actions for entities:
 
-:::image type="content" source="../media/playbook-triggers-actions/entities-actions.png" alt-text="Screenshot of an entities actions list":::
+:::image type="content" source="../media/playbook-triggers-actions/entities-actions.png" alt-text="Screenshot of an entities actions list.":::
 
 For other entity types, similar functionality can be achieved using Logic Apps' built-in actions:
 

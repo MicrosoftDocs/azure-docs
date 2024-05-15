@@ -84,17 +84,17 @@ Authenticating as a managed identity allows you to give permissions directly to 
 
     1. In the Logic Apps designer, add a Microsoft Sentinel Logic Apps connector step. If the connector is already enabled for an existing connection, select the **Change connection** link. For example:
 
-        ![Screenshot of the Change connection link](../media/authenticate-playbooks-to-sentinel/change-connection.png)
+        ![Screenshot of the Change connection link.](../media/authenticate-playbooks-to-sentinel/change-connection.png)
 
     1. In the resulting list of connections, select **Add new**.
 
     1. Create a new connection by selecting **Connect with managed identity (preview)**. For example:
 
-        ![Screenshot of the Connect with managed identity option](../media/authenticate-playbooks-to-sentinel/auth-methods-msi-choice.png)
+        ![Screenshot of the Connect with managed identity option.](../media/authenticate-playbooks-to-sentinel/auth-methods-msi-choice.png)
 
     1. Enter a name for this connection, select **System-assigned managed identity**, and then select **Create**.
 
-        ![Screenshot of the Connect with managed identity link](../media/authenticate-playbooks-to-sentinel/auth-methods-msi.png)
+        ![Screenshot of the Connect with managed identity link.](../media/authenticate-playbooks-to-sentinel/auth-methods-msi.png)
 
     1. Select **Create** to finish creating your connection.
 
@@ -132,7 +132,7 @@ Create a service principal by registering a Microsoft Entra application. We reco
 
     1. If the connector is already enabled for an existing connection, select the **Change connection** link. For example:
 
-        ![Screenshot of the Change connection link](../media/authenticate-playbooks-to-sentinel/change-connection.png)
+        ![Screenshot of the Change connection link.](../media/authenticate-playbooks-to-sentinel/change-connection.png)
 
     1. In the resulting list of connections, select **Add new**, and then select **Connect with Service Principal**. For example:
 
@@ -146,7 +146,7 @@ Create a service principal by registering a Microsoft Entra application. We reco
 
         For example:
 
-        ![Screenshot of the Connect with service principal parameters](../media/authenticate-playbooks-to-sentinel/auth-methods-spn.png)
+        ![Screenshot of the Connect with service principal parameters.](../media/authenticate-playbooks-to-sentinel/auth-methods-spn.png)
 
     1. Select **Create** to finish creating your connection.
 
@@ -156,7 +156,7 @@ To make a connection as a Microsoft Entra user:
 
 1. In the Logic Apps designer, add a Microsoft Sentinel Logic Apps connector step. If the connector is already enabled for an existing connection, select the **Change connection** link. For example:
 
-    ![Screenshot of the Change connection link](../media/authenticate-playbooks-to-sentinel/change-connection.png)
+    ![Screenshot of the Change connection link.](../media/authenticate-playbooks-to-sentinel/change-connection.png)
 
 1. In the resulting list of connections, select **Add new**, and then select **Sign in**.
 

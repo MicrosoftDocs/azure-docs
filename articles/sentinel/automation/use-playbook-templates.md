@@ -67,12 +67,12 @@ To find a playbook template that fits your requirements, filter the list by the 
 |---------|---------|
 |**Trigger**     |    Filter by how the playbook is triggered, including incidents, alerts, or entities. For more information, see [Supported Microsoft Sentinel triggers](playbook-triggers-actions.md#supported-microsoft-sentinel-triggers).|
 |**Logic Apps connectors**     |   Filter by the external services the playbooks interact with. During the deployment process, each connector needs to assume an identity to authenticate to the external service.      |
-|**Entities**     |  Filter by the entity types that the playbook expects to find in the incident. <br><br>For example, a playbook that tells a firewall to block an IP address expects to to find IP addresses in the incident.Such incidents might be created by a Brute Force attack analytics rule.       |
-|**Tags**     |  Filter by the labels applied to the playbook, relating the playbook to a specific scenario, or incidating special characteristic.   For example: <br><br>- **Enrichment** - Playbooks that fetch information from another service to add context to an incident. This information is typically added as a comment to the incident or sent to the SOC.<br> - **Remediation** - Playbooks that take an action on the affected entities to eliminate a potential threat.<br>  - **Sync** - Playbook that help to keep an external service, such as an incident management service, updated with the incident's properties.<br>  - **Notification** - Playbooks that send an email or message.<br>  - **Response from Teams** - Playbooks that allow analysts to take a manual action from Teams using interactive cards.    |
+|**Entities**     |  Filter by the entity types that the playbook expects to find in the incident. <br><br>For example, a playbook that tells a firewall to block an IP address expects to to find IP addresses in the incident. Such incidents might be created by a Brute Force attack analytics rule.       |
+|**Tags**     |  Filter by the labels applied to the playbook, relating the playbook to a specific scenario, or indicating special characteristic.   For example: <br><br>- **Enrichment** - Playbooks that fetch information from another service to add context to an incident. This information is typically added as a comment to the incident or sent to the SOC.<br> - **Remediation** - Playbooks that take an action on the affected entities to eliminate a potential threat.<br>  - **Sync** - Playbook that help to keep an external service, such as an incident management service, updated with the incident's properties.<br>  - **Notification** - Playbooks that send an email or message.<br>  - **Response from Teams** - Playbooks that allow analysts to take a manual action from Teams using interactive cards.    |
 
 For example:
 
-:::image type="content" source="../media/use-playbook-templates/filters.png" alt-text="Filter the list of playbook templates":::
+:::image type="content" source="../media/use-playbook-templates/filters.png" alt-text="Screenshot of how to filter the list of playbook templates.":::
 
 ## Customize a playbook from a template
 
@@ -92,17 +92,17 @@ While most playbook templates can be used as they are, we recommend that you adj
 
     - **Basics:** Locate your new playbook, which is a Logic Apps resource, and give it a name. You can use the default. For example:
 
-        :::image type="content" source="../media/use-playbook-templates/basics.png" alt-text="Playbook creation wizard, basics tab":::
+        :::image type="content" source="../media/use-playbook-templates/basics.png" alt-text="Screenshot of the Playbook creation wizard, basics tab.":::
 
     - **Parameters:** Enter customer-specific values that the playbook uses. For example, if the playbook sends an email to the SOC, define the recipient address. If the playbook has a custom connector in use, it must be deployed in the same resource group, and you're prompted to enter its name in the **Parameters** tab.
     
         The **Parameters** tab shows only if the playbook has parameters. For example:
 
-        :::image type="content" source="../media/use-playbook-templates/parameters.png" alt-text="Playbook creation wizard, parameters tab":::
+        :::image type="content" source="../media/use-playbook-templates/parameters.png" alt-text="Screenshot of the Playbook creation wizard, parameters tab.":::
 
     - **Connections:** Expand each action to see the existing connections you created for previous playbooks. You can choose to use existing connections, or create a new one. For example:
 
-        :::image type="content" source="../media/use-playbook-templates/connections.png" alt-text="Playbook creation wizard. connections tab":::
+        :::image type="content" source="../media/use-playbook-templates/connections.png" alt-text="Screenshot of the Playbook creation wizard, connections tab.":::
 
         - To create a new connection, select **Create new connection after deployment**. This option takes you to the Logic Apps designer after the deployment process is completed.
 
@@ -116,7 +116,7 @@ While most playbook templates can be used as they are, we recommend that you adj
 
 1. After following the steps in the playbook creation wizard to the end, you're taken to the new playbook's workflow design in the Logic Apps designer. For example:
 
-    :::image type="content" source="../media/use-playbook-templates/designer.png" alt-text="See playbook in Logic Apps designer" lightbox="../media/use-playbook-templates/designer.png":::
+    :::image type="content" source="../media/use-playbook-templates/designer.png" alt-text="Screenshot of the playbook in Logic Apps designer." lightbox="../media/use-playbook-templates/designer.png":::
 
 1. For each connector you chose, create a new connection for after deployment:
 
