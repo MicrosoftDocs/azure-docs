@@ -4,7 +4,7 @@ description: Learn about using Microsoft Copilot for Security to investigate tra
 keywords: security copilot, copilot for security, threat intelligence, IDPS, intrusion detection and prevention system, plugin, integration, azure firewall, firewall copilot, open ai, openai co-pilot
 author: abhinavsriram
 ms.author: victorh
-ms.date: 04/15/2024
+ms.date: 05/15/2024
 ms.topic: conceptual
 ms.service: firewall
 ms.localizationpriority: high
@@ -80,7 +80,7 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 
 ## Sample prompts for Azure Firewall
 
-There are many prompts you can use to get information from Azure Firewall. This section lists the ones that work best today. They are continuously updated as new capabilities are launched.
+There are many prompts you can use to get information from Azure Firewall. This section lists the ones that work best today. They're continuously updated as new capabilities are launched.
 
 
 ### Retrieve the top IDPS signature hits for an Azure Firewall
@@ -100,7 +100,7 @@ Get **additional details** to enrich the threat information/profile of an IDPS s
 
 **Sample prompts**:
 
-- Tell me more about why the top hit was flagged by IDPS as high severity while the fifth hit was only flagged as low severity.
+- Explain why IDPS flagged the top hit as high severity and the fifth hit as low severity.
 - What can you tell me about this attack? What are the other attacks this attacker is known for?
 - I see that the third signature ID is associated with CVE _\<CVE number\>_, tell me more about this CVE.
 
