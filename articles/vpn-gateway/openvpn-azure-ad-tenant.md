@@ -1,20 +1,21 @@
 ---
-title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication'
+title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication - manually registered App'
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up a Microsoft Entra tenant and P2S gateway for P2S Microsoft Entra authentication - OpenVPN protocol.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---
 
-# Configure a P2S VPN gateway for Microsoft Entra ID authentication
+# Configure server settings for P2S VPN Gateway connections - Microsoft Entra ID authentication: manually registered Azure VPN Client App
 
 This article helps you configure your Microsoft Entra tenant and point-to-site (P2S) VPN Gateway settings for Microsoft Entra ID authentication. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). To authenticate using Microsoft Entra ID authentication, you must include the OpenVPN tunnel type in your point-to-site configuration.
 
-[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+> [!NOTE]
+> The steps in this article apply to Audience values that require you to manually register the Azure VPN Client App with your tenant. Unless you need an audience value other than Azure Public, we recommend that you use the new Audience values that correspond to the Microsoft-registered Azure VPN Client App ID. For steps, see [Configure a P2S VPN gateway for Microsoft Entra ID authentication: Microsoft-registered client (Preview)](point-to-site-entra-gateway.md).
 
 ## Prerequisites
 
@@ -25,9 +26,9 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
 
 If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra ID authentication. You can also create a new VPN gateway. The link to create a new gateway is included in this article.
 
-<a name='create-azure-ad-tenant-users'></a>
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
-## Create Microsoft Entra tenant users
+## <a name='create-azure-ad-tenant-users'></a>Create Microsoft Entra tenant users
 
 1. Create two accounts in the newly created Microsoft Entra tenant. For steps, see [Add or delete a new user](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
