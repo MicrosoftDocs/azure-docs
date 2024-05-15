@@ -118,13 +118,11 @@ The *fill lines* between nodes visualize the distribution of datapoints into chi
 
 To find important failure patterns, look for nodes with darker colors indicating a higher error rate, and thicker fill lines indicating higher error coverage.
 
-##### Feature list
-
 To edit the list of features the tree uses to train the tree map, select **Feature list** at the top of the view.
 
-In the **Feature list** pane, **Features** lists the names of the features in the dataset. You can search to find specific features. **Importances** visualizes the relative importance of each feature in the dataset. You can select or deselect the check boxes next to each feature to add or remove the feature from the tree map.
-
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-feature-list.png" alt-text="Screenshot of the error analysis feature list." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-feature-list.png":::
+
+In the **Feature list** pane, **Features** lists the names of the features in the dataset. You can search to find specific features. **Importances** visualizes the relative importance of each feature in the dataset. You can select or deselect the check boxes next to each feature to add or remove the feature from the tree map.
 
 You can also configure the following settings:
 
@@ -167,17 +165,13 @@ You can choose between **Dataset cohorts** or **Feature cohorts** by selecting e
 
 You can also enable **Show heatmaps** for either view.
 
-- At the bottom of the component, you can choose to view **Metrics visualizations** or a **Confusion matrix**.
-
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png" alt-text="Screenshot of a Confusion matrix in the Feature cohort view of the Model overview component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png":::
-
-#### Dataset cohorts and Feature cohorts
+#### Dataset cohorts
 
 **Dataset cohorts** displays the selected metrics across the global cohort and all user-defined cohorts in the dashboard.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/model-overview.png" alt-text="Screenshot of the model overview on the dataset cohorts tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/model-overview.png":::
 
-#### Dataset cohorts and Feature cohorts
+#### Feature cohorts
 
 **Feature cohorts** displays the selected metrics for cohorts that are based on selected features. You select the **Feature(s)** to define the cohorts. This view also shows **Fairness metrics** such as **Difference** and **Ratio** parity.
 
