@@ -32,7 +32,7 @@ The following fields are logged for each request to the developer portal.
 | resultType | string | Result type, either `Succeeded` or `Failed`|
 | operationName | string | `Microsoft.ApiManagement/CustomerDevPortalAuditDiagnosticLogs` |
 | eventTime | string | Date and time in UTC of an event<br/><br/> Example: `2024-05-13T09:15:26.012166Z`|
-| apimClient | string | Value taken from `X-Ms-Apim-Client` HTTP header sent on each request by developer portal webpage. Each part is separated by `\|` character. Contains information about service type, domain name, API used, and user authorization status<br/><br/>Example: `dev-portal\|myapimservice123.developer.azure-api.net\|getApis-unauthorized`|
+| apimClient | string | Value taken from `X-Ms-Apim-Client` HTTP header sent on each request by developer portal webpage. Each part is separated by `|` character. Contains information about service type, domain name, API used, and user authorization status<br/><br/>Example: `dev-portal|myapimservice123.developer.azure-api.net|getApis-unauthorized`|
 | activityId | string | Unique log GUID|
 | properties | dynamic \| object | Object representing additional log information|
 
