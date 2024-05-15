@@ -8,15 +8,15 @@ ms.date: 05/05/2024
 
 # Test locally with Event Hubs emulator 
 
-This article summarizes the steps to develop and test locally with Event hubs emulator. To read more about Event hubs, read [here](event-hubs-about.md).
+This article summarizes the steps to develop and test locally with Event hubs emulator. To read more about Event hubs, read [here.](event-hubs-about.md)
 
 ## Prerequisites
 
 - Docker emulator
   - [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/#:~:text=Install%20Docker%20Desktop%20on%20Windows%201%20Download%20the,on%20your%20choice%20of%20backend.%20...%20More%20items) 
 - Minimum hardware Requirements:
-  - 2GB RAM
-  - 5GB of Disk space
+  - 2 GB RAM
+  - 5 GB of Disk space
 - WSL Enablement (Only for Windows):
   - [Install Windows Subsystem for Linux (WSL) | Microsoft Learn](/windows/wsl/install)
   -  [Configure Docker to use WSL](https://docs.docker.com/desktop/wsl/#:~:text=Turn%20on%20Docker%20Desktop%20WSL%202%201%20Download,engine%20..%20...%206%20Select%20Apply%20%26%20Restart.)
@@ -145,7 +145,7 @@ You can use the following connection string to connect to Azure Event Hubs emula
 ```
 "Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
 ```
-To get started, refer to our GitHub Samples [here](https://github.com/Azure/azure-event-hubs-emulator/tree/main/Sample-Code-Snippets)
+To get started, refer to our GitHub Samples [here.](https://github.com/Azure/azure-event-hubs-emulator/tree/main/Sample-Code-Snippets)
 
 ## Next Steps
 
