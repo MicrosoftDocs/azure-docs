@@ -15,7 +15,7 @@ ms.custom:
 
 # Network Security Perimeter for Azure Event Hubs
 
-[Event Hubs](../articles/event-hubs/event-hubs-about.md)
+[Event Hubs](event-hubs-about.md)
 
 The Network Security Perimeter plays a pivotal role in safeguarding network traffic between Azure Event Hubs and other Platform as a Service (PaaS) offerings like Azure Storage and Azure Key Vault. By restricting communication exclusively to Azure resources within its boundaries, it effectively blocks unauthorized attempts to access resources beyond its secure perimeter.
 
@@ -33,12 +33,12 @@ Operating as a service under Azure Private Link, the Network Security Perimeter 
 TODO
 
 ## Related content
-- For more information on Network Security Perimeter, see [What is a Network Security Perimeter?](../articles/private-link/network-security-perimeter-concepts.md)
+- For more information on Network Security Perimeter, see [What is a Network Security Perimeter?](../private-link/network-security-perimeter-concepts.md)
 
-- For additional Event Hubs security features, see [Network Security for Azure Event Hubs](../articles/event-hubs/network-security.md)
+- For additional Event Hubs security features, see [Network Security for Azure Event Hubs](network-security.md)
 
-- For a quickstart on creating network security perimeter via Azure Portal, see [Quickstart: Create a network security perimeter - Azure portal](https://review.learn.microsoft.com/en-us/azure/private-link/create-network-security-perimeter-portal?branch=pr-en-us-268834).
+- For a quickstart on creating network security perimeter via Azure Portal, see [Quickstart: Create a network security perimeter - Azure portal](../private-link/create-network-security-perimeter-portal.md)
 
-- For a quickstart on creating network security perimeter via Azure PowerShell, see [Quickstart: Create a network security perimeter - Azure PowerShell](https://review.learn.microsoft.com/en-us/azure/private-link/create-network-security-perimeter-powershell?branch=pr-en-us-268834).
+- For a quickstart on creating network security perimeter via Azure PowerShell, see [Quickstart: Create a network security perimeter - Azure PowerShell](../private-link/create-network-security-perimeter-powershell.md)
 
-- For a quickstart on creating network security perimeter via Azure CLI, see [Quickstart: Create a network security perimeter - Azure CLI](https://review.learn.microsoft.com/en-us/azure/private-link/create-network-security-perimeter-cli?branch=pr-en-us-268834).
+- For a quickstart on creating network security perimeter via Azure CLI, see [Quickstart: Create a network security perimeter - Azure CLI](../private-link/create-network-security-perimeter-cli.md)
