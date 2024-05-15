@@ -419,11 +419,6 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com) as needed.
 
 
-## Azure AI Studio enterprise chat solution demo
-
-Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
-> [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]
-
 ## Next steps
 
 * Learn more about [prompt flow](../how-to/prompt-flow.md).
