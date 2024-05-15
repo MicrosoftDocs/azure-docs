@@ -172,6 +172,8 @@
               href: authorize-access-azure-active-directory.md
         - name: Network security
           href: network-security.md
+        - name: Network security perimeter
+          href: network-security-perimeter.md        
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
