@@ -11,7 +11,7 @@ ms.service: container-registry
 
 # Manage OCI Artifacts and Supply Chain Artifacts with ORAS
 
-Azure Container Registry (ACR) helps you manage both the Open Container Initiative (OCI) artifacts and supply chain artifacts. This article guides you how to use Azure Container Registry (ACR) for managing OCI artifacts and supply chain artifacts effectively. Learn to store, manage, and retrieve both OCI artifacts and a graph of supply chain artifacts, including signatures, software bill of materials (SBOM), security scan results, and other types.
+Azure container registry (ACR) helps you manage both the Open container initiative (OCI) artifacts and supply chain artifacts. This article guides you how to use ACR for managing OCI artifacts and supply chain artifacts effectively. Learn to store, manage, and retrieve both OCI artifacts and a graph of supply chain artifacts, including signatures, software bill of materials (SBOM), security scan results, and other types.
 
 This article is divided into two main sections:
 
@@ -58,15 +58,11 @@ az login
 az acr login -n $REGISTRY  
 ``` 
 
-If Docker isn't available, you can utilize the token provided below for authentication. Authenticate with your[individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
+If Docker isn't available, you can utilize the AD token provided for authentication. Authenticate with your[individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
 ```azurecli
 # Login to Azure
 az login
-
-# Login to ACR, using a token based on your Azure identity
-USER_NAME="00000000-0000-0000-0000-000000000000"
-PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
 ```
 
 ### Sign in with ORAS
@@ -243,7 +239,7 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
 ## Attach, push, and pull supply chain artifacts with ORAS
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) CLI to `push`, `discover`, and `pull` a graph of supply chain artifacts to an Azure container registry.
-Storing individual (root) OCI Artifacts are covered in [Push and pull OCI artifacts](container-registry-oci-artifacts.md).
+Storing individual (subject) OCI Artifacts are covered in [Push and pull OCI artifacts](container-registry-manage-artifact.md#push-and-pull-oci-artifacts-with-oras).
 
 To store a graph of artifacts, a reference to a `subject` artifact is defined using the [OCI image manifest][oci-image-manifest], which is part of the [prerelease OCI 1.1 Distribution specification][oci-1_1-spec].
 
@@ -331,6 +327,9 @@ oras attach $IMAGE \
 ```
 
 #### Sign the SBOM
+
+>[!IMPORTANT]
+Microsoft recommends using a secure crypto signing tool, like [Notation][Notaion] to sign the image and generate a signature for signing SBOMs. This example uses a simple JSON signature for demonstration purposes.
 
 Artifacts that are pushed as references, typically don't have tags as they're considered part of the `subject` artifact. To push a signature to an artifact that is a child of another artifact, use the `oras discover` with `--artifact-type` filtering to find the digest.
 
@@ -473,40 +472,9 @@ ORAS enables artifact graphs to be pushed, discovered, pulled, and copied withou
 oras repo tags $REGISTRY/$REPO
 ```
 
-#### View a list of manifests
-
-A repository can have a list of manifests that are both tagged and untagged. Using the [`az acr manifest`][az-acr-manifest-metadata] CLI, view the full list of manifests:
-
-```azurecli
-az acr manifest list-metadata \
-  --name $REPO \
-  --registry $ACR_NAME \
-  --output jsonc
-```
-
-Note the container image manifests have `"tags"`, while the reference types (`"mediaType": "application/vnd.oci.artifact.manifest.v1+json"`) don't.
-
-In the output, the signature is untagged, but tracked as a `oci.artifact.manifest` reference to the container image:
-
-```json
-{
-  "changeableAttributes": {
-    "deleteEnabled": true,
-    "listEnabled": true,
-    "readEnabled": true,
-    "writeEnabled": true
-  },
-  "createdTime": "2023-01-10T17:58:28.4403142Z",
-  "digest": "sha256:00da2c1c3ceea087b16e70c3f4e80dbce6f5b7625d6c8308ad095f7d3f6107b5",
-  "imageSize": 80,
-  "lastUpdateTime": "2023-01-10T17:58:28.4403142Z",
-  "mediaType": "application/vnd.oci.artifact.manifest.v1+json"
-}
-```
-
 ### Deleting all artifacts in the graph
 
-Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the subject artifact. Use the [`oras manifest delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
+Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the subject artifact. Use the [`oras delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM, and the signature of the SBOM).
 
 ```azurecli
 oras manifest delete -f $REGISTRY/$REPO:$TAG
@@ -533,7 +501,7 @@ In this article, you learned how to use Azure Container Registry to store, manag
 
 ## Next steps
 
-* Learn about [Artifact References](https://oras.land/docs/concepts/reftypes), associating signatures, software bill of materials and other reference types
+* Learn about [Artifact References](container-registry-oras-artifacts.md), associating signatures, software bill of materials and other reference types
 * Learn more about [the ORAS Project](https://oras.land/), including how to configure a manifest for an artifact
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
 
@@ -558,6 +526,6 @@ In this article, you learned how to use Azure Container Registry to store, manag
 [azure-cli-install]:        /cli/azure/install-azure-cli
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
 [acr-landing]:              https://aka.ms/acr
-
+[Notaion]:                  /azure/container-registry/container-registry-tutorial-sign-build-push
 
 
