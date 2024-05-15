@@ -246,7 +246,7 @@ After you select a collection or connector, the individual triggers are grouped 
 
 The following example selected the **365 Training** connector and shows the available triggers:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, workflow designer, and 365 Training connector with triggers. lightbox="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, workflow designer, and 365 Training connector with triggers." lightbox="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png":::
 
 The following example shows the **Shared** connectors gallery when you add an action:
 
