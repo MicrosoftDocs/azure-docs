@@ -14,7 +14,7 @@ ms.custom:
  - build-2024
 ---
 
-# Reference: Embeddings
+# Reference: Embeddings | Azure AI Studio
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 

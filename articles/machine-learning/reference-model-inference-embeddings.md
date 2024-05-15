@@ -15,7 +15,7 @@ ms.custom:
  - build-2024
 ---
 
-# Reference: Embeddings
+# Reference: Embeddings | Azure Machine Learning
 
 Creates an embedding vector representing the input text.
 

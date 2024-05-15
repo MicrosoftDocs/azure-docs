@@ -15,7 +15,7 @@ ms.custom:
  - build-2024
 ---
 
-# Reference: Chat Completions
+# Reference: Chat Completions | Azure Machine Learning
 
 Creates a model response for the given chat conversation.
 

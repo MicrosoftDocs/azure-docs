@@ -17,7 +17,7 @@ ms.custom:
  - references_regions
 ---
 
-# Region availability for models in Serverless API endpoints
+# Region availability for models in Serverless API endpoints | Azure Machine Learning
 
 In this article, you learn about which regions are available for each of the models supporting serverless API endpoint deployments.
 

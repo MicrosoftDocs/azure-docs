@@ -14,7 +14,7 @@ ms.custom:
  - build-2024
 ---
 
-# Azure AI Model Inference API
+# Azure AI Model Inference API | 
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 

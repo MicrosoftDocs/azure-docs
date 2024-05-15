@@ -11,7 +11,7 @@ ms.author: eur
 author: eric-urban
 ---
 
-# How to trace your application with prompt flow SDK
+# How to trace your application with prompt flow SDK | Azure AI Studio
 
 [!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 

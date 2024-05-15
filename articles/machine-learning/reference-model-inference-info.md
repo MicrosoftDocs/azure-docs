@@ -15,7 +15,7 @@ ms.custom:
  - build-2024
 ---
 
-# Reference: Info
+# Reference: Info | Azure Machine Learning
 
 Returns the information about the model deployed under the endpoint.
 
