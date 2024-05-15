@@ -67,7 +67,7 @@ Azure Container Apps ensures compatibility with Dapr open source tooling, such a
 
 <!-- Links Internal -->
 
-[dapr-faq]: ./faq.yml#are-alpha-dapr-apis-and-components-supported-or-available-in-azure-container-apps-
+[dapr-faq]: ./faq.yml#are-alpha-dapr-apis-and-tier-2-components-supported-or-available-in-azure-container-apps-
 [dapr-enable]: ./enable-dapr.md
 [dapr-components]: ./dapr-components.md
 
