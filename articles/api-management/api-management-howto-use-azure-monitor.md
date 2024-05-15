@@ -7,7 +7,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 06/27/2023
+ms.date: 05/15/2024
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -188,14 +188,16 @@ To configure logging settings for all APIs:
 1. In the left menu of your API Management instance, select **APIs** > **All APIs**.
 1. Select the **Settings** tab from the top bar.
 1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**.
+1. Review the settings and make changes if needed. For example, adjust the sampling rate or verbosity of the logs, or enable logging of headers or request or response payloads. Select **Save**. 
 
 To configure logging settings for a specific API:
 
 1. In the left menu of your API Management instance, select **APIs** and then the name of the API.
 1. Select the **Settings** tab from the top bar.
 1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**.
+1. Review the settings and make changes if needed. For example, adjust the sampling rate or verbosity of the logs, or enable logging of headers or request or response payloads. Select **Save**. 
+
+[!INCLUDE [api-management-log-entry-size-limit](../../includes/api-management-log-entry-size-limit.md)]
 
 ## Next steps
 
