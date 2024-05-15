@@ -316,7 +316,11 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ---
 
-## Git
+## Non-data connections
+
+The following connection types can be used to connect to Git, Python feed, Azure Container Registry, and a connection that uses an API key. These connections are not data connections, but are used to connect to external services for use in your code.
+
+### Git
 
 # [Azure CLI](#tab/cli)
 
@@ -379,7 +383,7 @@ You can't create a Git connection in studio.
 
 ---
 
-## Python feed
+### Python feed
 
 # [Azure CLI](#tab/cli)
 
@@ -455,7 +459,7 @@ You can't create a Python feed connection in studio.
 
 ---
 
-## Azure Container Registry
+### Azure Container Registry
 
 # [Azure CLI](#tab/cli)
 
@@ -519,7 +523,7 @@ You can't create an Azure Container Registry connection in studio.
 
 ---
 
-## API key
+### API key
 
 The following example creates an API key connection:
 
@@ -541,7 +545,9 @@ wps_connection = WorkspaceConnection(
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 ```
 
-## Next steps
+## Related content
+
+If you are using a data connection (Snowflake DB, Amazon S3, or Azure SQL DB), see these articles for more information:
 
 - [Import data assets](how-to-import-data-assets.md)
 - [Schedule data import jobs](how-to-schedule-data-import.md)
