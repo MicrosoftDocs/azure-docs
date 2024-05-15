@@ -105,7 +105,6 @@ To create a deployment:
 1. Select the endpoint to open its Details page.
 1. Select the **Test** tab to start interacting with the model.  
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
-1. Take note of the **Target** URL and the **Secret Key** to call the deployment and generate chat completions using the [`<target_url>/v1/chat/completions`](#chat-api) API.
 
 To learn about billing for Mistral models deployed with pay-as-you-go, see [Cost and quota considerations for Mistral family of models deployed as a service](#cost-and-quota-considerations-for-mistral-family-of-models-deployed-as-a-service).
 
@@ -116,13 +115,19 @@ You can consume Mistral Large by using the chat API.
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
 1. Copy the **Target** URL and the **Key** token values.
-1. Make an API request using the [`<target_url>/v1/chat/completions`](#chat-api) API.
+1. Make an API request using to either the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` and the native [Mistral Chat API](#mistral-chat-api) on `/v1/chat/completions`.
 
 For more information on using the APIs, see the [reference](#reference-for-mistral-family-of-models-deployed-as-a-service) section.
 
 ### Reference for Mistral family of models deployed as a service
 
-#### Chat API
+Mistral models accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` and the native [Mistral Chat API](#mistral-chat-api) on `/v1/chat/completions`. 
+
+### Azure AI Model Inference API
+
+The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](reference-model-inference-api.md?tabs=rest#getting-started).
+
+#### Mistral Chat API
 
 Use the method `POST` to send the request to the `/v1/chat/completions` route:
 

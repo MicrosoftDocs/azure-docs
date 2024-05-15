@@ -208,14 +208,18 @@ Models deployed as a service can be consumed using either the chat or the comple
 1. Copy the **Target** URL and the **Key** token values.
 1. Make an API request based on the type of model you deployed. 
 
-    - For completions models, such as `Llama-2-7b`, use the [`<target_url>/v1/completions`](#completions-api) API.
-    - For chat models, such as `Llama-2-7b-chat`, use the [`<target_url>/v1/chat/completions`](#chat-api) API.
+    - For completions models, such as `Meta-Llama-2-7B`, use the [`/v1/completions`](#completions-api) API or the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/completions`.
+    - For chat models, such as `Meta-Llama-2-7B-Chat`, use the [`/v1/chat/completions`](#chat-api) API or the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions`.
 
-   For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
 
 ---
 
 ### Reference for Meta Llama models deployed as a service
+
+Llama models accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` or a [Llama Chat API](#chat-api) on `/v1/chat/completions`. In the same way, text completions can be generated using the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/completions` or a [Llama Completions API](#completions-api) on `/v1/completions`
+
+The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](reference-model-inference-api.md?tabs=rest#getting-started).
 
 #### Completions API
 
