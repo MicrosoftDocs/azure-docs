@@ -22,9 +22,6 @@ In this article, you'll:
 > * Complete API configuration
 > * Test the API in the Azure portal
 
-> [!NOTE]
-> Importing an OData API to API Management from its metadata description is in preview. [Learn more](import-api-from-odata.md).
-
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 03/28/2024
+ms.date: 05/05/2024
 ms.author: danlep
 ---
 
@@ -108,11 +108,11 @@ The following tables compare features available in the following API Management 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ |
-| [Pass-through gRPC](grpc-api.md) (preview) |  ❌ | ❌ | ❌ | ✔️ |
-| [OData](import-api-from-odata.md) (preview) |  ✔️ |  ✔️ | ✔️ | ✔️ |
+| [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ |
+| [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ |
 | [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Circuit breaker in backend](backends.md#circuit-breaker-preview) (preview) |  ✔️ | ✔️ | ❌ | ✔️ |
-| [Load-balanced backend pool](backends.md#load-balanced-pool-preview) (preview) |  ✔️ | ✔️ | ✔️ | ✔️ |
+| [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ |
+| [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 
