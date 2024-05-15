@@ -198,7 +198,7 @@ Service Health notifications are useful for service-related issues. To identify 
 
 During switchover, most operations work the same as when you use the primary workspace and region. However, some operations have slightly different behavior or are blocked.
 
-### When should I switch over and switch back?
+### When should I switch over?
 
 You decide when to switch over to your secondary workspace and switch back to your primary workspace based on ongoing performance and health monitoring and your system standards and requirements. 
 
@@ -247,55 +247,51 @@ The `POST` command is a long running operation that can take some time to comple
 
 ## Switch back to your primary workspace
 
-The switchback process cancels the rerouting of queries and log ingestion requests to the secondary workspace. When you trigger switchback, routing of queries and log ingestion requests returns to your primary workspace. 
+The switchback process cancels the rerouting of queries and log ingestion requests to the secondary workspace. When you trigger switchback, Azure Monitor goes back to routing queries and log ingestion requests to your primary workspace. 
 
-During switchover, logs ingest to your secondary workspace and then (asynchronously) replicate to your primary workspace. While switchover is in progress, if an outage impacts the log ingestion process on the primary region, it can take time for the logs to complete the ingestion process.
+During switchover, Azure Monitor replicates logs from your secondary workspace to your primary workspace. While switchover is in progress, if an outage impacts the log ingestion process on the primary region, it can take time for the logs to complete the ingestion process.
 
-There are several points to consider in your plan for switchback:
+### When should I switch back?
 
-- Complete replication for logs ingested during switchover
-- No outstanding Service Health notifications
-- Proper logs ingestion and query processing
+There are several points to consider in your plan for switchback, as described in the following subsections.
 
-The following sections explore these considerations.
+#### Log replication state
 
-### Logs ingestion replication state
+Before you trigger switchback, verify that Azure Monitor has completed replicating all logs ingested during switchover to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
 
-Before you trigger switchback, verify all logs ingested during switchover complete their replication to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
+You can query your primary workspace in the Azure portal for the inactive region, as described in [Audit the inactive workspace](#audit-the-inactive-workspace).
 
-You can query your primary workspace in the Azure portal for the inactive region and check the replication status for each log. For more information, see [Audit the inactive workspace](#audit-the-inactive-workspace).
-
-### Primary workspace health
+#### Primary workspace health
 
 There are two important health items to check in preparation for switchback to your primary workspace:
 
 - Confirm there are no outstanding Service Health notifications for the primary workspace and region.
 - Confirm your primary workspace is ingesting logs and processing queries as expected.
 
-For examples on how to query your primary workspace during switchover, and bypass the rerouting of requests to your secondary workspace, see [Audit the inactive workspace](#audit-the-inactive-workspace).
+For examples of how to query your primary workspace during switchover and bypass the rerouting of requests to your secondary workspace, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
-## Trigger switchback
+### Trigger switchback
 
 Before you trigger switchback, confirm the [Primary workspace health](#primary-workspace-health) and complete [replication of logs ingestion](#logs-ingestion-replication-state). 
 
-The switchback process updates your DNS records. After the DNS records update, it can take extra time for all clients to receive the updated DNS settings and resume routing to the primary workspace.
+The switchback process updates your DNS records. After the DNS records update, it can take time for all clients to receive the updated DNS settings and resume routing to the primary workspace.
 
-You trigger switchback by using a `POST` command with the following values:
-
-- `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `<workspace_name>`: The name of the workspace to switch to during switchback.
-
-The `POST` command is a long running operation that can take some time to complete. The call to the command returns 202. You can track the process, as described in [Check workspace state](#check-workspace-state).
-
-The following code demonstrates the `POST` command:
+To switch back to your primary workspace, use this `POST` command:
 
 ```http
 POST
 https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/failback?api-version=2023-01-01-preview
 
-Expected response: 202 Accepted
 ```
+
+Where:
+
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your workspace resource.
+- `<workspace_name>`: The name of the workspace to switch to during switchback.
+
+The `POST` command is a long running operation that can take some time to complete. A successful call returns a `202` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
+
 
 ## Audit the inactive workspace
 
