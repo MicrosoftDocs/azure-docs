@@ -159,5 +159,5 @@ To learn more about tuning query performance, see the [Tune Query Performance](.
 
 - [Tune query performance](query-metrics.md)
 - [Indexing overview](../index-overview.md)
-- [Azure Cosmos DB Python SDK Best Practices](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/best-practice-python)
-- [Azure Cosmos DB Python SDK Performance Tips](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/performance-tips-python-sdk)
+- [Azure Cosmos DB Python SDK Best Practices](https://learn.microsoft.com/azure/cosmos-db/nosql/best-practice-python)
+- [Azure Cosmos DB Python SDK Performance Tips](https://learn.microsoft.com/azure/cosmos-db/nosql/performance-tips-python-sdk)
