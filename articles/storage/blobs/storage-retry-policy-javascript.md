@@ -24,12 +24,12 @@ The following table lists the parameters available when constructing a [StorageR
 
 | Property | Type | Description | Default value |
 | --- | --- | --- | --- |
-| `maxRetryDelayInMs` | `number` | Optional. Specifies the maximum delay allowed before retrying an operation (default is 120s or 120 * 1000ms). If you specify 0, then you must also specify 0 for retryDelayInMs. | 120s or 120 * 1000ms |
-| `maxTries` | `number` | Optional. Max try number of attempts, default is 4. A value of 1 means 1 try and no retries. A value smaller than 1 means default retry number of attempts. | 4 |
-| `retryDelayInMs` | `number` | Optional. Specifies the amount of delay to use before retrying an operation (default is 4s or 4 * 1000ms). The delay increases (exponentially or linearly) with each retry up to a maximum specified by maxRetryDelayInMs. If you specify 0, then you must also specify 0 for maxRetryDelayInMs. | 4s or 4 * 1000ms |
+| `maxRetryDelayInMs` | `number` | Optional. Specifies the maximum delay allowed before retrying an operation. | 120 seconds (or 120 * 1000 ms) |
+| `maxTries` | `number` | Optional. The maximum number of retry attempts before giving up. | 4 |
+| `retryDelayInMs` | `number` | Optional. Specifies the amount of delay to use before retrying an operation. | 4 seconds (or 4 * 1000 ms) |
 | `retryPolicyType` | [StorageRetryPolicyType](/javascript/api/@azure/storage-blob/storageretrypolicytype) | Optional. StorageRetryPolicyType, default is exponential retry policy. | StorageRetryPolicyType.Exponential |
-| `secondaryHost` | `string` | Optional. Secondary storage account endpoint to retry requests against. Before setting this value, you should understand the issues around reading stale and potentially inconsistent data. To learn more, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md). | 120ms |
-| `tryTimeoutInMs` | `number` | Optional. Indicates the maximum time in ms allowed for any single try of an HTTP request. A value of zero or undefined means no default timeout on SDK client, Azure Storage server's default timeout policy will be used. | None |
+| `secondaryHost` | `string` | Optional. Secondary storage account endpoint to retry requests against. Before setting this value, you should understand the issues around reading stale and potentially inconsistent data. To learn more, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md). | 120 ms |
+| `tryTimeoutInMs` | `number` | Maximum time allowed before a request is canceled and assumed failed. Note that the timeout applies to the operation request, not the overall operation end to end. This value should be based on the bandwidth available to the host machine and proximity to the Storage service. A good starting point might be 60 seconds per MB of anticipated payload size. |  |
 
 In the following code example, we configure the retry options in an instance of [StorageRetryOptions](/javascript/api/@azure/storage-blob/storageretryoptions), pass it to a new [StoragePipelineOptions](/javascript/api/@azure/storage-blob/storagepipelineoptions) instance, and pass `pipeline` when instantiating `BlobServiceClient`:
 
