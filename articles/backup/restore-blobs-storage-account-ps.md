@@ -1,16 +1,16 @@
 ---
-title: Restore Azure blobs via Azure PowerShell
+title: Restore Azure Blobs using Azure PowerShell
 description: Learn how to restore Azure blobs to any point-in-time using Azure PowerShell.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 05/05/2021
+ms.date: 05/14/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Restore Azure blobs to point-in-time using Azure PowerShell
+# Restore Azure Blobs using Azure PowerShell
 
-This article describes how to restore [blobs](blob-backup-overview.md) to any point-in-time using Azure Backup.
+This article describes how to restore blobs/containers from backups.
 
 > [!IMPORTANT]
 > Support for Azure blobs is available from Az 5.9.0 version.
@@ -18,19 +18,23 @@ This article describes how to restore [blobs](blob-backup-overview.md) to any po
 > [!IMPORTANT]
 > Before proceeding to restore Azure blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).
 
-In this article, you'll learn how to:
+In this article, you'll learn how to: 
 
-- Restore Azure blobs to point-in-time
+- Restore Azure Blobs 
 
-- Track the restore operation status
+- Track the restore operation status 
 
-We will refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
+Let's use an existing backup vault *TestBkpVault* under the resource group *testBkpVaultRG* in the examples.
 
 ```azurepowershell-interactive
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName "testBkpVaultRG"
 ```
 
 ## Restoring Azure blobs within a storage account
+
+**Choose a backup tier**:
+
+# [Operational backup](#tab/operational-backup)
 
 ### Fetching the valid time range for restore
 
@@ -97,6 +101,12 @@ This option lets you restore a subset of blobs using a prefix match. You can spe
 ```azurepowershell-interactive
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore OperationalStore -RestoreLocation $TestBkpVault.Location  -RestoreType OriginalLocation -PointInTime (Get-Date -Date "2021-04-23T02:47:02.9500000Z") -BackupInstance $AllInstances[2] -ItemLevelRecovery -FromPrefixPattern "containerabc/aaa","containerabc/ccc" -ToPrefixPattern "containerabc/bbb","containerabc/ddd"
 ```
+# [Vaulted backup restore](#tab/vaulted-backup-restore)
+
+[!INCLUDE [blob-vaulted-backup-restore-ps.md](../../includes/blob-vaulted-backup-restore-ps.md)]
+
+---
+
 
 ### Trigger the restore
 
