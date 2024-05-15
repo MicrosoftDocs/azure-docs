@@ -5,7 +5,7 @@ description: Learn how to deploy TimeGEN-1 with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 5/10/2024
+ms.date: 5/11/2024
 ms.reviewer: kritifaujdar 
 reviewer: fkriti
 ms.author: mopeakande
