@@ -245,9 +245,9 @@ You can use Azure Portal - Extension blade to enable automatic upgrade of extens
 2. Navigate to "Extenisons + applications" blade under Settings to view all extensions installed on the resource. The "Automatic Upgrade Status" column tells if Automatic upgrade of the extension is enabled, disabled or not-supported.
 3. Navigate to Extension details blade by clicking on the extension name.
 4. Click "Enable automatic upgrade" to enable automatic upgrade of the extension. This button can also be used to disable automatic upgrade when required.   
-:::image type="content" source="media/auto-extension.png" alt-text="Screenshot of Azure Portal - Extension blade.":::
+:::image type="content" source="media/auto-extension.png" alt-text="Screenshot of Azure Portal - Extension blade." lightbox="media/auto-extension.png":::
 
-:::image type="content" source="media/auto-extension-upgrade.png" alt-text="Screenshot of Azure Portal to enable automatic upgrade of the extension.":::
+:::image type="content" source="media/auto-extension-upgrade.png" alt-text="Screenshot of Azure Portal to enable automatic upgrade of the extension." lightbox="media/auto-extension-upgrade.png":::
 
 ## Extension upgrades with multiple extensions
 
