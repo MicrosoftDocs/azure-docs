@@ -71,7 +71,7 @@ Some Azure Monitor experiences, including Azure Application Insights and Azure V
 
 ## Enable and disable workspace replication
 
-You enable and disable workspace replication by using a REST command. The command triggers a long running operation, which means that it can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for all data types to begin replicating, and some data types might start replicating before others. Changes you make to table schemas after you enable workspace replication can take up to one hour to start replicating - for example, custom log tables or custom fields you create, or diagnostic logs set up for new resource types.
+You enable and disable workspace replication by using a REST command. The command triggers a long running operation, which means that it can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for all data types to begin replicating, and some data types might start replicating before others. Changes you make to table schemas after you enable workspace replication - for example, new custom log tables or custom fields you create, or diagnostic logs set up for new resource types - can take up to one hour to start replicating.
 
 ### Enable workspace replication
 
