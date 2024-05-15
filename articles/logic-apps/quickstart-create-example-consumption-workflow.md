@@ -179,7 +179,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
       1. From the dynamic content list that opens, under **When a feed item is published**, select **Feed title**, which is a trigger output that references the title for the RSS item.
 
-         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-select-dynamic-content.png" alt-text="Screenshot shows the action named Send an email, with the cursor inside the box named Subject." lightbox="media/quickstart-create-example-consumption-workflow/send-email-subject.png":::
+         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-select-dynamic-content.png" alt-text="Screenshot shows the action named Send an email, with the cursor inside the box named Subject." lightbox="media/quickstart-create-example-consumption-workflow/send-email-select-dynamic-content.png":::
 
          If no outputs appear available under **When a feed item is published**, select **See more**.
 
