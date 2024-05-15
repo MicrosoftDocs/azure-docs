@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
-| May 15 | Advanced hunting in Microsoft Defender XDR now includes Defender for Cloud alerts and incidents |
+| May 22 | [Advanced hunting in Microsoft Defender XDR now includes Defender for Cloud alerts and incidents](#advanced-hunting-in-microsoft-defender-xdr-now-includes-defender-for-cloud-alerts-and-incidents) |
 | May 9 | [Checkov integration for IaC scanning in Defender for Cloud (Preview)](#checkov-integration-for-iac-scanning-in-defender-for-cloud-preview) |
 | May 7 | [General availability of permissions management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
 | May 6 | [AI multicloud security posture management is publicly available for Azure and AWS](#ai-multicloud-security-posture-management-is-publicly-available-for-azure-and-aws) |
