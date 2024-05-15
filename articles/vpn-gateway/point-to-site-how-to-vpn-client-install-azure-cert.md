@@ -21,8 +21,8 @@ For information about generating certificates, see the [Generate certificates](v
 
 ## <a name="installmac"></a>macOS
 
->[!NOTE]
->macOS VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
+> [!NOTE]
+> macOS VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
@@ -30,6 +30,12 @@ For information about generating certificates, see the [Generate certificates](v
 
 The Linux client certificate is installed on the client as part of the client configuration. See [Client configuration - Linux](point-to-site-vpn-client-cert-linux.md) for instructions.
 
+## <a name="vpn-clients"></a>Configure VPN clients
+
+To continue configuration, go back to the client that you were working on. You can use this table to easily locate the link:
+
+[!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
+
 ## Next steps
 
-Continue with the Point-to-Site configuration steps to Create and install VPN client configuration files for [Windows](point-to-site-vpn-client-cert-windows.md), [macOS](point-to-site-vpn-client-cert-windows.md), or [Linux](point-to-site-vpn-client-cert-linux.md)).
+Continue with the Point-to-Site configuration steps to Create and install VPN client configuration files. Use the links in the [VPN client table](#vpn-clients).
