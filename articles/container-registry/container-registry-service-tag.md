@@ -39,7 +39,7 @@ For detailed steps on creating a webhook setup, refer to the [Azure Container Re
 
 When you're using Azure Container Registry tasks, such as when you're building container images or automating workflows, the service tag represents the group of IP address prefixes that Azure Container Registry uses.
 
-During the execution of tasks, Azure Container Registry send requests to external resources through the IP addresses for service tags. If an external resource runs behind a firewall, it requires an inbound rule to allow these IP addresses. Applying these inbound rules is a common practice to help ensure security and proper access management in cloud environments.
+During the execution of tasks, Azure Container Registry sends requests to external resources through the IP addresses for service tags. If an external resource runs behind a firewall, it requires an inbound rule to allow these IP addresses. Applying these inbound rules is a common practice to help ensure security and proper access management in cloud environments.
 
 To learn more about Azure Container Registry tasks, see [Automate container image builds and maintenance with Azure Container Registry tasks](container-registry-tasks-overview.md). To learn how to use a service tag to set up firewall access rules for Azure Container Registry tasks, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 

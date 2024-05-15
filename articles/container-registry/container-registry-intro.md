@@ -28,7 +28,7 @@ Developers can also push to a container registry as part of a container developm
 
 Configure Azure Container Registry tasks to automatically rebuild application images when their base images are updated, or automate image builds when your team commits code to a Git repository. Create multi-step tasks to automate building, testing, and patching container images in parallel in the cloud.
 
-Azure provides tooling like the Azure CLI, the Azure portal, and API support to manage your container registries. Optionally, install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your container registries. Pull and push images to a container registry, or run Azure Container Registry tasks, all within Visual Studio Code.
+Azure provides tooling like the Azure CLI, the Azure portal, and API support to manage your container registries. Optionally, install the [Docker extension](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) for Visual Studio Code. You can use these extensions to pull images from a container registry, push images to a container registry, or run Azure Container Registry tasks, all within Visual Studio Code.
 
 ## Key features
 
@@ -47,7 +47,7 @@ Azure provides tooling like the Azure CLI, the Azure portal, and API support to 
 
 * **Supported images and artifacts**: When images are grouped in a repository, each image is a read-only snapshot of a Docker-compatible container. Azure container registries can include both Windows and Linux images. You control image names for all your container deployments.
 
-  Use standard [Docker commands](https://docs.docker.com/engine/reference/commandline/) to push images into a repository, or pull an image from a repository. In addition to Docker container images, Azure Container Registry stores [related content formats](container-registry-image-formats.md) such as [Helm charts](container-registry-helm-repos.md) and images built to the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md).
+  Use standard [Docker commands](https://docs.docker.com/engine/reference/commandline/) to push images into a repository or pull an image from a repository. In addition to Docker container images, Azure Container Registry stores [related content formats](container-registry-image-formats.md) such as [Helm charts](container-registry-helm-repos.md) and images built to the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 
 * **Automated image builds**: Use [Azure Container Registry tasks](container-registry-tasks-overview.md) to streamline building, testing, pushing, and deploying images in Azure. For example, use Azure Container Registry tasks to extend your development inner loop to the cloud by offloading `docker build` operations to Azure. Configure build tasks to automate your container OS and framework patching pipeline, and build images automatically when your team commits code to source control.
 

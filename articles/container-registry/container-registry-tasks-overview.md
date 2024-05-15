@@ -40,9 +40,9 @@ The *inner-loop* development cycle is the iterative process of writing code, bui
 
 The *quick task* feature in Azure Container Registry tasks can provide an integrated development experience by offloading your container image builds to Azure. You can build and push a single container image to a container registry on demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. With quick tasks, you can verify your automated build definitions and catch potential problems before committing your code.
 
-By using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a [context](#context-locations), which is the set of files to build. The command then sends the context to Azure Container Registry and pushes the built image to its registry upon completion.
+By using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a [context](#context-locations). The command then sends the context to Azure Container Registry and (by default) pushes the built image to its registry upon completion.
 
-Azure Container Registry tasks are designed as a container lifecycle primitive. For example, you can integrate Azure Container Registry tasks into your continuous integration and continuous delivery (CI/CD) solution. By running [az login][az-login] with a [service principal][az-login-service-principal], your CI/CD solution could then issue [az acr build][az-acr-build] commands to start image builds.
+Azure Container Registry tasks are designed as a container lifecycle primitive. For example, you can integrate Azure Container Registry tasks into your continuous integration and continuous delivery (CI/CD) solution. If you run [az login][az-login] with a [service principal][az-login-service-principal], your CI/CD solution can then issue [az acr build][az-acr-build] commands to start image builds.
 
 To learn how to use quick tasks, see the [quickstart](container-registry-quickstart-task-cli.md) and [tutorial](container-registry-tutorial-quick-task.md) for building and deploying container images by using Azure Container Registry tasks.
 
@@ -140,7 +140,7 @@ By default, Azure Container Registry tasks build images for the Linux OS and the
 
 ## Task output
 
-Each task run generates log output that you can inspect to determine whether the task steps ran successfully. When you trigger a task manually, log output for the task run is streamed to the console and stored for later retrieval. When a task is automatically triggered (for example, by a source code commit or a base image update), task logs are only stored. View the run logs in the Azure portal, or use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command.
+Each task run generates log output that you can inspect to determine whether the task steps ran successfully. When you trigger a task manually, log output for the task run is streamed to the console and stored for later retrieval. When a task is triggered automatically (for example, by a source code commit or a base image update), task logs are only stored. View the run logs in the Azure portal, or use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command.
 
 [Learn more about viewing and managing task logs](container-registry-tasks-logs.md).
 
@@ -148,7 +148,7 @@ Each task run generates log output that you can inspect to determine whether the
 
 - When you're ready to automate container image builds and maintenance in the cloud, see [Tutorial: Build and deploy container images in the cloud with Azure Container Registry tasks](container-registry-tutorial-quick-task.md).
 
-- Optionally, learn about the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension. You can use these extensions to pull and push images to a container registry, or run Azure Container Registry tasks, within Visual Studio Code.
+- Optionally, learn about the [Docker extension](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) for Visual Studio Code. You can use these extensions to pull images from a container registry, push images to a container registry, or run Azure Container Registry tasks, all within Visual Studio Code.
 
 <!-- LINKS - Internal -->
 [az-acr-build]: /cli/azure/acr#az-acr-build
