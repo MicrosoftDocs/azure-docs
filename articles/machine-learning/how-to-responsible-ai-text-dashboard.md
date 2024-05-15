@@ -1,7 +1,7 @@
 ---
 title: Use the responsible AI text dashboard
 titleSuffix: Azure Machine Learning
-description: Learn how to use the tools and visualization charts in the Azure Machine Learning studio Responsible AI (RAI) text dashboard.
+description: Learn how to use the tools and visualizations in the Azure Machine Learning studio Responsible AI (RAI) text dashboard.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: rai
@@ -9,31 +9,31 @@ ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: wenxwei
 author: wenxwei
-ms.date: 05/13/2024
+ms.date: 05/15/2024
 ms.custom: responsible-ml, build-2023
 ---
 
 # Use the responsible AI text dashboard (preview)
 
-The [Responsible AI (RAI) dashboard](concept-responsible-ai-dashboard.md) brings together several Responsible AI tools in a single interface to help you make informed data-driven decisions. RAI dashboard debugging capabilities and visualizations now support text data.
+The [Responsible AI (RAI) dashboard](concept-responsible-ai-dashboard.md) brings together several RAI tools in a single interface to help inform data-driven decisions about your models. Understanding natural language processing (NLP) models can be different from assessing tabular data. RAI dashboard debugging and visualizations now support text data.
 
-The Responsible AI Toolbox for text data is a customizable, interoperable tool where you can select components to perform model assessment and debugging. This article describes how to access and configure RAI text dashboard components, options, and functionality.
+The Responsible AI text dashboard is a customizable, interoperable toolbox where you can select components to perform model assessment and debugging. This article describes how to access and configure RAI text dashboard components and functionality.
 
 > [!IMPORTANT]
 > The Responsible AI text dashboard is currently in public preview. This preview is provided without a service-level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-- An Azure subscription and Azure Machine Learning workspace.
-- A registered model in the workspace that has a responsible AI text dashboard.
+- An Azure subscription with an Azure Machine Learning workspace.
+- A registered machine learning model that has a responsible AI text dashboard created.
 
   You can create an RAI text dashboard by using:
 
   - [The Azure Machine Learning studio UI](how-to-responsible-ai-insights-ui.md)
   - [YAML and Python via a pipeline job](how-to-responsible-ai-insights-sdk-cli.md)
-  - A preconfigured sample Jupyter Notebook like [Financial_News_Text_classifier.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/text/responsibleaidashboard-text-classification-financial-news/responsibleaidashboard-text-classification-financial-news.ipynb)
+  - A preconfigured sample Jupyter notebook like [Financial_News_Text_classifier.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/text/responsibleaidashboard-text-classification-financial-news/responsibleaidashboard-text-classification-financial-news.ipynb)
 
-  Once the Responsible AI text dashboard creation is complete, select your registered model in the **Models** list in Machine Learning studio, select **Responsible AI** at the top of the model page, and select the name of your Responsible AI text dashboard.
+  To open the Responsible AI text dashboard in Machine Learning studio, select your registered model in the **Models** list, select **Responsible AI** at the top of the model page, and then select the name of your Responsible AI text dashboard from the list.
 
   :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/select-dashboard.png" alt-text="Screenshot of the Responsible AI page with the text dashboard listed." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/select-dashboard.png":::
 
@@ -75,7 +75,7 @@ To create a new cohort:
 
 ## RAI text dashboard components
 
-The RAI text dashboard includes **Error analysis**, **Model overview**, **Data analysis**, and **Feature importances** components. To view and select from the list of components, select the **Dashboard configuration** icon at upper right.
+The default RAI text dashboard includes **Error analysis**, **Model overview**, **Data analysis**, and **Feature importances** components. To view and select from the list of components, select the **Dashboard configuration** icon at upper right.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/dashboard-settings.png" alt-text="Screenshot of the dashboard configuration icon.":::
 
@@ -203,16 +203,16 @@ In the chart view, the X axis and Y axis show the values being plotted horizonta
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/axis-value.png" alt-text="Screenshot of the select your axis value sidebar.":::
 
-In the **Select your axis value** pane, depending on the value, you can configure options such as **Apply binning to data**, **Enable logarithmic scaling**, or **Treat as categorical**. **Should dither** adds optional noise to the data to avoid overlapping points in the scatterplot.
+In the axis configuration pane, depending on the value, you can configure options such as **Apply binning to data**, **Enable logarithmic scaling**, or **Treat as categorical**. **Should dither** adds optional noise to the data to avoid overlapping points in the scatterplot.
 
 Under **Chart type**, you can select whether to aggregate values across all datapoints.
 
 - **Aggregate plot** displays data in bins or categories along the X axis.
 - **Individual datapoints** displays a disaggregated view of the data.
 
-In the **Individual datapoints** view, you can select the type of legend used to group datapoints. Selecting the label under **Color value** opens the **Select your axis value** sidebar pane.
+  In the **Individual datapoints** view, you can select the type of legend used to group datapoints. Selecting the label under **Color value** opens the axis configuration sidebar pane.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png" alt-text="Screenshot of data analysis on the chart view tab with individual datapoints option highlighted." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png":::
+  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png" alt-text="Screenshot of data analysis on the chart view tab with individual datapoints option highlighted." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png":::
 
 ### Feature importances
 
