@@ -52,7 +52,7 @@ As these credentials are highly sensitive, Azure Private 5G Core won't allow use
 
 ## RADIUS authentication
 
-Azure Private 5G Core supports Remote Authentication Dial-In User Service (RADIUS) authentication. You can configure the packet core to contact a RADIUS authentication, authorization and accounting (AAA) server in your network to authenticate UEs on attachment to the network and session establishment. Communication between the packet core and RADIUS server is secured with a certificate stored in Azure Key Vault. The default username and password for UEs are also stored in Azure Key Vault. You can use the UE's International Mobile Subscriber Identity (IMSI) in place of a default username. See [Collect RADIUS values](collect-required-information-for-a-site.md#collect-radius-values) for details.
+Azure Private 5G Core supports Remote Authentication Dial-In User Service (RADIUS) authentication. You can configure the packet core to contact a RADIUS authentication, authorization and accounting (AAA) server in your network to authenticate UEs on attachment to the network and session establishment. Communication between the packet core and RADIUS server is secured with a shared secret that is stored in Azure Key Vault. The default username and password for UEs are also stored in Azure Key Vault. You can use the UE's International Mobile Subscriber Identity (IMSI) in place of a default username. See [Collect RADIUS values](collect-required-information-for-a-site.md#collect-radius-values) for details.
 
 Your RADIUS server must be reachable from your Azure Stack Edge device on the management network. RADIUS is only supported for initial authentication. Other RADIUS features, such as accounting, are not supported.
 
