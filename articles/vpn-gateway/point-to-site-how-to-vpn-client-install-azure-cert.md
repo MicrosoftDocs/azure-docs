@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 05/15/2024
 ms.author: cherylmc
 ---
 # Install client certificates for P2S certificate authentication connections
@@ -21,14 +21,11 @@ For information about generating certificates, see the [Generate certificates](v
 
 ## <a name="installmac"></a>macOS
 
-> [!NOTE]
-> macOS VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
-
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
 ## <a name="installlinux"></a>Linux
 
-The Linux client certificate is installed on the client as part of the client configuration. See [Client configuration - Linux](point-to-site-vpn-client-cert-linux.md) for instructions.
+The Linux client certificate is installed on the client as part of the client configuration. There are a few different methods to install certificates. You can use [strongSwan](point-to-site-vpn-client-certificate-ike-linux.md) steps, or [OpenVPN client](point-to-site-vpn-client-certificate-openvpn-linux.md).
 
 ## <a name="vpn-clients"></a>Configure VPN clients
 

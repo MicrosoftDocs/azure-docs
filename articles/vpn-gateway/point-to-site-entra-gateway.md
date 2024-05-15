@@ -42,7 +42,7 @@ The articles in the [Next steps](#next-steps) section help you:
 
 **Microsoft Entra tenant:** The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant).
 
-## Configure P2S VPN
+## <a name="configure-vpn"></a>Configure P2S VPN
 
 > [!IMPORTANT]
 > [!INCLUDE [Microsoft Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
@@ -80,13 +80,13 @@ The articles in the [Next steps](#next-steps) section help you:
 1. You don't need to click **Grant administrator consent for Azure VPN client application**. This link is only for manually registered VPN clients that use the older Audience values. It opens a page in the Azure portal.
 1. Once you finish configuring settings, click **Save** at the top of the page.
 
-## Download the VPN client profile configuration package
+## <a name="download"></a>Download the VPN client profile configuration package
 
 In this section, you generate and download the Azure VPN client profile configuration package. This package contains the settings that you can use to configure the Azure VPN client profile on client computers.
 
 [!INCLUDE [Azure VPN client profile configuration package](../../includes/vpn-gateway-point-to-site-client-package-download.md)]
 
-## Configure the Azure VPN Client
+## <a name="configure-client"></a>Configure the Azure VPN Client
 
 Next, you examine the profile configuration package, configure the Azure VPN Client for the client computers, and connect to Azure. See the articles listed in the Next steps section.
 

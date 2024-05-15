@@ -58,7 +58,7 @@ Locate and unzip the VPN client profile configuration package you generated. For
 If you don't see the file, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Microsoft Entra authentication, you might not have an AzureVPN folder. See the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
+* If you're using Microsoft Entra authentication, you might not have an AzureVPN folder. See the [Microsoft Entra ID](point-to-site-entra-vpn-client-windows.md) configuration article instead.
 
 ## Download the Azure VPN Client
 
