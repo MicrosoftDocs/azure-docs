@@ -37,4 +37,4 @@ To resolve this issue with overlapping benefits, you can do one of the following
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=208458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
