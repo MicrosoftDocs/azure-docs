@@ -2,12 +2,12 @@
 title: Release notes for 2022 Azure Health Data Services monthly releases
 description: 2022 - Explore the Azure Health Data Services release notes for 2022. Learn about the features and enhancements introduced in the FHIR, DICOM, and MedTech services that help you manage and analyze health data. 
 services: healthcare-apis
-author: kgaddam10
+author: shellyhaverkamp
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 03/13/2024
-ms.author: kavitagaddam 
+ms.author: jasteppe 
 ms.custom: references_regions
 ---
 

@@ -3,14 +3,14 @@ title: Migrate to App Service Environment v3 by using the side-by-side migration
 description: Overview of the side-by-side migration feature for migration to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 3/28/2024
+ms.date: 4/12/2024
 ms.author: jordanselig
 ms.custom: references_regions
 ---
-# Migration to App Service Environment v3 using the side-by-side migration feature (Preview)
+# Migration to App Service Environment v3 using the side-by-side migration feature
 
 > [!NOTE]
-> The migration feature described in this article is used for side-by-side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3 and is currently **in preview**. 
+> The migration feature described in this article is used for side-by-side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3. 
 >
 > If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
@@ -143,7 +143,7 @@ The platform creates the [the new outbound IP addresses](networking.md#addresses
 
 When completed, the new outbound IPs that your future App Service Environment v3 uses are created. These new IPs have no effect on your existing environment.
 
-You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-and-complete-migration). You don't get the inbound IP at this point in the process because there are dependencies on App Service Environment v3 resources that get created during the migration step. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
+You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-validate-your-app-service-environment-v3-and-complete-migration). You don't get the inbound IP at this point in the process because there are dependencies on App Service Environment v3 resources that get created during the migration step. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
 
 This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
@@ -173,6 +173,8 @@ Azure Policy can be used to deny resource creation and modification to certain p
 
 If your existing App Service Environment uses a custom domain suffix, you must configure a custom domain suffix for your new App Service Environment v3. Custom domain suffix on App Service Environment v3 is implemented differently than on App Service Environment v2. You need to provide the custom domain name, managed identity, and certificate, which must be stored in Azure Key Vault. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). If your App Service Environment v2 has a custom domain suffix, you must configure a custom domain suffix for your new environment even if you no longer want to use it. Once migration is complete, you can remove the custom domain suffix configuration if needed.
 
+If your migration includes a custom domain suffix, for App Service Environment v3, the custom domain isn't displayed in the **Essentials** section of the **Overview** page of the portal as it is for App Service Environment v1/v2. Instead, for App Service Environment v3, go to the **Custom domain suffix** page where you can confirm your custom domain suffix is configured correctly. Also, on App Service Environment v2, if you have a custom domain suffix, the default host name includes your custom domain suffix and is in the form *APP-NAME.internal.contoso.com*. On App Service Environment v3, the default host name always uses the default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. This difference is because App Service Environment v3 keeps the default domain suffix when you add a custom domain suffix. With App Service Environment v2, there's only a single domain suffix.
+
 ### Migrate to App Service Environment v3
 
 After completing the previous steps, you should continue with migration as soon as possible.
@@ -188,19 +190,25 @@ Side-by-side migration requires a three to six hour service window for App Servi
 - The new App Service Environment v3 is created in the subnet you selected.
 - Your new App Service plans are created in the new App Service Environment v3 with the corresponding Isolated v2 tier.
 - Your apps are created in the new App Service Environment v3.
-- The underlying compute for your apps is moved to the new App Service Environment v3. Your App Service Environment v2 front ends are still serving traffic. The migration process doesn't redirect to the App Service Environment v3 front ends until you complete the final step of the migration.
+- The underlying compute for your apps is moved to the new App Service Environment v3. Your App Service Environment v2 front ends are still serving traffic. Your old inbound IP address remains in use. 
+    - For ILB App Service Environments, your App Service Environment v3 front ends aren't used until you update your private DNS zones with the new inbound IP address. 
+    - For ELB App Service Environments, the migration process doesn't redirect traffic to the App Service Environment v3 front ends until you complete the final step of the migration.
 
-When this step completes, your application traffic is still going to your old App Service Environment front ends and the inbound IP that was assigned to it. However, you also now have an App Service Environment v3 with all of your apps.
+When this step completes, your application traffic is still going to your old App Service Environment v2 front ends and the inbound IP that was assigned to it. However, you also now have an App Service Environment v3 with all of your apps.
 
 ### Get the inbound IP address for your new App Service Environment v3 and update dependent resources
 
-The new inbound IP address is given so that you can set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md) and update any of your private DNS zones. Don't move on to the next step until you account for these changes. There's downtime if you don't update dependent resources with the new inbound IP. **It's your responsibility to update any and all resources that are impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.**
+The new inbound IP address is given so that you can set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md) and update any of your private DNS zones. Don't move on to the next step until you make these changes. There's downtime if you don't update dependent resources with the new inbound IP. **It's your responsibility to update any and all resources that are impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.**
 
-### Redirect customer traffic and complete migration
+### Redirect customer traffic, validate your App Service Environment v3, and complete migration
 
-The final step is to redirect traffic to your new App Service Environment v3 and complete the migration. The platform does this change for you, but only when you initiate it. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're able to access your apps without issues, that means you're ready to complete the migration.
+The final step is to redirect traffic to your new App Service Environment v3 and complete the migration. The platform does this change for you, but only when you initiate it. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. By default, traffic goes to your App Service Environment v2 front ends. If you're using an ILB App Service Environment v3, you can test your App Service Environment v3 front ends by updating your private DNS zone with the new inbound IP address. If you're using an ELB App Service Environment v3, the process for testing is dependent on your specific network configuration. One simple method to test for ELB environments is to update your hosts file to use your new App Service Environment v3 inbound IP address. If you have custom domains assigned to your individual apps, you can alternatively update their DNS to point to the new inbound IP. Testing this change allows you to fully validate your App Service Environment v3 before initiating the final step of the migration where your old App Service Environment is deleted.
 
-Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal DNS records to point to the load balancer IP address of your new App Service Environment v3 and the front ends that were created during the migration. Changes are effective within a couple minutes. If you run into issues, check your cache and TTL settings. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
+Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal DNS records to point to the load balancer IP address of your new App Service Environment v3 and the front ends that were created during the migration. Changes are effective within a couple minutes. If you run into issues, check your cache and TTL settings. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment. 
+
+> [!NOTE]
+> You have 14 days to complete this step. If you don't complete this step in 14 days, your migration is automatically reverted back to an App Service Environment v2. If you need more than 14 days to complete this step, contact support.
+>
 
 If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, you can revert all changes and return to your old App Service Environment v2. The revert process takes 3 to 6 hours to complete. There's no downtime associated with this process. Once the revert process completes, your old App Service Environment is back online and your new App Service Environment v3 is deleted. You can then attempt the migration again once you resolve any issues.
 

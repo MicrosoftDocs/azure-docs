@@ -374,7 +374,7 @@ When your environment is provisioned, you can deploy your code to the environmen
 Deploy your application code to the remote Azure Deployment Environments environment you provisioned using the following command:
 
 ```bash
-azd env deploy
+azd deploy
 ```
 Deploying your code to the remote environment can take several minutes. 
 
@@ -399,7 +399,7 @@ For this sample application, you see something like this:
 Deploy your application code to the remote Azure Deployment Environments environment you provisioned using the following command:
 
 ```bash
-azd env deploy
+azd deploy
 ```
 Deploying your code to the remote environment can take several minutes. 
 

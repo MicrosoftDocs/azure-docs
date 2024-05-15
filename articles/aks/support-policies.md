@@ -3,6 +3,9 @@ title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
 ms.topic: article
 ms.date: 08/28/2023
+author: nickomang
+ms.author: nickoman
+
 
 #Customer intent: As a cluster operator or developer, I want to understand what AKS components I need to manage, what components are managed by Microsoft (including security patches), and networking and preview features.
 ---

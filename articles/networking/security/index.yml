@@ -201,7 +201,7 @@ additionalContent:
             - text: Learn more about Azure Bastion
               url: ../../bastion/index.yml
             - text: Enable just-in-time access on VMs
-              url: ../../defender-for-cloud/just-in-time-access-usage.md
+              url: ../../defender-for-cloud/just-in-time-access-usage.yml
         - title: Training
           links:
             - text: Configure the network for your virtual machines

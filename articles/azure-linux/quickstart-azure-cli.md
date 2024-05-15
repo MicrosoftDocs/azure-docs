@@ -91,7 +91,7 @@ In this quickstart, you will use a manifest to create all objects needed to run 
 * The sample Azure Vote Python applications.
 * A Redis instance.
 
-Two [Kubernetes Services](../../articles/aks/concepts-network.md#services) are also created:
+Two [Kubernetes Services](../../articles/aks/concepts-network-services.md) are also created:
 
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.

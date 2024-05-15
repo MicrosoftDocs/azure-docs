@@ -187,3 +187,4 @@ Learn more about Kubernetes labels in the [Kubernetes labels documentation][kube
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [create-or-update-os-sku]: /rest/api/aks/agent-pools/create-or-update#ossku
 [install-azure-cli]: /cli/azure/install-azure-cli
+

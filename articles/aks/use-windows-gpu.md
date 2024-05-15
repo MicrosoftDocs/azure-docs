@@ -1,16 +1,19 @@
 ---
-title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)
+title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS) (preview)
 description: Learn how to use Windows GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.date: 03/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads using a Windows os.
 ---
 
-# Use Windows GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
+# Use Windows GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS) (preview)
 
 Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Windows and [Linux](./gpu-cluster.md) node pools to run compute-intensive Kubernetes workloads.
 
-This article helps you provision Windows nodes with schedulable GPUs on new and existing AKS clusters.
+This article helps you provision Windows nodes with schedulable GPUs on new and existing AKS clusters (preview).
 
 ## Supported GPU-enabled virtual machines (VMs)
 
@@ -318,3 +321,4 @@ After creating your cluster, confirm that GPUs are schedulable in Kubernetes.
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [NVadsA10]: /azure/virtual-machines/nva10v5-series
+

@@ -41,7 +41,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum number of [schemas](../articles/api-management/validate-content-policy.md#schemas-for-content-validation) | 100 | 100 | 100 | 100 | 100 |
 | Maximum size of request or response body in [validate-content policy](../articles/api-management/validate-content-policy.md) | 100 KiB |  100 KiB | 100 KiB |  100 KiB |  100 KiB |
 | Maximum number of self-hosted gateways<sup>3</sup> | N/A | 25 | N/A | N/A | 25 |
-| Maximum number of active WebSocket connections per unit | 5,000 | 2,500 | 5,000 | 5,000 | 5,000 |
+| Maximum number of active WebSocket connections per unit | N/A | 2,500 | 5,000 | 5,000 | 5,000 |
 | Maximum number of tags supported by an API Management resource|15| 15 | 15 | 15 | 15 |
 | Maximum number of credential providers per service instance| 1,000 | 1,000 | 1,000 | 1,000 | 1,000 |
 | Maximum number of connections per credential provider| 10,000 | 10,000 | 10,000 | 10,000 | 10,000 |

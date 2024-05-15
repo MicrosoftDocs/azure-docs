@@ -12,8 +12,6 @@ ms.author: jasteppe
 
 # Disable events
 
-**Applies to:** [!INCLUDE [Yes icon](../includes/applies-to.md)][!INCLUDE [FHIR service](../includes/fhir-service.md)], [!INCLUDE [DICOM service](../includes/DICOM-service.md)]
-
 Events in Azure Health Services allow you to monitor and respond to changes in your data and resources. By creating an event subscription, you can specify the conditions and actions for sending notifications to various endpoints.
 
 However, there may be situations where you want to temporarily or permanently stop receiving notifications from an event subscription. For example, you might want to pause notifications during maintenance or testing, or delete the event subscription if you no longer need it. 

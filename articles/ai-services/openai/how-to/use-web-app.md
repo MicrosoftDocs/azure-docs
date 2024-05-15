@@ -7,7 +7,7 @@ ms.service: azure-ai-openai
 ms.topic: how-to
 author: aahill
 ms.author: aahi
-ms.date: 03/27/2024
+ms.date: 05/09/2024
 recommendations: false
 ---
 
@@ -21,8 +21,8 @@ Along with Azure OpenAI Studio, APIs and SDKs, you can also use the available st
 ## Important considerations
 
 - Publishing creates an Azure App Service in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
+- gpt-4 vision-preview models are not supported.
 - By default, the app will be deployed with the Microsoft identity provider already configured, restricting access to the app to members of your Azure tenant. To add or modify authentication:
-
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
     
         :::image type="content" source="../media/quickstarts/web-app-authentication.png" alt-text="Screenshot of the authentication page in the Azure portal." lightbox="../media/quickstarts/web-app-authentication.png":::
@@ -52,6 +52,8 @@ Sample source code for the web app is available on [GitHub](https://github.com/m
 
 We recommend pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes, API version, and improvements. Additionally, the web app must be synchronized every time the API version being used is [retired](../api-version-deprecation.md#retiring-soon). 
 
+Consider either clicking the **watch** or **star** buttons on the web app's [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT) repo to be notified about changes and updates to the source code.
+
 **If you haven't customized the app:**
 * You can follow the synchronization steps below
 
@@ -75,7 +77,7 @@ We recommend pulling changes from the `main` branch for the web app's source cod
 
 You can enable chat history for your users of the web app. When you enable the feature, your users will have access to their individual previous queries and responses. 
 
-To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
+To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal).
 
 :::image type="content" source="../media/use-your-data/enable-chat-history.png" alt-text="A screenshot of the chat history enablement button on Azure OpenAI studio." lightbox="../media/use-your-data/enable-chat-history.png":::
 
@@ -92,4 +94,4 @@ Deleting your web app does not delete your Cosmos DB instance automatically. To 
 
 ## Next steps
 * [Prompt engineering](../concepts/prompt-engineering.md)
-* [Azure openAI on your data](../concepts/use-your-data.md)
+* [Azure OpenAI on your data](../concepts/use-your-data.md)

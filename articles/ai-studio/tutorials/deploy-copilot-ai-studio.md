@@ -181,6 +181,9 @@ To facilitate node configuration and fine-tuning, a visual representation of the
 
    :::image type="content" source="../media/tutorials/copilot-deploy-flow/prompt-flow-overview-graph.png" alt-text="Screenshot of the default graph exported from the playground to prompt flow." lightbox="../media/tutorials/copilot-deploy-flow/prompt-flow-overview-graph.png":::
 
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
+
 Nodes can be added, updated, rearranged, or removed. The nodes in your flow at this point include:
 - **DetermineIntent**: This node determines the intent of the user's query. It uses the system prompt to determine the intent. You can edit the system prompt to provide scenario-specific few-shot examples.
 - **ExtractIntent**: This node formats the output of the **DetermineIntent** node and sends it to the **RetrieveDocuments** node.
@@ -255,6 +258,9 @@ For more information on how to create an index, see [Create an index](../how-to/
 
 ### Add customer information to the flow
 
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
+
 After you're done creating your index, return to your prompt flow and follow these steps to add the customer info to the flow:
 
 1. Select the **RetrieveDocuments** node from the graph and rename it **RetrieveProductInfo**. Now the retrieve product info node can be distinguished from the retrieve customer info node that you add to the flow.
@@ -294,6 +300,9 @@ After you're done creating your index, return to your prompt flow and follow the
 1. Select **Save** from the top menu to save your changes.
 
 ### Format the retrieved documents to output
+
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
 
 Now that you have both the product and customer info in your prompt flow, you format the retrieved documents so that the large language model can use them.
 
@@ -413,8 +422,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 1. Select a model to use for evaluation. In this example, select **gpt-35-turbo-16k**. Then select **Next**.
 
     > [!NOTE]
-    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a GPT-4 or gpt-35-turbo-16k model. If you didn't previously deploy a GPT-4 or gpt-35-turbo-16k model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
-    > The evaluation process may take up lots of tokens, so it's recommended to use a model which can support >=16k tokens.
+    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
 
 1. Select **Add new dataset**. Then select **Next**.
 

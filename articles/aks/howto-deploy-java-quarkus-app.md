@@ -1,7 +1,7 @@
 ---
 title: "Deploy Quarkus on Azure Kubernetes Service"
 description: Shows how to quickly stand up Quarkus on Azure Kubernetes Service.
-author: edburns
+author: KarlErickson
 ms.author: edburns
 ms.service: azure-kubernetes-service
 ms.topic: how-to
@@ -60,7 +60,7 @@ Instead of `quarkus dev`, you can accomplish the same thing with Maven by using 
 
 You may be asked if you want to send telemetry of your usage of Quarkus dev mode. If so, answer as you like.
 
-Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you can see the changes. If there are any issues with compilation or deployment, an error page lets you know. Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don’t want the debugger at all, you can use `-Ddebug=false`.
+Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you can see the changes. If there are any issues with compilation or deployment, an error page lets you know. Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don't want the debugger at all, you can use `-Ddebug=false`.
 
 The output should look like the following example:
 

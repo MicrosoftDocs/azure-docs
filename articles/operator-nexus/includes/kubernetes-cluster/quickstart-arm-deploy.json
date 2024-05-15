@@ -85,7 +85,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -112,7 +112,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -125,7 +125,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -152,7 +152,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },

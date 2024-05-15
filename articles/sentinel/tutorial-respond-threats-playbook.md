@@ -404,6 +404,8 @@ This procedure differs, depending on if you're working in Microsoft Sentinel or 
 
 1. Select **Run** on the line of a specific playbook to run it immediately.
 
+    You must have the *Microsoft Sentinel playbook operator* role on any resource group containing playbooks you want to run. If you're unable to run the playbook due to missing permissions, we recommend you contact an admin to grant you with the relevant permissions. For more information, see [Permissions required to work with playbooks](automate-responses-with-playbooks.md#permissions-required).
+
 # [Microsoft Defender portal](#tab/microsoft-defender)
 
 1. In the **Incidents** page, select an incident.
@@ -417,7 +419,7 @@ The **Actions** column might also show one of the following statuses:
 |Status  |Description and action required |
 |---------|---------|
 |<a name="missing-perms"></a>**Missing permissions**      | You must have the *Microsoft Sentinel playbook operator* role on any resource group containing playbooks you want to run. If you're missing permissions, we recommend you contact an admin to grant you with the relevant permissions. <br><br>For more information, see [Permissions required to work with playbooks](automate-responses-with-playbooks.md#permissions-required).|
-|<a name="grant-perms"></a>**Grant permission**     | Microsoft Sentinel is missing the *Microsoft Sentinel Automation Contributor* role, which is required to run playbooks on incidents. In such cases, select **Grant permission** to open the **Manage permissions** pane. The **Manage permissions** pane is filtered by default to the selected playbook's resource group. Select the resource group and then select **Apply** to grant the required permissions. <br><br>You must be an *Owner* or a *User access administrator* on the resource group to which you want to grant Microsoft Sentinel permissions. If you're missing permissions, the resource group is greyed out and you won't be able to select it. In such cases, we recommend you contact an admin to grant you with the relevant permissions. <br><br>For more information, see the note above](#explicit-permissions).  |
+|<a name="grant-perms"></a>**Grant permission**     | Microsoft Sentinel is missing the *Microsoft Sentinel Automation Contributor* role, which is required to run playbooks on incidents. In such cases, select **Grant permission** to open the **Manage permissions** pane. The **Manage permissions** pane is filtered by default to the selected playbook's resource group. Select the resource group and then select **Apply** to grant the required permissions. <br><br>You must be an *Owner* or a *User access administrator* on the resource group to which you want to grant Microsoft Sentinel permissions. If you're missing permissions, the resource group is greyed out and you won't be able to select it. In such cases, we recommend you contact an admin to grant you with the relevant permissions. <br><br>For more information, see the [note above](#explicit-permissions).  |
 
 ---
 

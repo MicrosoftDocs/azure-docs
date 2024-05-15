@@ -47,6 +47,8 @@ items:
       href: ./concepts/abuse-monitoring.md
     - name: Content filtering
       href: ./concepts/content-filter.md
+    - name: Customizing Large Language Models (LLMs)
+      href: ./concepts/customizing-llms.md
     - name: Embeddings
       href: ./concepts/understand-embeddings.md
     - name: Fine-tuning
@@ -109,6 +111,10 @@ items:
       href: ./how-to/integrate-synapseml.md
     - name: Deploy and use web apps
       href: ./how-to/use-web-app.md
+    - name: Legacy
+      items:
+      - name: Chat Markup Language (ChatML)
+        href: ./how-to/chat-markup-language.md 
   - name: Content filtering
     href: ./how-to/content-filters.md
   - name: Use blocklists
@@ -139,6 +145,8 @@ items:
         href: ./how-to/use-your-data-securely.md
       - name: Deploy and use web apps
         href: ./how-to/use-web-app.md
+      - name: Use the Azure Developer CLI
+        href: ./how-to/azure-developer-cli.md
   - name: Migrate to OpenAI Python v1.x
     href: ./how-to/migration.md
   - name: Models
@@ -151,7 +159,7 @@ items:
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
       - name: Encryption of data at rest
         href: encrypt-data-at-rest.md
-      - name: Manage identity
+      - name: Managed identity
         href: ./how-to/managed-identity.md
       - name: Use Azure OpenAI on your data securely
         href: ./how-to/use-your-data-securely.md
@@ -160,7 +168,7 @@ items:
       - name: Resource creation & model deployment
         href: ./how-to/create-resource.md
       - name: OpenAI vs Azure OpenAI (Python)
-        href: ./how-to/switching-endpoints.md
+        href: ./how-to/switching-endpoints.yml
       - name: Manage quota
         href: ./how-to/quota.md
       - name: Dynamic quota
@@ -260,7 +268,7 @@ items:
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2024-03-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: Templates

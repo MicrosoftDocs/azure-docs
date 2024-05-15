@@ -35,7 +35,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 5. Make sure **Kubernetes** is selected under **Deployment scripts**.
 6. Select **\<gateway-name\>.yml** file link next to **Deployment** to download the file.
 7. Adjust the `config.service.endpoint`, port mappings, and container name in the .yml file as needed.
-8. Depending on your scenario, you might need to change the [service type](../aks/concepts-network.md#services). 
+8. Depending on your scenario, you might need to change the [service type](../aks/concepts-network-services.md). 
     * The default value is `LoadBalancer`, which is the external load balancer. 
     * You can use the [internal load balancer](../aks/internal-lb.md) to restrict the access to the self-hosted gateway to only internal users. 
     * The sample below uses `NodePort`.

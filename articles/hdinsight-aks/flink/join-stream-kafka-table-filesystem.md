@@ -31,12 +31,6 @@ We're creating a topic called `user_events`.
   timestamp, 
   ```
 
-**Kafka 2.4.1**
-```
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic user_events --zookeeper zk0-contos:2181
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic user_events_output --zookeeper zk0-contos:2181
-```
-
 **Kafka 3.2.0**
 ```
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic user_events --bootstrap-server wn0-contsk:9092
@@ -84,7 +78,7 @@ In this step, we perform the following activities
         <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
-        <kafka.version>3.2.0</kafka.version> //replace with 2.4.1 if you are using HDInsight Kafka 2.4.1
+        <kafka.version>3.2.0</kafka.version>
     </properties>
     <dependencies>
         <dependency>

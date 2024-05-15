@@ -41,7 +41,7 @@ sections:
       - question: |
           How do I integrate search into my solution?
         answer: |
-          Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
+          Client code should call the Azure SDK client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
 
       - question: |
           Is there functional parity across the various APIs?
@@ -70,7 +70,9 @@ sections:
       - question: |
           What does "indexing" mean in Azure AI Search?
         answer: |
-          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval. It creates vector indexes if the schema includes vector fields.
+          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval. 
+          
+          It creates vector indexes if the schema includes vector fields.
 
       - question: |
           Can I move, backup, and restore indexes?
@@ -113,7 +115,7 @@ sections:
       - question: |
           Can Azure AI Search vectorize my content or queries?
         answer: |
-          Integrated vectorization is now in public preview.
+          Built-in integrated vectorization is now in public preview. 
 
       - question: |
           Does my search service support vector search?
