@@ -6,28 +6,26 @@ description: Steps for adding a vectorizer to a search index in Azure AI Search.
 author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 05/08/2024
 ---
 
 # Configure a vectorizer in a search index
 
 > [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2023-10-01-preview&preserve-view=true) supports this feature.
+> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and [2024-03-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) support the [AzureOpenAIEmbedding vectorizer](vector-search-vectorizer-azure-open-ai.md) and [custom vectorizer](vector-search-vectorizer-custom-web-api.md). [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true) adds support for the [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision.md) and the [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md).
 
-In Azure AI Search a *vectorizer* is software that performs vectorization, such as a deployed embedding model on Azure OpenAI, that converts text to vectors during query execution.
+In Azure AI Search a *vectorizer* is software that performs vectorization, such as a deployed embedding model on Azure OpenAI, that converts text (or images) to vectors during query execution.
 
-It's defined in a [search index](search-what-is-an-index.md), it applies to searchable vector fields, and it's used at query time to generate an embedding for a text query input. If instead you need to vectorize text as part of the indexing process, refer to [Integrated Vectorization (Preview)](vector-search-integrated-vectorization.md). For built-in vectorization during indexing, you can configure an indexer and skillset that calls an Azure OpenAI embedding model for your raw text content.
+It's defined in a [search index](search-what-is-an-index.md), it applies to searchable vector fields, and it's used at query time to generate an embedding for a text or image query input. If instead you need to vectorize content as part of the indexing process, refer to [Integrated Vectorization (Preview)](vector-search-integrated-vectorization.md). For built-in vectorization during indexing, you can configure an indexer and skillset that calls an embedding model for your raw text content.
 
-To add a vectorizer to search index, you can use the index designer in Azure portal, or call the [Create or Update Index 2023-10-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST API, or use any Azure beta SDK package that's updated to provide this feature.
+To add a vectorizer to search index, you can use the index designer in Azure portal, or call the [Create or Update Index 2024-05-01-preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) REST API, or use any Azure beta SDK package that's updated to provide this feature.
 
 ## Prerequisites
 
 + [An index with searchable vector fields](vector-search-how-to-create-index.md) on Azure AI Search.
 
-+ A deployed embedding model, such as **text-embedding-ada-002** on Azure OpenAI. It's used to vectorize a query. It must be identical to the model used to generate the embeddings in your index.
++ A deployed embedding model, such as **text-embedding-ada-002** on Azure OpenAI. It's used to vectorize a query. It must be identical to the model used to generate the embeddings in your index. You can also use [models deployed from the Azure AI Studio model catalog](vector-search-integrated-vectorization-ai-studio.md) or an [Azure AI Vision model](/azure/ai-services/computer-vision/concept-image-retrieval).
 
 + Permissions to use the embedding model. If you're using Azure OpenAI, the caller must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions. Or, you can provide an API key.
 
@@ -79,6 +77,7 @@ The [Import and vectorize data wizard](search-get-started-portal-import-vectors.
         "azureOpenAIParameters": {
           "resourceUri": "https://my-fake-azure-openai-resource.openai.azure.com",
           "deploymentId": "text-embedding-ada-002",
+          "modelName": "text-embedding-ada-002",
           "apiKey": "0000000000000000000000000000000000000",
           "authIdentity": null
         },
@@ -105,6 +104,7 @@ This section explains the modifications to an index schema for defining a vector
           "azureOpenAIParameters": {
             "resourceUri": "https://url.openai.azure.com",
             "deploymentId": "text-embedding-ada-002",
+            "modelName": "text-embedding-ada-002",
             "apiKey": "mytopsecretkey"
           }
         },
