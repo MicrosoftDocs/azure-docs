@@ -533,7 +533,7 @@ In this article, you learned how to use Azure Container Registry to store, manag
 
 ## Next steps
 
-* Learn about [Artifact References](container-registry-oras-artifacts.md), associating signatures, software bill of materials and other reference types
+* Learn about [Artifact References](https://oras.land/docs/concepts/reftypes), associating signatures, software bill of materials and other reference types
 * Learn more about [the ORAS Project](https://oras.land/), including how to configure a manifest for an artifact
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
 
