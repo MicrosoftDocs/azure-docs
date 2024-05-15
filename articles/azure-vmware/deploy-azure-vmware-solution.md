@@ -4,7 +4,7 @@ description: In this tutorial, learn how to use the information gathered in the 
 ms.topic: tutorial
 ms.custom: "engagement-fy23, devx-track-azurecli"
 ms.service: azure-vmware
-ms.date: 12/08/2023
+ms.date: 5/15/2024
 ---
 
 # Deploy and configure Azure VMware Solution
