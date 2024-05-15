@@ -316,6 +316,38 @@ The following default recording rules are automatically configured by Azure Moni
 - `kube_pod_windows_container_resource_cpu_cores_limit`
 - `namespace_pod_container:windows_container_cpu_usage_seconds_total:sum_rate`
 
+## Prometheus visualization recording rules
+
+When using [Prometheus based Container Insights](./container-insights-experience-v2.md), additional recording rules will be deployed to support the Prometheus visualizations.
+
+- ux:cluster_pod_phase_count:sum
+- ux:node_cpu_usage:sum_irate
+- ux:node_memory_usage:sum
+- ux:controller_pod_phase_count:sum
+- ux:controller_container_count:sum
+- ux:controller_workingset_memory:sum
+- ux:controller_cpu_usage:sum_irate
+- ux:controller_rss_memory:sum
+- ux:controller_resource_limit:sum
+- ux:controller_container_restarts:max
+- ux:pod_container_count:sum
+- ux:pod_cpu_usage:sum_irate
+- ux:pod_workingset_memory:sum
+- ux:pod_rss_memory:sum
+- ux:pod_resource_limit:sum
+- ux:pod_container_restarts:max
+- ux:node_network_receive_drop_total:sum_irate
+- ux:node_network_transmit_drop_total:sum_irate
+
+The following recording rules are required for Windows support. These rules are deployed along with the above rules, however, they are not enabled by default. Follow the instructions for [enabling and disabling rule groups](../essentials/prometheus-rule-groups.md#disable-and-enable-rule-groups) in your Azure Monitor workspace. 
+
+- ux:node_cpu_usage_windows:sum_irate
+- ux:node_memory_usage_windows:sum
+- ux:controller_cpu_usage_windows:sum_irate
+- ux:controller_workingset_memory_windows:sum
+- ux:pod_cpu_usage_windows:sum_irate
+- ux:pod_workingset_memory_windows:sum
+
 ## Next steps
 
 [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md)
