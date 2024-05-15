@@ -1,7 +1,7 @@
 ---
-title: Work smarter with your Azure Stack HCI clusters using Microsoft Copilot for Azure (preview)
-description: Learn about scenarios where Microsoft Copilot for Azure (preview) can help you work with your Azure Stack HCI clusters.
-ms.date: 11/15/2023
+title: Work smarter with your Azure Stack HCI clusters using Microsoft Copilot for Azure
+description: Learn about scenarios where Microsoft Copilot for Azure can help you work with your Azure Stack HCI clusters.
+ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -11,11 +11,11 @@ ms.author: jenhayes
 author: JnHs
 ---
 
-# Work smarter with your Azure Stack HCI clusters using Microsoft Copilot for Azure (preview)
+# Work smarter with your Azure Stack HCI clusters using Microsoft Copilot for Azure
 
 Microsoft Copilot for Azure (preview) can help you identify problems and get information about your [Azure Stack HCI](/azure-stack/hci/overview) clusters.
 
-When you ask Microsoft Copilot for Azure (preview) for information about the state of your hybrid infrastructure, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context of a query isn't clear, you'll be prompted to clarify what you're looking for.
+When you ask Microsoft Copilot for Azure for information about the state of your hybrid infrastructure, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context of a query isn't clear, you'll be prompted to clarify what you're looking for.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -34,14 +34,13 @@ Here are a few examples of the kinds of prompts you can use to work with your Az
 
 In this example, Microsoft Copilot for Azure responds to the prompt "**summarize my HCI clusters**" with details about the number of clusters, their status, and any alerts that affect them.
 
-:::image type="content" source="media/work-smarter-edge/azure-stack-hci-clusters-summarize.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) summarizing Azure Stack HCI clusters.":::
+:::image type="content" source="media/work-smarter-edge/azure-stack-hci-clusters-summarize.png" alt-text="Screenshot showing Microsoft Copilot for Azure summarizing Azure Stack HCI clusters.":::
 
-If you follow up by asking "**tell me more about the alerts**", Microsoft Copilot for Azure (preview) provides more details about the current alerts.
+If you follow up by asking "**tell me more about the alerts**", Microsoft Copilot for Azure provides more details about the current alerts.
 
-:::image type="content" source="media/work-smarter-edge/azure-stack-hci-clusters-alerts.png" alt-text="Screenshot showing Microsoft Copilot for Azure (preview) providing information about alerts affecting Azure Stack HCI clusters.":::
+:::image type="content" source="media/work-smarter-edge/azure-stack-hci-clusters-alerts.png" alt-text="Screenshot showing Microsoft Copilot for Azure providing information about alerts affecting Azure Stack HCI clusters.":::
 
 ## Next steps
 
-- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
+- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure.
 - Learn more about [Azure Stack HCI](/azure-stack/hci/overview).
-- [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).

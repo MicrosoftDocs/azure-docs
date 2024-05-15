@@ -1,7 +1,7 @@
 ---
 title:  Get resource information using Microsoft Copilot for Azure (preview)
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can help with Azure Resource Graph.
-ms.date: 11/15/2023
+ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -55,6 +55,5 @@ You can view the generated query in Azure Resource Graph Explorer by selecting *
 
 ## Next steps
 
-- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
+- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure.
 - Learn more about [Azure Resource Graph](/azure/governance/resource-graph/overview).
-- [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).

@@ -1,6 +1,6 @@
 ---
-title: Generate Azure CLI scripts using Microsoft Copilot for Azure (preview)
-description: Learn about scenarios where Microsoft Copilot for Azure (preview) can generate Azure CLI scripts for you to customize and use.
+title: Generate Azure CLI scripts using Microsoft Copilot for Azure
+description: Learn about scenarios where Microsoft Copilot for Azure can generate Azure CLI scripts for you to customize and use.
 ms.date: 04/25/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
@@ -9,11 +9,11 @@ ms.author: jenhayes
 author: JnHs
 ---
 
-# Generate Azure CLI scripts using Microsoft Copilot for Azure (preview)
+# Generate Azure CLI scripts using Microsoft Copilot for Azure
 
 Microsoft Copilot for Azure (preview) can generate [Azure CLI](/cli/azure/) scripts that you can use to create or manage resources.
 
-When you tell Microsoft Copilot for Azure (preview) about a task you want to perform by using Azure CLI, it provides a script with the necessary commands. You'll see which placeholder values that you need to update with the actual values based on your environment.
+When you tell Microsoft Copilot for Azure about a task you want to perform by using Azure CLI, it provides a script with the necessary commands. You'll see which placeholder values that you need to update with the actual values based on your environment.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -39,18 +39,17 @@ Here are a few examples of the kinds of prompts you can use to generate Azure CL
 
 In this example, the prompt "**I want to use Azure CLI to create a web application**" provides a list of steps, along with the necessary Azure CLI commands.
 
-:::image type="content" source="media/generate-cli-scripts/cli-web-app.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a web app.":::
+:::image type="content" source="media/generate-cli-scripts/cli-web-app.png" alt-text="Screenshot of Microsoft Copilot for Azure providing Azure CLI commands to create a web app.":::
 
 When you follow that request with "**Provide full script**", the commands are shown together in one script.
 
-:::image type="content" source="media/generate-cli-scripts/cli-web-app-full.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing a full Azure CLI script to create a web app.":::
+:::image type="content" source="media/generate-cli-scripts/cli-web-app-full.png" alt-text="Screenshot of Microsoft Copilot for Azure providing a full Azure CLI script to create a web app.":::
 
-You can also start off by letting Microsoft Copilot for Azure (preview) know that you want the commands all together. For example, you could say "**I want a script to create a low cost VM (all in one codeblock for me to copy and paste)**".
+You can also start off by letting Microsoft Copilot for Azure know that you want the commands all together. For example, you could say "**I want a script to create a low cost VM (all in one codeblock for me to copy and paste)**".
 
-:::image type="content" source="media/generate-cli-scripts/cli-vm.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing an Azure CLI script to create a VM.":::
+:::image type="content" source="media/generate-cli-scripts/cli-vm.png" alt-text="Screenshot of Microsoft Copilot for Azure providing an Azure CLI script to create a VM.":::
 
 ## Next steps
 
-- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure (preview).
+- Explore [capabilities](capabilities.md) of Microsoft Copilot for Azure.
 - Learn more about [Azure CLI](/azure/cli).
-- [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).
