@@ -8,5 +8,5 @@ ms.topic: include
 #This include is used in multiple articles, both for Virtual WAN and VPN Gateway. Before modifying, verify that any changes apply to all articles that use this include.
 ---
 > [!NOTE]
-> The steps in this article apply to Microsoft Entra ID authentication using the Microsoft-registered Azure VPN Client app with associated App ID and Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant.
+> The steps in this article apply to Microsoft Entra ID authentication using the Microsoft-registered Azure VPN Client app with associated App ID and Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For more information, see [About point-to-site VPN - Microsoft Entra ID authentication](../articles/vpn-gateway/point-to-site-about.md#entra-id).
 >
