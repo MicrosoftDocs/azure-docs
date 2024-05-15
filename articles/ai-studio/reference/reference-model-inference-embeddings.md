@@ -1,6 +1,6 @@
 ---
 title: Azure AI Model Inference Embeddings API
-titleSuffix: Reference
+titleSuffix: Azure AI Studio
 description: Reference for Azure AI Model Inference Embeddings API
 manager: scottpolly
 ms.service: azure-ai-studio
@@ -14,7 +14,7 @@ ms.custom:
  - build-2024
 ---
 
-# Reference: Embeddings
+# Reference: Embeddings | Azure AI Studio
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 

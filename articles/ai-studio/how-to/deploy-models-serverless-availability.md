@@ -16,7 +16,7 @@ ms.custom:
  - references_regions
 ---
 
-# Region availability for models in Serverless API endpoints
+# Region availability for models in Serverless API endpoints | Azure AI Studio
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 

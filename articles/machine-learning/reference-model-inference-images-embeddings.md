@@ -15,7 +15,7 @@ ms.custom:
  - build-2024
 ---
 
-# Reference: Image Embeddings
+# Reference: Image Embeddings | Azure Machine Learning
 
 Creates an embedding vector representing the input image and text pair.
 
