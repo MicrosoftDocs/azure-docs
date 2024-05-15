@@ -1,6 +1,6 @@
 ---
-title: Support and prerequisites for data-aware security posture
-description: Learn about the requirements for data-aware security posture in Microsoft Defender for Cloud.
+title: Support and prerequisites for data security posture management
+description: Learn about the requirements for data security posture management in Microsoft Defender for Cloud.
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
@@ -9,9 +9,9 @@ ms.date: 03/04/2024
 ms.custom: references_regions
 ---
 
-# Support and prerequisites for data-aware security posture
+# Support and prerequisites for data security posture management
 
-Review the requirements on this page before setting up [data-aware security posture](concept-data-security-posture.md) in Microsoft Defender for Cloud.
+Review the requirements on this page before setting up [data security posture management](concept-data-security-posture.md) in Microsoft Defender for Cloud.
 
 ## Enabling sensitive data discovery
 
@@ -140,4 +140,4 @@ AWS:
 
 ## Next step
 
-[Enable](data-security-posture-enable.md) data-aware security posture.
+[Enable](data-security-posture-enable.md) data security posture management.

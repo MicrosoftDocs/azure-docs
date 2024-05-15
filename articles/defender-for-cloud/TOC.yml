@@ -246,7 +246,7 @@
         href: faq-cspm.yml
     - name: Improve your data security posture
       items:
-        - name: About data-aware security posture
+        - name: About data security posture management
           href: concept-data-security-posture.md
         - name: Support and prerequisites
           href: concept-data-security-posture-prepare.md
@@ -333,9 +333,9 @@
         - name: Explore risks to pre-deployment generative AI artifacts
           displayName: AI, risks, generative, applications, apps
           href: explore-ai-risk.md
-    - name: Data-aware security posture
+    - name: Data security posture management
       items:
-        - name: Enable data-aware security posture
+        - name: Enable data security posture management
           href: data-security-posture-enable.md
         - name: Explore risks to sensitive data
           href: data-security-review-risks.md
@@ -1036,7 +1036,7 @@
           href: episode-twenty-nine.md
         - name: New Custom Recommendations for AWS and GCP in Defender for Cloud
           href: episode-thirty.md
-        - name: Understanding data aware security posture capability
+        - name: Understanding data security posture management capability
           href: episode-thirty-one.md
         - name: API Security with Defender for APIs
           href: episode-thirty-two.md

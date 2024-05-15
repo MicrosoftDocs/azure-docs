@@ -1,6 +1,6 @@
 ---
-title: The data-aware security dashboard
-description: Learn about the capabilities and functions of the data-aware security view in Microsoft Defender for Cloud.
+title: The data security posture management dashboard
+description: Learn about the capabilities and functions of the data security posture management view in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.date: 02/11/2024
 ---
@@ -96,5 +96,5 @@ You can select the **Manage data sensitivity settings** to get to the **Data sen
 
 ## Next steps
 
-- Learn more about [data-aware security posture](concept-data-security-posture.md).
+- Learn more about [data security posture management](concept-data-security-posture.md).
 - Learn how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
