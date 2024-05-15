@@ -963,6 +963,9 @@ items:
         href: storage-blob-event-overview.md
       - name: Route events to a custom endpoint
         href: storage-blob-event-quickstart.md
+    - name: Transfer data with the Data Movement library (.NET)
+      items:
+        href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Troubleshooting
     href: /troubleshoot/azure/azure-storage/welcome-azure-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Samples
@@ -1384,8 +1387,6 @@ items:
         href: ../../data-factory/connector-azure-data-lake-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Transfer data with the DistCp tool
         href: data-lake-storage-use-distcp.md
-      - name: Transfer data with the Data Movement library
-        href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Manage access control
       items:
       - name: Azure portal
