@@ -28,7 +28,7 @@ For example, with triggers for updates to a base image, you can automate [OS and
 
 ## Task scenarios
 
-Azure Container Registry tasks support several scenarios to build and maintain container images and other artifacts. This article describes [quick tasks](#quick-tasks), [automatically triggered tasks](#automatically-triggered-tasks), and [multiple-step tasks](#multiple-step-tasks).
+Azure Container Registry tasks support several scenarios to build and maintain container images and other artifacts. This article describes [quick tasks](#quick-tasks), [automatically triggered tasks](#automatically-triggered-tasks), and [multi-step tasks](#multi-step-tasks).
 
 Each task has an associated [source code context](#context-locations), which is the location of source files that are used to build a container image or other artifact. Example contexts include a Git repository and a local file system.
 
@@ -55,7 +55,7 @@ Enable one or more *triggers* to build an image.
 
 ### Trigger a task on a source code update
 
-You can trigger a container image build or multiple-step task when code is committed, or a pull request is made or updated, to a public or private Git repository in GitHub or Azure DevOps. For example, configure a build task with the Azure CLI command [az acr task create][az-acr-task-create] by specifying a Git repository and optionally a branch and Dockerfile. When your team updates code in the repository, a webhook created in Azure Container Registry tasks triggers a build of the container image defined in the repo.
+You can trigger a container image build or multi-step task when code is committed, or a pull request is made or updated, to a public or private Git repository in GitHub or Azure DevOps. For example, configure a build task with the Azure CLI command [az acr task create][az-acr-task-create] by specifying a Git repository and optionally a branch and Dockerfile. When your team updates code in the repository, a webhook created in Azure Container Registry tasks triggers a build of the container image defined in the repo.
 
 Azure Container Registry tasks support the following triggers when you set a Git repo as a task's context:
 
@@ -92,13 +92,13 @@ For more information, see [About base image updates for Azure Container Registry
 
 You can schedule a task by setting up one or more *timer triggers* when you create or update the task. Scheduling a task is useful for running container workloads on a defined schedule, or running maintenance operations or tests on images pushed regularly to your registry. For more information, see [Run an Azure Container Registry task on a defined schedule](container-registry-tasks-scheduled.md).
 
-## Multiple-step tasks
+## Multi-step tasks
 
-Extend the single-image build-and-push capability of Azure Container Registry tasks with multiple-step workflows that are based on multiple containers.
+Extend the single-image build-and-push capability of Azure Container Registry tasks with multi-step workflows that are based on multiple containers.
 
-Multiple-step tasks provide step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps defined in a [YAML file](container-registry-tasks-reference-yaml.md) specify individual build and push operations for container images or other artifacts. They can also define the execution of one or more containers, with each step using the container as its execution environment.
+Multi-step tasks provide step-based task definition and execution for building, testing, and patching container images in the cloud. Task steps defined in a [YAML file](container-registry-tasks-reference-yaml.md) specify individual build and push operations for container images or other artifacts. They can also define the execution of one or more containers, with each step using the container as its execution environment.
 
-For example, you can create a multiple-step task that automates the following steps:
+For example, you can create a multi-step task that automates the following steps:
 
 1. Build a web application image.
 1. Run the web application container.
@@ -107,9 +107,9 @@ For example, you can create a multiple-step task that automates the following st
 1. If the tests pass, build a Helm chart archive package.
 1. Perform a `helm upgrade` task by using the new Helm chart archive package.
 
-Multiple-step tasks enable you to split the building, running, and testing of an image into more composable steps, with dependency support between steps. With multiple-step tasks in Azure Container Registry tasks, you have more granular control over workflows for image building, testing, and OS and framework patching.
+Multi-step tasks enable you to split the building, running, and testing of an image into more composable steps, with dependency support between steps. With multi-step tasks in Azure Container Registry tasks, you have more granular control over workflows for image building, testing, and OS and framework patching.
 
-[Learn more about running multiple-step build, test, and patch tasks in Azure Container Registry tasks](container-registry-tasks-multi-step.md).
+[Learn more about running multi-step build, test, and patch tasks in Azure Container Registry tasks](container-registry-tasks-multi-step.md).
 
 ## Context locations
 
