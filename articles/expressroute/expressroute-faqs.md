@@ -109,13 +109,6 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Logic Apps
 * [Intune](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service)
 
-### Public peering
-
-Public peering is no longer available on new ExpressRoute circuits and is scheduled for retirement on March 31, 2024. Access to Azure services can be done through Microsoft peering. To avoid disruption to your services, you should migrate to Microsoft peering before the retirement date. 
-
-* For more information, see [Migrate from public peering to Microsoft peering](how-to-move-peering.md). 
-* For a comparison between the different peering types, see [Peering comparison](about-public-peering.md#compare).
-
 ### Why does the **Advertised public prefixes** status show *Validation needed*, while configuring Microsoft peering?
 
 Microsoft verifies if the specified **Advertised public prefixes** and **Peer ASN'** or **Customer ASN** are assigned to you in the Internet Routing Registry. If you're getting public prefixes from another entity and the assignment isn't recorded with the routing registry, the automatic validation doesn't complete. You need to manually validate. If the automatic validation fails, you see the message *Validation needed*.
@@ -190,7 +183,7 @@ You can achieve high availability by connecting up to 4 ExpressRoute circuits in
 > - Although it is possible to connect up to 16 circuits to your virtual network, the outgoing traffic from your virtual network will be load-balanced using Equal-Cost Multipath (ECMP) across a maximum of 4 circuits.
 > - Equal-Cost Multipath (ECMP) in ExpressRoute uses the Per-Flow (based on 5-tuple) load balancing method. Accordingly, traffic flow between a given source and destination host pair are guaranteed to take the same path, even if multiple ECMP paths are available. 
 
-### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
+### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering is preferred on the ExpressRoute path?
 
 You must implement the *Local Preference* attribute on your router(s) to ensure that the path from on-premises to Azure is always preferred on your ExpressRoute circuit(s).
 
