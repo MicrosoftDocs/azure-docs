@@ -316,6 +316,231 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ---
 
+## Git
+
+# [Azure CLI](#tab/cli)
+
+Create a Git connection with one of following YAML file. Be sure to update the appropriate values:
+
+* Connect using a personal access token (PAT):
+
+   ```yml
+   #Connection.yml
+   name: test_ws_conn_git_pat
+   type: git
+   target: https://github.com/contoso/contosorepo
+   credentials:
+      type: pat
+      pat: dummy_pat
+   ```
+
+* Connect to a public repo (no credentials):
+
+   ```yml
+   #Connection.yml
+
+   name: git_no_cred_conn
+   type: git
+   target: https://https://github.com/contoso/contosorepo
+
+   ```
+
+Create the Azure Machine Learning connection in the CLI:
+
+```azurecli
+az ml connection create --file connection.yaml
+```
+
+# [Python SDK](#tab/python)
+
+The following example creates a Git connection to a GitHub repo. This connection is authenticated with a Personal Access Token (PAT):
+
+```python
+from azure.ai.ml.entities import WorkspaceConnection
+from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
+
+
+name = "my_git_conn"
+
+target = "https://github.com/myaccount/myrepo"
+
+wps_connection = WorkspaceConnection(
+    name=name,
+    type="git",
+    target=target,
+    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),    
+)
+ml_client.connections.create_or_update(workspace_connection=wps_connection)
+```
+
+# [Studio](#tab/azure-studio)
+
+You can't create a Git connection in studio.
+
+---
+
+## Python feed
+
+# [Azure CLI](#tab/cli)
+
+Create a connection to a Python feed with one of following YAML file. Be sure to update the appropriate values:
+
+* Connect using a personal access token (PAT):
+
+   ```yml
+   #Connection.yml
+   name: test_ws_conn_python_pat
+   type: python_feed
+   target: https://test-feed.com
+   credentials:
+      type: pat
+      pat: dummy_pat
+   ```
+
+* Connect using a username and password:
+
+   ```yml
+   name: test_ws_conn_python_user_pass
+   type: python_feed
+   target: https://test-feed.com
+   credentials:
+      type: username_password
+      username: john
+      password: pass
+
+   ```
+
+* Connect to a public feed (no credentials):
+
+   ```yml
+   name: test_ws_conn_python_no_cred
+   type: python_feed
+   target: https://test-feed.com3
+   ```
+
+Create the Azure Machine Learning connection in the CLI:
+
+```azurecli
+az ml connection create --file connection.yaml
+```
+
+# [Python SDK](#tab/python)
+
+The following example creates a Python feed connection. This connection is authenticated with a personal access token (PAT) or a username and password:
+
+```python
+from azure.ai.ml.entities import WorkspaceConnection
+from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration  
+
+
+name = "my_pfeed_conn"
+
+target = "https://XXXXXXXXX.core.windows.net/mycontainer"
+
+wps_connection = WorkspaceConnection(
+    name=name,
+    type="python_feed",
+    target=target,
+    #credentials=UsernamePasswordConfiguration(username="xxxxx", password="xxxxx"), 
+    credentials=PatTokenConfiguration(pat="XXXXXXXXX"),    
+
+    #credentials=None
+)
+ml_client.connections.create_or_update(workspace_connection=wps_connection)
+```
+
+# [Studio](#tab/azure-studio)
+
+You can't create a Python feed connection in studio.
+
+---
+
+## Azure Container Registry
+
+# [Azure CLI](#tab/cli)
+
+Create a connection to an Azure Container Registry with one of following YAML file. Be sure to update the appropriate values:
+
+* Connect using Microsoft Entra ID authentication:
+
+   ```yml
+   name: test_ws_conn_cr_managed
+   type: container_registry
+   target: https://test-feed.com
+   credentials:
+      type: managed_identity
+      client_id: client_id
+      resource_id: resource_id
+   ```
+
+* Connect using a username and password:
+
+   ```yml
+   name: test_ws_conn_cr_user_pass
+   type: container_registry
+   target: https://test-feed.com2
+   credentials:
+      type: username_password
+      username: contoso
+      password: pass
+   ```
+
+Create the Azure Machine Learning connection in the CLI:
+
+```azurecli
+az ml connection create --file connection.yaml
+```
+
+# [Python SDK](#tab/python)
+
+The following example creates an Azure Container Registry connection. This connection is authenticated using a managed identity:
+
+```python
+from azure.ai.ml.entities import WorkspaceConnection
+from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration  
+
+
+name = "my_acr_conn"
+
+target = "https://XXXXXXXXX.core.windows.net/mycontainer"
+
+wps_connection = WorkspaceConnection(
+    name=name,
+    type="container_registry",
+    target=target,
+    credentials=ManagedIdentityConfiguration (client_id="xxxxx", resource_id="xxxxx"),    
+)
+ml_client.connections.create_or_update(workspace_connection=wps_connection)
+```
+
+# [Studio](#tab/azure-studio)
+
+You can't create an Azure Container Registry connection in studio.
+
+---
+
+## API key
+
+The following example creates an API key connection:
+
+```python
+from azure.ai.ml.entities import WorkspaceConnection
+from azure.ai.ml.entities import UsernamePasswordConfiguration, ApiKeyConfiguration
+
+
+name = "my_api_key"
+
+target = "https://XXXXXXXXX.core.windows.net/mycontainer"
+
+wps_connection = WorkspaceConnection(
+    name=name,
+    type="apikey",
+    target=target,
+    credentials=ApiKeyConfiguration(key="XXXXXXXXX"),    
+)
+ml_client.connections.create_or_update(workspace_connection=wps_connection)
+```
+
 ## Next steps
 
 - [Import data assets](how-to-import-data-assets.md)
