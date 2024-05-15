@@ -11,9 +11,9 @@ ms.topic: how-to
 # customer intent: As a developer, I want to learn how to invoke Azure Machine Learning models from Azure Database for PostgreSQL, so that I can perform real-time scoring with online inference endpoints.
 ---
 
-# Integrate Azure Database for PostgreSQL with Azure Machine Learning Services (Preview)
+# Integrate Azure Database for PostgreSQL with Azure Machine Learning Services
 
-Azure AI extension gives the ability to invoke any machine learning models deployed on [Azure Machine Learning online endpoints](../../machine-learning/concept-endpoints-online.md) from within SQL. These might be models from the Azure Machine Learning catalog or custom models that are trained and deployed.
+Azure AI extension gives the ability to invoke any machine learning models deployed on [Azure Machine Learning online endpoints](../../machine-learning/concept-endpoints-online.md) from within SQL. These models can be from the Azure Machine Learning catalog or custom models that are trained and deployed.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ select azure_ai.set_setting('azure_ml.endpoint_key', '<Key>');
 Scores the input data invoking an Azure Machine Learning model deployment on an [online endpoint](../../machine-learning/how-to-authenticate-online-endpoint.md).
 
 ```sql
-azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_error boolean DEFAULT true, deployment_name text DEFAULT NULL)
+azure_ml.invoke(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_error boolean DEFAULT true, deployment_name text DEFAULT NULL)
 ```
 
 #### Arguments
@@ -47,6 +47,10 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 ##### `input_data`
 
 `jsonb` json containing the request payload for the model.
+
+##### `deployment_name`
+
+`text` name of the deployment corresponding to the model deployed on the Azure Machine Learning online inference endpoint
 
 ##### `timeout_ms`
 
@@ -56,9 +60,14 @@ azure_ml.inference(input_data jsonb, timeout_ms integer DEFAULT NULL, throw_on_e
 
 `boolean DEFAULT true` on error should the function throw an exception resulting in a rollback of wrapping transactions.
 
-##### `deployment_name`
+##### `max_attempts`
 
-`text` name of the deployment corresponding to the model deployed on the Azure Machine Learning online inference endpoint
+`integer DEFAULT 1` number of times the extension retries calling the Azure Machine Learning endpoint if it fails with any retryable error.
+
+##### `retry_delay_ms`
+
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling the Azure Machine Learning endpoint, when it fails with any retryable error.
+
 
 #### Return type
 
@@ -72,7 +81,7 @@ This calls the model with the input_data and returns a jsonb payload.
 
 ```sql
 -- Invoke model, input data depends on the model.
-  SELECT * FROM azure_ml.inference('
+  SELECT * FROM azure_ml.invoke('
   {
     "input_data": [
       [1,2,3,4,5,6,7,8],
@@ -82,8 +91,8 @@ This calls the model with the input_data and returns a jsonb payload.
   }', deployment_name=>'Housingprediction' )
 
 -- Get JSON elements from model output
-SELECT jsonb_array_elements(inference.inference) as MedianHousePrediction
-FROM azure_ml.inference('
+SELECT jsonb_array_elements(invoke.invoke) as MedianHousePrediction
+FROM azure_ml.invoke('
 {
   "input_data": [
     [1,2,3,4,5,6,7,8],
@@ -95,5 +104,5 @@ FROM azure_ml.inference('
 
 ## Related content
 
-- [Learn more about Azure Open AI integration](generative-ai-azure-openai.md)
+- [Learn more about Azure OpenAI integration](generative-ai-azure-openai.md)
 - [Learn more about Azure AI Language Services integration](generative-ai-azure-cognitive.md)
