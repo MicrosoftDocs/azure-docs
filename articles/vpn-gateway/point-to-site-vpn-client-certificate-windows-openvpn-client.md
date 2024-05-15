@@ -66,7 +66,7 @@ The VPN client profile configuration package contains specific folders. The file
 Locate and unzip the VPN client profile configuration package you generated. For Certificate authentication and OpenVPN, you should see an OpenVPN folder. If you don't see the folder, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Microsoft Entra authentication, you might not have an OpenVPN folder. See the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
+* If you're using Microsoft Entra authentication, you might not have an OpenVPN folder. See the [Microsoft Entra ID](point-to-site-entra-vpn-client-windows.md) configuration article instead.
 
 ## Configure the client
 
