@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -27,9 +27,9 @@ Your billing account is associated with a single Microsoft Entra tenant. You won
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your profile (email address) at the top right of the page.
 1. Select **Switch directory**.  
-    ![Screenshot that shows selecting switch directory in the portal](./media/troubleshoot-account-not-found/select-switch-directory.png)
+    :::image type="content" border="true" source="./media/troubleshoot-account-not-found/select-switch-directory.png" alt-text="Screenshot that shows selecting switch directory in the portal.":::
 1. Select a directory under the **All directories** section.  
-    ![Screenshot that shows selecting a directory in the portal](./media/troubleshoot-account-not-found/select-directory.png)
+    :::image type="content" border="true" source="./media/troubleshoot-account-not-found/select-directory.png" alt-text="Screenshot that shows selecting a directory in the portal.":::
 
 ## Sign in with a different email address
 

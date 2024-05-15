@@ -15,6 +15,9 @@ Application Gateway publishes data points to [Azure Monitor](../azure-monitor/ov
 
 ## Metrics supported by Application Gateway V2 SKU
 
+> [!NOTE]
+> For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-metrics).
+
 ### Timing metrics
 
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds. 

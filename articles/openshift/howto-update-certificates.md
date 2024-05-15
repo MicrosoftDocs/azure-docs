@@ -28,5 +28,4 @@ where:
 Running this command restarts worker machines and updates the cluster certificates, setting the cluster to a known, proper state. 
 
 > [!NOTE]
-> Certificates for custom domains need to be updated manually. For more information, see the [Red Hat OpenShift documentation](https://docs.openshift.com/rosa/applications/deployments/osd-config-custom-domains-applications.html).
-
+> Certificates for custom domains need to be updated manually. For more information, see the [Red Hat OpenShift documentation](https://docs.openshift.com).

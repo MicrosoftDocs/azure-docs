@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -167,6 +167,7 @@ Azure service: [Data Factory](/azure/data-factory/)
 > | Microsoft.DataFactory/factories/querytriggerruns/action | Queries the Trigger Runs. |
 > | Microsoft.DataFactory/factories/querypipelineruns/action | Queries the Pipeline Runs. |
 > | Microsoft.DataFactory/factories/querydebugpipelineruns/action | Queries the Debug Pipeline Runs. |
+> | Microsoft.DataFactory/factories/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection. |
 > | Microsoft.DataFactory/factories/adfcdcs/read | Reads ADF Change data capture. |
 > | Microsoft.DataFactory/factories/adfcdcs/delete | Deletes ADF Change data capture. |
 > | Microsoft.DataFactory/factories/adfcdcs/write | Create or update ADF Change data capture. |
@@ -385,11 +386,15 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/clusterPools/read | Get details about HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/write | Create or Update HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/delete | Delete a HDInsight on AKS Cluster Pool |
+> | Microsoft.HDInsight/clusterPools/upgrade/action | Upgrade HDInsight on AKS Cluster Pool |
+> | Microsoft.HDInsight/clusterPools/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster Pool |
 > | Microsoft.HDInsight/clusterPools/clusters/read | Get details about HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/write | Create or Update HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/delete | Delete a HDInsight on AKS cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/resize/action | Resize a HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/runjob/action | Run HDInsight on AKS Cluster Job |
+> | Microsoft.HDInsight/clusterPools/clusters/upgrade/action | Upgrade HDInsight on AKS Cluster |
+> | Microsoft.HDInsight/clusterPools/clusters/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/instanceviews/read | Get details about HDInsight on AKS Cluster Instance View |
 > | Microsoft.HDInsight/clusterPools/clusters/jobs/read | List HDInsight on AKS Cluster Jobs |
 > | Microsoft.HDInsight/clusterPools/clusters/serviceconfigs/read | Get details about HDInsight on AKS Cluster Service Configurations |

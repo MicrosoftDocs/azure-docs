@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 02/26/2024
+ms.date: 02/28/2024
 ms.author: greglin
 ms.topic: conceptual
 ---
@@ -89,18 +89,9 @@ In the Azure portal, under the multi-site listener, you must choose the **Multip
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
-## Multi-site listeners for Application Gateway layer 4 proxy
+## Multi-site listener for TLS and TCP protocol listeners
 
-Multi-site hosting enables you to configure more than one backend TLS or TCP-based application on the same port of application gateway. This can be achieved by using TLS listeners only. This allows you to configure a more efficient topology for your deployments by adding multiple backend applications on the same port using single application gateway. The traffic for each application can be directed to its own backend pool by providing domain names in the TLS listener.
-
-For example, you can create three multisite listeners each with its own domain (contoso.com, fabrikam.com, and *.adatum.com), and route them to their respective backend pools having different applications. All three domains must point to the frontend IP address of the application gateway. This feature is in preview phase for use with layer 4 proxy.
-
-### Feature information:
-
-- Multi-site listener allows you to add listeners using the same port number.
-- For multisite TLS listeners, Application Gateway uses the Server Name Indication (SNI) value. SNI is primarily used to present clients with the domain server certificate and route a connection to the appropriate backend pool. This is done by picking the common name in TLS handshake data of an incoming connection.
-- Application Gateway allows domain-based routing using multisite TLS listener. You can use wildcard characters like asterisk (*) and question mark (?) in the host name, and up to 5 domains per multi-site TLS listener. For example, *.contoso.com.
-- The TCP connection inherently has no concept of hostname or domain name. Hence, with Layer 4 proxy the multisite listener isn't supported for TCP listeners.
+The multi-site feature is also available for Layer4 proxy, but only for its TLS listeners. You can direct the traffic for each application to its backend pool by providing domain names in the TLS listener. For the functioning of the multisite feature on TLS listeners, Application Gateway uses the Server Name Indication (SNI) value (the clients primarily present SNI extension to fetch the correct TLS certificate). A multisite TLS listener would pick this SNI value from the TLS handshake data of an incoming connection and route that connection to the appropriate backend pool. The TCP connection inherently has no concept of hostname or domain name; hence, this isn't available for TCP listeners.
 
 ## Host headers and Server Name Indication (SNI)
 

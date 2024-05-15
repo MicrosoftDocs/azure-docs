@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root":"/articles/virtual-machines/workloads/oracle/oracle-storage.md",
+            "redirect_url": "/previous-versions/azure/virtual-machines/workloads/oracle/oracle-storage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/extensions/symantec.md",
             "redirect_url": "/azure/virtual-machines/overview",
             "redirect_document_id": false
@@ -1821,11 +1826,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/linux/tutorial-lemp-stack.md",
-            "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/linux/tutorial-mean-stack.md",
             "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false
@@ -2766,7 +2766,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/windows/attach-disk-portal.md",
+            "source_path_from_root": "/articles/virtual-machines/windows/attach-disk-portal.yml",
             "redirect_url": "/azure/virtual-machines/windows/attach-managed-disk-portal",
             "redirect_document_id": false
         },
@@ -5026,7 +5026,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/windows/capture-image-resource.md",
+            "source_path_from_root": "/articles/virtual-machines/windows/capture-image-resource.yml",
             "redirect_url": "/azure/virtual-machines/capture-image-resource",
             "redirect_document_id": true
         },
@@ -5127,7 +5127,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/index.md",
-            "redirect_URL": "/azure/sap/workloads/get-started",
+            "redirect_url": "/azure/sap/workloads/get-started",
             "redirect_document_id": false
         },
         {
@@ -5238,6 +5238,11 @@
         {
             "source_path_from_root": "/articles/virtual-machines/nv-series-retirement.md",
             "redirect_url": "/azure/virtual-machines/sizes/migration-guides/nv-series-retirement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/plan-to-manage-costs.md",
+            "redirect_url": "/azure/virtual-machines/cost-optimization-plan-to-manage-costs",
             "redirect_document_id": false
         }
     ]

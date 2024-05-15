@@ -1,6 +1,5 @@
 ---
 title: Develop highly available distributed applications
-titleSuffix: Azure IoT MQ
 description: Learn how to develop highly available distributed applications that work with Azure IoT MQ.
 author: PatAltimore
 ms.subservice: mq
@@ -13,11 +12,11 @@ ms.date: 11/15/2023
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
 ---
 
-# Develop highly available applications
+# Develop highly available applications with Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Creating a highly available application using Azure IoT MQ involves careful consideration of session types, quality of service (QoS), message acknowledgments, parallel message processing, message retention, and shared subscriptions. Azure IoT MQ features a distributed, in-memory message broker and store that provides message retention and built-in state management with MQTT semantics.
+Creating a highly available application using Azure IoT MQ Preview involves careful consideration of session types, quality of service (QoS), message acknowledgments, parallel message processing, message retention, and shared subscriptions. Azure IoT MQ features a distributed, in-memory message broker and store that provides message retention and built-in state management with MQTT semantics.
 
 The following sections explain the settings and features that contribute to a robust, zero message loss, and distributed application.
 

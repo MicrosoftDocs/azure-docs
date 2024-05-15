@@ -6,7 +6,7 @@ ms.author: karler
 ms.topic: conceptual
 ms.service: spring-apps
 ms.devlang: azurepowershell
-ms.date: 2/15/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-azurepowershell, devx-track-java
 ---
 

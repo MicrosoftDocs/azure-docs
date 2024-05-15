@@ -11,7 +11,7 @@ Microsoft Defender for Storage is an Azure-native solution offering an advanced 
 
 With Microsoft Defender for Storage, organizations can customize their protection and enforce consistent security policies by enabling it on subscriptions and storage accounts with granular control and flexibility.
 
-   > [!TIP] 
+   > [!TIP]
    > If you're currently using Microsoft Defender for Storage classic, consider [migrating to the new plan](defender-for-storage-classic-migrate.md), which offers several benefits over the classic plan.
 
 ## Availability
@@ -26,6 +26,7 @@ With Microsoft Defender for Storage, organizations can customize their protectio
 *Azure DNS Zone is not supported for malware scanning and sensitive data threat detection.
 
 ## Prerequisites for malware scanning
+
 To enable and configure malware scanning, you must have Owner roles (such as Subscription Owner or Storage Account Owner) or specific roles with the necessary data actions. Learn more about the [required permissions](support-matrix-defender-for-storage.md).
 
 ## Set up and configure Microsoft Defender for Storage
@@ -53,6 +54,3 @@ Enabling Defender for Storage via a policy is recommended because it facilitates
 ## Next steps
 
 - Learn how to [enable and Configure the Defender for Storage plan at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
-
-
-

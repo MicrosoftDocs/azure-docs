@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/19/2024
+ms.date: 3/22/2024
 ms.author: ankitadutta
 ms.custom: MVC, engagement-fy23
 ---
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Prepare an account on the vCenter server to automate VM discovery.
+> * Prepare an account on the vCenter Server to automate VM discovery.
 > * Prepare an account for automatic installation of the Mobility service on VMware vSphere VMs.
 > * Review requirements and support for VMware vCenter servers and VMs.
 > * Prepare to connect to Azure VMs after failover.
@@ -66,7 +66,7 @@ To prepare the account with permissions to install on the VM, take one of the fo
 
 Make sure that the VMware vCenter server and VMs comply with requirements:
 
-* Verify [Azure VMware Solution software versions](../azure-vmware/concepts-private-clouds-clusters.md#vmware-software-versions).
+* Verify [Azure VMware Solution software versions](../azure-vmware/architecture-private-clouds.md#vmware-software-versions).
 * Verify [VMware vCenter server requirements](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
 * For Linux VMs, check [file system and storage requirements](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 * Check [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support.

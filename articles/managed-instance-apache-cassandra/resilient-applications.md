@@ -48,6 +48,9 @@ In CAP theorem terms, Cassandra is by default an AP (Available Partition-toleran
 - In the case of an application being run in parallel QUORUM_EACH writes are preferred for most cases to ensure consistency between the two data centers.
 - If your goal is to favor consistency (lower RPO) rather than latency or availability (lower RTO), this should be reflected in your consistency settings and replication factor. As a rule of thumb, the number of quorum nodes required for a read plus the number of quorum nodes required for a write should be greater than the replication factor. For example, if you have a replication factor of 3, and quorum_one on reads (one node), you should do quorum_all on writes (three nodes), so that the total of 4 is greater than the replication factor of 3.
 
+> [!NOTE]
+> The control plane operator for Azure Managed Instance for Apache Cassandra will only be deployed in a single region (the region selected when initially deploying the first data center). In the unlikely event of a total region outage, we commit to a 3 hour recovery time for failing over the control plane to another region. This does not affect the [availability SLA](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/) for the service, as data centers should still continue to function. However, during this period, it may not be possible to make changes to the database configuration from the portal or resource provider tools.
+
 
 ## Replication
 

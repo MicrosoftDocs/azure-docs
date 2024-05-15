@@ -35,10 +35,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & configure a dev center'
+          - text: 'Configure Azure Deployment Environments'
             url: quickstart-create-and-configure-devcenter.md
-          - text: 'Create & configure a project'
-            url: quickstart-create-and-configure-projects.md
+          - text: 'Create dev center & project (Azure Resource Manager)'
+            url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
       - linkListType: how-to-guide
@@ -57,6 +57,18 @@ landingContent:
             url: configure-environment-definition.md
           - text: Configure a managed identity
             url: how-to-configure-managed-identity.md
+
+  # Card
+  - title: Customize deployments with the extensibility model
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure container image to execute deployments
+            url: how-to-configure-extensibility-generic-container-image.md
+          - text: Configure an ARM/Bicep custom container image
+            url: how-to-configure-extensibility-bicep-container-image.md
+          - text: Configure a Terraform custom container image
+            url: how-to-configure-extensibility-terraform-container-image.md
 
   # Card
   - title: Configure environment types

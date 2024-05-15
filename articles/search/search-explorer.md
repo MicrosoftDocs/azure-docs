@@ -201,7 +201,7 @@ If you're using a free service, remember that you're limited to three indexes, i
 
 ## Next steps
 
-To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that use more parts of the API. The [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) is especially helpful for learning and exploration.
+To learn more about query structures and syntax, use a REST client to create query expressions that use more parts of the API. The [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) is especially helpful for learning and exploration.
 
 > [!div class="nextstepaction"]
-> [Create a basic query in Postman](search-get-started-rest.md)
+> [Create a basic query in REST](search-get-started-rest.md)

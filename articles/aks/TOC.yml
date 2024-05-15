@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What is AKS?
-      href: intro-kubernetes.md
+      href: what-is-aks.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
     - name: Track releases and region availability
@@ -77,7 +77,7 @@
       href: tutorial-kubernetes-prepare-acr.md
     - name: 3 - Create Kubernetes cluster
       href: tutorial-kubernetes-deploy-cluster.md
-    - name: 4 - Run application
+    - name: 4 - Deploy containerized application
       href: tutorial-kubernetes-deploy-application.md
     - name: 5 - Use PaaS services
       href: tutorial-kubernetes-paas-services.md        
@@ -136,6 +136,8 @@
           href: concepts-network.md
         - name: CNI networking
           href: azure-cni-overview.md
+        - name: Services
+          href: concepts-network-services.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -174,6 +176,8 @@
               href: active-passive-solution.md
             - name: Passive-cold
               href: passive-cold-solution.md
+    - name: Deployment and cluster reliability
+      href: best-practices-app-cluster-reliability.md
     - name: Security
       items:
         - name: Authentication and authorization
@@ -188,8 +192,6 @@
           href: operator-best-practices-cluster-isolation.md
         - name: Basic scheduler features
           href: operator-best-practices-scheduler.md
-        - name: Run AKS clusters at scale
-          href: operator-best-practices-run-at-scale.md
         - name: Advanced scheduler features
           href: operator-best-practices-advanced-scheduler.md
         - name: Networking
@@ -212,6 +214,8 @@
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Windows containers
       href: windows-best-practices.md
+    - name: Enforce best practices with deployment safeguards
+      href: deployment-safeguards.md
 - name: How-to guides
   items:
     - name: Migration
@@ -236,12 +240,14 @@
       items:
         - name: Deploy a cluster in an Edge Zone
           href: edge-zones.md
-        - name: Cluster configuration options
-          href: cluster-configuration.md 
-        - name: Manually scale nodes in an AKS cluster
+        - name: Deploy a cluster with a fully managed resource group
+          href: node-resource-group-lockdown.md
+        - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop and start an AKS cluster
           href: start-stop-cluster.md
+        - name: Delete an AKS cluster
+          href: delete-cluster.md
         - name: Configure private clusters
           items:
            - name: Create a private cluster
@@ -258,6 +264,8 @@
                   href: cluster-extensions.md
                 - name: Use the Azure CLI
                   href: deploy-extensions-az-cli.md
+            - name: Use the AKS Visual Studio Code extension
+              href: aks-extension-vs-code.md
     - name: Nodes
       items:
         - name: Cluster nodes
@@ -266,13 +274,14 @@
               href: custom-node-configuration.md
             - name: Abort long running operations
               href: manage-abort-operations.md
-            
             - name: Stop/deallocate nodes with Scale-down Mode
               href: scale-down-mode.md
             - name: Connect securely to cluster nodes
               href: node-access.md
             - name: Manage SSH key 
               href: manage-ssh-node-access.md
+            - name: Deploy trusted launch on AKS
+              href: use-trusted-launch.md
         - name: Node pools
           items:
             - name: Create node pools
@@ -281,16 +290,18 @@
               href: manage-node-pools.md
             - name: Reduce image pull time with Artifact Streaming on AKS
               href: artifact-streaming.md
+            - name: Use generation 2 VMs
+              href: generation-2-vm.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
-            - name: Multi-instance GPU node pool
-              href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md
             - name: Use system node pools
               href: use-system-pools.md
             - name: Resize node pools
               href: resize-node-pool.md
+            - name: Delete node pools
+              href: delete-node-pool.md
         - name: Virtual nodes
           items:
             - name: Use virtual nodes
@@ -300,11 +311,39 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:
+      items:    
+        - name: GPU workloads
+          items:
+            - name: Use GPUs
+              href: gpu-cluster.md
+            - name: Use Windows GPUs
+              href: use-windows-gpu.md
+            - name: Multi-instance GPU node pool
+              href: gpu-multi-instance.md
+        - name: Vertical Pod Autoscaler
+          items:
+            - name: About Vertical Pod Autoscaler 
+              href: vertical-pod-autoscaler.md
+            - name: Vertical Pod Autoscaler API reference
+              href: vertical-pod-autoscaler-api-reference.md
+        - name: Configure Metrics Server VPA
+          href: use-metrics-server-vertical-pod-autoscaler.md
+        - name: Proximity placement groups
+          href: reduce-latency-ppg.md
+        - name: Cluster autoscaler
+          items:
+            - name: Cluster autoscaler overview
+              href: cluster-autoscaler-overview.md
+            - name: Use the cluster autoscaler on AKS
+              href: cluster-autoscaler.md
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
-          href: availability-zones.md
+          items:
+            - name: Availability zones overview
+              href: availability-zones-overview.md
+            - name: Create a cluster with availability zones
+              href: availability-zones.md
         - name: Propagate Kubernetes resources across multiple clusters
           href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
@@ -315,6 +354,8 @@
           href: use-tags.md
         - name: Labels
           href: use-labels.md
+        - name: Node taints
+          href: use-node-taints.md
     - name: Security
       items:
         - name: Container security
@@ -447,6 +488,8 @@
               href: azure-cni-overlay.md
             - name: Use Azure CNI for dynamic IP allocation
               href: configure-azure-cni-dynamic-ip-allocation.md
+            - name: Use Azure CNI VNet - Static Block Allocation (Preview)
+              href: configure-azure-cni-static-block-allocation.md
             - name: Use Azure CNI Powered by Cilium
               href: azure-cni-powered-by-cilium.md
             - name: Use kubenet
@@ -471,7 +514,7 @@
               href: egress-udr.md
             - name: Use an HTTP proxy
               href: http-proxy.md
-            - name: Managed NAT Gateway
+            - name: Use a NAT Gateway
               href: nat-gateway.md
             - name: Outbound network and FQDN rules for AKS clusters
               href: outbound-rules-control-egress.md
@@ -489,6 +532,8 @@
                   href: app-routing-nginx-configuration.md
                 - name: Custom domain name and SSL certificate configuration
                   href: app-routing-dns-ssl.md
+                - name: Internal NGINX controller and private DNS zone
+                  href: create-nginx-ingress-private-controller.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
                 - name: Migrate from HTTP application routing to the application routing add-on
@@ -497,8 +542,8 @@
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
-            - name: Use HTTP application routing add-on (retired)
-              href: http-application-routing.md
+            - name: Deploy secure Istio ingress gateway
+              href: istio-secure-gateway.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer
@@ -513,29 +558,44 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
+        - name: Diagnose and solve UDP packet drops
+          href: troubleshoot-udp-packet-drops.md
     - name: Storage
       items:
         - name: CSI storage drivers
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
-           
             - name: Migrate from in-tree to CSI driver
               href: csi-migrate-in-tree-volumes.md
         - name: Block storage
           items:
-              - name: Provision Azure Disks storage
-                href: azure-csi-disk-storage-provision.md
-              - name: Azure Disks CSI driver
-                href: azure-disk-csi.md
-              - name: Use Azure Premium SSD v2 disks
-                href: use-premium-v2-disks.md
-              - name: Use Azure ultra disks
-                href: use-ultra-disks.md
-              - name: Bring your own keys for disks
-                href: azure-disk-customer-managed-keys.md
-              - name: Azure Container Storage 
-                href: ../storage/container-storage/container-storage-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Azure Disks
+                items:
+                    - name: Provision Azure Disk storage
+                      href: azure-csi-disk-storage-provision.md
+                    - name: Azure Disks CSI driver
+                      href: azure-disk-csi.md
+                    - name: Use Azure Premium SSD v2 disks
+                      href: use-premium-v2-disks.md
+                    - name: Use Azure ultra disks
+                      href: use-ultra-disks.md
+                    - name: Bring your own keys for disks
+                      href: azure-disk-customer-managed-keys.md
+                    - name: Move a persistent volume between clusters
+                      href: csi-disk-move-subscriptions.md
+                    - name: Use Azure Container Storage with Azure Disks
+                      href: ../storage/container-storage/use-container-storage-with-managed-disks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Azure Elastic SAN
+                items:
+                    - name: Use Azure Container Storage with Elastic SAN
+                      href: ../storage/container-storage/use-container-storage-with-elastic-san.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+                    - name: Use Kubernetes iSCSI CSI driver
+                      href: ../storage/elastic-san/elastic-san-connect-aks.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              - name: Ephemeral Disk
+                items:
+                    - name: Use Azure Container Storage with Ephemeral Disk
+                      href: ../storage/container-storage/use-container-storage-with-local-disk.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Shared file storage
           items:
             - name: Azure Files storage
@@ -620,10 +680,14 @@
               href: istio-meshconfig.md
             - name: Deploy external or internal Istio Ingress
               href: istio-deploy-ingress.md
+            - name: Deploy secure Istio ingress gateway
+              href: istio-secure-gateway.md
             - name: Plug-in CA certificates for Istio
               href: istio-plugin-ca.md
             - name: Upgrade Istio service mesh add-on
               href: istio-upgrade.md
+            - name: Istio service mesh add-on performance
+              href: istio-scale.md
         - name: Open Service Mesh AKS add-on
           items:
             - name: About Open Service Mesh
@@ -676,8 +740,6 @@
       items:
         - name: Upgrade options
           href: upgrade-cluster.md
-        - name: Stop cluster upgrades automatically on API breaking changes
-          href: stop-cluster-upgrade-api-breaking-changes.md
         - name: Perform manual upgrades
           items:
           - name: Upgrade an AKS cluster
@@ -700,7 +762,8 @@
               href: auto-upgrade-node-os-image.md
             - name: Upgrade node OS images automatically with GitHub Actions
               href: node-upgrade-github-actions.md
-
+            - name: Stop cluster upgrades automatically on API breaking changes
+              href: stop-cluster-upgrade-api-breaking-changes.md
     - name: Azure Linux container host for AKS
       items:
         - name: Use Azure Linux for AKS
@@ -739,8 +802,6 @@
           href: /visualstudio/bridge/bridge-to-kubernetes-vs?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Use OpenFaaS
           href: openfaas.md
-        - name: Use GPUs
-          href: gpu-cluster.md
         - name: Create containerized app with Draft
           href: draft.md
         - name: Build Django app with PostgreSQL
@@ -783,6 +844,8 @@
           href: open-ai-quickstart.md
         - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
           href: open-ai-secure-access-quickstart.md
+        - name: Deploy an AI model with the AI toolchain operator
+          href: ai-toolchain-operator.md
     - name: DevOps
       items:
         - name: Azure DevOps Project
@@ -821,7 +884,7 @@
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
-      href: /training/browse/?products=azure-container-instances&azure-container-registry
+      href: /training/browse/?products=azure-kubernetes-service
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Pricing

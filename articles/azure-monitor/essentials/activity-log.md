@@ -1,6 +1,6 @@
 ---
-title: Azure activity log
-description: View the Azure Monitor activity log and send it to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
+title: Send Azure activity log data
+description: Send Azure Monitor activity log data to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
@@ -9,13 +9,13 @@ ms.author: guywild
 ms.reviewer: orens
 ---
 
-# Azure Monitor activity log
+# Send Azure Monitor activity log data
 
-The Azure Monitor activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the activity log and send it to different destinations.
+The Azure Monitor activity log is a platform log that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started. You can view the activity log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the activity log and send it to different destinations.
 
 For more functionality, create a diagnostic setting to send the activity log to one or more of these locations for the following reasons:
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to twelve years](../logs/data-retention-archive.md).
+- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to 12 years](../logs/data-retention-archive.md).
 - Send to Azure Event Hubs to forward outside of Azure.
 - Send to Azure Storage for cheaper, long-term archiving.
 
@@ -25,42 +25,6 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 > * Entries in the Activity Log are system generated and can't be changed or deleted.
 > * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](resource-logs.md)
 > * Entries in the Activity Log are typically a result of changes (create, update or delete operations) or an action having been initiated.  Operations focused on reading details of a resource are not typically captured.
-
-## Retention period
-
-Activity log events are retained in Azure for *90 days* and then deleted. There's no charge for entries during this time regardless of volume. For more functionality, such as longer retention, create a diagnostic setting and route the entries to another location based on your needs. See the criteria in the preceding section.
-
-## View the activity log
-
-You can access the activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, the only filter is on the subscription. If you open it from a resource's menu, the filter is set to that resource. You can always change the filter to view all other entries. Select **Add Filter** to add more properties to the filter.
-<!-- convertborder later -->
-:::image type="content" source="./media/activity-log/view-activity-log.png" lightbox="./media/activity-log/view-activity-log.png" alt-text="Screenshot that shows the activity log." border="false":::
-
-For a description of activity log categories, see [Azure activity log event schema](activity-log-schema.md#categories).
-
-## Download the activity log
-
-Select **Download as CSV** to download the events in the current view.
-<!-- convertborder later -->
-:::image type="content" source="media/activity-log/download-activity-log.png" lightbox="media/activity-log/download-activity-log.png" alt-text="Screenshot that shows downloading the activity log." border="false":::
-
-### View change history
-
-For some events, you can view the change history, which shows what changes happened during that event time. Select an event from the activity log you want to look at more deeply. Select the **Change history** tab to view any changes on the resource up to 30 minutes before and after the time of the operation.
-
-:::image type="content" source="media/activity-log/change-history-event.png" lightbox="media/activity-log/change-history-event.png" alt-text="Screenshot that shows the Change history list for an event.":::
-
-If any changes are associated with the event, you'll see a list of changes that you can select. Selecting a change opens the **Change history** page. This page displays the changes to the resource. In the following example, you can see that the VM changed sizes. The page displays the VM size before the change and after the change. To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
-
-:::image type="content" source="media/activity-log/change-history-event-details.png" lightbox="media/activity-log/change-history-event-details.png" alt-text="Screenshot that shows the Change history page showing differences.":::
-
-### Other methods to retrieve activity log events
-
-You can also access activity log events by using the following methods:
-
-- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
-- Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
 
 ## Send to Log Analytics workspace
 
@@ -163,7 +127,7 @@ The following sample output data is from event hubs for an activity log:
 
 ## Send to Azure Storage
 
-Send the activity log to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you're required to retain your events for 90 days or less, you don't need to set up archival to a storage account. Activity log events are retained in the Azure platform for 90 days.
+Send the activity log to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or back up. If you're required to retain your events for 90 days or less, you don't need to set up archival to a storage account. Activity log events are retained in the Azure platform for 90 days.
 
 When you send the activity log to Azure, a storage container is created in the storage account as soon as an event occurs. The blobs in the container use the following naming convention:
 
@@ -177,14 +141,22 @@ For example, a particular blob might have a name similar to:
 insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/y=2020/m=06/d=08/h=18/m=00/PT1H.json
 ```
 
-Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they are received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
+Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they're received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
 
 Each event is stored in the PT1H.json file with the following format. This format uses a common top-level schema but is otherwise unique for each category, as described in [Activity log schema](activity-log-schema.md).
 
 ```json
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
 ```
+### Other methods to retrieve activity log events
 
+You can also access activity log events by using the following methods:
+
+- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
+- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
+- Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
+- 
+- 
 ## Legacy collection methods
 
 > [!NOTE]
@@ -203,9 +175,12 @@ If you're collecting activity logs using the legacy collection method, we recomm
 1. Use the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) to stop collecting activity logs for the specific resource.
 
     :::image type="content" source="media/activity-log/data-sources-delete-api.png" alt-text="Screenshot of the configuration of the Data Sources - Delete API." lightbox="media/activity-log/data-sources-delete-api.png":::
-### Managing legacy log profiles
+### Managing legacy Log Profiles - retiring
+> [!NOTE]
+> * Logs Profiles was used to forward Activity Logs to storage accounts and Event Hubs. This method is being retired on the 15th of Sept 2026. 
+> * If you are using this method, transition to Diagnostic Settings before 15th of Sept 2025, when we will stop allowing new creates of Log Profiles.
 
-Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, consider transitioning to diagnostic settings, which provide better functionality and consistency with resource logs.
+Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, transition to Diagnostic Settings, which provide better functionality and consistency with resource logs.
 
 #### [PowerShell](#tab/powershell)
 
@@ -310,4 +285,3 @@ Learn more about:
 * [Platform logs](./platform-logs-overview.md)
 * [Activity log event schema](activity-log-schema.md)
 * [Activity log insights](activity-log-insights.md)
-

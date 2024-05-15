@@ -8,6 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
+ms.custom: linux-related-content
 ms.date: 07/11/2023
 ms.author: radeltch
 ---

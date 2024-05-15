@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.date: 02/03/2020
 ms.author: allensu
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 # Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 ---
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

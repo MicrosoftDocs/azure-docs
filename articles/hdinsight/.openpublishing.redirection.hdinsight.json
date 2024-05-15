@@ -1255,26 +1255,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
-        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
-        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
-        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
-        "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
-        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/hdinsight/interactive-query/sizing-guidelines.md",
         "redirect_url": "/azure/hdinsight/interactive-query/hive-llap-sizing-guide",
         "redirect_document_id": false

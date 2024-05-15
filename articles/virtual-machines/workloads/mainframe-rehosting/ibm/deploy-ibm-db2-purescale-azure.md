@@ -6,7 +6,7 @@ ms.author: sread
 manager: mamccrea 
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ms.date: 04/19/2023
 ---

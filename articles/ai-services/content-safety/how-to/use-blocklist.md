@@ -23,7 +23,7 @@ The default AI classifiers are sufficient for most content moderation needs. How
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, and select a resource group, supported region, and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * One of the following installed:
   * [cURL](https://curl.haxx.se/) for REST API calls.
@@ -258,14 +258,18 @@ curl --location --request POST '<endpoint>/contentsafety/text/blocklists/<your_l
 > You can add multiple blocklistItems in one API call. Make the request body a JSON array of data groups:
 >
 > ```json
-> [{
->    "description": "string",
->    "text": "bleed"
-> },
 > {
->    "description": "string",
->    "text": "blood"
-> }]
+>    "blocklistItems": [
+>        {
+>            "description": "string",
+>            "text": "bleed"
+>        },
+>        {
+>            "description": "string",
+>            "text": "blood"
+>        }
+>    ]
+>}
 > ```
 
 

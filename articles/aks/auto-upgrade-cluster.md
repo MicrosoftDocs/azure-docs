@@ -4,6 +4,7 @@ description: Learn how to automatically upgrade an Azure Kubernetes Service (AKS
 ms.topic: article
 ms.author: nickoman
 author: nickomang
+ms.subservice: aks-upgrade
 ms.date: 05/01/2023
 ---
 
@@ -34,7 +35,7 @@ If you’re using cluster auto-upgrade, you can no longer upgrade the control pl
 
 If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node image auto-upgrade channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.
 
-## Use cluster auto-upgrade
+## Cluster auto-upgrade channels
 
 Automatically completed upgrades are functionally the same as manual upgrades. The [selected auto-upgrade channel][planned-maintenance] determines the timing of upgrades. When making changes to auto-upgrade, allow 24 hours for the changes to take effect. Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more information, see [Upgrade an AKS cluster][upgrade-aks-cluster].
 
@@ -62,7 +63,9 @@ The following upgrade channels are available:
 >
 > * Each cluster can only be associated with a single auto-upgrade channel. This is because your specified channel determines the Kubernetes version that runs on the cluster.
 
-### Use cluster auto-upgrade with a new AKS cluster
+## Use cluster auto-upgrade with a new AKS cluster
+
+### [Azure CLI](#tab/azure-cli)
 
 * Set the auto-upgrade channel when creating a new cluster using the [`az aks create`][az-aks-create] command and the `auto-upgrade-channel` parameter.
 
@@ -70,7 +73,20 @@ The following upgrade channels are available:
     az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
     ```
 
-### Use cluster auto-upgrade with an existing AKS cluster
+### [Azure portal](#tab/azure-portal)
+
+1. In the Azure portal, select **Create a resource** > **Containers** > **Azure Kubernetes Service (AKS)**.
+2. In the **Basics** tab, under **Cluster details**, select the desired auto-upgrade channel from the **Automatic upgrade** dropdown. We recommend selecting the **Enabled with patch (recommended)** option.
+
+    :::image type="content" source="./media/auto-upgrade-cluster/portal-autoupgrade-new-cluster.png" alt-text="The screenshot of the create blade for an AKS cluster in the Azure portal. The automatic upgrade field shows 'Enabled with patch (recommended)' selected.":::
+
+3. Complete the remaining steps to create the cluster.
+
+---
+
+## Use cluster auto-upgrade with an existing AKS cluster
+
+### [Azure CLI](#tab/azure-cli)
 
 * Set the auto-upgrade channel on an existing cluster using the [`az aks update`][az-aks-update] command with the `auto-upgrade-channel` parameter.
 
@@ -78,22 +94,30 @@ The following upgrade channels are available:
     az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
     ```
 
-## Auto-upgrade in the Azure portal
+### [Azure portal](#tab/azure-portal)
 
-If using the Azure portal, you can find auto-upgrade settings under the **Settings** > **Cluster configuration** blade by selecting **Upgrade version**. The `Patch` channel is selected by default.
+1. In the Azure portal, navigate to your AKS cluster.
+2. In the **Settings** section, select **Cluster configuration**.
+3. Under **Upgrade** > **Kubernetes version**, select **Upgrade version**.
 
-:::image type="content" source="./media/auto-upgrade-cluster/portal-upgrade.png" alt-text="The screenshot of the upgrade blade for an AKS cluster in the Azure portal. The automatic upgrade field shows 'patch' selected, and several APIs deprecated between the selected Kubernetes version and the cluster's current version are described.":::
+    :::image type="content" source="./media/auto-upgrade-cluster/portal-autoupgrade-existing-cluster.png" alt-text="The screenshot of the upgrade blade for an AKS cluster in the Azure portal.":::
 
-The Azure portal also highlights all the deprecated APIs between your current version and newer, available versions you intend to migrate to. For more information, see the [Kubernetes API removal and deprecation process][k8s-deprecation].
+4. On the **Upgrade Kubernetes version** page, select the desired auto-upgrade channel from the **Automatic upgrade** dropdown. We recommend selecting the **Enabled with patch (recommended)** option.
+
+    :::image type="content" source="./media/auto-upgrade-cluster/portal-autoupgrade-upgrade-page-existing-cluster.png" alt-text="The screenshot of the Upgrade Kubernetes page for an AKS cluster in the Azure portal.":::
+
+5. Select **Save**.
+
+---
 
 ## Use auto-upgrade with Planned Maintenance
 
-If using  Planned Maintenance and cluster auto-upgrade, your upgrade starts during your specified maintenance window.
+If using Planned Maintenance and cluster auto-upgrade, your upgrade starts during your specified maintenance window.
 
 > [!NOTE]
 > To ensure proper functionality, use a maintenance window of *four hours or more*.
 
-For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
+For more information on how to set a maintenance window with Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
 
 ## Best practices for cluster auto-upgrade
 

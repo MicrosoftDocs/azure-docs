@@ -8,23 +8,23 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ---
 
 # Call the Azure AI Vision 3.2 GA Read API
 
-In this guide, you'll learn how to call the v3.2 GA Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs. This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">create a Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
+This guide shows you how to call the v3.2 GA Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs. This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">create a Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
 
 [!INCLUDE [read-editions](../includes/read-editions.md)]
 
 ## Input requirements
 
-The **Read** call takes images and documents as its input. They have the following requirements:
+The **Read** API call takes images and documents as its input. They have the following requirements:
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
-* For PDF and TIFF files, up to 2000 pages (only the first two pages for the free tier) are processed.
-* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
+* For PDF and TIFF files, up to 2,000 pages (only the first two pages for the free tier) are processed.
+* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels. PDF files don't have a size limit.
 * The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
 
 >[!NOTE]
@@ -34,7 +34,7 @@ The **Read** call takes images and documents as its input. They have the followi
 
 ### Specify the OCR model
 
-By default, the service will use the latest generally available (GA) model to extract text. Starting with Read 3.2, a `model-version` parameter allows choosing between the GA and preview models for a given API version. The model you specify will be used to extract text with the Read operation.
+By default, the service uses the latest generally available (GA) model to extract text. Starting with Read 3.2, a `model-version` parameter allows choosing between the GA and preview models for a given API version. The model you specify will be used to extract text with the Read operation.
 
 When using the Read operation, use the following values for the optional `model-version` parameter.
 
@@ -43,7 +43,7 @@ When using the Read operation, use the following values for the optional `model-
 | Not provided | Latest GA model |
 | latest | Latest GA model|
 | [2022-04-30](../whats-new.md#may-2022) | Latest GA model. 164 languages for print text and 9 languages for handwritten text along with several enhancements on quality and performance |
-| [2022-01-30-preview](../whats-new.md#february-2022) | Preview model adds print text support for Hindi, Arabic and related languages. For handwritten text, adds support for Japanese and Korean. |
+| [2022-01-30-preview](../whats-new.md#february-2022) | Preview model adds print text support for Hindi, Arabic, and related languages. For handwritten text, adds support for Japanese and Korean. |
 | [2021-09-30-preview](../whats-new.md#september-2021) | Preview model adds print text support for Russian and other Cyrillic languages. For handwritten text,  adds support for Chinese Simplified, French, German, Italian, Portuguese, and Spanish. |
 | 2021-04-12 | 2021 GA model |
 
@@ -57,7 +57,7 @@ By default, the service outputs the text lines in the left to right order. Optio
 
 :::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR Reading order example" border="true" :::
 
-### Select page(s) or page ranges for text extraction
+### Select page(s) or page range(s) for text extraction
 
 By default, the service extracts text from all pages in the documents. Optionally, use the `pages` request parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
@@ -106,7 +106,7 @@ You call this operation iteratively until it returns with the **succeeded** valu
 When the **status** field has the `succeeded` value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 
 > [!NOTE]
-> The data submitted to the `Read` operation are temporarily encrypted and stored at rest for a short duration, and then deleted. This lets your applications retrieve the extracted text as part of the service response.
+> The data submitted to the **Read** operation are temporarily encrypted and stored at rest for a short duration, and then deleted. This lets your applications retrieve the extracted text as part of the service response.
 
 ### Sample JSON output
 
@@ -185,11 +185,11 @@ See the following example of a successful JSON response:
 
 ### Handwritten classification for text lines (Latin languages only)
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
+The response includes a classification of whether each line of text is in handwritten style or not, along with a confidence score. This feature is only available for Latin languages. The following example shows the handwritten classification for the text in the image.
 
 :::image type="content" source="../Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example" border="true" :::
 
 ## Next steps
 
 - Get started with the [OCR (Read) REST API or client library quickstarts](../quickstarts-sdk/client-library.md).
-- Learn about the [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- [Read 3.2 REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).

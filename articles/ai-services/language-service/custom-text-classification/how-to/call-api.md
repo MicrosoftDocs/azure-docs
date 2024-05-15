@@ -3,12 +3,12 @@ title: Send a text classification request to your custom model
 description: Learn how to send requests for custom text classification.
 titleSuffix: Azure AI services
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: language-service-clu
@@ -17,7 +17,7 @@ ms.custom: language-service-clu
 # Send text classification requests to your model
 
 After you've successfully deployed a model, you can query the deployment to classify text based on the model you assigned to the deployment.
-You can query the deployment programmatically [Prediction API](https://aka.ms/ct-runtime-api) or through the client libraries (Azure SDK). 
+You can query the deployment programmatically [Prediction API](/rest/api/language/text-analysis-runtime/analyze-text) or through the client libraries (Azure SDK). 
 
 ## Test deployed model
 

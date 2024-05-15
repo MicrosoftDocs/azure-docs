@@ -4,20 +4,21 @@ description: Use a simulated TPM on a Linux device to test the Azure IoT Hub dev
 author: PatAltimore
 manager: lizross
 ms.author: patricka
-ms.date: 05/13/2022
+ms.date: 04/17/2024
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 # Create and provision IoT Edge devices at scale with a TPM on Linux
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux device by using a Trusted Platform Module (TPM). You can automatically provision IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
 This article outlines two methodologies. Select your preference based on the architecture of your solution:
 
-- Autoprovision a Linux device with physical TPM hardware. An example is the [Infineon OPTIGA&trade; TPM SLB 9670](https://devicecatalog.azure.com/devices/3f52cdee-bbc4-d74e-6c79-a2546f73df4e).
+- Autoprovision a Linux device with physical TPM hardware.
 - Autoprovision a Linux virtual machine (VM) with a simulated TPM running on a Windows development machine with Hyper-V enabled. We recommend using this methodology only as a testing scenario. A simulated TPM doesn't offer the same security as a physical TPM.
 
 Instructions differ based on your methodology, so make sure you're on the correct tab going forward.
@@ -52,7 +53,7 @@ The tasks are as follows:
 
 A physical Linux device to be the IoT Edge device.
 
-If you are a device manufacturer then refer to guidance on [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
+If you are a device manufacturer, then refer to guidance on [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
 
 # [Virtual machine](#tab/virtual-machine)
 
@@ -165,6 +166,11 @@ Sign in to your device, and install the `tpm2-tools` package.
    sudo yum install tpm2-tools
    ```
 
+# [Ubuntu Core snaps](#tab/snaps)
+
+   ```bash
+   sudo snap install tpm2-tools
+   ```
 ---
 
 Run the following script to read the endorsement key, creating one if it does not already exist.
@@ -212,19 +218,37 @@ After you have your registration ID and endorsement key, you're ready to continu
 
 After the runtime is installed on your device, configure the device with the information it uses to connect to the device provisioning service and IoT Hub.
 
-1. Know your device provisioning service **ID Scope** and device **Registration ID** that were gathered previously.
+Know your device provisioning service **ID Scope** and device **Registration ID** that were gathered previously.
 
-1. Create a configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
+Create a configuration file for your device based on a template file that's provided as part of the IoT Edge installation.
 
-   ```bash
-   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
-   ```
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-1. Open the configuration file on the IoT Edge device.
+```bash
+sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+```
 
-   ```bash
-   sudo nano /etc/aziot/config.toml
-   ```
+Open the configuration file on the IoT Edge device.
+
+```bash
+sudo nano /etc/aziot/config.toml
+```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+If using a snap installation of IoT Edge, the template file is located at `/snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template`. Create a copy of the template file in your home directory and name it config.toml. For example:
+
+```bash
+cp /snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template ~/config.toml
+```
+
+Open the configuration file in your home directory on the IoT Edge device.
+
+```bash
+nano ~/config.toml
+```
+
+---
 
 1. Find the provisioning configurations section of the file. Uncomment the lines for TPM provisioning, and make sure any other provisioning lines are commented out.
 
@@ -233,7 +257,7 @@ After the runtime is installed on your device, configure the device with the inf
    [provisioning]
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
-   id_scope = "SCOPE_ID_HERE"
+   id_scope = "DPS_ID_SCOPE_HERE"
 
    # Uncomment to send a custom payload during DPS registration
    # payload = { uri = "PATH_TO_JSON_FILE" }
@@ -247,9 +271,11 @@ After the runtime is installed on your device, configure the device with the inf
 
 1. Update the values of `id_scope` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
 
-1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
 
-1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemons to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file is [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 
 1. Save and close the file.
 
@@ -259,7 +285,7 @@ The IoT Edge runtime relies on a TPM service that brokers access to a device's T
 
 You can give access to the TPM by overriding the systemd settings so that the `aziottpm` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
-1. Create a new rule that will give the IoT Edge runtime access to `tpm0` and `tpmrm0`.
+1. Create a new rule that gives the IoT Edge runtime access to `tpm0` and `tpmrm0`.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
@@ -300,39 +326,48 @@ You can give access to the TPM by overriding the systemd settings so that the `a
    crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   If you don't see that the correct permissions have been applied, try rebooting your machine to refresh `udev`.
+   If you don't see that the correct permissions applied, try rebooting your machine to refresh `udev`.
 
 1. Apply the configuration changes that you made on the device.
 
-   ```bash
-   sudo iotedge config apply
-   ```
+    # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+    ```bash
+    sudo iotedge config apply
+    ```
+    
+    # [Ubuntu Core snaps](#tab/snaps)
+    
+    ```bash
+    sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+    ```
+    
+    ---
 
 ## Verify successful installation
 
 If you didn't already, apply the configuration changes that you made on the device.
 
-   ```bash
-   sudo iotedge config apply
-   ```
+```bash
+sudo iotedge config apply
+```
 
 Check to see that the IoT Edge runtime is running.
 
    ```bash
-   sudo iotedge system status
-   ```
+sudo iotedge system status
+```
 
 Examine daemon logs.
 
-   ```cmd/sh
-   sudo iotedge system logs
-   ```
+```cmd/sh
+sudo iotedge system logs
+```
 
 If you see provisioning errors, it might be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon.
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+```bash
+sudo systemctl daemon-reload
+```
 
 Or, try restarting your VM to see if the changes take effect on a fresh start.
 

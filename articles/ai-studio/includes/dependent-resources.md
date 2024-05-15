@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
- author: Blackmist
- ms.reviewer: larryfr
+title: include file
+description: include file
+author: Blackmist
+ms.reviewer: larryfr
 ms.author: larryfr
- ms.service: azure-ai-studio
- ms.topic: include
- ms.date: 02/09/2024
- ms.custom: include
+ms.service: azure-ai-studio
+ms.topic: include
+ms.date: 02/09/2024
+ms.custom: include
 ---
 
 |Dependent Azure resource|Resource provider|Optional|Note|

@@ -16,7 +16,7 @@ ms.custom: language-service-question-answering
 
 Adding chitchat to your bot makes it more conversational and engaging. The chitchat feature in custom question answering allows you to easily add a pre-populated set of the top chitchat, into your project. This can be a starting point for your bot's personality, and it will save you the time and cost of writing them from scratch.
 
-This dataset has about 100 scenarios of chitchat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, question answering tries to match it with the closest known chitchat question and answer.
+This dataset has about 100 scenarios of chitchat in the voice of multiple personas, like Professional, Friendly and Witty. Choose the persona that most closely resembles your bot's voice. Given a user query, custom question answering tries to match it with the closest known chitchat question and answer.
 
 Some examples of the different personalities are below. You can see all the personality [datasets](https://github.com/microsoft/botframework-cli/blob/main/packages/qnamaker/docs/chit-chat-dataset.md) along with details of the personalities.
 

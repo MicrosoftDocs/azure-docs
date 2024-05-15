@@ -1,6 +1,7 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 02/02/2024
 ms.author: eur

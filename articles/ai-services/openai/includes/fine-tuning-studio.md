@@ -6,7 +6,7 @@ description: Learn how to create your own custom model with Azure OpenAI Service
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 10/09/2023
+ms.date: 03/06/2024
 author: mrbullwinkle    
 ms.author: mbullwin
 ---
@@ -27,10 +27,11 @@ ms.author: mbullwin
 
 The following models support fine-tuning:
 
-- `gpt-35-turbo-0613`
-- `gpt-35-turbo-1106`
 - `babbage-002`
 - `davinci-002`
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
@@ -70,7 +71,17 @@ If you would like a step-by-step walk-through of fine-tuning a `gpt-35-turbo-061
 {"messages": [{"role": "system", "content": "You are an Xbox customer support agent whose primary goal is to help users with issues they are experiencing with their Xbox devices. You are friendly and concise. You only provide factual answers to queries, and do not provide answers that are not related to Xbox."}, {"role": "user", "content": "I'm having trouble connecting my Xbox to the Wi-Fi."}, {"role": "assistant", "content": "No worries, let's go through the network settings on your Xbox. Can you please tell me what happens when you try to connect it to the Wi-Fi?"}]}
 ```
 
-In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 100 MB in size.
+## Multi-turn chat file format
+
+Multiple turns of a conversation in a single line of your jsonl training file is also supported. To skip fine-tuning on specific assistant messages add the optional `weight` key value pair. Currently `weight` can be set to 0 or 1.  
+
+```json
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "What's the capital of France?"}, {"role": "assistant", "content": "Paris", "weight": 0}, {"role": "user", "content": "Can you be more sarcastic?"}, {"role": "assistant", "content": "Paris, as if everyone doesn't know that already.", "weight": 1}]}
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "Who wrote 'Romeo and Juliet'?"}, {"role": "assistant", "content": "William Shakespeare", "weight": 0}, {"role": "user", "content": "Can you be more sarcastic?"}, {"role": "assistant", "content": "Oh, just some guy named William Shakespeare. Ever heard of him?", "weight": 1}]}
+{"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "384,400 kilometers", "weight": 0}, {"role": "user", "content": "Can you be more sarcastic?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters.", "weight": 1}]}
+```
+
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 512 MB in size.
 
 ### Create your training and validation datasets
 
@@ -88,7 +99,7 @@ The training and validation data you use **must** be formatted as a JSON Lines (
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 100 MB in size.
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM). The file must be less than 512 MB in size.
 
 ### Create your training and validation datasets
 
@@ -225,7 +236,7 @@ The **Validation data** pane displays any existing, previously uploaded training
 For large data files, we recommend that you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
 > [!NOTE]
-> Similar to training data files, validation data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 100 MB in size. 
+> Similar to training data files, validation data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 512 MB in size.
 
 #### Upload validation data from local file
 
@@ -266,13 +277,7 @@ The **Create custom model** wizard shows the hyperparameters for training your f
 
 :::image type="content" source="../media/fine-tuning/studio-advanced-options.png" alt-text="Screenshot of the Advanced options pane for the Create custom model wizard, with default options selected." lightbox="../media/fine-tuning/studio-advanced-options.png":::
 
-Select **Default** to use the default values for the fine-tuning job, or select **Advanced** to display and edit the hyperparameter values.
-
-The **Advanced** option lets you configure the following hyperparameter:
-
-| Parameter name | Description |
-| --- | --- |
-| **Number of epochs** | The number of epochs to use for training the model. An epoch refers to one full cycle through the training dataset. |
+Select **Default** to use the default values for the fine-tuning job, or select **Advanced** to display and edit the hyperparameter values. When defaults are selected, we determine the correct value algorithmically based on your training data.
 
 After you configure the advanced options, select **Next** to [review your choices and train your fine-tuned model](#review-your-choices-and-train-your-model).
 

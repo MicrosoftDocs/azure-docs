@@ -20,7 +20,7 @@ This article demonstrates the use of Azure Files as a medium to back up and rest
 
 In this article, you use Oracle Recovery Manager (RMAN) to back up the database to an Azure file share mounted to a VM via the Server Message Block (SMB) protocol. Using Azure Files for backup media is cost-effective and performant. However, for very large databases, Azure Backup provides a better solution.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database. We recommend using Oracle 12.x or later.
 

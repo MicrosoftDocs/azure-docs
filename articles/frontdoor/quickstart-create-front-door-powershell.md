@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Create a Front Door for a highly available global web application using Azure PowerShell
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Get started with Azure Front Door by using Azure PowerShell to create a highly available and high-performance global web application.
 
 The Front Door directs web traffic to specific resources in a backend pool. You defined the frontend domain, add resources to a backend pool, and create a routing rule. This article uses a simple configuration of one backend pool with two web app resources and a single routing rule using default path matching "/*".

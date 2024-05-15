@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
+ title: Create a namespace topic
+ description: This article shows you how to create a topic in an Azure Event Grid namespace.
  services: event-grid
- author: sonalika-roy
+ author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 05/30/20223
- ms.author: sonalikaroy
+ ms.date: 02/29/2024
+ ms.author: spelluru
  ms.custom: include file
 ---
 

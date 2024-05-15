@@ -96,7 +96,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Remarks
 
-Use this function when you have YAML content or minified YAML content that is stored in a separate file. Rather than duplicating the YAML content in your Bicep file, load the content with this function. You can load a part of a YAML file by specifying a path filer. The file is loaded when the Bicep file is compiled to the YAML template. You can't include variables in the file path because they haven't been resolved when compiling to the template. During deployment, the YAML template contains the contents of the file as a hard-coded string.
+Use this function when you have YAML content or minified YAML content that is stored in a separate file. Rather than duplicating the YAML content in your Bicep file, load the content with this function. You can load a part of a YAML file by specifying a path filter. The file is loaded when the Bicep file is compiled to the YAML template. You can't include variables in the file path because they haven't been resolved when compiling to the template. During deployment, the YAML template contains the contents of the file as a hard-coded string.
 
 In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 

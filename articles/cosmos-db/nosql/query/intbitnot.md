@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the bitwise complement of the operand. For example, every `1` bit indivi
 
 ## Syntax
 
-```sql
+```nosql
 IntBitNot(<int_expr>)
 ```
 
@@ -41,7 +42,7 @@ Returns a 64-bit integer.
 
 This example tests the function with various static values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intbitnot/query.novalidate.sql" highlight="2-4":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/intbitnot/query.novalidate.sql" highlight="2-4":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intbitnot/result.novalidate.json":::
 

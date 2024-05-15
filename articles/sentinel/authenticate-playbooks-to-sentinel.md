@@ -1,10 +1,15 @@
 ---
 title: Authenticate playbooks to Microsoft Sentinel | Microsoft Docs
 description: Learn how to give your playbooks access to Microsoft Sentinel and authorization to take remedial actions.
-author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
 ---
 
 # Authenticate playbooks to Microsoft Sentinel
@@ -60,7 +65,7 @@ To authenticate with managed identity:
 
         | Role | Situation |
         | --- | --- |
-        | [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | Playbook has steps which update incidents or watchlists |
+        | [**Microsoft Sentinel Responder**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | Playbook has steps that update incidents or watchlists |
         | [**Microsoft Sentinel Reader**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | Playbook only receives incidents |
         |
 
@@ -71,7 +76,7 @@ To authenticate with managed identity:
 
 1. Enable the managed identity authentication method in the Microsoft Sentinel Logic Apps connector:
 
-    1. In the Logic Apps designer, add a Microsoft Sentinel Logic Apps connector step. If the connector is already enabled for an existing connection, click the **Change connection** link.
+    1. In the Logic Apps designer, add a Microsoft Sentinel Logic Apps connector step. If the connector is already enabled for an existing connection, select the **Change connection** link.
 
         ![Change connection](media/authenticate-playbooks-to-sentinel/change-connection.png)
 
@@ -103,7 +108,7 @@ To use your own application with the Microsoft Sentinel connector, perform the f
 
 1. Get credentials (for future authentication).
 
-    In the registered application blade, get the application credentials for signing in:
+    In the registered application page, get the application credentials for signing in:
 
     - **Client ID**: under **Overview**
     - **Client secret**: under **Certificates & secrets**.
@@ -116,7 +121,7 @@ To use your own application with the Microsoft Sentinel connector, perform the f
 
     1. Select **Add role assignment**.
 
-    1. Select the role you wish to assign to the application. For example, to allow the application to perform actions that will make changes in the Sentinel workspace, like updating an incident, select the **Microsoft Sentinel Contributor** role. For actions which only read data, the **Microsoft Sentinel Reader** role is sufficient. [Learn more about the available roles in Microsoft Sentinel](./roles.md).
+    1. Select the role you wish to assign to the application. For example, to allow the application to perform actions that will make changes in the Sentinel workspace, like updating an incident, select the **Microsoft Sentinel Contributor** role. For actions that only read data, the **Microsoft Sentinel Reader** role is sufficient. [Learn more about the available roles in Microsoft Sentinel](./roles.md).
 
     1. Find the required application and save. By default, Microsoft Entra applications aren't displayed in the available options. To find your application, search for the name and select it.
 
@@ -128,7 +133,7 @@ To use your own application with the Microsoft Sentinel connector, perform the f
 
         ![Service principal option](media/authenticate-playbooks-to-sentinel/auth-methods-spn-choice.png)
 
-    - Fill in the required parameters (can be found in the registered application blade)
+    - Fill in the required parameters (can be found in the registered application page)
         - **Tenant**: under **Overview**
         - **Client ID**: under **Overview**
         - **Client Secret**: under **Certificates & secrets**
@@ -139,9 +144,9 @@ To use your own application with the Microsoft Sentinel connector, perform the f
 
 Every time an authentication is created for the first time, a new Azure resource of type API Connection is created. The same API connection can be used in all the Microsoft Sentinel actions and triggers in the same Resource Group.
 
-All the API connections can be found in the **API connections** blade (search for *API connections* in the Azure portal).
+All the API connections can be found in the **API connections** page (search for *API connections* in the Azure portal).
 
-You can also find them by going to the **Resources** blade and filtering the display by type *API Connection*. This way allows you to select multiple connections for bulk operations.
+You can also find them by going to the **Resources** page and filtering the display by type *API Connection*. This way allows you to select multiple connections for bulk operations.
 
 In order to change the authorization of an existing connection, enter the connection resource, and select **Edit API connection**.
 

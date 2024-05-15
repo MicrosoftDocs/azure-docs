@@ -1,8 +1,8 @@
 ---
-title: Use Azure Private Link to securely connect servers to Azure Arc
+title: Use Azure Private Link to connect servers to Azure Arc using a private endpoint
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 06/20/2023
 ---
 
@@ -28,9 +28,9 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 ## How it works
 
-Azure Arc Private Link Scope connects private endpoints (and the virtual networks they're contained in) to an Azure resource, in this case Azure Arc-enabled servers. When you enable any one of the Azure Arc-enabled servers supported VM extensions, such as Azure Automation Update Management or Azure Monitor, those resources connect other Azure resources. Such as:
+Azure Arc Private Link Scope connects private endpoints (and the virtual networks they're contained in) to an Azure resource, in this case Azure Arc-enabled servers. When you enable any one of the Azure Arc-enabled servers supported VM extensions, such as Azure Monitor, those resources connect other Azure resources. Such as:
 
-- Log Analytics workspace, required for Azure Automation Update Management, Azure Automation Change Tracking and Inventory, Azure Monitor VM insights, and Azure Monitor log collection with Log Analytics agent.
+- Log Analytics workspace, required for Azure Automation Change Tracking and Inventory, Azure Monitor VM insights, and Azure Monitor log collection with Log Analytics agent.
 - Azure Automation account, required for Update Management and Change Tracking and Inventory.
 - Azure Key Vault
 - Azure Blob storage, required for Custom Script Extension.
@@ -282,10 +282,7 @@ For Azure Arc-enabled servers that were set up prior to your private link scope,
 
 1. Select the servers in the list that you want to associate with the Private Link Scope, and then select **Select** to save your changes.
 
-    > [!NOTE]
-    > Only Azure Arc-enabled servers in the same subscription and region as your Private Link Scope is shown.
-
-    :::image type="content" source="./media/private-link-security/select-servers-private-link-scope.png" lightbox="./media/private-link-security/select-servers-private-link-scope.png" alt-text="Selecting Azure Arc resources" border="true":::
+  :::image type="content" source="./media/private-link-security/select-servers-private-link-scope.png" lightbox="./media/private-link-security/select-servers-private-link-scope.png" alt-text="Selecting Azure Arc resources" border="true":::
 
 It might take up to 15 minutes for the Private Link Scope to accept connections from the recently associated server(s).
 

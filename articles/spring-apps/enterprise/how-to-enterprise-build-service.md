@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 11/29/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -54,7 +54,7 @@ Tanzu Build Service allows at most one pool-sized build task to build and twice 
 
 When you create a new Azure Spring Apps Enterprise service instance using the Azure portal, you can use the **VMware Tanzu settings** tab to configure the number of resources given to the build agent pool.
 
-:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page with V M ware Tanzu settings tab and Allocated Resources highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
 
 The following image shows the resources given to the Tanzu Build Service Agent Pool after you successfully provision the service instance. You can also update the configured agent pool size here after you create the service instance.
 
@@ -93,11 +93,11 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
 1. Select **Next: VMware Tanzu settings**.
 1. On the **VMware Tanzu settings** tab, select **Enable Build Service**. For **Container registry**, the default setting is **Use a managed Azure Container Registry to store built images**.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of the Azure portal that shows the V M ware Tanzu Settings for the Azure Spring Apps Create page with default Build Service settings highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page with V M ware Tanzu settings tab and Build Service settings highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-default-acr.png":::
 
 1. If you select **Use your own container registry to store built images (preview)** for **Container registry**, provide your container registry's server, username, and password.
 
-   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of the Azure portal that shows V M ware Tanzu Settings for the Azure Spring Apps Create page with use your own container registry highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
+   :::image type="content" source="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page V M ware Tanzu settings tab with container registry settings highlighted." lightbox="media/how-to-enterprise-build-service/enable-build-service-with-user-acr.png":::
 
 1. If you disable **Enable Build Service**, the container registry options aren't provided but you can deploy applications with container images.
 

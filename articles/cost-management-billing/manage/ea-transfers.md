@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 03/05/2024
 ms.author: banders
 ---
 
@@ -153,6 +153,8 @@ If the recipient needs to restrict, access to their Azure resources, they should
 3. Select the resource.
 4. Select **Settings** to view and update existing secrets on the resource page.
 
-## Next steps
+For more information about how a subscription transfer affects reserved instances, see [Manage Azure reservations](../reservations/manage-reserved-vm-instance.md#change-billing-subscription-for-an-azure-reservation).
+
+## Related content
 
 - For more information about Azure product transfers, see [Azure product transfer hub](subscription-transfer.md).

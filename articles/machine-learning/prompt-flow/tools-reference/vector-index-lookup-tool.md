@@ -11,10 +11,13 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 11/02/2023
+ms.date: 03/21/2024
 ---
 
 # Vector Index Lookup
+
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
 
 Vector Index Lookup is a tool tailored for querying within an Azure Machine Learning vector index. It empowers users to extract contextually relevant information from a domain knowledge base.
 
@@ -85,5 +88,8 @@ The following example is for a JSON format response returned by the tool, which 
     }
   }
 ]
-
 ```
+
+## Deploying to an online endpoint
+
+When you deploy a flow containing the vector index lookup tool to an online endpoint, there's an extra step to set up permissions. During deployment through the web pages, there's a choice between System-assigned and User-assigned Identity types. Either way, using the Azure portal (or a similar functionality), add the "AzureML Data Scientist" role of Azure Machine learning studio to the identity assign to the endpoint.

@@ -4,7 +4,7 @@ description: This article lists all Microsoft Defender for Cloud security recomm
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 10/05/2023
+ms.date: 04/01/2024
 ms.author: dacurwin
 ms.custom: generated
 ai-usage: ai-assisted
@@ -144,7 +144,7 @@ Microsoft Defender for App Service can discover attacks on your applications and
 
 Important: Remediating this recommendation will result in charges for protecting your App Service plans. If you don't have any App Service plans in this subscription, no charges will be incurred.
 If you create any App Service plans on this subscription in the future, they will automatically be protected and charges will begin at that time.
-Learn more in [Protect your web apps and APIs](/azure/defender-for-cloud/defender-for-app-service-introduction).
+Learn more in [Protect your web apps and APIs](defender-for-app-service-introduction.md).
 (Related policy: [Azure Defender for App Service should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)).
 
 **Severity**: High
@@ -240,7 +240,7 @@ Only clients that have a valid certificate will be able to reach the app.
 
 ### [Authentication to Linux machines should require SSH keys](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/22441184-2f7b-d4a0-e00b-4c5eaef4afc9)
 
-**Description**: Although SSH itself provides an encrypted connection, using passwords with SSH still leaves the VM vulnerable to brute-force attacks. The most secure option for authenticating to an Azure Linux virtual machine over SSH is with a public-private key pair, also known as SSH keys. Learn more in [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](/azure/virtual-machines/linux/create-ssh-keys-detailed).
+**Description**: Although SSH itself provides an encrypted connection, using passwords with SSH still leaves the VM vulnerable to brute-force attacks. The most secure option for authenticating to an Azure Linux virtual machine over SSH is with a public-private key pair, also known as SSH keys. Learn more in [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](../virtual-machines/linux/create-ssh-keys-detailed.md).
 (Related policy: [Audit Linux machines that are not using SSH key for authentication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f630c64f9-8b6b-4c64-b511-6544ceff6fd6)).
 
 **Severity**: Medium
@@ -316,14 +316,20 @@ When you restore from a recovery point, you can restore the whole VM or specific
 **Description**: Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised.
 (Related policy: [Diagnostic logs in Virtual Machine Scale Sets should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7c1b1214-f927-48bf-8882-84f0af6588b1)).
 
+**Severity**: High
+
+### [EDR configuration issues should be resolved on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dc5357d0-3858-4d17-a1a3-072840bff5be)
+
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled.
+
 **Severity**: Low
 
-### [Endpoint protection health issues on machines should be resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
+### [EDR solution should be installed on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/06e3a6db-6c0c-4ad9-943f-31d9d73ecf6c)
 
-**Description**: Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. See the documentation for the [endpoint protection solutions supported by Defender for Cloud](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds#supported-endpoint-protection-solutions-) and the [endpoint protection assessments](/azure/defender-for-cloud/endpoint-protection-recommendations-technical).
-(No related policy)
+**Description**: Installing an Endpoint Detection and Response (EDR) solution on virtual machines is important for protection against advanced threats. EDRs aid in preventing, detecting, investigating, and responding to these threats. Microsoft Defender for Servers can be used to deploy Microsoft Defender for Endpoint.
+If a resource is classified as "Unhealthy", it indicates the absence of a supported EDR solution. If an EDR solution is installed but not discoverable by this recommendation, it can be exempted. Without an EDR solution, the virtual machines are at risk of advanced threats.
 
-**Severity**: Medium
+**Severity**: High
 
 ### [Endpoint protection health issues on virtual machine scale sets should be resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e71020c2-860c-3235-cd39-04f3f8c936d2)
 
@@ -331,14 +337,6 @@ When you restore from a recovery point, you can restore the whole VM or specific
 (Related policy: [Endpoint protection solution should be installed on virtual machine scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f26a828e1-e88f-464e-bbb3-c134a282b9de)).
 
 **Severity**: Low
-
-### [Endpoint protection should be installed on machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
-
-**Description**: To protect machines from threats and vulnerabilities, install a supported endpoint protection solution.
-Learn more about how endpoint protection for machines is evaluated in [Endpoint protection assessment and recommendations in Microsoft Defender for Cloud](/azure/defender-for-cloud/endpoint-protection-recommendations-technical).
-(No related policy)
-
-**Severity**: High
 
 ### [Endpoint protection should be installed on virtual machine scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/21300918-b2e3-0346-785f-c77ff57d243b)
 
@@ -362,7 +360,7 @@ When the file integrity monitoring solution is enabled, create data collection r
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -374,7 +372,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -386,7 +384,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -398,7 +396,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -447,14 +445,14 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 
 ### [Log Analytics agent should be installed on virtual machine scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/45cfe080-ceb1-a91e-9743-71551ed24e94)
 
-**Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](/azure/azure-monitor/platform/log-analytics-agent), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. You'll also need to follow that procedure if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. You cannot configure auto-provisioning of the agent for Azure virtual machine scale sets. To deploy the agent on virtual machine scale sets (including those used by Azure managed services such as Azure Kubernetes Service and Azure Service Fabric), follow the procedure in the remediation steps.
+**Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. You'll also need to follow that procedure if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. You cannot configure auto-provisioning of the agent for Azure virtual machine scale sets. To deploy the agent on virtual machine scale sets (including those used by Azure managed services such as Azure Kubernetes Service and Azure Service Fabric), follow the procedure in the remediation steps.
 (Related policy: [Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa3a6ea0c-e018-4933-9ef0-5aaa1501449b)).
 
 **Severity**: High
 
 ### [Log Analytics agent should be installed on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d1db3318-01ff-16de-29eb-28b344515626)
 
-**Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](/azure/azure-monitor/platform/log-analytics-agent), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your Log Analytics workspace for analysis. This agent is also required if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. We recommend configuring [auto-provisioning](/azure/defender-for-cloud/enable-data-collection) to automatically deploy the agent. If you choose not to use auto-provisioning, manually deploy the agent to your VMs using the instructions in the remediation steps.
+**Description**: Defender for Cloud collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. Data is collected using the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md), formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your Log Analytics workspace for analysis. This agent is also required if your VMs are used by an Azure managed service such as Azure Kubernetes Service or Azure Service Fabric. We recommend configuring [auto-provisioning](enable-data-collection.md) to automatically deploy the agent. If you choose not to use auto-provisioning, manually deploy the agent to your VMs using the instructions in the remediation steps.
 (Related policy: [Log Analytics agent should be installed on your virtual machine for Azure Security Center monitoring](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa4fe33eb-e377-4efb-ab31-0784311bc499)).
 
 **Severity**: High
@@ -496,7 +494,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 
 ### [Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/805651bc-6ecd-4c73-9b55-97a19d0582d0)
 
-**Description**: Defender for Cloud has identified some overly permissive inbound rules for management ports in your Network Security Group. Enable just-in-time access control to protect your VM from internet-based brute-force attacks. Learn more in [Understanding just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview).
+**Description**: Defender for Cloud has identified some overly permissive inbound rules for management ports in your Network Security Group. Enable just-in-time access control to protect your VM from internet-based brute-force attacks. Learn more in [Understanding just-in-time (JIT) VM access](just-in-time-access-overview.md).
 (Related policy: [Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb0f33259-77d7-4c9e-aac6-3aabcfae693c)).
 
 **Severity**: High
@@ -508,7 +506,7 @@ You can use this information to quickly remediate security issues and improve th
 
 Important: Remediating this recommendation will result in charges for protecting your servers. If you don't have any servers in this subscription, no charges will be incurred.
 If you create any servers on this subscription in the future, they will automatically be protected and charges will begin at that time.
-Learn more in [Introduction to Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction).
+Learn more in [Introduction to Microsoft Defender for servers](defender-for-servers-introduction.md).
 (Related policy: [Azure Defender for servers should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)).
 
 **Severity**: High
@@ -518,7 +516,7 @@ Learn more in [Introduction to Microsoft Defender for servers](/azure/defender-f
 **Description**: Microsoft Defender for servers brings threat detection and advanced defenses for your Windows and Linux machines.
 With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for servers but missing out on some of the benefits.
 When you enable Microsoft Defender for servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.
-Learn more in [Introduction to Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction).
+Learn more in [Introduction to Microsoft Defender for servers](defender-for-servers-introduction.md).
 (No related policy)
 
 **Severity**: Medium
@@ -530,7 +528,7 @@ Learn more in [Introduction to Microsoft Defender for servers](/azure/defender-f
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -600,9 +598,9 @@ Because Azure Resource Manager now has full IaaS capabilities and other advancem
 To view all affected classic VMs make sure to select all your Azure subscriptions under 'directories + subscriptions' tab.
 
 Available resources and information about this tool & migration:
-[Overview of Virtual machines (classic) deprecation, step by step process for migration & available Microsoft resources.](/azure/virtual-machines/classic-vm-deprecation?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
-[Details about Migrate to Azure Resource Manager migration tool.](/azure/virtual-machines/migration-classic-resource-manager-deep-dive?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
-[Migrate to Azure Resource Manager migration tool using PowerShell.](/azure/virtual-machines/windows/migration-classic-resource-manager-ps)
+[Overview of Virtual machines (classic) deprecation, step by step process for migration & available Microsoft resources.](../virtual-machines/classic-vm-deprecation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
+[Details about Migrate to Azure Resource Manager migration tool.](../virtual-machines/migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
+[Migrate to Azure Resource Manager migration tool using PowerShell.](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 (Related policy: [Virtual machines should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1d84d5fb-01f6-4d12-ba4f-4a26081d403d)).
 
 **Severity**: High
@@ -628,7 +626,7 @@ Learn more in [Server-side encryption of Azure Disk Storage](https://aka.ms/disk
 Important:
  Trusted launch requires the creation of new virtual machines.
 You can't enable trusted launch on existing virtual machines that were initially created without it.
-Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
+Learn more about [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 (No related policy)
 
 **Severity**: Low
@@ -677,7 +675,7 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 
 ### [Virtual machines and virtual machine scale sets should have encryption at host enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/efbbd784-656d-473a-9863-ea7693bfcd2a)
 
-**Description**: Use encryption at host to get end-to-end encryption for your virtual machine and virtual machine scale set data. Encryption at host enables encryption at rest for your temporary disk and OS/data disk caches. Temporary and ephemeral OS disks are encrypted with platform-managed keys when encryption at host is enabled. OS/data disk caches are encrypted at rest with either customer-managed or platform-managed key, depending on the encryption type selected on the disk. Learn more at [Use the Azure portal to enable end-to-end encryption using encryption at host](/azure/virtual-machines/disks-enable-host-based-encryption-portal). (Related policy: [Virtual machines and virtual machine scale sets should have encryption at host enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc4d8e41-e223-45ea-9bf5-eada37891d87)).
+**Description**: Use encryption at host to get end-to-end encryption for your virtual machine and virtual machine scale set data. Encryption at host enables encryption at rest for your temporary disk and OS/data disk caches. Temporary and ephemeral OS disks are encrypted with platform-managed keys when encryption at host is enabled. OS/data disk caches are encrypted at rest with either customer-managed or platform-managed key, depending on the encryption type selected on the disk. Learn more at [Use the Azure portal to enable end-to-end encryption using encryption at host](../virtual-machines/disks-enable-host-based-encryption-portal.md). (Related policy: [Virtual machines and virtual machine scale sets should have encryption at host enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc4d8e41-e223-45ea-9bf5-eada37891d87)).
 
 **Severity**: Medium
 
@@ -707,10 +705,26 @@ Learn more about [Trusted launch for Azure virtual machines](/azure/virtual-mach
 
 ## Container recommendations
 
+### [[Preview] Container images in Azure registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/33422d8f-ab1e-42be-bc9a-38685bb567b9)
+
+**Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Scanning and remediating vulnerabilities for container images in the registry helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards.
+
+**Severity**: High
+
+**Type**: Vulnerability Assessment
+
+### [[Preview] Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)
+
+**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images being used and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
+
+**Severity**: High
+
+**Type**: Vulnerability Assessment
+
 ### [(Enable if required) Container registries should be encrypted with a customer-managed key (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/af560c4d-9c05-e073-b9f1-f7a94958ff25)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Use customer-managed keys to manage the encryption at rest of the contents of your registries. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at <https://aka.ms/acr/CMK>.
 (Related policy: [Container registries should be encrypted with a customer-managed key (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580)).
 
@@ -729,7 +743,7 @@ Use customer-managed keys to manage the encryption at rest of the contents of yo
 
 ### [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
 
-**Description**: Defender's extension for Azure Arc provides threat protection for your Arc-enabled Kubernetes clusters. The extension collects data from all control plane (master) nodes in the cluster and sends it to the [Microsoft Defender for Kubernetes backend](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&tabs=aks-deploy-portal) in the cloud for further analysis.
+**Description**: Defender's extension for Azure Arc provides threat protection for your Arc-enabled Kubernetes clusters. The extension collects data from all control plane (master) nodes in the cluster and sends it to the [Microsoft Defender for Kubernetes backend](defender-for-containers-enable.md?pivots=defender-for-container-arc&tabs=aks-deploy-portal) in the cloud for further analysis.
 (No related policy)
 
 **Severity**: High
@@ -740,7 +754,7 @@ Use customer-managed keys to manage the encryption at rest of the contents of yo
 
 **Description**: Microsoft Defender for Containers provides cloud-native Kubernetes security capabilities including environment hardening, workload protection, and run-time protection.
  When you enable the SecurityProfile.AzureDefender profile on your Azure Kubernetes Service cluster, an agent is deployed to your cluster to collect security event data.
-Learn more in [Introduction to Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction).
+Learn more in [Introduction to Microsoft Defender for Containers](defender-for-containers-introduction.md).
 (No related policy)
 
 **Severity**: High
@@ -750,7 +764,7 @@ Learn more in [Introduction to Microsoft Defender for Containers](/azure/defende
 ### [Azure Kubernetes Service clusters should have the Azure Policy add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
 
 **Description**: Azure Policy add-on for Kubernetes extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
-Defender for Cloud requires the Add-on to audit and enforce security capabilities and compliance inside your clusters. [Learn more](/azure/governance/policy/concepts/policy-for-kubernetes).
+Defender for Cloud requires the Add-on to audit and enforce security capabilities and compliance inside your clusters. [Learn more](../governance/policy/concepts/policy-for-kubernetes.md).
 Requires Kubernetes v1.14.0 or later.
 (Related policy: [Azure Policy Add-on for Kubernetes service (AKS) should be installed and enabled on your clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0a15ec92-a229-4763-bb14-0ea34a568f8d)).
 
@@ -787,7 +801,7 @@ Requires Kubernetes v1.14.0 or later.
 
 ### [Kubernetes API server should be configured with restricted access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1a2b5b4c-f80d-46e7-ac81-b51a9fb363de)
 
-**Description**: To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes API server. You can restrict access by defining authorized IP ranges, or by setting up your API servers as private clusters as explained in [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
+**Description**: To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes API server. You can restrict access by defining authorized IP ranges, or by setting up your API servers as private clusters as explained in [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 (Related policy: [Authorized IP ranges should be defined on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e246bcf-5f6f-4f87-bc6f-775d4712c7ea)).
 
 **Severity**: High
@@ -796,7 +810,7 @@ Requires Kubernetes v1.14.0 or later.
 
 ### [Role-Based Access Control should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b0fdc63a-38e7-4bab-a7c4-2c2665abbaa9)
 
-**Description**: To provide granular filtering on the actions that users can perform, use [Role-Based Access Control (RBAC)](/azure/aks/concepts-identity#role-based-access-controls-rbac) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies.
+**Description**: To provide granular filtering on the actions that users can perform, use [Role-Based Access Control (RBAC)](../aks/concepts-identity.md#azure-role-based-access-control) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies.
 (Related policy: [Role-Based Access Control (RBAC) should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fac4a19c2-fa67-49b4-8ae5-0b2e78c49457)).
 
 **Severity**: High
@@ -810,7 +824,7 @@ You can use this information to quickly remediate security issues and improve th
 
 Important: Remediating this recommendation will result in charges for protecting your Kubernetes clusters. If you don't have any Kubernetes clusters in this subscription, no charges will be incurred.
 If you create any Kubernetes clusters on this subscription in the future, they'll automatically be protected and charges will begin at that time.
-Learn more in [Introduction to Microsoft Defender for Containers](/azure/defender-for-cloud/container-security).
+Learn more in [Introduction to Microsoft Defender for Containers](container-security.md).
 (No related policy)
 
 **Severity**: High
@@ -981,6 +995,9 @@ Privileged containers have all of the root capabilities of a host machine. They 
 
 ### [Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5)
 
+> [!IMPORTANT]
+> This recommendation is on a retirement path. It is being replaced by the recommendation [[[Preview] Container images in Azure registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/33422d8f-ab1e-42be-bc9a-38685bb567b9)](#preview-container-images-in-azure-registry-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey33422d8f-ab1e-42be-bc9a-38685bb567b9).
+
 **Description**: Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment.
 (Related policy: [Vulnerabilities in Azure Container Registry images should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5f0f936f-2f01-4bf5-b6be-d423792fa562)).
 
@@ -988,16 +1005,10 @@ Privileged containers have all of the root capabilities of a host machine. They 
 
 **Type**: Vulnerability Assessment
 
-### [Azure running container images should have vulnerabilities resolved - (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c)
-
-**Description**: Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks.
-(No related policy)
-
-**Severity**: High
-
-**Type**: Vulnerability Assessment
-
 ### [Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5)
+
+> [!IMPORTANT]
+> This recommendation is on a retirement path. It is being replaced by the recommendation [[[Preview] Containers running in Azure should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9acaf48-d2cf-45a3-a6e7-3caa2ef769e0)](#preview-containers-running-in-azure-should-have-vulnerability-findings-resolvedhttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeye9acaf48-d2cf-45a3-a6e7-3caa2ef769e0).
 
 **Description**: Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads.
 
@@ -1010,7 +1021,7 @@ Privileged containers have all of the root capabilities of a host machine. They 
 ### [(Enable if required) Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/814df446-7128-eff0-9177-fa52ac035b74)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Use customer-managed keys to manage the encryption at rest of your Azure Cosmos DB. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at <https://aka.ms/cosmosdb-cmk>.
 (Related policy: [Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f905d99-2ab7-462c-a6b0-f709acca6c8f)).
 
@@ -1019,7 +1030,7 @@ Use customer-managed keys to manage the encryption at rest of your Azure Cosmos 
 ### [(Enable if required) Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/bbd14f11-6228-4588-82a4-517b8d77b23f)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Manage encryption at rest of your Azure Machine Learning workspace data with customer-managed keys (CMK). By default, customer data is encrypted with service-managed keys, but CMKs are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at <https://aka.ms/azureml-workspaces-cmk>.
 (Related policy: [Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fba769a63-b8cc-4b2d-abf6-ac33c7204be8)).
 
@@ -1028,7 +1039,7 @@ Manage encryption at rest of your Azure Machine Learning workspace data with cus
 ### [(Enable if required) Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/18bf29b3-a844-e170-2826-4e95d0ba4dc9)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data stored in Cognitive Services to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at <https://aka.ms/cosmosdb-cmk>.
 (Related policy: [Cognitive Services accounts should enable data encryption with a customer-managed key?(CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f67121cc7-ff39-4ab8-b7e3-95b84dab487d))
 
@@ -1037,7 +1048,7 @@ Customer-managed keys (CMK) are commonly required to meet regulatory compliance 
 ### [(Enable if required) MySQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/6b51b7f7-cbed-75bf-8a02-43384bf47562)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Use customer-managed keys to manage the encryption at rest of your MySQL servers. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management.
 (Related policy: [Bring your own key data protection should be enabled for MySQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f83cef61d-dbd1-4b20-a4fc-5fbc7da10833)).
 
@@ -1046,7 +1057,7 @@ Use customer-managed keys to manage the encryption at rest of your MySQL servers
 ### [(Enable if required) PostgreSQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/19d45f8f-245c-852e-dbf9-d4aab4758b1f)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Use customer-managed keys to manage the encryption at rest of your PostgreSQL servers. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management.
 (Related policy: [Bring your own key data protection should be enabled for PostgreSQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f18adea5e-f416-4d0f-8aa8-d24321e3e274)).
 
@@ -1055,7 +1066,7 @@ Use customer-managed keys to manage the encryption at rest of your PostgreSQL se
 ### [(Enable if required) SQL managed instances should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/06ac6ef4-1e66-1334-5418-6e79ab444ce0)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Implementing Transparent Data Encryption (TDE) with your own key provides you with increased transparency and control over the TDE Protector, increased security with an HSM-backed external service, and promotion of separation of duties. This recommendation applies to organizations with a related compliance requirement.
 (Related policy: [SQL managed instances should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f048248b0-55cd-46da-b1ff-39efd52db260)).
 
@@ -1064,7 +1075,7 @@ Implementing Transparent Data Encryption (TDE) with your own key provides you wi
 ### [(Enable if required) SQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1a93e945-3675-aef6-075d-c661498e1046)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Implementing Transparent Data Encryption (TDE) with your own key provides increased transparency and control over the TDE Protector, increased security with an HSM-backed external service, and promotion of separation of duties. This recommendation applies to organizations with a related compliance requirement.
 (Related policy: [SQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0d134df8-db83-46fb-ad72-fe0c9428c8dd)).
 
@@ -1073,7 +1084,7 @@ Implementing Transparent Data Encryption (TDE) with your own key provides increa
 ### [(Enable if required) Storage accounts should use customer-managed key (CMK) for encryption](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ca98bba7-719e-48ee-e193-0b76766cdb07)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](/azure/defender-for-cloud/tutorial-security-policy).
+To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
 Secure your storage account with greater flexibility using customer-managed keys (CMKs). When you specify a CMK, that key is used to protect and control access to the key that encrypts your data. Using CMKs provides additional capabilities to control rotation of the key encryption key or cryptographically erase data.
 (Related policy: [Storage accounts should use customer-managed key (CMK) for encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6fac406b-40ca-413b-bf8e-0bf964659c25)).
 
@@ -1142,7 +1153,7 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 **Severity**: Medium
 
-### [Azure Database for PostgreSQL should have an Azure Active Directory administrator provisioned](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/b20d1b00-11a8-4ce7-b477-4ea6e147c345/subscriptionIds~/%5B%220cd6095b-b140-41ec-ad1d-32f2f7493386%22%2C%220ee78edb-a0ad-456c-a0a2-901bf542c102%22%2C%2284ca48fe-c942-42e5-b492-d56681d058fa%22%2C%22b2a328a7-ffff-4c09-b643-a4758cf170bc%22%2C%22eef8b6d5-94da-4b36-9327-a662f2674efb%22%2C%228d5565a3-dec1-4ee2-86d6-8aabb315eec4%22%2C%22e0fd569c-e34a-4249-8c24-e8d723c7f054%22%2C%22dad45786-32e5-4ef3-b90e-8e0838fbadb6%22%2C%22a5f9f0d3-a937-4de5-8cf3-387fce51e80c%22%2C%220368444d-756e-4ca6-9ecd-e964248c227a%22%2C%22e686ef8c-d35d-4e9b-92f8-caaaa7948c0a%22%2C%222145a411-d149-4010-84d4-40fe8a55db44%22%2C%22212f9889-769e-45ae-ab43-6da33674bd26%22%2C%22615f5f56-4ba9-45cf-b644-0c09d7d325c8%22%2C%22487bb485-b5b0-471e-9c0d-10717612f869%22%2C%22cb9eb375-570a-4e75-b83a-77dd942bee9f%22%2C%224bbecc02-f2c3-402a-8e01-1dfb1ffef499%22%2C%22432a7068-99ae-4975-ad38-d96b71172cdf%22%2C%22c0620f27-ac38-468c-a26b-264009fe7c41%22%2C%22a1920ebd-59b7-4f19-af9f-5e80599e88e4%22%2C%22b43a6159-1bea-4fa2-9407-e875fdc0ff55%22%2C%22d07c0080-170c-4c24-861d-9c817742986a%22%2C%22ae71ef11-a03f-4b4f-a0e6-ef144727c711%22%2C%2255a24be0-d9c3-4ecd-86b6-566c7aac2512%22%2C%227afc2d66-d5b4-4e84-970b-a782e3e4cc46%22%2C%2252a442a2-31e9-42f9-8e3e-4b27dbf82673%22%2C%228c4b5b03-3b24-4ed0-91f5-a703cd91b412%22%2C%22e01de573-132a-42ac-9ee2-f9dea9dd2717%22%2C%22b5c0b80f-5932-4d47-ae25-cd617dac90ce%22%2C%22e4e06275-58d1-4081-8f1b-be12462eb701%22%2C%229b4236fe-df75-4289-bf00-40628ed41fd9%22%2C%2221d8f407-c4c4-452e-87a4-e609bfb86248%22%2C%227d411d23-59e5-4e2e-8566-4f59de4544f2%22%2C%22b74d5345-100f-408a-a7ca-47abb52ba60d%22%2C%22f30787b9-82a8-4e74-bb0f-f12d64ecc496%22%2C%22482e1993-01d4-4b16-bff4-1866929176a1%22%2C%2226596251-f2f3-4e31-8a1b-f0754e32ad73%22%2C%224628298e-882d-4f12-abf4-a9f9654960bb%22%2C%224115b323-4aac-47f4-bb13-22af265ed58b%22%2C%22911e3904-5112-4232-a7ee-0d1811363c28%22%2C%22cd0fa82d-b6b6-4361-b002-050c32f71353%22%2C%22dd4c2dac-db51-4cd0-b734-684c6cc360c1%22%2C%22d2c9544f-4329-4642-b73d-020e7fef844f%22%2C%22bac420ed-c6fc-4a05-8ac1-8c0c52da1d6e%22%2C%2250ff7bc0-cd15-49d5-abb2-e975184c2f65%22%2C%223cd95ff9-ac62-4b5c-8240-0cd046687ea0%22%2C%2213723929-6644-4060-a50a-cc38ebc5e8b1%22%2C%2209fa8e83-d677-474f-8f73-2a954a0b0ea4%22%2C%22ca38bc19-cf50-48e2-bbe6-8c35b40212d8%22%2C%22bf163a87-8506-4eb3-8d14-c2dc95908830%22%2C%221278a874-89fc-418c-b6b9-ac763b000415%22%2C%223b2fda06-3ef6-454a-9dd5-994a548243e9%22%2C%226560575d-fa06-4e7d-95fb-f962e74efd7a%22%2C%22c3547baf-332f-4d8f-96bd-0659b39c7a59%22%2C%222f96ae42-240b-4228-bafa-26d8b7b03bf3%22%2C%2229de2cfc-f00a-43bb-bdc8-3108795bd282%22%2C%22a1ffc958-d2c7-493e-9f1e-125a0477f536%22%2C%2254b875cc-a81a-4914-8bfd-1a36bc7ddf4d%22%2C%22407ff5d7-0113-4c5c-8534-f5cfb09298f5%22%2C%22365a62ee-6166-4d37-a936-03585106dd50%22%2C%226d17b59e-06c4-4203-89d2-de793ebf5452%22%2C%229372b318-ed3a-4504-95a6-941201300f78%22%2C%223c1bb38c-82e3-4f8d-a115-a7110ba70d05%22%2C%22c6dcd830-359f-44d0-b4d4-c1ba95e86f48%22%2C%2209e8ad18-7bdb-43b8-80c4-43ee53460e0b%22%2C%22dcbdac96-1896-478d-89fc-c95ed43f4596%22%2C%22d23422cf-c0f2-4edc-a306-6e32b181a341%22%2C%228c2c7b23-848d-40fe-b817-690d79ad9dfd%22%2C%221163fbbe-27e7-4b0f-8466-195fe5417043%22%2C%223905431d-c062-4c17-8fd9-c51f89f334c4%22%2C%227ea26ded-0260-4e78-9336-285d4d9e33d2%22%2C%225ccdbd03-f1b1-4b59-a609-300685e17ce3%22%2C%22bcdc6eb0-74cd-40b6-b3a9-584b33cea7b6%22%2C%22d557e825-27b1-4819-8af5-dc2429af91c9%22%2C%222bb50811-92b6-43a1-9d80-745962d9c759%22%2C%22409111bf-3097-421c-ad68-a44e716edf58%22%2C%2249e3f635-484a-43d1-b953-b29e1871ba88%22%2C%22b77ec8a9-04ed-48d2-a87a-e5887b978ba6%22%2C%22075423e9-7d33-4166-8bdf-3920b04e3735%22%2C%22ef143bbb-6a7e-4a3f-b64f-2f23330e0116%22%2C%2224afc59a-f969-4f83-95c9-3b70f52d833d%22%2C%22a8783cc5-1171-4c34-924f-6f71a20b21ec%22%2C%220079a9bb-e218-496a-9880-d27ad6192f52%22%2C%226f53185c-ea09-4fc3-9075-318dec805303%22%2C%22588845a8-a4a7-4ab1-83a1-1388452e8c0c%22%2C%22b68b2f37-1d37-4c2f-80f6-c23de402792e%22%2C%22eec2de82-6ab2-4a84-ae5f-57e9a10bf661%22%2C%22227531a4-d775-435b-a878-963ed8d0d18f%22%2C%228cff5d56-95fb-4a74-ab9d-079edb45313e%22%2C%22e72e5254-f265-4e95-9bd2-9ee8e7329051%22%2C%228ae1955e-f748-4273-a507-10159ba940f9%22%2C%22f6869ac6-2a40-404f-acd3-d07461be771a%22%2C%2285b3dbca-5974-4067-9669-67a141095a76%22%2C%228168a4f2-74d6-4663-9951-8e3a454937b7%22%2C%229ec1d932-0f3f-486c-acc6-e7d78b358f9b%22%2C%2279f57c16-00fe-48da-87d4-5192e86cd047%22%2C%22bac044cf-49e1-4843-8dda-1ce9662606c8%22%2C%22009d0e9f-a42a-470e-b315-82496a88cf0f%22%2C%2268f3658f-0090-4277-a500-f02227aaee97%22%5D/showSecurityCenterCommandBar~/false/assessmentOwners~/null)
+### [Azure Database for PostgreSQL should have an Azure Active Directory administrator provisioned](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b20d1b00-11a8-4ce7-b477-4ea6e147c345)
 
 **Description**: Provision an Azure AD administrator for your Azure Database for PostgreSQL to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services  
 (Related policy: [An Azure Active Directory administrator should be provisioned for PostgreSQL servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb4dec045-250a-48c2-b5cc-e0c4eec8b5b4)).
@@ -1191,14 +1202,14 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 **Severity**: Medium
 
-### [Azure SQL Managed Instance authentication mode should be Azure Active Directory Only](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/e2750e59-9a37-4ad5-b584-013932d9682d/subscriptionIds~/%5B%220cd6095b-b140-41ec-ad1d-32f2f7493386%22%2C%220ee78edb-a0ad-456c-a0a2-901bf542c102%22%2C%2284ca48fe-c942-42e5-b492-d56681d058fa%22%2C%22b2a328a7-ffff-4c09-b643-a4758cf170bc%22%2C%22eef8b6d5-94da-4b36-9327-a662f2674efb%22%2C%228d5565a3-dec1-4ee2-86d6-8aabb315eec4%22%2C%22e0fd569c-e34a-4249-8c24-e8d723c7f054%22%2C%22dad45786-32e5-4ef3-b90e-8e0838fbadb6%22%2C%22a5f9f0d3-a937-4de5-8cf3-387fce51e80c%22%2C%220368444d-756e-4ca6-9ecd-e964248c227a%22%2C%22e686ef8c-d35d-4e9b-92f8-caaaa7948c0a%22%2C%222145a411-d149-4010-84d4-40fe8a55db44%22%2C%22212f9889-769e-45ae-ab43-6da33674bd26%22%2C%22615f5f56-4ba9-45cf-b644-0c09d7d325c8%22%2C%22487bb485-b5b0-471e-9c0d-10717612f869%22%2C%22cb9eb375-570a-4e75-b83a-77dd942bee9f%22%2C%224bbecc02-f2c3-402a-8e01-1dfb1ffef499%22%2C%22432a7068-99ae-4975-ad38-d96b71172cdf%22%2C%22c0620f27-ac38-468c-a26b-264009fe7c41%22%2C%22a1920ebd-59b7-4f19-af9f-5e80599e88e4%22%2C%22b43a6159-1bea-4fa2-9407-e875fdc0ff55%22%2C%22d07c0080-170c-4c24-861d-9c817742986a%22%2C%22ae71ef11-a03f-4b4f-a0e6-ef144727c711%22%2C%2255a24be0-d9c3-4ecd-86b6-566c7aac2512%22%2C%227afc2d66-d5b4-4e84-970b-a782e3e4cc46%22%2C%2252a442a2-31e9-42f9-8e3e-4b27dbf82673%22%2C%228c4b5b03-3b24-4ed0-91f5-a703cd91b412%22%2C%22e01de573-132a-42ac-9ee2-f9dea9dd2717%22%2C%22b5c0b80f-5932-4d47-ae25-cd617dac90ce%22%2C%22e4e06275-58d1-4081-8f1b-be12462eb701%22%2C%229b4236fe-df75-4289-bf00-40628ed41fd9%22%2C%2221d8f407-c4c4-452e-87a4-e609bfb86248%22%2C%227d411d23-59e5-4e2e-8566-4f59de4544f2%22%2C%22b74d5345-100f-408a-a7ca-47abb52ba60d%22%2C%22f30787b9-82a8-4e74-bb0f-f12d64ecc496%22%2C%22482e1993-01d4-4b16-bff4-1866929176a1%22%2C%2226596251-f2f3-4e31-8a1b-f0754e32ad73%22%2C%224628298e-882d-4f12-abf4-a9f9654960bb%22%2C%224115b323-4aac-47f4-bb13-22af265ed58b%22%2C%22911e3904-5112-4232-a7ee-0d1811363c28%22%2C%22cd0fa82d-b6b6-4361-b002-050c32f71353%22%2C%22dd4c2dac-db51-4cd0-b734-684c6cc360c1%22%2C%22d2c9544f-4329-4642-b73d-020e7fef844f%22%2C%22bac420ed-c6fc-4a05-8ac1-8c0c52da1d6e%22%2C%2250ff7bc0-cd15-49d5-abb2-e975184c2f65%22%2C%223cd95ff9-ac62-4b5c-8240-0cd046687ea0%22%2C%2213723929-6644-4060-a50a-cc38ebc5e8b1%22%2C%2209fa8e83-d677-474f-8f73-2a954a0b0ea4%22%2C%22ca38bc19-cf50-48e2-bbe6-8c35b40212d8%22%2C%22bf163a87-8506-4eb3-8d14-c2dc95908830%22%2C%221278a874-89fc-418c-b6b9-ac763b000415%22%2C%223b2fda06-3ef6-454a-9dd5-994a548243e9%22%2C%226560575d-fa06-4e7d-95fb-f962e74efd7a%22%2C%22c3547baf-332f-4d8f-96bd-0659b39c7a59%22%2C%222f96ae42-240b-4228-bafa-26d8b7b03bf3%22%2C%2229de2cfc-f00a-43bb-bdc8-3108795bd282%22%2C%22a1ffc958-d2c7-493e-9f1e-125a0477f536%22%2C%2254b875cc-a81a-4914-8bfd-1a36bc7ddf4d%22%2C%22407ff5d7-0113-4c5c-8534-f5cfb09298f5%22%2C%22365a62ee-6166-4d37-a936-03585106dd50%22%2C%226d17b59e-06c4-4203-89d2-de793ebf5452%22%2C%229372b318-ed3a-4504-95a6-941201300f78%22%2C%223c1bb38c-82e3-4f8d-a115-a7110ba70d05%22%2C%22c6dcd830-359f-44d0-b4d4-c1ba95e86f48%22%2C%2209e8ad18-7bdb-43b8-80c4-43ee53460e0b%22%2C%22dcbdac96-1896-478d-89fc-c95ed43f4596%22%2C%22d23422cf-c0f2-4edc-a306-6e32b181a341%22%2C%228c2c7b23-848d-40fe-b817-690d79ad9dfd%22%2C%221163fbbe-27e7-4b0f-8466-195fe5417043%22%2C%223905431d-c062-4c17-8fd9-c51f89f334c4%22%2C%227ea26ded-0260-4e78-9336-285d4d9e33d2%22%2C%225ccdbd03-f1b1-4b59-a609-300685e17ce3%22%2C%22bcdc6eb0-74cd-40b6-b3a9-584b33cea7b6%22%2C%22d557e825-27b1-4819-8af5-dc2429af91c9%22%2C%222bb50811-92b6-43a1-9d80-745962d9c759%22%2C%22409111bf-3097-421c-ad68-a44e716edf58%22%2C%2249e3f635-484a-43d1-b953-b29e1871ba88%22%2C%22b77ec8a9-04ed-48d2-a87a-e5887b978ba6%22%2C%22075423e9-7d33-4166-8bdf-3920b04e3735%22%2C%22ef143bbb-6a7e-4a3f-b64f-2f23330e0116%22%2C%2224afc59a-f969-4f83-95c9-3b70f52d833d%22%2C%22a8783cc5-1171-4c34-924f-6f71a20b21ec%22%2C%220079a9bb-e218-496a-9880-d27ad6192f52%22%2C%226f53185c-ea09-4fc3-9075-318dec805303%22%2C%22588845a8-a4a7-4ab1-83a1-1388452e8c0c%22%2C%22b68b2f37-1d37-4c2f-80f6-c23de402792e%22%2C%22eec2de82-6ab2-4a84-ae5f-57e9a10bf661%22%2C%22227531a4-d775-435b-a878-963ed8d0d18f%22%2C%228cff5d56-95fb-4a74-ab9d-079edb45313e%22%2C%22e72e5254-f265-4e95-9bd2-9ee8e7329051%22%2C%228ae1955e-f748-4273-a507-10159ba940f9%22%2C%22f6869ac6-2a40-404f-acd3-d07461be771a%22%2C%2285b3dbca-5974-4067-9669-67a141095a76%22%2C%228168a4f2-74d6-4663-9951-8e3a454937b7%22%2C%229ec1d932-0f3f-486c-acc6-e7d78b358f9b%22%2C%2279f57c16-00fe-48da-87d4-5192e86cd047%22%2C%22bac044cf-49e1-4843-8dda-1ce9662606c8%22%2C%22009d0e9f-a42a-470e-b315-82496a88cf0f%22%2C%2268f3658f-0090-4277-a500-f02227aaee97%22%5D/showSecurityCenterCommandBar~/false/assessmentOwners~/null)
+### [SQL servers should have an Azure Active Directory administrator provisioned](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f0553104-cfdb-65e6-759c-002812e38500)
 
-**Description**: Disabling local authentication methods and allowing only Azure Active Directory Authentication improves security by ensuring that Azure SQL Managed Instances can exclusively be accessed by Azure Active Directory identities.  
-(Related policy: [Azure SQL Managed Instance should have Azure Active Directory Only Authentication enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f78215662-041e-49ed-a9dd-5385911b3a1f)).
+**Description**: Provision an Azure AD administrator for your SQL server to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.
+(Related policy: [An Azure Active Directory administrator should be provisioned for SQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f314764-cb73-4fc9-b863-8eca98ac36e9)).
 
-**Severity**: Medium
+**Severity**: High
 
-### [Azure Synapse Workspace authentication mode should be Azure Active Directory Only](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/3320d1ac-0ebe-41ab-b96c-96fb91214c5c/subscriptionIds~/%5B%220cd6095b-b140-41ec-ad1d-32f2f7493386%22%2C%220ee78edb-a0ad-456c-a0a2-901bf542c102%22%2C%2284ca48fe-c942-42e5-b492-d56681d058fa%22%2C%22b2a328a7-ffff-4c09-b643-a4758cf170bc%22%2C%22eef8b6d5-94da-4b36-9327-a662f2674efb%22%2C%228d5565a3-dec1-4ee2-86d6-8aabb315eec4%22%2C%22e0fd569c-e34a-4249-8c24-e8d723c7f054%22%2C%22dad45786-32e5-4ef3-b90e-8e0838fbadb6%22%2C%22a5f9f0d3-a937-4de5-8cf3-387fce51e80c%22%2C%220368444d-756e-4ca6-9ecd-e964248c227a%22%2C%22e686ef8c-d35d-4e9b-92f8-caaaa7948c0a%22%2C%222145a411-d149-4010-84d4-40fe8a55db44%22%2C%22212f9889-769e-45ae-ab43-6da33674bd26%22%2C%22615f5f56-4ba9-45cf-b644-0c09d7d325c8%22%2C%22487bb485-b5b0-471e-9c0d-10717612f869%22%2C%22cb9eb375-570a-4e75-b83a-77dd942bee9f%22%2C%224bbecc02-f2c3-402a-8e01-1dfb1ffef499%22%2C%22432a7068-99ae-4975-ad38-d96b71172cdf%22%2C%22c0620f27-ac38-468c-a26b-264009fe7c41%22%2C%22a1920ebd-59b7-4f19-af9f-5e80599e88e4%22%2C%22b43a6159-1bea-4fa2-9407-e875fdc0ff55%22%2C%22d07c0080-170c-4c24-861d-9c817742986a%22%2C%22ae71ef11-a03f-4b4f-a0e6-ef144727c711%22%2C%2255a24be0-d9c3-4ecd-86b6-566c7aac2512%22%2C%227afc2d66-d5b4-4e84-970b-a782e3e4cc46%22%2C%2252a442a2-31e9-42f9-8e3e-4b27dbf82673%22%2C%228c4b5b03-3b24-4ed0-91f5-a703cd91b412%22%2C%22e01de573-132a-42ac-9ee2-f9dea9dd2717%22%2C%22b5c0b80f-5932-4d47-ae25-cd617dac90ce%22%2C%22e4e06275-58d1-4081-8f1b-be12462eb701%22%2C%229b4236fe-df75-4289-bf00-40628ed41fd9%22%2C%2221d8f407-c4c4-452e-87a4-e609bfb86248%22%2C%227d411d23-59e5-4e2e-8566-4f59de4544f2%22%2C%22b74d5345-100f-408a-a7ca-47abb52ba60d%22%2C%22f30787b9-82a8-4e74-bb0f-f12d64ecc496%22%2C%22482e1993-01d4-4b16-bff4-1866929176a1%22%2C%2226596251-f2f3-4e31-8a1b-f0754e32ad73%22%2C%224628298e-882d-4f12-abf4-a9f9654960bb%22%2C%224115b323-4aac-47f4-bb13-22af265ed58b%22%2C%22911e3904-5112-4232-a7ee-0d1811363c28%22%2C%22cd0fa82d-b6b6-4361-b002-050c32f71353%22%2C%22dd4c2dac-db51-4cd0-b734-684c6cc360c1%22%2C%22d2c9544f-4329-4642-b73d-020e7fef844f%22%2C%22bac420ed-c6fc-4a05-8ac1-8c0c52da1d6e%22%2C%2250ff7bc0-cd15-49d5-abb2-e975184c2f65%22%2C%223cd95ff9-ac62-4b5c-8240-0cd046687ea0%22%2C%2213723929-6644-4060-a50a-cc38ebc5e8b1%22%2C%2209fa8e83-d677-474f-8f73-2a954a0b0ea4%22%2C%22ca38bc19-cf50-48e2-bbe6-8c35b40212d8%22%2C%22bf163a87-8506-4eb3-8d14-c2dc95908830%22%2C%221278a874-89fc-418c-b6b9-ac763b000415%22%2C%223b2fda06-3ef6-454a-9dd5-994a548243e9%22%2C%226560575d-fa06-4e7d-95fb-f962e74efd7a%22%2C%22c3547baf-332f-4d8f-96bd-0659b39c7a59%22%2C%222f96ae42-240b-4228-bafa-26d8b7b03bf3%22%2C%2229de2cfc-f00a-43bb-bdc8-3108795bd282%22%2C%22a1ffc958-d2c7-493e-9f1e-125a0477f536%22%2C%2254b875cc-a81a-4914-8bfd-1a36bc7ddf4d%22%2C%22407ff5d7-0113-4c5c-8534-f5cfb09298f5%22%2C%22365a62ee-6166-4d37-a936-03585106dd50%22%2C%226d17b59e-06c4-4203-89d2-de793ebf5452%22%2C%229372b318-ed3a-4504-95a6-941201300f78%22%2C%223c1bb38c-82e3-4f8d-a115-a7110ba70d05%22%2C%22c6dcd830-359f-44d0-b4d4-c1ba95e86f48%22%2C%2209e8ad18-7bdb-43b8-80c4-43ee53460e0b%22%2C%22dcbdac96-1896-478d-89fc-c95ed43f4596%22%2C%22d23422cf-c0f2-4edc-a306-6e32b181a341%22%2C%228c2c7b23-848d-40fe-b817-690d79ad9dfd%22%2C%221163fbbe-27e7-4b0f-8466-195fe5417043%22%2C%223905431d-c062-4c17-8fd9-c51f89f334c4%22%2C%227ea26ded-0260-4e78-9336-285d4d9e33d2%22%2C%225ccdbd03-f1b1-4b59-a609-300685e17ce3%22%2C%22bcdc6eb0-74cd-40b6-b3a9-584b33cea7b6%22%2C%22d557e825-27b1-4819-8af5-dc2429af91c9%22%2C%222bb50811-92b6-43a1-9d80-745962d9c759%22%2C%22409111bf-3097-421c-ad68-a44e716edf58%22%2C%2249e3f635-484a-43d1-b953-b29e1871ba88%22%2C%22b77ec8a9-04ed-48d2-a87a-e5887b978ba6%22%2C%22075423e9-7d33-4166-8bdf-3920b04e3735%22%2C%22ef143bbb-6a7e-4a3f-b64f-2f23330e0116%22%2C%2224afc59a-f969-4f83-95c9-3b70f52d833d%22%2C%22a8783cc5-1171-4c34-924f-6f71a20b21ec%22%2C%220079a9bb-e218-496a-9880-d27ad6192f52%22%2C%226f53185c-ea09-4fc3-9075-318dec805303%22%2C%22588845a8-a4a7-4ab1-83a1-1388452e8c0c%22%2C%22b68b2f37-1d37-4c2f-80f6-c23de402792e%22%2C%22eec2de82-6ab2-4a84-ae5f-57e9a10bf661%22%2C%22227531a4-d775-435b-a878-963ed8d0d18f%22%2C%228cff5d56-95fb-4a74-ab9d-079edb45313e%22%2C%22e72e5254-f265-4e95-9bd2-9ee8e7329051%22%2C%228ae1955e-f748-4273-a507-10159ba940f9%22%2C%22f6869ac6-2a40-404f-acd3-d07461be771a%22%2C%2285b3dbca-5974-4067-9669-67a141095a76%22%2C%228168a4f2-74d6-4663-9951-8e3a454937b7%22%2C%229ec1d932-0f3f-486c-acc6-e7d78b358f9b%22%2C%2279f57c16-00fe-48da-87d4-5192e86cd047%22%2C%22bac044cf-49e1-4843-8dda-1ce9662606c8%22%2C%22009d0e9f-a42a-470e-b315-82496a88cf0f%22%2C%2268f3658f-0090-4277-a500-f02227aaee97%22%5D/showSecurityCenterCommandBar~/false/assessmentOwners~/null)
+### [Azure Synapse Workspace authentication mode should be Azure Active Directory Only](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3320d1ac-0ebe-41ab-b96c-96fb91214c5c)
 
 **Description**: Azure Synapse Workspace authentication mode should be Azure Active Directory Only
  Azure Active Directory only authentication methods improves security by ensuring that Synapse Workspaces exclusively require Azure AD identities for authentication. [Learn more](https://aka.ms/Synapse).
@@ -1206,47 +1217,12 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 **Severity**: Medium
 
-### [Code repositories should have code scanning findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c68a8c2a-6ed4-454b-9e37-4b7654f2165f)
-
-**Description**: Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
-(No related policy)
-
-**Severity**: Medium
-
-### [Code repositories should have Dependabot scanning findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/822425e3-827f-4f35-bc33-33749257f851)
-
-**Description**: Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
-(No related policy)
-
-**Severity**: Medium
-
-### [Code repositories should have infrastructure as code scanning findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/2ebc815f-7bc7-4573-994d-e1cc46fb4a35)
-
-**Description**: Defender for DevOps has found infrastructure as code security configuration issues in repositories. The issues shown below have been detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
-(No related policy)
-
-**Severity**: Medium
-
-### [Code repositories should have secret scanning findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4e07c7d0-e06c-47d7-a4a9-8c7b748d1b27)
-
-**Description**: Defender for DevOps has found a secret in code repositories. This should be remediated immediately to prevent a security breach. Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results might not reflect the complete status of secrets in your repositories.
-(No related policy)
-
-**Severity**: High
-
 ### [Cognitive Services accounts should enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/cdcf4f71-60d3-540b-91e3-aa19792da364)
 
 **Description**: This policy audits any Cognitive Services account not using data encryption. For each Cognitive Services account with storage, should enable data encryption with either customer managed or Microsoft managed key.
 (Related policy: [Cognitive Services accounts should enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2bdd0062-9d75-436e-89df-487dd8e4b3c7)).
 
 **Severity**: Low
-
-### [Cognitive Services accounts should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243)
-
-**Description**: Network access to Cognitive Services accounts should be restricted. Configure network rules so only applications from allowed networks can access the Cognitive Services account. To allow connections from specific internet or on-premises clients, access can be granted to traffic from specific Azure virtual networks or to public internet IP address ranges.
-(Related policy: [Cognitive Services accounts should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f037eea7a-bd0a-46c5-9a66-03aea78705d3)).
-
-**Severity**: Medium
 
 ### [Cognitive Services accounts should use customer owned storage or enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/aa395469-1687-78a7-bf76-f4614ef72977)
 
@@ -1361,21 +1337,21 @@ Configuring geo-redundant storage for backup is only allowed when creating a ser
 **Description**: Microsoft Defender for SQL is a unified package that provides advanced SQL security capabilities.
 It includes functionality for surfacing and mitigating potential database vulnerabilities, detecting anomalous activities that could indicate a threat to your database, and discovering and classifying sensitive data.
 Important: Protections from this plan are charged as shown on the [Defender plans](https://aka.ms/pricing-security-center) page. If you don't have any Azure SQL Database servers in this subscription, you won't be charged. If you later create Azure SQL Database servers on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
-Learn more in [Introduction to Microsoft Defender for SQL](/azure/defender-for-cloud/defender-for-sql-introduction).
+Learn more in [Introduction to Microsoft Defender for SQL](defender-for-sql-introduction.md).
 (Related policy: [Azure Defender for Azure SQL Database servers should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)).
 
 **Severity**: High
 
 ### [Microsoft Defender for DNS should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/aae10e53-8403-3576-5d97-3b00f97332b2)
 
-**Description**: Microsoft Defender for DNS provides an additional layer of protection for your cloud resources by continuously monitoring all DNS queries from your Azure resources. Defender for DNS alerts you about suspicious activity at the DNS layer. Learn more in [Introduction to Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction). Enabling this Defender plan results in charges. Learn about the pricing details per region on Defender for Cloud's pricing page: [Defender for Cloud Pricing](https://azure.microsoft.com/services/defender-for-cloud/#pricing).
+**Description**: Microsoft Defender for DNS provides an additional layer of protection for your cloud resources by continuously monitoring all DNS queries from your Azure resources. Defender for DNS alerts you about suspicious activity at the DNS layer. Learn more in [Introduction to Microsoft Defender for DNS](defender-for-dns-introduction.md). Enabling this Defender plan results in charges. Learn about the pricing details per region on Defender for Cloud's pricing page: [Defender for Cloud Pricing](https://azure.microsoft.com/services/defender-for-cloud/#pricing).
 (No related policy)
 
 **Severity**: High
 
 ### [Microsoft Defender for open-source relational databases should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b6a28450-dd5d-4ba4-8806-245e20ef6632)
 
-**Description**: Microsoft Defender for open-source relational databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Learn more in [Introduction to Microsoft Defender for open-source relational databases](/azure/defender-for-cloud/defender-for-databases-introduction).
+**Description**: Microsoft Defender for open-source relational databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Learn more in [Introduction to Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
 
 Important: Enabling this plan will result in charges for protecting your open-source relational databases. If you don't have any open-source relational databases in this subscription, no charges will be incurred. If you create any open-source relational databases on this subscription in the future, they will automatically be protected and charges will begin at that time.
 (No related policy)
@@ -1384,7 +1360,7 @@ Important: Enabling this plan will result in charges for protecting your open-so
 
 ### [Microsoft Defender for Resource Manager should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f0fb2a7e-16d5-849f-be57-86db712e9bd0)
 
-**Description**: Microsoft Defender for Resource Manager automatically monitors the resource management operations in your organization. Defender for Cloud detects threats and alerts you about suspicious activity. Learn more in [Introduction to Microsoft Defender for Resource Manager](/azure/defender-for-cloud/defender-for-resource-manager-introduction). Enabling this Defender plan results in charges. Learn about the pricing details per region on Defender for Cloud's pricing page: [Defender for Cloud Pricing](https://azure.microsoft.com/services/defender-for-cloud/#pricing).
+**Description**: Microsoft Defender for Resource Manager automatically monitors the resource management operations in your organization. Defender for Cloud detects threats and alerts you about suspicious activity. Learn more in [Introduction to Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md). Enabling this Defender plan results in charges. Learn about the pricing details per region on Defender for Cloud's pricing page: [Defender for Cloud Pricing](https://azure.microsoft.com/services/defender-for-cloud/#pricing).
 (No related policy)
 
 **Severity**: High
@@ -1394,7 +1370,7 @@ Important: Enabling this plan will result in charges for protecting your open-so
 **Description**: Microsoft Defender for servers brings threat detection and advanced defenses for your Windows and Linux machines.
 With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for servers but missing out on some of the benefits.
 When you enable Microsoft Defender for servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.
-Learn more in [Introduction to Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction).
+Learn more in [Introduction to Microsoft Defender for servers](defender-for-servers-introduction.md).
 (No related policy)
 
 **Severity**: Medium
@@ -1429,7 +1405,7 @@ If you create any SQL servers on machines on this subscription in the future, th
 
 **Description**: Microsoft Defender for storage detects unusual and potentially harmful attempts to access or exploit storage accounts.
 Important: Protections from this plan are charged as shown on the **Defender plans** page. If you don't have any Azure Storage accounts in this subscription, you won't be charged. If you later create Azure Storage accounts on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
-Learn more in [Introduction to Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction).
+Learn more in [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md).
 (Related policy: [Azure Defender for Storage should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)).
 
 **Severity**: High
@@ -1483,13 +1459,6 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 **Description**: Disabling the public network access property improves security by ensuring your Azure SQL Database can only be accessed from a private endpoint. This configuration denies all logins that match IP or virtual network based firewall rules.
 (Related policy: [Public network access on Azure SQL Database should be disabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1b8ca024-1d5c-4dec-8995-b1a932b41780)).
-
-**Severity**: Medium
-
-### [Public network access should be disabled for Cognitive Services accounts](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/684a5b6d-a270-61ce-306e-5cea400dc3a7)
-
-**Description**: This policy audits any Cognitive Services account in your environment with public network access enabled. Public network access should be disabled so that only connections from private endpoints are allowed.
-(Related policy: [Public network access should be disabled for Cognitive Services accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0725b4dd-7e76-479c-a735-68e7ee23d5ca)).
 
 **Severity**: Medium
 
@@ -1565,7 +1534,7 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Storage accounts should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/47bb383c-8e25-95f0-c2aa-437add1d87d3)
 
-**Description**: To benefit from new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model. Resource Manager enables security enhancements such as: stronger access control (RBAC), better auditing, ARM-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication, and support for tags and resource groups for easier security management. [Learn more](/azure/virtual-machines/windows/migration-classic-resource-manager-overview)
+**Description**: To benefit from new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model. Resource Manager enables security enhancements such as: stronger access control (RBAC), better auditing, ARM-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication, and support for tags and resource groups for easier security management. [Learn more](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 (Related policy: [Storage accounts should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f37e0d2fe-28a5-43d6-a273-67d37d1f5606)).
 
 **Severity**: Low
@@ -1621,14 +1590,14 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Azure Cosmos DB should disable public network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/334a182c-7c2c-41bc-ae1e-55327891ab50)
 
-**Description**: Disabling public network access improves security by ensuring that your Cosmos DB account isn't exposed on the public internet. Creating private endpoints can limit exposure of your Cosmos DB account. [Learn more](/azure/cosmos-db/how-to-configure-private-endpoints#blocking-public-network-access-during-account-creation).
+**Description**: Disabling public network access improves security by ensuring that your Cosmos DB account isn't exposed on the public internet. Creating private endpoints can limit exposure of your Cosmos DB account. [Learn more](../cosmos-db/how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation).
 (Related policy: [Azure Cosmos DB should disable public network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f797b37f7-06b8-444c-b1ad-fc62867f335a)).
 
 **Severity**: Medium
 
 ### [Cosmos DB accounts should use private link](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/80dc29d6-9887-4071-a66c-e763376c2de3)
 
-**Description**: Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to your Cosmos DB account, data leakage risks are reduced. Learn more about [private links](/azure/cosmos-db/how-to-configure-private-endpoints).
+**Description**: Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to your Cosmos DB account, data leakage risks are reduced. Learn more about [private links](../cosmos-db/how-to-configure-private-endpoints.md).
 (Related policy: [Cosmos DB accounts should use private link](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f58440f8a-10c5-4151-bdce-dfbaad4a20b7)).
 
 **Severity**: Medium
@@ -1665,24 +1634,24 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 ### [Accounts with owner permissions on Azure resources should be MFA enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/6240402e-f77c-46fa-9060-a7ce53997754)
 
-**Description**: If you only use passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](/en-us/azure/defender-for-cloud/multi-factor-authentication-enforcement) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for another form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [owner permissions](/en-us/azure/role-based-access-control/built-in-roles#owner) on Azure resources, to prevent breach and attacks.
- More details and frequently asked questions are available here: [Manage multifactor authentication (MFA) enforcement on your subscriptions](/en-us/azure/defender-for-cloud/multi-factor-authentication-enforcement)
+**Description**: If you only use passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for another form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [owner permissions](../role-based-access-control/built-in-roles.md#owner) on Azure resources, to prevent breach and attacks.
+ More details and frequently asked questions are available here: [Manage multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md)
 (No related policy).
 
 **Severity**: High
 
 ### [Accounts with read permissions on Azure resources should be MFA enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c)
 
-**Description**: If you only use passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](/en-us/azure/defender-for-cloud/multi-factor-authentication-enforcement) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for an additional form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [read permissions](/en-us/azure/role-based-access-control/built-in-roles#owner) on Azure resources, to prevent breach and attacks.
- More details and frequently asked questions are available [here](/en-us/azure/defender-for-cloud/multi-factor-authentication-enforcement).
+**Description**: If you only use passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for an additional form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [read permissions](../role-based-access-control/built-in-roles.md#owner) on Azure resources, to prevent breach and attacks.
+ More details and frequently asked questions are available [here](multi-factor-authentication-enforcement.md).
 (No related policy)
 
 **Severity**: High
 
 ### [Accounts with write permissions on Azure resources should be MFA enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c0cb17b2-0607-48a7-b0e0-903ed22de39b)
 
-**Description**: If you only use passwords to authenticate your users, you are leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](/en-us/azure/defender-for-cloud/multi-factor-authentication-enforcement) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for an additional form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [write permissions](/en-us/azure/role-based-access-control/built-in-roles#owner) on Azure resources, to prevent breach and attacks.
- More details and frequently asked questions are available here: [Manage multifactor authentication (MFA) enforcement on your subscriptions](/en-us/azure/defender-for-cloud/multi-factor-authentication-enforcement)
+**Description**: If you only use passwords to authenticate your users, you are leaving an attack vector open. Users often use weak passwords for multiple services. By enabling [multifactor authentication](multi-factor-authentication-enforcement.md) (MFA), you provide better security for your accounts, while still allowing your users to authenticate to almost any application with single sign-on (SSO). Multifactor authentication is a process by which users are prompted, during the sign-in process, for an additional form of identification. For example, a code might be sent to their cellphone, or they might be asked for a fingerprint scan. We recommend you to enable MFA for all accounts that have [write permissions](../role-based-access-control/built-in-roles.md#owner) on Azure resources, to prevent breach and attacks.
+ More details and frequently asked questions are available here: [Manage multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md)
 (No related policy).
 
 **Severity**: High
@@ -1834,7 +1803,7 @@ These accounts can be targets for attackers looking to find ways to access your 
 **Description**: Microsoft Defender for Cloud includes Microsoft Defender for Key Vault, providing an additional layer of security intelligence.
 Microsoft Defender for Key Vault detects unusual and potentially harmful attempts to access or exploit Key Vault accounts.
 Important: Protections from this plan are charged as shown on the **Defender plans** page. If you don't have any key vaults in this subscription, you won't be charged. If you later create key vaults on this subscription, they'll automatically be protected and charges will begin. Learn about the [pricing details per region](https://aka.ms/pricing-security-center).
-Learn more in [Introduction to Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction).
+Learn more in [Introduction to Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md).
 (Related policy: [Azure Defender for Key Vault should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)).
 
 **Severity**: High
@@ -1927,7 +1896,7 @@ Learn more in [Introduction to Microsoft Defender for Key Vault](/azure/defender
 ### [Adaptive network hardening recommendations should be applied on internet facing virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f9f0eed0-f143-47bf-b856-671ea2eeed62)
 
 **Description**: Defender for Cloud has analyzed the internet traffic communication patterns of the virtual machines listed below, and determined that the existing rules in the NSGs associated to them are overly permissive, resulting in an increased potential attack surface.
-This typically occurs when this IP address doesn't communicate regularly with this resource. Alternatively, the IP address has been flagged as malicious by Defender for Cloud's threat intelligence sources. Learn more in [Improve your network security posture with adaptive network hardening](/azure/defender-for-cloud/adaptive-network-hardening).
+This typically occurs when this IP address doesn't communicate regularly with this resource. Alternatively, the IP address has been flagged as malicious by Defender for Cloud's threat intelligence sources. Learn more in [Improve your network security posture with adaptive network hardening](adaptive-network-hardening.md).
 (Related policy: [Adaptive network hardening recommendations should be applied on internet facing virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f08e6af2d-db70-460a-bfe9-d5bd474ba9d6)).
 
 **Severity**: High
@@ -1971,7 +1940,7 @@ VMs with 'High' severity are internet-facing VMs.
 
 ### [Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/805651bc-6ecd-4c73-9b55-97a19d0582d0)
 
-**Description**: Defender for Cloud has identified some overly permissive inbound rules for management ports in your Network Security Group. Enable just-in-time access control to protect your VM from internet-based brute-force attacks. Learn more in [Understanding just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview).
+**Description**: Defender for Cloud has identified some overly permissive inbound rules for management ports in your Network Security Group. Enable just-in-time access control to protect your VM from internet-based brute-force attacks. Learn more in [Understanding just-in-time (JIT) VM access](just-in-time-access-overview.md).
 (Related policy: [Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb0f33259-77d7-4c9e-aac6-3aabcfae693c)).
 
 **Severity**: High
@@ -2035,7 +2004,7 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 ### API endpoints in Azure API Management should be authenticated
 
-**Description & related policy**: API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses authentication through verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating [JWT](/azure/api-management/validate-jwt-policy), [client certificates](/azure/api-management/validate-client-certificate-policy), and [Microsoft Entra](/azure/api-management/validate-azure-ad-token-policy) tokens. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.
+**Description & related policy**: API endpoints published within Azure API Management should enforce authentication to help minimize security risk. Authentication mechanisms are sometimes implemented incorrectly or are missing. This allows attackers to exploit implementation flaws and to access data. For APIs published in Azure API Management, this recommendation assesses authentication through verifying the presence of Azure API Management subscription keys for APIs or products where subscription is required, and the execution of policies for validating [JWT](../api-management/validate-jwt-policy.md), [client certificates](../api-management/validate-client-certificate-policy.md), and [Microsoft Entra](../api-management/validate-azure-ad-token-policy.md) tokens. If none of these authentication mechanisms are executed during the API call, the API will receive this recommendation.
 
 **Severity**: High
 
@@ -2099,7 +2068,7 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 ### Azure Machine Learning Workspaces should disable public network access (Preview)
 
-**Description & related policy**: Disabling public network access improves security by ensuring that the Machine Learning Workspaces aren't exposed on the public internet. You can control exposure of your workspaces by creating private endpoints instead. For more information, see [Configure a private endpoint for an Azure Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link).
+**Description & related policy**: Disabling public network access improves security by ensuring that the Machine Learning Workspaces aren't exposed on the public internet. You can control exposure of your workspaces by creating private endpoints instead. For more information, see [Configure a private endpoint for an Azure Machine Learning workspace](../machine-learning/how-to-configure-private-link.md).
 
 **Severity**: Medium
 
@@ -2111,13 +2080,13 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 
 ### Azure Machine Learning Computes should have local authentication methods disabled (Preview)
 
-**Description & related policy**: Disabling local authentication methods improves security by ensuring that Machine Learning Computes require Azure Active Directory identities exclusively for authentication. For more information, see [Azure Policy Regulatory Compliance controls for Azure Machine Learning](/azure/machine-learning/security-controls-policy).
+**Description & related policy**: Disabling local authentication methods improves security by ensuring that Machine Learning Computes require Azure Active Directory identities exclusively for authentication. For more information, see [Azure Policy Regulatory Compliance controls for Azure Machine Learning](../machine-learning/security-controls-policy.md).
 
 **Severity**: Medium
 
 ### Azure Machine Learning compute instances should be recreated to get the latest software updates (Preview)
 
-**Description & related policy**: Ensure Azure Machine Learning compute instances run on the latest available operating system. Security is improved and vulnerabilities reduced by running with the latest security patches. For more information, see [Vulnerability management for Azure Machine Learning](/azure/machine-learning/concept-vulnerability-management#compute-instance).
+**Description & related policy**: Ensure Azure Machine Learning compute instances run on the latest available operating system. Security is improved and vulnerabilities reduced by running with the latest security patches. For more information, see [Vulnerability management for Azure Machine Learning](../machine-learning/concept-vulnerability-management.md#compute-instance).
 
 **Severity**: Medium
 
@@ -2150,6 +2119,24 @@ Note that the following subnet types will be listed as not applicable: GatewaySu
 **Description & related policy**: Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Azure Databricks workspaces, you can reduce data leakage risks. For more information, see [Create the workspace and private endpoints in the Azure portal UI](/azure/databricks/administration-guide/cloud-configurations/azure/private-link-standard#create-the-workspace-and-private-endpoints-in-the-azure-portal-ui).
 
 **Severity**: Medium
+
+### [Azure AI Services resources should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243)
+
+**Description**: By restricting network access, you can ensure that only allowed networks can access the service. This can be achieved by configuring network rules so that only applications from allowed networks can access the Azure AI service resource.
+
+**Severity**: Medium
+
+### [Azure AI Services resources should have key access disabled (disable local authentication)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/13b10b36-aa99-4db6-b00c-dcf87c4761e6)
+
+**Description**: Key access (local authentication) is recommended to be disabled for security. Azure OpenAI Studio, typically used in development/testing, requires key access and will not function if key access is disabled. After disabling, Microsoft Entra ID becomes the only access method, which allows maintaining minimum privilege principle and granular control. [Learn more](https://aka.ms/AI/auth).
+
+**Severity**: Medium
+
+### [Diagnostic logs in Azure AI services resources should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e)
+
+**Description**: Enable logs for Azure AI services resources. This enables you to recreate activity trails for investigation purposes, when a security incident occurs or your network is compromised. 
+
+**Severity**: Low
 
 ## Deprecated recommendations
 
@@ -2231,6 +2218,28 @@ Using the latest Java version for function apps is recommended to benefit from s
 **Description & related policy**: Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality.
 Using the latest PHP version for web apps is recommended to benefit from security fixes, if any, and/or new functionalities of the latest version.
 (Related policy: Ensure that 'PHP version' is the latest, if used as a part of the WEB app).
+
+**Severity**: Medium
+
+### [Endpoint protection health issues on machines should be resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000)
+
+**Description**: Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. See the documentation for the [endpoint protection solutions supported by Defender for Cloud](/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds#supported-endpoint-protection-solutions-) and the [endpoint protection assessments](/azure/defender-for-cloud/endpoint-protection-recommendations-technical).
+(No related policy)
+
+**Severity**: Medium
+
+### [Endpoint protection should be installed on machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439)
+
+**Description**: To protect machines from threats and vulnerabilities, install a supported endpoint protection solution.
+Learn more about how endpoint protection for machines is evaluated in [Endpoint protection assessment and recommendations in Microsoft Defender for Cloud](/azure/defender-for-cloud/endpoint-protection-recommendations-technical).
+(No related policy)
+
+**Severity**: High
+
+### [Public network access should be disabled for Cognitive Services accounts](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/684a5b6d-a270-61ce-306e-5cea400dc3a7)
+
+**Description**: This policy audits any Cognitive Services account in your environment with public network access enabled. Public network access should be disabled so that only connections from private endpoints are allowed.
+(Related policy: [Public network access should be disabled for Cognitive Services accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0725b4dd-7e76-479c-a735-68e7ee23d5ca)).
 
 **Severity**: Medium
 

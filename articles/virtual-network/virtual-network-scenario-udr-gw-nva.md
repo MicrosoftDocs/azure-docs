@@ -4,7 +4,7 @@ description: Learn how to deploy virtual appliances and route tables to create a
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: conceptual
 ms.date: 03/22/2023
 ms.author: allensu

@@ -15,11 +15,11 @@ ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-f
 
 Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 

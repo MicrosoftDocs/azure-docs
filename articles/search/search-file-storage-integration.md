@@ -31,7 +31,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Read permissions on Azure Storage. A "full access" connection string includes a key that grants access to the content.
 
-+ Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
++ Use a [REST client](search-get-started-rest.md) to formulate REST calls similar to the ones shown in this article.
 
 ## Supported document formats
 
@@ -114,7 +114,7 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
 
 1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing so lets you take advantage of implicit field mappings. 
 
-1. Add fields for standard metadata properties. In file indexing, the standard metadata properties are the same as blob metadata properties. The file indexer automatically creates internal field mappings for these properties that converts hyphenated property names to underscored property names. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the data source.
+1. Add fields for standard metadata properties. In file indexing, the standard metadata properties are the same as blob metadata properties. The Azure Files indexer automatically creates internal field mappings for these properties that converts hyphenated property names to underscored property names. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the data source.
 
     + **metadata_storage_name** (`Edm.String`) - the file name. For example, if you have a file /my-share/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
     + **metadata_storage_path** (`Edm.String`) - the full URI of the file, including the storage account. For example, `https://myaccount.file.core.windows.net/my-share/my-folder/subfolder/resume.pdf`
@@ -124,7 +124,7 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
     + **metadata_storage_content_md5** (`Edm.String`) - MD5 hash of the file content, if available.
     + **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't be stored for later use as it might expire.
 
-## Configure and run the file indexer
+## Configure and run the Azure Files indexer
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 

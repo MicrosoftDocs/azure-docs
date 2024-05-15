@@ -7,7 +7,7 @@ ms.author: fcabrera
 ms.date: 05/12/2023
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices using IoT Edge for Linux on Windows

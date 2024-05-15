@@ -10,24 +10,30 @@ ms.author: turao
 ms.devlang: azurecli
 ---
 
-# Configure customer-managed keys for your existing Azure Cosmos DB account with Azure Key Vault (Preview)
+# Configure customer-managed keys for your existing Azure Cosmos DB account with Azure Key Vault
 
-[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Enabling a second layer of encryption for data at rest using [Customer Managed Keys](./how-to-setup-customer-managed-keys.md) while creating a new Azure Cosmos DB account has been Generally available for some time now. As a natural next step, we now have the capability to enable CMK on existing Azure Cosmos DB accounts.
 
 This feature eliminates the need for data migration to a new account to enable CMK. It helps to improve customers’ security and compliance posture.
 
-> [!NOTE]
-> Currently, enabling customer-managed keys on existing Azure Cosmos DB accounts is in preview. This preview is provided without a service-level agreement. Certain features of this preview may not be supported or may have constrained capabilities. For more information, see [supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Enabling CMK kicks off a background, asynchronous process to encrypt all the existing data in the account, while new incoming data are encrypted before persisting. There's no need to wait for the asynchronous operation to succeed. The enablement process consumes unused/spare RUs so that it doesn't affect your read/write workloads. You can refer to this [link](./how-to-setup-customer-managed-keys.md?tabs=azure-powershell#how-do-customer-managed-keys-influence-capacity-planning) for capacity planning once your account is encrypted. 
 
 ## Get started by enabling CMK on your existing accounts
 
+> [!IMPORTANT]
+> Go through the prerequisites section thoroughly. These are important considerations.
+
 ### Prerequisites
 
 All the prerequisite steps needed while configuring Customer Managed Keys for new accounts is applicable to enable CMK on your existing account. Refer to the steps [here](./how-to-setup-customer-managed-keys.md?tabs=azure-portal#prerequisites)
+
+It is important to note that enabling encryption on your Azure Cosmos DB account will add a small overhead to your document's ID, limiting the maximum size of the document ID to 990 bytes instead of 1024 bytes. If your account has any documents with IDs larger than 990 bytes, the encryption process will fail until those documents are deleted.
+ 
+To verify if your account is compliant, you can use the provided console application [hosted here](https://github.com/AzureCosmosDB/Cosmos-DB-Non-CMK-to-CMK-Migration-Scanner) to scan your account. Make sure that you are using the endpoint from your 'sqlEndpoint' account property, no matter the API selected. 
+
+If you wish to disable server-side validation for this during migration, please contact support.
 
 ### Steps to enable CMK on your existing account
 
@@ -81,8 +87,8 @@ For enabling CMK on existing account that has continuous backup and point in tim
     ```
 ## Known limitations
 
-- Enabling CMK is available only at a Cosmos DB account level and not at collections.
 - We don't support enabling CMK on existing Azure Cosmos DB for Apache Cassandra accounts.
+- Enabling CMK is available only at a Cosmos DB account level and not at collections.
 - We don't support enabling CMK on existing accounts that are enabled for Materialized Views and [all versions and deletes change feed mode](nosql/change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview).
 - Ensure account must not have documents with large IDs greater than 990 bytes before enabling CMK. If not, you'll get an error due to max supported limit of 1024 bytes after encryption.
 - During encryption of existing data, [control plane](./audit-control-plane-logs.md) actions such as "add region" is blocked. These actions are unblocked and can be used right after the encryption is complete.
@@ -141,7 +147,7 @@ The state of the key is checked when CMK encryption is triggered. If the key in 
 
 **Can we enable CMK encryption on our existing production account?**
 
-Yes. Since the capability is currently in preview, we recommend testing all scenarios first on nonproduction accounts and once you're comfortable you can consider production accounts.
+Yes. Go through the prerequisite section thoroughly. We recommend testing all scenarios first on nonproduction accounts and once you're comfortable you can consider production accounts.
 
 ## Next steps
 

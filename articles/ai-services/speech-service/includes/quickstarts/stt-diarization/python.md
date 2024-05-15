@@ -108,9 +108,6 @@ Follow these steps to create a new console application.
 
    The application recognizes speech from multiple participants in the conversation. Your audio file should contain multiple speakers.
 
-   > [!NOTE]
-   > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
-
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md).
 
 1. Run your new console application to start conversation transcription:

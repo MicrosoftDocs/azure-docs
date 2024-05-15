@@ -7,7 +7,7 @@ ms.author: alexwolf
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 10/29/2023
-ms.custom: vscode-azure-extension-update-completed, devx-track-dotnet, linux-related-content
+ms.custom: vscode-azure-extension-update-completed, devx-track-dotnet
 ---
 
 # Quickstart: Deploy to Azure Container Apps using Visual Studio Code
@@ -77,8 +77,6 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
     In the browser's location bar, append the `/albums` path at the end of the app URL to view data from a sample API request.
 
 Congratulations! You successfully created and deployed your first container app using Visual Studio Code.
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 

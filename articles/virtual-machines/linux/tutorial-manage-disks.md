@@ -6,7 +6,7 @@ ms.author: rogarana
 ms.service: azure-disk-storage
 ms.topic: tutorial
 ms.date: 08/20/2020
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Linux VMs in Azure.
 ---
 

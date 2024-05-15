@@ -19,14 +19,6 @@ For more information how to create an Integration Runtime, see [Integration Runt
 
 The easiest way to get started with data flow integration runtimes is to choose small, medium, or large from the compute size picker. See the mappings to cluster configurations for those sizes below.
 
-## Cluster type
-
-There are two available options for the type of Spark cluster to utilize: general purpose & memory optimized.
-
-**General purpose** clusters are the default selection and will be ideal for most data flow workloads. These tend to be the best balance of performance and cost.
-
-If your data flow has many joins and lookups, you may want to use a **memory optimized** cluster. Memory optimized clusters can store more data in memory and will minimize any out-of-memory errors you may get. Memory optimized have the highest price-point per core, but also tend to result in more successful pipelines. If you experience any out of memory errors when executing data flows, switch to a memory optimized Azure IR configuration. 
-
 ## Cluster size
 
 Data flows distribute the data processing over different cores in a Spark cluster to perform operations in parallel. A Spark cluster with more cores increases the number of cores in the compute environment. More cores increase the processing power of the data flow. Increasing the size of the cluster is often an easy way to reduce the processing time.

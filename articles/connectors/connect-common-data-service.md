@@ -1,6 +1,6 @@
 ---
-title: Connect to Microsoft Dataverse, previously Common Data Service
-description: Create and manage rows from Microsoft Dataverse, previously Common Data Service, in workflows using Azure Logic Apps.
+title: Connect to Microsoft Dataverse from your workflow
+description: Create and manage rows in Microsoft Dataverse from your workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
@@ -9,24 +9,24 @@ ms.date: 12/14/2023
 ms.custom: engagement-fy23
 ---
 
-# Connect to Microsoft Dataverse (previously Common Data Service) from workflows in Azure Logic Apps
+# Connect to Microsoft Dataverse from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!IMPORTANT]
 >
 > On August 30, 2022, the connector operations for Common Data Service 2.0, also known as Microsoft Dataverse 
-> (Legacy), migrate to the current Microsoft Dataverse connector. Legacy operations bear the "legacy" label, 
+> (Legacy), migrated to the current Microsoft Dataverse connector. Legacy operations bear the "legacy" label, 
 > while current operations bear the "preview" label. You can use the current Dataverse connector in any 
 > existing or new logic app workflows. For backward compatibility, existing workflows continue to work 
 > with the legacy Dataverse connector. However, make sure to review these workflows, and update them promptly.
 >
-> Starting October 2023, the legacy version becomes unavailable for new workflows. Existing workflows continue 
-> to work, but you *must* use the current Dataverse connector for new workflows. At that time, a timeline for the shutdown date for the legacy actions and triggers will be announced.
->
-> Since November 2020, the Common Data Service connector was renamed Microsoft Dataverse (Legacy).
+> Since October 2023, the legacy version became unavailable for new workflows. Existing workflows continue 
+> to work, but you *must* use the current Dataverse connector operations for new workflows. A timeline for
+> the shutdown date for the legacy actions and triggers will be announced. For more information, see 
+> [Microsoft Dataverse (legacy) connector for Azure Logic Apps will be deprecated and replaced with another connector](/power-platform/important-changes-coming#microsoft-dataverse-legacy-connector-for-azure-logic-apps-will-be-deprecated-and-replaced-with-another-connector).
 
-To create and run automated workflows that manage rows in your [Microsoft Dataverse database, formerly Common Data Service database](/powerapps/maker/common-data-service/data-platform-intro), you can use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/). These workflows can create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
+To create and run automated workflows that create and manage rows in your [Microsoft Dataverse database](/powerapps/maker/common-data-service/data-platform-intro), you can use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/). These workflows can create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
 
 This guide shows how to create a workflow that creates a task row whenever a new lead row is created.
 
@@ -328,7 +328,7 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
 
 ### Duplicate 'callbackregistrations' entity
 
-In Standard logic app workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger duplicately runs, which results in creating a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
+In Standard logic app workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger starts a duplicate run, which creates a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
 
 ## Next steps
 

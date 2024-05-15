@@ -45,8 +45,10 @@ landingContent:
             url: publish-events-using-namespace-topics.md
       - linkListType: tutorial
         links:
-          - text: Route MQTT messages to Azure Event Hubs
-            url: mqtt-routing-to-event-hubs-portal.md
+          - text: Route MQTT messages to Azure Event Hubs using namespace topics
+            url: mqtt-routing-to-event-hubs-portal-namespace-topics.md
+          - text: Route MQTT messages to Azure Functions using custom topics
+            url: mqtt-routing-to-azure-functions-portal.md
       - linkListType: sample
         links:
           - text: Code samples

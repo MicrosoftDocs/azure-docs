@@ -2,8 +2,8 @@
 title: Create tumbling window triggers
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a tumbling window.
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
@@ -150,6 +150,9 @@ To use the **WindowStart** and **WindowEnd** system variable values in the pipel
 
 If the startTime of trigger is in the past, then based on this formula, M=(CurrentTime- TriggerStartTime)/TumblingWindowSize, the trigger will generate {M} backfill(past) runs in parallel, honoring trigger concurrency, before executing the future runs. The order of execution for windows is deterministic, from oldest to newest intervals. Currently, this behavior can't be modified.
 
+> [!NOTE]
+> Be aware that in this scenario, all runs from the selected startTime will be run before executing future runs. If you need to backfill a long period of time, doing an intial historical load is recommended. 
+
 ### Existing TriggerResource elements
 
 The following points apply to update of existing **TriggerResource** elements:
@@ -285,7 +288,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 
 ### Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - Follow the instructions in [Create an Azure Data Factory using Azure CLI](./quickstart-create-data-factory-azure-cli.md) to create a data factory and a pipeline.
 

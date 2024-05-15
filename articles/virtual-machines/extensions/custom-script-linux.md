@@ -13,7 +13,7 @@ ms.date: 03/31/2023
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines (VMs). Use this extension for post-deployment configuration, software installation, or any other configuration or management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime.
 
@@ -41,7 +41,7 @@ Use Version 2 for new and existing deployments. The new version is a drop-in rep
 | Azure Linux | 2.x | 2.x |
 | openSUSE | 12.3+ | Not Supported |
 | Oracle Linux | 6.4+, 7.x+, 8.x+ | Not Supported |
-| Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+ | 8.6+, 9.0+ |
+| Red Hat Enterprise Linux | 6.7+, 7.x+, 8.x+, 9.x+ | 8.6+, 9.x+ |
 | Rocky Linux | 9.x+ | 9.x+ |
 | SLES | 12.x+, 15.x+ | 15.x SP4+ |
 | Ubuntu | 18.04+, 20.04+, 22.04+ | 20.04+, 22.04+ |

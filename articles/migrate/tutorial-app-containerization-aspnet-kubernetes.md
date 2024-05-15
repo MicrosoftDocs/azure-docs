@@ -80,7 +80,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assigning Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assigning Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | **Setting** | **Value** |
     | --- | --- |
@@ -109,6 +109,9 @@ If you just created a free Azure account, you're the owner of your subscription.
    ```powershell
    .\AppContainerizationInstaller.ps1
    ```
+
+> [!NOTE]
+> For Windows Server 2022, edit line 135 and remove `PowerShell-ISE` from the feature list, as it's no longer supported.
 
 ## Launch the App Containerization tool
 

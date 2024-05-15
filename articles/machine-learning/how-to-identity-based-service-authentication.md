@@ -35,6 +35,16 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 * You must be familiar with creating and working with [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
+## Azure Container Registry and identity types
+
+The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
+
+| Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
+| ---- | :----: | :----: |
+| Admin user | ✓ | ✓ |
+| Workspace system-assigned managed identity | ✓ | ✓ |
+| Workspace user-assigned managed identity</br>with the ACRPull role assigned to the identity |  | ✓ |
+
 ## User-assigned managed identity
 
 ### Workspace
@@ -291,6 +301,10 @@ Certain machine learning scenarios involve working with private data. In such ca
 To enable authentication with compute managed identity:
 
  * Create compute with managed identity enabled. See the [compute cluster](#compute-cluster) section, or for compute instance, the [Assign managed identity](how-to-create-compute-instance.md#assign-managed-identity) section.
+
+    > [!IMPORTANT]
+    > If the compute instance is also configured for [idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown), the compute instance won't shut down due to inactivity unless the managed identity has *contributor* access to the Azure Machine Learning workspace. For more information on assigning permissions, see [Manage access to Azure Machine Learning workspaces](how-to-assign-roles.md).
+
  * Grant compute managed identity at least Storage Blob Data Reader role on the storage account.
  * Create any datastores with identity-based authentication enabled. See [Create datastores](how-to-datastore.md).
 
@@ -348,7 +362,7 @@ The following steps outline how to set up data access with user identity for tra
 
 1. Grant data access and create data store as described above for CLI.
 
-1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
 
     ```python
     from azure.ai.ml import command

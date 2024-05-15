@@ -33,10 +33,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) using SQL Server authentication
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-* [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+* [Azure AI Search](search-what-is-azure-search.md). [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!NOTE]
-> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
+> You can use a free search service for this tutorial. The free tier limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download files
 

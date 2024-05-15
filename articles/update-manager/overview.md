@@ -2,6 +2,7 @@
 title: Azure Update Manager overview
 description: This article tells what Azure Update Manager in Azure is and the system updates for your Windows and Linux machines in Azure, on-premises, and other cloud environments.
 ms.service: azure-update-manager
+ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 02/21/2024
@@ -60,6 +61,9 @@ To support management of your Azure VM or non-Azure machine, Update Manager reli
 All assessment information and update installation results are reported to Update Manager from the extension and is available for analysis with [Azure Resource Graph](../governance/resource-graph/overview.md). You can view up to the last seven days of assessment data, and up to the last 30 days of update installation results.
 
 The machines assigned to Update Manager report how up to date they are based on what source they're configured to synchronize with. You can configure [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) on Windows machines to report to [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or Microsoft Update, which is by default. You can configure Linux machines to report to a local or public YUM or APT package repository. If the Windows Update Agent is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results in Update Manager might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
+
+> [!NOTE]
+> WSUS isn't available in Azure China operated by 21 Vianet.
 
 You can manage your Azure VMs or Azure Arc-enabled servers directly or at scale with Update Manager.
 

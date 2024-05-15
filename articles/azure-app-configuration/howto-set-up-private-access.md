@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 07/12/2022
+ms.date: 04/12/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -70,7 +70,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 1. Select **Next : Virtual Network >**.
 
-   1. Select an existing **Virtual network** to deploy the private endpoint to. If you don't have a virtual network, [create a virtual network](../private-link/create-private-endpoint-portal.md#create-a-virtual-network-and-bastion-host).
+   1. Select an existing **Virtual network** to deploy the private endpoint to. If you don't have a virtual network, [create a virtual network](../private-link/create-private-endpoint-portal.md).
 
    1. Select a **Subnet** from the list.
 

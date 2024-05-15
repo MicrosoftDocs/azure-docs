@@ -30,7 +30,7 @@ This article walks you through the following tasks:
 > * Restore and recover the database from a recovery point.
 > * Restore the VM from a recovery point.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12.1 or later.
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Service Bus premium and standard tiers
+title: Azure Service Bus premium messaging tier
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java
 ms.date: 05/02/2023
 ---
 
-# Service Bus Premium and Standard messaging tiers
+# Service Bus premium messaging tier
 
 Service Bus Messaging, which includes entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus Messaging is used as the communication backbone for many sophisticated cloud solutions.
 
@@ -14,13 +14,14 @@ The *Premium* tier of Service Bus Messaging addresses common customer requests a
 
 Some high-level differences are highlighted in the following table.
 
-| Premium | Standard |
-| --- | --- |
-| High throughput |Variable throughput |
-| Predictable performance |Variable latency |
-| Fixed pricing |Pay as you go variable pricing |
-| Ability to scale workload up and down |N/A |
-| Message size up to 100 MB. For more information, see [Large message support](#large-messages-support). |Message size up to 256 KB |
+| Criteria | Premium | Standard |
+|--- | --- | --- |
+| Throughout | High throughput |Variable throughput |
+| Performance | Predictable performance |Variable latency |
+| Pricing | Fixed pricing |Pay as you go variable pricing |
+| Scale | Ability to scale workload up and down |N/A |
+| Message size | Message size up to 100 MB. For more information, see [Large message support](#large-messages-support). |Message size up to 256 KB |
+
 
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
@@ -88,10 +89,10 @@ Azure Service Bus premium tier namespaces support the ability to send large mess
 Here are some considerations when sending large messages on Azure Service Bus -
 
 - Supported on Azure Service Bus premium tier namespaces only.
-- Supported only when using the AMQP protocol. Not supported when using SBMP or HTTP protocols, in the premium tier, the maximum message size for these protocols is 1MB.
+- Supported only when using the AMQP protocol. Not supported when using SBMP or HTTP protocols, in the premium tier, the maximum message size for these protocols is 1 MB.
 - Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
 - Sending large messages result in decreased throughput and increased latency.
-- While 100 MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
+- While 100-MB message payloads are supported, it's recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
 - The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
 - Batching isn't supported. 
 - Service Bus Explorer doesn't support sending or receiving large messages. 
@@ -121,12 +122,12 @@ The following network security features are available only in the premium tier. 
 Configuring IP firewall using the Azure portal is available only for the premium tier namespaces. However, you can configure IP firewall rules for other tiers using Azure Resource Manager templates, CLI, PowerShell, or REST API. For more information, see [Configure IP firewall](service-bus-ip-filtering.md).
 
 ## Encryption of data at rest
-Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key (BYOK) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key is encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one time setup process on your namespace. For more information, see [Encrypting Azure Service Bus data at rest](configure-customer-managed-key.md).
+Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as customer managed key (CMD) or customer-managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key is encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the CMK feature is a one time setup process on your namespace. For more information, see [Encrypting Azure Service Bus data at rest](configure-customer-managed-key.md).
 
 ## Partitioning
 There are some differences between the standard and premium tiers when it comes to partitioning.
 
-- Partitioning is available at entity creation for all queues and topics in basic or standard SKUs. A namespace can have both partitioned and non-partitioned entities. Partitioning is available at namespace creation for the premium tier, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in premium namespaces continue to work as expected.
+- Partitioning is available at entity creation for all queues and topics in basic or standard SKUs. A namespace can have both partitioned and nonpartitioned entities. Partitioning is available at namespace creation for the premium tier, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in premium namespaces continue to work as expected.
 - When partitioning is enabled in the Basic or Standard SKUs, Service Bus creates 16 partitions. When partitioning is enabled in the premium tier, the number of partitions is specified during namespace creation.
 
 For more information, see [Partitioning in Service Bus](service-bus-partitioning.md).
@@ -137,7 +138,7 @@ Azure Service Bus spreads the risk of catastrophic failures of individual machin
 
 For a premium tier namespace, the outage risk is further spread across three physically separated facilities availability zones, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of a datacenter. The all-active Azure Service Bus cluster model within a failure domain along with the availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against. 
 
-The Service Bus Geo-disaster recovery feature is designed to make it easier to recover from a disaster of this magnitude and abandon a failed Azure region for good and without having to change your application configurations. Abandoning an Azure region typically involves several services and this feature primarily aims at helping to preserve the integrity of the composite application configuration. The feature is globally available for the Service Bus premium tier.  
+The Service Bus Geo-disaster recovery feature is designed to make it easier to recover from a disaster of this magnitude and abandon a failed Azure region for good without having to change your application configurations. Abandoning an Azure region typically involves several services and this feature primarily aims at helping to preserve the integrity of the composite application configuration. The feature is globally available for the Service Bus premium tier.  
 
 For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md).
 
@@ -148,7 +149,5 @@ The standard tier supports only JMS 1.1 subset focused on queues. For more infor
 
 ## Next steps
 
-To learn more about Service Bus Messaging, see the following links:
+See the following article: [Automatically update messaging units](automate-update-messaging-units.md).
 
-- [Automatically update messaging units](automate-update-messaging-units.md).
-- [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

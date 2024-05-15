@@ -5,7 +5,7 @@ ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.custom: mvc
+ms.custom: mvc, linux-related-content
 ms.service: container-registry
 ---
 

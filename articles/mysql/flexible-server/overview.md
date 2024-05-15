@@ -187,8 +187,10 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Germany North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Israel Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Italy North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Jio India West | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
@@ -198,14 +200,19 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norway West | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Poland Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Qatar Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Africa West | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | South India | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Spain Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Taiwan North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Taiwan Northwest | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | UAE Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

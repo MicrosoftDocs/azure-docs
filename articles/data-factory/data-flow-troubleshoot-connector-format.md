@@ -7,7 +7,7 @@ ms.reviewer: wiassaf
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 07/17/2023
+ms.date: 03/19/2024
 ---
 
 
@@ -21,13 +21,13 @@ This article explores troubleshooting methods related to connector and format fo
 
 #### Symptoms
 
-In data flows, if you use Azure Blob Storage (general purpose v1) with the service principal or MI authentication, you may encounter the following error message:
+In data flows, if you use Azure Blob Storage (general purpose v1) with the service principal or MI authentication, you might encounter the following error message:
 
 `com.microsoft.dataflow.broker.InvalidOperationException: ServicePrincipal and MI auth are not supported if blob storage kind is Storage (general purpose v1)`
 
 #### Cause
 
-When you use the Azure Blob linked service in data flows, the managed identity or service principal authentication is not supported when the account kind is empty or "Storage". This situation is shown in Image 1 and Image 2 below.
+When you use the Azure Blob linked service in data flows, the managed identity or service principal authentication isn't supported when the account kind is empty or **Storage**. This situation is shown in Image 1 and Image 2 below.
 
 Image 1: The account kind in the Azure Blob Storage linked service
 
@@ -42,7 +42,7 @@ Image 2: Storage account page
 
 To solve this issue, refer to the following recommendations:
 
-- If the storage account kind is **None** in the Azure Blob linked service, specify the proper account kind, and refer to Image 3 shown below to accomplish it. Furthermore, refer to Image 2 to get the storage account kind, and check and confirm the account kind is not Storage (general purpose v1).
+- If the storage account kind is **None** in the Azure Blob linked service, specify the proper account kind, and refer to Image 3 that follows to accomplish it. Furthermore, refer to Image 2 to get the storage account kind, and check and confirm the account kind isn't Storage (general purpose v1).
 
     Image 3: Specify the storage account kind in the Azure Blob Storage linked service
 
@@ -60,17 +60,17 @@ To solve this issue, refer to the following recommendations:
 ### Support customized schemas in the source
 
 #### Symptoms
-When you want to use the ADF data flow to move or transfer data from Azure Cosmos DB/JSON into other data stores, some columns of the source data may be missed. 
+When you want to use the ADF data flow to move or transfer data from Azure Cosmos DB/JSON into other data stores, some columns of the source data might be missed.
 
-#### Cause 
-For the schema-free connectors (the column number, column name and column data type of each row can be different when comparing with others), by default, ADF uses sample rows (for example, top 100 or 1000 rows data) to infer the schema, and the inferred result will be used as a schema to read data. So if your data stores have extra columns that don't appear in sample rows, the data of these extra columns are not read, moved, or transferred into sink data stores.
+#### Cause
+For the schema-free connectors (the column number, column name and column data type of each row can be different when comparing with others), by default, ADF uses sample rows (for example, top 100 or 1,000 rows data) to infer the schema, and the inferred result are used as a schema to read data. So if your data stores have extra columns that don't appear in sample rows, the data of these extra columns aren't read, moved, or transferred into sink data stores.
 
 #### Recommendation
-To overwrite the default behavior and bring in additional fields, ADF provides options for you to customize the source schema. You can specify additional/missing columns that could be missing in schema-infer-result in the data flow source projection to read the data, and you can apply one of the following options to set the customized schema. Usually, **Option-1** is more preferred.
+To overwrite the default behavior and bring in other fields, ADF provides options for you to customize the source schema. You can specify additional/missing columns that could be missing in schema-infer-result in the data flow source projection to read the data, and you can apply one of the following options to set the customized schema. Usually, **Option-1** is more preferred.
 
-- **Option-1**: Compared with the original source data that may be one large file, table, or container that contains millions of rows with complex schemas, you can create a temporary table/container with a few rows that contain all the columns you want to read, and then move on to the following operation: 
+- **Option-1**: Compared with the original source data that might be one large file, table, or container that contains millions of rows with complex schemas, you can create a temporary table/container with a few rows that contain all the columns you want to read, and then move on to the following operation:
 
-    1. Use the data flow source **Debug Settings** to have **Import projection** with sample files/tables to get the complete schema. You can follow the steps in the following picture:<br/>
+    1. Use the data flow source **Debug Settings** to have **Import projection** with sample files/tables to get the complete schema. You can follow the steps in the following picture:<br/>
 
         :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png" alt-text="Screenshot that shows the first part of the first option to customize the source schema.":::<br/>
          1. Select **Debug settings** in the data flow canvas.
@@ -85,21 +85,21 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
          1. In the pop-up pane, select **Source dataset** under the **cosmosSource** tab.
          1. Select **Save** to save your settings.<br/>
     
-    Afterwards, the ADF data flow runtime will honor and use the customized schema to read data from the original data store. <br/>
+    Afterwards, the ADF data flow runtime will honor and use the customized schema to read data from the original data store. <br/>
 
-- **Option-2**: If you are familiar with the schema and DSL language of the source data, you can manually update the data flow source script to add additional/missed columns to read the data. An example is shown in the following picture: 
+- **Option-2**: If you're familiar with the schema and DSL language of the source data, you can manually update the data flow source script to add additional/missed columns to read the data. An example is shown in the following picture: 
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png" alt-text="Screenshot that shows the second option to customize the source schema.":::
 
 ### Support map type in the source
 
 #### Symptoms
-In ADF data flows, map data type cannot be directly supported in Azure Cosmos DB or JSON source, so you cannot get the map data type under "Import projection".
+In ADF data flows, map data type can't be directly supported in Azure Cosmos DB or JSON source, so you can't get the map data type under "Import projection".
 
 #### Cause
-For Azure Cosmos DB and JSON, they are schema-free connectivity and related spark connector uses sample data to infer the schema, and then that schema is used as the Azure Cosmos DB/JSON source schema. When inferring the schema, the Azure Cosmos DB/JSON Spark connector can only infer object data as a struct rather than a map data type, and that's why map type cannot be directly supported.
+For Azure Cosmos DB and JSON, they're schema-free connectivity and related spark connector uses sample data to infer the schema, and then that schema is used as the Azure Cosmos DB/JSON source schema. When inferring the schema, the Azure Cosmos DB/JSON Spark connector can only infer object data as a struct rather than a map data type, and that's why map type can't be directly supported.
 
-#### Recommendation 
+#### Recommendation 
 To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Azure Cosmos DB/JSON source to get the map data type support.
 
 **Examples**:
@@ -118,11 +118,11 @@ The map type support:
 
 |Type |Is the map type supported?   |Comments|
 |-------------------------|-----------|------------|
-|Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there is no need to support the map type. |
+|Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there's no need to support the map type. |
 |Orc, Avro |Yes |None.|
-|JSON|Yes |The map type cannot be directly supported, follow the recommendation part in this section to update the script (DSL) under the source projection.|
-|Azure Cosmos DB |Yes |The map type cannot be directly supported, follow the recommendation part in this section to update the script (DSL) under the source projection.|
-|Parquet |Yes |Today the complex data type is not supported on the parquet dataset, so you need to use the "Import projection" under the data flow parquet source to get the map type.|
+|JSON|Yes |The map type can't be directly supported. Follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Azure Cosmos DB |Yes |The map type can't be directly supported. Follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Parquet |Yes |Today the complex data type isn't supported on the parquet dataset, so you need to use the "Import projection" under the data flow parquet source to get the map type.|
 |XML |No |None.|
 
 ### Consume JSON files generated by copy activities
@@ -141,7 +141,7 @@ There are following limitations on JSON for copy and data flows respectively:
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/enabled-single-document.png" alt-text="Screenshot that shows the enabled 'Single document'."::: 
 
 
-So you will experience issues if the following criteria are met:
+So you might experience issues if the following criteria are met:
 
 - The sink dataset used by the copy activity is set to Unicode encoding (utf-8, utf-16, utf-16be, utf-32, utf-32be) or the default is used.
 - The copy sink is set to use "Array of objects" file pattern as shown in the following picture, no matter whether "Single document" is enabled or not in the data flow JSON source. 
@@ -156,7 +156,7 @@ So you will experience issues if the following criteria are met:
 >[!Note]
 > Using "Set of objects" is also the recommended practice from the performance perspective. As the "Single document" JSON in the data flow can't enable parallel reading for single large files, this recommendation does not have any negative impact.
 
-### The query with parameters does not work
+### The query with parameters doesn't work
 
 #### Symptoms
 
@@ -185,19 +185,19 @@ For example:
 ### Fail to create files with service principle authentication
 
 #### Symptoms
-When you try to move or transfer data from different sources into the ADLS gen1 sink, if the linked service's authentication method is service principle authentication, your job may fail with the following error message:
+When you try to move or transfer data from different sources into the ADLS gen1 sink, if the linked service's authentication method is service principle authentication, your job might fail with the following error message:
 
 `org.apache.hadoop.security.AccessControlException: CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.). [2b5e5d92-xxxx-xxxx-xxxx-db4ce6fa0487] failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)`
 
 #### Cause
 
-The RWX permission or the dataset property is not set correctly.
+The RWX permission or the dataset property isn't set correctly.
 
 #### Recommendation
 
 - If the target folder doesn't have correct permissions, refer to this document to assign the correct permission in Gen1: [Use service principal authentication](./connector-azure-data-lake-store.md#use-service-principal-authentication).
 
-- If the target folder has the correct permission and you use the file name property in the data flow to target to the right folder and file name, but the file path property of the dataset is not set to the target file path (usually leave not set), as the example shown in the following pictures, you will encounter this failure because the backend system tries to create files based on the file path of the dataset, and the file path of the dataset doesn't have the correct permission.
+- If the target folder has the correct permission and you use the file name property in the data flow to target to the right folder and file name, but the file path property of the dataset isn't set to the target file path (usually leave not set), as the example shown in the following pictures, you encounter this failure because the backend system tries to create files based on the file path of the dataset, and the file path of the dataset doesn't have the correct permission.
     
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Screenshot that shows the file path property."::: 
     
@@ -210,35 +210,35 @@ The RWX permission or the dataset property is not set correctly.
 
 ## Azure Data Lake Storage Gen2
 
-### Failed with an error: "Error while reading file XXX. It is possible the underlying files have been updated"
+### Failed with an error: "Error while reading file XXX. It's possible the underlying files have been updated."
 
 #### Symptoms
 
-When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage is not default, you may find job fail with the following error message:
+When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage isn't default, you might find the job fails with the following error message:
 
 `Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
 
 #### Cause
 
 1. You don't assign a proper permission to your MI/SP authentication.
-1. You may have a customized job to handle files that you don't want, which will affect the data flow's middle output.
+1. You might have a customized job to handle files that you don't want, which will affect the data flow's middle output.
 
 #### Recommendation
 1. Check if your linked service has the R/W/E permission for Gen2. If you use the MI auth/SP authentication, at least grant the Storage Blob Data Contributor role in the Access control (IAM).
-1. Confirm if you have specific jobs that move/delete files to other place whose name does not match your rule. Because data flows will write down partition files into the target folder firstly and then do the merge and rename operations, the middle file's name might not match your rule.
+1. Confirm if you have specific jobs that move/delete files to other place whose name doesn't match your rule. Because data flows write down partition files into the target folder firstly and then do the merge and rename operations, the middle file's name might not match your rule.
 
 ## Azure Database for PostgreSQL
 
 ### Encounter an error: Failed with exception: handshake_failure 
 
 #### Symptoms
-You use Azure PostgreSQL as a source or sink in the data flow such as previewing data and debugging/triggering run, and you may find the job fails with following error message: 
+You use Azure PostgreSQL as a source or sink in the data flow such as previewing data and debugging/triggering run, and you might find the job fails with following error message: 
 
    `PSQLException: SSL error: Received fatal alert: handshake_failure `<br/>
    `Caused by: SSLHandshakeException: Received fatal alert: handshake_failure.`
 
 #### Cause 
-If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL server, since the system is built via Spark upon Azure Databricks cluster, there is a limitation in Azure Databricks blocks our system to connect to the Flexible server or Hyperscale (Citus). You can review the following two links as references.
+If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL server, since the system is built via Spark upon Azure Databricks cluster, there's a limitation in Azure Databricks blocks our system to connect to the Flexible server or Hyperscale (Citus). You can review the following two links as references.
 - [Handshake fails trying to connect from Azure Databricks to Azure PostgreSQL with SSL](/answers/questions/170730/handshake-fails-trying-to-connect-from-azure-datab.html)
  
 - [MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
@@ -259,7 +259,7 @@ Your Azure SQL Database can work well in the data copy, dataset preview-data, an
 
 #### Cause
 
-There are wrong firewall settings on your Azure SQL Database server, so that it cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks is used to build spark cluster to run the job, but it does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md).
+There are wrong firewall settings on your Azure SQL Database server, so that it can't be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks is used to build spark cluster to run the job, but it doesn't support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md).
 
 #### Recommendation
 
@@ -287,11 +287,11 @@ The query used in the data flow source should be able to run as a sub query. The
 
 Provide a correct query and test it in the SSMS firstly.
 
-### Failed with an error: "SQLServerException: 111212; Operation cannot be performed within a transaction."
+### Failed with an error: "SQLServerException: 111212; Operation can't be performed within a transaction."
 
 #### Symptoms
 
-When you use the Azure SQL Database as a sink in the data flow to preview data, debug/trigger run and do other activities, you may find your job fails with following error message:
+When you use the Azure SQL Database as a sink in the data flow to preview data, debug/trigger run and do other activities, you might find your job fails with following error message:
 
 `{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
 
@@ -299,7 +299,7 @@ When you use the Azure SQL Database as a sink in the data flow to preview data, 
 The error "`111212;Operation cannot be performed within a transaction.`" only occurs in the Synapse dedicated SQL pool. But you mistakenly use the Azure SQL Database as the connector instead.
 
 #### Recommendation
-Confirm if your SQL Database is a Synapse dedicated SQL pool. If so, use Azure Synapse Analytics as a connector shown in the picture below.
+Confirm if your SQL Database is a Synapse dedicated SQL pool. If so, use Azure Synapse Analytics as a connector shown in the following image.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/synapse-analytics-connector.png" alt-text="Screenshot that shows the Azure Synapse Analytics connector."::: 
 
@@ -307,30 +307,30 @@ Confirm if your SQL Database is a Synapse dedicated SQL pool. If so, use Azure S
 
 #### Symptoms
 
-You want to insert data into a table in the SQL database. If the data contains the decimal type and need to be inserted into a column with the decimal type in the SQL database, the data value may be changed to null.
+You want to insert data into a table in the SQL database. If the data contains the decimal type and need to be inserted into a column with the decimal type in the SQL database, the data value might be changed to null.
 
-If you do the preview, in previous stages, it will show the value like the following picture:
+If you do the preview, in previous stages, it shows the value like the following picture:
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-previous-stage.png" alt-text="Screenshot that shows the value in the previous stages."::: 
 
-In the sink stage, it will become null, which is shown in the picture below.
+In the sink stage, it becomes null, which is shown in the following image.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/value-in-sink-stage.png" alt-text="Screenshot that shows the value in the sink stage."::: 
 
 #### Cause
-The decimal type has scale and precision properties. If your data type doesn't match that in the sink table, the system will validate that the target decimal is wider than the original decimal, and the original value does not overflow in the target decimal. Therefore, the value will be cast to null.
+The decimal type has scale and precision properties. If your data type doesn't match that in the sink table, the system validates that the target decimal is wider than the original decimal, and the original value doesn't overflow in the target decimal. Therefore, the value is cast to null.
 
 #### Recommendation
 Check and compare the decimal type between data and table in the SQL database, and alter the scale and precision to the same.
 
-You can use toDecimal (IDecimal, scale, precision) to figure out if the original data can be cast to the target scale and precision. If it returns null, it means that the data cannot be cast and furthered when inserting.
+You can use toDecimal (IDecimal, scale, precision) to figure out if the original data can be cast to the target scale and precision. If it returns null, it means that the data can't be cast and furthered when inserting.
 
 ## Azure Synapse Analytics
 
 ### Serverless pool (SQL on-demand) related issues
 
 #### Symptoms
-You use the Azure Synapse Analytics and the linked service actually is a Synapse serverless pool. Its former name is SQL on-demand pool, and it can be distinguished by the server name contains `ondemand`, for example, `space-ondemand.sql.azuresynapse.net`. You may face with several unique failures as below:<br/>
+You use the Azure Synapse Analytics and the linked service actually is a Synapse serverless pool. Its former name is SQL on-demand pool, and you can distinguish it by finding the server name that contains `ondemand`, for example, `space-ondemand.sql.azuresynapse.net`. You might face with several unique failures such as these:<br/>
 
 1. When you want to use Synapse serverless pool as a Sink, you face the following error:<br/>
 `Sink results in 0 output columns. Please ensure at least one column is mapped`
@@ -339,21 +339,21 @@ You use the Azure Synapse Analytics and the linked service actually is a Synapse
 1. When you want to fetch data from an external table, you face the following error: `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: External table 'dbo' is not accessible because location does not exist or it is used by another process.`
 1. When you want to fetch data from Azure Cosmos DB through Serverless pool by query/from view, you face the following error: 
  `Job failed due to reason: Connection reset.`
-1. When you want to fetch data from a view, you may face with different errors.
+1. When you want to fetch data from a view, you might face with different errors.
 
 #### Cause
-Causes of the symptoms are stated below respectively:
-1. Serverless pool cannot be used as a sink. It doesn't support write data into the database.
-1. Serverless pool doesn't support staged data loading, so 'enable staging' is not supported. 
+Causes of the symptoms are stated respectively here:
+1. Serverless pool can't be used as a sink. It doesn't support write data into the database.
+1. Serverless pool doesn't support staged data loading, so 'enable staging' isn't supported. 
 1. The authentication method that you use doesn't have a correct permission to the external data source where the external table referring to.
-1. There is a known limitation in Synapse serverless pool, blocking you to fetch Azure Cosmos DB data from data flows.
+1. There's a known limitation in Synapse serverless pool, blocking you to fetch Azure Cosmos DB data from data flows.
 1. View is a virtual table based on an SQL statement. The root cause is inside the statement of the view.
 
 #### Recommendation
 
 You can apply the following steps to solve your issues correspondingly.
 1. You should better not use serverless pool as a sink.
-1. Do not use 'enable staging' in Source for serverless pool.
+1. Don't use 'enable staging' in Source for serverless pool.
 1. Only service principal/managed identity that has the permission to the external table data can query it. Grant 'Storage Blob Data Contributor' permission to the external data source for the authentication method that you use in the ADF.
     >[!Note]
     > The user-password authentication can not query external tables. For more information, see [Security model](../synapse-analytics/metadata/database.md#security-model).
@@ -365,10 +365,10 @@ You can apply the following steps to solve your issues correspondingly.
 ### Load small size data to Data Warehouse without staging is slow 
 
 #### Symptoms
-When you load small data to Data Warehouse without staging, it will take a long time to finish. For example, the data size 2 MB but it takes more than 1 hour to finish. 
+When you load small data to Data Warehouse without staging, it takes a long time to finish. For example, the data size 2 MB but it takes more than 1 hour to finish. 
 
 #### Cause
-This issue is caused by the row count rather than the size. The row count has few thousand, and each insert needs to be packaged into an independent request, go to the control node, start a new transaction, get locks, and go to the distribution node repeatedly. Bulk load gets the lock once, and each distribution node performs the insert by batching into memory efficiently.
+The row count rather than the size causes this issue. The row count has few thousand, and each insert needs to be packaged into an independent request, go to the control node, start a new transaction, get locks, and go to the distribution node repeatedly. Bulk load gets the lock once, and each distribution node performs the insert by batching into memory efficiently.
 
 If 2 MB is inserted as just a few records, it would be fast. For example, it would be fast if each record is 500 kb * 4 rows. 
 
@@ -379,14 +379,14 @@ You need to enable staging to improve the performance.
 ### Read empty string value ("") as NULL with the enable staging 
 
 #### Symptoms
-When you use Synapse as a source in the data flow such as previewing data and debugging/triggering run and enable staging to use the PolyBase, if your column value contains empty string value (`""`), it will be changed to null.
+When you use Synapse as a source in the data flow such as previewing data and debugging/triggering run and enable staging to use the PolyBase, if your column value contains empty string value (`""`), it is changed to null.
 
 #### Cause
-The data flow back end uses Parquet as the PolyBase format, and there is a known limitation in the Synapse SQL pool gen2, which will automatically change the empty string value to null.
+The data flow back end uses Parquet as the PolyBase format, and there's a known limitation in the Synapse SQL pool gen2, which automatically changes the empty string value to null.
 
 #### Recommendation
 You can try to solve this issue by the following methods:
-1. If your data size is not huge, you can disable **Enable staging** in the Source, but the performance will be affected.
+1. If your data size isn't huge, you can disable **Enable staging** in the Source, but the performance is affected.
 1. If you need to enable staging, you can use **iifNull()** function to manually change the specific column from null to empty string value.
 
 ### Managed service identity error
@@ -400,27 +400,27 @@ When you use the Synapse as a source/sink in the data flow to preview data, debu
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Managed Service Identity has not been enabled on this server. Please enable Managed Service Identity and try again.`
 
 #### Cause
-1. If the SQL pool is created from Synapse workspace, MI authentication on staging store with the PolyBase is not supported for the old SQL pool. 
-1. If the SQL pool is the old Data Warehouse (DWH) version, MI of the SQL server is not assigned to the staging store.
+1. If the SQL pool is created from Synapse workspace, MI authentication on staging store with the PolyBase isn't supported for the old SQL pool. 
+1. If the SQL pool is the old Data Warehouse (DWH) version, MI of the SQL server isn't assigned to the staging store.
 
 #### Recommendation
 Confirm the SQL pool was created from the Azure Synapse workspace.
 
-- If the SQL pool was created from the Azure Synapse workspace, no additional steps are necessary. You no longer need to re-register the Managed Identity (MI) of the workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
-- If the SQL pool is a dedicated SQL pool (formerly SQL DW) pre-dating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps).
+- If the SQL pool was created from the Azure Synapse workspace, no extra steps are necessary. You no longer need to re-register the Managed Identity (MI) of the workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
+- If the SQL pool is a dedicated SQL pool (formerly SQL DW) predating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps).
 
 ### Failed with an error: "SQLServerException: Not able to validate external location because the remote server returned an error: (403)"
 
 #### Symptoms
 
-When you use SQLDW as a sink to trigger and run data flow activities, the activity may fail with error like: `"SQLServerException: Not able to validate external location because the remote server returned an error: (403)"`
+When you use SQLDW as a sink to trigger and run data flow activities, the activity might fail with error like: `"SQLServerException: Not able to validate external location because the remote server returned an error: (403)"`
 
 #### Cause
-1. When you use the managed identity in the authentication method in the ADLS Gen2 account as staging, cx may not set the authentication configuration correctly.
-1. With the VNET integration runtime, you need to use the managed identity in the authentication method in the ADLS Gen2 account as staging. If your staging Azure Storage is configured with the VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account.
+1. When you use the managed identity in the authentication method in the ADLS Gen2 account as staging, you might not set the authentication configuration correctly.
+1. With the virtual network integration runtime, you need to use the managed identity in the authentication method in the ADLS Gen2 account as staging. If your staging Azure Storage is configured with the virtual network service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account.
 1. Check whether your folder name contains the space character or other special characters, for example:
 `Space " < > # % |`.
-Currently folder names that contain certain special characters are not supported in the Data Warehouse copy command.
+Currently folder names that contain certain special characters aren't supported in the Data Warehouse copy command.
 
 #### Recommendation
 
@@ -428,9 +428,9 @@ For Cause 1, you can refer to the following document: [Use virtual network servi
 
 For Cause 2, work around it with one of the following options:
 
-- Option-1: If you use the VNET integration runtime, you need to use the managed identity in the authentication method in the ADLS GEN 2 account as staging.
+- Option-1: If you use the virtual network integration runtime, you need to use the managed identity in the authentication method in the ADLS GEN 2 account as staging.
 
-- Option-2: If your staging Azure Storage is configured with the VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account. You can refer to this doc: [Staged copy by using PolyBase](./connector-azure-sql-data-warehouse.md#staged-copy-by-using-polybase) for more information.
+- Option-2: If your staging Azure Storage is configured with the virtual network service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account. You can refer to this doc: [Staged copy by using PolyBase](./connector-azure-sql-data-warehouse.md#staged-copy-by-using-polybase) for more information.
 
 For Cause 3, work around it with one of the following options:
 
@@ -439,25 +439,7 @@ For Cause 3, work around it with one of the following options:
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/remove-allow-copy-command-true.png" alt-text="Screenshot that shows how to remove 'allowcopycommand:true'."::: 
 
-
-### Failed with an error: "This operation is not permitted on a non-empty directory"
-
-#### Symptoms
-
-When you use Azure Synapse Analytics as a sink in the data flow to preview data, debug/trigger run or do other activities and the enable staging is set to true, your job may fail with the following error message:
-
-`DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage.`<br/>
-`org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: This operation is not permitted on a non-empty directory.`
-
-#### Cause
-You use the Azure Blob Storage as the staging linked service to link to a storage account that has the enabled hierarchical namespace, and that account uses key authentication in the linked service.
-
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-configuration.png" alt-text="Screenshot that shows the storage account configuration."::: 
-
-#### Recommendation
-Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in data flow activities.
-
-### Failed with an error: "shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: User does not have permission to perform this action."
+### Failed with an error: "shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: User doesn't have permission to perform this action."
 
 #### Symptoms
 
@@ -471,7 +453,7 @@ PolyBase requires certain permissions in your Synapse SQL server to work.
 
 #### Recommendation
 
-Grant the permissions below in your Synapse SQL server when you use PolyBase:
+Grant these permissions in your Synapse SQL server when you use PolyBase:
 
 **ALTER ANY SCHEMA**<br/>
 **ALTER ANY EXTERNAL DATA SOURCE**<br/>
@@ -483,81 +465,81 @@ Grant the permissions below in your Synapse SQL server when you use PolyBase:
 ### Model.json files with special characters
 
 #### Symptoms 
-You may encounter an issue that the final name of the model.json file contains special characters.  
+You might encounter an issue that the final name of the model.json file contains special characters.  
 
-#### Error message  
-`at Source 'source1': java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: PPDFTable1.csv@snapshot=2020-10-21T18:00:36.9469086Z. ` 
+#### Error message  
+`at Source 'source1': java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: PPDFTable1.csv@snapshot=2020-10-21T18:00:36.9469086Z. ` 
 
-#### Recommendation  
-Replace the special chars in the file name, which will work in the synapse but not in ADF.  
+#### Recommendation  
+Replace the special chars in the file name, which works in the synapse but not in ADF.  
 
-### No data output in the data preview or after running pipelines
+### No data output in the data preview or after running pipelines
 
 #### Symptoms
-When you use the manifest.json for CDM, no data is shown in the data preview or shown after running a pipeline. Only headers are shown. You can see this issue in the picture below.<br/>
+When you use the manifest.json for CDM, no data is shown in the data preview or shown after running a pipeline. Only headers are shown. You can see this issue in the picture below.<br/>
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/no-data-output.png" alt-text="Screenshot that shows the no data output symptom.":::
 
 #### Cause
-The manifest document describes the CDM folder, for example, what entities that you have in the folder, references of those entities and the data that corresponds to this instance. Your manifest document misses the `dataPartitions` information that indicates ADF where to read the data, and  since it is empty, it returns zero data. 
+The manifest document describes the CDM folder, for example, what entities that you have in the folder, references of those entities and the data that corresponds to this instance. Your manifest document misses the `dataPartitions` information that indicates ADF where to read the data, and  since it's empty, it returns zero data. 
 
 #### Recommendation
-Update your manifest document to have the `dataPartitions` information, and you can refer to this example manifest document to update your document: [Common Data Model metadata: Introducing manifest-Example manifest document](/common-data-model/cdm-manifest#example-manifest-document).
+Update your manifest document to have the `dataPartitions` information, and you can refer to this example manifest document to update your document: [Common Data Model metadata: Introducing manifest-Example manifest document](/common-data-model/cdm-manifest#example-manifest-document).
 
 ### JSON array attributes are inferred as separate columns
 
-#### Symptoms 
-You may encounter an issue where one attribute (string type) of the CDM entity has a JSON array as data. When this data is encountered, ADF infers the data as separate columns incorrectly. As you can see from the following pictures, a single attribute presented in the source (msfp_otherproperties) is inferred as a separate column in the CDM connector's preview.<br/> 
+#### Symptoms 
+You might encounter an issue where one attribute (string type) of the CDM entity has a JSON array as data. When this data is encountered, ADF infers the data as separate columns incorrectly. As you can see from the following pictures, a single attribute presented in the source (msfp_otherproperties) is inferred as a separate column in the CDM connector's preview.<br/> 
 
 - In the CSV source data (refer to the second column): <br/>
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-array-csv.png" alt-text="Screenshot that shows the attribute in the CSV source data.":::
 
-- In the CDM source data preview: <br/>
+- In the CDM source data preview: <br/>
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-array-cdm.png" alt-text="Screenshot that shows the separate column in the CDM source data.":::
 
- 
-You may also try to map drifted columns and use the data flow expression to transform this attribute as an array. But since this attribute is read as a separate column when reading, transforming to an array does not work.  
+ 
+You might also try to map drifted columns and use the data flow expression to transform this attribute as an array. But since this attribute is read as a separate column when reading, transforming to an array does not work.  
 
 #### Cause
-This issue is likely caused by the commas within your JSON object value for that column. Since your data file is expected to be a CSV file, the comma indicates that it is the end of a column's value. 
+This issue is likely caused by the commas within your JSON object value for that column. Since your data file is expected to be a CSV file, the comma indicates that it's the end of a column's value. 
 
 #### Recommendation
-To solve this problem, you need to double quote your JSON column and avoid any of the inner quotes with a backslash (`\`). In this way, the contents of that column's value can be read in as a single column entirely.  
-  
+To solve this problem, you need to double quote your JSON column and avoid any of the inner quotes with a backslash (`\`). In this way, the contents of that column's value can be read in as a single column entirely.  
+  
 >[!Note]
->The CDM doesn't inform that the data type of the column value is JSON, yet it informs that it is a string and parsed as such.
+>The CDM doesn't inform that the data type of the column value is JSON, yet it informs that it is a string and parsed as such.
 
 ### Unable to fetch data in the data flow preview
 
 #### Symptoms
-You use CDM with model.json generated by Power BI. When you preview the CDM data using the data flow preview, you encounter an error: `No output data.`
+You use CDM with model.json generated by Power BI. When you preview the CDM data using the data flow preview, you encounter an error: `No output data.`
 
 #### Cause
- The following code exists in the partitions in the model.json file generated by the Power BI data flow.
+ The following code exists in the partitions in the model.json file generated by the Power BI data flow.
 ```json
-"partitions": [  
-{  
-"name": "Part001",  
-"refreshTime": "2020-10-02T13:26:10.7624605+00:00",  
-"location": "https://datalakegen2.dfs.core.windows.net/powerbi/salesEntities/salesPerfByYear.csv @snapshot=2020-10-02T13:26:10.6681248Z"  
-}  
+"partitions": [  
+{  
+"name": "Part001",  
+"refreshTime": "2020-10-02T13:26:10.7624605+00:00",  
+"location": "https://datalakegen2.dfs.core.windows.net/powerbi/salesEntities/salesPerfByYear.csv @snapshot=2020-10-02T13:26:10.6681248Z"  
+}  
 ```
-For this model.json file, the issue is the naming schema of the data partition file has special characters, and supporting file paths with '@' do not exist currently.  
+For this model.json file, the issue is the naming schema of the data partition file has special characters, and supporting file paths with '@' do not exist currently.  
 
 #### Recommendation
-Remove the `@snapshot=2020-10-02T13:26:10.6681248Z` part from the data partition file name and the model.json file, and then try again. 
+Remove the `@snapshot=2020-10-02T13:26:10.6681248Z` part from the data partition file name and the model.json file, and then try again. 
 
 ### The corpus path is null or empty
 
 #### Symptoms
-When you use CDM in the data flow with the model format, you cannot preview the data, and you encounter the error: `DF-CDM_005 The corpus path is null or empty`. The error is shown in the following picture:  
+When you use CDM in the data flow with the model format, you can't preview the data, and you encounter the error: `DF-CDM_005 The corpus path is null or empty`. The error is shown in the following picture:  
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/corpus-path-error.png" alt-text="Screenshot that shows the corpus path error.":::
 
 #### Cause
-Your data partition path in the model.json is pointing to a blob storage location and not your data lake. The location should have the base URL of **.dfs.core.windows.net** for the ADLS Gen2. 
+Your data partition path in the model.json is pointing to a blob storage location and not your data lake. The location should have the base URL of **.dfs.core.windows.net** for the ADLS Gen2. 
 
 #### Recommendation
 To solve this issue, you can refer to this article: [ADF Adds Support for Inline Datasets and Common Data Model to Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798), and the following picture shows the way to fix the corpus path error in this article.
@@ -566,33 +548,33 @@ To solve this issue, you can refer to this article: [ADF Adds Support for Inline
 
 ### Unable to read CSV data files
 
-#### Symptoms 
-You use the inline dataset as the common data model with manifest as a source, and you have provided the entry manifest file, root path, entity name, and path. In the manifest, you have the data partitions with the CSV file location. Meanwhile, the entity schema and csv schema are identical, and all validations were successful. However, in the data preview, only the schema rather than the data gets loaded and the data is invisible, which is shown in the following picture:
+#### Symptoms 
+You use the inline dataset as the common data model with manifest as a source, and you provided the entry manifest file, root path, entity name, and path. In the manifest, you have the data partitions with the CSV file location. Meanwhile, the entity schema and csv schema are identical, and all validations were successful. However, in the data preview, only the schema rather than the data gets loaded and the data is invisible, which is shown in the following picture:
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/unable-read-data.png" alt-text="Screenshot that shows the issue of unable to read data files.":::
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/unable-read-data.png" alt-text="Screenshot that shows the issue of unable to read data files.":::
 
 #### Cause
-Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
+Your CDM folder isn't separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
 
 #### Recommendation
-For the data flow using CDM as a source, try to use a logical model as your entity reference, and use the manifest that describes the location of the physical resolved entities and the data partition locations. You can see some samples of logical entity definitions within the public CDM github repository: [CDM-schemaDocuments](https://github.com/microsoft/CDM/tree/master/schemaDocuments)<br/>
+For the data flow using CDM as a source, try to use a logical model as your entity reference, and use the manifest that describes the location of the physical resolved entities and the data partition locations. You can see some samples of logical entity definitions within the public CDM GitHub repository: [CDM-schemaDocuments](https://github.com/microsoft/CDM/tree/master/schemaDocuments)<br/>
 
-A good starting point to forming your corpus is to copy the files within the schema documents folder (just that level inside the github repository), and put those files into a folder. Afterwards, you can use one of the predefined logical entities within the repository (as a starting or reference point) to create your logical model.<br/>
+A good starting point to forming your corpus is to copy the files within the schema documents folder (just that level inside the GitHub repository), and put those files into a folder. Afterwards, you can use one of the predefined logical entities within the repository (as a starting or reference point) to create your logical model.<br/>
 
-Once the corpus is set up, you are recommended to use CDM as a sink within data flows, so that a well-formed CDM folder can be properly created. You can use your CSV dataset as a source and then sink it to your CDM model that you created.
+Once the corpus is set up, you're recommended to use CDM as a sink within data flows, so that a well-formed CDM folder can be properly created. You can use your CSV dataset as a source and then sink it to your CDM model that you created.
 
 ## CSV and Excel format
 
-### Set the quote character to 'no quote char' is not supported in the CSV
+### Set the quote character to 'no quote char' isn't supported in the CSV
  
 #### Symptoms
 
-There are several issues that are not supported in the CSV when the quote character is set to 'no quote char':
+There are several issues that aren't supported in the CSV when the quote character is set to 'no quote char':
 
 1. When the quote character is set to 'no quote char', multi-char column delimiter can't start and end with the same letters.
 2. When the quote character is set to 'no quote char', multi-char column delimiter can't contain the escape character: `\`.
 3. When the quote character is set to 'no quote char', column value can't contain row delimiter.
-4. The quote character and the escape character cannot both be empty (no quote and no escape) if the column value contains a column delimiter.
+4. The quote character and the escape character can't both be empty (no quote and no escape) if the column value contains a column delimiter.
 
 #### Cause
 
@@ -607,7 +589,7 @@ Causes of the symptoms are stated below with examples respectively:
 `column delimiter: \x`<br/>
 `escape char:\`<br/>
 `column value: "abc\\xdef"`<br/>
-The escape character will either escape the column delimiter or the escape the character.
+The escape character either escapes the column delimiter or the escape the character.
 
 3. The column value contains the row delimiter. <br/>
 `We need quote character to tell if row delimiter is inside column value or not.`
@@ -618,15 +600,15 @@ The escape character will either escape the column delimiter or the escape the c
 `It will be ambigious if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
 
 #### Recommendation
-The first symptom and the second symptom cannot be solved currently. For the third and fourth symptoms, you can apply the following methods:
-- For Symptom 3, do not use the 'no quote char' for a multiline csv file.
-- For Symptom 4, set either the quote character or the escape character as non-empty, or you can remove all column delimiters inside your data.
+The first symptom and the second symptom can't be solved currently. For the third and fourth symptoms, you can apply the following methods:
+- For Symptom 3, don't use the 'no quote char' for a multiline csv file.
+- For Symptom 4, set either the quote character or the escape character as nonempty, or you can remove all column delimiters inside your data.
 
 ### Read files with different schemas error
 
 #### Symptoms
 
-When you use data flows to read files such as CSV and Excel files with different schemas, the data flow debug, sandbox, or activity run will fail.
+When you use data flows to read files such as CSV and Excel files with different schemas, the data flow debug, sandbox, or activity run fails.
 - For CSV, the data misalignment exists when the schema of files is different. 
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/schema-error-1.png" alt-text="Screenshot that shows the first schema error.":::
@@ -637,17 +619,17 @@ When you use data flows to read files such as CSV and Excel files with different
 
 #### Cause
 
-Reading files with different schemas in the data flow is not supported.
+Reading files with different schemas in the data flow isn't supported.
 
 #### Recommendation
 
-If you still want to transfer files such as CSV and Excel files with different schemas in the data flow, you can use the ways below to work around:
+If you still want to transfer files such as CSV and Excel files with different schemas in the data flow, you can use these ways to work around:
 
-- For CSV, you need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1`, `c_2`, `c_3` while file_2 has columns `c_3`, `c_4`, ... `c_10`, so the merged and the full schema is `c_1`, `c_2`, ... `c_10`. Then make other files also have the same full schema even though it does not have data, for example, file_*x* only has columns `c_1`, `c_2`, `c_3`, `c_4`, please add columns `c_5`, `c_6`, ... `c_10` in the file to make them consistent with the other files.
+- For CSV, you need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1`, `c_2`, `c_3` while file_2 has columns `c_3`, `c_4`, ... `c_10`, so the merged and the full schema is `c_1`, `c_2`, ... `c_10`. Then make other files also have the same full schema even though it doesn't have data, for example, file_*x* only has columns `c_1`, `c_2`, `c_3`, `c_4`, add columns `c_5`, `c_6`, ... `c_10` in the file to make them consistent with the other files.
 
 - For Excel, you can solve this issue by applying one of the following options:
 
-    - **Option-1**: You need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1`, `c_2`, `c_3` while file_2 has columns `c_3`, `c_4`, ... `c_10`, so the merged and full schema is `c_1`, `c_2`, ... `c_10`. Then make other files also have the same schema even though it does not have data, for example, file_x with sheet "SHEET_1" only has columns `c_1`, `c_2`, `c_3`, `c_4`, please add columns `c_5`, `c_6`, ... `c_10` in the sheet too, and then it can work.
+    - **Option-1**: You need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1`, `c_2`, `c_3` while file_2 has columns `c_3`, `c_4`, ... `c_10`, so the merged and full schema is `c_1`, `c_2`, ... `c_10`. Then make other files also have the same schema even though it doesn't have data, for example, file_x with sheet "SHEET_1" only has columns `c_1`, `c_2`, `c_3`, `c_4`, please add columns `c_5`, `c_6`, ... `c_10` in the sheet too, and then it can work.
     - **Option-2**: Use **range (for example, A1:G100) + firstRowAsHeader=false**, and then it can load data from all Excel files even though the column name and count is different.
 
 
@@ -664,7 +646,7 @@ If you still want to transfer files such as CSV and Excel files with different s
 
 #### Symptoms
 
-You encounter the following error when you create the Snowflake linked service in the public network, and you use the auto-resolve integration runtime.
+You encounter the following error when you create the Snowflake linked service in the public network, and you use the autoresolve integration runtime.
 
 `ERROR [HY000] [Microsoft][Snowflake] (4) REST request for URL https://XXXXXXXX.east-us- 2.azure.snowflakecomputing.com.snowflakecomputing.com:443/session/v1/login-request?requestId=XXXXXXXXXXXXXXXXXXXXXXXXX&request_guid=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` 
 
@@ -672,7 +654,7 @@ You encounter the following error when you create the Snowflake linked service i
 
 #### Cause
 
-You have not applied the account name in the format that is given in the Snowflake account document (including additional segments that identify the region and cloud platform), for example, `XXXXXXXX.east-us-2.azure`. You can refer to this document: [Linked service properties](./connector-snowflake.md#linked-service-properties) for more information.
+You haven't applied the account name in the format that is given in the Snowflake account document (including extra segments that identify the region and cloud platform), for example, `XXXXXXXX.east-us-2.azure`. You can refer to this document: [Linked service properties](./connector-snowflake.md#linked-service-properties) for more information.
 
 #### Recommendation
 
@@ -688,24 +670,24 @@ When you try to use "import projection", "data preview", etc. in the Snowflake s
 
 #### Cause
 
-You meet this error because of the wrong configuration. When you use the data flow to read Snowflake data, the runtime Azure Databricks (ADB) is not directly select the query to Snowflake. Instead, a temporary stage are created, and data are pulled from tables to the stage and then compressed and pulled by ADB. This process is shown in the picture below.
+You meet this error because of the wrong configuration. When you use the data flow to read Snowflake data, the runtime Azure Databricks (ADB) isn't directly select the query to Snowflake. Instead, a temporary stage are created, and data are pulled from tables to the stage and then compressed and pulled by ADB. This process is shown in the picture below.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/snowflake-data-read-model.png" alt-text=" Screenshot that shows the Snowflake data read model."::: 
 
-So the user/role used in ADB should have necessary permission to do this in the Snowflake. But usually the user/role do not have the permission since the database is created on the share. 
+So the user/role used in ADB should have necessary permission to do this in the Snowflake. But usually the user/role don't have the permission since the database is created on the share. 
 
 #### Recommendation
 To solve this issue, you can create different database and create views on the top of the shared DB to access it from ADB. For more details, please refer to [Snowflake](https://community.snowflake.com/s/question/0D50Z000095ktE4SAI/insufficient-privileges-to-operate-on-schema).
 
-### Failed with an error: "SnowflakeSQLException: IP x.x.x.x is not allowed to access Snowflake. Contact your local security administrator"
+### Failed with an error: "SnowflakeSQLException: IP x.x.x.x isn't allowed to access Snowflake. Contact your local security administrator"
 
 #### Symptoms
 
-When you use snowflake in Azure Data Factory, you can successfully use test-connection in the Snowflake linked service, preview-data/import-schema on Snowflake dataset and run copy/lookup/get-metadata or other activities with it. But when you use Snowflake in the data flow activity, you may meet error like `SnowflakeSQLException: IP 13.66.58.164 is not allowed to access Snowflake. Contact your local security administrator.`
+When you use snowflake in Azure Data Factory, you can successfully use test-connection in the Snowflake linked service, preview-data/import-schema on Snowflake dataset and run copy/lookup/get-metadata or other activities with it. But when you use Snowflake in the data flow activity, you might see an error like `SnowflakeSQLException: IP 13.66.58.164 is not allowed to access Snowflake. Contact your local security administrator.`
 
 #### Cause
 
-The Azure Data Factory data flow does not support the use of fixed IP ranges. For more information, see [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md).
+The Azure Data Factory data flow doesn't support the use of fixed IP ranges. For more information, see [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md).
 
 #### Recommendation
 
@@ -719,11 +701,11 @@ To solve this issue, you can change the Snowflake account firewall settings with
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-with-name.png" alt-text="Screenshot that shows how to allow access from all addresses with the certain name."::: 
 
-### Queries in the source does not work
+### Queries in the source doesn't work
 
 #### Symptoms
 
-When you try to read data from Snowflake with query, you may meet error like:
+When you try to read data from Snowflake with query, you might see an error like these:
 
 1. `SQL compilation error: error line 1 at position 7 invalid identifier 'xxx'`
 2. `SQL compilation error: Object 'xxx' does not exist or not authorized.`
@@ -736,16 +718,16 @@ You encounter this error because of your wrong configuration.
 
 For Snowflake, it applies the following rules for storing identifiers at creation/definition time and resolving them in queries and other SQL statements:
 
-When an identifier (table name, schema name, column name, etc.) is unquoted, it is stored and resolved in uppercase by default, and it is case-in-sensitive. For example:
+When an identifier (table name, schema name, column name, etc.) is unquoted, it's stored and resolved in uppercase by default, and it's case-in-sensitive. For example:
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/unquoted-identifier.png" alt-text="Screenshot that shows the example of unquoted identifier." lightbox="./media/data-flow-troubleshoot-connector-format/unquoted-identifier.png"::: 
 
-Because it is case-in-sensitive, so you can feel free to use following query to read snowflake data while the result is the same:<br/>
+Because it's case-in-sensitive, so you can feel free to use following query to read snowflake data while the result is the same:<br/>
 - `Select MovieID, title from Public.TestQuotedTable2`<br/>
 - `Select movieId, title from Public.TESTQUOTEDTABLE2`<br/>
 - `Select movieID, TITLE from PUBLIC.TESTQUOTEDTABLE2`<br/>
 
-When an identifier (table name, schema name, column name, etc.) is double-quoted, it is stored and resolved exactly as entered, including case as it is case-sensitive, and you can see an example in the following picture. For more details, please refer to this document: [Identifier Requirements](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#identifier-requirements).
+When an identifier (table name, schema name, column name, etc.) is double-quoted, it's stored and resolved exactly as entered, including case as it is case-sensitive, and you can see an example in the following picture. For more details, please refer to this document: [Identifier Requirements](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#identifier-requirements).
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/double-quoted-identifier.png" alt-text="Screenshot that shows the example of double quoted identifier." lightbox="./media/data-flow-troubleshoot-connector-format/double-quoted-identifier.png"::: 
 
@@ -763,11 +745,11 @@ If you meet up error with the Snowflake query, check whether some identifiers (t
     
 1. After the SQL query of Snowflake is tested and validated, you can use it in the data flow Snowflake source directly.
 
-### The expression type does not match the column data type, expecting VARIANT but got VARCHAR 
+### The expression type doesn't match the column data type, expecting VARIANT but got VARCHAR 
 
 #### Symptoms
 
-When you try to write data into the Snowflake table, you may meet the following error:
+When you try to write data into the Snowflake table, you might meet the following error:
 
 `java.sql.BatchUpdateException: SQL compilation error: Expression type does not match column data type, expecting VARIANT but got VARCHAR`
 
@@ -775,7 +757,7 @@ When you try to write data into the Snowflake table, you may meet the following 
 
 The column type of input data is string, which is different from the VARIANT type of the related column in the Snowflake sink.
 
-When you store data with complex schemas (array/map/struct) in a new Snowflake table, the data flow type will be automatically converted into its physical type VARIANT.
+When you store data with complex schemas (array/map/struct) in a new Snowflake table, the data flow type is automatically converted into its physical type VARIANT.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/physical-type-variant.png" alt-text="Screenshot that shows the VARIANT type in a table."::: 
 

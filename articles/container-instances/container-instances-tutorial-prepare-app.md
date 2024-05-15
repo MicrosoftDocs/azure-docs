@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: mvc, linux-related-content
+ms.custom: mvc
 ---
 
 # Tutorial: Create a container image for deployment to Azure Container Instances

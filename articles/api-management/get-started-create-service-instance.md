@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Quickstart: Create a new Azure API Management instance by using the Azure portal
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This quickstart describes the steps for creating a new API Management instance using the Azure portal. After creating an instance, you can use the Azure portal for common management tasks such as importing APIs in your API Management instance.
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]

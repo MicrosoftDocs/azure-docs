@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -33,7 +34,7 @@ The following table shows the explanations and examples of bitwise operations in
 
 For example, the following query uses each of the bitwise operators and renders a result.
 
-```sql
+```nosql
 SELECT 
     (100 >> 2) AS rightShift,
     (100 << 2) AS leftShift,

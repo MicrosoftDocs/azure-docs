@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # [Recommended] Netwrix Auditor via AMA connector for Microsoft Sentinel
@@ -19,7 +20,7 @@ Netwrix Auditor data connector provides the capability to ingest [Netwrix Audito
 | **Kusto function alias** | NetwrixAuditor |
 | **Kusto function url** | https://aka.ms/sentinel-netwrixauditor-parser |
 | **Log Analytics table(s)** | CommonSecurityLog<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Azure Monitor Agent DCR](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

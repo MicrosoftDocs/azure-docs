@@ -1,23 +1,22 @@
 ---
 title: Manage secrets using Azure Key Vault or Kubernetes secrets
-titleSuffix: Azure IoT MQ
-description: Learn how to manage secrets using Azure Key Vault or Kubernetes secrets.
+description: Learn how to manage secrets using Azure Key Vault or Kubernetes secrets in Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 01/16/2024
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use Azure Key Vault or Kubernetes secrets so that I can securely manage secrets.
 ---
 
-# Manage secrets using Azure Key Vault or Kubernetes secrets
+# Manage secrets using Azure Key Vault or Kubernetes secrets in Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can use [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage secrets for your Azure IoT MQ distributed MQTT broker instead of Kubernetes secrets. This article shows you how to set up Key Vault for your broker and use it to manage secrets.
+You can use [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage secrets for your Azure IoT MQ Preview distributed MQTT broker instead of Kubernetes secrets. This article shows you how to set up Key Vault for your broker and use it to manage secrets.
 
 ## Prerequisites
 
@@ -128,7 +127,7 @@ metadata:
 spec:
   image:
     repository: mcr.microsoft.com/azureiotoperations/mqttbridge
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1

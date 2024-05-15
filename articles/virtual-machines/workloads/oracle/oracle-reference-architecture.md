@@ -57,7 +57,7 @@ For Oracle Database Enterprise Edition, Oracle Data Guard is a useful feature fo
 
 If your application permits the latency, consider setting up the Data Guard Far Sync instance in a different availability zone than your Oracle primary database. Test the configuration thoroughly. Use a *Maximum Availability* mode to set up synchronous transport of your redo files to the Far Sync instance. These files are then transferred asynchronously to the standby database.
 
-Your application might not allow for the performance loss when setting up Far Sync instance in another availability zone in *Maximum Availability* mode (synchronous). If not, you might set up a Far Sync instance in the same availability zone as your primary database. For added availability, consider setting up multiple Far Sync instances close to your primary database and at least one instance close to your standby database, if the role transitions. For more information, see [Oracle Active Data Guard Far Sync](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf).
+Your application might not allow for the performance loss when setting up Far Sync instance in another availability zone in *Maximum Availability* mode (synchronous). If not, you might set up a Far Sync instance in the same availability zone as your primary database. For added availability, consider setting up multiple Far Sync instances close to your primary database and at least one instance close to your standby database, if the role transitions.
 
 When you use Oracle Standard Edition databases, there are ISV solutions that allow you to set up high availability and disaster recovery, such as DBVisit Standby.
 
@@ -233,7 +233,7 @@ Patching your virtual machine operating system can be automated using [Azure Aut
 - Consider using ultra disks when available or premium disks for your Oracle database.
 - Consider setting up a standby Oracle database in another Azure region using Oracle Data Guard.
 - Consider using [proximity placement groups](../../co-location.md#proximity-placement-groups) to reduce the latency between your application and database tier.
-- Azure VMs throttle network bandwidth at higher throughput levels than managed disk. You can achieve higher throughput on the same VM SKU or use a smaller VM SKU for the same throughput using networked storage for the database such as [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).
+- Azure VMs maximum network bandwidth is (typically) higher than the maximum disk throughput on the same SKU. You can achieve higher throughput on the same VM SKU or use a smaller VM SKU by using high-performance, low-latency networked storage such as [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md). for the database.
 - Set up [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) for management, monitoring, and logging.
 - Consider using Oracle Automatic Storage Management for streamlined storage management for your database.
 - Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) to manage patching and updates to your database without any downtime.
@@ -247,4 +247,3 @@ Review the following Oracle reference articles that apply to your scenario.
 - [Oracle Data Guard Broker Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
 - [Configuring Oracle GoldenGate for Active-Active High Availability](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
 - [Oracle Sharding Overview](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html)
-- [Oracle Active Data Guard Far Sync Zero Data Loss at Any Distance](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)

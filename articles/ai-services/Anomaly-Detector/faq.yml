@@ -8,14 +8,14 @@ metadata:
   ms.date: 01/18/2024
   ms.author: jingruhan
   author: jr-MS
-  ms.manager: nitinme
+  manager: nitinme
 title: Anomaly Detector frequently asked questions
 summary: This article contains answers to frequently asked troubleshooting questions about the Anomaly Detector service.
 
 sections:
 
   - name: Anomaly Detector frequently asked questions
-    questions: 
+    questions:
       - question: |
           When will Anomaly Detector be deprecated?
         answer:  |

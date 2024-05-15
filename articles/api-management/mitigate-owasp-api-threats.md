@@ -10,6 +10,8 @@ ms.author: mibudz
 
 # Recommendations to mitigate OWASP API Security Top 10 threats using API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) Foundation works to improve software security through its community-led open source software projects, hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.
 
 The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we'll discuss recommendations to use Azure API Management to mitigate the top 10 API threats identified by OWASP.
@@ -47,7 +49,7 @@ More information about this threat: [API2:2019 Broken User Authentication](https
 
 Use API Management for user authentication and authorization: 
 
-* **Authentication** -  API Management supports the following [authentication methods](api-management-authentication-policies.md): 
+* **Authentication** -  API Management supports the following [authentication methods](api-management-policies.md#authentication-and-authorization): 
 
     * [Basic authentication](authentication-basic-policy.md) policy - Username and password credentials.
 
@@ -59,7 +61,7 @@ Use API Management for user authentication and authorization:
 
 More recommendations:
 
-* Use [access restriction policies](api-management-access-restriction-policies.md) in API Management to increase security. For example, [call rate limiting](rate-limit-policy.md) slows down bad actors using brute force attacks to compromise credentials. 
+* Use policies in API Management to increase security. For example, [call rate limiting](rate-limit-policy.md) slows down bad actors using brute force attacks to compromise credentials. 
 
 * APIs should use TLS/SSL (transport security) to protect the credentials or tokens. Credentials and tokens should be sent in request headers and not as query parameters. 
 
@@ -86,7 +88,7 @@ More information about this threat: [API3:2019 Excessive Data Exposure](https://
 
     * [Versions](api-management-versions.md) for breaking changes, for example, the removal of a field from an interface. 
 
-* If it's not possible to alter the backend interface design and excessive data is a concern, use API Management [transformation policies](transform-api.md) to rewrite response payloads and mask or filter data. For example, [remove unneeded JSON properties](./policies/filter-response-content.md) from a response body. 
+* If it's not possible to alter the backend interface design and excessive data is a concern, use API Management [transformation policies](api-management-policies.md#transformation) to rewrite response payloads and mask or filter data. For example, [remove unneeded JSON properties](./policies/filter-response-content.md) from a response body. 
 
 * [Response content validation](validate-content-policy.md) in API Management can be used with an XML or JSON schema to block responses with undocumented properties or improper values. The policy also supports blocking responses exceeding a specified size. 
 
@@ -156,7 +158,7 @@ More information about this threat: [API6:2019 Mass assignment](https://github.c
 
 * Precisely define XML and JSON contracts in the API schema and use [validate content](validate-content-policy.md) and [validate parameters](validate-parameters-policy.md) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
 
-* If the backend interface can't be changed, use [transformation policies](transform-api.md) to rewrite request and response payloads and decouple the API contracts from backend contracts. For example, mask or filter data or [remove unneeded JSON properties](./policies/filter-response-content.md). 
+* If the backend interface can't be changed, use [transformation policies](api-management-policies.md#transformation) to rewrite request and response payloads and decouple the API contracts from backend contracts. For example, mask or filter data or [remove unneeded JSON properties](./policies/filter-response-content.md). 
 
 ## Security misconfiguration 
 
@@ -186,7 +188,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * Configure the [CORS](cors-policy.md) policy and don't use wildcard `*` for any configuration option. Instead, explicitly list allowed values. 
 
-    * Set [validation policies](validation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
+    * Set [validation policies](api-management-policies.md#content-validation) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
 
     * If API Management is outside a network boundary, client IP validation is still possible using the [restrict caller IPs](ip-filter-policy.md) policy. Ensure that it uses an allowlist, not a blocklist. 
 
@@ -245,7 +247,7 @@ More information about this threat: [API8:2019 Injection](https://github.com/OWA
     > [!IMPORTANT]
     > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](ip-filter-policy.md), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or mTLS). 
 
-* Use schema and parameter [validation](validation-policies.md) policies, where applicable, to further constrain and validate the request before it reaches the backend API service. 
+* Use schema and parameter [validation](api-management-policies.md#content-validation) policies, where applicable, to further constrain and validate the request before it reaches the backend API service. 
 
     The schema supplied with the API definition should have a regex pattern constraint applied to vulnerable fields. Each regex should be tested to ensure that it constrains the field sufficiently to mitigate common injection attempts.
 

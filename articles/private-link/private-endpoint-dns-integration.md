@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 05/02/2024
 ms.author: abell
 ms.custom: fasttrack-edit
 ---

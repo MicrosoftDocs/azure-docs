@@ -591,7 +591,6 @@ Here's how to update an existing package using the [Az.DesktopVirtualization](/p
 1. In the same PowerShell session, get the properties of the updated application and store them in a variable by running the following command:
 
    ```azurepowershell
-
    # Get the properties of the application
    $parameters = @{
        HostPoolName = '<HostPoolName>'

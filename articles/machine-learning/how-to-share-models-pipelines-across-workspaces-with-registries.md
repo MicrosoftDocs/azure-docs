@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: kritifaujdar
 author: fkriti
 ms.reviewer: larryfr
-ms.date: 11/02/2023
+ms.date: 04/09/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli, build-2023
 ---
@@ -208,6 +208,9 @@ For more information on components, see the following articles:
 * [Component concepts](concept-component.md)
 * [How to use components in pipelines (CLI)](how-to-create-component-pipelines-cli.md)
 * [How to use components in pipelines (SDK)](how-to-create-component-pipeline-python.md)
+
+  > [!IMPORTANT]
+  > Registry only support to have named assets (data/model/component/environment). If you to reference an asset in a registry, you need to create it in the registry first. Especially for pipeline component case, if you want reference component or environment in pipeline component, you need first create the component or environment in the registry.
 
 # [Azure CLI](#tab/cli)
 

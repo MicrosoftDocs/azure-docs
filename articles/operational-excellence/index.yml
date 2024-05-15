@@ -1,0 +1,30 @@
+### YamlMime:Landing
+
+title: Azure operational excellence documentation (Preview)
+summary: Azure operational excellence documentation
+
+metadata:
+  title: Azure operational excellence documentation (Preview)
+  description: Azure operational excellence documentation.
+  ms.topic: landing-page
+  ms.author: anaharris
+  author: anaharris-ms
+  ms.service: reliability
+  ms.date: 02/14/2024
+
+landingContent: 
+  # Card
+  - title: Azure operational excellence documentation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure operational excellence overview
+            url: overview.md
+  # Card
+  - title: Region relocation guidance
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Relocation guides by service
+            url: overview-relocation.md
+

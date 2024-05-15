@@ -18,7 +18,7 @@ This article describes the requirements and considerations you need to be aware 
 * You must create a proximity placement group (PPG) and anchor it to your SAP HANA compute resources. Application volume group for SAP HANA needs this setup to search for an Azure NetApp Files resource that is close to the SAP HANA servers. For more information, see [Best practices about Proximity Placement Groups](#best-practices-about-proximity-placement-groups) and [Create a Proximity Placement Group using the Azure portal](../virtual-machines/windows/proximity-placement-groups-portal.md).
   
    >[!NOTE]
-   >Do not delete the PPG. Deleting a PPG will remove the pinning and can cause subsequent volume groups to be created in sub-optimal locations which could lead to increased latency.
+   >Do not delete the PPG. Deleting a PPG removes the pinning and can cause subsequent volume groups to be created in sub-optimal locations which could lead to increased latency.
   
 * You must complete your sizing and SAP HANA system architecture, including the following areas: 
     * SAP ID (SID)
@@ -31,7 +31,9 @@ This article describes the requirements and considerations you need to be aware 
 
     It is recommended that you lay out the VNet and delegated subnet at design time. 
 
-    Application volume group for SAP HANA will create multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. Consider using a delegated subnet with a minimum of 59 IP addresses with a subnet size of /26. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
+    Application volume group for SAP HANA create multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. Consider using a delegated subnet with a minimum of 59 IP addresses with a subnet size of /26. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
+
+* Application volume group for SAP HANA only supports [Basic network features](azure-netapp-files-network-topologies.md). You should not edit network features for volumes in an application volume group. 
 
 >[!IMPORTANT]
 >The use of application volume group for SAP HANA for applications other than SAP HANA is not supported. Reach out to your Azure NetApp Files specialist for guidance on using Azure NetApp Files multi-volume layouts with other database applications.

@@ -2,8 +2,8 @@
 title: Optimize file storage with Komprise Intelligent Tiering for Azure 
 titleSuffix: Azure Storage
 description: Getting started guide to implement Komprise Tiering. This guide shows how to your data to Azure Blob storage using Komprise's Intelligent Tiering 
-author: timkresler
-ms.author: timkresler
+author: beber
+ms.author: beber
 ms.date: 10/30/2023
 ms.service: azure-storage
 ms.topic: quickstart

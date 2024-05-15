@@ -177,10 +177,16 @@
             - name: Mapping Cassandra consistency levels
               href: consistency-mapping.md
             - name: High availability
-              href: ../high-availability.md
-            - name: Conflict types and resolution policies
-              displayName: last write wins, custom, multi-region writes, multi-master
-              href: ../conflict-resolution-policies.md
+              items:
+                - name: High availability overview
+                  href: ../high-availability.md
+                - name: Multi-region writes
+                  items:
+                    - name: Understanding multi-region writes
+                      href: ../multi-region-writes.md
+                    - name: Conflict resolution
+                      displayName: last write wins, custom, multi-region writes, multi-master
+                      href: ../conflict-resolution-policies.md
             - name: Global distribution - under the hood
               href: ../global-dist-under-the-hood.md
         - name: Security
@@ -304,8 +310,12 @@
           items:
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
-            - name: Use Azure Cosmos DB Explorer
-              href: ../data-explorer.md
+            - name: Azure Cosmos DB Explorer
+              items:
+                - name: Use explorer
+                  href: ../data-explorer.md
+                - name: Keyboard shorcuts
+                  href: ../data-explorer-shortcuts.md
         - name: Troubleshooting and performance
           items:
             - name: Troubleshoot common issues
@@ -322,7 +332,7 @@
         - name: Manage Azure Cosmos DB resources
           items:
             - name: Manage an Azure Cosmos DB account
-              href: ../how-to-manage-database-account.md
+              href: ../how-to-manage-database-account.yml
             - name: Manage using PowerShell
               href: powershell-samples.md
             - name: Manage using Azure CLI
@@ -375,7 +385,7 @@
               href: ../how-to-setup-managed-identity.md
         - name: Monitor
           items:
-            - name: Monitor Azure Cosmos DB
+            - name: Monitor
               href: ../monitor.md
             - name: Use Azure monitor metrics
               items:

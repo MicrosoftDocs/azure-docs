@@ -4,6 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to use X2Go for Linux virtual machines in a lab in Azure Lab Services.  
 services: lab-services
 ms.service: lab-services
+ms.custom: linux-related-content
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to

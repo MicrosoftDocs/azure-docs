@@ -1,8 +1,12 @@
 ---
 title: Use a service principal with Azure Kubernetes Services (AKS)
 description: Learn how to create and manage a Microsoft Entra service principal with a cluster in Azure Kubernetes Service (AKS).
+author: tamram
+
 ms.topic: conceptual
+ms.subservice: aks-security
 ms.date: 06/27/2023
+ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
@@ -291,3 +295,4 @@ For information on how to update the credentials, see [Update or rotate the cred
 [remove-azadserviceprincipal]: /powershell/module/az.resources/remove-azadserviceprincipal
 [use-managed-identity]: use-managed-identity.md
 [managed-identity-resources-overview]: ..//active-directory/managed-identities-azure-resources/overview.md
+

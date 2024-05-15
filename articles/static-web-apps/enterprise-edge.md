@@ -1,6 +1,6 @@
 ---
 title: Enterprise-grade edge in Azure Static Web Apps
-description: Learn about Azure Static Web Apps enterprise-grade edge
+description: Learn about Azure Static Web Apps enterprise-grade edge.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -87,7 +87,8 @@ az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 
 ## Limitations
 
-- Private Endpoint can't be used with enterprise-grade edge. 
+- Private Endpoint can't be used with enterprise-grade edge.
+- Custom domains configured using A Records (DNS) aren't supported with enterprise-grade edge.
 
 ## Next steps
 

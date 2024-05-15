@@ -2,7 +2,7 @@
 title: What is Microsoft Defender for IoT for device builders?
 description: Learn about how Microsoft Defender for IoT helps device builders to embed security into new IoT/OT devices.
 ms.topic: overview
-ms.date: 01/12/2023
+ms.date: 04/17/2024
 #Customer intent: As a device builder, I want to understand how Defender for IoT can help secure my new IoT/OT initiatives.
 ---
 
@@ -26,7 +26,7 @@ The Defender for IoT micro agent provides deep security protection, and visibili
 
 - The micro agent collects, aggregates, and analyzes raw security events from your devices. Events can include IP connections, process creation, user logons, and other security-relevant information.
 - Defender for IoT device agents handle event aggregation, to help avoid high network throughput.
-- The micro agent has flexible deployment options. The micro agent includes source code, so you can incorporate it into firmware, or customize it to include only what you need. It's also available as a binary package, or integrated directly into other Azure IoT solutions. The micro agent is available for standard IoT operating systems, such as Linux and Azure RTOS.
+- The micro agent has flexible deployment options. The micro agent includes source code, so you can incorporate it into firmware, or customize it to include only what you need. It's also available as a binary package, or integrated directly into other Azure IoT solutions. The micro agent is available for standard IoT operating systems, such as Linux and Eclipse ThreadX.
 - The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
 
 :::image type="content" source="media/overview/micro-agent-architecture.png" alt-text="Diagram of the micro agent architecture." lightbox="media/overview/micro-agent-architecture.png":::

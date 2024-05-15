@@ -11,10 +11,11 @@ items:
   displayName: Quickstarts
   expanded: true
   items:
-    - name: Create and configure a dev center
+    - name: Configure Azure Deployment Environments
       href: quickstart-create-and-configure-devcenter.md
-    - name: Create and configure a project
-      href: quickstart-create-and-configure-projects.md
+    - name: Create dev center and project (Azure Resource Manager)
+      href: quickstart-create-dev-center-project-azure-resource-manager.md
+      displayName: Azure Deployment Environments, ADE, environments, quickstart
     - name: Create and access an environment
       href: quickstart-create-access-environments.md
 - name: Concepts
@@ -28,6 +29,9 @@ items:
       href: concept-environment-yaml.md  
     - name: Best practices for designing catalogs
       href: best-practice-catalog-structure.md
+    - name: Use Azure Developer CLI with ADE
+      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
+      href: concept-azure-developer-cli-with-deployment-environments.md  
     - name: Reliability in Azure Deployment Environments
       href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
 - name: Configure resources
@@ -47,11 +51,25 @@ items:
       href: how-to-create-configure-dev-center.md
     - name: Create and configure a project from the CLI
       href: how-to-create-configure-projects.md
+    - name: Configure AZD-compatible templates
+      href: how-to-configure-azure-developer-cli-deployment-environments.md
+- name: Configure the ADE extensibility model
+  expanded: false
+  items:
+    - name: Configure container image to execute deployments
+      href: how-to-configure-extensibility-generic-container-image.md
+      displayName: custom image, custom runner, extensibility 
+    - name: Configure ARM/Bicep container image to execute deployments
+      href: how-to-configure-extensibility-bicep-container-image.md
+      displayName: custom image, custom runner, extensibility
+    - name: Configure Terraform container image to execute deployments
+      href: how-to-configure-extensibility-terraform-container-image.md
+      displayName: custom image, custom runner, extensibility  
 - name: Create and manage environments
   expanded: false
   items: 
     - name: Create environments with Azure Developer CLI (AZD)
-      href: how-to-create-environment-with-azure-developer.md
+      href: how-to-create-environment-with-azure-developer.md 
     - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
     - name: Create environments with Azure CLI
@@ -72,17 +90,30 @@ items:
       href: how-to-configure-deployment-environments-user.md   
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
-- name: Automate with GitHub Actions (CI/CD)
-  href: tutorial-deploy-environments-in-cicd-github.md       
+- name: Automate with CI/CD
+  expanded: false
+  items:       
+    - name: Automate with GitHub Actions (CI/CD)
+      displayName: cicd, GitHub repo
+      href: tutorial-deploy-environments-in-cicd-github.md
+    - name: Automate with Azure Pipelines (CI/CD)
+      displayName: cicd, Azure DevOps, Azure Repos
+      href: tutorial-deploy-environments-in-cicd-azure-devops.md
 - name: Reference
+  expanded: false
   items:
+    - name: ADE CLI reference
+      href: reference-deployment-environment-cli.md
+    - name: ADE CLI variables
+      href: reference-deployment-environment-variables.md
     - name: Install Azure CLI extension
-      href: how-to-install-devcenter-cli-extension.md  
+      href: how-to-install-devcenter-cli-extension.md
     - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API
       href: /rest/api/devcenter/
 - name: Resources
+  expanded: false
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/

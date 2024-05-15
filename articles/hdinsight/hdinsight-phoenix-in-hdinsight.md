@@ -120,11 +120,11 @@ An HDInsight HBase cluster includes the [Ambari UI](hdinsight-hadoop-manage-amba
 
 2. Select **HBase** from the list of services in the left-hand menu, then select the **Configs** tab.
 
-    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png" alt-text="Apache Ambari HBase configurations":::
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png" alt-text="Apache Ambari HBase configurations.":::
 
 3. Find the **Phoenix SQL** configuration section to enable or disable phoenix, and set the query timeout.
 
-    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png" alt-text="Ambari Phoenix SQL configuration section":::
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png" alt-text="Ambari Phoenix SQL configuration section.":::
 
 ## See also
 

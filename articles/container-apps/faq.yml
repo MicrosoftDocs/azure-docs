@@ -51,18 +51,7 @@ sections:
       - question: |
           How can I request a quota increase?
         answer: |
-          To request quota increase, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/) with the following fields:
-
-          | Property | Value |
-          |--|--|
-          | Issue Type | Technical |
-          | Subscription | Your subscription |
-          | Service | My Services |
-          | Service Type | Container Apps |
-          | Resource | maxoutquotas |
-          | Summary | An explanation for your request, including:<br>• What quotas you want increased<br>• How much of an increase you would like<br>• Business reasons for the increase |
-          | Problem Type | Configuration and Management |
-          | Problem Subtype | Scaling |
+          [Request a quota increase in the Azure portal](https://learn.microsoft.com/azure/quotas/quickstart-increase-quota-portal) with **Azure Container Apps** selected as the provider.
 
           Keep in mind the following when it comes to quota increase requests: 
 
@@ -122,19 +111,21 @@ sections:
   - name: Deploy Java applications
     questions:
       - question: |
-          Which JDK versions are supported?
+          Which JDK versions are supported and how can I configure the JDK version?
         answer: |
           Container Apps supports four LTS JDK versions: JDK 8, JDK 11, JDK 17 and JDK 21. 
           For source code build, the default version is JDK 17.
           For a JAR file build, the JDK version is read from the file location *META-INF\MANIFEST.MF* in the JAR, but uses the default JDK version 17 if the specified version isn't available.
+
+          You can configure JDK version to override the default version via [build environment variables](java-build-environment-variables.md).
       - question: |
           Which Java build tools are supported?
         answer: |
           Maven
       - question: |
-          Are build environment variables supported?
+          How can I customize a Java image build from source code?
         answer: |
-          No. Container Apps automatically selects the Maven version.
+          You can customize a Java image build via [build environment variables](java-build-environment-variables.md).
       - question: |
           How do I ensure the build and image of my Docker-less build are available in the same region as my app?
         answer: |

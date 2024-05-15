@@ -3,7 +3,8 @@ title: Azure OpenAI Service Assistant API concepts
 titleSuffix: Azure OpenAI Service
 description: Learn about the concepts behind the Azure OpenAI Assistants API.
 ms.topic: conceptual
-ms.date: 02/05/2023
+ms.date: 03/04/2024
+ms.service: azure-ai-openai
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
@@ -24,6 +25,9 @@ Assistants API supports persistent automatically managed threads. This means tha
 - [Code Interpreter](../how-to/code-interpreter.md)
 - [Function calling](../how-to/assistant-functions.md)
 
+> [!TIP]
+> There is no additional [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) or [quota](../quotas-limits.md) for using Assistants unless you use the [code interpreter](../how-to/code-interpreter.md) tool.
+
 Assistant API is built on the same capabilities that power OpenAI’s GPT product. Some possible use cases range from AI-powered product recommender, sales analyst app, coding assistant, employee Q&A chatbot, and more. Start building on the no-code Assistants playground on the Azure OpenAI Studio or start building with the API.
 
 > [!IMPORTANT]
@@ -43,11 +47,19 @@ We provide a walkthrough of the Assistants playground in our [quickstart guide](
 |**Run** | Activation of an Assistant to begin running based on the contents of the Thread. The Assistant uses its configuration and the Thread’s Messages to perform tasks by calling models and tools. As part of a Run, the Assistant appends Messages to the Thread.|
 |**Run Step** | A detailed list of steps the Assistant took as part of a Run. An Assistant can call tools or create Messages during it’s run. Examining Run Steps allows you to understand how the Assistant is getting to its final results. |
 
+## Assistants data access
+
+Currently, assistants, threads, messages, and files created for Assistants are scoped at the Azure OpenAI resource level. Therefore, anyone with access to the Azure OpenAI resource or API key access is able to read/write assistants, threads, messages, and files.
+
+We strongly recommend the following data access controls:
+
+- Implement authorization. Before performing reads or writes on assistants, threads, messages, and files, ensure that the end-user is authorized to do so.
+- Restrict Azure OpenAI resource and API key access. Carefully consider who has access to Azure OpenAI resources where assistants are being used and associated API keys.
+- Routinely audit which accounts/individuals have access to the Azure OpenAI resource. API keys and resource level access enable a wide range of operations including reading and modifying messages and files.
+- Enable [diagnostic settings](../how-to/monitoring.md#configure-diagnostic-settings) to allow long-term tracking of certain aspects of the Azure OpenAI resource's activity log.
+
 ## See also
 
 * Learn more about Assistants and [Code Interpreter](../how-to/code-interpreter.md)
 * Learn more about Assistants and [function calling](../how-to/assistant-functions.md)
 * [Azure OpenAI Assistants API samples](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Assistants)
-
-
-

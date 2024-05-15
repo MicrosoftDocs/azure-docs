@@ -17,7 +17,7 @@ ms.custom:
 
 In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as default outbound access. 
 
-Examples of explicit outbound connectivity are virtual machines:
+Examples of explicit outbound connectivity for virtual machines are:
 
 * Created within a subnet associated to a NAT gateway.
 

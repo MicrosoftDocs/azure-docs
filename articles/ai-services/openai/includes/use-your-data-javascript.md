@@ -5,7 +5,7 @@ author: glharper
 ms.author: glharper
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 09/06/2023
+ms.date: 03/04/2024
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
@@ -33,69 +33,61 @@ Your app's _package.json_ file will be updated with the dependencies.
 
 Open a command prompt where you want the new project, and create a new file named ChatWithOwnData.js. Copy the following code into the ChatWithOwnData.js file.
 
+
+
 ```javascript
-const { OpenAIClient } = require("@azure/openai");
-const { DefaultAzureCredential } = require("@azure/identity")
+const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
 // Set the Azure and AI Search values from environment variables
-const endpoint = process.env["AOAIEndpoint"];
-const azureApiKey = process.env["AOAIKey"];
-const searchEndpoint = process.env["SearchEndpoint"];
-const searchKey = process.env["SearchKey"];
-const searchIndex = process.env["SearchIndex"];
-const deploymentId = process.env["AOAIDeploymentId"];
+const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
+const deploymentId = process.env["AZURE_OPENAI_DEPLOYMENT_ID"];
+const searchEndpoint = process.env["AZURE_AI_SEARCH_ENDPOINT"];
+const searchKey = process.env["AZURE_AI_SEARCH_API_KEY"];
+const searchIndex = process.env["AZURE_AI_SEARCH_INDEX"];
 
-async function main() {
-  console.log("== Chat Using Your Own Data Sample ==");
+
+async function main(){
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
 
   const messages = [
-    { role: "user", content: "What are the differences between Azure Machine Learning and Azure AI services?" },
+    { role: "user", content: "What are my available health plans?" },
   ];
 
-  // Get chat responses from Azure OpenAI deployment using your own data via Azure AI Search
-  const events = client.listChatCompletions(deploymentId, messages, { 
+  console.log(`Message: ${messages.map((m) => m.content).join("\n")}`);
+
+  const events = await client.streamChatCompletions(deploymentId, messages, { 
+    maxTokens: 128,
     azureExtensionOptions: {
       extensions: [
         {
           type: "AzureCognitiveSearch",
-          parameters: {
-            endpoint: searchEndpoint,
-            key: searchKey,
-            indexName: searchIndex,
-          },
+          endpoint: searchEndpoint,
+          key: searchKey,
+          indexName: searchIndex,
         },
       ],
     },
   });
-
-  // Display chat responses
+  let response = "";
   for await (const event of events) {
     for (const choice of event.choices) {
-      const delta = choice.delta?.content;
-      const role = choice.delta?.role;
-      if (delta && role) {
-        console.log(`${role}: ${delta}`);
-
-        const contextMessages = choice.delta?.context?.messages;
-        if (!!contextMessages) {
-            console.log("===");
-
-            console.log("Context information (e.g. citations) from chat extensions:");
-            console.log("===");
-            for (const message of contextMessages) {
-                // Display context included with chat responses (such as citations)
-                console.log(message.content);
-            }
-        }
+      const newText = choice.delta?.content;
+      if (!!newText) {
+        response += newText;
+        // To see streaming results as they arrive, uncomment line below
+        // console.log(newText);
       }
     }
   }
+  console.log(response);
 }
 
 main().catch((err) => {
   console.error("The sample encountered an error:", err);
 });
+
+
 
 module.exports = { main };
 ```
@@ -110,28 +102,8 @@ node.exe ChatWithOwnData.js
 ## Output
 
 ```output
-== Chat With Your Own Data Sample ==
-assistant: Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
-===
-Context information (e.g. citations) from chat extensions:
-===
-tool: {
-  'citations': [
-    {
-      'content': '...',
-      'id': null,
-      'title': '...',
-      'filepath': '...',
-      'url': '...',
-      'metadata': {
-        "chunking': 'orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38.'
-      },
-      'chunk_id': '2'
-    },
-    ...
-  ],
-  'intent': '[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]'
-}
+Message: What are my available health plans?
+The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans.
 
 ```
 

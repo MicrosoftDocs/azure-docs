@@ -1,7 +1,7 @@
 ---
 title: Increase spot vCPU family quotas
 description: Learn how to request increases for spot vCPU quotas in the Azure portal.
-ms.date: 07/22/2022
+ms.date: 03/13/2024
 ms.topic: how-to
 ---
 
@@ -12,7 +12,7 @@ Azure Resource Manager enforces two types of vCPU quotas for virtual machines:
 - standard vCPU quotas
 - spot vCPU quotas
 
-Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They are enforced at two tiers, for each subscription, in each region:
+Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They're enforced at two tiers, for each subscription, in each region:
 
 - The first tier is the total regional vCPU quota.
 - The second tier is the VM-family vCPU quota such as D-series vCPUs.
@@ -31,6 +31,8 @@ When considering your spot vCPU needs, keep in mind the following:
 
 ## Request an increase for spot vCPU quotas
 
+To request quota increases, you must have an Azure account with the Contributor role (or another role that includes Contributor access).
+
 1. To view the **Quotas** page, sign in to the [Azure portal](https://portal.azure.com) and enter "quotas" into the search box, then select **Quotas**.
 
    > [!TIP]
@@ -43,22 +45,18 @@ When considering your spot vCPU needs, keep in mind the following:
 
    :::image type="content" source="media/spot-quota/select-spot-quotas.png" alt-text="Screenshot showing spot quota selection in the Azure portal":::
 
-1. Near the top of the page, select **Request quota increase**, then select the way you'd like to increase the quota(s).
-
-   :::image type="content" source="media/spot-quota/request-quota-increase-options.png" alt-text="Screenshot showing the options to request a quota increase in the Azure portal.":::
+1. Near the top of the page, select **New Quota Request**, then select the way you'd like to increase the quota(s): **Enter a new limit** or **Adjust the usage %**.
 
    > [!TIP]
-   > Choosing **Adjust the usage %** allows you to select one usage percentage to apply to all the selected quotas without requiring you to calculate an absolute number (limit) for each quota. This option is recommended when the selected quotas have very high usage.
+   > For quotas with very high usage, we recommend choosing **Adjust the usage %**. This option allows you to select one usage percentage to apply to all the selected quotas without requiring you to calculate an absolute number (limit) for each quota.
 
-1. If you selected **Enter a new limit**, in the **Request quota increase** pane, enter a numerical value for your new quota limit(s), then select **Submit**.
+1. If you selected **Enter a new limit**: In the **New Quota Request** pane, enter a numerical value for each new quota limit.
 
-   :::image type="content" source="media/spot-quota/spot-request-quota-increase-new-limit.png" alt-text="Screenshot showing the Enter a new limit option for a regional quota increase request.":::
+1. If you selected **Adjust the usage %**: In the **New Quota Request** pane, adjust the slider to a new usage percent. Adjusting the percentage automatically calculates the new limit for each quota to be increased. This option is particularly useful when the selected quotas have very high usage.
 
-1. If you selected **Adjust the usage %**, in the **Request quota increase** pane, adjust the slider to a new usage percent. Adjusting the percentage automatically calculates the new limit for each quota to be increased. This option is recommended when the selected quotas have very high usage. When you're finished, select **Submit**.
+1. When you're finished, select **Submit**.
 
-   :::image type="content" source="media/spot-quota/spot-request-quota-increase-adjust-usage.png" alt-text="Screenshot showing the Adjust the usage % option for a regional quota increase request.":::
-
-Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes. If your request is not fulfilled, you'll see a link where you can [open a support request](../azure-portal/supportability/how-to-create-azure-support-request.md) so that a support engineer can assist you with the increase.
+Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes. If your request isn't fulfilled, you'll see a link where you can [open a support request](../azure-portal/supportability/how-to-create-azure-support-request.md) so that a support engineer can assist you with the increase.
 
 ## Next steps
 

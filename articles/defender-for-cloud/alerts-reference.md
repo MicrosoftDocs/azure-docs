@@ -2,7 +2,8 @@
 title: Reference table for all security alerts
 description: This article lists the security alerts visible in Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 05/31/2023
+ms.custom: linux-related-content
+ms.date: 05/01/2024
 ai-usage: ai-assisted
 ---
 
@@ -12,7 +13,7 @@ This article lists the security alerts you might get from Microsoft Defender for
 
 At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 9 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/).
 
-[Learn how to respond to these alerts](managing-and-responding-alerts.md).
+[Learn how to respond to these alerts](managing-and-responding-alerts.yml).
 
 [Learn how to export alerts](continuous-export.md).
 
@@ -2370,16 +2371,6 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 **Severity**: Low
 
-### **Manipulation of host firewall detected**
-
-(K8S.NODE_FirewallDisabled) <sup>[1](#footnote1)</sup>
-
-**Description**: Analysis of processes running within a container or directly on a Kubernetes node, has detected a possible manipulation of the on-host firewall. Attackers will often disable this to exfiltrate data.
-
-**[MITRE tactics](#mitre-attck-tactics)**: DefenseEvasion, Exfiltration
-
-**Severity**: Medium
-
 ### **Microsoft Defender for Cloud test alert (not a threat).**
 
 (K8S.NODE_EICAR) <sup>[1](#footnote1)</sup>
@@ -2610,26 +2601,6 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 **Severity**: Informational
 
-### **Suspicious use of DNS over HTTPS**
-
-(K8S.NODE_SuspiciousDNSOverHttps) <sup>[1](#footnote1)</sup>
-
-**Description**: Analysis of processes running within a container or directly on a Kubernetes node, has detected the use of a DNS call over HTTPS in an uncommon fashion. This technique is used by attackers to hide calls out to suspect or malicious sites.
-
-**[MITRE tactics](#mitre-attck-tactics)**: DefenseEvasion, Exfiltration
-
-**Severity**: Medium
-
-### **A possible connection to malicious location has been detected.**
-
-(K8S.NODE_ThreatIntelCommandLineSuspectDomain) <sup>[1](#footnote1)</sup>
-
-**Description**: Analysis of processes running within a container or directly on a Kubernetes node, has detected a connection to a location that has been reported to be malicious or unusual. This is an indicator that a compromise might have occurred.
-
-**[MITRE tactics](#mitre-attck-tactics)**: InitialAccess
-
-**Severity**: Medium
-
 ### **Possible malicious web shell detected.**
 
 (K8S.NODE_Webshell) <sup>[1](#footnote1)</sup>
@@ -2659,16 +2630,6 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 **[MITRE tactics](#mitre-attck-tactics)**: Execution, CommandAndControl, Exploitation
 
 **Severity**: Medium
-
-### **Digital currency mining activity**
-
-(K8S.NODE_CurrencyMining) <sup>[1](#footnote1)</sup>
-
-**Description**: Analysis of DNS transactions detected digital currency mining activity. Such activity, while possibly legitimate user behavior, is frequently performed by attackers following compromise of resources. Typical related attacker activity is likely to include the download and execution of common mining tools.
-
-**[MITRE tactics](#mitre-attck-tactics)**: Exfiltration
-
-**Severity**: Low
 
 ### **Access to kubelet kubeconfig file detected**
 
@@ -3015,7 +2976,7 @@ SQL.MySQL_SuspiciousIpAnomaly)
 ## Alerts for Resource Manager
 
 > [!NOTE]
-> Alerts with a **delegated access** indication are triggered due to activity of third-party service providers. learn more about [service providers activity indications](/azure/defender-for-cloud/defender-for-resource-manager-usage).
+> Alerts with a **delegated access** indication are triggered due to activity of third-party service providers. learn more about [service providers activity indications](defender-for-resource-manager-usage.md).
 
 [Further details and notes](defender-for-resource-manager-introduction.md)
 
@@ -4406,11 +4367,85 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 **Severity**: Medium
 
-## Deprecated Defender for Servers alerts
+## Alerts for AI workloads
 
-The following lists include the Defender for Servers security alerts [which were deprecated in April 2023 due to an improvement process](release-notes-archive.md#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers).
+### Detected credential theft attempts on an Azure Open AI model deployment  
 
-### Deprecated Linux alerts
+**Description**: The credential theft alert is designed to notify the SOC when credentials are detected within GenAI model responses to a user prompt, indicating a potential breach. This alert is crucial for detecting cases of credential leak or theft, which are unique to generative AI and can have severe consequences if successful.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Credential Access, Lateral Movement, Exfiltration 
+
+**Severity**: Medium
+
+### A Jailbreak attempt on an Azure Open AI model deployment was blocked by Prompt Shields
+
+**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were blocked by Azure Responsible AI Content Filtering (AKA Prompt Shields), ensuring the integrity of the AI resources and the data security.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Privilege Escalation, Defense Evasion 
+
+**Severity**: Medium
+
+### A Jailbreak attempt on an Azure Open AI model deployment was detected by Prompt Shields 
+
+**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were detected by Azure Responsible AI Content Filtering (AKA Prompt Shields), but were not blocked due to content filtering settings or due to low confidence.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Privilege Escalation, Defense Evasion
+
+**Severity**: Medium
+
+### Sensitive Data Exposure Detected in Azure Open AI Model Deployment 
+
+**Description**: The sensitive data leakage alert is designed to notify the SOC that a GenAI model responded to a user prompt with sensitive information, potentially due to a malicious user attempting to bypass the generative AI’s safeguards to access unauthorized sensitive data.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Collection
+
+**Severity**: Medium
+
+## Deprecated Defender for Containers alerts
+
+The following lists include the Defender for Containers security alerts which were deprecated.
+
+### **Manipulation of host firewall detected**
+
+(K8S.NODE_FirewallDisabled)
+
+**Description**: Analysis of processes running within a container or directly on a Kubernetes node, has detected a possible manipulation of the on-host firewall. Attackers will often disable this to exfiltrate data.
+
+**[MITRE tactics](#mitre-attck-tactics)**: DefenseEvasion, Exfiltration
+
+**Severity**: Medium
+
+### **Suspicious use of DNS over HTTPS**
+
+(K8S.NODE_SuspiciousDNSOverHttps)
+
+**Description**: Analysis of processes running within a container or directly on a Kubernetes node, has detected the use of a DNS call over HTTPS in an uncommon fashion. This technique is used by attackers to hide calls out to suspect or malicious sites.
+
+**[MITRE tactics](#mitre-attck-tactics)**: DefenseEvasion, Exfiltration
+
+**Severity**: Medium
+
+### **A possible connection to malicious location has been detected.**
+
+(K8S.NODE_ThreatIntelCommandLineSuspectDomain)
+
+**Description**: Analysis of processes running within a container or directly on a Kubernetes node, has detected a connection to a location that has been reported to be malicious or unusual. This is an indicator that a compromise might have occurred.
+
+**[MITRE tactics](#mitre-attck-tactics)**: InitialAccess
+
+**Severity**: Medium
+
+### **Digital currency mining activity**
+
+(K8S.NODE_CurrencyMining)
+
+**Description**: Analysis of DNS transactions detected digital currency mining activity. Such activity, while possibly legitimate user behavior, is frequently performed by attackers following compromise of resources. Typical related attacker activity is likely to include the download and execution of common mining tools.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Exfiltration
+
+**Severity**: Low
+
+## Deprecated Defender for Servers Linux alerts
 
 ### VM_AbnormalDaemonTermination
 
@@ -4796,7 +4831,7 @@ The following lists include the Defender for Servers security alerts [which were
 
 **Severity**: Medium
 
-### Deprecated Windows alerts
+## Deprecated Defender for Servers Windows alerts
 
 ### SCUBA_MULTIPLEACCOUNTCREATE
 
@@ -5257,5 +5292,5 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 ## Next steps
 
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
-- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md)
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml)
 - [Continuously export Defender for Cloud data](continuous-export.md)

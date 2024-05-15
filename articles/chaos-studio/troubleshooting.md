@@ -53,7 +53,7 @@ Some problems are caused by missing prerequisites.
 
 ### Agent-based faults fail on a virtual machine
 Agent-based faults might fail for various reasons related to missing prerequisites:
-* On Linux VMs, the [CPU Pressure](chaos-studio-fault-library.md#cpu-pressure), [Physical Memory Pressure](chaos-studio-fault-library.md#physical-memory-pressure), [Disk I/O pressure](chaos-studio-fault-library.md#disk-io-pressure-linux), and [Arbitrary Stress-ng Stress](chaos-studio-fault-library.md#arbitrary-stress-ng-stress) faults all require that the [stress-ng utility](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) is installed on your VM. For more information on how to install stress-ng, see the fault prerequisite sections.
+* On Linux VMs, the [CPU Pressure](chaos-studio-fault-library.md#cpu-pressure), [Physical Memory Pressure](chaos-studio-fault-library.md#physical-memory-pressure), [Disk I/O pressure](chaos-studio-fault-library.md#linux-disk-io-pressure), and [Arbitrary Stress-ng Stress](chaos-studio-fault-library.md#arbitrary-stress-ng-stressor) faults all require that the [stress-ng utility](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) is installed on your VM. For more information on how to install stress-ng, see the fault prerequisite sections.
 * On either Linux or Windows VMs, the user-assigned managed identity provided during agent-based target enablement must also be added to the VM.
 * On either Linux or Windows VMs, the system-assigned managed identity for the experiment must be granted the Reader role on the VM. (Seemingly elevated roles like Virtual Machine Contributor don't include the \*/Read operation that's necessary for the Chaos Studio agent to read the microsoft-agent target proxy resource on the VM.)
 
@@ -132,8 +132,20 @@ This error might happen if you added the agent by using the Azure portal, which 
 
 To resolve this problem, go to the VM or virtual machine scale set in the Azure portal and go to **Identity**. Open the **User assigned** tab and add your user-assigned identity to the VM. After you're finished, you might need to reboot the VM for the agent to connect.
 
+### My agent-based fault failed with the error "Agent is already performing another task"
+
+This error will happen if you try to run multiple agent faults at the same time. Today the agent only supports running a single agent-fault at a time, and will fail if you define an experiment that runs multiple agent faults at the same time.
+
 ## Problems when setting up a managed identity
 
 ### When I try to add a system-assigned/user-assigned managed identity to my existing experiment, it fails to save. 
 
 If you are trying to add a user-assigned or system-assigned managed identity to an experiment that **already** has a managed identity assigned to it, the experiment fails to deploy. You need to delete the existing user-assigned or system-assigned managed identity on the desired experiment **first** before adding your desired managed identity. 
+
+### When I run an experiment configured to automatically create and assign a custom role, I get the error "The target resource(s) could not be resolved. ErrorCode: AccessDenied. Target Resource(s):"
+
+When the "Custom role permissions" checkbox is selected for an experiment, Chaos Studio creates and assigns a custom role with the necessary permissions to the experiment's identity. However, this is subject to the following role assignment and role definition limits:
+* Each Azure subscription has a limit of 4000 role assignments.
+* Each Microsoft Entra tenant has a limit of 5000 role definitions (or 2000 role definitions for Azure in China).
+
+When one of these limits has been reached, this error will occur. To work around this, grant permissions to the experiment identity manually instead.

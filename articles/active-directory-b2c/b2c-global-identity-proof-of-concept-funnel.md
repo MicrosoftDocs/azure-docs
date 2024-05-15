@@ -7,7 +7,7 @@ manager: martinco
 
 ms.service: active-directory
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C

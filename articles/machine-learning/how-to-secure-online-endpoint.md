@@ -23,13 +23,12 @@ For examples that use the legacy method for network isolation, see the deploymen
 
 ## Prerequisites
 
-To begin, you need an Azure subscription, CLI or SDK to interact with Azure Machine Learning workspace and related entities, and the right permission.
-
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* install and configure the [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+* Install and configure the [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+
     >[!TIP]
-    > Azure Machine Learning managed virtual network was introduced on May 23rd, 2023. If you have an older version of the ml extension, you may need to update it for the examples in this article work. To update the extension, use the following Azure CLI command:
+    > Azure Machine Learning managed virtual network was introduced on May 23rd, 2023. If you have an older version of the ml extension, you might need to update it for the examples in this article to work. To update the extension, use the following Azure CLI command:
     >
     > ```azurecli
     > az extension update -n ml
@@ -40,6 +39,15 @@ To begin, you need an Azure subscription, CLI or SDK to interact with Azure Mach
 * You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you've configured your `ml` extension.
 
 * If you want to use a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) to create and manage online endpoints and online deployments, the identity should have the proper permissions. For details about the required permissions, see [Set up service authentication](./how-to-identity-based-service-authentication.md#workspace). For example, you need to assign the proper RBAC permission for Azure Key Vault on the identity.
+
+#### Migrate from legacy network isolation method to managed virtual network
+
+If you've used the [legacy method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) previously for network isolation of managed online endpoints, and you want to migrate to using a workspace managed virtual network to secure your endpoints, follow these steps:
+
+1. Delete all computes in your workspace.
+1. Enable managed virtual network for your workspace. For more information on how to configure a managed network for your workspace, see [Workspace Managed Virtual Network Isolation](how-to-managed-network.md).
+1. Configure private endpoints for outbound communication to private resources that your managed online endpoints need to access. These private resources include a storage account, Azure Key Vault, and Azure Container Registry (ACR).
+1. (Optional) If you're integrating with a user registry, configure private endpoints for outbound communication to your registry, its storage account, and its ACR. 
 
 ## Limitations
 

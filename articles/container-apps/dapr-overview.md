@@ -82,3 +82,4 @@ Azure Container Apps ensures compatibility with Dapr open source tooling, such a
 [dapr-secrets]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
 [dapr-config]: https://docs.dapr.io/developing-applications/building-blocks/configuration/
 [dapr-subscriptions]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/#declarative-subscriptions
+[declarative-pubsub]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/#pubsub-api

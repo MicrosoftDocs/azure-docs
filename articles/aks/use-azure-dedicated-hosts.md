@@ -4,6 +4,9 @@ description: Learn how to create an Azure Dedicated Hosts Group and associate it
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 03/10/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster
@@ -34,7 +37,7 @@ The following limitations apply when you integrate Azure Dedicated Host with Azu
 Not all host SKUs are available in all regions, and availability zones. You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
 
 ```azurecli-interactive
-az vm list-skus -l eastus  -r hostGroups/hosts  -o table
+az vm list-skus --location eastus --resource-type hostGroups/hosts  -o table
 ```
 
 > [!NOTE]
@@ -46,7 +49,7 @@ az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 Evaluate [host utilization][host-utilization-evaluate] to determine the number of allocatable VMs by size before you deploy.
 
 ```azurecli-interactive
-az vm host get-instance-view -g myDHResourceGroup --host-group MyHostGroup --name MyHost
+az vm host get-instance-view --resource-group myDHResourceGroup --host-group MyHostGroup --name MyHost
 ```
 
 ## Add a Dedicated Host Group to an AKS cluster
@@ -73,8 +76,8 @@ In this example, we'll use [az vm host group create][az-vm-host-group-create] to
 ```azurecli-interactive
 az vm host group create \
 --name myHostGroup \
--g myDHResourceGroup \
--z 1 \
+--resource-group myDHResourceGroup \
+--zone 1 \
 --platform-fault-domain-count 1 \
 --automatic-placement true
 ```
@@ -91,7 +94,7 @@ az vm host create \
 --name myHost \
 --sku DSv3-Type1 \
 --platform-fault-domain 1 \
--g myDHResourceGroup
+--resource-group myDHResourceGroup
 ```
 
 ## Use a user-assigned Identity
@@ -103,7 +106,7 @@ az vm host create \
 First, create a Managed Identity
 
 ```azurecli-interactive
-az identity create -g <Resource Group> -n <Managed Identity name>
+az identity create --resource-group <Resource Group> --name <Managed Identity name>
 ```
 
 Assign Managed Identity
@@ -117,7 +120,7 @@ az role assignment create --assignee <id> --role "Contributor" --scope <Resource
 Create an AKS cluster, and add the Host Group you just configured.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --location eastus --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
+az aks create --resource-group MyResourceGroup --name MyManagedCluster --location eastus --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
 ```
 
 ## Add a Dedicated Host Node Pool to an existing AKS cluster
@@ -150,3 +153,4 @@ In this article, you learned how to create an AKS cluster with a Dedicated host,
 [az-vm-host-group-create]: /cli/azure/vm/host/group#az_vm_host_group_create
 [determine-host-based-on-vm-utilization]: ../virtual-machines/dedicated-host-general-purpose-skus.md
 [host-utilization-evaluate]: ../virtual-machines/dedicated-hosts-how-to.md#check-the-status-of-the-host
+

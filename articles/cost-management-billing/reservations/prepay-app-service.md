@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 04/15/2024
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -42,7 +42,7 @@ Your usage file shows your charges by billing period and daily usage. For inform
 
 You can buy a reserved Premium v3 reserved instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md). These requirements apply to buying a Premium v3 reserved instance:
 
-- You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For EA subscriptions, the **Reserved Instances** option must be enabled in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
 
@@ -132,7 +132,7 @@ You can buy Isolated Stamp reserved capacity in the [Azure portal](https://porta
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select a **Region** to choose an Azure region that's covered by the reserved capacity and add the reservation to the cart.
 1. Select an Isolated Plan type and then select **Select**.  
-    ![Example](./media/prepay-app-service/app-service-isolated-stamp-select.png)
+    :::image type="content" border="true" source="./media/prepay-app-service/app-service-isolated-stamp-select.png" alt-text="Screenshot showing select an isolated plan.":::
 1. Enter the quantity of App Service Isolated stamps to reserve. For example, a quantity of three would give you three reserved stamps a region. Select **Next: Review + Buy**.
 1. Review and select **Buy now**.
 

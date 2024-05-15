@@ -171,7 +171,7 @@ speechRecognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArg
     });
 ```
 
-With everything set up, call [`StopContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
+With everything set up, call [`StartContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.

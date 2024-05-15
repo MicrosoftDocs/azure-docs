@@ -2,7 +2,7 @@
 title: Reference table for all security recommendations for GCP resources
 description: This article lists all Microsoft Defender for Cloud security recommendations that help you harden and protect your Google Cloud Platform (GCP) resources.
 ms.topic: reference
-ms.date: 06/27/2023
+ms.date: 03/13/2024
 ms.custom: generated
 ai-usage: ai-assisted
 ---
@@ -23,10 +23,22 @@ Your secure score is based on the number of security recommendations you complet
 
 **Severity**: Low
 
+### [EDR configuration issues should be resolved on GCP virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f36a15fb-61a6-428c-b719-6319538ecfbc)
+
+**Description**: To protect virtual machines from the latest threats and vulnerabilities, resolve all identified configuration issues with the installed Endpoint Detection and Response (EDR) solution. <br> Note: Currently, this recommendation only applies to resources with Microsoft Defender for Endpoint (MDE) enabled.
+
+**Severity**: High
+
+### [EDR solution should be installed on GCP Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/68e595c1-a031-4354-b37c-4bdf679732f1)
+
+**Description**: To protect virtual machines, install an Endpoint Detection and Response (EDR) solution. EDRs help prevent, detect, investigate, and respond to advanced threats. Use Microsoft Defender for Servers to deploy Microsoft Defender for Endpoint. If resource is classified as "Unhealthy", it doesn't have a supported EDR solution installed [Place Holder link - Learn more]. If you have an EDR solution installed which isn't discoverable by this recommendation, you can exempt it.
+
+**Severity**: High
+
 ### [Ensure 'Block Project-wide SSH keys' is enabled for VM instances](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00f8a6a6-cf69-4c11-822e-3ebf4910e545)
 
 **Description**: It's recommended to use Instance specific SSH key(s) instead of using common/shared project-wide SSH key(s) to access Instances.
-Project-wide SSH keys are stored in Compute/Project-meta-data. Project wide SSH keys can be used to login into all the instances within project. Using project-wide SSH keys eases the SSH key management but if compromised, poses the security risk that can affect all the instances within project.
+Project-wide SSH keys are stored in Compute/Project-meta-data. Project wide SSH keys can be used to log in into all the instances within project. Using project-wide SSH keys eases the SSH key management but if compromised, poses the security risk that can affect all the instances within project.
  It's recommended to use Instance specific SSH keys that can limit the attack surface if the SSH keys are compromised.
 
 **Severity**: Medium
@@ -238,13 +250,13 @@ At least business critical VMs should have VM disks encrypted with CSEK.
 
 ### [GCP projects should have Azure Arc auto provisioning enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1716d754-8d50-4b90-87b6-0404cad9b4e3)
 
-**Description**: For full visibility of the security content from Microsoft Defender for servers, GCP VM instances should be connected to Azure Arc. To ensure that all eligible VM instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the GCP project level. Learn more about [Azure Arc](/azure/azure-arc/servers/overview), and [Microsoft Defender for Servers](/azure/security-center/defender-for-servers-introduction).
+**Description**: For full visibility of the security content from Microsoft Defender for servers, GCP VM instances should be connected to Azure Arc. To ensure that all eligible VM instances automatically receive Azure Arc, enable autoprovisioning from Defender for Cloud at the GCP project level. Learn more about [Azure Arc](../azure-arc/servers/overview.md), and [Microsoft Defender for Servers](plan-defender-for-servers.md).
 
 **Severity**: High
 
 ### [GCP VM instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/9bbe2f0f-d6c6-48e8-b4d0-cf25d2c50206)
 
-**Description**: Connect your GCP Virtual Machines to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content. Learn more about [Azure Arc](/azure/azure-arc/), and about [Microsoft Defender for Servers](/azure/security-center/defender-for-servers-introduction) on hybrid-cloud environment.
+**Description**: Connect your GCP Virtual Machines to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content. Learn more about [Azure Arc](../azure-arc/index.yml), and about [Microsoft Defender for Servers](plan-defender-for-servers.md) on hybrid-cloud environment.
 
 **Severity**: High
 
@@ -274,6 +286,22 @@ At least business critical VMs should have VM disks encrypted with CSEK.
 
 ## GCP Container recommendations
 
+### [[Preview] Container images in GCP registry should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24e37609-dcf5-4a3b-b2b0-b7d76f2e4e04)
+
+**Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Scanning and remediating vulnerabilities for container images in the registry helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards.
+
+**Severity**: High
+
+**Type**: Vulnerability Assessment
+
+### [[Preview] Containers running in GCP should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c7c1d31d-a604-4b86-96df-63448618e165)
+
+**Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images being used and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
+
+**Severity**: High
+
+**Type**: Vulnerability Assessment
+
 ### [Advanced configuration of Defender for Containers should be enabled on GCP connectors](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b7683ca3-3a11-49b6-b9d4-a112713edfa3)
 
 **Description**: Microsoft Defender for Containers provides cloud-native Kubernetes security capabilities including environment hardening, workload protection, and run-time protection. To ensure you the solution is provisioned properly, and the full set of capabilities are available, enable all advanced configuration settings.
@@ -282,16 +310,16 @@ At least business critical VMs should have VM disks encrypted with CSEK.
 
 ### [GKE clusters should have Microsoft Defender's extension for Azure Arc installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/0faf27b6-f1d5-4f50-b22a-5d129cba0113)
 
-**Description**: Microsoft Defender's [cluster extension](/azure/azure-arc/kubernetes/extensions) provides security capabilities for your GKE clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
- The extension works with [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
-Learn more about [Microsoft Defender for Cloud's security features for containerized environments](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks).
+**Description**: Microsoft Defender's [cluster extension](../azure-arc/kubernetes/extensions.md) provides security capabilities for your GKE clusters. The extension collects data from a cluster and its nodes to identify security vulnerabilities and threats.
+ The extension works with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
+Learn more about [Microsoft Defender for Cloud's security features for containerized environments](defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks).
 
 **Severity**: High
 
 ### [GKE clusters should have the Azure Policy extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/6273e20b-8814-4fda-a297-42a70b16fcbf)
 
 **Description**: Azure Policy extension for Kubernetes extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
- The extension works with [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
+ The extension works with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 
 **Severity**: High
 
@@ -949,19 +977,19 @@ GCP facilitates up to 10 external service account keys per service account to fa
 
 **Severity**: High
 
-### [Super Identities in your GCP environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7057d0ba-7d1c-4484-8bae-e82785cf8418)
+### [Super Identities in your GCP environment should be removed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7057d0ba-7d1c-4484-8bae-e82785cf8418)
 
 **Description**: A super identity has a powerful set of permissions. Super admins are human or workload identities that have access to all permissions and all resources. They can create and modify configuration settings to a service, add or remove identities, and access or even delete data. Left unmonitored, these identities present a significant risk of permission misuse if breached.
 
 **Severity**: High
 
-### [Unused identities in your GCP environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/257e9506-fd47-4123-a8ef-92017f845906)
+### [Unused identities in your GCP environment should be removed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/257e9506-fd47-4123-a8ef-92017f845906)
 
 **Description**: It's imperative to identify unused identities as they pose significant security risks. These identities often involve bad practices, such as excessive permissions and mismanaged keys that leave organizations open to credential misuse or exploitation and increases your resource`s attack surface. Inactive identities are human and nonhuman entities that haven't performed any action on any resource in the last 90 days. Service account keys can become a security risk if not managed carefully.
 
 **Severity**: Medium
 
-### [GCP overprovisioned identities should have only the necessary permissions (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/fa210cff-18da-474a-ac60-8f93f7c6f4c9)
+### [GCP overprovisioned identities should have only the necessary permissions](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/fa210cff-18da-474a-ac60-8f93f7c6f4c9)
 
 **Description**: An over-provisioned active identity is an identity that has access to privileges that they haven't used. Over-provisioned active identities, especially for nonhuman accounts that have very defined actions and responsibilities, can increase the blast radius in the event of a user, key, or resource compromise The principle of least privilege states that a resource should only have access to the exact resources it needs in order to function. This principle was developed to address the risk of compromised identities granting an attacker access to a wide range of resources.
 

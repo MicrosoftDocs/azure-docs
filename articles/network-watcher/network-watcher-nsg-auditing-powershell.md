@@ -20,8 +20,6 @@ Customers are often faced with the challenge of verifying the security posture o
 
 To learn more about network security groups, see [Network security groups overview](../virtual-network/network-security-groups-overview.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 - If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

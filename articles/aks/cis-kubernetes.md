@@ -2,6 +2,7 @@
 title: Center for Internet Security (CIS) Kubernetes benchmark
 description: Learn how AKS applies the CIS Kubernetes benchmark
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 01/10/2024
 ---
 

@@ -73,7 +73,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
 ```azurecli-interactive
-az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
+az aks create --name <clusterName> --resource-group <resourceGroupName> --loctaion <location> \
   --network-plugin azure \
   --network-plugin-mode overlay \
   --pod-cidr 192.168.0.0/16 \
@@ -94,15 +94,15 @@ az group create --name <resourceGroupName> --location <location>
 
 ```azurecli-interactive
 # Create a virtual network with a subnet for nodes and a subnet for pods
-az network vnet create -g <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
-az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
-az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
+az network vnet create --resource-group <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
+az network vnet subnet create --resource-group <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
+az network vnet subnet create --resource-group<resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
 ```
 
 Create the cluster using `--network-dataplane cilium`:
 
 ```azurecli-interactive
-az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
+az aks create --name <clusterName> --resource-group <resourceGroupName> --location <location> \
   --max-pods 250 \
   --network-plugin azure \
   --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
@@ -116,10 +116,13 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 > You can update an existing cluster to Azure CNI Powered by Cilium if the cluster meets the following criteria:
 >
 > - The cluster uses either [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md). This does **not** include [Azure CNI](./configure-azure-cni.md).
-> - The cluster does not have Azure NPM or Calico enabled.
-> - The cluster does not have any Windows node pools.
+> - The cluster does not have any Windows node pools.  
 
-The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
+> [!NOTE]
+> When enabling Cilium in a cluster with a different network policy engine (Azure NPM or Calico), the network policy engine will be uninstalled and replaced with Cilium. See [Uninstall Azure Network Policy Manager or Calico](./use-network-policies.md#uninstall-azure-network-policy-manager-or-calico-preview) for more details.
+
+> [!WARNING]
+> The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
 
 Cilium will begin enforcing network policies only after all nodes have been re-imaged.
 
@@ -128,9 +131,10 @@ To perform the upgrade, you will need Azure CLI version 2.52.0 or later. Run `az
 Use the following command to upgrade an existing cluster to Azure CNI Powered by Cilium. Replace the values for `<clusterName>` and `<resourceGroupName>`:
 
 ```azurecli-interactive
-az aks update -n <clusterName> -g <resourceGroupName> \
+az aks update --name <clusterName> --resource-group <resourceGroupName> \
   --network-dataplane cilium
 ```
+
 
 ## Frequently asked questions
 
@@ -206,3 +210,4 @@ Learn more about networking in AKS in the following articles:
 
 <!-- LINKS - Internal -->
 [aks-ingress-basic]: ingress-basic.md
+

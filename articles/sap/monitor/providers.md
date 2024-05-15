@@ -4,6 +4,7 @@ description: This article provides answers to frequently asked questions about A
 author: rdeltcheva
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 10/27/2022
 ms.author: radeltch

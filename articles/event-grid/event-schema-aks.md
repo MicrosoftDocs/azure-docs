@@ -25,21 +25,6 @@ AKS emits the following event types
 | Microsoft.ContainerService.NodePoolRollingSucceeded| Triggered when NodepoolRolling succeeded as a result of upgrade or an update |
 ## Properties common to all events
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
-This section contains an example of what that data would look like for each event. Each event has the following top-level data:
-
-|     Property          |     Type     |     Description                                                                                                                                |
-|-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-|    `topic`              |    string    |    Full resource path to the event   source. This field isn't writeable. Event Grid provides this value.                                      |
-|    `subject`            |    string    |    Publisher-defined path to the   event subject.                                                                                              |
-|    `eventType`          |    string    |    One of the registered event   types for this event source.                                                                                  |
-|    `eventTime`          |    string    |    The time the event is generated   based on the provider's UTC time.                                                                         |
-|    `id`                 |    string    |    Unique identifier for the event.                                                                                                            |
-|    `data`               |    object    |    Blob storage event data.                                                                                                                    |
-|    `dataVersion`        |    string    |    The schema version of the data   object. The publisher defines the schema version.                                                          |
-|    `metadataVersion`    |    string    |    The schema version of the event   metadata. Event Grid defines the schema of the top-level properties. Event   Grid provides this value.    |
-
 # [Cloud event schema](#tab/cloud-event-schema)
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
@@ -55,31 +40,29 @@ This section contains an example of what that data would look like for each even
 |    `data`               |    object    |    Blob storage event data.                                                                                                                    |
 | `specversion` | string | CloudEvents schema specification version. |
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
+This section contains an example of what that data would look like for each event. Each event has the following top-level data:
+
+|     Property          |     Type     |     Description                                                                                                                                |
+|-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+|    `topic`              |    string    |    Full resource path to the event   source. This field isn't writeable. Event Grid provides this value.                                      |
+|    `subject`            |    string    |    Publisher-defined path to the   event subject.                                                                                              |
+|    `eventType`          |    string    |    One of the registered event   types for this event source.                                                                                  |
+|    `eventTime`          |    string    |    The time the event is generated   based on the provider's UTC time.                                                                         |
+|    `id`                 |    string    |    Unique identifier for the event.                                                                                                            |
+|    `data`               |    object    |    Blob storage event data.                                                                                                                    |
+|    `dataVersion`        |    string    |    The schema version of the data   object. The publisher defines the schema version.                                                          |
+|    `metadataVersion`    |    string    |    The schema version of the event   metadata. Event Grid defines the schema of the top-level properties. Event   Grid provides this value.    |
+
+
+
 ---
 
 ## Example events
 
 ### NewKubernetesVersionAvailable
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
-```json
-{
-    "topic": "/subscriptions/<id>/resourceGroups<rg>/providers/Microsoft.ContainerService/managedClusters/<cluster>",
-    "subject": "<cluster>",
-    "eventType": "Microsoft.ContainerService.NewKubernetesVersionAvailable",
-    "id": "1234567890abcdef1234567890abcdef12345678",
-    "data": {
-      "latestSupportedKubernetesVersion": "1.20.7",
-      "latestStableKubernetesVersion": "1.19.11",
-      "lowestMinorKubernetesVersion": "1.18.19",
-      "latestPreviewKubernetesVersion": "1.21.1"
-    },
-    "dataVersion": "1",
-    "metadataVersion": "1",
-    "eventTime": "2021-07-01T04:52:57.0000000Z"
-}
-```
 # [Cloud event schema](#tab/cloud-event-schema)
 
 ```json
@@ -97,6 +80,25 @@ This section contains an example of what that data would look like for each even
     },
     "specversion": "1.0",
     "time": "2021-07-01T04:52:57.0000000Z"
+}
+```
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+```json
+{
+    "topic": "/subscriptions/<id>/resourceGroups<rg>/providers/Microsoft.ContainerService/managedClusters/<cluster>",
+    "subject": "<cluster>",
+    "eventType": "Microsoft.ContainerService.NewKubernetesVersionAvailable",
+    "id": "1234567890abcdef1234567890abcdef12345678",
+    "data": {
+      "latestSupportedKubernetesVersion": "1.20.7",
+      "latestStableKubernetesVersion": "1.19.11",
+      "lowestMinorKubernetesVersion": "1.18.19",
+      "latestPreviewKubernetesVersion": "1.21.1"
+    },
+    "dataVersion": "1",
+    "metadataVersion": "1",
+    "eventTime": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 

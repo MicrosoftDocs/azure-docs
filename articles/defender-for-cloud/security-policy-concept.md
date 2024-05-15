@@ -15,7 +15,7 @@ Security standards define rules, compliance conditions for those rules, and acti
 
 Security standards in Defender for Cloud come from these sources:
 
-- **Microsoft cloud security benchmark (MCSB)**: The MCSB standard is applied by default when you onboard Defender for Cloud to a management group or subscription. Your [secure score](secure-score-security-controls.md) is based on assessment against some MCSB recommendations.
+- **Microsoft cloud security benchmark (MCSB)**: The MCSB standard is applied by default when you onboard cloud accounts to Defender. Your [secure score](secure-score-security-controls.md) is based on assessment against some MCSB recommendations.
 
 - **Regulatory compliance standards**: When you enable one or more [Defender for Cloud plans](defender-for-cloud-introduction.md), you can add standards from a wide range of predefined regulatory compliance programs.
 
@@ -23,23 +23,29 @@ Security standards in Defender for Cloud come from these sources:
 
 Security standards in Defender for Cloud are based on [Azure Policy](../governance/policy/overview.md) [initiatives](../governance/policy/concepts/initiative-definition-structure.md) or on the Defender for Cloud native platform. Currently, Azure standards are based on Azure Policy. AWS and GCP standards are based on Defender for Cloud.
 
-Security standards in Defender for Cloud simplify the complexity of Azure Policy. In most cases, you can work directly with security standards and recommendations in the Defender for Cloud portal, without needing to directly configure Azure Policy.
-
 ### Working with security standards
 
 Here's what you can do with security standards in Defender for Cloud:
 
-- **Modify the built-in MCSB for the subscription**: When you enable Defender for Cloud, the MCSB is automatically assigned to all Defender for Cloud registered subscriptions.
+- **Modify the built-in MCSB for the subscription**: When you enable Defender for Cloud, the MCSB is automatically assigned to all Defender for Cloud registered subscriptions. [Learn more about managing the MCSB standard](manage-mcsb.md).
 
-- **Add regulatory compliance standards**: If you have one or more paid plans enabled, you can assign built-in compliance standards against which to assess your Azure, AWS, and GCP resources. [Learn more about assigning regulatory standards](update-regulatory-compliance-packages.md).
+- **Add regulatory compliance standards**: If you have one or more paid plans enabled, you can assign built-in compliance standards against which to assess your Azure, AWS, and GCP resources. [Learn more about assigning regulatory standards](update-regulatory-compliance-packages.yml).
 
-- **Add custom standards**: If you have at least one paid Defender plan enabled, you can define new [Azure standards](custom-security-policies.md) or [AWS/GCP standards](create-custom-recommendations.md) in the Defender for Cloud portal. You can then add recommendations to those standards.
+- **Add custom standards**: If you have at least one paid Defender plan enabled, you can define new [custom standards](custom-security-policies.md) and [custom recommendations](create-custom-recommendations.md) in the Defender for Cloud portal. You can then add recommendations to those standards.
 
-### Working with custom standards
+### Custom standards
 
 Custom standards appear alongside built-in standards in the **Regulatory compliance** dashboard.
 
 Recommendations derived from assessments against custom standards appear together with recommendations from built-in standards. Custom standards can contain built-in and custom recommendations.
+
+### Custom recommendations
+
+All customers with Azure subscriptions can create custom recommendations based on Azure Policy. With Azure Policy, you create a policy definition, assign it to a policy initiative, and merge that initiative and policy into Defender for Cloud.
+
+Custom recommendations based on Kusto Query Language (KQL) are available for all clouds, but require enabling the [Defender CSPM plan](concept-cloud-security-posture-management.md). With these recommendations, you specify a unique name, a description, steps for remediation, severity, and which standards the recommendation should be assigned to. You add recommendation logic with KQL. A query editor provides a built-in query template that you can tweak as needed, or you can write your KQL query from scratch.
+
+For more information, see [Create custom security standards and recommendations in Microsoft Defender for Cloud](create-custom-recommendations.md).
 
 ## Security recommendations
 
@@ -56,8 +62,8 @@ Each recommendation provides the following information:
 
 Every recommendation in Defender for Cloud has an associated risk level that represents how exploitable and impactful the security issue is in your environment. The risk assessment engine takes into account factors such as internet exposure, sensitivity of data, lateral movement possibilities, and attack path remediation. You can prioritize recommendations based on their risk levels.
 
-> [!NOTE]
-> Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) is in public preview and doesn't affect the secure score.
+> [!IMPORTANT]
+> [Risk prioritization](risk-prioritization.md) doesn't affect the secure score.
 
 ### Example
 
@@ -65,22 +71,6 @@ The MCSB standard is an Azure Policy initiative that includes multiple complianc
 
 As Defender for Cloud continually assesses and finds resources that don't satisfy this control, it marks the resources as noncompliant and triggers a recommendation. In this case, guidance is to harden Azure Storage accounts that aren't protected with virtual network rules.
 
-### Custom recommendations (Azure)
-
-To create custom recommendations for Azure subscriptions, you currently need to use Azure Policy.
-
-You create a policy definition, assign it to a policy initiative, and merge that initiative and policy into Defender for Cloud. [Learn more](custom-security-policies.md).
-
-### Custom recommendations (AWS or GCP)
-
-To create custom recommendations for AWS or GCP resources, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled.
-
-Custom standards act as a logical grouping for custom recommendations. You can assign custom recommendations to one or more custom standards.
-
-In custom recommendations, you specify a unique name, a description, steps for remediation, severity, and which standards the recommendation should be assigned to. You add recommendation logic with Kusto Query Language (KQL). A simple query editor provides a built-in query template that you can tweak as needed, or you can write your KQL query from scratch.
-
-For more information about creating custom recommendations for AWS and GCP resources, see [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/creating-custom-recommendations-amp-standards-for-aws-gcp/ba-p/3810248) and
-[this article](create-custom-recommendations.md).
 
 ## Next steps
 

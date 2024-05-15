@@ -16,7 +16,7 @@ ms.date: 10/09/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor (preview) pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
+Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft Fabric from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage writes parquet files to a lakehouse that lets you view the data in delta tables. The destination stage batches messages before it sends them to Microsoft Fabric.
 
 ## Prerequisites
 
@@ -28,7 +28,13 @@ To configure and use a Microsoft Fabric destination pipeline stage, you need:
 
 ## Set up Microsoft Fabric
 
-Before you can write to Microsoft Fabric from a data pipeline, enable [service principal authentication](/fabric/onelake/onelake-security#authentication) in your workspace and lakehouse. To create a service principal with a client secret:
+Before you can write to Microsoft Fabric from a data pipeline, you need to grant access to the lakehouse from the pipeline. You can use either a service principal or a managed identity to authenticate the pipeline. The advantage of using a managed identity is that you don't need to manage the lifecycle of the service principal. The managed identity is automatically managed by Azure and is tied to the lifecycle of the resource it's assigned to.
+
+Before you configure either service principal or managed identity access to a lakehouse, enable [service principal authentication](/fabric/onelake/security/get-started-security#authentication).
+
+# [Service principal](#tab/serviceprincipal)
+
+To create a service principal with a client secret:
 
 [!INCLUDE [data-processor-create-service-principal](../includes/data-processor-create-service-principal.md)]
 
@@ -52,7 +58,7 @@ To add the service principal to your Microsoft Fabric workspace:
 
 1. Grant your service principal admin access to the workspace.
 
-## Configure your secret
+### Configure your secret
 
 For the destination stage to connect to Microsoft Fabric, it needs access to a secret that contains the authentication details. To create a secret:
 
@@ -62,7 +68,21 @@ For the destination stage to connect to Microsoft Fabric, it needs access to a s
     az keyvault secret set --vault-name <your-key-vault-name> --name AccessFabricSecret --value <client-secret>
     ```
 
-1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
+
+# [Managed identity](#tab/managedidentity)
+
+[!INCLUDE [get-managed-identity](../includes/get-managed-identity.md)]
+
+To grant the service principal access to your Microsoft Fabric workspace:
+
+1. In your workspace, select **Manage access**. Then select **+ Add people or groups**.
+
+1. Search for your managed identity by typing _processor_ in the **Enter name or email** textbox. Check that the `App ID:` value matches the **App ID** you made a note of in the previous step.
+
+1. Grant at least **Contributor** access to the processor app.
+
+---
 
 ## Configure the destination stage
 
@@ -72,18 +92,18 @@ The _Fabric Lakehouse_ destination stage JSON configuration defines the details 
 | --- | --- | --- | --- | --- | --- |
 | Display name  | String | A name to show in the Data Processor UI.  | Yes | -  | `Azure IoT MQ output` |
 | Description | String |  A user-friendly description of what the stage does.  | No |  | `Write to topic default/topic1` |
-| URL | String | The Microsoft Fabric URL | Yes | - | |
 | WorkspaceId | String | The lakehouse workspace ID.  | Yes | - | |
 | LakehouseId | String | The lakehouse Lakehouse ID.  | Yes | - |  |
 | Table | String |  The name of the table to write to.  | Yes | - |  |
 | File path<sup>1</sup> | [Template](../process-data/concept-configuration-patterns.md#templates) |  The file path for where to write the parquet file to.  | No | `{{{instanceId}}}/{{{pipelineId}}}/{{{partitionId}}}/{{{YYYY}}}/{{{MM}}}/{{{DD}}}/{{{HH}}}/{{{mm}}}/{{{fileNumber}}}` |  |
 | Batch<sup>2</sup> | [Batch](../process-data/concept-configuration-patterns.md#batch) |  How to [batch](../process-data/concept-configuration-patterns.md#batch) data. | No | `60s` | `10s`  |
-| Authentication<sup>3</sup> | The authentication details to connect to Microsoft Fabric.  | Service principal | Yes | - |
+| Authentication<sup>4</sup> | String | The authentication details to connect to Azure Data Explorer. `Service principal` or `Managed identity` | Service principal | Yes | - |
+| Retry | [Retry](../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |
-| Columns&nbsp;>&nbsp;Type<sup>4</sup> | string enum | The type of data held in the column, using one of the [Delta primitive types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types). | Yes | | `integer` |
+| Columns&nbsp;>&nbsp;Type<sup>3</sup> | string enum | The type of data held in the column, using one of the [Delta primitive types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types). | Yes | | `integer` |
 | Columns&nbsp;>&nbsp;Path | [Path](../process-data/concept-configuration-patterns.md#path) | The location within each record of the data from where to read the value of the column. | No | `.{{name}}` | `.temperature` |
 
-File path<sup>1</sup>: To write files to Microsoft Fabric, you need a file path. You can use [templates](../process-data/concept-configuration-patterns.md#templates) to configure file paths. File paths must contain the following components in any order:
+<sup>1</sup>File path: To write files to Microsoft Fabric, you need a file path. You can use [templates](../process-data/concept-configuration-patterns.md#templates) to configure file paths. File paths must contain the following components in any order:
 
 - `instanceId`
 - `pipelineId`
@@ -97,21 +117,25 @@ File path<sup>1</sup>: To write files to Microsoft Fabric, you need a file path.
 
 The files names are incremental integer values as indicated by `fileNumber`. Be sure to include a file extension if you want your system to recognize the file type.
 
-Batching<sup>2</sup>: Batching is mandatory when you write data to Microsoft Fabric. The destination stage [batches](../process-data/concept-configuration-patterns.md#batch) messages over a configurable time interval.
+<sup>2</sup>Batching: Batching is mandatory when you write data to Microsoft Fabric. The destination stage [batches](../process-data/concept-configuration-patterns.md#batch) messages over a configurable time interval.
 
 If you don't configure a batching interval, the stage uses 60 seconds as the default.
 
-Authentication<sup>3</sup>: Currently, the destination stage supports service principal based authentication when it connects to Microsoft Fabric. In your Microsoft Fabric destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
+<sup>3</sup>Type: The data processor writes to Microsoft Fabric by using the delta format. The data processor supports all [delta primitive data types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types) except for `decimal` and `timestamp without time zone`.
+
+To ensure all dates and times are represented correctly in Microsoft Fabric, make sure the value of the property is a valid RFC 3339 string and that the data type is either `date` or `timestamp`.
+
+<sup>1</sup>Authentication: Currently, the destination stage supports service principal based authentication or managed identity when it connects to Microsoft Fabric.
+
+### Service principal based authentication
+
+To configure service principal based authentication, provide the following values. You made a note of these values when you created the service principal and added the secret reference to your cluster.
 
 | Field | Description | Required |
 | --- | --- | --- |
 | TenantId  | The tenant ID.  | Yes |
 | ClientId | The app ID you made a note of when you created the service principal that has access to the database.  | Yes |
 | Secret | The secret reference you created in your cluster.   | Yes |
-
-Type<sup>4</sup>: The data processor writes to Microsoft Fabric by using the delta format. The data processor supports all [delta primitive data types](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#primitive-types) except for `decimal` and `timestamp without time zone`.
-
-To ensure all dates and times are represented correctly in Microsoft Fabric, make sure the value of the property is a valid RFC 3339 string and that the data type is either `date` or `timestamp`.
 
 ## Sample configuration
 
@@ -127,7 +151,6 @@ The following JSON example shows a complete Microsoft Fabric lakehouse destinati
             "y": 784
         }
     },
-    "url": "https://msit-onelake.pbidedicated.windows.net",
     "workspace": "workspaceId",
     "lakehouse": "lakehouseId",
     "table": "quickstart",
@@ -182,6 +205,11 @@ The following JSON example shows a complete Microsoft Fabric lakehouse destinati
     "batch": {
         "time": "5s",
         "path": ".payload"
+    },
+    "retry": {
+        "type": "fixed",
+        "interval": "20s",
+        "maxRetries": 4
     }
 }
 ```
@@ -222,6 +250,8 @@ The following example shows a sample input message to the Microsoft Fabric lakeh
 ## Related content
 
 - [Send data to Azure Data Explorer](howto-configure-destination-data-explorer.md)
+- [Send data to Azure Blob Storage](howto-configure-destination-blob.md)
 - [Send data to a gRPC endpoint](../process-data/howto-configure-destination-grpc.md)
+- [Send data to an HTTP endpoint](../process-data/howto-configure-destination-http.md)
 - [Publish data to an MQTT broker](../process-data/howto-configure-destination-mq-broker.md)
 - [Send data to the reference data store](../process-data/howto-configure-destination-reference-store.md)

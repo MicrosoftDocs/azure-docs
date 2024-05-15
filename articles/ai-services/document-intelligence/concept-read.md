@@ -26,7 +26,7 @@ ms.author: lajanuar
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
-**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1 (preview)**](?view=doc-intel-3.1.0&preserve-view=true)
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1**](?view=doc-intel-3.1.0&preserve-view=true)
 ::: moniker-end
 
 > [!NOTE]
@@ -44,11 +44,11 @@ Optical Character Recognition (OCR) for documents is optimized for large text-he
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2023-10-31-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-read**|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-read**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -123,7 +123,7 @@ The pages collection is a list of pages within the document. Each page is repres
 | --- | --- | --- |
 |Images (JPEG/JPG, PNG, BMP, HEIF) | Each image = 1 page unit | Total images  |
 |PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
-|TIFF | Each image in the TIFF = 1 page unit | Total images in the PDF |
+|TIFF | Each image in the TIFF = 1 page unit | Total images in the TIFF |
 |Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 |Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets |
 |PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides |
@@ -222,4 +222,4 @@ Complete a Document Intelligence quickstart:
 Explore our REST API:
 
 > [!div class="nextstepaction"]
-> [Document Intelligence API v4.0](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)
+> [Document Intelligence API v4.0](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)

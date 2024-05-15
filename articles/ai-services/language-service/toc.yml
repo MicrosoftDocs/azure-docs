@@ -249,23 +249,25 @@ items:
       href: named-entity-recognition/quickstart.md
     - name: NER language support
       href: named-entity-recognition/language-support.md
+    - name: Responsible use of AI
+      items:
+      - name: Transparency note for NER
+        href: /legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/ai-services/language-service/context/context
+        displayName: Transparency note for NER, Named Entity Recognition transparency, Responsible AI, Responsible use of AI
+      - name: Integration and responsible use
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/ai-services/language-service/context/context
+        displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+      - name: Data, privacy, and security
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/ai-services/language-service/context/context
+        displayName: Data privacy, logging, data retention
     - name: Prebuilt
       items:
-      - name: Responsible use of AI
-        items:
-        - name: Transparency note for NER
-          href: /legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/ai-services/language-service/context/context
-          displayName: Transparency note for NER, Named Entity Recognition transparency, Responsible AI, Responsible use of AI
-        - name: Integration and responsible use
-          href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/ai-services/language-service/context/context
-          displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-        - name: Data, privacy, and security
-          href: /legal/cognitive-services/language-service/data-privacy?context=/azure/ai-services/language-service/context/context
-          displayName: Data privacy, logging, data retention
       - name: How-to guides
         items:
         - name: Call NER
           href: named-entity-recognition/how-to-call.md
+        - name: Use skill parameters
+          href: named-entity-recognition/how-to/skill-parameters.md
         - name: Use containers
           items:
           - name: Use Docker containers
@@ -282,8 +284,6 @@ items:
         items:
         - name: Recognized entity categories
           href: named-entity-recognition/concepts/named-entity-categories.md
-        - name: Entity resolution
-          href: named-entity-recognition/concepts/entity-resolutions.md
         - name: Entity Metadata
           href: named-entity-recognition/concepts/entity-metadata.md
         - name: Preview API overview
@@ -302,20 +302,6 @@ items:
         href: custom-named-entity-recognition/language-support.md
       - name: Custom NER FAQ
         href: custom-named-entity-recognition/faq.md
-      - name: Responsible use of AI
-        items:
-        - name: Transparency note for custom NER
-          href: /legal/cognitive-services/language-service/cner-transparency-note?context=/azure/ai-services/language-service/context/context
-          displayName: Transparency note for Custom NER, Custom NER Transparency, Responsible AI, Responsible use of AI
-        - name: Integration and responsible use
-          href: /legal/cognitive-services/language-service/cner-guidance-integration-responsible-use?context=/azure/ai-services/language-service/context/context
-          displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-        - name: Characteristics and limitations
-          href: /legal/cognitive-services/language-service/cner-characteristics-and-limitations?context=/azure/ai-services/language-service/context/context
-          displayName: Custom NER characteristics, Custom NER limitations
-        - name: Data, privacy, and security
-          href: /legal/cognitive-services/language-service/cner-data-privacy-security?context=/azure/ai-services/language-service/context/context
-          displayName: Data privacy, logging, data retention
       - name: How-to guides
         items:
         - name: Create projects
@@ -444,19 +430,19 @@ items:
         href: personally-identifiable-information/concepts/entity-categories.md
       - name: Recognized entity categories for conversation
         href: personally-identifiable-information/concepts/conversations-entity-categories.md
-  - name: Question answering
+  - name: Custom question answering
     items:
-    - name: Question answering overview
+    - name: Custom question answering overview
       href: question-answering/overview.md
-    - name: Question answering quickstart
+    - name: Custom question answering quickstart
       href: question-answering/quickstart/sdk.md
-    - name: Question answering language support
+    - name: Custom question answering language support
       href: question-answering/language-support.md
     - name: Responsible use of AI
       items:
-      - name: Transparency note for question answering
+      - name: Transparency note for custom question answering
         href: /legal/cognitive-services/language-service/transparency-note-question-answering?context=/azure/ai-services/language-service/context/context
-        displayName: Transparency note for question answering, question answering transparency, Responsible AI, Responsible use of AI
+        displayName: Transparency note for custom question answering, custom question answering transparency, Responsible AI, Responsible use of AI
       - name: Integration and responsible use
         href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-question-answering?context=/azure/ai-services/language-service/context/context
         displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -465,11 +451,11 @@ items:
         displayName: Data privacy, logging, data retention
     - name: How-to guides
       items:
-      - name: Migrate from QnA Maker to Question Answering
+      - name: Migrate from QnA Maker to custom question Answering
         href: question-answering/how-to/migrate-qnamaker-to-question-answering.md
       - name: Migrate projects from QnA Maker
         href: question-answering/how-to/migrate-qnamaker.md
-      - name: Getting started with question answering
+      - name: Getting started with custom question answering
         href: question-answering/how-to/create-test-deploy.md
       - name: Export/import/refresh
         href: question-answering/how-to/export-import-refresh.md
@@ -533,7 +519,7 @@ items:
         href: question-answering/tutorials/multiple-languages.md
       - name: Multiple domains
         href: question-answering/tutorials/multiple-domains.md
-      - name: Add your Question Answering project to Power Virtual Agents
+      - name: Add your custom question answering project to Power Virtual Agents
         href: question-answering/tutorials/power-virtual-agents.md
     - name: Reference
       items:
@@ -846,13 +832,13 @@ items:
         items:
         - name: Text analysis
           href: /dotnet/api/overview/azure/ai.textanalytics-readme
-        - name: Question answering
+        - name: Custom question answering
           href: /dotnet/api/overview/azure/ai.language.questionanswering-readme
       - name: Python
         items:
         - name: Text analysis
           href: /python/api/overview/azure/ai-textanalytics-readme
-        - name: Question answering
+        - name: Custom question answering
           href: /python/api/overview/azure/ai-language-questionanswering-readme
         - name: Conversational Language Understanding
           href: /python/api/overview/azure/ai-language-conversations-readme
@@ -870,13 +856,13 @@ items:
         items:
         - name: Text analysis
           href: /dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet-preview&preserve-view=true
-        - name: Question answering
+        - name: Custom question answering
           href: /dotnet/api/overview/azure/ai.language.questionanswering-readme?view=azure-dotnet-preview&preserve-view=true
       - name: Python
         items:
         - name: Text analysis
           href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
-        - name: Question answering
+        - name: Custom question answering
           href: /python/api/overview/azure/ai-language-questionanswering-readme?view=azure-python-preview&preserve-view=true
         - name: Conversational Language Understanding
           href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
@@ -930,7 +916,7 @@ items:
       items:
       - name: Explore natural language processing
         href: /training/paths/explore-natural-language-processing
-      - name: Build a question answering solution
+      - name: Build a custom question answering solution
         href: /training/paths/build-qna-solution
       - name: Extract insights from text with the Language service
         href: /training/modules/extract-insights-text-with-text-analytics-service/

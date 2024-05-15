@@ -12,7 +12,7 @@ For more information, see the [open-source Android UI Library](https://github.co
 
 ### Picture-in-picture setup
 
-To enable multitasking and picture-in-picture, use `CallCompositeBuilder.multitasking` to set `CallCompositeMultitaskingOptions` with  `enableMultitasking` and `enableSystemPiPWhenMultitasking` constructor parameters.
+To enable multitasking and picture-in-picture, use `CallCompositeBuilder.multitasking` to set `CallCompositeMultitaskingOptions` with  `enableMultitasking` and `enableSystemPictureInPictureWhenMultitasking` constructor parameters.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -38,33 +38,37 @@ The **Back** button appears when `enableMultitasking` is set to `true`.
 
 :::image type="content" source="media/android-call-screen.png" alt-text="Screenshot of the Android call screen with the Back button visible.":::
 
-When you turn on multitasking for `CallComposite`, the call activity starts in a dedicated task. In the task history, the user sees two screens: one for the app's activity and one for Communication Services call activity.
+When user taps back button Calling UI is hidden and, if configured, Picture-in-Picture view is displayed.
+
+When multitasking is ON for `CallComposite`, the call activity starts in a dedicated task. In the task history, the user sees two screens: one for the app's activity and one for Communication Services call activity.
+
+
+-----
+
+To enter multitasking programmatically and if configured display Picture-in-Picture, call the `sendToBackground` method.
 
 #### [Kotlin](#tab/kotlin)
-
 ```kotlin
-callComposite.displayCallCompositeIfWasHidden(context)
+callComposite.sendToBackground()
 ```
 
 #### [Java](#tab/java)
 
 ```java
-callComposite.displayCallCompositeIfWasHidden(context);
+callComposite.sendToBackground();
 ```
-
 -----
 
-To enter multitasking programmatically, call the `hide` method.
+To bring user back to the calling activity programmatically use `bringToForeground` function:
 
 #### [Kotlin](#tab/kotlin)
+
 ```kotlin
-callComposite.hide()
+callComposite.bringToForeground(context)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-callComposite.hide();
+callComposite.bringToForeground(context);
 ```
-
------

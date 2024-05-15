@@ -23,28 +23,10 @@ To obtain an embedding vector for a piece of text, we make a request to the embe
 
 # [console](#tab/console)
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2023-05-15\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2024-02-01\
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{"input": "Sample Document goes here"}'
-```
-
-# [OpenAI Python 0.28.1](#tab/python)
-
-```python
-import openai
-
-openai.api_type = "azure"
-openai.api_key = YOUR_API_KEY
-openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
-openai.api_version = "2023-05-15"
-
-response = openai.Embedding.create(
-    input="Your text string goes here",
-    engine="YOUR_DEPLOYMENT_NAME"
-)
-embeddings = response['data'][0]['embedding']
-print(embeddings)
 ```
 
 # [OpenAI Python 1.x](#tab/python-new)
@@ -55,7 +37,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint =os.getenv("AZURE_OPENAI_ENDPOINT") 
 )
 
@@ -65,6 +47,26 @@ response = client.embeddings.create(
 )
 
 print(response.model_dump_json(indent=2))
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+[!INCLUDE [Deprecation](../includes/deprecation.md)]
+
+```python
+import openai
+
+openai.api_type = "azure"
+openai.api_key = YOUR_API_KEY
+openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
+openai.api_version = "2024-02-01"
+
+response = openai.Embedding.create(
+    input="Your text string goes here",
+    engine="YOUR_DEPLOYMENT_NAME"
+)
+embeddings = response['data'][0]['embedding']
+print(embeddings)
 ```
 
 # [C#](#tab/csharp)
@@ -99,7 +101,7 @@ foreach (float item in returnValue.Value.Data[0].Embedding.ToArray())
 $openai = @{
     api_key     = $Env:AZURE_OPENAI_API_KEY
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-    api_version = '2023-05-15' # this may change in the future
+    api_version = '2024-02-01' # this may change in the future
     name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
 }
 
@@ -140,6 +142,7 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
   * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
+  * [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
   * [Azure Database for PostgreSQL - Flexible Server](../../../postgresql/flexible-server/how-to-use-pgvector.md)  

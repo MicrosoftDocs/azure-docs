@@ -8,25 +8,31 @@ metadata:
   description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   ms.service: azure-kubernetes-service
   ms.topic: landing-page
-  author: mgoedtel
-  ms.author: magoedte
+  author: nickomang
+  ms.author: nickoman
   ms.date: 01/12/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
+# Start card title with a verb 
   # Card (optional)
   - title: About Azure Kubernetes Service (AKS)
     linkLists:
       - linkListType: overview
         links:
           - text: What is AKS?
-            url: intro-kubernetes.md
+            url: what-is-aks.md
           - text: Get started with AKS
             url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
         links:
+          - text: Trusted Launch (preview)
+            url: use-trusted-launch.md
+          - text: Azure Container Storage (preview)
+            url: /azure/storage/container-storage/container-storage-introduction
+          - text: Deploy an AI model on AKS with the AI toolchain operator (Preview)
+            url: ai-toolchain-operator.md
           - text: Upgrade multiple AKS clusters using Azure Kubernetes Fleet Manager
             url: /azure/kubernetes-fleet/update-orchestration
           - text: Reduce image pull time with Artifact Streaming on AKS (Preview)
@@ -41,8 +47,6 @@ landingContent:
             url: vertical-pod-autoscaler.md
           - text: Use Confidential Virtual Machines
             url: use-cvm.md
-          - text: AKS GitHub Actions
-            url: kubernetes-action.md
 
   # Card (optional)
   - title: Evaluate Linux-based AKS cluster
@@ -169,3 +173,4 @@ landingContent:
            url: /troubleshoot/azure/azure-kubernetes//troubleshoot-aks-cluster-creation-issues
          - text: Troubleshoot common issues 
            url: /troubleshoot/azure/azure-kubernetes/aks-common-issues-faq
+

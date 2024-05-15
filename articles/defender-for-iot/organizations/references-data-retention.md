@@ -1,13 +1,13 @@
 ---
-title: Data retention across Microsoft Defender for IoT
+title: Data retention and sharing across Microsoft Defender for IoT
 description: Learn about the data retention periods and capacities for Microsoft Defender for IoT data stored in Azure, the OT sensor, and on-premises management console.
 ms.topic: conceptual
 ms.date: 01/22/2023
 ---
 
-# Data retention across Microsoft Defender for IoT
+# Data retention and sharing across Microsoft Defender for IoT
 
-Microsoft Defender for IoT sensors learn a baseline of your network traffic during the initial learning period after deployment. This learned baseline is stored indefinitely on your sensors. 
+Microsoft Defender for IoT sensors learn a baseline of your network traffic during the initial learning period after deployment. This learned baseline is stored indefinitely on your sensors.
 
 Defender for IoT also stores other data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
@@ -85,6 +85,12 @@ For more information, see:
 
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
 - [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)
+
+## Data sharing
+
+Defender for IoT shares data, including customer data, among the following Microsoft products also licensed by the customer:
+
+- Microsoft Security Exposure Management
 
 ## On-premises backup file capacity
 

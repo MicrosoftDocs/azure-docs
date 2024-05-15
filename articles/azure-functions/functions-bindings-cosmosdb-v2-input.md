@@ -45,6 +45,8 @@ Unless otherwise noted, examples in this article target version 3.x of the [Azur
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 # [Isolated worker model](#tab/isolated-process)
 
 This section contains examples that require version 3.x of Azure Cosmos DB extension and 5.x of Azure Storage extension. If not already present in your function app, add reference to the following NuGet packages:

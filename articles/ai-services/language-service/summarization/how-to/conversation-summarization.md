@@ -18,11 +18,13 @@ ms.custom:
 
 [!INCLUDE [availability](../includes/regional-availability.md)]
 
-## Conversation summarization types
+## Conversation summarization aspects
 
-- Chapter title and narrative (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents. This summarization type works on conversations with any number of parties. 
+- Chapter title and narrative (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents. This summarization aspect works on conversations with any number of parties. 
 
 - Issue and resolution (call center focused) is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs, which occur between two parties.
+
+- Narrative is designed to summarize the narrative of a conversation.
 
 - Recap is designed to condense lengthy meetings or conversations into a concise one-paragraph summary to provide a quick overview.
 
@@ -31,6 +33,15 @@ ms.custom:
 :::image type="content" source="../media/conversation-summary-diagram.svg" alt-text="A diagram for sending data to the conversation summarization issues and resolution feature.":::
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
+
+For easier navigation, here are links to the corresponding sections for each service:
+
+|Aspect                 |Section                                               |
+|-----------------------|------------------------------------------------------|
+|Issue and Resolution   |[Issue and Resolution](#get-summaries-from-text-chats)|
+|Chapter Title          |[Chapter Title](#get-chapter-titles)                  |
+|Narrative              |[Narrative](#get-narrative-summarization)             |
+|Recap and Follow-up    |[Recap and follow-up](#get-narrative-summarization)   |
 
 ## Features
 

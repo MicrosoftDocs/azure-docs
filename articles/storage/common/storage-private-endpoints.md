@@ -151,7 +151,7 @@ This constraint is a result of the DNS changes made when account A2 creates a pr
 
 You can copy blobs between storage accounts by using private endpoints only if you use the Azure REST API, or tools that use the REST API. These tools include AzCopy, Storage Explorer, Azure PowerShell, Azure CLI, and the Azure Blob Storage SDKs.
 
-Only private endpoints that target the `blob` storage resource endpoint are supported.  This includes REST API calls against Data Lake Storage Gen2 accounts in which the `blob` resource endpoint is referenced explicitly or implicitly. Private endpoints that target the Data Lake Storage Gen2 `dfs` endpoint or the `file` resource endpoint are not yet supported. Copying between storage accounts by using the Network File System (NFS) protocol is not yet supported.
+Only private endpoints that target the `blob` or `file` storage resource endpoint are supported.  This includes REST API calls against Data Lake Storage Gen2 accounts in which the `blob` resource endpoint is referenced explicitly or implicitly. Private endpoints that target the Data Lake Storage Gen2 `dfs` resource endpoint are not yet supported. Copying between storage accounts by using the Network File System (NFS) protocol is not yet supported.
 
 ## Next steps
 

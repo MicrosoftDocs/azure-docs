@@ -81,6 +81,8 @@ After log records are ingested into the Azure Monitor pipeline (as identified in
 
 Some solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, Application Insights calculates application map data; Azure Network Performance Monitoring aggregates incoming data over 3-minute intervals, which effectively adds 3-minute latency.
 
+If the data collection includes an [ingestion-time transformation](../essentials/data-collection-transformations.md), then this will add some latency to the pipeline. Use the metric [Logs Transformation Duration per Min](../essentials/data-collection-monitor.md) to monitor the efficiency of the transformation query.
+
 Another process that adds latency is the process that handles custom logs. In some cases, this process might add a few minutes of latency to logs that are collected from files by the agent.
 
 ### New custom data types provisioning

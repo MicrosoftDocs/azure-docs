@@ -29,7 +29,7 @@ There are two types of routing profiles that support subnet overrides:
 
 To create a Traffic Manager subnet override, you can use Azure CLI to add the subnets for the override to the Traffic Manager endpoint.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

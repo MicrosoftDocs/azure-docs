@@ -44,13 +44,11 @@ Here's example SSML in a request for text to speech with the voice name and the 
 </speak> 
 ```
 
-You can use the SSML via the [Speech SDK](./get-started-text-to-speech.md), [REST API](rest-text-to-speech.md), or [batch synthesis API](batch-synthesis.md).
+You can use the SSML via the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md).
 
 * **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text to speech.
     * When you use Speech SDK, don't set Endpoint Id, just like prebuild voice.
     * When you use REST API, please use prebuilt neural voices endpoint.
-
-* **Asynchronous synthesis of long audio**: Use the [batch synthesis API](batch-synthesis.md) (Preview) to asynchronously synthesize text to speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or Speech to text REST API, responses aren't returned in real-time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
 
 ## Reference documentation
 

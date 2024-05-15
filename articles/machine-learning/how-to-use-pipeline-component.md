@@ -17,7 +17,7 @@ ms.custom:
   - ignite-2023
 ---
 
-# How to use pipeline component to build nested pipeline job (V2) (preview)
+# How to use pipeline component to build nested pipeline job (V2)
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
@@ -26,8 +26,6 @@ When developing a complex machine learning pipeline, it's common to have sub-pip
 By using a pipeline component, the author can focus on developing sub-tasks and easily integrate them with the entire pipeline job. Furthermore, a pipeline component has a well-defined interface in terms of inputs and outputs, which means that user of the pipeline component doesn't need to know the implementation details of the component.
 
 In this article, you'll learn how to use pipeline component in Azure Machine Learning pipeline.
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

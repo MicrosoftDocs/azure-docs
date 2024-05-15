@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 12/05/2023
-ms.custom: template-how-to, linux-related-content
+ms.custom: template-how-to
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network using the Azure portal

@@ -10,11 +10,112 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 02/21/2024
+ms.date: 05/13/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
+
+This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
+
+## May 2024
+
+### GPT-4o preview model available for early access
+
+GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
+
+- GPT-4o integrates text, and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions.
+- GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and in vision tasks, setting new benchmarks for AI capabilities.
+
+To start testing out the model today, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).
+
+### GPT-4 Turbo model general availability (GA)
+
+[!INCLUDE [GPT-4 Turbo](./includes/gpt-4-turbo.md)]
+
+## April 2024
+
+### Fine-tuning is now supported in two new regions East US 2 and Switzerland West
+
+Fine-tuning is now available with support for:
+
+### East US 2
+
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
+
+### Switzerland West
+
+- `babbage-002`
+- `davinci-002`
+- `gpt-35-turbo` (0613)
+- `gpt-35-turbo` (1106)
+- `gpt-35-turbo` (0125)
+
+Check the [models page](concepts/models.md#fine-tuning-models), for the latest information on model availability and fine-tuning support in each region.  
+
+### Multi-turn chat training examples
+
+Fine-tuning now supports [multi-turn chat training examples](./how-to/fine-tuning.md#multi-turn-chat-file-format).
+
+### GPT-4 (0125) is available for Azure OpenAI On Your Data
+
+You can now use the GPT-4 (0125) model in [available regions](./concepts/models.md#public-cloud-regions) with Azure OpenAI On Your Data.
+
+## March 2024
+
+### Risks & Safety monitoring in Azure OpenAI Studio
+
+Azure OpenAI Studio now provides a Risks & Safety dashboard for each of your deployments that uses a content filter configuration. Use it to check the results of the filtering activity. Then you can adjust your filter configuration to better serve your business needs and meet Responsible AI principles.
+
+[Use Risks & Safety monitoring](./how-to/risks-safety-monitor.md)
+
+### Azure OpenAI On Your Data updates
+
+- You can now connect to an Elasticsearch vector database to be used with [Azure OpenAI On Your Data](./concepts/use-your-data.md?tabs=elasticsearch#supported-data-sources).
+- You can use the [chunk size parameter](./concepts/use-your-data.md#chunk-size-preview) during data ingestion to set the maximum number of tokens of any given chunk of data in your index.
+
+### 2024-02-01 general availability (GA) API released
+
+This is the latest GA API release and is the replacement for the previous `2023-05-15` GA release. This release adds support for the latest Azure OpenAI GA features like Whisper, DALLE-3, fine-tuning, on your data, etc.
+
+Features that are still in preview such as Assistants, text to speech (TTS), certain on your data datasources, still require a preview API version. For more information check out our [API version lifecycle guide](./api-version-deprecation.md).
+
+### Whisper general availability (GA)
+
+The Whisper speech to text model is now GA for both REST and Python. Client library SDKs are currently still in public preview.
+
+Try out Whisper by following a [quickstart](./whisper-quickstart.md).
+
+### DALL-E 3 general availability (GA)
+
+DALL-E 3 image generation model is now GA for both REST and Python. Client library SDKs are currently still in public preview.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
+### New regional support for DALL-E 3
+
+You can now access DALL-E 3 with an Azure OpenAI resource in the `East US` or `AustraliaEast` Azure region, in addition to `SwedenCentral`.
+
+### Model deprecations and retirements
+
+We have added a page to track [model deprecations and retirements](./concepts/model-retirements.md) in Azure OpenAI Service. This page provides information about the models that are currently available, deprecated, and retired.
+
+### 2024-03-01-preview API released
+
+`2024-03-01-preview` has all the same functionality as `2024-02-15-preview` and adds two new parameters for embeddings:
+
+- `encoding_format` allows you to specify the format to generate embeddings in `float`, or `base64`. The default is `float`.
+- `dimensions` allows you set the number of output embeddings. This parameter is only supported with the new third generation embeddings models: `text-embedding-3-large`, `text-embedding-3-small`. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance. The `dimensions` parameter is not supported in all versions of the OpenAI 1.x Python library, to take advantage of this parameter  we recommend upgrading to the latest version: `pip install openai --upgrade`.
+
+If you are currently using a preview API version to take advantage of the latest features, we recommend consulting the [API version lifecycle](./api-version-deprecation.md) article to track how long your current API version will be supported.
+
+### Update to GPT-4-1106-Preview upgrade plans
+
+The deployment upgrade of `gpt-4` 1106-Preview to `gpt-4` 0125-Preview scheduled for March 8, 2024 is no longer taking place. Deployments of `gpt-4` versions 1106-Preview and 0125-Preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after a stable version of the model is released.  
+
+For more information on the upgrade process refer to the [models page](./concepts/models.md).
 
 ## February 2024
 
@@ -93,8 +194,8 @@ You can now use Azure OpenAI On Your Data in the following Azure region:
 
 GPT-4 Turbo with Vision on Azure OpenAI service is now in public preview. GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
 
-- Explore the capabilities of GPT-4 Turbo with Vision in a no-code experience using the [Azure Open AI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./gpt-v-quickstart.md).
-- Vision enhancement using GPT-4 Turbo with Vision is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, object grounding, image support for "add your data," and support for video prompt.
+- Explore the capabilities of GPT-4 Turbo with Vision in a no-code experience using the [Azure OpenAI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./gpt-v-quickstart.md).
+- Vision enhancement using GPT-4 Turbo with Vision is now available in the [Azure OpenAI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, object grounding, image support for "add your data," and support for video prompt.
 - Make calls to the chat API directly using the [REST API](https://aka.ms/gpt-v-api-ref).
 - Region availability is currently limited to `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, and `AustraliaEast`  
 - Learn more about the known limitations of GPT-4 Turbo with Vision and other [frequently asked questions](/azure/ai-services/openai/faq#gpt-4-with-vision).
@@ -205,7 +306,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 
 ### Embedding input array increase
 
-- Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.md#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
+- Azure OpenAI now [supports arrays with up to 16 inputs](./how-to/switching-endpoints.yml#azure-openai-embeddings-multiple-input-support) per API request with text-embedding-ada-002 Version 2.
 
 ### New Regions
 
@@ -364,7 +465,7 @@ New training course:
 }
 ```
 
-**Content filtering is temporarily off** by default. Azure content moderation works differently than OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
+**Content filtering is temporarily off** by default. Azure content moderation works differently than Azure OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
 
 ​These models will be re-enabled in Q1 2023 and be on by default. ​
 

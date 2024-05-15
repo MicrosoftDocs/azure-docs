@@ -1,6 +1,6 @@
 ---
 title: Guide for running C# Azure Functions in an isolated worker process
-description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
+description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/13/2023
@@ -13,7 +13,7 @@ recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
 
-# Guide for running C# Azure Functions in an isolated worker process
+# Guide for running C# Azure Functions in the isolated worker model
 
 This article is an introduction to working with Azure Functions in .NET, using the isolated worker model. This model allows your project to target versions of .NET independently of other runtime components. For information about specific .NET versions supported, see [supported version](#supported-versions). 
 
@@ -111,7 +111,10 @@ The [ConfigureFunctionsWorkerDefaults] method is used to add the settings requir
 
 Having access to the host builder pipeline means that you can also set any app-specific configurations during initialization. You can call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add the configurations required by your function app. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
 
-These configurations apply to your function app running in a separate process. To make changes to the functions host or trigger and binding configuration, you still need to use the [host.json file](functions-host-json.md).   
+These configurations apply to your function app running in a separate process. To make changes to the functions host or trigger and binding configuration, you still need to use the [host.json file](functions-host-json.md).
+
+> [!NOTE]
+> Custom configuration sources cannot be used for configuration of triggers and bindings. Trigger and binding configuration must be available to the Functions platform, and not just your application code. You can provide this configuration through the [application settings](../app-service/configure-common.md#configure-app-settings), [Key Vault references](../app-service/app-service-key-vault-references.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json), or [App Configuration references](../app-service/app-service-configuration-references.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json) features.
 
 ### Dependency injection
 
@@ -214,6 +217,45 @@ This is an example of a middleware implementation that reads the `HttpRequestDat
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/StampHttpHeaderMiddleware.cs" id="docsnippet_middleware_example_stampheader" :::
  
 This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header. For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
+
+### Customizing JSON serialization
+
+The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication((IFunctionsWorkerApplicationBuilder builder) =>
+    {
+        builder.Services.Configure<JsonSerializerOptions>(jsonSerializerOptions =>
+        {
+            jsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            jsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+            jsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+
+            // override the default value
+            jsonSerializerOptions.PropertyNameCaseInsensitive = false;
+        });
+    })
+    .Build();
+```
+
+You might wish to instead use JSON.NET (`Newtonsoft.Json`) for serialization. To do this, you would install the [`Microsoft.Azure.Core.NewtonsoftJson`](https://www.nuget.org/packages/Microsoft.Azure.Core.NewtonsoftJson) package. Then, in your service registration, you would reassign the `Serializer` property on the `WorkerOptions` configuration. The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication((IFunctionsWorkerApplicationBuilder builder) =>
+    {
+        builder.Services.Configure<WorkerOptions>(workerOptions =>
+        {
+            var settings = NewtonsoftJsonObjectSerializer.CreateJsonSerializerSettings();
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+
+            workerOptions.Serializer = new NewtonsoftJsonObjectSerializer(settings);
+        });
+    })
+    .Build();
+```
 
 ## Methods recognized as functions
 
@@ -432,7 +474,7 @@ var host = new HostBuilder()
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs), and is recommended because it gives you control over how those logs are emitted. 
+You can configure your isolated process application to emit logs directly to [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs), and is recommended because it gives you control over how those logs are emitted. 
 
 #### Install packages
 
@@ -604,7 +646,7 @@ In Visual Studio, the **Target Runtime** option in the publish profile should be
 
 ## Deploy to Azure Functions
 
-When running in Azure, your function code project must run in either a function app or in a Linux container. The function app and other required Azure resources must exist before you deploy your code.  
+When you deploy your function code project to Azure, it must run in either a function app or in a Linux container. The function app and other required Azure resources must exist before you deploy your code.  
 
 You can also deploy your function app in a Linux container. For more information, see [Working with containers and Azure Functions](functions-how-to-custom-container.md). 
 

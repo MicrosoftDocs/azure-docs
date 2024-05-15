@@ -4,7 +4,7 @@ description: Learn how to create a proof of concept regional based approach for 
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/24/2024
 ms.author: gasinh
 ms.subservice: B2C

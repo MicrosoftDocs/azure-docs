@@ -1,87 +1,96 @@
 ---
-title: Use feature filters to enable conditional feature flags
+title: Enable conditional features with a custom filter in an ASP.NET Core application
 titleSuffix: Azure App Configuration
-description: Learn how to use feature filters in Azure App Configuration to enable conditional feature flags for your app.
+description: Learn how to implement a custom feature filter to enable conditional feature flags for your ASP.NET Core application.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: maud-lv
-ms.author: malev
+author: zhiyuanliang
+ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 01/12/2024
-#Customerintent: As a developer, I want to create a feature filter to activate a feature flag depending on a specific scenario.
+ms.date: 03/28/2024
 ---
 
-# Use feature filters to enable conditional feature flags
+# Tutorial: Enable conditional features with a custom filter in an ASP.NET Core application
 
-Feature flags allow you to activate or deactivate functionality in your application. A simple feature flag is either on or off. The application always behaves the same way. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
+Feature flags can use feature filters to enable features conditionally. To learn more about feature filters, see [Tutorial: Enable conditional features with feature filters](./howto-feature-filters.md).
 
-In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ determine the state of the feature flag each time it's evaluated.
+The example used in this tutorial is based on the ASP.NET Core application introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core application with a *Beta* feature flag. Once completed, you must [add a custom feature filter](./howto-feature-filters.md) to the *Beta* feature flag in your App Configuration store. 
 
-The `Microsoft.FeatureManagement` library includes three feature filters:
-
-- `PercentageFilter` enables the feature flag based on a percentage.
-- `TimeWindowFilter` enables the feature flag during a specified window of time.
-- `TargetingFilter` enables the feature flag for specified users and groups.
-
-You can also create your own feature filter that implements the Microsoft.FeatureManagement.IFeatureFilter interface.
+In this tutorial, you'll learn how to implement a custom feature filter and use the feature filter to enable features conditionally.
 
 ## Prerequisites
 
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- Create an [ASP.NET Core app with a feature flag](./quickstart-feature-flag-aspnet-core.md).
+- [Add a custom feature filter to the feature flag](./howto-feature-filters.md)
 
-## Register a feature filter
+## Implement a custom feature filter
 
-You register a feature filter by calling the `AddFeatureFilter` method, specifying the type name of the desired feature filter. For example, the following code registers `PercentageFilter`:
+You've added a custom feature filter named **Random** with a **Percentage** parameter for your *Beta* feature flag in the prerequisites. Next, you'll implement the feature filter to enable the *Beta* feature flag based on the chance defined by the **Percentage** parameter.
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllersWithViews();
-    services.AddFeatureManagement().AddFeatureFilter<PercentageFilter>();
-}
-```
+1. Add a `RandomFilter.cs` file with the following code.
 
-## Configure a feature filter in Azure App Configuration
+    ```csharp
+    using Microsoft.FeatureManagement;
 
-Some feature filters have additional settings. For example, `PercentageFilter` activates a feature based on a percentage. It has a setting defining the percentage to use.
+    namespace TestAppConfig
+    {
+        [FilterAlias("Random")]
+        public class RandomFilter : IFeatureFilter
+        {
+            private readonly Random _random;
 
-You can configure these settings for feature flags defined in Azure App Configuration. For example, follow these steps to use `PercentageFilter` to enable the feature flag for 50% of requests to a web app:
+            public RandomFilter()
+            {
+                _random = new Random();
+            }
 
-1. Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to create a web app with a feature flag.
+            public Task<bool> EvaluateAsync(FeatureFilterEvaluationContext context)
+            {
+                int percentage = context.Parameters.GetSection("Percentage").Get<int>();
 
-1. In the Azure portal, go to your configuration store and select **Feature manager**.
+                int randomNumber = _random.Next(100);
 
-    :::image type="content" source="./media/feature-filters/edit-beta-feature-flag.png" alt-text="Screenshot of the Azure portal, selecting the Edit option for the Beta feature flag, under Feature manager.":::
+                return Task.FromResult(randomNumber <= percentage);
+            }
+        }
+    }
+    ```
 
-1. On the line with the Beta feature flag you created in the quickstart, select the context menu and then **Edit**.
+    You added a `RandomFilter` class that implements the `IFeatureFilter` interface from the `Microsoft.FeatureManagement` library. The `IFeatureFilter` interface has a single method named `EvaluateAsync`, which is called whenever a feature flag is evaluated. In `EvaluateAsync`, a feature filter enables a feature flag by returning `true`.
 
-1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
+    You decorated a `FilterAliasAttribute` to the `RandomFilter` to give your filter an alias **Random**, which matches the filter name you set in the *Beta* feature flag in Azure App Configuration.
 
-    :::image type="content" source="./media/feature-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal, filling out the form 'Edit feature flag'.":::
+1. Open the *Program.cs* file and register the `RandomFilter` by calling the `AddFeatureFilter` method. 
 
-1. The pane **Create a new filter** opens. Under **Filter type**, select **Targeting filter** to enable a new filter for specific users or a group.
+    ```csharp
+    // The rest of existing code in Program.cs
+    // ... ...
 
-    :::image type="content" source="./media/feature-filters/add-targeting-filter.png" alt-text="Screenshot of the Azure portal, creating a new targeting filter.":::
+    // Add feature management to the container of services.
+    builder.Services.AddFeatureManagement()
+                    .AddFeatureFilter<RandomFilter>();
 
-1. Optionally expand the **Evaluation flow** menu to see a graph showing how the targeting filter is evaluated in the selected scenario. Leave the **Default Percentage** at 50. The options **Override by Groups** and **Override by Users** let you enable or disable the feature flag for select groups or users. These options are disabled by default.
-1. Select **Add** to save the new feature filter and return to the **Edit feature flag** screen.
+    // The rest of existing code in Program.cs
+    // ... ...
+    ```
 
-1. The feature filter you created is now listed in the feature flag details. Select **Apply** to save the new feature flag settings.
+## Feature filter in action
 
-    :::image type="content" source="./media/feature-filters/feature-flag-edit-apply-filter.png" alt-text="Screenshot of the Azure portal, applying new targeting filter.":::
+Relaunch the application and refresh the browser a few times. Without manually toggling the feature flag, you will see that the **Beta** menu sometimes appears and sometimes doesn't.
 
-1. On the **Feature manager** page, the feature flag now has a **Feature filter(s)** value of **1**.
+> [!div class="mx-imgBorder"]
+> ![Screenshot of browser with Beta menu hidden.](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-    :::image type="content" source="./media/feature-filters/updated-feature-flag.png" alt-text="Screenshot of the Azure portal, displaying updated feature flag.":::
-
-## Feature filters in action
-
-To see the effects of this feature flag, launch the application and hit the **Refresh** button in your browser multiple times. You'll see that the *Beta* item appears on the toolbar about 50% of the time. It's hidden the rest of the time, because the `PercentageFilter` deactivates the *Beta* feature for a subset of requests. The following video shows this behavior in action.
-
-:::image type="content" source="./media/feature-filters/feature-flags-percentagefilter.gif" alt-text="Screenshot of a web browser showing a targeting filter in action.":::
+> [!div class="mx-imgBorder"]
+> ![Screenshot of browser with Beta menu.](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
 ## Next steps
 
+To learn more about the built-in feature filters, continue to the following tutorials.
+
 > [!div class="nextstepaction"]
-> [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audience](./howto-targetingfilter.md)

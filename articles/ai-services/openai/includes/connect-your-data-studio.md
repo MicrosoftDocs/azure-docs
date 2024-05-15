@@ -12,13 +12,16 @@ recommendations: false
 
 ## Add your data using Azure OpenAI Studio
 
+> [!TIP]
+> You can [use the Azure Developer CLI](../how-to/azure-developer-cli.md) to programmatically create the resources needed for Azure OpenAI On Your Data 
+
 Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
 1. Select the **Bring your own data** tile
 
     :::image type="content" source="../media/use-your-data/bring-your-data-card.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../media/use-your-data/bring-your-data-card.png":::
 
-1. In the pane that appears, select **Upload files (preview)** under **Select data source**. Azure OpenAI needs both a storage resource and a search resource to access and index your data.
+1. In the pane that appears, select **Upload files (preview)** under **Select data source**. Azure OpenAI needs both a storage resource and a search resource to access and index your data. 
 
     > [!TIP]
     > * See the following resource for more information:
@@ -33,7 +36,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
     :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
 
-1. On the **Upload files** pane, select **Browse for a file** and select the files you want to upload. Then select **Upload files**. Then select **Next**.
+1. On the **Upload files** pane, select **Browse for a file** and select the files you downloaded from the [prerequisites](#prerequisites) section, or your own data. Then select **Upload files**. Then select **Next**.
 
 1. On the **Data management** pane, you can choose whether to enable [semantic search or vector search](../concepts/use-your-data.md#search-types) for your index.
     

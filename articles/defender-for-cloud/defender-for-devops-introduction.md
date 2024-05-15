@@ -1,12 +1,12 @@
 ---
 title: Microsoft Defender for Cloud DevOps security - the benefits and features
-description: Learn about the benefits and features of Microsoft DevOps security
-ms.date: 01/24/2023
+description: Learn about the benefits and features of Microsoft DevOps security.
+ms.date: 03/11/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
 
-# Overview of Microsoft Defender for Cloud DevOps Security
+# Overview of Microsoft Defender for Cloud DevOps security
 
 Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources.
 
@@ -40,7 +40,7 @@ Here, you can add [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickst
 
 The DevOps inventory table allows you to review onboarded DevOps resources and the security information related to them.
 
-:::image type="content" source="media/defender-for-devops-introduction/inventory-grid.png" alt-text="Screenshot of the devops inventory table on the DevOps security overview page." lightbox="media/defender-for-devops-introduction/bottom-of-page.png":::
+:::image type="content" source="media/defender-for-devops-introduction/inventory-grid.png" alt-text="Screenshot that shows the Devops inventory table on the DevOps security overview page." lightbox="media/defender-for-devops-introduction/bottom-of-page.png":::
 
 On this part of the screen you see:
 
@@ -67,7 +67,7 @@ On this part of the screen you see:
 
 - **Findings** - Shows the total number of code, secrets, dependency, and infrastructure-as-code findings identified in the DevOps resource.
 
-This table can be viewed as a flat view at the DevOps resource level (repositories for Azure DevOps and GitHub, projects for GitLab) or in a grouping view showing organizations/projects/groups hierarchy.  Also, the table can be filtered by subscription, resource type, finding type, or severity.
+This table can be viewed as a flat view at the DevOps resource level (repositories for Azure DevOps and GitHub, projects for GitLab) or in a grouping view showing organizations/projects/groups hierarchy. Also, you can filter the table by subscription, resource type, finding type, or severity.
 
 ## Learn more
 
@@ -77,12 +77,10 @@ This table can be viewed as a flat view at the DevOps resource level (repositori
 
 - You can learn about [securing Azure Pipelines](/azure/devops/pipelines/security/overview).
 
-- Learn about [security hardening practices for GitHub Actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
+- Learn about [security hardening practices for GitHub actions](https://docs.github.com/actions/security-guides/security-hardening-for-github-actions).
 
 ## Next steps
 
-[Connect your Azure DevOps organizations](quickstart-onboard-devops.md).
-
-[Connect your GitHub organizations](quickstart-onboard-github.md).
-
-[Connect your GitLab groups](quickstart-onboard-gitlab.md).
+- [Connect your Azure DevOps organizations](quickstart-onboard-devops.md).
+- [Connect your GitHub organizations](quickstart-onboard-github.md).
+- [Connect your GitLab groups](quickstart-onboard-gitlab.md).

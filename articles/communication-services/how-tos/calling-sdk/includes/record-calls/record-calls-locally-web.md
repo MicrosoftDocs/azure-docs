@@ -40,7 +40,7 @@ You can also get a list of local recordings by using the `localRecordings` prope
 const recordings = localCallRecordingApi.localRecordings;
 
 recordings.forEach(r => {
-    console.log("User: ${r.displayName}, State: ${r.state});
+    console.log("User: ${r.displayName}, State: ${r.state}");
 ```
 
 You can subscribe to recording changes:
@@ -64,7 +64,7 @@ const localRecordingsUpdatedHandler = (args: { added: SDK.LocalRecordingInfo[], 
 
                         console.log('Local recording stopped by: ');
                         args.removed?.forEach(r => {
-                            console.log('User: ${r.displayName});
+                            console.log('User: ${r.displayName}');
                         });
                     };
 localCallRecordingApi.on('localRecordingsUpdated', localRecordingsUpdatedHandler);

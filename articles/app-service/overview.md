@@ -5,7 +5,7 @@ description: Learn how Azure App Service helps you develop and host web applicat
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 08/31/2023
-ms.custom: UpdateFrequency3
+ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
 ---
@@ -24,7 +24,7 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 
 * **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, ASP.NET Core, Java, Node.js, PHP, or Python. You can also run [PowerShell and other scripts or executables](webjobs-create.md) as background services.
 * **Managed production environment** - App Service automatically [patches and maintains the OS and language frameworks](overview-patch-os-runtime.md) for you. Spend time writing great apps and let Azure worry about the platform.
-* **Containerization and Docker** - Dockerize your app and host a custom Windows or Linux container in App Service. Run multi-container apps with Docker Compose. Migrate your Docker skills directly to App Service.
+* **Containerization and Docker** - Dockerize your app and host a custom Windows or Linux container in App Service. Run sidecar containers of your choice. Migrate your Docker skills directly to App Service.
 * **DevOps optimization** - Set up [continuous integration and deployment](deploy-continuous-deployment.md) with Azure DevOps, GitHub, BitBucket, Docker Hub, or Azure Container Registry. Promote updates through [test and staging environments](deploy-staging-slots.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azure/) or the [cross-platform command-line interface (CLI)](/cli/azure/install-azure-cli).
 * **Global scale with high availability** - Scale [up](manage-scale-up.md) or [out](../azure-monitor/autoscale/autoscale-get-started.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 * **Connections to SaaS platforms and on-premises data** - Choose from [many hundreds of  connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for enterprise systems (such as SAP), SaaS services (such as Salesforce), and internet services (such as Facebook). Access on-premises data using [Hybrid Connections](app-service-hybrid-connections.md) and [Azure Virtual Networks](./overview-vnet-integration.md).

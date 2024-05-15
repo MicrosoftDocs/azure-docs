@@ -1,6 +1,6 @@
 ---
 title: Enable and manage adaptive application controls
-description: This document helps you enable and manage adaptive application control in Microsoft Defender for Cloud to create an allowlist of applications running for Azure machines.
+description: Learn how to enable and manage adaptive application control in Microsoft Defender for Cloud to create an allowlist of applications running for Azure machines.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
@@ -45,7 +45,7 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the **Recommended** tab. The groups of machines with recommended allowlists appear.
 
-   :::image type="content" source="media/enable-adaptive-application-controls/adaptive-application-recommended-tab.png" alt-text="Screenshot that shows you where on the screen the recommendation tab is."::: 
+   :::image type="content" source="media/enable-adaptive-application-controls/adaptive-application-recommended-tab.png" alt-text="Screenshot that shows you where on the screen the recommendation tab is.":::
 
 1. Select a group.
 
@@ -82,7 +82,7 @@ To edit the rules for a group of machines:
 
    1. Select **Add rule**.
 
-    :::image type="content" source="media/enable-adaptive-application-controls/adaptive-application-add-custom-rule.png" alt-text="Screenshot that showsyou where the add rule button is located.":::
+    :::image type="content" source="media/enable-adaptive-application-controls/adaptive-application-add-custom-rule.png" alt-text="Screenshot that shows you where the add rule button is located.":::
 
    1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path. The following screens show some examples of how to use wildcards.
 
@@ -134,7 +134,7 @@ To remediate the issues:
 
 1. To investigate further, select a group.
 
-    :::image type="content" source="media/enable-adaptive-application-controls/recent-alerts.png" alt-text="Screenshot showing recent alerts.":::
+    :::image type="content" source="media/enable-adaptive-application-controls/recent-alerts.png" alt-text="Screenshot showing recent alerts in Configured tab.":::
 
 1. For further details, and the list of affected machines, select an alert.
 
@@ -180,7 +180,7 @@ Some of the functions available from the REST API include:
    >
    > Remove the following properties before using the JSON in the **Put** request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
 
-## Next steps
+## Related content
 
 On this page, you learned how to use adaptive application control in Microsoft Defender for Cloud to define allowlists of applications running on your Azure and non-Azure machines. To learn more about some other cloud workload protection features, see:
 

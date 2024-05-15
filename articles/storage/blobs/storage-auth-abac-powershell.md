@@ -7,7 +7,7 @@ ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.reviewer: nachakra
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.date: 03/15/2023
 ---
 
@@ -105,7 +105,7 @@ Here's what the condition looks like in code:
 
 ## Step 3: Create a user
 
-1. Use [New-AzureADUser](/powershell/module/azuread/new-azureaduser) to create a user or find an existing user. This tutorial uses Chandra as the example.
+1. Use [New-MgUser](/powershell/module/microsoft.graph.users/new-mguser) to create a user or find an existing user. This tutorial uses Chandra as the example.
 
 1. Initialize the variable for the object ID of the user.
 

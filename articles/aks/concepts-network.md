@@ -2,7 +2,9 @@
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
 description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
 ms.topic: conceptual
-ms.date: 12/26/2023
+ms.date: 03/26/2024
+author: schaffererin
+ms.author: schaffererin
 ms.custom: fasttrack-edit
 ---
 
@@ -10,17 +12,16 @@ ms.custom: fasttrack-edit
 
 In a container-based, microservices approach to application development, application components work together to process their tasks. Kubernetes provides various resources enabling this cooperation:
 
-* You can connect to and expose applications internally or externally.
-* You can build highly available applications by load balancing your applications.
-* You can restrict the flow of network traffic into or between pods and nodes to improve security.
-* You can configure Ingress traffic for SSL/TLS termination or routing of multiple components for your more complex applications.
+- You can connect to and expose applications internally or externally.
+- You can build highly available applications by load balancing your applications.
+- You can restrict the flow of network traffic into or between pods and nodes to improve security.
+- You can configure Ingress traffic for SSL/TLS termination or routing of multiple components for your more complex applications.
 
 This article introduces the core concepts that provide networking to your applications in AKS:
 
-* [Services and ServiceTypes](#services)
-* [Azure virtual networks](#azure-virtual-networks)
-* [Ingress controllers](#ingress-controllers)
-* [Network policies](#network-policies)
+- [Azure virtual networks](#azure-virtual-networks)
+- [Ingress controllers](#ingress-controllers)
+- [Network policies](#network-policies)
 
 ## Kubernetes networking basics
 
@@ -32,8 +33,6 @@ Kubernetes employs a virtual networking layer to manage access within and betwee
 
 Regarding specific Kubernetes functionalities:
 
-- **Services**: Services is used to logically group pods, allowing direct access to them through a specific IP address or DNS name on a designated port.
-- **Service types**: Specifies the kind of Service you wish to create.
 - **Load balancer**: You can use a load balancer to distribute network traffic evenly across various resources.
 - **Ingress controllers**: These facilitate Layer 7 routing, which is essential for directing application traffic.
 - **Egress traffic control**: Kubernetes allows you to manage and control outbound traffic from cluster nodes.
@@ -46,51 +45,15 @@ In the context of the Azure platform:
 - As you open network ports to pods, Azure automatically configures the necessary network security group rules.
 - Azure can also manage external DNS configurations for HTTP application routing as new Ingress routes are established.
 
-## Services
-
-To simplify the network configuration for application workloads, Kubernetes uses *Services* to logically group a set of pods together and provide network connectivity. You can specify a Kubernetes *ServiceType* to define the type of Service you want. For example, if you want to expose a Service on an external IP address outside of your cluster. For more information, see the Kubernetes documentation on [Publishing Services (ServiceTypes)][service-types].
-
-The following ServiceTypes are available:
-
-* **ClusterIP**
-  
-  ClusterIP creates an internal IP address for use within the AKS cluster. The ClusterIP Service is good for *internal-only applications* that support other workloads within the cluster. ClusterIP is the default used if you don't explicitly specify a type for a Service.
-
-    ![Diagram showing ClusterIP traffic flow in an AKS cluster][aks-clusterip]
-
-* **NodePort**
-
-  NodePort creates a port mapping on the underlying node that allows the application to be accessed directly with the node IP address and port.
-
-    ![Diagram showing NodePort traffic flow in an AKS cluster][aks-nodeport]
-
-* **LoadBalancer**
-
-  LoadBalancer creates an Azure load balancer resource, configures an external IP address, and connects the requested pods to the load balancer backend pool. To allow customers' traffic to reach the application, load balancing rules are created on the desired ports.
-
-    ![Diagram showing Load Balancer traffic flow in an AKS cluster][aks-loadbalancer]
-
-    For HTTP load balancing of inbound traffic, another option is to use an [Ingress controller](#ingress-controllers).
-
-* **ExternalName**
-
-  Creates a specific DNS entry for easier application access.
-
-Either the load balancers and services IP address can be dynamically assigned, or you can specify an existing static IP address. You can assign both internal and external static IP addresses. Existing static IP addresses are often tied to a DNS entry.
-
-You can create both *internal* and *external* load balancers. Internal load balancers are only assigned a private IP address, so they can't be accessed from the Internet.
-
-Learn more about Services in the [Kubernetes docs][k8s-service].
-
 ## Azure virtual networks
 
 In AKS, you can deploy a cluster that uses one of the following network models:
 
-* ***Kubenet* networking**
+- ***Kubenet* networking**
 
   The network resources are typically created and configured as the AKS cluster is deployed.
 
-* ***Azure Container Networking Interface (CNI)* networking**
+- ***Azure Container Networking Interface (CNI)* networking**
 
   The AKS cluster is connected to existing virtual network resources and configurations.
 
@@ -135,7 +98,7 @@ For more information, see [Configure Azure CNI for an AKS cluster][aks-configure
 
 [Azure CNI Powered by Cilium][azure-cni-powered-by-cilium] uses [Cilium](https://cilium.io) to provide high-performance networking, observability, and network policy enforcement. It integrates natively with [Azure CNI Overlay][azure-cni-overlay] for scalable IP address management (IPAM).
 
-Additionally, Cilium enforces network policies by default, without requiring a separate network policy engine. Azure CNI Powered by Cilium can scale beyond [Azure Network Policy Manager's limits of 250 nodes / 20-K pod][use-network-policies] by using ePBF programs and a more efficient API object structure.
+Additionally, Cilium enforces network policies by default, without requiring a separate network policy engine. Azure CNI Powered by Cilium can scale beyond [Azure Network Policy Manager's limits of 250 nodes / 20-K pod][use-network-policies] by using eBPF programs and a more efficient API object structure.
 
 Azure CNI Powered by Cilium is the recommended option for clusters that require network policy enforcement.
 
@@ -147,14 +110,14 @@ It's possible to install in AKS a non-Microsoft CNI using the [Bring your own CN
 
 Both kubenet and Azure CNI provide network connectivity for your AKS clusters. However, there are advantages and disadvantages to each. At a high level, the following considerations apply:
 
-* **kubenet**
+- **kubenet**
 
-  * Conserves IP address space.
-  * Uses Kubernetes internal or external load balancers to reach pods from outside of the cluster.
-  * You manually manage and maintain user-defined routes (UDRs).
-  * Maximum of 400 nodes per cluster.
+  - Conserves IP address space.
+  - Uses Kubernetes internal or external load balancers to reach pods from outside of the cluster.
+  - You manually manage and maintain user-defined routes (UDRs).
+  - Maximum of 400 nodes per cluster.
   
-* **Azure CNI**
+- **Azure CNI**
 
   * Pods get full virtual network connectivity and can be directly reached via their private IP address from connected networks.
   * Requires more IP address space.
@@ -185,13 +148,13 @@ For more information on Azure CNI and kubenet and to help determine which option
 
 Whatever network model you use, both kubenet and Azure CNI can be deployed in one of the following ways:
 
-* The Azure platform can automatically create and configure the virtual network resources when you create an AKS cluster.
-* You can manually create and configure the virtual network resources and attach to those resources when you create your AKS cluster.
+- The Azure platform can automatically create and configure the virtual network resources when you create an AKS cluster.
+- You can manually create and configure the virtual network resources and attach to those resources when you create your AKS cluster.
 
 Although capabilities like service endpoints or UDRs are supported with both kubenet and Azure CNI, the [support policies for AKS][support-policies] define what changes you can make. For example:
 
-* If you manually create the virtual network resources for an AKS cluster, you're supported when configuring your own UDRs or service endpoints.
-* If the Azure platform automatically creates the virtual network resources for your AKS cluster, you can't manually change those AKS-managed resources to configure your own UDRs or service endpoints.
+- If you manually create the virtual network resources for an AKS cluster, you're supported when configuring your own UDRs or service endpoints.
+- If the Azure platform automatically creates the virtual network resources for your AKS cluster, you can't manually change those AKS-managed resources to configure your own UDRs or service endpoints.
 
 ## Ingress controllers
 
@@ -203,23 +166,42 @@ The *LoadBalancer* only works at layer 4. At layer 4, the Service is unaware of 
 
 ![Diagram showing Ingress traffic flow in an AKS cluster][aks-ingress]
 
+### Compare ingress options
+
+The following table lists the feature differences between the different ingress controller options:
+
+| Feature | Application Routing addon | Application Gateway for Containers | Azure Service Mesh/Istio-based service mesh |
+|---------|---------------------------|---------------------------------------------|-------|
+| **Ingress/Gateway controller** | NGINX ingress controller | Azure Application Gateway for Containers | Istio Ingress Gateway |
+| **API** | Ingress API | Ingress API and Gateway API | Gateway API |
+| **Hosting** | In-cluster | Azure hosted | In-cluster |
+| **Scaling** | Autoscaling | Autoscaling | Autoscaling |
+| **Load balancing** | Internal/External | External | Internal/External |
+| **SSL termination** | In-cluster | Yes: Offloading and E2E SSL | In-cluster |
+| **mTLS** | N/A | Yes to backend | N/A |
+| **Static IP Address** | N/A | FQDN | N/A |
+| **Azure Key Vault stored SSL certificates** | Yes | Yes | N/A |
+| **Azure DNS integration for DNS zone management** | Yes | Yes | N/A |
+
+The following table lists the different scenarios where you might use each ingress controller:
+
+| Ingress option | When to use |
+|----------------|-------------|
+| **Managed NGINX - Application Routing addon** | • In-cluster hosted, customizable, and scalable NGINX ingress controllers. </br> • Basic load balancing and routing capabilities. </br> • Internal and external load balancer configuration. </br> • Static IP address configuration. </br> • Integration with Azure Key Vault for certificate management. </br> • Integration with Azure DNS Zones for public and private DNS management. </br> • Supports the Ingress API. |
+| **Application Gateway for Containers** | • Azure hosted ingress gateway. </br> • Flexible deployment strategies managed by the controller or bring your own Application Gateway for Containers. </br> • Advanced traffic management features such as automatic retries, availability zone resiliency, mutual authentication (mTLS) to backend target, traffic splitting / weighted round robin, and autoscaling. </br> • Integration with Azure Key Vault for certificate management. </br> • Integration with Azure DNS Zones for public and private DNS management. </br> • Supports the Ingress and Gateway APIs. |
+| **Istio Ingress Gateway** | • Based on Envoy, when using with Istio for a service mesh. </br> • Advanced traffic management features such as rate limiting and circuit breaking. </br> • Support for mTLS </br> • Supports the Gateway API. |
+
 ### Create an Ingress resource
 
-In AKS, you can create an [Ingress resource using NGINX][nginx-ingress], a similar tool, or the AKS HTTP application routing feature. When you enable HTTP application routing for an AKS cluster, the Azure platform creates the ingress controller and an *External-DNS* controller. As new Ingress resources are created in Kubernetes, the required DNS `A` records are created in a cluster-specific DNS zone.
+The application routing addon is the recommended way to configure an Ingress controller in AKS. The application routing addon is a fully managed ingress controller for Azure Kubernetes Service (AKS) that provides the following features:
 
-For more information, see [Deploy HTTP application routing][aks-http-routing].
+- Easy configuration of managed NGINX Ingress controllers based on Kubernetes NGINX Ingress controller.
 
-### Application Gateway Ingress Controller (AGIC)
+- Integration with Azure DNS for public and private zone management.
 
-With the Application Gateway Ingress Controller (AGIC) add-on, you can use Azure's native Application Gateway level 7 load-balancer to expose cloud software to the Internet. AGIC runs as a pod within the AKS cluster. It consumes [Kubernetes Ingress Resources][k8s-ingress] and converts them to an Application Gateway configuration, which allows the gateway to load-balance traffic to the Kubernetes pods.
+- SSL termination with certificates stored in Azure Key Vault.
 
-To learn more about the AGIC add-on for AKS, see [What is Application Gateway Ingress Controller?][agic-overview].
-
-### SSL/TLS termination
-
-SSL/TLS termination is another common feature of Ingress. On large web applications accessed via HTTPS, the Ingress resource handles the TLS termination rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as "Let's Encrypt."
-
-For more information on configuring an NGINX ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
+For more information about the application routing addon, see [Managed NGINX ingress with the application routing add-on](app-routing.md).
 
 ### Client source IP preservation
 
@@ -249,8 +231,8 @@ For more information, see [How network security groups filter network traffic][n
 
 By default, all pods in an AKS cluster can send and receive traffic without limitations. For improved security, define rules that control the flow of traffic, like:
 
-* Back-end applications are only exposed to required frontend services.
-* Database components are only accessible to the application tiers that connect to them.
+- Back-end applications are only exposed to required frontend services.
+- Database components are only accessible to the application tiers that connect to them.
 
 Network policy is a Kubernetes feature available in AKS that lets you control the traffic flow between pods. You can allow or deny traffic to the pod based on settings such as assigned labels, namespace, or traffic port. While network security groups are better for AKS nodes, network policies are a more suited, cloud-native way to control the flow of traffic for pods. As pods are dynamically created in an AKS cluster, required network policies can be automatically applied.
 
@@ -264,27 +246,21 @@ For associated best practices, see [Best practices for network connectivity and 
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
-* [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
-* [Kubernetes / AKS access and identity][aks-concepts-identity]
-* [Kubernetes / AKS security][aks-concepts-security]
-* [Kubernetes / AKS storage][aks-concepts-storage]
-* [Kubernetes / AKS scale][aks-concepts-scale]
+- [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS access and identity][aks-concepts-identity]
+- [Kubernetes / AKS security][aks-concepts-security]
+- [Kubernetes / AKS storage][aks-concepts-storage]
+- [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- IMAGES -->
-[aks-clusterip]: ./media/concepts-network/aks-clusterip.png
-[aks-nodeport]: ./media/concepts-network/aks-nodeport.png
 [aks-loadbalancer]: ./media/concepts-network/aks-loadbalancer.png
 [advanced-networking-diagram]: ./media/concepts-network/advanced-networking-diagram.png
 [aks-ingress]: ./media/concepts-network/aks-ingress.png
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[k8s-service]: https://kubernetes.io/docs/concepts/services-networking/service/
-[service-types]: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
 
 <!-- LINKS - Internal -->
-[aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ./ingress-tls.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
@@ -299,7 +275,6 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [support-policies]: support-policies.md
 [limit-egress]: limit-egress-traffic.md
 [k8s-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
-[nginx-ingress]: ingress-basic.md
 [ip-preservation]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/how-client-source-ip-preservation-works-for-loadbalancer/ba-p/3033722#:~:text=Enable%20Client%20source%20IP%20preservation%201%20Edit%20loadbalancer,is%20the%20same%20as%20the%20source%20IP%20%28srjumpbox%29.
 [nsg-traffic]: ../virtual-network/network-security-group-how-it-works.md
 [azure-cni-aks]: configure-azure-cni.md
@@ -308,3 +283,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-cni-powered-by-cilium]: azure-cni-powered-by-cilium.md
 [azure-cni-powered-by-cilium-limitations]: azure-cni-powered-by-cilium.md#limitations
 [use-byo-cni]: use-byo-cni.md
+

@@ -3,7 +3,7 @@ title: Tutorial - Reduce Azure costs with recommendations
 description: This tutorial helps you reduce Azure costs when you act on optimization recommendations.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -42,7 +42,7 @@ To view cost optimization recommendations for a subscription, open the desired s
 
 To view recommendations for a management group, open the desired scope in the Azure portal and select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope, such as a management group. Select **Advisor recommendations** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-![Cost Management Advisor recommendations shown in the Azure portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+:::image type="content" border="true" source="./media/tutorial-acm-opt-recommendations/advisor-recommendations.png" alt-text="Screenshot showing Cost Management Advisor recommendations.":::
 
 The list of recommendations identifies usage inefficiencies or shows purchase recommendations that can help you save additional money. The totaled **Potential yearly savings** shows the total amount that you can save if you shut down or deallocate all of your VMs that meet recommendation rules. If you don't want to shut them down, you should consider resizing them to a less expensive VM SKU.
 
@@ -68,20 +68,20 @@ Although some scenarios can result in low utilization by design, you can often s
 
 In the list of recommendations, select the **Right-size or shutdown underutilized virtual machines** recommendation. In the list of virtual machine candidates, choose a virtual machine to resize and then select the virtual machine. The virtual machine's details are shown so that you can verify the utilization metrics. The **potential yearly savings** value is what you can save if you shut down or remove the VM. Resizing a VM will probably save you money, but you won't save the full amount of the potential yearly savings.
 
-![Example of Recommendation details](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+:::image type="content" border="true" source="./media/tutorial-acm-opt-recommendations/recommendation-details.png" alt-text="Screenshot showing Recommendation details.":::
 
 In the VM details, check the utilization of the virtual machine to confirm that it's a suitable resize candidate.
 
-![Example VM details showing historical utilization](./media/tutorial-acm-opt-recommendations/vm-details.png)
+:::image type="content" border="true" source="./media/tutorial-acm-opt-recommendations/vm-details.png" alt-text="Screenshot showing VM details with historical utilization.":::
 
 Note the current virtual machine's size. After you've verified that the virtual machine should be resized, close the VM details so that you see the list of virtual machines.
 
 In the list of candidates to shut down or resize, select **Resize _&lt;FromVirtualMachineSKU&gt;_ to _&lt;ToVirtualMachineSKU&gt;_**.
-![Example recommendation with the option to resize the virtual machine](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+:::image type="content" border="true" source="./media/tutorial-acm-opt-recommendations/resize-vm.png" alt-text="Screenshot showing a recommendation with the option to resize the virtual machine.":::
 
 Next, you're presented with a list of available resize options. Choose the one that will give the best performance and cost-effectiveness for your scenario. In the following example, the option chosen resizes from **Standard_D8s_v3** to **Standard_D2s_v3**.
 
-![Example list of available VM sizes where you can choose a size](./media/tutorial-acm-opt-recommendations/choose-size.png)
+:::image type="content" border="true" source="./media/tutorial-acm-opt-recommendations/choose-size.png" alt-text="Screenshot showing the list of available VM sizes where you can choose a size.":::
 
 After you choose a suitable size, select **Resize** to start the resize action.
 
@@ -91,7 +91,7 @@ Resizing requires an actively running virtual machine to restart. If the virtual
 
 When the VM resizing completes successfully, an Azure notification is shown.
 
-![Successful resized virtual machine notification](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+:::image type="content" border="true" source="./media/tutorial-acm-opt-recommendations/resized-notification.png" alt-text="Screenshot showing the successfully resized virtual machine notification.":::
 
 ## Next steps
 

@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -498,6 +498,7 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/register/action | Registers the subscription to Azure Sentinel |
 > | Microsoft.SecurityInsights/unregister/action | Unregisters the subscription from Azure Sentinel |
 > | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Check user authorization and license |
+> | Microsoft.SecurityInsights/contentTranslators/action | Check a translation of content |
 > | Microsoft.SecurityInsights/Aggregations/read | Gets aggregated information |
 > | Microsoft.SecurityInsights/alertRules/read | Gets the alert rules |
 > | Microsoft.SecurityInsights/alertRules/write | Updates alert rules |
@@ -517,6 +518,15 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/bookmarks/relations/read | Gets a bookmark relation |
 > | Microsoft.SecurityInsights/bookmarks/relations/write | Updates a bookmark relation |
 > | Microsoft.SecurityInsights/bookmarks/relations/delete | Deletes a bookmark relation |
+> | Microsoft.SecurityInsights/businessApplicationAgents/read | Gets a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/write | Create or Updates a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/delete | Deletes a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/read | Gets a System of a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/write | Create or Updates a System of a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/delete | Deletes a System of a Business Application Agent |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/listActions/action | Lists the actions of a system |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/reportActionStatus/action | Reports the status of an action |
+> | Microsoft.SecurityInsights/businessApplicationAgents/systems/undoAction/action | Undoes an action |
 > | Microsoft.SecurityInsights/cases/read | Gets a case |
 > | Microsoft.SecurityInsights/cases/write | Updates a case |
 > | Microsoft.SecurityInsights/cases/delete | Deletes a case |

@@ -3,7 +3,11 @@ title: Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service
 description: Describes how to statically and dynamically provision Azure NetApp Files SMB volumes for Azure Kubernetes Service.
 ms.topic: article
 ms.custom: devx-track-azurecli
+ms.subservice: aks-storage
 ms.date: 05/08/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service
@@ -328,7 +332,7 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
     helm install trident netapp-trident/trident-operator --version 23.04.0  --create-namespace --namespace trident –-set windows=true
     ```
 
-    The output of the command resembles the following example:   
+    The output of the command resembles the following example:
 
     ```output
     NAME: trident
@@ -340,18 +344,17 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
     NOTES:
     Thank you for installing trident-operator, which will deploy and manage NetApp's Trident CSI
     storage provisioner for Kubernetes.
-    
 
     Your release is named 'trident' and is installed into the 'trident' namespace.
     Please note that there must be only one instance of Trident (and trident-operator) in a Kubernetes cluster.
-    
+
     To configure Trident to manage storage resources, you will need a copy of tridentctl, which is available in pre-packaged Trident releases.  You may find all Trident releases and source code online at https://github.com/NetApp/trident.
-    
+
     To learn more about the release, try:
-    
+
       $ helm status trident
       $ helm get all trident
-    ```     
+    ```
 
 2. To confirm Astra Trident was installed successfully, run the following [`kubectl describe`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command:   
 
@@ -364,7 +367,7 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
     ```output
     Name:         trident
     Namespace:    
-	Labels:       app.kubernetes.io/managed-by=Helm
+    Labels:       app.kubernetes.io/managed-by=Helm
     Annotations:  meta.helm.sh/release-name: trident
                   meta.helm.sh/release-namespace: trident
     API Version:  trident.netapp.io/v1
@@ -423,7 +426,7 @@ Trident can be installed using the Trident operator (manually or using [Helm](ht
       Normal  Installed   46s   trident-operator.netapp.io  Trident installed
     ```
 
-### Create a backend 
+### Create a backend
 
 A backend must be created to instruct Astra Trident about the Azure NetApp Files subscription and where it needs to create volumes. For more information about backends, see [Azure NetApp Files backend configuration options and examples](https://docs.netapp.com/us-en/trident/trident-use/anf-examples.html).
 
@@ -775,3 +778,4 @@ Astra Trident supports many features with Azure NetApp Files. For more informati
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-tags]: use-tags.md
 [azure-ad-app-registration]: ../active-directory/develop/howto-create-service-principal-portal.md
+

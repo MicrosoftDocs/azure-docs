@@ -3,12 +3,16 @@ title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.date: 12/26/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
+ms.subservice: aks-nodes
 ---
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools serve the primary purpose of hosting critical system pods such as `CoreDNS` and `metrics-server`. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. Every AKS cluster must contain at least one system node pool with at least one node.
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools serve the primary purpose of hosting critical system pods such as `CoreDNS` and `metrics-server`. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. Every AKS cluster must contain at least one system node pool with at least two nodes.
 
 > [!Important]
 > If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
@@ -47,9 +51,10 @@ System node pools have the following restrictions:
 * System node pools must support at least 30 pods as described by the [minimum and maximum value formula for pods][maximum-pods].
 * System pools osType must be Linux.
 * User node pools osType may be Linux or Windows.
-* System pools must contain at least one node, and user node pools may contain zero or more nodes.
-* System node pools require a VM SKU of at least 2 vCPUs and 4 GB memory. But burstable-VM(B series) isn't recommended.
-* A minimum of two nodes 4 vCPUs is recommended (for example, Standard_DS4_v2), especially for large clusters (Multiple CoreDNS Pod replicas, 3-4+ add-ons, etc.).
+* System pools must contain at least two nodes, and user node pools may contain zero or more nodes.
+* System node pools require a VM SKU of at least 4 vCPUs and 4GB memory.
+* [B series VMs][b-series-vm] are not supported for system node pools. 
+* A minimum of three nodes of 8 vCPUs or two nodes of at least 16 vCPUs is recommended (for example, Standard_DS4_v2), especially for large clusters (Multiple CoreDNS Pod replicas, 3-4+ add-ons, etc.).
 * Spot node pools require user node pools.
 * Adding another system node pool or changing which node pool is a system node pool *does not* automatically move system pods. System pods can continue to run on the same node pool, even if you change it to a user node pool. If you delete or scale down a node pool running system pods that were previously a system node pool, those system pods are redeployed with preferred scheduling to the new system node pool.
 
@@ -68,7 +73,7 @@ You can do the following operations with node pools:
 
 ### [Azure CLI](#tab/azure-cli)
 
-When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of type system. When you create new node pools with `az aks nodepool add`, those node pools are user node pools unless you explicitly specify the mode parameter.
+When you create a new AKS cluster, the initial node pool defaults to a mode of type `system`. When you create new node pools with `az aks nodepool add`, those node pools are user node pools unless you explicitly specify the mode parameter.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
@@ -76,16 +81,16 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one dedicated system pool containing one node. For your production workloads, ensure you're using system node pools with at least three nodes. This operation may take several minutes to complete.
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one dedicated system pool containing two nodes. For your production workloads, ensure you're using system node pools with at least three nodes. This operation may take several minutes to complete.
 
 ```azurecli-interactive
 # Create a new AKS cluster with a single system pool
-az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of type system. When you create new node pools with `New-AzAksNodePool`, those node pools are user node pools. A node pool's mode can be [updated at any time][update-node-pool-mode].
+When you create a new AKS cluster, the initial node pool defaults to a mode of type `system`. When you create new node pools with `New-AzAksNodePool`, those node pools are user node pools. A node pool's mode can be [updated at any time][update-node-pool-mode].
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
@@ -93,11 +98,11 @@ The following example creates a resource group named *myResourceGroup* in the *e
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location eastus
 ```
 
-Use the [New-AzAksCluster][new-azakscluster] cmdlet to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one dedicated system pool containing one node. For your production workloads, ensure you're using system node pools with at least three nodes. The create operation may take several minutes to complete.
+Use the [New-AzAksCluster][new-azakscluster] cmdlet to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one dedicated system pool containing two nodes. For your production workloads, ensure you're using system node pools with at least three nodes. The create operation may take several minutes to complete.
 
 ```azurepowershell-interactive
 # Create a new AKS cluster with a single system pool
-New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1 -GenerateSshKey
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -GenerateSshKey
 ```
 
 ---
@@ -150,7 +155,7 @@ You can check the details of your node pool with the following command.
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempool
+az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name systempool
 ```
 
 A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools. For a system pool, verify the taint is set to `CriticalAddonsOnly=true:NoSchedule`, which will prevent application pods from beings scheduled on this node pool.
@@ -238,13 +243,13 @@ You can change modes for both system and user node pools. You can change a syste
 This command changes a system node pool to a user node pool.
 
 ```azurecli-interactive
-az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode user
+az aks nodepool update --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --mode user
 ```
 
 This command changes a user node pool to a system node pool.
 
 ```azurecli-interactive
-az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
+az aks nodepool update --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --mode system
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -282,7 +287,7 @@ You must have at least two system node pools on your AKS cluster before you can 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
+az aks nodepool delete --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -352,8 +357,10 @@ In this article, you learned how to create and manage system node pools in an AK
 [tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/sizes.md
-[use-multiple-node-pools]: create-node-pools.md
+[use-multiple-node-pools]: use-multiple-node-pools.md
 [maximum-pods]: azure-cni-overview.md#maximum-pods-per-node
+[b-series-vm]: ../virtual-machines/sizes-b-series-burstable.md
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [start-stop-nodepools]: ./start-stop-nodepools.md
 [node-affinity]: operator-best-practices-advanced-scheduler.md#node-affinity
+

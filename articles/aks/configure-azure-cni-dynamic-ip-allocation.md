@@ -37,7 +37,7 @@ This article shows you how to use Azure CNI networking for dynamic allocation of
 * If you have an existing cluster, you need to enable Container Insights for monitoring IP subnet usage. You can enable Container Insights using the [`az aks enable-addons`][az-aks-enable-addons] command, as shown in the following example:
 
     ```azurecli-interactive
-    az aks enable-addons --addons monitoring --name <cluster-name> --resource-group <resource-group-name>
+    az aks enable-addons --addons monitoring --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME
     ```
 
 ## Plan IP addressing
@@ -73,31 +73,33 @@ Using dynamic allocation of IPs and enhanced subnet support in your cluster is s
 Create the virtual network with two subnets.
 
 ```azurecli-interactive
-resourceGroup="myResourceGroup"
-vnet="myVirtualNetwork"
-location="westcentralus"
+RESOURCE_GROUP_NAME="myResourceGroup"
+VNET_NAME="myVirtualNetwork"
+LOCATION="westcentralus"
+SUBNET_NAME_1="nodesubnet"
+SUBNET_NAME_2="podsubnet"
 
 # Create the resource group
-az group create --name $resourceGroup --location $location
+az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
 
 # Create our two subnet network 
-az network vnet create -resource-group $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
-az network vnet subnet create --resource-group $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
-az network vnet subnet create --resource-group $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
+az network vnet create --resource-group $RESOURCE_GROUP_NAME --location $LOCATION --name $VNET_NAME --address-prefixes 10.0.0.0/8 -o none 
+az network vnet subnet create --resource-group $RESOURCE_GROUP_NAME --vnet-name $VNET_NAME --name $SUBNET_NAME_1 --address-prefixes 10.240.0.0/16 -o none 
+az network vnet subnet create --resource-group $RESOURCE_GROUP_NAME --vnet-name $VNET_NAME --name $SUBNET_NAME_2 --address-prefixes 10.241.0.0/16 -o none 
 ```
 
 Create the cluster, referencing the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id` and enabling the monitoring add-on.
 
 ```azurecli-interactive
-clusterName="myAKSCluster"
-subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
+CLUSTER_NAME="myAKSCluster"
+SUBSCRIPTION="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create --name $clusterName --resource-group $resourceGroup --location $location \
+az aks create --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --location $LOCATION \
     --max-pods 250 \
     --node-count 2 \
     --network-plugin azure \
-    --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
-    --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet \
+    --vnet-subnet-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME_1 \
+    --pod-subnet-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME_2 \
     --enable-addons monitoring
 ```
 
@@ -106,14 +108,18 @@ az aks create --name $clusterName --resource-group $resourceGroup --location $lo
 When adding node pool, reference the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`. The following example creates two new subnets that are then referenced in the creation of a new node pool:
 
 ```azurecli-interactive
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
-az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
+SUBNET_NAME_3="node2subnet"
+SUBNET_NAME_4="pod2subnet"
+NODE_POOL_NAME="mynodepool"
 
-az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepool \
+az network vnet subnet create --resource-group $RESOURCE_GROUP_NAME --vnet-name $VNET_NAME --name $SUBNET_NAME_3 --address-prefixes 10.242.0.0/16 -o none 
+az network vnet subnet create --resource-group $RESOURCE_GROUP_NAME --vnet-name $VNET_NAME --name $SUBNET_NAME_4 --address-prefixes 10.243.0.0/16 -o none 
+
+az aks nodepool add --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --name $NODE_POOL_NAME \
     --max-pods 250 \
     --node-count 2 \
-    --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \
-    --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet \
+    --vnet-subnet-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME_3 \
+    --pod-subnet-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME_4 \
     --no-wait
 ```
 
@@ -133,18 +139,9 @@ Azure CNI provides the capability to monitor IP subnet usage. To enable IP subne
 
 Set the variables for subscription, resource group and cluster. Consider the following as examples:
 
-```azurecli
-
-    $s="subscriptionId"
-
-    $rg="resourceGroup"
-
-    $c="ClusterName"
-
-    az account set -s $s
-
-    az aks get-credentials -n $c -g $rg
-
+```azurecli-interactive
+az account set --subscription $SUBSCRIPTION
+az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME
 ```
 
 ### Apply the config
@@ -179,22 +176,13 @@ Learn more about networking in AKS in the following articles:
 
 * [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
 * [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
-
-* [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
-* [Enable the HTTP application routing add-on][aks-http-app-routing]
-* [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-* [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
-* [Create an ingress controller with a static public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+* [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
 
 <!-- LINKS - External -->
 [github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
 
 <!-- LINKS - Internal -->
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-http-app-routing]: http-application-routing.md
-[aks-ingress-internal]: ingress-internal-ip.md
 [azure-cni-prereq]: ./configure-azure-cni.md#prerequisites
 [azure-cni-deployment-parameters]: ./azure-cni-overview.md#deployment-parameters
 [az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+

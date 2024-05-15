@@ -2,11 +2,12 @@
 title: HTTP application routing add-on for Azure Kubernetes Service (AKS) (retired)
 description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS) (retired).
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 author: asudbring
 ms.topic: how-to
 ms.date: 04/05/2023
 ms.author: allensu
+ROBOTS: NOINDEX
 ---
 
 # HTTP application routing add-on for Azure Kubernetes Service (AKS) (retired)
@@ -280,3 +281,4 @@ For information on how to install an HTTPS-secured ingress controller in AKS, se
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
+

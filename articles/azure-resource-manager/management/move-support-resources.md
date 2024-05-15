@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 03/19/2024
 ---
 
 # Move operation support for resources
@@ -185,6 +185,18 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | b2cdirectories | **Yes** | **Yes** | No |
 > | b2ctenants | No | No | No |
+
+## Microsoft.AzureArcData
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | datacontrollers | No | No | No |
+> | postgresinstances | No | No | No |
+> | sqlmanagedinstances | No | No | No |
+> | sqlserverinstances | No | No | No |
+> | sqlserverlicenses | No | No | No |
+
 
 ## Microsoft.AzureData
 
@@ -628,6 +640,13 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | connectionmanagers | No | No | No |
 
+## Microsoft.DataDog
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | monitors | No | No |  No |
+
 ## Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
@@ -925,8 +944,10 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
+> | licenses | **Yes** | **Yes** | No |
 > | machines | **Yes** | **Yes** | No |
 > | machines / extensions | **Yes** | **Yes** | No |
+> | privatelinkscopes | **Yes** | **Yes** | No |
 
 ## Microsoft.HybridData
 
@@ -1355,7 +1376,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | trafficmanagerprofiles / heatmaps | No | No | No |
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
-> | virtualnetworkgateways | **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md)| **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
+> | virtualnetworkgateways | No| No | No |
 > | virtualnetworks | **Yes** | **Yes** | No |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | **Yes** | **Yes** | No |

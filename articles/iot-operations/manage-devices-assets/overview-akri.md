@@ -1,8 +1,8 @@
 ---
 title: Detect assets with Azure IoT Akri
 description: Understand how Azure IoT Akri enables you to discover devices and assets at the edge, and expose them as resources on your cluster.
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.subservice: akri
 ms.topic: concept-article
 ms.custom:
@@ -13,11 +13,11 @@ ms.date: 10/26/2023
 # enables me to discover devices and assets at the edge, and expose them as resources on a Kubernetes cluster.
 ---
 
-# Detect assets with Azure IoT Akri
+# Detect assets with Azure IoT Akri Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT Akri (preview) is a hosting framework for discovery handlers that enables you to detect devices and assets at the edge, and expose them as resources on a Kubernetes cluster. By using Azure IoT Akri, you can simplify the process of projecting leaf devices (OPC UA devices, cameras, IoT sensors, and peripherals) into your cluster.  Azure Iot Akri projects leaf devices into a cluster by using the devices' own protocols. For administrators who attach devices to or remove them from the cluster, this capability reduces the level of coordination and manual configuration. The hosting framework is also extensible. You can use it as shipped, or you can add custom discovery and provisioning by adding protocol handlers, brokers and behaviors. Azure IoT Akri is a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open source Cloud Native Computing Foundation (CNCF) project.  
+Azure IoT Akri Preview is a hosting framework for discovery handlers that enables you to detect devices and assets at the edge, and expose them as resources on a Kubernetes cluster. By using Azure IoT Akri, you can simplify the process of projecting leaf devices (OPC UA devices, cameras, IoT sensors, and peripherals) into your cluster.  Azure Iot Akri projects leaf devices into a cluster by using the devices' own protocols. For administrators who attach devices to or remove them from the cluster, this capability reduces the level of coordination and manual configuration. The hosting framework is also extensible. You can use it as shipped, or you can add custom discovery and provisioning by adding protocol handlers, brokers and behaviors. Azure IoT Akri is a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open source Cloud Native Computing Foundation (CNCF) project.  
 
 :::image type="content" source="media/overview-akri/akri-logo.png" alt-text="Logo for the Akri project." border="false":::
 
@@ -31,7 +31,7 @@ IoT leaf devices present the following challenges:
 - Have intermittent downtime and availability
 - Require different methods of authentication and storing secrets
 
-## What Azure IoT Akri does
+## What Azure IoT Akri Preview does
 To address the challenge of integrating non-Kubernetes IoT leaf devices, Azure IoT Akri provides several core capabilities.
 
 ### Device discovery
@@ -50,7 +50,7 @@ With Azure IoT Akri, you can dynamically provision devices like the following ex
 ### Compatibility with Kubernetes
 Azure IoT Akri employs standard Kubernetes primitives. The use of Kubernetes primitives lets users apply their expertise creating applications or managing infrastructure. Small devices connected in an Akri-configured site can appear as Kubernetes resources, just like memory or CPUs. The Azure IoT Akri controller enables the cluster operator to start brokers, jobs or other workloads for individual connected devices or groups of devices. These Azure IoT Akri device configurations and properties remain in the cluster so that if there's node failure, other nodes can pick up any lost work.
 
-## Using Azure IoT Akri to discover OPC UA assets
+## Using Azure IoT Akri Preview to discover OPC UA assets
 Azure IoT Akri is a turnkey solution that enables you to discover and create assets connected to an OPC UA server at the edge. Azure IoT Akri discovers devices at the edge and maps them to assets. The assets send telemetry to upstream connectors. By using Azure IoT Akri, you eliminate the painstaking process of manually configuring from the cloud and onboarding the assets to your cluster.  
 
 The Azure IoT Operations Preview documentation provides guidance for detecting assets at the edge, by using the Azure IoT Operations OPC UA discovery handler and broker. You can use these components to process your OPC UA data and telemetry. 
@@ -71,7 +71,7 @@ This section highlights the key capabilities and supported features in Azure IoT
 - **Secure credential management**. Azure IoT Akri facilitates secure access to assets and devices by integrating with services for secure distribution of credential material to brokers.
 
 ### Features supported
-The following features are supported in Azure IoT Akri (preview):
+The following features are supported in Azure IoT Akri Preview:
 
 | [CNCF Akri Features](https://docs.akri.sh/)                                                    | Meaning   | Symbol   |
 | ---------------------------------------------------------------------------------------------- | --------- | -------: |
@@ -89,7 +89,7 @@ The following features are supported in Azure IoT Akri (preview):
 | Deployment through the orchestration service                                                      | Supported   |   ✅     |
 | Onboard devices as custom resources to an edge cluster                                            | Supported   |   ✅     |
 | View Azure IoT Akri metrics and logs through Azure Monitor	                                      | Unsupported |   ❌     |
-| Azure IoT Akri configuration via cloud OT Operator Experience                                     | Unsupported |   ❌     |
+| Azure IoT Akri configuration via Azure IoT Operations (preview) portal                            | Unsupported |   ❌     |
 | Azure IoT Akri detects and creates assets that can be ingested into the Azure Device Registry     | Unsupported |   ❌     |
 | ISVs can build and sell custom protocol handlers for Azure IoT Operations solutions               | Unsupported |   ❌     |
 

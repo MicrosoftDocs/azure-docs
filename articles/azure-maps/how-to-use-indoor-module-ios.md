@@ -14,6 +14,12 @@ services: azure-maps
 
 The Azure Maps iOS SDK allows you to render indoor maps created in Azure Maps Creator services.
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+
 ## Prerequisites
 
 1. Complete the steps in the [Quickstart: Create an iOS app]. Code blocks in this article can be inserted into the `viewDidLoad` function of `ViewController`.

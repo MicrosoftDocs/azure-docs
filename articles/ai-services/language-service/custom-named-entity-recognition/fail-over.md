@@ -3,12 +3,12 @@ title: Back up and recover your custom Named Entity Recognition (NER) models
 titleSuffix: Azure AI services
 description: Learn how to save and recover your custom NER models.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-custom-ner
 ---
 

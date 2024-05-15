@@ -9,8 +9,8 @@ ms.custom:
 ms.topic: conceptual
 ms.date: 2/22/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: pafarley
+author: PatrickFarley
 ---
 
 # Content filtering in Azure AI Studio
@@ -20,13 +20,13 @@ author: eric-urban
 Azure AI Studio includes a content filtering system that works alongside core models. 
 
 > [!IMPORTANT]
-> The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](../../ai-services/openai/concepts/models.md#whisper-preview).
+> The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](../../ai-services/openai/concepts/models.md).
 
-This system is powered by Azure AI Content Safety, and now works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design might affect completions and thus filtering behavior.
+This system is powered by [Azure AI Content Safety](../../ai-services/content-safety/overview.md), and works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design might affect completions and thus filtering behavior.
 
 The content filtering models have been trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality can vary. In all cases, you should do your own testing to ensure that it works for your application.
 
-You can create a content filter or use the default content filter for Azure OpenAI model deployment, and can also use a default content filter for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog.md). The custom content filters for those models aren't yet available. Models available through Models as a Service have content filtering enabled by default and can't be configured.
+You can create a content filter or use the default content filter for Azure OpenAI model deployment, and can also use a default content filter for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog-overview.md). The custom content filters for those models aren't yet available. Models available through Models as a Service have content filtering enabled by default and can't be configured.
 
 ## How to create a content filter? 
 For any model deployment in [Azure AI Studio](https://ai.azure.com), you could directly use the default content filter, but when you want to have more customized setting on content filter, for example set a stricter or looser filter, or enable more advanced capabilities, like jailbreak risk detection and protected material detection.  To create a content filter, you could go to **Build**, choose one of your projects, then select **Content filters** in the left navigation bar, and create a content filter. 
@@ -44,9 +44,9 @@ The content filtering system integrated in Azure AI Studio contains neural multi
 |Category|Description|
 |--------|-----------|
 | Hate   |The hate category describes language attacks or uses that include pejorative or discriminatory language with reference to a person or identity group based on certain differentiating attributes of these groups including but not limited to race, ethnicity, nationality, gender identity and expression, sexual orientation, religion, immigration status, ability status, personal appearance, and body size. |
-| Sexual | The sexual category describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one’s will, prostitution, pornography, and abuse. |
+| Sexual | The sexual category describes language related to anatomical organs and genitals, romantic relationships, acts portrayed in erotic or affectionate terms, physical sexual acts, including those portrayed as an assault or a forced sexual violent act against one's will, prostitution, pornography, and abuse. |
 | Violence | The violence category describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, etc.   |
-| Self-Harm | The self-harm category describes language related to physical actions intended to purposely hurt, injure, or damage one’s body, or kill oneself.|
+| Self-Harm | The self-harm category describes language related to physical actions intended to purposely hurt, injure, or damage one's body, or kill oneself.|
 
 #### Severity levels
 
@@ -86,5 +86,5 @@ Now, you can go to the playground to test whether the content filter works as ex
 ## Next steps
 
 - Learn more about the [underlying models that power Azure OpenAI](../../ai-services/openai/concepts/models.md).
-- Azure AI Studio content filtering is powered by [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
+- Azure AI Studio content filtering is powered by [Azure AI Content Safety](../../ai-services/content-safety/overview.md).
 - Learn more about understanding and mitigating risks associated with your application: [Overview of Responsible AI practices for Azure OpenAI models](/legal/cognitive-services/openai/overview?context=/azure/ai-services/context/context).

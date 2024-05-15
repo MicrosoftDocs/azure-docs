@@ -3,12 +3,12 @@ title: Custom Text Analytics for health - Azure AI services
 titleSuffix: Azure AI services
 description: Customize an AI model to label and extract healthcare information from documents using Azure AI services.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-custom-ta4h
 ---
 
@@ -57,7 +57,7 @@ As you use custom Text Analytics for health, see the following reference documen
 |APIs| Reference documentation|
 |---------|---------|---------|
 |REST APIs (Authoring)   | [REST API documentation](/rest/api/language/2023-04-01/text-analysis-authoring)        |
-|REST APIs (Runtime)    | [REST API documentation](/rest/api/language/2023-04-01/text-analysis-runtime/submit-job)        |
+|REST APIs (Runtime)    | [REST API documentation](/rest/api/language/text-analysis-runtime/analyze-text)        |
 
 
 ## Responsible AI 
