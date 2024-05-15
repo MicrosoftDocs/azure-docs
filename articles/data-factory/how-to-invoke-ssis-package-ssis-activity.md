@@ -7,7 +7,7 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure portal

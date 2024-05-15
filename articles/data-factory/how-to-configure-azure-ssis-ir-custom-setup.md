@@ -6,7 +6,7 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
