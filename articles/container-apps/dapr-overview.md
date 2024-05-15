@@ -29,10 +29,7 @@ Configure Dapr for your container apps environment with a [Dapr-enabled containe
 
 ### Managed APIs
 
-Azure Container Apps offers managed generally available and preview versions of Dapr APIs (building blocks) marked _stable_ in the open source project. 
-
-- General Availability (GA): Indicates that the API is fully managed and supported for use in production environments. 
-- Preview: Preview APIs are available for early testing and aren't recommended for production. Preview support is provided at best effort.
+Azure Container Apps offers managed generally available Dapr APIs (building blocks). These APIs are fully managed and supported for use in production environments.
 
 To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dapr-faq].
 

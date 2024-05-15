@@ -8,7 +8,7 @@ metadata:
   ms.service: container-apps
   ms.custom:
     - ignite-2023
-  ms.date: 04/14/2023
+  ms.date: 05/15/2024
   ms.author: cshoe
 title: Azure Container Apps frequently asked questions (FAQs)
 summary: This article lists commonly asked questions about Azure Container Apps together with related answers.
@@ -84,11 +84,11 @@ sections:
           Each Dapr capability undergoes thorough evaluation to ensure it positively impacts customers running microservices in the Azure Container Apps environment, while providing the best possible experience.
 
       - question: |
-          Are alpha Dapr APIs and components supported or available in Azure Container Apps?
+          Are alpha Dapr APIs and Tier 2 components supported or available in Azure Container Apps?
         answer: |
-          Azure Container Apps offers developers the flexibility to experiment with the latest Dapr alpha APIs and standard-level components on a self-service, opt-in basis. Although the availability of these alpha APIs and standard-level components isn't guaranteed, you can stay ahead of the curve and explore cutting-edge technologies as they become available. 
-
-          While components with standard-level support are "as-is" and "as available", managed components are fully supported, including their dependencies, like SDKs. [Learn more.](./dapr-overview.md#supported-dapr-apis-components-and-tooling)
+          The availability of Dapr's alpha APIs is not guaranteed or Microsoft-supported.
+ 
+          While Tier 1 components are fully supported, Tier 2 components are supported with best effort. [Learn more.](./dapr-overview.md#supported-dapr-apis-components-and-tooling)
 
       - question: |
           What is the Dapr version release cadence in Azure Container Apps?
