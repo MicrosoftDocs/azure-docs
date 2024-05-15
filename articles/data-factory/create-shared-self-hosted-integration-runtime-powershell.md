@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.custom: devx-track-azurepowershell
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
