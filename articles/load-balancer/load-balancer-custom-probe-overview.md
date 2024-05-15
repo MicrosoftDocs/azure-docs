@@ -102,7 +102,7 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
 
 * Unlike load balancing rules, inbound NAT rules do not need a health probe attached to it.
 
-* It is not recommended to block the Azure Load Balancer health probe IP or port with NSG rules. Doing so can result in the health probes being unable to determine the accurate health of your backend instances.
+* It is not recommended to block the Azure Load Balancer health probe IP or port with NSG rules. This is an unsupported scenario and can cause the NSG rules to take delayed effect, resulting in the health probes to inaccurately represent the availability of your backend instances.
 
 ## Monitoring
 
