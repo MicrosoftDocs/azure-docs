@@ -16,13 +16,15 @@ You might see a `Not available due to conflict` error message when you try selec
 
 ## Symptom
 
-When you try to buy a reservation or savings plan in to the [Azure portal](https://portal.azure.com/) and you select a scope, you see might see a `Not available due to conflicts error`.
+When you try to buy (or manage) a reservation or savings plan in to the [Azure portal](https://portal.azure.com/) and you select a management group scope, you see might see a `Not available due to conflicts error`.
 
 :::image type="content" source="./media/troubleshoot-not-available-conflict/error-message.png" alt-text="Screenshot showing the error message."  :::
 
 ## Cause
+There are 3 types of Azure billing benefits - Azure hybrid benefit, savings plans and reservations. You may apply one or more instances of any single benefit type to a management group. However, if you apply one benefit type to a management group, currently, you may not apply instances of the same benefit type to either the parent or child of that management group. You may apply instances of the other benefit types to both the parent and children of that management group.
 
-This issue can occur when a management group is selected as the scope. An active benefit (savings plan, reservation, or centrally managed Azure Hybrid Benefit) is already applied at a parent or child scope.
+For example, if you have 3 management group hierarchy (e.g., MG_Grandparent, MG_Parent and MG_Child), and one or more savings plan are assigned to MG_Parent, then additional savings plans cannot be assigned to either MG_Grandparent or MG_Child. In this example, one ore more Azure hybrid benefits or reservations may be assigned to MG_Grandparent or MG_Child.
+
 
 ## Solutions
 
@@ -30,8 +32,8 @@ To resolve this issue with overlapping benefits, you can do one of the following
 
 - Select another scope.
 - Change the scope of the existing benefit (savings plan, reservation or centrally managed Azure Hybrid Benefit) to prevent the overlap. 
-    - For more information about how to change the scope for a reservation, see [Change the savings plan scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
-    - For more information about how to change the scope for a savings plan, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope).
+    - To learn how to change the scope for a reservation, see [Change the savings plan scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
+    - To learn how to change the scope for a savings plan, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope).
 
 ## Need help? Contact us.
 
