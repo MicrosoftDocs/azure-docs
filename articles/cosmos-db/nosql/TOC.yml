@@ -611,6 +611,8 @@
           items:
             - name: Get query execution metrics
               href: query-metrics-performance.md
+            - name: Get query execution metrics (Python SDK)
+              href: query-metrics-performance-python.md
             - name: Tune query performance
               href: query-metrics.md
             - name: Optimize query performance when using SDK
