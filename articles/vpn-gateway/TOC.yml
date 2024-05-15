@@ -207,6 +207,8 @@
               href: point-to-site-vpn-client-certificate-windows-native.md
             - name: Azure VPN client
               href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
+            - name: OpenVPN client
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
           - name: Linux clients
             items:
             - name: Azure VPN client
@@ -220,9 +222,9 @@
             - name: Native VPN client
               href: point-to-site-vpn-client-cert-mac.md
             - name: OpenVPN client - macOS
-              href: point-to-site-vpn-client-cert-mac.md
+              href: point-to-site-vpn-client-certificate-openvpn-mac.md
             - name: OpenVPN client - iOS
-              href: point-to-site-vpn-client-cert-mac.md
+              href: point-to-site-vpn-client-certificate-openvpn-ios.md
       - name: Microsoft Entra ID authentication
         items:
         - name: Windows clients

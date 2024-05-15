@@ -5,7 +5,7 @@ description: Learn how to configure the native VPN client on a Windows computer 
 author: cherylmc
 ms.topic: how-to
 ms.service: vpn-gateway
-ms.date: 05/13/2024
+ms.date: 05/14/2024
 ms.author: cherylmc
 ---
 
@@ -15,18 +15,21 @@ If your point-to-site (P2S) VPN gateway is configured to use IKEv2/SSTP and cert
 
 ## Before you begin
 
-This article assumes that you've already performed the following prerequisites:
-
-* You created and configured your VPN gateway for point-to-site certificate authentication and an IKEv2/SSTP tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
-* You downloaded the VPN client configuration files. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
-
-### Workflow
-
-Before beginning the workflow, verify that you're on the correct VPN client configuration article. The following table shows the configuration articles available for VPN Gateway point-to-site VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
+Before beginning client configuration steps, verify that you're on the correct VPN client configuration article. The following table shows the configuration articles available for VPN Gateway point-to-site VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
-In this article:
+### Prerequisites
+
+This article assumes that you've already performed the following prerequisites:
+
+* You created and configured your VPN gateway for point-to-site certificate authentication and an IKEv2/SSTP tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
+* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuation files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
+* You can either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
+
+### Workflow
+
+The workflow for this article is as follows:
 
 1. Generate and install client certificates if you haven't already done so.
 1. View the VPN client profile configuration files contained in the VPN client profile configuration package that you generated.
@@ -81,4 +84,4 @@ Connect to your virtual network via point-to-site VPN.
 
 ## Next steps
 
-[Point-to-site configuration steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+Follow up with any additional server or connection settings. See [Point-to-site configuration steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
