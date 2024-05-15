@@ -17,11 +17,14 @@ ms.custom:
 
 [Event Hubs](event-hubs-about.md)
 
-The Network Security Perimeter plays a pivotal role in safeguarding network traffic between Azure Event Hubs and other Platform as a Service (PaaS) offerings like Azure Storage and Azure Key Vault. By restricting communication exclusively to Azure resources within its boundaries, it effectively blocks unauthorized attempts to access resources beyond its secure perimeter.
+The Network Security Perimeter serves as a crucial safeguard for network traffic between Azure Event Hubs and other Platform as a Service (PaaS) offerings like Azure Storage and Azure Key Vault. By confining communication solely to Azure resources within its boundaries, it effectively blocks unauthorized attempts to access resources beyond its secure perimeter.
 
 Integrating Event Hubs Kafka within this framework enhances data streaming capabilities while ensuring robust security measures. This integration not only provides a reliable and scalable platform but also strengthens data protection strategies, mitigating risks associated with unauthorized access or data breaches.
 
-Operating as a service under Azure Private Link, the Network Security Perimeter facilitates secure communication for PaaS services deployed outside the virtual network. It enables seamless interaction among PaaS services within the perimeter and facilitates communication with external resources through carefully configured access rules, empowering organizations to uphold stringent security standards and protect sensitive data assets in their Azure environments.
+Operating as a service under Azure Private Link, the Network Security Perimeter facilitates secure communication for PaaS services deployed outside the virtual network. It enables seamless interaction among PaaS services within the perimeter and facilitates communication with external resources through carefully configured access rules. Additionally, it supports outbound resources such as Azure Key Vault for Bring Your Own Key (BYOK) and Azure Storage for data capture, further enhancing its versatility and utility in diverse cloud environments.
+
+> [!NOTE]
+> Network Security Perimeter does not support [Azure Event Hubs - Geo-disaster recovery](event-hubs-geo-dr.md)
 
 ## Associate Event Hubs with a Network Security Perimeter in the Azure portal
 1. Search for "Network Security Perimeter" in the Portal search bar and then click on **Create** button and create the resource
