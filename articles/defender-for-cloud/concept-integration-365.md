@@ -1,8 +1,8 @@
 ---
 title: Alerts and incidents in Microsoft Defender XDR
 description: Learn about the benefits of receiving Microsoft Defender for Cloud's alerts in Microsoft Defender XDR 
-ms.topic: conceptual
-ms.date: 01/03/2024
+ms.topic: concept-article
+ms.date: 05/15/2024
 ---
 
 # Alerts and incidents in Microsoft Defender XDR
@@ -28,6 +28,14 @@ The following table describes the detection and investigation experience in Micr
 | Unified API | Defender for Cloud alerts and incidents are now included in [Microsoft Defender XDR’s public API](/microsoft-365/security/defender/api-overview), allowing customers to export their security alerts data into other systems using one API. |
 
 Learn more about [handling alerts in Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud).
+
+## Advanced hunting in XDR
+
+Microsoft Defender XDR's advanced hunting capabilities are extended to include Defender for Cloud alerts and incidents. This integration allows security teams to hunt across all their cloud resources, devices, and identities in a single query.
+
+The advanced hunting experience in Microsoft Defender XDR is designed to provide security teams with the flexibility to create custom queries to hunt for threats across their environment. The integration with Defender for Cloud alerts and incidents allows security teams to hunt for threats across their cloud resources, devices, and identities.
+
+The [CloudAuditEvents table](/defender-xdr/advanced-hunting-cloudauditevents-table) in advanced hunting allows you to hunt through cloud audit events in Microsoft Defender for Cloud and to create custom detections to surface suspicious Azure Resource Manager and Kubernetes (KubeAudit) control plane activities.
 
 ## Sentinel customers
 
