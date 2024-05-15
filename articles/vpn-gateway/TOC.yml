@@ -189,14 +189,6 @@
       items:
       - name: Certificate authentication
         items:
-        - name: Client workflow and configuration files
-          items:
-          - name: Windows computers
-            href: point-to-site-vpn-client-cert-windows.md
-          - name: macOS-iOS
-            href: point-to-site-vpn-client-cert-mac.md
-          - name: Linux
-            href: point-to-site-vpn-client-cert-linux.md
         - name: Configure VPN clients
           items:
           - name: Install client certificates

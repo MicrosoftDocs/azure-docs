@@ -9,7 +9,7 @@ ms.date: 05/14/2024
 ms.author: cherylmc
 ---
 
-# Configure point-to-site VPN clients: certificate authentication - macOS OpenVPN client
+# Configure P2S VPN clients: certificate authentication - OpenVPN client - macOS
 
 This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) and **Certificate authentication** on macOS using an OpenVPN client.
 

@@ -10,7 +10,7 @@ ms.date: 05/04/2023
 ms.author: cherylmc
 ---
 
-# Configure point-to-site VPN clients: certificate authentication - Linux
+# Configure P2S VPN clients: certificate authentication - Linux
 
 This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) and **Certificate authentication** from a Linux client. There are multiple sets of steps in this article, depending on the tunnel type you selected for your P2S configuration, the operating system, and the VPN client that is used to connect.
 
