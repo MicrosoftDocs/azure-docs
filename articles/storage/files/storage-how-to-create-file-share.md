@@ -283,6 +283,46 @@ az storage share-rm update \
 
 ---
 
+### Expand existing file shares
+
+If you enable large file shares on an existing storage account, you must expand existing file shares in that storage account to take advantage of the increased capacity and scale.
+
+# [Portal](#tab/azure-portal)
+1. From your storage account, select **File shares**.
+1. Right-click your file share, and then select **Quota**.
+1. Enter the new size that you want, and then select **OK**.
+
+![The Azure portal UI with Quota of existing file shares](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
+
+# [PowerShell](#tab/azure-powershell)
+To set the quota to the maximum size, use the following command. Replace `<YourResourceGroupName>`, `<YourStorageAccountName>`, and `<YourStorageAccountFileShareName>` with your information.
+
+```powershell
+$resourceGroupName = "<YourResourceGroupName>"
+$storageAccountName = "<YourStorageAccountName>"
+$shareName="<YourStorageAccountFileShareName>"
+
+# update quota
+Update-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -QuotaGiB 102400
+```
+
+# [Azure CLI](#tab/azure-cli)
+To set the quota to the maximum size, use the following command. Replace `<yourResourceGroupName>`, `<yourStorageAccountName>`, and `<yourFileShareName>` with your information.
+
+```azurecli-interactive
+az storage share-rm update \
+    --resource-group <yourResourceGroupName> \
+    --storage-account <yourStorageAccountName> \
+    --name <yourFileShareName> \
+    --quota 102400
+```
+
+---
+
 ## Delete a file share
 
 To delete an Azure file share, you can use the Azure portal, Azure PowerShell, or Azure CLI. SMB Azure file shares can be recovered within the [soft delete](storage-files-prevent-file-share-deletion.md) retention period.
