@@ -312,15 +312,9 @@ To query the available logs on the inactive workspace:
 
    :::image type="content" source="media/workspace-replication/query-inactive-region.png" alt-text="Screenshot that shows how to query the inactive region through the workspace Logs page in the Azure portal." lightbox="media/workspace-replication/query-inactive-region.png":::
 
-After you enable the **Query inactive region** option, the queries update to show log results for the inactive region rather than the active region.
+After you enable the **Query inactive region** option, Log Analytics shows query results for the inactive region rather than the active region.
 
-When your workspace is in switchover, queries route to the secondary region as the active region. If you enable the **Query inactive region** option in this scenario, the queries show log results for the primary region because it's currently inactive.
-
-### Use LAQueryLogs schema properties
-
-Query auditing lets you discover the workspace region target for a query. You can also determine whether the workspace was in switchover during the query.
-
-To support query auditing, the following properties are available in the LAQueryLogs schema:
+You can confirm that Azure Monitor runs your query in the intended region by checking these fields in the `LAQueryLogs` table, which is created when you [enable query auditing in your Log Analytics workspace](query-audit.md):
 
 - `isWorkspaceInFailover`: Indicates whether the workspace was in switchover mode during the query. The data type is Boolean (True, False).
 - `workspaceRegion`: The region of the workspace targeted by the query. The data type is String.
