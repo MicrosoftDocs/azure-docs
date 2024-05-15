@@ -71,8 +71,7 @@ To create a new cohort:
 
 1. After you select and configure the filter, select **Add filter**. You can add several filters to define the cohort.
 
-1. When you finish configuring and adding filters, select **Save** or **Save and switch** to finalize the new cohort.
-
+1. When you're done adding filters, select **Save** or **Save and switch** to finish creating the cohort.
 
 ## RAI text dashboard components
 
@@ -88,17 +87,18 @@ The following sections describe the Responsible AI text dashboard components and
 
 ### Error analysis
 
-The **Error analysis** component helps you analyze failure patterns in your model. The default metric is **Error rate**. You can select a different metric from the **Select metric** dropdown list to learn more about your error and success nodes' performance. This metric selection doesn't impact the way your error tree is generated.
+The **Error analysis** component helps you analyze failure patterns in your model. You can select a metric from the **Select metric** dropdown list to learn more about your error and success nodes' performance. The default metric is **Error rate**. The metric selection doesn't impact the way your error tree is generated.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis.png" alt-text="Screenshot of the error analysis component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis.png":::
 
-The right side of the **Error analysis** screen shows **Basic Information** about the current cohort and filters applied.
+The right side of the **Error analysis** screen shows information about the dataset, current selected cohort, and filters applied.
 
+- **Basic Information** shows the name and filters applied for the current selected cohort.
 - **Instances in global cohort** displays the total number of points and the number of correctly and incorrectly predicted points in the entire dataset.
-- **Instances in the selected cohort** displays the total number of points and the number of correctly and incorrectly predicted points in the current cohort.
-- **Prediction path (filters)** lists the filters applied to the full dataset to create the current cohort.
+- **Instances in the selected cohort** displays the total number of points and the number of correctly and incorrectly predicted points in the currently selected cohort.
+- **Prediction path (filters)** lists the filters applied to the full dataset to create the currently selected cohort.
 
-If you change the view by applying filters or selecting different features, you can save the view as a new cohort by selecting **Save as a new cohort**.
+If you change a view by applying filters or selecting different features, you can save the view as a new cohort by selecting **Save as a new cohort**.
 
 You can view the error analysis component in **Tree map** or **Heat map** views by selecting either tab at the top of the component.
 
@@ -110,11 +110,15 @@ The tree visualization uses the mutual information between each feature and the 
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png" alt-text="Screenshot of the tree map view in the error analysis component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-tree.png":::
 
-In the tree view, each *node* represents a dataset cohort, potentially with filters applied, and shows the number of errors in that node compared to the total number of datapoints in the cohort. Hover over or select a node to display the **Error coverage**, or percentage of errors in the dataset that are in the selected node, and **Error rate**, the failure percentage of the datapoints in the selected node.
+In the tree view, each circle or *node* represents a dataset cohort, potentially with filters applied. The numbers in each node show the number of errors compared to the total number of datapoints in that node.
 
-The *fill lines* between nodes visualize the distribution of datapoints into child cohorts based on filters, with the number of datapoints represented by line thickness. Hover over or select a fill line to display the feature and prediction being applied.
+You can hover over or select a node to display the **Error coverage**, or percentage of errors in the dataset that are in that node, and **Error rate**, or failure percentage of the datapoints in the node. Nodes with darker background colors indicate higher error rates. Selected nodes have a heavy outline.
+
+The *fill lines* between nodes visualize the distribution of datapoints into child cohorts based on filters, with the number of datapoints represented by line thickness. You can hover over or select a fill line to display the feature and prediction being applied.
 
 To find important failure patterns, look for nodes with darker colors indicating a higher error rate, and thicker fill lines indicating higher error coverage.
+
+##### Feature list
 
 To edit the list of features the tree uses to train the tree map, select **Feature list** at the top of the view.
 
@@ -132,13 +136,13 @@ After you make changes in the **Feature list** pane, select **Apply** to apply t
 
 #### Heat map view
 
-You can use the **Heat map** view to focus on specific intersectional feature filters and compute disaggregated error rates. Start by comparing two dataset features to cluster and filter your data along the two dimensions. You can select one or many heatmap cells and create new cohorts.
+You can use the **Heat map** view to focus on specific intersectional feature filters and compute disaggregated error rates. Start by comparing two dataset features to cluster and filter your data along two dimensions. You can select one or many heatmap cells and create new cohorts.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-heat-map.png" alt-text="Screenshot of the error analysis component in the heat map." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-heat-map.png":::
 
 In the **Heat map** view:
 
-- **Cells** displays the number of cells selected. If no cells are selected, the view shows all cells with the same data as if all cells were selected.
+- **Cells** displays the number of cells selected. If no cells are selected, the view shows the data for all cells.
 - **Error coverage** displays the percentage of errors in the dataset that are in the selected cells.
 - **Error rate** displays the failure percentage of the datapoints in the selected cells.
 
@@ -161,22 +165,29 @@ The **Model overview** component displays model and dataset statistics computed 
 
 You can choose between **Dataset cohorts** or **Feature cohorts** by selecting either tab at the top of the component. For either view, select **Metric(s)** from the dropdown list or select **Help me choose metrics** to open a sidebar screen that explains, recommends, and lets you select metrics to display.
 
-For either view:
+You can also enable **Show heatmaps** for either view.
 
-- You can enable **Show heatmaps**.
 - At the bottom of the component, you can choose to view **Metrics visualizations** or a **Confusion matrix**.
 
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png" alt-text="Screenshot of the top part of the Model overview component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png":::
+  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png" alt-text="Screenshot of a Confusion matrix in the Feature cohort view of the Model overview component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png":::
 
 #### Dataset cohorts and Feature cohorts
 
-- **Dataset cohorts** displays the selected metrics across the global cohort and all user-defined cohorts in the dashboard.
+**Dataset cohorts** displays the selected metrics across the global cohort and all user-defined cohorts in the dashboard.
 
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/model-overview.png" alt-text="Screenshot of the model overview on the dataset cohorts tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/model-overview.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/model-overview.png" alt-text="Screenshot of the model overview on the dataset cohorts tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/model-overview.png":::
 
-- **Feature cohorts** displays the selected metrics for cohorts that are based on selected features. You select the **Feature(s)** to define the cohorts. This view also shows **Fairness metrics** such as **Difference** and **Ratio** parity.
+#### Dataset cohorts and Feature cohorts
 
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/model-overview-feature-cohort.png" alt-text="Screenshot of the model overview on the feature cohorts tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/model-overview-feature-cohort.png":::
+**Feature cohorts** displays the selected metrics for cohorts that are based on selected features. You select the **Feature(s)** to define the cohorts. This view also shows **Fairness metrics** such as **Difference** and **Ratio** parity.
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/model-overview-feature-cohort.png" alt-text="Screenshot of the model overview on the feature cohorts tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/model-overview-feature-cohort.png":::
+
+#### Metrics visualizations or Confusion matrix
+
+At the bottom of the component, you can choose to view **Metrics visualizations** or a **Confusion matrix**. The following example shows a confusion matrix for the **Feature cohorts** view.
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png" alt-text="Screenshot of a Confusion matrix in the Feature cohort view of the Model overview component." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/confusion-matrix.png":::
 
 ### Data analysis
 
@@ -190,11 +201,11 @@ The **Data analysis** component creates dataset cohorts to analyze dataset stati
 
 #### Chart view
 
-**Chart view** allows customized aggregate and local data exploration.
+**Chart view** lets you choose between customized aggregation and local data exploration.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-view.png" alt-text="Screenshot of data analysis on the chart view tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-view.png":::
 
-In the chart view, the X axis and Y axis show the values being plotted horizontally and vertically. You can select either label to open a sidebar pane to select and configure the axis.
+In the chart view, the X axis and Y axis show the values being plotted horizontally and vertically. You can select either label to open a sidebar pane to select and configure that axis.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/axis-value.png" alt-text="Screenshot of the select your axis value sidebar.":::
 
@@ -202,10 +213,10 @@ In the **Select your axis value** pane, depending on the value, you can configur
 
 Under **Chart type**, you can select whether to aggregate values across all datapoints.
 
-- **Aggregate plot** displays data in bins or categories along the X-axis.
-- **Individual datapoints** shifts to a disaggregated view of the data.
+- **Aggregate plot** displays data in bins or categories along the X axis.
+- **Individual datapoints** displays a disaggregated view of the data.
 
-In the **Individual datapoints** view, you can select the type of legend used to group datapoints. Selecting the label under **Color value** opens the **Select your axis value** sidebar with the same options that you use to create the chart axes.
+In the **Individual datapoints** view, you can select the type of legend used to group datapoints. Selecting the label under **Color value** opens the **Select your axis value** sidebar pane.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png" alt-text="Screenshot of data analysis on the chart view tab with individual datapoints option highlighted." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-individual-datapoints.png":::
 
