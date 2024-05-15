@@ -300,6 +300,8 @@
               href: use-system-pools.md
             - name: Resize node pools
               href: resize-node-pool.md
+            - name: Delete node pools
+              href: delete-node-pool.md
         - name: Virtual nodes
           items:
             - name: Use virtual nodes
@@ -556,6 +558,8 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
+        - name: Diagnose and solve UDP packet drops
+          href: troubleshoot-udp-packet-drops.md
     - name: Storage
       items:
         - name: CSI storage drivers
