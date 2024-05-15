@@ -149,8 +149,6 @@ To update an installed extension to the latest available version supported by Az
 ```sql
 ALTER EXTENSION azure_ai UPDATE;
 ```
- For more information, see [Upgrading extensions.](/concepts-extensions.md) 
-
 
 ## Next steps
 
