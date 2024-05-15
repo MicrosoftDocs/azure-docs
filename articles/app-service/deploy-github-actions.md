@@ -262,5 +262,5 @@ More information on the Maven plugin and how to use and configure it can be foun
 
 - [Deploy WAR file through Maven plugin and OIDC](https://github.com/microsoft/azure-maven-plugins/wiki)
 - [Deploy WAR file through Az CLI and OIDC]()
-- [Deploy to a Container](https://learn.microsoft.com/en-us/azure/app-service/deploy-container-github-action)
+- [Deploy to a Container](https://learn.microsoft.com/azure/app-service/deploy-container-github-action)
 - [Update Tomcat configuration during deployment](https://github.com/Azure/appservice-settings)
