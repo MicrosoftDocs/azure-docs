@@ -26,6 +26,9 @@ To view your Container Insights data using Prometheus, ensure the following step
 
 Because Azure Monitor supports various levels of customization, your cluster may currently have logs based Container Insights, managed Prometheus, or some other combination.
 
+> [!Note]
+> Managed Prometheus visualizations for Container Insights uses recording rules to improve chart performance, learn more about [what rules are configured](./prometheus-metrics-scrape-default.md#recording-rules)
+
 ### [No Prometheus or logs based Container Insights enabled](#tab/unmonitored)
 
 1.) Open the Azure portal and navigate to your desired AKS cluster.
