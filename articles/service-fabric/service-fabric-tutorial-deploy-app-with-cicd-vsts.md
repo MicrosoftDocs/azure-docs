@@ -33,10 +33,10 @@ In these tutorials you learn how to:
 
 Before you begin this tutorial:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
-* [Install the Service Fabric SDK](service-fabric-get-started.md)
-* Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* [Install the Service Fabric SDK](service-fabric-get-started.md).
+* Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 * Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). An organization allows you to create a project in Azure DevOps and use Azure Pipelines.
 
 ## Download the Voting sample application
@@ -49,7 +49,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## Prepare a publish profile
 
-Now that you [created an application](service-fabric-tutorial-create-dotnet-app.md) and [deployed the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), you're ready to set up continuous integration. First, prepare a publish profile within your application for use by the deployment process that executes within Azure Pipelines. The publish profile should be configured to target the cluster you previously created. Start Visual Studio and open an existing Service Fabric application project. In **Solution Explorer**, right-click the application and select **Publish...**.
+Now that you [created an application](service-fabric-tutorial-create-dotnet-app.md) and [deployed the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), you're ready to set up continuous integration. First, prepare a publish profile within your application for use by the deployment process that executes within Azure Pipelines. The publish profile should be configured to target the cluster you previously created. Start Visual Studio and open an existing Service Fabric application project. In **Solution Explorer**, right-click the application and select **Publish**.
 
 Choose a target profile within your application project to use for your continuous integration workflow, for example Cloud. Specify the cluster connection endpoint. Check the **Upgrade the Application** checkbox so that your application upgrades for each deployment in Azure DevOps. Select the **Save** hyperlink to save the settings to the publish profile and then choose **Cancel** to close the dialog box.
 
