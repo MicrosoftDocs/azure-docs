@@ -32,7 +32,7 @@ This section highlights different steps to run Event Hubs emulator. Details are 
 
  Before running automated script, clone the Event Hubs emulator GitHub [repository](https://github.com/Azure/azure-event-hubs-emulator) locally.
  
-#### [Windows](#tab/Windows)
+#### [Windows](#tab/automated-script/Windows)
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 1. Before executing the setup script, we need to allow execution of unsigned scripts. Run the below command in the powershell window:
 
@@ -41,18 +41,17 @@ After completing the prerequisites, you can proceed with the following steps to 
 2. Execute setup script `LaunchEmulator.ps1`. Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
 3. Once the steps are successful, you could find containers running in Docker Desktop.
 
-#### [Linux](#tab/Linux)
+#### [Linux](#tab/automated-script/Linux)
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 
 1. Execute the setup script `LaunchEmulator.sh` . Running the script would  bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
 2. Once the steps are successful, you could find containers running in Docker.
 
-#### [MacOS](#tab/MacOS)
+#### [MacOS](#tab/automated-script/MacOS)
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 
 1. Execute the setup script `LaunchEmulator.sh` . Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
 2. Once the steps are successful, you could find containers running in Docker.
----
 
 ### [Docker (Linux Container)](#tab/docker-linux-container)
 
