@@ -41,9 +41,7 @@ Containers generate similar data as other Azure resources, but they require a co
 
 You can use Log Analytics to analyze and query container instance logs, and you can also enable diagnostic settings as a preview feature in the Azure portal. Log Analytics and diagnostic settings have slightly different table schemas to use for queries. Once you enable diagnostic settings, you can use either or both schemas at the same time.
 
-For detailed information and instructions for querying logs, see [Container group and instance logging with Azure Monitor logs](container-instances-log-analytics.md). For more information about diagnostic settings, see [Use diagnostic settings](container-instances-log-analytics.md#using-diagnostic-settings).
-
-For the Azure Monitor logs table schemas for Container Instances, see [Container Instances monitoring data reference](monitor-azure-container-instances-reference.md#azure-monitor-logs-tables).
+For detailed information and instructions for querying logs, see [Container group and instance logging with Azure Monitor logs](container-instances-log-analytics.md). For the Azure Monitor logs table schemas for Container Instances, see [Azure Monitor Logs tables](monitor-azure-container-instances-reference.md#azure-monitor-logs-tables).
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 

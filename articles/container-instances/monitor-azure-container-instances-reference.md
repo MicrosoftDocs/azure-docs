@@ -95,7 +95,18 @@ The following *_CL* tables represent the legacy Log Analytics integration. Users
 
 ### Azure Monitor Log Analytics tables
 
-The newer tables require use of a diagnostic setting to route information to Log Analytics. Diagnostic settings for Container Instances in the Azure portal is in public preview. The table names are similar, but without the _CL, and some columns are different. For more information, see [Use diagnostic settings](container-instances-log-analytics.md#using-diagnostic-settings).
+The newer tables require use of a diagnostic setting to route information to Log Analytics. Diagnostic settings for Container Instances in the Azure portal is in public preview. The table names are similar, but without the _CL, and some columns are different.
+
+Once this feature is enabled for a subscription, diagnostic settings can be applied to a container group. Applying diagnostic settings causes a container group to restart.
+
+For example, here's how you can use `New-AzDiagnosticSetting` command to apply a diagnostic settings object to a container group.
+
+```azurepowershell
+$log = @()
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -Category ContainerInstanceLog -RetentionPolicyDay 7 -RetentionPolicyEnabled $true
+ 
+New-AzDiagnosticSetting -Name test-setting -ResourceId <container-group-resource-id> -WorkspaceId <log-analytics-workspace-id> -Log $log
+```
 
 #### Container Instances
 Microsoft.ContainerInstance/containerGroups
