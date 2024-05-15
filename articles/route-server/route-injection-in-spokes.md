@@ -60,7 +60,6 @@ A particular case of the previous design is when customers insert the Azure Fire
 
 The Azure Firewall subnet learns the routes coming from both ExpressRoute and the VPN/SDWAN NVA, and decides whether sending traffic one way or the other. As described in the previous section, if the NVA appliance advertises more than 200 routes to the Route Server, it should send its BGP routes marked with the BGP community `no-advertise`. This way, the SDWAN prefixes won't be injected back to on-premises via Express-Route.
 
-
 ## Traffic symmetry
 
 If multiple NVA instances are used in active/active scenario for better resiliency or scalability, traffic symmetry is a requirement if the NVAs need to keep the state of the connections. This is, for example, the case of Next Generation Firewalls.
