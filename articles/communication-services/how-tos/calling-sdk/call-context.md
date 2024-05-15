@@ -15,9 +15,9 @@ zone_pivot_groups: acs-plat-web
 # Passing Contextual Information
 In this article, you learn how to pass along custom contextual information when routing calls with Azure Communication Services Calling SDKs. This capability allows users pass metadata about the call, callee or any other information that is relevant to their application or business logic. This allows businesses to manage, and route calls across networks without having to worry about losing context.
 
-This includes both freeform custom headers as well as the standard User-to-User Information (UUI) SIP header. Custom call context, as well as the standard User-to-User Information (UUI) SIP header is forwarded to the SIP protocol, also when routing an inbound call from your telephony network, the data set from your SBC in the custom headers and UUI is similarly included in the incomingCall payload.
+This includes both freeform custom headers as well as the standard User-to-User Information (UUI) SIP header. Also when you receive an inbound call, the custom headers and UUI are included in the incomingCall payload.
 
-All custom context data is opaque to Call Automation or SIP protocols and its content is unrelated to any basic functions
+All custom context data is opaque to Calling SDK or SIP protocols and its content is unrelated to any basic functions
 
 ## Prerequisites
 
