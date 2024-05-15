@@ -168,7 +168,7 @@ This section provides sample screenshots of how you might use your playbook to a
 
 **Add a comment to an incident, using a playbook triggered by a new incident**:
 
-![Screenshot of an alert trigger simple add comment example](../media/playbook-triggers-actions/incident-comment.png)
+![Screenshot of an incident trigger simple add comment example](../media/playbook-triggers-actions/incident-comment.png)
 
 **Add a comment to an incident, using a playbook triggered by a new alert**:
 
