@@ -14,7 +14,7 @@ ms.custom: language-service-pii
 
 # Personally Identifiable Information (PII) detection language support 
 
-Use this article to learn which natural languages are supported by the PII and conversation PII (preview) features of Azure AI Language.
+Use this article to learn which natural languages are supported by the PII and conversation PII features of Azure AI Language.
 
 # [PII for documents](#tab/documents)
 
