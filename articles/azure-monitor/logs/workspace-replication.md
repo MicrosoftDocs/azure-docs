@@ -245,39 +245,13 @@ Where:
 
 The `POST` command is a long running operation that can take some time to complete. A successful call returns a `202` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
 
-#### Restrictions and limitations
+## Switch back to your primary workspace
 
-- When you enable replication for workspaces that interact with Sentinel, it can take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
-- During switchover, workspace management operations aren't supported, including:
-   - Change workspace retention, pricing tier, daily cap, and so on
-   - Change network settings
-   - Change schema through new custom logs or connecting platform logs from new resource providers, such as sending diagnostic logs from a new resource type
-   - Any other management operation of the workspace
-- The solution targeting capability of MMA agents isn't supported during switchover.
-
-   > [!WARNING]
-   > Because solution targeting can't work during switchover, solutions data is ingested from **all** agents during switchover.
-
-- The failover process updates your Domain Name System (DNS) records to reroute all ingestion requests to your secondary region for processing. Some HTTP clients have "sticky connections" and might take longer to pick up the DNS updated DNS. During switchover, these clients might attempt to ingest logs through the primary region for some time. You might be ingesting logs to your primary workspace using various clients, including the legacy Log Analytics Agent, Azure Monitor Agent, code (using the Logs Ingestion API or the legacy HTTP data collection API), and other services, such as Sentinel. 
-   
-
-The following features are partially supported or not currently supported:
-
-| Feature | Support | Notes |
-| --- | --- | --- |
-| Search jobs, Restore | Partial support| Both search jobs and restore operations create tables and populate them with the operation outputs (the search results or restored data). After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
-| Azure Application Insights over Log Analytics workspaces | Partial support | |
-| Azure Virtual Machines Insights | Partial support | |
-| Container Insights | Partial support | |
-| Private links | No current support | |
-
-## Explore failback for replicated workspaces
-
-The failback process cancels the rerouting of queries and log ingestion requests to the secondary workspace that are implemented during switchover. When you trigger failback, routing of queries and log ingestion requests returns to your primary workspace. 
+The switchback process cancels the rerouting of queries and log ingestion requests to the secondary workspace. When you trigger switchback, routing of queries and log ingestion requests returns to your primary workspace. 
 
 During switchover, logs ingest to your secondary workspace and then (asynchronously) replicate to your primary workspace. While switchover is in progress, if an outage impacts the log ingestion process on the primary region, it can take time for the logs to complete the ingestion process.
 
-There are several points to consider in your plan for failback:
+There are several points to consider in your plan for switchback:
 
 - Complete replication for logs ingested during switchover
 - No outstanding Service Health notifications
@@ -287,30 +261,30 @@ The following sections explore these considerations.
 
 ### Logs ingestion replication state
 
-Before you trigger failback, verify all logs ingested during switchover complete their replication to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
+Before you trigger switchback, verify all logs ingested during switchover complete their replication to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
 
 You can query your primary workspace in the Azure portal for the inactive region and check the replication status for each log. For more information, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
 ### Primary workspace health
 
-There are two important health items to check in preparation for failback to your primary workspace:
+There are two important health items to check in preparation for switchback to your primary workspace:
 
 - Confirm there are no outstanding Service Health notifications for the primary workspace and region.
 - Confirm your primary workspace is ingesting logs and processing queries as expected.
 
 For examples on how to query your primary workspace during switchover, and bypass the rerouting of requests to your secondary workspace, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
-## Trigger failback
+## Trigger switchback
 
-Before you trigger failback, confirm the [Primary workspace health](#primary-workspace-health) and complete [replication of logs ingestion](#logs-ingestion-replication-state). 
+Before you trigger switchback, confirm the [Primary workspace health](#primary-workspace-health) and complete [replication of logs ingestion](#logs-ingestion-replication-state). 
 
-The failback process updates your DNS records. After the DNS records update, it can take extra time for all clients to receive the updated DNS settings and resume routing to the primary workspace.
+The switchback process updates your DNS records. After the DNS records update, it can take extra time for all clients to receive the updated DNS settings and resume routing to the primary workspace.
 
-You trigger failback by using a `POST` command with the following values:
+You trigger switchback by using a `POST` command with the following values:
 
 - `<subscription_id>`: Your account subscription ID.
 - `<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `<workspace_name>`: The name of the workspace to switch to during failback.
+- `<workspace_name>`: The name of the workspace to switch to during switchback.
 
 The `POST` command is a long running operation that can take some time to complete. The call to the command returns 202. You can track the process, as described in [Check workspace state](#check-workspace-state).
 
@@ -549,6 +523,26 @@ The following query counts how many queries returned a server error code:
 ```kusto
 LAQueryLogs | where ResponseCode>=500 and ResponseCode<600 | count
 ```
+## Restrictions and limitations
+
+- When you enable replication for workspaces that interact with Sentinel, it can take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
+- During switchover, workspace management operations aren't supported, including:
+   - Change workspace retention, pricing tier, daily cap, and so on
+   - Change network settings
+   - Change schema through new custom logs or connecting platform logs from new resource providers, such as sending diagnostic logs from a new resource type
+   - Any other management operation of the workspace
+- The solution targeting capability of the legacy Log Analytics agent isn't supported during switchover. Therefore, during switchover, solution data is ingested from **all** agents.
+- The failover process updates your Domain Name System (DNS) records to reroute all ingestion requests to your secondary region for processing. Some HTTP clients have "sticky connections" and might take longer to pick up the DNS updated DNS. During switchover, these clients might attempt to ingest logs through the primary region for some time. You might be ingesting logs to your primary workspace using various clients, including the legacy Log Analytics Agent, Azure Monitor Agent, code (using the Logs Ingestion API or the legacy HTTP data collection API), and other services, such as Sentinel. 
+   
+The following features are partially supported or not currently supported:
+
+| Feature | Support | Notes |
+| --- | --- | --- |
+| Search jobs, Restore | Partial support| Both search jobs and restore operations create tables and populate them with the operation outputs (the search results or restored data). After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
+| Azure Application Insights over Log Analytics workspaces | Partial support | |
+| Azure Virtual Machines Insights | Partial support | |
+| Container Insights | Partial support | |
+| Private links | No current support | |
 
 ## Related content
 
