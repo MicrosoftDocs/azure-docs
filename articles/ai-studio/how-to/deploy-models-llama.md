@@ -5,7 +5,7 @@ description: Learn how to deploy Meta Llama models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 3/6/2024
+ms.date: 5/21/2024
 ms.reviewer: shubhiraj
 reviewer: shubhirajMsft
 ms.author: ssalgado
@@ -15,7 +15,7 @@ ms.custom: [references_regions]
 
 # How to deploy Meta Llama models with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 In this article, you learn about the Meta Llama models. You also learn how to use Azure AI Studio to deploy models from this set either as a service with pay-as you go billing or with hosted infrastructure in real-time endpoints.
 
@@ -59,12 +59,12 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 # [Meta Llama 3](#tab/llama-three)
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
     > For Meta Llama 3 models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **Sweden Central** regions.
 
-- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
     - On the Azure subscription—to subscribe the Azure AI project to the Azure Marketplace offering, once for each project, per offering:
@@ -87,12 +87,12 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 # [Meta Llama 2](#tab/llama-two)
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
     > For Meta Llama 2 models, the pay-as-you-go model deployment offering is only available with AI hubs created in **East US 2** and **West US 3** regions.
 
-- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
     - On the Azure subscription—to subscribe the Azure AI project to the Azure Marketplace offering, once for each project, per offering:
@@ -203,8 +203,8 @@ Models deployed as a service can be consumed using either the chat or the comple
 
 1. Make an API request based on the type of model you deployed. 
 
-    - For completions models, such as `Meta-Llama-3-8B`, use the [`/v1/completions`](#completions-api) API.
-    - For chat models, such as `Meta-Llama-3-8B-Instruct`, use the [`/v1/chat/completions`](#chat-api) API.
+    - For completions models, such as `Meta-Llama-3-8B`, use the [`/completions`](#completions-api) API.
+    - For chat models, such as `Meta-Llama-3-8B-Instruct`, use the [`/chat/completions`](#chat-api) API.
 
     For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
 
@@ -223,14 +223,18 @@ Models deployed as a service can be consumed using either the chat or the comple
 
 1. Make an API request based on the type of model you deployed. 
 
-    - For completions models, such as `Meta-Llama-2-7B`, use the [`/v1/completions`](#completions-api) API.
-    - For chat models, such as `Meta-Llama-2-7B-Chat`, use the [`/v1/chat/completions`](#chat-api) API.
+    - For completions models, such as `Meta-Llama-2-7B`, use the [`/v1/completions`](#completions-api) API or the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/completions`.
+    - For chat models, such as `Meta-Llama-2-7B-Chat`, use the [`/v1/chat/completions`](#chat-api) API or the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions`.
 
     For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
 
 ---
 
 ### Reference for Meta Llama models deployed as a service
+
+Llama models accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` or a [Llama Chat API](#chat-api) on `/v1/chat/completions`. In the same way, text completions can be generated using the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/completions` or a [Llama Completions API](#completions-api) on `/v1/completions`
+
+The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
 
 #### Completions API
 
@@ -483,46 +487,7 @@ The following is an example response:
 
 Apart from deploying with the pay-as-you-go managed service, you can also deploy Meta Llama models to real-time endpoints in AI Studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to real-time endpoints consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
 
-Users can create a new deployment in [Azure Studio](#create-a-new-deployment-in-azure-studio) and in the [Python SDK.](#create-a-new-deployment-in-python-sdk)
-
-### Create a new deployment in Azure Studio
-
-# [Meta Llama 3](#tab/llama-three)
-
-Follow these steps to deploy a model such as `Meta-Llama-3-8B-Instruct` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
-
-1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
-
-    Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select the **Deployments** option, then select **+ Create**.
-
-1. On the model's **Details** page, select **Deploy** and then **Real-time endpoint**.
-
-1. On the **Deploy with Azure AI Content Safety (preview)** page, select **Skip Azure AI Content Safety** so that you can continue to deploy the model using the UI.
-
-    > [!TIP]
-    > In general, we recommend that you select **Enable Azure AI Content Safety (Recommended)** for deployment of the Meta Llama model. This deployment option is currently only supported using the Python SDK and it happens in a notebook.
-
-1. Select **Proceed**.
-1. Select the project where you want to create a deployment.
-
-    > [!TIP]
-    > If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**.
- 
-1. Select the **Virtual machine** and the **Instance count** that you want to assign to the deployment.
-
-1. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resource configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
- 
-1. Indicate if you want to enable **Inferencing data collection (preview)**.
-
-1. Select **Deploy**. After a few moments, the endpoint's **Details** page opens up.
-
-1. Wait for the endpoint creation and deployment to finish. This step can take a few minutes.
-
-1. Select the **Consume** tab of the deployment to obtain code samples that can be used to consume the deployed model in your application.
-
-# [Meta Llama 2](#tab/llama-two)
-
-Follow these steps to deploy a model such as `Meta-Llama-2-7B-Chat` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
+Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
 
 1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
@@ -555,102 +520,7 @@ Follow these steps to deploy a model such as `Meta-Llama-2-7B-Chat` to a real-ti
 
 1. Select the **Consume** tab of the deployment to obtain code samples that can be used to consume the deployed model in your application.
 
----
-
-### Create a new deployment in Python SDK
-
-# [Meta Llama 3](#tab/llama-three)
-
-Follow these steps to deploy an open model such as `Meta-Llama-3-7B-Instruct` to a real-time endpoint, using the Azure AI Generative SDK.
-
-1. Import required libraries
-
-    ```python
-    # Import the libraries
-    from azure.ai.resources.client import AIClient
-    from azure.ai.resources.entities.deployment import Deployment
-    from azure.ai.resources.entities.models import PromptflowModel
-    from azure.identity import DefaultAzureCredential
-    ```
-
-1. Provide your credentials. Credentials can be found under your project settings in Azure AI Studio. You can go to Settings by selecting the gear icon on the bottom of the left navigation UI.
-
-    ```python
-    credential = DefaultAzureCredential()
-    client = AIClient(
-        credential=credential,
-        subscription_id="<xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>",
-        resource_group_name="<YOUR_RESOURCE_GROUP_NAME>",
-        project_name="<YOUR_PROJECT_NAME>",
-    )
-    ```
-
-1. Define the model and the deployment. `The model_id` can be found on the model card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md).
-
-    ```python
-    model_id = "azureml://registries/azureml/models/Llama-3-8b-chat/versions/12"
-    deployment_name = "my-llama38bchat-deployment"
-    
-    deployment = Deployment(
-        name=deployment_name,
-        model=model_id,
-    )
-    ```
-
-1. Deploy the model.
-
-    ```python
-    client.deployments.create_or_update(deployment)
-    ```
-
-# [Meta Llama 2](#tab/llama-two)
-
-Follow these steps to deploy an open model such as `Meta-Llama-2-7B-Chat` to a real-time endpoint, using the Azure AI Generative SDK.
-
-1. Import required libraries
-
-    ```python
-    # Import the libraries
-    from azure.ai.resources.client import AIClient
-    from azure.ai.resources.entities.deployment import Deployment
-    from azure.ai.resources.entities.models import PromptflowModel
-    from azure.identity import DefaultAzureCredential
-    ```
-
-1. Provide your credentials. Credentials can be found under your project settings in Azure AI Studio. You can go to Settings by selecting the gear icon on the bottom of the left navigation UI.
-
-    ```python
-    credential = DefaultAzureCredential()
-    client = AIClient(
-        credential=credential,
-        subscription_id="<xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>",
-        resource_group_name="<YOUR_RESOURCE_GROUP_NAME>",
-        project_name="<YOUR_PROJECT_NAME>",
-    )
-    ```
-
-1. Define the model and the deployment. `The model_id` can be found on the model card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md).
-
-    ```python
-    model_id = "azureml://registries/azureml/models/Llama-2-7b-chat/versions/12"
-    deployment_name = "my-llama27bchat-deployment"
-    
-    deployment = Deployment(
-        name=deployment_name,
-        model=model_id,
-    )
-    ```
-
-1. Deploy the model.
-
-    ```python
-    client.deployments.create_or_update(deployment)
-    ```
-
-
----
-
-### Consume Meta Llama 3 models deployed to real-time endpoints
+### Consume Llama 2 models deployed to real-time endpoints
 
 For reference about how to invoke Llama models deployed to real-time endpoints, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 

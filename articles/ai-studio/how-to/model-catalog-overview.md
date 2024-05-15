@@ -7,13 +7,15 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 5/08/2024
+ms.date: 5/21/2024
 ms.reviewer: jcioffi
 ms.author: ssalgado
 author: ssalgadodev
 ---
 
 # Model Catalog and Collections in Azure AI Studio
+
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 The model catalog in Azure AI studio is the hub to discover and use a wide range of models that enable you to build Generative AI applications. The model catalog features hundreds of models across model providers such as Azure OpenAI service, Mistral, Meta, Cohere, Nvidia, Hugging Face, including models trained by Microsoft. Models from providers other than Microsoft are Non-Microsoft Products, as defined in [Microsoft's Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage), and subject to the terms provided with the model.   
 

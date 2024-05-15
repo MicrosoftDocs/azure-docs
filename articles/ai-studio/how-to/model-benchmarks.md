@@ -6,15 +6,15 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
 ms.topic: how-to
-ms.date: 5/6/2024
+ms.date: 5/21/2024
 ms.reviewer: jcioffi
-ms.author: jcioffi
-author: jesscioffi
+ms.author: eur
+author: eric-urban
 ---
 
 # Model benchmarks
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 In Azure AI Studio, you can compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. You can find Model benchmarks under **Get started** in the left side menu in Azure AI Studio.
 
@@ -49,7 +49,7 @@ You can switch from dashboard view to list view by following these quick steps:
 1. Select the models you want to compare.
 2. Select **List** on the right side of the page.
 
-:::image type="content" source="../media/explore/model-benchmarks-dashboard-filtered.png" alt-text="Screenshot of dashboard view graph with question answering filter applied and 'List' button identified." lightbox="../media/explore/model-benchmarks-dashboard-filtered.png":::
+    :::image type="content" source="../media/explore/model-benchmarks-dashboard-filtered.png" alt-text="Screenshot of dashboard view graph with question answering filter applied and 'List' button identified." lightbox="../media/explore/model-benchmarks-dashboard-filtered.png":::
 
 In list view you can find the following information:
 - Model name, description, version, and aggregate scores.
