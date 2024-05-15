@@ -3,7 +3,7 @@ title: Connect VMware vCenter Server to Azure Arc by using the helper script
 description: In this quickstart, you learn how to use the helper script to connect your VMware vCenter Server instance to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
-ms.date: 03/13/2024
+ms.date: 05/15/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -160,7 +160,7 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 After the command finishes running, your setup is complete. You can now use the capabilities of Azure Arc-enabled VMware vSphere.
 
 > [!IMPORTANT]
-> After the successful installation of Azure Arc resource bridge, it is recommended to retain a copy of the resource bridge config .yaml files and the kubeconfig file safe and secure in a place that facilitates easy retrieval. These files may be needed later to run a few commands to perform management operations on the resource bridge. You can find the 3 .yaml files (config files) and the kubeconfig file in the same folder where you ran the script. 
+> After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (e.g. [az arcappliance upgrade](/cli/azure/arcappliance/upgrade?view=azure-cli-latest#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script. 
 
 ## Recovering from failed deployments
 

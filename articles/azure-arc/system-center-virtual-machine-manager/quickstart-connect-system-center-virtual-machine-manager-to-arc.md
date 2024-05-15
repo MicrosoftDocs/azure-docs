@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 04/18/2024
+ms.date: 05/15/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -132,7 +132,7 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
     bash resource-bridge-onboarding-script.sh --force
   ```
 >[!IMPORTANT]
-> After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.
+> After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (e.g. [az arcappliance upgrade](/cli/azure/arcappliance/upgrade?view=azure-cli-latest#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script.
 
 >[!NOTE]
 > - After successful deployment, we recommend maintaining the state of **Arc Resource Bridge VM** as *online*.
