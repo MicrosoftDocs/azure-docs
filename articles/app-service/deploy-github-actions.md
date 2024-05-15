@@ -260,7 +260,47 @@ In case you configured your Java Tomcat project with the [Maven plugin](https://
 
 More information on the Maven plugin and how to use and configure it can be found in the [Maven plugin wiki for Azure App Service](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
 
-- [Deploy WAR file through Maven plugin and OIDC](https://github.com/microsoft/azure-maven-plugins/wiki)
-- [Deploy WAR file through Az CLI and OIDC]()
-- [Deploy to a Container](https://learn.microsoft.com/azure/app-service/deploy-container-github-action)
+
+### Deploy WAR file through Az CLI and OIDC 
+
+If you use prefer the [Azure CLI](https://github.com/Azure/cli) to deploy to App Service, you can use the following command.
+
+```CLI
+    az webapp deploy [--async {false, true}]
+                 [--clean {false, true}]
+                 [--ids]
+                 [--ignore-stack {false, true}]
+                 [--name]
+                 [--resource-group]
+                 [--restart {false, true}]
+                 [--slot]
+                 [--src-path]
+                 [--src-url]
+                 [--subscription]
+                 [--target-path]
+                 [--timeout]
+                 [--track-status {false, true}]
+                 [--type {ear, jar, lib, startup, static, war, zip}]
+```
+
+More information on the az webapp command, how to use and the parameter details can be found in the [az webapp documentation](https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy).
+
+### Deploy to a Container
+
+With the Azure Web Deploy action, you can automate your workflow to deploy custom containers to App Service using GitHub Actions. Detailed information on the steps to deploy using GitHub Actions, can be found in the [Deploy to a Container](https://learn.microsoft.com/en-us/azure/app-service/deploy-container-github-action).
+
+### Update Tomcat configuration during deployment
+
+In case you configured your Java Tomcat project with the [Maven plugin](https://github.com/microsoft/azure-maven-plugins), you can also deploy to Azure App Service through this plugin. If you use the [Azure CLI GitHub action](https://github.com/Azure/cli) it will make use of your Azure login credentials.
+
+```yaml
+    - name: Azure CLI script file
+      uses: azure/cli@v2
+      with:
+        inlineScript: |
+          mvn package azure-webapp:deploy
+```
+
+More information on the Maven plugin and how to use and configure it can be found in the [Maven plugin wiki for Azure App Service](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
+
 - [Update Tomcat configuration during deployment](https://github.com/Azure/appservice-settings)
