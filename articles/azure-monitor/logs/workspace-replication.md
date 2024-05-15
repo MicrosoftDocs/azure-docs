@@ -127,41 +127,28 @@ The `GET` command verifies that the workspace provisioning state changes from "U
 > [!NOTE]
 > When you enable replication for workspaces that interact with Sentinel, it can take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
 
-### Associate data collection rules with the data collection endpoint
+### Associate data collection rules with the system data collection endpoint
 
-When you enable replication on your workspace, Azure Monitor creates a system [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md). The name of the new DCE is identical to your workspace ID.
+You use [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) to collect log data using Azure Monitor Agent and the Logs Ingestion API.
 
-Data you collect using Azure Monitor Agent and the Logs Ingestion API is managed via Data Collection Rules (DCR). Using a DCR provides better control over the scope of replication. You can configure the DCR to replicate one stream of logs - such as Security logs - and not replicating others - such as Perf logs. 
+If you have data collection rules that send data to your primary workspace, you need to associate them to a system [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md), which Azure Monitor creates when you enable replication on your workspace. The name of the system data collection endpoint is identical to your workspace ID. Only data collection rules you associate to the workspace's system data collection endpoint enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you control your replication costs.
 
-To replicate data you collect using DCRs, associate your DCRs to the system data collection endpoint for your workspace:
+To replicate data you collect using data collection rules, associate your data collection rules to the system data collection endpoint for your Log Analytics workspace:
 
-1. In the Azure portal, go to the DCR **Overview** page.
+1. In the Azure portal, select **Data collection rules**.
+1. From the **Data collection rules** screen, select a data collection rule that sends data to your primary Log Analytics workspace.
+1. On the data collection rule **Overview** page, select **Configure DCE** and select the system data collection endpoint from the available list:
 
-1. Select **Configure DCE**.
-
-1. Select the System DCE from the available list:
-
-   :::image type="content" source="media/workspace-replication/configure-dce.png" alt-text="Screenshot that shows how to configure a DCE for an existing DCR in the Azure portal." lightbox="media/workspace-replication/configure-dce.png":::
-
+   :::image type="content" source="media/workspace-replication/configure-dce.png" alt-text="Screenshot that shows how to configure a data collection endpoint for an existing data collection rule in the Azure portal." lightbox="media/workspace-replication/configure-dce.png":::
    For details about the System DCE, check the workspace object properties.
 
 > [!IMPORTANT]
-> - If you use DCRs to send logs to your workspace, you must connect each DCR to the newly created DCE to support replication and switchover.
-> - Only DCRs connected to the workspace's system DCE enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you to control your replication costs.
-> - DCRs connected to a workspace's system DCE can target only that specific workspace. The DCRs **must not** target other destinations, such as additional workspaces or Azure Storage accounts.
+> - If you use data collection rules to send logs to your workspace, you must connect each data collection rule to the newly created data collection endpoint to support replication and switchover.
+> - Data collection rules connected to a workspace's system data collection endpoint can target only that specific workspace. The data collection rules **must not** target other destinations, such as other workspaces or Azure Storage accounts.
 
 ### Disable workspace replication
 
-You disable replication for a workspace with a `PUT` command that uses the following values:
-
-- `<subscription_id>`: Your account subscription ID.
-- `<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `<workspace_name>`: The name of your workspace.
-- `<primary_location>`: The primary region for your workspace.
-
-The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
-
-The following code demonstrates the `PUT` command to disable replication for the workspace:
+To disable replication for a workspace, use this `PUT` command:
 
 ```http
 PUT 
@@ -178,6 +165,15 @@ body:
     "location": "<primary_location>"
 }
 ```
+
+Where:
+
+- `<subscription_id>`: Your account subscription ID.
+- `<resourcegroup_name>` : The resource group that contains your workspace resource.
+- `<workspace_name>`: The name of your workspace.
+- `<primary_location>`: The primary region for your workspace.
+
+The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
 
 ## Monitor workspace and service health
 
