@@ -109,9 +109,9 @@ The following table summarizes the cost considerations for the various data prot
 
 Azure Storage always maintains multiple copies of your data so that it's protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures. For more information about how to configure your storage account for high availability, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
-If your storage account is configured for geo-redundancy, you have the option to fail over your account from the primary to the secondary region during a data center failure. For more information, see [Disaster recovery and storage account failover](../common/storage-disaster-recovery-guidance.md).
+If your storage account is configured for geo-redundancy, you have the option to initiate an unplanned failover from the primary to the secondary region during a data center failure. For more information, see [Disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#customer-managed-unplanned-failover). 
 
-Customer-managed failover isn't currently supported for storage accounts with a hierarchical namespace enabled. For more information, see [Blob storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md).
+Customer-managed failover currently supports storage accounts with a hierarchical namespace enabled in preview status only. For more information, see [Disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#plan-for-failover).
 
 ## Next steps
 
