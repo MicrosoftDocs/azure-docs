@@ -175,7 +175,13 @@ The Elastic SAN and the virtual network could be in different resource groups, r
 
 # [Portal](#tab/azure-portal)
 
-Currently, you can only configure a private endpoint using PowerShell or the Azure CLI.
+You can create a private endpoint in the Azure portal either when you create a volume group or when modifying an existing volume group. You need an existing virtual network to create a private endpoint.
+
+When creating or modifying a volume group, select the **Networking** page, then select **+ Create a private endpoint** under **Private endpoint connections**.
+
+Fill out the values in the menu that pops up, select the virtual network and the subnet that your applications will use. 
+
+:::image type="content" source="media/elastic-san-create/elastic-san-private-endpoint.png" alt-text="Screenshot" lightbox="media/elastic-san-create/elastic-san-private-endpoint.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
