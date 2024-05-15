@@ -8,7 +8,7 @@ ms.author: v-abhmallick
 
 Once the vault and policy are created, there are two critical points that you need to consider to protect all the Azure Blobs within a storage account.
 
-## Key entities involved
+### Key entities involved
 
 ### Storage account which contains the blobs to be protected
 
