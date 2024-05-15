@@ -1,5 +1,5 @@
 ---
-title: Increase data and service reslience by replicating your Log Analytics workspace across regions
+title: Enhance reslience by replicating your Log Analytics workspace across regions
 description: Use the workspace replication feature in Log Analytics to create copies of a workspace in different regions for data resiliency.
 ms.topic: how-to
 author: noakup
@@ -10,9 +10,9 @@ ms.custom: references_regions
 # Customer intent: As a Log Analytics workspace administrator, I want to replicate my workspace across regions to protect and continue to access my log data in the event of a regional failure.
 ---
 
-# Increase data and service reslience by replicating your Log Analytics workspace across regions
+# Enhance reslience by replicating your Log Analytics workspace across regions
 
-Replicating your Log Analytics workspace across regions increases resilience by enabling you to switch over to the replicated workspace and continue operations in the event of a regional failure. Your original workspace and region are referred to as the **primary**. The replicated workspace and alternate region are referred to as the **secondary**.
+Replicating your Log Analytics workspace across regions enhances resilience by enabling you to switch over to the replicated workspace and continue operations in the event of a regional failure. Your original workspace and region are referred to as the **primary**. The replicated workspace and alternate region are referred to as the **secondary**.
 
 This article explains how Log Analytics workspace replication works, how to replicate your workspace, and how to switch over and back.
 
@@ -31,7 +31,7 @@ The workspace replication process creates an instance of your workspace in the s
 
 The secondary workspace is a "shadow" workspace for resiliency purposes only. You can’t see the secondary workspace in the Azure portal, and you can't manage or access it directly.
 
-When you enable workspace replication, Azure Monitor sends new logs ingested to your primary workspace to your secondary region also, but logs you ingest to the workspace before you enable workspace replication aren’t copied over. You can [configure the replication scope](#log-replication-scope) for how new logs ingested to your primary workspace replicate to your second workspace.
+When you enable workspace replication, Azure Monitor sends new logs ingested to your primary workspace to your secondary region also. Logs you ingest to the workspace before you enable workspace replication aren’t copied over. 
 
 If an outage affects your primary region, you can trigger switchover to reroute all ingestion and query requests to your secondary region. After you mitigate the outage and restore your primary workspace, you can switch back over to your primary region.
 
@@ -104,11 +104,11 @@ Where:
 
 For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
 
-The `PUT` command is a long running operation that can take some time to complete. The call to the command returns 200. You can track the process, as described in [Check workspace state](#check-workspace-state).
+The `PUT` command is a long running operation that can take some time to complete. A successful call returns a `200` status code. You can track the provisioning state of your request, as described in [Check workspace state](#check-workspace-state).
 
-### Check workspace state
+### Check workspace replication provisioning state
 
-To check the workspace state, run this `GET` command:
+To check the Log Analytics workspace replication provisioning state, run this `GET` command:
 
 ```http
 GET
