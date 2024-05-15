@@ -17,11 +17,11 @@ The primary advantages of using the emulator are:
 
 - Local Development: The Emulator provides a local development experience, enabling developers to work offline and avoid network latency.
 - Cost-Efficiency: With the Emulator, developers can test their applications without incurring any cloud usage costs.
-- Isolated Testing Environment: Developers can test their code in isolation, ensuring that the tests aren't impacted by other activities in the cloud.
+- Isolated Testing Environment: You can test your code in isolation, ensuring that the tests aren't impacted by other activities in the cloud.
 - Optimized Inner Development loop: Developers can use the Emulator to quickly prototype and test their applications before deploying them to the cloud.
 
 >[!NOTE]
-> Event Hubs emulator is licensed under End user License Agreement. For more details, refer: < Public GitHub Repo >
+> Event Hubs emulator is licensed under End user License Agreement. For more details, refer [here.](https://github.com/Azure/azure-event-hubs-emulator/blob/main/LICENSE)
 
 ### Features of Emulator
 
