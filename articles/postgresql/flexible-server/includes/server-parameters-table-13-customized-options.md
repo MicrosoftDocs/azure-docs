@@ -255,7 +255,7 @@ ms.topic: include
 | Default value  |                |
 | Allowed values | `,address_standardizer,address_standardizer_data_us,amcheck,azure_ai,azure_storage,bloom,btree_gin,btree_gist,citext,cube,dblink,dict_int,dict_xsyn,earthdistance,fuzzystrmatch,hstore,hypopg,intagg,intarray,isn,lo,login_hook,ltree,orafce,pageinspect,pg_buffercache,pg_cron,pg_freespacemap,pg_hint_plan,pg_partman,pg_prewarm,pg_repack,pg_squeeze,pg_stat_statements,pg_trgm,pg_visibility,pgaudit,pgcrypto,pglogical,pgrouting,pgrowlocks,pgstattuple,plpgsql,plv8,postgis,postgis_raster,postgis_sfcgal,postgis_tiger_geocoder,postgis_topology,postgres_fdw,semver,session_variable,sslinfo,tablefunc,tds_fdw,timescaledb,tsm_system_rows,tsm_system_time,unaccent,uuid-ossp,vector` |
 | Parameter type | dynamic        |
-| Documentation  | [azure.extensions](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-extensions#postgres-13-extensions) |
+| Documentation  | [azure.extensions](../concepts-extensions.md#extension-versions) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -306,7 +306,7 @@ ms.topic: include
 | Default value  | `256`          |
 | Allowed values | `256`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | read-only      |
-| Documentation  | [azure_storage.blob_block_size_mb](https://learn.microsoft.com/en-us/rest/api/storageservices/put-block?tabs=azure-ad#remarks)   |
+| Documentation  | [azure_storage.blob_block_size_mb](/rest/api/storageservices/put-block?tabs=azure-ad#remarks)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

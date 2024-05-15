@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.autovacuum_diagnostics](concepts-monitoring.md)      |
+| Documentation  | [metrics.autovacuum_diagnostics](../concepts-monitoring.md)      |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.collector_database_activity](concepts-monitoring.md) |
+| Documentation  | [metrics.collector_database_activity](../concepts-monitoring.md) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.pgbouncer_diagnostics](concepts-monitoring.md)       |
+| Documentation  | [metrics.pgbouncer_diagnostics](../concepts-monitoring.md)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
