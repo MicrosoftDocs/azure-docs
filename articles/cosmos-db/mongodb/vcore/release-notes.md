@@ -19,7 +19,7 @@ This article contains release notes for the API for MongoDB vCore. These release
 ## Latest release: May 06, 2024
 
 - Query operator enhancements.
-  - $geoNear aggregation. (Public Preview)
+  - $geoNear aggregation. This can be enabled through Flag - `Geospatial support for vcore "MongoDB for CosmosDB"` (Public Preview)
   - Support for accumulators
     - $push.
     - $mergeObjects.
@@ -31,7 +31,7 @@ This article contains release notes for the API for MongoDB vCore. These release
     - $dateSubtract.
     - $dateDiff.
 - Creating indexes with large index keys: values larger than 2.7 KB.
-- Geo replicas for cross-region support.
+- Geo replicas enabling cross-region disaster recovery and reads scaling.
 - Improved performance of group and distinct.
 - Improved performance for $geoWithin queries with $centerSphere when radius is greater than π.
 
