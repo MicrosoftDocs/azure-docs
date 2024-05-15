@@ -124,7 +124,7 @@ Agentless migration uses the [Azure Migrate appliance](../migrate-appliance.md).
 --- | ---
 Appliance | Outbound connections on port 443 to upload replicated data to Azure, and to communicate with Azure Migrate services orchestrating replication and migration.
 vCenter Server | Inbound connections on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots.
-vSphere ESXi host | Inbound on TCP port 902 for the appliance to replicate data from snapshots. Outbound port 902 from ESXi host.
+vSphere ESXi host | Inbound on TCP port 902 for the appliance to replicate data from snapshots. Outbound port 902 from ESXi host is required for sending heartbeat traffic to vCenter.
 
 ## Agent-based migration
 
