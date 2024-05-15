@@ -194,7 +194,7 @@ Service Health notifications are useful for service-related issues. To identify 
 > [!NOTE]
 > You can also use log queries to monitor your secondary workspace, but keep in mind that logs replication is done in batch operations. The measured latency can fluctuate and doesn't indicate any health issue with your secondary workspace. For more information, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
-## Switch over to the secondary workspace
+## Switch over to your secondary workspace
 
 During switchover, most operations work the same as when you use the primary workspace and region. However, some operations have slightly different behavior or are blocked.
 
@@ -291,7 +291,6 @@ Where:
 - `<workspace_name>`: The name of the workspace to switch to during switchback.
 
 The `POST` command is a long running operation that can take some time to complete. A successful call returns a `202` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
-
 
 ## Audit the inactive workspace
 
@@ -534,11 +533,11 @@ The following features are partially supported or not currently supported:
 
 | Feature | Support | Notes |
 | --- | --- | --- |
-| Search jobs, Restore | Partial support| Both search jobs and restore operations create tables and populate them with the operation outputs (the search results or restored data). After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
-| Azure Application Insights over Log Analytics workspaces | Partial support | |
-| Azure Virtual Machines Insights | Partial support | |
-| Container Insights | Partial support | |
-| Private links | No current support | |
+| Search jobs, Restore | Partially supported| Both search jobs and restore operations create tables and populate them with the operation outputs (the search results or restored data). After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
+| Application Insights over Log Analytics workspaces | Not supported | |
+| VM Insights | Not supported | |
+| Container Insights | Not supported | |
+| Private links | Not supported during failover | |
 
 ## Related content
 
