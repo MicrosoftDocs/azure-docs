@@ -70,5 +70,5 @@ DeveloperPortalAuditLogs
 
 * [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
-* [API Management resource log schema reference](gateway-log-schema-reference.md). 
+* [Developer portal audit log schema reference](developer-portal-audit-log-schema-reference.md). 
 
