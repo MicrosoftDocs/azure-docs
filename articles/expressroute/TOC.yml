@@ -209,8 +209,6 @@
         href: how-to-configure-custom-bgp-communities-portal.md
       - name: Azure PowerShell
         href: how-to-configure-custom-bgp-communities.md
-    - name: Move from public peering to Microsoft peering
-      href: how-to-move-peering.md
   - name: Encrypt traffic over circuits
     items:
     - name: Configure a site-to-site VPN over Microsoft peering
@@ -345,7 +343,10 @@
       href: expressroute-howto-coexist-classic.md
     - name: Add a gateway to a VNet
       href: expressroute-howto-add-gateway-classic.md
-    - name: Create and modify public peering
+    - name: Create and modify public peering (deprecated)
       href: about-public-peering.md
     - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
       href: how-to-npm.md
+    - name: Move from public peering to Microsoft peering (deprecated)
+      href: how-to-move-peering.md
+    
