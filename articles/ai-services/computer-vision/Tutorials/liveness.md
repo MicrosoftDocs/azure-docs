@@ -296,7 +296,7 @@ See the Azure AI Vision SDK reference to learn about other options in the livene
 
 - [Kotlin (Android)](https://aka.ms/liveness-sample-java)
 - [Swift (iOS)](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme)
-- [JavaScript Web](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-web-readme)
+- [JavaScript (Web)](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-web-readme)
 
 See the Session REST API reference to learn more about the features available to orchestrate the liveness solution.
 
