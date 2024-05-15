@@ -81,9 +81,9 @@ RG_NAME={name of your resource group}
 # Get resource ID of API Management instance
 APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
 # Call REST API to migrate to stv2 and change VIP address
-az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "NewIp"}'
+az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body "{'mode': 'NewIp'}"
 # Alternate call to migrate to stv2 and preserve VIP address
-# az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
+# az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body "{'mode': 'PreserveIp'}"
 ```
 ---
 
