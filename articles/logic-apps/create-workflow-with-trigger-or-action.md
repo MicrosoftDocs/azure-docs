@@ -148,7 +148,7 @@ The following steps use the Azure portal, but you can also use the following too
 
      The following example shows the designer for a Consumption logic app workflow with an existing trigger and shows the **In-App** runtime selected. The list shows the available operation collections, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-consumption.png" alt-text="Screenshot shows Azure portal, designer for Consuption workflow with existing trigger, pane named Add an action, and Runtime set to In-App." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-consumption.png":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-consumption.png" alt-text="Screenshot shows Azure portal, designer for Consumption workflow with existing trigger, pane named Add an action, and Runtime set to In-App." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-consumption.png":::
 
      The following example shows the designer for a Consumption logic app workflow with an existing trigger and shows the **Shared** runtime selected. The list shows the available connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
@@ -246,7 +246,7 @@ After you select a collection or connector, the individual triggers are grouped 
 
 The following example selected the **365 Training** connector and shows the available triggers:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, workflow designer, and 365 Training connector with triggers. lightbox="shared-selected-connector-triggers.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, workflow designer, and 365 Training connector with triggers. lightbox="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png":::
 
 The following example shows the **Shared** connectors gallery when you add an action:
 
