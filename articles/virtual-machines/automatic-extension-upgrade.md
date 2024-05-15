@@ -239,14 +239,14 @@ Use the following example to set automatic extension upgrade on the extension wi
 }
 ```
 
-### Using Azure Portal
-You can use Azure Portal - Extension blade to enable automatic upgrade of extensions on existing Virtual Machines and Virtual Machine Scale Sets. 
+### Using Azure portal
+You can use Azure portal - Extension blade to enable automatic upgrade of extensions on existing Virtual Machines and Virtual Machine Scale Sets. 
 1. Navigate to [Virtual Machines](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines) or [Virtual Machines Scale Sets](https://ms.portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FvirtualMachineScaleSets) blade and select the resource by clicking on its name.
 2. Navigate to "Extenisons + applications" blade under Settings to view all extensions installed on the resource. The "Automatic Upgrade Status" column tells if Automatic upgrade of the extension is enabled, disabled or not-supported.
 3. Navigate to Extension details blade by clicking on the extension name.
-:::image type="content" source="media/auto-extension.png" alt-text="Screenshot of Azure Portal - Extension blade." lightbox="media/auto-extension.png":::
+:::image type="content" source="media/auto-extension.png" alt-text="Screenshot of Azure portal - Extension blade." lightbox="media/auto-extension.png":::
 4. Click "Enable automatic upgrade" to enable automatic upgrade of the extension. This button can also be used to disable automatic upgrade when required.   
-:::image type="content" source="media/auto-extension-upgrade.png" alt-text="Screenshot of Azure Portal to enable automatic upgrade of the extension.":::
+:::image type="content" source="media/auto-extension-upgrade.png" alt-text="Screenshot of Azure portal to enable automatic upgrade of the extension.":::
 
 ## Extension upgrades with multiple extensions
 
