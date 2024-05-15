@@ -28,7 +28,7 @@ results = container.query_items(
 ```
 
 
-### Get Query Execution Metrics
+### Get query execution metrics
 In python SDK, you can read the ```x-ms-documentdb-query-metrics``` header values from the container client to get the query execution metrics. The following code snippet shows how to read the query execution metrics:
 
 ```python
