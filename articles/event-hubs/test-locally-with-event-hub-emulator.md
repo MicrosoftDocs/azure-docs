@@ -34,14 +34,14 @@ This section highlights different steps to run Event Hubs emulator. Details are 
  
 ### Windows
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
-1. Before executing the setup script, we need to allow execution of unsigned scripts. Run the below command in the powershell window:
+1. Before executing the setup script, we need to allow execution of unsigned scripts. Run the below command in the PowerShell window:
 
 `$>Start-Process powershell -Verb RunAs -ArgumentList 'Set-ExecutionPolicy Bypass –Scope CurrentUser’`
 
 2. Execute setup script `LaunchEmulator.ps1`. Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
 3. Once the steps are successful, you could find containers running in Docker Desktop.
 
-### Linux & MacOS
+### Linux & macOS
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 
 1. Execute the setup script `LaunchEmulator.sh` . Running the script would  bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
@@ -50,7 +50,7 @@ After completing the prerequisites, you can proceed with the following steps to 
 
 
 ### [Docker (Linux Container)](#tab/docker-linux-container)
-1. To start the emulator, you should supply configuration for the entities you want to use. Save the below config locally as config.json
+1. To start the emulator, you should supply configuration for the entities you want to use. Save the following JSON file locally as config.json
 
 ```JSON
 {
@@ -80,7 +80,7 @@ After completing the prerequisites, you can proceed with the following steps to 
 
 ```
 
-2. Save below yaml file as docker-compose.yaml to spin up containers for Event Hubs emulator.
+2. Save following yaml file as docker-compose.yaml to spin up containers for Event Hubs emulator.
 ```
 name: microsoft-azure-eventhubs
 services:
@@ -133,7 +133,7 @@ ACCEPT_EULA="N"
 >. Ensure to place .env file in same directory to docker-compose.yaml file.
 >. When specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid issues with escape characters.
 
-4. **Run below command to run emulator**
+4. **Run following command to run emulator**
 
 ```
  docker compose -f <PathToDockerComposeFile> up -d
