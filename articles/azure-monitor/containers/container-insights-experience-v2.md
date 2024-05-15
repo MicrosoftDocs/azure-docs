@@ -2,7 +2,7 @@
 title: Switch to use Container Insights with managed Prometheus | Microsoft Docs
 description: This article describes how you can replace your Container Insights visualizations to use Prometheus metrics.
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: -5/15/2024
 ms.reviewer: aul
 ---
 
