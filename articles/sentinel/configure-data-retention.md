@@ -32,7 +32,7 @@ To complete the steps in this tutorial, you must have the following resources an
 
   | Built-in Role | Scope | Reason |
   | ------------- | ----- | ------ | 
-  | [Log Analytics Contributor ](../role-based-access-control/built-in-roles.md) | Any of<ul><li>Subscription<li>Resource group<li>Table | To set retention policy on tables in Log Analytics |
+  | [Log Analytics Contributor](../role-based-access-control/built-in-roles.md) | Any of<ul><li>Subscription<li>Resource group<li>Table | To set retention policy on tables in Log Analytics |
 
 - Log Analytics workspace.
 
