@@ -20,7 +20,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.default_pool_size](https://www.pgbouncer.org/config.html)                               |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_default_pool_size](./server-parameters-azure-notes-pgbouncer_default_pool_size.md)]
 
 
 
@@ -37,7 +37,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.enabled](https://www.pgbouncer.org/config.html)                                         |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_enabled](./server-parameters-azure-notes-pgbouncer_enabled.md)]
 
 
 
@@ -54,7 +54,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.ignore_startup_parameters](https://www.pgbouncer.org/config.html)                       |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_ignore_startup_parameters](./server-parameters-azure-notes-pgbouncer_ignore_startup_parameters.md)]
 
 
 
@@ -71,7 +71,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.max_client_conn](https://www.pgbouncer.org/config.html)                                 |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_max_client_conn](./server-parameters-azure-notes-pgbouncer_max_client_conn.md)]
 
 
 
@@ -88,7 +88,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.max_prepared_statements](https://www.pgbouncer.org/config.html#max_prepared_statements) |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_max_prepared_statements](./server-parameters-azure-notes-pgbouncer_max_prepared_statements.md)]
 
 
 
@@ -105,7 +105,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.min_pool_size](https://www.pgbouncer.org/config.html)                                   |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_min_pool_size](./server-parameters-azure-notes-pgbouncer_min_pool_size.md)]
 
 
 
@@ -122,7 +122,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.pool_mode](https://www.pgbouncer.org/config.html)                                       |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_pool_mode](./server-parameters-azure-notes-pgbouncer_pool_mode.md)]
 
 
 
@@ -139,7 +139,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.query_wait_timeout](https://www.pgbouncer.org/config.html)                              |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_query_wait_timeout](./server-parameters-azure-notes-pgbouncer_query_wait_timeout.md)]
 
 
 
@@ -156,8 +156,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.server_idle_timeout](https://www.pgbouncer.org/config.html)                             |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
-
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_server_idle_timeout](./server-parameters-azure-notes-pgbouncer_server_idle_timeout.md)]
 
 
 ### pgbouncer.stats_users
@@ -173,7 +172,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.stats_users](https://www.pgbouncer.org/config.html)                                     |
 
 
-[!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_stats_users](./server-parameters-azure-notes-pgbouncer_stats_users.md)]
 
 
 
