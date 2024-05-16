@@ -122,7 +122,7 @@ ms.topic: include
 | Documentation  | [pgbouncer.pool_mode](https://www.pgbouncer.org/config.html)                                       |
 
 
-[!INCLUDE [server-parameters-azure-notes-pgbouncer_pool_mode](./server-parameters-azure-notes-pgbouncer_pool_mode)]
+[!INCLUDE [server-parameters-azure-notes-pgbouncer_pool_mode](./server-parameters-azure-notes-pgbouncer_pool_mode.md)]
 
 
 
