@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/11/2024
+ms.date: 05/16/2024
 ---
 
 # Deploy Azure Virtual Desktop
@@ -109,6 +109,9 @@ In addition, you need:
 ## Create a host pool
 
 To create a host pool, select the relevant tab for your scenario and follow the steps.
+
+For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).
+
 
 # [Portal](#tab/portal)
 
