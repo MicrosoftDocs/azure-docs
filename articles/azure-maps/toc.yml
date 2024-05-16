@@ -44,6 +44,24 @@ items:
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
       href: weather-service-tutorial.md
+  - name: Migrate from Bing Maps
+    items:
+    - name: Migrate from Bing Maps
+      href: migrate-from-bing-maps.md
+    - name: Migrate a web app
+      href: migrate-from-bing-maps-web-app.md
+    - name: Migrate a web service
+      href: migrate-from-bing-maps-web-services.md
+  - name: Migrate from Google Maps
+    items:
+    - name: Migrate from Google Maps
+      href: migrate-from-google-maps.md
+    - name: Migrate a web app
+      href: migrate-from-google-maps-web-app.md
+    - name: Migrate an Android app
+      href: migrate-from-google-maps-android-app.md
+    - name: Migrate a web service
+      href: migrate-from-google-maps-web-services.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -92,62 +110,6 @@ items:
     href: weather-services-faq.yml
 - name: How-to guides
   items:
-  - name: Migrate from Bing Maps
-    items:
-    - name: Bing Maps migration overview
-      href: migrate-bing-maps-overview.md
-    - name: Migrate Web SDK
-      items:
-      - name: Migrate Web SDK
-        href: migrate-from-bing-maps-web-app.md
-      - name: Use Copilot to help migrate
-        href: migrate-help-using-copilot.md
-    - name: Migrate REST API
-      items:
-      - name: Bing Maps Imagery Services
-        items:
-        - name: Get Imagery Metadata
-          href: migrate-get-imagery-metadata.md
-      - name: Bing Maps Locations Services
-        items:
-        - name: Find a Location by Address
-          href: migrate-find-location-address.md
-        - name: Find a Location by Point
-          href: migrate-find-location-by-point.md
-        - name: Find a Location by Query
-          href: migrate-find-location-query.md
-      - name: Bing Maps Routes Services
-        items:
-        - name: Calculate a Route
-          href: migrate-calculate-route.md
-        - name: Calculate a Truck Route
-          href: migrate-calculate-truck-route.md
-      - name: Bing Maps Spatial Data Services (SDS)
-        items:
-        - name: Data Source Management
-          href: migrate-sds-data-source-management.md 
-        - name: Geocode Dataflow
-          href: migrate-geocode-dataflow.md
-        - name: Geodata
-          href: migrate-geodata.md
-      - name: Bing Maps Time Zone Services
-        items:
-        - name: Find Time Zone
-          href: migrate-find-time-zone.md
-      - name: Bing Maps Traffic Services
-        items:
-        - name: Get Traffic Incidents
-          href: migrate-get-traffic-incidents.md
-  - name: Migrate from Google Maps
-    items:
-    - name: Migrate from Google Maps
-      href: migrate-from-google-maps.md
-    - name: Migrate a web app
-      href: migrate-from-google-maps-web-app.md
-    - name: Migrate an Android app
-      href: migrate-from-google-maps-android-app.md
-    - name: Migrate a web service
-      href: migrate-from-google-maps-web-services.md          
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template
