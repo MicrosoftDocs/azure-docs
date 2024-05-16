@@ -91,9 +91,8 @@ To create a VM with hibernation enabled, set *hibernationEnabled* to `true`.
 
 ```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2021-11-01
-```
 
-```
+
 {
   "location": "eastus",
   "properties": {
@@ -254,6 +253,7 @@ To install the package, run this command in git bash:
 ```bash
 sudo apt-get install hibernation-setup-tool
 ```
+---
 
 #### [RHEL](#tab/RHELHST) 
 
