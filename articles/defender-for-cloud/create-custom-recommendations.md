@@ -2,7 +2,8 @@
 title: Create custom security standards and recommendations
 description: Learn how to create custom security standards and recommendations for all clouds in Microsoft Defender for Cloud.
 ms.topic: how-to
-ms.date: 03/26/2023
+ms.date: 05/16/2024
+#customer intent: As a user, I want to learn how to create custom security standards and recommendations in Microsoft Defender for Cloud.
 ---
 
 # Create custom security standards and recommendations in Microsoft Defender for Cloud
