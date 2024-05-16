@@ -31,7 +31,7 @@ These metrics are used specifically when [estimating Consumption plan costs](fun
 
 #### [Flex Consumption plan](#tab/flex-consumption-plan)
 
-These metrics are used to estimate the costs associated with _on demand_ and _always ready_ meters used for billing:
+These metrics are used to estimate the costs associated with _on demand_ and _always ready_ meters used for billing in a [Flex Consumption plan]:
 
 | Metric | Description | Meter calculation |
 | ------ | ---------- | ----------------- |
@@ -41,7 +41,7 @@ These metrics are used to estimate the costs associated with _on demand_ and _al
 | **AlwaysReadyFunctionExecutionUnits** | Total MB-millseconds from always ready instances while actively executing functions. | `AlwaysReadyFunctionExecutionUnits / 1,024,000` is the Always Ready Execution Time meter, in GB-seconds. |
 | **AlwaysReadyUnits** | The total MB-millseconds of always ready instances assigned to the app, whether or not functions are actively executing. | `AlwaysReadyUnits / 1,024,000` is the Always Ready Baseline meter, in GB-seconds. |
 
-In this table, all execution units are calculated by multipling the fixed instance memory size, such as 512 MB and 2,048 MB, by total execution times, in milliseconds.
+In this table, all execution units are calculated by multipling the fixed instance memory size, such as 2,048 MB or 4,096 MB, by total execution times, in milliseconds.
 
 ---
 

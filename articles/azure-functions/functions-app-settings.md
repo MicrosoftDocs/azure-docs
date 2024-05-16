@@ -838,7 +838,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `properties.IsXenon` |Not valid|
 | `properties.windowsFxVersion` |Not valid|
 | `properties.alwaysOn` |Not valid|
-| `properties.siteConfig.preWarmedInstanceCount` | Renamed as `` |
+| `properties.siteConfig.preWarmedInstanceCount` | Renamed as `alwaysReadyInstances` |
 | `properties.siteConfig.functionAppScaleLimit` |Renamed as `maximumInstanceCount`|
 | `properties.containerSize` |Renamed as `instanceMemoryMB`|
 | `properties.javaVersion` | Replaced by `version` in `properties.functionAppConfig.runtime`|
