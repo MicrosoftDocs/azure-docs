@@ -246,14 +246,12 @@ sudo apt-add-repository https://packages.microsoft.com/ubuntu/20.04/prod
 
 sudo apt-get update
 ```
----
-
 
 To install the package, run this command in git bash:
 ```bash
 sudo apt-get install hibernation-setup-tool
 ```
----
+
 
 #### [RHEL](#tab/RHELHST) 
 
