@@ -143,7 +143,7 @@ The transaction table holds information about each blob and a unique hash that i
 
 The block table holds information related to every digest this is created for the blob container and the associated transaction ID for the digest is stored in Azure Confidential Ledger.
 
-### Digest Settings
+### Digest settings
 
 :::image type="content" source="./media/managed-application/managed-app-digest-settings-inline.png" alt-text="Screenshot of managed app provisioning displaying the digest settings." lightbox="./media/managed-application/managed-app-digest-settings-enhanced.png":::
 
