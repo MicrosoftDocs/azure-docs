@@ -231,64 +231,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 The following are the fields extracted per document type. The Document Intelligence ID model `prebuilt-idDocument` extracts the following fields in the `documents.*.fields`. The json output includes all the extracted text in the documents, words, lines, and styles.
 
-### [Sample code](#tab/sample-code)
-```Python
-    # Analyze a document at a URL:
-    identityUrl = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/id-card/id-license.png?raw=true"
-    poller = document_intelligence_client.begin_analyze_document(
-        "prebuilt-idDocument",
-        AnalyzeDocumentRequest(url_source=identityUrl)
-    )       
-    id_documents: AnalyzeResult = poller.result()
-
-    # [START analyze_idDocuments]
-    if id_documents.documents:
-        for idx, id_document in enumerate(id_documents.documents):
-            print(f"--------Analyzing ID document #{idx + 1}--------")
-            if id_document.fields:
-                first_name = id_document.fields.get("FirstName")
-                if first_name:
-                    print(f"First Name: {first_name.get('valueString')} has confidence: {first_name.confidence}")
-                last_name = id_document.fields.get("LastName")
-                if last_name:
-                    print(f"Last Name: {last_name.get('valueString')} has confidence: {last_name.confidence}")
-                document_number = id_document.fields.get("DocumentNumber")
-                if document_number:
-                    print(
-                        f"Document Number: {document_number.get('valueString')} has confidence: {document_number.confidence}"
-                    )
-                dob = id_document.fields.get("DateOfBirth")
-                if dob:
-                    print(f"Date of Birth: {dob.get('valueDate')} has confidence: {dob.confidence}")
-                doe = id_document.fields.get("DateOfExpiration")
-                if doe:
-                    print(f"Date of Expiration: {doe.get('valueDate')} has confidence: {doe.confidence}")
-                sex = id_document.fields.get("Sex")
-                if sex:
-                    print(f"Sex: {sex.get('valueString')} has confidence: {sex.confidence}")
-                address = id_document.fields.get("Address")
-                if address:
-                    print(f"Address: {address.get('valueString')} has confidence: {address.confidence}")
-                country_region = id_document.fields.get("CountryRegion")
-                if country_region:
-                    print(
-                        f"Country/Region: {country_region.get('valueCountryRegion')} has confidence: {country_region.confidence}"
-                    )
-                region = id_document.fields.get("Region")
-                if region:
-                    print(f"Region: {region.get('valueString')} has confidence: {region.confidence}")
-    # [END analyze_idDocuments]
-```
-
-> [!div class="nextstepaction"]
-> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_identity_documents.py)
-
-### [Output](#tab/output)
-
- - [idDocument.driverLicense](#ddocumentdriverlicense)
- - [idDocument.passport](#iddocumentpassport)
-  
-#### idDocument.driverLicense
+### `idDocument.driverLicense`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -311,7 +254,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`Restrictions`|`string`|Restrictions|B|
 |`VehicleClassifications`|`string`|Vehicle classification|D|
 
-#### idDocument.passport
+### `idDocument.passport`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -342,7 +285,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`MachineReadableZone.DateOfExpiration`|`date`|Date of expiration|2019-05-05|
 |`MachineReadableZone.Sex`|`string`|Sex|F|
 
-#### `idDocument.nationalIdentityCard`
+### `idDocument.nationalIdentityCard`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -362,7 +305,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
 
-#### `idDocument.residencePermit`
+### `idDocument.residencePermit`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -378,7 +321,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`Category`|`string`|Permit category|DV2|
 |`Address`|`string`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
 
-#### `idDocument.usSocialSecurityCard`
+### `idDocument.usSocialSecurityCard`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -387,7 +330,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-#### `idDocument`
+### `idDocument`
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
