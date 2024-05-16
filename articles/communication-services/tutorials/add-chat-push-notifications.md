@@ -160,10 +160,10 @@ Background Tasks offer a way to perform activities even when the app is not in t
 To ensure uninterrupted access to chat services, you need to maintain valid user access tokens. Tokens typically have a default validity period (24 hours), after which they expire, requiring renewal. Implementing an auto-refresh mechanism guarantees that the token is always valid whenever the chat application is activated.<br>
 The Chat SDK streamlines token management by automating the refresh process when a custom access token refresher is implemented. Complete the following steps to configure your chat application to support token auto-refresh:<br>
 
-1.1 Establish a Service Tier for Token Issuance<br><br> 
+1.1 Establish a Service Tier for Token Issuance<br><br>
 To ensure your chat application maintains continuous and secure user access, you need to implement a service tier dedicated to issuing tokens. One option is to leverage Azure Functions for this purpose. 
 
-To create your Azure Function, see [Build a trusted user access service using Azure Functions](XXX). This guide describes how to set up your function app and deploy the code needed to issue tokens.
+To create your Azure Function, see [Build a trusted user access service using Azure Functions](../tutorials/trusted-service-tutorial.md). This guide describes how to set up your function app and deploy the code needed to issue tokens.
 
 1.2 Implement the Token Refresher in Your Chat Application<br><br>
 Once your Azure Function is configured: <br>
@@ -192,3 +192,9 @@ Adjust the Azure Function App to periodically send remote notifications via the 
 
 4.Handle Notifications in Your App<br>
 In your iOS app, implement [the application instance method](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application) to trigger a registration auto-refresh upon receiving a silent notification.
+
+## Related articles
+
+- [Build a trusted user access service using Azure Functions](../tutorials/trusted-service-tutorial.md)
+- [Chat Quickstart](../quickstarts/chat/get-started.md?pivots=programming-language-swift)
+- [UI Library Overview](../concepts/ui-library/ui-library-overview.md)
