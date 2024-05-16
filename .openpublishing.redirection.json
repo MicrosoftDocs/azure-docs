@@ -691,6 +691,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-bing-maps-web-services.md",
+            "redirect_url": "/azure/azure-maps/migrate-bing-maps-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-bing-maps.md",
+            "redirect_url": "/azure/azure-maps/migrate-bing-maps-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
             "redirect_document_id": false
