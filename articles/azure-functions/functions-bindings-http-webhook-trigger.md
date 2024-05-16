@@ -704,7 +704,7 @@ HTTP streams support in Python lets you accept and return data from your HTTP en
 
 >[!IMPORTANT]  
 > HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model.
-
+::: zone-end  
 ### Customize the HTTP endpoint
 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
