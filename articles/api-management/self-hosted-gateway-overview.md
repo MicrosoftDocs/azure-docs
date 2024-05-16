@@ -110,7 +110,7 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 | Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
 | Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | Optional<sup>5</sup> | This requirement depends on the external cache that is being used |
 
-<sup>1</sup>For an API Management instance in an internal virtual network, see [Connectivity in an internal virtual network](#connectivity-in-internal-virtual-network)  
+<sup>1</sup>For an API Management instance in an internal virtual network, see [Connectivity in an internal virtual network](#connectivity-in-internal-virtual-network).
 <sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
 <sup>3</sup>Only required when using Microsoft Entra authentication to verify RBAC permissions.<br/>
 <sup>4</sup>Only required when using Microsoft Entra authentication or Microsoft Entra related policies.<br/>
