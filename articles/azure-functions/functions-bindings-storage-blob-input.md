@@ -1,8 +1,8 @@
 ---
 title: Azure Blob storage input binding for Azure Functions
-description: Learn how to provide Azure Blob storage input binding data to an Azure Function.
+description: Learn how to read and work with blob data from Azure Blob storage containers in your function code using an input binding.
 ms.topic: reference
-ms.date: 03/02/2023
+ms.date: 05/12/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
@@ -215,14 +215,10 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-
-## SDK type bindings for Azure Storage Blob (Preview)
-
-SDK type bindings take integration with bindings a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered. When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
-
-Note that SDK type bindings support for Python is currently in preview, and is only supported for the v2 programming model. Only Azure Storage Blob SDK type bindings are supported for Azure Functions in Python. To learn more, see [SDK type bindings](./functions-reference-python.md/#sdk-type-bindings-preview).
-
-The following example shows blob input and output bindings. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+> [!NOTE] 
+> Functions supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using the underlying `BlobClient` type. 
+>
+> SDK types support for Python is currently in preview and is only supported for the Python v2 programming model. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview).
 
 # [v2](#tab/python-v2)
 

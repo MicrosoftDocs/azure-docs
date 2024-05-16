@@ -2,7 +2,7 @@
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
-ms.date: 03/06/2023
+ms.date: 05/16/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
@@ -36,13 +36,10 @@ The Python v2 programming model lets you define bindings using decorators direct
 # [v1](#tab/python-v1)
 The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
 
-## HTTP Streams (Preview)
-
-Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. This features allows for streaming HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
-
-For scenarios where real time exchange and interaction between client and server over HTTP connections is needed, this feature will be helpful. Additionally, FastAPI response types are also supported when using HTTP streaming.
-
-Note that HTTP streaming support for Python is currently in preview, and is only supported for the v2 programming model. To learn more and get started today, see [HTTP streams in Python](./functions-reference-python/#http-streams-preview).
+> [!NOTE] 
+> HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. 
+>
+> HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview).
 
 ---
 

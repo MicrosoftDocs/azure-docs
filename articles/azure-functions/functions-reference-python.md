@@ -1,6 +1,6 @@
 ---
 title: Python developer reference for Azure Functions
-description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions.
+description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
 ms.date: 05/16/2024
 ms.devlang: python
@@ -138,7 +138,7 @@ The entry point is only in the *function\_app.py* file. However, you can referen
 ::: zone pivot="python-mode-configuration"  
 The recommended folder structure for a Python functions project looks like the following example:
 
-```
+```cmd
  <project_root>/
  | - .venv/
  | - .vscode/
@@ -179,7 +179,7 @@ Each function has its own code file and binding configuration file, *function.js
 ::: zone pivot="python-mode-decorators" 
 The recommended folder structure for a Python functions project looks like the following example:
 
-```
+```cmd
  <project_root>/
  | - .venv/
  | - .vscode/
@@ -484,7 +484,7 @@ For select triggers and bindings, you can work with data types implemented by th
 > Support for SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings-preview).
 ::: zone-end  
 ::: zone pivot="python-mode-decorators" 
-Azure Storage Blob SDK type bindings are supported for Azure Functions in Python. When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
+Functions supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using the underlying `BlobClient` type.
 
 > [!IMPORTANT]  
 > SDK type bindings support for Python is currently in preview:
@@ -504,7 +504,7 @@ Azure Storage Blob SDK type bindings are supported for Azure Functions in Python
 
 1. Add this code to the `function_app.py` file in the project, which imports the SDK type bindings:
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="12"::: 
+    :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="12"::: 
 
 ### SDK type bindings examples
 
@@ -521,7 +521,9 @@ You can view other SDK type bindings samples for Blob storage in the Python exte
 
 ## HTTP streams (Preview)
 
-HTTP streams lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory. 
+HTTP streams lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. 
+
+This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory. 
 ::: zone pivot="python-mode-configuration" 
 > [!IMPORTANT]  
 > Support for HTTP streams requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#http-streams-preview).
@@ -543,7 +545,7 @@ HTTP streams lets you accept and return data from your HTTP endpoints using Fast
 
 1. Add this code to the `function_app.py` file in the project, which imports the FastAPI extension:
 
-    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
+    :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
 
 1. When deploying to a Consumption plan, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings):
 
@@ -557,11 +559,11 @@ After you enable the HTTP streaming feature, you can create functions that strea
 
 This example is an HTTP triggered function that streams HTTP response data. You might use these capabilities to support scenarios like sending event data through a pipeline for real time visualization or detecting anomalies in large sets of data and providing instant notifications.
 
-:::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
 
 This example is an HTTP triggered function that receives and processes streaming data from a client in real time. It demonstrates streaming upload capabilities that can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
 
-:::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" ::: 
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" ::: 
 
 ### Calling HTTP streams
 
@@ -734,7 +736,7 @@ To collect custom request and custom dependency telemetry outside of bindings, y
 >To use the OpenCensus Python extensions, you need to enable [Python worker extensions](#python-worker-extensions) in your function app by setting `PYTHON_ENABLE_WORKER_EXTENSIONS` to `1`. You also need to switch to using the Application Insights connection string by adding the [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string) setting to your [application settings](functions-how-to-use-azure-function-app-settings.md#settings), if it's not already there.
 
 
-```
+```text
 // requirements.txt
 ...
 opencensus-extension-azure-functions
