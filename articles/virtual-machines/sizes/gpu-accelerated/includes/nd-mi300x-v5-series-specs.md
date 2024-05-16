@@ -10,10 +10,11 @@ ms.date: 05/21/2024
 ms.author: marccharest
 ms.custom: include file
 ---
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 96 <sup>vCores   | Intel® Xeon® Scalable (Sapphire Rapids)           |
-| Memory           | 1850 <sup>GiB    |                                                |
-| Data Disks       | 32 <sup>Disks     |  40800 <sup>IOPS</sup> / 612 <sup>MBps    |
-| Network          | 8 <sup>NICs       |  80000 <sup>Mbps                                 |
-| Accelerators     | 8 <sup>GPUs</sup>  | AMD MI300X 192 <sup>GiB </sup> <br> 1,535 <sup>GiB</sup> per VM |
+| Processor        | 96 vCores   | Intel® Xeon® Scalable (Sapphire Rapids)           |
+| Memory           | 1850 GiB    |                                                |
+| Local Storage    | 1 Disk      | 1000 GiB
+| Remote Disks     | 32 Disks    |  40800 IOPS <br> 612 MBps    |
+| Network          | 8 NICs      |  80000 Mbps                                 |
+| Accelerators     | 8 GPUs      | AMD MI300X 192 GiB <br> 1535 GiB per VM |

@@ -344,7 +344,7 @@
       - name: ND-H100-v5-series
         href: nd-h100-v5-series.md
       - name: ND-MI300X-v5-series
-        href: nd-mi300x-v5-series.md
+        href: ./sizes/gpu-accelerated/nd-mi300x-v5-series.md
       - name: NGads V620-series
         href: ngads-v-620-series.md
       - name: NV-series

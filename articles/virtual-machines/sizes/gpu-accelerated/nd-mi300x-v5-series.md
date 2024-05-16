@@ -3,6 +3,7 @@ title:       ND MI300X v5-series
 description: Specifications for the ND MI300X v5-series VMs
 author:      charest 
 ms.author:   marccharest 
+ms.reviewer: mattmcinnes
 ms.service:  virtual-machines
 ms.topic:    conceptual
 ms.date:     05/21/2024
@@ -12,15 +13,12 @@ ms.date:     05/21/2024
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
+[!INCLUDE [Size series summary](./includes/nd-mi300x-v5-series-summary.md)]
 
-The ND MI300X v5 series virtual machine (VM) is a new flagship addition to the Azure GPU family. It was designed for high-end Deep Learning training and tightly coupled scale-up and scale-out Generative AI and HPC workloads. 
+## Host specifications
+[!INCLUDE [series-specs](./includes/nd-mi300x-v5-series-specs.md)]
 
-The ND MI300X v5 series VM starts with eight AMD Instinct MI300 GPUs and two fourth Gen Intel Xeon Scalable processors for a total 96 physical cores. Each GPU within the VM is then connected to one another via 4th-Gen AMD Infinity Fabric links with 128 GB/s bandwidth per GPU and 896 GB/s aggregate bandwidth.
-
-ND MI300X v5-based deployments can scale up to thousands of GPUs with 3.2 Tb/s of interconnect bandwidth per VM. Each GPU within the VM is provided with its own dedicated, topology-agnostic 400 Gb/s NVIDIA Quantum-2 CX7 InfiniBand connection. These connections are automatically configured between VMs occupying the same virtual machine scale set, and support GPUDirect RDMA. 
-
-These instances provide excellent performance for many AI, ML, and analytics tools that support GPU acceleration "out-of-the-box," such as TensorFlow, Pytorch, and other frameworks. Additionally, the scale-out InfiniBand interconnect supports a large set of existing AI and HPC tools that are built on AMD’s ROCm Communication Collectives Library (RCCL) for seamless clustering of GPUs. 
-
+## Feature support
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Ultra disk](disks-types.md#ultra-disks): Supported [Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage, and performance <br>
@@ -37,23 +35,15 @@ NVIDIA NVLink Interconnect: Supported <br>
 >[!IMPORTANT]
 >To get started with ND MI300X v5 VMs, refer to HPC Workload Configuration and Optimization for steps including driver and network configuration. Due to increased GPU memory I/O footprint, the ND MI300X v5 requires the use of Generation 2 VMs and marketplace images.
 
-## Example
-[comment]: # (The ND MI300X v5 series supports the following kernel version: Ubuntu 20.04: 5.4.0-1046-azure)
+## Sizes in series
 
 | Size                | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU                        | GPU Memory GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max network bandwidth  | Max NICs |
 |---------------------|------|------------|------------------------|----------------------------|----------------|----------------|-----------------------------------------|------------------------------|----------|
 | Standard_ND96isr_MI300X_v5 | 96 | 1850 | 1000 | 8 MI300X | 80 | 32 | 40800/612 | 80,000 Mbps | 8 |
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+>[!NOTE]
+>The ND MI300X v5 series supports the following kernel version: Ubuntu 20.04: 5.4.0-1046-azure
 
-## Other sizes and information
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-- [General purpose](sizes-general.md)
-- [Memory optimized](sizes-memory.md)
-- [Storage optimized](sizes-storage.md)
-- [GPU optimized](sizes-gpu.md)
-- [High performance compute](sizes-hpc.md)
-- [Previous generations](sizes-previous-gen.md)
-
-
-More information on Disks Types: [Disk Types](./disks-types.md#ultra-disks)
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
