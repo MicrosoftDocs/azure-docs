@@ -17,7 +17,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-To facilitate better business to customer communications the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--page) also provides Javascript bundles to try out cross platform solutions for using the UI Library. This tutorial is the fastest way from getting into a call using the UI library and Teams.
+To facilitate better business to customer communications the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--page) provides JavaScript bundles to try out cross platform solutions for using the UI Library. This tutorial is the fastest way from getting into a call using the UI library and Teams.
 
 Following this tutorial will:
 
@@ -43,17 +43,17 @@ You can check that [Node](https://nodejs.org/) was installed correctly with this
 node -v
 ```
 
-The output will tell you the version you have installed, it will fail if Node was not installed and added to your `PATH`. Just like with Node you can check to see if [VS Code](https://code.visualstudio.com/) was installed with this command.
+The output tells you the version you have installed, it fails if Node is not installed and added to your `PATH`. Just like with Node you can check to see if [Visual Studio Code](https://code.visualstudio.com/) is installed with this command.
 
 ```bash
 code --version
 ```
 
-Like with Node this command will fail if there was an issue installing VS Code on your machine.
+Like with Node this command fails if there is an issue installing VS Code on your machine.
 
 ## Getting started
 
-We will create this project through **4** easy steps.
+We create this project through **4** easy steps.
 1. [Create the project](#1-creating-the-project)
 2. [Get the code](#2-getting-the-code)
 3. [Set up Azure Communication Services and Teams](#3-setting-up-azure-communication-services-and-teams)
@@ -61,25 +61,25 @@ We will create this project through **4** easy steps.
 
 #### 1. Creating the project
 
-To get started we are going to make a new folder for the project run the following command in terminal or powershell.
+To get started, we are going to make a new folder for the project run the following command in terminal or powershell.
 
 ```bash
 mkdir ui-library-js-test-application && cd ui-library-js-test-application
 ```
 
-This will create a new folder and move you into it. Alternatively you can run this to create a simple `node` project in the directory you are currently in.
+This script creates a new folder and move you into it. Alternatively you can run this other script to create a `node` project in the directory you're currently in.
 
 ```bash
 mkdir ui-library-js-test-application && cd ui-library-js-test-application && npm init -y
 ```
 
-Next we want to make a new file called `index.html`. If you did not make a new Node project you can make this file in the directory you are in. Otherwise create a new directory called `public` and make the `index.html` there.
+Next we want to make a new file called `index.html`. If you didn't make a new Node project you can make this file in the directory you are in. Otherwise create a new directory called `public` and make the `index.html` there.
 
 #### 2. Getting the code
 
-First you will want to download the **JavaScript bundle** from [here](https://github.com/Azure/communication-ui-library/releases/download/PublicPreview%2F1.16.0-beta.1/outboundCallComposite.js). Put this bundle in the same directory as your `index.html`.
+First you want to download the **JavaScript bundle** from [here](https://github.com/Azure/communication-ui-library/releases/download/PublicPreview%2F1.16.0-beta.1/outboundCallComposite.js). Put this bundle in the same directory as your `index.html`.
 
-Next you will want to open `index.html` in VS Code and add the following snippet.
+Next you want to open `index.html` in VS Code and add the following snippet.
 
 ```html
 <!DOCTYPE html>
@@ -139,18 +139,18 @@ Next you will want to open `index.html` in VS Code and add the following snippet
   </script>
 </body>
 ```
-It is important here to note that this file `index.html` and the JavsScript bundle `outboundCallComposite.js` **need** to be in the same folder if you wish to not edit any of the importing in this file.
+It's important here to note that this file `index.html` and the JavsScript bundle `outboundCallComposite.js` **need** to be in the same folder if you wish to not edit any of the importing in this file.
 
 #### 3. Setting up Azure Communication Services and Teams
 
-Next we will want to create the local user's [identity](../../quickstarts/identity/access-tokens.md) so that we can use that to authenticate our local user and start the call. Once you have those values for the `id` and `token` for the user we want to make some edits in the `index.html` file we made earlier.
+Next we want to create the local user's [identity](../../quickstarts/identity/access-tokens.md) so that we can use that to authenticate our local user and start the call. Once you have those values for the `id` and `token` for the user, we want to make some edits in the `index.html` file we made earlier.
 
 ```JavaScript
 const userId = { communicationUserId: "<Add your ACS ID here>" };
 const token = "<Enter your ACS token>";
 const displayName = "Enter the DisplayName for your user";
 ```
-We will want to update this information with the `userId` and `token` you got from azure portal or the CLI. You should also as well set your `displayName`.
+We want to update this information with the `userId` and `token` you got from azure portal or the CLI. You should also as well set your `displayName`.
 
 Next we want to make an edit to set the Teams voice app id you got earlier when you [federated your Azure Communication services resource](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md). **Contact your Teams admin if this hasn't been done.**
 
@@ -169,13 +169,13 @@ const callAdapter = await outboundCallComposite.loadCallComposite(
 ```
 
 #### 4. Running the application
-Now that we have finished all the setup its time to run the application.
+Now that we finished all the setup its time to run the application.
 
 Open a terminal or powershell window in that directory and run the following command.
 ```bash
 npx http-server -p 3000
 ```
-This will start a simple HTTP server and host the `index.html` file and JavaScript bundle on your computer's localhost on port 3000. In a browser open http://localhost:3000. You should see a white page with a button and when you click it you should see the following screen.
+This script using Node starts a HTTP server and host the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button and when you click it you should see the following screen.
 
 ![Home page of js bundle sample app](../media/calling-widget/js-bundle-splash.png)
 
