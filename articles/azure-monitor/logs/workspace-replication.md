@@ -132,7 +132,7 @@ The `GET` command verifies that the workspace provisioning state changes from `U
 
 You use [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) to collect log data using Azure Monitor Agent and the Logs Ingestion API.
 
-If you have data collection rules that send data to your primary workspace, you need to associate them to a system [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md), which Azure Monitor creates when you enable replication on your workspace. The name of the system data collection endpoint is identical to your workspace ID. Only data collection rules you associate to the workspace's system data collection endpoint enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you control your replication costs.
+If you have data collection rules that send data to your primary workspace, you need to associate the rules to a system [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md), which Azure Monitor creates when you replicate your workspace. The name of the system data collection endpoint is identical to your workspace ID. Only data collection rules you associate to the workspace's system data collection endpoint enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you control your replication costs.
 
 To replicate data you collect using data collection rules, associate your data collection rules to the system data collection endpoint for your Log Analytics workspace:
 
@@ -360,7 +360,7 @@ After you run the query, review the results and rendered chart to determine the 
 
 After you establish the baseline ingestion latency for a specific table, create an alert for the table based on changes in latency over a short period of time.
 
-Thhis query calculates ingestion latency over the past 20 minutes: 
+This query calculates ingestion latency over the past 20 minutes: 
 
 ```kusto
 // track the recent ingestion latency (in seconds) of a specific data type
@@ -376,7 +376,7 @@ Because you can expect some fluctuations, create an alert rule condition to chec
 
 When you notice your total ingestion latency is going up, you can use queries to determine whether the source of the latency is the agents or the ingestion pipeline.
 
-Thhis query charts the 90th percentile latency of the agents and of the pipeline, separately:  
+This query charts the 90th percentile latency of the agents and of the pipeline, separately:  
 
 ```kusto
 // Agent and pipeline (backend) latency
@@ -397,7 +397,7 @@ Ingestion volume measurements can help identify unexpected changes to the total 
 
 - Total ingestion volume per table
 - Constant ingestion volume (standstill)
-- Spikes and dips in ingestion volume
+- Ingestion anomalies - spikes and dips in ingestion volume
 
 The following sections show how to use queries to check the ingestion volume for your workspace. 
 
@@ -429,9 +429,9 @@ Heartbeat
 
 You can identify spikes and dips in your workspace ingestion volume data in various ways. Use the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function to extract anomalies from the ingestion volumes you monitor in your workspace, or create your own anomaly detector to support your unique workspace scenarios. 
 
-##### Identify anomarlies using series_decompose_anomalies
+##### Identify anomalies using series_decompose_anomalies
 
-The `series_decompose_anomalies()` function identifies anomalies in a series of data values. Thhis query calculates the ingestion volume per table per hour, and uses `series_decompose_anomalies()` to identify anomalies:
+The `series_decompose_anomalies()` function identifies anomalies in a series of data values. This query calculates the ingestion volume per table per hour, and uses `series_decompose_anomalies()` to identify anomalies:
 
 ```kusto
 Usage
@@ -454,19 +454,19 @@ Usage
 
 For more information about how to use `series_decompose_anomalies()` to detect anomalies in log data, see [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](kql-machine-learning-azure-monitor.md). 
 
-##### Create custom anomaly detector
+##### Create your own anomaly detector
 
 You can create a custom anomaly detector to support the scenario requirements for your workspace configuration. This section provides an example to demonstrate the process.
 
-The following query calculates the following data:
+The following query calculates:
 
-- **Expected ingestion volume**: Per hour, by data type (based on the median of medians, but you can customize the logic)
-- **Actual ingestion volume**: Per hour, by data type
+- **Expected ingestion volume**: Per hour, by table (based on the median of medians, but you can customize the logic)
+- **Actual ingestion volume**: Per hour, by table
 
 To filter out insignificant differences between the expected and the actual ingestion volume, the query applies two filters:
 
-- **Rate of change**: Over 150% or under 66% of the expected volume, per type
-- **Volume of change**: Indicates whether the increased or decreased volume is more than 0.1% of the monthly volume of that type
+- **Rate of change**: Over 150% or under 66% of the expected volume, per table
+- **Volume of change**: Indicates whether the increased or decreased volume is more than 0.1% of the monthly volume of that table
 
 ```kusto
 let TimeRange=24h;
@@ -474,7 +474,7 @@ let MonthlyIngestionByType=
     Usage
     | where TimeGenerated > ago(30d)
     | summarize MonthlyIngestionMB=sum(Quantity) by DataType;
-// calculating the expected ingestion volume by median of hourly medians
+// calculate the expected ingestion volume by median of hourly medians
 let ExpectedIngestionVolumeByType=
     Usage
     | where TimeGenerated > ago(TimeRange)
@@ -493,9 +493,9 @@ Usage
 | join kind=inner (MonthlyIngestionByType) on DataType
 | extend GapAsPercentOfMonthlyIngestion = round(abs(GapVolumeMB) * 100 / MonthlyIngestionMB, 2)
 | project-away DataType1, DataType2
-// Find if the spike/deep is substantial: over 150% or under 66% of the expected volume for this data type
+// Determine whether the spike/deep is substantial: over 150% or under 66% of the expected volume for this data type
 | where IngestedVsExpectedAsPercent > 150 or IngestedVsExpectedAsPercent < 66
-// Find if the volume of the gap is significant: over 0.1% of the total monthly ingestion volume to this workspace
+// Determine whether the gap volume is significant: over 0.1% of the total monthly ingestion volume to this workspace
 | where GapAsPercentOfMonthlyIngestion > 0.1
 | project
     Timestamp=format_datetime(todatetime(TimeGenerated), 'yyyy-MM-dd HH:mm:ss'),
@@ -508,12 +508,14 @@ Usage
 
 ### Monitor query success and failure
 
-Each query returns a response code that indicates success or failure. When the query fails, the response also includes the types of any errors. A high surge of errors can indicate a problem with the workspace availability or service performance.
+Each query returns a response code that indicates success or failure. When the query fails, the response also includes the error types. A high surge of errors can indicate a problem with the workspace availability or service performance.
 
-The following query counts how many queries returned a server error code:
+This query counts how many queries returned a server error code:
 
 ```kusto
-LAQueryLogs | where ResponseCode>=500 and ResponseCode<600 | count
+LAQueryLogs 
+| where ResponseCode>=500 and ResponseCode<600 
+| count
 ```
 ## Restrictions and limitations
 
@@ -522,7 +524,6 @@ LAQueryLogs | where ResponseCode>=500 and ResponseCode<600 | count
    - Change workspace retention, pricing tier, daily cap, and so on
    - Change network settings
    - Change schema through new custom logs or connecting platform logs from new resource providers, such as sending diagnostic logs from a new resource type
-   - Any other management operation of the workspace
 - The solution targeting capability of the legacy Log Analytics agent isn't supported during switchover. Therefore, during switchover, solution data is ingested from **all** agents.
 - The failover process updates your Domain Name System (DNS) records to reroute all ingestion requests to your secondary region for processing. Some HTTP clients have "sticky connections" and might take longer to pick up the DNS updated DNS. During switchover, these clients might attempt to ingest logs through the primary region for some time. You might be ingesting logs to your primary workspace using various clients, including the legacy Log Analytics Agent, Azure Monitor Agent, code (using the Logs Ingestion API or the legacy HTTP data collection API), and other services, such as Sentinel. 
    
