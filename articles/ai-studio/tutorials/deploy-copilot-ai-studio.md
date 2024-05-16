@@ -150,8 +150,115 @@ After you're done creating your index, return to your prompt flow and follow the
     :::image type="content" source="../media/tutorials/chat/add-tool-index-lookup.png" alt-text="Screenshot of selecting the index lookup tool in prompt flow." lightbox="../media/tutorials/chat/add-tool-index-lookup.png":::
 
 1. Name the new node **queryCustomerIndex** and select **Add**.
+1. Select the **mlindex_content** textbox in the **queryCustomerIndex** node. 
+
+    :::image type="content" source="../media/tutorials/chat/index-lookup-mlindex-content.png" alt-text="Screenshot of the mlindex_content textbox in the index lookup node." lightbox="../media/tutorials/chat/index-lookup-mlindex-content.png":::
+
+    The **Generate** dialog opens. You use this dialog to configure the **queryCustomerIndex** node to connect to your *customer-info* index.
+
+1. For the **index_type** value, select **Azure AI Search**.
+1. Select or enter the following values:
+
+    | Name | Value |
+    |----------|-----------|
+    | **acs_index_connection** | The name of your Azure AI Search service connection (such as *contosooutdooraisearch*) |
+    | **acs_index_name** | *customer-info* |
+    | **acs_content_field** | *content* |
+    | **acs_metadata_field** | *meta_json_string* |
+    | **semantic_configuration** | *azuremldefault* |
+    | **embedding_type** | *None* |
+
+1. Select **Save** to save your settings.
+1. Select or enter the following values for the **queryCustomerIndex** node:
+
+    | Name | Value |
+    |----------|-----------|
+    | **queries** | *${extractSearchIntent.output}* |
+    | **query_type** | *Keyword* |
+    | **topK** | *5* |
+
+    You can see the the **queryCustomerIndex** node is connected to the **extractSearchIntent** node in the graph.
+
+    :::image type="content" source="../media/tutorials/chat/connect-to-search-intent.png" alt-text="Screenshot of the prompt flow node for retrieving product info." lightbox="../media/tutorials/chat/connect-to-search-intent.png":::
+
+1. Select **Save** from the top menu to save your changes. Remember to save your prompt flow periodically as you make changes.
+
 
 ### Aggregate product and customer info
+
+At this point, the prompt flow only uses the product info. 
+- **extractSearchIntent** extracts the search intent from the user's question.
+- **querySearchResource** retrieves the product info from the *product-info* index.
+- The **LLM** tool (for large language models) receives a formatted reply via the **chunkDocuments** > **selectChunks** > **formatGeneratedReplyInputs** nodes.
+
+You need to connect and aggregate the product and customer info to output it in a format that the **LLM** tool can use. Follow these steps to aggregate the product and customer info:
+
+1. Select the elipses icon next to **+ More tools** and then select **Raw file mode** to switch to raw file mode. This mode allows you to copy and paste nodes in the graph.
+
+    :::image type="content" source="../media/tutorials/chat/raw-file-mode-select.png" alt-text="Screenshot of the raw file mode option in prompt flow." lightbox="../media/tutorials/chat/raw-file-mode-select.png":::
+
+1. Replace all instances of **querySearchResource** with **queryProductIndex** in the graph. We're renaming the node to better reflect that it retrieves product info and contrasts with the **queryCustomerIndex** node that you added to the flow.
+1. Replace all instances of **chunkDocuments** with **chunkProductDocuments** in the graph.
+1. Replace all instances of **selectChunks** with **selectProductChunks** in the graph.
+1. Copy and paste the **chunkProductDocuments** and **selectProductChunks** nodes to create similar nodes for the customer info. Rename the new nodes **chunkCustomerDocuments** and **selectCustomerChunks** respectively.
+1. Within the **chunkCustomerDocuments** node, replace the `${queryProductIndex.output}` input with `${queryCustomerIndex.output}`.
+1. Within the **selectCustomerChunks** node, replace the `${chunkProductDocuments.output}` input with `${chunkCustomerDocuments.output}`.
+1. Select **Save** from the top menu to save your changes.
+
+    :::image type="content" source="../media/tutorials/chat/raw-file-mode-save.png" alt-text="Screenshot of the option to save the yaml file in raw file mode." lightbox="../media/tutorials/chat/raw-file-mode-select.png":::
+
+    By now, the `flow.dag.yaml` file should include nodes (among others) that look similar to the following example:
+    
+    ```yaml
+    - name: chunkProductDocuments
+      type: python
+      source:
+        type: code
+        path: chunkProductDocuments.py
+      inputs:
+        data_source: Azure AI Search
+        max_tokens: 1050
+        queries: ${extractSearchIntent.output}
+        query_type: Keyword
+        results: ${queryProductIndex.output}
+        top_k: 5
+      use_variants: false
+    - name: selectProductChunks
+      type: python
+      source:
+        type: code
+        path: filterChunks.py
+      inputs:
+        min_score: 0.3
+        results: ${chunkProductDocuments.output}
+        top_k: 5
+      use_variants: false
+    - name: chunkCustomerDocuments
+      type: python
+      source:
+        type: code
+        path: chunkCustomerDocuments.py
+      inputs:
+        data_source: Azure AI Search
+        max_tokens: 1050
+        queries: ${extractSearchIntent.output}
+        query_type: Keyword
+        results: ${queryCustomerIndex.output}
+        top_k: 5
+      use_variants: false
+    - name: selectCustomerChunks
+      type: python
+      source:
+        type: code
+        path: filterChunks.py
+      inputs:
+        min_score: 0.3
+        results: ${chunkCustomerDocuments.output}
+        top_k: 5
+      use_variants: false
+    ```
+
+### Retired steps
 
 1. Select the **RetrieveDocuments** node from the graph and rename it **RetrieveProductInfo**. Now the retrieve product info node can be distinguished from the retrieve customer info node that you add to the flow.
 
