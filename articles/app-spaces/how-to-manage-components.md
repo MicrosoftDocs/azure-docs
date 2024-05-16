@@ -6,34 +6,84 @@ author: msangapu-msft
 ms.service: app-spaces
 ms.topic: how-to
 ms.date: 05/20/2024
-zone_pivot_groups: app-spaces-components
 ---
 
 # Manage app component
 
-You can manage the components of your App Space by selecting the App component on the __App Space__ page. 
+You can manage the components of your App Space by selecting the component on the __App Space__ page. 
 
 
-### Deployment
 
-#### [App Component (Backend app)](#tab/app-component/)
 
-#### [Static App Component (Frontend app)](#tab/static-app-component/)
-
-* * *
+## Deployment
 
 Shows the app deployment details in App Space. Here you can view the GitHub actions workflow
 
-### Logs
+
+#### [Static App Component (Frontend app)](#tab/static-app-component/)
+
+- Redeploy repeats the latest deployment.
+- Workflow run allows you to view the GitHub actions 
+- View commit
+
+* * *
+
+
+
+
+
+## Logs
 
 Service-level events, or console logs to debug code. 
 
 
-### Metrics
+## Metrics
 
-### Settings
+## Settings
 
-#### General
+## Info
+
+#### [App Component](#tab/app-component/)
+This tab shows the following details:
+
+| Name | Description |
+|------|-------------|
+|URL | App URL |
+|Location | App region |
+|Resource group | App's resource group |
+|Pricing | Pricing details |
+|Repository|Component's GitHub repo|
+|Branch|GitHub branch|
+|Subscription|Azure subscription|
+|Resource name|App space internal name|
+#### [Static App Component](#tab/static-app-component/)
+This tab shows the following details:
+
+| Name | Description |
+|------|-------------|
+|URL | App URL |
+|Location | App region |
+|Resource group | App's resource group |
+|Pricing | Pricing details |
+|Repository|Component's GitHub repo|
+|Branch|GitHub branch|
+|Subscription|Azure subscription|
+|Resource name|App space internal name|
+
+#### [Database](#tab/database/)
+| Name | Description |
+|------|-------------|
+|URL | App URL |
+|Resource group | App's resource group |
+|Pricing | Pricing details |
+|Location | App region |
+|Branch|GitHub branch|
+|Subscription|Azure subscription|
+|Resource name|App space internal name|
+
+* * *
+
+
 
 Component name
 Listening port

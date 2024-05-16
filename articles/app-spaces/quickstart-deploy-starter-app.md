@@ -1,6 +1,6 @@
 ---
-title: Deploy a template with App Spaces
-description: Learn how to deploy a template to create a web application with App Spaces.
+title: Deploy a starter app with App Spaces
+description: Learn how to deploy a starter app to create a web application with App Spaces.
 ms.service: app-spaces
 ms.topic: how-to
 ms.author: msangapu
@@ -21,7 +21,7 @@ To deploy a sample app for App Spaces, you must have the following items:
 - [Azure account and subscription](https://signup.azure.com/). You can only deploy with a subscription that you own.
 - [GitHub account](https://github.com/)
 
-## Deploy a sample app
+## Select a starter app
 
 While Express.JS (backend) and React (frontend) apps are used in this quickstart, other samples are also available in App Spaces. See [supported samples]() for a full list of available samples on App Spaces.
 

@@ -55,9 +55,9 @@ The deployment can take a few minutes to complete. During deployment, App Spaces
 
 [!include [component types](./includes/component-types-table.md)]
 
-#### [Backend (App component)](#tab/backend/)
+#### [Backend](#tab/backend/)
 [!include [deployment note](./includes/provisioning-text-aca.md)]
-#### [Frontend (Static app component)](#tab/frontend/)
+#### [Frontend](#tab/frontend/)
 [!include [deployment note](./includes/provisioning-text-swa.md)]
 * * *
 

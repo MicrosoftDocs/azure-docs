@@ -6,7 +6,7 @@ author: msangapu-msft
 ms.service: app-spaces
 ms.topic: how-to
 ms.date: 05/20/2024
-zone_pivot_groups: app-spaces-components
+zone_pivot_groups: app-spaces-add-component
 ---
 
 

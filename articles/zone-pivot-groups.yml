@@ -2091,7 +2091,18 @@ groups:
   - id: openai-java
     title: Java
 # Owner: msangapu
-- id: app-spaces-components
+- id: app-spaces-component-types
+  title: App Spaces components
+  prompt: Select the component type
+  pivots:
+  - id: app-component
+    title: App component
+  - id: static-app-component
+    title: Static app component
+  - id: database
+    title: Database
+# Owner: msangapu
+- id: app-spaces-add-component
   title: App Spaces apps
   prompt: Add component from
   pivots:
