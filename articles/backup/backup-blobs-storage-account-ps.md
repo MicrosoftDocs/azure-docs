@@ -3,7 +3,7 @@ title: Back up Azure blobs within a storage account using Azure PowerShell
 description: Learn how to back up all Azure blobs within a storage account using Azure PowerShell.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 05/14/2024
+ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

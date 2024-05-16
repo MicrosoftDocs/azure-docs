@@ -2,7 +2,7 @@
 author: AbhishekMallick-MS
 ms.service: backup
 ms.topic: include
-ms.date: 05/14/2024
+ms.date: 05/30/2024
 ms.author: v-abhmallick
 ---
 
@@ -49,7 +49,7 @@ Following is the request body to restore container bash 2 from a vaulted backup.
 }
 ```
 
-If you want to restore blobs with specific prefixes, provide the list of prefixes as value for **subItemPathPrefix**. Here is an example to restore blobs starting with prefixes dd, ee, or ff in container2 of your backed up storage account.
+If you want to restore blobs with specific prefixes, provide the list of prefixes as value for **subItemPathPrefix**. Here's an example to restore blobs starting with prefixes dd, ee, or ff in container2 of your backed-up storage account.
 
 ```http
    {
