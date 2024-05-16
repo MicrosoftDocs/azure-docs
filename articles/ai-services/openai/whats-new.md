@@ -20,6 +20,18 @@ This article provides a summary of the latest releases and major documentation u
 
 ## May 2024
 
+### DALL-E and GPT-4 Turbo Vision GA configurable content filters 
+
+Create custom content filters for your DALL-E 2 and 3 and GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
+
+### Asynchronous Filter available for all Azure OpenAI customers 
+
+Running filters asynchronously for improved latency in streaming scenarios is now available for all Azure OpenAI customers. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#content-streaming)
+
+### Prompt Shields 
+
+Prompt Shields protect applications powered by Azure OpenAI models from two types of attacks: direct (jailbreak) and indirect attacks. Indirect Attacks (also known as Indirect Prompt Attacks or Cross-Domain Prompt Injection Attacks) are a type of attack on systems powered by Generative AI models that may occur when an application processes information that wasn’t directly authored by either the developer of the application or the user. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#prompt-shields)
+
 ### GPT-4o preview model available for early access
 
 GPT-4o ("o is for "omni") is the latest preview model from OpenAI launched on May 13, 2024.
