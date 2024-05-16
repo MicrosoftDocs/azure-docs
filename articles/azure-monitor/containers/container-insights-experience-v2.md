@@ -113,6 +113,9 @@ If you're currently using the logs based Container Insights experience, then you
 
 2.) From the Cost presets dropdown, select "Logs and Events" and save to configure.
 
+> [!Note]
+> Disabling the Log Analytics metrics also disables the visualization dropdown in the toolbar. Revert to using one of the standard cost presets in the `Monitoring Settings` blade to re-enable the Log Analytics visualizations.
+
 ## Known limitations and issues
 
 As this feature is currently in preview, there are several, known limitations, the following features aren't supported
