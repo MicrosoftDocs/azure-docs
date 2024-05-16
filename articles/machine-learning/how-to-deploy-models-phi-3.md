@@ -53,74 +53,40 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 - An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
     > [!IMPORTANT]
-    > For Phi-3 family models, the pay-as-you-go model deployment offering is only available with workspaces created in **East US 2** and **Sweden Central** regions.
+    > For Phi-3 family models, the serverless API model deployment offering is only available with workspaces created in **East US 2** and **Sweden Central** regions.
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
-
 ### Create a new deployment
-
-The following steps demonstrate the deployment of Mistral Large, but you can use the same steps to deploy Mistral Small by replacing the model name.
 
 To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
-1. Choose the model you want to deploy, for example **Phi-3-mini-4k-Instruct**, from the [model catalog](https://ml.azure.com/model/catalog).
+1. Select the workspace in which you want to deploy your models. To use the serverless API model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
+1. Choose the model you want to deploy, for example **Phi-3-medium-128k-Instruct**, from the [model catalog](https://ml.azure.com/model/catalog).
+1. On the model's overview page in the model catalog, select **Deploy** and then **Serverless API with Azure AI Content Safety**.
 
+   Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**. Then, you can select a model.
 
-
-----------------------
-
-To create a deployment:
-
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-
-1. Select **Model catalog** from the left sidebar.
-
-1. Search for and select the model you want to deploy, for example **Phi-3-mini-4k-Instruct**, to open its Details page.
-
-1. Select **Deploy**.
-
-1. Choose the option **Serverless API** to open a serverless API deployment window for the model.
-
-1. Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
-
-    1. From the left sidebar of your project, select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
-    1. Search for and select **Phi-3-mini-4k-Instruct** to open the model's Details page.
-    1. Select **Confirm**, and choose the option **Serverless API** to open a serverless API deployment window for the model. 
- 
-1. Select the project in which you want to deploy your model. To deploy the Phi-3 model, your project must be in the *EastUS2* or *Sweden Central* region. 
-
-1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
-
+1. In the deployment wizard, select the **Pricing and terms** tab to learn about pricing for the selected model.
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region. 
-
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites.
-
-1. Select **Open in playground** to start interacting with the model. 
-
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions. For more information on using the APIs, see [Reference: Chat Completions](../reference/reference-model-inference-chat-completions.md).
-
-1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
-
+1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. 
+1. Take note of the **Target URI** and the secret **Key**, which you can use to call the deployment and generate completions. For more information on using the APIs, see [Reference: Chat Completions](../ai-studio/reference/reference-model-inference-chat-completions.md).
+1. Select the **Test** tab to start interacting with the model. 
+1. You can always find the endpoint's details, URI, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
 
 ### Consume Phi-3  models as a service
 
-Models deployed as a service can be consumed using the chat API, depending on the type of model you deployed.
+Models deployed as serverless APIs can be consumed using the chat API, depending on the type of model you deployed.
 
-1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
-
+1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
-
-1. Copy the **Target** URL and the **Key** value.
-
-1. Make an API request using the `/v1/chat/completions` API using `<target_url>/v1/chat/completions`. For more information on using the APIs, see the [Reference: Chat Completions](../reference/reference-model-inference-chat-completions.md). 
+1. Copy the **Target** URI and the **Key** token values.
+1. Make an API request using the `/v1/chat/completions` API using `<target_url>/v1/chat/completions`. For more information on using the APIs, see the [Reference: Chat Completions](../ai-studio/reference/reference-model-inference-chat-completions.md). 
 
 ## Cost and quotas
 
-### Cost and quota considerations for Phi-3 models deployed as a service
+### Cost and quota considerations for Phi-3 models deployed as serverless APIs
 
 You can find the pricing information on the **Pricing and terms** tab of the deployment wizard when deploying the model. 
 
