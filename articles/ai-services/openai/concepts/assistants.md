@@ -44,7 +44,7 @@ We provide a walkthrough of the Assistants playground in our [quickstart guide](
 
 ## Assistants components
 
-:::image type="content" source="../media/assistants/assistants-overview.png" alt-text="A diagram showing the components of an assistant." lightbox="../media/assistants/assistants-overview.png:::
+:::image type="content" source="../media/assistants/assistants-overview.png" alt-text="A diagram showing the components of an assistant." lightbox="../media/assistants/assistants-overview.png":::
 
 | **Component** | **Description** |
 |---|---|
