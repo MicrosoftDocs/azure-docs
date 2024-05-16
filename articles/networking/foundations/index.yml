@@ -19,7 +19,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: "What are Azure network foundation services?" 
+    - title: "Azure network foundation services overview" 
       itemType: concept
       url: ./network-foundations-overview.md
     # Card
@@ -34,10 +34,6 @@ highlightedContent:
     - title: "Azure Virtual Networking: Private Link, Virtual Network Managers, and DNS"
       itemType: "video"
       url: https://www.youtube.com/watch?v=UHs4NTUGZeQ
-    # Card
-    - title: Choosing a load balancing solution 
-      itemType: concept
-      url: ./load-balancing/index.yml
 
 productDirectory:
   title: Foundation services
