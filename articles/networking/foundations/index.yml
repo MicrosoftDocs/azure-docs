@@ -1,6 +1,6 @@
 ### YamlMime:Hub
 title: Azure Networking Foundations
-summary: Azure networking foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
+summary: Azure networking foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS. 
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
@@ -63,3 +63,31 @@ additionalContent:
               url: /azure/dns/dns-private-resolver-overview
             - text: Azure DNS FAQ
               url: /azure/dns/dns-faq
+              
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items: 
+    - title: Choosing a load balancing solution 
+      itemType: concept
+      url: ./load-balancing/index.yml
+    - title: Network Foundations
+      itemType: overview
+      url: ./network-foundation/index.yml
+    - title: Hybrid Connectivity
+      itemType: overview
+      url: ./hybrid-connectivity/index.yml
+    - title: Azure network security
+      itemType: overview
+      url: ./security/index.yml
+    - title: Network monitoring and management
+      itemType: overview
+      url: ../network-watcher/index.yml
+    - title: Hub-spoke network topology in Azure
+      itemType: architecture
+      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - title: Azure Networking blogs
+      itemType: concept
+      url: https://azure.microsoft.com/blog/topics/networking/
+    - title: What's new in Azure Networking - Azure Updates
+      itemType: whats-new 
+      url: https://azure.microsoft.com/updates/?category=networking
