@@ -188,7 +188,7 @@ To enable hibernation on an existing VM using Azure CLI, first deallocate your V
     -ResourceGroupName 'myResourceGroup' ` 
     -Name 'myVM'
    ```
-   
+---  
 ## Configuring hibernation in the guest OS
 Enabling hibernation while creating a Windows VM automatically installs the 'Microsoft.CPlat.Core.WindowsHibernateExtension' VM extension. This extension configures the guest OS for hibernation. This extension doesn't need to be manually installed or updated, as this extension is managed by the Azure platform.
 
