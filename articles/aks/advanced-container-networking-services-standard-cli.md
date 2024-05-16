@@ -89,8 +89,6 @@ Non-Cilium clusters support the enablement of Advanced Container Networking Serv
 
 Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Advanced Container Networking Services Standard on non-Cilium.
 
-## New cluster
-
 ```azurecli-interactive
 az aks create \
     --name myAKSCluster \
@@ -120,6 +118,7 @@ az aks create \
     --node-count 2 \
     --pod-cidr 192.168.0.0/16
 ```
+---
 
 ## Enable on Existing cluster
 
@@ -194,55 +193,58 @@ az aks update \
 ```
 ---
 
+## Get cluster credentials 
+
+```azurecli-interactive
+az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
+```
+
 ## Visualization using Grafana
 
 > [!NOTE]
-> The following section requires deployments of Azure managed Prometheus and Grafana.
+> * **hubble_flows_processed_total** metric is not scraped by default due to high metric > cardinality in large scale clusters. 
+> * Because of this, "Pods Flows" dashboards will have panels missing data.
+> * To change this, you can modify ama metrics settings to include **hubble_flows_processed_total** to the metric keep list. To learn how to do it, visit [Minimal Ingestion Doumentation](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal).
+> 
 
 1. Use the following example to verify the Azure Monitor pods are running. 
 
 ```azurecli-interactive
-  kubectl get po -owide -n kube-system | grep ama-
+kubectl get po -owide -n kube-system | grep ama-
 ```
 
 ```output
-  ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
-  ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
-  ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
-  ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
-  ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
-  ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
+ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
+ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
+ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
+ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
+ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
+ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
 ```
 
 1. We have created sample dashboards. They can be found under the **Dashboards > Azure Managed Prometheus** folder. They have names like **"Kubernetes / Networking / <name>"**. The suite of dashboards includes:
-    * **Clusters:** shows Node-level metrics for your clusters.
-    * **DNS (Cluster):** shows DNS metrics on a cluster or selection of Nodes.
-    * **DNS (Workload):** shows DNS metrics for the specified workload (e.g. Pods of a DaemonSet or Deployment such as CoreDNS).
-    * **Drops (Workload):** shows drops to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
-    * **Pod Flows (Namespace):** shows L4/L7 packet flows to/from the specified namespace (i.e. Pods in the
-    Namespace).
-    * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
+  * **Clusters:** shows Node-level metrics for your clusters.
+  * **DNS (Cluster):** shows DNS metrics on a cluster or selection of Nodes.
+  * **DNS (Workload):** shows DNS metrics for the specified workload (e.g. Pods of a DaemonSet or Deployment such as CoreDNS).
+  * **Drops (Workload):** shows drops to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
+  * **Pod Flows (Namespace):** shows L4/L7 packet flows to/from the specified namespace (i.e. Pods in the
+  Namespace).
+  * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
 
-
-## Get cluster credentials 
-
-```azurecli-interactive
-  az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
-```
 
 ## Steps to Setup Hubble CLI 
 
 1. In order to access the  data collected by Hubble, install the Hubble CLI:
 
 ```azurecli-interactive
-   HUBBLE_VERSION=0.11
-    
-  HUBBLE_ARCH=amd64
-  if [ "$(uname -m)" = "aarch64" ]; then HUBBLE_ARCH=arm64; fi
-  curl -L --fail --remote-name-all https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
-  sha256sum --check hubble-linux-${HUBBLE_ARCH}.tar.gz.sha256sum
-  sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
-  rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
+HUBBLE_VERSION=0.11
+  
+HUBBLE_ARCH=amd64
+if [ "$(uname -m)" = "aarch64" ]; then HUBBLE_ARCH=arm64; fi
+curl -L --fail --remote-name-all https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
+sha256sum --check hubble-linux-${HUBBLE_ARCH}.tar.gz.sha256sum
+sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
+rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
 ```
 
 ## How to Visualize the Hubble Flows
@@ -250,56 +252,56 @@ az aks update \
 1. Before you move ahead, use the following example to verify the Hubble pods are running. 
 
 ```azurecli-interactive
-  kubectl get po -owide -n kube-system -l k8s-app=hubble-relay
+kubectl get po -owide -n kube-system -l k8s-app=hubble-relay
 ```
 
 ```output
-  hubble-relay-7ddd887cdb-h6khj     1/1  Running     0       23h 
+hubble-relay-7ddd887cdb-h6khj     1/1  Running     0       23h 
 ```
 
 1. You will have to port forward Hubble Relay.
 
 ```azurecli-interactive
-  kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 9999:443
+kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 9999:443
 ```
 
 1.  The Hubble relay server's security is ensured through mutual TLS (mTLS). To enable the Hubble client to retrieve flows, it is necessary to obtain the appropriate certificates and configure the client with these certificates.Use the following commands to apply the certs
 ```azurecli-interactive
-    #!/usr/bin/env bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+set -x
+
+# Directory where certificates will be stored
+CERT_DIR="$(pwd)/.certs"
+mkdir -p "$CERT_DIR"
+
+declare -A CERT_FILES=(
+  ["tls.crt"]="tls-client-cert-file"
+  ["tls.key"]="tls-client-key-file"
+  ["ca.crt"]="tls-ca-cert-files"
+)
+
+for FILE in "${!CERT_FILES[@]}"; do
+  KEY="${CERT_FILES[$FILE]}"
+  JSONPATH="{.data['$FILE']}"
+
+  # Retrieve the secret and decode it
+  kubectl get secret hubble-relay-client-certs -n kube-system \
+    -o jsonpath="${JSONPATH}" | \
+    base64 -d > "$CERT_DIR/$FILE"
+
+  # Set the appropriate hubble CLI config
+  hubble config set "$KEY" "$CERT_DIR/$FILE"
+done
     
-    set -euo pipefail
-    set -x
-    
-    # Directory where certificates will be stored
-    CERT_DIR="$(pwd)/.certs"
-    mkdir -p "$CERT_DIR"
-    
-    declare -A CERT_FILES=(
-      ["tls.crt"]="tls-client-cert-file"
-      ["tls.key"]="tls-client-key-file"
-      ["ca.crt"]="tls-ca-cert-files"
-    )
-    
-    for FILE in "${!CERT_FILES[@]}"; do
-      KEY="${CERT_FILES[$FILE]}"
-      JSONPATH="{.data['$FILE']}"
-    
-      # Retrieve the secret and decode it
-      kubectl get secret hubble-relay-client-certs -n kube-system \
-        -o jsonpath="${JSONPATH}" | \
-        base64 -d > "$CERT_DIR/$FILE"
-    
-      # Set the appropriate hubble CLI config
-      hubble config set "$KEY" "$CERT_DIR/$FILE"
-    done
-    
-    hubble config set tls true
-    hubble config set tls-server-name instance.hubble-relay.cilium.io
+hubble config set tls true
+hubble config set tls-server-name instance.hubble-relay.cilium.io
 ```
 
 1. Run the following commands to check if the secrets were generated 
 ```azurecli-interactive
-  kubectl get po -owide -n kube-system | grep hubble-
+kubectl get po -owide -n kube-system | grep hubble-
 ```
 
 ```output
@@ -311,7 +313,7 @@ kube-system     hubble-server-certs           kubernetes.io/tls     3     9d
  
 1. To check that the hubble relay pod is running, run the following command
 ```azurecli-interactive
-  hubble relay service 
+hubble relay service 
 ```
 
 ## How to Visualize Using Hubble UI
@@ -556,11 +558,11 @@ spec:
 
 1. Apply the hubble-ui.yaml manifest to your cluster, using the following command 
 ```azurecli-interactive
-  kubectl apply -f hubble-ui.yaml
+kubectl apply -f hubble-ui.yaml
 ```
 1. Expose Service with port forwarding:
 ```azurecli-interactive
-  kubectl port-forward svc/hubble-ui 12000:80
+kubectl port-forward svc/hubble-ui 12000:80
 ```
 
 1. Now you can access the Hubble UI using your web browser:
@@ -584,5 +586,5 @@ In this how-to article, you learned how to install and enable Advanced Container
 
 - For more information about Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-standard-overview.md).
 
-- To create an Advanced Container Networking Services Standard and BYO Prometheus and Grafana, see [Setup Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](advanced-container-networking-services-standard--byo-cli.md).
+- To create an Advanced Container Networking Services Standard - BYO Prometheus and Grafana, see [Setup Advanced Container Networking Services Standard for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana](advanced-container-networking-services-standard-byo-cli.md).
 

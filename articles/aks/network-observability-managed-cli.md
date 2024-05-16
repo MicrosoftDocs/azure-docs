@@ -208,7 +208,9 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 ```
 
 
-## Visualization using Grafana
+## Enable visualization on Grafana
+
+# [**Non-Cilium**](#tab/non-cilium)
 
 > [!NOTE]
 > The following section requires deployments of Azure managed Prometheus and Grafana.
@@ -232,6 +234,36 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 
 1. Check if the Metrics in **Kubernetes / Networking** Grafana dashboard are visible. If metrics aren't shown, change time range to last 15 minutes in top right dropdown box.
 
+# [**Cilium**](#tab/cilium)
+
+> [!NOTE]
+> The following section requires deployments of Azure managed Prometheus and Grafana.
+
+1. Azure Monitor pods should restart themselves, if they don't, rollout restart with following command:
+    
+    ```azurecli-interactive
+    kubectl get po -owide -n kube-system | grep ama-
+    ```
+
+    ```output
+    ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
+    ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
+    ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
+    ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
+    ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
+    ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
+    ```
+
+1. Once the Azure Monitor pods have been deployed on the cluster, port forward to the `ama` pod to verify the pods are being scraped. Use the following example to port forward to the pod:
+
+    ```azurecli-interactive
+    kubectl port-forward -n kube-system $(kubectl get po -n kube-system -l rsName=ama-metrics -oname | head -n 1) 9090:9090
+    ```
+
+1. Open `http://localhost:9090` in your browser and navigate to **Status** > **Targets**, verify if **cilium-pods** are present and state says up.
+
+1. Sign in to Azure Managed Grafana and import dashboard with the ID: [16611](https://grafana.com/grafana/dashboards/16611-cilium-metrics/). Also, select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder. Metrics should be visible in both these dashboards.
+
 ---
 
 ## Clean up resources
@@ -251,4 +283,3 @@ In this how-to article, you learned how to install and enable AKS Network Observ
 - For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
 - To create an AKS cluster with Network Observability and BYO Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](network-observability-byo-cli.md).
-
