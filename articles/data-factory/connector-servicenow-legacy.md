@@ -11,7 +11,7 @@ ms.custom: synapse
 ms.date: 10/20/2023
 ---
 
-# Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
+# Copy data from ServiceNow using Azure Data Factory or Synapse Analytics (legacy)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
