@@ -167,7 +167,7 @@ ms.topic: include
 | Category       | PgBouncer |
 | Description    | Comma-separated list of database users that are allowed to connect and run read-only queries on the pgBouncer console.                                                        |
 | Data type      | string      |
-| Default value  | `adminuser`   |
+| Default value  |    |
 | Allowed values | `[A-Za-z0-9,@_\\-\\.]*`         |
 | Parameter type | dynamic        |
 | Documentation  | [pgbouncer.stats_users](https://www.pgbouncer.org/config.html)                                     |

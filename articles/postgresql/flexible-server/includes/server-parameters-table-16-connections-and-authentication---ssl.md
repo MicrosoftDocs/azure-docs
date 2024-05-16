@@ -168,7 +168,7 @@ ms.topic: include
 | Description    | Sets the maximum SSL/TLS protocol version to use.                       |
 | Data type      | enumeration |
 | Default value  |                                                                                                                                                                                 |
-| Allowed values | `,TLSv1.2,TLSv1.3`                                                                                                                                                              |
+| Allowed values | `TLSv1.2,TLSv1.3`                                                                                                                                                              |
 | Parameter type | dynamic        |
 | Documentation  | [ssl_max_protocol_version](https://www.postgresql.org/docs/16/runtime-config-connection.html) |
 

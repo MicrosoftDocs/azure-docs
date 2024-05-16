@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Checkpoints |
 | Description    | Maximum size to let the WAL grow before triggering automatic checkpoint.                                       |
 | Data type      | integer   |
-| Default value  | `2048`        |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
 | Allowed values | `32-65536`     |
 | Parameter type | dynamic        |
 | Documentation  | [max_wal_size](https://www.postgresql.org/docs/14/runtime-config-wal.html)                 |

@@ -49,7 +49,7 @@ ms.topic: include
 | Description    | Lists shared libraries to preload into each backend.              |
 | Data type      | set       |
 | Default value  |                                                                                                                                                      |
-| Allowed values | `,login_hook`                                                                                                                                         |
+| Allowed values | `login_hook`                                                                                                                                         |
 | Parameter type | dynamic        |
 | Documentation  |               |
 
@@ -66,7 +66,7 @@ ms.topic: include
 | Description    | Sets which shared libraries are preloaded at server start.        |
 | Data type      | set       |
 | Default value  | `auto_explain,pg_cron,pg_failover_slots,pg_hint_plan,pg_partman_bgw,pg_prewarm,pg_squeeze,pg_stat_statements,pgaudit,pglogical,timescaledb,wal2json` |
-| Allowed values | `,auto_explain,pg_cron,pg_failover_slots,pg_hint_plan,pg_partman_bgw,pg_prewarm,pg_squeeze,pg_stat_statements,pgaudit,pglogical,timescaledb,wal2json` |
+| Allowed values | `auto_explain,pg_cron,pg_failover_slots,pg_hint_plan,pg_partman_bgw,pg_prewarm,pg_squeeze,pg_stat_statements,pgaudit,pglogical,timescaledb,wal2json` |
 | Parameter type | static         |
 | Documentation  |               |
 

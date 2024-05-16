@@ -116,7 +116,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the number of shared memory buffers used by the server. Unit is 8kb. Allowed values are inside the range of 10% - 75% of available memory.                                     |
 | Data type      | integer     |
-| Default value  | `262144`                                                                   |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.                                                                   |
 | Allowed values | `16-1073741823`  |
 | Parameter type | static         |
 | Documentation  | [shared_buffers](https://www.postgresql.org/docs/11/runtime-config-resource.html)            |

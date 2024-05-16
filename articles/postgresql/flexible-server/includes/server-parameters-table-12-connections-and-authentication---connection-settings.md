@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the maximum number of concurrent connections to the database server.                                                           |
 | Data type      | integer   |
-| Default value  | `859`         |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.         |
 | Allowed values | `25-5000`      |
 | Parameter type | static         |
 | Documentation  | [max_connections](https://www.postgresql.org/docs/12/runtime-config-connection.html)         |

@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's assumption about the size of the disk cache.                                          |
 | Data type      | integer   |
-| Default value  | `786432`      |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.      |
 | Allowed values | `1-2147483647`   |
 | Parameter type | dynamic        |
 | Documentation  |                                                                                              |

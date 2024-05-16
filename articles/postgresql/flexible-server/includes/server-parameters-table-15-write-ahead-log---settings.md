@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the number of disk-page buffers in shared memory for WAL. Unit is 8kb.                            |
 | Data type      | integer     |
-| Default value  | `2048`        |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
 | Allowed values | `-1-262143`       |
 | Parameter type | static         |
 | Documentation  | [wal_buffers](https://www.postgresql.org/docs/15/runtime-config-wal.html)            |
