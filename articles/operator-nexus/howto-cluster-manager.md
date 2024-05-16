@@ -58,14 +58,14 @@ Use the `az networkcloud clustermanager create` command to create a Cluster Mana
 
 ```azurecli
 az networkcloud clustermanager create \
-    --name <Cluster Manager name> \
-    --location <region> \
-    --analytics-workspace-id <log analytics workspace ID>
-    --fabric-controller-id <Fabric controller ID associated with this Cluster Manager>
-    --managed-resource-group-configuration < name=<Managed Resource group Name> location=<Managed Resource group location> >
-    --tags <key=value key=value>
-    --resource-group <Resource Group Name>
-    --subscription <subscription ID>
+    --name "$CLUSTER_MANAGER_NAME" \
+    --location "$LOCATION" \
+    --analytics-workspace-id "$LAW_NAME" \
+    --fabric-controller-id "$NFC_ID" \
+    --managed-resource-group-configuration name="$MRG_NAME" location="$MRG_LOCATION" \
+    --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2"
+    --resource-group "$CLUSTER_MANAGER_RG"
+    --subscription "$SUB_ID"
 ```
 
 - **Arguments**
@@ -73,7 +73,7 @@ az networkcloud clustermanager create \
   - **--fabric-controller-id [Required]** - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
   - **--resource-group -g [Required]** - Name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
   - **--analytics-workspace-id** - The resource ID of the Log Analytics Workspace that is used for the logs collection
-  - **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location=<location>`.
+  - **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location="$LOCATION"`.
   - **--managed-resource-group-configuration** - The configuration of the managed resource group associated with the resource.
     - Usage: --managed-resource-group-configuration location=XX name=XX
     - location: The region of the managed resource group. If not specified, the region of the
@@ -121,7 +121,7 @@ List and show commands are used to get a list of existing Cluster Managers or th
 This command lists the Cluster Managers in the specified Resource group.
 
 ```azurecli
-az networkcloud clustermanager list --resource-group <Azure Resource group>
+az networkcloud clustermanager list --resource-group "$CLUSTER_MANAGER_RG"
 ```
 
 ### List Cluster Managers in subscription
@@ -129,7 +129,7 @@ az networkcloud clustermanager list --resource-group <Azure Resource group>
 This command lists the Cluster Managers in the specified subscription.
 
 ```azurecli
-az networkcloud clustermanager list  --subscription <subscription ID>
+az networkcloud clustermanager list  --subscription "$SUB_ID"
 ```
 
 ### Show Cluster Manager properties
@@ -138,9 +138,9 @@ This command lists the properties of the specified Cluster Manager.
 
 ```azurecli
 az networkcloud clustermanager show \
-    --name <Cluster Manager name> \
-    --resource-group <Resource group Name>
-    --subscription <subscription ID>
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
 ```
 
 ### List/show command arguments
@@ -156,10 +156,10 @@ This command is used to patch properties of the provided Cluster Manager, or upd
 
 ```azurecli
 az networkcloud clustermanager update \
-    --name <Cluster Manager name> \
-    --tags < <key1=value1> <key2=value2>>
-    --resource-group <Resource group Name>
-    --subscription <subscription ID>
+    --name "$CLUSTER_MANAGER_NAME" \
+    --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
 ```
 
 - **Arguments**
@@ -178,9 +178,9 @@ This command is used to Delete the provided Cluster Manager.
 
 ```azurecli
 az networkcloud clustermanager delete \
-    --name <Cluster Manager name> \
-    --resource-group <Resource Group Name>
-    --subscription <subscription ID>
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
 ```
 
 - **Arguments**
