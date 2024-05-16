@@ -109,7 +109,7 @@ Refer to the [Linux hibernation troubleshooting guide](./linux/hibernate-resume-
     - Yes, you can enable hibernation on existing VMs.
 
 - Can I resize a VM with hibernation enabled?
-    - Yes, you can resize a VM with hibernation enabled. You cannot resize the VM if its in a *Hibernated* state. Move the VM to either a *Running* or *Stopped* state before resizing.
+    - Yes, you can resize a VM with hibernation enabled. You cannot resize the VM if it's in a *Hibernated* state. Move the VM to either a *Running* or *Stopped* state before resizing.
 
 - Can I modify a VM once it is in a hibernated state?
     - No, once a VM is in a hibernated state, you can't perform actions like resizing the VM and modifying the disks. Additionally, you can't detach any disks or networking resources that are currently attached to the VM or attach new resources to the VM. You can however stop(deallocate) or delete the VM if you want to detach these resources. 
