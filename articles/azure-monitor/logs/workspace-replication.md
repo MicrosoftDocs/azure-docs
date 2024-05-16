@@ -543,5 +543,5 @@ The following features are partially supported or not currently supported:
 
 ## Related content
 
-- [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md)
-- [Set up the Microsoft Monitoring Agent (MMA)](/services-hub/unified/health/mma-setup)
+- [Monitor Log Analytics workspace health](../logs/log-analytics-workspace-health.md)
+- [Monitor operational issues in your Azure Monitor Log Analytics workspace](../logs/monitor-workspace.md)
