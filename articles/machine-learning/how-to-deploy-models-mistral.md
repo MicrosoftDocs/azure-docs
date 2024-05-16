@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 04/29/2024
-mms.author: kritifaujdar
-.author: fkriti
-ms.author: mopeakande
-author: msakande
+ms.author: kritifaujdar
+author: fkriti
+ms.reviewer: mopeakande
+reviewer: msakande
 ms.custom: [references_regions]
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-mistral.md

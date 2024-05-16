@@ -8,6 +8,7 @@ ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 04/02/2024
 ms.reviewer: mopeakande
+reviewer: msakande
 ms.author: shubhiraj
 author: shubhirajMsft 
 ms.custom: [references_regions]
