@@ -203,6 +203,74 @@ output text string = deploymentScript.properties.outputs.text
 
 ---
 
+## Using a Managed Identity
+
+The following example demonstrates a simple Bicep file with a deployment script resource, using a Managed Identity to interact with Azure from inside the script.
+
+# [CLI](#tab/CLI)
+
+```bicep
+@description('The storage account to list blobs from')
+param storageAccountData {
+  name: string
+  container: string
+}
+
+@description('The storage account to read blobs from')
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+  name: storageAccountData.name
+}
+
+@description('The Storage Blob Data Reader Role definition from [Built In Roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)')
+resource storageBlobDataReaderRoleDef 'Microsoft.Authorization/roleDefinitions@2022-05-01-preview' existing = {
+  scope: subscription()
+  name: '2a2b9908-6ea1-4ae2-8e65-a410df84e7d1'
+}
+
+@description('The user identity for the deployment script')
+resource scriptIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-07-31-preview' = {
+  name: 'script-identity'
+  location: resourceGroup().location
+}
+
+@description('Assign permission for the deployment scripts user identity access to the read blobs from the storage account')
+resource dataReaderRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: storageAccount
+  name: guid(storageBlobDataReaderRoleDef.id, scriptIdentity.id, storageAccount.id)
+  properties: {
+    principalType: 'ServicePrincipal'
+    principalId: scriptIdentity.properties.principalId
+    roleDefinitionId: storageBlobDataReaderRoleDef.id
+  }
+}
+
+@description('The deployment script')
+resource script 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'script'
+  location: resourceGroup().location
+  kind: 'AzureCLI'
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${scriptIdentity.id}': {}
+    }
+  }
+  properties: {
+    azCliVersion: '2.59.0'
+    retentionInterval: 'PT1H'
+    arguments: '${storageAccount.properties.primaryEndpoints.blob} ${storageAccountData.container}'
+    scriptContent: '''
+#!/bin/bash
+set -e
+
+az storage blob list --auth-mode login --blob-endpoint $1 --container-name $2
+'''
+  }
+}
+```
+
+---
+
 After you deploy the Bicep file successfully, use the Azure portal, the Azure CLI, Azure PowerShell, or the REST API to check the results.
 
 ### Azure portal
