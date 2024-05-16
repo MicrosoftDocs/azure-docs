@@ -17,7 +17,7 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Micros
     
     - [**Non-interactive user sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#non-interactive-user-sign-ins), which contain information about sign-ins performed by a client on behalf of a user without any interaction or authentication factor from the user.
     
-    - [**Service principal sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#service-principal-sign-ins), which contain information about sign-ins by apps and service principals that do not involve any user. In these sign-ins, the app or service provides a credential on its own behalf to authenticate or access resources.
+    - [**Service principal sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#service-principal-sign-ins), which contain information about sign-ins by apps and service principals that don't involve any user. In these sign-ins, the app or service provides a credential on its own behalf to authenticate or access resources.
     
     - [**Managed Identity sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#managed-identity-for-azure-resources-sign-ins), which contain information about sign-ins by Azure resources that have secrets managed by Azure. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -27,13 +27,13 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Micros
 - [**Microsoft Graph activity logs**](/graph/microsoft-graph-activity-logs-overview), which contain information about HTTP requests accessing your tenant’s resources through the Microsoft Graph API.
 
 > [!IMPORTANT]
-> Some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
-- A Microsoft Entra ID P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Microsoft Entra ID license (Free/O365/P1 or P2) is sufficient to ingest the other log types. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
+- A Microsoft Entra ID P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Microsoft Entra ID license (Free/O365/P1 or P2) is sufficient to ingest the other log types. Other per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
 
 - Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
 
@@ -50,7 +50,7 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Micros
 
 1. From the data connectors gallery, select **Microsoft Entra ID** and then select **Open connector page**.
 
-1. Mark the check boxes next to the log types you want to stream into Microsoft Sentinel (see above), and select **Connect**.
+1. Mark the check boxes next to the log types you want to stream into Microsoft Sentinel, and select **Connect**.
 
 ## Find your data
 
