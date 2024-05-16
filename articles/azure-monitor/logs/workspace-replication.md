@@ -58,7 +58,7 @@ These region groups and regions are currently supported:
 
 ### Data residency requirements
 
-Different customers have different data residency requirements, so it's important that you control where your data is stored. Azure Monitor process and stores logs in the primary and secondary regions that you choose. For more information, see [Supported regions and region groups](#support-for-regions-and-region-groups).
+Different customers have different data residency requirements, so it's important that you control where your data is stored. Azure Monitor process and stores logs in the primary and secondary regions that you choose. For more information, see [Supported regions](#supported-regions).
 
 ### Support for Sentinel and other services
 
@@ -101,7 +101,7 @@ Where:
 - `<primary_location>`: The primary region for your Log Analytics workspace.
 - `<secondary_location>`: The region to switch to when the primary workspace region isn't healthy.
 
-For the allowed region values, see [Supported regions and region groups](#support-for-regions-and-region-groups).
+For the allowed region values, see [Supported regions](#supported-regions).
 
 The `PUT` command is a long running operation that can take some time to complete. A successful call returns a `200` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
 
@@ -226,7 +226,7 @@ Before you switch regions during switchover, your secondary workspace needs to c
 
 ### Trigger switchover
 
-Before you trigger switchover, [confirm that the workspace replication operation completed successfully](#check-workspace-replication-provisioning-state). Switchover only succeeds when the secondary workspace is configured correctly. 
+Before you trigger switchover, [confirm that the workspace replication operation completed successfully](#check-request-provisioning-state). Switchover only succeeds when the secondary workspace is configured correctly. 
 
 To switch over to your secondary workspace, use this `POST` command:
 
@@ -271,7 +271,7 @@ For examples of how to query your primary workspace during switchover and bypass
 
 ### Trigger switchback
 
-Before you trigger switchback, confirm the [Primary workspace health](#primary-workspace-health) and complete [replication of logs ingestion](#logs-ingestion-replication-state). 
+Before you trigger switchback, confirm the [Primary workspace health](#primary-workspace-health) and complete [replication of logs](#log-replication-state). 
 
 The switchback process updates your DNS records. After the DNS records update, it can take time for all clients to receive the updated DNS settings and resume routing to the primary workspace.
 
