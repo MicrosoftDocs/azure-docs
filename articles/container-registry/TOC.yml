@@ -213,8 +213,8 @@
     - name: Monitor
       expanded: false
       items:
-        - name: Monitor Container Registry
-          href: monitor-service.md
+        - name: Monitor
+          href: monitor-container-registry.md
         - name: Audit compliance using Azure Policy
           href: container-registry-azure-policy.md
         - name: Scan container images
@@ -345,8 +345,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
-  - name: Monitoring data
-    href: monitor-service-reference.md
+  - name: Monitoring data reference
+    href: monitor-container-registry-reference.md
   - name: Service Tag
     href: container-registry-service-tag.md
 - name: Troubleshoot
