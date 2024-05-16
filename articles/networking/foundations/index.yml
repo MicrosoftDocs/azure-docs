@@ -1,10 +1,6 @@
 ### YamlMime:Hub
 title: Azure Network Foundations
 summary: Azure network foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
-links:
-- componentType: link
-  url: network-foundations-overview
-  text: What are Azure network foundations? 
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
@@ -68,71 +64,43 @@ additionalContent:
             - text: Azure DNS FAQ
               url: /azure/dns/dns-faq
 
-highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
-  items: 
-    - title: Choosing a load balancing solution 
-      itemType: concept
-      url: ./load-balancing/index.yml
-    - title: Network Foundations
-      itemType: overview
-      url: ./network-foundation/index.yml
-    - title: Hybrid Connectivity
-      itemType: overview
-      url: ./hybrid-connectivity/index.yml
-    - title: Azure network security
-      itemType: overview
-      url: ./security/index.yml
-    - title: Network monitoring and management
-      itemType: overview
-      url: ../network-watcher/index.yml
-    - title: Hub-spoke network topology in Azure
-      itemType: architecture
-      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Azure Networking blogs
-      itemType: concept
-      url: https://azure.microsoft.com/blog/topics/networking/
-    - title: What's new in Azure Networking - Azure Updates
-      itemType: whats-new 
-      url: https://azure.microsoft.com/updates/?category=networking
+# cards section
+    - componentType: grid
+      title: Pillars
+      blocks:
+      - componentType: icon-card
+        title: Reliability
+        summary: Ensures that the workload meets the uptime and recovery targets by building redundancy and resiliency at scale. 
+        url: ./reliability/index.yml 
+        icon: 
+          componentType: image
+          src: _images/reliability.svg                         
+      - componentType: icon-card
+        title: Security
+        summary: Protect the workload from attacks by maintaining confidentiality and data integrity. 
+        url: ./security/index.yml    
+        icon: 
+          componentType: image
+          src: _images/security.svg      
+      - componentType: icon-card
+        title: Cost Optimization
+        summary: Adopt an optimization mindset by at organizational, architectural, and tactical levels to keep your spending within budget. 
+        url: ./cost-optimization/index.yml
+        icon: 
+          componentType: image
+          src: _images/cost-optimization.svg             
+      - componentType: icon-card
+        title: Operational Excellence
+        summary: Reduce issues in production by building holistic observability and automated systems. 
+        url: ./operational-excellence/index.yml
+        icon: 
+          componentType: image
+          src: _images/operational-excellence.svg         
+      - componentType: icon-card
+        title: Performance Efficiency
+        summary: Adjust to changes in demands placed on the workload by through horizontal scaling and testing changes before deploying to production. 
+        url: ./performance-efficiency/index.yml    
+        icon: 
+          componentType: image
+          src: _images/performance-efficiency.svg   
 
-sections:
-# cards section (4)
-  - componentType: grid
-    title: Pillars
-    blocks:
-    - componentType: icon-card
-      title: Reliability
-      summary: Ensures that the workload meets the uptime and recovery targets by building redundancy and resiliency at scale. 
-      url: ./reliability/index.yml 
-      icon: 
-        componentType: image
-        src: _images/reliability.svg                         
-    - componentType: icon-card
-      title: Security
-      summary: Protect the workload from attacks by maintaining confidentiality and data integrity. 
-      url: ./security/index.yml    
-      icon: 
-        componentType: image
-        src: _images/security.svg      
-    - componentType: icon-card
-      title: Cost Optimization
-      summary: Adopt an optimization mindset by at organizational, architectural, and tactical levels to keep your spending within budget. 
-      url: ./cost-optimization/index.yml
-      icon: 
-        componentType: image
-        src: _images/cost-optimization.svg             
-    - componentType: icon-card
-      title: Operational Excellence
-      summary: Reduce issues in production by building holistic observability and automated systems. 
-      url: ./operational-excellence/index.yml
-      icon: 
-        componentType: image
-        src: _images/operational-excellence.svg         
-    - componentType: icon-card
-      title: Performance Efficiency
-      summary: Adjust to changes in demands placed on the workload by through horizontal scaling and testing changes before deploying to production. 
-      url: ./performance-efficiency/index.yml    
-      icon: 
-        componentType: image
-        src: _images/performance-efficiency.svg   
