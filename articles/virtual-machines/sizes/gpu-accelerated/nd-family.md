@@ -63,7 +63,7 @@ ms.author: mattmcinnes
 ### ND_MI300X_v5-series
 [!INCLUDE [nd-mi300x-v5-series-summary](./includes/nd-mi300x-v5-series-summary.md)]
 
-[View the full ND_MI300X_v5-series page](../../nd-mi300x-v5-series.md).
+[View the full ND_MI300X_v5-series page](./nd-mi300x-v5-series.md).
 
 [!INCLUDE [nd-mi300x-v5-series-specs](./includes/nd-mi300x-v5-series-specs.md)]
 
