@@ -17,7 +17,7 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 
 ### Dependencies
 
-1. Install the following Python libraries using pip before running the server application
+1. Install the following Python libraries using pip before running the client application
 
 	asyncio, json, logging, websockets
 
