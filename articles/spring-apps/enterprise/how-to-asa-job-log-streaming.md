@@ -71,7 +71,7 @@ Use the following command to assign an Azure role:
 
 ## List all instances in a job execution
 
-Use the following command to list all instances in a job execution:
+For a job, every time it's triggered, a new job execution will be created. And up to your parallelism setting of your job, several instances will execute in parallel. Use the following command to list all instances in a job execution:
 
 ```azurecli
 az spring job execution instance list \
