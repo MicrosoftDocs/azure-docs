@@ -70,7 +70,7 @@ VM sizes with up to 112-GB RAM from the following GPU VM series support hibernat
 -	Ephemeral OS disks
 -	Shared disks
 -	Availability Sets
--	Virtual Machine Scale Sets Uniform is not supported. Virtual Machine Scale Sets Flex is supported.
+-	Virtual Machine Scale Sets in Uniform orchestration mode are not supported. Virtual Machine Scale Sets in [Flexible orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) are supported.
 -	Spot VMs
 -	Managed images
 -	Azure Backup
