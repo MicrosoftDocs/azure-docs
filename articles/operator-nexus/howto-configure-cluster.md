@@ -113,7 +113,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 An alternate way to create a Cluster is with the ARM template editor.
 
 In order to create the cluster this way, you will need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).  
-You can find examples of these two files here:
+You can find examples of an 8 rack cluster using these two files:
 
 [cluster.jsonc](./cluster-jsonc-example.md) , 
 [cluster.parameters.jsonc](./cluster-parameters-jsonc-example.md)
