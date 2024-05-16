@@ -32,9 +32,6 @@ In this quickstart, you take the following steps:
 ## Create a hybrid connection using the Azure portal
 [!INCLUDE [relay-create-hybrid-connection-portal](./includes/relay-create-hybrid-connection-portal.md)]
 
-## Create a config.json properties file
-[!INCLUDE [relay-configuration-file](./includes/relay-configuration-file)] 
-
 ## Develop a helper functions script
 [!INCLUDE [relay-python-helper-functions](./includes/relay-python-helper-functions)]
 
