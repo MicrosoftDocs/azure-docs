@@ -225,7 +225,7 @@ The pages collection is a list of pages within the document. Each page is repres
 
 ::: moniker-end
 
-:::moniker range="doc-intel-3.1.0"
+::: moniker range="doc-intel-3.1.0"
 
 #### [Sample code](#tab/sample-code)
 ```Python
@@ -257,7 +257,7 @@ for page in result.pages:
 ---
 ::: moniker-end
 
-:::moniker range="doc-intel-4.0.0"
+::: moniker range="doc-intel-4.0.0"
 
 #### [Sample code](#tab/sample-code)
 ```Python
@@ -350,7 +350,7 @@ For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence versions 
 
 ::: moniker-end
 
-:::moniker range="doc-intel-3.0.0"
+::: moniker range="doc-intel-3.0.0"
 
 ```json
 "words": [
@@ -391,6 +391,7 @@ for line_idx, line in enumerate(page.lines):
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
+
 #### [Output](#tab/output)
 ```json
 "words": [
@@ -413,6 +414,7 @@ for line_idx, line in enumerate(page.lines):
 ::: moniker-end
 
 ::: moniker range="doc-intel-4.0.0"
+
 #### [Sample code](#tab/sample-code)
 ```Python
 # Analyze lines.
@@ -430,6 +432,7 @@ if page.lines:
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
+
 #### [Output](#tab/output)
 ```json
 "words": [
@@ -531,6 +534,7 @@ for selection_mark in page.selection_marks:
 ::: moniker-end
 
 ::: moniker range="doc-intel-4.0.0"
+
 #### [Sample code](#tab/sample-code)
 ```Python
 # Analyze selection marks.
@@ -564,6 +568,7 @@ if page.selection_marks:
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
+
 ### Tables
 
 Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether the area is recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
@@ -574,6 +579,7 @@ Extracting tables is a key requirement for processing documents containing large
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
+
 ```json
 {
     "tables": [
@@ -599,6 +605,7 @@ Extracting tables is a key requirement for processing documents containing large
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
+
 #### [Sample code](#tab/sample-code)
 ```Python
 # Analyze tables.
@@ -696,6 +703,7 @@ if result.tables:
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
+
 ### Annotations (available only in ``2023-02-28-preview`` API.)
 
 The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
@@ -733,10 +741,12 @@ poller = document_intelligence_client.begin_analyze_document(
 )
 
 ```
+
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_analyze_documents_output_in_markdown.py)
 
 #### [Output](#tab/output)
+
 ```Markdown
 <!-- PageHeader="This is the header of the document." -->
 
@@ -799,6 +809,7 @@ if result.figures:
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 {
     "figures": [
@@ -863,7 +874,7 @@ poller = document_intelligence_client.begin_analyze_document(
 
 ::: moniker-end
 
-:::moniker range="doc-intel-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
 ### Natural reading order output (Latin only)
 
