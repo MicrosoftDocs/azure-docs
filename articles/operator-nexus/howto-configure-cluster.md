@@ -52,7 +52,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --storage-appliance-configuration-data '[{"adminCredentials":{"password":"$SA_PASS","username":"$SA_USER"},"rackSlot":1,"serialNumber":"$SA_SN","storageApplianceName":"$SA_NAME"}]' \
   --compute-rack-definitions '[{"networkRackId": "$COMPX_RACK_RESOURCE_ID", "rackSkuId": "$COMPX_RACK_SKU", "rackSerialNumber": "$COMPX_RACK_SN", "rackLocation": "$COMPX_RACK_LOCATION", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"$COMPX_SVRY_BMC_PASS", "username":"$COMPX_SVRY_BMC_USER"}, "bmcMacAddress":"$COMPX_SVRY_BMC_MAC", "bootMacAddress":"$COMPX_SVRY_BOOT_MAC", "machineDetails":"$COMPX_SVRY_SERVER_DETAILS", "machineName":"$COMPX_SVRY_SERVER_NAME"}]}]'\
   --managed-resource-group-configuration name="$MRG_NAME" location="$MRG_LOCATION" \
-  --network fabric-id "$NFC_ID" \
+  --network fabric-id "$NF_ID" \
   --cluster-service-principal application-id="$SP_APP_ID" \
     password="$SP_PASS" principal-id="$SP_ID" tenant-id="$TENANT_ID" \
   --secret-archive "{key-vault-id:$KVRESOURCE_ID, use-key-vault:true}" \
@@ -93,7 +93,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | COMPX_SVRY_SERVER_NAME    | CompX Rack ServerY name, repeat for each rack in compute-rack-definitions and for each server in rack                 |
 | MRG_NAME                  | Cluster managed resource group name                                                                                   |
 | MRG_LOCATION              | Cluster Azure region                                                                                                  |
-| NFC_ID                    | Reference to Network fabric Controller                                                                                |
+| NF_ID                    | Reference to Network Fabric                                                                               |
 | SP_APP_ID                 | Service Principal App ID                                                                                              |
 | SP_PASS                   | Service Principal Password                                                                                            |
 | SP_ID                     | Service Principal ID                                                                                                  |
