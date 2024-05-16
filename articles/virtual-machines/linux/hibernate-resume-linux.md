@@ -87,7 +87,7 @@ New-AzVm `
 
 ### [REST](#tab/enableWithREST)
 
-To create a VM with hibernation enabled, set *hibernationEnabled* to *true*.
+To create a VM with hibernation enabled, set *hibernationEnabled* to `true`.
 
 ```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2021-11-01
@@ -115,7 +115,7 @@ Once you've created a VM with hibernation enabled, you need to configure the gue
 
 ## Enabling hibernation on an existing Linux VM 
 
-To enable hibernation on an existing VM, you can use Azure CLI, PowerShell and API. Before proceeding, ensure that the guest OS version supports hibernation on Azure. Refer to the list of [supported OS versions ](hibernate-resume-linux.md#supported-linux-distros).
+To enable hibernation on an existing VM, you can use Azure CLI, PowerShell, or REST API. Before proceeding, ensure that the guest OS version supports hibernation on Azure. For more information, see [supported OS versions](hibernate-resume-linux.md#supported-linux-distros).
 
 
 
@@ -123,7 +123,7 @@ To enable hibernation on an existing VM, you can use Azure CLI, PowerShell and A
 
 To enable hibernation on an existing VM using Azure CLI, first deallocate your VM with [az vm deallocate](/cli/azure/vm#az-vm-deallocate). Once the VM is deallocated, update the OS disk and VM.
 
-1. Update the OS disk to set *supportsHibernation* to *True*. In case *supportsHibernation* is already set to *True*, then you can skip this step and proceed to the next step.
+1. Update the OS disk to set *supportsHibernation* to `true`. If *supportsHibernation* is already set to `true`, you can skip this step and proceed to the next step.
 
     ```azurecli
        az disk update --resource-group myResourceGroup \
@@ -155,7 +155,7 @@ To enable hibernation on an existing VM using Azure CLI, first deallocate your V
     -Name 'myVM'
    ```
 
- 1. Once the VM is stopped, update the OS disk to set *SupportsHibernation* to *True*. In case *SupportsHibernation* is already set to *True*, then you can skip this step and proceed to the next step.
+ 1. Once the VM is stopped, update the OS disk to set *SupportsHibernation* to `true`. If *SupportsHibernation* is already set to `true`, you can skip this step and proceed to the next step.
 
     ```powershell
     $disk = Get-AzDisk `
@@ -185,6 +185,7 @@ To enable hibernation on an existing VM using Azure CLI, first deallocate your V
     -ResourceGroupName 'myResourceGroup' ` 
     -Name 'myVM'
    ```
+---
 
 ## Configuring hibernation in the guest OS
 
@@ -211,7 +212,7 @@ If the extension is missing, you can [manually install the LinuxHibernateExtensi
 
 #### [CLI](#tab/cliLHE)
     
-To install LinuxHibernateExtension with the Azure CLI, run the following command:
+To install *LinuxHibernateExtension* with the Azure CLI, run the following command:
 
 ```azurecli
 az vm extension set -n LinuxHibernateExtension --publisher Microsoft.CPlat.Core --version 1.0 \    --vm-name MyVm --resource-group MyResourceGroup --enable-auto-upgrade true

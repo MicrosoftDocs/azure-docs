@@ -134,7 +134,7 @@ Commonly seen issues:
 
 | Issue | Action |
 |--|--|
-| Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. You can check this by running sc query vmicshutdown   | [Ensure that Hyper-V Guest Shutdown Service isn't disabled.](/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service) Enabling this service should resolve the issue. |
+| Guest fails to hibernate because Hyper-V Guest Shutdown Service is disabled. You can check this by running *sc query vmicshutdown*.  | [Ensure that Hyper-V Guest Shutdown Service isn't disabled](/virtualization/hyper-v-on-windows/reference/integration-services#hyper-v-guest-shutdown-service). Enabling this service should resolve the issue. |
 | Guest fails to hibernate because Power Service is disabled. You can check this by running sc query power | Ensure that Power Service isn't disabled. [Enabling this service should resolve the issue.](/powershell/module/microsoft.powershell.management/set-service?view=powershell-7.4#example-2-change-the-startup-type-of-services)  |
 | Guest fails to hibernate because HVCI (Memory integrity) is enabled. | If Memory Integrity is enabled in the guest and you're trying to hibernate the VM, then ensure your guest is running the minimum OS build required to support hibernation with Memory Integrity. <br /> <br /> Win 11 22H2 – Minimum OS Build - 22621.2134 <br /> Win 11 21H1 - Minimum OS Build - 22000.2295 <br /> Win 10 22H2 - Minimum OS Build - 19045.3324 |
 
