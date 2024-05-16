@@ -32,7 +32,7 @@ The Infrastructure Cluster resource represents an on-premises deployment of the 
 within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 
-You should have successfully created the Network Fabric for this on-premises deployment.
+You should create the Network Fabric prior to this on-premises deployment.
 Each Operator Nexus on-premises instance has a one-to-one association
 with a Network Fabric.
 
@@ -81,10 +81,10 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | SA_PASS                   | Storage Appliance admin password                                                                                      |
 | SA_USER                   | Storage Appliance admin user                                                                                          |
 | SA_SN                     | Storage Appliance Serial Number                                                                                       |
-| COMPX_RACK_RESOURCE_ID    | RackID for CompX Rack, repeat for each rack in compute-rack-definitions                                               |
-| COMPX_RACK_SKU            | Rack SKU for CompX Rack, repeat for each rack in compute-rack-definitions                                             |
-| COMPX_RACK_SN             | Rack Serial Number for CompX Rack, repeat for each rack in compute-rack-definitions                                   |
-| COMPX_RACK_LOCATION       | Rack physical location for CompX Rack, repeat for each rack in compute-rack-definitions                               |
+| COMPX_RACK_RESOURCE_ID    | RackID for CompX Rack; repeat for each rack in compute-rack-definitions                                               |
+| COMPX_RACK_SKU            | Rack SKU for CompX Rack; repeat for each rack in compute-rack-definitions                                             |
+| COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                   |
+| COMPX_RACK_LOCATION       | Rack physical location for CompX Rack; repeat for each rack in compute-rack-definitions                               |
 | COMPX_SVRY_BMC_PASS       | CompX Rack ServerY BMC password, repeat for each rack in compute-rack-definitions and for each server in rack         |
 | COMPX_SVRY_BMC_USER       | CompX Rack ServerY BMC user, repeat for each rack in compute-rack-definitions and for each server in rack             |
 | COMPX_SVRY_BMC_MAC        | CompX Rack ServerY BMC MAC address, repeat for each rack in compute-rack-definitions and for each server in rack      |
@@ -99,7 +99,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | SP_ID                     | Service Principal ID                                                                                                  |
 | TENANT_ID                 | Subscription tenant ID                                                                                                |
 | KV_RESOURCE_ID            | Key Vault ID                                                                                                          |
-| CLUSTER_TYPE              | Type of cluster, Single or MultiRack                                                                                  |
+| CLUSTER_TYPE              | Type of cluster, Single, or MultiRack                                                                                  |
 | CLUSTER_VERSION           | NC Version of cluster                                                                                                 |
 | TAG_KEY1                  | Optional tag1 to pass to Cluster Create                                                                               |
 | TAG_VALUE1                | Optional tag1 value to pass to Cluster Create                                                                         |
@@ -112,13 +112,13 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 An alternate way to create a Cluster is with the ARM template editor.
 
-In order to create the cluster this way, you will need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).  
-You can find examples of an for an 8-Rack 2M16C SKU cluster using these two files:
+In order to create the cluster this way, you need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).  
+You can find examples for an 8-Rack 2M16C SKU cluster using these two files:
 
 [cluster.jsonc](./cluster-jsonc-example.md) , 
 [cluster.parameters.jsonc](./cluster-parameters-jsonc-example.md)
 
-Note:  To get the correct formatting, copy the raw code file.  The values within the cluster.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
+Note:  To get the correct formatting, copy the raw code file. The values within the cluster.parameters.jsonc file are customer specific and may not be a complete list. Update the value fields for your specific environment.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 1. From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services.
@@ -126,10 +126,10 @@ Note:  To get the correct formatting, copy the raw code file.  The values within
 1. Click on Load file. Locate your cluster.jsonc template file and upload it.
 1. Click Save.
 1. Click Edit parameters.
-1. Click Load file.  Locate your cluster.parameters.jsonc parameters file and upload it.
+1. Click Load file. Locate your cluster.parameters.jsonc parameters file and upload it.
 1. Click Save.
 1. Select the correct Subscription.
-1. Search for the Resource group if it already exists or create new.
+1. Search for the Resource group to see if it already exists.  If not, create a new Resource group.
 1. Make sure all Instance Details are correct.
 1. Click Review + create.
 
@@ -137,7 +137,7 @@ Note:  To get the correct formatting, copy the raw code file.  The values within
 ### Cluster validation
 
 A successful Operator Nexus Cluster creation results in the creation of an AKS cluster
-inside your subscription. The cluster ID, cluster provisioning state and
+inside your subscription. The cluster ID, cluster provisioning state, and
 deployment state are returned as a result of a successful `cluster create`.
 
 View the status of the Cluster:
@@ -159,10 +159,10 @@ Cluster create Logs can be viewed in the following locations:
 
 ## Deploy Cluster
 
-Once a Cluster has been created, the deploy cluster action can be triggered.
+After creating the cluster, the deploy cluster action can be triggered.
 The deploy Cluster action creates the bootstrap image and deploys the Cluster.
 
-Deploy Cluster initiates a sequence of events to occur in the Cluster Manager
+Deploy Cluster initiates a sequence of events that occur in the Cluster Manager.
 
 1.  Validation of the cluster/rack properties
 2.  Generation of a bootable image for the ephemeral bootstrap cluster
@@ -238,7 +238,7 @@ az rest -m GET -u "https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}
 
 The output is similar to the JSON struct example. When the error code is
 `HardwareValidationThresholdFailed`, then the error message contains a list of bare
-metal machine(s) that failed the hardware validation (for example, `COMP0_SVR0_SERVER_NAME`,
+metal machines that failed the hardware validation (for example, `COMP0_SVR0_SERVER_NAME`,
 `COMP1_SVR1_SERVER_NAME`). These names can be used to parse the logs for further details.
 
 ```json
