@@ -201,7 +201,7 @@
     - name: Application Gateway
       href: /cli/azure/network/application-gateway
     - name: CDN
-      href: /cli/azure/cdn/waf
+      href: /azure/web-application-firewall/afds/waf-front-door-create-portal
   - name: Azure PowerShell
     items:
     - name: Front Door
