@@ -36,6 +36,8 @@ The steps in this tutorial are:
 
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already.
 
+- An [Azure AI Search service connection](../how-to/connections-add.md#create-a-new-connection) to index the sample product and customer data. 
+
 - You need a local copy of product and customer data. The [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [1-customer-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/1-customer-info) and [3-product-info](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data/3-product-info). 
 
 ## Add your data and try the chat model again
@@ -46,7 +48,7 @@ In the [AI Studio playground quickstart](../quickstarts/get-started-playground.m
 
 ## Create a prompt flow from the playground
 
-Now you might ask "How can I further customize this copilot?" You might want to add multiple data sources, compare different prompts or the performance of multiple models. A [prompt flow](../how-to/prompt-flow.md) serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application.
+Now you might ask "How can I further customize this copilot?" You might want to add multiple data sources, compare different prompts or the performance of multiple models. A [prompt flow](../how-to/prompt-flow.md) serves as an executable workflow that streamlines the development of your LLM-based AI application. It provides a comprehensive framework for managing data flow and processing within your application. You use prompt flow to optimize the messages that are sent to the copilot's chat model.
 
 In this section, you learn how to transition to prompt flow from the playground. You export the playground chat environment including connections to the data that you added. Later in this tutorial, you [evaluate the flow](#evaluate-the-flow-using-a-question-and-answer-evaluation-dataset) and then [deploy the flow](#deploy-the-flow) for [consumption](#use-the-deployed-flow).
 
@@ -54,9 +56,10 @@ In this section, you learn how to transition to prompt flow from the playground.
 > The changes made in prompt flow aren't applied backwards to update the playground environment. 
 
 You can create a prompt flow from the playground by following these steps:
-1. If you aren't already in the [Azure AI Studio](https://ai.azure.com) playground, select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. Select **Open in prompt flow** from the menu above the **Chat session** pane.
-1. Enter a folder name for your prompt flow. Then select **Open**. Azure AI Studio exports the playground chat environment including connections to your data to prompt flow. 
+1. Go to your project in [Azure AI Studio](https://ai.azure.com). 
+1. Select **Playgrounds** > **Chat** from the left pane.
+1. Select **Prompt flow** from the menu above the chat session pane.
+1. Enter a folder name for your prompt flow. Then select **Open**. AI Studio exports the playground chat environment to prompt flow. The export includes the connections to the data that you added.
 
     :::image type="content" source="../media/tutorials/chat/prompt-flow-from-playground.png" alt-text="Screenshot of the open in prompt flow dialog." lightbox="../media/tutorials/chat/prompt-flow-from-playground.png":::
 
@@ -66,53 +69,39 @@ To facilitate node configuration and fine-tuning, a visual representation of the
 
    :::image type="content" source="../media/tutorials/chat/prompt-flow-overview-graph.png" alt-text="Screenshot of the default graph exported from the playground to prompt flow." lightbox="../media/tutorials/chat/prompt-flow-overview-graph.png":::
 
-> [!WARNING]
-> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
-
-Nodes can be added, updated, rearranged, or removed. The nodes in your flow at this point include:
-- **DetermineIntent**: This node determines the intent of the user's query. It uses the system prompt to determine the intent. You can edit the system prompt to provide scenario-specific few-shot examples.
-- **ExtractIntent**: This node formats the output of the **DetermineIntent** node and sends it to the **RetrieveDocuments** node.
-- **RetrieveDocuments**: This node searches for top documents related to the query. This node uses the search type and any parameters you pre-configured in playground.
-- **FormatRetrievedDocuments**: This node formats the output of the **RetrieveDocuments** node and sends it to the **DetermineReply** node.
-- **DetermineReply**: This node contains an extensive system prompt, which asks the LLM to respond using the retrieved documents only. There are two inputs: 
-    - The **RetrieveDocuments** node provides the top retrieved documents.
-    - The **FormatConversation** node provides the formatted conversation history including the latest query. 
-
-The **FormatReply** node formats the output of the **DetermineReply** node.
-
 In prompt flow, you should also see:
-- **Save**: You can save your prompt flow at any time by selecting **Save** from the top menu. Be sure to save your prompt flow periodically as you make changes in this tutorial. 
-- **Compute session.**: The compute session that you created [earlier in this tutorial](#create-compute-and-compute session-that-are-needed-for-prompt-flow). You can start and stop compute sessions and compute instances via **Project settings** in the left menu. To work in prompt flow, make sure that your compute session is in the **Running** status.
+- **Save** button: You can save your prompt flow at any time by selecting **Save** from the top menu. Be sure to save your prompt flow periodically as you make changes in this tutorial. 
+- **Start compute session** button: You need to start a compute session to run your prompt flow. You can start the session later in the tutorial. You incur costs for compute instances while they are running. For more information, see [how to create a compute session](../how-to/create-manage-compute-session.md).
 
-    :::image type="content" source="../media/tutorials/chat/prompt-flow-overview.png" alt-text="Screenshot of the prompt flow editor and surrounding menus." lightbox="../media/tutorials/chat/prompt-flow-overview.png":::
+:::image type="content" source="../media/tutorials/chat/prompt-flow-save-session.png" alt-text="Screenshot of the save and start session buttons in your flow." lightbox="../media/tutorials/chat/prompt-flow-save-session.png":::
 
-- **Tools**: You can return to the prompt flow anytime by selecting **Prompt flow** from **Tools** in the left menu. Then select the prompt flow folder that you created earlier (not the sample flow).
+You can return to the prompt flow anytime by selecting **Prompt flow** from **Tools** in the left menu. Then select the prompt flow folder that you created previously.
 
-   :::image type="content" source="../media/tutorials/chat/prompt-flow-return.png" alt-text="Screenshot of the list of your prompt flows." lightbox="../media/tutorials/chat/prompt-flow-return.png":::
-
+:::image type="content" source="../media/tutorials/chat/prompt-flow-return.png" alt-text="Screenshot of the list of your prompt flows." lightbox="../media/tutorials/chat/prompt-flow-return.png":::
 
 ## Customize prompt flow with multiple data sources
 
-Earlier in the [Azure AI Studio](https://ai.azure.com) playground, you [added your data](#add-your-data-and-try-the-chat-model-again) to create one search index that contained product data for the Contoso copilot. So far, users can only inquire about products with questions such as "How much do the TrailWalker hiking shoes cost?". But they can't get answers to questions such as "How many TrailWalker hiking shoes did Daniel Wilson buy?" To enable this scenario, we add another index with customer information to the flow.
+previously in the [AI Studio](https://ai.azure.com) chat playground, you [added your data](#add-your-data-and-try-the-chat-model-again) to create one search index that contained product data for the Contoso copilot. So far, users can only inquire about products with questions such as "How much do the TrailWalker hiking shoes cost?". But they can't get answers to questions such as "How many TrailWalker hiking shoes did Daniel Wilson buy?" To enable this scenario, we add another index with customer information to the flow.
 
 ### Create the customer info index
 
-You need a local copy of example customer information. For more information and links to example data, see the [prerequisites](#prerequisites).
+To proceed, you need a local copy of example customer information. For more information and links to example data, see the [prerequisites](#prerequisites).
 
-Follow these instructions on how to create a new index:
+Follow these instructions on how to create a new index. You'll return to your prompt flow later in this tutorial to add the customer info to the flow. You can open a new tab in your browser to follow these instructions and then return to your prompt flow.
 
-1. Select **Index** from the left menu. Then select **+ New index**.
+1. Go to your project in [AI Studio](https://ai.azure.com). 
+1. Select **Index** from the left menu. Notice that you already have an index named *product-info* that you created previously in the chat playground.
 
     :::image type="content" source="../media/tutorials/chat/add-index-new.png" alt-text="Screenshot of the indexes page with the button to create a new index." lightbox="../media/tutorials/chat/add-index-new.png":::
 
-    You're taken to the **Create an index** wizard. 
+1. Select **+ New index**. You're taken to the **Create an index** wizard. 
 
-1. On the **Source data** page, select **Upload files** from the **Data source** dropdown. Then select **Upload** > **Upload folder** to browse your local files. 
-1. Select the customer info files that you downloaded or created earlier. See the [prerequisites](#prerequisites). Then select **Next**.
+1. On the **Source data** page, select **Upload files** from the **Data source** dropdown. Then select **Upload** > **Upload files** to browse your local files. 
+1. Select the customer info files that you downloaded or created previously. See the [prerequisites](#prerequisites). Then select **Next**.
 
     :::image type="content" source="../media/tutorials/chat/add-index-dataset-upload-folder.png" alt-text="Screenshot of the customer data source selection options." lightbox="../media/tutorials/chat/add-index-dataset-upload-folder.png":::
 
-1. Select the same Azure AI Search service connection (*contosooutdooraisearch*) that you used for your product info index. Then select **Next**.
+1. Select the same [Azure AI Search service connection](../how-to/connections-add.md#create-a-new-connection) (*contosooutdooraisearch*) that you used for your product info index. Then select **Next**.
 1. Enter **customer-info** for the index name. 
 
     :::image type="content" source="../media/tutorials/chat/add-index-settings.png" alt-text="Screenshot of the Azure AI Search service and index name." lightbox="../media/tutorials/chat/add-index-settings.png":::
@@ -137,9 +126,14 @@ Follow these instructions on how to create a new index:
 
 For more information on how to create an index, see [Create an index](../how-to/index-add.md).
 
-## Create a compute sessions that's needed for prompt flow
+### Create a compute session that's needed for prompt flow
 
-You use prompt flow to optimize the messages that are sent to the copilot's chat model. Prompt flow requires a compute instance and a compute session. To create a compute instance and a compute session, follow the steps in [how to create a compute session](../how-to/create-manage-compute-session.md).
+After you're done creating your index, return to your prompt flow and start the compute session. Prompt flow requires a compute session to run. 
+1. Go to your project.
+1. Select **Prompt flow** from **Tools** in the left menu. Then select the prompt flow folder that you created previously.
+1. Select **Start compute session** from the top menu. 
+
+To create a compute instance and a compute session, you can also follow the steps in [how to create a compute session](../how-to/create-manage-compute-session.md).
 
 To complete the rest of the tutorial, make sure that your compute session is in the **Running** status. You might need to select **Refresh** to see the updated status.
 
@@ -148,10 +142,16 @@ To complete the rest of the tutorial, make sure that your compute session is in 
 
 ### Add customer information to the flow
 
-> [!WARNING]
-> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
-
 After you're done creating your index, return to your prompt flow and follow these steps to add the customer info to the flow:
+
+1. Make sure you have a compute session running. If you don't have one, see [create a compute session](#create-a-compute-session-thats-needed-for-prompt-flow) in the previous section.
+1. Select **+ More tools** from the top menu and then select **Index Lookup** from the list of tools. 
+
+    :::image type="content" source="../media/tutorials/chat/add-tool-index-lookup.png" alt-text="Screenshot of selecting the index lookup tool in prompt flow." lightbox="../media/tutorials/chat/add-tool-index-lookup.png":::
+
+1. Name the new node **queryCustomerIndex** and select **Add**.
+
+### Aggregate product and customer info
 
 1. Select the **RetrieveDocuments** node from the graph and rename it **RetrieveProductInfo**. Now the retrieve product info node can be distinguished from the retrieve customer info node that you add to the flow.
 
@@ -190,9 +190,6 @@ After you're done creating your index, return to your prompt flow and follow the
 1. Select **Save** from the top menu to save your changes.
 
 ### Format the retrieved documents to output
-
-> [!WARNING]
-> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
 
 Now that you have both the product and customer info in your prompt flow, you format the retrieved documents so that the large language model can use them.
 
@@ -318,7 +315,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 
     :::image type="content" source="../media/tutorials/chat/evaluate-add-dataset.png" alt-text="Screenshot of the option to use a new or existing dataset." lightbox="../media/tutorials/chat/evaluate-add-dataset.png":::
 
-1. Select **Upload files**, browse files, and select the **qa-evaluation.jsonl** file that you created earlier. 
+1. Select **Upload files**, browse files, and select the **qa-evaluation.jsonl** file that you created previously. 
 
     :::image type="content" source="../media/tutorials/chat/evaluate-upload-files.png" alt-text="Screenshot of the dataset upload files button." lightbox="../media/tutorials/chat/evaluate-upload-files.png":::
 
@@ -352,7 +349,7 @@ Now you can view the evaluation status and results by following these steps:
     > [!TIP]
     > Once the evaluation is in **Completed** status, you don't need compute session or compute to complete the rest of this tutorial. You can stop your compute instance to avoid incurring unnecessary Azure costs. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
 
-1. Select the name of the evaluation that completed first (*contoso-evaluate-from-flow_variant_0*) to see the evaluation details with the columns that you mapped earlier.
+1. Select the name of the evaluation that completed first (*contoso-evaluate-from-flow_variant_0*) to see the evaluation details with the columns that you mapped previously.
 
     :::image type="content" source="../media/tutorials/chat/evaluate-view-results-detailed.png" alt-text="Screenshot of the detailed metrics results page." lightbox="../media/tutorials/chat/evaluate-view-results-detailed.png":::
 
