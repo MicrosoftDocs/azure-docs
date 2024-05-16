@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial
-ms.date: 01/05/2023
+ms.date: 05/16/2024
 ms.custom: template-tutorial, linux-related-content
 #Customer intent: As a security engineer, I want to get Syslog data into Microsoft Sentinel so that I can do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get Syslog data into my Log Analytics workspace to monitor my Linux-based devices.
 ---
@@ -91,10 +91,6 @@ If you're forwarding Syslog data to an Azure VM, follow these steps to allow rec
 
 ### Configure the Linux Syslog daemon
 
-> [!NOTE]
-> To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
-> Read more about [rsyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
-
 Connect to your Linux VM and run the following command to configure the Linux Syslog daemon:
 
 ```bash
@@ -102,6 +98,10 @@ sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/
 ```
 
 This script can make changes for both rsyslog.d and syslog-ng.
+
+> [!NOTE]
+> To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
+> Read more about [rsyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
 
 ## Verify Syslog data is forwarded to your Log Analytics workspace
 
@@ -123,10 +123,7 @@ After you configure your Linux-based device to send logs to your VM, verify that
 
 Evaluate whether you need the resources like the VM that you created. Resources you leave running can cost you money. Delete the resources you don't need individually. You can also delete the resource group to delete all the resources you created.
 
-## Next steps
+## Related content
 
-Learn more about:
-
-> [!div class="nextstepaction"]
-> [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
-> [Collect Syslog events with Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md)
+- [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+- [Collect Syslog events with Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md)
