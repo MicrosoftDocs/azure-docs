@@ -47,7 +47,7 @@ The following image shows recommended steps in an incident management and respon
 
 :::image type="content" source="media/best-practices/incident-handling.png" alt-text="Incident management process: Triage. Preparation. Remediation. Eradication. Post incident activities.":::
 
-The following sections provide high-level descriptions for how to use Microsoft Sentinel features for incident management and response throughout the process. For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
+The following table provides high-level descriptions for how to use Microsoft Sentinel features for incident management and response. For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
 
 |Capability  |Best practice  |
