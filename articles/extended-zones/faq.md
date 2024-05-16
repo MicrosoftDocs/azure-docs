@@ -1,11 +1,11 @@
 ---
-title: Extended Zones FAQ
+title: Azure Extended Zones FAQ
 description: This article provides answers to some of the frequently asked questions asked about Azure Extended Zones. 
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: 05/08/2024
+ms.date: 05/16/2024
 
 ---
 
@@ -15,11 +15,21 @@ This article provides answers to some of the frequently asked questions asked ab
 
 ## Will the data be 100% inside the geography to which the Azure Extended Zone belongs?
 
-For the Los Angeles Azure Extended Zone, the data remains in California. For questions about compliance with data residency policies, customers should confirm with their legal team that Microsoft’s offerings works for their requirements. For future sites, the control plane and certain telemetry run in the closest region, which may or may not be inside the stated geography.
+For the Los Angeles Azure Extended Zone, the data remains in California. For questions about compliance with data residency policies, confirm with your legal team that Microsoft’s offerings work for your requirements. For future sites, the control plane and certain telemetry run in the closest region, which may or may not be inside the stated geography.
 
 ## Are all Azure services offered at the Azure Extended Zone?
 
-No, given the size, hardware, and targeted use cases for the Azure Extended Zone, only a small subset of the Azure services can be offered at the Azure Extended Zone. Access to the complete set of Azure services is available in the parent region. Azure Extended Zones plans to have Arc based PaaS and Kubernetes for portability across all Arc enabled Infra, while there's ARM based IaaS for portability across Azure.
+No, given the size, hardware, and targeted use cases for the Azure Extended Zone, only a small subset of the Azure services can be offered at the Azure Extended Zone. Access to the complete set of Azure services is available in the parent region.
+
+## Will there be SKUs specific to the Azure Extended Zones?
+
+No, SKUs will be consistent across the corresponding Azure Region, so VMs offered in the Azure Extended Zones will not have specific SKUs.
+
+## Can I use the parent region network security groups (NSGs) or user defined routes (UDRs)?
+
+Yes. In Azure Extended Zone, you can use network security groups and user defined routes that you created in the parent region.
+
+
 
 ## Related content
 
