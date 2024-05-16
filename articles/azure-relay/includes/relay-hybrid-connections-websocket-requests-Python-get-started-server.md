@@ -37,12 +37,12 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
     "key": "SHARED_ACCESS_PRIMARY_KEY"
 }
 
-	Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
+Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
 
-    - `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
-    - `path` - The name of the hybrid connection.
-    - `keyrule` - Name of your Shared Access Policies key, which is `RootManageSharedAccessKey` by default.
-    - `key` -   The primary key of the namespace you saved earlier.
+- `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
+- `path` - The name of the hybrid connection.
+- `keyrule` - Name of your Shared Access Policies key, which is `RootManageSharedAccessKey` by default.
+- `key` -   The primary key of the namespace you saved earlier.
 
 3. Generate a helper function file for helper functions
 
@@ -55,7 +55,7 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 1. Ensure your dependency `config.json` and `relaylib.py` are available in your path 
 
 
-2. Import the dependencies into your `listener.python` script.
+2. Import the dependencies into your `listener.py` script.
 
     ```python
     import asyncio
@@ -65,7 +65,7 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 	import websockets
     ```
 
-3. Add the following code to the `listener.python` file. The main script should look like the following code:
+3. Add the following code to the `listener.py` file. The main script should look like the following code:
 
     ```python
 	async def run_application(config):
