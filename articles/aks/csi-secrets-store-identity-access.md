@@ -54,7 +54,7 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
     ```azurecli-interactive
     az identity create --name $UAMI --resource-group $RESOURCE_GROUP
 
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show -g $RESOURCE_GROUP --name $UAMI --query 'clientId' -o tsv)"
+    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group $RESOURCE_GROUP --name $UAMI --query 'clientId' -o tsv)"
     export IDENTITY_TENANT=$(az aks show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --query identity.tenantId -o tsv)
     ```
 
@@ -194,18 +194,18 @@ In this security model, you can grant access to your cluster's resources to team
 1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on. You should also retrieve the identity's `clientId`, which you'll use in later steps when creating a `SecretProviderClass`.
 
     ```azurecli-interactive
-    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.objectId -o tsv
-    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
+    az aks show --resource-group <resource-group> --name <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.objectId -o tsv
+    az aks show --resource-group <resource-group> --name <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
     ```
 
     Alternatively, you can create a new managed identity and assign it to your virtual machine (VM) scale set or to each VM instance in your availability set using the following commands.
 
     ```azurecli-interactive
-    az identity create -g <resource-group> -n <identity-name>
-    az vmss identity assign -g <resource-group> -n <agent-pool-vmss> --identities <identity-resource-id>
-    az vm identity assign -g <resource-group> -n <agent-pool-vm> --identities <identity-resource-id>
+    az identity create -resource-group <resource-group> --name <identity-name>
+    az vmss identity assign --resource-group <resource-group> --name <agent-pool-vmss> --identities <identity-resource-id>
+    az vm identity assign --resource-group <resource-group> --name <agent-pool-vm> --identities <identity-resource-id>
 
-    az identity show -g <resource-group> --name <identity-name> --query 'clientId' -o tsv
+    az identity show --resource-group <resource-group> --name <identity-name> --query 'clientId' -o tsv
     ```
 
 2. Create a role assignment that grants the identity permission to access the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
@@ -221,7 +221,7 @@ In this security model, you can grant access to your cluster's resources to team
     > ```
 
     ```azurecli-interactive
-    export IDENTITY_OBJECT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'principalId' -o tsv)"
+    export IDENTITY_OBJECT_ID="$(az identity show --resource-group <resource-group> --name <identity-name> --query 'principalId' -o tsv)"
     export KEYVAULT_SCOPE=$(az keyvault show --name <key-vault-name> --query id -o tsv)
 
     # Example command for key vault with RBAC enabled using `key` type
@@ -339,7 +339,7 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 - Disable the Azure Key Vault provider for Secrets Store CSI Driver capability in an existing cluster using the [`az aks disable-addons`][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` add-on.
 
     ```azurecli-interactive
-    az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGroup -n myAKSCluster
+    az aks disable-addons --addons azure-keyvault-secrets-provider --resource-group myResourceGroup --name myAKSCluster
     ```
 
 > [!NOTE]
