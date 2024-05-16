@@ -58,7 +58,7 @@ These region groups and regions are currently supported:
 
 ### Data residency requirements
 
-Different customers have different data residency requirements, so it's important that you control where your data is stored. Azure Monitor process and stores logs in the primary and secondary regions that you choose. For more information, see [Supported regions](#supported-regions).
+Different customers have different data residency requirements, so it's important that you control where your data is stored. Azure Monitor processes and stores logs in the primary and secondary regions that you choose. For more information, see [Supported regions](#supported-regions).
 
 ### Support for Sentinel and other services
 
@@ -66,7 +66,7 @@ Various services and features that use Log Analytics workspaces are compatible w
 
 For example, regional network issues that cause log ingestion latency can impact Sentinel customers. Customers that use replicated workspaces can switch over to their secondary region to continue working with their Log Analytics workspace and Sentinel. However, if the network issue impacts the Sentinel service health, switching to another region doesn't mitigate the issue.
 
-Some Azure Monitor experiences, including Azure Application Insights and Azure Virtual Machines Insights, are currently only partially compatible with workspace replication and switchover. For the full list, see [Restrictions and limitations](#restrictions-and-limitations).
+Some Azure Monitor experiences, including Application Insights and VM Insights, are currently only partially compatible with workspace replication and switchover. For the full list, see [Restrictions and limitations](#restrictions-and-limitations).
 
 ## Enable and disable workspace replication
 
