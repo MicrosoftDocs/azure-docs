@@ -31,11 +31,11 @@ Microsoft Sentinel provides security content packaged in SIEM solutions that ena
 
 # [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="media/overview/content-hub-azure-portal.png" lightbox="media/overview/content-hub-azure-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal that shows the security content available with a solution":::
+:::image type="content" source="media/overview/content-hub-azure-portal.png" lightbox="media/overview/content-hub-azure-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal that shows the security content available with a solution.":::
 
 # [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="media/overview/content-hub-defender-portal.png" lightbox="media/overview/content-hub-defender-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal that shows the security content available with a solution":::
+:::image type="content" source="media/overview/content-hub-defender-portal.png" lightbox="media/overview/content-hub-defender-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal that shows the security content available with a solution.":::
 
 ---
 
@@ -108,7 +108,7 @@ Automate your common tasks and simplify security orchestration with playbooks th
 
 Playbooks in Microsoft Sentinel are based on workflows built in Azure Logic Apps. For example, if you use the ServiceNow ticketing system, use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular alert or incident is generated.
 
-:::image type="content" source="media/overview/logic-app.png" alt-text="Screenshot of example automated workflow in Azure Logic Apps where an incident can trigger different actions.":::
+:::image type="content" source="media/overview/logic-app.png" lightbox="media/overview/logic-app.png" alt-text="Screenshot of example automated workflow in Azure Logic Apps where an incident can trigger different actions.":::
 
 The following table highlights the key capabilities in Microsoft Sentinel for threat response.
 
