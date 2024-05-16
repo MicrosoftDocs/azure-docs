@@ -270,11 +270,11 @@ If you use prefer the Azure CLI to deploy to App Service, you can use the GitHub
       uses: azure/cli@v2
       with:
         inlineScript: |
-          az webapp deploy --src-path '${{ github.workspace }}/target/yourpackage.war' --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }}  --async true
+          az webapp deploy --src-path '${{ github.workspace }}/target/yourpackage.war' --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }}  --async true --type war
 ```
 
 More information on the GitHub Action for CLI and how to use and configure it can be found in the [Azure CLI GitHub action](https://github.com/Azure/cli). 
-More information on the az webapp command, how to use and the parameter details can be found in the [az webapp documentation](/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy).
+More information on the az webapp deploy command, how to use and the parameter details can be found in the [az webapp deploy documentation](/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy).
 
 ### Deploy to a Container
 
