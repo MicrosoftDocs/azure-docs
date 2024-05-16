@@ -6,33 +6,35 @@ ms.date: 05/30/2024
 ms.author: v-abhmallick
 ---
 
+## Configure backups
+
 You can configure backup for one or more storage accounts in an Azure region if you want them to back up to the same vault using a single backup policy.
 
 To configure backup for storage accounts, follow these steps:
 
 1. Go to **Backup center** > **Overview**, and then select **+ Backup**.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/start-vaulted-backup.png" alt-text="Screenshot shows how to initiate vaulted blob backup.":::
+   :::image type="content" source="./articles/backup/media/blob-backup-configure-manage/start-vaulted-backup.png" alt-text="Screenshot shows how to initiate vaulted blob backup.":::
 
 2. On the **Initiate: Configure Backup** tab, choose **Azure Blobs (Azure Storage)** as the **Datasource type**.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/choose-datasource-for-vaulted-backup.png" alt-text="Screenshot shows how to initiate configuring vaulted blob backup.":::
+   :::image type="content" source="./articles/backup/media/blob-backup-configure-manage/choose-datasource-for-vaulted-backup.png" alt-text="Screenshot shows how to initiate configuring vaulted blob backup.":::
 
 3. On the **Basics** tab, specify **Azure Blobs (Azure Storage)** as the **Datasource type**, and then select the *Backup vault* that you want to associate with your storage accounts.
 
    You can view details of the selected vault on this tab, and then select **Next**.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/select-datasource-type-for-vaulted-backup.png" alt-text="Screenshot shows how to select datasource type to initiate vaulted blob backup.":::
+   :::image type="content" source="./articles/backup/media/blob-backup-configure-manage/select-datasource-type-for-vaulted-backup.png" alt-text="Screenshot shows how to select datasource type to initiate vaulted blob backup.":::
  
 4. Select the *backup policy* that you want to use for retention.
 
    You can view the details of the selected policy. You can also create a new backup policy, if needed. Once done, select **Next**.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/select-policy-for-vaulted-backup.png" alt-text="Screenshot shows how to select policy for vaulted blob backup.":::
+   :::image type="content" source="./articles/backup/media/blob-backup-configure-manage/select-policy-for-vaulted-backup.png" alt-text="Screenshot shows how to select policy for vaulted blob backup.":::
 
 5. On the **Datasources** tab, select the *storage accounts* you want to back up.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/select-storage-account-for-vaulted-backup.png" alt-text="Screenshot shows how to select storage account for vaulted blob backup." lightbox="./media/blob-backup-configure-manage/select-storage-account-for-vaulted-backup.png":::
+   :::image type="content" source="./articles/backup/media/blob-backup-configure-manage/select-storage-account-for-vaulted-backup.png" alt-text="Screenshot shows how to select storage account for vaulted blob backup." lightbox="./media/blob-backup-configure-manage/select-storage-account-for-vaulted-backup.png":::
 
    You can select multiple storage accounts in the region to back up using the selected policy. Search or filter the storage accounts, if required.
   
@@ -52,7 +54,7 @@ To configure backup for storage accounts, follow these steps:
 
         To do this, select the storage accounts, and then select **Download role assignment template** to download the template. Once the role assignments are complete, select **Revalidate** to validate the permissions again, and then configure backup.
 
-        :::image type="content" source="./media/blob-backup-configure-manage/vaulted-backup-role-assignment-success.png" alt-text="Screenshot shows that the role assignment is successful.":::
+        :::image type="content" source="./articles/backup/media/blob-backup-configure-manage/vaulted-backup-role-assignment-success.png" alt-text="Screenshot shows that the role assignment is successful.":::
 
         >[!Note]
         >The template contains details for selected storage accounts only. So, if there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.

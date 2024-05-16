@@ -74,7 +74,6 @@ To assign the required role for storage accounts that you need to protect, follo
 
 [!INCLUDE [blob-backup-azure-portal-create-policy.md](../../includes/blob-backup-azure-portal-create-policy.md)]
 
-## Configure backups
 
 [!INCLUDE [blob-backup-azure-portal-configure-backup.md](../../includes/blob-backup-azure-portal-configure-backup.md)]
 
