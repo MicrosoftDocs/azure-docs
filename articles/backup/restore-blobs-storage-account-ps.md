@@ -3,7 +3,7 @@ title: Restore Azure Blobs using Azure PowerShell
 description: Learn how to restore Azure blobs to any point-in-time using Azure PowerShell.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 05/14/2024
+ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
