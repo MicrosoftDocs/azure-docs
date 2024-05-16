@@ -114,18 +114,6 @@ Expected output:
 }
 ```
 
-Update Network Fabrc Controller with multiple `ExpressRoute` circuits.
-
-```Azure CLI
-az networkfabric controller update \ 
- --resource-group "NFCResourceGroupName" \ 
- --location "eastus"  \ 
- --resource-name "nfcname" \ 
- --ipv4-address-space "10.0.0.0/19" \ 
---infra-er-connections "[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02',expressRouteAuthorizationKey:'<auth-key>'}]"
---workload-er-connections "[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-04',expressRouteAuthorizationKey:'<auth-key>'}]"
-```
-
 ## Get Network Fabric Controller
 
 ```azurecli
@@ -200,6 +188,34 @@ az networkfabric controller update \
 
 > [!NOTE]
 > Run az networkfabric controller show to retrieve information about a network fabric controller.
+
+## Update Network Fabrc Controller with multiple `ExpressRoute` circuits.
+
+```Azure CLI
+az networkfabric controller update \ 
+ --resource-group "NFCResourceGroupName" \ 
+ --location "eastus"  \ 
+ --resource-name "nfcname" \ 
+ --ipv4-address-space "10.0.0.0/19" \ 
+--infra-er-connections "[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02',expressRouteAuthorizationKey:'<auth-key>'}]"
+--workload-er-connections "[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-04',expressRouteAuthorizationKey:'<auth-key>'}]"
+```
+
+| **Command** | **Description** |
+|-------------|-----------------|
+| `az networkfabric controller update` | Command to update an existing network fabric controller in Azure |
+
+| **Parameter** | **Description** | **Example Value** |
+|---------------|-----------------|-------------------|
+| `--resource-group` | Specifies the resource group where the network fabric controller is located. | `"NFCResourceGroupName"` |
+| `--location` | Specifies the Azure region where the network fabric controller is deployed. | `"eastus"` |
+| `--resource-name` | The name of the network fabric controller resource that you want to update. | `"nfcname"` |
+| `--ipv4-address-space` | Defines the IPv4 address space for the network fabric controller. | `"10.0.0.0/19"` |
+| `--infra-er-connections` | Specifies the infrastructure ExpressRoute connections in a JSON array format. | `"[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-11',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-13',expressRouteAuthorizationKey:'<auth-key>'}]"` |
+| `--workload-er-connections` | Specifies the workload ExpressRoute connections in a JSON array format. | `"[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-11',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-12',expressRouteAuthorizationKey:'<auth-key>'}]"` |
+
+> [!NOTE]
+> Replace the placeholders like `"NFCResourceGroupName"`, `"nfcname"`, and `"<auth-key>"` with actual values relevant to your setup.
 
 ## Delete Network Fabric Controller
 
