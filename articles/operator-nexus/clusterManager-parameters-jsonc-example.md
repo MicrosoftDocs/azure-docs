@@ -18,19 +18,19 @@ ms.custom: template-how-to
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": ""
+      "value": "$CLUSTER_MANAGER_NAME"
     },
     "resourceGroupName": {
-      "value": ""
+      "value": "$CLUSTER_MANAGER_RG"
     },
     "managedResourceGroupName": {
-      "value": ""
+      "value": "$MRG_NAME"
     },
     "fabricControllerId": {
-      "value": ""
+      "value": "$NFC_ID"
     },
     "vmSize": {
-      "value": ""
+      "value": "$VM_SIZE"
     },
     "clusterManagerTags": {
       "value": {
@@ -39,10 +39,10 @@ ms.custom: template-how-to
       }
     },
     "environment": {
-      "value": ""
+      "value": "$CLUSTER_MANAGER_NAME"
     },
     "location": {
-      "value": ""
+      "value": "$LOCATION"
     }
   }
 }
