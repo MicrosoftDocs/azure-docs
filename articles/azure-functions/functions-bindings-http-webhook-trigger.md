@@ -700,7 +700,7 @@ The trigger input type is declared as either `HttpRequest` or a custom type. If 
 ::: zone pivot="programming-language-python"  
 ### HTTP streams
 
-HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview)
+HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview)
 
 >[!IMPORTANT]  
 > HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model.
