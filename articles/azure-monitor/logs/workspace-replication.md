@@ -32,7 +32,7 @@ The secondary workspace is a "shadow" workspace for resiliency purposes only. Yo
 
 When you enable workspace replication, Azure Monitor sends new logs ingested to your primary workspace to your secondary region also. Logs you ingest to the workspace before you enable workspace replication aren’t copied over. 
 
-If an outage affects your primary region, you can trigger switchover to reroute all ingestion and query requests to your secondary region. After you mitigate the outage and restore your primary workspace, you can switch back over to your primary region.
+If an outage affects your primary region, you can switch over and reroute all ingestion and query requests to your secondary region. After Azure mitigates the outage and your primary workspace is healthy again, you can switch back over to your primary region.
 
 When you switch over, the secondary workspace becomes active and your primary becomes inactive. Azure Monitor then ingests new data through the ingestion pipeline in your secondary region, rather than the primary region. During switchover, Azure Monitor replicates all data you ingest from the secondary region to the primary region. The process is asynchronous and doesn't affect your ingestion latency.
 
@@ -216,17 +216,17 @@ Switchover isn't instantaneous. The process of rerouting requests relies on DNS 
 
 - **Ingestion**: Issues with the ingestion pipeline in your primary region can affect data replication to your secondary workspace. During switchover, logs are instead sent to the ingestion pipeline in the secondary region.
 
-- **Query**: If queries in your primary workspace fail or timeout, Log search alerts can be affected. In this scenario, trigger switchover to make sure all your alerts are triggered correctly.
+- **Query**: If queries in your primary workspace fail or timeout, Log search alerts can be affected. In this scenario, switch over to your secondary workspace to make sure all your alerts are triggered correctly.
 
 #### Secondary workspace data
 
-Logs ingested to your primary workspace before you enable replication aren't copied to the secondary workspace. If you enabled workspace replication three hours ago and you now trigger switchover, your queries can only return data from the last three hours.
+Logs ingested to your primary workspace before you enable replication aren't copied to the secondary workspace. If you enabled workspace replication three hours ago and you now switch over to your secondary workspace, your queries can only return data from the last three hours.
 
 Before you switch regions during switchover, your secondary workspace needs to contain a useful volume of logs. We recommend waiting at least one week after you enable replication before you trigger switchover. The seven days allow for sufficient data to be available in your secondary region.
 
 ### Trigger switchover
 
-Before you trigger switchover, [confirm that the workspace replication operation completed successfully](#check-request-provisioning-state). Switchover only succeeds when the secondary workspace is configured correctly. 
+Before you switch over, [confirm that the workspace replication operation completed successfully](#check-request-provisioning-state). Switchover only succeeds when the secondary workspace is configured correctly. 
 
 To switch over to your secondary workspace, use this `POST` command:
 
@@ -246,7 +246,7 @@ The `POST` command is a long running operation that can take some time to comple
 
 ## Switch back to your primary workspace
 
-The switchback process cancels the rerouting of queries and log ingestion requests to the secondary workspace. When you trigger switchback, Azure Monitor goes back to routing queries and log ingestion requests to your primary workspace. 
+The switchback process cancels the rerouting of queries and log ingestion requests to the secondary workspace. When you switch back, Azure Monitor goes back to routing queries and log ingestion requests to your primary workspace. 
 
 During switchover, Azure Monitor replicates logs from your secondary workspace to your primary workspace. While switchover is in progress, if an outage impacts the log ingestion process on the primary region, it can take time for the logs to complete the ingestion process.
 
@@ -256,7 +256,7 @@ There are several points to consider in your plan for switchback, as described i
 
 #### Log replication state
 
-Before you trigger switchback, verify that Azure Monitor has completed replicating all logs ingested during switchover to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
+Before you switch back, verify that Azure Monitor has completed replicating all logs ingested during switchover to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
 
 You can query your primary workspace in the Azure portal for the inactive region, as described in [Audit the inactive workspace](#audit-the-inactive-workspace).
 
@@ -271,7 +271,7 @@ For examples of how to query your primary workspace during switchover and bypass
 
 ### Trigger switchback
 
-Before you trigger switchback, confirm the [Primary workspace health](#primary-workspace-health) and complete [replication of logs](#log-replication-state). 
+Before you switch back, confirm the [Primary workspace health](#primary-workspace-health) and complete [replication of logs](#log-replication-state). 
 
 The switchback process updates your DNS records. After the DNS records update, it can take time for all clients to receive the updated DNS settings and resume routing to the primary workspace.
 
@@ -279,8 +279,8 @@ To switch back to your primary workspace, use this `POST` command:
 
 ```http
 POST
-https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/failback?api-version=2023-01-01-preview
 
+https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/failback?api-version=2023-01-01-preview
 ```
 
 Where:
@@ -295,18 +295,15 @@ The `POST` command is a long running operation that can take some time to comple
 
 By default, Azure Monitor run queries in your _active_ region. The active region is typically your primary region in your primary workspace. During switchover, the secondary workspace becomes _active_ and the primary region is _inactive_. 
 
-In some cases, you might want to query the _inactive_ region. For example, you might want to ensure that your secondary workspace has complete replication of ingested logs before triggering switchover.
+In some cases, you might want to query the _inactive_ region. For example, you might want to ensure that your secondary workspace has complete replication of ingested logs before you switch over.
 
 ### Query inactive region
 
 To query the available logs on the inactive workspace:
 
 1. In the Azure portal, go to your Log Analytics workspace.
-
 1. On the left, select **Logs**.
-
 1. On the query toolbar, select **More tools** (...) at the right.
-
 1. Enable **Query inactive region**.
 
    :::image type="content" source="media/workspace-replication/query-inactive-region.png" alt-text="Screenshot that shows how to query the inactive region through the workspace Logs page in the Azure portal." lightbox="media/workspace-replication/query-inactive-region.png":::
@@ -322,7 +319,7 @@ You can confirm that Azure Monitor runs your query in the intended region by che
 
 We recommend using the queries in this section to create alert rules that notify you of possible workspace health or performance issues. However, the decision to switch over requires your careful consideration, and shouldn't be done automatically.
 
-In the query rule, you can define a condition to trigger switchover after a specified number of violations occurs. For more information, see [Create or edit a log search alert rule](../alerts/alerts-create-activity-log-alert-rule.md).
+In the query rule, you can define a condition to switch over to your secondary workspace after a specified number of violations occurs. For more information, see [Create or edit a log search alert rule](../alerts/alerts-create-activity-log-alert-rule.md).
 
 Two significant measurements of workspace performance include _ingestion latency_ and _ingestion volume_. The following sections explore these monitoring options.
 
