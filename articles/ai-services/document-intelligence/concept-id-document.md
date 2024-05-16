@@ -284,10 +284,11 @@ The following are the fields extracted per document type. The Document Intellige
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_identity_documents.py)
 
 ### [Output](#tab/output)
+
  - [idDocument.driverLicense](#iddocument-driverlicense)
  - [idDocument.passport](#iddocument-passport)
   
-# idDocument.driverLicense
+#### idDocument.driverLicense
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -310,7 +311,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`Restrictions`|`string`|Restrictions|B|
 |`VehicleClassifications`|`string`|Vehicle classification|D|
 
-# idDocument.passport
+#### idDocument.passport
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
