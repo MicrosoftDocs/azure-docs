@@ -533,13 +533,13 @@ LAQueryLogs
    
 The following features are partially supported or not currently supported:
 
-| Feature | Support | Notes |
-| --- | --- | --- |
-| Search jobs, Restore | Partially supported| Search job and restore operations create tables and populate them with search results or restored data. After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
-| Application Insights over Log Analytics workspaces | Not supported | |
-| VM Insights | Not supported | |
-| Container Insights | Not supported | |
-| Private links | Not supported during failover | |
+| Feature | Support |
+| --- | --- |
+| Search jobs, Restore | Partially supported - Search job and restore operations create tables and populate them with search results or restored data. After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing.|
+| Application Insights over Log Analytics workspaces | Not supported |
+| VM Insights | Not supported |
+| Container Insights | Not supported |
+| Private links | Not supported during failover |
 
 ## Related content
 
