@@ -108,7 +108,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 
 
-### Create the Cluster using Azure Resource Manager template editor:
+### Create the Cluster using Azure Resource Manager template editor
 
 An alternate way to create a Cluster is with the ARM template editor.
 
