@@ -4,7 +4,7 @@ description: This article provides an overview of the built-in PgBouncer feature
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/16/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -37,9 +37,9 @@ You can configure PgBouncer settings by using these parameters.
 
 For more information about PgBouncer configurations, see the [pgbouncer.ini documentation](https://www.pgbouncer.org/config.html).
 
-The following table shows the versions of PgBouncer currently deployed, together with each major version of PostgreSQL:
+## Version of PgBouncer
 
-[!INCLUDE [pgbouncer-table](./includes/pgbouncer-table.md)]
+Currently, the version of PgBouncer deployed on all supported major versions of the engine ([!INCLUDE [pgbouncer-table](./includes/majorversionsascending.md)]), in Azure Database for PostgreSQL Flexible Server, is **[!INCLUDE [pgbouncer-table](./includes/pgbouncer-table.md)]**.
 
 ## Benefits
 
