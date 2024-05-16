@@ -13,6 +13,32 @@ metadata:
   manager: kumudD
   ms.date: 05/13/2024
 
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: "What are Azure network foundation services?" 
+      itemType: concept
+      url: ./network-foundations-overview.md
+    # Card
+    - title: "What is Azure Virtual Network"
+      itemType: "video"
+      url:  https://learn-video.azurefd.net/vod/player?id=6b5b138e-8406-406e-8b34-40bdadf9fc6d
+    # Card
+    - title: "How to connect and deliver services privately on Azure with Azure Private Link"
+      itemType: "video"
+      url: https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=how-to-connect-and-deliver-services-privately-on-azure-with-azure-private-link
+    # Card
+    - title: "Azure Virtual Networking: Private Link, Virtual Network Managers, and DNS"
+      itemType: "video"
+      url: https://www.youtube.com/watch?v=UHs4NTUGZeQ
+    # Card
+    - title: Choosing a load balancing solution 
+      itemType: concept
+      url: ./load-balancing/index.yml
+
 productDirectory:
   title: Foundation services
   items:
@@ -64,43 +90,76 @@ additionalContent:
             - text: Azure DNS FAQ
               url: /azure/dns/dns-faq
 
-# cards section
-    - componentType: grid
-      title: Pillars
-      blocks:
-      - componentType: icon-card
-        title: Reliability
-        summary: Ensures that the workload meets the uptime and recovery targets by building redundancy and resiliency at scale. 
-        url: ./reliability/index.yml 
-        icon: 
-          componentType: image
-          src: _images/reliability.svg                         
-      - componentType: icon-card
-        title: Security
-        summary: Protect the workload from attacks by maintaining confidentiality and data integrity. 
-        url: ./security/index.yml    
-        icon: 
-          componentType: image
-          src: _images/security.svg      
-      - componentType: icon-card
-        title: Cost Optimization
-        summary: Adopt an optimization mindset by at organizational, architectural, and tactical levels to keep your spending within budget. 
-        url: ./cost-optimization/index.yml
-        icon: 
-          componentType: image
-          src: _images/cost-optimization.svg             
-      - componentType: icon-card
-        title: Operational Excellence
-        summary: Reduce issues in production by building holistic observability and automated systems. 
-        url: ./operational-excellence/index.yml
-        icon: 
-          componentType: image
-          src: _images/operational-excellence.svg         
-      - componentType: icon-card
-        title: Performance Efficiency
-        summary: Adjust to changes in demands placed on the workload by through horizontal scaling and testing changes before deploying to production. 
-        url: ./performance-efficiency/index.yml    
-        icon: 
-          componentType: image
-          src: _images/performance-efficiency.svg   
+productDirectory:
+  title: Other Azure networking pillars
+  items:
+    - title: Pricing + estimation
+      imageSrc: ./media/controls-horizontal.svg
+      links:
+        - url: costs/pricing-calculator.md
+          text: Estimate prices with the Azure pricing calculator
+        - url: https://azure.microsoft.com/pricing/tco/calculator
+          text: TCO calculator
+        - url: ../migrate/index.yml
+          text: Azure Migrate
+    - title: Reporting + analytics
+      imageSrc: ./media/cost-analysis.svg
+      links:
+        - url: costs/reporting-get-started.md
+          text: Overview
+        - url: costs/quick-acm-cost-analysis.md
+          text: Start analyzing costs
+        - url: understand/analyze-unexpected-charges.md
+          text: Analyze unexpected charges
+        - url: costs/cost-analysis-common-uses.md
+          text: Use Cost analysis for common tasks
+        - url: reservations/view-amortized-costs.md
+          text: View amortized costs
+        - url: /power-bi/desktop-connect-azure-cost-management
+          text: Connect with Power BI
+    - title: Monitoring
+      imageSrc: ./media/alerts.svg
+      links:
+        - url: costs/cost-mgt-alerts-monitor-usage-spending.md
+          text: Use cost alerts
+        - url: costs/tutorial-acm-create-budgets.md
+          text: Create a budget
+        - url: understand/analyze-unexpected-charges.md
+          text: Configure anomaly alerts
+        - url: costs/reservation-utilization-alerts.md
+          text: Reservation utilization alerts
+        - url: costs/save-share-views.md#subscribe-to-scheduled-alerts
+          text: Subscribe to scheduled alerts
+    - title: Optimization
+      imageSrc: ./media/optimization.svg
+      links:
+        - url: costs/tutorial-acm-opt-recommendations.md
+          text: Act on recommendations
+        - url: savings-plan/index.yml
+          text: Save with savings plans
+        - url: reservations/save-compute-costs-reservations.md
+          text: Save with reservations
+        - url: scope-level/index.yml
+          text: Manage Azure Hybrid Benefit for SQL Server
+        - url: https://azure.microsoft.com/overview/cost-optimization/
+          text: Start optimizing costs today
+    - title: Cost allocation
+      imageSrc: ./media/cost-allocation.svg
+      links:
+        - url: costs/cost-allocation-introduction.md
+          text: Introduction to cost allocation
+        - url: costs/enable-tag-inheritance.md
+          text: Enable tag inheritance
+        - url: costs/allocate-costs.md
+          text: Split shared costs
+    - title: Automation + extensibility
+      imageSrc: ./media/automation.svg
+      links:
+        - url: automate/automation-overview.md
+          text: Overview
+        - url: automate/usage-details-best-practices.md
+          text: Choose a cost details solution
+        - url: automate/partner-automation.md
+          text: Automation for partners
+ 
 
