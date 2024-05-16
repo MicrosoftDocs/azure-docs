@@ -2,7 +2,7 @@
 title: Back up blobs in a storage account using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of blobs using REST API.
 ms.topic: conceptual
-ms.date: 10/31/2022
+ms.date: 05/30/2024
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ms.service: backup
 ms.custom: engagement-fy23
@@ -12,9 +12,9 @@ ms.author: v-abhmallick
 
 # Back up blobs in a storage account using Azure Data Protection via REST API
 
-Azure Backup enables you to easily configure operational backup for protecting block blobs in your storage accounts.
+Azure Backup enables you to easily configure backup for protecting block blobs in your storage accounts.
 
-This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level. So, all blobs in the storage account are protected with operational backup.
+This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level.
 
 In this article, you'll learn about:
 
@@ -80,6 +80,44 @@ The following is the request body to configure backup for all blobs within a sto
   }
 }
 ```
+To configure backup with vaulted backup enabled, refer the below request body.
+
+```json
+{backupInstanceDataSourceType is Microsoft.Storage/storageAccounts/blobServices
+backupInstanceResourceType is Microsoft.Storage/storageAccounts
+{
+    "id": null,
+    "name": "{{backupInstanceName}}",
+    "type": "Microsoft.DataProtection/backupvaults/backupInstances",
+    "properties": {
+        "objectType": "BackupInstance",
+        "dataSourceInfo": {
+            "objectType": "Datasource",
+            "resourceID": "/subscriptions/{{backupInstanceSubscriptionId}}/resourceGroups/{{backupInstanceresourcegroup}}/providers/{{backupInstanceResourceType}}/{{backupInstanceName}}",
+            "resourceName": "{{backupInstanceName}}",
+            "resourceType": "{{backupInstanceResourceType}}",
+            "resourceUri": "/subscriptions/{{backupInstanceSubscriptionId}}/resourceGroups/{{backupInstanceRG}}/providers/{{backupInstanceResourceType}}/{{backupInstanceName}}",
+            "resourceLocation": "{{location}}",
+            "datasourceType": "{{backupInstanceDataSourceType}}"
+        },
+        "policyInfo": {
+            "policyId": "/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/{{backupVaultRP}}/{{vaultName}}/backupPolicies/{{policyName}}",
+            "name": "{{policyName}}",
+            "policyVersion": "3.2",
+            "policyParameters": {
+                "dataStoreParametersList": [
+                ],
+                "backupDatasourceParametersList" : [
+                    {
+                        "objectType": "BlobBackupDatasourceParameters",
+                        "containersList": ["container1", "container2", "container3", "container4", "container5"]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
 
 ### Validate the request to configure backup
 
@@ -118,6 +156,40 @@ The [request body](#prepare-the-request-to-configure-backup) that you prepared e
     },
     "objectType": "BackupInstance"
   }
+}
+```
+#### Example request body for vaulted backup
+
+```json
+{
+    "objectType": "ValidateForBackupRequest",
+    "backupInstance": {
+        "objectType": "BackupInstance",
+        "dataSourceInfo": {
+            "objectType": "Datasource",
+            "resourceID": "/subscriptions/{{backupInstanceSubscriptionId}}/resourceGroups/{{backupInstanceRG}}/providers/{{backupInstanceResourceType}}/{{backupInstanceName}}",
+            "resourceName": "{{backupInstanceName}}",
+            "resourceType": "{{backupInstanceResourceType}}",
+            "resourceUri": "/subscriptions/{{backupInstanceSubscriptionId}}/resourceGroups/{{backupInstanceRG}}/providers/{{backupInstanceResourceType}}/{{backupInstanceName}}",
+            "resourceLocation": "{{location}}",
+            "datasourceType": "{{backupInstanceDataSourceType}}"
+        },
+        "policyInfo": {
+            "policyId": "/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/{{backupVaultRP}}/{{vaultName}}/backupPolicies/{{policyName}}",
+            "name": "{{policyName}}",
+            "policyVersion": "3.2",
+            "policyParameters": {
+                "dataStoreParametersList": [
+                ] ,
+                "backupDatasourceParametersList" : [
+                    {
+                        "objectType": "BlobBackupDatasourceParameters",
+                        "containersList": ["container1", "container2", "container3", "container4", "container5"]
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 
