@@ -15,8 +15,7 @@ ms.custom: devx-track-azurepowershell
  Source control integration lets you easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to synchronize different branches in source control with your development, test, and production Automation accounts.
 
 > [!NOTE]
-> - When setting up source control, make sure to use the correct login for your source control repository, which might be different from your Azure portal login. If you're unsure, open a new browser tab, log out from dev.azure.com, visualstudio.com, or github.com, and then try reconnecting to source control.
-> - Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs. Additionally, Azure Automation Jobs do not support MFA (Multi-Factor Authentication).
+> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs. Additionally, Azure Automation Jobs do not support MFA (Multi-Factor Authentication).
 
 ## Source control types
 
@@ -96,7 +95,8 @@ Use this procedure to configure source control using the Azure portal.
 
    
 > [!NOTE]
-> The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control. 
+> - The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control. 
+> - Cross-tenant authentication isn't supported.
 
 ### Configure source control in PowerShell
 
