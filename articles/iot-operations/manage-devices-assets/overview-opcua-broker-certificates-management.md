@@ -48,15 +48,32 @@ You need to maintain a trusted certificate list that contains the certificates o
 - The OPC UA server validates against its trusted certificates list.
 - A similar validation of the OPC UA server's certificate happens in the OPC UA Broker.
 
-By default, the OPC UA Broker stores its trusted certificate list in Azure Key Vault and uses  the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/) to project the trusted certificates into the OPC UA Broker pods. Azure Key Vault stores the certificates in .der or .pem format.
+By default, the OPC UA Broker stores its trusted certificate list in Azure Key Vault and uses the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/) to project the trusted certificates into the OPC UA Broker pods. Azure Key Vault stores the certificates encoded in DER or PEM format.
+
+If OPC UA Broker trusts a certificate authority, it automatically trusts any server that has a valid application instance certificate signed by the certificate authority.
 
 To project the trusted certificates from Azure Key Vault into the Kubernetes cluster, you must configure a `SecretProviderClass` custom resource. This custom resource contains a list of all the secret references associated with the trusted certificates. The OPC UA Broker uses the custom resource to map the trusted certificates into OPC UA Broker containers and make them available for validation. The default name for the `SecretProviderClass` custom resource that handles the trusted certificates list is *aio-opc-ua-broker-trust-list*.
 
 > [!NOTE]
-> The time it takes to project Azure Key Vault secrets and certificates into the cluster depends on the configured polling interval.
+> The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
 
 ## OPC UA Broker's issuers certificates list
 
-An _issuer certificate list_ stores the certificate authority (CA) certificates that OPC UA Broker trusts. If the application certificate of an OPC UA server is signed by an intermediate CA, OPC UA Broker validates the full chain of CAs up to the root. The issuer certificate list should contain the certificates of all the CAs in the chain to ensure that OPC UA Broker can validate the OPC UA servers.
+If your OPC UA server's application instance certificate is signed by an intermediate certificate authority, but you don't want to automatically trust all the certificates issued by the certificate authority, you can use an issuer certificate list to manage the trust relationship.
+
+An _issuer certificate list_ stores the certificate authority certificates that OPC UA Broker trusts. If the application certificate of an OPC UA server is signed by an intermediate certificate authority, OPC UA Broker validates the full chain of certificate authorities up to the root. The issuer certificate list should contain the certificates of all the certificate authorities in the chain to ensure that OPC UA Broker can validate the OPC UA servers.
 
 You manage the issuer certificate list in the same way you manage the trusted certificates list. The default name for the `SecretProviderClass` custom resource that handles the issuer certificates list is *aio-opc-ua-broker-issuer-list*.
+
+## Features supported
+
+The following table shows the feature support level for authentication in the current version of OPC UA Broker:
+
+| Features  | Meaning | Symbol |
+|---------|---------|---------:|
+| Configuration of OPC UA self-signed application instance certificate          | Supported   |   ✅     |
+| Handling of OPC UA trusted certificates list                                  | Supported   |   ✅     |
+| Handling of OPC UA issuer certificates lists                                  | Supported   |   ✅     |
+| Configuration of OPC UA enterprise grade application instance certificate     | Supported   |   ✅     |
+| Handling of OPC UA untrusted certificates                                     | Unsupported |   ❌     |
+| Handling of OPC UA Global Discovery Service (GDS)                             | Unsupported |   ❌     |

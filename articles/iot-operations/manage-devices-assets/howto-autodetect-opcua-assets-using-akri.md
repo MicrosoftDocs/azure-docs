@@ -23,7 +23,7 @@ Azure IoT Akri enables you to detect and create assets in the address space of a
 
 ## Prerequisites
 
-- Install Azure IoT Operations Preview. To install Azure IoT Operations Preview for testing and exploration, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Install Azure IoT Operations Preview. To install Azure IoT Operations Preview for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 - Verify that the Azure IoT Akri pods are properly configured by running the following command:
 
     ```bash
