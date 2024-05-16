@@ -37,7 +37,7 @@ Where:
 |-|-|  
 | `vault-name` or `hsm-name` | The name for a key vault or a Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and not consecutive -.|  
 | `object-type` | The type of the object, "keys",  "secrets", or "certificates".|  
-| `object-name` | An `object-name` is a user provided name for and must be unique within a key vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
+| `object-name` | An `object-name` is a user provided name for and must be unique within a key vault. The name must be a 1-127 character string, containing only 0-9, a-z, A-Z, and -.|  
 | `object-version `| An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object. |  
 
 ## DNS suffixes for object identifiers
