@@ -11,7 +11,7 @@ ms.date: 05/13/2024
 
 # What is Microsoft Sentinel?
 
-Microsoft Sentinel is a scalable, cloud-native solution that delivers an intelligent and comprehensive solution for security information and event management (SIEM) and security orchestration, automation, and response (SOAR). Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
+Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers an intelligent and comprehensive solution for SIEM and security orchestration, automation, and response (SOAR). Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
 
 Microsoft Sentinel also natively incorporates proven Azure services, like Log Analytics and Logic Apps, and enriches your investigation and detection with AI. It uses both Microsoft's threat intelligence stream and also enables you to bring your own threat intelligence.
 
@@ -20,6 +20,8 @@ Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated att
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
+
+Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](../azure-monitor/logs/data-security.md#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service-no-note.md)]
 
