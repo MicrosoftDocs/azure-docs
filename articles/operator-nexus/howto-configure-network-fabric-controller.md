@@ -117,7 +117,7 @@ Expected output:
 }
 ```
 
-Update Network Fabrc Controller with multiple `ExpressRoute` circuits.
+Update Network Fabric Controller with multiple `ExpressRoute` circuits.
 
 ```Azure CLI
 az networkfabric controller update \ 
@@ -185,7 +185,7 @@ Expected output:
 
 ## Update Network Fabric Controller 
 
-The PATCH feature in the Network Fabric Controller provide users the ability to effortlessly add or replace additional Express Routes circuits. This functionality is particularly useful during periods of failure or potential migration events. In such cases, the Network Operator has the flexibility to modify an active Network Fabric Controller by adding or removing Express Routes and Keys, all while ensuring the operation remains unaffected. 
+The PATCH feature in the Network Fabric Controller provides users the ability to effortlessly add or replace additional Express Routes circuits. This functionality is particularly useful during periods of failure or potential migration events. In such cases, the Network Operator has the flexibility to modify an active Network Fabric Controller by adding or removing Express Routes and Keys, all while ensuring the operation remains unaffected. 
 
 > [!NOTE]
 > When initiating an update command, it's crucial to supply all the parameters provided during the creation process. This is because the update command will overwrite the existing content, necessitating the inclusion of all relevant parameters to ensure comprehensive and accurate modifications.
