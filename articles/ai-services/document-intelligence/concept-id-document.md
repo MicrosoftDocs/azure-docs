@@ -287,7 +287,7 @@ The following are the fields extracted per document type. The Document Intellige
  - [idDocument.driverLicense](#iddocument-driverlicense)
  - [idDocument.passport](#iddocument-passport)
   
-#### idDocument.driverLicense
+# idDocument.driverLicense
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -310,7 +310,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`Restrictions`|`string`|Restrictions|B|
 |`VehicleClassifications`|`string`|Vehicle classification|D|
 
-#### `idDocument.passport`
+# idDocument.passport
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
