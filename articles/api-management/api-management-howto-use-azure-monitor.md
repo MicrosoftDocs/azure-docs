@@ -197,8 +197,7 @@ To configure logging settings for a specific API:
 1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
 1. Review the settings and make changes if needed. Select **Save**. 
 
-> [!IMPORTANT]
-> [!INCLUDE [api-management-log-entry-size-limit](../../includes/api-management-log-entry-size-limit.md)]
+[!INCLUDE [api-management-log-entry-size-limit](../../includes/api-management-log-entry-size-limit.md)]
 
 ## Next steps
 
