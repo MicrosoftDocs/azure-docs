@@ -227,13 +227,13 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-rest-apis.md",
-            "redirect_url": "/azure/cost-management-billing/manage/enterprise-rest-apis",
+            "redirect_url": "/azure/cost-management-billingautomate/migrate-ea-reporting-arm-apis-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/ea-portal-rest-apis.md",
-            "redirect_url": "/azure/cost-management-billing/manage/enterprise-rest-apis",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cost-management-billingautomate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-troubleshoot.md",
@@ -292,8 +292,8 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-enterprise-api.md",
-            "redirect_url": "/azure/cost-management-billing/manage/enterprise-api",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md",
@@ -1323,6 +1323,16 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/finops/index.yml",
             "redirect_url": "/cloud-computing/finops/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/enterprise-api.md",
+            "redirect_url": "automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/enterprise-rest-apis.md",
+            "redirect_url": "automate/migrate-ea-reporting-arm-apis-overview",
             "redirect_document_id": false
         },
         {
