@@ -42,7 +42,7 @@ After you generate the metadata file as Host Integration Designer XML (HIDX) fil
 
 ## Connector technical reference
 
-The following section describes the operations for the IMB i connector, which currently includes only the following action:
+The following section describes the operations for the IBM i connector, which currently includes only the following action:
 
 ### Call an IBM i program
 

@@ -107,8 +107,6 @@
           href: ./v1/tutorial-1st-experiment-hello-world.md
         - name: 2. Train your model
           href: ./v1/tutorial-1st-experiment-sdk-train.md
-        - name: 3. Use your own data
-          href: ./v1/tutorial-1st-experiment-bring-data.md
     - name: Train & deploy image classification
       displayName: MNIST
       href: ./v1/tutorial-train-deploy-notebook.md
@@ -123,6 +121,8 @@
         href: concept-azure-machine-learning-v2.md
       - name: Workspaces
         href: concept-workspace.md
+      - name: Hub workspaces
+        href: concept-hub-workspace.md
       - name: Searching for Assets and Resources
         href: how-to-search-assets.md
       - name: Compute
@@ -214,7 +214,7 @@
                 href: how-to-log-view-metrics.md
               - name: Log MLflow models
                 href: how-to-log-mlflow-models.md
-              - name: Query & compare experiments and runs with MLflowMLflow
+              - name: Query & compare experiments and runs with MLflow
                 href: how-to-track-experiments-mlflow.md
           - name: Manage
             items:
@@ -562,8 +562,6 @@
           href: ./v1/how-to-train-pytorch.md
         - name: Train with custom Docker image
           href: ./v1/how-to-train-with-custom-image.md
-        - name: Migrate from Estimators to ScriptRunConfig
-          href: ./v1/how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Use Key Vault when training
           displayName: secrets keyvault
           href: ./v1/how-to-use-secrets-in-runs.md
@@ -594,14 +592,24 @@
   items:
     - name: Model Catalog Overview
       href: concept-model-catalog.md
+    - name: Data, privacy, and security for Model Catalog
+      href: concept-data-privacy.md
     - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
-    - name: How to deploy Llama 2 family models
-      href: how-to-deploy-models-llama.md
     - name: How to deploy Mistral family models
       href: how-to-deploy-models-mistral.md
+    - name: Deploy Cohere models
+      items:
+        - name: How to deploy Cohere Command models
+          href: how-to-deploy-models-cohere-command.md
+        - name: How to deploy Cohere Embed models
+          href: how-to-deploy-models-cohere-embed.md
+    - name: Deploy Llama models
+      items:
+        - name: How to deploy Llama family models
+          href: how-to-deploy-models-llama.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
@@ -666,6 +674,8 @@
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Deploy a flow to online endpoint for real-time inference with CLI 
               href: ./prompt-flow/how-to-deploy-to-code.md
+            - name: Enable trace and collect feedback for a flow deployment 
+              href: ./prompt-flow/how-to-enable-trace-feedback-for-deployment.md
             - name: How to use streaming endpoints deployed from prompt flow
               href: ./prompt-flow/how-to-enable-streaming-mode.md
             - name: Set up end-to-end LLMOps with prompt flow and GitHub 
@@ -674,8 +684,12 @@
               href: ./prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow.md
             - name: Custom tool package creation and usage
               href: ./prompt-flow/how-to-custom-tool-package-creation-and-usage.md
+            - name: Advance your maturity level
+              href: ./prompt-flow/concept-llmops-maturity.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
+        - name: Troubleshoot prompt flow deployments
+          href: ./prompt-flow/how-to-troubleshoot-prompt-flow-deployment.md
         - name: Transparency note
           href: ./prompt-flow/transparency-note.md
         - name: Tools Reference
@@ -1240,6 +1254,8 @@
       items:
         - name: Failover & disaster recovery
           displayName: high availability
+          href: how-to-high-availability-machine-learning.md
+        - name: Failover & disaster recovery
           href: ./v1/how-to-high-availability-machine-learning.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
@@ -1270,10 +1286,16 @@
           href: how-to-move-workspace.md
         - name: Securely integrate Azure Synapse & Azure Machine Learning
           href: how-to-private-endpoint-integration-synapse.md
-        - name: Workspace Diagnostics
+        - name: Workspace diagnostics
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
+    - name: Create & manage hub workspaces
+      items:
+        - name: Use Azure portal
+          href: how-to-manage-hub-workspace-portal.md
+        - name: Use Resource Manager template
+          href: how-to-manage-hub-workspace-template.md
     - name: Create & manage registries
       href: how-to-manage-registries.md
     - name: Create & manage compute resources
@@ -1359,9 +1381,9 @@
     - name: Manage and optimize cost
       displayName: cost-management,cost-optimization
       href: how-to-manage-optimize-cost.md
-    - name: Monitor Azure Machine Learning
+    - name: Monitor
       href: monitor-azure-machine-learning.md
-    - name: Secure coding
+    - name: Secure code
       displayName: security threat
       href: concept-secure-code-best-practice.md
     - name: Audit and manage
@@ -1445,12 +1467,16 @@
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: ./v1/samples-notebooks.md
     # end v1
+    - name: Browse code samples
+      displayName: example, examples, python, notebook
+      href: /samples/browse/?expanded=azure&products=azure-machine-learning
     - name: Examples repository (v2)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
     - name: Examples repository (v1)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/azure/machinelearningnotebooks
+
     # v1
     - name: Designer examples & datasets
       displayName: example, examples, studio, pipelines, data sets, modules, components
@@ -1595,8 +1621,8 @@
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
-    - name: Monitor data reference
-      href: monitor-resource-reference.md
+    - name: Monitoring data reference
+      href: monitor-azure-machine-learning-reference.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

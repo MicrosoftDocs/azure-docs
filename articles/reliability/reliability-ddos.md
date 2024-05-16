@@ -22,14 +22,6 @@ This article describes reliability support in [Azure DDoS Network Protection](..
 
 Azure DDoS Protection is [zone-redundant](./availability-zones-overview.md#zonal-and-zone-redundant-services) by default and is managed by the service itself. You don't need to configure or setup zone redundancy yourself.
 
-### Prerequisites
-
-
-
-### Zone down experience
-
-
-
 ### Cross-region disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]

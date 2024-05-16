@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 02/23/2024
+ms.date: 04/11/2024
 ---
 
 # Deployment stacks (Preview)
@@ -33,6 +33,7 @@ Deployment stacks provide the following benefits:
 
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
 - Deny assignments don't support tags.
+- Deny assignments is not supported within the management group scope.
 - Deployment stacks cannot delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
 
 ### Known issues
@@ -628,7 +629,7 @@ New-AzResourceGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -660,7 +661,7 @@ New-AzSubscriptionDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -696,7 +697,7 @@ New-AzManagmentGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id> <object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.

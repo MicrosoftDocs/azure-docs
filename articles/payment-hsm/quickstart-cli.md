@@ -48,7 +48,7 @@ This quickstart describes how to create, update, and delete an Azure Payment HSM
   az account set --subscription <subscription-id>
   ```
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
 
 ## Create a resource group
 

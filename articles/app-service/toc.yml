@@ -156,7 +156,9 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Python with Postgres
           href: tutorial-python-postgresql-app.md
-        - name: Java with Spring Data
+        - name: Tomcat with MySQL
+          href: tutorial-java-tomcat-mysql-app.md            
+        - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
         - name: Quarkus with Postgres
           href: tutorial-java-quarkus-postgresql-app.md            
@@ -304,7 +306,7 @@
       items:
         - name: Networking features overview
           href: networking-features.md
-        - name: Find inbound and outbound IPs
+        - name: Inbound and outbound IPs
           href: overview-inbound-outbound-ips.md
         - name: Access restriction
           items:
@@ -371,6 +373,8 @@
       href: deploy-container-github-action.md
     - name: End-to-end tutorials
       items:
+        - name: Configure a sidecar container
+          href: tutorial-custom-container-sidecar.md
         - name: Deploy app with Azure Container Registry
           href: tutorial-custom-container.md
         - name: Deploy with GitHub Actions
@@ -427,6 +431,8 @@
       href: operating-system-functionality.md
     - name: Kudu service
       href: resources-kudu.md
+    - name: Deploy an application that uses OpenAI on App Service
+      href: deploy-intelligent-apps.md
     - name: gRPC configuration
       href: configure-grpc.md
     - name: Recommended services (preview)

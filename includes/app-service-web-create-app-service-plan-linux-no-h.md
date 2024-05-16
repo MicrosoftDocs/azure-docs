@@ -7,7 +7,7 @@ ms.service: app-service
 ms.topic: "include"
 ms.date: 05/02/2021
 ms.author: cephalin
-ms.custom: "include file", devx-track-azurecli
+ms.custom: include file, devx-track-azurecli, linux-related-content
 ---
 
 In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan) command.

@@ -19,6 +19,9 @@ Containers provide new levels of virtualization, isolating application and devel
 >[! IMPORTANT]
 > ACR is temporarily pausing ACR Tasks runs from Azure free credits. This may affect existing Tasks runs. If you encounter problems, open a [support case](../azure-portal/supportability/how-to-create-azure-support-request.md) for our team to provide additional guidance. Please note that existing customers will not be affected by this pause. We will update our documentation notice here whenever the pause is lifted.
 
+>[! WARNING]
+Please be advised that any information provided on the command line or as part of a URI may be logged as part of Azure Container Registry (ACR) diagnostic tracing. This includes sensitive data such as credentials, GitHub personal access tokens, and other secure information. Exercise caution to prevent any potential security risks, it is crucial to avoid including sensitive details in command lines or URIs that are subject to diagnostic logging.
+
 ## Task scenarios
 
 ACR Tasks supports several scenarios to build and maintain container images and other artifacts. See the following sections in this article for details.

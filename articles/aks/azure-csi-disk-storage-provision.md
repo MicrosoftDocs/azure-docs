@@ -3,8 +3,12 @@ title: Create a persistent volume with Azure Disks in Azure Kubernetes Service (
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
+ms.subservice: aks-storage
 ms.date: 03/05/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)
@@ -23,7 +27,6 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-* You need an Azure [storage account][azure-storage-account].
 * Make sure you have Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * The Azure Disk CSI driver has a per-node volume limit. The volume count changes based on the size of the node/node pool. Run the [kubectl get][kubectl-get] command to determine the number of volumes that can be allocated per node:
 
@@ -45,8 +48,8 @@ The following table includes parameters you can use to define a custom storage c
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
 |cachingMode | [Azure Data Disk Host Cache Setting][disk-host-cache-setting] | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
 |resourceGroup | Specify the resource group for the Azure Disks | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster|
-|DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] IOPS Capability (minimum: 2 IOPS/GiB) | 100~160000 | No | `500`|
-|DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
+|DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] or [Premium SSD v2][premiumv2_lrs_disks] IOPS Capability (minimum: 2 IOPS/GiB) | 100~160000 | No | `500`|
+|DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] or [Premium SSD v2][premiumv2_lrs_disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
 |LogicalSectorSize | Logical sector size in bytes for ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
 |tags | Azure Disk [tags][azure-tags] | Tag format: `key1=val1,key2=val2` | No | ""|
 |diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest][disk-encryption] | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
@@ -71,8 +74,11 @@ Each AKS cluster includes four precreated storage classes, two of them configure
     * Standard SSDs backs Standard storage and delivers cost-effective storage while still delivering reliable performance.
 2. The *managed-csi-premium* storage class provisions a premium Azure Disk.
     * SSD-based high-performance, low-latency disks back Premium disks. They're ideal for VMs running production workloads. When you use the Azure Disk CSI driver on AKS, you can also use the `managed-csi` storage class, which is backed by Standard SSD locally redundant storage (LRS).
+3. Effective starting with Kubernetes version 1.29, when you deploy Azure Kubernetes Service (AKS) clusters across multiple availability zones, AKS now utilizes zone-redundant storage (ZRS) to create managed disks within built-in storage classes. 
+    * ZRS ensures synchronous replication of your Azure managed disks across multiple Azure availability zones in your chosen region. This redundancy strategy enhances the resilience of your applications and safeguards your data against datacenter failures.
+    * However, it's important to note that zone-redundant storage (ZRS) comes at a higher cost compared to locally redundant storage (LRS). If cost optimization is a priority, you can create a new storage class with the LRS SKU name parameter and use it in your Persistent Volume Claim (PVC).
 
-It's not supported to reduce the size of a PVC (to prevent data loss). You can edit an existing storage class using the `kubectl edit sc` command, or you can create your own custom storage class. For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger][disk-host-cache-setting]. For more information about storage classes and creating your own storage class, see [Storage options for applications in AKS][storage-class-concepts].
+Reducing the size of a PVC is not supported due to the risk of data loss. You can edit an existing storage class using the `kubectl edit sc` command, or you can create your own custom storage class. For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger][disk-host-cache-setting]. For more information about storage classes and creating your own storage class, see [Storage options for applications in AKS][storage-class-concepts].
 
 You can see the precreated storage classes using the [`kubectl get sc`][kubectl-get] command. The following example shows the precreated storage classes available within an AKS cluster:
 
@@ -225,11 +231,11 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 
 ## Statically provision a volume
 
-This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of Azure Disks storage for use by a workload.
+This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of Azure Disks for use by a workload.
 
-### Static provisioning parameters for PersistentVolume
+### Static provisioning parameters for a persistent volume
 
-The following table includes parameters you can use to define a PersistentVolume.
+The following table includes parameters you can use to define a persistent volume.
 
 |Name | Meaning | Available Value | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
@@ -246,12 +252,15 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 
     ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    ```
 
-    # Output
+    The output of the command resembles the following example:
+   
+    ```output
     MC_myResourceGroup_myAKSCluster_eastus
     ```
 
-2. Create a disk using the [`az disk create`][az-disk-create] command. Specify the node resource group name and a name for the disk resource, such as *myAKSDisk*. The following example creates a *20*GiB disk, and outputs the ID of the disk after it's created. If you need to create a disk for use with Windows Server containers, add the `--os-type windows` parameter to correctly format the disk.
+1. Create a disk using the [`az disk create`][az-disk-create] command. Specify the node resource group name and a name for the disk resource, such as *myAKSDisk*. The following example creates a *20*GiB disk, and outputs the ID of the disk after it's created. If you need to create a disk for use with Windows Server containers, add the `--os-type windows` parameter to correctly format the disk.
 
     ```azurecli-interactive
     az disk create \
@@ -406,8 +415,10 @@ kubectl delete -f azure-pvc.yaml
 [disk-host-cache-setting]: ../virtual-machines/windows/premium-storage-performance.md#disk-caching
 [use-ultra-disks]: use-ultra-disks.md
 [ultra-ssd-disks]: ../virtual-machines/linux/disks-ultra-ssd.md
+[premiumv2_lrs_disks]: ../virtual-machines/disks-types.md#premium-ssd-v2
 [azure-tags]: ../azure-resource-manager/management/tag-resources.md
 [disk-encryption]: ../virtual-machines/windows/disk-encryption.md
 [azure-disk-write-accelerator]: ../virtual-machines/windows/how-to-enable-write-accelerator.md
 [on-demand-bursting]: ../virtual-machines/disk-bursting.md
 [customer-usage-attribution]: ../marketplace/azure-partner-customer-usage-attribution.md
+

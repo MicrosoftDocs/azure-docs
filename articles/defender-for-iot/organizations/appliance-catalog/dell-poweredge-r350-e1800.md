@@ -1,7 +1,7 @@
 ---
 title: Dell PowerEdge R350 for OT monitoring - Microsoft Defender for IoT
 description: Learn about the Dell PowerEdge R350 appliance's configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
-ms.date: 11/30/2022
+ms.date: 03/14/2024
 ms.topic: reference
 ---
 
@@ -15,7 +15,7 @@ The Dell PowerEdge R350 is also available for the on-premises management console
 |**Hardware profile** | E1800|
 |**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000<br>Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
 |**Physical Specifications** | Mounting: 1U<br>Dimensions (H x W x D) 1.70 in x 17.09 in x 22.18 in<br>Dimensions (H x W x D) 4.28 cm x 43.4 cm x 56.3 cm|
-|**Status** | Supported, available as a pre-configured appliance|
+|**Status** | Supported, available as a preconfigured appliance|
 
 The following image shows a view of the Dell PowerEdge R350 front panel:
 
@@ -32,14 +32,14 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |Chassis| 1U rack server|
 |Dimensions| (H x W x D) 1.70 in x 17.09 in x 22.18 in, 4.28 cm x 43.4 cm x 56.3 cm|
 |Weight| Max 28.96 lb/13.14 Kg|
-|Processor| Intel Xeon E-2334 3.4 GHz <br>8M Cache<br> 4C/8T, Turbo (65W), 3200 MT/s, XE Only|
+|Processor| Intel Xeon E-2334 3.4 GHz <br>8M Cache<br> 4C/8T, Turbo (65 W), 3200 MT/s, XE Only|
 |Memory|32 GB = 2x 16 GB 3200MT/s DDR4 ECC UDIMM|
-|Storage| 4x 1 TB Hard Drive SATA 6 Gbps 7.2K 512n 3.5in Hot-Plug with PERC H755 Controller Card - RAID 10|
+|Storage| 4x 1 TB Hard Drive SATA 6 Gbps 7.2 K 512n 3.5in Hot-Plug with PERC H755 Controller Card - RAID 10|
 |Network controller|On-board: Broadcom 5720 Dual Port 1 Gb On-Board LOM <br>On-board LOM: iDRAC9, Enterprise 15G<br>External: Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile|
 |Management|iDRAC9 Enterprise|
 |Device access| Two rear USB 3.0|
 |One front| USB 3.0|
-|Power| Dual, Hot-Plug, Redundant Power Supply (1+1), 600W|
+|Power| Dual, Hot-Plug, Redundant Power Supply (1+1), 600 W|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
 
 ## Dell PowerEdge R350 - Bill of Materials
@@ -48,13 +48,13 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |----|---|----|
 |1|	210-BBTW	|	OEM R350XE Server	|
 |1|	990-10090	|	EX-Works	|
-|1|	412-AAPW	|	Heatsink for 80W or less CPU	|
+|1|	412-AAPW	|	Heatsink for 80 W or less CPU	|
 |1|	370-AAIP	|	Performance Optimized	|
 |1|	370-AGNY	|	3200MT/s UDIMM	|
 |2|	370-AGQU	|	16 GB UDIMM, 3200MT/s, ECC	|
 |1|	384-BBBH	|	Power Saving BIOS Settings	|
 |1|	800-BBDM	|	UEFI BIOS Boot Mode with GPT Partition	|
-|1|	450-AADY	|	C13 to C14, PDU Style, 10 AMP, 6.5 Feet (2m), Power Cord	|
+|1|	450-AADY	|	C13 to C14, PDU Style, 10 AMP, 6.5 Feet (2 m), Power Cord	|
 |1|	330-BBWS	|	Riser Config 0, 1 x8, 1 x16 slots	|
 |1|	384-BCYX	|	OEM R350 Motherboard with Broadcom 5720 Dual Port 1 Gb On-Board LOM	|
 |1|	385-BBQV	|	iDRAC9, Enterprise 15G	|
@@ -88,7 +88,7 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |2| 450-AMJH | Dual, Hot-Plug, Power Supply, 700W MM HLAC (200-220Vac) Titanium, Redundant (1+1), by LiteOn, NAF|
 
 ## Optional Storage Controllers
-Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below have been tested in our lab for compatibility and sustained performance:
+Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below are tested in our lab for compatibility and sustained performance:
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -100,10 +100,10 @@ Optional modules for additional monitoring ports can be installed:
 |Location |Type |Specifications |
 |----|---|----|
 | PCIe Expansion <br>Slot 1 or 2 | Quad Port Ethernet | 540-BBDV<br>Intel QP i350 4 x 1Gbe Copper, PCIe Low Profile  |
-| PCIe Expansion <br>Slot 1 or 2 | Quad Port Ethernet | 540-BBDF<br>Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile |
+| PCIe Expansion <br>Slot 1 or 2 | Quad Port Ethernet | 540-BBDF<br>Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile |
 | PCIe Expansion <br>Slot 1 or 2 | Dual Port Ethernet | 540-BCSE<br>Intel X710-T2L DP 2 x 10Gbe Copper, PCIe Low Profile  |
 | PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBML<br>Intel X710 DP 2 x 10Gbe SFP+, PCIe Low Profile  |
-| PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBVI<br>Broadcom 57412 Dual Port 10GbE SFP+ Adapter, PCIe Low Profile |
+| PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBVI<br>Broadcom 57412 Dual Port 10 GbE SFP+ Adapter, PCIe Low Profile |
 | PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BCBN or 407-BBOU - SFP+ 10G SR |
 | PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BBOP - SFP+ 10G LR |
 | PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BBOS - SFP+ 1G COPPER |
@@ -121,18 +121,18 @@ Before installing the software on the Dell appliance, you need to adjust the app
 
 ### Prerequisites
 
-To install the Dell PowerEdge R350 appliance, you'll need:
+To install the Dell PowerEdge R350 appliance, you need:
 
 - An Enterprise license for Dell Remote Access Controller (iDrac)
 
 - A BIOS configuration XML
 
-### Setup the BIOS and RAID array
+### Set up the BIOS and RAID array
 
 This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
-In the event that any of the steps below are missing in the BIOS, please make sure that the hardware matches the specifications above.
+If any of the steps below are missing in the BIOS, make sure that the hardware matches the specifications above.
 
-Dell BIOS iDRAC is a system management software designed to give administrators control of Dell hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be setup locally or remotely. To setup the BIOS remotely from a management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
+Dell BIOS iDRAC is a system management software designed to give administrators control of Dell hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be set up locally or remotely. To set up the BIOS remotely from a management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
 
 **To configure the iDRAC IP address**:
 
@@ -191,7 +191,7 @@ Configure the appliance BIOS only if you didn't purchase your appliance from Arr
 
 1. Select **Boot Settings**.
 
-1. For the **Boot Mode** option, select **BIOS**.
+1. For the **Boot Mode** option, select **UEFI**.<!-- was BIOS-->
 
 1. Select **Back**, and then select **Finish** to exit the BIOS settings.
 
@@ -219,7 +219,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. The media is mounted. Select **Close**.
 
-1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Console Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
+1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Console Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which starts the Ctrl+Alt+Delete sequence.
 
 1. Continue by installing OT sensor or on-premises management software. For more information, see [Defender for IoT software installation](../how-to-install-software.md).
 

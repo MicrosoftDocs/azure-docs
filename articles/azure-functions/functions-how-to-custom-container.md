@@ -3,7 +3,7 @@ title: Working with Azure Functions in containers
 description: Learn how to work with function apps running in Linux containers.
 ms.date: 02/27/2024
 ms.topic: how-to
-ms.custom: build-2023
+ms.custom: build-2023, linux-related-content
 zone_pivot_groups: functions-container-hosting
 ---
 
@@ -271,7 +271,6 @@ You can enable Azure Functions to automatically update your deployment of an ima
     :::image type="content" source="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png" alt-text="Screenshot showing how to add the webhook in your Docker Hub window.":::  
 
 1. With the webhook set, Azure Functions redeploys your image whenever you update it in Docker Hub.
-::: zone-end
 
 ## Enable SSH connections
 
@@ -306,6 +305,10 @@ SSH enables secure communication between a container and a client. With SSH enab
 1. After a connection is established with your container, run the `top` command to view the currently running processes.
 
     :::image type="content" source="media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png" alt-text="Screenshot that shows Linux top command running in an SSH session.":::
+::: zone-end
+:::zone pivot="container-apps"  
+<!---For when we support connecting to the container console -->
+::: zone-end
 
 ## Next steps
 

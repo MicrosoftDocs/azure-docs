@@ -24,6 +24,10 @@ Model monitoring is the last step in the machine learning end-to-end lifecycle. 
 
 Unlike traditional software systems, the behavior of machine learning systems is governed not just by rules specified in code, but also by model behavior learned from data. Therefore, data distribution changes, training-serving skew, data quality issues, shifts in environments, or consumer behavior changes can all cause a model to become stale. When a model becomes stale, its performance can degrade to the point that it fails to add business value or starts to cause serious compliance issues in highly regulated environments.
 
+## Limitations of model monitoring in Azure Machine Learning
+
+Azure Machine Learning model monitoring supports only the use of credential-based authentication (e.g., SAS token) to access data contained in datastores. To learn more about datastores and authentication modes, see [Data administration](how-to-administrate-data-authentication.md).
+
 ## How model monitoring works in Azure Machine Learning
 
 To implement monitoring, Azure Machine Learning acquires monitoring signals by performing statistical computations on streamed production inference data and reference data. The reference data can be historical training data, validation data, or ground truth data. On the other hand, the production inference data refers to the model's input and output data collected in production. 

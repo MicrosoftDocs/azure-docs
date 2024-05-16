@@ -3,7 +3,7 @@ title: Use IoT Plug and Play models in a solution | Microsoft Docs
 description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/13/2024
 ms.topic: conceptual
 ms.service: iot
 ---
@@ -111,15 +111,68 @@ A solution can get the model definition by using one of the following options:
 
 ### Model repository
 
-Solutions can use the [model repository](concepts-model-repository.md) to retrieve models. Either the device builders or the solution builders must upload their models to the repository beforehand so the solution can retrieve them.
+Solutions can retrieve DTDL models from the device model repository (DMR). The DMR is a public repository, hosted by Microsoft, that contains a collection of curated DTDL models. The public device models stored in the DMR are available for everyone to consume and integrate in their applications from the public endpoint [https://devicemodels.azure.com](https://devicemodels.azure.com).
 
 After you identify the model ID for a new device connection, follow these steps:
 
-1. Retrieve the model definition using the model ID from the model repository. For more information, see [Device model repository](concepts-model-repository.md).
+1. Retrieve the model definition using the model ID from the model repository. For more information, see [Resolve models](#resolve-models).
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
 1. Using the enumerated capabilities of the device, you can enable users to [interact with the device](tutorial-service.md).
+
+### Resolve models
+
+The DMR conventions include other artifacts for simplifying consumption of hosted models. These features are *optional* for custom or private repositories.
+
+- *Index*. All available DTMIs are exposed through an *index* composed by a sequence of json files, for example: [https://devicemodels.azure.com/index.page.2.json](https://devicemodels.azure.com/index.page.2.json)
+- *Expanded*. A file with all the dependencies is available for each interface, for example: [https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/temperaturecontroller-1.expanded.json)
+- *Metadata*. This file exposes key attributes of a repository and is refreshed periodically with the latest published models snapshot. It includes features that a repository implements such as whether the model index or expanded model files are available. You can access the DMR metadata at [https://devicemodels.azure.com/metadata.json](https://devicemodels.azure.com/metadata.json)
+
+To programmatically access the public DTDL models in the DMR, you can use the `ModelsRepositoryClient` available in the NuGet package [Azure.IoT.ModelsRepository](https://www.nuget.org/packages/Azure.IoT.ModelsRepository). This client is configured by default to query the public DMR available at [devicemodels.azure.com](https://devicemodels.azure.com/) and can be configured to any custom repository.
+
+The client accepts a `DTMI` as input and returns a dictionary with all required interfaces:
+
+```cs
+using Azure.IoT.ModelsRepository;
+
+var client = new ModelsRepositoryClient();
+ModelResult models = client.GetModel("dtmi:com:example:TemperatureController;1");
+models.Content.Keys.ToList().ForEach(k => Console.WriteLine(k));
+```
+
+The expected output displays the `DTMI` of the three interfaces found in the dependency chain:
+
+```txt
+dtmi:com:example:TemperatureController;1
+dtmi:com:example:Thermostat;1
+dtmi:azure:DeviceManagement:DeviceInformation;1
+```
+
+The `ModelsRepositoryClient` can be configured to query a custom DMR -available through http(s)- and to specify the dependency resolution by using the `ModelDependencyResolution` flag:
+
+- Disabled. Returns the specified interface only, without any dependency.
+- Enabled. Returns all the interfaces in the dependency chain
+
+> [!TIP]
+> Custom repositories might not expose the `.expanded.json` file. When this file isn't available, the client will fallback to process each dependency locally.
+
+The following sample code shows how to initialize the `ModelsRepositoryClient` by using a custom repository base URL, in this case using the `raw` URLs from the GitHub API without using the `expanded` form since it's not available in the `raw` endpoint. The `AzureEventSourceListener` is initialized to inspect the HTTP request performed by the client:
+
+```cs
+using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
+
+var client = new ModelsRepositoryClient(
+    new Uri("https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main"));
+
+ModelResult model = await client.GetModelAsync(
+    "dtmi:com:example:TemperatureController;1", 
+    dependencyResolution: ModelDependencyResolution.Enabled);
+
+model.Content.Keys.ToList().ForEach(k => Console.WriteLine(k));
+```
+
+There are more samples available in the Azure SDK GitHub repository: [Azure.Iot.ModelsRepository/samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/modelsrepository/Azure.IoT.ModelsRepository/samples).
 
 ### Custom store
 

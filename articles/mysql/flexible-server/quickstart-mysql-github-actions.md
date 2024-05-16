@@ -45,7 +45,7 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/generate-deployment-credentials.md)]
 
 ## Copy the MySQL connection string
 
@@ -64,7 +64,7 @@ You'll use the connection string as a GitHub secret.
 
 ## Configure GitHub secrets
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Add your workflow
 

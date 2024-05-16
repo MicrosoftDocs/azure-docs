@@ -47,6 +47,8 @@ items:
       href: ./concepts/abuse-monitoring.md
     - name: Content filtering
       href: ./concepts/content-filter.md
+    - name: Customizing Large Language Models (LLMs)
+      href: ./concepts/customizing-llms.md
     - name: Embeddings
       href: ./concepts/understand-embeddings.md
     - name: Fine-tuning
@@ -70,10 +72,6 @@ items:
       displayName: PTU, provisioned, provisioned throughput units
     - name: System message templates
       href: ./concepts/system-message.md
-    - name: Using your data - text
-      href: ./concepts/use-your-data.md
-    - name: Using your data - image (preview)
-      href: ./concepts/use-your-image-data.md
     - name: Legacy models
       href: ./concepts/legacy-models.md
 - name: How-to 
@@ -97,6 +95,8 @@ items:
       displayName: ChatGPT, chatgpt
     - name: GPT-4 Turbo with Vision
       href: ./how-to/gpt-with-vision.md
+    - name: DALL-E
+      href: ./how-to/dall-e.md
     - name: Function calling
       href: ./how-to/function-calling.md
     - name: Completions
@@ -111,10 +111,16 @@ items:
       href: ./how-to/integrate-synapseml.md
     - name: Deploy and use web apps
       href: ./how-to/use-web-app.md
+    - name: Legacy
+      items:
+      - name: Chat Markup Language (ChatML)
+        href: ./how-to/chat-markup-language.md 
   - name: Content filtering
     href: ./how-to/content-filters.md
   - name: Use blocklists
     href: ./how-to/use-blocklists.md
+  - name: Risks & Safety Monitoring
+    href: ./how-to/risks-safety-monitor.md
   - name: Embeddings
     items:
     - name: Embeddings basics
@@ -129,6 +135,18 @@ items:
       - name: Function calling
         href: ./how-to/fine-tuning-functions.md
         displayName: fine-tuning, finetuning
+  - name: Use your data
+    items:
+      - name: Text data
+        href: ./concepts/use-your-data.md
+      - name: Image data (preview)
+        href: ./concepts/use-your-image-data.md
+      - name: Use Azure OpenAI On Your Data securely
+        href: ./how-to/use-your-data-securely.md
+      - name: Deploy and use web apps
+        href: ./how-to/use-web-app.md
+      - name: Use the Azure Developer CLI
+        href: ./how-to/azure-developer-cli.md
   - name: Migrate to OpenAI Python v1.x
     href: ./how-to/migration.md
   - name: Models
@@ -141,7 +159,7 @@ items:
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
       - name: Encryption of data at rest
         href: encrypt-data-at-rest.md
-      - name: Manage identity
+      - name: Managed identity
         href: ./how-to/managed-identity.md
       - name: Use Azure OpenAI on your data securely
         href: ./how-to/use-your-data-securely.md
@@ -150,7 +168,7 @@ items:
       - name: Resource creation & model deployment
         href: ./how-to/create-resource.md
       - name: OpenAI vs Azure OpenAI (Python)
-        href: ./how-to/switching-endpoints.md
+        href: ./how-to/switching-endpoints.yml
       - name: Manage quota
         href: ./how-to/quota.md
       - name: Dynamic quota
@@ -197,14 +215,27 @@ items:
   items:
     - name: Assistants API Reference
       items:
-       - name: Assistants
-         href: ./assistants-reference.md
-       - name: Threads
-         href: ./assistants-reference-threads.md
-       - name: Messages
-         href: ./assistants-reference-messages.md
-       - name: Runs
-         href: ./assistants-reference-runs.md     
+        - name: Python/REST
+          items:
+          - name: Assistants
+            href: ./assistants-reference.md
+          - name: Threads
+            href: ./assistants-reference-threads.md
+          - name: Messages
+            href: ./assistants-reference-messages.md
+          - name: Runs
+            href: ./assistants-reference-runs.md 
+        - name: SDK 
+          items:
+          - name: C#
+            href: /dotnet/api/overview/azure/ai.openai.assistants-readme?context=/azure/ai-services/openai/context/context
+          - name: Go
+            href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai
+          - name: Java
+            href: /java/api/overview/azure/ai-openai-assistants-readme?context=/azure/ai-services/openai/context/context
+          - name: JavaScript
+            href: /javascript/api/overview/azure/openai-assistants-readme?context=/azure/ai-services/openai/context/context
+          
     - name: Azure OpenAI On Your Data API Reference
       items:
         - name: Azure OpenAI On Your Data
@@ -213,14 +244,14 @@ items:
           href: ./references/azure-search.md
         - name: Data source - Azure Cosmos DB for MongoDB vCore
           href: ./references/cosmos-db.md
-        - name: Data source - Azure Machine Learning index
+        - name: Data source - Azure Machine Learning index (preview)
           href: ./references/azure-machine-learning.md
-        - name: Data source - Elasticsearch
+        - name: Data source - Elasticsearch (preview)
           href: ./references/elasticsearch.md
-        - name: Data source - Pinecone
+        - name: Data source - Pinecone (preview)
           href: ./references/pinecone.md
         - name: Ingestion API (preview)
-          href: /rest/api/azureopenai/ingestion-jobs
+          href: /rest/api/azureopenai/ingestion-jobs?context=/azure/ai-services/openai/context/context
     - name: Azure Resource Manager/Bicep/Terraform
       href: /azure/templates/microsoft.cognitiveservices/accounts?pivots=deployment-language-bicep
       displayName: ARM, ARM template, template 
@@ -237,7 +268,7 @@ items:
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2024-03-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: Templates

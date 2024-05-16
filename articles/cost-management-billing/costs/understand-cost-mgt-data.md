@@ -15,7 +15,7 @@ ms.reviewer: micflan
 
 This article helps you better understand Azure cost and usage data included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
-Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure. Currently, only Partners can purchase New Commerce non-Azure products.
+Cost Management includes all usage and purchases, including commitment discounts (i.e., reservations and savings plans) and third-party offerings, for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Microsoft Online Services Agreement (MOSA) accounts only include usage from Azure and Marketplace services with applicable commitment discounts applied but do not include Marketplace or commitment discounts purchases. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure.
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -78,7 +78,7 @@ For information about the availability of free tier services after you upgrade t
 
 If you're unable to view data for a particular subscription, you can verify whether this subscription is included in the list of supported offers. To validate an Azure subscription is supported, sign in to the Azure portal. Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, select the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. The following image shows an example.
 
-![Example of the Subscription Overview tab showing Offer and Offer ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
+:::image type="content" border="true" source="./media/understand-cost-mgt-data/offer-and-offer-id.png" alt-text="Screenshot showing the Subscription Overview tab with Offer and Offer ID.":::
 
 ## Costs included in Cost Management
 
@@ -89,15 +89,15 @@ The following table shows included and not included data in Cost Management. All
 | Azure service usage (including deleted resources)⁴ | Unbilled services (for example, free tier resources) |
 | Marketplace offering usage⁵ | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
 | Marketplace purchases⁵      | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Reservation purchases⁶      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Amortization of reservation purchases⁶      |  |
+| Commitment discount purchases⁶      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Amortization of commitment discount purchases⁶      |  |
 | New Commerce non-Azure products (Microsoft 365 and Dynamics 365) ⁷ | |
 
-_⁴ Azure service usage is based on reservation and negotiated prices._
+_⁴ Azure service usage is based on commitment discounts and negotiated prices._
 
 _⁵ Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
 
-_⁶ Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
+_⁶ Commitment discount purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
 
 _⁷ Only available for specific offers._
 
@@ -173,6 +173,6 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P)
 
-## Next steps
+## Related content
 
 - If you didn't complete the first quickstart for Cost Management, read it at [Start analyzing costs](./quick-acm-cost-analysis.md).

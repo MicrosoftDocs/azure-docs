@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to train your machine learning model with R for use in Azure Machine Learning.'
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/12/2023
+ms.date: 03/22/2024
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -24,8 +24,8 @@ This article explains how to take the R script that you [adapted to run in produ
 ## Prerequisites
 
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
-- [A registered data asset](how-to-create-data-assets.md) that your training job will use.
-- Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI preinstalled.
+- [A registered data asset](how-to-create-data-assets.md) that your training job uses.
+- Azure [CLI and ml extension installed](how-to-configure-cli.md). Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI preinstalled.
 - [A compute cluster](how-to-create-attach-compute-cluster.md) or [compute instance](quickstart-create-resources.md#create-a-compute-instance) to run your training job.
 - [An R environment](how-to-r-modify-script-for-production.md#create-an-environment) for the compute cluster to use to run the job.
 
@@ -44,18 +44,17 @@ Create this folder structure for your project:
 > [!IMPORTANT]
 > All source code goes in the `src` directory.
 
-* The **r-source.R** file is the R script that you adapted to run in production
-* The **azureml_utils.R** file is necessary. The source code is shown [here](how-to-r-modify-script-for-production.md#source-the-azureml_utilsr-helper-script)
-
+* The **r-source.R** file is the R script that you adapted to run in production. Make sure you follow the steps to [crate and log your model](how-to-r-modify-script-for-production.md#crate-your-models-with-the-carrier-package) in this script.
+* The **azureml_utils.R** file is necessary. Use [this source code](how-to-r-modify-script-for-production.md#source-the-azureml_utilsr-helper-script) for the contents of the file.
 
 
 ## Prepare the job YAML
 
-Azure Machine Learning CLI v2 has different [different YAML schemas](reference-yaml-overview.md) for different operations. You'll use the [job YAML schema](reference-yaml-job-command.md) to submit a job. This is the **job.yml** file that is a part of this project.
+Azure Machine Learning CLI v2 has different [different YAML schemas](reference-yaml-overview.md) for different operations. You use the [job YAML schema](reference-yaml-job-command.md) to submit a job in the **job.yml** file that is a part of this project.
 
-You'll need to gather specific pieces of information to put into the YAML:
+You need to gather specific pieces of information to put into the YAML:
 
-- The name of the registered data asset you'll use as the data input (with version): `azureml:<REGISTERED-DATA-ASSET>:<VERSION>`
+- The name of the registered data asset you use as the data input (with version): `azureml:<REGISTERED-DATA-ASSET>:<VERSION>`
 - The name of the environment you created (with version): `azureml:<R-ENVIRONMENT-NAME>:<VERSION>`
 - The name of the compute cluster: `azureml:<COMPUTE-CLUSTER-NAME>`
 
@@ -66,7 +65,7 @@ You'll need to gather specific pieces of information to put into the YAML:
 
 ### Sample YAML schema to submit a job
 
-Edit your **job.yml** file to contain the following.  Make sure to replace values shown `<IN-BRACKETS-AND-CAPS>` and remove the brackets.
+Edit your **job.yml** file to contain the following. Make sure to replace values shown `<IN-BRACKETS-AND-CAPS>` and remove the brackets.
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -102,7 +101,7 @@ Find these values from [Azure Machine Learning studio](https://ml.azure.com):
 
 1. Sign in and open your workspace.
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. You can copy the values from the section that appears.  
+1. You can copy the values from the section that appears. 
 
 :::image type="content" source="media/how-to-r-train-model/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command." lightbox="media/how-to-r-train-model/find-values.png":::
 
@@ -114,7 +113,7 @@ To submit the job, run the following commands in a terminal window:
     cd r-job-azureml
     ```
 
-1. Sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
+1. Sign in to Azure. If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
 
     ```azurecli
     az login --identity
@@ -128,13 +127,13 @@ To submit the job, run the following commands in a terminal window:
     az upgrade
     ```
 
-1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
+1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name. Also remove the brackets `<>`.
 
     ```azurecli
     az account set --subscription "<SUBSCRIPTION-NAME>"
     ```
 
-1. Now use CLI to submit the job. If you're doing this on a compute instance in your workspace, you can use environment variables for the workspace name and resource group as show in the following code.  If you aren't on a compute instance, replace these values with your workspace name and resource group.
+1. Now use CLI to submit the job. If you're doing this on a compute instance in your workspace, you can use environment variables for the workspace name and resource group as show in the following code. If you aren't on a compute instance, replace these values with your workspace name and resource group.
 
     ```azurecli
     az ml job create -f job.yml  --workspace-name $CI_WORKSPACE --resource-group $CI_RESOURCE_GROUP
@@ -146,28 +145,28 @@ Once you've submitted the job, you can check the status and results in studio:
 1. Select your workspace if it isn't already loaded.
 1. On the left navigation, select **Jobs**.
 1. Select the **Experiment name** that you used to train your model.
-1. Select the **Display name** of the job to view details and artifacts of the job, including metrics, images, child jobs, outputs, logs, and code used in the job.  
+1. Select the **Display name** of the job to view details and artifacts of the job, including metrics, images, child jobs, outputs, logs, and code used in the job. 
 
 
 ## Register model
 
-Finally, once the training job is complete, register your model if you want to deploy it.  Start in the studio from the page showing your job details.
+Finally, once the training job is complete, register your model if you want to deploy it. Start in the studio from the page showing your job details.
 
 1. Once your job completes, select **Outputs + logs** to view outputs of the job.
-1. Open the **models** folder to verify that **crate.bin** and **MLmodel** are present.  If not, check the logs to see if there was an error.
+1. Open the **models** folder to verify that **crate.bin** and **MLmodel** are present. If not, check the logs to see if there was an error.
 1. On the toolbar at the top, select **+ Register model**.
 
     :::image type="content" source="media/how-to-r-train-model/register-model.png" alt-text="Screenshot shows the Job section of studio with the Outputs section open.":::
 
-1. For **Model type**, change the default from **MLflow** to **Unspecified type**.
+1. Don't use the **MLflow** model type, even though it's detected. Change **Model type** from the default **MLflow** to **Unspecified type**. Leaving it as **MLflow** will cause an error.
 1. For **Job output**, select **models**, the folder that contains the model.
 1. Select **Next**.
-1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
+1. Supply the name you wish to use for your model. Add **Description**, **Version**, and **Tags** if you wish.
 1. Select **Next**.
 1. Review the information.
 1. Select **Register**.
 
-At the top of the page, you'll see a confirmation that the model is registered.  The confirmation looks similar to this:
+At the top of the page, you'll see a confirmation that the model is registered. The confirmation looks similar to this:
 
 :::image type="content" source="media/how-to-r-train-model/registered.png" alt-text="Screenshot shows example of successful registration.":::
 

@@ -131,14 +131,15 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 # [Version 4.x](#tab/v4)
 
 ```xml
-<TargetFramework>net6.0</TargetFramework>
+<TargetFramework>net8.0</TargetFramework>
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-You can also choose `net6.0`, `net7.0`, `net8.0`, or `net48` as the target framework if you are using [.NET isolated worker process functions](dotnet-isolated-process-guide.md).
+You can choose `net8.0`, `net6.0`, or `net48` as the target framework if you are using the [isolated worker model](dotnet-isolated-process-guide.md). If you are using the [in-process model](./functions-dotnet-class-library.md), you can only choose `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.0.0`.
 
-> [!NOTE]
-> Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.
+.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
+
+[dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 
 # [Version 1.x](#tab/v1)
 

@@ -488,10 +488,7 @@ Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
 ### Unused/Empty App Service plans
 
-Your App Service plan has no apps running for at least three days. Consider deleting the resource to save costs or add new apps under it.
-
-> [!NOTE]
-> It might take up to 48 hours for this recommendation to refresh after you take an action.
+Your App Service plan does not have any running applications associated with it. Consider deleting the resource to reduce expenses, or add new applications under it to utilize its capabilities.
  
 Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 

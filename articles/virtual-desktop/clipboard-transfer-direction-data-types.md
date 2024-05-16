@@ -4,7 +4,7 @@ description: Learn how to configure the clipboard in Azure Virtual Desktop to fu
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 02/29/2024
+ms.date: 03/19/2024
 ---
 
 # Configure the clipboard transfer direction and types of data that can be copied in Azure Virtual Desktop
@@ -27,7 +27,7 @@ You apply settings to your session hosts. It doesn't depend on a specific Remote
 
 To configure the clipboard transfer direction, you need:
 
-- Session hosts running Windows 11 Insider Preview Build 25898 or later (Dev Channel). You must join the [Windows Insider Program](https://support.microsoft.com/en-us/windows/join-the-windows-insider-program-and-manage-insider-settings-ef20bb3d-40f4-20cc-ba3c-a72c844b563c) to activate the Dev Channel Preview Build.
+- Session hosts running Windows 11 Insider Preview Build 25898 or the most recent version of Windows Insider Build (Dev Channel). You must join the [Windows Insider Program](https://support.microsoft.com/en-us/windows/join-the-windows-insider-program-and-manage-insider-settings-ef20bb3d-40f4-20cc-ba3c-a72c844b563c) to activate the Dev Channel Preview Build.
   
 - Host pool RDP properties must allow [clipboard redirection](configure-device-redirections.md#clipboard-redirection), otherwise it will be completely blocked.
 

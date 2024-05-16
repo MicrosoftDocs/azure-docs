@@ -4,6 +4,7 @@ description: Learn how AKS applies the CIS benchmark with an Azure Linux image
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 12/07/2023
 ---
@@ -194,3 +195,4 @@ For more information about Azure Linux Container Host security, see the followin
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
 [linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
 [linux-container-host-aks]: ../azure-linux/intro-azure-linux.md
+

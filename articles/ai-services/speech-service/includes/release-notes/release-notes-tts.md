@@ -7,6 +7,31 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### April 2024 release
+
+#### Text to speech avatar
+
+- You can now set a static background image for your avatars. To utilize this feature, simply use the `avatarConfig.backgroundImage` property and specify a URL pointing to the desired image. For detials, refer to [How to edit the background](../../text-to-speech-avatar/batch-synthesis-avatar-properties.md#how-to-edit-the-background).
+
+### March 2024 release
+
+#### Prebuilt neural voice
+
+- 9 multilingual voices are generally available in all regions: `en-US-AvaMultilingualNeural`, `en-US-AndrewMultilingualNeural`, `en-US-EmmaMultilingualNeural`, `en-US-BrianMultilingualNeural`, `de-DE-FlorianMultilingualNeural`, `de-DE-SeraphinaMultilingualNeural`, `fr-FR-RemyMultilingualNeural`, `fr-FR-VivienneMultilingualNeural`, and `zh-CN-XiaoxiaoMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts#multilingual-voices) for more information.
+  
+- Introducing a new multilingual voice for public preview: `ja-JP-MasaruMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts#multilingual-voices) for more information.
+
+- Additional updates:
+  - `en-US-RyanMultilingualNeural` is generally available in all regions.
+  - `en-US-JennyMultilingualV2Neural` is generally available in all regions, merged with `en-US-JennyMultilingualNeural`.
+  - Preview available for the updated `en-IN-NeerjaNeural` and `hi-IN-SwaraNeural` with 3 new styles in East US, West Europe, and Southeast Asia.
+  - Preview available for new female voices in Central India: `en-IN-KavyaNeural`, `en-IN-AnanyaNeural`, `en-IN-AashiNeural`, `hi-IN-KavyaNeural`, and `hi-IN-AnanyaNeural`.
+
+#### Text to speech avatar
+
+- Removed dependency on [Azure Communication Services (ACS) TURN](/azure/communication-services/quickstarts/relay-token) for real-time avatar. The [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar) has been updated accordingly to reflect this change.
+- Published text to speech avatar pricing. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including West US 2, West Europe, and Southeast Asia.
+
 ### February 2024 release
 
 #### OpenAI voices

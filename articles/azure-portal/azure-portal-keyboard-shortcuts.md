@@ -2,13 +2,13 @@
 title: Azure portal keyboard shortcuts
 description: The Azure portal supports global keyboard shortcuts to help you perform actions, navigate, and go to locations in the Azure portal. 
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 04/12/2024
 ms.custom: accessibility
 ---
 
 # Keyboard shortcuts in the Azure portal
 
-This article lists the keyboard shortcuts that work throughout the Azure portal. Individual services may have their own additional keyboard shortcuts.
+This article lists the keyboard shortcuts that work throughout the Azure portal.
 
 The letters that appear below represent letter keys on your keyboard. For example, to use **G+N**, hold down the **G** key and then press **N**.
 
@@ -17,7 +17,6 @@ The letters that appear below represent letter keys on your keyboard. For exampl
 |To do this action |Press |
 | --- | --- |
 |Create a resource|G+N|
-|Open **All services**|G+B|
 |Search resources, services, and docs|G+/|
 |Search resource menu items|CTRL+/ |
 |Move up the selected left sidebar item |ALT+Shift+Up Arrow|
@@ -36,10 +35,13 @@ The letters that appear below represent letter keys on your keyboard. For exampl
 | --- | --- |
 |Go to **Dashboard** |G+D |
 |Go to **All resources**|G+A |
+|Go to **All services**|G+B|
 |Go to **Resource groups**|G+R |
 |Open the left sidebar item at this position |G+number|
 
-## Examples of additional keyboard shortcuts for specific areas
+## Keyboard shortcuts for specific areas
+
+Individual services may have their own additional keyboard shortcuts. Examples include:
 
 - [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
 - [Kusto Explorer](/azure/data-explorer/kusto/tools/kusto-explorer-shortcuts)

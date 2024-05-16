@@ -17,7 +17,7 @@ Azure Resource Graph queries provide more functionality than the alertsSummary A
 * The ability to add new fields to the query that returns the alert summary.  
 * More flexibility in the query that returns the alert summary. 
 
-## Implementation of the current alertsSummary API: 
+## Current implementation of the alertsSummary API
 
 This is the format for the calling the alertsSummary API:
 

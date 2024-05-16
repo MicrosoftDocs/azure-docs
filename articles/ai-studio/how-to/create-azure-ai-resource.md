@@ -1,7 +1,7 @@
 ---
 title: How to create and manage an Azure AI hub resource
 titleSuffix: Azure AI Studio
-description: This article describes how to create and manage an Azure AI hub resource
+description: This article describes how to create and manage an Azure AI hub resource.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
@@ -19,11 +19,11 @@ author: Blackmist
 
 As an administrator, you can create and manage Azure AI hub resources. Azure AI hub resources provide a hosting environment for the projects of a team, and help you as an IT admin centrally set up security settings and govern usage and spend. You can create and manage an Azure AI hub resource from the Azure portal or from the Azure AI Studio. 
 
-In this article, you learn how to create and manage an Azure AI hub resource in Azure AI Studio (for getting started) and from the Azure portal (for advanced security setup).
+In this article, you learn how to create and manage an Azure AI hub resource in Azure AI Studio (for getting started).
 
 ## Create an Azure AI hub resource in AI Studio
 
-To create a new Azure AI hub resource, you need either the Owner or Contributor role on the resource group or on an existing Azure AI hub resource. If you are unable to create an Azure AI hub resource due to permissions, reach out to your administrator. If your organization is using [Azure Policy](../../governance/policy/overview.md), don't create the resource in AI Studio. Create the Azure AI hub resource [in the Azure portal](#create-a-secure-azure-ai-hub-resource-in-the-azure-portal) instead.
+To create a new Azure AI hub resource, you need either the Owner or Contributor role on the resource group or on an existing Azure AI hub resource. If you're unable to create an Azure AI hub resource due to permissions, reach out to your administrator. If your organization is using [Azure Policy](../../governance/policy/overview.md), don't create the resource in AI Studio. Create the Azure AI hub resource [in the Azure portal](#create-a-secure-azure-ai-hub-resource-in-the-azure-portal) instead.
 
 Follow these steps to create a new Azure AI hub resource in AI Studio.
 
@@ -32,7 +32,7 @@ Follow these steps to create a new Azure AI hub resource in AI Studio.
 
 1. Enter your AI hub name, subscription, resource group, and location details.
 
-1. In the **Azure OpenAI** dropdown, you can select an existing Azure OpenAI resource to bring all your deployments into AI Studio. If you do not bring one, we will create one for you.
+1. In the **Azure OpenAI** dropdown, you can select an existing Azure OpenAI resource to bring all your deployments into AI Studio. If you don't bring one, we'll create one for you.
 
     :::image type="content" source="../media/how-to/resource-create-advanced.png" alt-text="Screenshot of the Create an Azure AI hub resource wizard with the option to set basic information." lightbox="../media/how-to/resource-create-advanced.png":::
 
@@ -62,7 +62,7 @@ If your organization is using [Azure Policy](../../governance/policy/overview.md
 
     :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set resource information." lightbox="../media/how-to/resource-create-resources.png"::: 
 
-1. Set up Network isolation. Read more on [network isolation](configure-managed-network.md).
+1. Set up Network isolation. Read more on [network isolation](configure-managed-network.md). For a walkthrough of creating a secure Azure AI hub resource, see [Create a secure Azure AI hub resource](create-secure-ai-hub.md).
 
     :::image type="content" source="../media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI hub resource with the option to set network isolation information." lightbox="../media/how-to/resource-create-networking.png":::  
 
@@ -82,10 +82,10 @@ If your organization is using [Azure Policy](../../governance/policy/overview.md
 
 1. Select **Review + create**
 
-
 ## Manage your Azure AI hub resource from the Azure portal
 
 ### Azure AI hub resource keys
+
 View your keys and endpoints for your Azure AI hub resource from the overview page within the Azure portal.
 
 :::image type="content" source="../media/how-to/resource-manage-view-keys.png" alt-text="Screenshot of the Azure AI hub resource in the Azure portal showing the keys and endpoints." lightbox="../media/how-to/resource-manage-view-keys.png":::
@@ -110,11 +110,11 @@ To add grant users permissions:
 ### Networking
 Azure AI hub resource networking settings can be set during resource creation or changed in the **Networking** tab in the Azure portal view. Creating a new Azure AI hub resource invokes a Managed Virtual Network. This streamlines and automates your network isolation configuration with a built-in Managed Virtual Network. The Managed Virtual Network settings are applied to all projects created within an Azure AI hub resource. 
 
-At Azure AI hub resource creation, select between the networking isolation modes: **Public**, **Private with Internet Outbound**, and **Private with Approved Outbound**. To secure your resource, select either **Private with Internet Outbound** or Private with Approved Outbound for your networking needs. For the private isolation modes, a private endpoint should be created for inbound access. Read more information on Network Isolation and Managed Virtual Network Isolation [here](../../machine-learning/how-to-managed-network.md). To create a secure Azure AI hub resource, follow the tutorial [here](../../machine-learning/tutorial-create-secure-workspace.md). 
+At Azure AI hub resource creation, select between the networking isolation modes: **Public**, **Private with Internet Outbound**, and **Private with Approved Outbound**. To secure your resource, select either **Private with Internet Outbound** or Private with Approved Outbound for your networking needs. For the private isolation modes, a private endpoint should be created for inbound access. For more information on network isolation, see [Managed virtual network isolation](configure-managed-network.md). To create a secure Azure AI hub resource, see [Create a secure Azure AI hub resource](create-secure-ai-hub.md). 
 
 At Azure AI hub resource creation in the Azure portal, creation of associated Azure AI services, Storage account, Key vault, Application insights, and Container registry is given. These resources are found on the Resources tab during creation. 
 
-To connect to Azure AI services (Azure OpenAI, Azure AI Search, and Azure AI Content Safety) or storage accounts in Azure AI Studio, create a private endpoint in your virtual network. Ensure the PNA (Public Network Access) flag is disabled when creating the private endpoint connection. For more about Azure AI services connections, follow documentation [here](../../ai-services/cognitive-services-virtual-networks.md). You can optionally bring your own (BYO) search, but this requires a private endpoint connection from your virtual network.
+To connect to Azure AI services (Azure OpenAI, Azure AI Search, and Azure AI Content Safety) or storage accounts in Azure AI Studio, create a private endpoint in your virtual network. Ensure the public network access (PNA) flag is disabled when creating the private endpoint connection. For more about Azure AI services connections, follow documentation [here](../../ai-services/cognitive-services-virtual-networks.md). You can optionally bring your own (BYO) search, but this requires a private endpoint connection from your virtual network.
 
 ### Encryption
 Projects that use the same Azure AI hub resource, share their encryption configuration. Encryption mode can be set only at the time of Azure AI hub resource creation between Microsoft-managed keys and Customer-managed keys. 
@@ -123,6 +123,14 @@ From the Azure portal view, navigate to the encryption tab, to find the encrypti
 For Azure AI hub resources that use CMK encryption mode, you can update the encryption key to a new key version. This update operation is constrained to keys and key versions within the same Key Vault instance as the original key.
 
 :::image type="content" source="../media/how-to/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI hub resource in the Azure portal." lightbox="../media/how-to/resource-manage-encryption.png":::
+
+### Update Azure Application Insights and Azure Container Registry
+
+To use custom environments for Prompt Flow, you're required to configure an Azure Container Registry for your AI hub. To use Azure Application Insights for Prompt Flow deployments, a configured Azure Application Insights resource is required for your AI hub.
+
+You can configure your AI hub for these resources during creation or update after creation. To update Azure Application Insights from the Azure portal, navigate to the **Properties** for your Azure AI hub resource in the Azure portal, then select **Change Application Insights**. You can also use the Azure SDK/CLI options or infrastructure-as-code templates to update both Azure Application Insights and Azure Container Registry for the AI Hub.
+
+:::image type="content" source="../media/how-to/resource-manage-update-associated-resources.png" alt-text="Screenshot of the properties page of the Azure AI resource in the Azure portal." lightbox="../media/how-to/resource-manage-update-associated-resources.png":::
 
 ## Manage your Azure AI hub resource from the Manage tab within the AI Studio
 

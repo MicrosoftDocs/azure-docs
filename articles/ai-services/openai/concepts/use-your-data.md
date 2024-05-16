@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 02/26/2024
+ms.date: 04/08/2024
 recommendations: false
 ms.custom: references_regions 
 ---
@@ -45,12 +45,10 @@ Azure OpenAI On Your Data supports the following file types:
 
 There's an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
 
-* If you're converting data from an unsupported format into a supported format, make sure the conversion:
+* If you're converting data from an unsupported format into a supported format, optimize the quality of the model response by ensuring the conversion:
 
     * Doesn't lead to significant data loss.
     * Doesn't add unexpected noise to your data.  
-
-    This affects the quality of the model response. 
 
 * If your files have special formatting, such as tables and columns, or bullet points, prepare your data with the data preparation script available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#optional-crack-pdfs-to-text).
 
@@ -58,16 +56,20 @@ There's an [upload limit](../quotas-limits.md), and there are some caveats about
 
 ## Supported data sources
 
-You need to connect to a data source to upload your data. When you want to use your data to chat with an Azure OpenAI model, your data is chunked in a search index so that relevant data can be found based on user queries. For some data sources such as uploading files from your local machine (preview) or data contained in a blob storage account (preview), Azure AI Search is used. 
+You need to connect to a data source to upload your data. When you want to use your data to chat with an Azure OpenAI model, your data is chunked in a search index so that relevant data can be found based on user queries.
 
-When you choose the following data sources, your data is ingested into an Azure AI Search index.
+The [Integrated Vector Database in vCore-based Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/vector-search) natively supports integration with Azure OpenAI On Your Data.
 
-|Data source  | Description  |
+For some data sources such as uploading files from your local machine (preview) or data contained in a blob storage account (preview), Azure AI Search is used. When you choose the following data sources, your data is ingested into an Azure AI Search index.
+
+|Data ingested through Azure AI Search  | Description  |
 |---------|---------|
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
+
+:::image type="content" source="../media/use-your-data/azure-databases-and-ai-search.png" lightbox="../media/use-your-data/azure-databases-and-ai-search.png" alt-text="Diagram of vector indexing services.":::
 
 # [Azure AI Search](#tab/ai-search)
 
@@ -101,13 +103,13 @@ If you're using your own index, you can customize the [field mapping](#index-fie
 |---------------------|------------------------|---------------------| -------- |
 | *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
 | *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |Improves the precision and relevance of search results by using a reranker (with AI models) to understand the semantic meaning of query terms and documents returned by the initial search ranker|
-| *vector*            | Vector search       | No additional pricing |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
+| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.     |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
 | *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
 | *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic search, and keyword search.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Uses vector embeddings, language understanding, and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
 ### Intelligent search
 
-Azure OpenAI On Your Data has intelligent search enabled for your data. Semantic search is enabled by default if you have both semantic search and keyword search. If you have embedding models, intelligent search will default to hybrid + semantic search.
+Azure OpenAI On Your Data has intelligent search enabled for your data. Semantic search is enabled by default if you have both semantic search and keyword search. If you have embedding models, intelligent search defaults to hybrid + semantic search.
 
 ### Document-level access control
 
@@ -119,53 +121,42 @@ Azure OpenAI On Your Data lets you restrict the documents that can be used in re
 
 ### Index field mapping 
 
-If you're using your own index, you will be prompted in the Azure OpenAI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
+If you're using your own index, you'll be prompted in the Azure OpenAI Studio to define which fields you want to map for answering questions when you add your data source. You can provide multiple fields for *Content data*, and should include all fields that have text pertaining to your use case. 
 
 :::image type="content" source="../media/use-your-data/index-data-mapping.png" alt-text="A screenshot showing the index field mapping options in Azure OpenAI Studio." lightbox="../media/use-your-data/index-data-mapping.png":::
 
 In this example, the fields mapped to **Content data** and **Title** provide information to the model to answer questions. **Title** is also used to title citation text. The field mapped to **File name** generates the citation names in the response. 
 
-Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../references/on-your-data.md) using the `fieldsMapping` parameter.   
+Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure it [in the API](../references/on-your-data.md) using the `fieldsMapping` parameter.   
 
 ### Search filter (API)
 
 If you want to implement additional value-based criteria for query execution, you can set up a [search filter](/azure/search/search-filters) using the `filter` parameter in the [REST API](../references/azure-search.md).
 
+[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
-# [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
+
+# [Vector Database in Azure Cosmos DB for MongoDB](#tab/mongo-db)
 
 ### Prerequisites
-* [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/introduction) account
+* [vCore-based Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/introduction) account
 * A deployed [embedding model](../concepts/understand-embeddings.md)
 
 ### Limitations
-* Only Azure Cosmos DB for MongoDB vCore is supported.
-* The search type is limited to [Azure Cosmos DB for MongoDB vCore vector search](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
+* Only vCore-based Azure Cosmos DB for MongoDB is supported.
+* The search type is limited to [Integrated Vector Database in Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
 * This implementation works best on unstructured and spatial data.
 
+  
 ### Data preparation
 
-Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/feature/2023-9/scripts/cosmos_mongo_vcore_data_preparation.py) to prepare your data.
-
-<!--### Add your data source in Azure OpenAI Studio
-
-To add Azure Cosmos DB for MongoDB vCore as a data source, you will need an existing Azure Cosmos DB for MongoDB vCore index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
-
-1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select **Azure Cosmos DB for MongoDB vCore** as the data source. 
-1. Select your Azure subscription and database account, then connect to your Azure Cosmos DB account by providing your Azure Cosmos DB account username and password.
-    
-    :::image type="content" source="../media/use-your-data/add-mongo-data-source.png" alt-text="A screenshot showing the screen for adding Mongo DB as a data source in Azure OpenAI Studio." lightbox="../media/use-your-data/add-mongo-data-source.png":::
-
-1. **Select Database**. In the dropdown menus, select the database name, database collection, and index name that you want to use as your data source. Select the embedding model deployment you would like to use for vector search on this data source, and acknowledge that you will incur charges for using vector search. Then select **Next**.
-
-    :::image type="content" source="../media/use-your-data/select-mongo-database.png" alt-text="A screenshot showing the screen for adding Mongo DB settings in Azure OpenAI Studio." lightbox="../media/use-your-data/select-mongo-database.png":::
--->
+Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#data-preparation) to prepare your data.
 
 ### Index field mapping
 
-When you add your Azure Cosmos DB for MongoDB vCore data source, you can specify  data fields to properly map your data for retrieval.
+When you add your vCore-based Azure Cosmos DB for MongoDB data source, you can specify data fields to properly map your data for retrieval.
 
-* Content data (required): One or more provided fields that will be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
+* Content data (required): One or more provided fields to be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
 * File name/title/URL: Used to display more information when a document is referenced in the chat.
 * Vector fields (required): Select the field in your database that contains the vectors.
 
@@ -178,8 +169,7 @@ You might want to use Azure Blob Storage as a data source if you want to connect
 ## Schedule automatic index refreshes
 
 > [!NOTE] 
-> * Automatic index refreshing is supported for Azure Blob Storage only.
-> * If a document is deleted from input blob container, the corresponding chunk index records won't be removed by the scheduled refresh.
+> Automatic index refreshing is supported for Azure Blob Storage only.
 
 To keep your Azure AI Search index up-to-date with your latest data, you can schedule an automatic index refresh rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **Azure Blob Storage** as the data source. To enable an automatic index refresh:
 
@@ -188,7 +178,7 @@ To keep your Azure AI Search index up-to-date with your latest data, you can sch
 
     :::image type="content" source="../media/use-your-data/indexer-schedule.png" alt-text="A screenshot of the indexer schedule in Azure OpenAI Studio." lightbox="../media/use-your-data/indexer-schedule.png":::
 
-After the data ingestion is set to a cadence other than once, Azure AI Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added or modified from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure AI Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
+After the data ingestion is set to a cadence other than once, Azure AI Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull, reprocess, and index the documents that were added or modified from the storage container. This process ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure AI Search resource won't be cleaned up after ingestion to allow for future runs. These assets are:
    - `{Index Name}-index`
    - `{Index Name}-indexer`
    - `{Index Name}-indexer-chunk`
@@ -210,12 +200,15 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
     1. Select **Save**.
 
+[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
+
 # [Upload files (preview)](#tab/file-upload)
 
-Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data, and optionally creating a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
+Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data. You also have the option to create a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
 
 :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
+[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
 # [URL/Web address (preview)](#tab/web-pages)
 
@@ -231,17 +224,67 @@ You can paste URLs and the service will store the webpage content, using it when
 
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to Azure Blob Storage with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
 
+# [Elasticsearch (preview)](#tab/elasticsearch)
+
+You can connect to your [Elasticsearch vector database](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html) and chat with your data.
+
+### Prerequisites
+
+* An Elasticsearch database 
+* An embedding model. You can:
+    * Use an existing Azure OpenAI `text-embedding-ada-002` embedding model, or  
+    * Bring your own embedding model hosted on Elasticsearch.
+* Prepare your data using the python notebook available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/notebooks/AzureOpenAI_OnYourData_Elasticsearch.ipynb). 
+
+### Request access
+
+Using the Elasticsearch data source is a preview feature which is subject to the Limited Access Service terms in the [service-specific terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS) for Azure AI services. You must fill out and submit a [request form](https://aka.ms/aoaioydelasticsearchrequest) to request access to the Elasticsearch data source. The form requests information about your company and the scenario for which you plan to use the Elasticsearch data source. After you submit the form, the Azure AI services team will review it and email you with a decision within 10 business days.
+
+### Connect Elasticsearch to Azure OpenAI On Your Data
+
+1. Set up [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html) and get your connection information. 
+
+    You need to enter your [Elasticsearch endpoint](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-request-elasticsearch-endpoint.html) and encoded API key to connect with your Elasticsearch database. Then, click **verify connection**. 
+
+
+    :::image type="content" source="../media/use-your-data/connect-elasticsearch.png" alt-text="A screenshot showing the connection screen for Elasticsearch." lightbox="../media/use-your-data/connect-elasticsearch.png":::
+
+1. Select the index you want to connect with. 
+
+1. (optional) use a custom field mapping.  
+
+    You can [customize the field mapping](#index-field-mapping-2) when you add your data source to define the fields that will get mapped when answering questions, or use the default values.  
+
+1. Choose the [search type](#search-types). Azure OpenAI On Your Data provides the following search types you can use when you add your data source.
+
+1. Continue through the screens that appear and select **Save and close**.
+ 
+### Search types
+
+Azure OpenAI On Your Data provides the following search types you can use when you add your data source.
+
+* [Keyword search](/azure/search/search-lucene-query-architecture)
+* [Vector search](/azure/search/vector-search-overview)
+
+To enable vector search, you need an existing embedding model deployed in your Azure OpenAI resource or hosted on Elasticsearch. Select your embedding deployment when connecting your data, then select one of the vector search types under **Data management**.
+
+| Search option       | Retrieval type | Additional pricing? |Benefits|
+|---------------------|------------------------|---------------------| -------- |
+| *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
+| *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model. |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
+
+
+### Index field mapping 
+
+You can customize the [field mapping](#index-field-mapping) when you add your data source to define the fields that will get mapped when answering questions. To customize field mapping, select **Use custom field mapping** on the **Data Source** page when adding your data source. You can provide multiple fields for *content data*, and should include all fields that have text pertaining to your use case.
+
+Mapping these fields correctly helps ensure the model has better response and citation quality. You can additionally configure this [in the API](../references/elasticsearch.md#fields-mapping-options) using the `fields_mapping` parameter.   
+
+### Use Elasticsearch as a data source via API  
+
+Along with using Elasticsearch databases in Azure OpenAI Studio, you can also use your Elasticsearch database using the [API](../references/elasticsearch.md). 
+
 ---
-
-### How data is ingested into Azure AI search
-
-Data is ingested into Azure AI search using the following process:
-
-1. Ingestion assets are created in Azure AI Search resource and Azure storage account. Currently these assets are: indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) in the search resource, and a container (later called the chunks container) in the Azure storage account. You can specify the input Azure storage container using the [Azure OpenAI studio](https://oai.azure.com/), or the [ingestion API (preview)](/rest/api/azureopenai/ingestion-jobs).  
-
-2. Data is read from the input container, contents are opened and chunked into small chunks with a maximum of 1,024 tokens each. If vector search is enabled, the service calculates the vector representing the embeddings on each chunk. The output of this step (called the "preprocessed" or "chunked" data) is stored in the chunks container created in the previous step. 
-
-3. The preprocessed data is loaded from the chunks container, and indexed in the Azure AI Search index.
 
 ## Deploy to a copilot (preview) or web app 
 
@@ -264,6 +307,27 @@ You can use Azure OpenAI On Your Data securely by protecting data and resources 
 
 Use the following sections to learn how to improve the quality of responses given by the model.
 
+### Ingestion parameter
+
+When your data is ingested into to Azure AI Search, You can modify the following additional settings in either the studio or [ingestion API](/rest/api/azureopenai/ingestion-jobs/create#request-body).
+
+### Chunk size (preview)
+
+Azure OpenAI On Your Data processes your documents by splitting them into chunks before ingesting them. The chunk size is the maximum size in terms of the number of tokens of any chunk in the search index. Chunk size and the number of retrieved documents together control how much information (tokens) is included in the prompt sent to the model. In general, the chunk size multiplied by the number of retrieved documents is the total number of tokens sent to the model. 
+
+#### Setting chunk size for your use case
+
+The default chunk size is 1,024 tokens. However, given the uniqueness of your data, you might find a different chunk size (such as 256, 512, or 1,536 tokens) more effective.
+
+Adjusting the chunk size can enhance your chatbot's performance. While finding the optimal chunk size requires some trial and error, start by considering the nature of your dataset. A smaller chunk size is generally better for datasets with direct facts and less context, while a larger chunk size might be beneficial for more contextual information, though it could affect retrieval performance. 
+
+A small chunk size like 256 produces more granular chunks. This size also means the model will utilize fewer tokens to generate its output (unless the number of retrieved documents is very high), potentially costing less. Smaller chunks also mean the model doesn't have to process and interpret long sections of text, reducing noise and distraction. This granularity and focus however pose a potential problem. Important information might not be among the top retrieved chunks, especially if the number of retrieved documents is set to a low value like 3.
+
+> [!TIP]
+> Keep in mind that altering the chunk size requires your documents to be re-ingested, so it's useful to first adjust [runtime parameters](#runtime-parameters) like strictness and the number of retrieved documents. Consider changing the chunk size if you're still not getting the desired results:
+> * If you are encountering a high number of responses such as "I don't know" for questions with answers that should be in your documents, consider reducing the chunk size to 256 or 512 to improve granularity.
+> * If the chatbot is providing some correct details but missing others, which becomes apparent in the citations, increasing the chunk size to 1,536 might help capture more contextual information.
+
 ### Runtime parameters
 
 You can modify the following additional settings in the **Data parameters** section in Azure OpenAI Studio and [the API](../references/on-your-data.md). You don't need to reingest your data when you update these parameters. 
@@ -274,6 +338,10 @@ You can modify the following additional settings in the **Data parameters** sect
 | **Limit responses to your data** | This flag configures the chatbot's approach to handling queries unrelated to the data source or when search documents are insufficient for a complete answer. When this setting is disabled, the model supplements its responses with its own knowledge in addition to your documents. When this setting is enabled, the model attempts to only rely on your documents for responses. This is the `inScope` parameter in the API, and set to true by default. |
 |**Retrieved documents**     |  This parameter is an integer that can be set to 3, 5, 10, or 20, and controls the number of document chunks provided to the large language model for formulating the final response. By default, this is set to 5. The search process can be noisy and sometimes, due to chunking, relevant information might be spread across multiple chunks in the search index. Selecting a top-K number, like 5, ensures that the model can extract relevant information, despite the inherent limitations of search and chunking. However, increasing the number too high can potentially distract the model. Additionally, the maximum number of documents that can be effectively used depends on the version of the model, as each has a different context size and capacity for handling documents. If you find that responses are missing important context, try increasing this parameter. This is the `topNDocuments` parameter in the API, and is 5 by default. |
 | **Strictness**     | Determines the system's aggressiveness in filtering search documents based on their similarity scores. The system queries Azure Search or other document stores, then decides which documents to provide to large language models like ChatGPT. Filtering out irrelevant documents can significantly enhance the performance of the end-to-end chatbot. Some documents are excluded from the top-K results if they have low similarity scores before forwarding them to the model. This is controlled by an integer value ranging from 1 to 5. Setting this value to 1 means that the system will minimally filter documents based on search similarity to the user query. Conversely, a setting of 5 indicates that the system will aggressively filter out documents, applying a very high similarity threshold. If you find that the chatbot omits relevant information, lower the filter's strictness (set the value closer to 1) to include more documents. Conversely, if irrelevant documents distract the responses, increase the threshold (set the value closer to 5). This is the `strictness` parameter in the API, and set to 3 by default. |
+
+### Uncited references
+
+It's possible for the model to return `"TYPE":"UNCITED_REFERENCE"` instead of `"TYPE":CONTENT` in the API for documents that are retrieved from the data source, but not included in the citation. This can be useful for debugging, and you can control this behavior by modifying the **strictness** and **retrieved documents** runtime parameters described above.
 
 ### System message
 
@@ -302,14 +370,14 @@ You can also change the model's output by defining a system message. For example
 
 **Reaffirm critical behavior**
 
-Azure OpenAI On Your Data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why documents are relevant to user queries. In any case, do not answer using your own knowledge."*.
+Azure OpenAI On Your Data works by sending instructions to a large language model in the form of prompts to answer user queries using your data. If there is a certain behavior that is critical to the application, you can repeat the behavior in system message to increase its accuracy. For example, to guide the model to only answer from documents, you can add "*Please answer using retrieved documents only, and without using your knowledge. Please generate citations to retrieved documents for every claim in your answer. If the user question cannot be answered using retrieved documents, please explain the reasoning behind why documents are relevant to user queries. In any case, don't answer using your own knowledge."*.
 
 **Prompt Engineering tricks**
 
 There are many tricks in prompt engineering that you can try to improve the output. One example is chain-of-thought prompting where you can add *"Let’s think step by step about information in retrieved documents to answer user queries. Extract relevant knowledge to user queries from documents step by step and form an answer bottom up from the extracted information from relevant documents."*.
 
 > [!NOTE]
-> The system message is used to modify how GPT assistant responds to a user question based on retrieved documentation. It does not affect the retrieval process. If you'd like to provide instructions for the retrieval process, it is better to include them in the questions.
+> The system message is used to modify how GPT assistant responds to a user question based on retrieved documentation. It doesn't affect the retrieval process. If you'd like to provide instructions for the retrieval process, it is better to include them in the questions.
 > The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior might occur if the system message contradicts with these behaviors. 
 
 
@@ -383,40 +451,15 @@ You can send a streaming request using the `stream` parameter, allowing data to 
 
 #### Conversation history for better results
 
-When you chat with a model, providing a history of the chat will help the model return higher quality results. 
+When you chat with a model, providing a history of the chat will help the model return higher quality results. You don't need to include the `context` property of the assistant messages in your API requests for better response quality. See [the API reference documentation](../references/on-your-data.md#examples) for examples.
 
-```json
-{
-    "dataSources": [
-        {
-            "type": "AzureCognitiveSearch",
-            "parameters": {
-                "endpoint": "'$AZURE_AI_SEARCH_ENDPOINT'",
-                "key": "'$AZURE_AI_SEARCH_API_KEY'",
-                "indexName": "'$AZURE_AI_SEARCH_INDEX'"
-            }
-        }
-    ],
-    "messages": [
-        {
-            "role": "user",
-            "content": "What are the differences between Azure Machine Learning and Azure AI services?"
-        },
-        {
-            "role": "tool",
-            "content": "{\"citations\": [{\"content\": \"title: Azure AI services and Machine Learning\\ntitleSuffix: Azure AI services\\ndescription: Learn where Azure AI services fits in with other Azure offerings for machine learning.\\nAzure AI services and machine learning\\nAzure AI services provides machine learning capabilities to solve general problems such as...\\n \"articles\\\\cognitive-services\\\\cognitive-services-and-machine-learning.md\", \"url\": null, \"metadata\": {\"chunking\": \"orignal document size=1018. Scores=0.32200050354003906 and 1.2880020141601562.Org Highlight count=115.\"}, \"chunk_id\": \"0\"}], \"intent\": \"[\\\"What are the differences between Azure Machine Learning and Azure AI services?\\\"]\"}"
-        },
-        {
-            "role": "assistant",
-            "content": " \nAzure Machine Learning is a product and service tailored for data scientists to build, train, and deploy machine learning models [doc1]..."
-        },
-        {
-            "role": "user",
-            "content": "How do I use Azure machine learning?"
-        }
-    ]
-}
-```
+#### Function Calling
+
+Some Azure OpenAI models allow you to define [tools and tool_choice parameters](../how-to/function-calling.md) to enable function calling. You can set up function calling through [REST API](../reference.md#chat-completions) `/chat/completions`. If both `tools` and [data sources](../references/on-your-data.md#request-body) are in the request, the following policy is applied.
+1. If `tool_choice` is `none`, the tools are ignored, and only the data sources are used to generate the answer.
+1. Otherwise, if `tool_choice` is not specified, or specified as `auto` or an object, the data sources are ignored, and the response will contain the selected functions name and the arguments, if any. Even if the model decides no function is selected, the data sources are still ignored.
+
+If the policy above doesn't meet your need, please consider other options, for example: [prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) or [Assistants API](../how-to/assistant.md).
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
@@ -432,9 +475,9 @@ As part of this RAG pipeline, there are three steps at a high-level:
 
 In total, there are two calls made to the model: 
 
-* For processing the intent: The token estimate for the *intent prompt* includes those for the user question, conversation history and the instructions sent to the model for intent generation. 
+* For processing the intent: The token estimate for the *intent prompt* includes those for the user question, conversation history, and the instructions sent to the model for intent generation. 
 
-* For generating the response: The token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information and the instructions sent to it for generation. 
+* For generating the response: The token estimate for the *generation prompt* includes those for the user question, conversation history, the retrieved list of document chunks, role information, and the instructions sent to it for generation. 
 
 The model generated output tokens (both intents and response) need to be taken into account for total token estimation. Summing up all the four columns below gives the average total tokens used for generating a response. 
 
@@ -500,14 +543,13 @@ token_output = TokenEstimator.estimate_tokens(input_text)
 
 ## Troubleshooting 
 
+To troubleshoot failed operations, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+
 ### Failed ingestion jobs
-
-To troubleshoot a failed job, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
-
 
 **Quota Limitations Issues** 
 
-*An index with the name X in service Y could not be created. Index quota has been exceeded for this service. You must either delete unused indexes first, add a delay between index creation requests, or upgrade the service for higher limits.*
+*An index with the name X in service Y couldn't be created. Index quota has been exceeded for this service. You must either delete unused indexes first, add a delay between index creation requests, or upgrade the service for higher limits.*
 
 *Standard indexer quota of X has been exceeded for this service. You currently have X standard indexers. You must either delete unused indexers first, change the indexer 'executionMode', or upgrade the service for higher limits.* 
 
@@ -517,9 +559,9 @@ Upgrade to a higher pricing tier or delete unused assets.
 
 **Preprocessing Timeout Issues** 
 
-*Could not execute skill because the Web API request failed*
+*Couldn't execute skill because the Web API request failed*
 
-*Could not execute skill because Web API skill response is invalid* 
+*Couldn't execute skill because Web API skill response is invalid* 
 
 Resolution: 
 
@@ -532,6 +574,10 @@ Break down the input documents into smaller documents and try again.
 Resolution: 
 
 This means the storage account isn't accessible with the given credentials. In this case, please review the storage account credentials passed to the API and ensure the storage account isn't hidden behind a private endpoint (if a private endpoint isn't configured for this resource). 
+
+### 503 errors when sending queries with Azure AI Search
+
+Each user message can translate to multiple search queries, all of which get sent to the search resource in parallel. This can produce throttling behavior when the number of search replicas and partitions is low. The maximum number of queries per second that a single partition and single replica can support may not be sufficient. In this case, consider increasing your replicas and partitions, or adding sleep/retry logic in your application. See the [Azure AI Search documentation](../../../search/performance-benchmarks.md) for more information.
 
 ## Regional availability and model support
 
@@ -558,6 +604,7 @@ You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the follo
 
 * `gpt-4` (0314)
 * `gpt-4` (0613)
+* `gpt-4` (0125)
 * `gpt-4-32k` (0314)
 * `gpt-4-32k` (0613)
 * `gpt-4` (1106-preview)

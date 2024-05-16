@@ -1,13 +1,16 @@
 ---
-title: 'Quickstart: Create with Azure portal'
+title: "Quickstart: Create with Azure portal"
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL - Flexible Server instance by using the Azure portal user interface.
-ms.author: sunila
-author: sunilagarwal
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 01/02/2024
+ms.custom:
+  - mvc
+  - mode-ui
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance in the Azure portal
@@ -174,4 +177,4 @@ To delete only the newly created server:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)
+> [Deploy a Django app with App Service and PostgreSQL](/azure/app-service/tutorial-python-postgresql-app)

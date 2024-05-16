@@ -128,6 +128,6 @@ To assign the *deployIfNotExists* policy:
 
 ## Next steps
 
-- To learn more about NSG flow logs, see [Flow logs for network security groups](./network-watcher-nsg-flow-logging-overview.md).
-- To learn about using built-in policies with traffic analytics, see [Manage traffic analytics using Azure Policy](./traffic-analytics-policy-portal.md).
-- To learn how to use an Azure Resource Manager (ARM) template to deploy flow logs and traffic analytics, see [Configure NSG flow logs using an Azure Resource Manager template](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
+- To learn more about NSG flow logs, see [Flow logs for network security groups](nsg-flow-logs-overview.md).
+- To learn about using built-in policies with traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
+- To learn how to use an Azure Resource Manager (ARM) template to deploy flow logs and traffic analytics, see [Configure NSG flow logs using an Azure Resource Manager template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).

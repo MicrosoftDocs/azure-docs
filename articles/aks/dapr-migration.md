@@ -5,7 +5,8 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: nigreenf
 ms.topic: article
-ms.date: 09/26/2023
+ms.date: 02/14/2024
+ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
 
@@ -99,3 +100,4 @@ Learn more about [Dapr][dapr-overview] and [how to use it][dapr-howto].
 
 <!-- LINKS EXTERNAL -->
 [dapr-prod-guidelines]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production/#enabling-high-availability-in-an-existing-dapr-deployment
+

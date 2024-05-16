@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/29/2024
 ms.author: allensu
 author: asudbring
+ms.subservice: aks-nodes
 ---
 
 # Azure Kubernetes Service (AKS) node pool snapshot
@@ -117,3 +118,4 @@ az aks create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-i
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-provider-register]: /cli/azure/provider#az_provider_register
+

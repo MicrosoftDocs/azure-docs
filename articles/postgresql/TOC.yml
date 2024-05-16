@@ -80,8 +80,10 @@
       href: flexible-server/concepts-servers.md
     - name: Supported versions
       href: flexible-server/concepts-supported-versions.md
-    - name: Compute and storage
-      href: flexible-server/concepts-compute-storage.md
+    - name: Compute  
+      href: flexible-server/concepts-compute.md
+    - name: Storage
+      href: flexible-server/concepts-storage.md
     - name: Scaling resources
       href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity
@@ -130,6 +132,9 @@
       href: flexible-server/concepts-server-parameters.md
     - name: Troubleshooting guides
       href: flexible-server/concepts-troubleshooting-guides.md
+    - name: Logical replication and logical decoding
+      href: flexible-server/concepts-logical.md
+      displayName: logical decoding, logical replication
     - name: Reliability
       items:
       - name: Overview
@@ -166,14 +171,17 @@
           href: flexible-server/concepts-query-performance-insight.md
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
-    - name: Replication
+    - name: Read replicas
       items:
-      - name: Read replicas
+      - name: Overview
         href: flexible-server/concepts-read-replicas.md
         displayName: replication, read replica
-      - name: Logical replication and logical decoding
-        href: flexible-server/concepts-logical.md
-        displayName: logical decoding, logical replication
+      - name: Geo-Replication
+        href: flexible-server/concepts-read-replicas-geo.md
+      - name: Promote read replicas
+        href: flexible-server/concepts-read-replicas-promote.md
+      - name: Virtual endpoints
+        href: flexible-server/concepts-read-replicas-virtual-endpoints.md
     - name: App development
       items: 
       - name: Connection libraries
@@ -321,6 +329,8 @@
       items:
       - name: Encrypted connectivity using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
+      - name: Update application client SSL/TLS certificates
+        href: flexible-server/how-to-update-client-certificates-java.md
       - name: Private access with virtual network integration
         items:
         - name: Azure portal
@@ -331,6 +341,8 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-private-endpoint-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-virtual-network-private-endpoint-cli.md
         - name: Connect to managed data factory via Private Endpoint
           href: flexible-server/how-to-connect-to-data-factory-private-endpoint.md
       - name: Public access (allowed IP addresses)
@@ -403,6 +415,8 @@
         href: flexible-server/generative-ai-azure-openai.md
       - name: Azure Cognitive Services
         href: flexible-server/generative-ai-azure-cognitive.md
+      - name: Azure Machine Learning Services
+        href: flexible-server/generative-ai-azure-machine-learning.md        
     - name: Azure Storage (pg_azure_storage)
       href: flexible-server/reference-pg-azure-storage.md
     - name: Vector similarity search (pgvector)
@@ -413,48 +427,47 @@
       - name: Optimize performance when using pgvector
         href: flexible-server/how-to-optimize-performance-pgvector.md
         displayName: vector databases
-- name: Migration
+    - name: Partitioning
+      items:
+      - name: Partitioning using pg_partman
+        href: flexible-server/how-to-use-pg-partman.md
+        displayName: pg_partman
+- name: Migration Service
   items:
-  - name: Migrate Single Server to Flexible Server
+  - name: Overview
+    href: migrate/migration-service/concepts-migration-service-postgresql.md
+  - name: Tutorials
     items:
-    - name: Migration tool - Concepts
-      href: migrate/concepts-single-to-flexible.md
-    - name: Migration tool - Azure portal
-      href: migrate/how-to-migrate-single-to-flexible-portal.md
-    - name: Migration tool - Azure CLI
-      href: migrate/how-to-migrate-single-to-flexible-cli.md
-    - name: Best practices for a seamless migration
-      href: migrate/best-practices-seamless-migration-single-to-flexible.md
-    - name: Troubleshoot networking and connectivity issues
-      href: migrate/troubleshooting-networking-and-connectivity-issues.md  
-  - name: Migration Service
+    - name: Migrate from Single Server
+      href: migrate/migration-service/tutorial-migration-service-single-to-flexible.md
+    - name: Migrate from on-premises or Azure VM
+      href: migrate/migration-service/tutorial-migration-service-iaas.md
+    - name: Migrate from AWS RDS
+      href: migrate/migration-service/tutorial-migration-service-aws.md
+  - name: Concepts
     items:
-    - name: Overview
-      href: migrate/migration-service/concepts-migration-service-postgresql.md
-    - name: Tutorials
-      items:
-      - name: Migrate from on-premises and Azure VM
-        href: migrate/migration-service/tutorial-migration-service-offline-iaas.md
-      - name: Migrate from AWS RDS
-        href: migrate/migration-service/tutorial-migration-service-offline-aws.md
-    - name: Concepts
-      items:
-      - name: Premigration validation
-        href: migrate/migration-service/concepts-premigration-migration-service.md
-      - name: Best practices
-        href: migrate/migration-service/best-practices-migration-service-postgresql.md
-      - name: Known issues and limitations
-        href: migrate/migration-service/concepts-known-issues-migration-service.md
-    - name: How-to guides
-      items:
-      - name: Network setup
-        href: migrate/migration-service/how-to-network-setup-migration-service.md
-  - name: Migrate data with pg_dump
-    href: migrate/how-to-migrate-using-dump-and-restore.md
-  - name: Minimal-downtime migration with DMS
-    href: single-server/how-to-migrate-online.md
-  - name: Migrate from Oracle
-    href: single-server/how-to-migrate-from-oracle.md
+    - name: Premigration validation
+      href: migrate/migration-service/concepts-premigration-migration-service.md
+    - name: User roles and permissions
+      href: migrate/migration-service/concepts-user-roles-migration-service.md
+    - name: Best practices
+      href: migrate/migration-service/best-practices-migration-service-postgresql.md
+    - name: Known issues and limitations
+      href: migrate/migration-service/concepts-known-issues-migration-service.md
+  - name: How-to guides
+    items:
+    - name: Network setup
+      href: migrate/migration-service/how-to-network-setup-migration-service.md
+  - name: Troubleshoot
+    items:
+    - name: Premigration error codes
+      href: migrate/migration-service/troubleshoot-error-codes-premigration.md
+- name: Migrate data with pg_dump
+  href: migrate/how-to-migrate-using-dump-and-restore.md
+- name: Minimal-downtime migration with DMS
+  href: single-server/how-to-migrate-online.md
+- name: Migrate from Oracle
+  href: single-server/how-to-migrate-from-oracle.md
 - name: Azure Database for PostgreSQL - Single Server
   expanded: false
   items:
@@ -885,7 +898,7 @@
       - name: Connect your app's data to Power BI
         href: https://aka.ms/postg-powerbi-vid
   - name: Feedback forum
-    href: https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0
+    href: https://aka.ms/pgfeedback
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options

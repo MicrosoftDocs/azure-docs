@@ -1,7 +1,7 @@
 ---
 title: Dell Edge 5200 (E500) - Microsoft Defender for IoT
 description: Learn about the Dell Edge 5200 appliance for OT monitoring with Microsoft Defender for IoT.
-ms.date: 04/24/2022
+ms.date: 04/08/2024
 ms.topic: reference
 ---
 
@@ -14,7 +14,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 |**Hardware profile** | E500|
 |**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
-|**Status** | Supported|
+|**Status** | Supported, available preconfigured |
 
 The following image shows the hardware elements on the Dell Edge 5200 that are used by Defender for IoT:
 

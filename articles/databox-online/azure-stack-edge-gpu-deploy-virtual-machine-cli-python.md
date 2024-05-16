@@ -114,7 +114,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 7. Prepare your environment for the Azure CLI:
 
-   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Step 1: Set up Azure CLI/Python on the client
 

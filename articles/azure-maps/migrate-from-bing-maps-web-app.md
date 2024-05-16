@@ -26,12 +26,6 @@ Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure
 > * Show traffic data
 > * Add a ground overlay
 
-If migrating an existing web application, check to see if it's using an open-source map control library such as Cesium, Leaflet, and OpenLayers. In such case, connect your application to the Azure Maps [Render] services ([road tiles] | [satellite tiles]). The following links provide details on how to use Azure Maps in commonly used open-source map control libraries.
-
-* [Cesium] - A 3D map control for the web. <!--[Cesium code samples] \|--> [Cesium plugin]
-* [Leaflet] – Lightweight 2D map control for the web. [Leaflet code samples] \| [Leaflet plugin]
-* [OpenLayers] - A 2D map control for the web that supports projections. <!--[OpenLayers code samples] \|--> [OpenLayers plugin]
-
 If developing using a JavaScript framework, one of the following open-source projects can be useful:
 
 * [ng-azure-maps] - Angular 10 wrapper around Azure maps.
@@ -60,7 +54,7 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Tile Layers              | ✓                                                                    |
 | KML Layer                | ✓                                                                    |
 | Contour layer            | [Contour layer code samples]                                         |
-| Data binning layer       | Included in the open-source Azure Maps [Gridded Data Source module]  |
+| Data binning layer       |  N/A                                                                 |
 | Animated tile layer      | Included in the open-source Azure Maps [Animation module]            |
 | Drawing tools            | ✓                                                                    |
 | Geocoder service         | ✓                                                                    |
@@ -68,7 +62,7 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Distance Matrix service  | ✓                                                                    |
 | Spatial Data service     | N/A                                                                  |
 | Satellite/Aerial imagery | ✓                                                                    |
-| Birds eye imagery         | N/A                                                                 |
+| Birds eye imagery        | N/A                                                                  |
 | Streetside imagery       | N/A                                                                  |
 | GeoJSON support          | ✓                                                                    |
 | GeoXML support           | ✓ [Spatial IO module]                                                |
@@ -130,7 +124,7 @@ Loading a map in both SDKs follows the same set of steps;
 
 * Add a reference to the Map SDK.
 * Add a `div` tag to the body of the page that acts as a placeholder for the map.
-* Create a JavaScript function that gets called when the page has loaded.
+* Create a JavaScript function that gets called once the page loads.
 * Create an instance of the respective map class.
 
 **Key differences**
@@ -141,7 +135,7 @@ Loading a map in both SDKs follows the same set of steps;
 * Coordinates in Azure Maps are defined as Position objects that can be specified as a simple number array in the format `[longitude, latitude]`.
 * The zoom level in Azure Maps is one level lower than the Bing Maps example due to the difference in tiling system sizes between the platforms.
 * By default, Azure Maps doesn’t add any navigation controls to the map canvas, such as zoom buttons and map style buttons. There are however controls for adding a map style picker, zoom buttons, compass or rotation control, and a pitch control.
-* An event handler is added in Azure Maps to monitor the `ready` event of the map instance. This fires when the map has finished loading the WebGL context and all resources needed. Any post load code can be added in this event handler.
+* An event handler is added in Azure Maps to monitor the `ready` event of the map instance. This fires when the map finishes loading the WebGL context and all resources needed. Any post load code can be added in this event handler.
 
 The following examples demonstrate loading a basic map centered over New York at coordinates (longitude: -73.985, latitude: 40.747) and is at zoom level 12 in Bing Maps.
 
@@ -345,7 +339,7 @@ In Azure Maps, there are multiple ways that point data can be rendered on the ma
 * Symbol Layer – Renders points with an icon and/or text within the WebGL context.
 * Bubble Layer – Renders points as circles on the map. The radii of the circles can be scaled based on properties in the data.
 
-Both Symbol and Bubble layers are rendered within the WebGL context and are capable of rendering large sets of points on the map. These layers require data to be stored in a data source. Data sources and rendering layers should be added to the map after the `ready` event has fired. HTML Markers are rendered as DOM elements within the page and don’t use a data source. The more DOM elements a page has, the slower the page becomes. If rendering more than a few hundred points on a map, it's recommended to use one of the rendering layers instead.
+Both Symbol and Bubble layers are rendered within the WebGL context and are capable of rendering large sets of points on the map. These layers require data to be stored in a data source. Data sources and rendering layers should be added to the map after the `ready` event fires. HTML Markers are rendered as DOM elements within the page and don’t use a data source. The more DOM elements a page has, the slower the page becomes. If rendering more than a few hundred points on a map, try using one of the rendering layers instead.
 
 The following examples add a marker to the map at (longitude: -0.2, latitude: 51.5) with the number 10 overlaid as a label.
 
@@ -365,7 +359,7 @@ layer.add(pushpin);
 map.layers.insert(layer);
 ```
 
-The second is to add it using the map’s `entities` property. This function is marked deprecated in the documentation for Bing Maps V8 however it has remained partially functional for basic scenarios.
+The second is to add it using the map’s `entities` property. This function is marked deprecated in the documentation for Bing Maps V8 however it remains partially functional for basic scenarios.
 
 ```javascript
 var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(51.5, -0.2), {
@@ -393,7 +387,7 @@ map.markers.add(new atlas.HtmlMarker({
 
 **After: Azure Maps using a Symbol Layer**
 
-When using a Symbol layer, the data must be added to a data source, and the data source attached to the layer. Additionally, the data source and layer should be added to the map after the `ready` event has fired. To render a unique text value above a symbol, the text information needs to be stored as a property of the data point and that property referenced in the `textField` option of the layer. This is a bit more work than using HTML markers but provides performance advantages.
+When using a Symbol layer, the data must be added to a data source, and the data source attached to the layer. Additionally, the data source and layer should be added to the map after the `ready` event fires. To render a unique text value above a symbol, the text information needs to be stored as a property of the data point and that property referenced in the `textField` option of the layer. This is a bit more work than using HTML markers but provides performance advantages.
 
 ```html
 <!DOCTYPE html>
@@ -623,7 +617,7 @@ map.layers.insert(layer);
 
 **After: Azure Maps**
 
-In Azure Maps, polylines are referred to the more commonly geospatial terms `LineString` or `MultiLineString` objects. These objects can be added to a data source and rendered using a line layer. The stroke color, width and dash array options are nearly identical between the platforms.
+In Azure Maps, polylines are referred to the more commonly geospatial terms `LineString` or `MultiLineString` objects. These objects can be added to a data source and rendered using a line layer. The stroke color, width, and dash array options are nearly identical between the platforms.
 
 ```javascript
 //Get the center of the map.
@@ -921,7 +915,7 @@ The `DataSource` class has the following helper function for accessing additiona
 | `getClusterExpansionZoom(clusterId: number)`                         | `Promise<number>`                            | Calculates a zoom level that the cluster starts expanding or break apart.    |
 | `getClusterLeaves(clusterId: number, limit: number, offset: number)` | `Promise<Feature<Geometry, any> | Shape>` | Retrieves all points in a cluster. Set the `limit` to return a subset of the points and use the `offset` to page through the points.    |
 
-When rendering clustered data on the map, it's often easiest to use two or more layers. The following example uses three layers, a bubble layer for drawing scaled colored circles based on the size of the clusters, a symbol layer to render the cluster size as text, and a second symbol layer for rendering the unclustered points. For more information on rendering clustered data in Azure Maps, see [Clustering point data in the Web SDK]
+When rendering clustered data on the map, it's often easiest to use two or more layers. The following example uses three layers, a bubble layer for drawing scaled colored circles based on the size of the clusters, a symbol layer to render the cluster size as text, and a second symbol layer for rendering the unclustered points. For more information on rendering clustered data in Azure Maps, see [Clustering point data in the Web SDK].
 
 GeoJSON data can be directly imported in Azure Maps using the `importDataFromUrl` function on the `DataSource` class.
 
@@ -1179,7 +1173,7 @@ map.layers.insert(weatherTileLayer);
 
 **After: Azure Maps**
 
-In Azure Maps, a tile layer can be added to the map in much the same way as any other layer. A formatted URL that has in x, y, zoom placeholders; `{x}`, `{y}`, `{z}` respectively is used to tell the layer where to access the tiles. Azure Maps tile layers also support `{quadkey}`, `{bbox-epsg-3857}` and `{subdomain}` placeholders.
+In Azure Maps, a tile layer can be added to the map in much the same way as any other layer. A formatted URL that has in x, y, zoom placeholders; `{x}`, `{y}`, `{z}` respectively is used to tell the layer where to access the tiles. Azure Maps tile layers also support `{quadkey}`, `{bbox-epsg-3857}`, and `{subdomain}` placeholders.
 
 > [!TIP]
 > In Azure Maps, layers can be rendered below other layers, including base map layers. Often it is desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` function takes in a second parameter that is the ID of a second layer to insert the new layer below. To insert a tile layer below the map labels the following code can be used:
@@ -1248,7 +1242,7 @@ If you select one of the traffic icons in Azure Maps, more information displays 
 
 ### Add a ground overlay
 
-Both Bing and Azure maps support overlaying georeferenced images on the map that they move and scale as you pan and zoom the map. In Bing Maps these are known as ground overlays, in Azure Maps they're referred to as image layers. image layers are great for building floor plans, overlaying old maps, or imagery from a drone.
+Both Bing and Azure maps support overlaying georeferenced images on the map that they move and scale as you pan and zoom the map. In Bing Maps these are known as ground overlays, in Azure Maps they're referred to as image layers. Image layers are great for building floor plans, overlaying old maps, or imagery from a drone.
 
 **Before: Bing Maps**
 
@@ -1571,7 +1565,7 @@ In Bing Maps the `DrawingTools` module is loaded using the `Microsoft.Maps.loadM
 
 **After: Azure Maps**
 
-In Azure Maps, the drawing tools module needs to be loaded by loading the JavaScript and CSS files need to be referenced in the app. Once the map has loaded, an instance of the `DrawingManager` class can be created and a `DrawingToolbar` instance attached.
+In Azure Maps, the drawing tools module needs to be loaded by loading the JavaScript and CSS files need to be referenced in the app. Once the map is loaded, an instance of the `DrawingManager` class can be created and a `DrawingToolbar` instance attached.
 
 ```html
 <!DOCTYPE html>
@@ -1643,13 +1637,7 @@ Review code samples related migrating other Bing Maps features:
 > [!div class="nextstepaction"]
 > [Contour layer](https://samples.azuremaps.com/?search=contour)
 
-> [!div class="nextstepaction"]
-> [Data Binning](https://samples.azuremaps.com/?search=Data%20Binning)
-
 **Services**
-
-> [!div class="nextstepaction"]
-> [Using the Azure Maps services module](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Search for points of interest](./map-search-location.md)
@@ -1667,9 +1655,6 @@ Learn more about the Azure Maps Web SDK.
 
 > [!div class="nextstepaction"]
 > [How to use the map control](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [How to use the services module](how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [How to use the drawing tools module](set-drawing-options.md)

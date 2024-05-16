@@ -6,7 +6,7 @@ ms.service: azure-disk-storage
 ms.topic: overview
 ms.date: 03/31/2023
 ms.author: rogarana
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, linux-related-content
 ---
 
 # Azure CLI - Restrict import/export access for managed disks with Private Links

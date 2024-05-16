@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Canada Federal PBMM
 description: Details of the Canada Federal PBMM Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/14/2024
+ms.date: 05/01/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -11,7 +11,7 @@ The following article details how the Azure Policy Regulatory Compliance built-i
 definition maps to **compliance domains** and **controls** in Canada Federal PBMM.
 For more information about this compliance standard, see
 [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html). To understand
-_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
+_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#policy-type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 The following mappings are to the **Canada Federal PBMM** controls. Many of the controls
@@ -19,9 +19,6 @@ are implemented with an [Azure Policy](../overview.md) initiative definition. To
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
 Then, find and select the **Canada Federal PBMM** Regulatory Compliance built-in
 initiative definition.
-
-This built-in initiative is deployed as part of the
-[Canada Federal PBMM blueprint sample](../../blueprints/samples/canada-federal-pbmm.md).
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.

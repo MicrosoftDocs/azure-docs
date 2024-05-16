@@ -516,7 +516,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-network/configure-public-ip-vm.md",
+            "source_path_from_root": "/articles/virtual-network/configure-public-ip-vm.yml",
             "redirect_url": "/azure/virtual-network/ip-services/configure-public-ip-vm",
             "redirect_document_id": false
         },
@@ -808,7 +808,7 @@
         {
             "redirect_document_id": false,
             "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway.md",
-            "redirect_URL": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos"
+            "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos"
         },
         {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/faq.yml",

@@ -140,7 +140,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 #### [Node.js](#tab/nodejs)
 
-The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [OpenTelemetry officially supported instrumentations](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry/README.md#officially-supported-instrumentations).
+The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-opentelemetry/README.md#instrumentation-libraries).
 
 Requests
 - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) ²
@@ -152,6 +152,12 @@ Dependencies
 - [Redis](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis)
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
+
+Logs
+- [Bunyan](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-bunyan)
+<!--
+- [Winston](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-winston)
+-->
 
 Instrumentations can be configured using AzureMonitorOpenTelemetryOptions  
 
@@ -1725,16 +1731,8 @@ Adding one or more span attributes populates the `customDimensions` field in the
 ```typescript
 // Import the necessary packages.
 const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
-const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
 const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
-const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
 const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
-
-// Enable Azure Monitor integration.
-useAzureMonitor();
-
-// Get the NodeTracerProvider instance.
-const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
 
 // Create a new SpanEnrichingProcessor class.
 class SpanEnrichingProcessor implements SpanProcessor {
@@ -1755,8 +1753,13 @@ class SpanEnrichingProcessor implements SpanProcessor {
   }
 }
 
-// Add the SpanEnrichingProcessor instance to the NodeTracerProvider instance.
-tracerProvider.addSpanProcessor(new SpanEnrichingProcessor());
+// Enable Azure Monitor integration.
+const options: AzureMonitorOpenTelemetryOptions = {
+    // Add the SpanEnrichingProcessor
+    spanProcessors: [new SpanEnrichingProcessor()] 
+}
+useAzureMonitor(options);
+
 ```
 
 ##### [Python](#tab/python)
@@ -1804,7 +1807,7 @@ class SpanEnrichingProcessor(SpanProcessor):
 
 #### Set the user IP
 
-You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+You can populate the _client_IP_ field for requests by setting an attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1813,7 +1816,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```C#
 // Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
-activity.SetTag("http.client_ip", "<IP Address>");
+activity.SetTag("client.address", "<IP Address>");
 ```
 
 #### [.NET](#tab/net)
@@ -1960,29 +1963,27 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 #### [Node.js](#tab/nodejs)
 
 ```typescript
-    // Import the useAzureMonitor function and the logs module from the @azure/monitor-opentelemetry and @opentelemetry/api-logs packages, respectively.
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
-    const { logs } = require("@opentelemetry/api-logs");
-    import { Logger } from "@opentelemetry/sdk-logs";
+    const bunyan = require('bunyan');
 
-    // Enable Azure Monitor integration.
-    useAzureMonitor();
+    // Instrumentations configuration
+    const options: AzureMonitorOpenTelemetryOptions = {
+        instrumentationOptions: {
+            // Instrumentations generating logs
+            bunyan: { enabled: true },
+        }
+    };
 
-    // Get the logger for the "testLogger" logger name.
-    const logger = (logs.getLogger("testLogger") as Logger);
+    // Enable Azure Monitor integration
+    useAzureMonitor(options);
 
-    // Create a new log record.
-    const logRecord = {
-      body: "testEvent",
-      attributes: {
+    var log = bunyan.createLogger({ name: 'testApp' });
+    log.info({
         "testAttribute1": "testValue1",
         "testAttribute2": "testValue2",
         "testAttribute3": "testValue3"
-      }
-    };
+    }, 'testEvent');
 
-    // Emit the log record.
-    logger.emit(logRecord);
 ```
 
 #### [Python](#tab/python)
@@ -2092,7 +2093,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 ### [Java](#tab/java)
 
-See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) and [telemetry processors](java-standalone-telemetry-processors.md).
+See [sampling overrides](java-standalone-config.md#sampling-overrides) and [telemetry processors](java-standalone-telemetry-processors.md).
 
 ### [Node.js](#tab/nodejs)
 
@@ -2147,18 +2148,28 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
     ```typescript
-    // Import the SpanKind and TraceFlags classes from the @opentelemetry/api package.
+    // Import the necessary packages.
     const { SpanKind, TraceFlags } = require("@opentelemetry/api");
+    const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
 
     // Create a new SpanEnrichingProcessor class.
-    class SpanEnrichingProcessor {
-
-      onEnd(span) {
-        // If the span is an internal span, set the trace flags to NONE.
-        if(span.kind == SpanKind.INTERNAL){
-          span.spanContext().traceFlags = TraceFlags.NONE;
+    class SpanEnrichingProcessor implements SpanProcessor {
+        forceFlush(): Promise<void> {
+            return Promise.resolve();
         }
-      }
+
+        shutdown(): Promise<void> {
+            return Promise.resolve();
+        }
+
+        onStart(_span: Span): void {}
+
+        onEnd(span) {
+            // If the span is an internal span, set the trace flags to NONE.
+            if(span.kind == SpanKind.INTERNAL){
+            span.spanContext().traceFlags = TraceFlags.NONE;
+            }
+        }
     }
     ```
 

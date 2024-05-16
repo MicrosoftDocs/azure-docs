@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.author: ankitadutta
 ms.topic: how-to 
-ms.date: 01/31/2024
+ms.date: 04/01/2024
 ---
 
 # Migrate from a Run As account to Managed Identities 
@@ -98,6 +98,8 @@ To link an existing managed identity Automation account to your Recovery Service
 1. Go back to your recovery services vault. On the left pane, select the **Access control (IAM)** option.
     :::image type="content" source="./media/how-to-migrate-from-run-as-to-managed-identities/add-mi-iam.png" alt-text="Screenshot that shows IAM settings page.":::
 1. Select **Add** > **Add role assignment** > **Contributor** to open the **Add role assignment** page.
+    > [!NOTE]
+    > Once the automation account is set, you can change the role of the account from *Contributor* to *Site Recovery Contributor*.
 1. On the **Add role assignment** page, ensure to select **Managed identity**.
 1. Select the **Select members**. In the **Select managed identities** pane, do the following:
     1. In the **Select** field, enter the name of the managed identity automation account.

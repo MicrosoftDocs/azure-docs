@@ -20,31 +20,31 @@ The following tables offer high-level overviews of the services that Azure Maps 
 
 The most recent stable release of the Creator services.
 
-| API | Description |
-|-----|-------------|
-| [Alias] | This API allows the caller to assign an alias to reference a resource. |
-| [Conversion] | Used to import a set of DWG design files as a zipped [Drawing Package](https://aka.ms/am-drawing-package) into Azure Maps.|
-| [Dataset] | A collection containing the indoor map [features](/azure/azure-maps/glossary#feature) of a facility. This API allows the caller to create a dataset from previously uploaded data. |
-| [Feature State] | The Feature stateset can be used to dynamically render features in a facility according to their current state and respective map style. |
-| [Tileset] | A `tileset` is a collection of vector tiles that render on the map, created from an existing dataset. |
-| [WFS] | Use the Web Feature Service (WFS) API to query for all feature collections or a specific collection within a dataset. For example, you can use WFS to find all mid-size meeting rooms in a specific building and floor level. |
+| API | API version | Description |
+|-----|-------------|-------------|
+| [Alias] | 2.0 | This API allows the caller to assign an alias to reference a resource. |
+| [Conversion] | 2.0 | Used to import a set of DWG design files as a zipped [Drawing Package](https://aka.ms/am-drawing-package) into Azure Maps.|
+| [Dataset] | 2.0 | A collection containing the indoor map [features](/azure/azure-maps/glossary#feature) of a facility. This API allows the caller to create a dataset from previously uploaded data. |
+| [Feature State] | 2.0 | The Feature stateset can be used to dynamically render features in a facility according to their current state and respective map style. |
+| [Tileset] | 2.0 | A `tileset` is a collection of vector tiles that render on the map, created from an existing dataset. |
+| [WFS] | 2.0 | Use the Web Feature Service (WFS) API to query for all feature collections or a specific collection within a dataset. For example, you can use WFS to find all mid-size meeting rooms in a specific building and floor level. |
 
 ## Latest preview
 
 Pre-release version of a Creator service. Preview releases contain new functionality or updates to existing functionality that will be included in a future release.
 
-| API | Description |
-|-----|-------------|
-| [Alias][Alias-preview] | This API allows the caller to assign an alias to reference a resource. |
-| [Conversion][Conversion-preview] | Used to import a set of DWG design files as a zipped [Drawing Package](https://aka.ms/am-drawing-package) into Azure Maps.|
-| [Dataset][Dataset-preview] | A collection of indoor map [features](/azure/azure-maps/glossary#feature) in a facility. This API allows the caller to create a dataset from previously uploaded data. |
-| [Feature State][Feature State-preview] | The Feature stateset can be used to dynamically render features in a facility according to their current state and respective map style. |
-| [Features] | An instance of an object produced from the [Conversion][Conversion-preview] service that combines a geometry with metadata information. |
-| [Map Configuration] | Map Configuration in indoor mapping refers to the default settings of a map that are applied when the map is loaded. It includes the default zoom level, center point, and other map settings. |
-| [Routeset] | Use the routeset API to create the data that the wayfinding service needs to generate paths. |
-| [Style] | Use the Style API to customize your facility's look and feel. Everything is configurable from the color of a feature, the icon that renders, or the zoom level when a feature should appear or disappear. |
-| [Tileset][Tileset-preview] | A collection of vector tiles that render on the map, created from an existing dataset. |
-| [Wayfinding] | Wayfinding is a technology that helps people navigate through complex indoor environments such as malls, offices, stadiums, airports and office buildings. |
+| API | API version | Description |
+|-----|-------------|-------------|
+| [Alias][Alias-preview] | 2023-03-01-preview | This API allows the caller to assign an alias to reference a resource. |
+| [Conversion][Conversion-preview] | 2023-03-01-preview | Used to import a set of DWG design files as a zipped [Drawing Package](https://aka.ms/am-drawing-package) into Azure Maps.|
+| [Dataset][Dataset-preview] | 2023-03-01-preview | A collection of indoor map [features](/azure/azure-maps/glossary#feature) in a facility. This API allows the caller to create a dataset from previously uploaded data. |
+| [Feature State][Feature State-preview] | 2023-03-01-preview | The Feature stateset can be used to dynamically render features in a facility according to their current state and respective map style. |
+| [Features] | 2023-03-01-preview | An instance of an object produced from the [Conversion][Conversion-preview] service that combines a geometry with metadata information. |
+| [Map Configuration] | 2023-03-01-preview | Map Configuration in indoor mapping refers to the default settings of a map that are applied when the map is loaded. It includes the default zoom level, center point, and other map settings. |
+| [Routeset] | 2023-03-01-preview | Use the routeset API to create the data that the wayfinding service needs to generate paths. |
+| [Style] | 2023-03-01-preview | Use the Style API to customize your facility's look and feel. Everything is configurable from the color of a feature, the icon that renders, or the zoom level when a feature should appear or disappear. |
+| [Tileset][Tileset-preview] | 2023-03-01-preview | A collection of vector tiles that render on the map, created from an existing dataset. |
+| [Wayfinding] | 2023-03-01-preview | Wayfinding is a technology that helps people navigate through complex indoor environments such as malls, offices, stadiums, airports and office buildings. |
 
 <!--- V2 is the latest stable release of each Creator service --->
 

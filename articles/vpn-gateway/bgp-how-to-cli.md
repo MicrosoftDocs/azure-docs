@@ -25,7 +25,7 @@ Each part of this article helps you form a basic building block for enabling BGP
 
 You can combine these sections to build a more complex multihop transit network that meets your needs.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## <a name ="enablebgp"></a>Enable BGP for the VPN gateway
 

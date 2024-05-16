@@ -35,18 +35,14 @@ items:
           items:
           - name: Azure portal
             href: mqtt-routing-to-azure-functions-portal.md
-        - name: Route MQTT messages to Azure Event Hubs using custom topics 
-          items: 
           - name: Azure CLI
-            href: mqtt-routing-to-event-hubs-cli.md
+            href: mqtt-routing-to-azure-functions-cli.md
       - name: Samples
         href: https://github.com/Azure-Samples/MqttApplicationSamples
       - name: Concepts
         items:
         - name: Terminology
           href: mqtt-event-grid-namespace-terminology.md
-        - name: MQTT client authentication
-          href: mqtt-client-authentication.md                
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
         - name: MQTT clients
@@ -68,8 +64,15 @@ items:
           href: mqtt-support.md
         - name: MQTT clients life cycle events
           href: mqtt-client-life-cycle-events.md
-        - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
-          href: mqtt-client-microsoft-entra-token-and-rbac.md
+        - name: MQTT client authentication
+          href: mqtt-client-authentication.md                
+          items:
+          - name: MQTT client authentication using certificates
+            href: mqtt-client-certificate-authentication.md        
+          - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
+            href: mqtt-client-microsoft-entra-token-and-rbac.md
+          - name: Transport Layer Security connection with MQTT broker
+            href: mqtt-transport-layer-security-flow.md
         - name: High availability and disaster recovery
           href: high-availability-disaster-recovery.md 
         - name: Security
@@ -145,7 +148,7 @@ items:
               href: event-grid-dotnet-get-started-pull-delivery.md
         - name: Push delivery
           items:
-          - name: Publish and deliver events using namespace topics
+          - name: Deliver events to Azure Event Hubs using namespace topics
             items:
             - name: Azure CLI
               href: publish-deliver-events-with-namespace-topics.md
@@ -192,8 +195,6 @@ items:
           href: create-view-manage-namespace-topics.md
         - name: Create, view, and manage event subscriptions
           href: create-view-manage-event-subscriptions.md
-        - name: Forward events to Event Grid namespace topic
-          href: handler-event-grid-namespace-topic.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces

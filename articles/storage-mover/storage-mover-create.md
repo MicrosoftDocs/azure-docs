@@ -54,7 +54,7 @@ Creating a storage mover requires you to decide on a subscription, a resource gr
 
 ### Prepare your Azure CLI environment
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To create a storage mover resource, use the [az storage-mover create](/cli/azure/storage-mover#az-storage-mover-create) command.  You'll need to supply values for the required `--name`, `--resource-group`, `--location` parameters. The `-description` and `tags` parameters are optional.
 

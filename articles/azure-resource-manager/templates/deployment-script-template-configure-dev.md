@@ -2,7 +2,7 @@
 title: Configure development environment for deployment scripts in templates | Microsoft Docs
 description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 03/20/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---

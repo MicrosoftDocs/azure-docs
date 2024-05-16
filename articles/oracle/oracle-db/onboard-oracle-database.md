@@ -46,7 +46,7 @@ For more information on creating identity federation using Azure's identity serv
     4.  On the **Private Offer Management** page, the status of the private offer shows **Preparing for purchase**. After 10 to 15 minutes, the status updates to **Ready** and the **Purchase** button is enabled. Once the **Purchase** button is enabled, select it to continue. Your browser redirects to the **Create OracleSubscription** page.
 6. On the **Create OracleSubscription** page, select the **Basics** tab under **Project details** if this tab isn't already selected.
 7.  Use the **Subscription** selector to select your subscription if it isn't already selected.
-8. In the Instance details section, enter "default" (with no quotation marks) in the Name field.review the information in the following fields, which are configured for you:
+8. In the Instance details section, enter "default" (with no quotation marks) in the Name field.Review the information in the following fields, which are configured for you:
      - **Name**: This field is automatically set to “default”.
      - **Region**: This field is automatically set to “Global”.
      - **Plan and Billing term**: The values in these fields are automatically set for your offer, and you don't need to set or change these values.

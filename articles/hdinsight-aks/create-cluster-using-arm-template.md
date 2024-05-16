@@ -13,7 +13,7 @@ ms.date: 02/12/2024
 
 This article describes how to generate an ARM template using Azure CLI. 
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 * An operational HDInsight on AKS cluster.
   
 

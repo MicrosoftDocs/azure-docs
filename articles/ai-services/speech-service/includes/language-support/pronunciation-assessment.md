@@ -10,14 +10,17 @@ ms.author: eur
 |--|--|
 |Arabic (Egypt)|`ar-EG`<sup>1</sup> |
 |Arabic (Saudi Arabia)|`ar-SA` |
+|Catalan|`ca-ES`<sup>1</sup>|
 |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
 |Chinese (Mandarin, Simplified)|`zh-CN`|
-|Dutch (Netherlands)|`nl-NL`<sup>1</sup>|
+|Chinese (Taiwanese Mandarin, Traditional)|`zh-TW`<sup>1</sup>|
+|Dutch (Netherlands)|`nl-NL`|
 |English (Australia)|`en-AU`|
 |English (Canada)|`en-CA` |
 |English (India)|`en-IN` |
 |English (United Kingdom)|`en-GB`|
 |English (United States)|`en-US`|  
+|Finnish (Finland)|`fi-FI`<sup>1</sup>|  
 |French (Canada)|`fr-CA`| 
 |French (France)|`fr-FR`|  
 |German (Germany)|`de-DE`|
@@ -27,6 +30,7 @@ ms.author: eur
 |Korean (Korea)|`ko-KR`|
 |Malay (Malaysia)|`ms-MY`|
 |Norwegian Bokmål (Norway)|`nb-NO`|
+|Polish (Poland)|`pl-PL`<sup>1</sup>|
 |Portuguese (Brazil)|`pt-BR`|
 |Portuguese (Portugal)|`pt-PT`<sup>1</sup>|
 |Russian (Russia)|`ru-RU`|

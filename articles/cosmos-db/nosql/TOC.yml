@@ -73,6 +73,9 @@
     - name: Connect using Spark
       href: tutorial-spark-connector.md
       displayName: Python, Scala, Spark, Java, Databricks
+    - name: Mirror database to Microsoft Fabric
+      displayName: Mirroring, Warehouse, Lighthouse, Fabric
+      href: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
 - name: Samples
   items:
     - name: Solution accelerators
@@ -318,7 +321,7 @@
                       href: ../latest-restore-timestamp-continuous-backup.md
                     - name: Auditing restore action with continuous backup
                       href: ../audit-restore-continuous.md
-                - name: Restore in the same account (preview)
+                - name: Restore in the same account
                   items:
                     - name: Introduction
                       href: ../restore-in-account-continuous-backup-introduction.md
@@ -343,10 +346,18 @@
           displayName: session, consistency prefix, strong, eventual, bounded staleness
           href: ../consistency-levels.md
         - name: High availability
-          href: ../high-availability.md
-        - name: Conflict types and resolution policies
-          displayName: last write wins, custom, multi-region writes, multi-master
-          href: ../conflict-resolution-policies.md
+          items:
+            - name: High availability and reliability
+              href: ../../reliability/reliability-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+            - name: Proactive resiliency
+              href: ../../reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+            - name: Multi-region writes
+              items:
+                - name: Understanding multi-region writes
+                  href: ../multi-region-writes.md
+                - name: Conflict resolution
+                  displayName: last write wins, custom, multi-region writes, multi-master
+                  href: ../conflict-resolution-policies.md
         - name: Global distribution - under the hood
           href: ../global-dist-under-the-hood.md
     - name: Security
@@ -511,6 +522,8 @@
     - name: Index and query geospatial data
       displayName: geospatial, geojson, spatial, index, query, geography, geometry
       href: how-to-geospatial-index-query.md
+    - name: Change partition key
+      href: change-partition-key.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput
@@ -556,6 +569,8 @@
           items:
             - name: Spark 3.x online transaction processing (OLTP) connector
               href: sdk-java-spark-v3.md
+            - name: Use a service principal with the OLTP Spark 3 connector
+              href: how-to-spark-service-principal.md
             - name: Throughput control
               href: throughput-control-spark.md
         - name: ASP.NET session state and cache provider
@@ -582,8 +597,12 @@
               href: migrate-dotnet-v2.md
         - name: Set up CI/CD with Azure Pipelines
           href: ../tutorial-setup-ci-cd.md
-        - name: Use Azure Cosmos DB Explorer
-          href: ../data-explorer.md
+        - name: Azure Cosmos DB Explorer
+          items:
+            - name: Use explorer
+              href: ../data-explorer.md
+            - name: Keyboard shorcuts
+              href: ../data-explorer-shortcuts.md
         - name: SDK observability
           href: sdk-observability.md
     - name: Performance
@@ -626,7 +645,13 @@
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2
-              href: performance-tips-java.md        
+              href: performance-tips-java.md    
+        - name: Python
+          items:
+            - name: Best practices for Python SDK
+              href: best-practice-python.md
+            - name: Performance tips for Python SDK
+              href: performance-tips-python-sdk.md    
         - name: JavaScript
           items:
             - name: Best practices for JavaScript SDK
@@ -679,6 +704,10 @@
               href: troubleshoot-java-sdk-service-unavailable.md
             - name: Troubleshoot- Async Java SDK v2
               href: troubleshoot-java-async-sdk.md
+        - name: Python
+          items:
+            - name: Troubleshoot Python SDK
+              href: troubleshoot-python-sdk.md
     - name: Analytics and BI with Azure Synapse Link
       items:
         - name: Configure Azure Synapse Link
@@ -708,7 +737,7 @@
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
-          href: ../how-to-manage-database-account.md
+          href: ../how-to-manage-database-account.yml
         - name: Using PowerShell
           href: manage-with-powershell.md
         - name: Using Azure CLI
@@ -753,7 +782,7 @@
               items:
                 - name: Restore to a different account
                   href: ../restore-account-continuous-backup.md
-                - name: Restore in the same account (preview)
+                - name: Restore in the same account
                   href: ../how-to-restore-in-account-continuous-backup.md
                 - name: Get the latest restorable timestamp
                   href: ../get-latest-restore-timestamp.md
@@ -799,7 +828,7 @@
         - name: Use managed identities with Azure services
           href: ../how-to-setup-managed-identity.md
         - name: Use managed identities to access data
-          href: ../managed-identity-based-authentication.md
+          href: ../managed-identity-based-authentication.yml
         - name: Migrate to passwordless authentication
           href: migrate-passwordless.md
           displayName: msi, managed service identity, aad, azure active directory, identity

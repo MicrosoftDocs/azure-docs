@@ -161,5 +161,5 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
-- Learn more in this [Azure OpenAI overview](../overview.md).
+* Explore the image generation APIs in more depth with the [DALL-E how-to guide](../how-to/dall-e.md).
 - Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).

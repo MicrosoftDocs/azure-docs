@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 Azure Arc resource bridge is a Microsoft managed product that is part of the core Azure Arc platform. It is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on Azure Stack HCI ([Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview)), VMware ([Arc-enabled VMware vSphere](../vmware-vsphere/overview.md)), and System Center Virtual Machine Manager ([Arc-enabled SCVMM](../system-center-virtual-machine-manager/overview.md)).
 
-Azure Arc resource bridge is a Kubernetes management cluster installed on the customer’s on-premises infrastructure. The resource bridge is provided credentials to the infrastructure control plane that allows it to apply guest management services on the on-premises resources. Arc resource bridge enables projection of on-premises resources as ARM resources and management from ARM as "Arc-enabled" Azure resources.
+Azure Arc resource bridge is a Kubernetes management cluster installed on the customer’s on-premises infrastructure as an appliance VM (aka Arc appliance). The resource bridge is provided credentials to the infrastructure control plane that allows it to apply guest management services on the on-premises resources. Arc resource bridge enables projection of on-premises resources as ARM resources and management from ARM as "Arc-enabled" Azure resources.
 
 Arc resource bridge delivers the following benefits:
 
@@ -143,6 +143,11 @@ Generally, the latest released version and the previous three versions (n-3) of 
 There could be instances where supported versions are not sequential. For example, version 1.0.18 is released and later found to contain a bug; a hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
 
 Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays might occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions (starting with 1.0.15), then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
+
+### Private Link Support
+
+Arc resource bridge does not currently support private link. 
+
 
 ## Next steps
 

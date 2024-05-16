@@ -37,7 +37,7 @@ To complete the steps in this tutorial, you need:
 
 You use the Azure CLI to generate the bearer tokens that some of the REST APIs use for authorization.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### Postman
 

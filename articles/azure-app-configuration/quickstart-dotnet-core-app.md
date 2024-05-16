@@ -35,7 +35,7 @@ You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to crea
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new .NET console app project:
+1. In the new folder, run the following command to create a new .NET console app project:
 
     ```dotnetcli
     dotnet new console
@@ -49,20 +49,20 @@ You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to crea
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
 
-2. Run the following command to restore packages for your project:
+1. Run the following command to restore packages for your project:
 
     ```dotnetcli
     dotnet restore
     ```
 
-3. Open *Program.cs*, and add a reference to the .NET App Configuration provider.
+1. Open *Program.cs*, and add the following statements:
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Use App Configuration by calling the `builder.AddAzureAppConfiguration()` method in the `Program.cs` file.
+1. Use App Configuration by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
 
     ```csharp
     var builder = new ConfigurationBuilder();

@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 11/27/2023
+ms.date: 03/21/2024
 ms.author: lajanuar
 ---
 
@@ -21,9 +21,73 @@ ms.author: lajanuar
 
 This reference article provides a version-based description of Document Intelligence feature and capability releases, changes, updates, and enhancements.
 
-#### November 2023 (preview) release
-
 [!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+#### March 2024 (preview) release
+
+### [**.NET (C#)**](#tab/csharp)
+
+* Document Intelligence **1.0.0-beta.2**
+* **Targets REST API 2024-02-29-preview by default**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/CHANGELOG.md#100-beta2-2024-03-05)
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.DocumentIntelligence/1.0.0-beta.2)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/samples/README.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/MigrationGuide.md)
+
+### [**Java**](#tab/java)
+
+* Document Intelligence **1.0.0-beta.2**
+* **Targets REST API 2024-02-29-preview by default**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.2/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md#100-beta2-2024-03-06)
+
+[**Package Maven**](https://central.sonatype.com/artifact/com.azure/azure-ai-documentintelligence)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.2/sdk/documentintelligence/azure-ai-documentintelligence/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.2/sdk/documentintelligence/azure-ai-documentintelligence/src/samples/README.md)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
+
+### [**JavaScript**](#tab/javascript)
+
+* Document Intelligence **1.0.0-beta.2**
+* **Targets REST API 2024-02-29-preview by default**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/CHANGELOG.md)
+
+[**Package (npm)**](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.2)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest#readme)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md)
+
+### [**Python**](#tab/python)
+
+* Document Intelligence **1.0.0b2**
+* **Targets REST API 2024-02-29-preview by default**
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md)
+
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-documentintelligence/)
+
+[**ReadMe**]( https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples)
+
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
+
+---
+
+#### November 2023 (preview) release
 
 ### [**.NET (C#)**](#tab/csharp)
 
@@ -45,7 +109,7 @@ This reference article provides a version-based description of Document Intellig
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/CHANGELOG.md#100-beta1-2023-11-16)
 
-[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1)
+[**Package Maven**](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/README.md#azure-documentintelligence-client-library-for-java)
 
@@ -111,7 +175,7 @@ This reference article provides a version-based description of Document Intellig
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
-[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0)
+[**Package Maven**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
 
@@ -175,7 +239,7 @@ This release includes the following updates:
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.1.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#410-beta1-2023-04-12)
 
-[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0-beta.1)
+[**Package Maven**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0-beta.1)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.1.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
 

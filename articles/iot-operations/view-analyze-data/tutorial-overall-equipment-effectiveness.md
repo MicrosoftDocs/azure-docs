@@ -562,7 +562,7 @@ To create the _oee-process-pipeline_ pipeline:
 
 1. Review your pipeline diagram to make sure all the stages are present and connected. It should look like the following:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the Azure IoT Operations portal." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the Azure IoT Operations (preview) portal." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png":::
 
 1. To save your pipeline, select **Save**. It may take a few minutes for the pipeline to deploy to your cluster, so make sure it's finished before you proceed.
 

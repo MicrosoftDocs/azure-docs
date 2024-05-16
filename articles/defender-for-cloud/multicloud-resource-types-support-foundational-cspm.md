@@ -11,17 +11,17 @@ ms.date: 02/29/2024
 
 ## Resource types supported in AWS
 
-| Provider Namespace | Resource Type Name | 
+| Provider Namespace | Resource Type Name |
 |----|----|
 | AccessAnalyzer | AnalyzerSummary |
-| ApiGateway | Stage | 
+| ApiGateway | Stage |
 | AppSync | GraphqlApi |
 | ApplicationAutoScaling | ScalableTarget |
 | AutoScaling | AutoScalingGroup |
 | AWS | Account |
 | AWS | AccountInRegion |
 | CertificateManager | CertificateTags |
-| CertificateManager | CertificateDetail | 
+| CertificateManager | CertificateDetail |
 | CertificateManager | CertificateSummary |
 | CloudFormation | StackSummary |
 | CloudFormation | StackTemplate |
@@ -40,10 +40,10 @@ ms.date: 02/29/2024
 | CloudWatchLogs | LogGroup |
 | CloudWatchLogs | MetricFilter |
 | CodeBuild | Project |
-| CodeBuild | ProjectName | 
+| CodeBuild | ProjectName |
 | CodeBuild | SourceCredentialsInfo |
 | ConfigService | ConfigurationRecorder |
-| ConfigService | ConfigurationRecorderStatus | 
+| ConfigService | ConfigurationRecorderStatus |
 | ConfigService | DeliveryChannel |
 | DAX | Cluster |
 | DAX | ClusterTags |
@@ -62,20 +62,20 @@ ms.date: 02/29/2024
 | EC2 | AccountAttribute |
 | EC2 | Address |
 | EC2 | CreateVolumePermission |
-| EC2 | EbsEncryptionByDefault | 
+| EC2 | EbsEncryptionByDefault |
 | EC2 | FlowLog |
 | EC2 | Image |
 | EC2 | InstanceStatus |
 | EC2 | InstanceTypeInfo |
 | EC2 | NetworkAcl |
 | EC2 | NetworkInterface |
-| EC2 | Region | 
+| EC2 | Region |
 | EC2 | Reservation |
 | EC2 | RouteTable |
 | EC2 | SecurityGroup |
 | ECR | Image |
 | ECR | Repository |
-| ECR | RepositoryPolicy | 
+| ECR | RepositoryPolicy |
 | ECS | TaskDefinition |
 | ECS | ServiceArn |
 | ECS | Service |
@@ -121,7 +121,7 @@ ms.date: 02/29/2024
 | Iam | ManagedPolicy |
 | Iam | ManagedPolicy |
 | Iam | AccessKeyLastUsed |
-| Iam | AccessKeyMetadata | 
+| Iam | AccessKeyMetadata |
 | Iam | PolicyVersion |
 | Iam | PolicyVersion |
 | Internal | Iam_EntitiesForPolicy |
@@ -133,7 +133,7 @@ ms.date: 02/29/2024
 | KMS | KeyPolicy |
 | KMS | KeyMetadata |
 | KMS | KeyListEntry |
-| KMS| AliasListEntry | 
+| KMS| AliasListEntry |
 | Lambda | FunctionCodeLocation |
 | Lambda | FunctionConfiguration|
 | Lambda | FunctionPolicy |
@@ -156,9 +156,9 @@ ms.date: 02/29/2024
 | RDS | DBClusterSnapshotAttributesResult |
 | RedShift | LoggingStatus |
 | RedShift | Parameter |
-| Redshift | Cluster | 
+| Redshift | Cluster |
 | Route53 | HostedZone |
-| Route53 | ResourceRecordSet | 
+| Route53 | ResourceRecordSet |
 | Route53Domains | DomainSummary |
 | S3 | S3Region |
 | S3 | S3BucketTags |
@@ -169,7 +169,7 @@ ms.date: 02/29/2024
 | S3 | BucketVersioning |
 | S3 | LifecycleConfiguration |
 | S3 | PolicyStatus |
-| S3 | ReplicationConfiguration | 
+| S3 | ReplicationConfiguration |
 | S3 | S3AccessControlList |
 | S3 | S3BucketLoggingConfig |
 | S3Control | PublicAccessBlockConfiguration |
@@ -178,12 +178,12 @@ ms.date: 02/29/2024
 | SNS | TopicAttributes |
 | SNS | TopicTags |
 | SQS | Queue |
-| SQS | QueueAttributes | 
+| SQS | QueueAttributes |
 | SQS | QueueTags |
 | SageMaker | NotebookInstanceSummary |
 | SageMaker | DescribeNotebookInstanceTags |
 | SageMaker | DescribeNotebookInstanceResponse |
-| SecretsManager | SecretResourcePolicy | 
+| SecretsManager | SecretResourcePolicy |
 | SecretsManager | SecretListEntry |
 | SecretsManager | DescribeSecretResponse |
 | SimpleSystemsManagement | ParameterMetadata |
@@ -198,8 +198,8 @@ ms.date: 02/29/2024
 
 ## Resource types supported in GCP
 
-| Provider Namespace | Resource Type Name | 
-|----|----| 
+| Provider Namespace | Resource Type Name |
+|----|----|
 | ApiKeys | Key |
 | ArtifactRegistry | Image |
 | ArtifactRegistry | Repository |

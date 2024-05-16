@@ -1,9 +1,8 @@
 ---
 title: Move an Azure Remote Rendering account between regions
 description: Move an Azure Remote Rendering account between regions
-author: ekmineev
-
-ms.author: ekmineev
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/01/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources

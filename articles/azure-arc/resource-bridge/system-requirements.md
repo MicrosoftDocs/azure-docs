@@ -39,9 +39,9 @@ These minimum requirements enable most scenarios. However, a partner product may
 
 ## IP address prefix (subnet) requirements
 
-The IP address prefix (subnet) where Arc resource bridge will be deployed requires a minimum prefix of /29. The IP address prefix must have enough available IP addresses for the gateway IP, control plane IP, appliance VM IP, and reserved appliance VM IP. Please work with your network engineer to ensure that there is an available subnet with the required available IP addresses and IP address prefix for Arc resource bridge.
+The IP address prefix (subnet) where Arc resource bridge will be deployed requires a minimum prefix of /29. The IP address prefix must have enough available IP addresses for the gateway IP, control plane IP, appliance VM IP, and reserved appliance VM IP. Arc resource bridge only uses the IP addresses assigned to the IP pool range (Start IP, End IP) and the Control Plane IP. We recommend that the End IP immediately follow the Start IP. Ex: Start IP =192.168.0.2, End IP = 192.168.0.3. Please work with your network engineer to ensure that there is an available subnet with the required available IP addresses and IP address prefix for Arc resource bridge.
 
-The IP address prefix is the subnet's IP address range for the virtual network and subnet mask (IP Mask) in CIDR notation, for example `192.168.7.1/24`. You provide the IP address prefix (in CIDR notation) during the creation of the configuration files for Arc resource bridge. 
+The IP address prefix is the subnet's IP address range for the virtual network and subnet mask (IP Mask) in CIDR notation, for example `192.168.7.1/29`. You provide the IP address prefix (in CIDR notation) during the creation of the configuration files for Arc resource bridge. 
 
 Consult your network engineer to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
 
@@ -49,7 +49,9 @@ Consult your network engineer to obtain the IP address prefix in CIDR notation. 
 
 If deploying Arc resource bridge to a production environment, static configuration must be used when deploying Arc resource bridge. Static IP configuration is used to assign three static IPs (that are in the same subnet) to the Arc resource bridge control plane, appliance VM, and reserved appliance VM.
 
-DHCP is only supported in a test environment for testing purposes only for VM management on Azure Stack HCI, and it should not be used in a production environment. DHCP isn't supported on any other Arc-enabled private cloud, including Arc-enabled VMware, Arc for AVS, or Arc-enabled SCVMM. If using DHCP, you must reserve the IP addresses used by the control plane and appliance VM. In addition, these IPs must be outside of the assignable DHCP range of IPs. Ex: The control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP. If the control plane IP or appliance VM IP changes (ex: due to an outage, this impacts the resource bridge availability and functionality.
+DHCP is only supported in a test environment for testing purposes only for VM management on Azure Stack HCI. It should not be used in a production environment. DHCP isn't supported on any other Arc-enabled private cloud, including Arc-enabled VMware, Arc for AVS, or Arc-enabled SCVMM. 
+
+If using DHCP, you must reserve the IP addresses used by the control plane and appliance VM. In addition, these IPs must be outside of the assignable DHCP range of IPs. Ex: The control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP. If the control plane IP or appliance VM IP changes, this impacts the resource bridge availability and functionality.
 
 ## Management machine requirements
 
@@ -58,56 +60,50 @@ The machine used to run the commands to deploy and maintain Arc resource bridge 
 Management machine requirements:
 
 - [Azure CLI x64](/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed
-- Open communication to Control Plane IP (`controlplaneendpoint` parameter in `createconfig` command)
-- Open communication to Appliance VM IP
-- Open communication to the reserved Appliance VM IP
-- if applicable, communication over port 443 to the private cloud management console (ex: VMware vCenter host machine)
+- Open communication to Control Plane IP 
+
+- Communication to Appliance VM IPs (SSH TCP port 22, Kubernetes API port 6443)
+
+- Communication to the reserved Appliance VM IPs (SSH TCP port 22, Kubernetes API port 6443)
+
+- communication over port 443 to the private cloud management console (ex: VMware vCenter machine)
+
 - Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
 - Internet access
   
 ## Appliance VM IP address requirements
 
-Arc resource bridge consists of an appliance VM that is deployed on-premises. The appliance VM has visibility into the on-premises infrastructure and can tag on-premises resources (guest management) for projection into Azure Resource Manager (ARM).
-
-The appliance VM is assigned an IP address from the `k8snodeippoolstart` parameter in the `createconfig` command; it may be referred to in partner products as Start Range IP, RB IP Start or VM IP 1.
-
-The appliance VM IP is the starting IP address for the appliance VM IP pool range. The VM IP pool range requires a minimum of 2 IP addresses.
+Arc resource bridge consists of an appliance VM that is deployed on-premises. The appliance VM has visibility into the on-premises infrastructure and can tag on-premises resources (guest management) for projection into Azure Resource Manager (ARM). The appliance VM is assigned an IP address from the `k8snodeippoolstart` parameter in the `createconfig` command. It may be referred to in partner products as Start Range IP, RB IP Start or VM IP 1. The appliance VM IP is the starting IP address for the appliance VM IP pool range; therefore, when you first deploy Arc resource  bridge, this is the IP that's initially assigned to your appliance VM. The VM IP pool range requires a minimum of 2 IP addresses.
 
 Appliance VM IP address requirements:
 
-- Open communication with the management machine and management endpoint (such as vCenter for VMware or MOC cloud agent service endpoint for Azure Stack HCI).
+- Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443)
+
+- Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
+
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
-- Static IP assigned (strongly recommended)
+- Static IP assigned and within the IP address prefix.
 
-  - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
-
-- Must be from within the IP address prefix.
 - Internal and external DNS resolution.
 - If using a proxy, the proxy server has to be reachable from this IP and all IPs within the VM IP pool.
 
 ## Reserved appliance VM IP requirements
 
-Arc resource bridge reserves an additional IP address to be used for the appliance VM upgrade.
-
-The reserved appliance VM IP is assigned an IP address via the `k8snodeippoolend` parameter in the `az arcappliance createconfig` command. This IP address may be referred to as End Range IP, RB IP End, or VM IP 2.
-
-The reserved appliance VM IP is the ending IP address for the appliance VM IP pool range. If specifying an IP pool range larger than two IP addresses, the additional IPs are reserved.
+Arc resource bridge reserves an additional IP address to be used for the appliance VM upgrade. The reserved appliance VM IP is assigned an IP address via the `k8snodeippoolend` parameter in the `az arcappliance createconfig` command. This IP address may be referred to as End Range IP, RB IP End, or VM IP 2. The reserved appliance VM IP is the ending IP address for the appliance VM IP pool range. When your appliance VM is upgraded for the first time, this is the IP assigned to your appliance VM post-upgrade and the initial appliance VM IP is returned to the IP pool to be used for a future upgrade. If specifying an IP pool range larger than two IP addresses, the additional IPs are reserved.
 
 Reserved appliance VM IP requirements:  
 
-- Open communication with the management machine and management endpoint (such as vCenter for VMware or MOC cloud agent service endpoint for Azure Stack HCI).
+- Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443)
+
+- Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
 
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
 
-- Static IP assigned (strongly recommended)
+- Static IP assigned and within the IP address prefix.
 
-  - If using DHCP, then the address must be reserved and  outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+- Internal and external DNS resolution.
 
-  - Must be from within the IP address prefix.
-
-  - Internal and external DNS resolution.
-
-  - If using a proxy, the proxy server has to be reachable from this IP and all IPs within the VM IP pool.
+- If using a proxy, the proxy server has to be reachable from this IP and all IPs within the VM IP pool.
 
 ## Control plane IP requirements
 
@@ -115,10 +111,9 @@ The appliance VM hosts a management Kubernetes cluster with a control plane that
 
 Control plane IP requirements:
 
-- Open communication with the management machine.
+- Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443).
 
-  - Static IP address assigned; the IP address should be outside the DHCP range but still available on the network segment. This IP address can't be assigned to any other machine on the network. 
-  - If using DHCP, the control plane IP should be a single reserved IP that is outside of the assignable DHCP range of IPs. No other machine on the network will use or receive this IP from DHCP. DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+- Static IP address assigned and within the IP address prefix.
 
 - If using a proxy, the proxy server has to be reachable from IPs within the IP address prefix, including the reserved appliance VM IP.
 
@@ -128,23 +123,23 @@ DNS server(s) must have internal and external endpoint resolution. The appliance
 
 ## Gateway
 
-The gateway IP should be an IP from within the subnet designated in the IP address prefix.
+The gateway IP is the IP of the gateway for the network where Arc resource bridge is deployed. The gateway IP should be an IP from within the subnet designated in the IP address prefix.
 
 ## Example minimum configuration for static IP deployment
 
-The following example shows valid configuration values that can be passed during configuration file creation for Arc resource bridge. It is strongly recommended to use static IP addresses when deploying Arc resource bridge. 
+The following example shows valid configuration values that can be passed during configuration file creation for Arc resource bridge. 
 
-Notice that the IP addresses for the gateway, control plane, appliance VM and DNS server (for internal resolution) are within the IP address prefix. This key detail helps ensure successful deployment of the appliance VM.
+Notice that the IP addresses for the gateway, control plane, appliance VM and DNS server (for internal resolution) are within the IP address prefix. The VM IP Pool Start/End are sequential. This key detail helps ensure successful deployment of the appliance VM.
 
    IP Address Prefix (CIDR format): 192.168.0.0/29
 
-   Gateway (IP format): 192.168.0.1
+   Gateway IP: 192.168.0.1
 
    VM IP Pool Start (IP format): 192.168.0.2
 
    VM IP Pool End (IP format): 192.168.0.3
 
-   Control Plane IP (IP format): 192.168.0.4
+   Control Plane IP: 192.168.0.4
 
    DNS servers (IP list format): 192.168.0.1, 10.0.0.5, 10.0.0.6
 
@@ -165,9 +160,9 @@ There are several different types of configuration files, based on the on-premis
 
 ### Appliance configuration files
 
-Three configuration files are created when the `createconfig` command completes (or the equivalent commands used by Azure Stack HCI): `<appliance-name>-resource.yaml`, `<appliance-name>-appliance.yaml` and `<appliance-name>-infra.yaml`.
+Three configuration files are created when deploying the Arc resource bridge: `<appliance-name>-resource.yaml`, `<appliance-name>-appliance.yaml` and `<appliance-name>-infra.yaml`.
 
-By default, these files are generated in the current CLI directory when `createconfig` completes. These files should be saved in a secure location on the management machine, because they're required for maintaining the appliance VM. Because the configuration files reference each other, all three files must be stored in the same location. If the files are moved from their original location at deployment, open the files to check that the reference paths to the configuration files are accurate.
+By default, these files are generated in the current CLI directory of where the deployment commands are run. These files should be saved on the management machine because they're required for maintaining the appliance VM. The configuration files reference each other and should be stored in the same location. 
 
 ### Kubeconfig
 

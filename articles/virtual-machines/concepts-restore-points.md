@@ -87,14 +87,14 @@ For Azure VM Linux VMs, restore points support the list of Linux [distributions 
 - Restore points don't support a proxy-configured Linux VM if it doesn't have Python version 2.7 or higher installed.
 - Restore points don't back up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
  
-## Operating system support for crash consistency (in preview)
+## Operating system support for crash consistency
 
 - All Operating systems are supported.
 
 ## Other limitations
 
 - Restore points are supported only for managed disks. 
-- Ultra-disks, Ephemeral OS disks, and Shared disks aren't supported. 
+- Ephemeral OS disks, and Shared disks aren't supported via both consistency modes. 
 - Restore points APIs require an API of version 2021-03-01 or later for application consistency. 
 - Restore points APIs require an API of version 2021-03-01 or later for crash consistency. (in preview)
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 

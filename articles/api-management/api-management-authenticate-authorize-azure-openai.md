@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Authenticate and authorize access to Azure OpenAI APIs using Azure API Management 
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In this article, you learn about ways to authenticate and authorize to Azure OpenAI API endpoints that are managed using Azure API Management. This article shows the following common methods:
 
 * **Authentication** - Authenticate to an Azure OpenAI API using policies that authenticate using either an API key or a Microsoft Entra ID managed identity.

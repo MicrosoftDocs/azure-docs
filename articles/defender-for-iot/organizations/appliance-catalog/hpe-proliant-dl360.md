@@ -1,7 +1,7 @@
 ---
 title: HPE ProLiant DL360 OT monitoring - Microsoft Defender for IoT
 description: Learn about the HPE ProLiant DL360 appliance when used for OT monitoring with Microsoft Defender for IoT.
-ms.date: 10/03/2022
+ms.date: 03/14/2024
 ms.topic: reference
 ---
 
@@ -14,12 +14,11 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors, cust
 |**Hardware profile** | C5600  |
 |**Performance** | Max bandwidth: 3 Gbps <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
-|**Status** | Supported, available pre-configured|
+|**Status** | Supported, available preconfigured|
 
 The following image describes the hardware elements on the HPE ProLiant DL360 back panel that are used by Defender for IoT:
 
 :::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="Photo of the HPE ProLiant DL360 back panel." border="false":::
-
 
 ## Specifications
 
@@ -64,7 +63,7 @@ The following image describes the hardware elements on the HPE ProLiant DL360 ba
 |**874543-B21** 	| HPE 1U Gen10 SFF Easy Install Rail Kit	|1|
 
 ## Optional Storage Controllers
-Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below have been tested in our lab for compatibility and sustained performance:
+Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below are tested in our lab for compatibility and sustained performance:
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -94,7 +93,7 @@ Optional modules for port expansion include:
 
 This section describes how to install OT sensor software on the HPE ProLiant DL360 appliance and includes adjusting the appliance's BIOS configuration.
 
-During this procedure, you'll configure the iLO port. We recommend that you also change the default password provided for the administrative user.
+During this procedure, you configure the iLO port. We recommend that you also change the default password provided for the administrative user.
 
 > [!NOTE]
 > Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
@@ -128,13 +127,12 @@ Use the following procedure to set up network options and update the default pas
 
 1. Change the default password and select **F10: Save**.
 
-### Setup the BIOS and RAID array
+### Set up the BIOS and RAID array
 
 This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
-In the event that any of the steps below are missing in the BIOS, please make sure that the hardware matches the specifications above.
+If any of the steps below are missing in the BIOS, make sure that the hardware matches the specifications above.
 
-HPE BIOS iLO is a system management software designed to give administrators control of HPE hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be setup locally or remotely. To setup the BIOS remotely from a management computer, you need to define the HPE IP address and the management computer's IP address on the same subnet.
-
+HPE BIOS iLO is a system management software designed to give administrators control of HPE hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be set up locally or remotely. To set up the BIOS remotely from a management computer, you need to define the HPE IP address and the management computer's IP address on the same subnet.
 
 **To configure the HPE BIOS**:
 > [!IMPORTANT]

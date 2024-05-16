@@ -87,7 +87,7 @@ You can use the Network Watcher packet capture feature to capture the necessary 
 
 ## Next steps
 
-- Learn about [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
+- Learn about [NSG flow logs](nsg-flow-logs-overview.md).
 - Learn [how to visualize your NSG flow logs by using Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
 <!--Image references-->

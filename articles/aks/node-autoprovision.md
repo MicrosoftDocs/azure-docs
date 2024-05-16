@@ -65,10 +65,22 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 
 ## Limitations
 
-- Windows and Azure Linux node pools aren't supported yet
-- Kubelet configuration through Node pool configuration is not supported
-- NAP can only be enabled on new clusters currently
-- It is not currently possible to stop nodepools or clusters which use the NAP feature
+- The only network configuration allowed is Cilium + Overlay + Azure
+- You can't enable in a cluster where node pools have cluster autoscaler enabled
+
+### Unsupported features:
+
+- Windows node pools
+- Applying custom configuration to the node kubelet
+- IPv6 clusters
+- [Service Principals](./kubernetes-service-principal.md)
+   > [!NOTE]
+   > You can use either a system-assigned or user-assigned managed identity.
+- Disk encryption sets
+- CustomCATrustCertificates
+- [Start Stop mode](./start-stop-cluster.md)
+- [HTTP proxy](./http-proxy.md)
+- [OutboundType](./egress-outboundtype.md) mutation. All OutboundTypes are supported, however you can't change them after creation.
 
 ## Enable node autoprovisioning
 

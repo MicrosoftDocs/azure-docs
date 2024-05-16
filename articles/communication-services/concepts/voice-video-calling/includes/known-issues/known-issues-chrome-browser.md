@@ -30,6 +30,13 @@ ms.custom: template-how-to
 **Description:** On Android 14, when the browser is put in the background or the device screen is locked, the outgoing audio disappears after approximately 5 seconds. This issue affects user experience as it interrupts the audio transmission during calls. Issue is not observed on Android 13 or other versions of Android.<br>
 **Recommended workaround:** Users are advised to keep the browser active in the foreground during calls.<br>
 
+### Incoming and outgoing audio issue on Android when browser is in background or device screen is locked with Power Saving mode enabled
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** On Android mobile phones when Power Saving mode enabled, incoming and outgoing audio stops immediately when the browser hosting the ACS call is put in the background or the device screen is locked. Additionally, because of the action of putting the browser is backgrounded under Power Saving mode the user will be disconnected and removed from the call after approximately one minute after the device screen is locked or the browser goes into the background.<br>
+**Known issue reference:** This is a known issue on [Chromium](https://issues.chromium.org/issues/40282141?pli=1).<br>
+**Recommended workaround:** To avoid this issue, users are advised to either keep the browser active in the foreground during calls or disable Power Saving mode while on WebRTC calls.<br>
+
 ### Chrome M115 - No outgoing video in Group and Azure Communication Services-Microsoft Teams calls
 **Browser version:** Google Chrome version 115 (Jul 2023) installed on Android devices.<br>
 **Azure Communication Service calling SDK version:** All.<br>
@@ -46,6 +53,14 @@ ms.custom: template-how-to
     It's worth noting that the user's incoming audio isn't muted, and this behavior is inherent to the browser.
 <br>
 **Recommended workaround:** Await a forthcoming update or patch from Google.<br>
+
+### Incoming audio is noticeably quieter in Azure Communication Services call after Third-party app call on Android devices
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** Users experience noticeably quieter incoming audio after receiving and accepting a call from a third-party app (e.g., WhatsApp, Viber) during an Azure Communication Services call. 
+This issue occurs on Android devices using the mobile browser. Additionally, volume controls indicate maximum levels, although the audio remains quieter than before the third-party call.<br>
+**Known issue reference:** This is a known issue on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=14986). <br>
+**Recommended workaround:** Users are advised to either rejoin the Azure Communication Services call or handle third-party app calls separately.<br>
 
 ### Android Chrome mutes the call after browser goes to background for one minute
 **Browser version:** All.<br>

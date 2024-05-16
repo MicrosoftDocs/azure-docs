@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 # Troubleshoot Azure-to-Azure VM replication errors
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
@@ -262,7 +262,7 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Make sure that the data disks are initialized, and then retry the operation.
 
-- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.yml).
 - **Linux**: [Initialize a new data disk in Linux](../virtual-machines/linux/add-disk.md).
 
 If the problem persists, contact support.
@@ -583,4 +583,4 @@ To resolve this issue, wait till system time crosses the skewed future time. Ano
 
 ## Next steps
 
-[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md)
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md).

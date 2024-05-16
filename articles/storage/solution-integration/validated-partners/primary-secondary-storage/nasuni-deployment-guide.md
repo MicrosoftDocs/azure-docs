@@ -2,8 +2,8 @@
 title: Nasuni configuration guide for Microsoft Azure
 titleSuffix: Azure Storage
 description: Deployment guide for Nasuni and Azure Blob Storage
-author: timkresler
-ms.author: timkresler
+author: beber
+ms.author: beber
 ms.date: 09/13/2023
 ms.topic: conceptual
 ms.service: azure-storage

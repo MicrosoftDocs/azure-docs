@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 03/13/2024
+ms.date: 05/06/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -50,7 +50,7 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
 
-## Azure Ai Services
+## Azure AI Services
 
 [!INCLUDE [azure-policy-reference-policies-azure-ai-services](../../../../includes/policy/reference/bycat/policies-azure-ai-services.md)]
 
@@ -114,6 +114,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
 
+## Communication
+
+[!INCLUDE [azure-policy-reference-policies-communication](../../../../includes/policy/reference/bycat/policies-communication.md)]
+
 ## Compute
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
@@ -157,6 +161,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Desktop Virtualization
 
 [!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]
+
+## DevCenter
+
+[!INCLUDE [azure-policy-reference-policies-devcenter](../../../../includes/policy/reference/bycat/policies-devcenter.md)]
 
 ## ElasticSan
 
@@ -326,13 +334,13 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
 
-## System Policy
-
-[!INCLUDE [azure-policy-reference-policies-system-policy](../../../../includes/policy/reference/bycat/policies-system-policy.md)]
-
 ## Tags
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
+
+## Trusted Launch
+
+[!INCLUDE [azure-policy-reference-policies-trusted-launch](../../../../includes/policy/reference/bycat/policies-trusted-launch.md)]
 
 ## VirtualEnclaves
 

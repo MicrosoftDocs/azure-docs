@@ -56,6 +56,7 @@ More details on eligible subscription types are as follows:
 |Japan|
 |Australia|
 
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Azure subscription billing locations where Sweden alphanumeric sender IDs are available
 | Country/Region |

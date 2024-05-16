@@ -223,7 +223,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |NcVmiCpuAffinity|Network Cloud|CPU Pinning Map (Preview)|Count|Pinning map of virtual CPUs (vCPUs) to CPUs|CPU,NUMA Node,VMI Namespace,VMI Node,VMI Name|
 
 ## Baremetal servers
-Baremetal server metrics are collected and delivered to Azure Monitor per minute.
+Baremetal server metrics are collected and delivered to Azure Monitor per minute, metrics of category HardwareMonitor are collected every 5 minutes.
 
 ### ***node metrics***
 

@@ -31,7 +31,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
     
     - The example webapp in this article is named **webapp-1**. Replace the example with your webapp name.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create a resource group
 

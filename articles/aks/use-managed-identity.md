@@ -2,10 +2,14 @@
 title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-security
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.date: 03/07/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -86,7 +90,7 @@ AKS uses several managed identities for built-in services and add-ons.
 2. Create an AKS cluster using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
+    az aks create --resource-group myResourceGroup --name myManagedCluster --enable-managed-identity
     ```
 
 3. Get credentials to access the cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
@@ -100,7 +104,7 @@ AKS uses several managed identities for built-in services and add-ons.
 To update your existing AKS cluster that's using a service principal to use a system-assigned managed identity, run the [`az aks update`][az-aks-update] command.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myManagedCluster --enable-managed-identity
+az aks update --resource-group myResourceGroup --name myManagedCluster --enable-managed-identity
 ```
 
 After updating your cluster, the control plane and pods use the managed identity. Kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned/drained and reimaged.
@@ -164,7 +168,7 @@ For a user-assigned kubelet identity outside the default worker node resource gr
     ```
 
 > [!NOTE]
-> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
+> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to propagate.
 
 ## Bring your own managed identity
 
@@ -392,7 +396,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 1. Confirm your AKS cluster is using the user-assigned managed identity using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
+    az aks show --resource-group <RGName> --name <ClusterName> --query "servicePrincipalProfile"
     ```
 
     If your cluster is using a managed identity, the output shows `clientId` with a value of **msi**. A cluster using a service principal shows an object ID. For example:
@@ -406,7 +410,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 2. After confirming your cluster is using a managed identity, find the managed identity's resource ID using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g <RGName> -n <ClusterName> --query "identity"
+    az aks show --resource-group <RGName> --name <ClusterName> --query "identity"
     ```
 
     For a user-assigned managed identity, your output should look similar to the following example output:
@@ -507,3 +511,4 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [managed-identity-operator]: ../role-based-access-control/built-in-roles.md#managed-identity-operator
+

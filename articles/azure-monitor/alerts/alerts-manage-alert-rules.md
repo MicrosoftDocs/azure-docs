@@ -1,12 +1,14 @@
 ---
 title: Manage your alert rules
-description: Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
+description: Manage your alert rules in the Azure portal, or using the CLI or PowerShell.Learn how to enable recommended alert rules.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/14/2024
 ms.reviewer: harelbr
+
+# Customer intent: As a cloud administrator, I want to manage my alert rules so that I can ensure that my resources are monitored effectively.
 ---
 
 # Manage your alert rules
@@ -18,7 +20,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
 1. From the top command bar, select **Alert rules**. The page shows all your alert rules on all subscriptions.
 
-    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-page.png" alt-text="Screenshot of alerts rules page.":::
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-page.png" alt-text="Screenshot that shows the alerts rules page.":::
 
 1. You can filter the list of rules using the available filters:
     - Subscription
@@ -39,7 +41,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 1. If you select multiple alert rules, you can enable or disable the selected rules. Selecting multiple rules can be useful when you want to perform maintenance on specific resources. 
 1. If you select a single alert rule, you can edit, disable, duplicate, or delete the rule in the alert rule pane.
 
-    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-pane.png" alt-text="Screenshot of alerts rules pane.":::
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-pane.png" alt-text="Screenshot that shows the alerts rules pane.":::
 
 1. To edit an alert rule, select **Edit**, and then edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, or the **Signal type** of an existing alert rule.
     - **Scope**. You can edit the scope for all alert rules **other than**:
@@ -85,6 +87,20 @@ To enable recommended alert rules:
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
 1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
 1. Select **Save**.
+
+## See the history of when an alert rule triggered
+
+To see the history of an alert rule, you must have a role with read permissions on the subscription containing the resource on which the alert fired.
+
+1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
+1. From the top command bar, select **Alert rules**. The page shows all your alert rules on all subscriptions.
+
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-page.png" alt-text="Screenshot that shows the alerts rules page.":::
+
+1. Select an alert rule, and then select **History** on the left pane to see the history of when the alert rule triggered.
+
+    :::image type="content" source="media/alerts-manage-alert-rules/alert-rule-history.png" alt-text="Screenshot that shows the history button from the alerts rule page." lightbox="media/alerts-manage-alert-rules/alert-rule-history.png":::
+
 
 ## Manage metric alert rules with the Azure CLI
 

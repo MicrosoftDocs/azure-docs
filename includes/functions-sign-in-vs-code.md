@@ -9,7 +9,7 @@ ms.author: glenga
 
 ## Sign in to Azure
 
-Before you can publish your app, you must sign in to Azure.
+Before you can create Azure resources or publish your app, you must sign in to Azure.
 
 1. If you aren't already signed in, choose the Azure icon in the Activity bar. Then in the **Resources** area, choose **Sign in to Azure...**. 
 

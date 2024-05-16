@@ -11,7 +11,7 @@ ms.author: cephalin
 
 Launch the Bash environment in [Azure Cloud Shell](../articles/cloud-shell/get-started.md).
 
-:::image type="icon" source="~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 Because these CLI commands are not yet part of the core CLI set, add them with the following commands:
 

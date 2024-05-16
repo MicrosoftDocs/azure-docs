@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using ARM template"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using an Azure Resource Manager template (ARM template).
-ms.date: 02/26/2024
+ms.date: 03/19/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -12,10 +12,15 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates,
+select the **Deploy to Azure** button. The template opens in the Azure portal.
+
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Screenshot of the Deploy to Azure button to assign a policy with an Azure Resource Manager template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Fazurepolicy-builtin-vm-managed-disks%2Fazuredeploy.json":::
+
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) and the [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 - `Microsoft.PolicyInsights` must be [registered](../../azure-resource-manager/management/resource-providers-and-types.md) in your Azure subscription. To register a resource provider, you must have permission to register resource providers. That permission is included in the Contributor and Owner roles.
 - A resource group with at least one virtual machine that doesn't use managed disks.
@@ -37,15 +42,24 @@ Create the following ARM template as _policy-assignment.json_.
   "parameters": {
     "policyAssignmentName": {
       "type": "string",
-      "defaultValue": "audit-vm-managed-disks"
+      "defaultValue": "audit-vm-managed-disks",
+      "metadata": {
+        "description": "Policy assignment name used in assignment's resource ID"
+      }
     },
     "policyDefinitionID": {
       "type": "string",
-      "defaultValue": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
+      "defaultValue": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+      "metadata": {
+        "description": "Policy definition ID"
+      }
     },
     "policyDisplayName": {
       "type": "string",
-      "defaultValue": "Audit VM managed disks"
+      "defaultValue": "Audit VM managed disks",
+      "metadata": {
+        "description": "Display name for Azure portal"
+      }
     }
   },
   "resources": [

@@ -29,43 +29,14 @@ Your tool package should be a python package. To develop your custom tool, follo
 
 In order to add the custom tool to your tool list for use, it's necessary to prepare the runtime. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example.
 
-**If you use the automatic runtime**, you can readily install the package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the 'Save and install' button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to create and manage runtime](./how-to-create-manage-runtime.md).
+When using automatic runtime, you can readily install the publicly released package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the 'Save and install' button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to create and manage runtime](./how-to-create-manage-runtime.md).
 :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/install-package-on-automatic-runtime.png":::
 
-**If you use the compute instance runtime**, which should be based on a customized environment where your custom tool is preinstalled, please take the following steps:
-
-### Create customized environment
-
-1. Create a customized environment with docker context.
-
-   1. Create a customized environment in Azure Machine Learning studio by going to **Environments**  then select **Create**. In the settings tab under *Select environment source*, choose " Create a new docker content."
-
-       Currently we support creating environment with "Create a new docker context" environment source. "Use existing docker image with optional conda file" has known [limitation](../how-to-manage-environments-v2.md#create-an-environment-from-a-conda-specification) and isn't supported now.
-
-        :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-1.png" alt-text="Screenshot of create environment in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-1.png":::
-
-   1. Under **Customize**, replace the text in the Dockerfile:
-
-       ```sh
-       FROM mcr.microsoft.com/azureml/promptflow/promptflow-runtime:latest
-       RUN pip install my-tools-package==0.0.1
-       ```
-
-         :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-2.png" alt-text="Screenshot of create environment in Azure Machine Learning studio on the customize step."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-2.png":::
-    
-       It takes several minutes to create the environment. After it succeeded, you can copy the Azure Container Registry (ACR) from environment detail page for the next step.
-
-### Prepare compute instance runtime
-
-1. Create a compute instance runtime using the customized environment created in step 2.
-    1. Create a new compute instance. Existing compute instance created long time ago can possibly hit unexpected issue.
-    2. Create runtime on CI with customized environment.
-
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-compute-instance.png" alt-text="Screenshot of add compute instance runtime in Azure Machine Learning studio."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-compute-instance.png":::
+Another method is applicable for not only publicly released packages, but also local or private feed packages. Firstly you should build an image following the two steps in [how to customize environment](./how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime), and then [change the base image for automatic runtime](./how-to-create-manage-runtime.md#change-the-base-image-for-automatic-runtime-preview) or [create a compute instance runtime based on your customized environment](./how-to-create-manage-runtime.md#create-a-compute-instance-runtime-on-a-runtime-page).
 
 ## Test from prompt flow UI
 1. Create a standard flow.
-2. Select the correct runtime ("my-tool-runtime") and add your tools.
+2. Select the correct runtime and add your tools.
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing the runtime and more tools dropdown."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png":::
 3. Change flow based on your requirements and run flow in the selected runtime.
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing adding a tool."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png":::

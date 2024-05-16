@@ -1,14 +1,17 @@
 ---
 title: "Quickstart: Connect with GitHub Actions"
 description: Use Azure Database for PostgreSQL - Flexible Server from a GitHub Actions workflow.
-author: sunilagarwal
-ms.author: sunila
+author: nachoalonsoportillo
+ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 01/02/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: github-actions-azure, mode-other, devx-track-azurecli
+ms.custom:
+  - github-actions-azure
+  - mode-other
+  - devx-track-azurecli
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure Database for PostgreSQL - Flexible Server
@@ -41,7 +44,7 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/generate-deployment-credentials.md)]
 
 ## Copy the Azure Database for PostgreSQL flexible server connection string
 
@@ -59,7 +62,7 @@ You use the connection string as a GitHub secret.
 
 ## Configure the GitHub secrets
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Add your workflow
 

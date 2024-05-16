@@ -5,7 +5,7 @@ description: Learn about the architecture of Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 04/03/2024
 ms.reviewer: deeikele
 ms.author: larryfr
 author: Blackmist
@@ -67,15 +67,46 @@ For information on registering resource providers, see [Register an Azure resour
 
 ## Role-based access control and control plane proxy
 
-Azure AI Services and Azure OpenAI provide control plane endpoints for operations such as listing model deployments. These endpoints are secured using a separate Azure role-based access control (RBAC) configuration than the one used for Azure AI hub. 
+Azure AI Services and Azure OpenAI provide control plane endpoints for operations such as listing model deployments. These endpoints are secured using a separate Azure role-based access control (Azure RBAC) configuration than the one used for Azure AI hub. 
 
 To reduce the complexity of Azure RBAC management, AI Studio provides a *control plane proxy* that allows you to perform operations on connected Azure AI Services and Azure OpenAI resources. Performing operations on these resources through the control plane proxy only requires Azure RBAC permissions on the AI hub. The Azure AI Studio service then performs the call to the Azure AI Services or Azure OpenAI control plane endpoint on your behalf.
 
 For more information, see [Role-based access control in Azure AI Studio](rbac-ai-studio.md).
 
+## Attribute-based access control
+
+Each AI hub you create has a default storage account. Each child AI project of the AI hub inherits the storage account of the AI hub. The storage account is used to store data and artifacts.
+
+To secure the shared storage account, Azure AI Studio uses both Azure RBAC and Azure attribute-based access control (Azure ABAC). Azure ABAC is a security model that defines access control based on attributes associated with the user, resource, and environment. Each AI project has:
+
+- A service principal that is assigned the Storage Blob Data Contributor role on the storage account.
+- A unique ID (workspace ID).
+- A set of containers in the storage account. Each container has a prefix that corresponds to the workspace ID value for the AI project.
+
+The role assignment for each AI project's service principal has a condition that only allows the service principal access to containers with the matching prefix value. This condition ensures that each AI project can only access its own containers.
+
+> [!NOTE]
+> For data encryption in the storage account, the scope is the entire storage and not per-container. So all containers are encrypted using the same key (provided either by Microsoft or by the customer).
+
+For more information on Azure access-based control, see [What is Azure attribute-based access control](/azure/role-based-access-control/conditions-overview).
+
+## Containers in the storage account
+
+The default storage account for an AI hub has the following containers. These containers are created for each AI project, and the `{workspace-id}` prefix matches the unique ID for the AI project. The container is accessed by the AI project using a [connection](connections.md).
+
+> [!TIP]
+> To find the ID for your AI project, go to the AI project in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
+
+| Container name | Connection name | Description |
+| --- | --- | --- |
+| {workspace-ID}-azureml | workspaceartifactstore | Storage for assets such as metrics, models, and components. |
+| {workspace-ID}-blobstore| workspaceblobstore | Storage for data upload, job code snapshots, and pipeline data cache. |
+| {workspace-ID}-code | NA | Storage for notebooks, compute instances, and prompt flow. |
+| {workspace-ID}-file | NA | Alternative container for data upload. |
+
 ## Encryption
 
-Azure AI Studio uses encryption to protect data at rest and in transit. By default, Microsoft-managed keys are used for encryption, however you can use your own encryption keys. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
+Azure AI Studio uses encryption to protect data at rest and in transit. By default, Microsoft-managed keys are used for encryption. However you can use your own encryption keys. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
 
 ## Virtual network
 
@@ -110,5 +141,5 @@ For more information on price and quota, use the following articles:
 Create an AI hub using one of the following methods:
 
 - [Azure AI Studio](../how-to/create-azure-ai-resource.md#create-an-azure-ai-hub-resource-in-ai-studio): Create an AI hub for getting started.
-- [Azure portal](../how-to/create-azure-ai-resource.md#create-a-secure-azure-ai-hub-resource-in-the-azure-portal): Create an AI hub with your own networking, encryption, identity and access management, dependent resources, and resource tag settings.
+- [Azure portal](../how-to/create-secure-ai-hub.md): Create an AI hub with your own networking.
 - [Bicep template](../how-to/create-azure-ai-hub-template.md).

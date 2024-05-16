@@ -83,7 +83,10 @@ Alternatively without any `Label`:
 @Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=myAppConfigKey)​
 ```
 
-Any configuration change to the app that results in a site restart causes an immediate refetch of all referenced key-values from the App Configuration store.
+Any configuration change to the app that results in a site restart causes an immediate re-fetch of all referenced key-values from the App Configuration store.
+
+> [!NOTE]
+> Automatic refresh/re-fetch of these values when the key-values have been updated in App Configuration, is not currently supported.
 
 ## Source Application Settings from App Config
 

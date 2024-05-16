@@ -24,6 +24,38 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## April 2024 
+
+- **Enhanced Memory Allocation in Azure Database for MySQL Flexible Server**
+
+  In the April deployments, we introduced optimized memory allocation for Azure Database for MySQL Flexible Server. This refinement ensures a more accurate and efficient memory calculation for the MySQL Server component, allowing it to utilize available resources effectively for query processing and data management. [Learn more](./concepts-service-tiers-storage.md).
+
+- **Enhanced Monitoring for Azure Database for MySQL Flexible Server: Introducing New Metrics**
+
+  The newly added metrics include MySQL Uptime, MySQL History list length, MySQL Deadlocks, Active Transactions, and MySQL Lock Timeouts. These metrics will provide you with a more detailed view of your server’s performance, enabling you to monitor and optimize your database operations more effectively. In addition to these new metrics, we’ve also improved the Memory percent metric. It now offers more precise calculations of memory usage for the MySQL server (mysqld) process. [Learn more](./concepts-monitoring.md)
+
+
+- **Microsoft Defender for Cloud supports Azure Database for MySQL flexible server (General Availability)**
+
+  We’re excited to announce the general availability of the Microsoft Defender for Cloud feature for Azure Database for MySQL flexible server in all service tiers. The Microsoft Defender Advanced Threat Protection feature simplifies security management of Azure Database for MySQL flexible server instances. It monitors the server for anomalous or suspicious databases activities to detect potential threats and provides security alerts for you to investigate and take appropriate action, allowing you to actively improve the security posture of your database without being a security expert. [Learn more](/azure/defender-for-cloud/defender-for-databases-introduction)
+- **On-demand backup and Export (Preview)**
+
+  Azure Database for MySQL Flexible Server now gives the flexibility to trigger an on-demand backup of the server and export it to an Azure storage account (Azure blob storage). The feature is currently in public preview and available only in public cloud regions. [Learn more](./concepts-backup-restore.md#on-demand-backup-and-export-preview)
+- **Known Issues**
+
+  While attempting to enable the Microsoft Defender for Cloud feature for an Azure Database for MySQL flexible server, you may encounter the following error: ‘The server <server_name> is not compatible with Advanced Threat Protection. Please contact Microsoft support to update the server to a supported version.’ This issue can occur on MySQL Flexible Servers that are still awaiting an internal update. It will be automatically resolved in the next internal update of your server. Alternatively, you can open a support ticket to expedite an immediate update.”
+
+## March 2024
+
+- **Accelerated Logs now supports major version upgrade.**
+
+   Accelerated Logs has now introduced support for [major version upgrade](./how-to-upgrade.md) allowing an upgrade from MySQL version 5.7 to MySQL version 8.0 with accelerated logs feature enabled.[Learn more.](./concepts-accelerated-logs.md) 
+  
+  
+- **Support for Long-term retention of backups in Azure Database for MySQL Flexible Server (Preview)**
+
+  This feature will allow retention of backups beyond 35 days and upto 10 years. [Learn more.](./concepts-backup-restore.md) 
+  
 ## February 2024
 
 
@@ -80,10 +112,6 @@ This article summarizes new releases and features in Azure Database for MySQL fl
 - **Addition of New vCore Options in Azure Database for MySQL flexible server**
 
   We're excited to inform you that we have introduced new 20 vCores options under the Business Critical Service tier for Azure Database for MySQL flexible server. Find more information under [Compute Option for Azure Database for MySQL flexible server](./concepts-service-tiers-storage.md#service-tiers-size-and-server-types).
-
-- **Metrics computation for Azure Database for MySQL flexible server**
-
-  "Host Memory Percent" metric provides more accurate calculations of memory usage. It will now reflect the actual memory consumed by the server, excluding reusable memory from the calculation. This improvement ensures that you have a more precise understanding of your server's memory utilization. After the completion of the [scheduled maintenance window](./concepts-maintenance.md), existing servers benefit from this enhancement.
 
 - **Known Issues**
 

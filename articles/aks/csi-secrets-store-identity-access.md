@@ -4,8 +4,9 @@ description: Learn how to integrate the Azure Key Vault Provider for Secrets Sto
 author: nickomang
 ms.author: nickoman
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 12/19/2023
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
@@ -53,16 +54,27 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
     ```azurecli-interactive
     az identity create --name $UAMI --resource-group $RESOURCE_GROUP
 
-    export USER_ASSIGNED_CLIENT_ID="$(az identity show -g $RESOURCE_GROUP --name $UAMI --query 'clientId' -o tsv)"
+    export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group $RESOURCE_GROUP --name $UAMI --query 'clientId' -o tsv)"
     export IDENTITY_TENANT=$(az aks show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --query identity.tenantId -o tsv)
     ```
 
 3. Create a role assignment that grants the workload identity permission to access the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
 
+    > [!IMPORTANT]
+    >
+    > * If your key vault is set with `--enable-rbac-authorization` and you're using `key` or `certificate` type, assign the [`Key Vault Certificate User`](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) role to give permissions.
+    > * If your key vault is set with `--enable-rbac-authorization` and you're using `secret` type, assign the [`Key Vault Secrets User`](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) role.
+    > * If your key vault isn't set with `--enable-rbac-authorization`, you can use the [`az keyvault set-policy`][az-keyvault-set-policy] command with the `--key-permissions get`, `--certificate-permissions get`, or `--secret-permissions get` parameter to create a key vault policy to grant access for keys, certificates, or secrets. For example:
+    >
+    > ```azurecli-interactive
+    > az keyvault set-policy --name $KEYVAULT_NAME --key-permissions get --object-id $IDENTITY_OBJECT_ID
+    > ```
+
     ```azurecli-interactive
     export KEYVAULT_SCOPE=$(az keyvault show --name $KEYVAULT_NAME --query id -o tsv)
 
-    az role assignment create --role "Key Vault Administrator" --assignee $USER_ASSIGNED_CLIENT_ID --scope $KEYVAULT_SCOPE
+    # Example command for key vault with RBAC enabled using `key` type
+    az role assignment create --role "Key Vault Certificate User" --assignee $USER_ASSIGNED_CLIENT_ID --scope $KEYVAULT_SCOPE
     ```
 
 4. Get the AKS cluster OIDC Issuer URL using the [`az aks show`][az-aks-show] command.
@@ -182,27 +194,38 @@ In this security model, you can grant access to your cluster's resources to team
 1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on. You should also retrieve the identity's `clientId`, which you'll use in later steps when creating a `SecretProviderClass`.
 
     ```azurecli-interactive
-    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.objectId -o tsv
-    az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
+    az aks show --resource-group <resource-group> --name <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.objectId -o tsv
+    az aks show --resource-group <resource-group> --name <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
     ```
 
     Alternatively, you can create a new managed identity and assign it to your virtual machine (VM) scale set or to each VM instance in your availability set using the following commands.
 
     ```azurecli-interactive
-    az identity create -g <resource-group> -n <identity-name>
-    az vmss identity assign -g <resource-group> -n <agent-pool-vmss> --identities <identity-resource-id>
-    az vm identity assign -g <resource-group> -n <agent-pool-vm> --identities <identity-resource-id>
+    az identity create -resource-group <resource-group> --name <identity-name>
+    az vmss identity assign --resource-group <resource-group> --name <agent-pool-vmss> --identities <identity-resource-id>
+    az vm identity assign --resource-group <resource-group> --name <agent-pool-vm> --identities <identity-resource-id>
 
-    az identity show -g <resource-group> --name <identity-name> --query 'clientId' -o tsv
+    az identity show --resource-group <resource-group> --name <identity-name> --query 'clientId' -o tsv
     ```
 
-2. Create a role assignment that grants the identity permission access to the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command. 
+2. Create a role assignment that grants the identity permission to access the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
+
+    > [!IMPORTANT]
+    >
+    > * If your key vault is set with `--enable-rbac-authorization` and you're using `key` or `certificate` type, assign the [`Key Vault Certificate User`](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) role.
+    > * If your key vault is set with `--enable-rbac-authorization` and you're using `secret` type, assign the [`Key Vault Secrets User`](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) role.
+    > * If your key vault isn't set with `--enable-rbac-authorization`, you can use the [`az keyvault set-policy`][az-keyvault-set-policy] command with the `--key-permissions get`, `--certificate-permissions get`, or `--secret-permissions get` parameter to create a key vault policy to grant access for keys, certificates, or secrets. For example:
+    >
+    > ```azurecli-interactive
+    > az keyvault set-policy --name $KEYVAULT_NAME --key-permissions get --object-id $IDENTITY_OBJECT_ID
+    > ```
 
     ```azurecli-interactive
-    export IDENTITY_OBJECT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'principalId' -o tsv)"
+    export IDENTITY_OBJECT_ID="$(az identity show --resource-group <resource-group> --name <identity-name> --query 'principalId' -o tsv)"
     export KEYVAULT_SCOPE=$(az keyvault show --name <key-vault-name> --query id -o tsv)
 
-    az role assignment create --role "Key Vault Administrator" --assignee $IDENTITY_OBJECT_ID --scope $KEYVAULT_SCOPE
+    # Example command for key vault with RBAC enabled using `key` type
+    az role assignment create --role "Key Vault Certificate User" --assignee $USER_ASSIGNED_CLIENT_ID --scope $KEYVAULT_SCOPE
     ```
 
 3. Create a `SecretProviderClass` using the following YAML. Make sure to use your own values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault.
@@ -287,13 +310,13 @@ After the pod starts, the mounted content at the volume path specified in your d
 1. Show secrets held in the secrets store using the following command.
 
     ```bash
-    kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
+    kubectl exec busybox-secrets-store-inline-user-msi -- ls /mnt/secrets-store/
     ```
 
 2. Display a secret in the store using the following command. This example command shows the test secret `ExampleSecret`.
 
     ```bash
-    kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
+    kubectl exec busybox-secrets-store-inline-user-msi -- cat /mnt/secrets-store/ExampleSecret
     ```
 
 ## Obtain certificates and keys
@@ -316,7 +339,7 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 - Disable the Azure Key Vault provider for Secrets Store CSI Driver capability in an existing cluster using the [`az aks disable-addons`][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` add-on.
 
     ```azurecli-interactive
-    az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGroup -n myAKSCluster
+    az aks disable-addons --addons azure-keyvault-secrets-provider --resource-group myResourceGroup --name myAKSCluster
     ```
 
 > [!NOTE]
@@ -340,3 +363,4 @@ In this article, you learned how to create and provide an identity to access you
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
+[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy

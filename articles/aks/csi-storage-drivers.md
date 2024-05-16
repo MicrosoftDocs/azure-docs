@@ -3,7 +3,10 @@ title: Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AK
 description: Learn about and deploy the Container Storage Interface (CSI) drivers for Azure Disks and Azure Files in an Azure Kubernetes Service (AKS) cluster
 ms.topic: article
 ms.date: 03/14/2024
+author: tamram
+ms.author: tamram
 
+ms.subservice: aks-storage
 ---
 
 # Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
@@ -47,7 +50,7 @@ To enable CSI storage drivers on a new cluster, include one of the following par
 * `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller].
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --enable-disk-driver --enable-file-driver --enable-blob-driver --enable-snapshot-controller
+az aks update --name myAKSCluster --resource-group myResourceGroup --enable-disk-driver --enable-file-driver --enable-blob-driver --enable-snapshot-controller
 ```
 
 It may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example resembles the section indicating the results when enabling the Blob storage CSI driver:
@@ -69,13 +72,13 @@ To disable CSI storage drivers on a new cluster, include one of the following pa
 * `--disable-snapshot-controller` allows you to disable the [snapshot controller][snapshot-controller].
 
 ```azurecli
-az aks create -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
+az aks create --name myAKSCluster --resource-group myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
 ```
 
 To disable CSI storage drivers on an existing cluster, use one of the parameters listed earlier depending on the storage system:
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
+az aks update --name myAKSCluster --resource-group myResourceGroup --disable-disk-driver --disable-file-driver --disable-blob-driver --disable-snapshot-controller 
 ```
 
 ## Migrate custom in-tree storage classes to CSI
@@ -109,3 +112,4 @@ To review the migration options for your storage classes and upgrade your cluste
 [azure-policy-aks-definition]: ../governance/policy/samples/built-in-policies.md#kubernetes
 [encrypt-managed-disks-customer-managed-keys]: ../virtual-machines/disks-cross-tenant-customer-managed-keys.md
 [azure-disk-customer-managed-keys]: azure-disk-customer-managed-keys.md
+

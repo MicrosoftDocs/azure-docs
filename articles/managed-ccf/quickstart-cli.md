@@ -17,7 +17,7 @@ Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying
 
 Azure CLI is used to create and manage Azure resources using commands or scripts.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.51.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux is also required.

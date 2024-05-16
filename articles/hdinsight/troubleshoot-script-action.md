@@ -3,7 +3,7 @@ title: Troubleshoot script actions in Azure HDInsight
 description: General troubleshooting steps for script actions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/27/2023
+ms.date: 03/22/2024
 ---
 
 # Troubleshoot script actions in Azure HDInsight

@@ -52,7 +52,7 @@ The table created in the script has two columns:
 
 The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. Adding the 'FilePath' to either team is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
 
-Your columns names and JSON attributes must exactly match to automatically parse into the table. Both columns and JSON attributes are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. 
+Your column names and JSON attributes must exactly match to automatically parse into the table. Both columns and JSON attributes are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. 
 
 The easiest way to make the REST call is from an Azure Cloud PowerShell command line (CLI). To open the shell, go to the Azure portal, press the Cloud Shell button, and select PowerShell. If this is your first time using Azure Cloud PowerShell, you'll need to walk through the one-time configuration wizard.
 
@@ -106,7 +106,7 @@ You can define a data collection rule to send data from multiple machines to mul
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 >
-> To automatically parse your JSON log file into a custom table follow the Resource Manager template steps. Text data can be transformed into columns using [ingestion-time transformation](../essentials/data-collection-transformations.md) 
+> To automatically parse your JSON log file into a custom table, follow the Resource Manager template steps. Text data can be transformed into columns using [ingestion-time transformation](../essentials/data-collection-transformations.md).
 
 
 ### [Portal](#tab/portal)
@@ -364,19 +364,19 @@ To create the data collection rule in the Azure portal:
   
    - `workspaceName`: This is the name of your workspace. Example `AwesomeWorkspace`
      
-   - `tableName`: The name of the destination table you created in your Log Analytics Workspace. For more information, see [Create a custom table](#create-a-custom-table).Example `AwesomeLogFile_CL`
+   - `tableName`: The name of the destination table you created in your Log Analytics Workspace. For more information, see [Create a custom table](#create-a-custom-table). Example `AwesomeLogFile_CL`
        
    - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file. Your columns names and JSON attributes must exactly match to automatically parse into the table. Both column names and JSON attribute are case sensitive. For example, `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column.
   
         > [!NOTE]
-        > A custom stream names in the stream declaration must have a prefix of *Custom-*; for example, *Custom-JSON*.
+        > A custom stream name in the stream declaration must have a prefix of *Custom-*; for example, *Custom-JSON*.
      
     - `filePatterns`: Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns). Examples of valid inputs: 20220122-MyLog.txt, ProcessA_MyLog.txt, ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
     
         > [!NOTE]
         > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
     
-    - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace or or leave as **source** if you don't need to transform the collected data.
+    - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace or leave as **source** if you don't need to transform the collected data.
 
        > [!NOTE]
        > JSON text must be contained on a single line. For example {"Element":"Gold","Symbol":"Au","NobleMetal":true,"AtomicNumber":79,"MeltingPointC":1064.18}. To transfom the data into a table with columns TimeGenerated, Element, Symbol, NobleMetal, AtomicNumber and Melting point use this transform:  "transformKql": "source|extend d=todynamic(RawData)|project TimeGenerated, Element=tostring(d.Element), Symbol=tostring(d.Symbol), NobleMetal=tostring(d.NobleMetal), AtomicNumber=tostring(d.AtommicNumber), MeltingPointC=tostring(d.MeltingPointC)

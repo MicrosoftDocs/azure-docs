@@ -7,8 +7,7 @@ ms.reviewer: anaharris
 ms.date: 03/13/2024
 ms.service: virtual-network
 ms.topic: concept
-ms.custom:
-  - subject-relocation
+ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 
@@ -38,15 +37,16 @@ To learn how to move your virtual network using Resource Mover, see [Move Azure 
 
 ## Prerequisites
 
-- Identify any independent resources that are also associated with the virtual network, such as:
-    - [Network Peering](/azure/virtual-network/virtual-network-peering-overview)
-    - [Load Balancer](/azure/load-balancer/load-balancer-overview)
-    - [User Defined Routes (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined)
-    - [NAT gateway](/azure/nat-gateway/nat-overview)
-    - [DDOS Protection Plan](/azure/ddos-protection/)
-    - [Network Security Group (NSG)](./relocation-virtual-network-nsg.md)
-    - [Reserved private IP address (public static IP address)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)
-    - [Application Security Groups (ASG)](/azure/virtual-network/application-security-groups)
+- Identify any dependent resources that are also associated with the virtual network, such as:
+
+- [Network Peering](/azure/virtual-network/virtual-network-peering-overview)
+  - [Load Balancer](/azure/load-balancer/load-balancer-overview)
+  - [User Defined Routes (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined)
+  - [NAT gateway](/azure/nat-gateway/nat-overview)
+  - [DDOS Protection Plan](/azure/ddos-protection/)
+  - [Network Security Group (NSG)](./relocation-virtual-network-nsg.md)
+  - [Reserved private IP address (public static IP address)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)
+  - [Application Security Groups (ASG)](/azure/virtual-network/application-security-groups)
 
 - Confirm that your virtual network is in the source Azure region.
 
@@ -69,6 +69,11 @@ To learn how to move your virtual network using Resource Mover, see [Move Azure 
 > [!IMPORTANT]
 > Starting July 1, 2021, you won't be able to add new tests in an existing workspace or enable a new workspace with Network performance monitor. You can continue to use the tests created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher before February 29, 2024.
 
+
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
 
 ## Plan

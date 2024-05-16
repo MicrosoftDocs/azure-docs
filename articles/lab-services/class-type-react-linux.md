@@ -4,7 +4,7 @@ description: Learn how to set up labs to React development class.
 author: emaher
 ms.topic: how-to
 ms.date: 04/25/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, linux-related-content
 ms.service: lab-services
 ---
 

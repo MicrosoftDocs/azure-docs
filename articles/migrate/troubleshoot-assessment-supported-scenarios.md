@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.date: 02/16/2024
-ms.custom: engagement-fy24        
+ms.custom: engagement-fy24, linux-related-content
 ---
 
 # Troubleshoot assessment - supported scenarios

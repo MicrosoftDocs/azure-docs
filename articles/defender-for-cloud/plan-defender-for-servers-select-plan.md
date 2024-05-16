@@ -65,7 +65,7 @@ You can choose from two paid plans:
 |[Network map](protect-network-resources.md) | Provides a geographical view of recommendations for hardening your network resources. | Not supported in Plan 1| :::image type="icon" source="./media/icons/yes-icon.png"::: |
 |[Agentless scanning](concept-agentless-data-collection.md) | Scans Azure virtual machines by using cloud APIs to collect data. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
 
->[!Note]
+>[!NOTE]
 >Once a plan is enabled, a 30-day trial period begins. There is no way to stop, pause, or extend this trial period.
 >To enjoy the full 30-day trial, make sure to plan ahead to meet your evaluation purposes.
 
@@ -80,7 +80,7 @@ A couple of vulnerability assessment options are available in Defender for Serve
   - Has the same [Windows](/microsoft-365/security/defender-endpoint/configure-server-endpoints#prerequisites), [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#prerequisites), and [network](/microsoft-365/security/defender-endpoint/configure-proxy-internet#enable-access-to-microsoft-defender-for-endpoint-service-urls-in-the-proxy-server) prerequisites as Defender for Endpoint.
   - No extra software is required.
 
-    >[!Note]
+    >[!NOTE]
     > Microsoft Defender Vulnerability Management Add-on capabilities are included in Defender for Servers Plan 2. This provides consolidated inventories, new assessments, and mitigation tools to further enhance your vulnerability management program. To learn more, see [Vulnerability Management capabilities for servers](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities#vulnerability-managment-capabilities-for-servers).
     >
     > Defender Vulnerability Management add-on capabilities are only available through the [Microsoft Defender 365 portal](https://security.microsoft.com/homepage).

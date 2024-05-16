@@ -7,7 +7,7 @@ mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a confidential VM with the Azure CLI

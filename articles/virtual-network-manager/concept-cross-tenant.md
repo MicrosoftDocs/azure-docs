@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 03/22/2024
 ms.custom: template-concept
 ---
 
@@ -59,7 +59,7 @@ To use cross-tenant connection in Azure Virtual Network Manager, users need the 
 
 - Administrator guest account has *Network Contributor* permissions applied at appropriate scope level(Management group, subscription, or virtual network). 
 
-Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md), and how to [assign user roles to resources in Azure portal](../role-based-access-control/role-assignments-portal.md) 
+Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md), and how to [assign user roles to resources in Azure portal](../role-based-access-control/role-assignments-portal.yml) 
 
 ## Known limitations 
 

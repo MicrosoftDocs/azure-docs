@@ -1,11 +1,13 @@
 ---
-title: Create or edit an activity log, service health, or resource health alert rule
-description: This article shows you how to create a new activity log, service health, and resource health alert rule.
+title: Create an activity log, service health, or resource health alert rule
+description: This article shows you how to create or edit a new activity log, service health, and resource health alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: how-to
 ms.date: 11/27/2023
 ms.reviewer: harelbr
+
+# Customer intent: As an cloud Azure administrator, I want to create a new log search alert rule so that I can use a log search query to monitor the performance and availability of my resources.
 ---
 
 # Create or edit an activity log, service health, or resource health alert rule
@@ -18,11 +20,20 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-access](../includes/alerts-wizard-access.md)]
 
+### Edit an existing alert rule
+
+1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
+1. Select **Alert rules**.
+1. Select the alert rule you want to edit, and then select **Edit**.
+
+    :::image type="content" source="media/alerts-create-activity-log-alert-rule/alerts-edit-activity-log-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing activity log alert rule.":::
+1. Select any of the tabs for the alert rule to edit the settings.
+
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
 ## Configure the alert rule conditions
 
-1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition.
+1. On the **Condition** tab, select **Activity log**, **Resource health**, or **Service health**, or select **See all signals** if you want to choose a different signal for the condition.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-popular-signals.png" alt-text="Screenshot that shows popular signals when creating an alert rule.":::
 

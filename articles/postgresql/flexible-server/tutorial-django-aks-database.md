@@ -1,14 +1,16 @@
 ---
-title: 'Tutorial: Deploy Django on AKS cluster by using Azure CLI'
+title: "Tutorial: Deploy Django on AKS cluster by using Azure CLI"
 description: Learn how to quickly build and deploy Django  on AKS with Azure Database for PostgreSQL - Flexible Server.
+author: agapovm
+ms.author: maximagapov
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
 ms.topic: tutorial
-ms.date: 01/16/2024
-ms.custom: mvc, devx-track-azurecli
+ms.custom:
+  - mvc
+  - devx-track-azurecli
 ---
 
 # Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
@@ -211,7 +213,7 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 > If you are using Azure container registry (ACR), then run the `az aks update` command to attach ACR account with the AKS cluster.
 >
 > ```azurecli-interactive
-> az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
+> az aks update --name djangoappcluster --resource-group django-project --attach-acr <your-acr-name>
 > ```
 
 ## Create Kubernetes manifest file

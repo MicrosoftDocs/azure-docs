@@ -11,10 +11,13 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 11/02/2023
+ms.date: 03/21/2024
 ---
 
 # Vector DB Lookup tool
+
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#how-to-migrate-from-legacy-tools-to-the-index-lookup-tool)
 
 Vector DB Lookup is a vector search tool that you can use to search for the top-scored similar vectors from a vector database. This tool is a wrapper for multiple third-party vector databases. Current supported databases are listed in the following table.
 

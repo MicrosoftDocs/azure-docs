@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.date: 12/30/2022
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ---
 
@@ -326,5 +326,3 @@ To skip a replication error and allow replication to continue, use the following
 ## Next steps
 
 - Learn more about [Data-in replication](concepts-data-in-replication.md) for Azure Database for MySQL flexible server.
-
-

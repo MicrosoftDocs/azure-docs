@@ -2,8 +2,12 @@
 title: Create node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create multiple node pools for a cluster in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, linux-related-content
 ms.date: 12/08/2023
+author: schaffererin
+ms.author: schaffererin
+
+ms.subservice: aks-nodes
 ---
 
 # Create node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -45,15 +49,15 @@ The following limitations apply when you create AKS clusters that support multip
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create --name myResourceGroup --location eastus
+    az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
     ```
 
 2. Create an AKS cluster with a single node pool using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
     az aks create \
-        --resource-group myResourceGroup \
-        --name myAKSCluster \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $CLUSTER_NAME \
         --vm-set-type VirtualMachineScaleSets \
         --node-count 2 \
         --generate-ssh-keys \
@@ -65,7 +69,7 @@ The following limitations apply when you create AKS clusters that support multip
 3. When the cluster is ready, get the cluster credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+    az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
     ```
 
 ## Add a node pool
@@ -76,16 +80,16 @@ The cluster created in the previous step has a single node pool. In this section
 
     ```azurecli-interactive
     az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name mynodepool \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --cluster-name $CLUSTER_NAME \
+        --name $NODE_POOL_NAME \
         --node-count 3
     ```
 
 2. Check the status of your node pools using the [`az aks node pool list`][az-aks-nodepool-list] command and specify your resource group and cluster name.
 
     ```azurecli-interactive
-    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group $RESOURCE_GROUP_NAME --cluster-name $CLUSTER_NAME
     ```
 
     The following example output shows *mynodepool* has been successfully created with three nodes. When the AKS cluster was created in the previous step, a default *nodepool1* was created with a node count of *2*.
@@ -121,7 +125,7 @@ The ARM64 processor provides low power compute for your Kubernetes workloads. To
 
 ### Limitations
 
-* ARM64 node pools aren't supported on Defender-enabled clusters.
+* ARM64 node pools aren't supported on Defender-enabled clusters with Kubernetes version less than 1.29.0.
 * FIPS-enabled node pools aren't supported with ARM64 SKUs.
 
 ### Add an ARM64 node pool
@@ -130,9 +134,9 @@ The ARM64 processor provides low power compute for your Kubernetes workloads. To
 
     ```azurecli-interactive
     az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name armpool \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --cluster-name $CLUSTER_NAME \
+        --name $ARM_NODE_POOL_NAME \
         --node-count 3 \
         --node-vm-size Standard_D2pds_v5
     ```
@@ -147,9 +151,9 @@ The Azure Linux container host for AKS is an open-source Linux distribution avai
 
     ```azurecli-interactive
     az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name azlinuxpool \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --cluster-name $CLUSTER_NAME \
+        --name $AZ_LINUX_NODE_POOL_NAME \
         --os-sku AzureLinux
     ```
 
@@ -182,11 +186,11 @@ A workload may require splitting cluster nodes into separate pools for logical i
 
     ```azurecli-interactive
     az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name mynodepool \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --cluster-name $CLUSTER_NAME \
+        --name $NODE_POOL_NAME \
         --node-count 3 \
-        --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+        --vnet-subnet-id $SUBNET_RESOURCE_ID
     ```
 
 ## FIPS-enabled node pools
@@ -213,10 +217,10 @@ Beginning in Kubernetes version 1.20 and higher, you can specify `containerd` as
 
     ```azurecli-interactive
     az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --cluster-name $CLUSTER_NAME \
         --os-type Windows \
-        --name npwcd \
+        --name $CONTAINER_D_NODE_POOL_NAME \
         --node-vm-size Standard_D4s_v3 \
         --kubernetes-version 1.20.5 \
         --aks-custom-headers WindowsContainerRuntime=containerd \
@@ -229,9 +233,9 @@ Beginning in Kubernetes version 1.20 and higher, you can specify `containerd` as
 
     ```azurecli-interactive
     az aks nodepool upgrade \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --name npwd \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --cluster-name $CLUSTER_NAME \
+        --name $CONTAINER_D_NODE_POOL_NAME \
         --kubernetes-version 1.20.7 \
         --aks-custom-headers WindowsContainerRuntime=containerd
     ```
@@ -242,11 +246,28 @@ Beginning in Kubernetes version 1.20 and higher, you can specify `containerd` as
 
     ```azurecli-interactive
     az aks nodepool upgrade \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --cluster-name $CLUSTER_NAME \
         --kubernetes-version 1.20.7 \
         --aks-custom-headers WindowsContainerRuntime=containerd
     ```
+
+## Node pools with Ephemeral OS disks
+
+* Add a node pool that uses Ephemeral OS disks to an existing cluster using the [`az aks nodepool add`][az-aks-nodepool-add] command with the `--node-osdisk-type` flag set to `Ephemeral`.
+
+    > [!NOTE]
+    >
+    > * You can specify Ephemeral OS disks during cluster creation using the `--node-osdisk-type` flag with the [`az aks create`][az-aks-create] command.
+    > * If you want to create node pools with network-attached OS disks, you can do so by specifying `--node-osdisk-type Managed`.
+    >
+
+    ```azurecli-interactive
+    az aks nodepool add --name $EPHEMERAL_NODE_POOL_NAME --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME -s Standard_DS3_v2 --node-osdisk-type Ephemeral
+    ```
+
+> [!IMPORTANT]
+> With Ephemeral OS, you can deploy VMs and instance images up to the size of the VM cache. The default node OS disk configuration in AKS uses 128 GB, which means that you need a VM size that has a cache larger than 128 GB. The default Standard_DS2_v2 has a cache size of 86 GB, which isn't large enough. The Standard_DS3_v2 VM SKU has a cache size of 172 GB, which is large enough. You can also reduce the default size of the OS disk by using `--node-osdisk-size`, but keep in mind the minimum size for AKS images is 30 GB.
 
 ## Delete a node pool
 
@@ -258,7 +279,7 @@ If you no longer need a node pool, you can delete it and remove the underlying V
 * Delete a node pool using the [`az aks nodepool delete`][az-aks-nodepool-delete] command and specify the node pool name.
 
     ```azurecli-interactive
-    az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
+    az aks nodepool delete --resource-group $RESOURCE_GROUP_NAME --cluster-name $CLUSTER_NAME --name $NODE_POOL_NAME --no-wait
     ```
 
     It takes a few minutes to delete the nodes and the node pool.
@@ -275,7 +296,6 @@ In this article, you learned how to create multiple node pools in an AKS cluster
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-aks-delete]: /cli/azure/aks#az_aks_delete
 [az-aks-nodepool]: /cli/azure/aks/nodepool
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool#az_aks_nodepool_list
@@ -287,3 +307,4 @@ In this article, you learned how to create multiple node pools in an AKS cluster
 [use-system-pool]: use-system-pools.md
 [restricted-vm-sizes]: ../virtual-machines/sizes.md
 [aks-taints]: manage-node-pools.md#set-node-pool-taints
+

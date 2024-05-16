@@ -47,4 +47,4 @@ The **Learn more about Azure AI** section showcases a few of the most popular le
 ## Next steps
 
 - Learn more about the [Azure mobile app](overview.md).
-- Download the Azure mobile app for free from the [Apple App Store](https://aka.ms/azureapp/ios/doc), [Google Play](https://aka.ms/azureapp/android/doc) or [Amazon App Store](https://aka.ms/azureapp/amazon/doc).
+- Download the Azure mobile app for free from the [Apple App Store](https://aka.ms/ReferAzureIOSMSLearnMobileAppDocs), [Google Play](https://aka.ms/azureapp/android/doc) or [Amazon App Store](https://aka.ms/azureapp/amazon/doc).

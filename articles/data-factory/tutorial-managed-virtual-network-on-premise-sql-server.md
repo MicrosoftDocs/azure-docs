@@ -6,12 +6,12 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 03/21/2024
 ---
 
 # Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint
 
-This tutorial provides steps for using the Azure portal to setup Private Link Service and access on-premises SQL Server from Managed VNet using Private Endpoint.
+This tutorial provides steps for using the Azure portal to setup Private Link Service and access on-premises SQL Server from a managed virtual network using a private endpoint. Using a managed virtual network ensures that traffic to and from your on-premises SQL source will all pass through your own private endpoint, thereby securing exposure to the public cloud with an extra layer of security and isolation. The required resources mentioned below are necessary to support the scenario.
 
 > [!NOTE]
 > The solution presented in this article describes SQL Server connectivity, but you can use a similar approach to connect and query other available [on-premises connectors](connector-overview.md) that are supported in Azure Data Factory.
@@ -22,7 +22,7 @@ This tutorial provides steps for using the Azure portal to setup Private Link Se
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * **Virtual Network**. If you don’t have a Virtual Network, create one following [Create Virtual Network](../virtual-network/quick-create-portal.md).
-* **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=/azure/virtual-network/toc.json) or [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/virtual-network/toc.json).
+* **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=/azure/virtual-network/toc.json) or [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/virtual-network/toc.json). If you prefer to use a cloud virtual machine in a private network, you can do this as well. Just create a virtual network for your cloud virtual machines and a [private link to the virtual network](/azure/private-link/private-link-service-overview) and you can access them as if they were on-premises machines in your private network even though they are hosted in the cloud.
 * **Data Factory with Managed VNet enabled**. If you don’t have a Data Factory or Managed VNet is not enabled, create one following [Create Data Factory with Managed VNet](tutorial-copy-data-portal-private.md).
 
 ## Create subnets for resources

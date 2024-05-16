@@ -31,6 +31,8 @@
     href: enable-multi-zone-redundancy.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
+  - name: Troubleshoot Azure Container Storage
+    href: troubleshoot-container-storage.md    
 - name: Concepts
   items:
   - name: FAQ

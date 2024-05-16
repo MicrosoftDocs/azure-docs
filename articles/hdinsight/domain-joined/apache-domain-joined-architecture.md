@@ -57,6 +57,8 @@ If you're using federation with Active Directory Federation Services (AD FS), yo
 
 Using on-premises Active Directory or Active Directory on IaaS VMs alone, without Microsoft Entra ID and Microsoft Entra Domain Services, isn't a supported configuration for HDInsight clusters with ESP.
 
+[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
+
 If federation is being used and password hashes are synced correctly, but you're getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Microsoft Entra tenant. To check and set the HRD policy:
 
 1. Install the preview [Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).

@@ -10,27 +10,31 @@ ms.date: 02/22/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Deploy Azure Operator 5G Core observability (preview) on Azure Kubernetes Services (AKS) or Nexus Azure Kubernetes Services (NAKS)
+# Deploy Azure Operator 5G Core Preview observability services
 
 Use the following Azure CLI commands to deploy observability resources for Azure Operator 5G Core Preview.
 
+> [!IMPORTANT]
+> You must deploy the clusterServices resource before deploying observability services. 
+
 ## Deploy observability
 
-
 ```azurecli
-New-AzResourceGroupDeployment ` 
+$ export resourceGroupName <Name of resource group> 
+$ export templateFile <Path to bicep scripts>
+$ export resourceName <Choose name for the AO5GC resource – note the same resourceName should be used for clusterServices and all associated NFs> 
+$ export location <Azure region where resources are deployed> 
+$ export templateParamsFile <Path to bicep script parameters file> 
 
--Name <DEPLOYMENT NAME> ` 
-
--ResourceGroupName <RESOURCE GROUP> ` 
-
--TemplateFile ./releases/2311.0-1/AKS/bicep/obsvTemplate.bicep ` 
-
--TemplateParameterFile ./releases/2311.0-1/AKS/params/obsvParams.json ` 
-
--resourceName <RESOURCE NAME> –Verbose
+$ az deployment group create  
+--resource-group $resourceGroupName \ 
+--template-file $templateFile \ 
+--parameters resourceName=$resourceName \ 
+--parameters locationName=$location \ 
+--parameters $templateParamsFile 
+-- verbose 
 ```
 
 ## Next step
 
-- [Deploy a network function on Azure Kubernetes Services or Nexus Azure Kubernetes Services](how-to-deploy-network-functions.md)
+- [Deploy an Azure Operator 5G Core network function](how-to-deploy-network-functions.md)

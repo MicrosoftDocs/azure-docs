@@ -50,11 +50,11 @@ az group create --name {resource-group-name} --location {resource-group-location
 
 ## Generate deployment credentials
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-openid-credentials.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/generate-openid-credentials.md)]
 
 ## Configure the GitHub secret for authentication
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-openid-only.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-openid-only.md)]
 
 ## Add GitHub secrets for your build
 
