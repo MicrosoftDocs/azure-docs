@@ -61,18 +61,18 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Get registry statistics](/rest/api/iothub/service/statistics/get-device-statistics) | Yes | Yes |
 | [Get services statistics](/rest/api/iothub/service/statistics/get-service-statistics) | Yes | Yes |
 | [Query IoT Hub](/rest/api/iothub/iot-hub-resource/get) | Yes | Yes |
-| [Create file upload SAS URI](/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
-| [Receive device bound notification](/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
-| [Send device event](/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
+| [Create file upload SAS URI](/rest/api/iothub/operation-groups) | Yes | Yes |
+| [Receive device bound notification](/rest/api/iothub/operation-groups) | Yes | Yes |
+| [Send device event](/rest/api/iothub/operation-groups) | Yes | Yes |
 | Send module event | AMQP and MQTT only | AMQP and MQTT only |
-| [Update file upload status](/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
+| [Update file upload status](/rest/api/iothub/iot-hub-resource/update) | Yes | Yes |
 | [Bulk device operation](/rest/api/iothub/service/bulk-registry/update-registry) | Yes, except for IoT Edge capabilities | Yes |
 | [Create import export job](/rest/api/iothub/service/jobs/createimportexportjob), [Get import export job](/rest/api/iothub/service/jobs/getimportexportjob), [Cancel import export job](/rest/api/iothub/service/jobs/cancelimportexportjob) | Yes | Yes |
 | [Get device twin](/rest/api/iothub/service/devices/get-twin), [Update device twin](/rest/api/iothub/service/devices/update-twin) |   | Yes |
 | [Get module twin](/rest/api/iothub/service/modules/get-twin), [Update module twin](/rest/api/iothub/service/modules/update-twin) |   | Yes |
 | [Invoke device method](/rest/api/iothub/service/devices/invoke-method) |   | Yes |
-| [Abandon device bound notification](/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
-| [Complete device bound notification](/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
+| [Abandon device bound notification](/rest/api/iothub/service/devices) |   | Yes |
+| [Complete device bound notification](/rest/api/iothub/service/devices) |   | Yes |
 | [Create job](/rest/api/iothub/service/jobs/create-scheduled-job), [Get job](/rest/api/iothub/service/jobs/get-scheduled-job), [Cancel job](/rest/api/iothub/service/jobs/cancel-scheduled-job) |   | Yes |
 | [Query jobs](/rest/api/iothub/service/jobs/query-scheduled-jobs) |   | Yes |
 
