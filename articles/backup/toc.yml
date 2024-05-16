@@ -34,12 +34,16 @@
         href: quick-secondary-region-restore-postgresql-powershell.md  
   - name: Configure AKS cluster backup
     href: quick-backup-aks.md
-- name: Configure vaulted backup for Azure Blob
-  items: 
-  - name: Configure blob backup using PowerShell
-    href: quick-blob-vaulted-backup-powershell.md
-  - name: Configure blob backup using Azure CLI
-    href: quick-blob-vaulted-backup-cli.md
+  - name: Configure vaulted backup for Azure Blob
+    items: 
+    - name: Configure blob backup from the Azure portal
+      href: blob-backup-configure-quick.md
+    - name: Configure blob backup using PowerShell
+      href: quick-blob-vaulted-backup-powershell.md
+    - name: Configure blob backup using Azure CLI
+      href: quick-blob-vaulted-backup-cli.md
+    - name: Configure blob backup using Bicep
+      href: backup-blobs-storage-account-bicep.md
   - name: Install Backup extension in AKS cluster
     href: quick-install-backup-extension.md    
   - name: Enable Multi-user authorization (MUA)
@@ -76,6 +80,8 @@
       href: tutorial-cross-region-restore.md  
   - name: Configure item level backup of an AKS cluster
     href: tutorial-configure-backup-aks.md
+  - name: Configure vaulted backup for Azure Blob
+    href: blob-backup-configure-tutorial.md  
   - name: Restore vaulted backups for AKS clusters in a secondary region
     href: tutorial-restore-aks-backups-across-regions.md 
   - name: Back up Windows Server
