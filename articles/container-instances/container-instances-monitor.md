@@ -24,7 +24,7 @@ At this time, Azure Monitor metrics are only available for Linux containers.
 
 ## Available metrics
 
-Azure Monitor provides metrics for Azure Container Instances. For alist of these metrics, see [Supported metrics for Microsoft.ContainerInstance/containerGroups][supported-metrics]. These metrics are available for a container group and individual containers. By default, the metrics are aggregated as averages.
+Azure Monitor provides metrics for Azure Container Instances. For a list of these metrics, see [Container Instances metrics][supported-metrics]. These metrics are available for a container group and individual containers. By default, the metrics are aggregated as averages.
 
 ## Get metrics - Azure portal
 
