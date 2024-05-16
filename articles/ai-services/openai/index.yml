@@ -133,7 +133,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Asynchronous content filtering
-            url: ./concepts/content-filter.md#asynchronous-modified-filter
+            url: ./concepts/content-filter.md#asynchronous-filter
           - text: Red teaming large language models (LLMs)
             url: ./concepts/red-teaming.md
           - text: System message templates
