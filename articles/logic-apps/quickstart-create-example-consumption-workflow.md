@@ -74,7 +74,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
       | Plan type | Description |
       |-----------|-------------|
       | **Standard** | This logic app resource is the default selection and supports multiple workflows. These workflows run in single-tenant Azure Logic Apps and use the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-      | **Consumption** | This logic app resource type is the alternative selection and supports only a single workflow. This workflow runs in multitenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+      | **Consumption** | This logic app resource type is the alternative selection and supports only a single workflow. This workflow runs in multitenant Azure Logic Apps and uses the [Consumption model for billing](logic-apps-pricing.md#consumption-pricing). |
 
 1. Provide the following information for your logic app resource:
 
@@ -199,7 +199,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
    1. In the **Body** box, enter the email content.
    
-      For this example, include each line of descriptive text, followed the corresponding outputs from the RSS trigger. To add blank lines in an edit box, press Shift + Enter.
+      For this example, include each line of descriptive text, followed by the corresponding outputs from the RSS trigger. To add blank lines in an edit box, press Shift + Enter.
 
       | Descriptive text | Property | Description |
       |------------------|----------|-------------|
