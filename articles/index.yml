@@ -1555,13 +1555,6 @@ productDirectory:
        - featured 
        - management-and-governance
       url: /azure/copilot
-    # Card
-    - title: Data API builder for Azure Databases
-      summary: Quickly create robust and stateless API endpoints on top of Azure databases
-      imageSrc: ./media/index/data-api-builder.svg
-      azureCategories:
-        - developer-tools
-      url: /azure/data-api-builder/
       
 tools:
   title: Languages and tools
