@@ -118,4 +118,4 @@ Data Factory offers comprehensive metrics for Airflow integration runtimes, allo
 
 ## Airflow metrics
 
-To see the metrics available for Workflow Orchestration Manager, view the *Airflow* metrics listed in the table at [Supported metrics for Microsoft.DataFactory/factories](monitor-data-factory-reference#supported-metrics-for-microsoftdatafactoryfactories).
+To see the metrics available for Workflow Orchestration Manager, view the *Airflow* metrics listed in the [Supported metrics](monitor-data-factory-reference.md#supported-metrics-for-microsoftdatafactoryfactories) table.
