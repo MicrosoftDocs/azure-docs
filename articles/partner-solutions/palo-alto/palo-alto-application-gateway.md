@@ -1,117 +1,110 @@
 ---
-title: Securing web applications with Cloud NGFW by Palo Alto Networks
-description: This article describes how to use the Azure Application Gateway with the Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks - an Azure Native ISV Service resource.
+title: Cloud NGFW for Azure deployment behind Azure Application Gateway
+description: This article describes how to use Azure Application Gateway with Cloud NGFW for Azure by Palo Alto Networks to help secure web applications.
 
 ms.topic: conceptual
 ms.date: 05/06/2024
 
 ---
-# Cloud NGFW and Azure Application Gateway
+# Cloud NGFW for Azure deployment behind Azure Application Gateway
 
-In this article, you see a recommended architecture for deploying the Cloud NGFW for Azure behind the Azure Application Gateway.
+This article describes a recommended architecture for deploying Cloud NGFW for Azure by Palo Alto Networks behind Azure Application Gateway. Cloud NGFW for Azure is a next-generation firewall that's delivered as an Azure Native ISV Service. You can find Cloud NGFW for Azure in Azure Marketplace and consume it in your Azure Virtual Network and Azure Virtual WAN instances.
 
-This deployment model uses the Application Gateway's reverse proxy and Web Application Firewall (WAF) functionality using the network security capabilities of the Cloud NGFW.
+With Cloud NGFW for Azure, you can access core firewall capabilities from Palo Alto Networks, such as App-ID and Advanced URL Filtering. It provides threat prevention and detection through cloud-delivered security services and threat prevention signatures. The deployment model in this article uses the reverse proxy and web application firewall (WAF) functionality of Application Gateway by using the network security capabilities of Cloud NGFW for Azure.
 
-The Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service is Palo Alto Networks Next-Generation Firewall (NGFW) delivered as a cloud-native service on Azure. You find the Cloud NGFW in the Azure Marketplace and consume it in your Azure Virtual Networks (VNet) and in the Azure Virtual WAN (vWAN).
-
-With Cloud NGFW, you can access the core NGFW capabilities such as App-ID and URL filtering-based technologies. It provides threat prevention and detection through cloud-delivered security services and threat prevention signatures.
-
-For more information about the Cloud NGFW by Palo Alto Networks - an Azure Native ISV
-Service, see [What is Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service?](palo-alto-overview.md).
+For more information about Cloud NGFW for Azure, see [What is Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service?](palo-alto-overview.md).
 
 ## Architecture
 
-The Cloud NGFW for Azure secures inbound, outbound, and lateral traffic traversing the Hub Virtual Network (Hub VNet) or Virtual WAN Hub (vWAN Hub).
+Cloud NGFW for Azure helps secure inbound, outbound, and lateral traffic that traverses a hub virtual network or a virtual WAN hub.
 
-To secure ingress connections, Cloud NGFW resource supports Destination Network Address Translation (DNAT) configuration. Cloud NGFW accepts client connections on one or more of the configured Public IP addresses and performs the address translation, traffic inspection, and enforces the user-configured security policies.
+To help secure ingress connections, a Cloud NGFW for Azure resource supports Destination Network Address Translation (DNAT) configurations. Cloud NGFW for Azure accepts client connections on one or more of the configured public IP addresses and performs the address translation and traffic inspection. It also enforces user-configured security policies.
 
-For web applications, you benefit from using Azure Application Gateway (AppGW) as a reverse proxy/Load Balancer. This combination offers the best security when securing both web-based and nonweb workloads in Azure and on-premises. Ingress connections. It allows using a single Public IP address of the AppGW to proxy the HTTP and Https connections to many web application backends. Any Non-HTTP connections should be directed through the Cloud NGFW Public IP address for inspection and policy enforcement.
+For web applications, you benefit from using Application Gateway as both a reverse proxy and a load balancer. This combination offers the best security when you want to secure both web-based and nonweb workloads in Azure and on-premises ingress connections. Cloud NGFW for Azure allows the use of a single public IP address of Application Gateway to proxy the HTTP and HTTPS connections to many web application back ends. Any non-HTTP connections should be directed through the Cloud NGFW for Azure public IP address for inspection and policy enforcement.
 
-The AppGW also offers Web Application Firewall (WAF) capabilities to look for patterns that indicate an attack at the web application layer.
+Application Gateway also offers WAF capabilities to look for patterns that indicate an attack at the web application layer. For more information about Application Gateway features, see the [service documentation](/azure/application-gateway).
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw.png" alt-text="Diagram shows a high-level architecture with Application Gateway.":::
-
-More details about Application Gateway features can be found here: [https://learn.microsoft.com/azure/application-gateway](/azure/application-gateway)
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw.png" alt-text="Diagram that shows a high-level architecture with Application Gateway.":::
 
 Cloud NGFW for Azure supports two deployment architectures:
 
-- Hub-and-Spoke VNet
+- Hub-and-spoke virtual network
 - Virtual WAN
 
 The following sections describe the details and the required configuration to implement this architecture in Azure.
 
-### Hub VNet
+### Hub virtual network
 
-In this deployment, two subnets are allocated in the Hub VNet. The Cloud NGFW resource is provisioned into the Hub VNet.
+This deployment allocates two subnets in the hub virtual network. The Cloud NGFW for Azure resource is provisioned into the hub virtual network.
 
-The AppGW is deployed in a dedicated VNet with a Frontend listening on a Public IP address. The backend pool and target the workloads serving the web application in this example a Virtual Machine in a spoke VNet 192.168.1.0/24.
+Application Gateway is deployed in a dedicated virtual network with a front end listening on a public IP address. The back-end pool targets the workloads that serve the web application; in this example, a virtual machine in a spoke virtual network with an IP address of 192.168.1.0/24.
 
-Similar to spoke VNets, the AppGW VNet must be peered with the Hub VNet to ensure the traffic can be routed towards the destination spoke VNet.
+Similar to spoke virtual networks, the Application Gateway virtual network must be peered with the hub virtual network to ensure that the traffic can be routed toward the destination spoke virtual network.
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw-vnet.png" alt-text="Diagram shows Cloud NGFW architecture with Application Gateway in a hub-and-spoke VNet deployment.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw-vnet.png" alt-text="Diagram that shows a Cloud NGFW for Azure architecture with Application Gateway in a hub-and-spoke virtual network deployment.":::
 
-To force the incoming web traffic through the Cloud NGFW resource, a User-Defined route must be created and associated with AppGW subnet. The next hop in this case is Cloud NGFW’s Private IP address. You can see this by selecting **Overview** from the Resource menu in the Azure portal.
+To force incoming web traffic through the Cloud NGFW for Azure resource, you must create a user-defined route and associate it with the Application Gateway subnet. The next hop in this case is the private IP address of Cloud NGFW for Azure. You can find this address by selecting **Overview** from the resource menu in the Azure portal.
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-resource.png" alt-text="Screenshot shows Cloud NGFW view in Azure portal.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-resource.png" alt-text="Screenshot that shows the Cloud NGFW for Azure view in the Azure portal.":::
 
-Example User-defined Route:
+Here's an example user-defined route:
 
 - Address prefix: 192.168.1.0/24
-- Next hop type: Virtual Appliance
+- Next hop type: virtual appliance
 - Next hop IP address: 172.16.1.132
 
-Once the infrastructure is deployed and configured, there must be a security policy applied to the Cloud NGFW allowing the connection from the AppGW VNet. The AppGW proxies the client’s TCP connection and creates a new connection to the destination specified in the backend target. The source IP of this connection is the private IP address from the AppGW subnet. Thus, the security policy configuration should be configured accordingly using the AppGW VNet prefix to ensure it's treated as the inbound flow. The original source IP of the client isn't preserved at layer 3.
+After you deploy and configure the infrastructure, you must apply a security policy to Cloud NGFW for Azure that allows the connection from the Application Gateway virtual network. Application Gateway proxies the client's TCP connection and creates a new connection to the destination specified in the back-end target. The source IP of this connection is the private IP address from the Application Gateway subnet. Configure the security policy accordingly, by using the Application Gateway virtual network prefix to ensure that it's treated as the inbound flow. The original source IP of the client isn't preserved at layer 3.
 
-Nonweb traffic can continue using the Cloud NGFW’s public IP addresses and DNAT rules.
+Nonweb traffic can continue using the public IP addresses and DNAT rules in Cloud NGFW for Azure.
 
-### vWAN
+### Virtual WAN
 
-Securing vWAN Hub using the Palo Alto Networks SaaS solution is the most effective and easiest way to guarantee your vWAN stays secure with a consistent security policy applied across the entire deployment.
+Securing a virtual WAN hub by using a Palo Alto Networks software as a service (SaaS) solution is the most effective and easiest way to guarantee that your virtual WAN has a consistent security policy applied across the entire deployment.
 
-Routing Intent and Policy must be configured to use Cloud NGFW resource as a Next Hop for Public and/or Private traffic. Any connected spoke VNet or VPN/ExpressRoute Gateway would get the routing information to send the traffic through the Cloud NGFW resource.
+You must configure a routing intent and a routing policy to use a Cloud NGFW for Azure resource as a next hop for public or private traffic. Any connected spoke virtual network, VPN gateway, or Azure ExpressRoute gateway then gets the routing information to send the traffic through the Cloud NGFW for Azure resource.
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw-vwan.png" alt-text="Diagram shows Cloud NGFW architecture with Application Gateway in vWAN Hub deployment.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw-vwan.png" alt-text="Diagram that shows a Cloud NGFW for Azure architecture with Application Gateway in a virtual WAN hub deployment.":::
 
-By default, the VNet connection to the hub has the _Propagate Default Route_ flag set to `Enabled`. This installs a 0.0.0.0/0 route forcing all nonmatched traffic sourced from that VNet to go through the vWAN hub. In this topology, this would result in asymmetric routing as the return traffic proxied by the AppGW goes back to the vHub instead of the Internet. Hence, when connecting the AppGW VNet to the vWAN hub, set this attribute to **Disabled** to allow the AppGW-sourced traffic to break out locally.
+By default, the virtual network connection to the hub has the **Propagate Default Route** option set to **Enabled**. This setting installs a 0.0.0.0/0 route to force all nonmatched traffic sourced from that virtual network to go through the virtual WAN hub. In this topology, this setting would result in asymmetric routing because the return traffic proxied by Application Gateway would go back to the virtual hub instead of the internet. When you're connecting the Application Gateway virtual network to the virtual WAN hub, set this attribute to **Disabled** to allow the Application Gateway-sourced traffic to break out locally.
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-virtual-connection.png" alt-text="Screenshot shows vWAN virtual network connections.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-virtual-connection.png" alt-text="Screenshot that shows virtual network connections for a virtual WAN.":::
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-disable-gateway.png" alt-text="Screenshot shows virtual propagate default gateway option.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-disable-gateway.png" alt-text="Screenshot that shows the toggle for disabling the default route propagation.":::
 
-In some cases, this might not be desirable. For example, when there are other applications or workloads hosted in the AppGW VNet requiring the inspection by the Cloud NGFW. In this case, you can enable the default route propagation but also add a 0.0.0.0/0 route to the AppGW subnet to override the default route received from the hub. An explicit route to the application VNet is also required.
+In some cases, disabling the default route propagation might not be desirable. An example is when other applications or workloads are hosted in the Application Gateway virtual network and require the inspection by Cloud NGFW for Azure. In this case, you can enable the default route propagation but add a 0.0.0.0/0 route to the Application Gateway subnet to override the default route received from the hub. An explicit route to the application virtual network is also required.
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-route-table.png" alt-text="Screenshot shows Azure route table.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-route-table.png" alt-text="Screenshot that shows an Azure route table.":::
 
-You can locate the Next Hop IP address of the Cloud NGFW by looking at the effective routes of a workload in a spoke VNet, for example, a Virtual Machine Network interface:
+You can locate the next hop IP address of Cloud NGFW for Azure by viewing the effective routes of a workload in a spoke virtual network. The following example shows the effective routes for a virtual machine network interface.
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-effective-routes.png" alt-text="Screenshot shows spoke VM effective routes.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-effective-routes.png" alt-text="Screenshot that shows effective routes for a spoke virtual machine.":::
 
-## Security Policy Considerations
+## Security policy considerations
 
-### Azure Rulestack
+### Azure rulestacks
 
-Azure Rulestack allows configuring the security rules and applying the security profiles right in the Azure portal or through the API. When implementing the architecture presented previously, configure the security rules using Palo Alto Network’s App-ID, Advanced Threat Prevention, Advanced URL filtering, and DNS security [Cloud-Delivered Security Services](https://www.paloaltonetworks.com/network-security/security-subscriptions) (CDSS).
+You can use Azure rulestacks to configure security rules and apply security profiles in the Azure portal or through the API. When you're implementing the preceding architecture, configure the security rules by using Palo Alto Networks App-ID, Advanced Threat Prevention, Advanced URL Filtering, DNS Security, and [Cloud-Delivered Security Services](https://www.paloaltonetworks.com/network-security/security-subscriptions).
 
 For more information, see [Cloud NGFW Native Policy Management Using Rulestacks](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/native-policy-management).
 
 > [!NOTE]
-> Use  of X-Forwarded-For (XFF) HTTP header field to enforce security policy is currently not supported with the Azure Rulestack policy management.
+> Use of the X-Forwarded-For (XFF) HTTP header field to enforce security policy is currently not supported with Azure rulestacks.
 
 ### Panorama
 
-When you manage the Cloud NGFW resources using Panorama, you can use the existing and new policy constructs such as template stacks, zones, vulnerability profiles, etc. The Cloud NGFW security policies can be configured between the two zones: Private and Public. Inbound traffic goes from Public Zone to Private, Outbound is Private-to-Public, and East-West is Private-to-Private.
+When you manage Cloud NGFW for Azure resources by using Panorama, you can use existing and new policy constructs such as template stacks, zones, and vulnerability profiles. You can configure the Cloud NGFW for Azure security policies between the two zones: private and public. Inbound traffic goes from public to private, outbound traffic goes from private to public, and east-west traffic goes from private to private.
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw-zones-1.png" alt-text="Diagram shows Cloud NGFW zone placement and traffic flows":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw-zones-1.png" alt-text="Diagram that shows zone placement and traffic flows in Cloud NGFW for Azure.":::
 
-The ingress traffic coming through the Application Gateway is forwarded through the Private Zone to the Cloud NGFW resource for inspection and security policy enforcement as depicted in the following image.
+The ingress traffic that comes through Application Gateway is forwarded through the private zone to the Cloud NGFW for Azure resource for inspection and security policy enforcement.
 
-:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw-zones-2.png" alt-text="Diagram shows Cloud NGFW zone placement and AppGW traffic flow.":::
+:::image type="content" source="media/palo-alto-app-gw/palo-alto-app-gw-zones-2.png" alt-text="Diagram that shows zone placement in Cloud NGFW for Azure and traffic flow through Application Gateway.":::
 
-Special considerations need to be applied to the zone-based policies to ensure the traffic coming from the Application Gateway is treated as Inbound, that is, security rules, threat prevention profiles, Inline Cloud Analysis and other. The traffic is treated as Private-to-Private as the Application Gateway proxies the traffic, and it's sourced using the Private IP address from the Application Gateway subnet.
+You need to apply special considerations to zone-based policies to ensure that the traffic coming from Application Gateway is treated as inbound. These policies include security rules, threat prevention profiles, and inline cloud analysis. The traffic is treated as private-to-private because Application Gateway proxies it, and it's sourced through the private IP address from the Application Gateway subnet.
 
 ## Related content
 
-- [Cloud NGFW for Azure](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure)
+- [Cloud NGFW for Azure](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure) (documentation from Palo Alto Networks)
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Configure Palo Alto Networks Cloud NGFW in Virtual WAN](/azure/virtual-wan/how-to-palo-alto-cloud-ngfw)
