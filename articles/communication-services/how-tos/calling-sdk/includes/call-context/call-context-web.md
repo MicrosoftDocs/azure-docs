@@ -9,8 +9,6 @@ ms.author: aakanmu
 
 ## Place a call with contextual Information
 
-[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
-
 ```js
 // Set up customContext
 this.callOptions.customContext = {

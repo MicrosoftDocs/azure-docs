@@ -13,13 +13,13 @@ ms.custom: template-how-to
 
 # Passing Contextual Information
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 In this article, you learn how to pass along custom contextual information when routing calls with Azure Communication Services Calling SDKs. This capability allows users pass metadata about the call, callee, or any other information that is relevant to their application or business logic.
 
 Contextual information supported includes both freeform custom headers and the standard User-to-User Information (UUI) SIP header. Also when you receive an inbound call, the custom headers and UUI are included in the incomingCall payload.
 
 All custom context data is opaque to Calling SDK or SIP protocols and its content is unrelated to any basic functions.
+
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 ## Prerequisites
 
@@ -29,9 +29,7 @@ All custom context data is opaque to Calling SDK or SIP protocols and its conten
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 
-::: zone pivot="platform-web"
-[!INCLUDE [Contextual Data Client-side JavaScript](./includes/call-context/call-context-web.md)]
-::: zone-end
+[!INCLUDE [Passing Contextual Data - Client-side JavaScript](./includes/call-context/call-context-web.md)]
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
