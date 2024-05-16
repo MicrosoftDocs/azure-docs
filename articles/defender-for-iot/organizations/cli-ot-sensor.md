@@ -68,9 +68,7 @@ At each level of the CLI you can use the following commands:
 
 #### Control user session timeouts
 
-Define the time after which users are automatically signed out of the OT sensor. Define this value in a properties file saved on the sensor.
-not that
-For more information, see [Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts).
+Define the time after which users are automatically signed out of the OT sensor. Define this value in a properties file saved on the sensor. For more information, see [Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts).
 
 #### Define maximum number of failed sign-ins
 <!-- is this the same as entering a password for a command? -->
