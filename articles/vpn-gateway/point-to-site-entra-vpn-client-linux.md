@@ -60,7 +60,7 @@ sudo apt-get install microsoft-azurevpnclient
 
 To configure your Azure VPN Client profile, you download a VPN Client profile configuration package from the Azure P2S gateway. This package contains the necessary settings to configure the VPN client.
 
-If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files you'll need. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download-the-vpn-client-profile-configuration-package).
+If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files you'll need. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download).
 
 ## About VPN client profile configuration files
 
