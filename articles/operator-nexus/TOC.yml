@@ -116,6 +116,10 @@
               href: howto-configure-network-fabric-controller.md
             - name: Cluster Manager
               href: howto-cluster-manager.md
+            - name: Cluster Manager Template JSON Example
+              href: clustermanager-jsonc-example.md
+            - name: Cluster Manager Parameters JSON Example
+              href: clustermanager-parameters-jsonc-example.md
         - name: On-Premises Operator Nexus Instance
           expanded: false
           items:
@@ -128,6 +132,10 @@
                   href: howto-configure-network-fabric.md
                 - name: Cluster
                   href: howto-configure-cluster.md
+                - name: Cluster Template JSON Example
+                  href: cluster-jsonc-example.md
+                - name: Cluster Parameters JSON Example
+                  href: cluster-parameters-jsonc-example.md
                 - name: Instance Readiness Testing
                   href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
