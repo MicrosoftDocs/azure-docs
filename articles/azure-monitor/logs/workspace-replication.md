@@ -183,7 +183,7 @@ Service Health notifications are useful for service-related issues. To identify 
 
 - [Create alerts based on the workspace resource health](log-analytics-workspace-health.md#view-log-analytics-workspace-health-and-set-up-health-status-alerts)
 - Set your own thresholds for [workspace health metrics](log-analytics-workspace-health.md#view-log-analytics-workspace-health-metrics)
-- Create your own monitoring queries to serve as custom health indicators for your workspace, as described in [Use queries to monitor workspace performance](#use-queries-to-monitor-workspace-performance), to:
+- Create your own monitoring queries to serve as custom health indicators for your workspace, as described in [Monitor workspace performance using queries](#monitor-workspace-performance-using-queries), to:
    - Measure ingestion latency per table
    - Identify whether the source of latency is the collection agents or the ingestion pipeline
    - Monitor ingestion volume anomalies per table and resource
