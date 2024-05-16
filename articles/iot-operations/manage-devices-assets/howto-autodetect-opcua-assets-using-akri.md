@@ -14,7 +14,7 @@ ms.date: 05/15/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to discover OPC UA data sources automatically. After you deploy Azure IoT Operations, you configure Azure IoT Akri Preview to discover OPC UA data sources at the edge. Azure IoT Akri creates custom resources in your Kubernetes cluster that represent the data sources it discovers. The ability to discover OPC UA data sources removes the need to [manually configure them by using the Azure IoT Operations (preview) portal](howto-manage-assets-remotely.md).
+In this article, you learn how to discover OPC UA data sources automatically. After you deploy Azure IoT Operations Preview, you configure Azure IoT Akri Preview to discover OPC UA data sources at the edge. Azure IoT Akri creates custom resources in your Kubernetes cluster that represent the data sources it discovers. The ability to discover OPC UA data sources removes the need to [manually configure them by using the Azure IoT Operations (preview) portal](howto-manage-assets-remotely.md).
 
 > [!IMPORTANT]
 > Currently, you can't use Azure Device Registry to manage the assets that Azure IoT Akri discovers and creates.
@@ -23,7 +23,7 @@ Azure IoT Akri enables you to detect and create assets in the address space of a
 
 ## Prerequisites
 
-- Install Azure IoT Operations Preview. To install Azure IoT Operations Preview for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Install Azure IoT Operations Preview. To install Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 - Verify that the Azure IoT Akri pods are properly configured by running the following command:
 
     ```bash
