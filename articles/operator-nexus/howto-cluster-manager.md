@@ -96,7 +96,8 @@ You can find examples of these two files here:
 [clusterManager.jsonc](./clusterManager-jsonc-example.md) , 
 [clusterManager.parameters.jsonc](./clusterManager-parameters-jsonc-example.md)
 
-Note:  To get the correct formatting, copy the raw code file.  The values within the clusterManager.parameters.jsonc file are are customer specific and may not be a complete list.  Please update the value fields for your specific environment.
+[!NOTE]
+To get the correct formatting, copy the raw code file. The values within the clusterManager.parameters.jsonc file are customer specific and may not be a complete list. Please update the value fields for your specific environment.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 1. From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services.
