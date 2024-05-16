@@ -208,7 +208,7 @@ If the extension is missing, you can [manually install the LinuxHibernateExtensi
 > Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the Linux hibernation troubleshooting guide](../linux/hibernate-resume-troubleshooting-linux.md#azure-extensions-disabled-on-debian-images).
 
 >[!NOTE]
-> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](../linux/expand-disks?tabs=rhellvm)
+> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](/virtual-machines/linux/expand-disks.md#increase-the-size-of-the-os-disk).
 
 #### [CLI](#tab/cliLHE)
     
@@ -260,7 +260,7 @@ sudo apt-get install hibernation-setup-tool
 To use the hibernation-setup-tool in RHEL versions, run this command:
 
 >[!NOTE]
-> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](../linux/expand-disks?tabs=rhellvm).
+> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](/virtual-machines/linux/expand-disks.md#increase-the-size-of-the-os-disk).
 
 ```bash
 curl -sSL -O https://packages.microsoft.com/config/rhel/9/packages-microsoft-prod.rpm
