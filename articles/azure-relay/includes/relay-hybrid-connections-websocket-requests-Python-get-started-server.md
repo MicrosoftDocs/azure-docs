@@ -35,8 +35,8 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
     "path": "HYBRID_CONNECTION_ENTITY_NAME",
     "keyrule": "SHARED_ACCESS_KEY_NAME",
     "key": "SHARED_ACCESS_PRIMARY_KEY"
-}
-
+	}
+	```
 Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
 
 - `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
