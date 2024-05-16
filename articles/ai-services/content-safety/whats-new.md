@@ -20,7 +20,7 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ### Custom category support in Content Safety moderation APIs
 
-The custom categories API lets you create and train your own custom content categories and scan text and images for matches. See [Custom categories](./concepts/custom-categories.md) to learn more.
+The custom categories API lets you create and train your own custom content categories and scan text for matches. See [Custom categories](./concepts/custom-categories.md) to learn more.
 
 ### Incident response API
 
