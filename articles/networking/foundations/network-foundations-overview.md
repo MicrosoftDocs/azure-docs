@@ -1,5 +1,5 @@
 ---
-title: Azure network foundation services
+title: Azure network foundation services overview
 description: Learn about Azure network foundation services.
 services: dns
 ms.custom: references_regions
@@ -11,6 +11,6 @@ ms.author: greglin
 #Customer intent: As an administrator, I want to learn about Azure's foundation services.
 ---
 
-# Azure network foundation services 
+# Azure network foundation services overview
 
 Conceptual text and graphic.
