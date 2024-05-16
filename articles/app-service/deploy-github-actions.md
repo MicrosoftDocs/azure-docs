@@ -291,16 +291,17 @@ With the Azure Web Deploy action, you can automate your workflow to deploy custo
 
 ### Update Tomcat configuration during deployment
 
-In case you configured your Java Tomcat project with the [Maven plugin](https://github.com/microsoft/azure-maven-plugins), you can also deploy to Azure App Service through this plugin. If you use the [Azure CLI GitHub action](https://github.com/Azure/cli) it will make use of your Azure login credentials.
+With the Azure App Service Actions for GitHub, you can automate the workflow to deploy your Java Tomcat projects and configure App settings.
 
 ```yaml
-    - name: Azure CLI script file
-      uses: azure/cli@v2
+    - uses: azure/appservice-settings@v1
       with:
-        inlineScript: |
-          mvn package azure-webapp:deploy
+        app-name: 'my-app'
+        slot-name: 'staging'  # Optional and needed only if the settings have to be configured on the specific deployment slot
+        app-settings-json: '${{ secrets.APP_SETTINGS }}' 
+        connection-strings-json: '${{ secrets.CONNECTION_STRINGS }}'
+        general-settings-json: '{"alwaysOn": "false", "webSocketsEnabled": "true"}' #'General configuration settings as Key Value pairs'
+      id: settings
 ```
 
-More information on the Maven plugin and how to use and configure it can be found in the [Maven plugin wiki for Azure App Service](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
-
-- [Update Tomcat configuration during deployment](https://github.com/Azure/appservice-settings)
+More information on the Maven plugin and how to use and configure it can be found in the [App Service Settings](https://github.com/Azure/appservice-settings/tree/master).
