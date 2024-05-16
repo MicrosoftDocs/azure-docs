@@ -36,11 +36,6 @@ The Python v2 programming model lets you define bindings using decorators direct
 # [v1](#tab/python-v1)
 The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
 
-> [!NOTE] 
-> HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. 
->
-> HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview).
-
 ---
 
 This article supports both programming models.
@@ -427,9 +422,15 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-The following example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
-
 # [v2](#tab/python-v2)
+
+This example uses [HTTP streams](functions-reference-python.md#http-streams-preview) to return chunked response data.
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
+
+To learn more, including how to enable HTTP streams in your project, see [HTTP streams](functions-reference-python.md#http-streams-preview).
+
+This example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```python
 import azure.functions as func
@@ -448,6 +449,8 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 # [v1](#tab/python-v1)
+
+This example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 Here's the *function.json* file:
 
@@ -694,6 +697,13 @@ The trigger input type is declared as either `HttpRequest` or a custom type. If 
 ---
 
 ::: zone-end 
+::: zone pivot="programming-language-python"  
+### HTTP streams
+
+HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview)
+
+>[!IMPORTANT]  
+> HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model.
 
 ### Customize the HTTP endpoint
 

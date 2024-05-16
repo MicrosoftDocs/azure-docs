@@ -215,12 +215,13 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-> [!NOTE] 
-> Functions supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using the underlying `BlobClient` type. 
->
-> SDK types support for Python is currently in preview and is only supported for the Python v2 programming model. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview).
-
 # [v2](#tab/python-v2)
+
+This example uses SDK types to directly access the underlying `BlobClient` object provided by the Blob storage input binding: 
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-14,42-52"::: 
+
+To learn more, including how to enable SDK type bindings in your project, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings-preview).
 
 The code creates a copy of a blob.
 
@@ -472,6 +473,11 @@ Access the blob data via a parameter that matches the name designated by binding
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream). Refer to the [input example](#example) for details.
+
+Functions also supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using the underlying `BlobClient` type. 
+
+> [!IMPORTANT]  
+> SDK types support for Python is currently in preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings-preview).
 ::: zone-end  
 
 [!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
