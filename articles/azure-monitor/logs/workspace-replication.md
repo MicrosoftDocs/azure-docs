@@ -1,5 +1,5 @@
 ---
-title: Enhance reslience by replicating your Log Analytics workspace across regions
+title: Enhance resilience by replicating your Log Analytics workspace across regions
 description: Use the workspace replication feature in Log Analytics to create copies of a workspace in different regions for data resiliency.
 ms.topic: how-to
 author: noakup
@@ -10,9 +10,9 @@ ms.custom: references_regions
 # Customer intent: As a Log Analytics workspace administrator, I want to replicate my workspace across regions to protect and continue to access my log data in the event of a regional failure.
 ---
 
-# Enhance reslience by replicating your Log Analytics workspace across regions
+# Enhance resilience by replicating your Log Analytics workspace across regions
 
-Replicating your Log Analytics workspace across regions enhances resilience by enabling you to switch over to the replicated workspace and continue operations in the event of a regional failure. Your original workspace and region are referred to as the **primary**. The replicated workspace and alternate region are referred to as the **secondary**.
+Replicating your Log Analytics workspace across regions enhances resilience by enabling you to switch over to the replicated workspace and continue operations if there's a regional failure. Your original workspace and region are referred to as the **primary**. The replicated workspace and alternate region are referred to as the **secondary**.
 
 This article explains how Log Analytics workspace replication works, how to replicate your workspace, and how to switch over and back.
 
@@ -206,7 +206,7 @@ There are several points to consider in your plan for switchover, as described i
 
 #### Issue type and scope
 
-The switchover process routes ingestion and query requests to your secondary region, which usally bypasses any faulty component that might be causing latency or failure on your primary region. As a result, switchover isn't likely to help if:
+The switchover process routes ingestion and query requests to your secondary region, which usually bypasses any faulty component that might be causing latency or failure on your primary region. As a result, switchover isn't likely to help if:
 
 - There's a cross-regional issue with an underlying resource. For example, if the same resource types fail in both your primary and secondary regions.
 - You experience an issue related to workspace management, such as changing workspace retention. Workspace management operations are always handled in your primary region. During switchover, workspace management operations are blocked.
@@ -321,31 +321,31 @@ You can confirm that Azure Monitor runs your query in the intended region by che
 
 ## Use queries to monitor workspace performance
 
-You can monitor your workspace by using queries to create alert rules. The queries can send you notifications about possible workspace health or performance issues. The results can you help determine whether to trigger switchover for your workspace.  
+We recommend using the queries in this section to create alert rules that notify you of possible workspace health or performance issues. However, the decision to switch over requires your careful consideration, and shouldn't be done automatically.
 
-In the query rule, you can define a condition to trigger switchover after a specified number of violations occurs. For more information, see [Create or edit an alert rule](../alerts/alerts-create-metric-alert-rule.yml).
+In the query rule, you can define a condition to trigger switchover after a specified number of violations occurs. For more information, see [Create or edit a log search alert rule](../alerts/alerts-create-activity-log-alert-rule.md).
 
 Two significant measurements of workspace performance include _ingestion latency_ and _ingestion volume_. The following sections explore these monitoring options.
 
-### Understand ingestion latency monitoring
+### Monitor end-to-end ingestion latency
 
-Ingestion latency measures the time required to ingest logs to the workspace. The time measurement starts from the initial log ingestion event and ends when the log is stored in your workspace. The total ingestion latency is composed of two parts:
+Ingestion latency measures the time it takes to ingest logs to the workspace. The time measurement starts when the initial logged event occurs and ends when the log is stored in your workspace. The total ingestion latency is composed of two parts:
 
 - **Agent latency**: The time required by the agent to report an event.
 - **Ingestion pipeline (backend) latency**: The time required for the ingestion pipeline to process the logs and write them to your workspace.
 
-Different data types have different ingestion latency. A general measurement might satisfy your needs or a separate ingestion measurement for each data type might be more helpful. You can create a generic query for all types and a more fine-grained query for specific types that are of higher priority to your scenario. A common preference is to measure the 90th percentile of the ingestion latency, which is more sensitive to change than the average or the 50th percentile (median).
+Different data types have different ingestion latency. You can measure ingestion for each data type separately, or create a generic query for all types, and a more fine-grained query for specific types that are of higher importance to you. We suggest you measure the 90th percentile of the ingestion latency, which is more sensitive to change than the average or the 50th percentile (median).
 
 The following sections demonstrate a series of queries that you can use to check the ingestion latency for your workspace. 
 
-#### Evaluate baseline ingestion latency
+#### Evaluate baseline ingestion latency of specific tables
 
-To start measuring your workspace performance, a good first step is to query the baseline ongoing latency of the specific data types (tables) over several days.
+Begin by determining the baseline latency of specific tables over several days.
 
-The following query creates a chart of the 90th percentile of ingestion latency on the Perf table. After you run the query, review the rendered chart and table to determine the expected latency for that data type.
+This example query creates a chart of the 90th percentile of ingestion latency on the Perf table: 
 
 ```kusto
-// assess the ingestion latency baseline for each data type
+// assess the ingestion latency baseline for a specific data type
 Perf
 | where TimeGenerated > ago(3d) 
 | project TimeGenerated, 
@@ -354,9 +354,11 @@ IngestionDurationSeconds = (ingestion_time()-TimeGenerated)/1s
 | render timechart
 ```
 
+After you run the query, review the results and rendered chart to determine the expected latency for that table.
+
 #### Measure current ingestion latency
 
-After you establish the baseline ingestion latency for a specific data type, you can create an alert for the data type based on changes in the latency over a short time.
+After you establish the baseline ingestion latency for a specific table, you can create an alert for the table based on changes in latency over a short period of time.
 
 The following query calculates ingestion latency over the past 20 minutes. Because you expect some fluctuations, create an alert rule condition to check if the query returns a value significantly greater than the baseline.
 
@@ -370,14 +372,9 @@ Perf
 
 #### Monitor ingestion latency breakdown
 
-The final step in the ingestion latency process consists of two functional parts:
-
-- **Agents**: Collect logs and send them to the ingestion endpoint, which is the entry point of the ingestion pipeline.
-- **Ingestion pipeline (backend)**: Process the logs and store them in your workspace (specifically, the database cluster underlying your workspace).
-
 When you notice your total ingestion latency is going up, you can use queries to determine whether the source of the latency is the agents or the ingestion pipeline.
 
-The following query produces separate 90th percentile breakdown charts for the latency of the agents and the ingestion pipeline. 
+The following query charts the 90th percentile latency of the agents and of the pipeline, separately.  
 
 ```kusto
 // Agent and pipeline (backend) latency
@@ -390,9 +387,9 @@ Perf
 ```
 
 > [!NOTE]
-> Although the breakdown charts display the 90th percentile data as stacked columns, the sum of the data in the two charts doesn't equal the _total_ ingestion 90th percentile.
+> Although the chart displays the 90th percentile data as stacked columns, the sum of the data in the two charts doesn't equal the _total_ ingestion 90th percentile.
 
-### Understand ingestion volume monitoring
+### Monitor ingestion volume
 
 Ingestion volume measurements reveal unexpected changes to the total or table-specific ingestion volume for your workspace. The query volume measurements can help you identify performance issues with logs ingestion. Some useful volume measurements include:
 
@@ -402,9 +399,9 @@ Ingestion volume measurements reveal unexpected changes to the total or table-sp
 
 The following sections demonstrate different queries to check the ingestion volume for your workspace. 
 
-#### Monitor total volume per data type
+#### Monitor total ingestion volume per table
 
-You can define a query to monitor the ingestion volume per data type in your workspace. The query can include an alert that checks for unexpected changes to the total or table-specific volume. 
+You can define a query to monitor the ingestion volume per table in your workspace. The query can include an alert that checks for unexpected changes to the total or table-specific volumes. 
 
 The following query calculates the total ingestion volume over the past hour per data type in megabytes per second (MBs):
 
