@@ -111,7 +111,7 @@ When a pull request is opened, the Azure Static Web Apps GitHub Action builds an
 
 This job helps keep your pull request workflow organized and prevents stale pull requests. By the runtime automatically closing the pull request, your repository stays up-to-date and your team is notified of the status.
 
-The *Close Pull Request* job is part of the Azure Static Web Apps GitHub Actions workflow, closing the pull request after it is merged. The `Azure/static-web-apps-deploy` action deploys the app to Azure Static Web Apps, requiring the `azure_static_web_apps_api_token` for authentication. Don't change the values for `repo_token`, `action`, and `azure_static_web_apps_api_token` are set by Azure Static Web Apps.
+The *Close Pull Request* job is part of the Azure Static Web Apps GitHub Actions workflow, closing the pull request after it is merged. The `Azure/static-web-apps-deploy` action deploys the app to Azure Static Web Apps, requiring the `azure_static_web_apps_api_token` for authentication.
 
 # [Azure Pipelines](#tab/azure-devops)
 
