@@ -637,14 +637,6 @@ To stop the debugging session, select Shift+F5.
 
 ## Next steps
 
-In this part of the tutorial, you learned how to:
-
-> [!div class="checklist"]
->
-> * Create an ASP.NET Core Web API service as a stateful reliable service
-> * Create an ASP.NET Core Web Application service as a stateless web service
-> * Use the reverse proxy to communicate with the stateful service
-
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Deploy the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
