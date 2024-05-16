@@ -23,7 +23,7 @@ Connections are a way to authenticate and consume both Microsoft and other resou
 
 ## Connection types
 
-Here's a table of some of the available connection types in Azure AI Studio. The __Preview__ column indicates connection types that are currently in preview.:
+Here's a table of some of the available connection types in Azure AI Studio. The __Preview__ column indicates connection types that are currently in preview.
 
 | Service connection type | Preview | Description |
 | --- |:---:| --- |
