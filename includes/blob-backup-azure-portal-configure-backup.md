@@ -38,7 +38,7 @@ To configure backup for storage accounts, follow these steps:
 
    You can select multiple storage accounts in the region to back up using the selected policy. Search or filter the storage accounts, if required.
   
-   If you've chosen the vaulted backup policy in step 4, you can also select specific containers to backup. Click "Change" under the "Selected containers" column. In     the context blade, choose "browse containers to backup" and unselect the ones you don't want to backup.
+   If you've chosen the vaulted backup policy in step 4, you can also select specific containers to back up. Click "Change" under the "Selected containers" column. In the context blade, choose "browse containers to backup" and unselect the ones you don't want to back up.
 
 6. When you select the storage accounts and containers to protect, Azure Backup performs the following validations to ensure all prerequisites are met. The **Backup readiness** column shows if the Backup vault has enough permissions to configure backups for each storage account.
 
