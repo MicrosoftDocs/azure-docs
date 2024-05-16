@@ -19,7 +19,7 @@ ms.custom: UpdateFrequency5, sdkv1
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn how to view your experiment jobs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment jobs, you can better tune and retrain your machine learning models.
+In this article, you learn how to view your experiment jobs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/azureml.tensorboard) in the main Azure Machine Learning SDK. Once you've inspected your experiment jobs, you can better tune and retrain your machine learning models.
 
 [TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
