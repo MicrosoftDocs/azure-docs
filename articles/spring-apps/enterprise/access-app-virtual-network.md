@@ -79,7 +79,7 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/access-app-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/access-app-virtual-network/access-control.png":::
 
-1. Assign the `Private DNS Zone Contributor` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the `Private DNS Zone Contributor` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
    > [!NOTE]
    > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.
