@@ -217,7 +217,7 @@ Create a role named *MyReadOnlyRole* that only contains read actions in a file n
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json 
 ```
 
 Create a role named *MyReadWriteRole* that contains all actions in a file named **role-definition-rw.json**:
@@ -238,7 +238,7 @@ Create a role named *MyReadWriteRole* that contains all actions in a file named 
 ```
 
 ```azurecli
-az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-rw.json
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-rw.json 
 ```
 
 List the role definitions you've created to fetch their IDs:
@@ -351,7 +351,7 @@ accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId='<roleDefinitionId>' # as fetched above
 # For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
 principalId='<aadPrincipalId>'
-az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId --principal-type "ServicePrincipal"
 ```
 
 ### Using Bicep/Azure Resource Manager templates
