@@ -25,6 +25,42 @@ Azure AI Studio is now generally available. Azure AI Studio is a unified platfor
 > [!NOTE]
 > Some features are still in public preview and might not be available in all regions. Please refer to the feature level documentation for more information.
 
+### New UI
+
+We've updated the AI Studio navigation experience to help you work more efficiently and seamlessly move through the platform. Get to know the new navigation below: 
+
+#### Quickly transition between hubs and projects
+
+Easily navigate between the global, hub, and project scopes. 
+- Go back to the previous scope at any time by using the back button at the top of the navigation. 
+- Tools and resources change dynamically based on whether you are working at the global, hub, or project level. 
+
+:::image type="content" source="media/explore/transition-hubs-projects.gif" alt-text="GIF of transitioning between hub and project scopes in AI Studio." lightbox= "media/explore/transition-hubs-projects.gif":::
+
+#### Navigate with breadcrumbs
+
+We have added breadcrumbs to prevent you from getting lost in the product. 
+- Breadcrumbs are consistently shown on the top navigation, regardless of what page you are on. 
+- Use these breadcrumbs to quickly move through the platform.  
+
+:::image type="content" source="media/explore/breadcrumb-navigation.gif" alt-text="GIF of navigating with breadcrumbs in AI Studio." lightbox= "media/explore/breadcrumb-navigation.gif":::
+
+#### Customize your navigation
+
+The new navigation can be modified and customized to fit your needs. 
+- Collapse and expand groupings as needed to easily access the tools you need the most. 
+- Collapse the navigation at any time to save screen space. All tools and capabilities will still be available. 
+
+:::image type="content" source="media/explore/custom-navigation.gif" alt-text="GIF of customizing the navigation in AI Studio." lightbox= "media/explore/custom-navigation.gif":::
+
+#### Easily switch between your recent hubs and projects
+
+Switch between recently used hubs and projects at any time using the picker at the top of the navigation. 
+- While in a hub, use the picker to access and switch to any of your recently used hubs. 
+- While in a project, use the picker to access and switch to any of your recently used projects. 
+
+:::image type="content" source="media/explore/switch-hubs-projects.gif" alt-text="GIF of switching to other hubs and projects in AI Studio." lightbox= "media/explore/switch-hubs-projects.gif":::
+
 ### View and track your evaluators in a centralized way 
 
 Evaluator is a new asset in Azure AI Studio. You can define a new evaluator in SDK and use it to run evaluation that generates scores of one or more metrics. You can view and manage both Microsoft curated evaluators and your own customized evaluators in the evaluator library. For more information, see [Evaluate with the prompt flow SDK](./how-to/develop/flow-evaluate-sdk.md).
@@ -83,7 +119,7 @@ For more information about Phi-3, see the [blog announcement](https://techcommun
 The Phi-3 family of models developed by Microsoft are available in the Azure AI model catalog. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across various language, reasoning, coding, and math benchmarks. This release expands the selection of high-quality models for customers, offering more practical choices as they compose and build generative AI applications.
 
 - Phi-3-mini is available in two context-length variants—4K and 128K tokens. It's the first model in its class to support a context window of up to 128K tokens, with little effect on quality.
-- It's instruction-tuned, meaning that it’s trained to follow different types of instructions reflecting how people normally communicate. This ensures the model is ready to use out-of-the-box.
+- It's instruction-tuned, meaning that it's trained to follow different types of instructions reflecting how people normally communicate. This ensures the model is ready to use out-of-the-box.
 - It's available on Azure AI to take advantage of the deploy > evaluate > fine-tune toolchain, and is available on Ollama for developers to run locally on their laptops.
 - It has been optimized for ONNX Runtime with support for Windows DirectML along with cross-platform support across graphics processing unit (GPU), CPU, and even mobile hardware.
 - It's also available as an NVIDIA NIM microservice with a standard API interface that can be deployed anywhere. And has been optimized for NVIDIA GPUs. 
