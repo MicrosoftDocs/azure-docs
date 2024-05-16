@@ -84,6 +84,7 @@ The IoT Edge project template in Visual Studio creates a solution to deploy to I
 > The Azure IoT Edge tools for Visual Studio extension is missing the project templates for C and C# modules. We are working to resolve the issue. If you can't create IoT Edge modules using the extension, use the following workaround.
 >
 > Download the following files and place them in the listed Visual Studio template directory:
+> 
 > | Template file | Add to directory |
 > |---------------|------------------|
 > | [azureiotedgemodule-v0.0.4.zip](https://github.com/Azure/iot-edge-visual-studio-templates/raw/master/templates/vs2022/CSharp/azureiotedgemodule-v0.0.4.zip) | `%userprofile%\Documents\Visual Studio 2022\Templates\ProjectTemplates\Visual C#` |
