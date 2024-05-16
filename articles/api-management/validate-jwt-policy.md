@@ -167,7 +167,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />
     <audiences>
-        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+        <audience>00001111-aaaa-2222-bbbb-3333cccc4444</audience>
     </audiences>
     <required-claims>
         <claim name="id" match="all">
@@ -196,7 +196,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
     <audiences>
-        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+        <audience>11112222-bbbb-3333-cccc-4444dddd5555</audience>
     </audiences>
     <required-claims>
         <claim name="id" match="all">
