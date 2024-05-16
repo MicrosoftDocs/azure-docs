@@ -43,13 +43,13 @@ You can check that [Node](https://nodejs.org/) was installed correctly with this
 node -v
 ```
 
-The output tells you the version you have installed, it fails if Node is not installed and added to your `PATH`. Just like with Node you can check to see if [Visual Studio Code](https://code.visualstudio.com/) is installed with this command.
+The output tells you the version you have installed, it fails if Node isn't installed and added to your `PATH`. Just like with Node you can check to see if [Visual Studio Code](https://code.visualstudio.com/) is installed with this command.
 
 ```bash
 code --version
 ```
 
-Like with Node this command fails if there is an issue installing VS Code on your machine.
+Like with Node this command fails if there's an issue installing VS Code on your machine.
 
 ## Getting started
 
@@ -61,7 +61,7 @@ We create this project through **4** easy steps.
 
 #### 1. Creating the project
 
-To get started, we are going to make a new folder for the project run the following command in terminal or powershell.
+To get started, we're going to make a new folder for the project run the following command in terminal or PowerShell.
 
 ```bash
 mkdir ui-library-js-test-application && cd ui-library-js-test-application
@@ -139,7 +139,7 @@ Next you want to open `index.html` in VS Code and add the following snippet.
   </script>
 </body>
 ```
-It's important here to note that this file `index.html` and the JavsScript bundle `outboundCallComposite.js` **need** to be in the same folder if you wish to not edit any of the importing in this file.
+It's important here to note that this file `index.html` and the JavaScript bundle `outboundCallComposite.js` **need** to be in the same folder if you wish to not edit any of the importing in this file.
 
 #### 3. Setting up Azure Communication Services and Teams
 
@@ -150,9 +150,9 @@ const userId = { communicationUserId: "<Add your ACS ID here>" };
 const token = "<Enter your ACS token>";
 const displayName = "Enter the DisplayName for your user";
 ```
-We want to update this information with the `userId` and `token` you got from azure portal or the CLI. You should also as well set your `displayName`.
+We want to update this information with the `userId` and `token` you got from Azure portal or the Azure CLI. You should also as well set your `displayName`.
 
-Next we want to make an edit to set the Teams voice app id you got earlier when you [federated your Azure Communication services resource](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md). **Contact your Teams admin if this hasn't been done.**
+Next we want to make an edit to set the Teams voice app ID you got earlier when you [federated your Azure Communication services resource](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md). **Contact your Teams admin if this hasn't been done.**
 
 ```JavaScript
 const callAdapter = await outboundCallComposite.loadCallComposite(
@@ -169,13 +169,13 @@ const callAdapter = await outboundCallComposite.loadCallComposite(
 ```
 
 #### 4. Running the application
-Now that we finished all the setup its time to run the application.
+Now that we finished all the setup it's time to run the application.
 
-Open a terminal or powershell window in that directory and run the following command.
+Open a terminal or PowerShell window in that directory and run the following command.
 ```bash
 npx http-server -p 3000
 ```
-This script using Node starts a HTTP server and host the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button and when you click it you should see the following screen.
+This script using Node starts an HTTP server and host the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button and when you click it you should see the following screen.
 
 ![Home page of js bundle sample app](../media/calling-widget/js-bundle-splash.png)
 
