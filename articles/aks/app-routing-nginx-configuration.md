@@ -25,7 +25,7 @@ To connect to the Kubernetes cluster from your local computer, you use `kubectl`
 Configure kubectl to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
 ```azurecli-interactive
-az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
+az aks get-credentials -resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 ## Configuration of the NGINX ingress controller
