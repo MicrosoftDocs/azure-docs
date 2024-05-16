@@ -24,7 +24,7 @@ The Responsible AI text dashboard provides several mature RAI tools in the areas
 This article describes the Responsible AI text insights component and how to use it in a pipeline job to generate a Responsible AI text dashboard. The following sections provide specifications and requirements for the text insights component and example code snippets in YAML and Python.
 
 > [!IMPORTANT]
-> The Responsible AI text dashboard is currently in public preview. This preview is provided without a service-level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Responsible AI text insights component is currently in public preview. This preview is provided without a service-level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Responsible AI text insights component
 
