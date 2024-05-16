@@ -112,7 +112,7 @@ The tree visualization uses the mutual information between each feature and the 
 
 In the tree view, each circle or *node* represents a dataset cohort, potentially with filters applied. The numbers in each node show the number of errors compared to the total number of datapoints in that node.
 
-You can hover over or select a node to display the **Error coverage**, or percentage of errors in the dataset that are in that node, and **Error rate**, or failure percentage of the datapoints in the node. Nodes with darker background colors indicate higher error rates. Selected nodes have a heavy outline.
+You can hover over or select a node to display the **Error coverage**, or percentage of errors in the dataset that are in that node, and **Error rate**, or failure percentage of the datapoints in the node. Higher node fill levels indicate greater error coverage, and darker background colors indicate higher error rates. Selected nodes have a heavy outline.
 
 The *fill lines* between nodes visualize the distribution of datapoints into child cohorts based on filters, with the number of datapoints represented by line thickness. You can hover over or select a fill line to display the feature and prediction being applied.
 
