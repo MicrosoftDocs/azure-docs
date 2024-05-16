@@ -15,22 +15,26 @@ ms.date: 09/11/2023
 The Azure Cosmos DB emulator is updated at a regular cadence with release notes provided in this article.
 
 > [!div class="nextstepaction"]
-> [Download latest version (``2.14.16``)](https://aka.ms/cosmosdb-emulator)
+> [Download latest version (``2.14.17``)](https://aka.ms/cosmosdb-emulator)
 
 ## Supported versions
 
 Only the most recent version of the Azure Cosmos DB emulator is actively supported.
 
-## Latest version ``2.14.16``
+## Latest version ``2.14.17``
 
-> *Released January 24, 2024*
+> *Released May 16, 2024*
 
-- This release fixes an issue which was causing emulator to bind with `loopback` instead of `public interface` even after passing /AllowNetworkAccess command line option.
+- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB.
 
 ## Previous releases
 
 > [!WARNING]
 > Previous versions of the emulator are not supported by the product group.
+
+### ``2.14.16`` (January 24, 2024)
+
+- This release fixes an issue which was causing emulator to bind with `loopback` instead of `public interface` even after passing /AllowNetworkAccess command line option.
 
 ### ``2.14.12`` (March 20, 2023)
 
