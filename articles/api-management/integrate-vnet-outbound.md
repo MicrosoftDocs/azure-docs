@@ -24,7 +24,7 @@ When an API Management instance is integrated with a virtual network for outboun
 - A virtual network with a subnet where your API Management backend APIs are hosted
    - The network must be deployed in the same region and subscription as your API Management instance.
    - The subnet should be dedicated to VNet integration. 
-   - A subnet size of /26 or /27 is generally recommended. For details, see [related content](../app-service/overview-vnet-integration.md#subnet-requirements) for VNet integration in App Service.
+   - A subnet size of `/26` or `/27` is recommended when creating a new subnet; `/28` can be used with an existing subnet. For details, see [related content](../app-service/overview-vnet-integration.md#subnet-requirements) for VNet integration in App Service.
 
 - (Optional) For testing, a sample backend API hosted within a different subnet in the virtual network. For example, see [Tutorial: Establish Azure Functions private site access](../azure-functions/functions-create-private-site-access.md).
 
