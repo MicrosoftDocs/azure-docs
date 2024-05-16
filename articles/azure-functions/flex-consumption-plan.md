@@ -48,11 +48,11 @@ Flex Consumption expands on the traditional benefits of Consumption plan by addi
 
 When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. See [Billing](#billing) to learn how instance memory sizes affect the costs of your function app. 
 
-Currently, Flex Consumption offers these instance memory size options: 512 MB, 2,048 MB, and 4,096 MB.
+Currently, Flex Consumption offers instance memory size options of both 2,048 MB and 4,096 MB.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
-+ The 2,048-MB instance memory size is the default and should be used for most scenarios. The 512 MB and 4,096-MB instance memory sizes are available for scenarios that best suit your application's concurrency or processing power requirements. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
++ The 2,048-MB instance memory size is the default and should be used for most scenarios. Use the 4,096-MB instance memory size for scenarios where your app requires more concurrency or higher processing power. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
 + You can change the instance memory size at any time. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory).
 + Instance resources are shared between your function code and the Functions host.
 + The larger the instance memory size, the more each instance can handle as far as concurrent executions or more intensive CPU or memory workloads. Specific scale decisions are workload-specific.
@@ -116,7 +116,6 @@ Currently, each region in a given subscription has a memory limit of 512,000 MB 
 
 | Instance memory size (MB) | Max instance counts (per region) |
 | ----- | ---- |
-| `512 MB` | 1,000 |
 | `2048 MB` | 250 |
 | `4096 MB` | 125 |
 

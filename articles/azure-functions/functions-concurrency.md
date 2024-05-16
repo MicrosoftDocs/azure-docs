@@ -39,7 +39,6 @@ The Flex Consumption plan scales all HTTP trigger functions together as a group.
 
 | Instance size (MB) | Default concurrency<sup>*</sup> |
 | ---- | ---- |
-| `512` |  `4` |
 | `2048` | `16` |
 | `4096` | `32` |
 
