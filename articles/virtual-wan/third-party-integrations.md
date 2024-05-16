@@ -35,7 +35,7 @@ The following solutions are currently available as Integrated NVA partners:
 
 |Capability Type(s)| Available Partners|
 |--|--|
-|Connectivity|Barracuda, VMware SD-WAN (formerly known as Velocloud), Cisco SD-WAN, Aruba, Versa |
+|Connectivity|Barracuda, VMware (formerly known as Velocloud), Cisco Viptela, Aruba, Versa |
 |Next-Generation Firewall (NGFW)|Check Point, Fortinet|
 | Dual-role connectivity and NGFW | Fortinet |
 
