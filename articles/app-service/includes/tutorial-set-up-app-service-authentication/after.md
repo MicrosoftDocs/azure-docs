@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: app-service
 ms.topic: include
-ms.date: 03/12/2024
+ms.date: 05/16/2024
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -85,11 +85,17 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. For **Tenant type**, select **External configuration** for external users.
 
-1. Select **Create new app registration** to create a new app registration and select the [customer (external) tenant](/entra/external-id/customers/quickstart-tenant-setup) you want to use.
+1. Select **Create new app registration** to create a new app registration.
+
+1. Click **Create new** to create a new [customer (external) tenant](/entra/external-id/customers/quickstart-tenant-setup), or select an existing tenant to use.
+
+    :::image type="content" alt-text="Screenshot that shows the Select a tenent dropdown." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-select.png":::
+
+1. In the **Create a tenant** page, add the *Tenant Name** and **Domain Name**.  Select a **Location** and click **Review and create**.
+
+    :::image type="content" alt-text="Screenshot the Create a tenant page." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-create-tenant.png":::
 
 1. Select **Configure** to configure external authentication.
-
-    :::image type="content" alt-text="Screenshot that shows the Add an identity provider page." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external.png":::
 
 1. The browser opens **Configure customer authentication**.  In **Setup sign-in**, select **Create new** to create a sign-in experience for your external users.
 
@@ -113,7 +119,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. The browser opens **Add an identity provider**.
 
-1. In the **App Service authentication settings** section, select:
+1. In the **Additional checks** section, select:
 
     - **Allow requests only from this application itself** for **Client application requirement**
     - **Allow requests from any identity** for **Identity requirement**
