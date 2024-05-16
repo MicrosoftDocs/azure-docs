@@ -29,11 +29,11 @@ ms.custom: include file, linux-related-content
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
 
-   The *profileinfo.txt* file will contain the private key and the thumbprint for the CA, and the Client certificate. Be sure to use the thumbprint of the client certificate.
+   The *profileinfo.txt* file contains the private key and the thumbprint for the CA, and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
 1. Open *profileinfo.txt* in a text editor. To get the thumbprint of the client (child) certificate, select the text including and between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
 
-1. Open the *vpnconfig.ovpn* file and find the section shown below. Replace everything between "cert" and "/cert".
+1. Open the *vpnconfig.ovpn* file and find the section in the following example. Replace everything between "cert" and "/cert".
 
    ```
    # P2S client certificate
