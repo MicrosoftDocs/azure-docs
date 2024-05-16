@@ -1,8 +1,9 @@
 ---
-title: Integrate security solutions in Microsoft Defender for Cloud
-description: Learn about how Microsoft Defender for Cloud integrates with partner solutions.
-ms.topic: conceptual
-ms.date: 01/10/2023
+title: Integrate security solutions in Defender for Cloud
+description: Learn about how Microsoft Defender for Cloud integrates with partner solutions to enhance your security posture and protect your Azure resources.
+ms.topic: concept-article
+ms.date: 05/16/2024
+#customer intent: As a reader, I want to learn how to integrate security solutions in Defender for Cloud so that I can enhance my security posture and protect my Azure resources.
 ---
 
 # Integrate security solutions in Defender for Cloud
@@ -36,13 +37,13 @@ Azure security solutions that are deployed from Defender for Cloud are automatic
 
 1. From Defender for Cloud's menu, select **Security solutions**.
 
-From the **Security solutions** page, you can see the health of integrated Azure security solutions and run basic management tasks.
+The **Security solutions** page presents the health of the integrated Azure security solutions and runs basic management tasks.
 
 ### Connected solutions
 
 The **Connected solutions** section includes security solutions that are currently connected to Defender for Cloud. It also shows the health status of each solution.  
 
-![Connected solutions.](./media/partner-integration/connected-solutions.png)
+:::image type="content" source="media/partner-integration/connected-solutions.png" alt-text="Screenshot that shows the available connectable solutions.":::
 
 The status of a security solution can be:
 
@@ -53,8 +54,6 @@ The status of a security solution can be:
 
 > [!NOTE]
 > If health status data is not available, Defender for Cloud shows the date and time of the last event received to indicate whether the solution is reporting or not. If no health data is available and no alerts were received within the last 14 days, Defender for Cloud indicates that the solution is unhealthy or not reporting.
->
->
 
 Select **VIEW** for additional information and options such as:
 
@@ -63,7 +62,7 @@ Select **VIEW** for additional information and options such as:
 - **Delete solution**
 - **Configure**
 
-   ![Partner solution detail.](./media/partner-integration/partner-solutions-detail.png)
+   :::image type="content" source="media/partner-integration/partner-solutions-detail.png" alt-text="Screenshot that shows the a sample partner soltion and the details of that solution.":::
 
 ### Discovered solutions
 
@@ -78,8 +77,10 @@ Select **CONNECT** under a solution to integrate with Defender for Cloud and be 
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, select **ADD**.
 
+:::image type="content" source="media/partner-integration/add-data-sources.png" alt-text="Screenshot that shows the available additonal data sources.":::
+
 ![Data sources.](./media/partner-integration/add-data-sources.png)
 
-## Next steps
+## Related content
 
-In this article, you learned how to integrate partner solutions in Defender for Cloud. To learn how to set up an integration with Microsoft Sentinel, or any other SIEM, see [Continuously export Defender for Cloud data](continuous-export.md).
+- [Continuously export Defender for Cloud data](continuous-export.md).
