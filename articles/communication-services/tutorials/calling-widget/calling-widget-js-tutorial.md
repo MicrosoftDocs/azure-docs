@@ -124,7 +124,20 @@ Next you want to open `index.html` in VS Code and add the following snippet.
             { teamsAppId: "<Enter your TeamsApp ID here>", cloud: "public" },
           ], // Provide the identifier you want to call, can be flat as a string.
         },
-        document.getElementById("outbound-call-composite-container")
+        document.getElementById("outbound-call-composite-container"),
+        {
+          options: {
+            callControls: {
+              cameraButton: true,
+              screenShareButton: false,
+              moreButton: true,
+              peopleButton: false,
+              raiseHandButton: false,
+              displayType: "compact",
+            },
+            localVideoTile: { position: "floating" },
+          },
+        }
       );
 
       window.onbeforeunload = () => {
