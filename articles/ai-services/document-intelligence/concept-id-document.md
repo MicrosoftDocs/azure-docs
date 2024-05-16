@@ -285,8 +285,8 @@ The following are the fields extracted per document type. The Document Intellige
 
 ### [Output](#tab/output)
 
- - [idDocument.driverLicense](#iddocument-driverlicense)
- - [idDocument.passport](#iddocument-passport)
+ - [idDocument.driverLicense](#ddocumentdriverlicense)
+ - [idDocument.passport](#iddocumentpassport)
   
 #### idDocument.driverLicense
 
