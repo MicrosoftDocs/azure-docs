@@ -263,27 +263,19 @@ More information on the Maven plugin and how to use and configure it can be foun
 
 ### Deploy WAR file through Az CLI and OIDC 
 
-If you use prefer the [Azure CLI](https://github.com/Azure/cli) to deploy to App Service, you can use the following command.
+If you use prefer the Azure CLI to deploy to App Service, you can use the GitHub Action for CLI.
 
-```CLI
-    az webapp deploy [--async {false, true}]
-                 [--clean {false, true}]
-                 [--ids]
-                 [--ignore-stack {false, true}]
-                 [--name]
-                 [--resource-group]
-                 [--restart {false, true}]
-                 [--slot]
-                 [--src-path]
-                 [--src-url]
-                 [--subscription]
-                 [--target-path]
-                 [--timeout]
-                 [--track-status {false, true}]
-                 [--type {ear, jar, lib, startup, static, war, zip}]
+```yaml
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az account show
+          az storage -h
 ```
 
-More information on the az webapp command, how to use and the parameter details can be found in the [az webapp documentation](/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy).
+More information on the GitHub Action for CLI and how to use and configure it can be found in the [Deploy WAR file through Az CLI and OIDC](https://github.com/Azure/cli).
 
 ### Deploy to a Container
 
