@@ -33,7 +33,7 @@ In this quickstart, you take the following steps:
 [!INCLUDE [relay-create-hybrid-connection-portal](./includes/relay-create-hybrid-connection-portal.md)]
 
 ## Develop a helper functions script
-[!INCLUDE [relay-python-helper-functions](./includes/relay-python-helper-functions)]
+[!INCLUDE [relay-python-helper-functions](./includes/relay-python-helper-functions.md)]
 
 ## Create a server application (listener)
 To listen and receive messages from the Relay, write a Python Websocket Server script.
