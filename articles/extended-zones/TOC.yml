@@ -29,4 +29,10 @@
     href: request-quota-increase.md
   - name: Troubleshoot Extended Zones
     href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/edge-zones
+  - name: Azure PowerShell
+    href: /powershell/module/az.edgezones
 
