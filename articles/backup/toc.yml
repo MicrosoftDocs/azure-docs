@@ -34,6 +34,12 @@
         href: quick-secondary-region-restore-postgresql-powershell.md  
   - name: Configure AKS cluster backup
     href: quick-backup-aks.md
+- name: Configure vaulted backup for Azure Blob
+  items: 
+  - name: Configure blob backup using PowerShell
+    href: quick-blob-vaulted-backup-powershell.md
+  - name: Configure blob backup using Azure CLI
+    href: quick-blob-vaulted-backup-cli.md
   - name: Install Backup extension in AKS cluster
     href: quick-install-backup-extension.md    
   - name: Enable Multi-user authorization (MUA)
