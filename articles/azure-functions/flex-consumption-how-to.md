@@ -226,13 +226,13 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
 You can enable [virtual network integration](functions-networking-options.md#virtual-network-integration) for your app in a Flex Consumption plan. The examples in this section assume that you already have [created a virtual network with subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet) in your account. You can enable virtual network integration when you create your app or at a later time.
 
-To enable virtual networking when you create you app:
+To enable virtual networking when you create your app:
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can enable virtal network integration by your run the [`az functionapp create`] command by including the `--vnet` and `--subnet` parameters.
+You can enable virtual network integration by running the [`az functionapp create`] command and including the `--vnet` and `--subnet` parameters.
 
-1. [Created the virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet), if you haven't already done so.
+1. [Create the virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet), if you haven't already done so.
 
 1. Complete steps 1-4 in [Create a Flex Consumption app](#create-a-flex-consumption-app) to create the resources required by your app.
 
@@ -316,7 +316,7 @@ You can't currently configure virtual networking in Visual Studio Code.
 When choosing a subnet, these considerations apply:
 
 + The subnet you choose can't already be used for other purposes, such as with private endpoints or service endpoints, or be delegated to any other hosting plan or service. 
-+ You can share the same subnet with more than one app running in a Flex Consumptionk plan. Because the networking resources are shared across all apps, one function app might impact the performance of others on the same subnet.
++ You can share the same subnet with more than one app running in a Flex Consumption plan. Because the networking resources are shared across all apps, one function app might impact the performance of others on the same subnet.
 + In a Flex Consumption plan, a single function app might use up to 40 IP addresses, even when the app scales beyond 40 instances. While this rule of thumb is helpful when estimating the subnet size you need, it's not strictly enforced.  
 
 ## Configure the deployment storage account
@@ -526,7 +526,7 @@ You can't currently set HTTP concurrency limits using Visual Studio Code.
 
 ## View currently supported regions
 
-During the preview, you're only able to run on the Flex Consumption plan onnly in selected regions. To view the list of regions that currently support Flex Consumption plans: 
+During the preview, you're only able to run on the Flex Consumption plan only in selected regions. To view the list of regions that currently support Flex Consumption plans: 
 
 [!INCLUDE [functions-flex-supported-regions-cli](../../includes/functions-flex-supported-regions-cli.md)]
 
