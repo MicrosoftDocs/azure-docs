@@ -227,12 +227,12 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-rest-apis.md",
-            "redirect_url": "/azure/cost-management-billingautomate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/ea-portal-rest-apis.md",
-            "redirect_url": "/azure/cost-management-billingautomate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
             "redirect_document_id": false
         },
         {
