@@ -71,7 +71,7 @@ Some Azure Monitor experiences, including Azure Application Insights and Azure V
 
 ## Enable and disable workspace replication
 
-You enable and disable workspace replication by using a REST command. The command triggers a long running operation, which means that it can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for all data types to begin replicating, and some data types might start replicating before others. Changes you make to table schemas after you enable workspace replication - for example, new custom log tables or custom fields you create, or diagnostic logs set up for new resource types - can take up to one hour to start replicating.
+You enable and disable workspace replication by using a REST command. The command triggers a long running operation, which means that it can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for all tables (data types) to begin replicating, and some data types might start replicating before others. Changes you make to table schemas after you enable workspace replication - for example, new custom log tables or custom fields you create, or diagnostic logs set up for new resource types - can take up to one hour to start replicating.
 
 ### Enable workspace replication
 
@@ -319,7 +319,7 @@ You can confirm that Azure Monitor runs your query in the intended region by che
 - `isWorkspaceInFailover`: Indicates whether the workspace was in switchover mode during the query. The data type is Boolean (True, False).
 - `workspaceRegion`: The region of the workspace targeted by the query. The data type is String.
 
-## Use queries to monitor workspace performance
+## Monitor workspace performance using queries
 
 We recommend using the queries in this section to create alert rules that notify you of possible workspace health or performance issues. However, the decision to switch over requires your careful consideration, and shouldn't be done automatically.
 
@@ -336,7 +336,7 @@ Ingestion latency measures the time it takes to ingest logs to the workspace. Th
 
 Different data types have different ingestion latency. You can measure ingestion for each data type separately, or create a generic query for all types, and a more fine-grained query for specific types that are of higher importance to you. We suggest you measure the 90th percentile of the ingestion latency, which is more sensitive to change than the average or the 50th percentile (median).
 
-The following sections demonstrate a series of queries that you can use to check the ingestion latency for your workspace. 
+The following sections show how to use queries to check the ingestion latency for your workspace. 
 
 #### Evaluate baseline ingestion latency of specific tables
 
@@ -358,9 +358,9 @@ After you run the query, review the results and rendered chart to determine the 
 
 #### Measure current ingestion latency
 
-After you establish the baseline ingestion latency for a specific table, you can create an alert for the table based on changes in latency over a short period of time.
+After you establish the baseline ingestion latency for a specific table, create an alert for the table based on changes in latency over a short period of time.
 
-The following query calculates ingestion latency over the past 20 minutes. Because you expect some fluctuations, create an alert rule condition to check if the query returns a value significantly greater than the baseline.
+Thhis query calculates ingestion latency over the past 20 minutes: 
 
 ```kusto
 // track the recent ingestion latency (in seconds) of a specific data type
@@ -370,11 +370,13 @@ Perf
 | summarize Ingestion90Percent_seconds=percentile(IngestionDurationSeconds, 90)
 ```
 
+Because you can expect some fluctuations, create an alert rule condition to check if the query returns a value significantly greater than the baseline.
+
 #### Monitor ingestion latency breakdown
 
 When you notice your total ingestion latency is going up, you can use queries to determine whether the source of the latency is the agents or the ingestion pipeline.
 
-The following query charts the 90th percentile latency of the agents and of the pipeline, separately.  
+Thhis query charts the 90th percentile latency of the agents and of the pipeline, separately:  
 
 ```kusto
 // Agent and pipeline (backend) latency
@@ -391,43 +393,45 @@ Perf
 
 ### Monitor ingestion volume
 
-Ingestion volume measurements reveal unexpected changes to the total or table-specific ingestion volume for your workspace. The query volume measurements can help you identify performance issues with logs ingestion. Some useful volume measurements include:
+Ingestion volume measurements can help identify unexpected changes to the total or table-specific ingestion volume for your workspace. The query volume measurements can help you identify performance issues with log ingestion. Some useful volume measurements include:
 
-- Total ingestion volume per data type
+- Total ingestion volume per table
 - Constant ingestion volume (standstill)
 - Spikes and dips in ingestion volume
 
-The following sections demonstrate different queries to check the ingestion volume for your workspace. 
+The following sections show how to use queries to check the ingestion volume for your workspace. 
 
 #### Monitor total ingestion volume per table
 
 You can define a query to monitor the ingestion volume per table in your workspace. The query can include an alert that checks for unexpected changes to the total or table-specific volumes. 
 
-The following query calculates the total ingestion volume over the past hour per data type in megabytes per second (MBs):
+This query calculates the total ingestion volume over the past hour per table in megabytes per second (MBs):
 
 ```kusto
 Usage 
 | where TimeGenerated > ago(1h) 
-| summarize BillableDataMB = sum(_BilledSize)/1.E6 by bin(TimeGenerated,1h) , DataType
+| summarize BillableDataMB = sum(_BilledSize)/1.E6 by bin(TimeGenerated,1h), DataType
 ```
 
 #### Check for ingestion standstill
 
 If you ingest logs through agents, you can use the agent's _heartbeat_ to detect connectivity. A still heartbeat can reveal a stop in logs ingestion to your workspace. When the query data reveals an ingestion standstill, you can define a condition to trigger a desired response.
 
-The following query checks the agent's heartbeat to detect connectivity:
+The following query checks the agent heartbeat to detect connectivity:
 
 ```kusto
-Heartbeat | where TimeGenerated>ago(10m) | count
+Heartbeat 
+| where TimeGenerated>ago(10m) 
+| count
 ```
 
-#### Analyze volume spikes and dips
+#### Monitor ingestion anomalies
 
-You can identify spikes and dips in your workspace ingestion volume data in various ways. A common approach is to decompose the query data to reveal specific anomalies by using the `series_decompose_anomalies` operator. You can also compose your own anomaly detector to support your unique workspace scenarios.
+You can identify spikes and dips in your workspace ingestion volume data in various ways. Use the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function to extract anomalies from the ingestion volumes you monitor in your workspace, or create your own anomaly detector to support your unique workspace scenarios. 
 
-##### Use series_decompose_anomalies operator
+##### Identify anomarlies using series_decompose_anomalies
 
-To identify anomalies in a series of data values, your query can include the `series_decompose_anomalies` operator. The following query calculates the ingestion volume per data type per hour, and applies the `series_decompose_anomalies` operator to identify anomalies:
+The `series_decompose_anomalies()` function identifies anomalies in a series of data values. Thhis query calculates the ingestion volume per table per hour, and uses `series_decompose_anomalies()` to identify anomalies:
 
 ```kusto
 Usage
@@ -447,6 +451,8 @@ Usage
     series_decompose_anomalies_IngestionVolumeMB_baseline
 | where series_decompose_anomalies_IngestionVolumeMB_ad_flag != 0
 ```
+
+For more information about how to use `series_decompose_anomalies()` to detect anomalies in log data, see [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](kql-machine-learning-azure-monitor.md). 
 
 ##### Create custom anomaly detector
 
