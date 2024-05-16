@@ -921,9 +921,9 @@ for lang_idx, lang in enumerate(result.languages):
 ]
 ```
 ---
-:::moniker-end
+::: moniker-end
 
-:::moniker range="doc-intel-4.0.0"
+::: moniker range="doc-intel-4.0.0"
 
 ## Key-value Pairs
 
