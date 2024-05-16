@@ -24,7 +24,7 @@ Azure OpenAI Assistants (Preview) allows you to create AI assistants tailored to
 
 ### Region and model support
 
-The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are currently supported. Some [tools](#tools) may have limited regional or model support. For more information, see the article for the tools you want to use.
+Code interpreter is available in all regions supported by Azure OpenAI Assistants. The [models page](../concepts/models.md#assistants-preview) contains the most up-to-date information on regions/models where Assistants are currently supported.
 
 ### API Version
 
@@ -63,6 +63,9 @@ The [models page](../concepts/models.md#assistants-preview) contains the most up
 |.zip|application/zip|✅|
 
 ### Tools
+
+> [!TIP]
+> We've added support for the `tool_choice` parameter which can be used to force the use of a specific tool (like `file_search`, `code_interpreter`, or a `function`) in a particular run. 
 
 An individual assistant can access up to 128 tools including [code interpreter](./code-interpreter.md) and [file search](./file-search.md), but you can also define your own custom tools via [functions](./assistant-functions.md).
 
@@ -120,9 +123,9 @@ assistant = client.beta.assistants.create(
 
 There are a few details you should note from the configuration above:
 
-- We enable this assistant to access code interpreter with the line ` tools=[{"type": "code_interpreter"}],`. This gives the model access to a sand-boxed python environment to run and execute code to help formulating responses to a user's question.
-- In the instructions we remind the model that it can execute code. Sometimes the model needs help guiding it towards the right tool to solve a given query. If you know, you want to use a particular library to generate a certain response that you know is part of code interpreter it can help to provide guidance by saying something like "Use Matplotlib to do x."
-- Since this is Azure OpenAI the value you enter for `model=` **must match the deployment name**. By convention our docs will often use a deployment name that happens to match the model name to indicate which model was used when testing a given example, but in your environment the deployment names can be different and that is the name that you should enter in the code.
+- We enable this assistant to access code interpreter with the line `tools=[{"type": "code_interpreter"}],`. This gives the model access to a sand-boxed python environment to run and execute code to help formulating responses to a user's question.
+- In the instructions we remind the model that it can execute code. Sometimes the model needs help guiding it towards the right tool to solve a given query. If you know you want to use a particular library to generate a certain response that you know is part of code interpreter, it can help to provide guidance by saying something like "Use Matplotlib to do x."
+- Since this is Azure OpenAI the value you enter for `model=` **must match the deployment name**.
 
 Next we're going to print the contents of assistant that we just created to confirm that creation was successful:
 

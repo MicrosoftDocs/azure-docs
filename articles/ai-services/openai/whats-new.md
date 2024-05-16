@@ -27,8 +27,11 @@ A refresh of the Assistants API is now publicly available. It contains the follo
 * [File search tool and vector storage](./how-to/file-search.md)
 * [Max completion and max prompt token support](./concepts/assistants.md#context-window-management) for managing token usage.
 * `tool_choice` [parameter](./assistants-reference-runs.md#run-object) for forcing the Assistant to use use a specified tool. 
-* New [assistant role](.//assistants-reference-messages.md#create-message) for creating custom conversation histories. 
+You can now create messages with the [assistant](.//assistants-reference-messages.md#create-message) role to create custom conversation histories in Threads.
 * Support for `temperature`, `top_p`, `response_format` [parameters](./assistants-reference.md#create-an-assistant).
+* Streaming and polling support. You can use the helper functions in our Python SDK to create runs and stream responses. We have also added polling SDK helpers to share object status updates without the need for polling. 
+* Experiment with Logic Apps and Function Calling using Azure OpenAI Studio. Import your REST APIs implemented in Logic Apps as functions and the studio invokes the function (as a Logic Apps workflow) automatically based on the user prompt.
+* AutoGen by Microsoft Research provides a multi-agent conversation framework to enable convenient building of Large Language Model (LLM) workflows across a wide range of applications. Azure OpenAI assistants are now integrated into AutoGen via `GPTAssistantAgent`, a new experimental agent that lets you seamlessly add Assistants into AutoGen-based multi-agent workflows. This enables multiple Azure OpenAI assistants, that could be task or domain specialized, to collaborate and tackle complex tasks.
 * Support for fine-tuned `gpt-3.5-turbo-0125` [models](./concepts/models.md#assistants-preview) in the following regions:
     * East US 2
     * Sweden Central

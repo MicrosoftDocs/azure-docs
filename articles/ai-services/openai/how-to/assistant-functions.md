@@ -33,6 +33,10 @@ To use all features of function calling including parallel functions, you need t
 
 ## Example function definition
 
+> [!NOTE]
+> * We've added support for the `tool_choice` parameter which can be used to force the use of a specific tool (like `file_search`, `code_interpreter`, or a `function`) in a particular run. 
+> * Runs expire ten minutes after creation. Be sure to submit your tool outputs before the 10 min mark.
+
 # [Python 1.x](#tab/python)
 
 ```python

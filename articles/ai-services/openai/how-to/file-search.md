@@ -16,6 +16,11 @@ recommendations: false
 
 File Search augments the Assistant with knowledge from outside its model, such as proprietary product information or documents provided by your users. OpenAI automatically parses and chunks your documents, creates and stores the embeddings, and use both vector and keyword search to retrieve relevant content to answer user queries.
 
+> [!IMPORTANT]
+> File search has [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) beyond the token based fees for Azure OpenAI usage. If your Assistant calls file search simultaneously in two different threads, two file search sessions are created.
+
+[!INCLUDE [Assistants v2 note](../includes/assistants-v2-note.md)]
+
 ## File search support
 
 ### Supported regions
