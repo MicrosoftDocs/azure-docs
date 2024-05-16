@@ -39,13 +39,13 @@ Before you begin this tutorial:
 
 ## Download the voting sample application
 
-If you didn't build the voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following code to clone the sample application repository to your local machine.
+If you didn't build the voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following code to clone the sample application repository to your local computer:
 
 ```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart 
 ```
 
-Open the application in Visual Studio, running as administrator, and build the application.
+Open Visual Studio by using the **Run as administrator** option. Open the application, and then build the application.
 
 ## Create a cluster
 

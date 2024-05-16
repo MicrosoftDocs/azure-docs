@@ -68,7 +68,7 @@ Thumbprint                                Subject
 
 ## Define an HTTPS endpoint in the service manifest
 
-Launch Visual Studio as an **administrator** and open the Voting solution. In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*. The service manifest defines the service endpoints. Find the **Endpoints** section and edit the existing "ServiceEndpoint" endpoint. Change the name to "EndpointHttps", set the protocol to *https*, the type to *Input*, and port to *443*. Save your changes.
+Open Visual Studio by using the **Run as administrator** option, and then open the Voting solution. In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*. The service manifest defines the service endpoints. Find the `Endpoints` section and edit the value for `ServiceEndpoint` endpoint. Change the name to **EndpointHttps**, set the protocol to **https*, the type to **Input**, and the port to **443**. Save your changes.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -100,9 +100,9 @@ Launch Visual Studio as an **administrator** and open the Voting solution. In So
 </ServiceManifest>
 ```
 
-## Configure Kestrel to use HTTPS
+## Set up Kestrel to use HTTPS
 
-In Solution Explorer, open the *VotingWeb/VotingWeb.cs* file. Configure Kestrel to use HTTPS and lookup the certificate in the `Cert:\LocalMachine\My` store. Add the following using statements:
+In Solution Explorer, open the *VotingWeb/VotingWeb.cs* file. Configure Kestrel to use HTTPS and look up the certificate in the `Cert:\LocalMachine\My` store. Add the following `using` statements:
 
 ```csharp
 using System.Net;
@@ -110,7 +110,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-Update the `ServiceInstanceListener` to use the new *EndpointHttps* endpoint and listen on port 443. When configuring the web host to use Kestrel server, you must configure Kestrel to listen for IPv6 addresses on all network interfaces: `opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`.
+Update the value for `ServiceInstanceListener` to use the new *EndpointHttps* endpoint and listen on port 443. When you set up the web host to use the Kestrel server, you must configure Kestrel to listen for IPv6 addresses on all network interfaces: `opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`.
 
 ```csharp
 new ServiceInstanceListener(
@@ -152,7 +152,8 @@ serviceContext =>
 
 Also add the following method so that Kestrel can find the certificate in the `Cert:\LocalMachine\My` store using the subject.
 
-Replace "&lt;your_CN_value&gt;" with "mytestcert" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
+Replace `<your_CN_value>` with `mytestcert` if you created a self-signed certificate by using the previous PowerShell command, or use the CN of your certificate.
+
 Be aware that in the case of local deployment to `localhost` it's preferable to use "CN=localhost" to avoid authentication exceptions.
 
 ```csharp
@@ -188,10 +189,10 @@ private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonNa
 
 ## Grant NETWORK SERVICE access to the certificate's private key
 
-In a previous step, you imported the certificate into the `Cert:\LocalMachine\My` store on the development computer. Now, explicitly give the account running the service (NETWORK SERVICE, by default) access to the certificate's private key. You can do this step manually (using the certlm.msc tool), but it's better to automatically run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the **SetupEntryPoint** of the service manifest.
+In a previous step, you imported the certificate into the `Cert:\LocalMachine\My` store on the development computer. Now, explicitly give the account running the service (NETWORK SERVICE, by default) access to the certificate's private key. You can do this step manually (by using the *certlm.msc* tool), but it's better to automatically run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the `SetupEntryPoint` of the service manifest.
 
->[!NOTE]
-> Service Fabric supports declaring endpoint certificates by thumbprint or subject common name. In that case, the runtime will set up the binding and ACL the certificate's private key to the identity that the service is running as. The runtime will also monitor the certificate for changes/renewals, and re-ACL the corresponding private key accordingly.
+> [!NOTE]
+> Service Fabric supports declaring endpoint certificates by thumbprint or subject common name. In that case, the runtime will set up the binding and ACL the certificate's private key to the identity that the service is running as. The runtime also monitors the certificate for changes/enewals, and re-ACL the corresponding private key accordingly.
 
 ### Configure the service setup entry point
 
