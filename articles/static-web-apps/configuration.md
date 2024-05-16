@@ -245,7 +245,7 @@ For example, with the following directory structure, the above navigation fallba
 | _/images/unknown.png_ | File not found error. | `404` |
 | _/css/unknown.css_ | File not found error. | `404` |
 | _/css/global.css_ | The stylesheet file. | `200` |
-| _about.html_ | The HTML page. | `200` |
+| _/about.html_ | The HTML page. | `200` |
 | Any other path outside the _/images_ or _/css_ folders that doesn't match the path to a deployed file. | The _/index.html_ file. | `200` |
 
 > [!IMPORTANT]
