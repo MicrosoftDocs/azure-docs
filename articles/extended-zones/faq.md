@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: concept-article #Required; leave this attribute/value as-is.
-ms.date: 05/08/2024
+ms.date: 05/16/2024
 
 ---
 
@@ -13,9 +13,9 @@ ms.date: 05/08/2024
 
 This article provides answers to some of the frequently asked questions asked about Azure Extended Zones.
 
-## Will the data be 100% inside the geography to which the Azure Extended Zone belongs?
+## Will data be 100% inside the geography to which the Azure Extended Zone belongs?
 
-For the Los Angeles Azure Extended Zone, the data remains in California. For questions about compliance with data residency policies, customers should confirm with their legal team that Microsoft’s offerings works for their requirements. For future sites, the control plane and certain telemetry run in the closest region, which may or may not be inside the stated geography.
+For the Los Angeles Azure Extended Zone, the data remains in California. For questions about compliance with data residency policies, customers should confirm with their legal team that Microsoft’s offerings works for their requirements. For future sites, the control plane and certain telemetry run in the closest region, which might or might not be inside the stated geography.
 
 ## Are all Azure services offered at the Azure Extended Zone?
 
