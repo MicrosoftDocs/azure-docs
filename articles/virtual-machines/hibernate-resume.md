@@ -52,8 +52,12 @@ VM sizes with up to 64-GB RAM from the following General Purpose VM series suppo
 - [Edsv5-series](edv5-edsv5-series.md)
 
 VM sizes with up to 112-GB RAM from the following GPU VM series support hibernation.
-- [NVv4-series](../virtual-machines/nvv4-series.md)
-- [NVadsA10v5-series](../virtual-machines/nva10v5-series.md)
+- [NVv4-series](../virtual-machines/nvv4-series.md) (in preview)
+- [NVadsA10v5-series](../virtual-machines/nva10v5-series.md) (in preivew)
+
+> [!IMPORTANT]
+> Azure Virtual Machines - Hibernation for GPU VMs is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### General limitations
 - You can resize VMs that have hibernation enabled, but not when the VM is in a *Hibernated* state. The VM should either be in a *Running* or *Stopped* state.
