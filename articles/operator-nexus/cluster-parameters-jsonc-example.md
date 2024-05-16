@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus - Example of cluster.parameters.jsonc template file"
-description: Example of cluster.parameters.jsonc template file to use with ARM template in creating a cluster.
+description: Example of an 8 rack cluster parameter file to use with ARM template in creating a cluster.
 author: jeffreymason
 ms.author: jeffreymason
 ms.service: azure-operator-nexus
@@ -30,8 +30,8 @@ ms.custom: template-how-to
     "clusterLawName": {
       "value": "$LAW_NAME"
     },
-    "networkFabricId": {$
-      "value": ""
+    "networkFabricId": {
+      "value": "$NF_ID"
     },
     "clusterType": {
       "value": "$CLUSTER_TYPE"
@@ -56,18 +56,18 @@ ms.custom: template-how-to
     },
     "aggregatorOrSingleRack": {
       "value": {
-        "networkRackId": "",
-        "rackLocation": "",
-        "rackSerialNumber": "",
-        "rackSkuId": "": [
+        "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+        "rackLocation": "$AGGR_RACK_LOCATION",
+        "rackSerialNumber": "$AGGR_RACK_SN",
+        "rackSkuId": "$AGGR_RACK_SKU": [
           {
             "rackSlot": 1,
             "adminCredentials": {
-              "username": "",
-              "password": ""
+              "username": "$COMPX_SVRY_BMC_USER",
+              "password": "$COMPX_SVRY_BMC_PASS"
             },
-            "storageApplianceName": "",
-            "serialNumber": ""
+            "storageApplianceName": "$SA_NAME",
+            "serialNumber": "$SA_SN"
           }
         ],
         "bareMetalMachineConfigurationData": []
@@ -76,1802 +76,1802 @@ ms.custom: template-how-to
     "computeRacks": {
       "value": [
         {
-          "networkRackId": "",
-          "rackLocation": "",
-          "rackSerialNumber": "",
-          "rackSkuId": "",
+          "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+          "rackLocation": "$AGGR_RACK_LOCATION",
+          "rackSerialNumber": "$AGGR_RACK_SN",
+          "rackSkuId": "$AGGR_RACK_SKU",
           "storageApplianceConfigurationData": [],
           "bareMetalMachineConfigurationData": [
             {
               "rackSlot": 18,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 17,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 16,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 15,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 14,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 13,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 12,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 11,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 10,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 9,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 8,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 7,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 6,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 5,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 4,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 3,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 2,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 1,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             }
           ]
         },
         {
-          "networkRackId": "",
-          "rackLocation": "",
-          "rackSerialNumber": "",
-          "rackSkuId": "",
+          "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+          "rackLocation": "$AGGR_RACK_LOCATION",
+          "rackSerialNumber": "$AGGR_RACK_SN",
+          "rackSkuId": "$AGGR_RACK_SKU",
           "storageApplianceConfigurationData": [],
           "bareMetalMachineConfigurationData": [
             {
               "rackSlot": 18,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 17,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 16,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 15,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 14,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 13,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 12,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 11,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 10,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 9,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 8,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 7,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 6,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 5,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 4,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 3,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 2,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 1,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             }
           ]
         },
         {
-          "networkRackId": "",
-          "rackLocation": "",
-          "rackSerialNumber": "",
-          "rackSkuId": "",
+          "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+          "rackLocation": "$AGGR_RACK_LOCATION",
+          "rackSerialNumber": "$AGGR_RACK_SN",
+          "rackSkuId": "$AGGR_RACK_SKU",
           "storageApplianceConfigurationData": [],
           "bareMetalMachineConfigurationData": [
             {
               "rackSlot": 18,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 17,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 16,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 15,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 14,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 13,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 12,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 11,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 10,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 9,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 8,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 7,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 6,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 5,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 4,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 3,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 2,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 1,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             }
           ]
         },
         {
-          "networkRackId": "",
-          "rackLocation": "",
-          "rackSerialNumber": "",
-          "rackSkuId": "",
+          "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+          "rackLocation": "$AGGR_RACK_LOCATION",
+          "rackSerialNumber": "$AGGR_RACK_SN",
+          "rackSkuId": "$AGGR_RACK_SKU",
           "storageApplianceConfigurationData": [],
           "bareMetalMachineConfigurationData": [
             {
               "rackSlot": 18,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 17,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 16,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 15,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 14,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 13,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 12,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 11,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 10,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 9,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 8,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 7,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 6,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 5,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 4,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 3,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 2,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 1,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             }
           ]
         },
         {
-          "networkRackId": "",
-          "rackLocation": "",
-          "rackSerialNumber": "",
-          "rackSkuId": "",
+          "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+          "rackLocation": "$AGGR_RACK_LOCATION",
+          "rackSerialNumber": "$AGGR_RACK_SN",
+          "rackSkuId": "$AGGR_RACK_SKU",
           "storageApplianceConfigurationData": [],
           "bareMetalMachineConfigurationData": [
             {
               "rackSlot": 18,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 17,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 16,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 15,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 14,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 13,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 12,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 11,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 10,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 9,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 8,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 7,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 6,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 5,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 4,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 3,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 2,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 1,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             }
           ]
         },
         {
-          "networkRackId": "",
-          "rackLocation": "",
-          "rackSerialNumber": "",
-          "rackSkuId": "",
+          "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+          "rackLocation": "$AGGR_RACK_LOCATION",
+          "rackSerialNumber": "$AGGR_RACK_SN",
+          "rackSkuId": "$AGGR_RACK_SKU",
           "storageApplianceConfigurationData": [],
           "bareMetalMachineConfigurationData": [
             {
               "rackSlot": 18,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 17,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 16,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 15,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 14,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 13,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 12,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 11,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 10,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 9,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 8,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 7,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 6,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 5,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 4,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 3,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 2,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 1,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             }
           ]
         },
         {
-          "networkRackId": "",
-          "rackLocation": "",
-          "rackSerialNumber": "",
-          "rackSkuId": "",
+          "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+          "rackLocation": "$AGGR_RACK_LOCATION",
+          "rackSerialNumber": "$AGGR_RACK_SN",
+          "rackSkuId": "$AGGR_RACK_SKU",
           "storageApplianceConfigurationData": [],
           "bareMetalMachineConfigurationData": [
             {
               "rackSlot": 18,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 17,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 16,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 15,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 14,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 13,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 12,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 11,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 10,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 9,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 8,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 7,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 6,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 5,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 4,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 3,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 2,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 1,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             }
           ]
         },
         {
-          "networkRackId": "",
-          "rackLocation": "",
-          "rackSerialNumber": "",
-          "rackSkuId": "",
+          "networkRackId": "$AGGR_RACK_RESOURCE_ID",
+          "rackLocation": "$AGGR_RACK_LOCATION",
+          "rackSerialNumber": "$AGGR_RACK_SN",
+          "rackSkuId": "$AGGR_RACK_SKU",
           "storageApplianceConfigurationData": [],
           "bareMetalMachineConfigurationData": [
             {
               "rackSlot": 18,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 17,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 16,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 15,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 14,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 13,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 12,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 11,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 10,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 9,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 8,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 7,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 6,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 5,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 4,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 3,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 2,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             },
             {
               "rackSlot": 1,
               "bmcCredentials": {
-                "username": "",
-                "password": ""
+                "username": "$COMPX_SVRY_BMC_USER",
+                "password": "$COMPX_SVRY_BMC_PASS"
               },
-              "bmcMacAddress": "",
-              "bootMacAddress": "",
-              "machineDetails": "",
-              "machineName": "",
-              "serialNumber": ""
+              "bmcMacAddress": "$COMPX_SVRY_BMC_MAC",
+              "bootMacAddress": "$COMPX_SVRY_BOOT_MAC",
+              "machineDetails": "$COMPX_SVRY_SERVER_DETAILS",
+              "machineName": "$COMPX_SVRY_SERVER_NAME",
+              "serialNumber": "$COMPX_RACK_SN"
             }
           ]
         }
@@ -1879,17 +1879,17 @@ ms.custom: template-how-to
     },
     "clusterServicePrincipal": {
       "value": {
-        "tenantId": "",
-        "applicationId": "",
-        "principalId": "",
-        "password": ""
+        "tenantId": "$TENANT_ID",
+        "applicationId": "$SP_APP_ID",
+        "principalId": "$SP_ID",
+        "password": "$SP_PASS"
       }
     },
     "environment": {
-      "value": ""
+      "value": "$CLUSTER_NAME"
     },
     "location": {
-      "value": ""
+      "value": "$LOCATION"
     }
   }
 }
