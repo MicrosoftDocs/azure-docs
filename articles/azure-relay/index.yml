@@ -38,6 +38,8 @@ landingContent:
             url: relay-hybrid-connections-node-get-started.md
           - text: Send and receive messages using HTTP - Node.js
             url: relay-hybrid-connections-http-requests-node-get-started.md
+          - text: Send and receive messages using Websockets - Python
+            url: relay-hybrid-connections-python-get-started.md
       - linkListType: download
         links:
           - text: Samples on GitHub
