@@ -29,9 +29,6 @@ To place a call to a public switched telephone network (PSTN), use the `startCal
 
 When you call a PSTN number, specify your alternate caller ID. An alternate caller ID is a phone number (based on the E.164 standard) that identifies the caller in a PSTN call. It's the phone number the call recipient sees for an incoming call.
 
-> [!NOTE]
-> Please check [details of PSTN calling offering](../../../../concepts/numbers/sub-eligibility-number-capability.md). For preview program access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
-
 For a 1:1 call to a PSTN number, use the following code:
 ```js
 const phoneNumber = { phoneNumber: <ACS_PHONE_NUMBER> };
@@ -40,7 +37,7 @@ this.currentCall = this.callAgent.startCall([phoneNumber], this.callOptions);
 ```
 
 > [!NOTE]
-> Contextual information in 1:n call to a user and/or a PSTN number is currently not supported.
+> Passing contextual information in group call and add participant scenarios are not supported
 
 ## Receive an incoming call
 
@@ -80,6 +77,3 @@ const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
 };
 callAgentInstance.on('incomingCall', incomingCallHandler);
 ```
-
-> [!NOTE]
-> Contextual information when Adding Participant (either a user or a phone number) to a call is currently not supported.
