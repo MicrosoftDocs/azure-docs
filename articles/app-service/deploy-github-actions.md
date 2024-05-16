@@ -231,18 +231,6 @@ The following examples show the part of the workflow that builds the web app, in
 
 -----
 
-## Next steps
-
-Check out references on Azure GitHub Actions and workflows:
-
-- [Azure/login action](https://github.com/Azure/login)
-- [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy)
-- [Docker/login action](https://github.com/Azure/docker-login)
-- [Azure/k8s-deploy action](https://github.com/Azure/k8s-deploy)
-- [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
-- [Starter Workflows](https://github.com/actions/starter-workflows)
-- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
-
 
 ## Frequently Asked Questions
 
@@ -296,3 +284,16 @@ In case you would like to update any of your web apps settings after deployment,
 ```
 
 More information on this action and how to use and configure it can be found in the [App Service Settings](https://github.com/Azure/appservice-settings) repository.
+
+
+## Next steps
+
+Check out references on Azure GitHub Actions and workflows:
+
+- [Azure/login action](https://github.com/Azure/login)
+- [Azure/webapps-deploy action](https://github.com/Azure/webapps-deploy)
+- [Docker/login action](https://github.com/Azure/docker-login)
+- [Azure/k8s-deploy action](https://github.com/Azure/k8s-deploy)
+- [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
+- [Starter Workflows](https://github.com/actions/starter-workflows)
+- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
