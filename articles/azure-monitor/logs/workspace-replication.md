@@ -349,7 +349,7 @@ Perf
 | where TimeGenerated > ago(3d) 
 | project TimeGenerated, 
 IngestionDurationSeconds = (ingestion_time()-TimeGenerated)/1s
-| summarize LatencyIngestion90Percentile=percentile(IngestionDurationSeconds, 90) by datatype, bin(TimeGenerated, 1h) 
+| summarize LatencyIngestion90Percentile=percentile(IngestionDurationSeconds, 90) by bin(TimeGenerated, 1h) 
 | render timechart
 ```
 
@@ -407,6 +407,7 @@ You can define a query to monitor the ingestion volume per table in your workspa
 This query calculates the total ingestion volume over the past hour per table in megabytes per second (MBs):
 
 ```kusto
+// Calculate total ingestion volume over the past hour per table
 Usage 
 | where TimeGenerated > ago(1h) 
 | summarize BillableDataMB = sum(_BilledSize)/1.E6 by bin(TimeGenerated,1h), DataType
@@ -416,9 +417,10 @@ Usage
 
 If you ingest logs through agents, you can use the agent's _heartbeat_ to detect connectivity. A still heartbeat can reveal a stop in logs ingestion to your workspace. When the query data reveals an ingestion standstill, you can define a condition to trigger a desired response.
 
-The following query checks the agent heartbeat to detect connectivity:
+The following query checks the agent heartbeat to detect connectivity issues:
 
 ```kusto
+//Count agent heartbeats in the last ten minutes
 Heartbeat 
 | where TimeGenerated>ago(10m) 
 | count
@@ -430,9 +432,10 @@ You can identify spikes and dips in your workspace ingestion volume data in vari
 
 ##### Identify anomalies using series_decompose_anomalies
 
-The `series_decompose_anomalies()` function identifies anomalies in a series of data values. This query calculates the ingestion volume per table per hour, and uses `series_decompose_anomalies()` to identify anomalies:
+The `series_decompose_anomalies()` function identifies anomalies in a series of data values. This query calculates the hourly ingestion volume of each table in your Log Analytics workspace, and uses `series_decompose_anomalies()` to identify anomalies:
 
 ```kusto
+// Calculate hourly ingestion volume per table and identify anomalies
 Usage
 | where TimeGenerated > ago(24h)
 | project TimeGenerated, DataType, Quantity
@@ -468,6 +471,7 @@ To filter out insignificant differences between the expected and the actual inge
 - **Volume of change**: Indicates whether the increased or decreased volume is more than 0.1% of the monthly volume of that table
 
 ```kusto
+// Calculate expected vs actual hourly ingestion per table
 let TimeRange=24h;
 let MonthlyIngestionByType=
     Usage
@@ -512,6 +516,7 @@ Each query returns a response code that indicates success or failure. When the q
 This query counts how many queries returned a server error code:
 
 ```kusto
+// Count query errors
 LAQueryLogs 
 | where ResponseCode>=500 and ResponseCode<600 
 | count
@@ -530,7 +535,7 @@ The following features are partially supported or not currently supported:
 
 | Feature | Support | Notes |
 | --- | --- | --- |
-| Search jobs, Restore | Partially supported| Search job and restore operations create tables and populate them with the search results or restored data. After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
+| Search jobs, Restore | Partially supported| Search job and restore operations create tables and populate them with search results or restored data. After you enable workspace replication, new tables created for these operations replicate to your secondary workspace. Tables populated **before** you enable replication aren't replicated. If these operations are in progress when you switch over, the outcome is unexpected. It might complete successfully but not replicate, or it might fail, depending on your workspace health and the exact timing. |
 | Application Insights over Log Analytics workspaces | Not supported | |
 | VM Insights | Not supported | |
 | Container Insights | Not supported | |
