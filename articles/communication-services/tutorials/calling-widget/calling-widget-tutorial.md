@@ -40,6 +40,18 @@ These steps are **needed** in order to follow this tutorial. Contact your Teams 
 - Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
 - Working with [Teams Auto Attendants](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) and Azure Communication Services.
 
+#### Checking for Node and VS Code
+
+You can check that [Node](https://nodejs.org/) was installed correctly with this command.
+```bash
+node -v
+```
+The output will tell you the version you have installed, it will fail if Node was not installed and added to your `PATH`. Just like with Node you can check to see if [VS Code](https://code.visualstudio.com/) was installed with this command.
+```bash
+code --version
+```
+Like with Node this command will fail if there was an issue installing VS Code on your machine.
+
 ### Set up the project
 
 Only use this step if you're creating a new application.
