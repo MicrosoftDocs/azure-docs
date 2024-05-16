@@ -10,7 +10,7 @@ ms.author: cherylmc
 
 ---
 
-# Configure the Azure VPN Client - Microsoft Entra ID authentication - Windows (Preview)
+# Configure the Azure VPN Client - Microsoft Entra ID authentication - Windows
 
 This article helps you configure the Azure VPN Client on a Windows computer to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Microsoft Entra ID authentication. For more information about point-to-site connections, see [About point-to-site connections](point-to-site-about.md). The Azure VPN Client is supported with Windows FIPS mode by using the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) hotfix.
 
