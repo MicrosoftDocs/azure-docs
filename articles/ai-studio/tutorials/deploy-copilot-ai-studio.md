@@ -56,7 +56,7 @@ In this section, you learn how to transition to prompt flow from the playground.
 > The changes made in prompt flow aren't applied backwards to update the playground environment. 
 
 You can create a prompt flow from the playground by following these steps:
-1. Go to your project in [Azure AI Studio](https://ai.azure.com). 
+1. Go to your project in [AI Studio](https://ai.azure.com). 
 1. Select **Playgrounds** > **Chat** from the left pane.
 1. Select **Prompt flow** from the menu above the chat session pane.
 1. Enter a folder name for your prompt flow. Then select **Open**. AI Studio exports the playground chat environment to prompt flow. The export includes the connections to the data that you added.
@@ -306,15 +306,20 @@ Now you can see the **aggregateChunks** node in the graph. The node connects the
 
 By now you have both the product and customer info in prompt flow. You can chat with the model in prompt flow and get answers to questions such as "How many TrailWalker hiking shoes did Daniel Wilson buy?" Before proceeding to a more formal evaluation, you can optionally chat with the model to see how it responds to your questions.
 
+1. Continue from the previous section with the **outputs** node selected. Make sure that the **reply** output has the **Chat output** radio button selected. Otherwise, the full set of documents are returned in response to the question in chat.
 1. Select **Chat** from the top menu in prompt flow to try chat.
 1. Enter "How many TrailWalker hiking shoes did Daniel Wilson buy?" and then select the right arrow icon to send.
+    
+    > [!NOTE]
+    > It might take a few seconds for the model to respond. You can expect the response time to be faster when you use a deployed flow.
+
 1. The response is what you expect. The model uses the customer info to answer the question.
 
    :::image type="content" source="../media/tutorials/chat/chat-with-data-customer.png" alt-text="Screenshot of the assistant's reply with product and customer grounding data." lightbox="../media/tutorials/chat/chat-with-data-customer.png":::
 
 ## Evaluate the flow using a question and answer evaluation dataset
 
-In [Azure AI Studio](https://ai.azure.com), you want to evaluate the flow before you [deploy the flow](#deploy-the-flow) for [consumption](#use-the-deployed-flow).
+In [AI Studio](https://ai.azure.com), you want to evaluate the flow before you [deploy the flow](#deploy-the-flow) for [consumption](#use-the-deployed-flow).
 
 In this section, you use the built-in evaluation to evaluate your flow with a question and answer evaluation dataset. The built-in evaluation uses AI-assisted metrics to evaluate your flow: groundedness, relevance, and retrieval score. For more information, see [built-in evaluation metrics](../concepts/evaluation-metrics-built-in.md).
 
@@ -346,22 +351,12 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
     You're taken to the **Create a new evaluation** wizard.
 
 1. Enter a name for your evaluation and select a compute session.
-1. Select **Question and answer pairs with retrieval-augmented generation** from the scenario options.
+1. Select **Question and answer without context** from the scenario options.
+1. Select the flow to evaluate. In this example, select *Contoso outdoor flow* or whatever you named your flow. Then select **Next**.
 
     :::image type="content" source="../media/tutorials/chat/evaluate-basic-scenario.png" alt-text="Screenshot of selecting an evaluation scenario." lightbox="../media/tutorials/chat/evaluate-basic-scenario.png":::
 
-1. Select the flow to evaluate. In this example, select *Contoso outdoor flow* or whatever you named your flow. Then select **Next**.
-
-1. Select the metrics you want to use to evaluate your flow. In this example, select **Groundedness**, **Relevance**, and **Retrieval score**. 
-
-    :::image type="content" source="../media/tutorials/chat/evaluate-metrics.png" alt-text="Screenshot of selecting evaluation metrics." lightbox="../media/tutorials/chat/evaluate-metrics.png":::
-
-1. Select a model to use for evaluation. In this example, select **gpt-35-turbo-16k**. Then select **Next**.
-
-    > [!NOTE]
-    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [the AI Studio chat playground quickstart](../quickstarts/get-started-playground.md#deploy-a-chat-model). Then return to this step and select the model you deployed.
-
-1. Select **Add new dataset**. Then select **Next**.
+1. Select **Add your dataset** on the **Configure test data** page. 
 
     :::image type="content" source="../media/tutorials/chat/evaluate-add-dataset.png" alt-text="Screenshot of the option to use a new or existing dataset." lightbox="../media/tutorials/chat/evaluate-add-dataset.png":::
 
@@ -382,6 +377,15 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
     | **documents** | String with context from retrieved documents | string | ${run.outputs.fetched_docs} |
 
 1. Select **Next**.
+1. Select the metrics you want to use to evaluate your flow. In this example, select **Groundedness**, **Relevance**, and **Retrieval score**. 
+
+    :::image type="content" source="../media/tutorials/chat/evaluate-metrics.png" alt-text="Screenshot of selecting evaluation metrics." lightbox="../media/tutorials/chat/evaluate-metrics.png":::
+
+1. Select a model to use for evaluation. In this example, select **gpt-35-turbo-16k**. Then select **Next**.
+
+    > [!NOTE]
+    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [the AI Studio chat playground quickstart](../quickstarts/get-started-playground.md#deploy-a-chat-model). Then return to this step and select the model you deployed.
+
 1. Review the evaluation details and then select **Submit**. 
 
     :::image type="content" source="../media/tutorials/chat/evaluate-review-finish.png" alt-text="Screenshot of the review and finish page within the create evaluation dialog." lightbox="../media/tutorials/chat/evaluate-review-finish.png":::
@@ -413,20 +417,19 @@ For more information, see [view evaluation results](../how-to/evaluate-flow-resu
 
 Now that you [built a flow](#create-a-prompt-flow-from-the-playground) and completed a metrics-based [evaluation](#evaluate-the-flow-using-a-question-and-answer-evaluation-dataset), it's time to create your online endpoint for real-time inference. That means you can use the deployed flow to answer questions in real time.
 
-Follow these steps to deploy a prompt flow as an online endpoint from [Azure AI Studio](https://ai.azure.com).
+Follow these steps to deploy a prompt flow as an online endpoint from [AI Studio](https://ai.azure.com).
 
-1. Have a prompt flow ready for deployment. If you don't have one, see [how to build a prompt flow](../how-to/flow-develop.md).
+1. Have a prompt flow ready for deployment. If you don't have one, see the previous sections or [how to build a prompt flow](../how-to/flow-develop.md).
 1. Optional: Select **Chat** to test if the flow is working correctly. Testing your flow before deployment is recommended best practice.
 
 1. Select **Deploy** on the flow editor. 
 
     :::image type="content" source="../media/tutorials/chat/deploy-from-flow.png" alt-text="Screenshot of the deploy button from a prompt flow editor." lightbox = "../media/tutorials/chat/deploy-from-flow.png":::
 
-1. Provide the requested information on the **Basic Settings** page in the deployment wizard. 
+1. Provide the requested information on the **Basic Settings** page in the deployment wizard. Select **Next** to proceed to the advanced settings pages. 
 
     :::image type="content" source="../media/tutorials/chat/deploy-basic-settings.png" alt-text="Screenshot of the basic settings page in the deployment wizard." lightbox = "../media/tutorials/chat/deploy-basic-settings.png":::
 
-1. Select **Next** to proceed to the advanced settings pages. 
 1. On the **Advanced settings - Endpoint** page, leave the default settings and select **Next**. 
 1. On the **Advanced settings - Deployment** page, leave the default settings and select **Next**. 
 1. On the **Advanced settings - Outputs & connections** page, make sure all outputs are selected under **Included in endpoint response**. 
@@ -444,14 +447,16 @@ For more information, see [how to deploy a flow](../how-to/flow-deploy.md).
 
 Your copilot application can use the deployed prompt flow to answer questions in real time. You can use the REST endpoint or the SDK to use the deployed flow.
 
-1. To view the status of your deployment in [Azure AI Studio](https://ai.azure.com), select **Deployments** from the left navigation. Once the deployment is created successfully, you can select the deployment to view the details.
+1. To view the status of your deployment in [AI Studio](https://ai.azure.com), select **Deployments** from the left navigation.
 
     :::image type="content" source="../media/tutorials/chat/deployments-state-updating.png" alt-text="Screenshot of the prompt flow deployment state in progress." lightbox = "../media/tutorials/chat/deployments-state-updating.png":::
+
+    Once the deployment is created successfully, you can select the deployment to view the details. 
 
     > [!NOTE]
     > If you see a message that says "Currently this endpoint has no deployments" or the **State** is still *Updating*, you might need to select **Refresh** after a couple of minutes to see the deployment.
 
-1. Optionally, the details page is where you can change the authentication type or enable monitoring.
+1.  Optionally, the details page is where you can change the authentication type or enable monitoring.
 
     :::image type="content" source="../media/tutorials/chat/deploy-authentication-monitoring.png" alt-text="Screenshot of the prompt flow deployment details page." lightbox = "../media/tutorials/chat/deploy-authentication-monitoring.png":::
 
@@ -463,7 +468,7 @@ Your copilot application can use the deployed prompt flow to answer questions in
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
 
-You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com) as needed.
+You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [AI Studio](https://ai.azure.com) as needed.
 
 
 ## Azure AI Studio enterprise chat solution demo
