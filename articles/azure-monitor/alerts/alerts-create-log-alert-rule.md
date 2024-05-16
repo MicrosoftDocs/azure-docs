@@ -46,6 +46,7 @@ Limitations for log search alert rule queries:
 - Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
  - The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
  - The combined size of all data in the log alert rule properties cannot exceed 64KB.
+ - Log search alert rule queries do not support 'ago()' statement.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log search alert rule.":::
       
