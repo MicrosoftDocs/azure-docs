@@ -1,5 +1,5 @@
 ---
-title: ND sub-family VM size series
+title: ND sub-family virtual machine size series
 description: Overview of the 'ND' sub-family of virtual machine sizes
 author: mattmcinnes
 ms.service: virtual-machines
@@ -9,7 +9,7 @@ ms.date: 04/18/2024
 ms.author: mattmcinnes
 ---
 
-# 'ND' sub-family GPU accelerated VM size series
+# 'ND' sub-family GPU accelerated virtual machine size series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -59,6 +59,13 @@ ms.author: mattmcinnes
 [View the full ND_H100_v5-series page](../../nd-h100-v5-series.md).
 
 [!INCLUDE [nd-h100-v5-series-specs](./includes/nd-h100-v5-series-specs.md)]
+
+### ND_MI300X_v5-series
+[!INCLUDE [nd-mi300x-v5-series-summary](./includes/nd-mi300x-v5-series-summary.md)]
+
+[View the full ND_MI300X_v5-series page](./nd-mi300x-v5-series.md).
+
+[!INCLUDE [nd-mi300x-v5-series-specs](./includes/nd-mi300x-v5-series-specs.md)]
 
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
