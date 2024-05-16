@@ -40,6 +40,17 @@ Choose the log category and metric category you want to monitor.
 | **IngressLogs**        | [Ingress logs](#show-ingress-log-entries-containing-a-specific-host) of all customer's applications, only access logs.                                                                                                                                                                                      |
 | **BuildLogs**          | [Build logs](#show-build-log-entries-for-a-specific-app) of all customer's applications for each build stage.                                                                                                                                                                                               |
 
+
+> [!NOTE]
+> To protect your application from potential "credential leak" attack, log contents with credentials (or other sensitive information) with be masked with `***`.
+> For example, log content with bellow pattens will be handled as sensitive information and get masked.
+> - The value of `dbpass`, `password`, `key`, `secret`, `sig`, `signature` followed by `:` or `=`. This typically appears in URL parameters, or payload dumps. For example, `https://somestorage.blob.core.windows.net?sv=2021-08-06&st=2024-04-30T10%3A01%3A19Z&se=2024-04-30T11%3A01%3A19Z&sr=b&sp=r&sig=xxxxxxxxxxxxxx` becomes `https://somestorage.blob.core.windows.net?sv=2021-08-06&st=2024-04-30T10%3A01%3A19Z&se=2024-04-30T11%3A01%3A19Z&sr=b&sp=r&sig=***`
+> - Azure Cache for Redis passwords
+> - JWT tokens in the format: eyJxxxxxx
+> 
+> If you found you log is masked, please update your application code to eliminate credential leak. 
+
+
 ## Metrics
 
 For a complete list of metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](concept-metrics.md).
