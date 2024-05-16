@@ -82,7 +82,6 @@ This article assumes you are mapping 1:1, so you must take your mapping changes 
 There are many configurations you can make on a storage account. The following checklist should be used for your storage account configurations. You can change for instance the networking configuration after your migration is complete. 
 
 > [!div class="checklist"]
-> * Large file shares: Enabled - Large file shares improve performance and allow you to store up to 100TiB in a share.
 > * Firewall and virtual networks: Disabled - do not configure any IP restrictions or limit storage account access to a specific VNET. The public endpoint of the storage account is used during the migration. All IP addresses from Azure VMs must be allowed. It's best to configure any firewall rules on the storage account after the migration.
 > * Private Endpoints: Supported - You can enable private endpoints but the public endpoint is used for the migration and must remain available.
 
