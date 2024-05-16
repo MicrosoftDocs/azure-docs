@@ -192,7 +192,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 
  ![Create blob container](./media/functions-event-grid-blob-trigger/create_blob_container.png)
 
-- Add a test file in the container. You can do that easily through **Open in Explorer**. This file will be used later to trigger the function.
+- Add a test file in the container. You can do that easily through **Open in Explorer**.
 
 - Add your breakpoints and start local debugging.
 
@@ -206,7 +206,7 @@ You should see a pop up asking for the request body. This is referring to the pa
 
 You should see in the func.exe output for your debugging session that your function is triggered. Hopefully, at this point, your debug session is waiting for you where you set the breakpoint.
 
-If you make another change to the `samples-workitems` container, you'll need to re-execute the function and provide the associated file path. This is where the new model differs from the previous poll-based one. The poll-based one automatically triggers when changes are detected because it constantly polls the container for updates, whereas the new model requires that changes be forwarded before the function triggers. 
+If you make another change to the `samples-workitems` container, you'll need to re-execute the function and provide the associated file path. This is where the new model differs from the previous poll-based one. The poll-based one automatically triggers the function when changes are detected because it constantly polls the container for updates, whereas the new model requires that changes be forwarded before the function triggers. 
 
 ## Publish the project to Azure
 
