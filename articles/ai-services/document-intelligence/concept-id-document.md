@@ -341,8 +341,6 @@ The following are the fields extracted per document type. The Document Intellige
 |`DateOfBirth`|`date`|Date of birth|01/06/1958|
 |`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 
----
-
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
