@@ -138,12 +138,6 @@ To set the translation target language, with few exceptions you only specify the
 
 [!INCLUDE [Language support include](includes/language-support/speech-translation.md)]
 
-### Video dubbing
-
-The following table illustrates the fixed mapping relationship between source and target locales, along with the full locales associated with each language.
-
-[!INCLUDE [Language support include](includes/language-support/video-dub.md)]
-
 # [Language identification](#tab/language-identification)
 
 The table in this section summarizes the locales supported for [Language identification](language-identification.md).

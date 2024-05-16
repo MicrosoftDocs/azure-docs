@@ -8,13 +8,9 @@ ms.author: eur
 
 ### May 2024 release
 
-#### Video dubbing (Preview)
-
-Video dubbing is now available in public preview. This feature enables you to seamlessly translate and generate videos in multiple languages automatically. This feature is designed to help you localize your video content to cater to diverse audiences around the globe. You can efficiently create immersive, localized videos across various use cases such as vlogs, education, news, enterprise training, advertising, film, TV shows, and more. For more information, see [video dubbing overview](../../video-dub-overview.md).
-
 #### Pronunciation Assessment
 
-- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 24 languages generally available (with one new language added), with 7 more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 24 languages generally available (with one new language added), with 7 more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 
 | Language | Locale (BCP-47) | 
 |--|--|

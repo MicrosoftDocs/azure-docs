@@ -246,12 +246,6 @@ items:
          href: get-started-speech-translation.md
        - name: How to recognize and translate speech
          href: how-to-translate-speech.md
-    - name: Video dubbing (preview)
-      items:
-       - name: Video dubbing overview
-         href: video-dub-overview.md
-       - name: Video dubbing in the studio
-         href: video-dub-studio.md
 - name: Intent recognition
   items:
     - name: Intent recognition overview
