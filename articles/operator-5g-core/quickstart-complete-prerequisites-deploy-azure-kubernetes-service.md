@@ -85,7 +85,7 @@ Once you complete these steps, you can create the AKS cluster:
     - Select **Azure Linux** as the **OS SKU**.
     - Select **Zones 1,2,3** as the **Availability zones** and leave the **Enable Azure Spot instances** field unmarked.
     - Select **Manual** as the **Scale method**.
-    - Select **2** for the **Node count**.
+    - Select the appropriate **Node count** for each pool as shown.
     - Select **250** as the **Max pods per node**, and don't choose to **Enable public IP per node**. Use the default values for the remaining settings.
     - Select **update** and move to the **Networking** tab.
   
@@ -141,8 +141,8 @@ Once you complete these steps, you can create the AKS cluster:
 
 1. Open a separate window and navigate to the [Azure Resource Explorer](https://resources.azure.com/). 
 1. On the left side of the screen, locate the subscription for this cluster.
-1. Select **resourceGroups/<infrastructure-resource-group-name>/<providers > Microsoft.Compute > virtualMachineScaleSets > <your Azure Virtual Machine Scale Sets name>**. 
-1.  Select the virtual machine scale set, then select and change the option from **Read Only** to **Read/Write**.
+1. Select **Subscriptions**/**resourceGroups/&lt;your-infrastructure-resource-group-name&gt;/ &lt;providers&gt; Microsoft.Compute &gt; virtualMachineScaleSets &gt;  &lt; your Azure Virtual Machine Scale Sets name>**. 
+1.  Select the virtual machine scale set associated with the user node pool, then select and change the option from **Read Only** to **Read/Write**.
 
     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/read-write-option.png" alt-text="Image showing the Read/Write option active.":::
 
