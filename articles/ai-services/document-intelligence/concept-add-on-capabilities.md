@@ -104,7 +104,7 @@ The task of recognizing small text from large-size documents, like engineering d
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-formUrl = "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_forms/add_ons/highres.png?raw=true"
+formUrl = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/add-on/add-on-highres.png?raw=true"
 poller = document_intelligence_client.begin_analyze_document(
     "prebuilt-layout",
     AnalyzeDocumentRequest(url_source=formUrl),
@@ -225,7 +225,7 @@ if result.tables:
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-url = "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_forms/add_ons/highres.png?raw=true"
+url = "(https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/add-on/add-on-highres.png?raw=true"
 poller = document_analysis_client.begin_analyze_document_from_url(
     "prebuilt-layout", document_url=url, features=[AnalysisFeature.OCR_HIGH_RESOLUTION]    # Specify which add-on capabilities to enable.
 )
@@ -360,7 +360,7 @@ The `ocr.formula` capability extracts all identified formulas, such as mathemati
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-formUrl = "https://github.com/microsoft/Form-Recognizer-Toolkit/blob/main/SampleCode/DotNet/Quickstarts/Assets/layout-formulas.png?raw=true"
+formUrl = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/add-on/layout-formulas.png?raw=true"
 poller = document_intelligence_client.begin_analyze_document(
     "prebuilt-layout",
     AnalyzeDocumentRequest(url_source=formUrl),
@@ -419,6 +419,7 @@ for page in result.pages:
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
+
 ### [REST API](#tab/rest-api)
 ```bash
 {your-resource-endpoint}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=formulas
@@ -426,7 +427,7 @@ for page in result.pages:
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-url = "https://github.com/microsoft/Form-Recognizer-Toolkit/blob/main/SampleCode/DotNet/Quickstarts/Assets/layout-formulas.png?raw=true"
+url = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/add-on/layout-formulas.png?raw=true"
 poller = document_analysis_client.begin_analyze_document_from_url(
     "prebuilt-layout", document_url=url, features=[AnalysisFeature.FORMULAS]    # Specify which add-on capabilities to enable
 )
@@ -486,6 +487,7 @@ for page in result.pages:
 The `ocr.font` capability extracts all font properties of text extracted in the `styles` collection as a top-level object under `content`. Each style object specifies a single font property, the text span it applies to, and its corresponding confidence score. The existing style property is extended with more font properties such as `similarFontFamily` for the font of the text, `fontStyle` for styles such as italic and normal, `fontWeight` for bold or normal, `color` for color of the text, and `backgroundColor` for color of the text bounding box.
 
 ::: moniker range="doc-intel-4.0.0"
+
 ### [REST API](#tab/rest-api)
 
 ```bash
@@ -495,7 +497,7 @@ The `ocr.font` capability extracts all font properties of text extracted in the 
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-formUrl = "https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true"
+formUrl = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/receipt/receipt-with-tips.png?raw=true"
 poller = document_intelligence_client.begin_analyze_document(
     "prebuilt-layout",
     AnalyzeDocumentRequest(url_source=formUrl),
@@ -609,7 +611,7 @@ for font_background_color, styles in font_background_colors.items():
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-url = "https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true"
+url = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/receipt/receipt-with-tips.png?raw=true"
 poller = document_analysis_client.begin_analyze_document_from_url(
     "prebuilt-layout", document_url=url, features=[AnalysisFeature.STYLE_FONT]    # Specify which add-on capabilities to enable.
 )
@@ -708,7 +710,7 @@ for font_background_color, styles in font_background_colors.items():
  ]
 ```
 ---
-:::moniker-end
+::: moniker-end
 
 ## Barcode property extraction
 
@@ -740,7 +742,7 @@ The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` 
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-formUrl = "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_forms/add_ons/barcodes.jpg?raw=true"
+formUrl = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/add-on/add-on-barcodes.jpg?raw=true"
 poller = document_intelligence_client.begin_analyze_document(
     "prebuilt-read",
     AnalyzeDocumentRequest(url_source=formUrl),
@@ -780,6 +782,7 @@ Detected 2 barcodes:
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
+
 ### [REST API](#tab/rest-api)
 ```bash
 {your-resource-endpoint}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=barcodes
@@ -787,7 +790,7 @@ Detected 2 barcodes:
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-url = "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_forms/add_ons/barcodes.jpg?raw=true"
+url = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/add-on/add-on-barcodes.jpg?raw=true"
 poller = document_analysis_client.begin_analyze_document_from_url(
     "prebuilt-layout", document_url=url, features=[AnalysisFeature.BARCODES]    # Specify which add-on capabilities to enable.
 )
@@ -821,13 +824,14 @@ Detected 2 barcodes:
   Bounding regions: [50.5, 60.5, 70.5, 80.5]
 ```
 ---
-:::moniker-end
+::: moniker-end
 
 ## Language detection
 
 Adding the `languages` feature to the `analyzeResult` request predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
 
 ::: moniker range="doc-intel-4.0.0"
+
 ### [REST API](#tab/rest-api)
 ```bash
 {your-resource-endpoint}.cognitiveservices.azure.com/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=languages
@@ -835,7 +839,7 @@ Adding the `languages` feature to the `analyzeResult` request predicts the detec
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-formUrl = "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_forms/add_ons/fonts_and_languages.png?raw=true"
+formUrl = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/add-on/add-on-fonts_and_languages.png?raw=true"
 poller = document_intelligence_client.begin_analyze_document(
     "prebuilt-layout",
     AnalyzeDocumentRequest(url_source=formUrl),
@@ -876,6 +880,7 @@ if result.languages:
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
+
 ### [REST API](#tab/rest-api)
 ```bash
 {your-resource-endpoint}.cognitiveservices.azure.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2023-07-31&features=languages
@@ -883,7 +888,7 @@ if result.languages:
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-url = "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_forms/add_ons/fonts_and_languages.png?raw=true"
+url = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/add-on/add-on-fonts_and_languages.png?raw=true"
 poller = document_analysis_client.begin_analyze_document_from_url(
     "prebuilt-layout", document_url=url, features=[AnalysisFeature.LANGUAGES]    # Specify which add-on capabilities to enable.
 )
@@ -977,7 +982,7 @@ For query field extraction, specify the fields you want to extract and Document 
 ### [Sample code](#tab/sample-code)
 ```Python
 # Analyze a document at a URL:
-formUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_forms/forms/Invoice_1.pdf"
+formUrl = "https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Data/invoice/simple-invoice.png?raw=true"
 poller = document_intelligence_client.begin_analyze_document(
     "prebuilt-layout",
     AnalyzeDocumentRequest(url_source=formUrl),   
@@ -1003,7 +1008,7 @@ Invoice number: 34278587
 ```
 ---
 
-:::moniker-end
+::: moniker-end
 
 
 ## Next steps
