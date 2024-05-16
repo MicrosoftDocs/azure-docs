@@ -70,7 +70,6 @@ To assign the required role for storage accounts that you need to protect, follo
         >[!NOTE]
         >The role assignment might take up to 30 minutes to take effect.
 
-## Create a backup policy
 
 [!INCLUDE [blob-backup-azure-portal-create-policy.md](../../includes/blob-backup-azure-portal-create-policy.md)]
 

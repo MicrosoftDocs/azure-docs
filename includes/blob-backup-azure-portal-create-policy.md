@@ -6,21 +6,23 @@ ms.date: 05/30/2024
 ms.author: v-abhmallick
 ---
 
+## Create a backup policy
+
 A backup policy defines the schedule and frequency of the recovery points creation, and its retention duration in the Backup vault. You can use a single backup policy for your vaulted backup, operational backup, or both. You can use the same backup policy to configure backup for multiple storage accounts to a vault.
 
 To create a backup policy, follow these steps:
 
 1. Go to **Backup center**, and then select **+ Policy**. This takes you to the create policy experience.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/add-policy-inline.png" alt-text="Screenshot shows how to initiate adding backup policy for vaulted blob backup." lightbox="./media/blob-backup-configure-manage/add-policy-expanded.png":::
+   :::image type="content" source="./media/blob-backup-azure-portal-create-policy/add-policy.png" alt-text="Screenshot shows how to initiate adding backup policy for vaulted blob backup." lightbox="./media/blob-backup-azure-portal-create-policy/add-policy.png":::
 
 2. Select the *data source type* as **Azure Blobs (Azure Storage)**, and then select **Continue**.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/datasource-type-selection-for-vaulted-blob-backup.png" alt-text="Screenshot shows how to select datasource type for vaulted blob backup.":::
+   :::image type="content" source="./media/blob-backup-azure-portal-create-policy/datasource-type-selection-for-vaulted-blob-backup.png" alt-text="Screenshot shows how to select datasource type for vaulted blob backup.":::
 
 3. On the **Basics** tab, enter a name for the policy and select the vault you want this policy to be associated with.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/add-vaulted-backup-policy-name.png" alt-text="Screenshot shows how to add vaulted blob backup policy name.":::
+   :::image type="content" source="./media/blob-backup-azure-portal-create-policy/add-vaulted-backup-policy-name.png" alt-text="Screenshot shows how to add vaulted blob backup policy name.":::
 
    You can view the details of the selected vault in this tab, and then select **continue**.
  
@@ -31,7 +33,7 @@ To create a backup policy, follow these steps:
       - **Vaulted backups**: Choose the frequency of backups between *daily* and *weekly*, specify the schedule when the backup recovery points need to be created, and then edit the default retention rule (selecting **Edit**) or add new rules to specify the retention of recovery points using a *grandparent-parent-child* notation.
       - **Operational backups**: These are continuous and don't require a schedule. Edit the default rule for operational backups to specify the required retention.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/define-vaulted-backup-schedule-and-retention-inline.png" alt-text="Screenshot shows how to configure vaulted blob backup schedule and retention." lightbox="./media/blob-backup-configure-manage/define-vaulted-backup-schedule-and-retention-expanded.png":::
+   :::image type="content" source="./media/blob-backup-azure-portal-create-policy/define-vaulted-backup-schedule-and-retention.png" alt-text="Screenshot shows how to configure vaulted blob backup schedule and retention." lightbox="./media/blob-backup-azure-portal-create-policy/define-vaulted-backup-schedule-and-retention.png":::
 
 5. Go to **Review and create**.
 6. Once the review is complete, select **Create**.
