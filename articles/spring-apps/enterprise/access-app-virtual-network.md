@@ -268,7 +268,7 @@ az network private-dns link vnet create \
 
 ## Assign a private FQDN for your application
 
-You can assign a private FQDN for your application after you deploy Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
+After you have configured your Private DNS Zone, you can assign a private FQDN for your application after you deploy Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
 ### [Azure portal](#tab/azure-portal)
 
