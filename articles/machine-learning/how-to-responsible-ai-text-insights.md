@@ -1,5 +1,5 @@
 ---
-title: Generate Responsible AI text insights with YAML and Python
+title: Responsible AI text insight generation with YAML and Python
 titleSuffix: Azure Machine Learning
 description: Learn how to generate Azure Machine Learning Responsible AI (RAI) text insights by using Python and YAML.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 5/15/2024
 ms.custom: responsible-ml, build-2023, devx-track-python
 ---
 
-# Generate Responsible AI text insights with YAML and Python (preview)
+# Responsible AI text insight generation with YAML and Python (preview)
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
@@ -21,14 +21,14 @@ The [Responsible AI (RAI) dashboard](concept-responsible-ai-dashboard.md) brings
 
 The Responsible AI text dashboard provides several mature RAI tools in the areas of error analysis, model interpretability, unfairness assessment, and mitigation. The dashboard supports a holistic assessment and debugging of NLP models for making informed business decisions.
 
-This article describes how a pipeline job generates a Responsible AI text dashboard by using the Responsible AI text insights component. The following sections provide specifications and requirements for the text insights component and example code snippets in YAML and Python.
+This article describes how the Responsible AI text insights component generates a Responsible AI text dashboard by using a pipeline job. The following sections provide specifications and requirements for the text insights component and example code snippets in YAML and Python.
 
 > [!IMPORTANT]
 > The Responsible AI text dashboard is currently in public preview. This preview is provided without a service-level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Responsible AI text insights component
 
-The Azure Machine Learning Responsible AI text insights component assembles generated insights into a single Responsible AI text dashboard, and is the only core component for constructing the RAI text dashboard. This construction differs from the [Responsible AI pipeline for tabular data](how-to-responsible-ai-insights-sdk-cli.md#responsible-ai-components), which uses several components.
+The Azure Machine Learning Responsible AI text insights component assembles generated insights into a single Responsible AI text dashboard, and is the only core component used for constructing the RAI text dashboard. This construction differs from the [Responsible AI pipeline for tabular data](how-to-responsible-ai-insights-sdk-cli.md#responsible-ai-components), which uses several components.
 
 ### Requirements and limitations
 
