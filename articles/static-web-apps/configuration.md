@@ -6,7 +6,7 @@ ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/02/2024
+ms.date: 05/16/2025
 ms.author: cshoe
 ---
 
@@ -233,6 +233,7 @@ For example, with the following directory structure, the above navigation fallba
 ├── css
 │   └── global.css
 │
+├── about.html
 └── index.html
 ```
 
@@ -244,7 +245,8 @@ For example, with the following directory structure, the above navigation fallba
 | _/images/unknown.png_ | File not found error. | `404` |
 | _/css/unknown.css_ | File not found error. | `404` |
 | _/css/global.css_ | The stylesheet file. | `200` |
-| Any other file outside the _/images_ or _/css_ folders | The _/index.html_ file. | `200` |
+| _about.html_ | The HTML page. | `200` |
+| Any other path outside the _/images_ or _/css_ folders that doesn't match the path to a deployed file. | The _/index.html_ file. | `200` |
 
 > [!IMPORTANT]
 > If you are migrating from the deprecated [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) file, do not include the legacy fallback route (`"route": "/*"`) in the [routing rules](#routes).
@@ -592,7 +594,7 @@ Based on the above configuration, review the following scenarios.
 | _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a `401` error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a `401` error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers_contoso_ roles are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_ | Since the route rule disables Twitter authorization , a `404` error is returned. This error then falls back to serving _/index.html_ with a `200` status code. |
+| _/.auth/login/twitter_ | Since the route rule disables Twitter (X) authorization, a `404` error is returned. This error then falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
 | _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is permanently redirected to _/deals_. |
