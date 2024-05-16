@@ -42,9 +42,6 @@ productDirectory:
       imageSrc: ./media/virtual-network.svg
       summary: "Build your private network infrastructure in the cloud."
       url: /azure/virtual-network/virtual-networks-overview
-      links:
-        - text: Quickstart - Create a Virtual Network
-          url: /azure/virtual-network/quick-create-portal
     - title: Azure Private Link
       imageSrc: ./media/private-link-product.svg
       summary: "Private access to services hosted on the Azure platform, keeping your data on the Microsoft network."
