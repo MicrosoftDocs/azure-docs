@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: api-management
 ms.topic: how-to 
-ms.date: 03/13/2024
+ms.date: 05/16/2024
 ---
 
 # Integrate an Azure API Management instance with a private VNet for outbound connections
@@ -22,7 +22,10 @@ When an API Management instance is integrated with a virtual network for outboun
 
 - An Azure API Management instance in the [Standard v2](v2-service-tiers-overview.md) pricing tier
 - A virtual network with a subnet where your API Management backend APIs are hosted
-   - The network must be deployed in the same region and subscription as your API Management instance
+   - The network must be deployed in the same region and subscription as your API Management instance.
+   - The subnet should be dedicated to VNet integration. 
+   - A subnet size of /26 or /27 is generally recommended. For details, see [related content](../app-service/overview-vnet-integration.md#subnet-requirements) for VNet integration in App Service.
+
 - (Optional) For testing, a sample backend API hosted within a different subnet in the virtual network. For example, see [Tutorial: Establish Azure Functions private site access](../azure-functions/functions-create-private-site-access.md).
 
 ### Permissions
