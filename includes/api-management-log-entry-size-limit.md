@@ -6,4 +6,4 @@ ms.date: 05/15/2024
 ms.author: danlep
 ---
 
-When logging large request or response payloads, consider both the payload (body) size limit and API Management's log entry limit of 32 KB. The API Management log entry includes these payloads and attributes such as status codes, headers, URLs, and timestamps. If a log entry could exceed the limit, API Management trims it by removing all body and trace content before sending to Azure Monitor. An entry that still exceeds the limit is dropped. 
+API Management limits the size of logged request or response payloads to 8,192 bytes. It also has a 32 KB limit for the size of a diagnostic log entry sent to Azure Monitor. The diagnostic log entry includes the request or response payloads and other attributes such as status codes, headers, URLs, and timestamps. If the size of the combined attributes exceeds 32 KB, API Management trims the log entry to 32 KB by removing all body and trace content. An entry that still exceeds the limit is dropped. 
