@@ -237,6 +237,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-python-extensions",
+      "url": "https://github.com/Azure/azure-functions-python-extensions",
+      "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-python-tensorflow-tutorial",
       "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
       "branch": "master",

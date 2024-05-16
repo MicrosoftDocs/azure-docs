@@ -1,8 +1,8 @@
 ---
 title: Python developer reference for Azure Functions
-description: Understand how to develop functions with Python
+description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions.
 ms.topic: article
-ms.date: 11/14/2023
+ms.date: 05/16/2024
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 zone_pivot_groups: python-mode-functions
@@ -41,8 +41,6 @@ Python v2 programming model:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)
 + [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)
-
-Note that the Python v2 programming model is only supported in the 4.x functions runtime. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).
 
 Python v1 programming model:
 
@@ -216,13 +214,13 @@ When you deploy your project to a function app in Azure, the entire contents of 
 
 Azure Functions integrates well with [Azure Cosmos DB](../cosmos-db/introduction.md) for many [use cases](../cosmos-db/use-cases.md), including IoT, ecommerce, gaming, etc.
 
-For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
+For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be used to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
 
 :::image type="content" source="../cosmos-db/media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
 
-To connect to Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you may connect Functions to Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
+To connect to Azure Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you can connect your function code to Azure Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
 
-To implement more complex app logic, you may also use the Python library for Cosmos DB. An aynchronous I/O implementation looks like this:
+To implement more complex app logic, you can also use the Python library for Cosmos DB. An asynchronous I/O implementation looks like this:
 
 ```python
 pip install azure-cosmos
@@ -439,7 +437,7 @@ def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `CONNECTION_STRING` app setting.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body. Here, the specified storage account is the connection string that's found in the `CONNECTION_STRING` app setting.
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
 Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, their usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the *local.settings.json* file when they're running locally, and they map to the application settings when they're running in Azure.
@@ -473,190 +471,103 @@ def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `STORAGE_CONNECTION_STRING` app setting.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry is retrieved from the Azure Blob Storage account based on the _ID_ in the route URL and made available as `obj` in the function body.  Here, the specified storage account is the connection string that's found in the `STORAGE_CONNECTION_STRING` app setting.
 ::: zone-end
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
 
 ## SDK type bindings (Preview)
-::: zone pivot="python-mode-configuration"  
-Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered. 
-
-To use SDK type bindings in Azure Functions with Python, please use the v2 programming model.
-::: zone-end
-
+ 
+For select triggers and bindings, you can work with data types implemented by the underlying Azure SDKs and frameworks. These _SDK type bindings_ let you interact binding data as if you were using the underlying service SDK. 
+::: zone pivot="python-mode-configuration" 
+> [!IMPORTANT]  
+> Support for SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings-preview).
+::: zone-end  
 ::: zone pivot="python-mode-decorators" 
-Azure Functions triggers and bindings allow you to easily integrate event and data sources with function applications. SDK type bindings take integration a step further and enable using types from service SDKs and frameworks, providing more capability beyond what is currently offered.   
-
 Azure Storage Blob SDK type bindings are supported for Azure Functions in Python. When downloading and uploading blobs of large sizes, leveraging SDK type bindings can be very helpful.
 
-Note that SDK type bindings support for Python is currently in preview, and is only supported for the v2 programming model. Currently, only synchronous SDK types are supported.
+> [!IMPORTANT]  
+> SDK type bindings support for Python is currently in preview:
+> + You must use the Python v2 programming model. 
+> + Currently, only synchronous SDK types are supported.
 
 ### Prerequisites
 
-* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python) 4.34+
-* [Python](https://www.python.org/downloads/) version 3.9+
+* [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34, or a later version.
+* [Python](https://www.python.org/downloads/) version 3.9, or a later [supported version](#python-version).
 
-### Enable SDK type bindings for Azure Storage Blob
+### Enable SDK type bindings for the Blob storage extension
 
-#### Install the extension package
+1. Add the `azurefunctions-extensions-bindings-blob` extension package to the `requirements.txt` file in the project, which should include at least these packages:
 
-Add the extension package to the `requirements.txt` file in the project.
+      :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/requirements.txt" range="5-6" ::: 
 
-```
-azure-functions
-azurefunctions-extensions-bindings-blob
-```
+1. Add this code to the `function_app.py` file in the project, which imports the SDK type bindings:
 
-#### Import the library
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="12"::: 
 
-Add the library to the `function_app.py` file in the project.
+### SDK type bindings examples
 
-```python
-import azurefunctions.extensions.bindings.blob as blob
-```
+This example shows how to get the `BlobClient` from both a Blob storage trigger (`blob_trigger`) and from the input binding on an HTTP trigger (`blob_input`):
 
-### Examples
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-14,30-52"::: 
 
-The following sample demonstrates how to obtain BlobClient from a Azure Blob Storage trigger or input function application.
+You can view other SDK type bindings samples for Blob storage in the Python extensions repository:
 
-```python
-import logging
-import azure.functions as func
-import azurefunctions.extensions.bindings.blob as blob
-
-app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
-
-
-@app.blob_trigger(
-    arg_name="client", path="PATH/TO/BLOB", connection="AzureWebJobsStorage"
-)
-def blob_trigger(client: blob.BlobClient):
-    file = client.download_blob().readall()
-    logging.info(
-        f"Python blob trigger function processed blob \n"
-        f"Properties: {client.get_blob_properties()}\n"
-        f"{len(file)} bytes"
-    )
-
-
-@app.route(route="file")
-@app.blob_input(
-    arg_name="client", path="PATH/TO/BLOB", connection="AzureWebJobsStorage"
-)
-def blob_input(req: func.HttpRequest, client: blob.BlobClient):
-    file = client.download_blob().readall()
-    logging.info(
-        f"Python blob input function processed blob \n"
-        f"Properties: {client.get_blob_properties()}\n"
-        f"{len(file)} bytes"
-    )
-    return "ok"
-```
-
-Check out more examples, including using ContainerClient and StorageStreamDownloader types on (GitHub)[https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-blob/samples].
++ [ContainerClient type](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient) 
++ [StorageStreamDownloader type](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader)
 
 ::: zone-end
 
 ## HTTP streams (Preview)
+
+HTTP streams lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory. 
 ::: zone pivot="python-mode-configuration" 
-
-Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. This features allows for streaming HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
-
-To use HTTP streams in Azure Functions with Python, please use the v2 programming model.
-
-::: zone-end
-
+> [!IMPORTANT]  
+> Support for HTTP streams requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#http-streams-preview).
+::: zone-end  
 ::: zone pivot="python-mode-decorators"
-Using HTTP streams makes it possible to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. This features allows for streaming HTTP requests to and responses from Function Apps, using function exposed FastAPI request and response APIs. Previously with HTTP requests, the amount of data that could be transmitted was limited at the SKU instance memory size. With HTTP streaming, large amounts of data can be processed with chunking.
-
-For scenarios where real time exchange and interaction between client and server over HTTP connections is needed, this feature will be helpful. Additionally, FastAPI response types are also supported when using HTTP streaming.
-
-Note that HTTP streaming support for Python is currently in preview, and is only supported for the v2 programming model.
+> [!IMPORTANT]  
+> HTTP streams support for Python is currently in preview and requires you to use the Python v2 programming model. 
 
 ### Prerequisites
 
-* [Azure Functions runtime version](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=isolated-process%2Cv4&pivots=programming-language-python) 4.34.1+
-* [Python](https://www.python.org/downloads/) version 3.8+
+* [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34.1, or a later version.
+* [Python](https://www.python.org/downloads/) version 3.8, or a later [supported version](#python-version).
 
-### Enable streams
+### Enable HTTP streams
 
-#### Install the extension package
+1. Add the `azurefunctions-extensions-http-fastapi` extension package to the `requirements.txt` file in the project, which should include at least these packages:
 
-Add the extension package to the `requirements.txt` file in the project.
+    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/requirements.txt" range="5-6" ::: 
 
-```
-azure-functions
-azurefunctions-extensions-http-fastapi
-```
+1. Add this code to the `function_app.py` file in the project, which imports the FastAPI extension:
 
-#### Import the library
+    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
 
-Add the library with the relevant responses to the `function_app.py` file in the project.
+1. When deploying to a Consumption plan, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings):
 
-```python
-from azurefunctions.extensions.http.fastapi import Request, StreamingResponse
-```
+    `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`
 
-### Add the app setting
+    When running locally, you also need to add this same setting to the `local.settings.json` project file.
 
-If you are using Linux Consumption, add the following app setting. Modify the `local.settings.json` project file to include `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`.
+### HTTP streams examples
 
-### Examples
+After you enable the HTTP streaming feature, you can create functions that stream data over HTTP. 
 
-Once you've enabled the HTTP streaming feature using the above steps, you can create functions that stream large amounts of data. 
+This example is an HTTP triggered function that streams HTTP response data. You might use these capabilities to support scenarios like sending event data through a pipeline for real time visualization or detecting anomalies in large sets of data and providing instant notifications.
 
-Following is an example of an HTTP triggered Azure Function that streams data as the response to incoming HTTP GET requests. This example demonstrates download capabilities which can be helpful for scenarios like sending event data through a pipeline for real time visualization, or detecting anaomalies in large sets of data and providing instant notifications.
+:::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
 
-```python
-import time
-import azure.functions as func
-from azurefunctions.extensions.http.fastapi import Request, StreamingResponse
+This example is an HTTP triggered function that receives and processes streaming data from a client in real time. It demonstrates streaming upload capabilities that can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+:::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" ::: 
 
+### Calling HTTP streams
 
-def generate_count():
-    """Generate a stream of chronological numbers."""
-    count = 0
-    while True:
-        yield f"counting, {count}\n\n"
-        count += 1
+You must use an HTTP client library to make streaming calls to a function's FastAPI endpoints. The client tool or browser you're using might not natively support streaming or could only return the first chunk of data.
 
-@app.route(route="stream", methods=[func.HttpMethod.GET])
-async def stream_count(req: Request) -> StreamingResponse:
-    """Endpoint to stream of chronological numbers."""
-    return StreamingResponse(generate_count(), media_type="text/event-stream")
-```
-
-Check out additional samples for HTTP streaming downloading on [GitHub](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download).
-
-Following is an example of a HTTP triggered Azure Function which receives streaming data from a client via an HTTP POST request and processes it in real-time. It demonstrates streaming upload capabilities which can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
-
-```python
-import azure.functions as func
-from azurefunctions.extensions.http.fastapi import JSONResponse, Request
-
-app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
-
-
-@app.route(route="streaming_upload", methods=[func.HttpMethod.POST])
-async def streaming_upload(req: Request) -> JSONResponse:
-    """Handle streaming upload requests."""
-    # Process each chunk of data as it arrives
-    async for chunk in req.stream():
-        process_data_chunk(chunk)
-
-    # Once all data is received, return a JSON response indicating successful processing
-    return JSONResponse({"status": "Data uploaded and processed successfully"})
-
-def process_data_chunk(chunk: bytes):
-    """Process each data chunk."""
-    # Add custom processing logic here
-    print(chunk)
-```
-
-Note, you will need to use an HTTP client library to make streaming calls to the Fast API endpoints for the functions. The client tool or browser you are using may not natively support streaming or may only return the first chunk of data, which is why the script can be helpful to test the function locally. Alternatively, you can leverage tools that support HTTP streaming. Following is an example client script:
+You can use a client script like this to send streaming data to an HTTP endpoint:
 
 ```python
 import httpx # Be sure to add 'httpx' to 'requirements.txt'
@@ -695,14 +606,12 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-Check out this example and more for HTTP streaming uploading on [GitHub](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload).
-
 ::: zone-end
 
 ## Outputs
 
 ::: zone pivot="python-mode-configuration" 
-Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you'll have to use output parameters.
+Output can be expressed both in return value and output parameters. If there's only one output, we recommend using the return value. For multiple outputs, you must use output parameters.
 
 To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in the *function.json* file.
 
@@ -795,7 +704,7 @@ To learn more about logging, see [Monitor Azure Functions](functions-monitoring.
 
 ### Logging from created threads
 
-To see logs coming from your created threads, include the [`context`](/python/api/azure-functions/azure.functions.context) argument in the function's signature. This argument contains an attribute `thread_local_storage` which stores a local `invocation_id`. This can be set to the function's current `invocation_id` to ensure the context is changed.
+To see logs coming from your created threads, include the [`context`](/python/api/azure-functions/azure.functions.context) argument in the function's signature. This argument contains an attribute `thread_local_storage` that stores a local `invocation_id`. This can be set to the function's current `invocation_id` to ensure the context is changed.
 
 ```python
 import azure.functions as func
@@ -1428,7 +1337,7 @@ class TestFunction(unittest.TestCase):
     self.assertEqual(resp.get_body(), b'21 * 2 = 42',)
 ```
 
-Inside your *.venv* Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
+Inside your `.venv` Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
 
 ::: zone-end
 
