@@ -51,7 +51,7 @@ These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
     1. From the left sidebar of your project, select **Components** > **Deployments**.
     1. Select **+ Create deployment**.
-    1. Search for and select **Mistral-large**. to open the Model's Details page.
+    1. Search for and select **TimeGEN-1**. to open the Model's Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
 1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model, your project must be in the **East US 2** or **Sweden Central**  region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
@@ -60,7 +60,6 @@ These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you,  there's a **Continue to deploy** option to select.
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Select **Open in playground** to start interacting with the model.
 1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-service) section.
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
@@ -68,17 +67,13 @@ To learn about billing for the TimeGEN-1 model deployed as a serverless API with
 
 ### Consume the TimeGEN-1 model as a service
 
-You can consume TimeGEN-1 models by using the chat API.
+You can consume TimeGEN-1 models by using the forecast API.
 
 1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
 1. Find and select the deployment you created.
 
 1. Copy the **Target** URL and the **Key** value.
-
-1. Make an API request using the [`/v1/chat/completions`](#chat-api) API using [`<target_url>/v1/chat/completions`](#chat-api).
-
-For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-service) section.
 
 1. Try the samples here:
 
@@ -94,14 +89,14 @@ For more information about use of the APIs, visit the [reference](#reference-for
 
 ### Reference for TimeGEN-1 deployed as a service
 
-#### Chat API
+#### Forecast API
 
-Use the method `POST` to send the request to the `/v1/chat/completions` route:
+Use the method `POST` to send the request to the `/forecast_multi_series` route:
 
 __Request__
 
 ```rest
-POST /v1/chat/completions HTTP/1.1
+POST /forecast_multi_series HTTP/1.1
 Host: <DEPLOYMENT_URI>
 Authorization: Bearer <TOKEN>
 Content-type: application/json
@@ -243,10 +238,6 @@ Each time a project subscribes to a given offer from the Azure Marketplace, a ne
 For more information about how to track costs, visit [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits are insufficient for your scenarios.
-
-## Content filtering
-
-[Azure AI Content Safety](../../ai-services/content-safety/overview.md) protects models deployed as a service with pay-as-you-go. With Azure AI content safety, both the prompt and completion pass through a set of classification models whose goal is to detect and prevent the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content, in both input prompts and output completions. For more information, visit [content filtering](../concepts/content-filtering.md).
 
 ## Related content
 

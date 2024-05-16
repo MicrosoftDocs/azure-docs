@@ -36,7 +36,7 @@ ms.reviewer: larryfr
 
 ## Remarks
 
-While the `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections, the Git connection is specific to Azure AI Studio.
+The `az ml connection` commands can be used to manage both Azure Machine Learning and Azure AI Studio connections.
 
 ## Examples
 
