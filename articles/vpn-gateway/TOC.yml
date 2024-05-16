@@ -225,6 +225,8 @@
           href: point-to-site-entra-vpn-client-linux.md
         - name: macOS clients
           href: point-to-site-entra-vpn-client-mac.md
+        - name: Generate profile configuration files
+          href: about-vpn-profile-download.md
       - name: RADIUS authentication
         items:
         - name: Certificate authentication clients
@@ -233,8 +235,6 @@
           href: point-to-site-vpn-client-configuration-radius-password.md
         - name: Other authentication protocols
           href: point-to-site-vpn-client-configuration-radius-other.md
-      - name: Generate profile configuration files
-        href: about-vpn-profile-download.md
       - name: Azure VPN Client - optional settings
         href: azure-vpn-client-optional-configurations.md
       - name: Azure VPN Client versions
