@@ -224,7 +224,7 @@ items:
           href: app/availability-overview.md
         - name: Standard tests
           href: app/availability-standard-tests.md
-        - name: Private testing
+        - name: Testing behind a firewall
           href: app/availability-private-test.md
         - name: TrackAvailability()
           href: app/availability-azure-functions.md
@@ -431,8 +431,6 @@ items:
         href: azure-monitor-operations-manager.md
       - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
-      - name: Connect Operations Manager
-        href: agents/om-agents.md
       - name: Assess Operations Manager
         href: insights/scom-assessment.md
     - name: Tutorials
@@ -728,6 +726,8 @@ items:
           href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Log Analytics gateway
           href: agents/gateway.md
+        - name: Send data to Event Hubs and Storage
+          href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
       - name: Define network settings
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Configure Private Link for Azure Monitor Agent
@@ -796,8 +796,6 @@ items:
           items:
           - name: Overview
             href: agents/diagnostics-extension-overview.md
-          - name: Send data to Event Hubs and Storage
-            href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
           - name: Windows
             displayName: diagnostics extension
             items:

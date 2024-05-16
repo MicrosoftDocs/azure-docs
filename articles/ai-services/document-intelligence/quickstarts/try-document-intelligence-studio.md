@@ -28,15 +28,18 @@ monikerRange: '>=doc-intel-3.0.0'
 * A [**Document Intelligence**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
 > [!TIP]
-> Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Currently [Microsoft Entra authentication](../../../active-directory/authentication/overview-authentication.md) is not supported on Document Intelligence Studio to access Document Intelligence service APIs.  To use Document Intelligence Studio, enabling access key-based authentication/local authentication is necessary.
+> Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll need a single-service resource if you intend to use [Microsoft Entra authentication](../../../active-directory/authentication/overview-authentication.md).
 
 #### Azure role assignments
 
 For document analysis and prebuilt models, following role assignments are required for different scenarios.
+
 * Basic
   * **Cognitive Services User**: you need this role to Document Intelligence or Azure AI services resource to enter the analyze page.
 * Advanced
   * **Contributor**: you need this role to create resource group, Document Intelligence service, or Azure AI services resource.
+
+For more information on authorization, *see* [Document Intelligence Studio authorization policies](../studio-overview.md#authorization-policies).
 
 ## Models
 

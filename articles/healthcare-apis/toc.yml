@@ -20,15 +20,17 @@
       href: ./azure-api-for-fhir/overview.md
     - name: Business continuity & disaster recovery
       href: business-continuity-disaster-recovery.md
+    - name: Manage network access security
+      href: network-access-security.md
 - name: Quickstarts
   items: 
     - name: Workspace provisioning
       href: workspace-overview.md
     - name: Set up a workspace
-      href: get-started-with-health-data-services.md
+      href: health-data-services-get-started.md
     - name: Deploy services via Azure portal
       href: healthcare-apis-quickstart.md
-    - name: Deploy services using Bicep
+    - name: Deploy services by using Bicep
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
   items: 
@@ -38,11 +40,11 @@
       href: authentication-authorization.md
     - name: Register an application via Azure portal
       href: register-application.md
-    - name: Register an application using scripts
+    - name: Register an application by using scripts
       href: register-application-cli-rest.md
     - name: Grant permissions via Azure portal
       href: configure-azure-rbac.md
-    - name: Grant permissions using scripts
+    - name: Grant permissions by using scripts
       href: configure-azure-rbac-using-scripts.md
     - name: Access Azure Health Data Services
       href: access-healthcare-apis.md

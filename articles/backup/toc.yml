@@ -294,6 +294,8 @@
         href: backup-azure-manage-vms.md
       - name: Manage recovery points
         href: manage-recovery-points.md
+      - name: Migrate backups from standard to enhanced policy
+        href: backup-azure-vm-migrate-enhanced-policy.md
       - name: Modify backup policy with Azure CLI
         href: modify-vm-policy-cli.md
   - name: SQL Server database on Azure VM backup
@@ -370,10 +372,20 @@
         href: restore-postgresql-database-use-rest-api.md
   - name: Azure Database for PostgreSQL -Flexible server backup
     items:
-    - name: Backup
-      href: backup-azure-database-postgresql-flex.md
-    - name: Restore
-      href: restore-azure-database-postgresql-flex.md
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: backup-azure-database-postgresql-flex.md
+      - name: Restore
+        href: restore-azure-database-postgresql-flex.md
+    - name: With REST API
+      items:
+      - name: Create a policy
+        href: backup-azure-database-postgresql-flex-use-rest-api-create-update-policy.md
+      - name: Backup
+        href: backup-azure-database-postgresql-flex-use-rest-api.md
+      - name: Restore
+        href: backup-azure-database-postgresql-flex-use-rest-api-restore.md  
   - name: Azure Kubernetes Service backup
     items:
     - name: From the Azure portal
