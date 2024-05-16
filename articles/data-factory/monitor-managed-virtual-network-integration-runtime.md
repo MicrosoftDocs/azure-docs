@@ -57,6 +57,8 @@ Regardless of the type of compute pool that you're using, you can access and ana
 |External available capacity percentage of MVNet integration runtime|Percent|The maximum percentage of available DIU for external activities in a managed virtual network's integration runtime within a 1-minute window.|
 |External waiting queue length of MVNet integration runtime|Count|The waiting queue length of external activities in a managed virtual network's integration runtime within a 1-minute window.|
 
+For more information about these metrics, see [Supported metrics for Microsoft.DataFactory/factories](monitor-data-factory-reference.md#supported-metrics-for-microsoftdatafactoryfactories).
+
 ## Using metrics for performance optimization
 
 By using the metrics, you can seamlessly track and assess the performance and robustness of your integration runtime within a managed virtual network. You can also uncover potential areas for continuous improvement by optimizing the compute settings and workflow to maximize efficiency.

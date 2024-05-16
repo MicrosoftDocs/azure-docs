@@ -20,17 +20,8 @@ Create or add diagnostic settings for your data factory.
 
 1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics workspace**.
 
-    * In _Azure-Diagnostics_ mode, diagnostic logs flow into the _AzureDiagnostics_ table.
-    * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the following tables:
-      - _ADFActivityRun_
-      - _ADFPipelineRun_
-      - _ADFTriggerRun_
-      - _ADFSSISIntegrationRuntimeLogs_
-      - _ADFSSISPackageEventMessageContext_
-      - _ADFSSISPackageEventMessages_
-      - _ADFSSISPackageExecutableStatistics_
-      - _ADFSSISPackageExecutionComponentPhases_
-      - _ADFSSISPackageExecutionDataStatistics_
+    * In _Azure-Diagnostics_ mode, diagnostic logs flow into the [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics) table.
+    * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the tables listed in [Supported resource logs for Microsoft.DataFactory/factories](monitor-data-factory-reference.md#supported-resource-logs-for-microsoftdatafactoryfactories).
 
       You can select various logs relevant to your workloads to send to Log Analytics tables. For example: 
         - If you don't use SQL Server Integration Services (SSIS) at all, you don't need to select any SSIS logs. 
