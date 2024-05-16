@@ -13,6 +13,11 @@ Kubernetes clusters generate a large amount of logging information. You can coll
 ## Filtering options
 There are multiple ways to filter data in Container insights using different methods of configuration. 
 
+
+| Data | Description | Filtering method |
+|:---|:---|:---|
+| Container logs | Includes stdout and stderr logs from each monitored cluster. | - Use `[log_collection_settings]` in ConfigMap to either disable collection of stdout/stderr logs or exclude specific namespaces from collection.<br>- Use  |
+
 ## ConfigMap
 
     - [log_collection_settings]
@@ -25,6 +30,13 @@ There are multiple ways to filter data in Container insights using different met
       - Syslog
       - Exlude specific tables
       - 
+
+
+## Data collected by Container insights
+
+| Table | Contents | Filtering method |
+|:---|:---|:---|
+| ContainerLog | Contains stdout and stderr logs from each monitored cluster | - Use `[log_collection_settings]` in ConfigMap to either disable collection of stdout/stderr logs or exclude specific namespaces from collection.<br>- Use data collection rules (DCRs) to exclude specific tables from collection. |
 
 
 
