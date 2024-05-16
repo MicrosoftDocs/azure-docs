@@ -146,9 +146,9 @@ jobs:
         az logout
 ```
 
-# [TomCat](#tab/tomcat)
+# [Tomcat](#tab/tomcat)
 
-Build and deploy a TomCat app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Tomcat app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Build and deploy WAR app to Azure Web App using Service Principal Connect

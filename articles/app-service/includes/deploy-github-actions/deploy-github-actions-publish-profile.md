@@ -135,9 +135,9 @@ To deploy a `war` instead of a `jar`, change the `package` value.
         package: my/target/*.war
 ```
 
-# [TomCat](#tab/tomcat)
+# [Tomcat](#tab/tomcat)
 
-Build and deploy a TomCat app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+Build and deploy a Tomcat app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
 name: Build and deploy WAR app to Azure Web App using publish profile
