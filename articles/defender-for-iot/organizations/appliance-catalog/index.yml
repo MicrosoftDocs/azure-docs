@@ -27,8 +27,6 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL20 Gen10 Plus (4SFF)
-            url: hpe-proliant-dl20-plus-enterprise.md
           - text: HPE ProLiant DL20 Gen11 (4SFF)
             url: hpe-proliant-dl20-gen-11.md
           - text: Dell Edge 5200 (Rugged MIL-STD-810G)
@@ -41,8 +39,6 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
-            url: hpe-proliant-dl20-plus-smb.md
           - text: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-gen-11-nhp-2lff.md
           - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
@@ -69,6 +65,10 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
+            url: hpe-proliant-dl20-plus-smb.md
+          - text: HPE ProLiant DL20 Gen10 Plus (4SFF)
+            url: hpe-proliant-dl20-plus-enterprise.md
           - text: HPE ProLiant DL20 Gen10 
             url: hpe-proliant-dl20-legacy.md              
           - text: Dell PowerEdge R340 XL 
