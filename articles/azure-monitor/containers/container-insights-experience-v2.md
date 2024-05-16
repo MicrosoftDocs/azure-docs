@@ -57,7 +57,7 @@ Because Azure Monitor supports various levels of customization, your cluster may
 
 ![Screenshot of AKS cluster with Prometheus banner](media/container-insights-experience-v2/ci-logs-prom-banner.png)
 
-If the banner was previously dismissed, you can instead use the dropdown in the toolbar that says `Log Analytics visualizations (classic)`, and select the `Managed Prometheus visualizations (Preview)` option, which opens up a pop-up to complete onboarding.
+If the banner was previously dismissed, you can instead use the dropdown in the toolbar that says `Log Analytics visualizations (Classic)`, and select the `Managed Prometheus visualizations (Preview)` option, which opens up a pop-up to complete onboarding.
 
 ![Screenshot of AKS cluster with toggle dropdown](media/container-insights-experience-v2/ci-logs-dropdown.png)
 
