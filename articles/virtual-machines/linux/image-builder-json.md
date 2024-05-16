@@ -1747,7 +1747,7 @@ Size of the proxy virtual machine used to pass traffic to the build VM and valid
 
 ## Properties: autoRun
 
-You can use the `autoRun` property allows you to control whether the image template build process should automatically start when the template is created or updated. It's an enum with two possible values:
+You can use the `autoRun` property to control whether the image template build process should automatically start when the template is created or updated. It's an enum with two possible values:
 - **Enabled** - Auto run is enabled, so your image template build process will automatically start when the template is created or updated. 
 - **Disabled** - Auto run is disabled, so you will have to manually start the image build process after the template is created or updated.
 
@@ -1766,14 +1766,14 @@ You can use the `autoRun` property allows you to control whether the image templ
 
 ## Properties: managedResourceTags
 
-You can use the `managedResourceTags` property to apply tags to the resource group and/or resources created by the Azure Image Builder service.
+You can use the `managedResourceTags` property to apply tags to the resources that the Azure Image Builder service creates in the staging resource group during the image build. For more information on the staging resource group, see [Azure Image Builder Overview](../image-builder-overview.md#how-it-works)
 
 ```json
 "properties": {
 		"managedResourceTags": {
 			"tag1": "value1",
-      "tag2": "value2"
-		}
+      			"tag2": "value2"
+              }
 }
 ```
 
