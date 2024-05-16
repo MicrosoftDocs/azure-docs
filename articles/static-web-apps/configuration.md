@@ -6,7 +6,7 @@ ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 05/02/2024
 ms.author: cshoe
 ---
 
@@ -69,7 +69,7 @@ Each property has a specific purpose in the request/response pipeline.
 | Purpose | Properties |
 |--|--|
 | Match routes | `route`, `methods` |
-| Process after a rule is matched and authorized | `rewrite` (modifies request) <br><br>`redirect`, `headers`, `statusCode` (modifies response) |
+| Process after a rule is matched and authorized | `rewrite` (modifies request)<br><br>`redirect`, `headers`, `statusCode` (modifies response) |
 | Authorize after a route is matched | `allowedRoles` |
 
 ### Specify route patterns
@@ -173,7 +173,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 
 #### Restrict access to entire application
 
-You'll often want to require authentication for every route in your application. To lock down your routes, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
+You often want to require authentication for every route in your application. To lock down your routes, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
 
 The following example configuration blocks anonymous access and redirects all unauthenticated users to the Microsoft Entra sign-in page.
 
@@ -222,7 +222,7 @@ You can control which requests return the fallback file by defining a filter. In
 }
 ```
 
-For example, with the following directory structure, the above navigation fallback rule would result in the outcomes detailed in the followingtable.
+For example, with the following directory structure, the above navigation fallback rule would result in the outcomes detailed in the following table.
 
 ```files
 ├── images
@@ -362,7 +362,7 @@ For details on how to restrict routes to authenticated users, see [Securing rout
 
 ### Disable cache for authenticated paths
 
-If you set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes. With [enterprise-grade edge](enterprise-edge.md) enabled, caching is already disabled for your secured routes.
+If you set up [manual integration with Azure Front Door](front-door-manual.md), you might want to disable caching for your secured routes. With [enterprise-grade edge](enterprise-edge.md) enabled, caching is already disabled for your secured routes.
 
 To disable Azure Front Door caching for secured routes, add `"Cache-Control": "no-store"` to the route header definition.
 
@@ -592,7 +592,7 @@ Based on the above configuration, review the following scenarios.
 | _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a `401` error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a `401` error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers_contoso_ roles are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_ | Since authorization with Twitter is disabled by the route rule, `404` error is returned, which falls back to serving _/index.html_ with a `200` status code. |
+| _/.auth/login/twitter_ | Since the route rule disables Twitter authorization , a `404` error is returned. This error then falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
 | _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is permanently redirected to _/deals_. |

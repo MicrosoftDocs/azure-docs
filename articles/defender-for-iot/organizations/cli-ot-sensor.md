@@ -684,7 +684,6 @@ Reply to the prompts displayed as follows:
     |**Device**     |   Define a device by its IP address.      |    `1.1.1.1` includes all traffic for this device.     |
     |**Channel**    |    Define a channel by the IP addresses of its source and destination devices, separated by a comma.     |   `1.1.1.1,2.2.2.2` includes all of the traffic for this channel.      |
     |**Subnet**     |    Define a subnet by its network address.     |   `1.1.1` includes all traffic for this subnet.      |
-    |**Subnet channel**     |    Define subnet channel network addresses for the source and destination subnets.     |   `1.1.1,2.2.2` includes all of the traffic between these subnets.      |
 
     List multiple arguments in separate rows.
 

@@ -27,6 +27,6 @@ Choose reservations for For highly stable workloads that run continuously, and w
 
 Choose savings plans For dynamic/evolving workloads, especially when you leverage different instance families, compute services or have workloads running-in/changing-to different datacenter regions. Savings plans provide deep savings, flexible benefit application and automatic optimization.
 
-## Next steps
+## Related content
 
 For general information about savings plans, see [What is Azure savings plans for compute?](savings-plan-compute-overview.md).
