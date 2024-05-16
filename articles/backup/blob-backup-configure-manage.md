@@ -70,101 +70,11 @@ To assign the required role for storage accounts that you need to protect, follo
         >[!NOTE]
         >The role assignment might take up to 30 minutes to take effect.
 
-## Create a backup policy
 
-A backup policy defines the schedule and frequency of the recovery points creation, and its retention duration in the Backup vault. You can use a single backup policy for your vaulted backup, operational backup, or both. You can use the same backup policy to configure backup for multiple storage accounts to a vault.
+[!INCLUDE [blob-backup-azure-portal-create-policy.md](../../includes/blob-backup-azure-portal-create-policy.md)]
 
-To create a backup policy, follow these steps:
 
-1. Go to **Backup center**, and then select **+ Policy**. This takes you to the create policy experience.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/add-policy-inline.png" alt-text="Screenshot shows how to initiate adding backup policy for vaulted blob backup." lightbox="./media/blob-backup-configure-manage/add-policy-expanded.png":::
-
-2. Select the *data source type* as **Azure Blobs (Azure Storage)**, and then select **Continue**.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/datasource-type-selection-for-vaulted-blob-backup.png" alt-text="Screenshot shows how to select datasource type for vaulted blob backup.":::
-
-3. On the **Basics** tab, enter a name for the policy and select the vault you want this policy to be associated with.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/add-vaulted-backup-policy-name.png" alt-text="Screenshot shows how to add vaulted blob backup policy name.":::
-
-   You can view the details of the selected vault in this tab, and then select **continue**.
- 
-4. On the **Schedule + retention** tab, enter the *backup details* of the data store, schedule, and retention for these data stores, as applicable.
-
-   1. To use the backup policy for vaulted backups, operational backups, or both, select the corresponding checkboxes.
-   1. For each data store you selected, add or edit the schedule and retention settings:
-      - **Vaulted backups**: Choose the frequency of backups between *daily* and *weekly*, specify the schedule when the backup recovery points need to be created, and then edit the default retention rule (selecting **Edit**) or add new rules to specify the retention of recovery points using a *grandparent-parent-child* notation.
-      - **Operational backups**: These are continuous and don't require a schedule. Edit the default rule for operational backups to specify the required retention.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/define-vaulted-backup-schedule-and-retention-inline.png" alt-text="Screenshot shows how to configure vaulted blob backup schedule and retention." lightbox="./media/blob-backup-configure-manage/define-vaulted-backup-schedule-and-retention-expanded.png":::
-
-5. Go to **Review and create**.
-6. Once the review is complete, select **Create**.
-
-## Configure backups
-
-You can configure backup for one or more storage accounts in an Azure region if you want them to back up to the same vault using a single backup policy.
-
-To configure backup for storage accounts, follow these steps:
-
-1. Go to **Backup center** > **Overview**, and then select **+ Backup**.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/start-vaulted-backup.png" alt-text="Screenshot shows how to initiate vaulted blob backup.":::
-
-2. On the **Initiate: Configure Backup** tab, choose **Azure Blobs (Azure Storage)** as the **Datasource type**.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/choose-datasource-for-vaulted-backup.png" alt-text="Screenshot shows how to initiate configuring vaulted blob backup.":::
-
-3. On the **Basics** tab, specify **Azure Blobs (Azure Storage)** as the **Datasource type**, and then select the *Backup vault* that you want to associate with your storage accounts.
-
-   You can view details of the selected vault on this tab, and then select **Next**.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/select-datasource-type-for-vaulted-backup.png" alt-text="Screenshot shows how to select datasource type to initiate vaulted blob backup.":::
- 
-4. Select the *backup policy* that you want to use for retention.
-
-   You can view the details of the selected policy. You can also create a new backup policy, if needed. Once done, select **Next**.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/select-policy-for-vaulted-backup.png" alt-text="Screenshot shows how to select policy for vaulted blob backup.":::
-
-5. On the **Datasources** tab, select the *storage accounts* you want to back up.
-
-   :::image type="content" source="./media/blob-backup-configure-manage/select-storage-account-for-vaulted-backup.png" alt-text="Screenshot shows how to select storage account for vaulted blob backup." lightbox="./media/blob-backup-configure-manage/select-storage-account-for-vaulted-backup.png":::
-
-   You can select multiple storage accounts in the region to back up using the selected policy. Search or filter the storage accounts, if required.
-  
-   If you've chosen the vaulted backup policy in step 4, you can also select specific containers to backup. Click "Change" under the "Selected containers" column. In     the context blade, choose "browse containers to backup" and unselect the ones you don't want to backup.
-
-6. When you select the storage accounts and containers to protect, Azure Backup performs the following validations to ensure all prerequisites are met. The **Backup readiness** column shows if the Backup vault has enough permissions to configure backups for each storage account.
-
-   1. Validates that the Backup vault has the required permissions to configure backup (the vault has the **Storage account backup contributor** role on all the selected storage accounts. If validation shows errors, then the selected storage accounts don't have **Storage account backup contributor** role. You can assign the required role, based on your current permissions. The error message helps you understand if you have the required permissions, and take the appropriate action:
-
-      - **Role assignment not done**: This indicates that you (the user) have permissions to assign the **Storage account backup contributor** role and the other required roles for the storage account to the vault.
-
-        Select the roles, and then select **Assign missing roles** on the toolbar to automatically assign the required role to the Backup vault, and trigger an autorevalidation.
-
-        The role propagation may take some time (up to 10 minutes) causing the revalidation to fail. In this scenario, you need to wait for a few minutes and select **Revalidate** to retry validation.
-
-      - **Insufficient permissions for role assignment**: This indicates that the vault doesn't have the required role to configure backups, and you (the user) don't have enough permissions to assign the required role. To make the role assignment easier, Azure Backup allows you to download the role assignment template, which you can share with users with permissions to assign roles for storage accounts. 
-
-        To do this, select the storage accounts, and then select **Download role assignment template** to download the template. Once the role assignments are complete, select **Revalidate** to validate the permissions again, and then configure backup.
-
-        :::image type="content" source="./media/blob-backup-configure-manage/vaulted-backup-role-assignment-success.png" alt-text="Screenshot shows that the role assignment is successful.":::
-
-        >[!Note]
-        >The template contains details for selected storage accounts only. So, if there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
-
-    1. In case of vaulted backups, validates that the number of containers to be backed up is less than *100*. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>100* containers, you must exclude containers to reduce the count to *100 or below*.
-
-      >[!Note]
-      >In case of vaulted backups, the storage accounts to be backed up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.
-
-7. Once validation succeeds, open the **Review and configure** tab.
-
-8. Review the details on the **Review + configure** tab and select **Next** to initiate the *configure backup* operation.
-
-You'll receive notifications about the status of configuring protection and its completion.
+[!INCLUDE [blob-backup-azure-portal-configure-backup.md](../../includes/blob-backup-azure-portal-configure-backup.md)]
 
 ### Using Data protection settings of the storage account to configure backup
 
