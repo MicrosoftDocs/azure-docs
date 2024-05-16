@@ -39,7 +39,10 @@ To configure your Azure VPN Client profile, you download a VPN client profile co
 
 If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download).
 
-After you obtain the VPN client profile configuration package, extract the files.
+After you obtain the VPN client profile configuration package, extract the zip file. The file contains the following folders:
+
+* **AzureVPN**: The AzureVPN folder contains the **Azurevpnconfig.xml** file that is used to configure the Azure VPN Client.
+* **Generic**: The generic folder contains the public server certificate and the VpnSettings.xml file. The VpnSettings.xml file contains information needed to configure a generic client
 
 ## <a name="import"></a>Import client profile configuration settings
 
