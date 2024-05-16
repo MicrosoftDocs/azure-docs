@@ -135,7 +135,7 @@ After you're done creating your index, return to your prompt flow and start the 
 
 To create a compute instance and a compute session, you can also follow the steps in [how to create a compute session](../how-to/create-manage-compute-session.md).
 
-To complete the rest of the tutorial, make sure that your compute session is in the **Running** status. You might need to select **Refresh** to see the updated status.
+To complete the rest of the tutorial, make sure that your compute session is running. 
 
 > [!IMPORTANT]
 > You're charged for compute instances while they are running. To avoid incurring unnecessary Azure costs, pause the compute instance when you're not actively working in prompt flow. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
@@ -183,23 +183,17 @@ After you're done creating your index, return to your prompt flow and follow the
 
 1. Select **Save** from the top menu to save your changes. Remember to save your prompt flow periodically as you make changes.
 
+### Connect the customer info to the flow
 
-### Aggregate product and customer info
-
-At this point, the prompt flow only uses the product info. 
-- **extractSearchIntent** extracts the search intent from the user's question.
-- **querySearchResource** retrieves the product info from the *product-info* index.
-- The **LLM** tool (for large language models) receives a formatted reply via the **chunkDocuments** > **selectChunks** > **formatGeneratedReplyInputs** nodes.
-
-You need to connect and aggregate the product and customer info to output it in a format that the **LLM** tool can use. Follow these steps to aggregate the product and customer info:
+In the next section, you aggregate the product and customer info to output it in a format that the large language model can use. But first, you need to connect the customer info to the flow.
 
 1. Select the elipses icon next to **+ More tools** and then select **Raw file mode** to switch to raw file mode. This mode allows you to copy and paste nodes in the graph.
 
     :::image type="content" source="../media/tutorials/chat/raw-file-mode-select.png" alt-text="Screenshot of the raw file mode option in prompt flow." lightbox="../media/tutorials/chat/raw-file-mode-select.png":::
 
 1. Replace all instances of **querySearchResource** with **queryProductIndex** in the graph. We're renaming the node to better reflect that it retrieves product info and contrasts with the **queryCustomerIndex** node that you added to the flow.
-1. Replace all instances of **chunkDocuments** with **chunkProductDocuments** in the graph.
-1. Replace all instances of **selectChunks** with **selectProductChunks** in the graph.
+1. Rename and replace all instances of **chunkDocuments** with **chunkProductDocuments** in the graph.
+1. Rename and replace all instances of **selectChunks** with **selectProductChunks** in the graph.
 1. Copy and paste the **chunkProductDocuments** and **selectProductChunks** nodes to create similar nodes for the customer info. Rename the new nodes **chunkCustomerDocuments** and **selectCustomerChunks** respectively.
 1. Within the **chunkCustomerDocuments** node, replace the `${queryProductIndex.output}` input with `${queryCustomerIndex.output}`.
 1. Within the **selectCustomerChunks** node, replace the `${chunkProductDocuments.output}` input with `${chunkCustomerDocuments.output}`.
@@ -258,106 +252,55 @@ You need to connect and aggregate the product and customer info to output it in 
       use_variants: false
     ```
 
-### Retired steps
+### Aggregate product and customer info
 
-1. Select the **RetrieveDocuments** node from the graph and rename it **RetrieveProductInfo**. Now the retrieve product info node can be distinguished from the retrieve customer info node that you add to the flow.
+At this point, the prompt flow only uses the product information.
+- **extractSearchIntent** extracts the search intent from the user's question.
+- **queryProductIndex** retrieves the product info from the *product-info* index.
+- The **LLM** tool (for large language models) receives a formatted reply via the **chunkProductDocuments** > **selectProductChunks** > **formatGeneratedReplyInputs** nodes.
 
-   :::image type="content" source="../media/tutorials/chat/node-rename-retrieve-product-info.png" alt-text="Screenshot of the prompt flow node for retrieving product info." lightbox="../media/tutorials/chat/node-rename-retrieve-product-info.png":::
+You need to connect and aggregate the product and customer info to output it in a format that the **LLM** tool can use. Follow these steps to aggregate the product and customer info:
 
-1. Select **+ Python** from the top menu to create a new [Python node](../how-to/prompt-flow-tools/python-tool.md) that's used to retrieve customer information.  
-
-   :::image type="content" source="../media/tutorials/chat/node-new-retrieve-customer-info.png" alt-text="Screenshot of the prompt flow node for retrieving customer info." lightbox="../media/tutorials/chat/node-new-retrieve-customer-info.png":::
-
-1. Name the node **RetrieveCustomerInfo** and select **Add**.
-1. Copy and paste the Python code from the **RetrieveProductInfo** node into the **RetrieveCustomerInfo** node to replace all of the default code. 
-1. Select the **Validate and parse input** button to validate the inputs for the **RetrieveCustomerInfo** node. If the inputs are valid, prompt flow parses the inputs and creates the necessary variables for you to use in your code.
-
-   :::image type="content" source="../media/tutorials/chat/customer-info-validate-parse.png" alt-text="Screenshot of the validate and parse input button." lightbox="../media/tutorials/chat/customer-info-validate-parse.png":::
-
-1. Edit the **RetrieveCustomerInfo** inputs that prompt flow parsed for you so that it can connect to your *customer-info* index.
-
-   :::image type="content" source="../media/tutorials/chat/customer-info-edit-inputs.png" alt-text="Screenshot of inputs to edit in the retrieve customer info node." lightbox="../media/tutorials/chat/customer-info-edit-inputs.png":::
-
-    > [!NOTE]
-    > The graph is updated immediately after you set the **queries** input value to **ExtractIntent.output.search_intents**. In the graph you can see that **RetrieveCustomerInfo** gets inputs from **ExtractIntent**.
-
-    The inputs are case sensitive, so be sure they match these values exactly:
-    
-    | Name | Type | Value |
-    |----------|----------|-----------|
-    | **embeddingModelConnection** | Azure OpenAI | *Default_AzureOpenAI* |
-    | **embeddingModelName** | string | *None* |
-    | **indexName** | string | *customer-info* |
-    | **queries** | string | *${ExtractIntent.output.search_intents}* |
-    | **queryType** | string | *simple* |
-    | **searchConnection** | Azure AI Search | *contosooutdooraisearch* |
-    | **semanticConfiguration** | string | *None* |
-    | **topK** | int | *5* |
-
-1. Select **Save** from the top menu to save your changes.
-
-### Format the retrieved documents to output
-
-Now that you have both the product and customer info in your prompt flow, you format the retrieved documents so that the large language model can use them.
-
-1. Select the **FormatRetrievedDocuments** node from the graph.
-1. Copy and paste the following Python code to replace all contents in the **FormatRetrievedDocuments** code block. 
+1. Select **Python** from the list of tools.
+1. Name the tool **aggregateChunks** and select **Add**.
+1. Copy and paste the following Python code to replace all contents in the **aggregateChunks** code block. 
 
     ```python
     from promptflow import tool
-     
+    from typing import List
+    
     @tool
-    def format_retrieved_documents(docs1: object, docs2: object, maxTokens: int) -> str:
-      formattedDocs = []
-      strResult = ""
-      docs = [val for pair in zip(docs1, docs2) for val in pair]
-      for index, doc in enumerate(docs):
-        formattedDocs.append({
-          f"[doc{index}]": {
-            "title": doc['title'],
-            "content": doc['content']
-          }
-        })
-        formattedResult = { "retrieved_documents": formattedDocs }
-        nextStrResult = str(formattedResult)
-        if (estimate_tokens(nextStrResult) > maxTokens):
-          break
-        strResult = nextStrResult
-      
-      return {
-              "combined_docs": docs,
-              "strResult": strResult
-          }
-     
-    def estimate_tokens(text: str) -> int:
-      return (len(text) + 2) / 3
+    def aggregate_chunks(input1: List, input2: List) -> str:
+        interleaved_list = []
+        for i in range(max(len(input1), len(input2))):
+            if i < len(input1):
+                interleaved_list.append(input1[i])
+            if i < len(input2):
+                interleaved_list.append(input2[i])
+        return interleaved_list
     ```
 
-1. Select the **Validate and parse input** button to validate the inputs for the **FormatRetrievedDocuments** node. If the inputs are valid, prompt flow parses the inputs and creates the necessary variables for you to use in your code.
+1. Select the **Validate and parse input** button to validate the inputs for the **aggregateChunks** node. If the inputs are valid, prompt flow parses the inputs and creates the necessary variables for you to use in your code.
 
-1. Edit the **FormatRetrievedDocuments** inputs that prompt flow parsed for you so that it can extract product and customer info from the **RetrieveProductInfo** and **RetrieveCustomerInfo** nodes.
+    :::image type="content" source="../media/tutorials/chat/aggregate-chunks-validate.png" alt-text="Screenshot of the prompt flow node for aggregating product and customer information." lightbox="../media/tutorials/chat/aggregate-chunks-validate.png":::
 
-   :::image type="content" source="../media/tutorials/chat/format-retrieved-documents-edit-inputs.png" alt-text="Screenshot of inputs to edit in the format retrieved documents node." lightbox="../media/tutorials/chat/format-retrieved-documents-edit-inputs.png":::
+1. Edit the **aggregateChunks** node to connect the product and customer info. Set the **inputs** to the following values:
 
-    The inputs are case sensitive, so be sure they match these values exactly:
-    
     | Name | Type | Value |
     |----------|----------|-----------|
-    | **docs1** | object | *${RetrieveProductInfo.output}* |
-    | **docs2** | object | *${RetrieveCustomerInfo.output}* |
-    | **maxTokens** | int | *5000* |
+    | **input1** | list | *${selectProductChunks.output}* |
+    | **input2** | list | *${selectCustomerChunks.output}* |
 
-1. Select the **DetermineReply** node from the graph.
-1. Set the **documentation** input to *${FormatRetrievedDocuments.output.strResult}*.
+    :::image type="content" source="../media/tutorials/chat/aggregate-chunks-inputs.png" alt-text="Screenshot of the inputs to edit in the aggregate chunks node." lightbox="../media/tutorials/chat/aggregate-chunks-inputs.png":::
 
-   :::image type="content" source="../media/tutorials/chat/determine-reply-edit-inputs.png" alt-text="Screenshot of editing the documentation input value in the determine reply node." lightbox="../media/tutorials/chat/determine-reply-edit-inputs.png":::
+1. Select the **shouldGenerateReply** node from the graph. Select or enter `${aggregateChunks.output}` for the **chunks** input.
+1. Select the **formatGenerateReplyInputs** node from the graph. Select or enter `${aggregateChunks.output}` for the **chunks** input.
+1. Select the **outputs** node from the graph. Select or enter `${aggregateChunks.output}` for the **chunks** input.
+1. Select **Save** from the top menu to save your changes. Remember to save your prompt flow periodically as you make changes.
 
-1. Select the **outputs** node from the graph.
-1. Set the **fetched_docs** input to *${FormatRetrievedDocuments.output.combined_docs}*.
+Now you can see the **aggregateChunks** node in the graph. The node connects the product and customer info to output it in a format that the **LLM** tool can use.
 
-   :::image type="content" source="../media/tutorials/chat/outputs-edit.png" alt-text="Screenshot of editing the fetched_docs input value in the outputs node." lightbox="../media/tutorials/chat/outputs-edit.png":::
-
-1. Select **Save** from the top menu to save your changes.
+:::image type="content" source="../media/tutorials/chat/aggregate-chunks-connected.png" alt-text="Screenshot of the inputs and outputs of the aggregate chunks node in the graph." lightbox="../media/tutorials/chat/aggregate-chunks-connected.png":::
 
 ### Chat in prompt flow with product and customer info
 
