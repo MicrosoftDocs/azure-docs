@@ -41,8 +41,6 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 
-  * When changing from an internal to external virtual network, changing subnets in an external network, or updating availability zones for the API Management instance, you may optionally configure a new public IP address.
-
 ### [stv1](#tab/stv1)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).

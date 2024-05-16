@@ -46,7 +46,7 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 * A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
 
-* (Optional) A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance. For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
+* (Optional) A new Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance. For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 
     [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
@@ -187,7 +187,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Is there a way to validate the VNet configuration before attempting migration?**
 
-   You can deploy a new API Management instance with the new VNet, subnet, and optional IP address resource that you use for the actual migration. Navigate to the **Network status** page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original `stv1`-hosted service.
+   You can deploy a new API Management instance with the new VNet, subnet, and (optional) IP address resource that you use for the actual migration. Navigate to the **Network status** page after the deployment is completed, and verify if every endpoint connectivity status is green. If yes, you can remove this new API Management instance and proceed with the real migration with your original `stv1`-hosted service.
 
 - **Can I roll back the migration if required?**
 
