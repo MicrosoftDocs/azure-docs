@@ -1,5 +1,5 @@
 ---
-title: Enhance resilience by replicating your Log Analytics workspace across regions
+title: Enhance resilience by replicating your Log Analytics workspace across regions (Preview)
 description: Use the workspace replication feature in Log Analytics to create copies of a workspace in different regions for data resiliency.
 ms.topic: how-to
 author: noakup
@@ -10,7 +10,7 @@ ms.custom: references_regions
 # Customer intent: As a Log Analytics workspace administrator, I want to replicate my workspace across regions to protect and continue to access my log data in the event of a regional failure.
 ---
 
-# Enhance resilience by replicating your Log Analytics workspace across regions
+# Enhance resilience by replicating your Log Analytics workspace across regions (Preview)
 
 Replicating your Log Analytics workspace across regions enhances resilience by enabling you to switch over to the replicated workspace and continue operations if there's a regional failure. Your original workspace and region are referred to as the **primary**. The replicated workspace and alternate region are referred to as the **secondary**.
 
