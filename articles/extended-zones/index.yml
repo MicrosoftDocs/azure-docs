@@ -30,7 +30,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy a virtual machine in an Extended Zone using the Azure Portal
+          - text: Deploy a virtual machine in an Extended Zone using the Azure portal
             url: deploy-vm-arm-template.md
 
   # Card

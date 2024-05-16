@@ -9,7 +9,7 @@ ms.date: 05/08/2024
 
 ---
   
-# Quickstart: Deploy a virtual machine in an Extended Zone using the Azure Portal
+# Quickstart: Deploy a virtual machine in an Extended Zone using the Azure portal
  
 In this quickstart, you deploy a virtual machine in an Azure Extended Zone. 
 
