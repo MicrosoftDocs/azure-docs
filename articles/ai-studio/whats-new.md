@@ -60,7 +60,7 @@ Evaluators in the prompt flowâ€¯SDK offer a streamlined, code-based experienceâ€
 
 ### Use Prompty for engineering and sharing prompts 
 
-Prompty is a new prompt template part of the prompt flow SDK that can be run standalone and integrated into your code. You can download a prompty from the AI Studio playground, continue iterating on it in your local development environment, and check it into your git repo to share and collaborate on prompts with others. The prompty format is supported in Semantic Kernel C# and LangChain as a community extension.  
+Prompty is a new prompt template part of the prompt flow SDK that can be run standalone and integrated into your code. You can download a prompty from the AI Studio playground, continue iterating on it in your local development environment, and check it into your git repo to share and collaborate on prompts with others. The prompty format is supported in Semantic Kernel, C#, and LangChain as a community extension.  
 
 ### Mistral Small
 
