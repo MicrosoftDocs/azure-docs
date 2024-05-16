@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Communication Services UI library JavaScript bundles calling to Teams Call Queue and Auto Attendant
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate calling a Teams Call Queue or Auto Attendant.
+description: Learn how to create a Calling experience with the Azure Communication Services CallComposite JavaScript bundle to facilitate calling a Teams Call Queue or Auto Attendant.
 author: dmceachern
 manager: alkwa
 services: azure-communication-services
