@@ -45,7 +45,7 @@ In addition to the steps above, you can also access the terminal from:
 * RStudio or Posit Workbench (formerly RStudio Workbench) (See [Add custom applications such as RStudio or Posit Workbench)](how-to-create-compute-instance.md?tabs=python#add-custom-applications-such-as-rstudio-or-posit-workbench)): Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
-* SSH to the machine, if you enabled SSH access when the compute instance was created.
+* SSH to the machine, if you enabled SSH access when the compute instance was created. If the compute instance is in a managed virtual network and doesn't have a public IP address, use the `az ml compute connect-ssh` command to connect to the compute instance.
 
 ## Copy and paste in the terminal
 
