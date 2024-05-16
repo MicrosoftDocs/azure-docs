@@ -283,25 +283,25 @@ If you use prefer the [Azure CLI](https://github.com/Azure/cli) to deploy to App
                  [--type {ear, jar, lib, startup, static, war, zip}]
 ```
 
-More information on the az webapp command, how to use and the parameter details can be found in the [az webapp documentation](https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy).
+More information on the az webapp command, how to use and the parameter details can be found in the [az webapp documentation](/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy).
 
 ### Deploy to a Container
 
-With the Azure Web Deploy action, you can automate your workflow to deploy custom containers to App Service using GitHub Actions. Detailed information on the steps to deploy using GitHub Actions, can be found in the [Deploy to a Container](https://learn.microsoft.com/en-us/azure/app-service/deploy-container-github-action).
+With the Azure Web Deploy action, you can automate your workflow to deploy custom containers to App Service using GitHub Actions. Detailed information on the steps to deploy using GitHub Actions, can be found in the [Deploy to a Container](/azure/app-service/deploy-container-github-action).
 
 ### Update Tomcat configuration during deployment
 
-With the Azure App Service Actions for GitHub, you can automate the workflow to deploy your Java Tomcat projects and configure App settings.
+In case you would like to update any of your web apps settings after deployment, you can use the [App Service Settings](https://github.com/Azure/appservice-settings) action. 
 
 ```yaml
     - uses: azure/appservice-settings@v1
       with:
         app-name: 'my-app'
         slot-name: 'staging'  # Optional and needed only if the settings have to be configured on the specific deployment slot
-        app-settings-json: '${{ secrets.APP_SETTINGS }}' 
+        app-settings-json: '[{ "name": "CATALINA_OPTS", "value": "-Dfoo=bar" }]' 
         connection-strings-json: '${{ secrets.CONNECTION_STRINGS }}'
         general-settings-json: '{"alwaysOn": "false", "webSocketsEnabled": "true"}' #'General configuration settings as Key Value pairs'
       id: settings
 ```
 
-More information on the Maven plugin and how to use and configure it can be found in the [App Service Settings](https://github.com/Azure/appservice-settings/tree/master).
+More information on this action and how to use and configure it can be found in the [App Service Settings](https://github.com/Azure/appservice-settings) repository.
