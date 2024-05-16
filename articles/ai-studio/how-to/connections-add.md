@@ -23,19 +23,19 @@ Connections are a way to authenticate and consume both Microsoft and other resou
 
 ## Connection types
 
-Here's a table of some of the available connection types in Azure AI Studio:
+Here's a table of some of the available connection types in Azure AI Studio. The __Preview__ column indicates connection types that are currently in preview.
 
-| Service connection type | Description |
-| --- | --- |
-| Azure AI Search | Azure AI Search is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. |
-| Azure Blob Storage | Azure Blob Storage is a cloud storage solution for storing unstructured data like documents, images, videos, and application installers. |
-| Azure Data Lake Storage Gen 2 | Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. |
-| Azure Content Safety | Azure AI Content Safety is a service that detects potentially unsafe content in text, images, and videos. |
-| Azure OpenAI | Azure OpenAI is a service that provides access to the OpenAI GPT-3 model. |
-| Microsoft OneLake | Microsoft OneLake provides open access to all of your Fabric items through Azure Data Lake Storage (ADLS) Gen2 APIs and SDKs.<br/><br/>In Azure AI Studio you can set up a connection to your OneLake data using a OneLake URI. You can find the information that Azure AI Studio requires to construct a **OneLake Artifact URL** (workspace and item GUIDs) in the URL on the Fabric portal. For information about the URI syntax, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api). |
-| Git | Git is a distributed version control system that allows you to track changes to files.<br/><br/>Personal access tokens are an alternative to using passwords for authentication to GitHub when using the GitHub API or the command line. In Azure AI Studio you can set up a connection to your GitHub account using a personal access token. For more information, see [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). |
-| API key | API Key connections handle authentication to your specified target on an individual basis. For example, you can use this connection with the SerpApi tool in prompt flow.  |
-| Custom | Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you have to manage authentication on your own. |
+| Service connection type | Preview | Description |
+| --- |:---:| --- |
+| Azure AI Search | ✓ |  Azure AI Search is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. |
+| Azure Blob Storage | ✓ | Azure Blob Storage is a cloud storage solution for storing unstructured data like documents, images, videos, and application installers. |
+| Azure Data Lake Storage Gen 2 | ✓ | Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. |
+| Azure Content Safety | ✓ | Azure AI Content Safety is a service that detects potentially unsafe content in text, images, and videos. |
+| Azure OpenAI || Azure OpenAI is a service that provides access to the OpenAI GPT-3 model. |
+| Serverless Model | ✓ | Serverless Model connections allow you to [serverless API deployment](deploy-models-serverless.md). |
+| Microsoft OneLake | ✓ | Microsoft OneLake provides open access to all of your Fabric items through Azure Data Lake Storage (ADLS) Gen2 APIs and SDKs.<br/><br/>In Azure AI Studio you can set up a connection to your OneLake data using a OneLake URI. You can find the information that Azure AI Studio requires to construct a **OneLake Artifact URL** (workspace and item GUIDs) in the URL on the Fabric portal. For information about the URI syntax, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api). |
+| API key || API Key connections handle authentication to your specified target on an individual basis. For example, you can use this connection with the SerpApi tool in prompt flow.  |
+| Custom || Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you have to manage authentication on your own. |
 
 ## Create a new connection
 

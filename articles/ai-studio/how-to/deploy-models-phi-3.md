@@ -17,7 +17,7 @@ ms.custom: [references_regions]
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-In this article, you learn about the Phi-3 family of small language models (SLMs). You also learn two ways to use Azure AI Studio to deploy models from this family: deploy as serverless APIs with pay-as-you-go token-based billing or deploy with hosted infrastructure in real-time endpoints.
+In this article, you learn about the Phi-3 family of small language models (SLMs). You also learn to use Azure AI Studio to deploy models from this family as serverless APIs with pay-as-you-go token-based billing.
 
 The Phi-3 family of SLMs is a collection of instruction-tuned generative text models. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across various language, reasoning, coding, and math benchmarks.
 
@@ -81,8 +81,6 @@ To create a deployment:
  
 1. Select the project in which you want to deploy your model. To deploy the Phi-3 model, your project must be in the *EastUS2* or *Sweden Central* region. 
 
-1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-
 1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
 
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region. 
@@ -112,7 +110,7 @@ Models deployed as a service can be consumed using the chat API, depending on th
 
 ### Cost and quota considerations for Phi-3 models deployed as a service
 
-You can find the Azure Marketplace pricing on the **Pricing and terms** tab of the deployment wizard when deploying the model. 
+You can find the pricing information on the **Pricing and terms** tab of the deployment wizard when deploying the model. 
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 

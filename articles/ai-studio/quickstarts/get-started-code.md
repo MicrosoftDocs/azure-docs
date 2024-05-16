@@ -19,13 +19,12 @@ In this quickstart, we walk you through setting up your local development enviro
 
 ## Prerequisites
 
-Before you can follow this quickstart, you first need to create the resources you need for your application, we recommend creating the following resources:
-- An AI Studio hub for connecting to external resources.
-- An AI Studio project for organizing your project artifacts and sharing traces and evaluation runs
-- An Azure AI services resource connected to your project, for providing intelligent APIs and models
-- An Azure OpenAI chat model deployment (gpt-35-turbo or gpt-4)
+Before you can follow this quickstart, create the resources that you need for your application:
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md) for connecting to external resources.
+- A [project](../how-to/create-projects.md) for organizing your project artifacts and sharing traces and evaluation runs.
+- A [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model (gpt-35-turbo or gpt-4)
 
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already. You can also create these resources by following the [SDK guide to create a hub and project](../how-to/develop/create-hub-project-sdk.md) article.
+Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already. You can also create these resources by following the [SDK guide to create a hub and project](../how-to/develop/create-hub-project-sdk.md) article.
 
 Also, you must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
 
