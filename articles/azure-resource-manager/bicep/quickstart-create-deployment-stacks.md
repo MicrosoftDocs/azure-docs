@@ -83,6 +83,8 @@ az stack group create \
   --deny-settings-mode 'none'
 ```
 
+For more information about `action-on-unmanage` and `deny-setting-mode`, see [Deployment stacks](./deployment-stacks.md).
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -97,6 +99,8 @@ New-AzResourceGroupDeploymentStack `
   -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
+
+For more information about `ActionOnUnmanage` and `DenySettingMode`, see [Deployment stacks](./deployment-stacks.md).
 
 ---
 

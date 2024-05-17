@@ -39,7 +39,7 @@ Deployment stacks provide the following benefits:
 ### Known issues
 
 - Deleting resource groups currently bypasses deny assignments. When creating a deployment stack in the resource group scope, the Bicep file doesn't contain the definition for the resource group. Despite the deny assignment setting, it's possible to delete the resource group and its contained stack. However, if a [lock](../management/lock-resources.md) is active on any resource within the group, the delete operation will fail.
-- [What-if](./deploy-what-if.md) isn't available in the preview.
+- The [What-if](./deploy-what-if.md) support is not yet available.
 - A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
 
 ## Create deployment stacks
@@ -373,8 +373,6 @@ New-AzSubscriptionDeploymentStack `
 
 Use the `action-on-unmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. Allowed values are: 
 
-deleteAll, deleteResources, detachAll.
-
 - `deleteAll`: use delete rather than detach for managed resources and resource groups.
 - `deleteResources`: use delete rather than detach for managed resources only.
 - `detachAll`: detach the managed resources and resource groups.
@@ -518,7 +516,7 @@ Currently not implemented.
 
 ## View managed resources in deployment stack
 
-During public preview, the deployment stack service doesn't yet have an Azure portal graphical user interface (GUI). To view the managed resources inside a deployment stack, use the following Azure Powershell/Azure CLI commands:
+The deployment stack service doesn't yet have an Azure portal graphical user interface (GUI). To view the managed resources inside a deployment stack, use the following Azure Powershell/Azure CLI commands:
 
 To view managed resources at the resource group scope:
 
@@ -758,8 +756,8 @@ To export a deployment stack at the resource group scope:
 
 ```azurepowershell
 Save-AzResourceGroupDeploymentStack `
-   -Name '<deployment-stack-name>' `
-   -ResourceGroupName '<resource-group-name>' `
+   -Name "<deployment-stack-name>" `
+   -ResourceGroupName "<resource-group-name>" `
 ```
 
 # [CLI](#tab/azure-cli)
@@ -782,7 +780,7 @@ To export a deployment stack at the subscription scope:
 
 ```azurepowershell
 Save-AzSubscriptionDeploymentStack `
-  -name '<deployment-stack-name>'
+  -name "<deployment-stack-name>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -804,8 +802,8 @@ To export a deployment stack at the management group scope:
 
 ```azurepowershell
 Save-AzManagmentGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -ManagementGroupId '<management-group-id>'
+  -Name "<deployment-stack-name>" `
+  -ManagementGroupId "<management-group-id>"
 ```
 
 # [CLI](#tab/azure-cli)

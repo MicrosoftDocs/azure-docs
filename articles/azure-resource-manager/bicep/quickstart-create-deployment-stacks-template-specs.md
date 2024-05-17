@@ -123,6 +123,8 @@ az stack group create \
   --deny-settings-mode 'none'
 ```
 
+For more information about `action-on-unmanage` and `deny-setting-mode`, see [Deployment stacks](./deployment-stacks.md).
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -139,6 +141,8 @@ New-AzResourceGroupDeploymentStack `
   -ActionOnUnmanage "detachAll" `
   -DenySettingsMode "none"
 ```
+
+For more information about `ActionOnUnmanage` and `DenySettingMode`, see [Deployment stacks](./deployment-stacks.md).
 
 ---
 
@@ -404,13 +408,15 @@ The remove command only remove the managed resources and managed resource groups
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --name 'demoRg'
+az group delete \
+  --name 'demoRg'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name "demoRg"
+Remove-AzResourceGroup `
+  -Name "demoRg"
 ```
 
 ---
@@ -420,7 +426,8 @@ To delete the template spec and the resource group:
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --name 'templateSpecRG'
+az group delete \
+  --name 'templateSpecRG'
 ```
 
 # [PowerShell](#tab/azure-powershell)
