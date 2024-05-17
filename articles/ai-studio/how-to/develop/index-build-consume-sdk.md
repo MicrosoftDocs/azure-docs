@@ -179,6 +179,9 @@ client.indexes.create_or_update(
           )
 ```
 
+> [!NOTE]
+> Environment variables are intended for convenience in a local environment. However, if you register a local index created using environment variables, the index may not function as expected because secrets from environment variables won’t be transferred to the cloud index. To address this issue, you can use a `ConnectionConfig` or `connection_id` to create a local index before registering.
+
 ## Build an index (remotely) in your AI project
 
 We build an index in the cloud in your AI project. 
@@ -386,5 +389,6 @@ print(result["answer"])
 
 ## Related content
 
+- [Create and consume an index from the AI Studio UI](../index-add.md)
 - [Get started building a chat app using the prompt flow SDK](../../quickstarts/get-started-code.md)
 - [Work with projects in VS Code](vscode.md)

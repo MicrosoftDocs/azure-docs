@@ -121,12 +121,6 @@ The `messages` in `output` is a list of role-based turns. For each turn, it cont
 
 ```json
 {
-    "template_parameters": [
-        {
-            "name": "<name_of_simulated_agent>",
-            "chatbot_name": "<name_of_chatbot>"
-        }
-    ],
     "messages": [
         {
             "content": "<conversation_turn_content>", 
