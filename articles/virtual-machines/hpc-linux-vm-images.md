@@ -49,7 +49,7 @@ All images support [Gen 2 VMs]](generation-2.md).
 az vm image list --publisher almalinux --offer almalinux-hpc --output table --all
 ```
 
-All images support both [Gen 1 VMs](generation-1.md) and [Gen 2 VMs](generation-2.md).
+All images support both Gen 1 and Gen 2 VMs.
 
 ## Supported VM Sizes
 
