@@ -81,7 +81,7 @@ To create the Responsible AI text dashboard, you can define the RAI components i
 
 # [YAML](#tab/yaml)
 
-You can specify the pipeline as a YAML file, as in the following example, and submit it by using the Azure CLI `az ml job create` command.
+You can specify the pipeline in a YAML file, as in the following example, and submit it by using the Azure CLI `az ml job create` command.
 
 ```yml
   analyse_model: 
