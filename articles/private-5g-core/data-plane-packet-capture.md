@@ -83,19 +83,17 @@ To perform packet capture using the command line, you must:
     mect list
     ```
 
-    This should report a single interface on the control plane network (N2), a single interface on the access network (N3) and an interface for each attached data network (N6). For example:
+    This should report a single interface on the control plane network (N2), a single interface on the access network (N3) and a single interface for the core network (N6).
 
     ```azurecli
     n2trace
     n3trace
-    n6trace0 (Data Network: internet)
-    n6trace1 (Data Network: enterprise)
-    n6trace2 (Data Network: test)
+    n6trace
     ```
-
 1. Run `mectdump` with any parameters that you would usually pass to tcpdump. In particular, `-i` to specify the interface, and `-w` to specify where to write to. Close the tool when finished by pressing <kbd>Ctrl + C</kbd>. The following examples are common use cases:
-    - To run capture packets on all interfaces, run `mectdump -i any -w any.pcap`
-    - To run capture packets for the N3 interface and the N6 interface for a single data network, enter the MEC-DP troubleshooter pod in two separate windows. In one window run `mectdump -i n3trace -w n3.pcap` and in the other window run `mectdump -i <N6 interface> -w n6.pcap` (use the N6 interface for the data network as identified in step 2).
+    - To capture packets on all interfaces, run `mectdump -i any -w any.pcap`
+    - To capture packets for the N3 interface and the N6 interface for a single data network, enter the MEC-DP troubleshooter pod in two separate windows. In one window run `mectdump -i n3trace -w n3.pcap` and in the other window run `mectdump -i n6trace -w n6.pcap`. To select an individual data network, filter by VLAN ID.
+
 
     > [!IMPORTANT]
     > Packet capture files might be large, particularly when running packet capture on all interfaces. Specify filters when running packet capture to reduce the file size - see the tcpdump documentation for the available filters.

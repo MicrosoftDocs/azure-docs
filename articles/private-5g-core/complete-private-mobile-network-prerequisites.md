@@ -168,6 +168,15 @@ You will need an IP subnet for control plane traffic and an IP subnet for user p
 
 ### Data networks
 
+:::zone pivot="ase-pro-2"
+
+- One IP address for port 4 on the Azure Stack Edge Pro GPU device.
+:::zone-end
+:::zone pivot="ase-pro-gpu"
+
+- One IP address for port 6 on the Azure Stack Edge Pro GPU device.
+:::zone-end
+
 Allocate the following IP addresses for each data network in the site:
 
 - Network address in CIDR notation.
@@ -177,6 +186,7 @@ Allocate the following IP addresses for each data network in the site:
   - For 4G, this is the SGi interface.
   - For combined 4G and 5G, this is the N6/SGi interface.
 
+<<<<<<< HEAD
 The following IP addresses must be used by all the data networks in the site:
 
 :::zone pivot="ase-pro-2"
@@ -204,6 +214,8 @@ The following virtual IP addresses are required for an HA deployment. These IP a
 -	One virtual address to use as a virtual N2 address. The RAN equipment is configured to use this address.
 -	One virtual address to use as a virtual tunnel endpoint on the N3 reference point.
  
+=======
+>>>>>>> ns15/vlan_trunking
 ### VLANs
 
 You can optionally configure your Azure Stack Edge Pro device with virtual local area network (VLAN) tags. You can use this configuration to enable layer 2 traffic separation on the N2, N3 and N6 interfaces, or their 4G equivalents. For example, the ASE device has a single port for N2 and N3 traffic and a single port for all data network traffic. You can use VLAN tags to separate N2 and N3 traffic, or separate traffic for each connected data network.

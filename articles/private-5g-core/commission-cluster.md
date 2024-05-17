@@ -77,9 +77,19 @@ You can input all the settings on this page before selecting **Apply** at the bo
     - User plane access interface
     - User plane data interface(s)  
 
-    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and up to ten **N6-DNX** (where **X** is the DN number 1-10 in a multiple DN deployment; or just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
+    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. Under the recommended setup of vlan-trunking mode, you have **one single** N6 virtual network with no IP information. VLAN and IP information is done when configuring the mobile network. With this setup, you could use the names **N2**, **N3** and **N6**. 
+
+    Under Access VLAN or non-VLAN mode, there is an N6 virtual network for each attached data network. You could use the names **N2**, **N3** and up to ten **N6-DNX** (where **X** is the DN number 1-10 in a multiple DN deployment; or just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
 :::zone pivot="ase-pro-2"
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+3. If using the recommended setup of VLAN-trunking mode, carry out the following procedure 3 times:
+    1. Select **Add virtual network** and fill in the side panel:
+        - **Virtual switch**: select **vswitch-port3** for N2 and N3. Select **vswitch-port4** for N6.
+        - **Name**: *N2*, *N3*, or *N6*.
+        - **VLAN type**: Trunk VLAN
+        - **Allowed VLAN ID Range**: Fill in the set of VLAN-IDs you want to configure.
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes. 
+4. If using Access VLAN or non-VLAN mode, carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
     > [!IMPORTANT]
     > If you are using port 3 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
@@ -97,25 +107,37 @@ You can input all the settings on this page before selecting **Apply** at the bo
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking-ase-2.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 :::zone-end
 :::zone pivot="ase-pro-gpu"
-3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+3. If using the recommended setup of VLAN-trunking mode, carry out the following procedure 3 times:
+    1. Select **Add virtual network** and fill in the side panel:
+        - **Virtual switch**: select **vswitch-port5** for N2 and N3. Select **vswitch-port6** for N6.
+        - **Name**: *N2*, *N3*, or *N6*.
+        - **VLAN type**: Trunk VLAN
+        - **Allowed VLAN ID Range**: Fill in the set of VLAN-IDs you want to configure.
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes. 
+4. If using Access VLAN or non-VLAN mode, carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
     > [!IMPORTANT]
     > If you are using port 5 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
         - **Virtual switch**: select **vswitch-port5** for N2, N3 and up to four DNs, and select **vswitch-port6** for up to six DNs.
         - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
+        - **VLAN type**: select as appropriate.
         - **VLAN**: VLAN ID, or 0 if not using VLANs
         - **Network** and **Gateway**: Use the correct subnet and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
             - For example, *10.232.44.0/24* and *10.232.44.1*
             - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.
-    1. Select **Modify** to save the configuration for this virtual network.
-    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes.
-  The page should now look like the following image:
+    2. Select **Modify** to save the configuration for this virtual network.
+    3. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 8 minutes.
+
+The page should now look like the following image:
 
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 :::zone-end
 
 ## Add compute and IP addresses
+> [!IMPORTANT]
+> In VLAN-trunking mode, no IP configuration is done for each virtual network. It is all done when configuring the mobile network.
 
 In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'll set up all of the configuration and then apply it once, as you did in [Set up Advanced Networking](#set-up-advanced-networking).
 
@@ -124,8 +146,8 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
       1. Enter six IP addresses in a range for the node IP addresses on the management network.
       1. Enter one IP address in a range for the service IP address, also on the management network. This will be used for accessing local monitoring tools for the packet core instance.
       1. Select **Modify** at the bottom of the panel to save the configuration.
-1. Under **Virtual network**, select a virtual network, from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
-      1. Enable the virtual network for Kubernetes and add a pool of IP addresses.
+1. Under **Virtual network**, select a virtual network. In VLAN-trunking mode, this will be either **N2**, **N3** and **N6**. Otherwise, choose from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
+      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. If **NOT** in VLAN-trunking mode, also add a pool of IP addresses: 
         1. For a standard deployment, add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.
         1. For an HA deployment, add a range of two IP addresses for each virtual network, where the N2 and N3 pod IP addresses are in the local access subnet and the N6 pod IP addresses are in the appropriate local data subnet.
       1. Repeat for each of the N2, N3, and N6-DNX virtual networks.
@@ -133,6 +155,7 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 5 minutes.
 
 The page should now look like the following image:
+__DIFFERENT IMAGE FOR VLAN TRUNKING MODE__
 
 :::zone pivot="ase-pro-2"
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled-ase-2.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
