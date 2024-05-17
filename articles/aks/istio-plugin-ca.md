@@ -3,6 +3,8 @@ title: Plug in CA certificates for Istio-based service mesh add-on on Azure Kube
 description: Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
+ms.service: azure-kubernetes-service
+ms.subservice: aks-service-mesh
 ms.date: 12/04/2023
 ms.author: shasb
 author: shashankbarsin
