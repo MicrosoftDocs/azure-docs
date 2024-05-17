@@ -136,7 +136,23 @@ The client is generated.
 
 For details on using the Kiota extension, see [Microsoft Kiota extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota).
 
-  ## Related content
+## Export API specification
+
+You can export an API specification from a definition and then download it as a file.
+
+To export a specification in the extension's tree view:
+
+1. Expand the API Center tree view to show an API definition.    
+1. Right-click on the definition, and select **Export API**. A new tab appears that renders an API specification document.
+
+    :::image type="content" source="media/use-vscode-extension/export-specification.png" alt-text="Screenshot of exporting API specification in Visual Studio Code." lightbox="media/use-vscode-extension/export-specification.png":::
+
+You can also export a specification using the Command Palette:
+
+1. Type the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. 
+1. Make selections to navigate to an API definition. A new tab appears that renders an API specification document.
+
+## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
 
