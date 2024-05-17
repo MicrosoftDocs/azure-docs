@@ -50,8 +50,6 @@
   items:
       - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
-      - name: Discover APIs with GitHub Copilot Chat
-        href: use-vscode-extension-copilot.md
 - name: API center management and operations
   items:
       - name: Reliability

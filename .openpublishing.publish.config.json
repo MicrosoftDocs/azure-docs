@@ -1225,6 +1225,7 @@
   "redirection_files": [
   ".openpublishing.redirection.active-directory.json",
   ".openpublishing.redirection.ansible.json",
+  ".openpublishing.redirection.api-center.json",
   ".openpublishing.redirection.api-management.json",
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.asc-for-iot.json",

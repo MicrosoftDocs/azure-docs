@@ -1,16 +1,16 @@
 ---
 title: Interact with API inventory using VS Code extension
-description: Build, discover, try, and consume APIs from your Azure API center using the Azure API Center extension for Visual Studio Code (preview)
+description: Build, discover, try, and consume APIs from your Azure API center using the Azure API Center extension for Visual Studio Code.
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 05/17/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As a developer, I want to use my Visual Studio Code environment to build, discover, try, and consume APIs in my organization's API center.
 ---
 
-# Get started with the Azure API Center extension for Visual Studio Code (preview)
+# Get started with the Azure API Center extension for Visual Studio Code
 
 To build, discover, try, and consume APIs in your [API center](overview.md), you can use the Azure API Center extension in your Visual Studio Code development environment:
 
@@ -23,9 +23,6 @@ To build, discover, try, and consume APIs in your [API center](overview.md), you
 * **Consume APIs** - Generate API SDK clients for your favorite language including JavaScript, TypeScript, .NET, Python, and Java, using the Microsoft Kiota engine that generates SDKs for Microsoft Graph, GitHub, and more. 
 
 > [!VIDEO https://www.youtube.com/embed/62X0NALedCc]
-
-> [!NOTE]
-> The Azure API Center extension for Visual Studio Code is in preview. Learn more about the [extension preview](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center).
 
 ## Prerequisites
 
@@ -142,4 +139,4 @@ For details on using the Kiota extension, see [Microsoft Kiota extension for Vis
   ## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
-* [Discover APIs with GitHub Copilot Chat and Azure API Center extension for Visual Studio Code](use-vscode-extension-copilot.md)
+
