@@ -9,23 +9,38 @@ ms.topic: overview
 ms.date: 05/10/2024
 ---
 
-# What is Advanced Container Networking Services ?
-Kubernetes is a powerful tool for managing containerized applications. As your deployments grow, ensuring smooth network operation becomes more challenging. Identifying and resolving network issues within a complex Kubernetes cluster can be a time-consuming task.
+# What is Advanced Container Networking Services?
 
-Advanced Container Networking Services unlocks a comprehensive suite of features for in-depth network analysis and troubleshooting. Empowering you to diagnose and resolve issues with greater efficiency. Advanced Container Networking Services builds  provides a robust network troubleshooting experience. Built on the open-source project Retina (https://retina.sh/), Advanced Container Networking Services collects and analyzes network traffic data, DNS data,  you can obtain metrics at a granular level down to the pod.
+Kubernetes is a powerful tool for managing containerized applications. As your deployments grow, ensuring smooth network operation becomes more challenging.
+Identifying and resolving network issues within a complex Kubernetes cluster can be a time-consuming task.
 
-Advanced Container Networking Services also integrates with Hubble, a powerful network observability tool that includes Hubble CLI for deep dives into traffic flow and Hubble UI for easy visualization. This combination empowers you to proactively troubleshoot issues, optimize resource allocation, and ensure secure communication within your containerized environment. 
+Advanced Container Networking Services is a suite of paid services - built on top of existing networking solutions for Azure Kubernetes Services - addressing the intricate needs of modern containerized applications. This premium suite helps solve complex problems ranging from Observability to Security to Compliance.
+The advanced tools and services simplify the management of complex networking scenarios, ensuring your applications are secure, compliant, and performant.
+
+## What is included in Advanced Container Networking Services?
+
+The first feature for this premium suite is Advanced Observability.
+
+## What is Advanced Observability?
+
+Advanced Observability is the inaugural feature of the Advanced Container Networking Services suite.
+It offers enhanced monitoring and diagnostics tools that provide deep insights into your containerized workloads.
+Advanced Observability supports all Linux workloads, and it brings Hubble integrations to both Cilium and Non-Cilium dataplanes.
+Advanced Observability is supported on Cilium dataplanes starting with Kubernetes version 1.29.
+In non-Cilium Linux dataplanes, it is supported for all Kubernetes versions.
+Advanced Observability brings managed Hubble metrics and on-demand flow-logs support to Cilium and non-Cilium Linux nodepools.
+With Hubble, customers will have in-depth visibility into network traffic at a pod level.
 
 :::image type="content" source="./media/advanced-container-networking-services/advanced-container-networking-services.png" alt-text="Diagram of Advanced Container Networking Services.":::
 
 > [!NOTE]
 > This feature is going to be charged. We will share more details in coming weeks
 
-## What is Included in Advanced Container Networking Services?
+### What is Included in Advanced Observability?
 
-Azure Container Networking Service solution offers the following capabilities to monitor network related issues in your cluster:
+Advanced Observability offers the following capabilities to monitor network-related issues in your cluster:
 
- * **Metrics:** Understanding the health of your container network at the node-level is crucial for maintaining optimal application performance. By leveraging advanced observability unlocks granular pod-level metrics. Analyze traffic volume, dropped packets, source/destination information, and even DNS metrics at pod-level. This empowers you to pinpoint network related issues at much granular level compared to the network observability , ensuring the health and optimal performance of your applications across the entire cluster.
+* **Metrics:** Understanding the health of your container network at the node-level is crucial for maintaining optimal application performance. By leveraging advanced observability unlocks granular pod-level metrics. Analyze traffic volume, dropped packets, source/destination information, and even DNS metrics at pod-level. This empowers you to pinpoint network related issues at much granular level compared to the network observability , ensuring the health and optimal performance of your applications across the entire cluster.
 
 * **Hubble CLI:** Hubble CLI unlocks deep visibility into your cluster's network activity. It allows you to monitor data flow between applications, identifying bottlenecks, and tracking traffic origin and destination which proactively troubleshoot performance issues, optimize resource allocation, and ensure only authorized communication occurs, all contributing to a smoothly running and secure containerized environment.
 
@@ -35,7 +50,7 @@ Azure Container Networking Service solution offers the following capabilities to
 * **Hubble UI:** Hubble UI provides a user-friendly interface for exploring your cluster's network activity with Hubble. This intuitive visualization empowers you to troubleshoot performance issues, optimize resource allocation, and ensure there is secure communication within your cluster, all contributing to a smoothly running and well-managed containerized environment.
 
 
-## Key Benefits of Advanced Container Networking Services
+### Key Benefits of Advanced Observability
 
 * **Proactive Problem Detection:** Identify potential bottlenecks and congestion issues before they impact application performance. Gain insights into key network health indicators, including traffic volume, dropped packets, and connection information.
 
@@ -45,11 +60,13 @@ Azure Container Networking Service solution offers the following capabilities to
     **Azure Managed Prometheus and Grafana:** A convenient option where Azure manages the infrastructure and maintenance, allowing you to focus on configuring and visualizing metrics.
     **Bring Your Own (BYO) Prometheus and Grafana:** Set up your own instances and manage the underlying infrastructure.
 
-* **Multi CNI Support:** Advanced Container Networking Services supports both Azure CNI and Kubenet network plugins.
+* **Multi CNI Support:** Advanced Observability supports both Azure CNI and Kubenet network plugins.
 
-## Comparison between Network Observability vs Advanced Container Networking Services
+### Comparison between Basic Observability and Advanced Observability
 
-| Feature | Network Observability | Azure Container Networking Services |
+For more information about Basic Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](https://learn.microsoft.com/azure/aks/network-observability-overview).
+
+| Feature | Basic Observability | Advanced Observability |
 |-------------|-------------|--------|
 | **Node-level metrics** | ✅  | ✅  | 
 | **Pod-level level metric** | ❌ | ✅  | 
@@ -57,10 +74,10 @@ Azure Container Networking Service solution offers the following capabilities to
 | **Hubble UI** | ❌ | ✅  |
 
 
-## Metrics
+### Metrics
 
 
-### Node-Level Metrics
+#### Node-Level Metrics
 
 The following metrics are aggregated per Node. All metrics include the labels:
 
@@ -102,7 +119,7 @@ It exposes several metrics including the following for network observability.
 
 ---
 
-### Pod-Level Metrics (Hubble Metrics)
+#### Pod-Level Metrics (Hubble Metrics)
 
 The following metrics are aggregated per Pod (still containing Node information). All metrics include the labels:
 - `cluster`
@@ -120,11 +137,11 @@ For *incoming traffic*, there will be a `destination` label with destination Pod
 | **hubble_tcp_flags_total**       | Toctal TCP packets count by flag. | `source` or `destination`, `flag` | ✅ | ❌ |
 | **hubble_flows_processed_total** | Total network flows processed (L4/L7 traffic) | `source` or `destination`, `protocol`, `verdict`, `type`, `subtype` | ✅ | ❌ |
 
-## Limitations
+### Limitations
 
-* Pod-level metrics available only on Linux  
+* Pod-level metrics available only on Linux
 
-## Scale
+### Scale
 
 Certain scale limitations apply when you use Azure managed Prometheus and Grafana. For more information, see [Scrape Prometheus metrics at scale in Azure Monitor](/azure/azure-monitor/essentials/prometheus-metrics-scrape-scale)
 
@@ -132,6 +149,6 @@ Certain scale limitations apply when you use Azure managed Prometheus and Grafan
 
 - For more information about Azure Kubernetes Service (AKS), see [What is Azure Kubernetes Service (AKS)?](/azure/aks/intro-kubernetes).
 
-- To create an AKS cluster with Network Observability and Azure managed Prometheus and Grafana, see [Setup  Advanced Container Networking Services for Azure Kubernetes Service (AKS) Azure managed Prometheus and Grafana](advanced-container-networking-services-cli.md).
+- To create an AKS cluster with Advanced Network Observability and Azure managed Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) Azure managed Prometheus and Grafana](advanced-network-observability-cli.md).
 
-- To create an AKS cluster with Network Observability and BYO Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](advanced-container-networking-services-byo-cli.md).
+- To create an AKS cluster with Advanced Network Observability and BYO Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](advanced-network-observability-byo-cli.md).
