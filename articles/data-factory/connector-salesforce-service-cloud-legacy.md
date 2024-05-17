@@ -18,10 +18,7 @@ ms.date: 05/11/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Salesforce Service Cloud. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 >[!IMPORTANT]
->The service has released a new Salesforce Service Cloud connector which provides better native Salesforce Service Cloud support, refer to [Salesforce Service Cloud connector](connector-salesforce-service-cloud.md) article on details. 
-
->[!IMPORTANT]
->Please kindly [upgrade your Salesforce Service Cloud connector](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) before October 11, 2024. If not, connection will start to fail because of the deprecation of the legacy connector.
+>The new Salesforce Service Cloud connector provides improved native Salesforce support. If you are using the legacy Salesforce Service Cloud connector in your solution, please [upgrade your Salesforce Service Cloud connector](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) before **October 11, 2024**. Refer to this [section](connector-salesforce-service-cloud.md#differences-between-salesforce-service-cloud-and-salesforce-service-cloud-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
