@@ -253,7 +253,9 @@ Response:
 
 | **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests - JAIS   | [jais.ipynb](https://aka.ms/samples/jais/webrequests)|
+| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/jais/webrequests-sample) |
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/jais/openaisdk) |
+| LiteLLM | [litellm.ipynb](https://aka.ms/jais/litellm-sample) |
 
 
 ## Cost and quotas
