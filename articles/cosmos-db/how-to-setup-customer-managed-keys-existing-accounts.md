@@ -57,9 +57,6 @@ The output of this CLI command for enabling CMK waits for the completion of encr
 
 For enabling CMK on existing account that has continuous backup and point in time restore enabled, we need to follow some extra steps. Follow step 1 to step 5 and then follow instructions to enable CMK on existing account.
 
-> [!NOTE]
-> System-assigned identity and continuous backup mode is currently under Public Preview and may change in the future. Currently, only user-assigned managed identity is supported for enabling CMK on continuous backup accounts.
-
 
 
 1. Configure managed identity to your cosmos account [Configure managed identities with Microsoft Entra ID for your Azure Cosmos DB account](./how-to-setup-managed-identity.md)
