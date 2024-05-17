@@ -399,7 +399,7 @@ To learn more about creating SAS tokens for IoT Hub, including example code in o
 
 ### Send data to your IoT hub
 
-You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
+You call the IoT Hub Send Device Event REST API to send telemetry to the device.
 
 Use the following curl command:
 
