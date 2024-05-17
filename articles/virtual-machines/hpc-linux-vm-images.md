@@ -33,7 +33,7 @@ Search for "Ubuntu HPC" by the publisher "Microsoft-DSVM", or "AlmaLinux HPC" by
 
 ### Azure CLI
 
-Run the following commands to find [image URNs](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage) of the HPC images:
+Run the following commands to find [image URNs](cli-ps-findimage.md) of the HPC images:
 
 #### Ubuntu-HPC
 
@@ -53,7 +53,7 @@ All images have both generation 1 and generation 2 versions.
 
 ## Supported VM Sizes
 
-Refer to [Azure VM sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes) for the latest H- and N-series VM size support matrix.
+Refer to [Azure VM sizes](sizes.md) for the latest H- and N-series VM size support matrix.
 
 The HPC VM images support the following VM sizes:
 
