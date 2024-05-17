@@ -13,6 +13,8 @@ ms.author: v-abhmallick
 
 This quickstart describes how to configure vaulted backup for Azure Blobs using Azure PowerShell.
 
+[!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
+
 ## Prerequisites
 
 - Ensure you review the [support matrix](../backup/blob-backup-support-matrix.md) to learn about the Azure Blob region availability, supported scenarios, and limitations.

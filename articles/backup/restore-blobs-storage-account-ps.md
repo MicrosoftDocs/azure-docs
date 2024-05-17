@@ -10,7 +10,7 @@ ms.author: v-abhmallick
 
 # Restore Azure Blobs using Azure PowerShell
 
-This article describes how to restore blobs/containers from backups.
+This article describes how to use the PowerShell to perform restores for Azure Blob from [operational](blob-backup-overview.md?tabs=operational-backup) or [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups. With operational backups, you can restore all block blobs in storage accounts with operational backup configured or a subset of blob content to any point-in-time within the retention range. With vaulted backups, you can perform restores using a recovery point created, based on your backup schedule.
 
 > [!IMPORTANT]
 > Support for Azure blobs is available from Az 5.9.0 version.

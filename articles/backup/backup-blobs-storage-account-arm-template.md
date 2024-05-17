@@ -12,6 +12,8 @@ ms.author: v-abhmallick
 
 This quickstart describes how to back up a storage account with Azure Blob data with a vaulted backup policy using an ARM template.
 
+[!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
+
 ## Review the template
 
 This template allows you to configure backup for two containers in a storage account with a vaulted backup policy with a daily schedule and retention as 30 days/weeks, months and years for daily, weekly, monthly and yearly backup respectively.

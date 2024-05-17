@@ -13,6 +13,8 @@ ms.author: v-abhmallick
 
 This quickstart describes how to configure vaulted backup for Azure Blobs using Azure PowerShell.
 
+[!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
+
 ## Prerequisites
 
 - Support for Azure Blobs is available from Az 5.9.0 version.
