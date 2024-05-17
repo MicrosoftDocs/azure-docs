@@ -21,11 +21,12 @@ In this article, you learn how to create an index and consume it from code. To c
 
 You must have:
 
-- An Azure AI project - go to [aka.ms/azureaistudio](https://aka.ms/azureaistudio) to create a project
-- An Azure AI Search resource -  you can create it from instructions [here](../../../search/search-create-service-portal.md)
-- Models for embedding
-    - You can use an ada-002 embedding model from Azure OpenAI - instructions to deploy can be found [here](../deploy-models-openai.md)
-    - OR any another embedding model deployed in your AI studio project - in this example we use Cohere multi-lingual embedding - instructions to deploy this model can be found [here](../deploy-models-cohere-embed.md) 
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md).
+
+- An [Azure AI Search service connection](../how-to/connections-add.md#create-a-new-connection) to index the sample product and customer data. If you don't have an Azure AI Search service, you can create one from the [Azure portal](https://portal.azure.com/) or see the instructions [here](../../../search/search-create-service-portal.md)
+- Models for embedding:
+    - You can use an ada-002 embedding model from Azure OpenAI. The instructions to deploy can be found [here](../deploy-models-openai.md).
+    - OR you can use any another embedding model deployed in your AI studio project. In this example we use Cohere multi-lingual embedding. The instructions to deploy this model can be found [here](../deploy-models-cohere-embed.md).
 
 ## Build and consume an index locally
 
@@ -57,7 +58,7 @@ To create an index that uses Azure OpenAI embeddings, we configure environment v
 import os
 # set credentials to your Azure OpenAI instance
 os.environ["OPENAI_API_VERSION"] = "2023-07-01-preview"
-os.environ["AZURE_OPENAI_KEY"] = "<your-azure-open-ai-api-key>"
+os.environ["AZURE_OPENAI_API_KEY"] = "<your-azure-openai-api-key>"
 os.environ["AZURE_OPENAI_ENDPOINT"] = "https://<your-azure-openai-service>.openai.azure.com/"
 ```
 
@@ -164,7 +165,7 @@ The `subscription`, `resource_group` and `workspace` in the above code refers to
 ```python
 from azure.ai.ml.entities import Index
 
-# register the index with open ai embeddings
+# register the index with Azure OpenAI embeddings
 client.indexes.create_or_update(
     Index(name="<your-index-name>" + "aoai", 
           path=local_index_aoai, 
@@ -253,19 +254,19 @@ embeddings_model_config = IndexModelConfiguration.from_connection(cohere_serverl
 ### Select input data to build the index
 
 You can build index from the following types of inputs:
-1. Local files/folders
-1. GitHub repo
-1. Azure Storages
+- Local files and folders
+- GitHub repositories
+- Azure Storage
 
 We can use the following code sample to use any of these sources and configure our `input_source`:
-```python
 
+```python
 # Local source
 from azure.ai.ml.entities import LocalSource
 
 input_source=LocalSource(input_data="<path-to-your-local-files>")
 
-# Github repo
+# Github repository
 from azure.ai.ml.entities import GitSource
 
 input_source=GitSource(
@@ -325,7 +326,7 @@ index_langchain_retriever=get_langchain_retriever_from_index(my_index.path)
 index_langchain_retriever.get_relevant_documents("<your search query>")
 ```
 
-## A Question and Answer function to use the index
+## A question and answer function to use the index
 
 We have seen how to build an index locally or in the cloud. Using this index, we build a QnA function that accepts a user question and provides an answer from the index data. First let us get the index as a langchain_retriever as shown [here](#consuming-a-registered-index-from-your-project). We now use this `retriever` in our function. This function uses the LLM as defined in the `AzureChatOpenAI` constructor. It uses the index as a langchain_retriever to query the data. We build a prompt template that accepts a context and a question. We use langchain's `RetrievalQA.from_chain_type` to put all these together and get us the answers.
 
@@ -337,7 +338,7 @@ def qna(question: str, temperature: float = 0.0, prompt_template: object = None)
 
     llm = AzureChatOpenAI(
         openai_api_version="2023-06-01-preview",
-        api_key="<your-azure-open-ai-api-key>",
+        api_key="<your-azure-openai-api-key>",
         azure_endpoint="https://<your-azure-openai-service>.openai.azure.com/",
         azure_deployment="<your-chat-model-deployment>", # verify the model name and deployment name
         temperature=temperature,
