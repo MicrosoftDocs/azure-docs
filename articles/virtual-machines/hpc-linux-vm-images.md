@@ -33,7 +33,7 @@ Search for "Ubuntu HPC" by the publisher "Microsoft-DSVM", or "AlmaLinux HPC" by
 
 ### Azure CLI
 
-Run the following commands to find [image URNs](cli-ps-findimage.md) of the HPC images:
+Run the following commands to find image URNs of the HPC images:
 
 #### Ubuntu-HPC
 
