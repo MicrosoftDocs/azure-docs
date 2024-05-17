@@ -134,4 +134,4 @@ Refer to the [azhpc-images](https://github.com/Azure/azhpc-images) repo at GitHu
 
 ## Deploying HPC VM Images
 
-As shown above, the HPC VM images are available from Azure Marketplace and Azure CLI. They can be deployed through a variety of deployment vehicles on Azure (Azure CycleCloud, Azure Batch, ARM templates, etc). [AzureHPC scripts](https://github.com/Azure/azurehpc/) provide an easy way to quickly deploy an HPC cluster using these images.
+As shown above, the HPC VM images are available from Azure Marketplace and Azure CLI. They can be deployed through a variety of deployment vehicles on Azure (Azure CycleCloud, Azure Batch, ARM templates, etc.). [AzureHPC scripts](https://github.com/Azure/azurehpc/) provide an easy way to quickly deploy an HPC cluster using these images.
