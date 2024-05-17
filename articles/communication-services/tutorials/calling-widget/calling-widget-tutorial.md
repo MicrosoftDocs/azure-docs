@@ -34,7 +34,7 @@ Following this tutorial will:
 These steps are **needed** in order to follow this tutorial. Contact your Teams admin for the last two items to make sure you are set up appropriately.
 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), Active LTS (Long Term Support) and versions [Node 18](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
+- [Node.js](https://nodejs.org/), Active LTS (Long Term Support) and versions [Node 20](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
 - Complete the Teams tenant setup in [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
 - Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
