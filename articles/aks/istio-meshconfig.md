@@ -4,7 +4,6 @@ description: Configure Istio-based service mesh add-on for Azure Kubernetes Serv
 ms.topic: article
 ms.custom:
 ms.service: azure-kubernetes-service
-ms.subservice: aks-service-mesh
 ms.date: 02/14/2024
 ms.author: shasb
 author: shashankbarsin

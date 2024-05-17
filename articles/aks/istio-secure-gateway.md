@@ -3,7 +3,6 @@ title: Secure ingress gateway for Istio service mesh add-on for Azure Kubernetes
 description: Deploy secure ingress gateway for Istio service mesh add-on for Azure Kubernetes Service.
 ms.topic: how-to
 ms.service: azure-kubernetes-service
-ms.subservice: aks-service-mesh
 author: deveshdama
 ms.date: 04/30/2024
 ms.author: ddama

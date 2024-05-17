@@ -4,7 +4,6 @@ description: Deploy Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.service: azure-kubernetes-service
-ms.subservice: aks-service-mesh
 ms.date: 03/28/2024
 ms.author: shasb
 author: shashankbarsin

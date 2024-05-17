@@ -3,7 +3,6 @@ title: Istio-based service mesh add-on for Azure Kubernetes Service
 description: Istio-based service mesh add-on for Azure Kubernetes Service.
 ms.topic: article
 ms.service: azure-kubernetes-service
-ms.subservice: aks-service-mesh
 ms.date: 04/09/2023
 ms.author: shasb
 author: shashankbarsin

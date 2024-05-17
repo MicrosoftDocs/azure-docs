@@ -3,7 +3,6 @@ title: Azure Kubernetes Service (AKS) external or internal ingresses for Istio s
 description: Deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service
 ms.topic: how-to
 ms.service: azure-kubernetes-service
-ms.subservice: aks-service-mesh
 author: shashankbarsin
 ms.date: 08/07/2023
 ms.author: shasb
