@@ -12,7 +12,7 @@ In this article, you learn various actions available for each of the serverless 
 
 ## Actions
 
-1. Select **Serverless Runtime Environment** from the Resource menu in your Informatica organization.
+1. Within your Informatica organization, select **Serverless Runtime Environment** from the Resource menu in your Informatica organization.
 
 1. Use actions from the context menu to manage your serverless runtime environments in **Serverless Runtime Environment** pane.
 
