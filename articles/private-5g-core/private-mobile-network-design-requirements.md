@@ -90,7 +90,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
 - Layer 3 network with multiple data networks
   - The recommended setup for deployments with multiple data networks is to use VLAN trunking. In this setup, AP5GC can support up to ten attached data newtorks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - In this topology, there is a single N6 virtual network on the ASE with no IP information. All VLAN and IP configuration is done when configuring each attached data network.
-  - __INSERT  DIAGRAM__
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png":::
 
 - Layer 3 network with multiple data networks without VLAN separation.
   - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
@@ -128,7 +128,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
 - Layer 3 network with multiple data networks
   - The recommended setup for deployments with multiple data networks is to use VLAN trunking. In this setup, AP5GC can support up to ten attached data newtorks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - In this topology, there is a single N6 virtual network on the ASE with no IP information. All VLAN and IP configuration is done when configuring each attached data network.
-  - __INSERT DIAGRAM__
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png":::
 
 - Layer 3 network with multiple data networks without VLAN separation.
   - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
