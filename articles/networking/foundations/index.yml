@@ -40,9 +40,9 @@ productDirectory:
   items:
     - title: Azure Virtual Network
       imageSrc: ./media/virtual-network.svg
-      summary: "Build your private network infrastructure in the cloud."
-      url: /azure/virtual-network/virtual-networks-overview
       links:
+        - text: Azure Virtual Network overview 
+          url: /azure/virtual-network/virtual-networks-overview
         - text: Quickstart - Create a Virtual Network
           url: /azure/virtual-network/quick-create-portal
         - text: Azure Virtual Network concepts and best practices 
@@ -53,9 +53,9 @@ productDirectory:
           url: /azure/virtual-network/virtual-networks-faq
     - title: Azure Private Link
       imageSrc: ./media/private-link-product.svg
-      summary: "Private access to services hosted on the Azure platform, keeping your data on the Microsoft network."
-      url: /azure/private-link/private-link-overview          
       links:
+        - text: Azure Private Link overview
+          url: /azure/private-link/private-link-overview   
         - text: Quickstart - Create a private endpoint
           url: /azure/private-link/create-private-endpoint-portal
         - text: What is a private endpoint? 
@@ -66,9 +66,9 @@ productDirectory:
           url: /azure/private-link/private-link-faq
     - title: Azure DNS
       imageSrc: ./media/dns.svg
-      summary: "Public and private name resolution for your Azure services."
-      url: /azure/dns/dns-overview
       links:
+        - text: Azure DNS overview         
+          url: /azure/dns/dns-overview
         - text: Quickstart - Create a public DNS zone
           url: /azure/dns/dns-getstarted-portal
         - text: What is an Azure Private DNS zone?
