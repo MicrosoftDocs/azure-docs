@@ -1,5 +1,5 @@
 ---
-title: Create and deploy a deployment stack with Bicep (Preview)
+title: Create and deploy a deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
 ms.date: 05/15/2024
 ms.topic: quickstart
@@ -26,7 +26,7 @@ param resourceGroupLocation string = resourceGroup().location
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param vnetName string = 'vnet${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: resourceGroupLocation
   kind: 'StorageV2'
@@ -35,7 +35,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   }
 }
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: vnetName
   location: resourceGroupLocation
   properties: {
@@ -129,14 +129,14 @@ The output shows two managed resources - one storage account and one virtual net
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/demoRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-08-14-58-28-fd6bb",
+  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051714epybc",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
-  "duration": "PT30.1685405S",
+  "duration": "PT32.5330364S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
   "location": null,
   "name": "demoStack",
   "outputs": null,
@@ -147,26 +147,26 @@ The output shows two managed resources - one storage account and one virtual net
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     }
   ],
   "systemData": {
-    "createdAt": "2023-06-08T14:58:28.377564+00:00",
-    "createdBy": "johndole@contoso.com",
+    "createdAt": "2024-05-17T14:50:18.382948+00:00",
+    "createdBy": "jgao@microsoft.com",
     "createdByType": "User",
-    "lastModifiedAt": "2023-06-08T14:58:28.377564+00:00",
-    "lastModifiedBy": "johndole@contoso.com",
+    "lastModifiedAt": "2024-05-17T14:50:18.382948+00:00",
+    "lastModifiedBy": "jgao@microsoft.com",
     "lastModifiedByType": "User"
   },
-  "tags": null,
+  "tags": {},
   "template": null,
   "templateLink": null,
   "type": "Microsoft.Resources/deploymentStacks"
@@ -184,16 +184,18 @@ Get-AzResourceGroupDeploymentStack `
 The output shows two managed resources - one storage account and one virtual network:
 
 ```output
-Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
-Name                        : demoStack
-ProvisioningState           : succeeded
-ResourcesCleanupAction      : detach
-ResourceGroupsCleanupAction : detach
-DenySettingsMode            : none
-CreationTime(UTC)           : 6/5/2023 8:55:48 PM
-DeploymentId                : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-05-20-55-48-38d09
-Resources                   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
-                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
+Id                            : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
+Name                          : demoStack
+ProvisioningState             : succeeded
+resourcesCleanupAction        : detach
+resourceGroupsCleanupAction   : detach
+managementGroupsCleanupAction : detach
+CorrelationId                 : 62f1631c-a823-46c1-b240-9182ccf39cfa
+DenySettingsMode              : none
+CreationTime(UTC)             : 5/17/2024 3:37:42 PM
+DeploymentId                  : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051715b17ls
+Resources                     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+                                /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 ---
@@ -226,11 +228,11 @@ The output is similar to:
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-05-20-55-48-38d09",
+  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051714epybc",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
-  "duration": "PT29.006353S",
+  "duration": "PT32.5330364S",
   "error": null,
   "failedResources": [],
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
@@ -244,26 +246,26 @@ The output is similar to:
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     }
   ],
   "systemData": {
-    "createdAt": "2023-06-05T20:55:48.006789+00:00",
-    "createdBy": "johndole@contoso.com",
+    "createdAt": "2024-05-17T14:50:18.382948+00:00",
+    "createdBy": "jgao@microsoft.com",
     "createdByType": "User",
-    "lastModifiedAt": "2023-06-05T20:55:48.006789+00:00",
-    "lastModifiedBy": "johndole@contoso.com",
+    "lastModifiedAt": "2024-05-17T14:50:18.382948+00:00",
+    "lastModifiedBy": "jgao@microsoft.com",
     "lastModifiedByType": "User"
   },
-  "tags": null,
+  "tags": {},
   "template": null,
   "templateLink": null,
   "type": "Microsoft.Resources/deploymentStacks"
@@ -281,8 +283,8 @@ The output is similar to:
 ```output
 Status  DenyStatus Id
 ------  ---------- --
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 ---
@@ -382,13 +384,15 @@ Delete the unmanaged resource group.
 # [CLI](#tab/CLI)
 
 ```azurecli
-az group delete --name 'demoRg'
+az group delete \
+  --name 'demoRg'
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name "demoRg"
+Remove-AzResourceGroup `
+  -Name "demoRg"
 ```
 
 ---
