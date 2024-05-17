@@ -11,9 +11,9 @@ ms.custom: template-how-to
 
 # Device maintenance mode 
 
-Maintenance mode provides ability to isolate network fabric device  from the network in order to perform maintenance operations such as troubleshooting, log collection and diagnostics and executing any supported commands via method D  or method A.  
+Maintenance mode allows isolating a network fabric device from the network to perform various maintenance tasks. These tasks include troubleshooting, log collection, diagnostics, and executing supported commands via method D or method A.  
 
-When user puts device in maintenance mode, all process running on device are gracefully shut down and all physical ports are shut down. During maintenance mode traffic is carried over to the paired device for example if TOR1 undergoes maintenance, paired device TOR2 would carry all traffic with minimal traffic loss during switch over. To switch over traffic no user intervention is required.
+When a user puts a device in maintenance mode, all processes running on the device are gracefully shut down, and all physical ports are disabled. During maintenance mode, traffic is redirected to the paired device. For example, if TOR1 undergoes maintenance, its paired device, TOR2, carries all traffic with minimal loss during the switch. No user intervention is required for the traffic switchover.
 
 ## Key considerations  
 
