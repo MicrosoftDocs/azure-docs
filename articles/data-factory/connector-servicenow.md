@@ -222,7 +222,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are the steps that help you to upgrade your ServiceNow linked service:
 
-1. Create a new linked service by referring to [Linked service properties](linked-service-properties).
+1. Create a new linked service by referring to [Linked service properties](#linked-service-properties).
 2. **Query** in source is changed to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source) and [Condition builder](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html).
 
 

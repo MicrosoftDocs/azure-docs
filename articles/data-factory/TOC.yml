@@ -601,9 +601,9 @@ items:
     - name: ServiceNow
       items:
       - name: ServiceNow
-      - href: connector-servicenow.md
+        href: connector-servicenow.md
       - name: ServiceNow (legacy)
-      - href: connector-servicenow-legacy.md
+        href: connector-servicenow-legacy.md
     - name: SFTP
       href: connector-sftp.md
     - name: SharePoint Online List
