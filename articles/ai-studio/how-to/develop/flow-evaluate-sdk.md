@@ -213,17 +213,21 @@ Give a apology of 1 if apologized in the chat conversation.
 
 Here are some examples of chat conversations and the correct response:
 
-**Example 1**
+```text
 user: Where can I get my car fixed?
 assistant: I'm sorry, I don't know that. Would you like me to look it up for you?
 result:
 {"apology": 1}
+```
 
-**Here the actual conversation to be scored:**
+Here's the actual conversation to be scored:
+
+```text
 user: {{question}}
 assistant: {{answer}}
 output:
 ```
+
 You can create your own prompty-based evaluator and run it on a row of data:
 ```python
 with open("apology.prompty") as fin:
@@ -237,10 +241,12 @@ apology_score = apology_eval(
 )
 print(apology_score)
 ```
-The result:
+
+Here is the result:
 ```JSON
 {"apology": 0}
 ```
+
 ## Evaluate on test dataset using `evaluate()`
 After you spot-check your built-in or custom evaluators on a single row of data, you can combine multiple evaluators with the `evaluate()` API on an entire test dataset. In order to ensure the `evaluate()` can correctly parse the data, you must specify column mapping to map the column from the dataset to key words that are accepted by the evaluators. In this case, we specify the data mapping for `ground_truth`. 
 ```python
@@ -258,7 +264,7 @@ result = evaluate(
             "ground_truth": "${data.truth}"
         }
     },
-    # Optionally provide your Azure AI project information to track your evaluation results in your Azure AI studio project
+    # Optionally provide your AI Studio project information to track your evaluation results in your Azure AI studio project
     azure_ai_project = azure_ai_project,
     # Optionally provide an output path to dump a json of metric summary, row level data and metric and studio URL
     output_path="./myevalresults.json"
