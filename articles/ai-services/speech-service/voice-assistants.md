@@ -2,13 +2,11 @@
 title: Voice assistants overview - Speech service
 titleSuffix: Azure AI services
 description: An overview of the features, capabilities, and restrictions for voice assistants with the Speech SDK.
-services: cognitive-services
 author: trrwilson
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 03/11/2020
+ms.date: 1/22/2024
 ms.author: travisw
 ms.custom: cogserv-non-critical-speech
 ---
@@ -52,8 +50,8 @@ Sample code for creating a voice assistant is available on GitHub. The samples c
 
 Voice assistants that you build by using Speech service can use a full range of customization options.
 
-* [Custom Speech](./custom-speech-overview.md)
-* [Custom Voice](how-to-custom-voice.md)
+* [Custom speech](./custom-speech-overview.md)
+* [Custom voice](professional-voice-create-project.md)
 * [Custom Keyword](keyword-recognition-overview.md)
 
 > [!NOTE]

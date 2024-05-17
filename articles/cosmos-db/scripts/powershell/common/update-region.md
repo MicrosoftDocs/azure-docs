@@ -6,8 +6,8 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/02/2022
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell
 ---
 
 # Update regions for an Azure Cosmos DB account by using PowerShell

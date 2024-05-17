@@ -16,8 +16,8 @@ ms.reviewer: dech
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!IMPORTANT]
-> The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
+> [!WARNING]
+> The Jupyter Notebooks feature of Azure Cosmos DB will be retired March 30, 2024; you will not be able to use built-in Jupyter notebooks from the Azure Cosmos DB account. We recommend using [Visual Studio Code's support for Jupyter notebooks](../nosql/tutorial-create-notebook-vscode.md) or your preferred notebooks client.
 
 This tutorial walks through how to import Jupyter notebooks from a GitHub repository and run them in an Azure Cosmos DB for NoSQL account. After importing the notebooks, you can run, edit them, and persist your changes back to the same GitHub repository.
 

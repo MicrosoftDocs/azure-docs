@@ -5,7 +5,7 @@ author: avanigupta
 ms.author: avgupta
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 02/16/2024
 ---
 
 # Resiliency and disaster recovery
@@ -13,6 +13,9 @@ ms.date: 04/20/2023
 Azure App Configuration is a regional service. Each configuration store is created in a particular Azure region. A region-wide outage affects all stores in that region, and failover between regions isn't available by default. However, Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. Utilizing geo-replication is the recommended solution for high availability.
 
 This article provides general guidance on how you can use multiple replicas across Azure regions to increase the geo-resiliency of your application.
+
+> [!TIP]
+> See [best practices](./howto-best-practices.md#building-applications-with-high-resiliency) for building applications with high resiliency.
 
 ## High-availability architecture
 
@@ -26,7 +29,7 @@ Your application loads its configuration from the more preferred replica. If the
 
 ## Failover between replicas
 
-If you want to leverage automatic failover between replicas, follow [these instructions](./howto-geo-replication.md#use-replicas) to set up failover using App Configuration provider libraries. This is the recommended approach for building resiliency in your application.
+If you want to leverage automatic failover between replicas, follow [these instructions](./howto-geo-replication.md#scale-and-failover-with-replicas) to set up failover using App Configuration provider libraries. This is the recommended approach for building resiliency in your application.
 
 If the App Configuration provider libraries don't meet your requirements, you can still implement your own failover strategy. When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for accessing your configuration.
 

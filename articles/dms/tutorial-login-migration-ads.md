@@ -2,12 +2,14 @@
 title: "Tutorial: Migrate SQL Server logins (preview) to Azure SQL in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server logins (preview) to Azure SQL by using Azure Data Studio and Azure Database Migration Service.
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: randolphwest
-ms.date: 01/31/2023
+ms.date: 10/10/2023
 ms.service: dms
 ms.topic: tutorial
+ms.custom:
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server logins (preview) to Azure SQL in Azure Data Studio
@@ -42,8 +44,8 @@ In this tutorial, you learn how to:
 
 Before you begin the tutorial:
 
-- [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
-- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
+- [Download and install Azure Data Studio](/azure-data-studio/download-azure-data-studio).
+- [Install the Azure SQL Migration extension](/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 
 - Create a target instance of [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) or [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal).
 
@@ -63,23 +65,23 @@ Before you begin the tutorial:
   >
   > Nevertheless, the login migration process can be performed at any time, to update the user mapping synchronization for recently migrated databases.
 
-- For Windows accounts, ensure that the target SQL managed instance has Azure Active Directory read access. This option can be configured via the Azure portal by a user with the Global Administrator role. For more information, see [Provision Azure AD admin (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
+- For Windows accounts, ensure that the target SQL managed instance has Microsoft Entra read access. This option can be configured via the Azure portal by a user with the Global Administrator role. For more information, see [Provision Microsoft Entra admin (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
-  Domain federation between local Active Directory Domain Services (AD DS) and Azure Active Directory (Azure AD) has to be set up by an administrator. This configuration is required so that the on-premises Windows users can be synced with the company Azure AD. The login migrations process would then be able to create an external login for the corresponding Azure AD user in the target managed instance. 
+  Domain federation between local Active Directory Domain Services (AD DS) and Microsoft Entra ID has to be set up by an administrator. This configuration is required so that the on-premises Windows users can be synced with the company Microsoft Entra ID. The login migrations process would then be able to create an external login for the corresponding Microsoft Entra user in the target managed instance. 
   
-  In case the domain federation hasn't been set up yet in your Azure Active Directory tenant, the administrator can refer to the following links to get started:
+  In case the domain federation hasn't been set up yet in your Microsoft Entra tenant, the administrator can refer to the following links to get started:
     - [Tutorial: Basic Active Directory environment](../active-directory/cloud-sync/tutorial-basic-ad-azure.md)
-    - [Tutorial: Integrate a single forest with a single Azure AD tenant](../active-directory/cloud-sync/tutorial-single-forest.md)
-    - [Provision Azure AD admin (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)  
+    - [Tutorial: Integrate a single forest with a single Microsoft Entra tenant](../active-directory/cloud-sync/tutorial-single-forest.md)
+    - [Provision Microsoft Entra admin (SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)  
 
-- Windows account migrations are supported **only for Azure SQL Managed Instance targets**. The Login Migration wizard will show you a prompt, where you have to enter the Azure AD domain name to convert the Windows users to their Azure AD versions. 
+- Windows account migrations are supported **only for Azure SQL Managed Instance targets**. The Login Migration wizard will show you a prompt, where you have to enter the Microsoft Entra domain name to convert the Windows users to their Microsoft Entra versions. 
 
-  For example, if the Windows user is `contoso\username`, and the Azure AD domain name is `contoso.com`, then the converted Azure AD username will be `username@contoso.com`. For this conversion to happen correctly, the domain federation between the local Active Directory and Azure AD should be set up.
+  For example, if the Windows user is `contoso\username`, and the Microsoft Entra domain name is `contoso.com`, then the converted Microsoft Entra username will be `username@contoso.com`. For this conversion to happen correctly, the domain federation between the local Active Directory and Microsoft Entra ID should be set up.
 
   > [!IMPORTANT]  
   > For large number of logins, we recommend using automation. With PowerShell or Azure CLI you can use the `CSVFilePath` switch, that allows you to pass a CSV file type as a list of logins to be migrated.
   >
-  > Bulk login migrations might be time-consuming using Azure Data Studio, as you need to manually select each login to migrate on the the login selection screen.
+  > Bulk login migrations might be time-consuming using Azure Data Studio, as you need to manually select each login to migrate on the login selection screen.
 
 ## Open the Login Migration wizard in Azure Data Studio
 
@@ -111,7 +113,7 @@ To open the Login Migration wizard:
 
       :::image type="content" source="media/tutorial-login-migration-ads/configuration-azure-target-database.png" alt-text="Screenshot that shows Azure SQL Managed Instance connectivity.":::
 
-1. In **Step 2: Select login(s) to migrate**, select the logins that you wish to migrate from the source SQL server to the Azure SQL target. For Windows accounts, you'll be prompted to enter the associated Azure Active Directory domain name. Then select **Migrate** to start the login migration process.
+1. In **Step 2: Select login(s) to migrate**, select the logins that you wish to migrate from the source SQL server to the Azure SQL target. For Windows accounts, you'll be prompted to enter the associated Microsoft Entra domain name. Then select **Migrate** to start the login migration process.
 
    :::image type="content" source="media/tutorial-login-migration-ads/logins-to-migrate.png" alt-text="Screenshot that shows the source logins details.":::
 
@@ -154,9 +156,9 @@ The migration details page displays the different stages involved in the login m
 
   You can verify by logging into the target Azure SQL using one of the logins migrated, by entering the same password as it had on the source SQL Server instance.  
 
-- If you have also migrated Windows accounts, make sure to check the option of **Azure Active Directory - Password** while logging into the target managed instance using the same password that the Windows account had on the source SQL Server. 
+- If you have also migrated Windows accounts, make sure to check the option of **Microsoft Entra ID - Password** while logging into the target managed instance using the same password that the Windows account had on the source SQL Server. 
 
-  The username should be in the format of `username@contoso.com` (the Azure Active Directory domain name provided in Step 2 of the login migration wizard).
+  The username should be in the format of `username@contoso.com` (the Microsoft Entra domain name provided in Step 2 of the login migration wizard).
 
 ## Limitations
 
@@ -182,6 +184,6 @@ The following table describes the current status of the Login migration support 
 ## Next steps
 
 - [Migrate databases with Azure SQL Migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
-- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline.md)
 - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](./tutorial-sql-server-managed-instance-online-ads.md)
 - [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](./tutorial-sql-server-to-virtual-machine-online-ads.md)

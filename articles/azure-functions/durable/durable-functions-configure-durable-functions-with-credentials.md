@@ -1,5 +1,5 @@
 ---
-title: "Configure Durable Functions with Azure Active Directory"
+title: "Configure Durable Functions with Microsoft Entra ID"
 description: Configure Durable Functions with Managed Identity Credentials and Client Secret Credentials.
 author: naiyuantian
 ms.topic: quickstart
@@ -7,14 +7,14 @@ ms.date: 02/01/2023
 ms.author: azfuncdf
 ---
 
-# Configure Durable Functions with Azure Active Directory
+# Configure Durable Functions with Microsoft Entra ID
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions to make authorized requests against Azure AD protected resources, like an Azure Storage account, without the need to manage secrets manually. Using the default Azure storage provider, Durable Functions needs to authenticate against an Azure storage account. In this article, we show how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **managed identity credentials** and **client secret credentials**.
+[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions to make authorized requests against Microsoft Entra protected resources, like an Azure Storage account, without the need to manage secrets manually. Using the default Azure storage provider, Durable Functions needs to authenticate against an Azure storage account. In this article, we show how to configure a Durable Functions app to utilize two kinds of Identity-based connections: **managed identity credentials** and **client secret credentials**.
 
 
 ## Configure your app to use managed identity (recommended)
 
-A [managed identity](../../app-service/overview-managed-identity.md) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. Managed identity is supported in [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) versions **2.7.0** and greater. 
+A [managed identity](../../app-service/overview-managed-identity.md) allows your app to easily access other Microsoft Entra protected resources such as Azure Key Vault. Managed identity is supported in [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) versions **2.7.0** and greater. 
 > [!NOTE]
 > Strictly speaking, a managed identity is only available to apps when executing on Azure. When configured to use identity-based connections, a locally executing app will utilize your **developer credentials** to authenticate with Azure resources. Then, when deployed on Azure, it will utilize your managed identity configuration instead.
 
@@ -75,7 +75,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
    * If **user-assigned identity** should be used, then add the following app settings values in your app configuration:  
      * **AzureWebJobsStorage__credential**: managedidentity 
 
-     * **AzureWebJobsStorage__clientId**: (This is a GUID value that you obtain from the Azure AD portal)
+     * **AzureWebJobsStorage__clientId**: (This is a GUID value that you obtain from the Microsoft Entra admin center)
 
      ![Screenshot of user identity client id.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
 
@@ -83,7 +83,7 @@ Navigate to your Azure function app’s **Configuration** page and perform the f
 
 ## Configure your app to use client secret credentials
 
-Registering a client application in Azure Active Directory (Azure AD) is another way you can configure access to an Azure service. In the following steps, you will learn how to use client secret credentials for authentication to your Azure Storage account. This method can be used by function apps both locally and on Azure. However, client secret credential is **less recommended** than managed identity as it's more complicated to configure and manage and it requires sharing a secret credential with the Azure Functions service.
+Registering a client application in Microsoft Entra ID is another way you can configure access to an Azure service. In the following steps, you will learn how to use client secret credentials for authentication to your Azure Storage account. This method can be used by function apps both locally and on Azure. However, client secret credential is **less recommended** than managed identity as it's more complicated to configure and manage and it requires sharing a secret credential with the Azure Functions service.
 
 ### Prerequisites 
 
@@ -93,8 +93,10 @@ In particular, this quickstart assumes that you have already:
 * Created a Durable Functions project on your local machine or in the Azure portal. 
 
 
-### Register a client application on Azure Active Directory 
-1. Register a client application under Azure Active Directory in the Azure portal according to [these instructions](../../healthcare-apis/register-application.md).
+<a name='register-a-client-application-on-azure-active-directory'></a>
+
+### Register a client application on Microsoft Entra ID 
+1. Register a client application under Microsoft Entra ID in the Azure portal according to [these instructions](../../healthcare-apis/register-application.md).
 
 2. Create a client secret for your client application. In your registered application:  
 
@@ -143,13 +145,12 @@ To run and test in Azure, specify the followings in your Azure function app’s 
    ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
 3. Add a client secret credential by specifying the following values: 
-   * **AzureWebJobsStorage__clientId**: (this is a GUID value found in the Azure AD application page) 
+   * **AzureWebJobsStorage__clientId**: (this is a GUID value found in the Microsoft Entra application page) 
 
-   * **AzureWebJobsStorage__ClientSecret**: (this is the secret value generated in the Azure AD portal in a previous step)
+   * **AzureWebJobsStorage__ClientSecret**: (this is the secret value generated in the Microsoft Entra admin center in a previous step)
 
-   * **AzureWebJobsStorage__tenantId**: (this is the tenant ID that the Azure AD application is registered in)
+   * **AzureWebJobsStorage__tenantId**: (this is the tenant ID that the Microsoft Entra application is registered in)
 
    The client ID and tenant ID values can be found on your client application’s overview page. The client secret value is the one that was carefully saved in the previous step. It will not be available after the page is refreshed. 
    
    ![Screenshot of application's overview page.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png)
-

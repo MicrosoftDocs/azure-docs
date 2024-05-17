@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: [seo-lt-2019, references_regions]
+ms.custom: references_regions
 ms.date: 08/10/2023
 ---
 
@@ -73,7 +73,7 @@ On the activity asset, click the Lineage tab, you can see all the lineage inform
     > [!NOTE] 
     > For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet.
 
-## Next steps
+## Related content
 
 [Catalog lineage user guide](../purview/catalog-lineage-user-guide.md)
 

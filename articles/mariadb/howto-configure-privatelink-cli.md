@@ -11,6 +11,8 @@ ms.date: 06/24/2022
 
 # Create and manage Private Link for Azure Database for MariaDB using CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for MariaDB server with an Azure private endpoint.
 
 > [!NOTE]
@@ -22,7 +24,7 @@ A Private Endpoint is the fundamental building block for private link in Azure. 
 
 - You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -69,7 +71,7 @@ Note the public IP address of the VM. You will use this address to connect to 
 
 ## Create an Azure Database for MariaDB server 
 
-Create a Azure Database for MariaDB with the az mariadb server create command. Remember that the name of your MariaDB Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Create an Azure Database for MariaDB with the az mariadb server create command. Remember that the name of your MariaDB Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
 ```azurecli-interactive
 # Create a server in the resource group 

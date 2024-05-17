@@ -222,7 +222,7 @@ az account set --subscription <subscriptionID>
 az group create --name $resourceGroup --location eastus
 
 # Get object ID of your identity
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user list --upn example@contoso.org --query [0].id --output tsv)
 # Get role definition ID for the Owner role
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
@@ -257,7 +257,7 @@ az managedapp definition create \
 
     ![Add authorization](./media/tutorial-create-managed-app-with-custom-provider/add-authorization.png)
 
-5. Select an Azure Active Directory group to manage the resources, and select **OK**.
+5. Select a Microsoft Entra group to manage the resources, and select **OK**.
 
    ![Add authorization group](./media/tutorial-create-managed-app-with-custom-provider/add-auth-group.png)
 

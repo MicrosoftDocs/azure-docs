@@ -6,20 +6,12 @@ author: akashrao
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 10/01/2023
 ---
 
 # Audit logging in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
-
-> [!IMPORTANT]
-> The pgAudit extension in Azure Cosmos DB for PostgreSQL is currently in preview. This
-> preview version is provided without a service level agreement, and it's not
-> recommended for production workloads. Certain features might not be supported
-> or might have constrained capabilities.
->
-> You can see a complete list of other new features in [preview features](product-updates.md).
 
 Audit logging of database activities in Azure Cosmos DB for PostgreSQL is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session or object audit logging.
 

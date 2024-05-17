@@ -5,11 +5,13 @@ author: irenejoseph
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: irenejoseph
 ---
 
 # Copy data from Azure API for FHIR to Azure Synapse Analytics
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this article, you'll learn three ways to copy data from Azure API for FHIR to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
 

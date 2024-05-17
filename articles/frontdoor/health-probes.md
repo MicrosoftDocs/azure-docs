@@ -6,12 +6,13 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 05/15/2023
 ms.author: duau
 ---
 
 # Health probes
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 > [!NOTE]
 > An *origin* and an *origin group* in this article refers to the backend and backend pool of an Azure Front Door (classic) configuration.

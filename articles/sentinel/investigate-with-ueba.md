@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Investigate incidents with UEBA data
@@ -98,7 +97,7 @@ For example:
     | where Department != "IT"
     ```
 
-- To correlate Azure AD sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
+- To correlate Microsoft Entra sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
 
     ```kusto
     SigninLogs
@@ -109,11 +108,11 @@ For example:
     | where GroupMembership !contains "Developers"
     ```
 
-The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference.
+The **IdentityInfo** table synchronizes with your Microsoft Entra workspace to create a snapshot of your user profile data, such as user metadata, group information, and Microsoft Entra roles assigned to each user. For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 
-Without multi-factor authentication (MFA) enabled, user credentials are vulnerable to attackers looking to compromise attacks with [password spraying](https://www.microsoft.com/security/blog/2020/04/23/protecting-organization-password-spray-attacks/) or [spear phishing](https://www.microsoft.com/security/blog/2019/12/02/spear-phishing-campaigns-sharper-than-you-think/) attempts.
+Without multifactor authentication (MFA) enabled, user credentials are vulnerable to attackers looking to compromise attacks with [password spraying](https://www.microsoft.com/security/blog/2020/04/23/protecting-organization-password-spray-attacks/) or [spear phishing](https://www.microsoft.com/security/blog/2019/12/02/spear-phishing-campaigns-sharper-than-you-think/) attempts.
 
 ### Investigate a password spray incident with UEBA insights
 
@@ -141,7 +140,6 @@ The Investigation graph includes a node for the detonated URL, as well as the fo
 
 - **DetonationVerdict**. The high-level, Boolean determination from detonation. For example, **Bad** means that the side was classified as hosting malware or phishing content.
 - **DetonationFinalURL**. The final, observed landing page URL, after all redirects from the original URL.
-- **DetonationScreenshot**. A screenshot of what the page looked like at the time that the alert was triggered. Select the screenshot to enlarge.
 
 For example:
 

@@ -17,7 +17,7 @@ Open your terminal or command window and create a new directory for your app, th
 mkdir phone-numbers-quickstart && cd phone-numbers-quickstart
 ```
 
-Use a text editor to create a file called phone_numbers_sample.py in the project root directory and add the the following code. We'll be adding the remaining quickstart code in the following sections.
+Use a text editor to create a file called phone_numbers_sample.py in the project root directory and add the following code. We'll be adding the remaining quickstart code in the following sections.
 
 ```python
 import os
@@ -41,13 +41,13 @@ pip install azure-communication-phonenumbers
 
 ## Authenticate the Phone Numbers Client
 
-The `PhoneNumbersClient` is enabled to use Azure Active Directory Authentication. Using the `DefaultAzureCredential` object is the easiest way to get started with Azure Active Directory and you can install it using the `pip install` command.
+The `PhoneNumbersClient` is enabled to use Microsoft Entra authentication. Using the `DefaultAzureCredential` object is the easiest way to get started with Microsoft Entra ID and you can install it using the `pip install` command.
 
 ```console
 pip install azure-identity
 ```
 
-Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered Azure AD application.
+Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered Microsoft Entra application.
 
 For a quick ramp-up on how to get these environment variables, you can follow the [Set up service principals from CLI quickstart](../../identity/service-principal-from-cli.md).
 

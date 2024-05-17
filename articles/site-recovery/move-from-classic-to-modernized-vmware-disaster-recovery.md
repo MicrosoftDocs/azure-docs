@@ -3,8 +3,9 @@ title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from classic to modernized protection architecture.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 04/01/2024
 author: ankitaduttaMSFT
+ms.author: ankitadutta
 ms.custom: engagement-fy23
 ---
 
@@ -57,7 +58,7 @@ Ensure the following for the replicated items you're planning to move:
 - The replicated item isn't replicating the data from Azure to on-premises.  
 - The initial replication isn't under progress and has already been completed.   
 - The replicated item isn't in the ‘resynchronization’ state.  
-- The configuration server’s version is 9.50 or later and its health is in a non critical state.  
+- The configuration server’s version is 9.50 or later and its health is in a noncritical state.  
 - The configuration server has a healthy heartbeat.  
 - The mobility service agent’s version, installed on the source machine, is 9.50 or later.  
 - The Recovery Services vaults with MSI enabled are supported.  
@@ -101,7 +102,7 @@ The same formula is used to calculate time for migration and is shown on the por
 
 ## How to define required infrastructure 
 
-When migrating machines from classic to modernized architecture, you'll need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./deploy-vmware-azure-replication-appliance-modernized.md#sizing-and-capacity) to help define the required infrastructure.  
+When migrating machines from classic to modernized architecture, you'll need to make sure that the required infrastructure has already been registered in the modernized Recovery Services vault. Refer to the replication appliance’s [sizing and capacity details](./replication-appliance-support-matrix.md#sizing-and-capacity) to help define the required infrastructure.  
 
 As a rule, you should set up the same number of replication appliances, as the number of process servers in your classic Recovery Services vault. In the classic vault, if there was one configuration server and four process servers, then you should set up four replication appliances in the modernized Recovery Services vault.  
 
@@ -135,7 +136,7 @@ It is important to note that the classic architecture for disaster recovery will
 |Root credentials should be regularly updated to ensure an error-free upgrade experience.|**Eliminated the requirement to maintain machine’s root credentials** for performing automatic upgrades.
 |Static IP address should be assigned to configuration server to maintain connectivity.|Introduced **FQDN based connectivity** between appliance and on-premises machines.
 |Only that virtual network, which has Site-to-Site VPN or Express Route enabled, should be used.|Removed the need to maintain a Site-to-Site VPN or Express Route for reverse replication.
-| Third party tool, MySQL, also needs to be setup. |Removed the dependency on any third party tools.
+| Third party tool, MySQL, also needs to be set up. |Removed the dependency on any third party tools.
 
 ### What machines should be migrated to the modernized architecture?
 
@@ -189,6 +190,11 @@ So, if there are 10 replicated items, that are replicated using a policy and you
 ### How do I migrate replicated items, which are present in a replication group, also known as multi-vm consistency groups?
 
 All replicated items that are part of a replication group are migrated together. You can select all of them by selecting the replication group or skip them all. If the migration process fails for some machines in a replication group but succeeds for others, a rollback to the classic experience is performed for the failed replicated items and the migration process can be triggered again for those items.
+
+### Can I migrate my classic setup with public endpoint to modernized setup with private endpoint?
+
+No, you can only move classic disaster recovery setup with public endpoint to modernized public endpoint setup. 
+Note that, non-private endpoint to private endpoint migration is not supported, but private endpoint to private endpoint migration is supported.
 
 ## Next steps
 

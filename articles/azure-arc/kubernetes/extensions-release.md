@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 08/22/2023
+ms.date: 04/30/2024
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -10,9 +10,6 @@ description: "See which extensions are currently available for Azure Arc-enabled
 [Cluster extensions for Azure Arc-enabled Kubernetes](conceptual-extensions.md) provide an Azure Resource Manager-driven experience for installation and lifecycle management of different Azure capabilities on top of your cluster. These extensions can be [deployed to your clusters](extensions.md) to enable different scenarios and improve cluster management.
 
 The following extensions are currently available for use with Arc-enabled Kubernetes clusters. All of these extensions are [cluster-scoped](conceptual-extensions.md#extension-scope), except for Azure API Management on Azure Arc, which is namespace-scoped.
-
-> [!NOTE]
-> Installing Azure Arc extensions on [Azure Kubernetes Service (AKS) hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) is currently in preview, with support for the Azure Arc-enabled Open Service Mesh, Azure Key Vault Secrets Provider, Flux (GitOps) and Microsoft Defender for Cloud extensions.
 
 ## Azure Monitor Container Insights
 
@@ -30,7 +27,7 @@ For more information, see [Understand Azure Policy for Kubernetes clusters](../.
 
 ## Azure Key Vault Secrets Provider
 
-- **Supported distributions**: AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine,  Canonical Kubernetes Distribution, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid
+- **Supported distributions**: AKS on Azure Stack HCI,  AKS enabled by Azure Arc, Cluster API Azure, Google Kubernetes Engine,  Canonical Kubernetes Distribution, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a CSI volume. For Azure Arc-enabled Kubernetes clusters, you can install the Azure Key Vault Secrets Provider extension to fetch secrets.
 
@@ -38,7 +35,7 @@ For more information, see [Use the Azure Key Vault Secrets Provider extension to
 
 ## Microsoft Defender for Containers
 
-- **Supported distributions**: AKS hybrid clusters provisioned from Azure, Cluster API Azure, Azure Red Hat OpenShift, Red Hat OpenShift (version 4.6 or newer), Google Kubernetes Engine Standard, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid, Rancher Kubernetes Engine, Canonical Kubernetes Distribution
+- **Supported distributions**: AKS enabled by Azure Arc, Cluster API Azure, Azure Red Hat OpenShift, Red Hat OpenShift (version 4.6 or newer), Google Kubernetes Engine Standard, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid, Rancher Kubernetes Engine, Canonical Kubernetes Distribution
 
 Microsoft Defender for Containers is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. It gathers information related to security like audit log data from the Kubernetes cluster, and provides recommendations and threat alerts based on gathered data.
 
@@ -50,7 +47,7 @@ For more information, see [Enable Microsoft Defender for Containers](../../defen
 
 ## Azure Arc-enabled Open Service Mesh
 
-- **Supported distributions**: AKS, AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine, Canonical Kubernetes Distribution, Rancher Kubernetes Engine, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid
+- **Supported distributions**: AKS, AKS on Azure Stack HCI,  AKS enabled by Azure Arc, Cluster API Azure, Google Kubernetes Engine, Canonical Kubernetes Distribution, Rancher Kubernetes Engine, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
@@ -104,9 +101,9 @@ For more information, see [Deploy an Azure API Management gateway on Azure Arc (
 
 - **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. Not currently supported for ARM 64.
 
-The AzureML extension lets you deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters.
+The Azure Machine Learning extension lets you deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters.
 
-For more information, see [Introduction to Kubernetes compute target in AzureML](../../machine-learning/how-to-attach-kubernetes-anywhere.md) and [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../../machine-learning/how-to-deploy-kubernetes-extension.md).
+For more information, see [Introduction to Kubernetes compute target in Azure Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) and [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](../../machine-learning/how-to-deploy-kubernetes-extension.md).
 
 ## Flux (GitOps)
 
@@ -116,87 +113,81 @@ For more information, see [Introduction to Kubernetes compute target in AzureML]
 
 For more information, see [Tutorial: Deploy applications using GitOps with Flux v2](tutorial-use-gitops-flux2.md).
 
-The currently supported versions of the `microsoft.flux` extension are described below. The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
+The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
 > [!IMPORTANT]
 > Eventually, a major version update (v2.x.x) for the `microsoft.flux` extension will be released. When this happens, clusters won't be auto-upgraded to this version, since [auto-upgrade is only supported for minor version releases](extensions.md#upgrade-extension-instance). If you're still using an older API version when the next major version is released, you'll need to update your manifests to the latest API versions, perform any necessary testing, then upgrade your extension manually. For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
 
-### 1.7.6 (August 2023)
-
 > [!NOTE]
-> We have started to roll out this release across regions. We'll remove this note once version 1.7.6 is available to all supported regions.
+> When a new version of the `microsoft.flux` extension is released, it may take several days for the new version to become available in all regions.
 
-Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
+### 1.9.1 (April 2024)
 
-- source-controller: v1.0.1
-- kustomize-controller: v1.0.1
-- helm-controller: v0.35.0
-- notification-controller: v1.0.0
-- image-automation-controller: v0.35.0
-- image-reflector-controller: v0.29.1
+Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
 
-Changes made for this version:
-
-- Configurations with `ssh` authentication type were intermittently failing to reconcile with GitHub due to an updated [RSA SSH host key](https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/). This release updates the SSH key entries to match the ones mentioned in [GitHub's SSH key fingerprints documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints).
-
-### 1.7.5 (August 2023)
-
-Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
-
-- source-controller: v1.0.1
-- kustomize-controller: v1.0.1
-- helm-controller: v0.35.0
-- notification-controller: v1.0.0
-- image-automation-controller: v0.35.0
-- image-reflector-controller: v0.29.1
+- source-controller: v1.2.5
+- kustomize-controller: v1.1.1
+- helm-controller: v0.36.2
+- notification-controller: v1.1.0
+- image-automation-controller: v0.36.1
+- image-reflector-controller: v0.30.0
 
 Changes made for this version:
 
-- Upgrades Flux to [v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
-- Promotes some APIs to v1. This change should not affect any existing Flux configurations that have already been deployed. Previous API versions will still be supported in all `microsoft.flux` v.1.x.x releases. However, we recommend that you update the API versions in your manifests as soon as possible. For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
-- Adds support for [Helm drift detection](tutorial-use-gitops-flux2.md#helm-drift-detection) and [OOM watch](tutorial-use-gitops-flux2.md#helm-oom-watch).
+- The log-level parameters for controllers (including `fluxconfig-agent` and `fluxconfig-controller`) are now customizable. For more information, see [Configurable log-level parameters](tutorial-use-gitops-flux2.md#configurable-log-level-parameters).
+- Helm chart changes to expose new SSH host key algorithm to connect to Azure DevOps. For more information, see [Azure DevOps SSH-RSA deprecation](tutorial-use-gitops-flux2.md#azure-devops-ssh-rsa-deprecation).
 
-### 1.7.4 (June 2023)
+### 1.8.4 (April 2024)
 
-Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
+Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
 
-- source-controller: v0.36.1
-- kustomize-controller: v0.35.1
-- helm-controller: v0.31.2
-- notification-controller: v0.33.0
-- image-automation-controller: v0.31.0
-- image-reflector-controller: v0.26.1
-
-Changes made for this version:
-
-- Adds support for [`wait`](https://fluxcd.io/flux/components/kustomize/kustomization/#wait) and [`postBuild`](https://fluxcd.io/flux/components/kustomize/kustomization/#post-build-variable-substitution) properties as optional parameters for kustomization. By default, `wait` will be set to `true` for all Flux configurations, and `postBuild` will be null. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L55))
-
-- Adds support for optional properties [`waitForReconciliation`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1299C14-L1299C35) and [`reconciliationWaitDuration`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1304).
-
-   By default, `waitForReconciliation` is set to false, so when creating a flux configuration, the `provisioningState` returns `Succeeded` once the configuration reaches the cluster and the ARM template or Azure CLI command successfully exits. However, the actual state of the objects being deployed as part of the configuration is tracked by `complianceState`, which can be viewed in the portal or by using Azure CLI. Setting `waitForReconciliation` to true and specifying a `reconciliationWaitDuration` means that the template or CLI deployment will wait for `complianceState` to reach a terminal state (success or failure) before exiting. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L72))
-
-### 1.7.3 (April 2023)
-
-Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
-
-- source-controller: v0.36.1
-- kustomize-controller: v0.35.1
-- helm-controller: v0.31.2
-- notification-controller: v0.33.0
-- image-automation-controller: v0.31.0
-- image-reflector-controller: v0.26.1
+- source-controller: v1.2.5
+- kustomize-controller: v1.1.1
+- helm-controller: v0.36.2
+- notification-controller: v1.1.0
+- image-automation-controller: v0.36.1
+- image-reflector-controller: v0.30.0
 
 Changes made for this version:
 
-- Upgrades Flux to [v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
-- Fixes issue causing resources that were deployed as part of Flux configuration to persist even when the configuration was deleted with prune flag set to `true`
-- Kubelet identity support for image-reflector-controller by [installing the microsoft.flux extension in a cluster with kubelet identity enabled](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-kubelet-identity-enabled) 
+- Updated source-controller to v1.2.5
+
+### 1.8.3 (March 2024)
+
+Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
+
+- source-controller: v1.1.2
+- kustomize-controller: v1.1.1
+- helm-controller: v0.36.2
+- notification-controller: v1.1.0
+- image-automation-controller: v0.36.1
+- image-reflector-controller: v0.30.0
+
+Changes made for this version:
+
+- The log-level parameters for controllers are now customizable. For more information, see [Configurable log-level parameters](tutorial-use-gitops-flux2.md#configurable-log-level-parameters).
 
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
 [Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. The Dapr extension eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters.
 
 For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](../../aks/dapr.md).
+
+## Azure AI Video Indexer
+
+- **Supported distributions**: All Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters
+
+Azure AI Video Indexer enabled by Arc runs video and audio analysis on edge devices. The solution is designed to run on Azure Stack Edge Profile, a heavy edge device, and supports many video formats, including MP4 and other common formats. It supports several languages in all basic audio-related models.
+
+For more information, see [Try Azure AI Video Indexer enabled by Arc](/azure/azure-video-indexer/azure-video-indexer-enabled-by-arc-quickstart).
+
+## Edge Storage Accelerator
+
+- **Supported distributions**: AKS enabled by Azure Arc, AKS Edge Essentials, Ubuntu
+
+[Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Azure Arc Services.
+
+For more information, see [What is Edge Storage Accelerator?](../edge-storage-accelerator/overview.md).
 
 ## Next steps
 

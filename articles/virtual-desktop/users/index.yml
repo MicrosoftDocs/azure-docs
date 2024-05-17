@@ -5,9 +5,8 @@ summary: Connecting to Azure Virtual Desktop made easy.
 
 metadata:
   title: Azure Virtual Desktop user documentation
-  description: With Azure Virtual Desktop, you can use Windows 10 Enterprise in the cloud.
+  description: Access your Windows desktop and applications from virtually anywhere, fully optimized for Windows 11 and Microsoft 365.
   ms.service: virtual-desktop
-  services: virtual-desktop
   ms.topic: landing-page
   author: dknappettmsft
   ms.author: daknappe
@@ -17,51 +16,61 @@ metadata:
 
 landingContent:
   # Card
-  - title: Remote Desktop clients
+  - title: Ways to connect
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Windows App?
+            url: /windows-app/
       - linkListType: overview
         links:
           - text: Remote Desktop clients overview
             url: remote-desktop-clients-overview.md
 
   # Card
-  - title: Connect to Azure Virtual Desktop
+  - title: Connect to Azure Virtual Desktop with Windows App
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started with Windows App to connect to devices and apps
+            url: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
       - linkListType: how-to-guide
         links:
-          - text: Windows Desktop client
-            url: connect-windows.md
-          - text: Azure Virtual Desktop Store app for Windows
-            url: connect-windows-azure-virtual-desktop-app.md
-          - text: Web client
-            url: connect-web.md
-          - text: macOS client
-            url: connect-macos.md
-          - text: iOS/iPadOS client
-            url: connect-ios-ipados.md
-          - text: Android/Chrome OS client
-            url: connect-android-chrome-os.md
-          - text: Remote Desktop app for Windows
-            url: connect-microsoft-store.md
-          - text: Thin clients
-            url: connect-thin-clients.md
+          - text: Device actions
+            url: /windows-app/device-actions
+          - text: Configure display settings
+            url: /windows-app/display-settings
+          - text: Manage user accounts
+            url: /windows-app/user-account-settings-add-remove-manage
+          - text: Use keyboard, mouse, touch, and pen
+            url: /windows-app/input-keyboard-mouse-touch-pen
+          - text: Redirect local devices, audio, and folders
+            url: /windows-app/device-audio-folder-redirection-teams
 
   # Card
-  - title: Use client features
+  - title: Connect to Azure Virtual Desktop with the Remote Desktop client
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect from Windows
+            url: connect-windows.md
+          - text: Connect from a web browser
+            url: connect-web.md
+          - text: Connect from macOS
+            url: connect-macos.md
+          - text: Connect from iOS/iPadOS
+            url: connect-ios-ipados.md
+          - text: Connect from Android/Chrome OS
+            url: connect-android-chrome-os.md
       - linkListType: how-to-guide
         links:
-          - text: Windows Desktop client
+          - text: Windows client features
             url: client-features-windows.md
-          - text: Azure Virtual Desktop Store app for Windows
-            url: client-features-windows-azure-virtual-desktop-app.md
-          - text: Web client
+          - text: Web browser client features
             url: client-features-web.md
-          - text: macOS client
+          - text: macOS client features
             url: client-features-macos.md
-          - text: iOS/iPadOS client
+          - text: iOS/iPadOS client features
             url: client-features-ios-ipados.md
-          - text: Android client
+          - text: Android client features
             url: client-features-android-chrome-os.md
-          - text: Remote Desktop app for Windows
-            url: client-features-microsoft-store.md

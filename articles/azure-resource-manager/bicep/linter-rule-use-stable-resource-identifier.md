@@ -3,7 +3,7 @@ title: Linter rule - use stable resource identifier
 description: Linter rule - use stable resource identifier
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/03/2022
+ms.date: 03/20/2024
 ---
 
 # Linter rule - use stable resource identifier

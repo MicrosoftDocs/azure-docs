@@ -2,7 +2,7 @@
 title: Deploy a template spec as a linked template
 description: Learn how to deploy an existing template spec in a linked deployment.
 ms.topic: conceptual
-ms.date: 05/04/2021 
+ms.date: 03/20/2024
 ---
 
 # Tutorial: Deploy a template spec as a linked template

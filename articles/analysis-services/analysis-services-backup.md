@@ -1,11 +1,11 @@
 ---
 title: Learn about Azure Analysis Services database backup and restore | Microsoft Docs
 description: This article describes how to backup and restore model metadata and data from an Azure Analysis Services database.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 01/24/2023
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan
 ms.custom: references_regions 
 
@@ -79,7 +79,7 @@ When restoring, your backup file must be in the storage account you've configure
 
 
 > [!NOTE]
-> If you're restoring from an on-premises server, you must remove all the domain users from the model's roles and add them back to the roles as Azure Active Directory users.
+> If you're restoring from an on-premises server, you must remove all the domain users from the model's roles and add them back to the roles as Microsoft Entra users.
 > 
 > 
 

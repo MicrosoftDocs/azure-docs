@@ -1,25 +1,33 @@
 ---
 title: Configure advanced security for Microsoft Sentinel playbooks
 description: This article shows how to define an access restriction policy for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 12/27/2022
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Configure advanced security for Microsoft Sentinel playbooks
-
-> [!IMPORTANT]
->
-> The new version of access restriction policies is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article shows how to define an [access restriction policy](../app-service/overview-access-restrictions.md) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. Defining this policy will ensure that **only Microsoft Sentinel will have access** to the Standard logic app containing your playbook workflows.
 
 Learn more about [using private endpoints to secure traffic between Standard logic apps and Azure virtual networks](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
+> [!IMPORTANT]
+>
+> The new version of access restriction policies is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+
 ## Define an access restriction policy
 
-1. From the Microsoft Sentinel navigation menu, select **Automation**. Select the **Active playbooks** tab.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
+
+1. On the **Automation** page, select the **Active playbooks** tab.
 
 1. Filter the list for Standard-plan apps.
     1. Select the **Plan** filter.

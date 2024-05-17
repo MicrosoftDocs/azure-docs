@@ -6,11 +6,10 @@ summary: Learn how to use SQL Server Stretch Database to migrate cold data trans
 metadata:
   title: Azure SQL Server Stretch Database documentation
   description: Learn how to use SQL Server Stretch Database to migrate cold data transparently and securely to the Azure cloud. You can set up cost-effective availability for databases with infrequently used data without requiring changes to existing queries or applications.
-  services: sql-server-stretch-database
   ms.service: sql-server-stretch-database
   ms.topic: landing-page
-  author: craigg-msft
-  ms.author: craigg
+  author: rothja
+  ms.author: jroth
   ms.date: 03/30/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new

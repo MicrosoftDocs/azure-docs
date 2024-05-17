@@ -1,18 +1,19 @@
 ---
 title: Create a chaos experiment using a Chaos Mesh fault with Azure CLI
-description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio Preview with the Azure CLI.
-author: prasha-microsoft 
+description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio with the Azure CLI.
+author: prasha-microsoft
 ms.topic: how-to
-ms.date: 04/21/2022
-ms.author: prashabora
+ms.date: 04/25/2024
+ms.author: abbyweisberg
+ms.reviewer: nikhilkaul
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
 # Create a chaos experiment that uses a Chaos Mesh fault with the Azure CLI
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause periodic Azure Kubernetes Service (AKS) pod failures on a namespace by using a chaos experiment and Azure Chaos Studio Preview. Running this experiment can help you defend against service unavailability when there are sporadic failures.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause periodic Azure Kubernetes Service (AKS) pod failures on a namespace by using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against service unavailability when there are sporadic failures.
 
 Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source chaos engineering platform for Kubernetes, to inject faults into an AKS cluster. Chaos Mesh faults are [service-direct](chaos-studio-tutorial-aks-portal.md) faults that require Chaos Mesh to be installed on the AKS cluster. You can use these same steps to set up and run an experiment for any AKS Chaos Mesh fault.
 
@@ -23,7 +24,7 @@ Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source cha
 
 ## Limitations
 
-* You can use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md). Any commands issued to the private cluster, including the steps in this article to set up Chaos Mesh, need to follow the [private cluster guidance](../aks/private-clusters.md). Recommended methods include connecting from a VM in the same virtual network or using the [AKS command invoke](../aks/command-invoke.md) feature.
+* You can use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md). Any commands issued to the private cluster, including the steps in this article to set up Chaos Mesh, need to follow the [private cluster guidance](../aks/private-clusters.md). Recommended methods include connecting from a VM in the same virtual network or using the [AKS command invoke](../aks/access-private-cluster.md) feature.
 * AKS Chaos Mesh faults are only supported on Linux node pools.
 * Currently, Chaos Mesh faults don't work if the AKS cluster has [local accounts disabled](../aks/manage-local-accounts-managed-azure-ad.md).
 * If your AKS cluster is configured to only allow authorized IP ranges, you need to allow Chaos Studio's IP ranges. You can find them by querying the `ChaosStudio` [service tag with the Service Tag Discovery API or downloadable JSON files](../virtual-network/service-tags-overview.md). 
@@ -74,25 +75,27 @@ You can also [use the installation instructions on the Chaos Mesh website](https
 
 Chaos Studio can't inject faults against a resource unless that resource is added to Chaos Studio first. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. AKS clusters have only one target type (service-direct), but other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Each type of Chaos Mesh fault is represented as a capability like PodChaos, NetworkChaos, and IOChaos.
 
-1. Create a target by replacing `$RESOURCE_ID` with the resource ID of the AKS cluster you're adding.
+1. Create a target by replacing `$SUBSCRIPTION_ID`, `$resourceGroupName`, and `$AKS_CLUSTER_NAME` with the relevant strings of the AKS cluster you're adding.
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$resourceGroupName/providers/Microsoft.ContainerService/managedClusters/$AKS_CLUSTER_NAME/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh?api-version=2024-01-01" --body "{\"properties\":{}}"
     ```
 
-1. Create the capabilities on the target by replacing `$RESOURCE_ID` with the resource ID of the AKS cluster you're adding. Replace `$CAPABILITY` with the [name of the fault capability you're enabling](chaos-studio-fault-library.md).
+2. Create the capabilities on the target by replacing `$SUBSCRIPTION_ID`, `$resourceGroupName`, and `$AKS_CLUSTER_NAME` with the relevant strings of the AKS cluster you're adding.
+
+Replace `$CAPABILITY` with the ["Capability Name" of the fault you're adding](chaos-studio-fault-library.md).
     
-    ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/$CAPABILITY?api-version=2021-09-15-preview"  --body "{\"properties\":{}}"
-    ```
+```azurecli-interactive
+az rest --method put --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$resourceGroupName/providers/Microsoft.ContainerService/managedClusters/$AKS_CLUSTER_NAME/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/$CAPABILITY?api-version=2024-01-01"  --body "{\"properties\":{}}"
+```
 
-    For example, if you're enabling the `PodChaos` capability:
+**Here's an example of enabling the `PodChaos` capability for your reference:**
 
-    ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.ContainerService/managedClusters/myCluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/PodChaos-2.1?api-version=2021-09-15-preview"  --body "{\"properties\":{}}"
-    ```
+```azurecli-interactive
+az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.ContainerService/managedClusters/myCluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh/capabilities/PodChaos-2.1?api-version=2024-01-01"  --body "{\"properties\":{}}"
+```
 
-    This step must be done for each capability you want to enable on the cluster.
+This step must be done for **each*** capability you want to enable on the cluster.
 
 You've now successfully added your AKS cluster to Chaos Studio.
 
@@ -131,10 +134,14 @@ Now you can create your experiment. A chaos experiment defines the actions you w
         ```json
         {"action":"pod-failure","mode":"all","selector":{"namespaces":["default"]}}
         ```
-    1. Use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec.
+    1. Use a [JSON string escape tool like this one](https://www.freeformatter.com/json-escape.html) to escape the JSON spec, or change the double-quotes to single-quotes.
     
         ```json
         {\"action\":\"pod-failure\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]}}
+        ```
+
+        ```json
+        {'action':'pod-failure','mode':'all','selector':{'namespaces':['default']}}
         ```
 
 1. Create your experiment JSON by starting with the following JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update), the [fault library](chaos-studio-fault-library.md), and the `jsonSpec` created in the previous step.
@@ -189,7 +196,7 @@ Now you can create your experiment. A chaos experiment defines the actions you w
 1. Create the experiment by using the Azure CLI. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment. Make sure you've saved and uploaded your experiment JSON. Update `experiment.json` with your JSON filename.
 
     ```azurecli-interactive
-    az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2021-09-15-preview --body @experiment.json
+    az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2023-11-01 --body @experiment.json
     ```
 
     Each experiment creates a corresponding system-assigned managed identity. Note the principal ID for this identity in the response for the next step.
@@ -197,10 +204,17 @@ Now you can create your experiment. A chaos experiment defines the actions you w
 ## Give the experiment permission to your AKS cluster
 When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully.
 
-Give the experiment access to your resources by using the following command. Replace `$EXPERIMENT_PRINCIPAL_ID` with the principal ID from the previous step. Replace `$RESOURCE_ID` with the resource ID of the target resource. In this case, it's the AKS cluster resource ID. Run this command for each resource targeted in your experiment.
+1. Retrieve the `$EXPERIMENT_PRINCIPAL_ID` by running the following command and copying the `PrincipalID` from the response. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment. 
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Service Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
+az rest --method get --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2024-01-01
+```
+
+2. Give the experiment access to your resources by using the following command. Replace `$EXPERIMENT_PRINCIPAL_ID` with the principal ID from the previous step. Replace `$SUBSCRIPTION_ID`, `$resourceGroupName`, and `$AKS_CLUSTER_NAME` with the relevant strings of the AKS cluster.
+
+
+```azurecli-interactive
+az role assignment create --role "Azure Kubernetes Service Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope subscriptions/$SUBSCRIPTION_ID/resourceGroups/$resourceGroupName/providers/Microsoft.ContainerService/managedClusters/$AKS_CLUSTER_NAME
 ```
 
 ## Run your experiment
@@ -209,7 +223,7 @@ You're now ready to run your experiment. To see the effect, we recommend that yo
 1. Start the experiment by using the Azure CLI. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment.
 
     ```azurecli-interactive
-    az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2021-09-15-preview
+    az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2024-01-01
     ```
 
 1. The response includes a status URL that you can use to query experiment status as the experiment runs.

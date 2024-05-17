@@ -254,10 +254,10 @@ az login
 az account set --subscription $SUBSCRIPTION 
 
 # Create the resource group
-az group create -n $RG_NAME -l $LOCATION
+az group create --name $RG_NAME --location $LOCATION
 
 # Deploy the cluster in your designated Edge Zone
-az aks create -g $RG_NAME -n $CLUSTER_NAME --edge-zone $EDGE_ZONE_NAME --location $LOCATION
+az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --edge-zone $EDGE_ZONE_NAME --location $LOCATION
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -303,7 +303,7 @@ In this section you'll learn how to deploy a Kubernetes cluster in the Edge Zone
 
 7. On the **Access** page, configure the following options:
 
-    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
     By default, *Basic* networking is used, and [Container insights](../azure-monitor/containers/container-insights-overview.md) is enabled.
@@ -346,3 +346,4 @@ After deploying your AKS cluster in an Edge Zone, learn about how you can [confi
 
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [preset-config]: ./quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
+

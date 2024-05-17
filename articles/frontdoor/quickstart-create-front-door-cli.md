@@ -6,15 +6,18 @@ author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 3/28/2023
 ms.author: duau
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application using Azure CLI
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Get started with Azure Front Door by using Azure CLI to create a highly available and high-performance global web application.
 

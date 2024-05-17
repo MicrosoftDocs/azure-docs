@@ -116,7 +116,7 @@ While setting tags on the blobs, there are other permissions('t' for tags) with 
 
 `--output-level`  (string)     Define the output verbosity. Available levels: essential, quiet. (default "default")
 
-`--trusted-microsoft-suffixes`    (string)    Specifies other domain suffixes where Azure Active Directory log in tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies other domain suffixes where Microsoft Entra ID log in tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

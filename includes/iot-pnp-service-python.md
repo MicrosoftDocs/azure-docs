@@ -12,11 +12,13 @@ IoT Plug and Play simplifies IoT by enabling you to interact with a device's mod
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
+To complete this tutorial, you need Python installed on your development machine. Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. You can check your Python version with the following command:  
 
 ```cmd/sh
 python --version
 ```
+
+You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/).
 
 In your local Python environment, install the **azure-iot-device** package as follows:
 
@@ -71,11 +73,11 @@ In this tutorial, you use a sample IoT solution in Python to interact with the s
 1. Open the *registry_manager_pnp_sample.py* file and review the code. This sample shows how to use the **IoTHubRegistryManager** class to interact with your IoT Plug and Play device.
 
 > [!NOTE]
-> These service samples use the **IoTHubRegistryManager** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot-develop/concepts-developer-guide-service.md).
+> These service samples use the **IoTHubRegistryManager** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot/concepts-developer-guide-service.md).
 
 ### Get the device twin
 
-In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.

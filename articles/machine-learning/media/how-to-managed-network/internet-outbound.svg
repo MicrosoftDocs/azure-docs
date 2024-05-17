@@ -29,8 +29,8 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="2.0899411"
-     inkscape:cx="291.39578"
-     inkscape:cy="248.5716"
+     inkscape:cx="384.69984"
+     inkscape:cy="249.05008"
      inkscape:window-width="3440"
      inkscape:window-height="1369"
      inkscape:window-x="-8"
@@ -420,6 +420,15 @@
          height="333375"
          id="rect5-6" />
     </clipPath>
+    <clipPath
+       id="clip4-0">
+      <rect
+         x="0"
+         y="0"
+         width="202660"
+         height="190500"
+         id="rect4-0" />
+    </clipPath>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -544,7 +553,8 @@
         <g
            clip-path="url(#clip4)"
            transform="scale(1.034,1)"
-           id="g42">
+           id="g42"
+           style="display:inline">
           <use
              width="100%"
              height="100%"
@@ -552,6 +562,18 @@
              transform="scale(4053.19)"
              id="use42" />
         </g>
+      </g>
+      <g
+         clip-path="url(#clip4-0)"
+         transform="matrix(1.0855656e-4,0,0,1.04987e-4,339.9285,375.83578)"
+         id="g42-5"
+         style="display:inline">
+        <use
+           width="100%"
+           height="100%"
+           xlink:href="#img3"
+           transform="scale(4053.19)"
+           id="use42-2" />
       </g>
       <g
          id="g48"
@@ -1307,6 +1329,81 @@
           </g>
         </g>
       </g>
+      <text
+         font-family="Aptos, Aptos_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="11px"
+         id="text1"
+         x="485.86725"
+         y="457.35727"><tspan
+           sodipodi:role="line"
+           id="tspan5"
+           x="485.86725"
+           y="457.35727"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe UI', 'Segoe UI_MSFontService', sans-serif;-inkscape-font-specification:'Segoe UI, Segoe UI_MSFontService, sans-serif'">(*) Private endpoints are provisioned</tspan><tspan
+           sodipodi:role="line"
+           x="485.86725"
+           y="471.23462"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe UI', 'Segoe UI_MSFontService', sans-serif;-inkscape-font-specification:'Segoe UI, Segoe UI_MSFontService, sans-serif'"
+           id="tspan6">if the public network access flag of</tspan><tspan
+           sodipodi:role="line"
+           x="485.86725"
+           y="485.11194"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe UI', 'Segoe UI_MSFontService', sans-serif;-inkscape-font-specification:'Segoe UI, Segoe UI_MSFontService, sans-serif'"
+           id="tspan7">the destination resource is disabled.</tspan></text>
+      <text
+         font-family="Aptos, Aptos_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="11px"
+         id="text10"
+         x="478.71591"
+         y="297.4198"><tspan
+           sodipodi:role="line"
+           x="478.71591"
+           y="297.4198"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe UI', 'Segoe UI_MSFontService', sans-serif;-inkscape-font-specification:'Segoe UI, Segoe UI_MSFontService, sans-serif'"
+           id="tspan10">(*)</tspan></text>
+      <text
+         font-family="Aptos, Aptos_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="11px"
+         id="text12"
+         x="551.42126"
+         y="297.4198"><tspan
+           sodipodi:role="line"
+           x="551.42126"
+           y="297.4198"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe UI', 'Segoe UI_MSFontService', sans-serif;-inkscape-font-specification:'Segoe UI, Segoe UI_MSFontService, sans-serif'"
+           id="tspan12">(*)</tspan></text>
+      <text
+         font-family="Aptos, Aptos_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="11px"
+         id="text13"
+         x="627.10632"
+         y="297.4198"><tspan
+           sodipodi:role="line"
+           x="627.10632"
+           y="297.4198"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe UI', 'Segoe UI_MSFontService', sans-serif;-inkscape-font-specification:'Segoe UI, Segoe UI_MSFontService, sans-serif'"
+           id="tspan13">(*)</tspan></text>
+      <text
+         font-family="Aptos, Aptos_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="11px"
+         id="text14"
+         x="452.49432"
+         y="240.47237"><tspan
+           sodipodi:role="line"
+           x="452.49432"
+           y="240.47237"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Segoe UI', 'Segoe UI_MSFontService', sans-serif;-inkscape-font-specification:'Segoe UI, Segoe UI_MSFontService, sans-serif'"
+           id="tspan14">(*)</tspan></text>
     </g>
+    <path
+       d="m 49.660615,61.517899 15.504732,-1.9e-5 v -0.278627 l -15.504732,1.9e-5 z m 15.221474,0.696544 1.699464,-0.835878 -1.699464,-0.835875 z"
+       id="path102-1"
+       style="stroke-width:0.210694"
+       sodipodi:nodetypes="ccccccccc" />
   </g>
 </svg>

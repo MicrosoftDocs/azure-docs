@@ -1,20 +1,23 @@
 ---
-title: Connect Azure Database for PostgreSQL - Flexible Server with Power BI 
-description: This article shows how to build Power BI reports from data on your Azure Database for PostgreSQL - Flexible Server.
+title: Connect with Power BI
+description: This article shows how to build Power BI reports from data on your Azure Database for PostgreSQL - Flexible Server instance.
+author: techieari
+ms.author: arianap
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: arianapadilla
-ms.author: arianap
-ms.date: 04/26/2023
 ---
 
 # Import data from Azure Database for PostgreSQL - Flexible Server in Power BI 
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 > [!NOTE]
 > This article applies to Power BI Desktop only. Currently Power Query online or Power BI Service is **not supported**. 
 
-With Power BI Desktop, you can visually explore your data through a free-form drag-and-drop canvas, a broad range of modern data visualizations, and an easy-to-use report authoring experiences. You can import directly from the tables or import from a SELECT query. In this quickstart, you'll learn how to connect with Azure Database for PostgreSQL - Flexible Server with Power BI Desktop. 
+With Power BI Desktop, you can visually explore your data through a free-form drag-and-drop canvas, a broad range of modern data visualizations, and an easy-to-use report authoring experiences. You can import directly from the tables or import from a SELECT query. In this quickstart, you'll learn how to connect with Azure Database for PostgreSQL flexible server with Power BI Desktop. 
 
 ## Prerequisites
 
@@ -22,7 +25,7 @@ With Power BI Desktop, you can visually explore your data through a free-form dr
     
 ## Connect with Power BI desktop from Azure portal 
 
-Get the connection information needed to connect to the Azure Database for PostgreSQL flexible server. You need the fully qualified server name and sign in credentials.
+Get the connection information needed to connect to the Azure Database for PostgreSQL flexible server instance. You need the fully qualified server name and sign in credentials.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you've created (such as **mydemoserverpbi**).
@@ -37,19 +40,19 @@ Get the connection information needed to connect to the Azure Database for Postg
    :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-2.png" alt-text="Screenshot of downloading Power BI file for the database.":::
    
 7. Open the file in Power BI desktop.
-8. Switch to **Database** tab to provide the username and password for your database server. **Note Windows authentication is not supported for Azure database for PostgreSQL Flexible Server.**
+8. Switch to **Database** tab to provide the username and password for your database server. **Note Windows authentication is not supported for Azure Database for PostgreSQL flexible server.**
    
-   :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-3.png" alt-text="Screenshot of entering credentials to connect with PostgreSQL database."::: 
+   :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-3.png" alt-text="Screenshot of entering credentials to connect with Azure Database for PostgreSQL flexible server database."::: 
   
 9. In **Navigator**, select the data you require, then either load or transform the data.
 
-   :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-4.png" alt-text="Screenshot of navigator to view PostgreSQL tables."::: 
+   :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-4.png" alt-text="Screenshot of navigator to view Azure Database for PostgreSQL flexible server tables."::: 
 
-## Connect to PostgreSQL database from Power BI Desktop
+## Connect to Azure Database for PostgreSQL flexible server database from Power BI Desktop
 
-You can connect to Azure database for PostgreSQL Flexible server with Power BI desktop directly without the use of Azure portal. 
+You can connect to Azure Database for PostgreSQL flexible server with Power BI desktop directly without the use of Azure portal. 
 
-### Get the PostgreSQL connection information 
+### Get the Azure Database for PostgreSQL flexible server connection information 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you've created (such as **mydemoserverpbi**).
@@ -57,7 +60,7 @@ You can connect to Azure database for PostgreSQL Flexible server with Power BI d
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
 5. Go to **Databases** page to find the database you want to connect to. Power BI desktop supports adding a connection to a single database and hence providing a database name is required for importing data. 
 
-### Add PostgreSQL connection in Power BI desktop
+### Add Azure Database for PostgreSQL flexible server connection in Power BI desktop
 
 1. Select the **PostgreSQL database** option in the connector selection.
 
@@ -67,17 +70,17 @@ You can connect to Azure database for PostgreSQL Flexible server with Power BI d
 
    :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-6.png" alt-text="Screeshot of Signing in to Power BI.":::
 
-3. Select the **Database** authentication type and input your PostgreSQL credentials in the **User name** and **Password** boxes. Make sure to select the level to apply your credentials to.
+3. Select the **Database** authentication type and input your Azure Database for PostgreSQL flexible server credentials in the **User name** and **Password** boxes. Make sure to select the level to apply your credentials to.
 
-   :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-3.png" alt-text="Screenshot of entering credentials to connect with PostgreSQL database."::: 
+   :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-3.png" alt-text="Screenshot of entering credentials to connect with Azure Database for PostgreSQL flexible server database."::: 
 
 4. Once you're done, select **OK**.
 
 5. In **Navigator**, select the data you require, then either load or transform the data.
 
-   :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-4.png" alt-text="Screenshot of navigator to view PostgreSQL tables."::: 
+   :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-4.png" alt-text="Screenshot of navigator to view Azure Database for PostgreSQL flexible server tables."::: 
    
-## Connect to PostgreSQL database from Power Query Online
+## Connect to Azure Database for PostgreSQL flexible server database from Power Query Online
 
 To make the connection, take the following steps:
 
@@ -88,9 +91,9 @@ To make the connection, take the following steps:
     :::image type="content" source="./media/connect-with-power-bi-desktop/connector-power-bi-ap-7.png" alt-text="Screenshot of PostgreSQL connection with power query online."::: 
 
    > [!NOTE]
-   >Note that data gateway is not needed for Azure database for PostgreSQL Flexible Server.
+   >Note that data gateway is not needed for Azure Database for PostgreSQL flexible server.
 
-3. Select the **Basic** authentication kind and input your PostgreSQL credentials in the **Username** and **Password** boxes.
+3. Select the **Basic** authentication kind and input your Azure Database for PostgreSQL flexible server credentials in the **Username** and **Password** boxes.
 
 4. If your connection isn't encrypted, clear **Use Encrypted Connection**.
 

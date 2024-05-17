@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 12/26/2018
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 ## <a id="addregion"></a>Add global database regions using the Azure portal

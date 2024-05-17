@@ -170,4 +170,4 @@ If you want to provide feedback about the Pricing Calculator, there's a link at 
 ## Next steps
 
 - Estimate prices with the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-- Learn more about the [Azure Retail Prices API](/api/cost-management/retail-prices/azure-retail-prices).
+- Learn more about the [Azure Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices).

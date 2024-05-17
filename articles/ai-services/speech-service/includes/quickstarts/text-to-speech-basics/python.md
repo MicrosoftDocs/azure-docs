@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 03/15/2022
+ms.date: 2/1/2024
 ms.author: eur
 ---
 
@@ -16,11 +16,12 @@ ms.author: eur
 
 ## Set up the environment
 
-The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
-- You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS.
+
+- On Windows, install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package might require a restart.
 - On Linux, you must use the x64 target architecture.
 
-Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements 
+Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). For any requirements, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-python).
 
 ### Set environment variables
 
@@ -28,14 +29,16 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new console application.
+Follow these steps to create a console application.
 
-1. Open a command prompt where you want the new project, and create a new file named `speech_synthesis.py`.
+1. Open a command prompt window in the folder where you want the new project. Create a file named *speech_synthesis.py*.
 1. Run this command to install the Speech SDK:  
-    ```console
-    pip install azure-cognitiveservices-speech
-    ```
-1. Copy the following code into `speech_synthesis.py`: 
+
+   ```console
+   pip install azure-cognitiveservices-speech
+   ```
+
+1. Copy the following code into *speech_synthesis.py*:
 
     ```Python
     import os
@@ -45,8 +48,8 @@ Follow these steps to create a new console application.
     speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
     audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
-    # The language of the voice that speaks.
-    speech_config.speech_synthesis_voice_name='en-US-JennyNeural'
+    # The neural multilingual voice can speak different languages based on the input text.
+    speech_config.speech_synthesis_voice_name='en-US-AvaMultilingualNeural'
 
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 
@@ -67,30 +70,38 @@ Follow these steps to create a new console application.
                 print("Did you set the speech resource key and region values?")
     ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+1. To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-Run your new console application to start speech synthesis to the default speaker.
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
-```console
-python speech_synthesis.py
-```
+1. Run your new console application to start speech synthesis to the default speaker.
 
-> [!IMPORTANT]
-> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+   ```console
+   python speech_synthesis.py
+   ```
 
-Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
+   > [!IMPORTANT]
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
-```console
-Enter some text that you want to speak > 
-I'm excited to try text to speech
-```
+1. Enter some text that you want to speak. For example, type *I'm excited to try text to speech*. Select the **Enter** key to hear the synthesized speech.
+
+   ```console
+   Enter some text that you want to speak > 
+   I'm excited to try text to speech
+   ```
 
 ## Remarks
-Now that you've completed the quickstart, here are some additional considerations:
 
-This quickstart uses the `speak_text_async` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
-- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/ai-services/speech-service/speech-synthesis-markup.md).
-- For information about synthesizing long-form text to speech, see [batch synthesis](~/articles/ai-services/speech-service/batch-synthesis.md). 
+### More speech synthesis options
+
+This quickstart uses the `speak_text_async` operation to synthesize a short block of text that you enter. You can also use long-form text from a file and get finer control over voice styles, prosody, and other settings.
+
+- See [how to synthesize speech](~/articles/ai-services/speech-service/how-to-speech-synthesis.md) and [Speech Synthesis Markup Language (SSML) overview](~/articles/ai-services/speech-service/speech-synthesis-markup.md) for information about speech synthesis from a file and finer control over voice styles, prosody, and other settings.
+- See [batch synthesis API for text to speech](~/articles/ai-services/speech-service/batch-synthesis.md) for information about synthesizing long-form text to speech.
+
+### OpenAI text to speech voices in Azure AI Speech
+
+OpenAI text to speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-AvaMultilingualNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
 
 ## Clean up resources
 

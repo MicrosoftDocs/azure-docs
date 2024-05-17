@@ -11,6 +11,8 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -25,16 +27,18 @@
 - name: Tutorials
   expanded: false
   items:
-    - name: Build a real-time chat app with client authentication
-      href: quickstart-serverless.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
       href: tutorial-build-chat.md
+    - name: Develop with Visual Studio Code
+      href: tutorial-develop-with-visual-studio-code.md
     - name: Client streaming with a service-supported subprotocol
       href: tutorial-subprotocol.md
     - name: Authentication and permissions
       href: tutorial-permission.md
+    - name: Build a serverless chat app with Azure Functions
+      href: quickstart-serverless.md
 - name: How-to guides
   expanded: false
   items:
@@ -48,6 +52,8 @@
           href: howto-generate-client-access-url.md
         - name: Configure event handler
           href: howto-develop-eventhandler.md
+        - name: Develop with local tunnel tool
+          href: howto-web-pubsub-tunnel-tool.md
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
         - name: Use server SDK with Azure Identity
@@ -98,6 +104,8 @@
           href: howto-custom-domain.md
     - name: Scale and geo-replicate
       items:
+        - name: Manual scale
+          href: howto-scale-manual-scale.md
         - name: Autoscale
           href: howto-scale-autoscale.md
         - name: Geo-replication
@@ -120,7 +128,7 @@
           href: howto-move-across-regions.md
     - name: Troubleshoot
       items:
-        - name: Debug event handlers locally
+        - name: Debug event handlers
           href: howto-local-debug-event-handler.md
         - name: Collect network trace
           href: howto-troubleshoot-network-trace.md
@@ -130,10 +138,6 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
-    - name: Scale
-      items:
-        - name: Autoscale
-          href: howto-scale-autoscale.md
 - name: Socket.IO
   expanded: false
   items: 
@@ -150,6 +154,12 @@
       items:
         - name: Easily migrate a self-hosted Socket.IO app 
           href: socketio-migrate-from-self-hosted.md
+        - name: Integrate with Azure App Service
+          href: socket-io-howto-integrate-web-app.md
+        - name: Integrate with API Management
+          href: socket-io-howto-integrate-apim.md
+        - name: Authentication
+          href: socketio-authentication.md
         - name: Troubleshoot
           items: 
             - name: Common issues
@@ -188,7 +198,7 @@
       href: concept-performance.md
     - name: Billing model
       href: concept-billing-model.md
-    - name: Microsoft Entra ID Authorization
+    - name: Microsoft Entra Authorization
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md

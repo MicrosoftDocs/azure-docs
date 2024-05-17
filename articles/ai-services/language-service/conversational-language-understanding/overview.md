@@ -2,15 +2,14 @@
 title: Conversational Language Understanding - Azure AI services
 titleSuffix: Azure AI services
 description: Customize an AI model to predict the intentions of utterances, and extract important information from them.
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 10/26/2022
-ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: language-service-clu
 ---
 
 # What is conversational language understanding?
@@ -93,4 +92,3 @@ An AI system includes not only the technology, but also the people who will use 
 * As you go through the project development lifecycle, review the [glossary](glossary.md) to learn more about the terms used throughout the documentation for this feature. 
 
 * Remember to view the [service limits](service-limits.md) for information such as [regional availability](service-limits.md#regional-availability).
-

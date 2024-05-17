@@ -80,7 +80,7 @@ public class App
 
 ## Authenticate the client
 
-With `SipRoutingClientBuilder`, you can use Azure Active Directory authentication:
+With `SipRoutingClientBuilder`, you can use Microsoft Entra authentication:
 
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal

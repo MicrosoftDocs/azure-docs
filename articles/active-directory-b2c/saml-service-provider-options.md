@@ -2,18 +2,22 @@
 title: Configure SAML service provider options
 title-suffix: Azure Active Directory B2C
 description: Learn how to configure Azure Active Directory B2C SAML service provider options.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating a SAML application with Azure AD B2C, I want to understand the configuration options available for connecting the application, so that I can properly configure the SAML response signature, encryption, and other settings required for successful integration.
+
 ---
 
 # Options for registering a SAML application in Azure AD B2C
@@ -237,7 +241,7 @@ Replace the following values:
 
 You can use a complete sample policy for testing with the SAML test app:
 
-1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated).
+1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-IdP-Initiated-LocalAccounts).
 1. Update `TenantId` to match your tenant name. This article uses the example *contoso.b2clogin.com*.
 1. Keep the policy name *B2C_1A_signup_signin_saml*.
 

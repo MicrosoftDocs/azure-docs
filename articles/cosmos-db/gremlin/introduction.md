@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: apache-gremlin
 ms.topic: overview
 ms.date: 02/28/2023
-ms.custom: ignite-2022
 ---
 
 # What is Azure Cosmos DB for Apache Gremlin?
@@ -156,3 +155,4 @@ g.V('thomas.1').
 - Get started with the [API for Graph .NET quickstart](quickstart-dotnet.md).
 - Learn how to [query graphs in API for Graph using Gremlin](tutorial-query.md).
 - Learn about [graph data modeling](modeling.md).
+- Receive up to 63% discount on [Azure Cosmos DB prices with Reserved Capacity](../reserved-capacity.md).

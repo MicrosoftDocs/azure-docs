@@ -1,0 +1,81 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions
+  titleSuffix: Azure Cosmos DB for MongoDB (RU)
+  description: Get answers to frequently asked questions about RU-based Azure Cosmos DB for MongoDB.
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: gahllevy
+  ms.service: cosmos-db
+  ms.subservice: mongodb
+  ms.topic: faq
+  ms.date: 02/23/2024
+title: Frequently asked questions on Azure Cosmos DB for MongoDB in RU architecture
+summary: |
+  [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+sections:
+  - name: General FAQ
+    questions:
+      - question: |
+          Does Azure Cosmos DB for MongoDB (RU) support my data residency requirements?
+        answer: |
+          Yes, data residency is governed at the database account level, which is associated with one or more regions. Typically, you create a database account for each residency requirement. For example, if you have a requirement to store data in the US and EU, you would create two database accounts, one in the US and one in the EU.
+      - question: |
+          Does Azure Cosmos DB for MongoDB (RU) support documents larger than 2 MB?
+        answer: |
+          Yes, documents as large as 16 MB are fully supported.
+      - question: |
+          Does Azure Cosmos DB for MongoDB (RU) support multi-field sort?
+        answer: |
+          Yes, multi-field sort is supported. A compound index is required for the fields in the sort to ensure the operation is efficient and scalable.
+      - question: |
+          Does Azure Cosmos DB for MongoDB (RU) scale linearly?
+        answer: |
+          In many cases, Azure Cosmos DB's costs scale better than linear. For example, if you read a 1-KB document, this operation equates to one Request Unit (RU). But if you read a 10-KB document, this larger operation still equates to roughly one RU. The [capacity calculator](https://cosmos.azure.com/capacitycalculator/) can help you estimate your throughput needs.
+      - question: |
+          How can I encrypt Azure Cosmos DB for MongoDB (RU) data and manage access at the field level?
+        answer: |
+          Azure Cosmos DB for MongoDB (RU) supports Field Level Encryption.
+      - question: |
+          How do I pay for Azure Cosmos DB for MongoDB (RU) Request Units (RUs)?
+        answer: |
+          Azure Cosmos DB for MongoDB (RU) offers three capacity modes: provisioned throughput, autoscale, and serverless. Autoscale instantaneously scales to meet your needs, and serverless only charges for the throughput you use.
+      - question: |
+          Which features are supported in Azure Cosmos DB for MongoDB (RU)?
+        answer: |
+          Azure Cosmos DB for MongoDB (RU) supports a rich set of MongoDB features backed by Azure Cosmos DB's limitless scale architecture. These features include: Aggregation pipelines, Change streams, Indexes, Geospatial queries, and more. For more information, see [feature support matrix](feature-support-42.md).
+      - question: |
+          Does Azure Cosmos DB for MongoDB (RU) run on-premises?
+        answer: |
+          Azure Cosmos DB for MongoDB (RU) is a cloud-native multitenant service and isn't available on-premises. Azure Cosmos DB offers an [emulator for local development and testing](../emulator.md).
+      - question: |
+          How do I connect to my Azure Cosmos DB for MongoDB (RU) database?
+        answer: |
+          The quickest way to connect to an Azure Cosmos DB for MongoDB (RU) database is to use the **Quick Start** feature within the resource's page in the [Azure portal](https://portal.azure.com). The Quick Start includes code snippets preconfigured to connect to your database.
+
+          Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via transport layer security (TLS/SSL). In any examples you build, use TLS/SSL version 1.2.
+
+          For more information, see [Connect to your API for MongoDB RU database](connect-account.yml).
+      - question: |
+          What do the error codes mean while using Azure Cosmos DB for MongoDB (RU)?
+        answer: |
+          Along with the common MongoDB error codes, Azure Cosmos DB for MongoDB (RU) has its own specific error codes. For more information, see [API for MongoDB (RU) troubleshooting guide](error-codes-solutions.md).
+      - question: |
+          Are non-Microsoft drivers for MongoDB supported for use with Azure Cosmos DB for MongoDB (RU)?
+        answer: |
+          Yes, you can use non-Microsoft MongoDB Open Database Connectivity (ODBC) drivers with Azure Cosmos DB for MongoDB (RU).
+additionalContent: |
+  ## Related content
+
+  - [Frequently asked questions about Azure Cosmos DB for MongoDB vCore](vcore/faq.yml)
+
+  - [Get started with Azure Cosmos DB for MongoDB (RU) and Node.js](quickstart-nodejs.md)
+  - [Get started with Azure Cosmos DB for MongoDB (RU) and Python](quickstart-python.md)
+  - [Get started with Azure Cosmos DB for MongoDB (RU) and Java](quickstart-java.md)
+  - [Get started with Azure Cosmos DB for MongoDB (RU) and .NET](quickstart-dotnet.md)
+  - [Get started with Azure Cosmos DB for MongoDB (RU) and Go](quickstart-go.md)
+
+  ## Next step
+
+  > [!div class="nextstepaction"]
+  > [Frequently asked questions about Azure Cosmos DB](../faq.yml)

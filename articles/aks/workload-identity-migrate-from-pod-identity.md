@@ -2,15 +2,19 @@
 title: Migrate your Azure Kubernetes Service (AKS) pod to use workload identity
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.subservice: aks-security
+ms.custom: devx-track-azurecli
 ms.date: 07/31/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Migrate from pod managed-identity to workload identity
 
-This article focuses on migrating from a pod-managed identity to Azure Active Directory (Azure AD) workload identity for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
+This article focuses on migrating from a pod-managed identity to Microsoft Entra Workload ID for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
 
-If you aren't familiar with Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
+If you aren't familiar with Microsoft Entra Workload ID, see the following [Overview][workload-identity-overview] article.
 
 ## Before you begin
 
@@ -24,7 +28,7 @@ For either scenario, you need to have the federated trust set up before you upda
 
 - [Create a managed identity](#create-a-managed-identity) credential.
 - Associate the managed identity with the kubernetes service account already used for the pod-managed identity or [create a new Kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
-- [Establish a federated trust relationship](#establish-federated-identity-credential-trust) between the managed identity and Azure AD.
+- [Establish a federated trust relationship](#establish-federated-identity-credential-trust) between the managed identity and Microsoft Entra ID.
 
 ### Migrate from latest version
 
@@ -76,7 +80,7 @@ If you don't have a managed identity created and assigned to your pod, perform t
 3. To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
 
     ```bash
-    export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
+    export AKS_OIDC_ISSUER="$(az aks show --name myAKSCluster --resource-group myResourceGroup --query "oidcIssuerProfile.issuerUrl" -o tsv)"
     ```
 
     The variable should contain the Issuer URL similar to the following example:
@@ -92,7 +96,7 @@ If you don't have a managed identity created and assigned to your pod, perform t
 If you don't have a dedicated Kubernetes service account created for this application, perform the following steps to create and then annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
+az aks get-credentials --name myAKSCluster --resource-group "${RESOURCE_GROUP}"
 ```
 
 Copy and paste the following multi-line input in the Azure CLI.
@@ -195,15 +199,15 @@ kubectl logs podName
 The following log output resembles successful communication through the proxy sidecar. Verify that the logs show a token is successfully acquired and the GET operation is successful.
 
 ```output
-I0926 00:29:29.968723       1 proxy.go:97] proxy "msg"="starting the proxy server" "port"=8080 "userAgent"="azure-workload-identity/proxy/v0.13.0-12-gc8527f3 (linux/amd64) c8527f3/2022-09-26-00:19" 
-I0926 00:29:29.972496       1 proxy.go:173] proxy "msg"="received readyz request" "method"="GET" "uri"="/readyz" 
-I0926 00:29:30.936769       1 proxy.go:107] proxy "msg"="received token request" "method"="GET" "uri"="/metadata/identity/oauth2/token?resource=https://management.core.windows.net/api-version=2018-02-01&client_id=<client_id>" 
+I0926 00:29:29.968723       1 proxy.go:97] proxy "msg"="starting the proxy server" "port"=8080 "userAgent"="azure-workload-identity/proxy/v0.13.0-12-gc8527f3 (linux/amd64) c8527f3/2022-09-26-00:19"
+I0926 00:29:29.972496       1 proxy.go:173] proxy "msg"="received readyz request" "method"="GET" "uri"="/readyz"
+I0926 00:29:30.936769       1 proxy.go:107] proxy "msg"="received token request" "method"="GET" "uri"="/metadata/identity/oauth2/token?resource=https://management.core.windows.net/api-version=2018-02-01&client_id=<client_id>"
 I0926 00:29:31.101998       1 proxy.go:129] proxy "msg"="successfully acquired token" "method"="GET" "uri"="/metadata/identity/oauth2/token?resource=https://management.core.windows.net/api-version=2018-02-01&client_id=<client_id>"
 ```
 
 ## Remove pod-managed identity
 
-After you've completed your testing and the application is successfully able to get a token using the proxy sidecar, you can remove the Azure AD pod-managed identity mapping for the pod from your cluster, and then remove the identity.
+After you've completed your testing and the application is successfully able to get a token using the proxy sidecar, you can remove the Microsoft Entra pod-managed identity mapping for the pod from your cluster, and then remove the identity.
 
 1. Run the [az aks pod-identity delete][az-aks-pod-identity-delete] command to remove the identity from your pod. This should only be done after all pods in the namespace using the pod-managed identity mapping have migrated to use the sidecar.
 
@@ -213,7 +217,7 @@ After you've completed your testing and the application is successfully able to 
 
 ## Next steps
 
-This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
+This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Microsoft Entra Workload ID, see the following [Overview][workload-identity-overview] article.
 
 <!-- INTERNAL LINKS -->
 [pod-annotations]: workload-identity-overview.md#pod-annotations
@@ -232,3 +236,4 @@ This article showed you how to set up your pod to authenticate using a workload 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubelet-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
+

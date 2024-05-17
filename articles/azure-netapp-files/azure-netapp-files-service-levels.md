@@ -2,15 +2,8 @@
 title: Service levels for Azure NetApp Files | Microsoft Docs
 description: Describes throughput performance for the service levels of Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/02/2022
 ms.author: anfdocs
@@ -20,19 +13,19 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 ## Supported service levels
 
-Azure NetApp Files supports three service levels: *Ultra*, *Premium*, and *Standard*. 
+Azure NetApp Files supports three service levels: *Ultra*, *Premium*, and *Standard*.   
 
-* <a name="Ultra"></a>Ultra storage
+* <a name="Standard"></a>Standard storage:   
+    The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
 
-    The Ultra storage tier provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
+    * Standard storage with cool access:      
+        The throughput experience for this service level is the same as the Standard service level for data that is in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md#effects-of-cool-access-on-data). 
 
-* <a name="Premium"></a>Premium storage
+* <a name="Premium"></a>Premium storage:   
+    The Premium service level provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
-    The Premium storage tier provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
-
-* <a name="Standard"></a>Standard storage
-
-    The Standard storage tier provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.
+* <a name="Ultra"></a>Ultra storage:   
+    The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 ## Throughput limits
 
@@ -45,7 +38,7 @@ The throughput limit for a volume is determined by the combination of the follow
 
 The following diagram shows throughput limit examples of volumes in an auto QoS capacity pool:
 
-![Service level illustration](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
+![Service level illustration](./media/azure-netapp-files-service-levels/azure-netapp-files-service-levels.png)
 
 * In Example 1, a volume from an auto QoS capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s (2 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
@@ -64,7 +57,7 @@ For example, for an SAP HANA system, this capacity pool can be used to create th
 
 The following diagram illustrates the scenarios for the SAP HANA volumes:
 
-![QoS SAP HANA volume scenarios](../media/azure-netapp-files/qos-sap-hana-volume-scenarios.png) 
+![QoS SAP HANA volume scenarios](./media/azure-netapp-files-service-levels/qos-sap-hana-volume-scenarios.png) 
 
 ## Next steps
 

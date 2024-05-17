@@ -2,14 +2,13 @@
 title: Azure VMs high availability for SAP NW on RHEL multi-SID
 description: Learn how to deploy SAP NetWeaver highly available systems in a two node cluster on Azure VMs with Red Hat Enterprise Linux for SAP applications.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 06/21/2023
+ms.date: 01/18/2024
 ms.author: radeltch
 ---
 
@@ -161,7 +160,7 @@ This article assumes that:
 
 ### Prepare for SAP NetWeaver Installation
 
-1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-azure-load-balancer-via-azure-portal). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
+1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#configure-azure-load-balancer). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
 
 2. **[A]** Set up name resolution for the more SAP systems. You can either use DNS server or modify */etc/hosts* on all nodes. This example shows how to use the */etc/hosts* file.  Adapt the IP addresses and the host names to your environment.
 
@@ -204,8 +203,8 @@ This article assumes that:
 
    Update file `/etc/fstab` with the file systems for the other SAP systems that you're deploying to the cluster.  
 
-   * If using Azure NetApp Files, follow the instructions in [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation).
-   * If using GlusterFS cluster, follow the instructions in [Azure VMs high availability for SAP NW on RHEL](./high-availability-guide-rhel.md#prepare-for-sap-netweaver-installation).
+   * If using Azure NetApp Files, follow the instructions in [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md#prepare-for-the-sap-netweaver-installation).
+   * If using GlusterFS cluster, follow the instructions in [Azure VMs high availability for SAP NW on RHEL](./high-availability-guide-rhel.md#prepare-for-the-sap-netweaver-installation).
 
 ### Install ASCS / ERS
 
@@ -220,7 +219,7 @@ This article assumes that:
     sudo pcs resource create vip_NW2_ASCS IPaddr2 \
     ip=10.3.1.52 \
      --group g-NW2_ASCS
-  
+    
     sudo pcs resource create nc_NW2_ASCS azure-lb port=62010 \
      --group g-NW2_ASCS
 
@@ -334,11 +333,11 @@ This article assumes that:
 
      ```cmd
      sudo vi /sapmnt/NW2/profile/NW2_ERS12_msnw2ers
-   
+     
      # Change the restart command to a start command
      #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
      Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
-   
+     
      # remove Autostart from ERS profile
      # Autostart = 1
      ```
@@ -348,229 +347,195 @@ This article assumes that:
    To prevent the start of the instances by the *sapinit* startup script, all instances managed by Pacemaker must be commented out from */usr/sap/sapservices* file. The example shown below is for SAP systems `NW2` and `NW3`.  
 
    ```cmd
-   # On the node where ASCS was installed, comment out the line for the ASCS instacnes
-   #LD_LIBRARY_PATH=/usr/sap/NW2/ASCS10/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW2/ASCS10/exe/sapstartsrv pf=/usr/sap/NW2/SYS/profile/NW2_ASCS10_msnw2ascs -D -u nw2adm
-   #LD_LIBRARY_PATH=/usr/sap/NW3/ASCS20/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW3/ASCS20/exe/sapstartsrv pf=/usr/sap/NW3/SYS/profile/NW3_ASCS20_msnw3ascs -D -u nw3adm
+   # Depending on whether the SAP Startup framework is integrated with systemd, you may observe below entries on the node for ASCS instances. You should comment out the line(s). 
+   # LD_LIBRARY_PATH=/usr/sap/NW2/ASCS10/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW2/ASCS10/exe/sapstartsrv pf=/usr/sap/NW2/SYS/profile/NW2_ASCS10_msnw2ascs -D -u nw2adm
+   # LD_LIBRARY_PATH=/usr/sap/NW3/ASCS20/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW3/ASCS20/exe/sapstartsrv pf=/usr/sap/NW3/SYS/profile/NW3_ASCS20_msnw3ascs -D -u nw3adm
+   # systemctl --no-ask-password start SAPNW2_10 # sapstartsrv pf=/usr/sap/NW2/SYS/profile/NW2_ASCS10_msnw2ascs
+   # systemctl --no-ask-password start SAPNW3_20 # sapstartsrv pf=/usr/sap/NW3/SYS/profile/NW3_ASCS20_msnw3ascs
 
-   # On the node where ERS was installed, comment out the line for the ERS instacnes
+   # Depending on whether the SAP Startup framework is integrated with systemd, you may observe below entries on the node for ERS instances. You should comment out the line(s). 
    #LD_LIBRARY_PATH=/usr/sap/NW2/ERS12/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW2/ERS12/exe/sapstartsrv pf=/usr/sap/NW2/ERS12/profile/NW2_ERS12_msnw2ers -D -u nw2adm
    #LD_LIBRARY_PATH=/usr/sap/NW3/ERS22/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW3/ERS22/exe/sapstartsrv pf=/usr/sap/NW3/ERS22/profile/NW3_ERS22_msnw3ers -D -u nw3adm
+   # systemctl --no-ask-password start SAPNW2_12 # sapstartsrv pf=/usr/sap/NW2/ERS12/profile/NW2_ERS12_msnw2ers
+   # systemctl --no-ask-password start SAPNW3_22 # sapstartsrv pf=/usr/sap/NW3/ERS22/profile/NW3_ERS22_msnw3ers
    ```
 
-7. **[1]** Create the SAP cluster resources for the newly installed SAP system.  
+   > [!IMPORTANT]
+   > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
+   >
+   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
 
-   If using enqueue server 1 architecture (ENSA1), define the resources for SAP systems `NW2` and `NW3` as follows:
+7. **[1]** Create the SAP cluster resources for the newly installed SAP system.
 
-   ```cmd
-   sudo pcs property set maintenance-mode=true
+   Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources for SAP systems `NW2` and `NW3` as follows. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
 
-   sudo pcs resource create rsc_sap_NW2_ASCS10 SAPInstance \
-   InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
-   AUTOMATIC_RECOVER=false \
-   meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
-   op monitor interval=20 on-fail=restart timeout=60 \
-   op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-   --group g-NW2_ASCS
+   If you use enqueue server 2 architecture ([ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources for SAP systems `NW2` and `NW3` as follows:
 
-   sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
+    #### [ENSA1](#tab/ensa1)
 
-   sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
-   InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
-   AUTOMATIC_RECOVER=false IS_ERS=true \
-   op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-   --group g-NW2_AERS
+    ```bash
+    sudo pcs property set maintenance-mode=true
 
-   sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
-   sudo pcs constraint location rsc_sap_NW2_ASCS10 rule score=2000 runs_ers_NW2 eq 1
-   sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs resource create rsc_sap_NW2_ASCS10 SAPInstance \
+    InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    op monitor interval=20 on-fail=restart timeout=60 \
+    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-NW2_ASCS
 
-   sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
-   InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
-   AUTOMATIC_RECOVER=false \
-   meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
-   op monitor interval=20 on-fail=restart timeout=60 \
-   op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-   --group g-NW3_ASCS
+    sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
 
-   sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
+    sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
+    InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-NW2_AERS
 
-   sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
-   InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
-   AUTOMATIC_RECOVER=false IS_ERS=true \
-   op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-   --group g-NW3_AERS
+    sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
+    sudo pcs constraint location rsc_sap_NW2_ASCS10 rule score=2000 runs_ers_NW2 eq 1
+    sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
 
-   sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
-   sudo pcs constraint location rsc_sap_NW3_ASCS20 rule score=2000 runs_ers_NW3 eq 1
-   sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
+    InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    op monitor interval=20 on-fail=restart timeout=60 \
+    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-NW3_ASCS
 
-   sudo pcs property set maintenance-mode=false
-   ```
+    sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
 
-   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Beginning with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
-   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources for SAP systems `NW2` and `NW3` as follows:
+    sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
+    InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-NW3_AERS
 
-   ```cmd
-   sudo pcs property set maintenance-mode=true
+    sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
+    sudo pcs constraint location rsc_sap_NW3_ASCS20 rule score=2000 runs_ers_NW3 eq 1
+    sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
 
-   sudo pcs resource create rsc_sap_NW2_ASCS10 SAPInstance \
-   InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
-   AUTOMATIC_RECOVER=false \
-   meta resource-stickiness=5000 \
-   op monitor interval=20 on-fail=restart timeout=60 \
-   op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-   --group g-NW2_ASCS
+    sudo pcs property set maintenance-mode=false
+    ```
 
-   sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
+    #### [ENSA2](#tab/ensa2)
 
-   sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
-   InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
-   AUTOMATIC_RECOVER=false IS_ERS=true \
-   op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-   --group g-NW2_AERS
+    ```bash
+    sudo pcs property set maintenance-mode=true 
 
-   sudo pcs resource meta rsc_sap_NW2_ERS12  resource-stickiness=3000
+    sudo pcs resource create rsc_sap_NW2_ASCS10 SAPInstance \
+    InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 \
+    op monitor interval=20 on-fail=restart timeout=60 \
+    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-NW2_ASCS
 
-   sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
-   sudo pcs constraint order start g-NW2_ASCS then start g-NW2_AERS kind=Optional symmetrical=false
-   sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
 
-   sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
-   InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
-   AUTOMATIC_RECOVER=false \
-   meta resource-stickiness=5000 \
-   op monitor interval=20 on-fail=restart timeout=60 \
-   op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-   --group g-NW3_ASCS
+    sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
+    InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-NW2_AERS
 
-   sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
+    sudo pcs resource meta rsc_sap_NW2_ERS12  resource-stickiness=3000
 
-   sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
-   InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
-   AUTOMATIC_RECOVER=false IS_ERS=true \
-   op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-   --group g-NW3_AERS
+    sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
+    sudo pcs constraint order start g-NW2_ASCS then start g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
 
-   sudo pcs resource meta rsc_sap_NW3_ERS22  resource-stickiness=3000
+    sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
+    InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 \
+    op monitor interval=20 on-fail=restart timeout=60 \
+    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-NW3_ASCS
 
-   sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
-   sudo pcs constraint order start g-NW3_ASCS then start g-NW3_AERS kind=Optional symmetrical=false
-   sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
 
-   sudo pcs property set maintenance-mode=false
-   ```
+    sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
+    InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-NW3_AERS
 
-   If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
+    sudo pcs resource meta rsc_sap_NW3_ERS22  resource-stickiness=3000
 
-   > [!NOTE]
-   > The timeouts in the above configuration are just examples and might need to be adapted to the specific SAP setup.
+    sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
+    sudo pcs constraint order start g-NW3_ASCS then start g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
 
-   Make sure that the cluster status is ok and that all resources are started. It's not important on which node the resources are running.
-   The following example shows the cluster resources status, after SAP systems `NW2` and `NW3` were added to the cluster.
+    sudo pcs property set maintenance-mode=false
+    ```
 
-    ```cmd
+    ---
+
+    If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
+
+    > [!NOTE]
+    > The timeouts in the above configuration are just examples and might need to be adapted to the specific SAP setup.
+
+    Make sure that the cluster status is ok and that all resources are started. It's not important on which node the resources are running.
+    The following example shows the cluster resources status, after SAP systems `NW2` and `NW3` were added to the cluster.
+
+    ```bash
     sudo pcs status
 
-    Online: [ rhelmsscl1 rhelmsscl2 ]
+    # Online: [ rhelmsscl1 rhelmsscl2 ]
 
-    Full list of resources:
+    # Full list of resources:
 
-    rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
-    Resource Group: g-NW1_ASCS
-        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    Resource Group: g-NW1_AERS
-        fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl2
-        vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl2
-        nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl2
-        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
-    Resource Group: g-NW2_ASCS
-        fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    Resource Group: g-NW2_AERS
-        fs_NW2_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW2_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW2_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    Resource Group: g-NW3_ASCS
-        fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
-    Resource Group: g-NW3_AERS
-        fs_NW3_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
-        vip_NW3_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
-        nc_NW3_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
-        rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+    # rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
+    # Resource Group: g-NW1_ASCS
+    #   fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+    #   vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+    #   nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+    #   rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+    # Resource Group: g-NW1_AERS
+    #   fs_NW1_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl2
+    #   vip_NW1_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl2
+    #   nc_NW1_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl2
+    #   rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
+    # Resource Group: g-NW2_ASCS
+    #   fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+    #   vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+    #   nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+    #   rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+    # Resource Group: g-NW2_AERS
+    #   fs_NW2_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+    #   vip_NW2_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+    #   nc_NW2_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+    #   rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+    # Resource Group: g-NW3_ASCS
+    #   fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+    #   vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+    #   nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+    #   rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
+    # Resource Group: g-NW3_AERS
+    #   fs_NW3_AERS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
+    #   vip_NW3_AERS       (ocf::heartbeat:IPaddr2):       Started rhelmsscl1
+    #   nc_NW3_AERS        (ocf::heartbeat:azure-lb):      Started rhelmsscl1
+    #  rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
     ```
 
 8. **[A]** Add firewall rules for ASCS and ERS on both nodes. The example below shows the firewall rules for both SAP systems `NW2` and `NW3`.  
 
-   ```cmd
-   # NW2 - ASCS
-   sudo firewall-cmd --zone=public --add-port=62010/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62010/tcp
-   sudo firewall-cmd --zone=public --add-port=3210/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3210/tcp
-   sudo firewall-cmd --zone=public --add-port=3610/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3610/tcp
-   sudo firewall-cmd --zone=public --add-port=3910/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3910/tcp
-   sudo firewall-cmd --zone=public --add-port=8110/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=8110/tcp
-   sudo firewall-cmd --zone=public --add-port=51013/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=51013/tcp
-   sudo firewall-cmd --zone=public --add-port=51014/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=51014/tcp
-   sudo firewall-cmd --zone=public --add-port=51016/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=51016/tcp
+   ```bash
+   # NW1 - ASCS
+   sudo firewall-cmd --zone=public --add-port={62010,3210,3610,3910,8110,51013,51014,51016}/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port={62010,3210,3610,3910,8110,51013,51014,51016}/tcp
    # NW2 - ERS
-   sudo firewall-cmd --zone=public --add-port=62112/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62112/tcp
-   sudo firewall-cmd --zone=public --add-port=3212/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3212/tcp
-   sudo firewall-cmd --zone=public --add-port=3312/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3312/tcp
-   sudo firewall-cmd --zone=public --add-port=51213/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=51213/tcp
-   sudo firewall-cmd --zone=public --add-port=51214/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=51214/tcp
-   sudo firewall-cmd --zone=public --add-port=51216/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=51216/tcp
+   sudo firewall-cmd --zone=public --add-port={62112,3212,3312,51213,51214,51216}/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port={62112,3212,3312,51213,51214,51216}/tcp
    # NW3 - ASCS
-   sudo firewall-cmd --zone=public --add-port=62020/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62020/tcp
-   sudo firewall-cmd --zone=public --add-port=3220/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3220/tcp
-   sudo firewall-cmd --zone=public --add-port=3620/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3620/tcp
-   sudo firewall-cmd --zone=public --add-port=3920/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3920/tcp
-   sudo firewall-cmd --zone=public --add-port=8120/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=8120/tcp
-   sudo firewall-cmd --zone=public --add-port=52013/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=52013/tcp
-   sudo firewall-cmd --zone=public --add-port=52014/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=52014/tcp
-   sudo firewall-cmd --zone=public --add-port=52016/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=52016/tcp
+   sudo firewall-cmd --zone=public --add-port={62020,3220,3620,3920,8120,52013,52014,52016}/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port={62020,3220,3620,3920,8120,52013,52014,52016}/tcp
    # NW3 - ERS
-   sudo firewall-cmd --zone=public --add-port=62122/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=62122/tcp
-   sudo firewall-cmd --zone=public --add-port=3222/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3222/tcp
-   sudo firewall-cmd --zone=public --add-port=3322/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=3322/tcp
-   sudo firewall-cmd --zone=public --add-port=52213/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=52213/tcp
-   sudo firewall-cmd --zone=public --add-port=52214/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=52214/tcp
-   sudo firewall-cmd --zone=public --add-port=52216/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=52216/tcp
+   sudo firewall-cmd --zone=public --add-port={62122,3222,3322,52213,52214,52216}/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port={62122,3222,3322,52213,52214,52216}/tcp
    ```
 
 ### Proceed with the SAP installation
@@ -578,7 +543,7 @@ This article assumes that:
 Complete your SAP installation by:
 
 * [Preparing your SAP NetWeaver application servers](./high-availability-guide-rhel-netapp-files.md#sap-netweaver-application-server-preparation).
-* [Installing a DBMS instance](./high-availability-guide-rhel-netapp-files.md#install-database).
+* [Installing a DBMS instance](./high-availability-guide-rhel-netapp-files.md#install-the-database).
 * [Installing A primary SAP application server](./high-availability-guide-rhel-netapp-files.md#sap-netweaver-application-server-installation).
 * Installing one or more other SAP application instances.
 
@@ -690,9 +655,9 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    ```cmd
    Online: [ rhelmsscl1 rhelmsscl2 ]
-
+   
    Full list of resources:
-
+   
    rsc_st_azure   (stonith:fence_azure_arm):      Started rhelmsscl1
    Resource Group: g-NW1_ASCS
        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl1
@@ -736,7 +701,7 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    ```cmd
    Full list of resources:
-
+   
    rsc_st_azure    (stonith:fence_azure_arm):      Started rhelmsscl2
    Resource Group: g-NW1_ASCS
        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started rhelmsscl2

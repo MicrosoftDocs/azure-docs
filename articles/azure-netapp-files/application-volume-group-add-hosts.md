@@ -2,15 +2,8 @@
 title: Add hosts to a multiple-host SAP HANA system using Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
 description: Describes how to add additional HANA hosts after you have created the first host in an SAP HANA multiple-host setup.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 11/19/2021
 ms.author: anfdocs
@@ -47,7 +40,7 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
 
     Click **Next: Volume Group**.
 
-    [ ![Screenshot that shows the HANA section for adding hosts.](../media/azure-netapp-files/application-multiple-hosts-sap-hana.png) ](../media/azure-netapp-files/application-multiple-hosts-sap-hana.png#lightbox)
+    [ ![Screenshot that shows the HANA section for adding hosts.](./media/application-volume-group-add-hosts/application-multiple-hosts-sap-hana.png) ](./media/application-volume-group-add-hosts/application-multiple-hosts-sap-hana.png#lightbox)
 
 3. In the **Volume group** tab, provide identical input as you did when you created the first HANA host.  
 
@@ -62,17 +55,17 @@ Building a multiple-host SAP HANA database always starts with creating a volume 
 
     Click **Next: Review + Create**.  
 
-    [ ![Screenshot that shows the Volumes section for adding hosts.](../media/azure-netapp-files/application-multiple-hosts-volumes.png) ](../media/azure-netapp-files/application-multiple-hosts-volumes.png#lightbox)
+    [ ![Screenshot that shows the Volumes section for adding hosts.](./media/application-volume-group-add-hosts/application-multiple-hosts-volumes.png) ](./media/application-volume-group-add-hosts/application-multiple-hosts-volumes.png#lightbox)
 
 4. In the **Review + Create** tab, the `{HostId}` placeholder is replaced with the individual numbers for each of the volume groups that will be created. 
 
     You can click **Next Group** to navigate through all volume groups that are being created (one for each host). You can also click a particular volume to view its details.
 
-    [ ![Screenshot that shows the Review and Create section for adding hosts.](../media/azure-netapp-files/application-multiple-review-create.png) ](../media/azure-netapp-files/application-multiple-review-create.png#lightbox)
+    [ ![Screenshot that shows the Review and Create section for adding hosts.](./media/application-volume-group-add-hosts/application-multiple-review-create.png) ](./media/application-volume-group-add-hosts/application-multiple-review-create.png#lightbox)
 
 5. After you navigate through the volume groups, click **Create All Groups** to create all the volumes for the HANA hosts you are adding. 
 
-    [ ![Screenshot that shows the Create All Groups button.](../media/azure-netapp-files/application-multiple-create-groups.png) ](../media/azure-netapp-files/application-multiple-create-groups.png#lightbox)
+    [ ![Screenshot that shows the Create All Groups button.](./media/application-volume-group-add-hosts/application-multiple-create-groups.png) ](./media/application-volume-group-add-hosts/application-multiple-create-groups.png#lightbox)
 
     The **Create Volume Group** page shows the added volume groups with the "Creating" status.
 

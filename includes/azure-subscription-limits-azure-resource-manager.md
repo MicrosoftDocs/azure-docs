@@ -12,7 +12,7 @@
 
 | Resource | Limit |
 | --- | --- |
-| Azure subscriptions [associated with an Azure Active Directory tenant](../articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) | Unlimited |
+| Azure subscriptions [associated with a Microsoft Entra tenant](../articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) | Unlimited |
 | [Coadministrators](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per subscription |Unlimited |
 | [Resource groups](../articles/azure-resource-manager/management/overview.md) per subscription |980 |
 | Azure Resource Manager API request size |4,194,304 bytes |

@@ -1,13 +1,17 @@
 ---
 title: Update or rotate the credentials for an Azure Kubernetes Service (AKS) cluster
-description: Learn how update or rotate the service principal or Azure AD Application credentials for an Azure Kubernetes Service (AKS) cluster.
+description: Learn how update or rotate the service principal or Microsoft Entra Application credentials for an Azure Kubernetes Service (AKS) cluster.
+ms.author: schaffererin
+author: schaffererin
 ms.topic: article
+ms.subservice: aks-security
+ms.custom: devx-track-azurecli
 ms.date: 03/01/2023
 ---
 
 # Update or rotate the credentials for an Azure Kubernetes Service (AKS) cluster
 
-AKS clusters created with a service principal have a one-year expiration time. As you near the expiration date, you can reset the credentials to extend the service principal for an additional period of time. You may also want to update, or rotate, the credentials as part of a defined security policy. AKS clusters [integrated with Azure Active Directory (Azure AD)][aad-integration] as an authentication provider have two more identities: the Azure AD Server App and the Azure AD Client App. This article details how to update the service principal and Azure AD credentials for an AKS cluster.
+AKS clusters created with a service principal have a one-year expiration time. As you near the expiration date, you can reset the credentials to extend the service principal for an additional period of time. You might also want to update, or rotate, the credentials as part of a defined security policy. AKS clusters [integrated with Microsoft Entra ID][aad-integration] as an authentication provider have two more identities: the Microsoft Entra Server App and the Microsoft Entra Client App. This article details how to update the service principal and Microsoft Entra credentials for an AKS cluster.
 
 > [!NOTE]
 > Alternatively, you can use a managed identity for permissions instead of a service principal. Managed identities don't require updates or rotations. For more information, see [Use managed identities](use-managed-identity.md).
@@ -24,27 +28,27 @@ When you want to update the credentials for an AKS cluster, you can choose to ei
 * Create a new service principal and update the cluster to use these new credentials.
 
 > [!WARNING]
-> If you choose to create a *new* service principal, wait around 30 minutes for the service principal permission to propagate across all regions. Updating a large AKS cluster to use these credentials may take a long time to complete.
+> If you choose to create a *new* service principal, wait around 30 minutes for the service principal permission to propagate across all regions. Updating a large AKS cluster to use these credentials can take a long time to complete.
 
 ### Check the expiration date of your service principal
 
-To check the expiration date of your service principal, use the [`az ad app credential list`][az-ad-app-credential-list] command. The following example gets the service principal ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group using the [`az aks show`][az-aks-show] command. The service principal ID is set as a variable named *SP_ID*.
+To check the expiration date of your service principal, use the [`az ad app credential list`][az-ad-app-credential-list] command. The following example gets the service principal ID for the `$CLUSTER_NAME` cluster in the `$RESOURCE_GROUP_NAME` resource group using the [`az aks show`][az-aks-show] command. The service principal ID is set as a variable named *SP_ID*.
 
 ```azurecli
-SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+SP_ID=$(az aks show --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME \
     --query servicePrincipalProfile.clientId -o tsv)
 az ad app credential list --id "$SP_ID" --query "[].endDateTime" -o tsv
 ```
 
 ### Reset the existing service principal credentials
 
-To update the credentials for an existing service principal, get the service principal ID of your cluster using the [`az aks show`][az-aks-show] command. The following example gets the ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. The variable named *SP_ID* stores the service principal ID used in the next step. These commands use the Bash command language.
+To update the credentials for an existing service principal, get the service principal ID of your cluster using the [`az aks show`][az-aks-show] command. The following example gets the ID for the `$CLUSTER_NAME` cluster in the `$RESOURCE_GROUP_NAME` resource group. The variable named *SP_ID* stores the service principal ID used in the next step. These commands use the Bash command language.
 
 > [!WARNING]
 > When you reset your cluster credentials on an AKS cluster that uses Azure Virtual Machine Scale Sets, a [node image upgrade][node-image-upgrade] is performed to update your nodes with the new credential information.
 
 ```azurecli-interactive
-SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+SP_ID=$(az aks show --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME \
     --query servicePrincipalProfile.clientId -o tsv)
 ```
 
@@ -64,25 +68,25 @@ Next, you [update AKS cluster with service principal credentials][update-cluster
 To create a service principal and update the AKS cluster to use the new credential, use the [`az ad sp create-for-rbac`][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --role Contributor --scopes /subscriptions/mySubscriptionID
+az ad sp create-for-rbac --role Contributor --scopes /subscriptions/$SUBSCRIPTION_ID
 ```
 
 The output is similar to the following example output. Make a note of your own `appId` and `password` to use in the next step.
 
 ```json
 {
-  "appId": "7d837646-b1f3-443d-874c-fd83c7c739c5",
-  "name": "7d837646-b1f3-443d-874c-fd83c7c739c",
-  "password": "a5ce83c9-9186-426d-9183-614597c7f2f7",
-  "tenant": "a4342dc8-cd0e-4742-a467-3129c469d0e5"
+  "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
 Define variables for the service principal ID and client secret using your output from running the [`az ad sp create-for-rbac`][az-ad-sp-create] command. The *SP_ID* is the *appId*, and the *SP_SECRET* is your *password*.
 
 ```console
-SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
-SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
+SP_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+SP_SECRET=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Next, you [update AKS cluster with the new service principal credential][update-cluster-service-principal-credentials]. This step is necessary to update the AKS cluster with the new service principal credential.
@@ -90,36 +94,38 @@ Next, you [update AKS cluster with the new service principal credential][update-
 ## Update AKS cluster with service principal credentials
 
 >[!IMPORTANT]
->For large clusters, updating your AKS cluster with a new service principal may take a long time to complete. Consider reviewing and customizing the [node surge upgrade settings][node-surge-upgrade] to minimize disruption during the update. For small and midsize clusters, it takes a several minutes for the new credentials to update in the cluster.
+>For large clusters, updating your AKS cluster with a new service principal can take a long time to complete. Consider reviewing and customizing the [node surge upgrade settings][node-surge-upgrade] to minimize disruption during the update. For small and midsize clusters, it takes a several minutes for the new credentials to update in the cluster.
 
 Update the AKS cluster with your new or existing credentials by running the [`az aks update-credentials`][az-aks-update-credentials] command.
 
 ```azurecli-interactive
 az aks update-credentials \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
     --reset-service-principal \
     --service-principal "$SP_ID" \
     --client-secret "${SP_SECRET}"
 ```
 
-## Update AKS cluster with new Azure AD application credentials
+<a name='update-aks-cluster-with-new-azure-ad-application-credentials'></a>
 
-You can create new Azure AD server and client applications by following the [Azure AD integration steps][create-aad-app], or reset your existing Azure AD applications following the [same method as for service principal reset][reset-existing-service-principal-credentials]. After that, you need to update your cluster Azure AD application credentials using the [`az aks update-credentials`][az-aks-update-credentials] command with the *--reset-aad* variables.
+## Update AKS cluster with new Microsoft Entra application credentials
+
+You can create new Microsoft Entra server and client applications by following the [Microsoft Entra integration steps][create-aad-app], or reset your existing Microsoft Entra applications following the [same method as for service principal reset][reset-existing-service-principal-credentials]. After that, you need to update your cluster Microsoft Entra application credentials using the [`az aks update-credentials`][az-aks-update-credentials] command with the *--reset-aad* variables.
 
 ```azurecli-interactive
 az aks update-credentials \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
     --reset-aad \
-    --aad-server-app-id <SERVER APPLICATION ID> \
-    --aad-server-app-secret <SERVER APPLICATION SECRET> \
-    --aad-client-app-id <CLIENT APPLICATION ID>
+    --aad-server-app-id $SERVER_APPLICATION_ID \
+    --aad-server-app-secret $SERVER_APPLICATION_SECRET \
+    --aad-client-app-id $CLIENT_APPLICATION_ID
 ```
 
 ## Next steps
 
-In this article, you learned how to update or rotate service principal and Azure AD application credentials. For more information on how to use a manage identity for workloads within an AKS cluster, see [Best practices for authentication and authorization in AKS][best-practices-identity].
+In this article, you learned how to update or rotate service principal and Microsoft Entra application credentials. For more information on how to use a manage identity for workloads within an AKS cluster, see [Best practices for authentication and authorization in AKS][best-practices-identity].
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
@@ -132,6 +138,6 @@ In this article, you learned how to update or rotate service principal and Azure
 [az-ad-app-credential-list]: /cli/azure/ad/app/credential#az_ad_app_credential_list
 [az-ad-app-credential-reset]: /cli/azure/ad/app/credential#az_ad_app_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
-[node-surge-upgrade]: upgrade-cluster.md#customize-node-surge-upgrade
+[node-surge-upgrade]: upgrade-aks-cluster.md#customize-node-surge-upgrade
 [update-cluster-service-principal-credentials]: #update-aks-cluster-with-service-principal-credentials
 [reset-existing-service-principal-credentials]: #reset-the-existing-service-principal-credentials

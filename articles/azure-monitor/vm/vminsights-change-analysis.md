@@ -4,7 +4,7 @@ description: VM insights integration with Application Change Analysis integratio
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 
 ---
 
@@ -21,12 +21,12 @@ To onboard change analysis in VM insights, you must register the *Microsoft.Chan
 
 ## View change analysis
 Change analysis is available from the **Performance** or **Map** tab of VM insights by selecting the **Change** option.
-
-[![Screenshot that shows investigating changes.](media/vminsights-change-analysis/investigate-changes-screenshot.png)](media/vminsights-change-analysis/investigate-changes-screenshot-zoom.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-change-analysis/investigate-changes-screenshot.png" lightbox="media/vminsights-change-analysis/investigate-changes-screenshot.png" alt-text="Screenshot that shows investigating changes." border="false":::
 
 Select **Investigate Changes** to open the Application Change Analysis page filtered for the VM. Review the listed changes to see if there are any that could have caused the issue. If you're unsure about a particular change, look at the **Changed by** column to identify the person who made the change.
-
-[![Screenshot that shows the Change details screen.](media/vminsights-change-analysis/change-details-screenshot.png)](media/vminsights-change-analysis/change-details-screenshot.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-change-analysis/change-details-screenshot.png" lightbox="media/vminsights-change-analysis/change-details-screenshot.png" alt-text="Screenshot that shows the Change details screen." border="false":::
 
 ## Next steps
 - Learn more about [Application Change Analysis](../app/change-analysis.md).

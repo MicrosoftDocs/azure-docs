@@ -1,19 +1,19 @@
 ---
 title: "Quickstart: Create an Azure App Configuration store"
-author: mcleanbyron
-ms.author: mcleans
-description: "In this quickstart, learn how to create an App Configuration store."
+author: maud-lv
+ms.author: malev
+description: "In this quickstart, you learn how to create an App Configuration store and create key-values in Azure App Configuration."
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 03/25/2024
 
 #Customer intent: As an Azure developer, I want to create an app configuration store to manage all my app settings in one place using Azure App Configuration.
 ---
 # Quickstart: Create an Azure App Configuration store
 
-Azure App Configuration is an Azure service designed to help you centrally manage your app settings and feature flags. In this quickstart, learn how to create an App Configuration store and add a few key-values and feature flags.
+Azure App Configuration is an Azure service designed to help you centrally manage your app settings and feature flags. In this quickstart, you learn how to create an App Configuration store and a key-value to the App Configuration store.
 
 ## Prerequisites
 
@@ -95,31 +95,6 @@ Add a key-value to the App Configuration store using the [az appconfig kv set](/
 
 ```azurecli
 az appconfig kv set --name <name> --key TestApp:Settings:TextAlign --value center
-```
-
----
-
-## Create a feature flag
-
-### [Portal](#tab/azure-portal)
-
-1. Select **Operations** > **Feature Manager** > **Create** and fill out the form with the following parameters:
-
-    | Setting             | Suggested value | Description                                                                             |
-    |---------------------|-----------------|-----------------------------------------------------------------------------------------|
-    | Enable feature flag | Box is checked. | Check this box to make the new feature flag active as soon as the flag has been created. |
-    | Feature flag name   | *featureA*      | The feature flag name is the unique ID of the flag, and the name that should be used when referencing the flag in code. |
-
-1. Leave all other fields with their default values and select **Apply**.    
-
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-create-feature-flag.png" alt-text="Screenshot of the Azure portal that shows the configuration settings to create a feature flag.":::
-
-### [Azure CLI](#tab/azure-cli)
-
-Add a feature flag to the App Configuration store using the [az appconfig feature set](/cli/azure/appconfig/#az-appconfig-feature-set) command. Replace the placeholder `<name>` with the name of the App Configuration store:
-
-```azurecli
-az appconfig feature set --name <name> --feature featureA
 ```
 
 ---

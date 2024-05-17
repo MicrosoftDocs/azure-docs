@@ -6,21 +6,21 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: infrastructure nodes, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 06/15/2023
+ms.date: 11/27/2023
 ms.custom: template-how-to
 ---
 
 # Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster
 
-ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. These infrastructure machines aren't counted toward the total number of subscriptions that are required to run the environment.
+ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. These infrastructure machines don't incur OpenShift costs; they only incur Azure Compute costs.
 
-In a production deployment, it's recommended that you deploy at least three machine sets to hold infrastructure components. Each of these nodes can be deployed to different availability zones to increase availability. This type of configuration requires three different machines sets; one for each availability zone.
+In a production deployment, it's recommended that you deploy three machine sets to hold infrastructure components. Each of these nodes can be deployed to different availability zones to increase availability. This type of configuration requires three different machines sets; one for each availability zone. For infrastructure node sizing guidance, see [Recommended infrastructure practices](https://docs.openshift.com/container-platform/4.14/scalability_and_performance/recommended-performance-scale-practices/recommended-infrastructure-practices.html).
 
 ## Qualified workloads
 
-The following infrastructure workloads don't incur OpenShift Container Platform worker subscriptions:
+The following infrastructure workloads don't incur Azure Red Hat OpenShift worker subscriptions:
 
-- Kubernetes and OpenShift Container Platform control plane services that run on masters
+- Kubernetes and Azure Red Hat OpenShift control plane services that run on masters
 
 - The default router
 
@@ -43,6 +43,9 @@ In order for Azure VMs added to an ARO cluster to be recognized as infrastructur
     - Standard_E4s_v5
     - Standard_E8s_v5
     - Standard_E16s_v5
+    - Standard_E4as_v5
+    - Standard_E8as_v5
+    - Standard_E16as_v5
     
 - There can be no more than three nodes. Any additional nodes are charged an OpenShift fee.
 
@@ -355,4 +358,31 @@ Use this procedure for any additional ingress controllers you may have in the cl
     grafana-599d4b948c-btlp2                       3/3     Running   0          2m48s   10.131.4.10   cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
     kube-state-metrics-574c5bfdd7-f7fjk            3/3     Running   0          2m49s   10.131.4.8    cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
     ```
+
+### DNS
+
+1. Allow the DNS pods to run on the infrastructure nodes.
+
+   ```
+   oc edit dns.operator/default
+   ```
+
+   ```
+   apiVersion: operator.openshift.io/v1
+   kind: DNS
+   metadata:
+   name: default
+   spec:
+   nodePlacement:
+     tolerations:
+     - operator: Exists
+   ```
     
+1. Verify that DNS pods are scheduled onto all infra nodes.
+
+```
+oc get ds/dns-default -n openshift-dns
+NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+dns-default   7         7         7       7            7           kubernetes.io/os=linux   35d
+```
+   

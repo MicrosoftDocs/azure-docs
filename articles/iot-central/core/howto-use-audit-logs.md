@@ -42,7 +42,7 @@ The log records changes made by the following types of user:
 
 - IoT Central user - the log shows the user's email.
 - API token - the log shows the token name.
-- Azure Active Directory user - the log shows the user email or ID.
+- Microsoft Entra user - the log shows the user email or ID.
 - Service principal - the log shows the service principal name.
 
 The log stores data for 30 days, after which it's no longer available.
@@ -52,7 +52,7 @@ The following screenshot shows the audit log view with the location of the sorti
 :::image type="content" source="media/howto-use-audit-logs/audit-log.png" alt-text="Screenshot that shows the audit log. The location of the sort and filter controls is highlighted." lightbox="media/howto-use-audit-logs/audit-log.png":::
 
 > [!TIP]
-> If you want to monitor the health of your connected devices, use Azure Monitor. To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
+> If you want to monitor the health of your connected devices, use Azure Monitor. To learn more, see [Monitor application health](howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 ## Customize the log
 

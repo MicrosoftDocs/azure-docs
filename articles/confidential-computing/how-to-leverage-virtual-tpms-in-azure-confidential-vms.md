@@ -5,10 +5,9 @@ author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 08/02/2023
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Leverage virtual TPMs in Azure confidential VMs

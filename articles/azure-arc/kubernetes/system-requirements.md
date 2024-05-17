@@ -57,9 +57,11 @@ For Azure PowerShell:
 > [!NOTE]
 > When you deploy the Azure Arc agents to a cluster,  Helm v. 3.6.3 will be installed in the `.azure` folder of the deployment machine. This [Helm 3](https://helm.sh/docs/) installation is only used for Azure Arc, and it doesn't remove or change any previously installed versions of Helm on the machine.
 
-## Azure AD identity requirements
+<a name='azure-ad-identity-requirements'></a>
 
-To connect your cluster to Azure Arc, you must have an Azure AD identity (user or service principal) which can be used to log in to [Azure CLI](/cli/azure/authenticate-azure-cli) or [Azure PowerShell](/powershell/azure/authenticate-azureps) and connect your cluster to Azure Arc.
+## Microsoft Entra identity requirements
+
+To connect your cluster to Azure Arc, you must have a Microsoft Entra identity (user or service principal) which can be used to log in to [Azure CLI](/cli/azure/authenticate-azure-cli) or [Azure PowerShell](/powershell/azure/authenticate-azureps) and connect your cluster to Azure Arc.
 
 This identity must have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`). If connecting the cluster to an existing resource group (rather than a new one created by this identity), the identity must have 'Read' permission for that resource group.
 

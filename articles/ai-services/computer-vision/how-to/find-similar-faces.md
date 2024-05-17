@@ -2,23 +2,22 @@
 title: "Find similar faces"
 titleSuffix: Azure AI services
 description: Use the Face service to find similar faces (face search by image).
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 02/14/2024
 ms.author: pafarley
-ms.custom: 
 ---
 
 # Find similar faces
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-The Find Similar operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.
+The [Find Similar](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list) operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.
 
 This guide demonstrates how to use the Find Similar feature in the different language SDKs. The following sample code assumes you have already authenticated a Face client object. For details on how to do this, follow a [quickstart](../quickstarts-sdk/identity-client-library.md).
 

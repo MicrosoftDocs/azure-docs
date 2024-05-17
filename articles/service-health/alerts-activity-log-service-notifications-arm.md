@@ -1,6 +1,6 @@
 ---
 title: Receive activity log alerts on Azure service notifications using Resource Manager template
-description: Get notified via SMS, email, or webhook when Azure service occurs.
+description: Get notified via SMS, email, or webhook when Azure service occurs using a Resource Manager template.
 ms.date: 05/13/2022
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template

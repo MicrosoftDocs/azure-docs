@@ -1,22 +1,26 @@
 ---
-title: Best practices for pg_dump and pg_restore in Azure Database for PostgreSQL - Flexible Server
-description: This article discusses best practices for pg_dump and pg_restore in Azure Database for PostgreSQL - Flexible Server 
+title: Best practices for pg_dump and pg_restore
+description: This article discusses best practices for pg_dump and pg_restore in Azure Database for PostgreSQL - Flexible Server.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/16/2022
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
 ---
 
 # Best practices for pg_dump and pg_restore for Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article reviews options and best practices for speeding up pg_dump and pg_restore. It also explains the best server configurations for carrying out pg_restore.
 
 ## Best practices for pg_dump
 
-You can use the pg_dump utility to extract a PostgreSQL database into a script file or archive file. A few of the command line options that you can use to reduce the overall dump time by using pg_dump are listed in the following sections.
+You can use the pg_dump utility to extract an Azure Database for PostgreSQL flexible server database into a script file or archive file. A few of the command line options that you can use to reduce the overall dump time by using pg_dump are listed in the following sections.
 
 ### Directory format(-Fd)
 
@@ -65,7 +69,7 @@ Use the following syntax for pg_dump:
 
 ## Best practices for pg_restore
 
-You can use the pg_restore utility to restore a PostgreSQL database from an archive that's created by pg_dump. A few command line options for reducing the overall restore time are listed in the following sections.
+You can use the pg_restore utility to restore an Azure Database for PostgreSQL flexible server database from an archive that's created by pg_dump. A few command line options for reducing the overall restore time are listed in the following sections.
 
 ### Parallel restore
 

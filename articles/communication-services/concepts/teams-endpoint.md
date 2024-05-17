@@ -55,7 +55,7 @@ The diagrams in the next sections demonstrate multi-tenant use cases where the f
 
 Voice, video, and screen-sharing capabilities are provided via [Azure Communication Services Calling SDKs](./interop/teams-user-calling.md). The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with Azure Communication Services support Teams identities. 
 
-You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) access tokens of Teams users for Communication Identity access tokens. 
+You can use the Azure Communication Services Identity SDK to exchange Microsoft Entra access tokens of Teams users for Communication Identity access tokens. 
 
 ![Diagram of the process to integrate the calling capabilities into your product with Azure Communication Services.](./media/teams-identities/teams-identity-calling-overview.svg)
 

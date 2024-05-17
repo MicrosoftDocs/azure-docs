@@ -99,44 +99,25 @@ The FortiGate firewall can be used to block suspicious traffic.
 
 Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
-**To set a forwarding rule to block malware-related alerts**:
+When creating your forwarding rule:
 
-1. Sign in to the Microsoft Defender for IoT sensor, and select **Forwarding**.
+1. In the **Actions** area, select **FortiGate**.
 
-1. Select **+ Create new rule**.
+1. Define the server IP address where you want to send the data.
 
-1. In the **Add forwarding rule** pane, define the rule parameters:
+1. Enter an API key created in FortiGate.
 
-    :::image type="content" source="media/tutorial-fortinet/forward-rule.png" alt-text="Screenshot of the Forwarding window option in a sensor." lightbox="media/tutorial-fortinet/forward-rule.png":::
+1. Enter the incoming and outgoing firewall interface ports.
 
-    | Parameter | Description |
-    |--|--|
-    | **Rule name** | The forwarding rule name. |
-    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
-    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
+1. Select to forward specific alert details. We recommend selecting one of more of the following:
 
-1. In the **Actions** area, define the following values:
+    - **Block illegal function codes**:	Protocol violations - Illegal field value violating ICS protocol specification (potential exploit)
+    - **Block unauthorized PLC programming / firmware updates**:	Unauthorized PLC changes 
+    - **Block unauthorized PLC stop**	PLC stop (downtime)
+    - **Block malware related alerts**: Blocking of the industrial malware attempts, such as TRITON or NotPetya
+    - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance)  
 
-    | Parameter | Description |
-    |--|--|
-    | **Server** | Select FortiGage. |
-    | **Host** | Define the ClearPass server IP to send alert information. |
-    | **API key** | Enter the [API key](#create-an-api-key-in-fortinet) that you created in FortiGate. |
-    | **Incoming Interface** | Enter the incoming firewall interface port. |
-    | **Outgoing Interface** | Enter the outgoing firewall interface port. |
-
-1. Configure which alert information you want to forward:
-
-    | Parameter | Description |
-    |--|--|
-    | **Block illegal function codes** | Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) |
-    | **Block unauthorized PLC programming / firmware updates** | Unauthorized PLC changes. |
-    | **Block unauthorized PLC stop** | PLC stop (downtime). |
-    | **Block malware related alerts** | Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). |
-    | **Block unauthorized scanning** | Unauthorized scanning (potential reconnaissance) |
-
-1. Select **Save**.
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
 ## Block the source of suspicious alerts
 

@@ -6,7 +6,6 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/21/2022
-ms.custom: seodec18
 ---
 # Monitor Stream Analytics job with Azure portal
 
@@ -46,7 +45,7 @@ For details, see [How to Customize Monitoring](../azure-monitor/data-platform.md
 
 
 ## Get help
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

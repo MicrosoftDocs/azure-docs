@@ -1,18 +1,17 @@
 ---
 title: Create shared access signature (SAS) tokens for storage containers and blobs
 description: How to create Shared Access Signature tokens (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal.
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 07/18/2023
+ms.date: 02/12/2024
 ---
 
 # Create SAS tokens for your storage containers
 
-In this article, you learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+In this article, you learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
 :::image type="content" source="../../media/sas-url-token.png" alt-text="Screenshot of a storage url with SAS token appended.":::
 
@@ -20,17 +19,17 @@ In this article, you learn how to create user delegation, shared access signatur
 >
 > [Managed identities](create-use-managed-identities.md) provide an alternate method for you to grant access to your storage data without the need to include SAS tokens with your HTTP requests. *See*, [Managed identities for Document Translation](create-use-managed-identities.md).
 >
-> * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications.
+> * You can use managed identities to grant access to any resource that supports Microsoft Entra authentication, including your own applications.
 > * Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
 > * There's no added cost to use managed identities in Azure.
 
 At a high level, here's how SAS tokens work:
 
-* Your application submits the SAS token to Azure Storage as part of a REST API request.
+* An application submits the SAS token to Azure Storage as part of a REST API request.
 
-* If the storage service verifies that the SAS is valid, the request is authorized.
+* The storage service verifies that the SAS is valid. If so, the request is authorized.
 
-* If the SAS token is deemed invalid, the request is declined, and the error code 403 (Forbidden) is returned.
+* The request is declined If the SAS token is deemed invalid. If so, error code 403 (Forbidden) is returned.
 
 Azure Blob Storage offers three resource types:
 
@@ -65,7 +64,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your co
 
 | Create SAS token for a container| Create SAS token for a specific file|
 |:-----:|:-----:|
-**Your storage account** → **containers** → **your container** |**Your storage account** → **containers** → **your container**→ **your file** |
+|**Your storage account** → **containers** → **your container** |**Your storage account** → **containers** → **your container**→ **your file** |
 
 1. Right-click the container or file and select **Generate SAS** from the drop-down menu.
 
@@ -73,17 +72,17 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your co
 
 1. Define **Permissions** by checking and/or clearing the appropriate check box:
 
-    * Your **source** container or file must have designated  **read** and **list** access.
+    * Your **source** container or file must designate  **read** and **list** access.
 
-    * Your **target** container or file must have designated  **write** and **list** access.
+    * Your **target** container or file must designate  **write** and **list** access.
 
 1. Specify the signed key **Start** and **Expiry** times.
 
     * When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token.
     * Consider setting a longer duration period for the time you're using your storage account for Translator Service operations.
     * The value of the expiry time is determined by whether you're using an **Account key** or **User delegation key** **Signing method**:
-       * **Account key**: There's no imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
-       * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Azure AD credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
+       * **Account key**: While a maximum time limit isn't imposed, best practice recommends that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
+       * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Microsoft Entra credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, authorization fails. The IP address or a range of IP addresses must be public IPs, not private. For more information,*see*, [**Specify an IP address or IP range**](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range).
 
@@ -134,8 +133,8 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
     * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, a SAS can't be revoked.
     * Select the **Time zone** for the Start and Expiry date and time (default is Local).
     * Define your container **Permissions** by checking and/or clearing the appropriate check box.
-        * Your **source** container or file must have designated  **read** and **list** access.
-        * Your **target** container or file must have designated  **write** and **list** access.
+        * Your **source** container or file must designate **read** and **list** access.
+        * Your **target** container or file must designate  **write** and **list** access.
     * Select **key1** or **key2**.
     * Review and select **Create**.
 
@@ -180,10 +179,10 @@ Here's a sample REST API request:
 }
 ```
 
-That's it! You've learned how to create SAS tokens to authorize how clients access your data.
+That's it! You just learned how to create SAS tokens to authorize how clients access your data.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](../quickstarts/document-translation-rest-api.md)
+> [Get Started with Document Translation](../quickstarts/asynchronous-rest-api.md)
 >

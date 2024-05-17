@@ -2,13 +2,11 @@
 title: 'Integrate with a client app using Speech SDK'                              
 titleSuffix: Azure AI services
 description: how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 1/18/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: cogserv-non-critical-speech, devx-track-csharp
@@ -25,11 +23,11 @@ In this article, you learn how to make requests to a published Custom Commands a
 
 ## Prerequisites
 
-A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application, you can do so following the quickstarts:
+A Custom Commands application is required to complete this article. Try a quickstart to create a custom commands application:
 > [!div class = "checklist"]
 > * [Create a Custom Commands application](quickstart-custom-commands-application.md)
 
-You'll also need:
+You also need:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide is based on Visual Studio 2019.
 > * An Azure AI Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](../multi-service-resource.md?pivots=azportal).
@@ -37,19 +35,19 @@ You'll also need:
 
 ## Step 1: Publish Custom Commands application
 
-1. Open your previously created Custom Commands application
-1. Go to **Settings**, select **LUIS resource**
-1. If **Prediction resource** is not assigned, select a query prediction key or create a new one
+1. Open your previously created Custom Commands application.
+1. Go to **Settings**, select **LUIS resource**.
+1. If **Prediction resource** isn't assigned, select a query prediction key or create a new one.
 
     Query prediction key is always required before publishing an application. For more information about LUIS resources, reference [Create LUIS Resource](../luis/luis-how-to-azure-subscription.md)
 
-1. Go back to editing Commands, Select **Publish**
+1. Go back to editing Commands, Select **Publish**.
 
    > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-commands/setup-speech-sdk-publish-application.png)
 
-1. Copy the App ID from the publish notification for later use
-1. Copy the Speech Resource Key for later use
+1. Copy the App ID from the "publish" notification for later use.
+1. Copy the Speech Resource Key for later use.
 
 ## Step 2: Create a Visual Studio project
 
@@ -118,12 +116,12 @@ The Design view is updated to show the application's user interface.
 
 Add the code-behind source so that the application works as expected. The code-behind source includes:
 
-- Required `using` statements for the `Speech` and `Speech.Dialog` namespaces
-- A simple implementation to ensure microphone access, wired to a button handler
-- Basic UI helpers to present messages and errors in the application
-- A landing point for the initialization code path that will be populated later
-- A helper to play back text to speech (without streaming support)
-- An empty button handler to start listening that will be populated later
+- Required `using` statements for the `Speech` and `Speech.Dialog` namespaces.
+- A simple implementation to ensure microphone access, wired to a button handler.
+- Basic UI helpers to present messages and errors in the application.
+- A landing point for the initialization code path.
+- A helper to play back text to speech (without streaming support).
+- An empty button handler to start listening.
 
 Add the code-behind source as follows:
 

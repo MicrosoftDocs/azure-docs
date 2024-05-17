@@ -1,11 +1,12 @@
 ---
 title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
 description: Learn how to customize the configuration on Azure Kubernetes Service (AKS) cluster nodes and node pools.
-ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: article
 ms.date: 04/24/2023
 ms.author: jpalma
 author: palma21
+ms.subservice: aks-nodes
 ---
 
 # Customize node configuration for Azure Kubernetes Service (AKS) node pools
@@ -14,46 +15,9 @@ Customizing your node configuration allows you to adjust operating system (OS) s
 
 ## Create an AKS cluster with a customized node configuration
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### Prerequisites for Windows kubelet custom configuration (preview)
-
-Before you begin, make sure you have an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You also need to register the feature flag using the following steps:
-
-
-1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
-
-    ```azurecli
-    az extension add --name aks-preview
-    ```
-
-2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
-
-    ```azurecli
-    az extension update --name aks-preview
-    ```
-
-3. Register the `WindowsCustomKubeletConfigPreview` feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "WindowsCustomKubeletConfigPreview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-4. Verify the registration status using the [`az feature show`][az-feature-show] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "WindowsCustomKubeletConfigPreview"
-    ```
-
-5. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
-
 ### Create config files
+
+OS and kubelet configuration changes require you to create a new configuration file with the parameters and your desired settings. If a value for a parameter is not specified, then the value will be set to the default.
 
 #### Kubelet configuration
 
@@ -197,7 +161,7 @@ Kubelet custom configuration is supported for Linux and Windows node pools. Supp
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. |
 | `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
-#### Windows Kubelet custom configuration (preview)
+#### Windows Kubelet custom configuration
 
 | Parameter | Allowed values/interval | Default | Description |
 | --------- | ----------------------- | ------- | ----------- |
@@ -241,14 +205,14 @@ For agent nodes, which are expected to handle very large numbers of concurrent s
 | `net.ipv4.tcp_fin_timeout` | 5 - 120 | 60 | The length of time an orphaned (no longer referenced by any application) connection will remain in the FIN_WAIT_2 state before it's aborted at the local end. |
 | `net.ipv4.tcp_keepalive_time` | 30 - 432000 | 7200 | How often TCP sends out `keepalive` messages when `keepalive` is enabled. |
 | `net.ipv4.tcp_keepalive_probes` | 1 - 15 | 9 | How many `keepalive` probes TCP sends out, until it decides that the connection is broken. |
-| `net.ipv4.tcp_keepalive_intvl` | 10 - 75 | 75 | How frequently the probes are sent out. Multiplied by `tcp_keepalive_probes` it makes up the time to kill a connection that isn't responding, after probes started. |
+| `net.ipv4.tcp_keepalive_intvl` | 10 - 90 | 75 | How frequently the probes are sent out. Multiplied by `tcp_keepalive_probes` it makes up the time to kill a connection that isn't responding, after probes started. |
 | `net.ipv4.tcp_tw_reuse` | 0 or 1 | 0 | Allow to reuse `TIME-WAIT` sockets for new connections when it's safe from protocol viewpoint. | 
-| `net.ipv4.ip_local_port_range` | First: 1024 - 60999 and Last: 32768 - 65000] | First: 32768 and Last: 60999 | The local port range that is used by TCP and UDP traffic to choose the local port. Comprised of two numbers: The first number is the first local port allowed for TCP and UDP traffic on the agent node, the second is the last local port number. | 
+| `net.ipv4.ip_local_port_range` | First: 1024 - 60999 and Last: 32768 - 65535] | First: 32768 and Last: 60999 | The local port range that is used by TCP and UDP traffic to choose the local port. Comprised of two numbers: The first number is the first local port allowed for TCP and UDP traffic on the agent node, the second is the last local port number. | 
 | `net.ipv4.neigh.default.gc_thresh1`| 	128 - 80000 | 4096 | Minimum number of entries that may be in the ARP cache. Garbage collection won't be triggered if the number of entries is below this setting. |
 | `net.ipv4.neigh.default.gc_thresh2`| 	512 - 90000 | 8192 | Soft maximum number of entries that may be in the ARP cache. This setting is arguably the most important, as ARP garbage collection will be triggered about 5 seconds after reaching this soft maximum. |
 | `net.ipv4.neigh.default.gc_thresh3`| 	1024 - 100000 | 16384 | Hard maximum number of entries in the ARP cache. |
-| `net.netfilter.nf_conntrack_max` | 131072 - 1048576 | 131072 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_max` is the maximum number of nodes in the hash table, that is, the maximum number of connections supported by the `nf_conntrack` module or the size of connection tracking table. |
-| `net.netfilter.nf_conntrack_buckets` | 65536 - 147456 | 65536 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_buckets` is the size of hash table. |
+| `net.netfilter.nf_conntrack_max` | 131072 - 2097152 | 131072 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_max` is the maximum number of nodes in the hash table, that is, the maximum number of connections supported by the `nf_conntrack` module or the size of connection tracking table. |
+| `net.netfilter.nf_conntrack_buckets` | 65536 - 524288 | 65536 | `nf_conntrack` is a module that tracks connection entries for NAT within Linux. The `nf_conntrack` module uses a hash table to record the *established connection* record of the TCP protocol. `nf_conntrack_buckets` is the size of hash table. |
 
 ### Worker limits
 
@@ -265,7 +229,7 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 | Setting | Allowed values/interval | Default | Description |
 | ------- | ----------------------- | ------- | ----------- |
 | `vm.max_map_count` | 	65530 - 262144 | 65530 | This file contains the maximum number of memory map areas a process may have. Memory map areas are used as a side-effect of calling `malloc`, directly by `mmap`, `mprotect`, and `madvise`, and also when loading shared libraries. |
-| `vm.vfs_cache_pressure` | 1 - 500 | 100 | This percentage value controls the tendency of the kernel to reclaim the memory, which is used for caching of directory and inode objects. |
+| `vm.vfs_cache_pressure` | 1 - 100 | 100 | This percentage value controls the tendency of the kernel to reclaim the memory, which is used for caching of directory and inode objects. |
 | `vm.swappiness` | 0 - 100 | 60 | This control is used to define how aggressive the kernel will swap memory pages. Higher values will increase aggressiveness, lower values decrease the amount of swap. A value of 0 instructs the kernel not to initiate swap until the amount of free and file-backed pages is less than the high water mark in a zone. |
 | `swapFileSizeMB` | 1 MB - Size of the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | None | SwapFileSizeMB specifies size in MB of a swap file will be created on the agent nodes from this node pool. |
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) is a Linux kernel feature intended to improve performance by making more efficient use of your processor’s memory-mapping hardware. When enabled the kernel attempts to allocate `hugepages` whenever possible and any Linux process will receive 2-MB pages if the `mmap` region is 2 MB naturally aligned. In certain cases when `hugepages` are enabled system wide, applications may end up allocating more memory resources. An application may `mmap` a large region but only touch 1 byte of it, in that case a 2-MB page might be allocated instead of a 4k page for no good reason. This scenario is why it's possible to disable `hugepages` system-wide or to only have them inside `MADV_HUGEPAGE madvise` regions. |
@@ -275,7 +239,7 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 
 ## Next steps
 
-- Learn [how to configure your AKS cluster](cluster-configuration.md).
+- Learn [how to configure your AKS cluster](./concepts-clusters-workloads.md).
 - Learn how [upgrade the node images](node-image-upgrade.md) in your cluster.
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
@@ -288,3 +252,4 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-provider-register]: /cli/azure/provider#az-provider-register
+

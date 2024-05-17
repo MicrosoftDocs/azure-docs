@@ -4,7 +4,7 @@ description: Learn how to install HDInsight applications for Apache Hadoop clust
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/21/2022
+ms.date: 01/04/2024
 ---
 
 # Install custom Apache Hadoop applications on Azure HDInsight
@@ -77,9 +77,9 @@ For **Hue**, you can use the following steps:
 
 ### Azure CLI
 
-Replace `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the commands below:
+Replace `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the following commands:
 
-* To lists all of the applications for the HDInsight cluster.
+* To list all of the applications for the HDInsight cluster.
 
     ```azurecli
     az hdinsight application list --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
@@ -101,13 +101,13 @@ If an application installation failed, you can see the error messages and debug 
 
     Open the cluster from the portal, and select Applications from Settings:
 
-    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="hdinsight applications application installation error":::
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="hdinsight applications application installation error.":::
 
 * HDInsight script action: If the HDInsight Applications' error message indicates a script action failure, more details about the script failure will be presented in the script actions pane.
 
     Select Script Action from Settings. Script action history shows the error messages
 
-    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="hdinsight applications script action error":::
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="hdinsight applications script action error.":::
 
 * Apache Ambari Web UI: If the install script was the cause of the failure, use Ambari Web UI to check full logs about the install scripts.
 
@@ -125,7 +125,7 @@ If an application installation failed, you can see the error messages and debug 
 
 ### Azure CLI
 
-Replace `NAME`, `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the command below:
+Replace `NAME`, `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the following command:
 
 ```azurecli
 az hdinsight application delete --name NAME --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP

@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled Kubernetes network requirements
 description: Learn about the networking requirements to connect Kubernetes clusters to Azure Arc.
-ms.date: 08/15/2023
+ms.date: 09/28/2023
 ms.topic: conceptual 
 ms.custom: references-regions
 ---

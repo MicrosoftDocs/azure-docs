@@ -47,7 +47,7 @@ For more information, see [Secure connections (TLS)](../app-service/overview-sec
 
 #### System key 
 
-Specific extensions may require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). 
+Specific extensions may require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that get called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). 
 
 The scope of system keys is determined by the extension, but it generally applies to the entire function app. System keys can only be created by specific extensions, and you can't explicitly set their values. Like other keys, you can generate a new value for the key from the portal or by using the key APIs.
 
@@ -159,7 +159,7 @@ While application settings are sufficient for most many functions, you may want 
 
 Identities may be used in place of secrets for connecting to some resources. This has the advantage of not requiring the management of a secret, and it provides more fine-grained access control and auditing. 
 
-When you are writing code that creates the connection to [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), you can choose to use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
+When you are writing code that creates the connection to [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), you can choose to use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
 
 Some Azure Functions trigger and binding extensions may be configured using an identity-based connection. Today, this includes the [Azure Blob](./functions-bindings-storage-blob.md) and [Azure Queue](./functions-bindings-storage-queue.md) extensions. For information about how to configure these extensions to use an identity, see [How to use identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection).
 
@@ -217,7 +217,7 @@ At this time, Key Vault isn't supported for deployment credentials. To learn mor
 
 By default, each function app has an FTP endpoint enabled. The FTP endpoint is accessed using deployment credentials. 
 
-FTP isn't recommended for deploying your function code. FTP deployments are manual, and they require you to synchronize triggers. To learn more, see [FTP deployment](functions-deployment-technologies.md#ftp). 
+FTP isn't recommended for deploying your function code. FTP deployments are manual, and they require you to synchronize triggers. To learn more, see [FTP deployment](functions-deployment-technologies.md#ftps). 
 
 When you're not planning on using FTP, you should disable it in the portal. If you do choose to use FTP, you should [enforce FTPS](../app-service/deploy-ftp.md#enforce-ftps).
 

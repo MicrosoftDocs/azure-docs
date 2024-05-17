@@ -1,8 +1,8 @@
 ---
 title: Add an HTML Marker to map | Microsoft Azure Maps
 description: Learn how to add HTML markers to maps. See how to use the Azure Maps Web SDK to customize markers and add popups and mouse events to a marker.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 05/17/2023
 ms.topic: conceptual
 ms.service: azure-maps

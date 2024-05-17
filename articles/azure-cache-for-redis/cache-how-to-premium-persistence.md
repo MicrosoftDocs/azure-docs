@@ -18,6 +18,10 @@ ms.date: 04/10/2023
 > If you are using persistence on the Premium tier, check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete).
 >
 
+>[!WARNING]
+> The _always write_ option for AOF persistence on the Enterprise and Enterprise Flash tiers is set to be retired on April 1, 2025. This option has significant performance limitations is no longer recommended. Using the _write every second_ option or using RDB persistence is recommended instead.
+>
+
 ## Scope of availability
 
 |Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
@@ -31,7 +35,7 @@ You have two options for persistence with Azure Cache for Redis: the _Redis data
 - _RDB persistence_ - When you use RDB persistence, Azure Cache for Redis persists a snapshot of your cache in a binary format. The snapshot is saved in an Azure Storage account. The configurable backup frequency determines how often to persist the snapshot. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed automatically using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 - _AOF persistence_ - When you use AOF persistence, Azure Cache for Redis saves every write operation to a log. The log is saved at least once per second in an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica caches, the cache is reconstructed automatically using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
-Azure Cache for Redis persistence features are intended to be used to restore data automatically to the same cache after data loss. The RDB/AOF persisted data files can't be imported to a new cache. To move data across caches, use the _Import and Export_ feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+Azure Cache for Redis persistence features are intended to be used to restore data automatically to the same cache after data loss. The RDB/AOF persisted data files can't be imported to a new cache or the existing cache. To move data across caches, use the _Import and Export_ feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 
 To generate any backups of data that can be added to a new cache, you can write automated scripts using PowerShell or CLI that export data periodically.
 
@@ -39,7 +43,7 @@ To generate any backups of data that can be added to a new cache, you can write 
 
 Persistence features are intended to be used to restore data to the same cache after data loss.
 
-- RDB/AOF persisted data files can't be imported to a new cache. Use the [Import/Export](cache-how-to-import-export-data.md) feature instead.
+- RDB/AOF persisted data files can't be imported to a new cache or the existing cache. Use the [Import/Export](cache-how-to-import-export-data.md) feature instead.
 - Persistence isn't supported with caches using [passive geo-replication](cache-how-to-geo-replication.md) or [active geo-replication](cache-how-to-active-geo-replication.md).
 - On the _Premium_ tier, AOF persistence isn't supported with [multiple replicas](cache-how-to-multi-replicas.md).
 - On the _Premium_ tier, data must be persisted to a storage account in the same region as the cache instance.
@@ -146,6 +150,10 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 1. Finish creating the cache by following the rest of the instructions in the [Enterprise tier quickstart guide](quickstart-create-redis-enterprise.md).
 
+>[!WARNING]
+> The _always write_ option for AOF persistence is set to be retired on April 1, 2025. This option has significant performance limitations is no longer recommended. Using the _write every second_ option or using RDB persistence is recommended instead.
+>
+ 
 > [!NOTE]
 > You can add persistence to a previously created Enterprise tier cache at any time by navigating to the **Advanced settings** in the Resource menu.
 >
@@ -282,7 +290,10 @@ For both RDB and AOF persistence:
 
 ### Can I use the same storage account for persistence across two different caches?
 
-Yes, you can use the same storage account for persistence across two different caches. The [limitations on subscriptions and regions](#prerequisites-and-limitations) still apply.
+No, you must use different storage accounts for different caches. Each cache must have its own storage account to set up for persistence.
+
+> [!IMPORTANT]
+> Use separate storage accounts for persistence and performing periodic export operations on a cache.
 
 ### Will I be charged for the storage being used in data persistence?
 

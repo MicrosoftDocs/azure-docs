@@ -2,8 +2,7 @@
 title: Log Analytics workspace overview
 description: Overview of Log Analytics workspace, which stores data for Azure Monitor Logs.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.date: 10/01/2022
+ms.date: 10/24/2023
 ---
 
 # Log Analytics workspace overview
@@ -25,7 +24,7 @@ To create a new workspace, see [Create a Log Analytics workspace in the Azure po
 
 Each workspace contains multiple tables that are organized into separate columns with multiple rows of data. Each table is defined by a unique set of columns. Rows of data provided by the data source share those columns. Log queries define columns of data to retrieve and provide output to different features of Azure Monitor and other services that use workspaces.
 
-[![Diagram that shows the Azure Monitor Logs structure.](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
+:::image type="content" source="media/data-platform-logs/logs-structure.png" lightbox="media/data-platform-logs/logs-structure.png" alt-text="Diagram that shows the Azure Monitor Logs structure.":::
 
 > [!WARNING]
 > Table names are used for billing purposes so they should not contain sensitive information.
@@ -38,7 +37,7 @@ For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.
 
 ## Workspace transformation DCR
 
-[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all data sources don't yet support DCRs, each workspace can have a [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
+[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all data sources don't yet support DCRs, each workspace can have a [workspace transformation DCR](../essentials/data-collection-transformations-workspace.md).
 
 [Transformations](../essentials/data-collection-transformations.md) in the workspace transformation DCR are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. These transformations only apply to workflows that don't already use a DCR. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a DCR to define data collected from virtual machines. This data won't be subject to any ingestion-time transformations defined in the workspace.
 
@@ -55,7 +54,7 @@ To access archived data, you must first retrieve data from it in an Analytics Lo
 | [Search jobs](search-jobs.md) | Retrieve data matching particular criteria. |
 | [Restore](restore.md) | Retrieve data from a particular time range. |
 
-:::image type="content" source="media/log-analytics-workspace-overview/workspace-plan-overview.png" alt-text="Diagram that shows an overview of data plans and archive.":::
+:::image type="content" source="media/log-analytics-workspace-overview/workspace-plan-overview.png" lightbox="media/log-analytics-workspace-overview/workspace-plan-overview.png" alt-text="Diagram that shows an overview of data plans and archive.":::
 
 ## Permissions
 

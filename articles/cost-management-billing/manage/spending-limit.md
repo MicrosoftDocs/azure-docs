@@ -3,17 +3,16 @@ title: Azure spending limit
 description: This article describes how an Azure spending limit works and how to remove it.
 author: bandersmsft
 ms.reviewer: judupont
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 12/12/2023
 ms.author: banders
 ---
 
 # Azure spending limit
 
-The spending limit in Azure prevents spending over your credit amount. All new customers who sign up for an Azure free account or subscription types that include credits over multiple months have the spending limit turned on by default. The spending limit is equal to the amount of credit. You can't change the amount of the spending limit. For example, if you signed up for Azure free account, your spending limit is $200 and you can't change it to $500. However, you can remove the spending limit. So, you either have no limit, or you have a limit equal to the amount of credit. The limit prevents you from most kinds of spending.
+The spending limit in Azure prevents spending over your credit amount. All new customers who sign up for an Azure free account or subscription types that include credits over multiple months have the spending limit turned on by default. The spending limit is equal to the amount of credit. You can't change the amount of the spending limit. For example, if you signed up for an Azure free account, your spending limit is USD 200 and you can't change it to USD 500. However, you can remove the spending limit. So, you either have no limit, or you have a limit equal to the amount of credit. The limit prevents you from most kinds of spending.
 
 The spending limit isn’t available for subscriptions with commitment plans or with pay-as-you-go pricing. For those types of subscriptions, a spending limit isn't shown in the Azure portal and you can't enable one. See the [full list of Azure subscription types and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
@@ -82,9 +81,9 @@ Custom spending limits aren't available.
 
 ## A spending limit doesn't prevent all charges
 
-[Some external services published in the Azure Marketplace](../understand/understand-azure-marketplace-charges.md) can't be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Azure Active Directory premium, support plans, and most third-party branded services. When you create a new external service, a warning is shown to let you know the services are billed separately:
+[Some external services published in the Azure Marketplace](../understand/understand-azure-marketplace-charges.md) can't be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Microsoft Entra ID P1 or P2, support plans, and most third-party branded services. When you create a new external service, a warning is shown to let you know the services are billed separately:
 
-![Marketplace purchase warning](./media/spending-limit/marketplace-warning01.png)
+:::image type="content" border="true" source="./media/spending-limit/marketplace-warning01.png" alt-text="Screenshot showing the Marketplace purchase warning.":::
 
 ## Troubleshoot spending limit banner
 

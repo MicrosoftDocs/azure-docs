@@ -1,24 +1,23 @@
 ---
-title: Create, test, and deploy your question answering project
-description: You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a simple FAQ webpage, to answer questions.
-ms.service: cognitive-services
-ms.subservice: qna-maker
+title: Create, test, and deploy your custom question answering project
+description: You can create a custom question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a custom question answering project from a simple FAQ webpage, to answer questions.
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: include
-ms.date: 06/06/2022
-ms.custom: ignite-fall-2021
+ms.date: 12/19/2023
 ---
 
-You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a product manual, to answer questions.
+You can create a custom question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a custom question answering project from a product manual, to answer questions.
 
 ## Prerequisites
 
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, language resource name you selected when you created the resource.
+> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Microsoft Entra ID, Subscription, language resource name you selected when you created the resource.
 
 
 
-## Create your first question answering project
+## Create your first custom question answering project
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
@@ -94,4 +93,3 @@ You can create a question answering project from your own content, such as FAQs 
     > ![Successful deployment](../media/create-test-deploy/successful-deployment.png)
 
     Your project is now successfully deployed. You can use the endpoint to answer questions in your own custom application to answer or in a bot.
-

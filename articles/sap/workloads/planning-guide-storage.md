@@ -3,12 +3,10 @@ title: 'Azure storage types for SAP workload'
 description: Planning Azure storage types for SAP workloads
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 07/13/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
@@ -314,7 +312,7 @@ Other built-in functionality of ANF storage:
 - [Application consistent Snapshot backup for SAP HANA and Oracle](../../azure-netapp-files/azacsnap-introduction.md) 
 
 > [!IMPORTANT]
-> Specifically for database deployments you want to achieve low latencies for at least your redo logs. Especially for SAP HANA, SAP requires a latency of less than than 1 millisecond for HANA redo log writes of smaller sizes. To get to such latencies, see the possibilities below.
+> Specifically for database deployments you want to achieve low latencies for at least your redo logs. Especially for SAP HANA, SAP requires a latency of less than 1 millisecond for HANA redo log writes of smaller sizes. To get to such latencies, see the possibilities below.
 
 > [!IMPORTANT]
 > Even for non-DBMS usage, you should use the preview functionality that allows you to create the NFS share in the same Azure Availability Zones as you placed your VM(s) that should mount the NFS shares into. This functionality is documented in the article [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). The motivation to have this type of Availability Zone alignment is the reduction of risk surface by having the NFS shares yet in another AvZone where you don't run VMs in. 

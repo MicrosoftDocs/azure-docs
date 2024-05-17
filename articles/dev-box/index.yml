@@ -6,10 +6,8 @@ summary: Microsoft Dev Box gives you self-service access to high-performance, pr
 metadata:
   title: Microsoft Dev Box documentation
   description: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations. 
-  services: dev-box
   ms.service: dev-box
   ms.topic: landing-page
-  ms.collection: collection
   ms.author: rosemalcolm
   author: RoseHJM
   ms.date: 06/06/2023
@@ -24,6 +22,8 @@ landingContent:
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
+          - text: Architecture overview
+            url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box concepts
             url: concept-dev-box-concepts.md
 
@@ -32,31 +32,37 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Set up Dev Box with an ARM template
+            url: quickstart-configure-dev-box-arm-template.md 
           - text: Configure Microsoft Dev Box
             url: quickstart-configure-dev-box-service.md
           - text: Create a dev box
             url: quickstart-create-dev-box.md
 
   # Card
+  - title: Quota management
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Request a quota limit increase
+            url: how-to-request-quota-increase.md
+            
+  # Card
   - title: Connect to a dev box
     linkLists:
       - linkListType: tutorial
         links:              
-          - text: Configure the Remote Desktop client to connect to a dev box with multiple monitors
+          - text: Configure the Remote Desktop client to connect to a dev box
             url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-
-  # Card
-  - title: Provide access to Microsoft Dev Box
-    linkLists:
+          - text: Use multiple monitors with your dev box 
+            url: tutorial-configure-multiple-monitors.md 
       - linkListType: how-to-guide
         links:
-          - text: Provide access to projects for project admins
-            url: how-to-project-admin.md
-          - text: Provide access to projects for dev box users
-            url: how-to-dev-box-user.md  
+          - text: Troubleshoot dev box connectivity issues
+            url: how-to-troubleshoot-repair-dev-box.md      
 
   # Card
-  - title: Add custom image galleries
+  - title: Create custom dev boxes
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -64,12 +70,20 @@ landingContent:
             url: how-to-configure-azure-compute-gallery.md
           - text: Provision a custom image by using Azure VM Image Builder
             url: how-to-customize-devbox-azure-image-builder.md
+          - text: Configure Dev Box Hibernation
+            url: how-to-configure-dev-box-hibernation.md
+          - text: Create reusable customizations
+            url: how-to-customize-dev-box-setup-tasks.md
 
    # Card
-  - title: References
+  - title: Support & Reference
     linkLists:
-      - linkListType: reference
-        links:
+        - linkListType: how-to-guide
+          links:
+          - text: Get support for Microsoft Dev Box
+            url: how-to-get-help.md
+        - linkListType: reference
+          links:
           - text: Azure CLI
             url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
           - text: REST API

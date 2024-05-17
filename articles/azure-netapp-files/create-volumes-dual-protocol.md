@@ -2,15 +2,8 @@
 title: Create a dual-protocol volume for Azure NetApp Files | Microsoft Docs
 description: Describes how to create a volume that uses the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB) with support for LDAP user mapping.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 06/22/2023
 ms.author: anfdocs
@@ -53,8 +46,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
-* Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (AADDS). 
-* Dual-protocol volumes do not support the use of LDAP over TLS with Azure Active Directory Domain Services ([Azure AD DS](../active-directory-domain-services/overview.md)). LDAP over TLS is supported with Active Directory Domain Services (AD DS). See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
+* Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services. 
+* Dual-protocol volumes do not support the use of LDAP over TLS with [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md). LDAP over TLS is supported with Active Directory Domain Services (AD DS). See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
 * The NFS version used by a dual-protocol volume can be NFSv3 or NFSv4.1. The following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
     * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes.   
@@ -89,7 +82,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 1.	Click the **Volumes** blade from the Capacity Pools blade. Click **+ Add volume** to create a volume. 
 
-    ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
+    ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png) 
 
 2.	In the Create a Volume window, click **Create**, and provide information for the following fields under the Basics tab:   
     * **Volume name**      
@@ -106,13 +99,16 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
     * **Large Volume**
-        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**.
+        For volumes between 50 TiB and 500 TiB, select **Yes**. If the volume does not require more than 100 TiB, select **No**. 
         [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
 
     * **Throughput (MiB/S)**   
         If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
 
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
+
+    * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
+        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
@@ -124,10 +120,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         The subnet you specify must be delegated to Azure NetApp Files. 
         
         If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
- 
-        ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
-        ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
@@ -142,20 +136,21 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
         For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
-        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
+        ![Show advanced selection](./media/shared/volume-create-advanced-selection.png)
 
-3. Click the **Protocol** tab, and then complete the following actions:  
+3. Select the **Protocol** tab, and then complete the following actions:  
     * Select **Dual-protocol** as the protocol type for the volume.   
 
     * Specify the **Active Directory** connection to use.
 
     * Specify a unique **Volume Path**. This path is used when you create mount targets. The requirements for the path are as follows:  
 
-        - It must be unique within each subnet in the region. 
+        - For volumes not in an availability zone or volumes in the same availability zone, the volume path must be unique within each subnet in the region. 
+        - For volumes in availability zones, the volume path must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
-
+    
     * Specify the **versions** to use for dual protocol: **NFSv4.1 and SMB**, or **NFSv3 and SMB**.
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
@@ -185,7 +180,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 
-    ![Specify dual-protocol](../media/azure-netapp-files/create-volume-protocol-dual.png)
+    ![Specify dual-protocol](./media/create-volumes-dual-protocol/create-volume-protocol-dual.png)
 
 4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
 
@@ -205,13 +200,13 @@ The **Allow local NFS users with LDAP** option in Active Directory connections e
 
 2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 
-    ![Screenshot that shows the Allow local NFS users with LDAP option](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
+    ![Screenshot that shows the Allow local NFS users with LDAP option](./media/shared/allow-local-nfs-users-with-ldap.png)  
 
 ## Manage LDAP POSIX Attributes
 
 You can manage POSIX attributes such as UID, Home Directory, and other values by using the Active Directory Users and Computers MMC snap-in.  The following example shows the Active Directory Attribute Editor: 
 
-![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
+![Active Directory Attribute Editor](./media/shared/active-directory-attribute-editor.png) 
 
 You need to set the following attributes for LDAP users and LDAP groups: 
 * Required attributes for LDAP users:   
@@ -226,11 +221,11 @@ You need to set the following attributes for LDAP users and LDAP groups:
 
 The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
 
-![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
+![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](./media/shared/multi-valued-string-editor.png) 
 
-Azure Active Directory Domain Services (AADDS) doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
+Microsoft Entra Domain Services doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
 
-If you are synchronizing the users and groups in your Azure AD tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [AADDS Custom OU Considerations and Limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
+If you are synchronizing the users and groups in your Microsoft Entra tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [Microsoft Entra Domain Services Custom OU considerations and limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
 
 ### Access Active Directory Attribute Editor 
 
@@ -239,7 +234,7 @@ On a Windows system, you can access the Active Directory Attribute Editor as fol
 1. Click **Start**, navigate to **Windows Administrative Tools**, and then click **Active Directory Users and Computers** to open the Active Directory Users and Computers window.  
 2.	Click the domain name that you want to view, and then expand the contents.  
 3.	To display the advanced Attribute Editor, enable the **Advanced Features** option in the Active Directory Users Computers **View** menu.   
-    ![Screenshot that shows how to access the Attribute Editor Advanced Features menu.](../media/azure-netapp-files/attribute-editor-advanced-features.png) 
+    ![Screenshot that shows how to access the Attribute Editor Advanced Features menu.](./media/create-volumes-dual-protocol/attribute-editor-advanced-features.png) 
 4. Double-click **Users** on the left pane to see the list of users.
 5. Double-click a particular user to see its **Attribute Editor** tab.
  

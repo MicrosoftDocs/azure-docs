@@ -1,15 +1,14 @@
 ---
-title: Secure access and data
+title: Secure access and data in workflows
 description: Secure access to inputs, outputs, request-based triggers, run history, management tasks, and access to other resources in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 07/06/2023
-ms.custom: ignite-fall-2021
+ms.date: 04/17/2024
 ---
 
-# Secure access and data in Azure Logic Apps
+# Secure access and data for workflows in Azure Logic Apps
 
 Azure Logic Apps relies on [Azure Storage](../storage/index.yml) to store and automatically [encrypt data at rest](../security/fundamentals/encryption-atrest.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information, review [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
@@ -35,17 +34,32 @@ For more information about security in Azure, review these topics:
 
 ## Access to logic app operations
 
-For Consumption logic apps only, before you can create or manage logic apps and their connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). You can also set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles:
+For Consumption logic apps only, before you can create or manage logic apps and their connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml). You can also set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles, based on whether you have a Consumption or Standard logic app workflow:
 
-* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
+##### Consumption workflows
 
-* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Lets you read, enable, and disable logic apps, but you can't edit or update them.
+| Role | Description |
+|------|-------------|
+| [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor) | You can manage logic app workflows, but you can't change access to them. |
+| [**Logic App Operator**](../role-based-access-control/built-in-roles.md#logic-app-operator) | You can read, enable, and disable logic app workflows, but you can't edit or update them. |
+| [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) | You have full access to manage all resources, but you can't assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. |
 
-* [Contributor](../role-based-access-control/built-in-roles.md#contributor): Grants full access to manage all resources, but doesn't allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+For example, suppose you have to work with a logic app workflow that you didn't create and authenticate connections used by that logic app workflow. Your Azure subscription requires **Contributor** permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
 
-  For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
+To prevent others from changing or deleting your logic app workflow, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
 
-To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
+##### Standard workflows
+
+> [!NOTE]
+>
+> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+| Role | Description |
+|------|-------------|
+| [**Logic Apps Standard Reader (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-reader-preview) | You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history. |
+| [**Logic Apps Standard Operator (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-operator-preview) | You have access to enable, resubmit, and disable workflows and to create connections to services, systems, and networks for a Standard logic app. The Operator role can perform administration and support tasks on the Azure Logic Apps platform, but doesn't have permissions to edit workflows or settings. |
+| [**Logic Apps Standard Developer (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-developer-preview) | You have access to create and edit workflows, connections, and settings for a Standard logic app. The Developer role doesn't have permissions to make changes outside the scope of workflows, for example, application-wide changes such as configure virtual network integration. App Service Plans aren't supported. |
+| [**Logic Apps Standard Contributor (Preview)**](../role-based-access-control/built-in-roles.md#logic-apps-standard-contributor-preview) | You have access to manage all aspects of a Standard logic app, but you can't change access or ownership. |
 
 <a name="secure-run-history"></a>
 
@@ -101,7 +115,7 @@ To specify the allowed IP ranges, follow these steps for either the Azure portal
 
 #### [Resource Manager Template](#tab/azure-resource-manager)
 
-#### Consumption workflows
+##### Consumption workflows
 
 In your ARM template, specify the IP ranges by using the `accessControl` section with the `contents` section in your logic app's resource definition, for example:
 
@@ -292,65 +306,31 @@ Before using these settings to help you secure this data, review these considera
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Based on your logic app resource type, follow these steps on the trigger or action where you want to secure sensitive data:
+1. On the designer, select the trigger or action where you want to secure sensitive data.
 
-   **Consumption workflows**
+1. On the information pane that opens, select **Settings**, and expand **Security**.
 
-   In the trigger or action's upper right corner, select the ellipses (**...**) button, and select **Settings**.
+   :::image type="content" source="media/logic-apps-securing-a-logic-app/open-action-trigger-settings-standard.png" alt-text="Screenshot shows Azure portal, workflow designer, and trigger or action with opened settings." lightbox="media/logic-apps-securing-a-logic-app/open-action-trigger-settings-standard.png":::
 
-    [ ![Screenshot shows Azure portal, Consumption workflow designer, and trigger or action with opened settings.](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-consumption.png) ](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-consumption.png#lightbox)
+1. Turn on either **Secure Inputs**, **Secure Outputs**, or both.
 
-   **Standard workflows**
+   :::image type="content" source="media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-standard.png" alt-text="Screenshot shows workflow with an action's Secure Inputs or Secure Outputs settings enabled." lightbox="media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-standard.png":::
 
-   On the designer, select the trigger or action to open the information pane. On the **Settings** tab, expand **Security**.
+   The trigger or action now shows a lock icon in the title bar. Any tokens that represent secured outputs from previous actions also show lock icons. For example, in a subsequent action, after you select a token for a secured output from the dynamic content list, that token shows a lock icon.
 
-   [ ![Screenshot shows Azure portal, Standard workflow designer, and trigger or action with opened settings.](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-standard.png) ](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-standard.png#lightbox)
-
-1. Turn on either **Secure Inputs**, **Secure Outputs**, or both. For Consumption workflows, make sure to select **Done**.
-
-   **Consumption workflows**
-
-   [ ![Screenshot shows Consumption workflow with an action's Secure Inputs or Secure Outputs settings enabled.](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-consumption.png) ](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-consumption.png#lightbox)
-
-   The trigger or action now shows a lock icon in the title bar.
-
-   [ ![Screenshot shows Consumption workflow and an action's title bar with lock icon.](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar-consumption.png)](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar-consumption.png#lightbox)
-
-   **Standard workflows**
-
-   [ ![Screenshot shows Standard workflow with an action's Secure Inputs or Secure Outputs settings enabled.](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-standard.png) ](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-standard.png#lightbox)
-
-   Tokens that represent secured outputs from previous actions also show lock icons. For example, in a subsequent action, after you select a token for a secured output from the dynamic content list, that token shows a lock icon.
-
-   **Consumption workflows**
-
-   [ ![Screenshot shows Consumption workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-consumption.png) ](./media/logic-apps-securing-a-logic-app/select-secured-token-consumption.png#lightbox)
-
-   **Standard workflows**
-
-   [ ![Screenshot shows Standard workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-standard.png) ](./media/logic-apps-securing-a-logic-app/select-secured-token-standard.png#lightbox)
+   :::image type="content" source="media/logic-apps-securing-a-logic-app/select-secured-token-standard.png" alt-text="Screenshot shows workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon." lightbox="media/logic-apps-securing-a-logic-app/select-secured-token-standard.png":::
 
 1. After the workflow runs, you can view the history for that run.
 
-   **Consumption workflows**
+   1. Select **Overview** either on the Consumption logic app menu or on the Standard workflow menu.
 
-   1. On the logic app menu, select **Overview**. Under **Runs history**, select the run that you want to view.
-
-   1. On the **Logic app run** pane, expand and select the actions that you want to review.
-
-      If you chose to hide both inputs and outputs, those values now appear hidden.
-
-      [ ![Screenshot shows Consumption workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-consumption.png) ](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-consumption.png#lightbox)
-
-   **Standard workflows**
-
-   1. On the workflow menu, select **Overview**. Under **Run History**, select the run that you want to view.
+   1. Under **Runs history**, select the run that you want to view.
 
    1. On the workflow run history pane, select the actions that you want to review.
 
       If you chose to hide both inputs and outputs, those values now appear hidden.
 
-      [ ![Screenshot shows Standard workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-standard.png)](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-standard.png#lightbox)
+      :::image type="content" source="media/logic-apps-securing-a-logic-app/hidden-data-run-history-standard.png" alt-text="Screenshot shows Standard workflow run history view with hidden inputs and outputs." lightbox="media/logic-apps-securing-a-logic-app/hidden-data-run-history-standard.png":::
 
 <a name="secure-data-code-view"></a>
 
@@ -385,7 +365,7 @@ In the underlying trigger or action definition, add or update the `runtimeConfig
 
 If you deploy across different environments, consider parameterizing the values in your workflow definition that vary based on those environments. That way, you can avoid hard-coded data by using an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to deploy your logic app, protect sensitive data by defining secured parameters, and pass that data as separate inputs through the [template's parameters](../azure-resource-manager/templates/parameters.md) by using a [parameter file](../azure-resource-manager/templates/parameter-files.md).
 
-For example, if you authenticate HTTP actions with [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app workflow, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To help secure parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For example, if you authenticate HTTP actions with [OAuth with Microsoft Entra ID](#azure-active-directory-oauth-authentication), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app workflow, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To help secure parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > If you use a parameter in a request header or body, that parameter might be visible 
@@ -475,7 +455,6 @@ This example template that has multiple secured parameter definitions that use t
 | `TemplateUsernameParam` | A template parameter that accepts a username that is then passed to the workflow definition's `basicAuthUserNameParam` parameter |
 | `basicAuthPasswordParam` | A workflow definition parameter that accepts the password for basic authentication in an HTTP action |
 | `basicAuthUserNameParam` | A workflow definition parameter that accepts the username for basic authentication in an HTTP action |
-|||
 
 ```json
 {
@@ -606,7 +585,7 @@ The following table identifies the authentication types that are available on th
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | - **Consumption**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook <br><br>- **Standard**: Azure Automation, Azure Blob Storage, Azure Event Hubs, Azure Queues, Azure Service Bus, Azure Tables, HTTP, HTTP Webhook, SQL Server |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | **Built-in connectors**: <br><br>- **Consumption**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <br><br>- **Standard**: Azure Automation, Azure Blob Storage, Azure Event Hubs, Azure Queues, Azure Service Bus, Azure Tables, HTTP, HTTP Webhook, SQL Server <br><br>**Note**: Currently, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) don't support selecting user-assigned managed identities for authentication. <br><br>**Managed connectors**: Azure AD Identity Protection, Azure App Service, Azure Automation, Azure Blob Storage, Azure Container Instance, Azure Cosmos DB, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Event Hubs, Azure IoT Central V2, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Queues, Azure Resource Manager, Azure Service Bus, Azure Sentinel, Azure Table Storage, Azure VM, HTTP with Azure AD, SQL Server |
+| [Managed identity](#managed-identity-authentication) | **Built-in connectors**: <br><br>- **Consumption**: Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP Webhook <br><br>- **Standard**: Azure Automation, Azure Blob Storage, Azure Event Hubs, Azure Queues, Azure Service Bus, Azure Tables, HTTP, HTTP Webhook, SQL Server <br><br>**Note**: Currently, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) don't support selecting user-assigned managed identities for authentication. <br><br>**Managed connectors**: Azure App Service, Azure Automation, Azure Blob Storage, Azure Container Instance, Azure Cosmos DB, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Event Hubs, Azure IoT Central V2, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, Azure Queues, Azure Resource Manager, Azure Service Bus, Azure Sentinel, Azure Table Storage, Azure VM, HTTP with Microsoft Entra ID, SQL Server |
 
 <a name="secure-inbound-requests"></a>
 
@@ -646,7 +625,7 @@ For inbound calls, use the following cipher suites:
 The following list includes more ways that you can limit access to triggers that receive inbound calls to your logic app so that only authorized clients can call your logic app:
 
 * [Generate shared access signatures (SAS)](#sas)
-* [Enable Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth)
+* [Enable OAuth with Microsoft Entra ID](#enable-oauth)
 * [Expose your logic app with Azure API Management](#azure-api-management)
 * [Restrict inbound IP addresses](#restrict-inbound-ip-addresses)
 
@@ -665,9 +644,8 @@ Each URL contains the `sp`, `sv`, and `sig` query parameter as described in this
 | `sp` | Specifies permissions for the allowed HTTP methods to use. |
 | `sv` | Specifies the SAS version to use for generating the signature. |
 | `sig` | Specifies the signature to use for authenticating access to the trigger. This signature is generated by using the SHA256 algorithm with a secret access key on all the URL paths and properties. This key is kept encrypted, stored with the logic app, and is never exposed or published. Your logic app authorizes only those triggers that contain a valid signature created with the secret key. |
-|||
 
-Inbound calls to a request endpoint can use only one authorization scheme, either SAS or [Azure Active Directory Open Authentication](#enable-oauth). Although using one scheme doesn't disable the other scheme, using both schemes at the same time causes an error because the service doesn't know which scheme to choose.
+Inbound calls to a request endpoint can use only one authorization scheme, either SAS or [OAuth with Microsoft Entra ID](#enable-oauth). Although using one scheme doesn't disable the other scheme, using both schemes at the same time causes an error because the service doesn't know which scheme to choose.
 
 For more information about securing access with SAS, review these sections in this topic:
 
@@ -683,7 +661,7 @@ To generate a new security access key at any time, use the Azure REST API or Azu
 
 1. In the [Azure portal](https://portal.azure.com), open the logic app that has the key you want to regenerate.
 
-1. On the logic app's menu, under **Settings**, select **Access Keys**.
+1. On the logic app resource menu, under **Settings**, select **Access Keys**.
 
 1. Select the key that you want to regenerate and finish the process.
 
@@ -713,23 +691,27 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 <a name="enable-oauth"></a>
 
-### Enable Azure Active Directory Open Authentication (Azure AD OAuth)
+<a name='enable-azure-active-directory-open-authentication-azure-ad-oauth'></a>
 
-In a Consumption logic app workflow that starts with a request-based trigger, you can authenticate inbound calls sent to the endpoint created by that trigger by enabling [Azure AD OAuth](../active-directory/develop/index.yml). To set up this authentication, [define or add an authorization policy at the logic app level](#enable-azure-ad-inbound). This way, inbound calls use [OAuth access tokens](../active-directory/develop/access-tokens.md) for authorization.
+### Enable Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)
+
+In a Consumption logic app workflow that starts with a request-based trigger, you can authenticate inbound calls sent to the endpoint created by that trigger by enabling [Microsoft Entra ID OAuth](../active-directory/develop/index.yml). To set up this authentication, [define or add an authorization policy at the logic app level](#enable-azure-ad-inbound). This way, inbound calls use [OAuth access tokens](../active-directory/develop/access-tokens.md) for authorization.
 
 When your logic app workflow receives an inbound request that includes an OAuth access token, Azure Logic Apps compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
 
 In a Standard logic app workflow that starts with the Request trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, review [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
 
-#### Considerations before you enable Azure AD OAuth
+<a name='considerations-before-you-enable-azure-ad-oauth'></a>
 
-* An inbound call to the request endpoint can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, using both schemes at the same time causes an error because Azure Logic Apps doesn't know which scheme to choose.
+#### Considerations before you enable Microsoft Entra ID OAuth
 
-* Azure Logic Apps supports either the [bearer type](../active-directory/develop/active-directory-v2-protocols.md#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Azure AD OAuth access tokens. However, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
+* An inbound call to the request endpoint can use only one authorization scheme, either OAuth with Microsoft Entra ID or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, using both schemes at the same time causes an error because Azure Logic Apps doesn't know which scheme to choose.
+
+* Azure Logic Apps supports either the [bearer type](../active-directory/develop/active-directory-v2-protocols.md#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Microsoft Entra ID OAuth access tokens. However, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
 
 * Your logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](../active-directory/develop/developer-glossary.md#claim). For more information, review [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* An authorization policy must include at least the **Issuer** claim, which has a value that starts with either `https://sts.windows.net/` or `https://login.microsoftonline.com/` (OAuth V2) as the Azure AD issuer ID.
+* An authorization policy must include at least the **Issuer** claim, which has a value that starts with either `https://sts.windows.net/` or `https://login.microsoftonline.com/` (OAuth V2) as the Microsoft Entra issuer ID.
 
   For example, suppose that your logic app resource has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample [payload section](../active-directory/develop/access-token-claims-reference.md#payload-claims) for a decoded access token includes both claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
 
@@ -774,7 +756,9 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
    }
    ```
 
-#### Enable Azure AD OAuth as the only option to call a request endpoint
+<a name='enable-azure-ad-oauth-as-the-only-option-to-call-a-request-endpoint'></a>
+
+#### Enable Microsoft Entra ID OAuth as the only option to call a request endpoint
 
 1. Set up your Request or HTTP webhook trigger with the capability to check the OAuth access token by [following the steps to include the 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
 
@@ -785,9 +769,9 @@ In a Standard logic app workflow that starts with the Request trigger (but not a
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
-1. On the trigger, in the upper right corner, select the ellipses (**...**) button, and then select **Settings**.
+1. On the designer, select the trigger. On the information pane that opens, select **Settings**.
 
-1. Under **Trigger Conditions**, select **Add**. In the trigger condition box, enter either of the following expressions, based on the token type you want to use, and select **Done**.
+1. Under **General** > **Trigger conditions**, select **Add**. In the trigger condition box, enter either of the following expressions, based on the token type that you want to use:
 
    `@startsWith(triggerOutputs()?['headers']?['Authorization'], 'Bearer')`
 
@@ -805,13 +789,15 @@ The Microsoft Authentication Library (MSAL) libraries provide PoP tokens for you
 
 * [A .NET Core daemon console application calling a protected Web API with its own identity](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
-* [SignedHttpRequest aka PoP (Proof of Possession)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki/SignedHttpRequest-aka-PoP-(Proof-of-Possession))
+* [SignedHttpRequest, also known as PoP (Proof of Possession)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki/SignedHttpRequest-aka-PoP-(Proof-of-Possession))
 
-To use the PoP token with your Consumption logic app, follow the next section to [set up Azure AD OAuth](#enable-azure-ad-inbound).
+To use the PoP token with your Consumption logic app workflow, follow the next section to [set up OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
 
 <a name="enable-azure-ad-inbound"></a>
 
-#### Enable Azure AD OAuth for your Consumption logic app resource
+<a name='enable-azure-ad-oauth-for-your-consumption-logic-app-resource'></a>
+
+#### Enable Microsoft Entra ID OAuth for your Consumption logic app resource
 
 Follow these steps for either the Azure portal or your Azure Resource Manager template:
 
@@ -819,11 +805,11 @@ Follow these steps for either the Azure portal or your Azure Resource Manager te
 
 #### [Portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com), add one or more authorization policies to your logic app:
+In the [Azure portal](https://portal.azure.com), add one or more authorization policies to your Consumption logic app resource:
 
-1. In the [Azure portal](https://portal.microsoft.com), open your logic app in the workflow designer.
+1. In the [Azure portal](https://portal.microsoft.com), open your Consumption logic app in the workflow designer.
 
-1. On the logic app menu, under **Settings**, select **Authorization**. After the Authorization pane opens, select **Add policy**.
+1. On the logic app resource menu, under **Settings**, select **Authorization**. After the Authorization pane opens, select **Add policy**.
 
    ![Screenshot that shows Azure portal, Consumption logic app menu, Authorization page, and selected button to add policy.](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
@@ -835,7 +821,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
    |----------|----------|------|-------------|
    | **Policy name** | Yes | String | The name that you want to use for the authorization policy |
    | **Policy type** | Yes | String | Either **AAD** for bearer type tokens or **AADPOP** for Proof-of-Possession type tokens. |
-   | **Claims** | Yes | String | A key-value pair that specifies the claim type and value that the workflow's Request trigger expects in the access token presented by each inbound call to the trigger. You can add any standard claim you want by selecting **Add standard claim**. To add a claim that's specific to a PoP token, select **Add custom claim**. <br><br>Available standard claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. <br><br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br><br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value. |
+   | **Claims** | Yes | String | A key-value pair that specifies the claim type and value that the workflow's Request trigger expects in the access token presented by each inbound call to the trigger. You can add any standard claim you want by selecting **Add standard claim**. To add a claim that's specific to a PoP token, select **Add custom claim**. <br><br>Available standard claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID. <br><br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br><br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Microsoft Entra security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value. |
 
    The following example shows the information for a PoP token:
 
@@ -861,7 +847,7 @@ Workflow properties such as policies don't appear in your workflow's code view i
 
 In your ARM template, define an authorization policy following these steps and syntax below:
 
-1. In the `properties` section for your [logic app's resource definition](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), add an `accessControl` object, if none exists, that contains a `triggers` object.
+1. In the `properties` section for your [logic app's resource definition](logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), add an `accessControl` object, if none exists, that contains a `triggers` object.
 
    For more information about the `accessControl` object, review [Restrict inbound IP ranges in Azure Resource Manager template](#restrict-inbound-ip-template) and [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
@@ -869,9 +855,9 @@ In your ARM template, define an authorization policy following these steps and s
 
 1. Provide a name for authorization policy, set the policy type to `AAD`, and include a `claims` array where you specify one or more claim types.
 
-   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, review [Claims in Azure AD security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value.
+   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID. For more information about these claim types, see [Claims in Microsoft Entra security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value.
 
-1. To include the `Authorization` header from the access token in the request-based trigger outputs, review [Include 'Authorization' header in request trigger outputs](#include-auth-header).
+1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
 Here's the syntax to follow:
 
@@ -918,7 +904,7 @@ Here's the syntax to follow:
 
 #### Include 'Authorization' header in Request or HTTP webhook trigger outputs
 
-For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth) for authorizing inbound calls to access request-based triggers, you can enable the Request trigger or HTTP Webhook trigger outputs to include the `Authorization` header from the OAuth access token. In the trigger's underlying JSON definition, add and set the `operationOptions` property to `IncludeAuthorizationHeadersInOutputs`. Here's an example for the Request trigger:
+For logic apps that [enable OAuth with Microsoft Entra ID](#enable-oauth) for authorizing inbound calls to access request-based triggers, you can enable the Request trigger or HTTP Webhook trigger outputs to include the `Authorization` header from the OAuth access token. In the trigger's underlying JSON definition, add and set the `operationOptions` property to `IncludeAuthorizationHeadersInOutputs`. Here's an example for the Request trigger:
 
 ```json
 "triggers": {
@@ -941,14 +927,14 @@ For more information, review these topics:
 
 <a name="azure-api-management"></a>
 
-### Expose your logic app with Azure API Management
+### Expose your logic app workflow with Azure API Management
 
-For more authentication protocols and options, consider exposing your logic app workflow as an API by using Azure API Management. This service provides rich monitoring, security, policy, and documentation capabilities for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use Azure Active Directory Open Authentication (Azure AD OAuth), client certificate, or other security standards. When API Management receives a request, the service sends the request to your logic app and makes any necessary transformations or restrictions along the way. To let only API Management call your logic app workflow, you can [restrict your logic app's inbound IP addresses](#restrict-inbound-ip).
+For more authentication protocols and options, consider exposing your logic app workflow as an API by using Azure API Management. This service provides rich monitoring, security, policy, and documentation capabilities for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use OAuth with Microsoft Entra ID, client certificate, or other security standards. When API Management receives a request, the service sends the request to your logic app and makes any necessary transformations or restrictions along the way. To let only API Management call your logic app workflow, you can [restrict your logic app's inbound IP addresses](#restrict-inbound-ip).
 
-For more information, review the following documentation:
+For more information, see the following documentation:
 
 * [About API Management](../api-management/api-management-key-concepts.md)
-* [Protect a web API backend in Azure API Management by using OAuth 2.0 authorization with Azure AD](../api-management/api-management-howto-protect-backend-with-aad.md)
+* [Protect a web API backend in Azure API Management by using OAuth 2.0 authorization with Microsoft Entra ID](../api-management/api-management-howto-protect-backend-with-aad.md)
 * [Secure APIs using client certificate authentication in API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [API Management authentication policies](../api-management/api-management-authentication-policies.md)
 
@@ -970,19 +956,20 @@ In the Azure portal, IP address restriction affects both triggers *and* actions,
 
 ##### Consumption workflows
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the workflow designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app in the workflow designer.
 
-1. On your logic app's menu, under **Settings**, select **Workflow settings**.
+1. On the logic app menu, under **Settings**, select **Workflow settings**.
 
 1. In the **Access control configuration** section, under **Allowed inbound IP addresses**, choose the path for your scenario:
 
-   * To make your workflow callable using the [**Azure Logic Apps** built-in action](../logic-apps/logic-apps-http-endpoint.md), but only as a nested workflow, select **Only other Logic Apps**. This option works *only* when you use the **Azure Logic Apps** action to call the nested workflow.
+   * To make your workflow callable using the [**Azure Logic Apps** built-in action](logic-apps-http-endpoint.md), but only as a nested workflow, select **Only other Logic Apps**. This option works *only* when you use the **Azure Logic Apps** action to call the nested workflow.
 
      This option writes an empty array to your logic app resource and requires that only calls from parent workflows that use the built-in **Azure Logic Apps** action can trigger the nested workflow.
 
    * To make your workflow callable using the HTTP action, but only as a nested workflow, select **Specific IP ranges**. When the **IP ranges for triggers** box appears, enter the parent workflow's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound). A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
      > [!NOTE]
+     >
      > If you use the **Only other Logic Apps** option and the HTTP action to call your nested workflow, 
      > the call is blocked, and you get a "401 Unauthorized" error.
 
@@ -1216,11 +1203,11 @@ Based on the target endpoint's capability, outbound calls sent by the [HTTP trig
 
 This list includes information about TLS/SSL self-signed certificates:
 
-* For Consumption logic app workflows in the multi-tenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
+* For Consumption logic app workflows in the multitenant Azure Logic Apps environment, HTTP operations don't permit self-signed TLS/SSL certificates. If your logic app makes an HTTP call to a server and presents a TLS/SSL self-signed certificate, the HTTP call fails with a `TrustFailure` error.
 
 * For Standard logic app workflows in the single-tenant Azure Logic Apps environment, HTTP operations support self-signed TLS/SSL certificates. However, you have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [TLS/SSL certificate authentication for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#tlsssl-certificate-authentication).
 
-  If you want to use client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, review [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
+  If you want to use client certificate or OAuth with Microsoft Entra ID with the **Certificate** credential type instead, you still have to complete a few extra steps for this authentication type. Otherwise, the call fails. For more information, see [Client certificate or OAuth with Microsoft Entra ID with the "Certificate" credential type for single-tenant Azure Logic Apps](../connectors/connectors-native-http.md#client-certificate-authentication).
 
 Here are more ways that you can help secure endpoints that handle calls sent from your logic app workflows:
 
@@ -1250,9 +1237,10 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
   * Connect through Azure API Management
 
-    [Azure API Management](../api-management/api-management-key-concepts.md) provides on-premises connection options, such as site-to-site virtual private network and [ExpressRoute](../expressroute/expressroute-introduction.md) integration for secured proxy and communication to on-premises systems. If you have an API that provides access to your on-premises system, and you exposed that API by creating an [API Management service instance](../api-management/get-started-create-service-instance.md), you can call that API in your logic app's workflow by selecting the built-in API Management trigger or action in the workflow designer.
+    [Azure API Management](../api-management/api-management-key-concepts.md) provides on-premises connection options, such as site-to-site virtual private network and [ExpressRoute](../expressroute/expressroute-introduction.md) integration for secured proxy and communication to on-premises systems. If you have an API that provides access to your on-premises system, and you exposed that API by creating an [API Management service instance](../api-management/get-started-create-service-instance.md), you can call that API from your logic app's workflow by selecting the corresponding **API Management** operation in the workflow designer.
 
     > [!NOTE]
+    >
     > The connector shows only those API Management services where you have permissions to view and connect,
     > but doesn't show consumption-based API Management services.
 
@@ -1260,39 +1248,49 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
     **Consumption workflows**
 
-    1. On the workflow designer, under the search box, select **Built-in**. In the search box, find the built-in connector named **API Management**.
+    1. Based on whether you're adding an API Management trigger or action, follow these steps:
 
-    1. Based on whether you're adding a trigger or an action, select the following operation:
+       * Trigger:
 
-       * Trigger: Select **Choose an Azure API Management trigger**.
+         1. On the workflow designer, select **Add a trigger**.
 
-       * Action: Select **Choose an Azure API Management action**.
+         1. After the **Add a trigger** pane opens, in the search box, enter **API Management**.
 
-       The following example adds a trigger:
+         1. From the trigger results list, select **Choose an Azure API Management Trigger**.
 
-       [ ![Screenshot shows Azure portal, Consumption workflow designer, and Azure API Management trigger.](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png) ](./media/logic-apps-securing-a-logic-app/select-api-management-consumption.png#lightbox)
+       * Action:
 
-    1. Select your previously created API Management service instance.
+         1. On the workflow designer, select the plus sign (**+**) where you want to add the action.
 
-    1. Select the API operation to call.
+         1. After the **Add an action** pane opens, in the search box, enter **API Management**.
 
-       [ ![Screenshot shows Azure portal, Consumption workflow designer, and selected API to call.](./media/logic-apps-securing-a-logic-app/select-api-consumption.png) ](./media/logic-apps-securing-a-logic-app/select-api-consumption.png#lightbox)
+         1. From the action results list, select **Choose an Azure API Management action**.
+
+       The following example shows finding an Azure API Management trigger:
+
+       :::image type="content" source="media/logic-apps-securing-a-logic-app/select-api-trigger-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and finding an API Management trigger." lightbox="media/logic-apps-securing-a-logic-app/select-api-consumption.png":::
+
+    1. From the API Management service instance list, select your previously created API Management service instance.
+
+    1. From the API operations list, select the API operation to call, and then select **Add Action**.
 
     **Standard workflows**
 
-    In Standard workflows, the **API Management** built-in connector provides only an action, not a trigger.
+    For Standard workflows, you can only add **API Management** actions, not triggers.
 
-    1. On the workflow designer, either at the end of your workflow or between steps, select **Add an action**.
+    1. On the workflow designer, select the plus sign (**+**) where you want to add the action.
 
-    1. After the **Add an action** pane opens, under the search box, from the **Runtime** list, select **In-App** to show only built-in connectors. Select the built-in action named **Call an Azure API Management API**.
+    1. After the **Add an action** pane opens, in the search box, enter **API Management**.
 
-       [ ![Screenshot shows Azure portal, Standard workflow designer, and Azure API Management action.](./media/logic-apps-securing-a-logic-app/select-api-management-standard.png) ](./media/logic-apps-securing-a-logic-app/select-api-management-standard.png#lightbox)
+    1. From the action results list, select **Call an Azure API Management API**.
 
-    1. Select your previously created API Management service instance.
+       :::image type="content" source="media/logic-apps-securing-a-logic-app/select-api-management-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Azure API Management action." lightbox="media/logic-apps-securing-a-logic-app/select-api-management-standard.png":::
 
-    1. Select the API to call. If your connection is new, select **Create New**.
+    1. From the API Management service instance list, select your previously created API Management service instance.
 
-       [ ![Screenshot shows Azure portal, Standard workflow designer, and selected API to call.](./media/logic-apps-securing-a-logic-app/select-api-standard.png) ](./media/logic-apps-securing-a-logic-app/select-api-standard.png#lightbox)
+    1. From the API operations list, select the API operation to call, and then select **Create New**.
+
+       :::image type="content" source="media/logic-apps-securing-a-logic-app/select-api-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and selected API to call." lightbox="media/logic-apps-securing-a-logic-app/select-api-standard.png":::
 
 <a name="add-authentication-outbound"></a>
 
@@ -1342,10 +1340,22 @@ If the [Client Certificate](../active-directory/authentication/active-directory-
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use. You can manage certificates with [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Note**: Custom connectors don't support certificate-based authentication for both inbound and outbound calls. |
-| **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <p><p>To convert the PFX file into base64-encoded format, you can use PowerShell 7 by following these steps: <p>1. Save the certificate content into a variable: <p>   `$pfx_cert = [System.IO.File]::ReadAllBytes('c:\certificate.pfx')` <p>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <p><p>**Troubleshooting**: If you use the `cert mmc/PowerShell` command, you might get this error: <p><p>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <p><p>To resolve this error, try converting the PFX file to a PEM file and back again by using the `openssl` command: <p><p>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <p><p>Afterwards, when you get the base64-encoded string for the certificate's newly converted PFX file, the string now works in Azure Logic Apps. |
+| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use. You can manage certificates with [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <br><br></p>**Note**: Custom connectors don't support certificate-based authentication for both inbound and outbound calls. |
+| **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <br><br>To convert the PFX file into base64-encoded format, you can use PowerShell 7 by following these steps: <br><br>1. Save the certificate content into a variable: <br><br>   `$pfx_cert = [System.IO.File]::ReadAllBytes('c:\certificate.pfx')` <br><br>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <br><br>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` <br><br>**Troubleshooting**: If you use the `cert mmc/PowerShell` command, you might get this error: <br><br>`Could not load the certificate private key. Please check the authentication certificate password is correct and try again.` <br><br>To resolve this error, try converting the PFX file to a PEM file and back again by using the `openssl` command: <br><br>`openssl pkcs12 -in certificate.pfx -out certificate.pem` <br>`openssl pkcs12 -in certificate.pem -export -out certificate2.pfx` <br><br>Afterwards, when you get the base64-encoded string for the certificate's newly converted PFX file, the string now works in Azure Logic Apps. |
 | **Password** | `password`| No | <*password-for-pfx-file*> | The password for accessing the PFX file |
-|||||
+
+> [!NOTE]
+>
+> If you try to authenticate with a client certificate using OpenSSL, you might get the following error:
+>
+> `BadRequest: Could not load private key`
+>
+> To resolve this error, follow these steps:
+>
+> 1. Uninstall all OpenSSL instances.
+> 2. Install OpenSSL version 1.1.1t.
+> 3. Resign your certificate using the new update.
+> 4. Add the new certificate to the HTTP operation when using client certificate authentication.
 
 When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ClientCertificate` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
@@ -1366,11 +1376,11 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 ```
 
 > [!IMPORTANT]
-> If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, 
-> and you want to use an HTTP operation with a TSL/SSL certificate, client certificate, 
-> or Azure Active Directory Open Authentication (Azure AD OAuth) with the `Certificate` 
-> credential type, make sure to complete the extra setup steps for this authentication type. 
-> Otherwise, the call fails. For more information, review 
+>
+> If you have a Standard logic app resource in single-tenant Azure Logic Apps, and you want to use an HTTP
+> operation with a TSL/SSL certificate, client certificate, or Microsoft Entra ID Open Authentication
+> (Microsoft Entra ID OAuth) with the `Certificate` credential type, make sure to complete the extra setup
+> steps for this authentication type. Otherwise, the call fails. For more information, review 
 > [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
 
 For more information about securing services by using client certificate authentication, review these topics:
@@ -1383,15 +1393,17 @@ For more information about securing services by using client certificate authent
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-#### Azure Active Directory Open Authentication
+<a name='azure-active-directory-open-authentication'></a>
 
-On Request triggers, you can use [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), for authenticating incoming calls after you [set up Azure AD authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
+#### Microsoft identity platform
+
+On Request triggers, you can use [Microsoft identity platform](../active-directory/develop/index.yml), for authenticating incoming calls after you [set up Microsoft Entra authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Yes | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | The authentication type to use. Azure Logic Apps currently follows the [OAuth 2.0 protocol](../active-directory/develop/v2-overview.md). |
-| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the access token, such as `https://login.microsoftonline.com/` for Azure global service regions. For other national clouds, review [Azure AD authentication endpoints - Choosing your identity authority](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). |
-| **Tenant** | `tenant` | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant |
+| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the access token, such as `https://login.microsoftonline.com/` for Azure global service regions. For other national clouds, review [Microsoft Entra authentication endpoints - Choosing your identity authority](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). |
+| **Tenant** | `tenant` | Yes | <*tenant-ID*> | The tenant ID for the Microsoft Entra tenant |
 | **Audience** | `audience` | Yes | <*resource-to-authorize*> | The resource that you want to use for authorization, for example, `https://management.core.windows.net/` |
 | **Client ID** | `clientId` | Yes | <*client-ID*> | The client ID for the app requesting authorization |
 | **Credential Type** | `credentialType` | Yes | Certificate <br>or <br>Secret | The credential type that the client uses for requesting authorization. This property and value don't appear in your logic app's underlying definition, but determines the properties that appear for the selected credential type. |
@@ -1421,11 +1433,11 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 ```
 
 > [!IMPORTANT]
-> If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, 
-> and you want to use an HTTP operation with a TSL/SSL certificate, client certificate, 
-> or Azure Active Directory Open Authentication (Azure AD OAuth) with the `Certificate` 
-> credential type, make sure to complete the extra setup steps for this authentication type. 
-> Otherwise, the call fails. For more information, review 
+>
+> If you have a Standard logic app resource in single-tenant Azure Logic Apps, and you want to use an HTTP
+> operation with a TSL/SSL certificate, client certificate, or Microsoft Entra ID Open Authentication
+> (Microsoft Entra ID OAuth) with the `Certificate` credential type, make sure to complete the extra setup
+> steps for this authentication type. Otherwise, the call fails. For more information, review 
 > [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
 
 <a name="raw-authentication"></a>
@@ -1474,11 +1486,11 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 #### Managed identity authentication
 
-When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#authentication-types-supported-triggers-actions), your logic app can use this identity for authenticating access to Azure resources that are protected by Azure Active Directory (Azure AD), rather than credentials, secrets, or Azure AD tokens. Azure manages this identity for you and helps you secure your credentials because you don't have to manage secrets or directly use Azure AD tokens. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#authentication-types-supported-triggers-actions), your logic app can use this identity for authenticating access to Azure resources that are protected by Microsoft Entra ID, rather than credentials, secrets, or Microsoft Entra tokens. Azure manages this identity for you and helps you secure your credentials because you don't have to manage secrets or directly use Microsoft Entra tokens. Learn more about [Azure services that support managed identities for Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-* The **Logic App (Consumption)** resource type can use the system-assigned identity or a *single* manually created user-assigned identity.
+* A Consumption logic app resource can use the system-assigned identity or a *single* manually created user-assigned identity.
 
-* The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+* A Standard logic app resource supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
 
   > [!NOTE]
   > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
@@ -1498,7 +1510,7 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
    |---------------------|-----------------|----------|-------|-------------|
    | **Authentication** | `type` | Yes | **Managed Identity** <br>or <br>`ManagedServiceIdentity` | The authentication type to use |
    | **Managed Identity** | `identity` | No | <*user-assigned-identity-ID*> | The user-assigned managed identity to use. **Note**: Don't include this property when using the system-assigned managed identity. |
-   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <p>For example, `https://storage.azure.com/` makes the [access tokens](../active-directory/develop/access-tokens.md) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <p>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID *exactly matches* the value that Azure AD expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, review [Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <br><br>For example, `https://storage.azure.com/` makes the [access tokens](../active-directory/develop/access-tokens.md) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <br><br>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <br><br>**Important**: Make sure that this target resource ID *exactly matches* the value that Microsoft Entra ID expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, review [Azure services that support Microsoft Entra ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
 
    When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. For example, this HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
@@ -1555,23 +1567,24 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
   * Consumption logic app workflows can run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) where they can use dedicated resources and access resources protected by an Azure virtual network. However, the ISE resource retires on August 31, 2024, due to its dependency on Azure Cloud Services (classic), which retires at the same time.
 
     > [!IMPORTANT]
+    >
     > Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
     > for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
     > partner services, or customer services that are hosted on Azure.
     >
-    > If you want to create Consumption logic app workflows that need access to virtual networks with private endpoints, 
-  > you *must create and run your Consumption workflows in an ISE*. Or, you can create Standard workflows instead, 
-  > which don't need an ISE. Instead, your workflows can communicate privately and securely with virtual networks 
-  > by using private endpoints for inbound traffic and virtual network integration for outbound traffic. For more information, see 
-  > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+    > To create Consumption logic app workflows that need access to virtual networks with private endpoints, 
+    > you *must create and run your Consumption workflows in an ISE*. Or, you can create Standard workflows instead, 
+    > which don't need an ISE. Instead, your workflows can communicate privately and securely with virtual networks 
+    > by using private endpoints for inbound traffic and virtual network integration for outbound traffic. For more information, see 
+    > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
-For more information about isolation, review the following documentation:
+For more information about isolation, see the following documentation:
 
 * [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md)
 * [Security for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
 ## Next steps
 
-* [Azure security baseline for Azure Logic Apps](../logic-apps/security-baseline.md)
-* [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Azure security baseline for Azure Logic Apps](security-baseline.md)
+* [Automate deployment for Azure Logic Apps](logic-apps-azure-resource-manager-templates-overview.md)
 * [Monitor logic apps](monitor-workflows-collect-diagnostic-data.md)

@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 05/25/2023
+ms.date: 11/14/2023
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 zone_pivot_groups: python-mode-functions
@@ -51,11 +51,8 @@ Python v1 programming model:
 
 You can also create Python v1 functions in the Azure portal.
 
-The following considerations apply for local Python development:
-
-+ Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
-
-+ Functions doesn't currently support local Python function development on ARM64 devices, including on a Mac with an M1 chip. To learn more, see [x86 emulation on ARM64](functions-run-local.md#x86-emulation-on-arm64).
+> [!TIP]
+> Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
 
 ## Programming model
 
@@ -214,6 +211,86 @@ The main project folder, *<project_root>*, can contain the following files:
 ::: zone-end
 
 When you deploy your project to a function app in Azure, the entire contents of the main project folder, *<project_root>*, should be included in the package, but not the folder itself, which means that *host.json* should be in the package root. We recommend that you maintain your tests in a folder along with other functions (in this example, *tests/*). For more information, see [Unit testing](#unit-testing).
+
+## Connect to a database
+
+Azure Functions integrates well with [Azure Cosmos DB](../cosmos-db/introduction.md) for many [use cases](../cosmos-db/use-cases.md), including IoT, ecommerce, gaming, etc.
+
+For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
+
+:::image type="content" source="../cosmos-db/media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
+
+To connect to Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you may connect Functions to Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
+
+To implement more complex app logic, you may also use the Python library for Cosmos DB. An aynchronous I/O implementation looks like this:
+
+```python
+pip install azure-cosmos
+pip install aiohttp
+
+from azure.cosmos.aio import CosmosClient
+from azure.cosmos import exceptions
+from azure.cosmos.partition_key import PartitionKey
+import asyncio
+
+# Replace these values with your Cosmos DB connection information
+endpoint = "https://azure-cosmos-nosql.documents.azure.com:443/"
+key = "master_key"
+database_id = "cosmicwerx"
+container_id = "cosmicontainer"
+partition_key = "/partition_key"
+
+# Set the total throughput (RU/s) for the database and container
+database_throughput = 1000
+
+# Singleton CosmosClient instance
+client = CosmosClient(endpoint, credential=key)
+
+# Helper function to get or create database and container
+async def get_or_create_container(client, database_id, container_id, partition_key):
+    database = await client.create_database_if_not_exists(id=database_id)
+    print(f'Database "{database_id}" created or retrieved successfully.')
+
+    container = await database.create_container_if_not_exists(id=container_id, partition_key=PartitionKey(path=partition_key))
+    print(f'Container with id "{container_id}" created')
+ 
+    return container
+ 
+async def create_products():
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    for i in range(10):
+        await container.upsert_item({
+            'id': f'item{i}',
+            'productName': 'Widget',
+            'productModel': f'Model {i}'
+        })
+ 
+async def get_products():
+    items = []
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    async for item in container.read_all_items():
+        items.append(item)
+    return items
+
+async def query_products(product_name):
+    container = await get_or_create_container(client, database_id, container_id, partition_key)
+    query = f"SELECT * FROM c WHERE c.productName = '{product_name}'"
+    items = []
+    async for item in container.query_items(query=query, enable_cross_partition_query=True):
+        items.append(item)
+    return items
+
+async def main():
+    await create_products()
+    all_products = await get_products()
+    print('All Products:', all_products)
+
+    queried_products = await query_products('Widget')
+    print('Queried Products:', queried_products)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
 
 ::: zone pivot="python-mode-decorators"
 ## Blueprints
@@ -607,13 +684,9 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ::: zone pivot="python-mode-decorators"  
 
-The HTTP trigger is defined in the *function.json* file. The `name` of the binding must match the named parameter in the function.
+The HTTP trigger is defined as a method that takes a named binding parameter, which is an [HttpRequest] object, and returns an [HttpResponse] object. You apply the `function_name` decorator to the method to define the function name, while the HTTP endpoint is set by applying the `route` decorator. 
 
-In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
-
-From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body.
-
-The following example is from the HTTP trigger template for the Python v2 programming model. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
+This example is from the HTTP trigger template for the Python v2 programming model, where the binding parameter name is `req`. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
 
 ```python
 @app.function_name(name="HttpTrigger1")
@@ -639,7 +712,7 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-In this function, you obtain the value of the `name` query parameter from the `params` parameter of the [HttpRequest] object. You read the JSON-encoded message body by using the `get_json` method.
+From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body. In this function, you obtain the value of the `name` query parameter from the `params` parameter of the [HttpRequest] object. You read the JSON-encoded message body by using the `get_json` method.
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
@@ -723,7 +796,7 @@ async def get_name(name: str):
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
     return func.AsgiMiddleware(app).handle(req, context)
 ```
-For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/).
+<!-- For a full example, see [Using FastAPI Framework with Azure Functions](/samples/azure-samples/fastapi-on-azure-functions/azure-functions-python-create-fastapi-app/). -->
 
 # [WSGI](#tab/wsgi)
 
@@ -943,9 +1016,8 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.11 (preview) <br/>3.10<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.11<br/>3.10<br/>3.9<br/>3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
-| 2.x | 3.7 |
 
 \* Official Python distributions
 
@@ -974,6 +1046,10 @@ requests==2.19.1
 ```bash
 pip install -r requirements.txt
 ```
+
+When running your functions in an [App Service plan](./dedicated-plan.md), dependencies that you define in requirements.txt are given precedence over built-in Python modules, such as `logging`. This precedence can cause conflicts when built-in modules have the same names as directories in your code. When running in a [Consumption plan](./consumption-plan.md) or an [Elastic Premium plan](./functions-premium-plan.md), conflicts are less likely because your dependencies aren't prioritized by default. 
+
+To prevent issues running in an App Service plan, don't name your directories the same as any Python native modules and don't include Python native libraries in your project's requirements.txt file.
 
 ## Publishing to Azure
 
@@ -1256,7 +1332,7 @@ The Azure Functions Python worker requires a specific set of libraries. You can 
 > If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in the *requirements.txt* file might cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
+>  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies.
 
 ### The Azure Functions Python library
 

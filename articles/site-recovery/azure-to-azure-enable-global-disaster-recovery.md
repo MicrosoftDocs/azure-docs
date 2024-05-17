@@ -1,10 +1,9 @@
 ---
 title: Enable disaster recovery across Azure regions across the globe
 description: This article describes the global disaster recovery feature in Azure Site Recovery.
-manager: evansma
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/09/2021
+ms.topic: tutorial
+ms.date: 12/14/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -47,8 +46,8 @@ Ensure the prerequisites are met and you have created a Recovery Services vault.
 | --- | --- |
 | Classic VMs | No |
 | ARM VMs |  Yes |
-| Azure Disk Encryption v1 (dual pass, with Azure Active Directory (Azure AD)) |  Yes |
-| Azure Disk Encryption v2 (single pass, without Azure AD) |  Yes |
+| Azure Disk Encryption v1 (dual pass, with Microsoft Entra ID) |  Yes |
+| Azure Disk Encryption v2 (single pass, without Microsoft Entra ID) |  Yes |
 |     |  No |
 | Managed disks |  Yes |
 | Customer-managed keys |   Yes |

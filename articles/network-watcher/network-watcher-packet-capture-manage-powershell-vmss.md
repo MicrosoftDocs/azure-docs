@@ -6,9 +6,8 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 06/07/2022
-ms.author: halkazwini 
+ms.author: halkazwini
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
@@ -16,7 +15,6 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-packet-capture-manage-portal-vmss.md)
-> - [Azure REST API](network-watcher-packet-capture-manage-rest-vmss.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell-vmss.md)
 
 
@@ -28,9 +26,6 @@ This article takes you through the different management tasks that are currently
 - [**Stop a packet capture**](#stop-a-packet-capture)
 - [**Delete a packet capture**](#delete-a-packet-capture)
 - [**Download a packet capture**](#download-a-packet-capture)
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Before you begin
 

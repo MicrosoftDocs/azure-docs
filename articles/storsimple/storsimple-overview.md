@@ -1,18 +1,11 @@
 ---
 title: StorSimple 8000 series solution overview | Microsoft Docs
 description: Describes StorSimple data copy resources, data migration, device decommission operations, end of support, tiering, virtual device, and storage management.
-services: storsimple
-documentationcenter: NA
 author: alkohli
 manager: alkohli
-editor: ''
-
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.custom:
-ms.workload: TBD
 ms.date: 07/10/2023
 ms.author: alkohli
 ROBOTS: NOINDEX
@@ -60,7 +53,7 @@ Decommission operations can't be undone. We recommend that you complete your dat
     ```azurepowershell
     Reset-HcsFactoryDefault
     ```
-    To instead reset a single controller, use the [Reset-HcsFactoryDefault](https://learn.microsoft.com/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
+    To instead reset a single controller, use the [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the *-scope* parameter.
 
     The system reboots multiple times. You're notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 

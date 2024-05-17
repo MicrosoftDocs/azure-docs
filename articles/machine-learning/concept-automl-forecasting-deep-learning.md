@@ -1,15 +1,15 @@
 ---
-title: Deep learning with AutoML forecasting 
+title: Deep learning with AutoML forecasting
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning's AutoML uses deep learning to forecast time series values
 services: machine-learning
 author: ericwrightatwork
 ms.author: erwright
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
+ms.custom: automl, sdkv2
 ms.date: 08/01/2023
 show_latex: true
 ---
@@ -142,4 +142,3 @@ The search terminates when stopping criteria are met. The stopping criteria depe
 * Learn how to [set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).
 * Learn about [forecasting methodology in AutoML](./concept-automl-forecasting-methods.md).
 * Browse [frequently asked questions about forecasting in AutoML](./how-to-automl-forecasting-faq.md).
-

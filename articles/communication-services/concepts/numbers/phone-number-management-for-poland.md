@@ -20,8 +20,8 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Toll-Free   | -                    | -                    | -                    | Public Preview\*       |
-| Alphanumeric Sender ID\**       | Public Preview                    | -                    | - | - |
+| Toll-Free   | -                    | -                    | -                    | General Availability\*       |
+| Alphanumeric Sender ID\**       | General Availability                   | -                    | - | - |
 
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -53,6 +53,29 @@ More details on eligible subscription types are as follows:
 |Spain|
 |United Kingdom|
 |United States|
+
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
+
+## Azure subscription billing locations where Poland alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+| Australia |
+| Austria |
+| Denmark |
+| France |
+| Germany |
+| India |
+| Ireland |
+| Italy |
+| Netherlands |
+| Poland |
+| Portugal |
+| Puerto Rico |
+| Spain |
+| Sweden |
+| Switzerland |
+| United Kingdom |
+| United States |
 
 
 ## Find information about other countries/regions

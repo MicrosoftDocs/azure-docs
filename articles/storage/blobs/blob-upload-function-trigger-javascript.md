@@ -3,7 +3,7 @@ title: Upload and analyze a file with Azure Functions (JavaScript) and Blob Stor
 description: With JavaScript, learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Azure AI services
 author: diberry
 ms.author: diberry
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 07/06/2023
 ms.devlang: javascript
@@ -299,9 +299,10 @@ Get the connection string for the Cosmos DB service account to use in our Azure 
 3. Get the connection string using the command below for later use in the tutorial.
 
     ```azurecli-interactive
-    az cosmosdb list-connection-strings 
-        --name msdocscosmosdb 
-        --resource-group msdocs-storage-function
+    az cosmosdb keys list \
+        --name msdocscosmosdb \
+        --resource-group msdocs-storage-function \
+        --type connection-strings
     ```
 
     This returns a JSON array of two read-write connection strings, and two read-only connection strings.
@@ -423,7 +424,6 @@ Although the Azure Function code runs locally, it connects to the cloud-based se
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
     "AzureWebJobsStorage": "",
     "StorageConnection": "STORAGE-CONNECTION-STRING",
     "StorageAccountName": "STORAGE-ACCOUNT-NAME",

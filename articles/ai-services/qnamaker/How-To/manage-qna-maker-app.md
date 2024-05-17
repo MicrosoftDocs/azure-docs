@@ -1,14 +1,13 @@
 ---
 title: Manage QnA Maker App - QnA Maker
 description: QnA Maker allows multiple people to collaborate on a knowledge base. QnA Maker offers a capability to improve the quality of your knowledge base with active learning. One can review, accept or reject, and add without removing or changing existing questions.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 11/09/2020
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # Manage QnA Maker app
@@ -20,7 +19,7 @@ Learn more about [QnA Maker collaborator authentication concepts](../concepts/ro
 
 ## Add Azure role-based access control (Azure RBAC)
 
-QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).
+QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.yml).
 
 ## Access at the cognitive resource level
 

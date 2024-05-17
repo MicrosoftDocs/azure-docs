@@ -1,345 +1,386 @@
 ---
-title: Create and manage runtimes in Prompt flow (preview)
+title: Create and manage prompt flow runtimes
 titleSuffix: Azure Machine Learning
-description: Learn how to create and manage runtimes in Prompt flow with Azure Machine Learning studio.
+description: Learn how to create and manage prompt flow runtimes in Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 07/14/2023
+ms.date: 02/26/2024
 ---
 
-# Create and manage runtimes (preview)
+# Create and manage prompt flow runtimes in Azure Machine Learning studio
 
-Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables Prompt flow to efficiently execute its tasks and functions, ensuring a seamless user experience for users.
+A prompt flow runtime provides computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables prompt flow to efficiently execute its tasks and functions for a seamless user experience.
+
+Azure Machine Learning supports the following types of runtimes:
+
+|Runtime type|Underlying compute type|Life cycle management|Customize environment              |
+|------------|----------------------|---------------------|---------------------|
+|Automatic runtime (preview)        |[Serverless compute](../how-to-use-serverless-compute.md) and [Compute instance](../how-to-create-compute-instance.md)| Automatic | Easily customize packages|
+|Compute instance runtime | [Compute instance](../how-to-create-compute-instance.md) | Manual | Manually customize via Azure Machine Learning environment|
+
+If you're a new user, we recommend that you use the automatic runtime (preview). You can easily customize the environment by adding packages in the `requirements.txt` file in `flow.dag.yaml` in the flow folder. 
+
+If you want manage compute resource by your self, you can use compute instance as compute type in automatic runtime or use compute instance runtime.
+
+## Permissions and roles for runtime management
+
+To assign roles, you need to have `owner` or `Microsoft.Authorization/roleAssignments/write` permission on the resource.
+
+For users of the runtime, assign the `AzureML Data Scientist` role in the workspace (if you're using a compute instance as a runtime) or endpoint (if you're using a managed online endpoint as a runtime). To learn more, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true).
+
+Role assignment might take several minutes to take effect.
+
+## Permissions and roles for deployments
+
+After you deploy a prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. You can do this operation at any time after you create the endpoint.
+
+## Create a runtime on the UI
+
+Before you use Azure Machine Learning studio to create a runtime, make sure that:
+
+- You have the `AzureML Data Scientist` role in the workspace.
+- The default data store (usually `workspaceblobstore`) in your workspace is the blob type.
+- The working directory (`workspaceworkingdirectory`) exists in the workspace.
+- If you use a virtual network for prompt flow, you understand the considerations in [Network isolation in prompt flow](how-to-secure-prompt-flow.md).
+
+### Create an automatic runtime (preview) on a flow page
+
+Automatic is the default option for a runtime. You can start an automatic runtime (preview) by selecting an option from the runtime dropdown list on a flow page.
 
 > [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Runtime type
+- Select **Start**. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder, it runs on the virtual machine (VM) size of serverless compute which you have enough quota in the workspace.
 
-You can choose between two types of runtimes for Prompt flow: [managed online endpoint/deployment](../concept-endpoints-online.md) and [compute instance (CI)](../concept-compute-instance.md). Here are some differences between them to help you decide which one suits your needs.
+  :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
-| Runtime type                                 | Managed online deployment runtime | Compute instance runtime |
-|----------------------------------------------|-----------------------------------|--------------------------|
-| Team shared                                  | Y                                 | N                        |
-| User isolation                               | N                                 | Y                        |
-| OBO/identity support                         | N                                 | Y                        |
-| Easily manually customization of environment | N                                 | Y                        |
-| Multiple runtimes on single resource         | N                                 | Y                        |
+- Select **Start with advanced settings**. In the advanced settings, you can:
 
-If you're new to Prompt flow, we recommend you to start with compute instance runtime first.
+  - Select compute type. You can choose between serverless compute and compute instance. 
+    - If you choose serverless compute, you can set following settings:
+        - Customize the VM size that the runtime uses. Please opt for VM series D and above. For additional information, refer to the section on [Supported VM series and sizes](../concept-compute-target.md#supported-vm-series-and-sizes)
+        - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
+        - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image, auth with connection and install packages. Make sure that the user-assigned managed identity has Azure Container Registry `acrpull` permission. If you don't set this identity, we use the user identity by default. 
 
-## Permissions/roles need to use runtime
+        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings using serverless compute for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
 
-You need to assign enough permission to use runtime in Prompt flow. To assign a role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on resource.
+        - You can use following CLI command to assign UAI to workspace. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods). 
 
-- To create runtime, you need to have `AzureML Data Scientist` role of the workspace. To learn more, see [Prerequisites](#prerequisites)
-- To use a runtime in flow authoring, you or identity associate with managed online endpoint need to have `AzureML Data Scientist` role of workspace, `Storage Blob Data Contributor` and `Storage Table Data Contributor` role of workspace default storage. To learn more, see [Grant sufficient permissions to use the runtime](#grant-sufficient-permissions-to-use-the-runtime).
 
-## Create runtime in UI
-
-### Prerequisites
-
-- Make sure your workspace linked with ACR, you can link an existing ACR when you're creating a new workspace, or you can trigger environment build, which may auto link ACR to Azure Machine Learning workspace. To learn more, see [How to trigger environment build in workspace](#potential-root-cause-and-solution).
-- You need `AzureML Data Scientist` role of the workspace to create a runtime.
-
-> [!IMPORTANT]
-> Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
->
->Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
->
-> Prompt flow is **not supported** in workspaces that enable managed VNet. Managed VNet is a private preview feature.
->
->Prompt flow is **not supported** if you secure your Azure AI services account (Azure openAI, Azure cognitive search, Azure content safety) with virtual networks. If you want to use these as connection in prompt flow please allow access from all networks.
-
-### Create compute instance runtime in UI
-
-If you didn't have compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
-
-1. Select add compute instance runtime in runtime list page.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of Prompt flow on the runtime add with compute instance runtime selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
-1. Select compute instance you want to use as runtime.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of add compute instance runtime with select compute instance highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
-    Because compute instances are isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
-1. Select create new custom application or existing custom application as runtime.
-    1. Select create new custom application as runtime.
-        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of add compute instance runtime with custom application highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
-
-        This is recommended for most users of Prompt flow. The Prompt flow system will create a new custom application on a compute instance as a runtime.
-
-        - To choose the default environment, select this option. This is the recommended choice for new users of Prompt flow.
-        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png" alt-text="Screenshot of add compute instance runtime with environment highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png":::
-
-        - If you want to install additional packages in your project, you should create a custom environment. To learn how to build your own custom environment, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
-
-         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png" alt-text="Screenshot of add compute instance runtime with customized environment and choose an environment highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png":::
-
-        > [!NOTE]
-        > - We are going to perform an automatic restart of your compute instance. Please ensure that you do not have any tasks or jobs running on it, as they may be affected by the restart.
-
-    1. To use an existing custom application as a runtime, choose the option "existing".
-        This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-runtime).
-
-       :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png" alt-text="Screenshot of add compute instance runtime with custom application dropdown highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png":::
-
-### Create managed online endpoint runtime in UI
-
-1. Specify the runtime name.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-runtime-name.png" alt-text="Screenshot of add managed online deployment runtime. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-runtime-name.png":::
-
-1. Select existing or create a new deployment as runtime
-    1. Select create new deployment as runtime.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-deployment-new.png" alt-text="Screenshot of add managed online deployment runtime with deployment highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-deployment-new.png":::
-
-        There are two options for deployment as runtime: `new` and `existing`. If you choose `new`, we'll create a new deployment for you. If you choose `existing`, you need to provide the name of an existing deployment as runtime.
-
-        If you're new to Prompt flow, select `new` and we'll create a new deployment for you.
-
-        - Select identity type of endpoint.
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-identity.png" alt-text="Screenshot of add managed online deployment runtime with endpoint identity type highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-identity.png":::
-    
-            You need [assign sufficient permission](#grant-sufficient-permissions-to-use-the-runtime) to system assigned identity or user assigned identity.
-    
-            To learn more, see [Access Azure resources from an online endpoint with a managed identity](../how-to-access-resources-from-endpoints-managed-identities.md)
-
-        - Select environment used for this runtime.
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-env.png" alt-text="Screenshot of add managed online deployment runtime wizard on the environment page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-env.png":::
-            
-            Follow [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime) to build your custom environment.
-
-        - Choose the appropriate SKU and instance count.
+        ```azurecli
+        az ml workspace update -f workspace_update_with_multiple_UAIs.yml --subscription <subscription ID> --resource-group <resource group name> --name <workspace name>
+        ```
         
-            > [!NOTE]
-            > For **Virtual machine**, since the Prompt flow runtime is memory-bound, it’s better to select a virtual machine SKU with more than 8GB of memory. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
-    
-             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-compute.png" alt-text="Screenshot of add managed online deployment runtime wizard on the compute page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-compute.png":::
+        Where the contents of *workspace_update_with_multiple_UAIs.yml* are as follows:
+        
+        ```yaml
+        identity:
+           type: system_assigned, user_assigned
+           user_assigned_identities:
+            '/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uai_name>': {}
+            '<UAI resource ID 2>': {}
+        ```
+
+        > [!TIP]
+        > Please make sure user have permission to `Assign User Assigned Identity` or `Managed Identity Operator` role on the user assigned identity resource.
+        > The following [Azure RBAC role assignments](../../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
+        
+        |Resource|Permission|
+        |---|---|
+        |Azure Machine Learning workspace|Contributor|
+        |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor + Storage File Data Privileged Contributor (data plane,consume flow draft in fileshare and data in blob)|
+        |Azure Key Vault (when using [RBAC permission model](../../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
+        |Azure Key Vault (when using [access policies permission model](../../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
+        |Azure Container Registry|Contributor|
+        |Azure Application Insights|Contributor|
+
+    - If you choose compute instance, you can only set idle shutdown time. 
+        - As it is running on an existing compute instance the VM size is fixed and cannot change in runtime side.
+        - Identity used for this runtime also is defined in compute instance, by default it uses the user identity. [Learn more about how to assign identity to compute instance](../how-to-create-compute-instance.md#assign-managed-identity)
+        - For the idle shutdown time it is used to define life cycle of the runtime, if the runtime is idle for the time you set, it will be deleted automatically. And if you have idle shut down enabled on compute instance, then it will continue 
+
+            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png" alt-text="Screenshot of prompt flow with advanced settings using compute instance for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-compute-instance-settings.png":::
+
+
+### Create a compute instance runtime on a runtime page
+
+Before you create a compute instance runtime, make sure that a compute instance is available and running. If you don't have a compute instance, [create one in an Azure Machine Learning workspace](../how-to-create-compute-instance.md).
+
+1. On the page that lists runtimes, select **Create**.
+  
+   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of the page that lists runtimes and the button for creating a runtime." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
+
+1. Select the compute instance that you want to use as a runtime.
+  
+   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of the box for selecting a compute instance." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
+
+   Because compute instances are isolated by user, only your own compute instances (or the ones assigned to you) are available. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
+
+1. Select the **Authenticate** button to authenticate on the compute instance. You need to authenticate only one time per region in six months.
+
+   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-authentication.png" alt-text="Screenshot of the button for authenticating on a compute instance." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-authentication.png":::
+
+1. Decide whether to create a custom application or select an existing one as a runtime:
+
+   - To create a custom application, under **Custom application**, select **New**.
+
+     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of the option for creating a new custom application." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
+
+     We recommend this option for most users of prompt flow. The prompt flow system creates a new custom application on a compute instance as a runtime.
+
+     Under **Environment**, if you want to use the default environment, select **Use default environment**. We recommend this choice for new users of prompt flow.
+
+     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png" alt-text="Screenshot of the option for using a default environment." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png":::
+
+     If you want to install other packages in your project, you should use a custom environment. Select **Use customized environment**, and then choose an environment from the list that appears. To learn how to build your own custom environment, see [Customize an environment with a Docker context for a runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+
+     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png" alt-text="Screenshot of the option for using a customized environment, along with a list of environments." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png":::
+
+     > [!NOTE]
+     > Your compute instance restarts automatically. Ensure that no tasks or jobs are running on it, because the restart might affect them.
+
+   - To use an existing custom application as a runtime, under **Custom application**, select **Existing**. Then select an application in the **Custom application** box.
+
+     This option is available if you previously created a custom application on a compute instance. [Learn more about how to create and use a custom application as a runtime](how-to-customize-environment-runtime.md#create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-compute-instance-runtime).
+
+     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png" alt-text="Screenshot of the option to use an existing custom application and the box for selecting an application." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png":::
+
+## Use a runtime in prompt flow authoring UI
+
+When you're authoring a flow, you can select and change the runtime from the **Runtime** dropdown list on the upper right of the flow page.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png" alt-text="Screenshot of a flow page and the dropdown list for selecting a runtime." lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png":::
+
+When you're performing evaluation, you can use the original runtime in the flow or change to a more powerful runtime.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of runtime details on the wizard page for configuring an evaluation." lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
+
+## Use a runtime to submit a flow run in CLI/SDK
+
+Same as authoring UI, you can also specify the runtime in CLI/SDK when you submit a flow run.
+
+# [Azure CLI](#tab/cli)
+
+In your `run.yml` you can specify the runtime name or use the automatic runtime. If you specify the runtime name, it uses the runtime with the name you specified. If you specify automatic, it uses the automatic runtime. If you don't specify the runtime, it uses the automatic runtime by default.
+
+In automatic runtime case, you can also specify the instance type or compute instance name under resource part. If you don't specify the instance type or compute instance name,  Azure Machine Learning chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. Learn more about [serverless compute](../how-to-use-serverless-compute.md).
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
+flow: <path_to_flow>
+data: <path_to_flow>/data.jsonl
+
+# specify identity used by serverless compute for automatic runtime.
+# default value
+# identity:
+#   type: user_identity 
+
+# use workspace first UAI
+# identity:
+#   type: managed
+  
+# use specified client_id's UAI
+# identity:
+#   type: managed
+#   client_id: xxx
+
+column_mapping:
+  url: ${data.url}
+
+# define cloud resource
+# if omitted, it will use the automatic runtime, you can also specify the runtime name, specify automatic will also use the automatic runtime.
+# runtime: <runtime_name> 
+
+
+# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+resources:
+  instance_type: <instance_type>
+  # compute: <compute_instance_name> # use compute instance as compute type for automatic runtime
+
+```
+
+Submit this run via CLI:
+
+```sh
+pfazure run create --file run.yml
+```
+
+# [Python SDK](#tab/python)
+
+```python
+# load flow
+flow = "<path_to_flow>"
+data = "<path_to_flow>/data.jsonl"
+
+
+# define cloud resource
+
+# runtime = <runtime_name>
+
+# define instance type
+# case 1: use automatic runtime
+resources = {"instance_type": <instance_type>}
+# case 2: use compute instance runtime
+# resources = {"compute": <compute_instance_name>}
+
+# create run
+base_run = pf.run(
+    flow=flow,
+    data=data,
+    # identity = {'type': 'managed', 'client_id': '<client_id>'}, # specify identity used by serverless compute for automatic runtime.
+    # runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+   resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
+    column_mapping={
+        "url": "${data.url}"
+    }, 
+)
+print(base_run)
+```
+
+Learn full end to end code first example: [Integrate prompt flow with LLM-based application DevOps](./how-to-integrate-with-llm-app-devops.md)
+
+---
+
+  > [!NOTE]
+  > If you are using automatic runtime to submit promptflow run, the idle shutdown is one hour.
+
+### Reference files outside of the flow folder - automatic runtime only
+Sometimes, you might want to reference a `requirements.txt` file that is outside of the flow folder. For example, you might have complex project that includes multiple flows, and they share the same `requirements.txt` file. To do this, You can add this field `additional_includes` into the `flow.dag.yaml`. The value of this field is a list of the relative file/folder path to the flow folder. For example, if requirements.txt is in the parent folder of the flow folder, you can add `../requirements.txt` to the `additional_includes` field.
+
+```yaml
+inputs:
+  question:
+    type: string
+outputs:
+  output:
+    type: string
+    reference: ${answer_the_question_with_context.output}
+environment:
+  python_requirements_txt: requirements.txt
+additional_includes:
+  - ../requirements.txt
+...
+```
+
+When you submit flow run using automatic runtime, the `requirements.txt` file is copied to the flow folder, and use it to start your automatic runtime.
+
+## Update a runtime on the UI
+
+### Update an automatic runtime (preview) on a flow page
+
+On a flow page, you can use the following options to manage an automatic runtime (preview):
+
+- **Install packages** Open `requirements.txt` in prompt flow UI, you can add packages in it.
+- **View installed packages** shows the packages that are installed in the runtime. It includes the packages baked to base image and packages specify in the `requirements.txt` file in the flow folder.
+- **Reset** deletes the current runtime and creates a new one with the same environment. If you encounter a package conflict issue, you can try this option.
+- **Edit** opens the runtime configuration page, where you can define the VM side and the idle time for the runtime.
+- **Stop** deletes the current runtime. If there's no active runtime on the underlying compute, the compute resource is also deleted.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions for an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
+
+You can also customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. After you add more packages in this file, you can choose either of these options:
+
+- **Save and install** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
+- **Save only** just saves the `requirements.txt` file. You can install the packages later yourself.
+
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of the option to save and install packages for an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+
+> [!NOTE]
+> You can change the location and even the file name of `requirements.txt`, but be sure to also change it in the `flow.dag.yaml` file in the flow folder.
+>
+> Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image.
+> 
+> `requirements.txt` didn't support local wheel file, you need build them in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime)
+
+#### Add packages in a private feed in Azure DevOps
+
+If you want to use a private feed in Azure DevOps, follow these steps:
+
+1. Assign managed identity to workspace or compute instance.
+    1. Use serverless compute as automatic runtime, you need assign user-assigned managed identity to workspace.
+        1. Create a user-assigned managed identity and add this identity in the Azure DevOps organization. To learn more, see [Use service principals and managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
 
             > [!NOTE]
-            > Creating a managed online deployment runtime using new deployment may take several minutes.
+            > If the **Add Users** button isn't visible, you probably don't have the necessary permissions to perform this action.
+        
+        2. [Add or update user-assigned identities to a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
-    1. Select existing deployment as runtime.
+            > [!NOTE]
+            > Please make sure the user-assigned managed identity has `Microsoft.KeyVault/vaults/read` on the workspace linked keyvault.
+  
+    2. Use compute instance as automatic runtime, you need [assign a user-assigned managed identity to a compute instance](../how-to-create-compute-instance.md#assign-managed-identity).
 
-        -  To use an existing managed online deployment as a runtime, you can choose it from the available options. Each runtime corresponds to one managed online deployment.
+2. Add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure DevOps, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`:
 
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment.png" alt-text="Screenshot of add managed online deployment runtime wizard on the runtime page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment.png":::
+   ```txt
+   -i https://{private}@{test_feed_url_in_azure_devops}
+   test_package
+   ```
 
-        -  You can select from existing endpoint and existing deployment as runtime.
+3. Specify using user-assigned managed identity in the runtime configuration. 
+    1. If you are using serverless compute, specify the user-assigned managed identity in **Start with advanced settings** if automatic runtime isn't running, or use the **Edit** button if automatic runtime is running.
 
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-endpoint.png" alt-text="Screenshot of add managed online deployment runtime on the endpoint page with an endpoint selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-endpoint.png":::
+       :::image type="content" source="./media/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot that shows the toggle for using a workspace user-assigned managed identity. " lightbox = "./media/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
+    2. If you are using compute instance, it will use the user-assigned managed identity that you assigned to the compute instance.
 
-         -  We'll verify that this deployment meets the runtime requirements.
 
-            :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-deployment.png" alt-text="Screenshot of add managed online deployment runtime on the deployment page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-deployment.png":::
+> [!NOTE]
+> This approach mainly focuses on quick testing in flow develop phase, if you also want to deploy this flow as endpoint please build this private feed in your image and update customize base image in `flow.dag.yaml`. Learn more [how to build custom base image](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime)
 
-    To learn, see [[how to create managed online deployment, which can be used as Prompt flow runtime](how-to-customize-environment-runtime.md#create-managed-online-deployment-that-can-be-used-as-prompt-flow-runtime).]
+#### Change the base image for automatic runtime (preview)
 
-## Grant sufficient permissions to use the runtime
+By default, we use the latest prompt flow image as the base image. If you want to use a different base image, you can [build a custom one](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime). Then, put the new base image under `environment` in the `flow.dag.yaml` file in the flow folder. To use the new base image, you need to reset the runtime via the `reset` command. This process takes several minutes as it pulls the new base image and reinstalls packages.
 
-After creating the runtime, you need to grant the necessary permissions to use it.
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of actions for customizing an environment for an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
 
-### Permissions required to assign roles
+```yaml
+environment:
+    image: <your-custom-image>
+    python_requirements_txt: requirements.txt
+```
 
-To assign role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on the resource.
-
-### Assign built-in roles
-
-To use runtime, assigning the following roles to user (if using Compute instance as runtime) or endpoint (if using managed online endpoint as runtime).
-
-| Resource                  | Role                                  | Why do I need this?                      |
-|---------------------------|---------------------------------------|------------------------------------------|
-| Workspace                 | Azure Machine Learning Data Scientist | Used to write to run history, log metrics |
-| Workspace default ACR     | AcrPull                               | Pull image from ACR                      |
-| Workspace default storage | Storage Blob Data Contributor         | Write intermediate data and tracing data |
-| Workspace default storage | Storage Table Data Contributor        | Write intermediate data and tracing data |
-
-You can use this Azure Resource Manager template to assign these roles to your user or endpoint.
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloga%2Fazure-quickstart-templates%2Flochen%2Fpromptflow%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-prompt-flow%2Fassign-built-in-roles%2Fazuredeploy.json)
-
-To find the minimal permissions required, and use an Azure Resource Manager template to create a custom role and assign relevant permissions, visit: [Permissions/roles need to use runtime](./how-to-create-manage-runtime.md#permissionsroles-need-to-use-runtime)
-
-You can also assign these permissions manually through the UI.
-
-- Select top-right corner to access the Azure Machine Learning workspace detail page.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-top-right.png" alt-text="Screenshot of the Azure Machine Learning workspace detail page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-top-right.png":::
-- Locate the **default storage account** and **ACR** on the Azure Machine Learning workspace detail page.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-permission-workspace-detail-storage-acr.png" alt-text="Screenshot of Azure Machine Learning workspace detail page with storage account and ACR highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-permission-workspace-detail-storage-acr.png":::
-- Navigate to `access control` to grant the relevant roles to the workspace, storage account, and ACR. 
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-permission-workspace-access-control.png" alt-text="Screenshot of the access control page highlighting the add role assignment button. " lightbox = "./media/how-to-create-manage-runtime/runtime-permission-workspace-access-control.png":::
-- Select user if you're using compute instance
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-permission-rbac-user.png" alt-text="Screenshot of add role assignment with assign access to highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-permission-rbac-user.png":::
-- Alternatively, choose the managed identity and machine learning online endpoint for the MIR runtime.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-permission-rbac-msi.png" alt-text="Screenshot of add role assignment with assign access to highlighted and managed identity selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-permission-rbac-msi.png":::
-
-    > [!NOTE]
-    > This operation may take several minutes to take effect.
-    > If your compute instance behind VNet, please follow [Compute instance behind VNet](#compute-instance-behind-vnet) to configure the network.
-
-To learn more:
-- [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
-- [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md?tabs=portal)
-- [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md?tabs=azure-cli)
-
-## Using runtime in Prompt flow authoring
-
-When you're authoring your Prompt flow, you can select and change the runtime from left top corner of the flow page.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png" alt-text="Screenshot of Chat with Wikipedia with the runtime dropdown highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png":::
-
-When performing a bulk test, you can use the original runtime in the flow or change to a more powerful runtime.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of the bulk run and evaluate wizard on the bulk run setting page with runtime highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
-
-## Update runtime from UI
+### Update a compute instance runtime on a runtime page
 
 We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list) if possible.
 
-Every time you open the runtime detail page, we'll check whether there are new versions of the runtime. If there are new versions available, you'll see a notification at the top of the page. You can also manually check the latest version by clicking the **check version** button.
+Every time you open the page for runtime details, we check whether there are new versions of the runtime. If new versions are available, a notification appears at the top of the page. You can also manually check the latest version by selecting the **Check version** button.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env-notification.png" alt-text="Screenshot of the runtime detail page with checkout version highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env-notification.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env-notification.png" alt-text="Screenshot of the page for runtime details, with the button for checking the runtime version." lightbox = "./media/how-to-create-manage-runtime/runtime-update-env-notification.png":::
 
-Try to keep your runtime up to date to get the best experience and performance.
+To get the best experience and performance, try to keep your runtime up to date. On the page for runtime details, select the **Update** button. On the **Edit compute instance runtime** pane, you can update the environment for your runtime. If you select **Use default environment**, the system tries to update your runtime to the latest version.
 
-Go to runtime detail page and select update button at the top. You can change new environment to update. If you select **use default environment** to update, system will attempt to update your runtime to the latest version.
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env.png" alt-text="Screenshot of the pane for editing a compute instance runtime and the option for using the default environment." lightbox = "./media/how-to-create-manage-runtime/runtime-update-env.png":::
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env.png" alt-text="Screenshot of the runtime detail page with updated selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env.png":::
+If you select **Use customized environment**, you first need to rebuild the environment by using the latest prompt flow image. Then update your runtime with the new custom environment.
 
-> [!NOTE]
-> If you used a custom environment, you need to rebuild it using latest prompt flow image first, and then update your runtime with the new custom environment.
+## Relationship between runtime, compute resource, flow and user
 
-## Troubleshooting guide for runtime
+- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. 
+- One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resources.
+- One compute resource can host multiple runtimes. Runtime is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple runtimes from same user. 
+- One runtime only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.
+- In automatic runtime, one flow only have one runtime, as we expect each flow is self contained it defined the base image and required python package in flow folder. In compute instance runtime, you can run different flow on same compute instance runtime, but you need make sure the packages and image is compatible.
 
-### Common issues
+## Switch compute instance runtime to automatic runtime (preview)
 
-#### Failed to perform workspace run operations due to invalid authentication
+Automatic runtime (preview) has following advantages over compute instance runtime:
+- Automatic manage lifecycle of runtime and underlying compute. You don't need to manually create and managed them anymore.
+- Easily customize packages by adding packages in the `requirements.txt` file in the flow folder, instead of creating a custom environment.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-ds-permission.png" alt-text="Screenshot of a long error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-ds-permission.png":::
+We would recommend you to switch to automatic runtime (preview) if you're using compute instance runtime. You can switch it to an automatic runtime (preview) by using the following steps:
+- Prepare your `requirements.txt` file in the flow folder. Make sure that you don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Automatic runtime (preview) will install the packages in `requirements.txt` file when it starts.
+- If you create custom environment to create compute instance runtime, you can also use get the image from environment detail page, and specify it in `flow.dag.yaml` file in the flow folder.  To learn more, see [Change the base image for automatic runtime (preview)](#change-the-base-image-for-automatic-runtime-preview). Make sure you have `acr pull` permission for the image.
 
-This means the identity of the managed endpoint doesn't have enough permissions, see [Grant sufficient permissions to use the runtime](#grant-sufficient-permissions-to-use-the-runtime) to grant sufficient permissions to the identity or user.
+:::image type="content" source="./media/how-to-create-manage-runtime/image-path-environment-detail.png" alt-text="Screenshot of finding image in environment detail page." lightbox = "./media/how-to-create-manage-runtime/image-path-environment-detail.png":::
 
-If you just assigned the permissions, it will take a few minutes to take effect.
-
-#### My runtime is failed with a system error **runtime not ready** when using a custom environment
-
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png" alt-text="Screenshot of a failed run on the runtime detail page. " lightbox = "./media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
-
-First, go to the Compute Instance terminal and run `docker ps` to find the root cause. 
-
-Use  `docker images`  to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime, which will attempt to restart the runtime and compute instance.
-
-#### Run failed due to "No module named XXX"
-
-This type error usually related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
-
-#### Request timeout issue
-
-##### Request timeout error shown in UI
-
-**MIR runtime request timeout error in the UI:**
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
-
-Error in the example says "UserError: Upstream request timeout".
-
-**Compute instance runtime request timeout error:**
-
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
-
-Error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing".
-
-#### How to identify which node consume the most time
-
-1. Check the runtime logs
-
-2. Trying to find below warning log format
-
-    {node_name} has been running for {duration} seconds.
-
-    For example:
-
-   - Case 1: Python script node running for long time.
-
-        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
-
-        In this case, you can find that the `PythonScriptNode` was running for a long time (almost 300s), then you can check the node details to see what's the problem.
-
-   - Case 2: LLM node running for long time.
-
-        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot of a timeout logs caused by LLM timeout in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
-
-        In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
-
-        An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, see [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
-
-        You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
-
-        If retrying doesn't work, check whether you're using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If so, it's expected behavior because your prompt may generate a very long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode doesn't have a timeout setting.
-
-3. If you can't find anything in runtime logs to indicate it's a specific node issue
-
-    Please contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
-
-### Compute instance runtime related
-
-#### How to find the compute instance runtime log for further investigation?
-
-Go to the compute instance terminal and run  `docker logs -<runtime_container_name>`
-
-#### User doesn't have access to this compute instance. Please check if this compute instance is assigned to you and you have access to the workspace. Additionally, verify that you are on the correct network to access this compute instance.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of a do not have access error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
-
-This because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
-
-#### Compute instance behind VNet
-
-If your compute instance is behind a VNet, you need to make the following changes to ensure that your compute instance can be used in prompt flow:
-- See [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your compute instance network configuration.
-- If your storage account also behind vnet, see [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
-- Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
-
-> [!NOTE] 
-> This only works if your AOAI and other Azure AI services allow access from all networks.
-
-### Managed endpoint runtime related
-
-#### Managed endpoint failed with an internal server error. Endpoint creation was successful, but failed to create deployment for the newly created workspace.
-
-- Runtime status shows as failed with an internal server error.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-error.png" alt-text="Screenshot of the runtime status showing failed on the runtime detail page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-error.png":::
-- Check the related endpoint.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-endpoint.png" alt-text="Screenshot of the runtime detail page, highlighting the managed endpoint. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-endpoint.png":::
-- Endpoint was created successfully, but there are no deployments created.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-endpoint-detail.png" alt-text="Screenshot of the endpoint detail page with successful creation. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-endpoint-detail.png":::
-
-##### Potential root cause and solution
-
-The issue may occur when you create a managed endpoint using a system-assigned identity. The system tries to grant ACR pull permission to this identity, but for a newly created workspace, please go to the workspace detail page in Azure to check whether the workspace has a linked ACR.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-top-right.png" alt-text="Screenshot of workspace detail page in Azure. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-top-right.png":::
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-non-acr.png" alt-text="Screenshot of the overview page with container registry highlighted. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-non-acr.png":::
-
-If there's no ACR, you can create a new custom environment from curated environments on the environment page.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-acr-creation.png" alt-text="Screenshot of the create environment wizard on the settings page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-acr-creation.png":::
-
-After creating a new custom environment, a linked ACR will be automatically created for the workspace. You can return to the workspace detail page in Azure to confirm.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-with-acr.png" alt-text="Screenshot of the overview and workspace detail page with container registry highlighted. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-workspace-with-acr.png":::
-
-Delete the failed managed endpoint runtime and create a new one to test.
-
-#### We are unable to connect to this deployment as runtime. Please make sure this deployment is ready to use.
-
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-existing-unable-connected.png" alt-text="Screenshot of. " lightbox = "./media/how-to-create-manage-runtime/mir-existing-unable-connected.png":::
-
-If you encounter with this issue, please check the deployment status and make sure it's build on top of runtime base image. 
+- For compute resource, you can continue to use the existing compute instance if you would like to manually manage the lifecycle of compute resource or you can try serverless compute which lifecycle is managed by system.
 
 ## Next steps
 

@@ -8,6 +8,8 @@ ms.author: DaybreakQuip
 
 In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for Unity. For receiving and rendering video frames on the Unity platform, refer to the [Raw Media Access Quickstart](../../get-started-raw-media-access.md).
 
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/RawVideo).
+
 ### Prerequisites
 
 To complete this tutorial, you need the following prerequisites:
@@ -38,7 +40,7 @@ There are two ways to install the Azure Communication Calling SDK for Unity.
 
 1. Download the [SDK](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_artifacts/feed/Unity-packages/Npm/com.azure.communication.calling/overview/1.0.0-beta.1) from the public npm feed and import it in Unity Editor's package manager, found under the Windows tab.
 
-2. Download the [Mixed Reality Feature Tool](https://learn.microsoft.com/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
+2. Download the [Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
 
 
 #### Set up the app framework
@@ -1847,7 +1849,7 @@ public class AppManager : MonoBehaviour
     private CallClient callClient;
     private CallAgent callAgent;
     private DeviceManager deviceManager;
-    private Call call;
+    private CommunicationCall call;
     private LocalOutgoingAudioStream micStream;
     private LocalVideoStream cameraStream;
 
@@ -1891,7 +1893,7 @@ public class AppManager : MonoBehaviour
         // Handle incoming call event
     }
 
-    private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
+    private async void OnStateChangedAsync(object sender, Azure.Communication.Calling.UnityClient.PropertyChangedEventArgs args)
     {
         // Handle connected and disconnected state change of a call
     }
@@ -1946,7 +1948,7 @@ The next table listed the classes and interfaces handle some of the major featur
 | `CallAgent` | The `CallAgent` is used to start and manage calls. |
 | `Call` | The `CommunicationCall` is used to manage an ongoing call. |
 | `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-|` CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
+| `CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
 
 ### Authenticate the client
 
@@ -1976,7 +1978,7 @@ private async void InitCallAgentAndDeviceManagerAsync()
 
 ### Start a call with video
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the ACS call:
+Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
 public async void CallButton_Click()
@@ -2137,9 +2139,9 @@ private async void OnIncomingCallAsync(object sender, IncomingCallReceivedEventA
 `StateChanged` event on `Call` object is fired when an in progress call transactions from one state to another. Application is offered the opportunities to reflect the state changes on UI or insert business logics.
 
 ```C#
-private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
+private async void OnStateChangedAsync(object sender, Azure.Communication.Calling.UnityClient.PropertyChangedEventArgs args)
 {
-    var call = sender as Call;
+    var call = sender as CommunicationCall;
 
     if (call != null)
     {

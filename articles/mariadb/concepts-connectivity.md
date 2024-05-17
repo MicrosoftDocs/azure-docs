@@ -11,6 +11,8 @@ ms.date: 06/24/2022
 
 # Handling of transient connectivity errors for Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article describes how to handle transient errors connecting to  Azure Database for MariaDB.
 
 ## Transient errors

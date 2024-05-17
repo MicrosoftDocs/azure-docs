@@ -17,7 +17,7 @@
       items:
         - name: ASP.NET Core
           href: quickstart-aspnet-core-app.md
-        - name: .NET Core
+        - name: .NET
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
@@ -26,29 +26,38 @@
         - name: Python
           href: quickstart-python-provider.md
         - name: JavaScript/Node.js
-          href: quickstart-javascript.md
+          href: quickstart-javascript-provider.md
         - name: Azure Functions
           href: quickstart-azure-functions-csharp.md
     - name: Feature management
       items:
+        - name: Manage feature flags
+          href: manage-feature-flags.md
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
-        - name: .NET Framework
+        - name: .NET/.NET Framework
           href: quickstart-feature-flag-dotnet.md
+        - name: .NET Background Service
+          href: quickstart-feature-flag-dotnet-background-service.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
         - name: Azure Functions
           href: quickstart-feature-flag-azure-functions-csharp.md
+        - name: Azure Kubernetes Service
+          href: quickstart-feature-flag-azure-kubernetes-service.md
     - name: Service integration
       items:
-        - name: Azure Container Apps
-          href: quickstart-container-apps.md
-        - name: App Service & Azure Functions
-          href: /azure/app-service/app-service-configuration-references
         - name: Azure Kubernetes Service
           href: quickstart-azure-kubernetes-service.md
+        - name: App Service & Azure Functions
+          href: /azure/app-service/app-service-configuration-references
+        - name: Azure Container Apps
+          href: quickstart-container-apps.md
     - name: Deployment
       items:
+        - name: Overview
+          href: quickstart-deployment-overview.md
+          displayName: ARM, Resource Manager, Template
         - name: Bicep
           href: quickstart-bicep.md
           displayName: ARM, Resource Manager, Template
@@ -65,17 +74,23 @@
           href: enable-dynamic-configuration-aspnet-core.md
         - name: ASP.NET (.NET Framework)
           href: enable-dynamic-configuration-aspnet-netfx.md
-        - name: .NET Core
+        - name: .NET
           href: enable-dynamic-configuration-dotnet-core.md
         - name: .NET Framework
           href: enable-dynamic-configuration-dotnet.md
+        - name: .NET Background Service
+          href: enable-dynamic-configuration-dotnet-background-service.md
         - name: Azure Functions
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
+        - name: Python
+          href: enable-dynamic-configuration-python.md
+        - name: Azure Kubernetes Service
+          href: enable-dynamic-configuration-azure-kubernetes-service.md
     - name: Enable dynamic configuration using push model
       items:
-        - name: .NET Core
+        - name: .NET
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
         - name: Java Spring
           href: enable-dynamic-configuration-java-spring-push-refresh.md
@@ -105,18 +120,30 @@
           href: integrate-kubernetes-deployment-helm.md
     - name: Feature management
       items:
-        - name: Manage feature flags
-          href: manage-feature-flags.md
         - name: Use feature flags
           items:
             - name: ASP.NET Core
               href: use-feature-flags-dotnet-core.md
             - name: Spring Boot
               href: use-feature-flags-spring-boot.md
-        - name: Use conditional feature flags
-          href: howto-feature-filters-aspnet-core.md
-        - name: Enable a feature for specified users/groups
-          href: howto-targetingfilter-aspnet-core.md
+        - name: Enable conditional features with feature filters
+          items:
+            - name: Overview
+              href: howto-feature-filters.md
+            - name: ASP.NET Core
+              href: howto-feature-filters-aspnet-core.md
+        - name: Enable features on a schedule
+          items:
+            - name: Overview
+              href: howto-timewindow-filter.md
+            - name: ASP.NET Core
+              href: howto-timewindow-filter-aspnet-core.md
+        - name: Roll out features to targeted audience
+          items:
+            - name: Overview
+              href: howto-targetingfilter.md
+            - name: ASP.NET Core
+              href: howto-targetingfilter-aspnet-core.md
     - name: Enable Azure monitoring
       items:
         - name: Monitor App Configuration
@@ -130,10 +157,14 @@
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: JavaScript SDK
+      href: quickstart-javascript.md
     - name: Python SDK
       href: quickstart-python.md
     - name: Samples on GitHub
       href: https://github.com/Azure/AppConfiguration/tree/main/examples
+    - name: Terraform
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_configuration
 - name: Concepts
   items:
     - name: Keys and values
@@ -164,7 +195,7 @@
           href: concept-customer-managed-keys.md
         - name: Secure your config store using Private Endpoints
           href: concept-private-endpoint.md
-        - name: Enable access using Azure Active Directory
+        - name: Enable access using Microsoft Entra ID
           href: concept-enable-rbac.md
         - name: Assign an Azure Managed Identity
           href: overview-managed-identity.md
@@ -178,7 +209,7 @@
   items:
     - name: Use labels for per-environment configuration
       href: howto-labels-aspnet-core.md
-    - name: Create and manage Snapshots
+    - name: Manage and use snapshots
       href: howto-create-snapshots.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
@@ -202,43 +233,11 @@
       href: howto-set-up-private-access.md
 - name: Reference
   items:
-    - name: Client libraries
+    - name: REST API
       items:
-        - name: .NET provider
-          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
-        - name: .NET Framework builder
-          href: https://go.microsoft.com/fwlink/?linkid=2074663
-        - name: Java Spring provider
-          href: https://go.microsoft.com/fwlink/?linkid=2180917
-        - name: Python provider
-          href: https://pypi.org/project/azure-appconfiguration-provider/
-        - name: Azure SDK for .NET
-          href: https://go.microsoft.com/fwlink/?linkid=2092056
-        - name: Azure SDK for Java
-          href: https://go.microsoft.com/fwlink/?linkid=2098196
-        - name: Azure SDK for Python
-          href: https://go.microsoft.com/fwlink/?linkid=2103727
-        - name: Azure SDK for JavaScript
-          href: https://go.microsoft.com/fwlink/?linkid=2103664
-    - name: Feature management
-      items:
-        - name: .NET Core/.NET Standard
-          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
-        - name: Java Spring
-          href: https://azure.github.io/azure-sdk-for-java/springboot.html
-    - name: Control plane
-      items:
-        - name: REST API
-          href: /rest/api/appconfiguration/
-        - name: Azure CLI
-          href: /cli/azure/appconfig
-        - name: PowerShell
-          href: /powershell/module/az.appconfiguration/
-        - name: Terraform
-          href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_configuration
-    - name: Data plane
-      items:
-        - name: REST API
+        - name: Control plane
+          href: /rest/api/appconfiguration/      
+        - name: Data plane
           items:
             - name: Overview
               href: rest-api.md
@@ -261,14 +260,14 @@
               - name: Authentication
                 href: ./rest-api-authentication-index.md
                 items:
-                  - name: Azure Active Directory authentication
+                  - name: Microsoft Entra authentication
                     href: rest-api-authentication-azure-ad.md
                   - name: HMAC Authentication
                     href: rest-api-authentication-hmac.md
               - name: Authorization
                 href: ./rest-api-authorization-index.md
                 items:
-                  - name: Azure Active Directory authorization
+                  - name: Microsoft Entra authorization
                     href: rest-api-authorization-azure-ad.md
                   - name: HMAC authorization
                     href: rest-api-authorization-hmac.md
@@ -286,12 +285,46 @@
                 href: ./rest-api-fiddler.md
               - name: Postman
                 href: ./rest-api-postman.md
-        - name: Azure CLI
-          href: /cli/azure/appconfig
+    - name: Client libraries
+      items:
+        - name: .NET provider
+          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+        - name: .NET Framework builder
+          href: https://go.microsoft.com/fwlink/?linkid=2074663
+        - name: Java Spring provider
+          href: https://go.microsoft.com/fwlink/?linkid=2180917
+        - name: Python provider
+          href: https://pypi.org/project/azure-appconfiguration-provider/
+        - name: Azure SDK for .NET
+          href: https://go.microsoft.com/fwlink/?linkid=2092056
+        - name: Azure SDK for Java
+          href: https://go.microsoft.com/fwlink/?linkid=2098196
+        - name: Azure SDK for Python
+          href: https://go.microsoft.com/fwlink/?linkid=2103727
+        - name: Azure SDK for JavaScript
+          href: https://go.microsoft.com/fwlink/?linkid=2103664
+        - name: Azure SDK for Go
+          href: https://go.microsoft.com/fwlink/?linkid=2270866
+    - name: Feature management
+      items:
+        - name: .NET
+          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
+        - name: Java Spring
+          href: https://azure.github.io/azure-sdk-for-java/springboot.html
+    - name: Deployment
+      items:
+      - name: ARM template
+        href: /azure/templates/microsoft.appconfiguration/configurationstores?pivots=deployment-language-arm-template
+      - name: Bicep
+        href: /azure/templates/microsoft.appconfiguration/configurationstores?pivots=deployment-language-bicep
+      - name: Terraform
+        href: /azure/templates/microsoft.appconfiguration/configurationstores?pivots=deployment-language-terraform
+    - name: Azure CLI
+      href: /cli/azure/appconfig
+    - name: Azure PowerShell
+      href: /powershell/module/az.appconfiguration/
     - name: Kubernetes provider
       href: reference-kubernetes-provider.md
-    - name: Deployment
-      href: /azure/templates/microsoft.appconfiguration/configurationstores
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
@@ -299,6 +332,8 @@
   items:
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-configuration/
+    - name: Roadmap
+      href: https://github.com/Azure/AppConfiguration/projects/1
     - name: Videos
       items:
         - name: Getting started with App Configuration
@@ -309,5 +344,7 @@
           href: https://www.youtube.com/watch?v=DJqmA5PcfzE
         - name: Rolling out new features
           href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
+        - name: Three reasons to use configuration snapshots
+          href: https://aka.ms/appconfig/snapshotVideo
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

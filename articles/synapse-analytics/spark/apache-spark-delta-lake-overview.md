@@ -8,7 +8,7 @@ ms.reviewer: euang
 ms.topic: overview
 ms.subservice: spark
 ms.date: 02/15/2022
-ms.custom: devx-track-csharp, devx-track-python
+ms.custom: devx-track-csharp, devx-track-python, linux-related-content
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 

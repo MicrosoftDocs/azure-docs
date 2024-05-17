@@ -25,7 +25,7 @@ The steps in this article detail the process to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - This tutorial requires version 2.28 or later of the Azure CLI (you can run az version to determine which you have). If using Azure Cloud Shell, the latest version is already installed.
@@ -42,12 +42,12 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 ### Requirements and prefix readiness
 
-* The address range must be owned by you and registered under your name with the one of the 5 major Regional Internet Registries:
-      * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
-      * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
-      * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
-      * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
-      * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
+* The address range must be owned by you and registered under your name with the one of the five major Regional Internet Registries:
+    * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
+    * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
+    * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
+    * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
+    * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
 
 * The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
 

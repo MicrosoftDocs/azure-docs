@@ -2,15 +2,14 @@
 title: Use language detection Docker containers on-premises
 titleSuffix: Azure AI services
 description: Use Docker containers for the Language Detection API to determine the language of written text, on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 02/12/2024
 ms.author: jboback
-ms.custom: language-service-language-detection, ignite-fall-2021
+ms.custom: language-service-language-detection
 keywords: on-premises, Docker, container
 ---
 
@@ -36,7 +35,7 @@ The following table describes the minimum and recommended specifications for the
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
-| **Language detection**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
+| **Language detection**   | 1 core, 5GB memory | 1 core, 8GB memory |15 | 30| 
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 

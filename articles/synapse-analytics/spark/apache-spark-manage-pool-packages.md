@@ -99,8 +99,7 @@ dependencies:
   - matplotlib
   - koalas==1.7.0
 ```
-For details on creating an environment from this environment.yml file, see [Creating an environment from an environment.yml file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment
-).
+For details on creating an environment from this environment.yml file, see [Creating an environment from an environment.yml file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)

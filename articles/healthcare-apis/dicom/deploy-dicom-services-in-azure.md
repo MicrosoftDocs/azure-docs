@@ -1,69 +1,66 @@
 ---
-title: Deploy DICOM service using the Azure portal - Azure Health Data Services
-description: This article describes how to deploy DICOM service in the Azure portal.
+title: Deploy the DICOM service by using the Azure portal - Azure Health Data Services
+description: This article describes how to deploy the DICOM service in the Azure portal.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
-ms.topic: quickstart
-ms.date: 05/03/2022
+ms.topic: how-to
+ms.date: 03/11/2024
 ms.author: mmitrik
 ms.custom: mode-api
 ---
 
-# Deploy DICOM service using the Azure portal
+# Deploy the DICOM service by using the Azure portal
 
-In this quickstart, you'll learn how to deploy DICOM Service using the Azure portal.
+In this quickstart, you learn how to deploy the DICOM&reg; service by using the Azure portal.
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created DICOM service to see the details including your Service URL. The Service URL to access your DICOM service  will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service documentation](api-versioning-dicom-service.md).
+After deployment completes, you can use the Azure portal to see the details about the DICOM service, including the service URL. The service URL to access your DICOM service is ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the API version as part of the URL when you make requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
 
-## Prerequisite
+> [!NOTE]
+> The DICOM service with Azure Data Lake Storage is generally available. This capability provides greater flexibility and control over your imaging data. Learn more: [Deploy the DICOM service with Azure Data Lake Storage](deploy-dicom-services-in-azure-data-lake.md)
 
-To deploy DICOM service, you must have a workspace created in the Azure portal. For more information about creating a workspace, see **Deploy workspace in the Azure portal**.
+## Prerequisites
 
-## Deploying DICOM service
+To deploy the DICOM service, you need a workspace created in the Azure portal. For more information, see [Deploy a workspace in the Azure portal](../healthcare-apis-quickstart.md).
+
+## Deploy the DICOM service
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Azure Health Data Services workspace**.
 
-   [ ![Screenshot of select workspace resource group.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
-
-2. Select **Deploy DICOM service**.
-
-   [ ![Screenshot of deploy DICOM service.](media/workspace-deploy-dicom-services.png) ](media/workspace-deploy-dicom-services.png#lightbox)
+:::image type="content" source="media/select-workspace-resource-group.png" alt-text="Screenshot showing selecting a workspace resource group." lightbox="media/select-workspace-resource-group.png":::
 
 
-3. Select **Add DICOM service**.
+1. Select **Deploy DICOM service**.
 
-   [ ![Screenshot of add DICOM service.](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
-
-
-4. Enter a name for DICOM service, and then select **Review + create**. 
-
-    [ ![Screenshot of DICOM service name.](media/enter-dicom-service-name.png) ](media/enter-dicom-service-name.png#lightbox)
+:::image type="content" source="media/workspace-deploy-dicom-services.png" alt-text="Screenshot showing deployment of the DICOM service." lightbox="media/workspace-deploy-dicom-services.png":::
 
 
-   (**Optional**) Select **Next: Tags >**.
+1. Select **Add DICOM service**.
 
-    Tags are name/value pairs used for categorizing resources. For information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
+:::image type="content" source="media/add-dicom-service.png" alt-text="Screenshot showing how to add the DICOM service." lightbox="media/add-dicom-service.png":::
 
-5. When you notice the green validation check mark, select **Create** to deploy DICOM service.
 
-6. When the deployment process completes, select **Go to resource**.  
+1. Enter a name for the DICOM service, and then select **Review + create**.
 
-   [ ![Screenshot of DICOM go to resource.](media/go-to-resource.png) ](media/go-to-resource.png#lightbox)
+:::image type="content" source="media/enter-dicom-service-name.png" alt-text="Screenshot showing the DICOM service name." lightbox="media/enter-dicom-service-name.png":::
 
-   The result of the newly deployed DICOM service is shown below.
 
-   [ ![Screenshot of DICOM finished deployment.](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
+1. (Optional) Select **Next: Tags**.
 
+    Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
+
+1. When you notice the green validation check mark, select **Create** to deploy the DICOM service.
+
+1. After the deployment process is finished, select **Go to resource**.
+
+:::image type="content" source="media/go-to-resource.png" alt-text="Screenshot showing Go to resource." lightbox="media/go-to-resource.png":::
+
+   The result of the newly deployed DICOM service is shown here.
+
+:::image type="content" source="media/results-deployed-dicom-service.png" alt-text="Screenshot showing the DICOM finished deployment." lightbox="media/results-deployed-dicom-service.png":::
 
 ## Next steps
 
-In this quickstart, you learned how to deploy DICOM service using the Azure portal. For information about assigning roles for the DICOM service, see 
+* [Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
+* [Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
 
->[!div class="nextstepaction"]
->[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
-
-For more information about  how to use the DICOMweb&trade; Standard APIs with the DICOM service, see
-
->[!div class="nextstepaction"]
->[Using DICOMweb&trade;Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 08/22/2023
+ms.date: 04/22/2024
 ms.author: cshoe
 ---
 
@@ -59,9 +59,9 @@ The following table describes the role of each revision created for you:
 | `<extensionName>-k8se-envoy-controller` | Operator, which generates Envoy configuration | 2 | 200 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-event-processor` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. | 2 | 100 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-http-scaler` | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). | 1 | 100 millicpu | 500 MB | ReplicaSet |
-| `<extensionName>-k8se-keda-cosmosdb-scaler` | Keda Cosmos DB Scaler | 1 | 10 m | 128 MB | ReplicaSet |
-| `<extensionName>-k8se-keda-metrics-apiserver` | Keda Metrics Server | 1 | 1 Core | 1000 MB | ReplicaSet |
-| `<extensionName>-k8se-keda-operator` | Manages component updated and service endpoints for Dapr | 1 | 100 millicpu | 500 MB | ReplicaSet |
+| `<extensionName>-k8se-keda-cosmosdb-scaler` | KEDA Cosmos DB Scaler | 1 | 10 m | 128 MB | ReplicaSet |
+| `<extensionName>-k8se-keda-metrics-apiserver` | KEDA Metrics Server | 1 | 1 Core | 1000 MB | ReplicaSet |
+| `<extensionName>-k8se-keda-operator` | Scales workloads in and out from 0/1 to N instances | 1 | 100 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. | 2 | 200 millicpu | 500 MB | DaemonSet |
 | `<extensionName>-k8se-mdm` | Metrics and Logs Agent | 2 | 500 millicpu | 500 MB | ReplicaSet |
 | dapr-metrics | Dapr metrics pod | 1 | 100 millicpu | 500 MB | ReplicaSet |
@@ -89,7 +89,7 @@ During the preview period, certain Azure Container App features are being valida
 
 ### Are managed identities supported?
 
-No. Apps can't be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
+Managed Identities aren't supported. Apps can't be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
 
 ### Are there any scaling limits?
 
@@ -105,7 +105,7 @@ By default, logs from system components are sent to the Azure team. Application 
 
 ### What do I do if I see a provider registration error?
 
-As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and api versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
+As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
 
 ### Can I deploy the Container Apps extension on an ARM64 based cluster?
 
@@ -129,8 +129,7 @@ ARM64 based clusters aren't supported at this time.
 
 ### Container Apps extension v1.0.49 (February 2023)
 
- - Upgrade of KEDA to 2.9.1
- - Upgrade of Dapr to 1.9.5
+ - Upgrade of KEDA to 2.9.1 and Dapr to 1.9.5
  - Increase Envoy Controller resource limits to 200 m CPU
  - Increase Container App Controller resource limits to 1-GB memory
  - Reduce EasyAuth sidecar resource limits to 50 m CPU
@@ -151,8 +150,7 @@ ARM64 based clusters aren't supported at this time.
 
 ### Container Apps extension v1.12.8 (June 2023)
 
- - Update OSS Fluent Bit to 2.1.2
- - Upgrade of Dapr to 1.10.6
+ - Update OSS Fluent Bit to 2.1.2 and Dapr to 1.10.6
  - Support for container registries exposed on custom port
  - Enable activate/deactivate revision when a container app is stopped
  - Fix Revisions List not returning init containers
@@ -165,13 +163,52 @@ ARM64 based clusters aren't supported at this time.
 
 ### Container Apps extension v1.17.8 (August 2023)
 
- - Update EasyAuth to 1.6.16
- - Update of Dapr to 1.10.8
- - Update Envoy to 1.25.6
+ - Update EasyAuth to 1.6.16, Dapr to 1.10.8, and Envoy to 1.25.6
  - Add volume mount support for Azure Container App jobs
  - Added IP Restrictions for applications with TCP Ingress type
  - Added support for Container Apps with multiple exposed ports
- 
+
+### Container Apps extension v1.23.5 (December 2023)
+
+ - Update Envoy to 1.27.2, KEDA to v2.10.0, EasyAuth to 1.6.20, and Dapr to 1.11
+ - Set Envoy to max TLS 1.3
+ - Fix to resolve crashes in Log Processor pods
+ - Fix to image pull secret retrieval issues
+ - Update placement of Envoy to distribute across available nodes where possible
+ - When container apps fail to provision as a result of revision conflicts, set the provisioning state to failed
+
+### Container Apps extension v1.30.6 (January 2024)
+
+ - Update KEDA to v2.12, Envoy SC image to v1.0.4, and Dapr image to v1.11.6
+ - Added default response timeout for Envoy routes to 1800 seconds
+ - Changed Fluent bit default log level to warn
+ - Delay deletion of job pods to ensure log emission
+ - Fixed issue for job pod deletion for failed job executions
+ - Ensure jobs in suspended state also have failed pods deleted
+ - Update to not resolve HTTPOptions for TCP applications
+ - Allow applications to listen on HTTP or HTTPS
+ - Add ability to suspend jobs
+ - Fixed issue where KEDA scaler was failing to create job after stopped job execution
+ - Add startingDeadlineSeconds to Container App Job in case of cluster reboot
+ - Removed heavy logging in Envoy access log server
+ - Updated Monitoring Configuration version for Azure Container Apps on Azure Arc enabled Kubernetes
+
+### Container Apps extension v1.36.15 (April 2024)
+
+ - Update Dapr to v1.12 and Dapr Metrics to v0.6
+ - Allow customers to enabled Azure SDK debug logging in Dapr
+ - Scale Envoy in response to memory usage
+ - Change of Envoy log format to Json
+ - Export additional Envoy metrics
+ - Truncate Envoy log to first 1,024 characters when log content failed to parse
+ - Handle SIGTERM gracefully in local proxy
+ - Allow ability to leverage different namespaces with KEDA
+ - Validation added for scale rule name
+ - Enabled revision GC by default
+ - Enabled emission of metrics for sidecars
+ - Added volumeMounts to job executions
+ - Added validation to webhook endpoints for jobs 
+
 ## Next steps
 
 [Create a Container Apps connected environment (Preview)](azure-arc-enable-cluster.md)

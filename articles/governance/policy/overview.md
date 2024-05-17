@@ -1,10 +1,8 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 06/15/2023
+ms.date: 04/17/2024
 ms.topic: overview
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 
 # What is Azure Policy?
@@ -146,7 +144,7 @@ Azure Policy operations can have a significant effect on your Azure environment.
 > permissions to create or update targeted resources. For more information, see
 > [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-the-policy-definition).
 
-### Special permissions requirement for Azure Policy with Azure Virtual Network Manager (preview)
+### Special permissions requirement for Azure Policy with Azure Virtual Network Manager
 
 [Azure Virtual Network Manager (preview)](../../virtual-network-manager/overview.md) enables you to apply consistent management and security policies to multiple Azure virtual networks (VNets) throughout your cloud infrastructure. Azure Virtual Network Manager (AVNM) dynamic groups use Azure Policy definitions to evaluate VNet membership in those groups.
 
@@ -329,7 +327,7 @@ available. For information on the assignment structure, see
 
 ## Maximum count of Azure Policy objects
 
-[!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+[!INCLUDE [policy-limits](../includes/policy/azure-policy-limits.md)]
 
 ## Next steps
 

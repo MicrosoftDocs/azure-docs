@@ -25,7 +25,7 @@ ms.reviewer: sngun
 Use Visual Studio to query dedicated SQL pool using Azure Synapse Analytics. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 
 > [!NOTE]
-> Serverless SQL pool is not supported by SSDT.
+> Serverless SQL pool support requires at least VS2022 17.7 see the release notes: [Support for Serverless Sql Pool](/visualstudio/releases/2022/release-notes-v17.7#support-for-serverless-sql-pool-in-ssdt).
 
 ## Prerequisites
 
@@ -77,5 +77,5 @@ Now that a connection has been established to your database, you'll write a quer
 
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
-To configure your environment for Azure Active Directory authentication, see [Authenticate to dedicated SQL pool](sql-authentication.md?tabs=provisioned).
+To configure your environment for Microsoft Entra authentication, see [Authenticate to dedicated SQL pool](sql-authentication.md?tabs=provisioned).
  

@@ -47,7 +47,7 @@ You can filter the list by principal name or email, and selectively filter the o
 >If you are directly or indirectly a member of a group that is assigned roles, you may have permissions that are not shown.
 
 >[!tip]
->You can find your group memberships using Azure Active Directory in the Azure portal.  
+>You can find your group memberships using Microsoft Entra ID in the Azure portal.  
 
 If you create a new workspace, you and the workspace MSI service principal are automatically given the Synapse Administrator role at workspace scope.
 

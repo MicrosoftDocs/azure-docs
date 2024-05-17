@@ -109,8 +109,7 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 | **PHP**     | linuxFxVersion="PHP&#124;7.4"                        |
 | **Node.js** | linuxFxVersion="NODE&#124;10.15"                     |
 | **Java**    | linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0" |
-| **Python**  | linuxFxVersion="PYTHON&#124;3.7"                     |
-| **Ruby**    | linuxFxVersion="RUBY&#124;2.6"                       |
+| **Python**  | linuxFxVersion="PYTHON&#124;3.8"                     |
 
 ---
 

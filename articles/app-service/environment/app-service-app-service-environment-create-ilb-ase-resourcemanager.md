@@ -7,12 +7,14 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 # How To Create an ILB ASEv1 Using Azure Resource Manager Templates
 
 > [!IMPORTANT]
-> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 29 January 2024, you can no longer create new App Service Environment v1 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
 >
 
 ## Overview
@@ -33,7 +35,7 @@ Most of the parameters in the *azuredeploy.parameters.json* file are common to c
     * *3* means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB allocated virtual network internal address.
     * *2* means only the FTP service related ports (both control and data channels) will be bound to an ILB address, while the HTTP/HTTPS traffic will remain on the public VIP.
     * *0* means all traffic is bound to the public VIP making the ASE external.
-* *dnsSuffix*:  This parameter defines the default root domain that will be assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. However since an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. 
+* *dnsSuffix*:  This parameter defines the default root domain that will be assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. However since an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal.contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. 
 * *ipSslAddressCount*:  This parameter is automatically defaulted to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address. There are no explicit IP-SSL addresses for an ILB ASE, and so the IP-SSL address pool for an ILB ASE must be set to zero, otherwise a provisioning error will occur. 
 
 Once the *azuredeploy.parameters.json* file has been filled in for an ILB ASE, the ILB ASE can then be created using the following PowerShell code snippet.  Change the file paths to match where the Azure Resource Manager template files are located on your machine.  Also remember to supply your own values for the Azure Resource Manager deployment name, and resource group name.
@@ -48,7 +50,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 After the Azure Resource Manager template is submitted, it will take a few hours for the ILB ASE to be created. Once the creation completes, the ILB ASE will show up in the portal UX in the list of App Service Environments for the subscription that triggered the deployment.
 
 ## Uploading and Configuring the "Default" TLS/SSL Certificate
-Once the ILB ASE is created, a TLS/SSL certificate should be associated with the ASE as the "default" TLS/SSL certificate use for establishing TLS/SSL connections to apps.  Continuing with the hypothetical Contoso Corporation example, if the ASE's default DNS suffix is *internal-contoso.com*, then a connection to *`https://some-random-app.internal-contoso.com`* requires a TLS/SSL certificate that is valid for **.internal-contoso.com*. 
+Once the ILB ASE is created, a TLS/SSL certificate should be associated with the ASE as the "default" TLS/SSL certificate use for establishing TLS/SSL connections to apps.  Continuing with the hypothetical Contoso Corporation example, if the ASE's default DNS suffix is *internal.contoso.com*, then a connection to *`https://some-random-app.internal.contoso.com`* requires a TLS/SSL certificate that is valid for **.internal.contoso.com*. 
 
 There are different ways to obtain a valid TLS/SSL certificate including internal CAs, purchasing a certificate from an external issuer, and using a self-signed certificate.  Regardless of the source of the TLS/SSL certificate, the following certificate attributes need to be configured properly:
 
@@ -62,7 +64,7 @@ Then the resultant .pfx file needs to be converted into a base64 string because 
 The PowerShell code snippet below shows an example of generating a self-signed certificate, exporting the certificate as a .pfx file, converting the .pfx file into a base64 encoded string, and then saving the base64 encoded string to a separate file. The PowerShell code for base64 encoding was adapted from the [PowerShell Scripts Blog][examplebase64encoding].
 
 ```azurepowershell-interactive
-$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal.contoso.com","*.scm.internal.contoso.com"
 
 $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
 $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -126,7 +128,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 After the Azure Resource Manager template is submitted, it will take roughly 40 minutes per ASE front-end to apply the change. For example, with a default sized ASE using two front-ends, the template will take around 1 hour and 20 minutes to complete. While the template is running the ASE will not be able to scaled.
 
-Once the template completes, apps on the ILB ASE can be accessed over HTTPS and the connections will be secured using the default TLS/SSL certificate. The default TLS/SSL certificate will be used when apps on the ILB ASE are addressed using a combination of the application name plus the default hostname.  For example, *`https://mycustomapp.internal-contoso.com`* would use the default TLS/SSL certificate for **.internal-contoso.com*.
+Once the template completes, apps on the ILB ASE can be accessed over HTTPS and the connections will be secured using the default TLS/SSL certificate. The default TLS/SSL certificate will be used when apps on the ILB ASE are addressed using a combination of the application name plus the default hostname.  For example, *`https://mycustomapp.internal.contoso.com`* would use the default TLS/SSL certificate for **.internal.contoso.com*.
 
 However, just like apps running on the public multi-tenant service, developers can also configure custom host names for individual apps, and then configure unique SNI TLS/SSL certificate bindings for individual apps.
 

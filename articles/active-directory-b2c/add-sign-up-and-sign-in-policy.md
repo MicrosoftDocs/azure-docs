@@ -2,18 +2,18 @@
 title: Set up a sign-up and sign-in flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a sign-up and sign-in flow in Azure Active Directory B2C.
-services: active-directory-b2c
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 03/22/2024
 ms.author: godonnell
 ms.subservice: B2C
 ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up a sign-up and sign-in flow, so that users can sign up and sign in with local or social accounts, and reset their passwords if needed.
+
 ---
 
 # Set up a sign-up and sign-in flow in Azure Active Directory B2C
@@ -47,8 +47,7 @@ Watch this video to learn how the user sign-up and sign-in policy works.
 The sign-up and sign-in user flow handles both sign-up and sign-in experiences with a single configuration. Users of your application are led down the right path depending on the context.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
 

@@ -2,27 +2,28 @@
 title: What is the Named Entity Recognition (NER) feature in Azure AI Language?
 titleSuffix: Azure AI services
 description: An overview of the Named Entity Recognition feature in Azure AI services, which helps you extract categories of entities in text.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 06/15/2022
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner
 ---
 
 # What is Named Entity Recognition (NER) in Azure AI Language?
 
-Named Entity Recognition (NER) is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The NER feature can identify and categorize entities in unstructured text. For example: people, places, organizations, and quantities.
+Named Entity Recognition (NER) is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The NER feature can identify and categorize entities in unstructured text. For example: people, places, organizations, and quantities. The prebuilt NER feature has a pre-set list of [recognized entities](concepts/named-entity-categories.md). The custom NER feature allows you to train the model to recognize specialized entities specific to your use case.
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to-call.md) contain instructions for using the service in more specific or customized ways.
 * The [**conceptual articles**](concepts/named-entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
-[!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
+> [!NOTE]
+> [Entity Resolution](concepts/entity-resolutions.md) was upgraded to the [Entity Metadata](concepts/entity-metadata.md) starting in API version 2023-04-15-preview. If you are calling the preview version of the API equal or newer than 2023-04-15-preview, please check out the [Entity Metadata](concepts/entity-metadata.md) article to use the resolution feature.
 
+[!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
 ## Get started with named entity recognition
 

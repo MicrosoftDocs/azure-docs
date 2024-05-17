@@ -4,7 +4,7 @@ description: Learn how to manually update Azure Red Hat OpenShift cluster certif
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/05/2022
-author: johnmarc
+author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure, update, certificates
 #Customer intent: I need to understand how to manually update my Azure Red Hat OpenShift cluster certificates.
@@ -28,5 +28,4 @@ where:
 Running this command restarts worker machines and updates the cluster certificates, setting the cluster to a known, proper state. 
 
 > [!NOTE]
-> Certificates for custom domains need to be updated manually. For more information, see the [Red Hat OpenShift documentation](https://docs.openshift.com/rosa/applications/deployments/osd-config-custom-domains-applications.html).
-
+> Certificates for custom domains need to be updated manually. For more information, see the [Red Hat OpenShift documentation](https://docs.openshift.com).

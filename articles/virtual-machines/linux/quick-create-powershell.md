@@ -1,14 +1,13 @@
 ---
 title: Quickstart - Create a Linux VM with Azure PowerShell
 description: In this quickstart, you learn how to use Azure PowerShell to create a Linux virtual machine
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 06/01/2022
-ms.author: cynthn
-ms.custom: mvc, devx-track-azurepowershell,
+ms.author: jushiman
+ms.custom: mvc, devx-track-azurepowershell, linux-related-content
 ---
 
 # Quickstart: Create a Linux virtual machine in Azure with PowerShell
@@ -47,7 +46,7 @@ New-AzVm `
     -ResourceGroupName 'myResourceGroup' `
     -Name 'myVM' `
     -Location 'East US' `
-    -Image Debian `
+    -image Debian11 `
     -size Standard_B2s `
     -PublicIpAddressName myPubIP `
     -OpenPorts 80 `
@@ -61,6 +60,8 @@ The output will give you the location of the local copy of the SSH key. For exam
 Private key is saved to /home/user/.ssh/1234567891
 Public key is saved to /home/user/.ssh/1234567891.pub
 ```
+
+Cost information isn't presented during the virtual machine creation process for PowerShell like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 

@@ -13,6 +13,14 @@ Computer groups in Azure Monitor allow you to scope [log queries](./log-query-ov
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
+## Permissions required
+
+| Action | Permissions required |
+|:---|:---|
+| Create a computer group from a log query. | `microsoft.operationalinsights/workspaces/savedSearches/write` permissions to the Log Analytics workspace where you want to create the computer group, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Run a computer group's log search or use a computer group in a log query. | `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
+| Delete a computer group. | `microsoft.operationalinsights/workspaces/savedSearches/delete` permissions to the Log Analytics workspace where the computer group is saved, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+
 ## Creating a computer group
 You can create a computer group in Azure Monitor using the methods in the following table.  Details on each method are provided in the sections below. 
 

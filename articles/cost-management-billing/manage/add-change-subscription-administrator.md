@@ -3,11 +3,10 @@ title: Add or change Azure subscription administrators
 description: Describes how to add or change an Azure subscription administrator using Azure role-based access control (Azure RBAC).
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 10/13/2023
 ms.author: banders
 
 ---
@@ -32,11 +31,11 @@ For more information, see [Azure Resource Manager vs. classic deployment](../../
 
 The billing administrator is the person who has permission to manage billing for an account. They're authorized to access billing on the [Azure portal](https://portal.azure.com) and do various billing tasks like create subscriptions, view and pay invoices, or update payment methods.
 
-To identify accounts for which you're a billing administrator, visit the [Cost Management + Billing page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Then select **All billing scopes** from the left-hand pane. The subscriptions page shows all the subscriptions where you're a billing administrator.
+To identify accounts for which you're a billing administrator, visit the [Cost Management + Billing page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Then select **Billing scopes** from the table. Then, the **Subscriptions** page shows all the subscriptions where you're a billing administrator.
 
 If you're not sure who the account administrator is for a subscription, visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the subscription you want to check, and then look under **Settings**. Select **Properties** and the account administrator of the subscription is shown in the **Account Admin** box. 
 
-If you don't see **Account Admin**, you might have a Microsoft Customer Agreement or Enterprise Agreement account. Instead, [check your access to a Microsoft Customer Agreement](understand-mca-roles.md#check-access-to-a-microsoft-customer-agreement) or see [Manage Azure Enterprise Agreement roles](understand-ea-roles.md).
+If you don't see **Account Admin**, you might have a Microsoft Customer Agreement. Instead, [check your access to a Microsoft Customer Agreement](understand-mca-roles.md#check-access-to-a-microsoft-customer-agreement).
 
 ## Assign a subscription administrator
 
@@ -53,15 +52,15 @@ If you're not sure who the account billing administrator is for a subscription, 
 ### To assign a user as an administrator
 
 - Assign the Owner role to a user at the subscription scope.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Need help? Contact support
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 * [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Understand the different roles in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Administrator role permissions in Azure Active Directory](../../active-directory/roles/permissions-reference.md)
+* [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [Administrator role permissions in Microsoft Entra ID](../../active-directory/roles/permissions-reference.md)

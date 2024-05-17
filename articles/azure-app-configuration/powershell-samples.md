@@ -5,8 +5,8 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 01/19/2023
-ms.author: mcleans
-author: mcleanbyron
+ms.author: malev
+author: maud-lv
 ---
 # PowerShell samples for Azure App Configuration
 

@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 11/17/2023
 ---
 
 # How a reservation discount is applied to Azure Database for MariaDB
@@ -39,6 +39,6 @@ For the rest of these examples, assume that the Azure Database for MariaDB reser
 
 To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](./understand-reserved-instance-usage-ea.md).
 
-## Next steps
+## Related content
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

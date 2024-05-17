@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot
 services: iot
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 02/28/2024
 ms.author: dobett
 
 ---
@@ -41,7 +41,7 @@ To learn more, see [Connect the app](#connect-the-app) later in this guide.
 
 ### Telemetry
 
-The app collects data from sensors on the phone to send as telemetry to the IoT service you're using. Sensor data is aggregated every five seconds by default, but you can change this on the app settings page:
+The app collects data from sensors on the phone to send as telemetry to the IoT service you're using. Sensor data is aggregated every five seconds by default, but you can change this period on the app settings page:
 
 :::image type="content" source="media/iot-phone-app-how-to/telemetry.png" alt-text="Screenshot of telemetry page in smartphone app.":::
 
@@ -111,7 +111,7 @@ To register the device in IoT Central:
 
     :::image type="content" source="media/iot-phone-app-how-to/iot-central-create-device.png" alt-text="Screenshot showing how to create a device in IoT Central.":::
 
-1. On the list of devices, click on the device name and then select **Connect**. On the **Device connection** page you can see the QR code that you'll scan in the smartphone app:
+1. On the list of devices, click on the device name and then select **Connect**. On the **Device connection** page you can see the QR code to scan in the smartphone app in the next section:
 
     :::image type="content" source="media/iot-phone-app-how-to/device-connection-qr-code.png" alt-text="Screenshot showing the device connection page with the QR code.":::
 
@@ -133,10 +133,10 @@ To learn more about how devices connect to IoT Central, see [How devices connect
 
 To view the data the device is sending in your IoT Central application:
 
-1. Sign in to your IoT Central application and navigate to the **Devices** page. Your device has been automatically assigned to the **Smartphone** device template.
+1. Sign in to your IoT Central application and navigate to the **Devices** page. Your device is automatically assigned to the **Smartphone** device template.
 
     > [!TIP]
-    > You may need to refresh the page in your web browser to see when the device is assigned to the the **Smartphone** device template.
+    > You may need to refresh the page in your web browser to see when the device is assigned to the **Smartphone** device template.
 
 1. On the list of devices, click on the device name and then select **Overview**. The **Overview** page shows the telemetry from the smartphone sensors:
 
@@ -151,4 +151,4 @@ To view the data the device is sending in your IoT Central application:
 
 ## Next steps
 
-Now that you've connected your smartphone app to IoT Central, a suggested next step is to learn more about [IoT Central](../iot-central/core/overview-iot-central.md).
+Now that your smartphone app is connected to IoT Central, a suggested next step is to learn more about [IoT Central](../iot-central/core/overview-iot-central.md).

@@ -1,38 +1,93 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/cloud-shell/quickstart-powershell.md",
-            "redirect_url": "/azure/cloud-shell/quickstart",
+            "redirect_url": "/azure/cloud-shell/overview",
+            "source_path_from_root": "/articles/cloud-shell/index.md",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/overview",
+            "source_path_from_root": "/articles/cloud-shell/embed-cloud-shell.md",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/faq-troubleshooting",
+            "source_path_from_root": "/articles/cloud-shell/limitations.md",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/faq-troubleshooting",
+            "source_path_from_root": "/articles/cloud-shell/troubleshooting.md",
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/cloud-shell/cloud-shell-windows-users.md",
-            "redirect_url": "/azure/cloud-shell/quickstart",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cloud-shell/features-powershell.md",
             "redirect_url": "/azure/cloud-shell/features",
+            "source_path_from_root": "/articles/cloud-shell/features-powershell.md",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cloud-shell/index.md",
-            "redirect_url": "/azure/cloud-shell/overview",
+            "redirect_url": "/azure/cloud-shell/get-started/classic",
+            "source_path_from_root": "/articles/cloud-shell/cloud-shell-windows-users.md",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cloud-shell/persisting-shell-storage-powershell.md",
+            "redirect_url": "/azure/cloud-shell/get-started/classic",
+            "source_path_from_root": "/articles/cloud-shell/quickstart.md",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/get-started/classic",
+            "source_path_from_root": "/articles/cloud-shell/quickstart-powershell.md",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/get-started/classic",
+            "source_path_from_root": "/articles/cloud-shell/get-started.md",
+            "redirect_document_id": true
+        },
+        {
             "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
+            "source_path_from_root": "/articles/cloud-shell/persisting-shell-storage-powershell.md",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
+            "redirect_url": "/azure/cloud-shell/vnet/deployment",
+            "source_path_from_root": "/articles/cloud-shell/quickstart-deploy-vnet.md",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/vnet/deployment",
+            "source_path_from_root": "/articles/cloud-shell/vnet-deployment.md",
+            "redirect_document_id": true
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/vnet/overview",
+            "source_path_from_root": "/articles/cloud-shell/private-vnet.md",
+            "redirect_document_id": false
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/vnet/overview",
+            "source_path_from_root": "/articles/cloud-shell/vnet-overview.md",
+            "redirect_document_id": true
+        },
+        {
+            "redirect_url": "/azure/cloud-shell/vnet/troubleshooting",
+            "source_path_from_root": "/articles/cloud-shell/vnet-troubleshooting.md",
+            "redirect_document_id": true
+        },
+        {
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/managed-identities-status",
+            "source_path_from_root": "/articles/cloud-shell/msi-authorization.md",
+            "redirect_document_id": true
+        },
+       {
             "redirect_url": "/azure/developer/terraform/quickstart-configure",
+            "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cloud-shell/security-baseline.md",
             "redirect_url": "/security/benchmark/azure/baselines/cloud-shell-security-baseline",
+            "source_path_from_root": "/articles/cloud-shell/security-baseline.md",
             "redirect_document_id": false
         }
     ]

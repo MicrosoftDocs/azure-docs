@@ -40,4 +40,4 @@ The following table shows recommendations for mapping role assignments from lab 
 
 - Learn more about [Azure role-based access control for Azure Lab Services](./concept-lab-services-role-based-access-control.md)
 
-- Learn more about [moving from lab accounts to lab plans](./migrate-to-2022-update.md)
+- Learn more about [migrating from lab accounts to lab plans](./how-to-migrate-lab-acounts-to-lab-plans.md)

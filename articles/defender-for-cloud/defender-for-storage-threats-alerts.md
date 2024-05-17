@@ -27,7 +27,7 @@ These threats can result in malware uploads, data corruption, and sensitive data
 
 :::image type="content" source="media/defender-for-storage-threats-alerts/malware-risks.png" alt-text="Diagram showing common risks to data that can result from malware.":::
 
-In addition to security threats, configuration errors may inadvertently expose sensitive resources. Some common misconfiguration issues include:
+In addition to security threats, configuration errors might inadvertently expose sensitive resources. Some common misconfiguration issues include:
 
 - Inadequate access controls and networking rules, leading to unintended data exposure on the internet
 - Insufficient authentication mechanisms
@@ -40,7 +40,7 @@ Microsoft security researchers have analyzed the attack surface of storage servi
 ## What kind of security alerts does Microsoft Defender for Storage provide?
 
 > [!TIP]
-> For a comprehensive list of all Defender for Storage alerts, see the [alerts reference guide](alerts-reference.md#alerts-azurestorage) page. This is useful for workload owners who want to know what threats can be detected and help SOC teams gain familiarity with detections before investigating them. Learn more about [Defender for Cloud security alerts and how to respond to them](managing-and-responding-alerts.md).
+> For a comprehensive list of all Defender for Storage alerts, see the [alerts reference guide](alerts-reference.md#alerts-for-azure-storage) page. This is useful for workload owners who want to know what threats can be detected and help SOC teams gain familiarity with detections before investigating them. Learn more about [Defender for Cloud security alerts and how to respond to them](managing-and-responding-alerts.yml).
 
 Security alerts are triggered in the following scenarios:
 

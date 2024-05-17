@@ -6,7 +6,6 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 04/04/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
@@ -15,6 +14,8 @@ zone_pivot_groups: front-door-tiers
 # Origins and origin groups in Azure Front Door
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 > [!NOTE]
 > *Origin* and *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.

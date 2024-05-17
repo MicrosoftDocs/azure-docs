@@ -3,7 +3,6 @@ title: The Advanced Security Information Model (ASIM) Web Session normalization 
 description: This article displays the Microsoft Sentinel Web Session normalization schema.
 services: sentinel
 cloud: na
-documentationcenter: na
 author: oshezaf
 ms.topic: reference
 ms.date: 11/17/2021
@@ -83,7 +82,7 @@ The following filtering parameters are available:
 | **eventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
 | **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 
-Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals). For example: `dynamic(['192.168.','10.'])`
 
 For example, to filter only Web sessions for a specified list of domain names, use:
 
@@ -206,4 +205,3 @@ For more information, see:
 - [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
 - [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
 - [Advanced Security Information Model (ASIM) content](normalization-content.md)
-

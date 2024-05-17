@@ -1,23 +1,21 @@
 ---
-title: Azure Arc resource bridge (preview) network requirements
-description: Learn about network requirements for Azure Arc resource bridge (preview) including URLs that must be allowlisted.
+title: Azure Arc resource bridge network requirements
+description: Learn about network requirements for Azure Arc resource bridge including URLs that must be allowlisted.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 03/19/2024
 ---
 
-# Azure Arc resource bridge (preview) network requirements
+# Azure Arc resource bridge network requirements
 
-This article describes the networking requirements for deploying Azure Arc resource bridge (preview) in your enterprise.
+This article describes the networking requirements for deploying Azure Arc resource bridge in your enterprise.
 
 ## General network requirements
+
+Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol.
 
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
 
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
-
-## Additional network requirements
-
-In addition, Arc resource bridge (preview) requires connectivity to the [Arc-enabled Kubernetes endpoints](../network-requirements-consolidated.md?tabs=azure-cloud).
 
 > [!NOTE]
 > The URLs listed here are required for Arc resource bridge only. Other Arc products (such as Arc-enabled VMware vSphere) may have additional required URLs. For details, see [Azure Arc network requirements](../network-requirements-consolidated.md).
@@ -61,9 +59,24 @@ The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0
 
 > [!IMPORTANT]
 > When listing multiple addresses for the `noProxy` settings, don't add a space after each comma to separate the addresses. The addresses must immediately follow the commas.
+>
+
+## Internal Port Listening
+
+As a notice, you should be aware that the appliance VM is configured to listen on the following ports. These ports are used exclusively for internal processes and do not require external access:
+
+- 8443 – Endpoint for AAD Authentication Webhook
+
+- 10257 – Endpoint for Arc resource bridge metrics
+
+- 10250 – Endpoint for Arc resource bridge metrics
+
+- 2382 – Endpoint for Arc resource bridge metrics
+
 
 ## Next steps
 
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
-- Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+- Review the [Azure Arc resource bridge overview](overview.md) to understand more about requirements and technical details.
+- Learn about [security configuration and considerations for Azure Arc resource bridge](security-overview.md).
 - View [troubleshooting tips for networking issues](troubleshoot-resource-bridge.md#networking-issues).
+

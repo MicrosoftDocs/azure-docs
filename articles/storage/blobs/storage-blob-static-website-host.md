@@ -1,13 +1,15 @@
 ---
-title: 'Tutorial: Host a static website on Blob storage
-titleSuffix: Azure Storage'
+title: 'Tutorial: Host a static website on Blob storage'
+titleSuffix: Azure Storage
 description: Learn how to configure a storage account for static website hosting, and deploy a static website to Azure Storage.
-author: normesta
-ms.service: storage
+author: stevenmatthew
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 11/04/2021
-ms.author: normesta
+ms.author: shaas
 ms.reviewer: dineshm
+ms.custom: ai-video-demo
+ai-usage: ai-assisted
 #Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.
 ---
 
@@ -22,6 +24,11 @@ In this tutorial, you learn how to:
 > - Deploy a Hello World website
 
 [!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
+
+This video shows you how to host a static website on Blob Storage.
+> [!VIDEO 61affe70-baf4-4b65-ba95-0a9d3e272032]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 
@@ -38,10 +45,6 @@ After you install Visual Studio Code, install the Azure Storage preview extensio
 2. On the toolbar, click **Extensions**. Search for *Azure Storage*, and select the **Azure Storage** extension from the list. Then click the **Install** button to install the extension.
 
     ![Install the Azure Storage extension in VS Code](media/storage-blob-static-website-host/install-extension-vs-code.png)
-
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com) to get started.
 
 ## Configure static website hosting
 

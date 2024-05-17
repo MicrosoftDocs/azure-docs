@@ -7,7 +7,8 @@ ms.service: app-service
 ms.role: developer
 ms.devlang: javascript
 ms.author: msangapu
-ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devdivchpfy22, ignite-2022, AppServiceConnectivity
+author: msangapu-msft
+ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devdivchpfy22, AppServiceConnectivity
 ---
 
 # Deploy a Node.js + MongoDB web app to Azure

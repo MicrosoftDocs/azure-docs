@@ -3,10 +3,11 @@ title: Prepare an Debian Linux VHD
 description: Learn how to create Debian VHD images for VM deployments in Azure.
 author: srijang
 ms.service: virtual-machines
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to
-ms.date: 11/10/2021
-ms.author: srijangupta
+ms.date: 05/01/2024
+ms.author: maries
 ms.reviewer: mattmcinnes
 ---
 # Prepare a Debian VHD for Azure
@@ -22,23 +23,6 @@ This section assumes that you have already installed a Debian Linux operating sy
 * When installing the Linux system, it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
 * Do not configure a swap partition on the OS disk. The Azure Linux agent can be configured to create a swap file on the temporary resource disk. More information can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1MB before conversion. For more information, see [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes).
-
-## Use Azure-Manage to create Debian VHDs
-There are tools available for generating Debian VHDs for Azure, such as the [azure-manage](https://github.com/credativ/azure-manage) scripts from [Credativ](https://www.credativ.com/). This is the recommended approach versus creating an image from scratch. For example, to create a Debian 8 VHD run the following commands to download the `azure-manage` utility (and dependencies) and run the `azure_build_image` script:
-
-```console
-# sudo apt-get update
-# sudo apt-get install git qemu-utils mbr kpartx debootstrap
-
-# sudo apt-get install python3-pip python3-dateutil python3-cryptography
-# sudo pip3 install azure-storage azure-servicemanagement-legacy azure-common pytest pyyaml
-# git clone https://github.com/credativ/azure-manage.git
-# cd azure-manage
-# sudo pip3 install .
-
-# sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
-```
-
 
 ## Prepare a Debian image for Azure
 
@@ -73,20 +57,20 @@ $ sudo chmod 755 ./config_space/scripts/AZURE/10-custom
 Note that it is important to prefix any commands you want to have customizing the image with `$ROOTCMD` as this is aliased as `chroot $target`.
 
 
-## Build the Azure Debian 10 image:
+## Build the Azure Debian image:
 
 ```
-$ make image_buster_azure_amd64
+$ make image_[release]_azure_amd64
 ```
 
 
-This will output a handful of files in the current directory, most notably the `image_buster_azure_amd64.raw` image file.
+This will output a handful of files in the current directory, most notably the `image_[release]_azure_amd64.raw` image file.
 
 To convert the raw image to VHD for Azure, you can do the following:
 
 ```
-rawdisk="image_buster_azure_amd64.raw"
-vhddisk="image_buster_azure_amd64.vhd"
+rawdisk="image_[release]_azure_amd64.raw"
+vhddisk="image_[release]_azure_amd64.vhd"
 
 MB=$((1024*1024))
 size=$(qemu-img info -f raw --output json "$rawdisk" | \
@@ -102,10 +86,20 @@ qemu-img convert -f raw -o subformat=fixed,force_size -O vpc "$rawdisk" "$vhddis
 ```
 
 
-This creates a VHD `image_buster_azure_amd64.vhd` with a rounded size to be able to copy it successfully to an Azure Disk.
+This creates a VHD `image_[release]_azure_amd64.vhd` with a rounded size to be able to copy it successfully to an Azure Disk.
 
-Now we need to create the Azure resources for this image (this uses the `$rounded_size_adjusted` variable, so it should be from within the same shell process from above).
+>[!Note]
+> Rather than cloning the salsa repository and building images locally, current stable images can be built and downloaded from [FAI](https://fai-project.org/FAIme/cloud/).
 
+After creating a stable Debian vhd image, before uploading verify the following packages are installed:
+* apt-get install hyperv-daemons
+* apt-get install waagent # *optional but recommended for password resets and the use of extensions*
+* apt-get install cloud-init
+
+Then perform a full upgrade:
+* apt-get full-upgrade
+
+Now the Azure resources must be created for this image (this uses the `$rounded_size_adjusted` variable, so it should be from within the same shell process from above).
 ```
 az group create -l $LOCATION -n $RG
 
@@ -148,7 +142,7 @@ az vm create \
 >[!Note]
 > If the bandwidth from your local machine to the Azure Disk is causing a long time to process the upload with azcopy, you can use an Azure VM jumpbox to speed up the process. Here's how this can be done:
 >
->1. Create a tarball of the VHD on your local machine: `tar -czvf ./image_buster_azure_amd64.vhd.tar.gz ./image_buster_azure_amd64.vhd`.
+>1. Create a tarball of the VHD on your local machine: `tar -czvf ./image_buster_azure_amd64.vhd.tar.gz ./image_[release]_azure_amd64.vhd`.
 >2. Create an Azure Linux VM (distro of your choice). Make sure that you create it with a large enough disk to hold the extracted VHD!
 >3. Download the azcopy utility to the Azure Linux VM. It can be retrieved from [here](../../storage/common/storage-use-azcopy-v10.md#download-azcopy).
 >4. Copy the tarball to the VM: `scp ./image_buster_azure_amd64.vhd.tar.gz <vm>:~`.

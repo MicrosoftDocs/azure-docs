@@ -14,6 +14,8 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Copy a blob with TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-copy](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
+
 This article provides an overview of copy operations using the [Azure Storage client library for JavaScript and TypeScript](/javascript/api/overview/azure/storage-blob-readme).
 
 ## About copy operations

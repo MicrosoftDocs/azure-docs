@@ -1,15 +1,13 @@
 ---
-title: Explore Azure Hybrid Benefit for Windows VMs 
+title: Explore Azure Hybrid Benefit for Windows VMs
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
 ms.service: virtual-machines
 ms.subservice: billing
 ms.collection: windows
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 4/18/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 # Explore Azure Hybrid Benefit for Windows VMs
 
@@ -112,7 +110,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 Once you've deployed your VM through either PowerShell, Resource Manager template or portal, you can verify the setting in the following methods.
 
 ### Portal
-From portal VM blade, you can view the toggle for Azure Hybrid Benefit for Windows Server by selecting "Configuration" tab.
+From portal VM blade, you can view the toggle for Azure Hybrid Benefit for Windows Server by selecting "Operating system" tab.
 
 ### PowerShell
 The following example shows the license type for a single VM

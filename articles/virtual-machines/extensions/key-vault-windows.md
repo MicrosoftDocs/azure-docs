@@ -3,12 +3,11 @@ title: Azure Key Vault VM extension for Windows
 description: Learn how to deploy an agent for automatic refresh of Azure Key Vault secrets on virtual machines with a virtual machine extension.
 services: virtual-machines
 author: msmbaldwin
-tags: keyvault
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -38,13 +37,14 @@ The Key Vault VM extension supports the following certificate content types:
 > [!NOTE]
 > The Key Vault VM extension downloads all certificates to the Windows certificate store or to the location specified in the `certificateStoreLocation` property in the VM extension settings. 
 
-## Updates in Version 3.0
+## Updates in Version 3.0+
 
 Version 3.0 of the Key Vault VM extension for Windows adds support for the following features:
 
 - Add ACL permissions to downloaded certificates
 - Enable Certificate Store configuration per certificate
 - Export private keys
+- IIS Certificate Rebind support
 
 ## Prerequisites
 
@@ -115,7 +115,7 @@ The following JSON shows the schema for the Key Vault VM extension. Before you c
       "autoUpgradeMinorVersion": true,
       "settings": {
          "secretsManagementSettings": {
-             "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
+             "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: "3600">,
              "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,
              "requireInitialSync": <Initial synchronization of certificates. Example: true>,
              "observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location and ACL permission to certificate private key. Example: 
@@ -191,8 +191,8 @@ The JSON schema includes the following properties.
 | `apiVersion` | 2022-08-01 | date |
 | `publisher` | Microsoft.Azure.KeyVault | string |
 | `type` | KeyVaultForWindows | string |
-| `typeHandlerVersion` | 3.0 | int |
-| `pollingIntervalInS` | 3600 | string |
+| `typeHandlerVersion` | "3.0" | string |
+| `pollingIntervalInS` | "3600" | string |
 | `linkOnRenewal` (optional) | true | boolean |
 | `requireInitialSync` (optional) | false | boolean |
 | `observedCertificates`  | [{...}, {...}] | string array |
@@ -211,8 +211,8 @@ The JSON schema includes the following properties.
 | `apiVersion` | 2022-08-01 | date |
 | `publisher` | Microsoft.Azure.KeyVault | string |
 | `type` | KeyVaultForWindows | string |
-| `typeHandlerVersion` | 1.0 | int |
-| `pollingIntervalInS` | 3600 | string |
+| `typeHandlerVersion` | "1.0" | string |
+| `pollingIntervalInS` | "3600" | string |
 | `certificateStoreName` | MY | string |
 | `linkOnRenewal` | true | boolean |
 | `certificateStoreLocation`  | LocalMachine or CurrentUser (case sensitive) | string |
@@ -249,7 +249,7 @@ The following JSON snippets provide example settings for an ARM template deploym
       "autoUpgradeMinorVersion": true,
       "settings": {
          "secretsManagementSettings": {
-             "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
+             "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: "3600">,
              "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,
              "observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location and ACL permission to certificate private key. Example:
              [
@@ -300,7 +300,7 @@ The following JSON snippets provide example settings for an ARM template deploym
       "autoUpgradeMinorVersion": true,
       "settings": {
          "secretsManagementSettings": {
-            "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
+            "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: "3600">,
             "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,          
             "certificateStoreName": <The certificate store name. Example: "MY">,
             "certificateStoreLocation": <The certificate store location, which currently works locally only. Example: "LocalMachine">,

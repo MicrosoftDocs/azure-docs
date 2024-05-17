@@ -1,8 +1,8 @@
 ---
 title: Add a heat map layer to Android maps | Microsoft Azure Maps
 description: Learn how to create a heat map. See how to use the Azure MapsAndroid SDK to add a heat map layer to a map. Find out how to customize heat map layers.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,6 +12,12 @@ zone_pivot_groups: azure-maps-android
 ---
 
 # Add a heat map layer (Android SDK)
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 Heat maps, also known as point density maps, are a type of data visualization. They're used to represent the density of data using a range of colors and show the data "hot spots" on a map. Heat maps are a great way to render datasets with large number of points.
 

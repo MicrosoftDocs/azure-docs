@@ -2,13 +2,11 @@
 title: Set up the Bring your own storage (BYOS) Speech resource
 titleSuffix: Azure AI services
 description: Learn how to set up Bring your own storage (BYOS) Speech resource.
-services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 1/18/2024
 ms.author: alexeyo 
 ---
 
@@ -26,12 +24,12 @@ BYOS can be used with several Azure AI services. For Speech, it can be used in t
 
 - [Batch transcription](batch-transcription.md)
 - Real-time transcription with [audio and transcription result logging](logging-audio-transcription.md) enabled
-- [Custom Speech](custom-speech-overview.md) (Custom models for Speech recognition)
+- [Custom speech](custom-speech-overview.md) (Custom models for Speech recognition)
 
 **Text to speech**
 
 - [Audio Content Creation](how-to-audio-content-creation.md)
-- [Custom Neural Voice](custom-neural-voice.md) (Custom models for Speech synthesizing)
+- [Custom neural voice](custom-neural-voice.md) (Custom models for Speech synthesizing)
 
 
 One Speech resource – Storage account combination can be used for all four scenarios simultaneously in all combinations.
@@ -50,11 +48,99 @@ Consider the following rules when planning BYOS-enabled Speech resource configur
 
 ## Create and configure BYOS-enabled Speech resource
 
-This section describes how to create a BYOS enabled Speech resource.
+This section describes how to create a BYOS enabled Speech resource. 
+
 
 ### Request access to BYOS for your Azure subscriptions
 
 You need to request access to BYOS functionality for each of the Azure subscriptions you plan to use. To request access, fill and submit [Cognitive Services & Applied AI Customer Managed Keys and Bring Your Own Storage access request form](https://aka.ms/cogsvc-cmk). Wait for the request to be approved.
+
+### (Optional) Check whether Azure subscription has access to BYOS
+
+You can quickly check whether your Azure subscription has access to BYOS. This check uses [preview features](/azure/azure-resource-manager/management/preview-features) functionality of Azure.
+
+# [Azure portal](#tab/portal)
+
+This functionality isn't available through Azure portal.
+
+> [!NOTE]
+> You may view the list of preview features for a given Azure subscription as explained in [this article](/azure/azure-resource-manager/management/preview-features), however note that not all preview features, including BYOS are visible this way.
+
+# [PowerShell](#tab/powershell)
+
+To check whether an Azure subscription has access to BYOS with PowerShell, we use [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+You can [install PowerShell locally](/powershell/azure/install-azure-powershell) or use [Azure Cloud Shell](../../cloud-shell/overview.md).
+
+If you use local installation of PowerShell, connect to your Azure account using `Connect-AzAccount` command before trying the following script.
+
+```azurepowershell
+# Target subscription parameters
+# REPLACE WITH YOUR CONFIGURATION VALUES
+$azureSubscriptionId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+
+# Select the right subscription
+Set-AzContext -SubscriptionId $azureSubscriptionId 
+
+# Check whether the Azure subscription has access to BYOS
+Get-AzProviderFeature -ListAvailable -ProviderNamespace "Microsoft.CognitiveServices" | where-object FeatureName -Match byox
+```
+
+If you get the response like this, your subscription has access to BYOS.
+```powershell
+FeatureName ProviderName                RegistrationState
+----------- ------------                -----------------
+byoxPreview Microsoft.CognitiveServices Registered
+```
+
+If you get empty response or `RegistrationState` value is `NotRegistered` then your Azure subscription doesn't have access to BYOS and you need to [request it](#request-access-to-byos-for-your-azure-subscriptions).
+
+# [Azure CLI](#tab/azure-cli)
+
+To check whether an Azure subscription has access to BYOS with Azure CLI, we use [az feature show](/cli/azure/feature) command.
+
+You can [install Azure CLI locally](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](../../cloud-shell/overview.md).
+
+> [!NOTE]
+> The following script doesn't use variables because variable usage differs, depending on the platform where Azure CLI runs. See information on Azure CLI variable usage in [this article](/cli/azure/azure-cli-variables).
+
+If you use local installation of Azure CLI, connect to your Azure account using `az login` command before trying the following script.
+
+```azurecli
+az account set --subscription "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+
+az feature show --name byoxPreview --namespace  Microsoft.CognitiveServices --output table
+```
+
+If you get the response like this, your subscription has access to BYOS.
+```dos
+Name                                     RegistrationState
+---------------------------------------  -------------------
+Microsoft.CognitiveServices/byoxPreview  Registered
+```
+If you get empty response or `RegistrationState` value is `NotRegistered` then your Azure subscription doesn't have access to BYOS and you need to [request it](#request-access-to-byos-for-your-azure-subscriptions).
+
+> [!Tip]
+> See additional commands related to listing Azure subscription preview features in [this article](/azure/azure-resource-manager/management/preview-features).
+
+# [REST](#tab/rest)
+
+To check through REST API whether an Azure subscription has access to BYOS use [Features - List](/rest/api/resources/features/list) request from Azure Resource Manager REST API.
+
+If your subscription has access to BYOS, the REST response will contain the following element:
+```json
+{
+  "properties": {
+    "state": "Registered"
+  },
+  "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/providers/Microsoft.Features/providers/Microsoft.CognitiveServices/features/byoxPreview",
+  "type": "Microsoft.Features/providers/features",
+  "name": "Microsoft.CognitiveServices/byoxPreview"
+}
+```
+If the REST response doesn't contain the reference to `byoxPreview` feature or its state is `NotRegistered` then your Azure subscription doesn't have access to BYOS and you need to [request it](#request-access-to-byos-for-your-azure-subscriptions).
+***
+
 
 ### Plan and prepare your Storage account
 
@@ -84,7 +170,7 @@ Azure portal option has tighter requirements:
 
 If any of these extra requirements don't fit your scenario, use Cognitive Services API option (PowerShell, Azure CLI, REST request).
 
-To use any of the methods above you need an Azure account that is assigned a role allowing to create resources in your subscription, like *Subscription Contributor*.
+To use any of the methods above, you need an Azure account that is assigned a role allowing to create resources in your subscription, like *Subscription Contributor*.
 
 # [Azure portal](#tab/portal)
 
@@ -93,7 +179,7 @@ To use any of the methods above you need an Azure account that is assigned a rol
 
 To create a BYOS-enabled Speech resource with Azure portal, you need to access some portal preview features. Perform the following steps:
 
-1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
+1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
 1. Note the *Storage account* section at the bottom of the page.
 1. Select *Yes* for *Bring your own storage* option.
 1. Configure the required Storage account settings and proceed with the Speech resource creation.
@@ -154,9 +240,9 @@ General rule is that you need to pass this JSON string as a value of `--storage`
 
 To create a BYOS-enabled Speech resource with a REST Request to Cognitive Services API, we use [Accounts - Create](/rest/api/cognitiveservices/accountmanagement/accounts/create) request.
 
-You need to have a means of authentication. The example in this section uses [Microsoft Azure Active Directory token](/azure/active-directory/develop/access-tokens).
+You need to have a means of authentication. The example in this section uses [Microsoft Entra token](/azure/active-directory/develop/access-tokens).
 
-This code snippet generates Azure AD token using interactive browser sign-in. It requires [Azure Identity client library](/dotnet/api/overview/azure/identity-readme):
+This code snippet generates Microsoft Entra token using interactive browser sign-in. It requires [Azure Identity client library](/dotnet/api/overview/azure/identity-readme):
 ```csharp
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://management.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
@@ -200,13 +286,13 @@ If you used Azure portal for creating a BYOS-enabled Speech resource, it's fully
 
 ### (Optional) Verify Speech resource BYOS configuration
 
-You may always check, whether any given Speech resource is BYOS enabled, and what is the associated Storage account. You can do it either via Azure portal, or via Cognitive Services API.
+You can always check, whether any given Speech resource is BYOS enabled, and what is the associated Storage account. You can do it either via Azure portal, or via Cognitive Services API.
 
 # [Azure portal](#tab/portal)
 
 To check BYOS configuration of a Speech resource with Azure portal, you need to access some portal preview features. Perform the following steps:
 
-1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
+1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
 1.  Close *Create Speech* screen by pressing *X* in the right upper corner.
 1.  If asked agree to discard unsaved changes.
 1.  Navigate to the Speech resource you want to check.
@@ -243,7 +329,7 @@ Use the [Accounts - Get](/rest/api/cognitiveservices/accountmanagement/accounts/
 
 ## Configure BYOS-associated Storage account
 
-To achieve high security and privacy of your data you need to properly configure the settings of the BYOS-associated Storage account. In case you didn't use Azure portal to create your BYOS-enabled Speech resource, you also need to perform a mandatory step of role assignment.
+To achieve high security and privacy of your data, you need to properly configure the settings of the BYOS-associated Storage account. In case you didn't use Azure portal to create your BYOS-enabled Speech resource, you also need to perform a mandatory step of role assignment.
 
 ### Assign resource access role
 
@@ -251,7 +337,7 @@ This step is **mandatory** if you didn't use Azure portal to create your BYOS-en
 
 BYOS uses the Blob storage of a Storage account. Because of this, BYOS-enabled Speech resource managed identity needs *Storage Blob Data Contributor* role assignment within the scope of BYOS-associated Storage account.
 
-If you used Azure portal to create your BYOS-enabled Speech resource, you may skip the rest of this subsection. Your role assignment is already done. Otherwise, follow these steps.
+If you used Azure portal to create your BYOS-enabled Speech resource, you can skip the rest of this subsection. Your role assignment is already done. Otherwise, follow these steps.
 
 > [!IMPORTANT]
 > You need to be assigned the *Owner* role of the Storage account or higher scope (like Subscription) to perform the operation in the next steps. This is because only the *Owner* role can assign roles to others. See details [here](../../role-based-access-control/built-in-roles.md).
@@ -269,9 +355,9 @@ If you used Azure portal to create your BYOS-enabled Speech resource, you may sk
 
 This section describes how to set up Storage account security settings, if you intend to use BYOS-associated Storage account only for Speech to text scenarios. In case you use the BYOS-associated Storage account for Text to speech or a combination of both Speech to text and Text to speech, use [this section](#configure-storage-account-security-settings-for-text-to-speech).
 
-For Speech to text BYOS is using the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) to communicate with Storage account. The mechanism allows setting very restricted Storage account data access rules.
+For Speech to text BYOS is using the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) to communicate with Storage account. The mechanism allows setting restricted storage account data access rules.
 
-If you perform all actions in the section, your Storage account will be in the following configuration:
+If you perform all actions in the section, your Storage account is in the following configuration:
 - Access to all external network traffic is prohibited.
 - Access to Storage account using Storage account key is prohibited.
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited. (Except for [User delegation SAS](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens))
@@ -283,7 +369,7 @@ So in effect your Storage account becomes completely "locked" and can only be ac
 
 You should consider this configuration as a model as far as the security of your data is concerned and customize it according to your needs.
 
-For example, you may allow traffic from selected public IP addresses and Azure Virtual networks. You may also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
+For example, you can allow traffic from selected public IP addresses and Azure Virtual networks. You can also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
 
 > [!NOTE] 
 > Using [private endpoints for Speech](speech-services-private-link.md) isn't required to secure the Storage account. Private endpoints for Speech secure the channels for Speech API requests, and can be used as an extra component in your solution.
@@ -320,15 +406,15 @@ Having restricted access to the Storage account, you need to grant networking ac
 This section describes how to set up Storage account security settings, if you intend to use BYOS-associated Storage account for Text to speech or a combination of both Speech to text and Text to speech. In case you use the BYOS-associated Storage account for Speech to text only, use [this section](#configure-storage-account-security-settings-for-speech-to-text).
 
 > [!NOTE]
-> Text to speech requires more relaxed settings of Storage account firewall, compared to Speech to text. If you use both Speech to text and Text to speech, and need maximally restricted Storage account security settings to protect your data, you may consider using different Storage accounts and the corresponding Speech resources for Speech to Text and Text to speech tasks.
+> Text to speech requires more relaxed settings of Storage account firewall, compared to Speech to text. If you use both Speech to text and Text to speech, and need maximally restricted Storage account security settings to protect your data, you can consider using different Storage accounts and the corresponding Speech resources for Speech to Text and Text to speech tasks.
 
-If you perform all actions in the section, your Storage account will be in the following configuration:
+If you perform all actions in the section, your Storage account is in the following configuration:
 - External network traffic is allowed.
 - Access to Storage account using Storage account key is prohibited.
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited. (Except for [User delegation SAS](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens))
 - Access to the BYOS-enabled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) and [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas).
 
-These are the most restricted security settings possible for Text to speech scenario. You may further customize them according to your needs.
+These are the most restricted security settings possible for the text to speech scenario. You can further customize them according to your needs.
 
 **Restrict access to the Storage account**
 
@@ -343,7 +429,7 @@ For more information, see [Prevent anonymous public read access to containers an
 
 **Configure Azure Storage firewall**
 
-Custom Neural Voice uses [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas) to read the data for Custom Neural Voice model training. It requires allowing external network traffic access to the Storage account.
+Custom neural voice uses [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas) to read the data for custom neural voice model training. It requires allowing external network traffic access to the Storage account.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Storage account.
@@ -353,9 +439,9 @@ Custom Neural Voice uses [User delegation SAS](../../storage/common/storage-sas-
 
 ## Configure BYOS-associated Storage account for use with Speech Studio
 
-Many [Speech Studio](https://speech.microsoft.com/) operations like dataset upload, or custom model training and testing don't require any special configuration in the case of BYOS-enabled Speech resource.
+Many [Speech Studio](https://speech.microsoft.com/) operations like dataset upload, or custom model training and testing don't require any special configuration of a BYOS-enabled Speech resource.
 
-However, if you need to read data stored withing BYOS-associated Storage account through Speech Studio Web interface, you need to configure additional settings of your BYOS-associated Storage account. For example, it's required to view the contents of a dataset.
+However, if you need to read data stored withing BYOS-associated Storage account through Speech Studio Web interface, you need to configure more settings of your BYOS-associated Storage account. For example, it's required to view the contents of a dataset.
 
 ### Configure Cross-Origin Resource Sharing (CORS)
 
@@ -378,7 +464,7 @@ Speech Studio needs permission to make requests to the Blob storage of the BYOS-
 
 ### Configure Azure Storage firewall
 
-You need to allow access for the machine, where you run the browser using Speech Studio. If your Storage account firewall settings allow public access from all networks, you may skip this subsection. Otherwise, follow these steps.
+You need to allow access for the machine, where you run the browser using Speech Studio. If your Storage account firewall settings allow public access from all networks, you can skip this subsection. Otherwise, follow these steps.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Storage account.

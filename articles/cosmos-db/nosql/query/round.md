@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a numeric value, rounded to the closest integer value.
 
 ## Syntax
 
-```sql
+```nosql
 ROUND(<numeric_expr>)  
 ```
 
@@ -38,7 +39,7 @@ Returns a numeric expression.
 
 The following example rounds positive and negative numbers to the nearest integer.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/round/query.sql" highlight="2-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/round/query.sql" highlight="2-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/round/result.json":::
 
@@ -53,7 +54,7 @@ The following example rounds positive and negative numbers to the nearest intege
     | **`0.5`** | `1` |
     | **`6.5000`** | `7` |
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`POWER`](power.md)

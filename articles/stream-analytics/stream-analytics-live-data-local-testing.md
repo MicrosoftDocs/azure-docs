@@ -6,7 +6,6 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
 ---
 
 # Test live data locally using Azure Stream Analytics tools for Visual Studio (Preview)

@@ -28,9 +28,9 @@ For developer workstation setup, you can launch Service Fabric Explorer on your 
 To connect to a Service Fabric cluster, you need the clusters management endpoint (FQDN/IP) and the HTTP management endpoint port (19080 by default). For example https\://mysfcluster.westus.cloudapp.azure.com:19080. Use the "Connect to localhost" checkbox to connect to a local cluster on your workstation.
 
 ### Connect to a secure cluster
-You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
+You can control client access to your Service Fabric cluster either with certificates or using Microsoft Entra ID.
 
-If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or sign in using AAD.
+If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or sign in using Microsoft Entra ID.
 ## Video tutorial
 
 [<b>Check this page for a training video to learn how to use Service Fabric Explorer.</b>](/shows/building-microservices-applications-on-azure-service-fabric/service-fabric-explorer)

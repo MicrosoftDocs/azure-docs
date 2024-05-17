@@ -1,0 +1,44 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/iot-operations/reference/about-iot-operations-cli.md",
+            "redirect_url": "/cli/azure/iot/ops",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-mq-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-diagnostics.md",
+            "redirect_url": "/azure/iot-operations/monitor/howto-configure-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-real-time-dashboard-fabric.md",
+            "redirect_url": "/azure/iot-operations/view-analyze-data/tutorial-real-time-dashboard-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-upload-mqtt-lakehouse.md",
+            "redirect_url": "/azure/iot-operations/view-analyze-data/tutorial-upload-mqtt-lakehouse",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-connect-event-grid.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/tutorial-connect-event-grid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-event-driven-with-dapr.md",
+            "redirect_url": "/azure/iot-operations/develop/tutorial-event-driven-with-dapr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/get-started/quickstart-process-telemetry.md",
+            "redirect_url": "/azure/iot-operations/get-started/quickstart-upload-telemetry-to-cloud",
+            "redirect_document_id": false
+        }
+    ]
+}

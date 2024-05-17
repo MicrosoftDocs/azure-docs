@@ -1,7 +1,6 @@
 ---
 title: Apache Spark in Azure Synapse Analytics overview
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different scenarios in which you can use Spark.
-services: synapse-analytics 
 author: juluczni
 ms.author: juluczni
 ms.service: synapse-analytics 
@@ -78,7 +77,6 @@ Use the following articles to learn more about Apache Spark in Azure Synapse Ana
 - [Quickstart: Create a Spark pool in Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Quickstart: Create an Apache Spark notebook](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
-- [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Use the notebook or IntelliJ experiences instead.

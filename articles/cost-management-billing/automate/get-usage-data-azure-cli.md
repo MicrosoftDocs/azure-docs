@@ -4,12 +4,12 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how you get usage data with the Azure CLI.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 11/17/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.custom: devx-track-azurecli
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Get usage data with the Azure CLI
@@ -20,7 +20,7 @@ This article explains how you get cost and usage data with the Azure CLI. If you
 
 Start by preparing your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Configure an export job to export cost data to Azure storage
 
@@ -43,7 +43,7 @@ After you sign in, use the [export](/cli/azure/costmanagement/export) commands t
     az costmanagement export create --name DemoExport --type Usage \--scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \--storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
     ```
 
-## Next steps
+## Related content
 
 - Read the [Ingest usage details data](automation-ingest-usage-details-overview.md) article.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

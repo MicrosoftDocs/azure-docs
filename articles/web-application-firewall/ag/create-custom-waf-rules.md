@@ -509,7 +509,7 @@ Corresponding JSON:
 
 ## Example 7
 
-It isn't uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on securing access to your application using Azure Front Door, see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+It isn't uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on securing access to your application using Azure Front Door, see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-)
 
 Logic: **not** p
 

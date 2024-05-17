@@ -1,12 +1,12 @@
 ---
 title: Avoid charges with your Azure free account
 description: Understand why you see charges for your Azure free account. Learn ways to avoid these charges.
-author: amberbhargava
-tags: billing
+author: bandersmsft
+ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -37,7 +37,7 @@ Your free services and quantities expire at the end of 12 months. You can find o
 1.	Select **Subscriptions**.
 1.	Select the subscription that was created when you signed up for free account.
 1.  Scroll down to find free services grid. Select the tooltip located on the top left of the grid.
-    ![Screenshot that shows where to find out when your free account benefits expire](./media/avoid-charges-free-account/freeaccount-benefits-expiration-date.png)
+    :::image type="content" border="true" source="./media/avoid-charges-free-account/freeaccount-benefits-expiration-date.png" alt-text="Screenshot that shows where to find out when your free account benefits expire.":::
 
 Microsoft will send you an email notifying you when it's time to upgrade.
 
@@ -47,5 +47,6 @@ Once your free services and quantities expire, you're charged pay-as-you-go rate
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - [Upgrade your Azure free account](upgrade-azure-subscription.md)

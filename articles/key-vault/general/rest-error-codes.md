@@ -1,16 +1,13 @@
 ---
 title: REST API error codes - Azure Key Vault
 description: These error codes could be returned by an operation on an Azure Key Vault web service.
-keywords: 
 services: machine-learning
 author: msmbaldwin
-ms.custom: seodec18
 ms.author: mbaldwin
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 01/11/2023
+ms.date: 02/20/2024
 ---
  
 # Azure Key Vault REST API Error Codes
@@ -145,7 +142,7 @@ There is a limited list of "Azure Trusted Services". Azure Web Sites are **not**
 
 You must add the IP address of the Azure Web Site to the Key Vault in order for it to work.
 
-If due to access policy: find the object ID for the request and ensure that the object ID matches the object to which the user is trying to assign the access policy. There will often be multiple objects in Azure AD, which have the same name, so choosing the correct one is important. By deleting and readding the access policy, it is possible to see if multiple objects exist with the same name.
+If due to access policy: find the object ID for the request and ensure that the object ID matches the object to which the user is trying to assign the access policy. There will often be multiple objects in Microsoft Entra ID, which have the same name, so choosing the correct one is important. By deleting and readding the access policy, it is possible to see if multiple objects exist with the same name.
 
 In addition, most access policies do not require the use of the "Authorized application" as shown in the portal. Authorized applications are used for "on-behalf-of" authentication scenarios, which are rare.
 

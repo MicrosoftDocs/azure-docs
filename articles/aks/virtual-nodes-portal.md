@@ -3,7 +3,11 @@ title: Create virtual nodes in Azure Kubernetes Service (AKS) using the Azure po
 description: Learn how to use the Azure portal to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 ms.topic: conceptual
 ms.date: 05/09/2023
+author: nickomang
+ms.author: nickoman
+
 ms.custom: references_regions
+ms.subservice: aks-nodes
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal
@@ -135,7 +139,7 @@ The Azure Cloud Shell is a free interactive shell you can use to run the steps i
     ```
 
 > [!NOTE]
-> If you use images stored in Azure Container Registry, [configure and use a Kubernetes secret][acr-aks-secrets]. A limitation of virtual nodes is you can't use integrated Azure AD service principal authentication. If you don't use a secret, pods scheduled on virtual nodes fail to start and report the error `HTTP response status code 400 error code "InaccessibleImage"`.
+> If you use images stored in Azure Container Registry, [configure and use a Kubernetes secret][acr-aks-secrets]. A limitation of virtual nodes is you can't use integrated Microsoft Entra service principal authentication. If you don't use a secret, pods scheduled on virtual nodes fail to start and report the error `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## Test the virtual node pod
 
@@ -203,3 +207,4 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az_provider_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+

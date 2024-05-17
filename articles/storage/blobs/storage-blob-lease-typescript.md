@@ -15,6 +15,8 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Create and manage blob leases with TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-lease-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-blob.md)]
+
 This article shows how to create and manage blob leases using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can use the client library to acquire, renew, release, and break blob leases.
 
 ## Prerequisites

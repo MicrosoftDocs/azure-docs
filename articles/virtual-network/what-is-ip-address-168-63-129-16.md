@@ -29,7 +29,7 @@ IP address 168.63.129.16 is a virtual public IP address that is used to facilita
 
 The public IP address 168.63.129.16 is used in all regions and all national clouds. Microsoft owns this special public IP address and it doesn't change. We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in various scenarios. 168.63.129.16 is a [virtual IP of the host node](./network-security-groups-overview.md#azure-platform-considerations) and as such it isn't subject to user defined routes.
 
-- The VM Agent requires outbound communication over ports 80/tcp and 32526/tcp with WireServer (168.63.129.16). These ports should be open in the local firewall on the VM. The communication on these ports with 168.63.129.16 isn't subject to the configured network security groups.
+- The VM Agent requires outbound communication over ports 80/tcp and 32526/tcp with WireServer (168.63.129.16). These ports should be open in the local firewall on the VM. The communication on these ports with 168.63.129.16 isn't subject to the configured network security groups. The traffic must always come from the primary network interface of the VM.
 
 - 168.63.129.16 can provide DNS services to the VM. If DNS services provided by 168.63.129.16 isn't desired, outbound traffic to 168.63.129.16 ports 53/udp and 53/tcp can be blocked in the local firewall on the VM.
 

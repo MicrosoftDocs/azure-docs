@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Distributed training with Horovod and Pytorch'
+title: 'Tutorial: Distributed training with Horovod and PyTorch'
 description: Tutorial on how to run distributed training with the Horovod Estimator and PyTorch
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 05/02/2024
 author: midesa
 ms.author: midesa
 ---
@@ -13,18 +13,23 @@ ms.author: midesa
 
 [Horovod](https://github.com/horovod/horovod) is a distributed training framework for libraries like TensorFlow and PyTorch. With Horovod, users can scale up an existing training script to run on hundreds of GPUs in just a few lines of code.
 
-Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime.For Spark ML pipeline applications using PyTorch, users can use the horovod.spark estimator API. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial leverages PyTorch and the Horovod Estimator to run the training process.
+Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime. For Spark ML pipeline applications using PyTorch, users can use the horovod.spark estimator API. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial uses PyTorch and the Horovod Estimator to run the training process.
 
 ## Prerequisites
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Create a GPU-enabled Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a GPU-enabled Apache Spark pool in Azure Synapse](../spark/apache-spark-gpu-concept.md). For this tutorial, we suggest using the GPU-Large cluster size with 3 nodes.
 
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtime. End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of Support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime and the corresponding GPU accelerated preview on Spark 3.2 will be retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now unsupported on the [Azure Synapse 3.1 (unsupported) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its End of Support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+
+
 ## Configure the Apache Spark session
 
-At the start of the session, we will need to configure a few Apache Spark settings. In most cases, we only needs to set the numExecutors and spark.rapids.memory.gpu.reserve. For very large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For Tensorflow models, users will need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
+At the start of the session, we need to configure a few Apache Spark settings. In most cases, we only need to set the numExecutors and spark.rapids.memory.gpu.reserve. For large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For Tensorflow models, users need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
 
-In the example below, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html). The values provided below are the suggested, best practice values for Azure Synapse GPU-large pools.  
+In the example, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html). The values provided are the suggested, best practice values for Azure Synapse GPU-large pools.  
 
 ```spark
 
@@ -61,7 +66,7 @@ For this tutorial, we will use the following configurations:
 
 ## Import dependencies
 
-In this tutorial, we will leverage PySpark to read and process the dataset. We will then use PyTorch and Horovod to build the distributed neural network (DNN) model and run the training process. To get started, we will need to import the following dependencies:
+In this tutorial, we use PySpark to read and process the dataset. Then, we use PyTorch and Horovod to build the distributed neural network (DNN) model and run the training process. To get started, we need to import the following dependencies:
 
 ```python
 # base libs
@@ -94,7 +99,7 @@ from azure.synapse.ml.horovodutils import AdlsStore
 
 ## Connect to alternative storage account
 
-We will need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```, ```account_name```, and ```linked_service_name```.
+We need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. In addition, you need to modify the following properties: ```remote_url```, ```account_name```, and ```linked_service_name```.
 
 ```python
 num_proc = 3  # equal to numExecutors
@@ -164,7 +169,7 @@ train_df.count()
 
 ## Define DNN model
 
-Once we have finished processing our dataset, we can now define our PyTorch model. The same code could also be used to train a single-node PyTorch model.
+Once we are finished processing our dataset, we can now define our PyTorch model. The same code could also be used to train a single-node PyTorch model.
 
 ```python
 # Define the PyTorch model without any Horovod-specific parameters
@@ -227,7 +232,7 @@ torch_model = torch_estimator.fit(train_df).setOutputCols(['label_prob'])
 
 ## Evaluate trained model
 
-Once the training process has finished, we can then evaluate the model on the test dataset. 
+Once the training process completes, we can then evaluate the model on the test dataset. 
 
 ```python
 # Evaluate the model on the held-out test DataFrame

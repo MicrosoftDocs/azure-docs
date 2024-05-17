@@ -2,14 +2,13 @@
 title: Cancel translation method
 titleSuffix: Azure AI services
 description: The cancel translation method cancels a current processing or queued operation.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 01/31/2024
 ---
 
 # Cancel translation
@@ -18,7 +17,7 @@ Reference</br>
 Service: **Azure AI Document Translation**</br>
 API Version: **v1.1**</br>
 
-Cancel a current processing or queued operation. An operation isn't canceled if it's already completed, has failed, or is canceling. A bad request is returned. Documents that have completed translation aren't canceled and are charged. All pending documents are canceled if possible.
+Cancel a current processing or queued operation. An operation isn't canceled if completed, failed, or canceling. A bad request is returned. Completed translations aren't canceled and are charged. All pending translations are canceled if possible.
 
 ## Request URL
 
@@ -28,7 +27,7 @@ Send a `DELETE` request to:
 https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}
 ```
 
-Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
+Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
 
 > [!IMPORTANT]
 >
@@ -57,11 +56,11 @@ The following are the possible HTTP status codes that a request returns.
 
 | Status Code| Description|
 |-----|-----|
-|200|OK. Cancel request has been submitted|
+|200|OK. Cancel request submitted|
 |401|Unauthorized. Check your credentials.|
-|404|Not found. Resource isn't found. 
-|500|Internal Server Error.
-|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
+|404|Not found. Resource isn't found.|
+|500|Internal Server Error.|
+|Other Status Codes|&bullet; Too many requests<br>&bullet; Server temporary unavailable|
 
 ## Cancel translation response
 
@@ -73,8 +72,8 @@ The following information is returned in a successful response.
 |--- |--- |--- |
 |`id`|string|ID of the operation.|
 |createdDateTimeUtc|string|Operation created date time.|
-|lastActionDateTimeUtc|string|Date time in which the operation's status has been updated.|
-|status|String|List of possible statuses for job or document: <ul><li>Canceled</li><li>Cancelling</li><li>Failed</li><li>NotStarted</li><li>Running</li><li>Succeeded</li><li>ValidationFailed</li></ul>|
+|lastActionDateTimeUtc|string|Date time in which the operation's status is updated.|
+|status|String|List of possible statuses for job or document: &bullet; Canceled<br>&bullet; Cancelling<br>&bullet; Failed<br>&bullet; NotStarted<br>&bullet; Running<br>&bullet; Succeeded<br>&bullet; ValidationFailed|
 |summary|StatusSummary|Summary containing a list of details.|
 |summary.total|integer|Count of total documents.|
 |summary.failed|integer|Count of documents failed.|
@@ -88,7 +87,7 @@ The following information is returned in a successful response.
 
 |Name|Type|Description|
 |--- |--- |--- |
-|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|code|string|Enums containing high-level error codes. Possible values:<br>&bullet; InternalServerError<br>&bullet; InvalidArgument<br>&bullet; InvalidRequest<br>&bullet; RequestRateTooHigh<br>&bullet; ResourceNotFound<br>&bullet; ServiceUnavailable<br>&bullet; Unauthorized|
 |message|string|Gets high-level error message.|
 |target|string|Gets the source of the error. For example, it would be "documents" or `document id` for an invalid document.|
 |innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message, and optional properties target, details (key value pair), inner error (it can be nested).|
@@ -147,4 +146,4 @@ Status code: 500
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)
+> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)

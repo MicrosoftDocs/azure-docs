@@ -1,18 +1,17 @@
 ---
 title: "Content Moderator REST API quickstart"
 titleSuffix: Azure AI services
-description: In this quickstart, learn how to get started with the Azure AI Content Moderator REST API. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
-services: cognitive-services
+description: In this quickstart, learn how to get started with the Azure Content Moderator REST API. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: include
-ms.date: 12/08/2020
+ms.date: 01/18/2024
 ms.author: pafarley
 ---
 
-Get started with the Azure AI Content Moderator REST API. 
+Get started with the Azure Content Moderator REST API. 
 
 Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
@@ -135,7 +134,7 @@ Copy the command to a text editor and make the following changes:
 1. Optionally change the `"Value"` URL in the request body to whatever remote image you'd like to moderate.
 
 > [!TIP]
-> You can also moderate local images by passing their byte data into the request body. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) to learn how to do this.
+> You can also moderate local images by passing their byte data into the request body. See the [reference documentation](/rest/api/cognitiveservices/contentmoderator/image-moderation) to learn how to do this.
 
 Once you've made your changes, open a command prompt and enter the new command. 
 

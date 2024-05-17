@@ -10,12 +10,14 @@ ms.author: mibudz
 
 # Recommendations to mitigate OWASP API Security Top 10 threats using API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) Foundation works to improve software security through its community-led open source software projects, hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.
 
 The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we'll discuss recommendations to use Azure API Management to mitigate the top 10 API threats identified by OWASP.
 
 > [!NOTE]
-> In addition to following the recommendations in this article, you can enable [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction) (preview), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), for API security insights, recommendations, and threat detection. [Learn more about using Defender for APIs with API Management](protect-with-defender-for-apis.md)
+> In addition to following the recommendations in this article, you can enable [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), for API security insights, recommendations, and threat detection. [Learn more about using Defender for APIs with API Management](protect-with-defender-for-apis.md)
 
 ## Broken object level authorization 
 
@@ -47,7 +49,7 @@ More information about this threat: [API2:2019 Broken User Authentication](https
 
 Use API Management for user authentication and authorization: 
 
-* **Authentication** -  API Management supports the following [authentication methods](api-management-authentication-policies.md): 
+* **Authentication** -  API Management supports the following [authentication methods](api-management-policies.md#authentication-and-authorization): 
 
     * [Basic authentication](authentication-basic-policy.md) policy - Username and password credentials.
 
@@ -55,15 +57,15 @@ Use API Management for user authentication and authorization:
 
     * [Client certificate](authentication-certificate-policy.md) policy - Using client certificates is more secure than basic credentials or subscription key, but it doesn't allow the flexibility provided by token-based authorization protocols such as OAuth 2.0. 
 
-* **Authorization** - API Management supports a [validate JWT](validate-jwt-policy.md) policy to check the validity of an incoming OAuth 2.0 JWT access token based on information obtained from the OAuth identity provider's metadata endpoint. Configure the policy to check relevant token claims, audience, and expiration time. Learn more about protecting an API using [OAuth 2.0 authorization and Azure Active Directory](api-management-howto-protect-backend-with-aad.md). 
+* **Authorization** - API Management supports a [validate JWT](validate-jwt-policy.md) policy to check the validity of an incoming OAuth 2.0 JWT access token based on information obtained from the OAuth identity provider's metadata endpoint. Configure the policy to check relevant token claims, audience, and expiration time. Learn more about protecting an API using [OAuth 2.0 authorization and Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md). 
 
 More recommendations:
 
-* Use [access restriction policies](api-management-access-restriction-policies.md) in API Management to increase security. For example, [call rate limiting](rate-limit-policy.md) slows down bad actors using brute force attacks to compromise credentials. 
+* Use policies in API Management to increase security. For example, [call rate limiting](rate-limit-policy.md) slows down bad actors using brute force attacks to compromise credentials. 
 
 * APIs should use TLS/SSL (transport security) to protect the credentials or tokens. Credentials and tokens should be sent in request headers and not as query parameters. 
 
-* In the API Management [developer portal](api-management-howto-developer-portal.md), configure [Azure Active Directory](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) as the identity provider to increase the account security. The developer portal uses CAPTCHA to mitigate brute force attacks. 
+* In the API Management [developer portal](api-management-howto-developer-portal.md), configure [Microsoft Entra ID](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) as the identity provider to increase the account security. The developer portal uses CAPTCHA to mitigate brute force attacks. 
 
 ### Related information 
 
@@ -86,7 +88,7 @@ More information about this threat: [API3:2019 Excessive Data Exposure](https://
 
     * [Versions](api-management-versions.md) for breaking changes, for example, the removal of a field from an interface. 
 
-* If it's not possible to alter the backend interface design and excessive data is a concern, use API Management [transformation policies](transform-api.md) to rewrite response payloads and mask or filter data. For example, [remove unneeded JSON properties](./policies/filter-response-content.md) from a response body. 
+* If it's not possible to alter the backend interface design and excessive data is a concern, use API Management [transformation policies](api-management-policies.md#transformation) to rewrite response payloads and mask or filter data. For example, [remove unneeded JSON properties](./policies/filter-response-content.md) from a response body. 
 
 * [Response content validation](validate-content-policy.md) in API Management can be used with an XML or JSON schema to block responses with undocumented properties or improper values. The policy also supports blocking responses exceeding a specified size. 
 
@@ -156,7 +158,7 @@ More information about this threat: [API6:2019 Mass assignment](https://github.c
 
 * Precisely define XML and JSON contracts in the API schema and use [validate content](validate-content-policy.md) and [validate parameters](validate-parameters-policy.md) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
 
-* If the backend interface can't be changed, use [transformation policies](transform-api.md) to rewrite request and response payloads and decouple the API contracts from backend contracts. For example, mask or filter data or [remove unneeded JSON properties](./policies/filter-response-content.md). 
+* If the backend interface can't be changed, use [transformation policies](api-management-policies.md#transformation) to rewrite request and response payloads and decouple the API contracts from backend contracts. For example, mask or filter data or [remove unneeded JSON properties](./policies/filter-response-content.md). 
 
 ## Security misconfiguration 
 
@@ -186,7 +188,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * Configure the [CORS](cors-policy.md) policy and don't use wildcard `*` for any configuration option. Instead, explicitly list allowed values. 
 
-    * Set [validation policies](validation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
+    * Set [validation policies](api-management-policies.md#content-validation) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
 
     * If API Management is outside a network boundary, client IP validation is still possible using the [restrict caller IPs](ip-filter-policy.md) policy. Ensure that it uses an allowlist, not a blocklist. 
 
@@ -218,7 +220,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * If you choose to [self-host](developer-portal-self-host.md) the developer portal, ensure there's a process in place to periodically update the self-hosted portal to the latest version. Updates for the default managed version are automatic. 
 
-    * Use [Azure Active Directory (Azure AD)](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure. 
+    * Use [Microsoft Entra ID](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure. 
 
     * Assign [user groups](api-management-howto-create-groups.md#-associate-a-group-with-a-product) to products, to control the visibility of APIs in the portal.  
 
@@ -245,7 +247,7 @@ More information about this threat: [API8:2019 Injection](https://github.com/OWA
     > [!IMPORTANT]
     > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](ip-filter-policy.md), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or mTLS). 
 
-* Use schema and parameter [validation](validation-policies.md) policies, where applicable, to further constrain and validate the request before it reaches the backend API service. 
+* Use schema and parameter [validation](api-management-policies.md#content-validation) policies, where applicable, to further constrain and validate the request before it reaches the backend API service. 
 
     The schema supplied with the API definition should have a regex pattern constraint applied to vulnerable fields. Each regex should be tested to ensure that it constrains the field sufficiently to mitigate common injection attempts.
 
@@ -295,7 +297,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 * Monitor API traffic with [Azure Monitor](api-management-howto-use-azure-monitor.md). 
 
-* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/transaction-diagnostics.md) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
+* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
 
 * If needed, forward custom events to [Event Hubs](api-management-howto-log-event-hubs.md). 
 

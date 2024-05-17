@@ -2,20 +2,19 @@
 title: Jupyter Notebooks in Azure Cosmos DB (preview)
 description: Create and use built-in Jupyter Notebooks in Azure Cosmos DB to interactively run queries.
 ms.service: cosmos-db
-ms.topic: overview 
+ms.topic: overview
 ms.date: 09/29/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
-ms.custom: ignite-2022
 ---
 
 # Jupyter Notebooks in Azure Cosmos DB (preview)
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-> [!IMPORTANT]
-> The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
+> [!WARNING]
+> The Jupyter Notebooks feature of Azure Cosmos DB will be retired March 30, 2024; you will not be able to use built-in Jupyter notebooks from the Azure Cosmos DB account. We recommend using [Visual Studio Code's support for Jupyter notebooks](nosql/tutorial-create-notebook-vscode.md) or your preferred notebooks client.
 
 Jupyter Notebooks is an open-source interactive developer environment (IDE) that's designed to create, execute, and share documents that contain live code, equations, visualizations, and narrative text.
 

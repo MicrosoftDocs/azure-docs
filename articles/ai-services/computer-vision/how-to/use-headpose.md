@@ -5,18 +5,23 @@ description: Learn how to use the HeadPose attribute to automatically rotate the
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 02/14/2024
 ms.author: pafarley
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Use the HeadPose attribute
 
 In this guide, you'll see how you can use the HeadPose attribute of a detected face to enable some key scenarios.
+
+> [!IMPORTANT]
+> Face attributes are predicted through the use of statistical algorithms. They might not always be accurate. Use caution when you make decisions based on attribute data. Please refrain from using these attributes for anti-spoofing. Instead, we recommend using Face Liveness detection. For more information, please refer to [Tutorial: Detect liveness in faces](/azure/ai-services/computer-vision/tutorials/liveness). 
 
 ## Rotate the face rectangle
 
@@ -118,17 +123,7 @@ From here, you can use the returned **Face** objects in your display. The follow
 </DataTemplate>
 ```
 
-## Detect head gestures
-
-You can detect head gestures like nodding and head shaking by tracking HeadPose changes in real time. You can use this feature as a custom liveness detector.
-
-Liveness detection is the task of determining that a subject is a real person and not an image or video representation. A head gesture detector could serve as one way to help verify liveness, especially as opposed to an image representation of a person.
-
-> [!CAUTION]
-> To detect head gestures in real time, you'll need to call the Face API at a high rate (more than once per second). If you have a free-tier (f0) subscription, this will not be possible. If you have a paid-tier subscription, make sure you've calculated the costs of making rapid API calls for head gesture detection.
-
-See the [Face HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) on GitHub for a working example of head gesture detection.
-
 ## Next steps
 
-See the [Azure AI Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) app on GitHub for a working example of rotated face rectangles. Or, see the [Face HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) app, which tracks the HeadPose attribute in real time to detect head movements.
+* See the [Azure AI Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) app on GitHub for a working example of rotated face rectangles.
+* Or, see the [Face HeadPose Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) app, which tracks the HeadPose attribute in real time to detect head movements.

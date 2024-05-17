@@ -1,22 +1,26 @@
 ---
 title: Connect using API keys
-titleSuffix: Azure Cognitive Search
-description: Learn how to use an admin or query API key for inbound access to an Azure Cognitive Search service endpoint.
+titleSuffix: Azure AI Search
+description: Learn how to use an admin or query API key for inbound access to an Azure AI Search service endpoint.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 01/14/2023
+ms.date: 04/22/2024
 ---
 
-# Connect to Cognitive Search using key authentication
+# Connect to Azure AI Search using key authentication
 
-Cognitive Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint will be accepted if both the request and the API key are valid.
+Azure AI Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint is accepted if both the request and the API key are valid.
+
+Key-based authentication is the default. You can disable it if you opt in for role-based authentication.
 
 > [!NOTE]
-> A quick note about how "key" terminology is used in Cognitive Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A separate term, "document key", refers to a unique string in your indexed content that's used to uniquely identify documents in a search index.
+> A quick note about *key* terminology. An *API key* is a GUID used for authentication. A separate term, *document key* is a unique string in your indexed content that uniquely identifies documents in a search index.
 
 ## Types of API keys
 
@@ -33,25 +37,50 @@ Visually, there's no distinction between an admin key or query key. Both keys ar
 
 ## Use API keys on connections
 
-API keys are used for data plane (content) requests, such as creating or accessing an index or any other request that's represented in the [Search REST APIs](/rest/api/searchservice/). Upon service creation, an API key is the only authentication mechanism for data plane operations, but you can replace or supplement key authentication with [Azure roles](search-security-rbac.md) if you can't use hard-coded keys in your code.
+API keys are used for data plane (content) requests, such as creating or accessing an index or, any other request that's represented in the [Search REST APIs](/rest/api/searchservice/). Upon service creation, an API key is the only authentication mechanism for data plane operations, but you can replace or supplement key authentication with [Azure roles](search-security-rbac.md) if you can't use hard-coded keys in your code.
 
-API keys are specified on client requests to a search service. Passing a valid API key on the request is considered proof that the request is from an authorized client. If you're creating, modifying, or deleting objects, you'll need an admin API key. Otherwise, query keys are typically distributed to client applications that issue queries.
+Admin keys are used for creating, modifying, or deleting objects. Admin keys are also used to GET object definitions and system information.
 
-You can specify API keys in a request header for REST API calls, or in code that calls the azure.search.documents client libraries in the Azure SDKs. If you're using the Azure portal to perform tasks, your role assignment determines the [level of access](#permissions-to-view-or-manage-api-keys).
+Query keys are typically distributed to client applications that issue queries.
 
-Best practices for using hard-coded keys in source files include:
+### [**REST API**](#tab/rest-use)
 
-+ During early development and proof-of-concept testing when security is looser, use sample or public data.
+**How API keys are used in REST calls**:
 
-+ For mature solutions or production scenarios, switch to [Azure Active Directory and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys. Or, if you want to continue using API keys, be sure to always monitor [who has access to your API keys](#secure-api-keys) and [regenerate API keys](#regenerate-admin-keys) on a regular cadence.
+Set an admin key in the request header. You can't pass admin keys on the URI or in the body of the request. Admin keys are used for create-read-update-delete operation and on requests issued to the search service itself, such as [LIST Indexes](/rest/api/searchservice/indexes/list) or [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics).
 
-### [**Portal**](#tab/portal-use)
+Here's an example of admin API key usage on a create index request:
 
-Key authentication is built in so no action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
+```http
+### Create an index
+POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
+  Content-Type: application/json
+  api-key: {{adminApiKey}}
 
-In Cognitive Search, most tasks can be performed in Azure portal, including object creation, indexing through the Import data wizard, and queries through Search explorer.
+    {
+        "name": "my-new-index",  
+        "fields": [
+            {"name": "docId", "type": "Edm.String", "key": true, "filterable": true},
+            {"name": "Name", "type": "Edm.String", "searchable": true }
+         ]
+   }
+```
+
+Set a query key in a request header for POST, or on the URI for GET. Query keys are used for operations that target the `index/docs` collection: [Search Documents](/rest/api/searchservice/documents/search-get), [Autocomplete](/rest/api/searchservice/documents/autocomplete-get), [Suggest](/rest/api/searchservice/documents/suggest-get), or [GET Document](/rest/api/searchservice/documents/get). 
+
+Here's an example of query API key usage on a Search Documents (GET) request:
+
+```http
+### Query an index
+GET /indexes/my-new-index/docs?search=*&api-version=2023-11-01&api-key={{queryApiKey}}
+```
+
+> [!NOTE]  
+> It's considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure AI Search only accepts a query key as an `api-key` in the query string. As a general rule, we recommend passing your `api-key` as a request header.
 
 ### [**PowerShell**](#tab/azure-ps-use)
+
+**How API keys are used in PowerShell**:
 
 Set API keys in the request header using the following syntax:
 
@@ -62,24 +91,15 @@ $headers = @{
 'Accept' = 'application/json' }
 ```
 
-A script example showing API key usage for various operations can be found at [Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs](search-get-started-powershell.md).
+A script example showing API key usage for various operations can be found at [Quickstart: Create an Azure AI Search index in PowerShell using REST APIs](search-get-started-powershell.md).
 
-### [**REST API**](#tab/rest-use)
+### [**Portal**](#tab/portal-use)
 
-Set an admin key in the request header using the syntax `api-key` equal to your key. Admin keys are used for most operations, including create, delete, and update. Admin keys are also used on requests issued to the search service itself, such as listing objects or requesting service statistics. see [Connect to Azure Cognitive Search using REST APIs](search-get-started-rest.md#connect-to-azure-cognitive-search) for a more detailed example.
+**How API keys are used in the Azure portal**:
 
-:::image type="content" source="media/search-security-api-keys/rest-headers.png" alt-text="Screenshot of the Headers section of a request in Postman." border="true":::
-
-Query keys are used for search, suggestion, or lookup operations that target the `index/docs` collection. For POST, set `api-key` in the request header. Or, put the key on the URI for a GET: `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`
-
-### [**C#**](#tab/dotnet-use)
-
-In search solutions, a key is often specified as a configuration setting and then passed as an [AzureKeyCredential](/dotnet/api/azure.azurekeycredential). See [How to use Azure.Search.Documents in a C# .NET Application](search-howto-dotnet-sdk.md) for an example.
++ Key authentication is built in. By default, the portal tries API keys first. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
 
 ---
-
-> [!NOTE]  
-> It's considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Cognitive Search only accepts a query key as an `api-key` in the query string. As a general rule, we recommend passing your `api-key` as a request header.
 
 ## Permissions to view or manage API keys
 
@@ -140,12 +160,12 @@ az search query-key list --resource-group <myresourcegroup> --service-name <myse
 
 ### [**REST API**](#tab/rest-find)
 
-Use [List Admin Keys](/rest/api/searchmanagement/2022-09-01/admin-keys) or [List Query Keys](/rest/api/searchmanagement/2022-09-01/query-keys/list-by-search-service) in the Management REST API to return API keys.
+Use [List Admin Keys](/rest/api/searchmanagement/admin-keys/get) or [List Query Keys](/rest/api/searchmanagement/query-keys/list-by-search-service) in the Management REST API to return API keys.
 
-You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to return or update API keys. See [Manage your Azure Cognitive Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
+You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to return or update API keys. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2022-09-01
+POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers//Microsoft.Search/searchServices/{{search-service-name}}/listAdminKeys?api-version=2023-11-01
 ```
 
 ---
@@ -176,12 +196,12 @@ A script example showing query key usage can be found at [Create or delete query
 
 ### [**REST API**](#tab/rest-query)
 
-Use [Create Query Keys](/rest/api/searchmanagement/2022-09-01/query-keys/create) in the Management REST API.
+Use [Create Query Keys](/rest/api/searchmanagement/query-keys/create) in the Management REST API.
 
-You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to create or manage API keys. See [Manage your Azure Cognitive Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
+You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to create or manage API keys. See [Manage your Azure AI Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
 ```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}?api-version=2022-09-01
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}?api-version=2023-11-01
 ```
 
 ---
@@ -210,7 +230,7 @@ After you create new keys via portal or management layer, access is restored to 
 
 Use role assignments to restrict access to API keys.
 
-Note that it's not possible to use [customer-managed key encryption](search-security-manage-encryption-keys.md) to encrypt API keys. Only sensitive data within the search service itself (for example, index content or connection strings in data source object definitions) can be CMK-encrypted.
+It's not possible to use [customer-managed key encryption](search-security-manage-encryption-keys.md) to encrypt API keys. Only sensitive data within the search service itself (for example, index content or connection strings in data source object definitions) can be CMK-encrypted.
 
 1. Navigate to your search service page in Azure portal.
 
@@ -220,8 +240,16 @@ Note that it's not possible to use [customer-managed key encryption](search-secu
 
 1. As a precaution, also check the **Classic administrators** tab to determine whether administrators and co-administrators have access.
 
+## Best practices
+
++ Only use API keys if data disclosure isn't a risk (for example, when using sample data) and if you're operating behind a firewall. Exposure of API keys is a risk to both data and to unauthorized use of your search service. 
+
++ Always check code, samples, and training material before publishing to make sure you didn't leave valid API keys behind.
+
++ For production workloads, switch to [Microsoft Entra ID and role-based access](search-security-rbac.md). Or, if you want to continue using API keys, be sure to always monitor [who has access to your API keys](#secure-api-keys) and [regenerate API keys](#regenerate-admin-keys) on a regular cadence.
+
 ## See also
 
-+ [Security in Azure Cognitive Search](search-security-overview.md)
-+ [Azure role-based access control in Azure Cognitive Search](search-security-rbac.md)
++ [Security in Azure AI Search](search-security-overview.md)
++ [Azure role-based access control in Azure AI Search](search-security-rbac.md)
 + [Manage using PowerShell](search-manage-powershell.md) 

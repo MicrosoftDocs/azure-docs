@@ -354,7 +354,7 @@ To deploy a template spec using a Bicep file, use a module. The module links to 
 
 ## Grant access
 
-If you want to let other users in your organization deploy your template spec, you need to grant them read access. You can assign the Reader role to an Azure AD group for the resource group that contains template specs you want to share. For more information, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
+If you want to let other users in your organization deploy your template spec, you need to grant them read access. You can assign the Reader role to a Microsoft Entra group for the resource group that contains template specs you want to share. For more information, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
 
 ## Update Bicep file
 
@@ -452,17 +452,17 @@ Rather than create a new template spec for the revised template, add a new versi
 1. Deploy the new version and use the `storageNamePrefix` to specify a prefix for the storage account name.
 
    ```azurecli
-    az deployment group create \
+   az deployment group create \
       --resource-group storageRG \
       --template-spec $id \
       --parameters storageNamePrefix="demo"
-    ```
+   ```
 
 # [Bicep file](#tab/bicep)
 
 1. Create a new version of the template spec. Copy the sample and replace your _main.bicep_ file.
 
-   The parameter `storageNamePrefix` specifies a prefix value for the storage account name. The `storageAccountName` variable concatenates the prefix with a unique string.
+    The parameter `storageNamePrefix` specifies a prefix value for the storage account name. The `storageAccountName` variable concatenates the prefix with a unique string.
 
     ```bicep
     param templateSpecName string = 'storageSpec'

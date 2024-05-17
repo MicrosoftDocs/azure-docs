@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/16/2022
+ms.date: 04/30/2024
 ms.custom: engagement-fy23
 
 ---
@@ -38,14 +38,14 @@ In a Basic cache, the single node is always a primary. In a Standard or Premium 
 
 A failover occurs when a replica node promotes itself to become a primary node, and the old primary node closes existing connections. After the primary node comes back up, it notices the change in roles and demotes itself to become a replica. It then connects to the new primary and synchronizes data. A failover might be planned or unplanned.
 
-A *planned failover* takes place during two different times:
+A _planned failover_ takes place during two different times:
 
 - System updates, such as Redis patching or OS upgrades.  
 - Management operations, such as scaling and rebooting.
 
 Because the nodes receive advance notice of the update, they can cooperatively swap roles and quickly update the load balancer of the change. A planned failover typically finishes in less than 1 second.
 
-An *unplanned failover* might happen because of hardware failure, network failure, or other unexpected outages to the primary node. The replica node  promotes itself to primary, but the process takes longer. A replica node must first detect its primary node isn't available before it can start the failover process. The replica node must also verify this unplanned failure isn't transient or local, to avoid an unnecessary failover. This delay in detection means an unplanned failover typically finishes within 10 to 15 seconds.
+An _unplanned failover_ might happen because of hardware failure, network failure, or other unexpected outages to the primary node. The replica node  promotes itself to primary, but the process takes longer. A replica node must first detect its primary node isn't available before it can start the failover process. The replica node must also verify this unplanned failure isn't transient or local, to avoid an unnecessary failover. This delay in detection means an unplanned failover typically finishes within 10 to 15 seconds.
 
 ## How does patching occur?
 
@@ -57,12 +57,12 @@ The Azure Cache for Redis service regularly updates your cache with the latest p
 1. The replica node connects to the primary node and synchronizes data.
 1. When the data sync is complete, the patching process repeats for the remaining nodes.
 
-Because patching is a planned failover, the replica node quickly promotes itself to become a primary. Then, the node begins servicing requests and new connections. Basic caches don't have a replica node and are unavailable until the update is complete. Each shard of a clustered cache is patched separately and won't close connections to another shard.
+Because patching is a planned failover, the replica node quickly promotes itself to become a primary. Then, the node begins servicing requests and new connections. Basic caches don't have a replica node and are unavailable until the update is complete. Each shard of a clustered cache is patched separately and doesn't close connections to another shard.
 
 > [!IMPORTANT]
 > Nodes are patched one at a time to prevent data loss. Basic caches will have data loss. Clustered caches are patched one shard at a time.
 
-Multiple caches in the same resource group and region are also patched one at a time.  Caches that are in different resource groups or different regions might be patched simultaneously.
+Multiple caches in the same resource group and region are also patched one at a time. Caches that are in different resource groups or different regions might be patched simultaneously.
 
 Because full data synchronization happens before the process repeats, data loss is unlikely to occur when you use a Standard or Premium cache. You can further guard against data loss by [exporting](cache-how-to-import-export-data.md#export) data and enabling [persistence](cache-how-to-premium-persistence.md).
 
@@ -72,7 +72,7 @@ Whenever a failover occurs, the Standard and Premium caches need to replicate da
 
 ## How does a failover affect my client application?
 
-Client applications could receive some errors from their Azure Cache For Redis. The number of errors seen by a client application depends on how many operations were pending on that connection at the time of failover. Any connection that's routed through the node that closed its connections sees errors.
+Client applications could receive some errors from their Azure Cache For Redis. The number of errors seen by a client application depends on how many operations were pending on that connection at the time of failover. Any connection routed through the node that closed its connections sees errors.
 
 Many client libraries can throw different types of errors when connections break, including:
 
@@ -82,23 +82,38 @@ Many client libraries can throw different types of errors when connections break
 
 The number and type of exceptions depends on where the request is in the code path when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully.
 
-Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a pre-configured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using a [ForceReconnect pattern](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
+Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a preconfigured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using a [ForceReconnect pattern](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
 
-### Can I be notified in advance of planned maintenance?
+### Can I be notified in advance of maintenance?
 
-Azure Cache for Redis publishes runtime maintenance notifications on a publish/subscribe (pub/sub) channel called `AzureRedisEvents`. Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application. For more information about maintenance events, please see [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md).
+Azure Cache for Redis publishes runtime maintenance notifications on a publish/subscribe (pub/sub) channel called `AzureRedisEvents`. Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application. For more information about maintenance events, see [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md).
 
 > [!NOTE]
-> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability.
+> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming server maintenance events that might affect server availability. `AzureRedisEvents` is only available for Basic, Standard, and Premium tiers.
+
+### What are the updates included under maintenance?
+
+Maintenance includes these updates:
+
+- Redis Server updates: Any update or patch of the Redis server binaries.
+- Virtual machine (VM) updates: Any updates of the virtual machine hosting the Redis service. VM updates include patching software components in the hosting environment to upgrading networking components or decommissioning.
+
+### Does maintenance appear in the service health in the Azure portal before a patch?
+
+No, maintenance doesn't appear anywhere under the [service health](/azure/service-health/) in the portal or any other place.
+
+### How much time can I get the notification before the planned maintenance?
+
+When using the `AzureRedisEvents` channel, you're notified 15 minutes before the maintenance.
 
 ### Client network-configuration changes
 
-Certain client-side network-configuration changes can trigger "No connection available" errors. Such changes might include:
+Certain client-side network-configuration changes can trigger _No connection available_ errors. Such changes might include:
 
 - Swapping a client application's virtual IP address between staging and production slots.
 - Scaling the size or number of instances of your application.
 
-Such changes can cause a connectivity issue that lasts less than one minute. Your client application will probably lose its connection to other external network resources, but also to the Azure Cache for Redis service.
+Such changes can cause a connectivity issue that usually lasts less than one minute. Your client application probably loses its connection to other external network resources, but also to the Azure Cache for Redis service.
 
 ## Build in resiliency
 
@@ -114,12 +129,12 @@ Refer to these design patterns to build resilient clients, especially the circui
 
 To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks.
 
-Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
+Additionally, we recommend that you use scheduled updates to choose an update channel and a maintenance window for your cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents. For more information, see [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates).
 
 For more information, see [Connection resilience](cache-best-practices-connection.md).
 
-## Next steps
+## Related content
 
-- [Schedule updates](cache-administration.md#schedule-updates) for your cache.
-- Test application resiliency by using a [reboot](cache-administration.md#reboot).
-- [Configure](cache-configure.md#memory-policies) memory reservations and policies.
+- [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates)
+- Test application resiliency by using a [reboot](cache-administration.md#reboot)
+- [Configure](cache-configure.md#memory-policies) memory reservations and policies

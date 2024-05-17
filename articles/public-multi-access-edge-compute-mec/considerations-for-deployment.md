@@ -56,7 +56,7 @@ The following sections show some examples.
 
 #### Identity services
 
-- Azure Active Directory
+- Microsoft Entra ID
 
 #### Secrets management
 

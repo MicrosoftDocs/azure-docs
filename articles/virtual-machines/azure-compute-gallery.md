@@ -1,14 +1,13 @@
 ---
-title: Overview of Azure Compute Gallery 
+title: Overview of Azure Compute Gallery
 description: Learn about the Azure Compute Gallery and how to share Azure resources.
-author: cynthn
-ms.author: cynthn
+author: ju-shim
+ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 04/18/2023
+ms.date: 09/20/2023
 ms.reviewer: cynthn, mattmcinnes
-
 ---
 
 # Store and share resources in an Azure Compute Gallery
@@ -88,12 +87,16 @@ The regions that a resource is replicated to can be updated after creation time.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-
 | Sharing with: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
 |---|---|---|---|---|---|
 | [RBAC Sharing](#rbac) | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](#shared-directly-to-a-tenant-or-subscription)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](#community-gallery) | Yes | Yes | Yes | No | Yes |
+
+> [!NOTE]
+> Please note that Images can be used with read permissions on them to deploy virtual machines and disks.
+> 
+> When utilizing the direct shared gallery, images are distributed widely to all users in a subscription/tenant, while the community gallery distributes images publicly. It is recommended to exercise caution when sharing images that contain intellectual property to prevent widespread distribution.
 
 ### RBAC
 
@@ -104,7 +107,7 @@ As the Azure Compute Gallery, definition, and version are all resources, they ca
 | Azure Compute Gallery | Yes                  | Yes          | Yes                  |
 | Image Definition     | No                   | Yes          | Yes                  |
 
-We recommend sharing at the Gallery level for the best experience. We don't recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
+We recommend sharing at the Gallery level for the best experience. We don't recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.yml).
 
 For more information, see [Share using RBAC](./share-gallery.md).
 
@@ -133,18 +136,14 @@ During the preview:
 
 ### Community gallery
 
-To share a gallery with all Azure users, you can create a community gallery (preview). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
+To share a gallery with all Azure users, you can create a community gallery. Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
-Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md). In the preview, you can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
+Sharing images to the community is a new capability in [Azure Compute Gallery](./azure-compute-gallery.md). You can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
 
 For more information, see [Share images using a community gallery](./share-gallery-community.md).
 
 
 > [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->To publish a community gallery, you'll need to enable the preview feature using the azure CLI: `az feature register --name CommunityGallery --namespace Microsoft.Compute` or PowerShell: `Register-AzProviderFeature -FeatureName "CommunityGallery" -ProviderNamespace "Microsoft.Compute"`. For more information on enabling preview features and checking the status, see   [Set up preview features in your Azure subscription](../azure-resource-manager/management/preview-features.md). Creating VMs from community gallery images is open to all Azure users. 
-> 
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 
 

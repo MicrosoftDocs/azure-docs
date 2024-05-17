@@ -1,7 +1,6 @@
 ---
 title: Access control in Synapse workspace how to 
 description: Learn how to control access to Azure Synapse workspaces using Azure roles, Synapse roles, SQL permissions, and Git permissions.
-services: synapse-analytics  
 author: talk2rick
 ms.service: synapse-analytics 
 ms.topic: how-to 
@@ -68,12 +67,12 @@ The `workspace1_SQLAdmins` group to configure SQL permissions when you create SQ
 These five groups are sufficient for a basic setup. Later, you can add security groups to handle users who need more specialized access or restrict access to individual resources only.
 
 > [!NOTE]
->- Learn how to create a security group in [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
->- Learn how to add a security group from another security group in [Add or remove a group from another group using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
+>- Learn how to create a security group in [Create a basic group and add members using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+>- Learn how to add a security group from another security group in [Add or remove a group from another group using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 >- When creating a security group make sure that the **Group Type** is **Security**. Microsoft 365 groups are not supported for Azure SQL.
 
 >[!Tip]
->Individual Synapse users can use Azure Active Directory in the Azure portal to view their group memberships. This allows them to determine which roles they've been granted.
+>Individual Synapse users can use Microsoft Entra ID in the Azure portal to view their group memberships. This allows them to determine which roles they've been granted.
 
 ## Step 2: Prepare your ADLS Gen2 storage account
 
@@ -91,7 +90,7 @@ Identify the following information about your storage:
 
 - Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -130,7 +129,7 @@ To run pipelines and perform system tasks, Azure Synapse requires managed servic
 - Locate the storage account, `storage1`, and then `container1`.
 - Select **Access control (IAM)**.
 - To open the **Add role assignment** page, select **Add** > **Add role assignment** .
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -153,7 +152,7 @@ To create SQL pools, Apache Spark pools and Integration runtimes, users need an 
 - Locate the workspace, `workspace1`
 - Select **Access control (IAM)**.
 - To open the **Add role assignment** page, select **Add** > **Add role assignment**.
-- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -169,7 +168,7 @@ The *workspace creator* is automatically assigned as *SQL Active Directory Admin
 
 - Open Azure portal
 - Navigate to `workspace1`
-- Under **Settings**, select **Azure Active Directory**
+- Under **Settings**, select **Microsoft Entra ID**
 - Select **Set admin** and choose **`workspace1_SQLAdmins`**
 
 >[!Note]
@@ -284,7 +283,7 @@ This guide has focused on setting up a basic access control system. You can supp
 
 **Restrict operators from accessing code artifacts**.  Create security groups for operators who need to monitor operational status of Synapse compute resources and view logs but who don't need access to code or to publish updates to the service. Assign these groups the Compute Operator role scoped to specific Spark pools and Integration runtimes.  
 
-**Disable local authentication**. By allowing only Azure Active Directory authentication, you can centrally manage access to Azure Synapse resources, such as SQL pools. Local authentication for all resources within the workspace can be disabled during or after workspace creation. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
+**Disable local authentication**. By allowing only Microsoft Entra authentication, you can centrally manage access to Azure Synapse resources, such as SQL pools. Local authentication for all resources within the workspace can be disabled during or after workspace creation. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ## Next steps
 

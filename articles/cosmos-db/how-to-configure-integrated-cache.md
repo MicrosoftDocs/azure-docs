@@ -4,7 +4,6 @@ description: Learn how to configure the Azure Cosmos DB integrated cache
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: sidandrews
@@ -68,7 +67,7 @@ You must ensure the request consistency is session or eventual. If not, the requ
 
 ## Adjust MaxIntegratedCacheStaleness
 
-Configure `MaxIntegratedCacheStaleness`, which is the maximum time in which you are willing to tolerate stale cached data. It is recommended to set the `MaxIntegratedCacheStaleness` as high as possible because it will increase the likelihood that repeated point reads and queries can be cache hits. If you set `MaxIntegratedCacheStaleness` to 0, your read request will **never** use the integrated cache, regardless of the consistency level. When not configured, the default `MaxIntegratedCacheStaleness` is 5 minutes.
+Configure `MaxIntegratedCacheStaleness`, which is the maximum time in which you're willing to tolerate stale cached data. It's recommended to set the `MaxIntegratedCacheStaleness` as high as possible because it will increase the likelihood that repeated point reads and queries can be cache hits. If you set `MaxIntegratedCacheStaleness` to 0, your read request will **never** use the integrated cache, regardless of the consistency level. When not configured, the default `MaxIntegratedCacheStaleness` is 5 minutes.
 
 >[!NOTE]
 > The `MaxIntegratedCacheStaleness` can be set as high as 10 years. In practice, this value is the maximum staleness and the cache may be reset sooner due to node restarts which may occur. 
@@ -132,6 +131,54 @@ container.query_items(
 
 ---
 
+
+## Bypass the integrated cache (Preview)
+
+Use the `BypassIntegratedCache` request option to control which requests use the integrated cache. Writes, point reads, and queries that bypass the integrated cache won't use cache storage, saving space for other items. Requests that bypass the cache are still routed through the dedicated gateway. These requests are served from the backend and cost RUs.
+
+Bypassing the cache is supported in these versions of each SDK:
+
+| SDK | Supported versions |
+| --- | ------------------ |
+| **.NET SDK v3** | *>= 3.35.0-preview* |
+| **Java SDK v4** | *>= 4.49.0* |
+| **Node.js SDK** | Not supported |
+| **Python SDK**  | Not supported |
+
+### [.NET](#tab/dotnet)
+
+```csharp
+FeedIterator<MyClass> myQuery = container.GetItemQueryIterator<MyClass>(new QueryDefinition("SELECT * FROM c"), requestOptions: new QueryRequestOptions
+        {
+            DedicatedGatewayRequestOptions = new DedicatedGatewayRequestOptions 
+            { 
+                BypassIntegratedCache = true
+            }
+        }
+);
+```
+
+### [Java](#tab/java)
+
+```java
+DedicatedGatewayRequestOptions dgOptions = new DedicatedGatewayRequestOptions()
+   .setIntegratedCacheBypassed(true);
+CosmosQueryRequestOptions queryOptions = new CosmosQueryRequestOptions()
+   .setDedicatedGatewayRequestOptions(dgOptions);
+
+CosmosPagedFlux<MyClass> pagedFluxResponse = container.queryItems(
+        "SELECT * FROM c", queryOptions, MyClass.class);
+```
+
+### [Node.js](#tab/nodejs)
+
+The bypass integrated cache request option isn't available in the Node.js SDK.
+
+### [Python](#tab/python)
+
+The bypass integrated cache request option isn't available in the Python SDK.
+
+---
 
 ## Verify cache hits
 

@@ -4,11 +4,10 @@ titleSuffix: Azure AI services
 description: Document Translation software development kits (SDKs) expose Document Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.custom: devx-track-python
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 02/12/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -171,7 +170,7 @@ result = poller.result()
 
 ## Help options
 
-The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-translator) forums are available for the developer community to ask and answer questions about Azure Text Translation and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer.
+The [`Microsoft Q&A`](/answers/tags/132/azure-translator) and [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-translator) forums are available for the developer community to ask and answer questions about Azure Text Translation and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer.
 
 > [!TIP]
 > To make sure that we see your Microsoft Q&A question, tag it with **`microsoft-translator`**.
@@ -181,4 +180,4 @@ The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](htt
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Document Translation SDK quickstart**](quickstarts/document-translation-sdk.md) [**Document Translation v1.1 REST API reference**](reference/rest-api-guide.md)
+> [**Document Translation SDK quickstart**](quickstarts/asynchronous-sdk.md) [**Document Translation v1.1 REST API reference**](reference/rest-api-guide.md)

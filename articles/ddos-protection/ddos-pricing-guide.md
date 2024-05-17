@@ -5,7 +5,6 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 07/19/2023
 ms.author: abell
 ---

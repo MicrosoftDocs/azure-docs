@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the Python REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Python SDK Developers Guide.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 01/15/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -61,24 +61,26 @@ Azure Maps Python SDK supports Python version 3.7 or later. For more information
 
 ## Create and authenticate a MapsSearchClient
 
-You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
+You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either a Microsoft Entra credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
 
 > [!TIP]
 > The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search package client library] to learn more about the search methods available.
 
-### Using an Azure AD credential
+<a name='using-an-azure-ad-credential'></a>
 
-You can authenticate with Azure AD using the [Azure Identity package]. To use the [DefaultAzureCredential] provider, you need to install the Azure Identity client package:
+### Using a Microsoft Entra credential
+
+You can authenticate with Microsoft Entra ID using the [Azure Identity package]. To use the [DefaultAzureCredential] provider, you need to install the Azure Identity client package:
 
 ```powershell
 pip install azure-identity 
 ```
 
-You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
+You need to register the new Microsoft Entra application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
 Next you need to specify the Azure Maps account you intend to use by specifying the maps’ client ID. The Azure Maps account client ID can be found in the Authentication sections of the Azure Maps account. For more information, see [View authentication details].
 
-Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Microsoft Entra application, and the map resource’s client ID as environment variables:
 
 | Environment Variable | Description                                                   |
 |----------------------|---------------------------------------------------------------|
@@ -118,7 +120,7 @@ maps_search_client = MapsSearchClient(
 
 You can authenticate with your Azure Maps subscription key. Your subscription key can be found in the **Authentication** section in the Azure Maps account as shown in the following screenshot:
 
-:::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 Now you can create environment variables in PowerShell to store the subscription key:
 
@@ -354,7 +356,7 @@ The [Azure Maps Search package client library] in the *Azure SDK for Python Prev
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Authentication with Azure Maps]: azure-maps-authentication.md
 
-[Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview
+[Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview&preserve-view=true
 [latest release]: https://www.python.org/downloads/
 
 <!--  Python SDK Developers Guide  --->

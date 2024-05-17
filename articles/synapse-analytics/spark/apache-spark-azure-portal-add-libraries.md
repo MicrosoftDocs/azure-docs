@@ -3,8 +3,9 @@ title: Manage Apache Spark packages
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 author: shuaijunye
 ms.service: synapse-analytics
+ms.reviewer: wiassaf, sngun, eskot
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 04/15/2023
 ms.author: shuaijunye
 ms.subservice: spark
 ms.custom: kr2b-contr-experiment, devx-track-azurepowershell
@@ -75,7 +76,7 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 
 If you're having trouble identifying required dependencies, follow these steps:
 
-1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. The script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml), which is the list of libraries shipped in the default Python environment in Azure Synapse Spark.
+1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. This script requires a YAML file containing a list of all the libraries included in the default Python environment for Azure Synapse Spark. You can find this YAML file in the documentation for specific runtime versions, such as [Apache Spark 3.2 (End of Support announced)](./apache-spark-32-runtime.md) and [Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md).
 
    ```powershell
       # One-time Azure Synapse Python setup
@@ -109,7 +110,11 @@ Session-scoped packages allow users to define package dependencies at the start 
 
 To learn more about how to manage session-scoped packages, see the following articles:
 
-- [Python session packages](./apache-spark-manage-session-packages.md#session-scoped-python-packages): At the start of a session, provide a Conda *environment.yml* file to install more Python packages from popular repositories. Or you can use %pip and %conda commands to manage libraries in the Notebook code cells.
+- [Python session packages](./apache-spark-manage-session-packages.md#session-scoped-python-packages): At the start of a session, provide a Conda *environment.yml* file to install more Python packages from popular repositories. Or you can use `%pip` and `%conda` commands to manage libraries in the Notebook code cells.
+  
+  > [!IMPORTANT]
+  >
+  > **Do not use** `%%sh` to try and install libraries with pip or conda. The behavior is **not the same** as %pip or %conda.
 
 - [Scala/Java session packages](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages): At the start of your session, provide a list of *.jar* files to install by using `%%configure`.
 

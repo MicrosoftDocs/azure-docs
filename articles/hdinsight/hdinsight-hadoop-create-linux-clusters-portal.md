@@ -3,8 +3,8 @@ title: Create Apache Hadoop clusters using web browser, Azure HDInsight
 description: Learn to create Apache Hadoop, Apache HBase, and Apache Spark clusters on HDInsight. Using web browser and the Azure portal.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 10/20/2022
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 11/21/2023
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. From the top menu, select **+ Create a resource**.
 
-    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png" alt-text="Create a new cluster in the Azure portal":::
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png" alt-text="Create a new cluster in the Azure portal.":::
 
 1. Select **Analytics** > **Azure HDInsight** to go to the **Create HDInsight cluster** page.
 
@@ -58,9 +58,9 @@ Select **Next: Storage >>** to advance to the next tab.
 ## Storage
 
 > [!WARNING] 
-> Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Azure Active Directory.
+> Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Microsoft Entra ID.
 
-:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png" alt-text="HDInsight create cluster storage":::
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png" alt-text="HDInsight create cluster storage.":::
 
 ### Primary storage
 
@@ -87,13 +87,13 @@ Select **Next: Security + networking >>** to advance to the next tab.
 
 ## Security + networking
 
-:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png" alt-text="HDInsight create cluster security networking":::
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png" alt-text="HDInsight create cluster security networking.":::
 
 From the **Security + networking** tab, provide the following information:
 
 |Property |Description |
 |---|---|
-|Enterprise security package|Optional: Select the check box to use **Enterprise Security Package**. For more information, see [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
+|Enterprise security package|Optional: Select the check box to use **Enterprise Security Package**. For more information, see [Configure a HDInsight cluster with Enterprise Security Package by using Microsoft Entra Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Optional: Select a TLS version from the drop-down list. For more information, see [Transport Layer Security](./transport-layer-security.md).|
 |Virtual network|Optional: Select an existing virtual network and subnet from the drop-down list. For information, see [Plan a virtual network deployment for Azure HDInsight clusters](hdinsight-plan-virtual-network-deployment.md). The article includes specific configuration requirements for the virtual network.|
 |Disk encryption settings|Optional: Select the check box to use encryption. For more information, see [Customer-managed key disk encryption](./disk-encryption.md).|
@@ -104,7 +104,7 @@ Select **Next: Configuration + pricing >>** to advance to the next tab.
 
 ## Configuration + pricing
 
-:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png" alt-text="HDInsight create cluster configuration":::
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png" alt-text="HDInsight create cluster configuration.":::
 
 From the **Configuration + pricing** tab, provide the following information:
 

@@ -6,7 +6,7 @@ ms.service: hdinsight
 ms.topic: how-to
 author: reachnijel
 ms.author: nijelsf
-ms.date: 07/19/2022
+ms.date: 09/19/2023
 ---
 
 # Hive LLAP Workload Management (WLM) feature
@@ -14,7 +14,7 @@ In an Interactive Query Cluster, resource management is imperative, especially i
 Workload Management implements resource pools (also known as query pools) which lets you divide resources available for Hive/LLAP into pools to be used for specific workloads.
 It also allows you to configure percentage of resources and query parallelism for each individual resource pool.
 
-![`LLAP Architecture.`](./media/hive-workload-management/llap-architecture.png)
+:::image type="content" border="true" source="./media/hive-workload-management/llap-architecture.png" alt-text="`LLAP Architecture.`.":::
 
 ## Enable Hive LLAP Workload Management feature for HDInsight clusters
 
@@ -44,7 +44,7 @@ hive.server2.tez.interactive.queue=wm
 
 ### Create resource plan
 Following is an example on how to create a basic resource plan.
-![`Basic resource plan.`](./media/hive-workload-management/wlm-resourceplan.jpg)
+:::image type="content" border="true" source="./media/hive-workload-management/wlm-resourceplan.jpg" alt-text="`Basic resource plan.`.":::
 
 Execute following commands via beeline to create the above resource plan.
 

@@ -150,7 +150,7 @@ When generating the activation key for the Azure Stack Edge Pro device, or perfo
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
-You should have a `User` access on the Azure Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user, configuration of Edge compute role, reset device password will all fail.
+You should have a `User` access on the Microsoft Entra tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user, configuration of Edge compute role, reset device password will all fail.
 
 For more information on how to provide access to users to Microsoft Graph API, see [Overview of Microsoft Graph permissions](/graph/permissions-overview).
 

@@ -1,19 +1,21 @@
 ---
 title: "Quickstart: Create a knowledge store in the Azure portal"
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Use the Import data wizard to create a knowledge store used for persisting enriched content. Connect to a knowledge store for analysis from other apps, or send enriched content to downstream processes.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/29/2023
-ms.custom: mode-ui
+ms.date: 03/18/2024
+ms.custom:
+  - mode-ui
+  - ignite-2023
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
 
-In this quickstart, you create a [knowledge store](knowledge-store-concept-intro.md) that serves as a repository for output generated from an [AI enrichment pipeline](cognitive-search-concept-intro.md) in  Azure Cognitive Search. A knowledge store makes generated content available in Azure Storage for workloads other than search.
+In this quickstart, you create a [knowledge store](knowledge-store-concept-intro.md) that serves as a repository for output generated from an [AI enrichment pipeline](cognitive-search-concept-intro.md) in  Azure AI Search. A knowledge store makes generated content available in Azure Storage for workloads other than search.
 
 First, you set up some sample data in Azure Storage. Next, you run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store contains original source content pulled from the data  source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
 
@@ -23,13 +25,13 @@ Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your account. You can use a free service for this quickstart. 
++ Azure AI Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your account. You can use a free service for this quickstart. 
 
 + Azure Storage. [Create an account](../storage/common/storage-account-create.md) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). The account type must be **StorageV2 (general purpose V2)**.
 
 + Sample data hosted in Azure Storage:
 
-  [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
+  [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
 
   [Upload the file to a blob container](../storage/blobs/storage-quickstart-blobs-portal.md) in Azure Storage.
 
@@ -176,4 +178,4 @@ If you're using a free service, remember that you're limited to three indexes, i
 Now that you've been introduced to a knowledge store, take a closer look at each step by switching over to the REST API walkthrough. Tasks that the wizard handled internally are explained in the REST walkthrough.
 
 > [!div class="nextstepaction"]
-> [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md)
+> [Create a knowledge store using REST](knowledge-store-create-rest.md)

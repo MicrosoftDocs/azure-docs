@@ -38,7 +38,7 @@ In the request body, include the `capacityReservationGroup` property:
       "vmSize": "Standard_D2s_v3" 
     }, 
     … 
-   "CapacityReservation":{ 
+   "capacityReservation":{ 
     "capacityReservationGroup":{ 
         "id":"subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}" 
     } 
@@ -84,7 +84,7 @@ az vm create
 --name myVM 
 --location eastus 
 --size Standard_D2s_v3 
---image UbuntuLTS 
+--image Ubuntu2204 
 --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
 ```
 
@@ -112,8 +112,6 @@ To learn more, go to Azure PowerShell command [New-AzVM](/powershell/module/az.c
 An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, use this [Create VM with Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/VirtualMachineWithReservation.json) template. 
 
 
 --- 

@@ -4,7 +4,7 @@ description: Learn how to start virtual machines in a specific order by using Az
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2022
+ms.date: 09/30/2023
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
@@ -141,5 +141,5 @@ While ($current -le 10) {
 ## Next steps
 
 - [What is Azure Automation?](/azure/automation/automation-intro)
-- [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.md)
+- [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.yml)
 - [Use command-line tools to start and stop Azure DevTest Labs virtual machines](use-command-line-start-stop-virtual-machines.md)

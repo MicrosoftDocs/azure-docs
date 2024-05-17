@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ The [``SELECT`` clause](select.md) supports scalar expressions. A scalar express
 
 ## Syntax
   
-```sql  
+```nosql  
 <scalar_expression> ::=  
        <constant>
      | input_alias
@@ -68,7 +69,7 @@ The [``SELECT`` clause](select.md) supports scalar expressions. A scalar express
 
 The most common example of a scalar expression is a math equation.
 
-```sql
+```nosql
 SELECT VALUE
     ((2 + 11 % 7) - 2) / 2
 ```
@@ -81,7 +82,7 @@ SELECT VALUE
 
 In this next example, the result of the scalar expression is a boolean:
 
-```sql
+```nosql
 SELECT
     ("Redmond" = "WA") AS isCitySameAsState,
     ("WA" = "WA") AS isStateSameAsState
@@ -102,7 +103,7 @@ SELECT
 - Any property that is assigned undefined value is skipped and not included in the created object when creating an object.  
 - Any element value that is assigned **undefined** value is skipped and not included in the created object when creating an array. This skip causes the next defined element to take its place in such a way that the created array doesn't skip indexes.  
 
-## Next steps
+## Related content
 
 - [Subqueries](subquery.md)
 - [Logical operators](logical-operators.md)

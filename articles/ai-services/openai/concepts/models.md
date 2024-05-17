@@ -1,257 +1,313 @@
 ---
 title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
-description: Learn about the different model capabilities that are available with Azure OpenAI. 
-ms.service: cognitive-services
-ms.subservice: openai
-ms.topic: conceptual 
-ms.date: 08/22/2023
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
+description: Learn about the different model capabilities that are available with Azure OpenAI.
+ms.service: azure-ai-openai
+ms.topic: conceptual
+ms.date: 05/13/2024
+ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
 recommendations: false
-keywords: 
 ---
 
 # Azure OpenAI Service models
 
-Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region.  For GPT-3 and other models retiring in July 2024, see [Azure OpenAI Service legacy models](./legacy-models.md).
+Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region. For GPT-3 and other models retiring in July 2024, see [Azure OpenAI Service legacy models](./legacy-models.md).
 
 | Models | Description |
 |--|--|
-| [GPT-4](#gpt-4) | A set of models that improve on GPT-3.5 and can understand as well as generate natural language and code. |
-| [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand as well as generate natural language and code. |
+| [GPT-4o & GPT-4 Turbo **NEW**](#gpt-4o-and-gpt-4-turbo) | The latest most capable Azure OpenAI models with multimodal versions, which can accept both text and images as input. |
+| [GPT-4](#gpt-4) | A set of models that improve on GPT-3.5 and can understand and generate natural language and code. |
+| [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
-| [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
+| [DALL-E](#dall-e-models) | A series of models that can generate original images from natural language. |
+| [Whisper](#whisper-models) | A series of models in preview that can transcribe and translate speech to text. |
+| [Text to speech](#text-to-speech-models-preview) (Preview) | A series of models in preview that can synthesize text to speech. |
+
+## GPT-4o and GPT-4 Turbo
+
+GPT-4o is the latest preview model from OpenAI. GPT-4o integrates text and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions. GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and vision tasks, setting new benchmarks for AI capabilities.
+
+### Early access playground
+
+Existing Azure OpenAI customers can test out GPT-4o in the **NEW** Azure OpenAI Studio Early Access Playground (Preview).  
+
+To test the latest model:
+
+> [!NOTE]
+> - The GPT-4o early access playground is currently only available for resources in **West US3** and **East US**, and is limited to 10 requests every five minutes per subscription. 
+> - Azure OpenAI service abuse monitoring is enabled for all early access playground users even if approved for modification; default content filters are enabled and cannot be modified.
+> - GPT-4o is an Azure OpenAI preview model and is currently not available for deployment/direct API access.
+
+1. Navigate to Azure OpenAI Studio at https://oai.azure.com/ and sign-in with credentials that have access to your OpenAI resources.
+2. Select an Azure OpenAI resource in the **West US3** or **East US** regions. If you don't have a resource in one of these regions you will need to [create a resource](../how-to/create-resource.md).
+3. From the main [Azure OpenAI Studio](https://oai.azure.com/) page select the **Early Access Playground (Preview)** button from under the **Get started** section. (This button will only be available when a resource in **West US3** or **East US** is selected.)
+4. Now you can start asking the model questions just as you would before in the existing [chat playground](../chatgpt-quickstart.md).
+
+### GPT-4 Turbo
+
+GPT-4 Turbo is a large multimodal model (accepting text or image inputs and generating text) that can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, and older GPT-4 models GPT-4 Turbo is optimized for chat and works well for traditional completions tasks.
+
+[!INCLUDE [GPT-4 Turbo](../includes/gpt-4-turbo.md)]
 
 ## GPT-4
 
- GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+GPT-4 is the predecessor to GPT-4 Turbo. Both the GPT-4 and GPT-4 Turbo models have a base model name of `gpt-4`. You can distinguish between the GPT-4 and Turbo models by examining the model version.
 
-To request access to GPT-4, Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+- `gpt-4` **Version** `0314`
+- `gpt-4` **Version** `0613`
+- `gpt-4-32k` **Version** `0613`
 
-- `gpt-4`
-- `gpt-4-32k`
+You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
-The `gpt-4` model supports 8192 max input tokens and the `gpt-4-32k` model supports up to 32,768 tokens.
+## GPT-4 and GPT-4 Turbo models
+
+- These models can only be used with the Chat Completion API.
+
+See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
+
+|  Model ID  | Description | Max Request (tokens) | Training Data (up to)  |
+|  --- |  :--- |:--- |:---: |
+|`gpt-4o` (2024-05-13) <br> **GPT-4o (Omni) Preview** | **Latest preview model** <br> - Text, image processing <br> - Enhanced accuracy and responsiveness <br> - Parity with English text and coding tasks compared to GPT-4 Turbo with Vision <br> - Superior performance in non-English languages and in vision tasks <br> - [Currently only available via early access playground](#early-access-playground) <br> - Currently no deployment/API access|Input: 128,000  <br> Output: 4,096| Oct 2023 |
+| `gpt-4` (turbo-2024-04-09) <br>**GPT-4 Turbo with Vision** | **Latest GA model** <br> - Replacement for all previous GPT-4 preview models (`vision-preview`, `1106-Preview`, `0125-Preview`). <br> - [**Feature availability**](#gpt-4o-and-gpt-4-turbo) is currently different depending on method of input, and deployment type. <br> - Does **not support** enhancements. | Input: 128,000  <br> Output: 4,096  | Dec 2023 |
+| `gpt-4` (0125-Preview)*<br>**GPT-4 Turbo Preview** | **Preview Model** <br> -Replaces 1106-Preview <br>- Better code generation performance <br> - Reduces cases where the model doesn't complete a task <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096           | Dec 2023         |
+| `gpt-4` (vision-preview)<br>**GPT-4 Turbo with Vision Preview**  | **Preview model** <br> - Accepts text and image input. <br> - Supports enhancements <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096              | Apr 2023       |
+| `gpt-4` (1106-Preview)<br>**GPT-4 Turbo Preview** | **Preview Model** <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 128,000  <br> Output: 4,096 | Apr 2023         |
+| `gpt-4-32k` (0613) | **Older GA model** <br> - Basic function calling with tools  | 32,768               | Sep 2021         |
+| `gpt-4` (0613)     | **Older GA model** <br> - Basic function calling with tools | 8,192                | Sep 2021         |
+| `gpt-4-32k`(0314)  | **Older GA model** <br> - [Retirement information](./model-retirements.md#current-models) | 32,768               | Sep 2021         |
+| `gpt-4` (0314) | **Older GA model** <br> - [Retirement information](./model-retirements.md#current-models)  | 8,192 | Sep 2021         |
+
+> [!CAUTION]
+> We don't recommend using preview models in production. We will upgrade all deployments of preview models to either future preview versions or to the latest stable/GA version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
+
+> [!NOTE]
+> Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  Version `0613` of `gpt-4` and `gpt-4-32k` will be retired no earlier than September 30, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+
+- GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview previously released as version 1106-preview.  
+- GPT-4 version 0125-preview completes tasks such as code generation more completely compared to gpt-4-1106-preview. Because of this, depending on the task, customers may find that GPT-4-0125-preview generates more output compared to the gpt-4-1106-preview.  We recommend customers compare the outputs of the new model.  GPT-4-0125-preview also addresses bugs in gpt-4-1106-preview with UTF-8 handling for non-English languages. 
+- GPT-4 version `turbo-2024-04-09` is the latest GA release and replaces `0125-Preview`, `1106-preview`, and `vision-preview`.
+
+> [!IMPORTANT]
+>
+> - `gpt-4` versions 1106-Preview, 0125-Preview, and vision-preview will be upgraded with a stable version of `gpt-4` in the future. Deployments of `gpt-4` versions 1106-Preview, 0125-Preview, and vision-preview set to "Auto-update to default" and "Upgrade when expired" will start to be upgraded after the stable version is released. For each deployment, a model version upgrade takes place with no interruption in service for API calls.  Upgrades are staged by region and the full upgrade process is expected to take 2 weeks. Deployments of `gpt-4` versions 1106-Preview, 0125-Preview, and vision-preview set to "No autoupgrade" will not be upgraded and will stop operating when the preview version is upgraded in the region. See [Azure OpenAI model retirements and deprecations](./model-retirements.md) for more information on the timing of the upgrade.
 
 ## GPT-3.5
 
-GPT-3.5 models can understand and generate natural language or code. The most capable and cost effective model in the GPT-3.5 family is GPT-3.5 Turbo, which has been optimized for chat and works well for traditional completions tasks as well.  We recommend using GPT-3.5 Turbo over [legacy GPT-3.5 and GPT-3 models](./legacy-models.md).
-
-- `gpt-35-turbo`
-- `gpt-35-turbo-16k`
-
-The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.
-
-Like GPT-4, use the Chat Completions API to use GPT-3.5 Turbo. To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
-
-## Embeddings models
-
-> [!IMPORTANT]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+GPT-3.5 models can understand and generate natural language or code. The most capable and cost effective model in the GPT-3.5 family is GPT-3.5 Turbo, which has been optimized for chat and works well for traditional completions tasks as well. GPT-3.5 Turbo is available for use with the Chat Completions API. GPT-3.5 Turbo Instruct has similar capabilities to `text-davinci-003` using the Completions API instead of the Chat Completions API.  We recommend using GPT-3.5 Turbo and GPT-3.5 Turbo Instruct over [legacy GPT-3.5 and GPT-3 models](./legacy-models.md).
 
 
-Currently, we offer three families of Embeddings models for different functionalities:
- The following list indicates the length of the numerical vector returned by the service, based on model capability:
+|  Model ID   | Description | Max Request (tokens) | Training Data (up to) |
+|  --------- |:---|:------:|:----:|
+| `gpt-35-turbo` (0125) **NEW** | **Latest GA Model** <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) <br> - Higher accuracy at responding in requested formats. <br> - Fix for a bug which caused a text encoding issue for non-English language function calls.  | Input: 16,385<br> Output: 4,096  | Sep 2021 |
+| `gpt-35-turbo` (1106) | **Older GA Model** <br> - JSON Mode <br> - parallel function calling <br> - reproducible output (preview) | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo-instruct` (0914) | **Completions endpoint only** | 4,097 |Sep 2021 |
+| `gpt-35-turbo-16k` (0613) | **Older GA Model** <br> - Basic function calling with tools | 16,384 | Sep 2021 |
+| `gpt-35-turbo` (0613) | **Older GA Model** <br> - Basic function calling with tools   | 4,096 | Sep 2021 |
+| `gpt-35-turbo`**<sup>1</sup>** (0301) |  **Older GA Model**  <br> - [Retirement information](./model-retirements.md#current-models) | 4,096 | Sep 2021 |
 
-|  Base Model  |  Model(s)  |  Dimensions  |
-|---|---|---|
-| Ada | models ending in -001 (Version 1) | 1024 |
-| Ada | text-embedding-ada-002 (Version 2) | 1536 |
+To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
-## DALL-E (Preview)
+**<sup>1</sup>** This model will accept requests > 4,096 tokens. It is not recommended to exceed the 4,096 input token limit as the newer version of the model are capped at 4,096 tokens. If you encounter issues when exceeding 4,096 input tokens with this model this configuration is not officially supported.
 
-The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+## Embeddings
+
+ `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embeddings models is not possible. In order to move from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings. 
+
+- `text-embedding-3-large`
+- `text-embedding-3-small`
+- `text-embedding-ada-002`
+
+In testing, OpenAI reports both the large and small third generation embeddings models offer better average multi-language retrieval performance with the [MIRACL](https://github.com/project-miracl/miracl) benchmark while still maintaining performance for English tasks with the [MTEB](https://github.com/embeddings-benchmark/mteb) benchmark.
+
+|Evaluation Benchmark| `text-embedding-ada-002` | `text-embedding-3-small` |`text-embedding-3-large` |
+|---|---|---|---|
+| MIRACL average | 31.4 | 44.0 | 54.9 |
+| MTEB average | 61.0 | 62.3 | 64.6 |
+
+The third generation embeddings models support reducing the size of the embedding via a new `dimensions` parameter. Typically larger embeddings are more expensive from a compute, memory, and storage perspective. Being able to adjust the number of dimensions allows more control over overall cost and performance. The `dimensions` parameter is not supported in all versions of the OpenAI 1.x Python library, to take advantage of this parameter  we recommend upgrading to the latest version: `pip install openai --upgrade`.
+
+OpenAI's MTEB benchmark testing found that even when the third generation model's dimensions are reduced to less than `text-embeddings-ada-002` 1,536 dimensions performance remains slightly better.
+
+## DALL-E
+
+The DALL-E models generate images from text prompts that the user provides. DALL-E 3 is generally available for use with the REST APIs. DALL-E 2 and DALL-E 3 with client SDKs are in preview.
+
+## Whisper
+
+The Whisper models can be used for speech to text.
+
+You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service.
+
+## Text to speech (Preview)
+
+The OpenAI text to speech models, currently in preview, can be used to synthesize text to speech.
+
+You can also use the OpenAI text to speech voices via Azure AI Speech. To learn more, see [OpenAI text to speech voices via Azure OpenAI Service or via Azure AI Speech](../../speech-service/openai-voices.md#openai-text-to-speech-voices-via-azure-openai-service-or-via-azure-ai-speech) guide. 
 
 ## Model summary table and region availability
 
-> [!IMPORTANT]
-> Due to high demand:
->
-> - South Central US is temporarily unavailable for creating new resources and deployments.
+> [!NOTE]
+> This article primarily covers model/region availability that applies to all Azure OpenAI customers with deployment types of **Standard**. Some select customers have access to model/region combinations that are not listed in the unified table below. For more information on Provisioned deployments, see our [Provisioned guidance](./provisioned-throughput.md).
 
-### GPT-4 models
+### Standard deployment model availability
 
-These models can only be used with the Chat Completion API.
+[!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
 
-|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>1,</sup><sup>2</sup> (0314)     |   |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (0314)  |   |  N/A                | 32,768               | September 2021         |
-| `gpt-4` <sup>1</sup><sup>3</sup> (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, UK South |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1</sup><sup>3</sup> (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, UK South |  N/A                | 32,768               | September 2021         |
+This table doesn't include fine-tuning regional availability, consult the dedicated [fine-tuning section](#fine-tuning-models) for this information.
 
-<sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
-<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024. See [model updates](#model-updates) for model upgrade behavior.<br>
-<sup>3</sup> We are rolling out availability of new regions to customers gradually to ensure a smooth experience. In East US and France Central, customers with existing deployments of GPT-4 can create additional deployments of GPT-4 version 0613. For customers new to GPT-4 on Azure OpenAI, please use one of the other available regions.
+### Standard deployment model quota
+
+[!INCLUDE [Quota](../includes/model-matrix/quota.md)]
+
+### Provisioned deployment model availability
+
+[!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
+
+> [!NOTE]
+> The provisioned version of `gpt-4` **Version:** `turbo-2024-04-09` is currently limited to text only.
+
+### How do I get access to Provisioned?
+
+You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
+
+For more information on Provisioned deployments, see our [Provisioned guidance](./provisioned-throughput.md).
+
+### GPT-4 and GPT-4 Turbo model availability
+
+#### Public cloud regions
+
+[!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+
+#### Select customer access
+
+In addition to the regions above which are available to all Azure OpenAI customers, some select pre-existing customers have been granted access to versions of GPT-4 in additional regions:
+
+| Model | Region |  
+|---|:---|  
+| `gpt-4` (0314) | East US <br> France Central <br> South Central US <br> UK South |  
+| `gpt-4` (0613) | East US <br> East US 2 <br> Japan East <br> UK South |  
+
+#### Azure Government regions
+
+The following GPT-4 models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
+
+|Model ID | Model Availability |
+|--|--|
+| `gpt-4` (1106-Preview) | US Gov Virginia<br>US Gov Arizona |
 
 ### GPT-3.5 models
 
-GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can also be used with the Completions API.  GPT3.5 Turbo (0613) only supports the Chat Completions API.
+> [!IMPORTANT]
+> The NEW `gpt-35-turbo (0125)`  model has various improvements, including higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.
 
-|  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
-| `gpt-35-turbo`<sup>1</sup> (0301) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, UK South | N/A | 4,096 | Sep 2021 |
-| `gpt-35-turbo-16k` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, UK South | N/A | 16,384 | Sep 2021 |
+GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 can also be used with the Completions API, though this is not recommended.  GPT-3.5 Turbo versions 0613 and 1106 only support the Chat Completions API.
 
-<sup>1</sup> Version `0301` of gpt-35-turbo will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.
+GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
+See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-3.5 Turbo deployments.
+
+> [!NOTE]
+> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than August 1, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than August 1, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+
+### GPT-3.5-Turbo model availability
+
+#### Public cloud regions
+
+[!INCLUDE [GPT-35-Turbo](../includes/model-matrix/standard-gpt-35-turbo.md)]
+
+#### Azure Government regions
+
+The following GPT-3.5 turbo models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
+
+|Model ID | Model Availability |
+|--|--|
+| `gpt-35-turbo` (1106-Preview) | US Gov Virginia |
 
 ### Embeddings models
 
 These models can only be used with Embedding API requests.
 
 > [!NOTE]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+> `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embedding models is not possible. In order to migrate from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings.  
 
-|  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 (version 2) | Canada East, East US, France Central, Japan East, North Central US, South Central US, UK South, West Europe | N/A |8,191 | Sep 2021 |
-| text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
-
-### DALL-E models (Preview)
-
-|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (characters) | Training Data (up to)  |
-|  --- |  --- | --- | --- | --- |
-| dalle2 | East US | N/A | 1000 | N/A |
-
-## Working with models
-
-### Finding what models are available
-
-You can get a list of models that are available for both inference and fine-tuning by your Azure OpenAI resource by using the [Models List API](/rest/api/cognitiveservices/azureopenaistable/models/list).
-
-### Model updates
-
-Azure OpenAI now supports automatic updates for select model deployments. On models where automatic update support is available, a model version drop-down will be visible in Azure OpenAI Studio under **Create new deployment** and **Edit deployment**:
-
-:::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deploy model UI of Azure OpenAI Studio." lightbox="../media/models/auto-update.png":::
-
-### Auto update to default
-
-When **Auto-update to default** is selected your model deployment will be automatically updated within two weeks of a new version being released.
-
-If you are still in the early testing phases for completion and chat completion based models, we recommend deploying models with **auto-update to default** set whenever it is available.
-
-### Specific model version
-
-As your use of Azure OpenAI evolves, and you start to build and integrate with applications you will likely want to manually control model updates so that you can first test and validate that model performance is remaining consistent for your use case prior to upgrade.
-
-When you select a specific model version for a deployment this version will remain selected until you either choose to manually update yourself, or once you reach the retirement date for the model. When the retirement date is reached the model will auto-upgrade to the default version at the time of retirement.
-
-### GPT-35-Turbo 0301 and GPT-4 0314 retirement
-
-The `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will be retired no earlier than July 5, 2024. Upon retirement, deployments will automatically be upgraded to the default version at the time of retirement. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.
-
-### Viewing deprecation dates
-
-For currently deployed models, from Azure OpenAI Studio select **Deployments**:
-
-:::image type="content" source="../media/models/deployments.png" alt-text="Screenshot of the deployment UI of Azure OpenAI Studio." lightbox="../media/models/deployments.png":::
-
-To view deprecation/expiration dates for all available models in a given region from Azure OpenAI Studio select **Models** > **Column options** > Select **Deprecation fine tune** and **Deprecation inference**:
-
-:::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the models UI of Azure OpenAI Studio." lightbox="../media/models/column-options.png":::
-
-### Update & deploy models via the API
-
-```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}?api-version=2023-05-01
-```
-
-**Path parameters**
-
-| Parameter | Type | Required? |  Description |
-|--|--|--|--|
-| ```acountname``` | string |  Required | The name of your Azure OpenAI Resource. |
-| ```deploymentName``` | string | Required | The deployment name you chose when you deployed an existing model or the name you would like a new model deployment to have.   |
-| ```resourceGroupName``` | string |  Required | The name of the associated resource group for this model deployment. |
-| ```subscriptionId``` | string |  Required | Subscription ID for the associated subscription. |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
-
-**Supported versions**
-
-- `2023-05-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json)
-
-**Request body**
-
-This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update).
-
-|Parameter|Type| Description |
-|--|--|--|
-|versionUpgradeOption | String | Deployment model version upgrade options:<br>`OnceNewDefaultVersionAvailable`<br>`OnceCurrentVersionExpired`<br>`NoAutoUpgrade`|
-|capacity|integer|This represents the amount of [quota](../how-to/quota.md) you are assigning to this deployment. A value of 1 equals 1,000 Tokens per Minute (TPM)|
-
-#### Example request
-
-```Bash
-curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1?api-version=2023-05-01 \
-  -H "Content-Type: application/json" \
-  -H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
-  -d '{"sku":{"name":"Standard","capacity":1},"properties": {"model": {"format": "OpenAI","name": "text-embedding-ada-002","version": "2"},"versionUpgradeOption":"OnceCurrentVersionExpired"}}'
-```
+|  Model ID | Max Request (tokens) | Output Dimensions |Training Data (up-to)
+|---|---| :---:|:---:|:---:|
+| `text-embedding-ada-002` (version 2) |8,191 | 1,536 | Sep 2021 |
+| `text-embedding-ada-002` (version 1) |2,046 | 1,536 | Sep 2021 |
+| `text-embedding-3-large` | 8,191 | 3,072 |Sep 2021 |
+| `text-embedding-3-small` | 8,191|  1,536 | Sep 2021 |
 
 > [!NOTE]
-> There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
+> When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
 
-#### Example response
+#### Public cloud regions
 
-```json
-{
-  "id": "/subscriptions/{subscription-id}/resourceGroups/resource-group-temp/providers/Microsoft.CognitiveServices/accounts/docs-openai-test-001/deployments/text-embedding-ada-002-test-1",
-  "type": "Microsoft.CognitiveServices/accounts/deployments",
-  "name": "text-embedding-ada-002-test-1",
-  "sku": {
-    "name": "Standard",
-    "capacity": 1
-  },
-  "properties": {
-    "model": {
-      "format": "OpenAI",
-      "name": "text-embedding-ada-002",
-      "version": "2"
-    },
-    "versionUpgradeOption": "OnceCurrentVersionExpired",
-    "capabilities": {
-      "embeddings": "true",
-      "embeddingsMaxInputs": "1"
-    },
-    "provisioningState": "Succeeded",
-    "ratelimits": [
-      {
-        "key": "request",
-        "renewalPeriod": 10,
-        "count": 2
-      },
-      {
-        "key": "token",
-        "renewalPeriod": 60,
-        "count": 1000
-      }
-    ]
-  },
-  "systemData": {
-    "createdBy": "docs@contoso.com",
-    "createdByType": "User",
-    "createdAt": "2023-06-13T00:12:38.885937Z",
-    "lastModifiedBy": "docs@contoso.com",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-06-13T02:41:04.8410965Z"
-  },
-  "etag": "\"{GUID}\""
-}
-```
+[!INCLUDE [Embeddings](../includes/model-matrix/standard-embeddings.md)]
 
+#### Azure Government regions
 
+The following Embeddings models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
 
+|Model ID | Model Availability |
+|--|--|
+|`text-embedding-ada-002` (version 2) |US Gov Virginia<br>US Gov Arizona |
+
+### DALL-E models
+
+|  Model ID  | Feature Availability | Max Request (characters) |
+|  --- |  --- | :---: |
+| dalle2 (preview) | East US | 1,000 |
+| dall-e-3 | East US, Australia East, Sweden Central | 4,000 |
+
+### Fine-tuning models
+
+`babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
+
+`gpt-35-turbo` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
+
+|  Model ID  | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to) |
+|  --- | --- | :---: | :---: |
+| `babbage-002` | North Central US <br> Sweden Central  <br> Switzerland West | 16,384 | Sep 2021 |
+| `davinci-002` | North Central US <br> Sweden Central  <br> Switzerland West | 16,384 | Sep 2021 |
+| `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
+| `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
+
+### Whisper models
+
+|  Model ID  | Model Availability | Max Request (audio file size) |
+|  --- |  --- | :---: |
+| `whisper` | East US 2 <br> North Central US <br> Norway East <br> South India <br> Sweden Central <br> West Europe | 25 MB |
+
+### Text to speech models (Preview)
+
+|  Model ID  | Model Availability |
+|  --- |  --- | :---: |
+| `tts-1` | North Central US <br> Sweden Central |
+| `tts-1-hd` | North Central US <br> Sweden Central |
+
+### Assistants (Preview)
+
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
+
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
+|-----|---|---|---|---|---|
+| Australia East | ✅ | ✅ | ✅ |✅ | |
+| East US  | ✅ | | | | ✅ |
+| East US 2 | ✅ |  | ✅ |✅ | |
+| France Central  | ✅ | ✅ |✅ |✅ |  |
+| Norway East | |  | | ✅ |  |
+| Sweden Central  | ✅ |✅ |✅ |✅| |
+| UK South  | ✅ |  ✅ | ✅ |✅ | |
 
 
 
 
 ## Next steps
 
+- [Learn more about working with Azure OpenAI models](../how-to/working-with-models.md)
 - [Learn more about Azure OpenAI](../overview.md)
 - [Learn more about fine-tuning Azure OpenAI models](../how-to/fine-tuning.md)

@@ -2,14 +2,13 @@
 title: Get supported storage sources method
 titleSuffix: Azure AI services
 description: The get supported storage sources method returns a list of supported storage sources.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 02/09/2024
 ---
 
 # Get supported storage sources
@@ -27,7 +26,7 @@ Send a `GET` request to:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/storagesources
 ```
 
-Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
+Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
 
 > [!IMPORTANT]
 >
@@ -50,7 +49,7 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |
 |200|OK. Successful request and returns the list of storage sources.|
 |500|Internal Server Error.|
-|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
+|Other Status Codes|&bullet; Too many requests<br>&bullet; Server temporary unavailable|
 
 ## Get supported storage sources response
 
@@ -66,9 +65,9 @@ Base type for list return in the Get supported storage sources API.
 
 |Name|Type|Description|
 |--- |--- |--- |
-|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|code|string|Enums containing high-level error codes. Possible values:<br> &bullet; InternalServerError<br>&bullet; InvalidArgument<br>&bullet; InvalidRequest<br>&bullet; RequestRateTooHigh<br>&bullet; ResourceNotFound<br>&bullet; ServiceUnavailable<br>&bullet; Unauthorized|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (it can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error (it can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
 |innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` if there was invalid document.|
@@ -110,4 +109,4 @@ Status code: 500
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)
+> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)

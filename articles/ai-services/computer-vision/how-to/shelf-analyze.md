@@ -4,15 +4,14 @@ titleSuffix: Azure AI services
 description: Use the Product Understanding API to analyze a shelf image and receive rich product data.
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 02/14/2024
 ms.author: pafarley
 ms.custom: references_regions, build-2023, build-2023-dataai
 ---
 
-# Analyze a shelf image using pretrained models
+# Shelf Product Recognition (preview): Analyze shelf images using pretrained model
 
 The fastest way to start using Product Recognition is to use the built-in pretrained AI models. With the Product Understanding API, you can upload a shelf image and get the locations of products and gaps.
 
@@ -26,7 +25,7 @@ The fastest way to start using Product Recognition is to use the built-in pretra
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service. You'll paste your key and endpoint into the code below later in the guide.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
-* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
+* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Swagger or the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for VS Code.
 * A shelf image. You can download our [sample image](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/shelf-analysis/shelf.png) or bring your own images. The maximum file size per image is 20 MB.
 
 ## Analyze shelf images
@@ -37,13 +36,14 @@ To analyze a shelf image, do the following steps:
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:analyze" -d "{
+    curl -X PUT -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/productrecognition/ms-pretrained-product-detection/runs/<your_run_name>?api-version=2023-04-01-preview" -d "{
         'url':'<your_url_string>'
     }"
     ```
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your Vision resource key.
-    1. Replace the value of `<endpoint>` with your Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    1. Replace the `<subscriptionKey>` with your Vision resource key.
+    1. Replace the `<endpoint>` with your Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    2. Replace the `<your_run_name>` with your unique test run name for the task queue. It is an async API task queue name for you to be able retrieve the API response later. For example, `.../runs/test1?api-version...`
     1. Replace the `<your_url_string>` contents with the blob URL of the image
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
@@ -155,3 +155,4 @@ In this guide, you learned how to make a basic analysis call using the pretraine
 > [Train a custom model for Product Recognition](../how-to/shelf-model-customization.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
+* [API reference](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview)

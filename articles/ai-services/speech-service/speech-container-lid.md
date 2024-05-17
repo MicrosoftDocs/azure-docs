@@ -2,14 +2,12 @@
 title: Language identification containers - Speech service
 titleSuffix: Azure AI services
 description: Install and run language identification containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 1/22/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
@@ -17,11 +15,9 @@ keywords: on-premises, Docker, container
 
 # Language identification containers with Docker
 
-The Speech language identification container detects the language spoken in audio files. You can get real-time speech or batch audio recordings with intermediate results. In this article, you'll learn how to download, install, and run a language identification container.
+The Speech language identification container detects the language spoken in audio files. You can get real-time speech or batch audio recordings with intermediate results. In this article, you learn how to download, install, and run a language identification container.
 
 > [!NOTE]
-> You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container.
->
 > The Speech language identification container is available in public preview. Containers in preview are still under development and don't meet Microsoft's stability and support requirements.
 
 For more information about prerequisites, validating that a container is running, running multiple containers on the same host, and running disconnected containers, see [Install and run Speech containers with Docker](speech-container-howto.md).
@@ -40,7 +36,7 @@ The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-
 | Version | Path |
 |-----------|------------|
 | Latest | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
-| 1.11.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:1.11.0-amd64-preview` |
+| 1.12.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:1.12.0-amd64-preview` |
 
 All tags, except for `latest`, are in the following format and are case sensitive:
 
@@ -56,6 +52,7 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
   "tags": [
     "1.1.0-amd64-preview",
     "1.11.0-amd64-preview",
+    "1.12.0-amd64-preview",
     "1.3.0-amd64-preview",
     "1.5.0-amd64-preview",
     <--redacted for brevity-->
@@ -67,7 +64,7 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
 
 ## Get the container image with docker pull
 
-You need the [prerequisites](speech-container-howto.md#prerequisites) including required hardware. Please also see the [recommended allocation of resources](speech-container-howto.md#container-requirements-and-recommendations) for each Speech container. 
+You need the [prerequisites](speech-container-howto.md#prerequisites) including required hardware. Also see the [recommended allocation of resources](speech-container-howto.md#container-requirements-and-recommendations) for each Speech container. 
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
@@ -110,7 +107,7 @@ For more information about `docker run` with Speech containers, see [Install and
 
 ## Run with the speech to text container
 
-If you want to run the language identification container with the [speech to text](speech-container-stt.md) container, you can use this [docker image](https://hub.docker.com/r/antsu/on-prem-client). After both containers have been started, use this `docker run` command to execute `speech-to-text-with-languagedetection-client`:
+If you want to run the language identification container with the [speech to text](speech-container-stt.md) container, you can use this [docker image](https://hub.docker.com/r/antsu/on-prem-client). After both containers are started, use this `docker run` command to execute `speech-to-text-with-languagedetection-client`:
 
 ```bash
 docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-text-with-languagedetection-client ./audio/LanguageDetection_en-us.wav --host localhost --lport 5003 --sport 5000

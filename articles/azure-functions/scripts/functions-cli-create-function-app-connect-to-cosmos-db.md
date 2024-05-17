@@ -3,7 +3,7 @@ title: Create a function app with Azure Cosmos DB - Azure CLI
 description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Cosmos DB
 ms.topic: sample
 ms.date: 03/24/2022
-ms.custom: mvc, devx-track-azurecli, ignite-2022
+ms.custom: mvc, devx-track-azurecli
 ---
 # Create an Azure Function that connects to an Azure Cosmos DB
 
@@ -11,7 +11,7 @@ This Azure Functions sample script creates a function app and connects the funct
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

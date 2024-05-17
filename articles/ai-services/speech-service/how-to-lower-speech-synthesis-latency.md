@@ -2,14 +2,13 @@
 title: How to lower speech synthesis latency using Speech SDK
 titleSuffix: Azure AI services
 description: How to lower speech synthesis latency using Speech SDK, including streaming, pre-connection, and so on.
-services: cognitive-services
-author: yulin-li
+author: eric-urban
+ms.author: eur
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 04/29/2021
-ms.author: yulili
+ms.date: 1/21/2024
+ms.reviewer: yulili
 ms.custom: references_regions, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-nineteen
 ---
@@ -17,7 +16,7 @@ zone_pivot_groups: programming-languages-set-nineteen
 # Lower speech synthesis latency using Speech SDK
 
 The synthesis latency is critical to your applications.
-In this article, we will introduce the best practices to lower the latency and bring the best performance to your end users.
+In this article, we'll introduce the best practices to lower the latency and bring the best performance to your end users.
 
 Normally, we measure the latency by `first byte latency` and `finish latency`, as follows:
 
@@ -117,7 +116,7 @@ NSString *resultId = result.resultId;
 
 ::: zone-end
 
-The first byte latency is much lower than finish latency in most cases.
+The first byte latency is lower than finish latency in most cases.
 The first byte latency is independent from text length, while finish latency increases with text length.
 
 Ideally, we want to minimize the user-experienced latency (the latency before user hears the sound) to one network route trip time plus the first audio chunk latency of the speech synthesis service.
@@ -235,13 +234,13 @@ while ([stream readData:data length:16000] > 0) {
 
 The Speech SDK uses a websocket to communicate with the service.
 Ideally, the network latency should be one route trip time (RTT).
-If the connection is newly established, the network latency will include extra time to establish the connection.
+If the connection is newly established, the network latency includes extra time to establish the connection.
 The establishment of a websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduces time delay.
 To avoid the connection latency, we recommend pre-connecting and reusing the `SpeechSynthesizer`.
 
 ### Pre-connect
 
-To pre-connect, establish a connection to the Speech service when you know the connection will be needed soon. For example, if you are building a speech bot in client, you can pre-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
+To pre-connect, establish a connection to the Speech service when you know the connection is needed soon. For example, if you're building a speech bot in client, you can pre-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -309,7 +308,7 @@ We recommend using object pool in service scenario, see our sample code for [C#]
 
 ## Transmit compressed audio over the network
 
-When the network is unstable or with limited bandwidth, the payload size will also impact latency.
+When the network is unstable or with limited bandwidth, the payload size also affects latency.
 Meanwhile, a compressed audio format helps to save the users' network bandwidth, which is especially valuable for mobile users.
 
 We support many compressed formats including `opus`, `webm`, `mp3`, `silk`, and so on, see the full list in [SpeechSynthesisOutputFormat](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
@@ -333,12 +332,11 @@ We keep improving the Speech SDK's performance, so try to use the latest Speech 
 
 ## Load test guideline
 
-You may use load test to test the speech synthesis service capacity and latency.
-Here are some guidelines.
+You can use load test to test the speech synthesis service capacity and latency. Here are some guidelines:
 
- - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. [See this article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details, especially [this example of workload patterns](speech-services-quotas-and-limits.md#example-of-a-workload-pattern-best-practice).
- - You can leverage our sample using object pool ([C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java)) for load test and getting the latency numbers. You can modify the test turns and concurrency in the sample to meet your target concurrency.
- - The service has quota limitation based on the real traffic, therefore, if you want to perform load test with the concurrency much higher than your real traffic, connect before your test.
+ - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client might get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. [See this article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details, especially [this example of workload patterns](speech-services-quotas-and-limits.md#example-of-a-workload-pattern-best-practice).
+ - You can use our sample using object pool ([C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java)) for load test and getting the latency numbers. You can modify the test turns and concurrency in the sample to meet your target concurrency.
+ - The service has quota limitation based on the real traffic, therefore, if you want to perform load test with the concurrency higher than your real traffic, connect before your test.
 
 ## Next steps
 

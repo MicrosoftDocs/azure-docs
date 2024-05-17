@@ -36,6 +36,8 @@
     href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/ai-services/qnamaker/context/context
 - name: How-to guides
   items:
+  - name: Migrate to Azure OpenAI
+    href: how-to/migrate-to-openai.md
   - name: Manage QnA Maker resources
     items:
     - name: Set up QnA Maker resources
@@ -91,7 +93,7 @@
       href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/qnamaker/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
-    - name: Use Azure AD authentication
+    - name: Use Microsoft Entra authentication
       href: ../authentication.md?context=/azure/ai-services/qnamaker/context/context
 - name: Concepts
   items:

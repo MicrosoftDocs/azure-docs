@@ -3,10 +3,10 @@ ms.date: 01/06/2023
 ms.topic: how-to
 author: raosanat
 ms.author: sanathr
-title: CallKit integration in ACS Calling SDK
+title: CallKit integration in Azure Communication Services Calling SDK
 ms.service: azure-communication-services
 ms.subservice: calling
-description: Steps on how to integrate CallKit with ACS Calling SDK
+description: Steps on how to integrate CallKit with Azure Communication Services Calling SDK
 ---
 
  # Integrate with CallKit
@@ -22,7 +22,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
 
   ## CallKit Integration (within SDK)
 
- CallKit Integration in the ACS iOS SDK handles interaction with CallKit for us. To perform any call operations like mute/unmute, hold/resume, we only need to call the API on the ACS SDK. 
+ CallKit Integration in the Azure Communication Services iOS SDK handles interaction with CallKit for us. To perform any call operations like mute/unmute, hold/resume, we only need to call the API on the Azure Communication Services SDK. 
 
   ### Initialize call agent with CallKitOptions
 
@@ -123,7 +123,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
 
   ### Handle incoming push notification payload
 
-  When the app receives incoming push notification payload, we need to call `handlePush` to process it. ACS Calling SDK will raise the `IncomingCall` event.
+  When the app receives incoming push notification payload, we need to call `handlePush` to process it. Azure Communication Services Calling SDK will raise the `IncomingCall` event.
 
   ```Swift
   public func handlePushNotification(_ pushPayload: PKPushPayload)
@@ -172,12 +172,12 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   }
   ```
   
- ## CallKit Integration (within App)
+## CallKit Integration (within App)
   
   If you wish to integrate the CallKit within the app and not use the CallKit implementation in the SDK, refer to the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
   But one of the important things to take care of is to start the audio at the right time. Like following
   
- ```Swift
+```Swift
 let outgoingAudioOptions = OutgoingAudioOptions()
 outgoingAudioOptions.muted = true
 

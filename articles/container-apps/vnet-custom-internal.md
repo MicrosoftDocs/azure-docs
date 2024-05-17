@@ -4,9 +4,9 @@ description: Learn how to integrate a VNET to an internal Azure Container Apps e
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 08/31/2022
+ms.date: 08/29/2023
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -21,7 +21,7 @@ The following example shows you how to create a Container Apps environment in an
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only environment. When using the Workload Profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking environment overview](./networking.md#subnet).
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only environment. When using the workload profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking environment overview](./networking.md#subnet).
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
@@ -59,9 +59,33 @@ The following example shows you how to create a Container Apps environment in an
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-Next, declare a variable to hold the VNET name.
+[!INCLUDE [container-apps-set-environment-variables.md](../../includes/container-apps-set-environment-variables.md)]
 
-# [Azure CLI](#tab/azure-cli)
+[!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
+
+## Create an environment
+
+An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+
+Register the `Microsoft.ContainerService` provider.
+
+# [Bash](#tab/bash)
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
+```
+
+---
+
+Declare a variable to hold the VNET name.
+
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 VNET_NAME="my-custom-vnet"
@@ -80,7 +104,7 @@ Now create an instance of the virtual network to associate with the Container Ap
 > [!NOTE]
 > Network subnet address prefix requires a minimum CIDR range of `/23` for use with Container Apps when using the Consumption only environment. When using the Workload Profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking environment overview](./networking.md#subnet).
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az network vnet create \
@@ -114,7 +138,7 @@ $VnetArgs = @{
     Location = $Location
     ResourceGroupName = $ResourceGroupName
     AddressPrefix = '10.0.0.0/16'
-    Subnet = $subnet 
+    Subnet = $subnet
 }
 $vnet = New-AzVirtualNetwork @VnetArgs
 ```
@@ -123,7 +147,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 With the VNET established, you can now query for the infrastructure subnet ID.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
@@ -139,7 +163,7 @@ $InfrastructureSubnet = (Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name
 
 Finally, create the Container Apps environment with the VNET and subnet.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az containerapp env create \
@@ -156,7 +180,7 @@ The following table describes the parameters used in for `containerapp env creat
 |---|---|
 | `name` | Name of the Container Apps environment. |
 | `resource-group` | Name of the resource group. |
-| `logs-workspace-id` | (Optional) The ID of an existing the Log Analytics workspace.  If omitted, a workspace will be created for you. |
+| `logs-workspace-id` | (Optional) The ID of an existing the Log Analytics workspace.  If omitted, a workspace is created for you. |
 | `logs-workspace-key` | The Log Analytics client secret. Required if using an existing workspace. |
 | `location` | The Azure location where the environment is to deploy.  |
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
@@ -223,7 +247,7 @@ If you want to deploy your container app with a private DNS, run the following c
 
 First, extract identifiable information from the environment.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query properties.defaultDomain --out json | tr -d '"'`
@@ -251,7 +275,7 @@ $EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvi
 
 Next, set up the private DNS.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az network private-dns zone create \
@@ -294,7 +318,7 @@ $DnsRecordArgs = @{
     ZoneName = $EnvironmentDefaultDomain
     Name = '*'
     RecordType = 'A'
-    Ttl = 3600 
+    Ttl = 3600
     PrivateDnsRecords = $DnsRecords
 }
 New-AzPrivateDnsRecordSet @DnsRecordArgs
@@ -308,7 +332,7 @@ There are three optional networking parameters you can choose to define when cal
 
 You must either provide values for all three of these properties, or none of them. If they aren’t provided, the values are generated for you.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 | Parameter | Description |
 |---|---|
@@ -338,14 +362,14 @@ You must either provide values for all three of these properties, or none of the
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
+If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group removes the resource group automatically created by the Container Apps service containing the custom network components.
 
 ::: zone pivot="azure-cli"
 
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP

@@ -197,6 +197,12 @@ After you create a shared private endpoint, you can create a custom certificate 
 
 You don't have to explicitly allow Azure Web PubSub Service IPs in Key Vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
 
+## Certificate rotation
+
+If you don't specify a secret version when creating custom certificate, Azure Web PubSub Service periodically checks latest version in Key Vault. When a new version is observed, it's automatically applied. The delay is usually within 1 hour.
+
+Alternatively, you can also pin custom certificate to a specific secret version in Key Vault. When you need to apply a new certificate, you can edit the secret version and then update custom certificate proactively. 
+
 ## Next steps
 
 * [How to enable managed identity for Azure Web PubSub Service](howto-use-managed-identity.md)

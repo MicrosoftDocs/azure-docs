@@ -5,7 +5,6 @@ author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.custom: event-tier1-build-2022
 ms.date: 11/16/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
@@ -33,7 +32,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/configure-network-firewall-sql-database.png" alt-text="Screenshot that shows how to configure firewalls for your SQL database by using the Azure portal.":::
 
-1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the logical server. If you want to have your Azure Synapse workspace connect to your Azure SQL database by using a managed identity, set the Azure Active Directory admin permissions on the logical server. To apply the privileges in step 6, use the same admin name to connect to the logical server with administrative privileges.
+1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the logical server. If you want to have your Azure Synapse workspace connect to your Azure SQL database by using a managed identity, set the Microsoft Entra admin permissions on the logical server. To apply the privileges in step 6, use the same admin name to connect to the logical server with administrative privileges.
 
 1. Expand **Databases**, right-click the database you've created, and then select **New Query**.
 

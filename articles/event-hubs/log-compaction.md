@@ -3,7 +3,6 @@ title: Log compaction in Azure Event Hubs
 description: This article describes how the log compaction feature works in Event Hubs.
 ms.topic: article
 ms.date: 05/18/2023
-ms.custom: ignite-2022
 ---
 
 # Log compaction in Azure Event Hubs

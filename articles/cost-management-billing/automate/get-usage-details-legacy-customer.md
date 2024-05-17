@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how you get cost data if you have a MOSP pay-as-you-go subscription.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 11/17/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Get cost details for a pay-as-you-go subscription
@@ -42,7 +42,8 @@ If you need actual costs to show purchases as they're accrued, change the `metri
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
-## Next steps
+
+## Related content
 
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

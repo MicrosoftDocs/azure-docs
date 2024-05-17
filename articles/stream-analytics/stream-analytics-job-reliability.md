@@ -6,7 +6,6 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/10/2022
-ms.custom: seodec18
 ---
 
 # Guarantee Stream Analytics job reliability during service updates

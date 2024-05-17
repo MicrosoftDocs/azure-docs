@@ -2,11 +2,13 @@
 title: Log-based and pre-aggregated metrics in Application Insights | Microsoft Docs
 description: This article explains when to use log-based versus pre-aggregated metrics in Application Insights.
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 01/31/2024
 ms.reviewer: vitalyg
 ---
 
 # Log-based and pre-aggregated metrics in Application Insights
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 This article explains the difference between "traditional" Application Insights metrics that are based on logs and pre-aggregated metrics. Both types of metrics are available to users of Application Insights. Each one brings a unique value in monitoring application health, diagnostics, and analytics. The developers who are instrumenting applications can decide which type of metric is best suited to a particular scenario. Decisions are based on the size of the application, expected volume of telemetry, and business requirements for metrics precision and alerting.
 
@@ -32,7 +34,7 @@ The newer SDKs ([Application Insights 2.7](https://www.nuget.org/packages/Micros
 
 For the SDKs that don't implement pre-aggregation (that is, older versions of Application Insights SDKs or for browser instrumentation), the Application Insights back end still populates the new metrics by aggregating the events received by the Application Insights event collection endpoint. Although you don't benefit from the reduced volume of data transmitted over the wire, you can still use the pre-aggregated metrics and experience better performance and support of the near real time dimensional alerting with SDKs that don't pre-aggregate metrics during collection.
 
-The collection endpoint pre-aggregates events before ingestion sampling. For this reason, [ingestion sampling](./sampling.md) will never affect the accuracy of pre-aggregated metrics, regardless of the SDK version you use with your application.
+The collection endpoint pre-aggregates events before ingestion sampling. For this reason, [ingestion sampling](./sampling.md) never affects the accuracy of pre-aggregated metrics, regardless of the SDK version you use with your application.
 
 ### SDK supported pre-aggregated metrics table
 
@@ -41,10 +43,10 @@ The collection endpoint pre-aggregates events before ingestion sampling. For thi
 | .NET Core and .NET Framework | Supported (V2.13.1+)| Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Supported (V2.7.2+) via [GetMetric](get-metric.md) |
 | Java                         | Not supported       | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not supported                           |
 | Node.js                      | Supported (V2.0.0+) | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not supported                           |
-| Python                       | Not supported       | Supported                                 | Partially supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
+| Python                       | Not supported       | Supported                                 | Partially supported via [OpenCensus.stats](/previous-versions/azure/azure-monitor/app/opencensus-python#metrics) |  
 
 > [!NOTE]
-> The metrics implementation for Python by using OpenCensus.stats is different from GetMetric. For more information, see the [Python documentation on metrics](./opencensus-python.md#metrics).
+> The metrics implementation for Python by using OpenCensus.stats is different from GetMetric. For more information, see the [Python documentation on metrics](/previous-versions/azure/azure-monitor/app/opencensus-python#metrics).
 
 ### Codeless supported pre-aggregated metrics table
 
@@ -60,13 +62,16 @@ The collection endpoint pre-aggregates events before ingestion sampling. For thi
 
 ## Use pre-aggregation with Application Insights custom metrics
 
-You can use pre-aggregation with custom metrics. The two main benefits are the ability to configure and alert on a dimension of a custom metric and reducing the volume of data sent from the SDK to the Application Insights collection endpoint.
+You can use pre-aggregation with custom metrics. The two main benefits are: 
 
-There are several [ways of sending custom metrics from the Application Insights SDK](./api-custom-events-metrics.md). If your version of the SDK offers [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric), these methods are the preferred way of sending custom metrics. In this case, pre-aggregation happens inside the SDK. This approach reduces the volume of data stored in Azure and also the volume of data transmitted from the SDK to Application Insights. Otherwise, use the [trackMetric](./api-custom-events-metrics.md#trackmetric) method, which will pre-aggregate metric events during data ingestion.
+- The ability to configure and alert on a dimension of a custom metric
+- Reduce the volume of data sent from the SDK to the Application Insights collection endpoint
+
+There are several [ways of sending custom metrics from the Application Insights SDK](./api-custom-events-metrics.md). If your version of the SDK offers [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric), these methods are the preferred way of sending custom metrics. In this case, pre-aggregation happens inside the SDK. This approach reduces the volume of data stored in Azure and also the volume of data transmitted from the SDK to Application Insights. Otherwise, use the [trackMetric](./api-custom-events-metrics.md#trackmetric) method, which pre-aggregates metric events during data ingestion.
 
 ## Custom metrics dimensions and pre-aggregation
 
-All metrics that you send by using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. Although the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](../usage-estimated-costs.md#usage-and-estimated-costs) tab by selecting the **Enable alerting on custom metric dimensions** checkbox.
+All metrics that you send using [OpenTelemetry](opentelemetry-add-modify.md), [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. These metrics can be found in the customMetrics table in Application Insights and in Metrics Explorer under the Custom Metric Namespace called "azure.applicationinsights". Although the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. Retaining dimensions of custom metrics is a Preview feature that can be turned on from the [Usage and estimated cost](../cost-usage.md#usage-and-estimated-costs) tab by selecting **With dimensions** under **Send custom metrics to Azure Metric Store**.
 
 :::image type="content" source="./media/pre-aggregated-metrics-log-metrics/001-cost.png" lightbox="./media/pre-aggregated-metrics-log-metrics/001-cost.png" alt-text="Screenshot that shows usage and estimated costs.":::
 
@@ -95,7 +100,7 @@ Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dime
 
 ## Next steps
 
-* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Near real time alerting](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric)

@@ -4,12 +4,13 @@ description: Learn how to deploy a self-hosted gateway component of Azure API Ma
 author: dlepow
 manager: gwallace
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.author: danlep
 ms.date: 05/22/2023
 ---
 # Deploy a self-hosted gateway to Kubernetes with YAML
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster.
 
@@ -17,8 +18,6 @@ This article describes the steps for deploying the self-hosted gateway component
 
 > [!NOTE]
 > You can also deploy self-hosted gateway to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 
@@ -31,7 +30,7 @@ This article describes the steps for deploying the self-hosted gateway component
 ## Deploy to Kubernetes
 
 > [!TIP]
-> The following steps deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using a gateway access token (authentication key). You can also deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using [Azure AD](self-hosted-gateway-enable-azure-ad.md).
+> The following steps deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using a gateway access token (authentication key). You can also deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using [Microsoft Entra ID](self-hosted-gateway-enable-azure-ad.md).
 
 1. Select **Gateways** under **Deployment and infrastructure**.
 2. Select the self-hosted gateway resource that you want to deploy.

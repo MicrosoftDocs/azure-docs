@@ -3,7 +3,6 @@ title: include file
 description: include file
 services: site-recovery
 author: ankitaduttaMSFT
-manager: carmonm
 ms.service: site-recovery
 ms.topic: include
 ms.date: 09/12/2018
@@ -12,7 +11,7 @@ ms.author: ankitadutta
 ---
 Name | Commercial URL | Government URL | Description
 --- | --- | --- | ---
-Azure Active Directory | `login.microsoftonline.com` | `login.microsoftonline.us` | Used for access control and identity management.
+Microsoft Entra ID | `login.microsoftonline.com` | `login.microsoftonline.us` | Used for access control and identity management.
 Backup | `*.backup.windowsazure.com` | `*.backup.windowsazure.us` | Used for replication data transfer and coordination.
 Replication | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`  | Used for replication management operations and coordination.
 Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`  | Used for access to the storage account that stores replicated data.

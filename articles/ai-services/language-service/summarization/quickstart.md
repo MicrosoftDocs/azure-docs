@@ -2,16 +2,16 @@
 title: "Quickstart: Use Document Summarization"
 titleSuffix: Azure AI services
 description: Use this quickstart to start using Document Summarization.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 02/17/2023
-ms.author: aahi
-ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-summarization, ignite-fall-2021, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 12/19/2023
+ms.author: jboback
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-summarization, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-text-analytics
 ---
 

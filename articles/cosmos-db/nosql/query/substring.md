@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns part of a string expression starting at the specified position and of th
 
 ## Syntax
 
-```sql
+```nosql
 SUBSTRING(<string_expr>, <numeric_expr_1>, <numeric_expr_2>)  
 ```
 
@@ -40,7 +41,7 @@ Returns a string expression.
 
 The following example returns substrings with various lengths and starting positions.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/substring/query.sql" highlight="2-5":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/substring/query.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/substring/result.json":::
 
@@ -50,7 +51,7 @@ The following example returns substrings with various lengths and starting posit
 - `numeric_expr_1` positions are zero-based, therefore a value of `0` starts from the first character of `string_expr`.
 - A value of `0` or less for `numeric_expr_2` results in empty string.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`StringEquals`](stringequals.md)

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -55,7 +55,24 @@ An Azure integration runtime can:
 
 - Run Data Flows in Azure 
 - Run copy activities between cloud data stores
-- Dispatch the following transform activities in a public network: Databricks Notebook/ Jar/ Python activity, HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, ML Studio (classic) Batch Execution activity, ML Studio (classic) Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Web activity, Lookup activity, and Get Metadata activity.
+- Dispatch the following transform activities in a public network: 
+   - .NET custom activity
+   - Azure Function activity
+   - Databricks Notebook/ Jar/ Python activity
+   - Data Lake Analytics U-SQL activity
+   - Get Metadata activity
+   - HDInsight Hive activity
+   - HDInsight Pig activity
+   - HDInsight MapReduce activity
+   - HDInsight Spark activity
+   - HDInsight Streaming activity
+   - Lookup activity
+   - Machine Learning Studio (classic) Batch Execution activity
+   - Machine Learning Studio (classic) Update Resource activity
+   - Stored Procedure activity
+   - Validation activity
+   - Web activity
+   
 
 ### Azure IR network environment
 
@@ -78,7 +95,23 @@ For information about creating and configuring an Azure IR, see [How to create a
 A self-hosted IR is capable of:
 
 - Running copy activity between a cloud data stores and a data store in private network.
-- Dispatching the following transform activities against compute resources in on-premises or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), ML Studio (classic) Batch Execution activity, ML Studio (classic) Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, Custom activity (runs on Azure Batch), Lookup activity, and Get Metadata activity.
+- Dispatching the following transform activities against compute resources in on-premises or Azure Virtual Network: 
+  - Azure Function activity
+  - Custom activity (runs on Azure Batch)
+  - Data Lake Analytics U-SQL activity
+  - Get Metadata activity
+  - HDInsight Hive activity (BYOC-Bring Your Own Cluster)
+  - HDInsight Pig activity (BYOC)
+  - HDInsight MapReduce activity (BYOC)
+  - HDInsight Spark activity (BYOC)
+  - HDInsight Streaming activity (BYOC)
+  - Lookup activity
+  - Machine Learning Studio (classic) Batch Execution activity
+  - Machine Learning Studio (classic) Update Resource activity
+  - Machine Learning Execute Pipeline activity
+  - Stored Procedure activity
+  - Validation activity
+  - Web activity
 
 > [!NOTE] 
 > Use self-hosted integration runtime to support data stores that require bring-your-own driver, such as SAP Hana, MySQL, etc.  For more information, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -203,7 +236,7 @@ Data Flow activities are executed on their associated Azure integration runtime.
 ## Integration Runtime in CI/CD
 Integration runtimes don't change often and are similar across all stages in your CI/CD. Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a dedicated factory just to contain the shared integration runtimes. You can then use this shared factory in all of your environments as a linked integration runtime type.
 
-## Next steps
+## Related content
 
 See the following articles:
 

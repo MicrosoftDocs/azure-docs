@@ -2,7 +2,6 @@
 title: Import Azure Web App to Azure API Management  | Microsoft Docs
 description: This article shows you how to use Azure API Management to import a web API hosted in Azure App Service.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -12,6 +11,8 @@ ms.author: danlep
 
 ---
 # Import an Azure Web App as an API
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows how to import an Azure Web App to Azure API Management and test the imported API, using the Azure portal.
 

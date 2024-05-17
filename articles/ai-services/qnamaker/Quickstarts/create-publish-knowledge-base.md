@@ -1,17 +1,20 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: quickstart
-ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-other
+ms.date: 01/19/2024
+ms.custom: mode-other
 ---
 
 # Quickstart: Create, train, and publish your QnA Maker knowledge base
+
+> [!NOTE]
+> [Azure Open AI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure Open AI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
@@ -21,7 +24,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA Maker resource name you selected when you created the resource.
+> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Microsoft Entra ID, Subscription, QnA Maker resource name you selected when you created the resource.
 
 ## Create your first QnA Maker knowledge base
 
@@ -31,7 +34,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 3. On the **Create** page, skip **Step 1** if you already have your QnA Maker resource.
 
-If you haven't created the service yet, select **Stable** and **Create a QnA service**. You are directed to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+If you haven't created the service yet, select **Stable** and **Create a QnA service**. You are directed to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Microsoft Entra ID, Subscription, QnA resource name you selected when you created the resource.
 
 When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 

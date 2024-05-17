@@ -2,21 +2,15 @@
 title: SAP LaMa connector for Azure
 description: Learn how to manage SAP systems on Azure by using SAP LaMa.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: ''
-tags: azure-resource-manager
-keywords: ''
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.custom: subject-rbac-steps
-
 ---
 # SAP LaMa connector for Azure
 
@@ -82,7 +76,7 @@ The connector for Azure uses the Azure Resource Manager API to manage your Azure
 Follow these steps to create a service principal for the SAP LaMa connector for Azure:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-1. Open the **Azure Active Directory** pane.
+1. Open the **Microsoft Entra ID** pane.
 1. Select **App registrations**.
 1. Select **New registration**.
 1. Enter a name, and then select **Register**.
@@ -91,13 +85,13 @@ Follow these steps to create a service principal for the SAP LaMa connector for 
 1. Write down the value. You'll use it as the password for the service principal.
 1. Write down the application ID. You'll use it as the username of the service principal.
 
-By default, the service principal doesn't have permissions to access your Azure resources. Assign the Contributor role to the service principal at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+By default, the service principal doesn't have permissions to access your Azure resources. Assign the Contributor role to the service principal at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use a managed identity to get access to the Azure API
 
 To be able to use a managed identity, your SAP LaMa instance has to run on an Azure VM that has a system-assigned or user-assigned identity. For more information about managed identities, read [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-By default, the managed identity doesn't have permissions to access your Azure resources. Assign the Contributor role to the VM identity at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+By default, the managed identity doesn't have permissions to access your Azure resources. Assign the Contributor role to the VM identity at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 In your configuration of the SAP LaMa connector for Azure, select **Use Managed Identity** to enable the use of the managed identity. If you want to use a system-assigned identity, leave the **User Name** field empty. If you want to use a user-assigned identity, enter its ID in the **User Name** field.
 
@@ -112,7 +106,7 @@ Open the SAP LaMa website and go to **Infrastructure**. On the **Cloud Managers*
 * **Monitoring Interval (Seconds)**: Enter an interval of at least 300.
 * **Use Managed Identity**: Select to enable SAP LaMa to use a system-assigned or user-assigned identity to authenticate against the Azure API.
 * **Subscription ID**: Enter the Azure subscription ID.
-* **Azure Active Directory Tenant ID**: Enter the ID of the Active Directory tenant.
+* **Microsoft Entra tenant ID**: Enter the ID of the Active Directory tenant.
 * **Proxy host**: Enter the host name of the proxy if SAP LaMa needs a proxy to connect to the internet.
 * **Proxy port**: Enter the TCP port of the proxy.
 * **Change Storage Type to save costs**: Enable this setting if the Azure adapter should change the storage type of the managed disks to save costs when the disks are not in use.

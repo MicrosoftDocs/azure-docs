@@ -3,12 +3,12 @@ title: Azure CLI Script Sample - Create an Azure App Configuration Store
 titleSuffix: Azure App Configuration
 description: Create an Azure App Configuration store using a sample Azure CLI script. See reference article links to commands used in the script.
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 01/18/2023
-ms.author: mcleans 
+ms.date: 04/12/2024
+ms.author: malev 
 ms.custom: devx-track-azurecli
 ---
 
@@ -18,7 +18,7 @@ This sample script creates a new instance of Azure App Configuration using the A
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -12,4 +12,4 @@ ms.custom: include file
 ---
 
 > [!NOTE]
-> You can't transfer subscriptions to an Azure AD B2B or Azure B2C tenant.
+> You can't transfer subscriptions to a Microsoft Entra B2B or Azure B2C tenant.

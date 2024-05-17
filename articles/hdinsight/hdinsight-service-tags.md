@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 10/24/2022
+ms.date: 11/23/2023
 ---
 
 # NSG service tags for Azure HDInsight
@@ -37,7 +37,7 @@ The easiest way to begin using service tags with your HDInsight cluster is to ad
 
 1. From the **Source service tag** drop-down list, select **HDInsight**.
 
-    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Add a service tag from the Azure portal":::
+    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Add a service tag from the Azure portal.":::
 
 This tag contains the IP addresses of health and management services for all regions where HDInsight is available. The tag will ensure that your cluster can communicate with the necessary health and management services no matter where it's created.
 

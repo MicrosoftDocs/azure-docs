@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 04/16/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 - **Order details**. When an order is created, the shipping address, email address, and contact information of the user is stored in the Azure portal. The information saved includes:

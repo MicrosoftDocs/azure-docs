@@ -4,11 +4,9 @@ description: Learn more about how Azure Dedicated Hosts can be used for deployin
 author: vamckMS
 ms.service: azure-dedicated-host
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.date: 1/25/2023
 ms.author: vakavuru
 ms.reviewer: mattmcinnes
-
 #Customer intent: As an IT administrator, I want to learn more about using a dedicated host for my Azure virtual machines
 ---
 
@@ -230,7 +228,3 @@ Azure monitors and manages the health status of your hosts. The following states
 - There's a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
-
-
-
-

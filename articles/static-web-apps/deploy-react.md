@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a React app on Azure Static Web Apps'
+title: 'Deploy a React app on Azure Static Web Apps'
 description: Learn to deploy a React app to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---
 
-# Tutorial: Deploy a React app on Azure Static Web Apps
+# Deploy a React app on Azure Static Web Apps
 
 In this article, you learn to deploy a React application to Azure Static Web Apps using the Azure portal.
 
@@ -28,7 +28,7 @@ This article uses a GitHub template repository to make it easy for you to get st
 
     [https://github.com/staticwebdev/react-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Freact-basic%2Fgenerate)
 
-1. Name your repository **my-first-static-web-app**
+1. Name your repository **my-first-static-web-app**.
 
 1. Select **Create repository from template**.
 
@@ -107,4 +107,4 @@ Select **Go to resource**.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./application-settings.md)
+> [Add an API to your application](./add-api.md?tabs=react)

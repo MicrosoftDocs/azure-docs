@@ -67,7 +67,7 @@ Public IP addresses can be created with an IPv4 or IPv6 address. You may be give
 
 ## SKU
 
-Public IP addresses are created with one of the following SKUs:
+Public IP addresses are created with a SKU of **Standard** or **Basic**.  The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.  Full details are listed in the table below:
 
 | Public IP address | Standard  | Basic |
 | --- | --- | --- |
@@ -82,7 +82,7 @@ Public IP addresses are created with one of the following SKUs:
 > Basic SKU IPv4 addresses can be upgraded after creation to Standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](public-ip-upgrade-portal.md).
 
 >[!IMPORTANT]
-> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources. For more information about a standard load balancer, see [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Virtual machines attached to a backend pool do not need a public IP address to be attached to a public load balancer. But if they do, matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources. For more information about a standard load balancer, see [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## IP address assignment
 
@@ -116,7 +116,7 @@ For example, a public IP resource is released from a resource named **Resource A
 | Basic public IPv4 | :white_check_mark: | :white_check_mark: |
 | Basic public IPv6 | x | :white_check_mark: |
 
-## DNS Name Label
+## Domain Name Label
 
 Select this option to specify a DNS label for a public IP resource. This functionality works for both IPv4 addresses (32-bit A records) and IPv6 addresses (128-bit AAAA records). This selection creates a mapping for **domainnamelabel**.**location**.cloudapp.azure.com to the public IP in the Azure-managed DNS. 
 
@@ -133,11 +133,32 @@ The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** res
 
 If a custom domain is desired for services that use a public IP, you can use [Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
 
+## Domain Name Label Scope (preview)
+
+Public IPs also have an optional parameter for **Domain Name Label Scope**, which defines what domain label an object with the same name will use. This feature can help to prevent "dangling DNS names" which can be reused by malicious actors.  When this option is chosen, the public IP address' DNS name will have an additional string in between the **domainnamelabel** and **location** fields, e.g. **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com**.  (This string is a hash generated from input specific to your subscription, resource group, domain name label, and other properties.)
+
+>[!Important]
+> Domain Name Label Scope is currently in public preview.  It's provided without a service-level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The value of the **Domain Name Label Scope** must match one of the options below:
+
+| Value | Behavior |
+| --- | --- |
+| TenantReuse |	Object with the same name in the same tenant will receive the same Domain Label |
+| SubscriptionReuse	| Object with the same name in the same subscription will receive the same Domain Label |
+| ResourceGroupReuse | Object with the same name in the same Resource Group will receive the same Domain Label |
+| NoReuse | Object with the same name will receive a new Domain Label for each new instance |
+
+For example, if **SubscriptionReuse** is selected as the option, and a customer who has the example domain name label **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com** deletes and re-deploys a public IP address using the same template as before, the domain name label will remain the same.  If the customer deploys a public IP address using this same template under a different subscription, the domain name label would change (e.g. **contoso.c9ghbqhhbxevhzg9.westus.cloudapp.Azure.com**).
+
+> [!IMPORTANT]
+> The domain name label scope can only be specified at the creation of a public IP address.
+
 ## Availability Zone
 
 Public IP addresses with a standard SKU can be created as nonzonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). 
 
-A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "nonzonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
+A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "nonzonal" public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
 
 In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain nonzonal.  A public IP's availability zone can't be changed after the public IP's creation.
 
@@ -148,7 +169,7 @@ In regions without availability zones, all public IP addresses are created as no
 
 There are other attributes that can be used for a public IP address.  
 
-* The Global **Tier** allows a public IP address to be used with cross-region load balancers. 
+* The Global **Tier** option creates a global anycast IP that can be used with cross-region load balancers.
 
 * The Internet **Routing Preference** option minimizes the time that traffic spends on the Microsoft network, lowering the egress data transfer cost.
 

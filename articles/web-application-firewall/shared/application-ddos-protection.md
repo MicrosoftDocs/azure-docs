@@ -27,7 +27,7 @@ Azure WAF has many features that can be used to mitigate many different types of
 
 * Use bot protection managed rule set to protect against known bad bots. For more information, see [Configuring bot protection](../afds/waf-front-door-policy-configure-bot-protection.md).
 
-* Apply rate limit to prevent IP addresses from calling your service too frequently. For more information, see [Rate limiting](../afds/waf-front-door-rate-limit.md).
+* Apply rate limits to prevent IP addresses from calling your service too frequently. For more information, see [Rate limiting](../afds/waf-front-door-rate-limit.md).
 
 * Block IP addresses, and ranges that you identify as malicious. For more information, see [IP restrictions](../afds/waf-front-door-configure-ip-restriction.md).
 
@@ -49,6 +49,8 @@ Application Gateway WAF SKUs can be used to mitigate many L7 DDoS attacks:
 
 * Use bot protection managed rule set provides protection against known bad bots. For more information, see [Configuring bot protection](../ag/bot-protection.md).
 
+* Apply rate limits to prevent IP addresses from calling your service too frequently. For more information, see [Configuring Rate limiting custom rules](../ag/rate-limiting-configure.md).
+
 * Block IP addresses, and ranges that you identify as malicious. For more information, see examples at [Create and use v2 custom rules](../ag/create-custom-waf-rules.md).
 
 * Block or redirect to a static web page any traffic from outside a defined geographic region, or within a defined region that doesn't fit the application traffic pattern. For more information, see examples at [Create and use v2 custom rules](../ag/create-custom-waf-rules.md).
@@ -57,7 +59,7 @@ Application Gateway WAF SKUs can be used to mitigate many L7 DDoS attacks:
 
 ## Other considerations
 
-* Lock down access to public IPs on origin and restrict inbound traffic to only allow traffic from Azure Front Door or Application Gateway to origin. Refer to the [guidance on Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-). Application Gateways are deployed in a virtual network, ensure there isn't any publicly exposed IPs.
+* Lock down access to public IPs on origin and restrict inbound traffic to only allow traffic from Azure Front Door or Application Gateway to origin. Refer to the [guidance on Azure Front Door](../../frontdoor/front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-). Application Gateways are deployed in a virtual network, ensure there isn't any publicly exposed IPs.
 
 * Switch WAF policy to the prevention mode. Deploying the policy in detection mode operates in the log only and doesn't block traffic. After verifying and testing your WAF policy with production traffic and fine tuning to reduce any false positives, you should turn policy to Prevention mode (block/defend mode). 
 
@@ -65,9 +67,9 @@ Application Gateway WAF SKUs can be used to mitigate many L7 DDoS attacks:
 
 * You can bypass the WAF for known legitimate traffic by creating Match Custom Rules with the action of Allow to reduce false positive. These rules should be configured with a high priority (lower numeric value) than other block and rate limit rules.
 
-* Depending on your traffic pattern, create a preventive rate limit rule (only applies to Azure Front Door). For example, you can configure a rate limit rule to not allow any single *Client IP address* to send more than XXX traffic per window to your site. Azure Front Door supports two fixed windows for tracking requests, 1 and 5 minutes. It's recommended to use the 5-minute window for better mitigation of HTTP Flood attacks. For example, **Configure a Rate Limit Rule**, which blocks any *Source IP* that exceeds 100 requests in a 5-minute window. This rule should be the lowest priority rule (priority is ordered with 1 being the highest priority), so that more specific Rate Limit rules or Match rules can be created to match before this rule.
+* At a minimum, you should have a rate limit rule that blocks high rate of requests from any single IP address. For example, you can configure a rate limit rule to not allow any single *Client IP address* to send more than XXX traffic per window to your site. Azure WAF supports two windows for tracking requests, 1 and 5 minutes. It's recommended to use the 5-minute window for better mitigation of HTTP Flood attacks. This rule should be the lowest priority rule (priority is ordered with 1 being the highest priority), so that more specific Rate Limit rules or Match rules can be created to match before this rule.  If you are using Application Gateway WAF v2, you can make use of additional rate limiting configurations to track and block clients by methods other than Client IP.  More information on Rate Limits on Application Gateway waf can be found at [Rate limiting overview](../ag/rate-limiting-overview.md).
 
-    The following Log Analytics query can be helpful in determining the threshold you should use for the above rule.
+    The following Log Analytics query can be helpful in determining the threshold you should use for the above rule.  For a similar query but with Application Gateway, replace "FrontdoorAccessLog" with "ApplicationGatewayAccessLog".
 
     ```
     AzureDiagnostics

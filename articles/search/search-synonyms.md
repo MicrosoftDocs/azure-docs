@@ -1,29 +1,32 @@
 ---
-title: Synonyms for query expansion over a search index
-titleSuffix: Azure Cognitive Search
-description: Create a synonym map to expand the scope of a search query on an Azure Cognitive Search index. Scope is broadened to include equivalent terms you provide in a list.
+title: Synonyms for query expansion
+titleSuffix: Azure AI Search
+description: Create a synonym map to expand the scope of a search query over an Azure AI Search index. Scope is broadened to include equivalent terms you provide in the synonym map.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 04/22/2024
 ---
-# Synonyms in Azure Cognitive Search
 
-Within a search service, synonym maps are a global resource that associate equivalent terms, expanding the scope of a query without the user having to actually provide the term. For example, assuming "dog", "canine", and "puppy" are mapped synonyms, a query on "canine" will match on a document containing "dog".
+# Synonyms in Azure AI Search
+
+On a search service, synonym maps are a global resource that associate equivalent terms, expanding the scope of a query without the user having to actually provide the term. For example, assuming "dog", "canine", and "puppy" are mapped synonyms, a query on "canine" will match on a document containing "dog".
 
 ## Create synonyms
 
 A synonym map is an asset that can be created once and used by many indexes. The [service tier](search-limits-quotas-capacity.md#synonym-limits) determines how many synonym maps you can create, ranging from three synonym maps for Free and Basic tiers, up to 20 for the Standard tiers. 
 
-You might create multiple synonym maps for different languages, such as English and French versions, or lexicons if your content includes technical or obscure terminology. Although you can create multiple synonym maps in your search service, within an index, a field definition can only have one synonym map assignment.
+You might create multiple synonym maps for different languages, such as English and French versions, or lexicons if your content includes technical jargon, slang, or obscure terminology. Although you can create multiple synonym maps in your search service, within an index, a field definition can only have one synonym map assignment.
 
 A synonym map consists of name, format, and rules that function as synonym map entries. The only format that is supported is `solr`, and the `solr` format determines rule construction.
 
 ```http
-POST /synonymmaps?api-version=2020-06-30
+POST /synonymmaps?api-version=2023-11-01
 {
     "name": "geo-synonyms",
     "format": "solr",
@@ -36,7 +39,7 @@ POST /synonymmaps?api-version=2020-06-30
 To create a synonym map, do so programmatically (the portal doesn't support synonym map definitions):
 
 + [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map). This reference is the most descriptive.
-+ [SynonymMap class (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) and [Add Synonyms using C#](search-synonyms-tutorial-sdk.md)
++ [SynonymMap class (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) and [Create a synonym map(Azure SDK sample)](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample02_Service.md#create-a-synonym-map)
 + [SynonymMap class (Python)](/python/api/azure-search-documents/azure.search.documents.indexes.models.synonymmap)
 + [SynonymMap interface (JavaScript)](/javascript/api/@azure/search-documents/synonymmap)
 + [SynonymMap class (Java)](/java/api/com.azure.search.documents.indexes.models.synonymmap)
@@ -51,13 +54,13 @@ Mapping rules adhere to the open-source synonym filter specification of Apache S
 
 Each rule must be delimited by the new line character (`\n`). You can define up to 5,000 rules per synonym map in a free service and 20,000 rules per map in other tiers. Each rule can have up to 20 expansions (or items in a rule). For more information, see [Synonym limits](search-limits-quotas-capacity.md#synonym-limits).
 
-Query parsers will lower-case any upper or mixed case terms, but if you want to preserve special characters in the string, such as a comma or dash, add the appropriate escape characters when creating the synonym map.
+Query parsers automatically lower-case any upper or mixed case terms, but if you want to preserve special characters in the string, such as a comma or dash, add the appropriate escape characters when creating the synonym map.
 
 ### Equivalency rules
 
-Rules for equivalent terms are comma-delimited within the same rule. In the first example, a query on `USA` will expand to `USA` OR `"United States"` OR `"United States of America"`. Notice that if you want to match on a phrase, the query itself must be a quote-enclosed phrase query.
+Rules for equivalent terms are comma-delimited within the same rule. In the first example, a query on `USA` expands to `USA` OR `"United States"` OR `"United States of America"`. Notice that if you want to match on a phrase, the query itself must be a quote-enclosed phrase query.
 
-In the equivalence case, a query for `dog` will expand the query to also include `puppy` and `canine`.
+In the equivalence case, a query for `dog` expands the query to also include `puppy` and `canine`.
 
 ```json
 {
@@ -71,9 +74,9 @@ In the equivalence case, a query for `dog` will expand the query to also include
 
 ### Explicit mapping
 
-Rules for an explicit mapping are denoted by an arrow `=>`. When specified, a term sequence of a search query that matches the left-hand side of `=>` will be replaced with the alternatives on the right-hand side at query time.
+Rules for an explicit mapping are denoted by an arrow `=>`. When specified, a term sequence of a search query that matches the left-hand side of `=>` is replaced with the alternatives on the right-hand side at query time.
 
-In the explicit case, a query for `Washington`, `Wash.` or `WA` will be rewritten as `WA`, and the query engine will only look for matches on the term `WA`. Explicit mapping only applies in the direction specified, and doesn't rewrite the query `WA` to `Washington` in this case.
+In the explicit case, a query for `Washington`, `Wash.` or `WA` is rewritten as `WA`, and the query engine only looks for matches on the term `WA`. Explicit mapping only applies in the direction specified, and doesn't rewrite the query `WA` to `Washington` in this case.
 
 ```json
 {
@@ -97,8 +100,8 @@ The following example shows an example of how to escape a character with a backs
 
 ```json
 {
-"format": "solr",
-"synonyms": "WA\, USA, WA, Washington\n"
+    "format": "solr",
+    "synonyms": "WA\, USA, WA, Washington\n"
 }
 ```
 
@@ -106,8 +109,8 @@ Since the backslash is itself a special character in other languages like JSON a
 
 ```json
 {
-"format":"solr",
-"synonyms": "WA\\, USA, WA, Washington"
+    "format":"solr",
+    "synonyms": "WA\\, USA, WA, Washington"
 }
 ```
 
@@ -122,7 +125,7 @@ Creating, updating, and deleting a synonym map is always a whole-document operat
 After uploading a synonym map, you can enable the synonyms on fields of the type `Edm.String` or `Collection(Edm.String)`, on fields having `"searchable":true`. As noted, a field definition can use only one synonym map.
 
 ```http
-POST /indexes?api-version=2020-06-30
+POST /indexes?api-version=2023-11-01
 {
     "name":"hotels-sample-index",
     "fields":[

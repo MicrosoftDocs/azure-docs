@@ -4,13 +4,14 @@ description: The reward score indicates how well the personalization choice, Rew
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
-ms.date: 02/20/2020
+ms.service: azure-ai-personalizer
+ms.date: 01/19/2024
 ms.topic: conceptual
 ---
 
 # Reward scores indicate success of personalization
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 The reward score indicates how well the personalization choice, [RewardActionID](/rest/api/personalizer/1.0/rank/rank#response), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
 
@@ -93,7 +94,7 @@ By adding up reward scores, your final reward may be outside the expected score 
 
 ## Reward wait time
 
-Personalizer will correlate the information of a Rank call with the rewards sent in Reward calls to train the model, which may come at different times. Personalizer waits for the reward score for a defined limited time, starting when the corresponding Rank call occured. This is done even if the Rank call was made using deferred activation](concept-active-inactive-events.md).
+Personalizer will correlate the information of a Rank call with the rewards sent in Reward calls to train the model, which may come at different times. Personalizer waits for the reward score for a defined limited time, starting when the corresponding Rank call occurred. This is done even if the Rank call was made using deferred activation](concept-active-inactive-events.md).
 
 If the **Reward Wait Time** expires and there has been no reward information, a default reward is applied to that event for training. You can select a reward wait time of 10 minutes, 4 hours, 12 hours, or 24 hours. If your scenario requires longer reward wait times (e.g., for marketing email campaigns) we are offering a private preview of longer wait times. Open a support ticket in the Azure portal to get in contact with team and see if you qualify and it can be offered to you.
 

@@ -83,8 +83,6 @@ Your Azure Stack Edge Pro R device has the following network hardware:
 | PSID (R640)           | MT_2420110034                         |-->
 <!-- confirm w/ Ravi what is this-->
 
-For a full list of supported cables, switches, and transceivers for these network cards, go to [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
-
 ## Storage specifications
 
 Azure Stack Edge Pro R devices have eight data disks and two M.2 SATA disks that serve as operating system disks. For more information, go to [M.2 SATA disks](https://en.wikipedia.org/wiki/M.2).

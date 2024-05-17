@@ -29,13 +29,13 @@ The Route Directions and Route Matrix APIs in Azure Maps [Route service] can be 
 * An [Azure Maps account]
 * A [subscription key]
 
-For more information about the coverage of the Route service, see the [Routing Coverage].
+For more information about the coverage of the Route service, see [Routing Coverage].
 
 This article uses the [Postman] application to build REST calls, but you can choose any API development environment.
 
 ## Choose between Route Directions and Matrix Routing
 
-The Route Directions APIs return instructions including the travel time and the coordinates for a route path. The Route Matrix API lets you calculate the travel time and distances for a set of routes defined by origin and destination locations. For every given origin, the Matrix API calculates the cost (travel time and distance) of routing from that origin to every given destination. These API allow you to specify parameters such as the desired departure time, arrival times, and the vehicle type, like car or truck. They all use real-time or predictive traffic data accordingly to return the most optimal routes.
+The Route Directions APIs return instructions including the travel time and the coordinates for a route path. The Route Matrix API lets you calculate the travel time and distances for a set of routes defined by origin and destination locations. For every given origin, the Matrix API calculates the cost (travel time and distance) of routing from that origin to every given destination. These APIs allow you to specify parameters such as the desired departure time, arrival times, and the vehicle type, like car or truck. They all use real-time or predictive traffic data accordingly to return the most optimal routes.
 
 Consider calling Route Directions APIs if your scenario is to:
 
@@ -193,7 +193,7 @@ The response contains the sections that are suitable for traffic along the given
 
 This option can be used to color the sections when rendering the map, as in The following image:
 
-![Colored sections rendered on map](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
+:::image type="content" source="./media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png" lightbox="./media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png" border="false" alt-text="Screenshot showing colored sections rendered on map.":::
 
 ## Calculate and optimize a multi-stop route
 
@@ -203,7 +203,7 @@ Azure Maps currently provides two forms of route optimizations:
 
 * Traveling salesman optimization, which changes the order of the waypoints to obtain the best order to visit each stop
 
-For multi-stop routing, up to 150 waypoints may be specified in a single route request. The starting and ending coordinate locations can be the same, as would be the case with a round trip. But you need to provide at least one more waypoint to make the route calculation. Waypoints can be added to the query in-between the origin and destination coordinates.
+For multi-stop routing, up to 150 waypoints can be specified in a single route request. The starting and ending coordinate locations can be the same, as would be the case with a round trip. But you need to provide at least one more waypoint to make the route calculation. Waypoints can be added to the query in-between the origin and destination coordinates.
 
 If you want to optimize the best order to visit the given waypoints, then you need to specify **computeBestOrder=true**. This scenario is also known as the traveling salesman optimization problem.
 
@@ -221,7 +221,7 @@ The response describes the path length to be 140,851 meters, and that it would t
 
 The following image illustrates the path resulting from this query. This path is one possible route. It's not the optimal path based on time or distance.
 
-![Non-optimized image](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
+:::image type="content" source="./media/how-to-use-best-practices-for-routing/non-optimized-image-img.png" lightbox="./media/how-to-use-best-practices-for-routing/non-optimized-image-img.png" border="false" alt-text="Screenshot showing a map with a Non-optimized route.":::
 
 This route waypoint order is: 0, 1, 2, 3, 4, 5, and 6.
 
@@ -239,7 +239,7 @@ The response describes the path length to be 91,814 meters, and that it would ta
 
 The following image illustrates the path resulting from this query.
 
-![Optimized image](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
+:::image type="content" source="./media/how-to-use-best-practices-for-routing/optimized-image-img.png" lightbox="./media/how-to-use-best-practices-for-routing/optimized-image-img.png" border="false" alt-text="Screenshot showing a map with an optimized route.":::
 
 The optimal route has the following waypoint order: 0, 5, 1, 2, 4, 3, and 6.
 
@@ -248,7 +248,7 @@ The optimal route has the following waypoint order: 0, 5, 1, 2, 4, 3, and 6.
 
 ## Calculate and bias alternative routes using supporting points
 
-You might have situations where you want to reconstruct a route to calculate zero or more alternative routes for a reference route. For example, you may want to show customers alternative routes that pass your retail store. In this case, you need to bias a location using supporting points. Here are the steps to bias a location:
+You might have situations where you want to reconstruct a route to calculate zero or more alternative routes for a reference route. For example, you can show customers alternative routes that pass your retail store. In this case, you need to bias a location using supporting points. Here are the steps to bias a location:
 
 1. Calculate a route as-is and get the path from the route response
 2. Use the route path to find the desired locations along or near the route path. For example, you can use the [Point of Interest] request or query your own data in your database.  
@@ -259,11 +259,17 @@ When calling [Post Route Directions], you can set the minimum deviation time or 
 
 The following image is an example of rendering alternative routes with specified deviation limits for the time and the distance.
 
-![Alternative routes](media/how-to-use-best-practices-for-routing/alternative-routes-img.png)
+:::image type="content" source="./media/how-to-use-best-practices-for-routing/alternative-routes-img.png" lightbox="./media/how-to-use-best-practices-for-routing/alternative-routes-img.png" border="false" alt-text="Screenshot showing a map with an alternative route.":::
 
 ## Use the Routing service in a web app
 
 The Azure Maps Web SDK provides a [Service module]. This module is a helper library that makes it easy to use the Azure Maps REST APIs in web or Node.js applications, using JavaScript or TypeScript. The Service module can be used to render the returned routes on the map. The module automatically determines which API to use with GET and POST requests.
+
+> [!NOTE]
+>
+> **Azure Maps Web SDK Service Module retirement**
+>
+> The Azure Maps Web SDK Service Module is now deprecated and will be retired on 9/30/26. To avoid service disruptions, we recommend migrating to the Azure Maps JavaScript REST SDK by 9/30/26. For more information, see [JavaScript/TypeScript REST SDK Developers Guide (preview)](how-to-dev-guide-js-sdk.md).
 
 ## Next steps
 
@@ -285,7 +291,7 @@ To learn more, please see:
 [Azure Maps npm Package]: https://www.npmjs.com/package/azure-maps-rest
 [Azure Maps Route service]: /rest/api/maps/route
 [How to use the Service module]: how-to-use-services-module.md
-[Point of Interest]: /rest/api/maps/search/getsearchpoi
+[Point of Interest]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0&preserve-view=true
 [Post Route Directions API documentation]: /rest/api/maps/route/postroutedirections#supportingpoints
 [Post Route Directions]: /rest/api/maps/route/postroutedirections
 [Postman]: https://www.postman.com/downloads/

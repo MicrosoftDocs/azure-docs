@@ -1,6 +1,6 @@
 ---
-title: CLI script - Create and manage read replicas in an Azure Database for MySQL - Flexible Server
-description: This Azure CLI sample script shows how to create and manage read replicas in an Azure Database for MySQL - Flexible Server
+title: CLI script - Create and manage read replicas
+description: This Azure CLI sample script shows how to create and manage read replicas in Azure Database for MySQL - Flexible Server.
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
@@ -11,7 +11,9 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 02/10/2022 
 ---
 
-# Create and manage read replicas in an Azure Database for MySQL - Flexible Server using Azure CLI
+# Create and manage read replicas in Azure Database for MySQL - Flexible Server using Azure CLI
+
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
 
 This sample CLI script creates and manages [read replicas](../concepts-read-replicas.md) in an Azure Database for MySQL - Flexible Server.
 
@@ -20,7 +22,7 @@ This sample CLI script creates and manages [read replicas](../concepts-read-repl
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

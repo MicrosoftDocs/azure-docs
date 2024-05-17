@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 04/08/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -55,18 +55,35 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Azure Active Directory limits
+<a name='azure-active-directory-limits'></a>
 
-[!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
+## Microsoft Entra ID limits
 
-## API Center (preview) limits
+[!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
+
+## API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
-
 ## API Management limits
 
+This section provides information about limits that apply to Azure API Management instances in different [service tiers](../../api-management/api-management-features.md), including the following:
+
+* [API Management classic tiers](#limits---api-management-classic-tiers)
+* [API Management v2 tiers](#limits---api-management-v2-tiers)
+* [Developer portal in API Management v2 tiers](#limits---developer-portal-in-api-management-v2-tiers)
+
+### Limits - API Management classic tiers
+
 [!INCLUDE [api-management-service-limits](../../../includes/api-management-service-limits.md)]
+
+### Limits - API Management v2 tiers
+
+[!INCLUDE [api-management-service-limits-v2](../../../includes/api-management-service-limits-v2.md)]
+
+### Limits - Developer portal in API Management v2 tiers
+
+[!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
 
 ## App Service limits
 
@@ -84,15 +101,16 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
+
 ## Azure Cloud Services limits
 
 [!INCLUDE [azure-cloud-services-limits](../../../includes/azure-cloud-services-limits.md)]
 
-## Azure Cognitive Search limits
+## Azure AI Search limits
 
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
-* **Free** multi-tenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
+* **Free** multitenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
 * **Basic** provides dedicated computing resources for production workloads at a smaller scale, with up to three replicas for highly available query workloads.
 * **Standard**, which includes S1, S2, S3, and S3 High Density, is for larger production workloads. Multiple levels exist within the Standard tier so that you can choose a resource configuration that best matches your workload profile.
 
@@ -104,13 +122,17 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](../../../includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Cognitive Search](../../search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
 
 <a name='azure-cognitive-services-limits'></a>
 
 ## Azure AI services limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
+
+## Azure Chaos Studio limits
+
+For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](../../chaos-studio/chaos-studio-service-limits.md).
 
 ## Azure Communications Gateway limits
 
@@ -124,9 +146,13 @@ Azure Communications Gateway also has limits on the SIP signaling.
 
 [!INCLUDE [communications-gateway-sip-behavior-restrictions](../../communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
 
+[!INCLUDE [limits on the Provisioning API](../../communications-gateway/includes/communications-gateway-provisioning-api-restrictions.md)]
+
 ## Azure Container Apps limits
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
+
+[!INCLUDE [container-apps-limits](../../../includes/container-apps/container-apps-limits.md)]
 
 ## Azure Cosmos DB limits
 
@@ -188,6 +214,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [maps-limits](../../../includes/maps-limits.md)]
 
+## Azure Managed Grafana limits
+
+[!INCLUDE [Azure Managed Grafana limits](../../../includes/azure-managed-grafana-limits.md)]
+
 ## Azure Monitor limits
 
 For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
@@ -202,7 +232,7 @@ For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor
 
 ## Azure Policy limits
 
-[!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+[!INCLUDE [azure-policy-limits](../../governance/includes/policy/azure-policy-limits.md)]
 
 ## Azure Quantum limits
 
@@ -220,7 +250,7 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 ## Azure Spring Apps limits
 
-To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
+To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/enterprise/quotas.md).
 
 ## Azure Storage limits
 
@@ -264,6 +294,10 @@ To learn more about the creation limits for Azure subscriptions, see [Billing ac
 ## Azure VMware Solution limits
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
+
+## Azure Web PubSub limits
+
+[!INCLUDE [azure-web-pubsub-limits](../../../includes/azure-web-pubsub-limits.md)]
 
 ## Backup limits
 
@@ -364,7 +398,7 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 [!INCLUDE [mobile-services-limits](../../../includes/mobile-services-limits.md)]
 
-## Multi-Factor Authentication limits
+## Multifactor authentication limits
 
 [!INCLUDE [azure-mfa-service-limits](../../../includes/azure-mfa-service-limits.md)]
 
@@ -421,7 +455,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
 
-### Virtual Network Gateway limits
+### VPN Gateway limits
+
+The following limits apply to VPN Gateway resources and VPN Gateway virtual network gateways, unless otherwise stated.
 
 [!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
 
@@ -519,6 +555,10 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 100 compute galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
+
+### Managed Run Command limit
+
+The maximum number of allowed Managed Run Commands is currently limited to 25.
 
 ## Virtual Machine Scale Sets limits
 

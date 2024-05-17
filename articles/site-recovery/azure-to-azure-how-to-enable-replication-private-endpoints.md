@@ -4,7 +4,7 @@ description: This article describes how to configure replication for VMs with pr
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/23/2022
 ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
@@ -39,10 +39,10 @@ Below is a reference architecture on how the replication workflow changes with p
   [private endpoints](https://azure.microsoft.com/pricing/details/private-link/).
 - When a private endpoint is created for a vault, the vault is locked down and **isn't accessible
   from networks other than those networks that have private endpoints**.
-- Azure Active Directory currently doesn't support private endpoints. As such, IPs and fully
-  qualified domain names required for Azure Active Directory to work in a region need to be allowed
+- Microsoft Entra ID currently doesn't support private endpoints. As such, IPs and fully
+  qualified domain names required for Microsoft Entra ID to work in a region need to be allowed
   outbound access from the secured network. You can also use network security group tag "Azure
-  Active Directory" and Azure Firewall tags for allowing access to Azure Active Directory, as
+  Active Directory" and Azure Firewall tags for allowing access to Microsoft Entra ID, as
   applicable.
 - **At least seven IP addresses are required** in the subnets of both your source machines and your
   recovery machines. When you create a private endpoint for the vault, Site Recovery creates five
@@ -142,7 +142,7 @@ endpoint in source network. Repeat the same guidance to create the second privat
       If your environment has a hub and spoke model, you need only one private endpoint and only one
       private DNS zone for the entire setup since all your virtual networks already have peering
       enabled between them. For more information, see
-      [Private endpoint DNS integration](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server).
+      [Private endpoint DNS integration](../private-link/private-endpoint-dns-integration.md#virtual-network-workloads-without-custom-dns-server).
 
       To manually create the private DNS zone, follow the steps in
       [Create private DNS zones and add DNS records manually](#create-private-dns-zones-and-add-dns-records-manually).
@@ -220,7 +220,7 @@ following role permissions depending on the type of storage account:
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. In the Azure portal, navigate to the cache storage account you created.
 

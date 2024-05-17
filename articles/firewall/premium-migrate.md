@@ -110,7 +110,7 @@ function ValidatePolicy {
     Write-Host "Validating resource is as expected"
 
     if ($null -eq $Policy) {
-        Write-Error "Recived null policy"
+        Write-Error "Received null policy"
         exit(1)
     }
     if ($Policy.GetType().Name -ne "PSAzureFirewallPolicy") {
@@ -272,7 +272,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
 - Allocate Firewall Premium
 
    ```azurepowershell
-   $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
    $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWANhub-name>"
    $azfw.Sku.Tier="Premium"
    $azfw.Allocate($hub.id)

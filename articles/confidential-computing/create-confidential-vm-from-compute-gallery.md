@@ -5,7 +5,6 @@ author: lakmeedee
 ms.author: dejv
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 07/14/2022
 ms.custom: mode-arm
@@ -16,12 +15,12 @@ ms.devlang: azurecli
 
 [Azure confidential virtual machines](confidential-vm-overview.md) supports the creation and sharing of custom images using Azure Compute Gallery. There are two types of images that you can create, based on the security types of the image:
 
-- [Confidential VM (`ConfidentialVM`) images](#confidential-vm-images) are images where the source already has the [VM Guest state information](confidential-vm-faq-amd.yml). This image type might also have confidential disk encryption enabled.
+- [Confidential VM (`ConfidentialVM`) images](#confidential-vm-images) are images where the source already has the [VM Guest state information](confidential-vm-faq.yml). This image type might also have confidential disk encryption enabled.
 - [Confidential VM supported (`ConfidentialVMSupported`) images](#confidential-vm-supported-images) are images where the source doesn't have VM Guest state information and confidential disk encryption is not enabled.
 
 ## Confidential VM images
 
-For the following image sources, the security type on the image definition should be set to `ConfidentialVM` as the image source already has [VM Guest State information](confidential-vm-faq-amd.yml#is-there-an-extra-cost-for-using-confidential-vms-) and may also have confidential disk encryption enabled:
+For the following image sources, the security type on the image definition should be set to `ConfidentialVM` as the image source already has [VM Guest State information](confidential-vm-faq.yml#is-there-an-extra-cost-for-using-confidential-vms-) and may also have confidential disk encryption enabled:
 - Confidential VM capture
 - Managed OS disk 
 - Managed OS disk snapshot
@@ -38,7 +37,7 @@ This image version can be replicated within the source region **but cannot be re
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the **Virtual machines** service.
 1. Open the confidential VM that you want to use as the image source.
-1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.md) before you create the image.
+1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.yml) before you create the image.
 1. Select **Capture**.
 1. In the **Create an image** page that opens, [create your image definition and version](../virtual-machines/image-version.md?tabs=portal#create-an-image).
     1. Allow the image to be shared to Azure Compute Gallery as a VM image version. Managed images aren't supported for confidential VMs.
@@ -57,7 +56,7 @@ Now, you can [create a Confidential VM from your custom image](#create-a-confide
 ### Create a Confidential VM type image from managed disk or snapshot
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.md) for the disk or snapshot before you create the image.
+1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.yml) for the disk or snapshot before you create the image.
 1. Search for and select **VM Image Versions** in the search bar.
 1. Select **Create**
 1. On the **Create VM image version** page's **Basics** tab:

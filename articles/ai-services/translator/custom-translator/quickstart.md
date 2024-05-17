@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: A step-by-step guide to building a translation system using the Custom Translator portal v2.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/05/2023
 ms.author: lajanuar
 ms.topic: quickstart
@@ -26,7 +25,7 @@ Translator is a cloud-based neural machine translation service that is part of t
 
     :::image type="content" source="../media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-For more information, *see* [how to create a Translator resource](../create-translator-resource.md).
+For more information, *see* [how to create a Translator resource](../create-translator-resource.yml).
 
 ## Custom Translator portal
 

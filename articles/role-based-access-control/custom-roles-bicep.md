@@ -6,9 +6,8 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 07/01/2022
-ms.author: rolyon 
+ms.date: 02/15/2024
+ms.author: rolyon
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 #Customer intent: As an IT admin, I want to create custom and/or roles using Bicep so that I can start automating custom role processes.
 ---
@@ -23,7 +22,7 @@ To create a custom role, you specify a role name, role permissions, and where th
 
 ## Prerequisites
 
-To create a custom role, you must have permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+To create a custom role, you must have permissions to create custom roles, such as [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 You also must have an active Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -38,6 +37,8 @@ The Bicep file used in this article is from [Azure Quickstart Templates](https:/
 
 The scope where this custom role can be assigned is set to the current subscription.
 
+A custom role requires a unique ID. The ID can be generated with the [guid()](../azure-resource-manager/bicep/bicep-functions-string.md#guid) function. Since a custom role also requires a [unique display name](custom-roles.md#custom-role-properties) for the tenant, you can use the role name as a parameter for the `guid()` function to create a [deterministic GUID](../azure-resource-manager/bicep/scenarios-rbac.md#name). A deterministic GUID is useful if you later need to update the custom role using the same Bicep file.
+
 :::code language="bicep" source="~/quickstart-templates/subscription-deployments/create-role-def/main.bicep":::
 
 The resource defined in the Bicep file is:
@@ -47,28 +48,38 @@ The resource defined in the Bicep file is:
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+1. Create a variable named **myActions** with the actions for the roleDefinition.
 
     # [CLI](#tab/CLI)
 
     ```azurecli-interactive
-    $myActions='("Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read")'
-
-    az deployment sub create --location eastus --name customRole --template-file main.bicep --parameters actions=$myActions
+    $myActions='["Microsoft.Resources/subscriptions/resourceGroups/read"]'
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell-interactive
-    $myActions = @("Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read")
-
-    New-AzSubscriptionDeployment -Location eastus -Name customRole -TemplateFile ./main.bicep -actions $myActions
+    $myActions = @("Microsoft.Resources/subscriptions/resourceGroups/read")
     ```
 
     ---
 
-    > [!NOTE]
-    > Create a variable called **myActions** and then pass that variable. Replace the sample actions with the actions for the roleDefinition.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    az deployment sub create --location eastus --name customRole --template-file ./main.bicep --parameters actions=$myActions
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell-interactive
+    New-AzSubscriptionDeployment -Location eastus -Name customRole -TemplateFile ./main.bicep -actions $myActions
+    ```
+
+    ---
 
  When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -92,59 +103,42 @@ Get-AzRoleDefinition "Custom Role - RG Reader"
 
 ## Update a custom role
 
-Similar to creating a custom role, you can update an existing custom role using Bicep. To update a custom role, you need to specify the role you want to update.
+Similar to creating a custom role, you can update an existing custom role using Bicep. To update a custom role, you need to specify the role you want to update. If you previously created the custom role in Bicep with a unique role ID that is [deterministic](../azure-resource-manager/bicep/scenarios-rbac.md#name), you can use the same Bicep file and specify the custom role by just using the display name.
 
-Here are the changes you would need to make to the previous Bicep file to update the custom role.
-
-1. Include the role ID as a parameter.
-
-    ```bicep
-    ...
-    @description('ID of the role definition')
-    param roleDefName string
-    ...
-
-    ```
-
-2. Remove the roleDefName variable. You'll get a warning if you have a parameter and variable with the same name.
-3. Use Azure CLI or Azure PowerShell to get the roleDefName.
+1. Specify the updated actions.
 
     # [CLI](#tab/CLI)
 
     ```azurecli-interactive
-    az role definition list --name "Custom Role - RG Reader"
-    ```
-
-    # [PowerShell](#tab/PowerShell)
-
-    ```azurepowershell-interactive
-    Get-AzRoleDefinition -Name "Custom Role - RG Reader"
-    ```
-
----
-
-4. Use Azure CLI or Azure PowerShell to deploy the updated Bicep file, replacing **\<name-id\>** with the roleDefName, and replacing the sample actions with the updated actions for the roleDefinition.
-
-    # [CLI](#tab/CLI)
-
-    ```azurecli-interactive
-    $myActions='("Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read")'
-
-    az deployment sub create --location eastus --name customrole --template-file main.bicep --parameters actions=$myActions roleDefName="name-id" roleName="Custom Role - RG Reader"
+    $myActions='["Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read"]'
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell-interactive
     $myActions = @(""Microsoft.Resources/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read"")
+    ```
 
-    New-AzSubscriptionDeployment -Location eastus -Name customrole -TemplateFile ./main.bicep -actions $myActions -roleDefName "name-id" -roleName "Custom Role - RG Reader"
+    ---
+
+1. Use Azure CLI or Azure PowerShell to update the custom role.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    az deployment sub create --location eastus --name customrole --template-file ./main.bicep --parameters actions=$myActions roleName="Custom Role - RG Reader"
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell-interactive
+    New-AzSubscriptionDeployment -Location eastus -Name customrole -TemplateFile ./main.bicep -actions $myActions -roleName "Custom Role - RG Reader"
     ```
 
     ---
 
     > [!NOTE]
-    > It may take several minutes for the updated role definition to be propagated.
+    > It may take several minutes for the updated custom role to be propagated.
 
 ## Clean up resources
 

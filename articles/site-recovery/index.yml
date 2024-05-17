@@ -9,10 +9,10 @@ metadata:
   description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs.
   ms.service: site-recovery
   ms.topic: landing-page
-  ms.collection: collection
+
   author: ankitaduttaMSFT
   ms.author: ankitadutta
-  ms.date: 09/21/2022
+  ms.date: 04/04/2024
 
 landingContent:
   - title: About Site Recovery
@@ -31,10 +31,17 @@ landingContent:
           - text: Try out disaster recovery for an Azure VM
             url: ./azure-to-azure-quickstart.md
 
+      - linkListType: concept
+        links:
+          - text: Azure VM Disaster Recovery - High Churn support 
+            url: concepts-azure-to-azure-high-churn-support.md
+
       - linkListType: tutorial
         links:
           - text: Disaster recovery for Azure VMs
             url: ./azure-to-azure-tutorial-enable-replication.md
+          - text: Disaster recovery for Azure VMs using shared disks (preview)
+            url: ./tutorial-shared-disk.md
           - text: Move Azure VMs to another region (Resource Mover)
             url: ../resource-mover/tutorial-move-region-virtual-machines.md
       - linkListType: learn
@@ -103,6 +110,8 @@ landingContent:
             url: site-recovery-monitor-and-troubleshoot.md
           - text: Monitor Site Recovery with Azure Monitor logs
             url: monitor-log-analytics.md
+          - text: Reports for Site Recovery with Azure Monitor logs
+            url: report-site-recovery.md
 
   - title: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) (preview)
     linkLists:

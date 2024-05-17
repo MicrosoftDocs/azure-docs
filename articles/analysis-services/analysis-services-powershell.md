@@ -1,11 +1,11 @@
 ---
 title: Manage Azure Analysis Services with PowerShell | Microsoft Docs
 description: Describes Azure Analysis Services PowerShell cmdlets for common administrative tasks such as creating servers, suspending operations, or changing service level.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/27/2021
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan
 
 ---

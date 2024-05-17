@@ -16,7 +16,7 @@ You might need to enable **Extended groups** if your workflow includes NFS stora
 
 After you click the button to enable extended groups, you must choose the source that Azure HPC Cache will use to get user and group credentials.
 
-* [Active Directory](#configure-active-directory) - Get credentials from an external Active Directory server. You can't use Azure Active Directory for this task.
+* [Active Directory](#configure-active-directory) - Get credentials from an external Active Directory server. You can't use Microsoft Entra ID for this task.
 * [Flat file](#configure-file-download) - Download `/etc/group` and `/etc/passwd` files from a network location.
 * [LDAP](#configure-ldap) - Get credentials from a Lightweight Directory Access Protocol (LDAP)-compatible source.
 

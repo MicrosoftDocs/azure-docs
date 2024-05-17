@@ -1,16 +1,18 @@
 ---
 title: Add language analyzers to string fields
-titleSuffix: Azure Cognitive Search
-description: Configure multi-lingual lexical analysis for non-English queries and indexes in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Configure multi-lingual lexical analysis for non-English queries and indexes in Azure AI Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/19/2023
 ---
 
-# Add language analyzers to string fields in an Azure Cognitive Search index
+# Add language analyzers to string fields in an Azure AI Search index
 
 A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable string field has an **analyzer** property. If your content consists of translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.
 
@@ -29,11 +31,11 @@ For example, in Chinese, Japanese, Korean (CJK), and other Asian languages, a sp
 
 For the example above, a successful query would have to include the full token, or a partial token using a suffix wildcard, resulting in an unnatural and limiting search experience.
 
-A better experience is to search for individual words: 明るい (Bright), 私たちの (Our), 銀河系 (Galaxy). Using one of the Japanese analyzers available in Cognitive Search is more likely to unlock this behavior because those analyzers are better equipped at splitting the chunk of text into meaningful words in the target language.
+A better experience is to search for individual words: 明るい (Bright), 私たちの (Our), 銀河系 (Galaxy). Using one of the Japanese analyzers available in Azure AI Search is more likely to unlock this behavior because those analyzers are better equipped at splitting the chunk of text into meaningful words in the target language.
 
 ## Comparing Lucene and Microsoft Analyzers
 
-Azure Cognitive Search supports 35 language analyzers backed by Lucene, and 50 language analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing.
+Azure AI Search supports 35 language analyzers backed by Lucene, and 50 language analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing.
 
 Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene language analyzers are faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization, word decompounding (in languages like German, Danish, Dutch, Swedish, Norwegian, Estonian, Finnish, Hungarian, Slovak) and entity recognition (URLs, emails, dates, numbers). If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit. You can use [Analyze API](/rest/api/searchservice/test-analyzer) to see the tokens generated from a given text using a specific analyzer.
 
@@ -85,7 +87,7 @@ The following example illustrates a language analyzer specification in an index:
     },
 ```
 
-For more information about creating an index and setting field properties, see [Create Index (REST)](/rest/api/searchservice/create-index). For more information about text analysis, see [Analyzers in Azure Cognitive Search](search-analyzers.md).
+For more information about creating an index and setting field properties, see [Create Index (REST)](/rest/api/searchservice/create-index). For more information about text analysis, see [Analyzers in Azure AI Search](search-analyzers.md).
 
 <a name="language-analyzer-list"></a>
 
@@ -152,7 +154,7 @@ For more information about creating an index and setting field properties, see [
 | Urdu | ur.microsoft |  |
 | Vietnamese | vi.microsoft |  |
 
- All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
+ All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html).
 
 ## See also  
 

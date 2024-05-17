@@ -5,15 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: preetikr
-ms.reviewer: v-ching, estfan, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/21/2020
-tags: connectors
+ms.date: 01/04/2024
 ---
 
 # Improve threat protection by integrating security operations with Microsoft Graph Security & Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Graph Security](/graph/security-concept-overview) connector, you can improve how your app detects, protects, and responds to threats by creating automated workflows for integrating Microsoft security products, services, and partners. For example, you can create [Microsoft Defender for Cloud playbooks](../security-center/workflow-automation.md) that monitor and manage Microsoft Graph Security entities, such as alerts. Here are some scenarios that are supported by the Microsoft Graph Security connector:
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft Graph Security](/graph/security-concept-overview) connector, you can improve how your app detects, protects, and responds to threats by creating automated workflows for integrating Microsoft security products, services, and partners. For example, you can create [Microsoft Defender for Cloud playbooks](../security-center/workflow-automation.yml) that monitor and manage Microsoft Graph Security entities, such as alerts. Here are some scenarios that are supported by the Microsoft Graph Security connector:
 
 * Get alerts based on queries or by alert ID. For example, you can get a list that includes high severity alerts.
 
@@ -31,7 +32,7 @@ To learn more about Microsoft Graph Security, see the [Microsoft Graph Security 
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* To use the Microsoft Graph Security connector, you must have *explicitly given* Azure Active Directory (AD) tenant administrator consent, which is part of the [Microsoft Graph Security Authentication requirements](/graph/security-authorization). This consent requires the Microsoft Graph Security connector's application ID and name, which you can also find in the [Azure portal](https://portal.azure.com):
+* To use the Microsoft Graph Security connector, you must have *explicitly given* Microsoft Entra tenant administrator consent, which is part of the [Microsoft Graph Security Authentication requirements](/graph/security-authorization). This consent requires the Microsoft Graph Security connector's application ID and name, which you can also find in the [Azure portal](https://portal.azure.com):
 
   | Property | Value |
   |----------|-------|
@@ -39,11 +40,11 @@ To learn more about Microsoft Graph Security, see the [Microsoft Graph Security 
   | **Application ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
   |||
 
-  To grant consent for the connector, your Azure AD tenant administrator can follow either these steps:
+  To grant consent for the connector, your Microsoft Entra tenant administrator can follow either these steps:
 
-  * [Grant tenant administrator consent for Azure AD applications](../active-directory/develop/v2-permissions-and-consent.md).
+  * [Grant tenant administrator consent for Microsoft Entra applications](../active-directory/develop/v2-permissions-and-consent.md).
 
-  * During your logic app's first run, your app can request consent from your Azure AD tenant administrator through the [application consent experience](../active-directory/develop/application-consent-experience.md).
+  * During your logic app's first run, your app can request consent from your Microsoft Entra tenant administrator through the [application consent experience](../active-directory/develop/application-consent-experience.md).
    
 * Basic knowledge about how to create logic apps
 

@@ -1,16 +1,15 @@
 ---
 title: Apache Spark on GPU
 description: Introduction to core concepts for Apache Spark on GPUs inside Synapse Analytics.
-author: Niharikadutta
+author: midesa
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 10/18/2021
-ms.author: nidutta
-ms.custom: ignite-fall-2021
+ms.date: 05/02/2024
+ms.author: midesa
 ---
 
-# Apache Spark GPU-accelerated pools in Azure Synapse Analytics
+# Apache Spark GPU-accelerated pools in Azure Synapse Analytics (preview)
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
 
@@ -23,6 +22,10 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 
 > [!NOTE]
 > Azure Synapse GPU-enabled pools are currently in Public Preview.
+
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtime. End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of Support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime and the corresponding GPU accelerated preview on Spark 3.2 will be retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now unsupported on the [Azure Synapse 3.1 (unsupported) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its End of Support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
 
 ## RAPIDS Accelerator for Apache Spark
 
@@ -61,7 +64,7 @@ For example, using a large pool with three nodes:
 
 It would be good to be familiar with the [basic concepts of how to use a notebook](apache-spark-development-using-notebooks.md) in Azure Synapse Analytics before proceeding with this section. Let's walk through the steps to run a Spark application utilizing GPU acceleration. You can write a Spark application in all the four languages supported inside Synapse, PySpark (Python), Spark (Scala), SparkSQL, and .NET for Spark (C#).
 
-1. Create a GPU-enabled pool as described in [this quickstart](../quickstart-create-apache-gpu-pool-portal.md).
+1. Create a GPU-enabled pool.
 
 2. Create a notebook and attach it to the GPU-enabled pool you created in the first step.
 
@@ -98,11 +101,11 @@ val empDF = spark.createDataFrame(emp, schema)
 
 ```python
 emp = [(1, "Smith", 10, 100000),
-	(2, "Rose", 20, 97600),
-	(3, "Williams", 20, 110000),
-	(4, "Jones", 10, 80000),
-	(5, "Brown", 40, 60000),
-	(6, "Brown", 30, 78000)]
+    (2, "Rose", 20, 97600),
+    (3, "Williams", 20, 110000),
+    (4, "Jones", 10, 80000),
+    (5, "Brown", 40, 60000),
+    (6, "Brown", 30, 78000)]
 
 empColumns = ["emp_id", "name", "emp_dept_id", "salary"]
 
@@ -165,8 +168,7 @@ resultDF.Show();
 
 ## How to tune your application for GPUs
 
-Most Spark jobs can see improved performance through tuning configuration settings from defaults, and the same holds true for jobs leveraging the RAPIDS accelerator plugin for Apache Spark. [This documentation](https://nvidia.github.io/spark-rapids/docs/tuning-guide.html) provides guidelines on how to tune a Spark job to run on GPUs using the RAPIDS plugin.
-
+Most Spark jobs can see improved performance through tuning configuration settings from defaults, and the same holds true for jobs leveraging the RAPIDS accelerator plugin for Apache Spark.
 ## Quotas and resource constraints in Azure Synapse GPU-enabled pools
 
 ### Workspace level

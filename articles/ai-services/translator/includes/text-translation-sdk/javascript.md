@@ -3,8 +3,7 @@ title: "Quickstart: Translator Text JavaScript SDK"
 description: 'Text translation processing using the JavaScript programming language'
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -77,6 +76,9 @@ To interact with the Translator service using the client library, you need to cr
 
 **Translate text**
 
+  > [!NOTE]
+  > In this example we are using a regional endpoint. If you're using the global endpoint, see [Create a Text Translation client](../../create-translator-resource.yml#create-a-text-translation-client).
+
 ```javascript
 const TextTranslationClient = require("@azure-rest/ai-translation-text").default
 
@@ -112,7 +114,7 @@ async function main() {
 }
 
 main().catch((err) => {
-    console.error("An error occured:", err);
+    console.error("An error occurred:", err);
     process.exit(1);
   });
 

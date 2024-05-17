@@ -128,4 +128,4 @@ When doing a [category search] for points of interest, there are over a hundred 
 | WINERY | winery |
 | ZOOS\_ARBORETA\_BOTANICAL\_GARDEN | wildlife park, aquatic zoo marine park, arboreta botanical gardens, zoo, zoos, arboreta botanical garden |
 
-[category search]: /rest/api/maps/search/getsearchpoicategory
+[category search]: /rest/api/maps/search/getsearchpoicategory?view=rest-maps-1.0&preserve-view=true

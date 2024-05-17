@@ -56,7 +56,7 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 1. Select **Import** as the method of creation, name the certificate, select the exported .pfx file, enter the password, and then select **Create**.
    :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/create-a-certificate.png" alt-text="Screenshot showing Key Vault create a certificate":::
 1. Navigate to the **TLS Inspection** page of your Firewall policy and select your Managed identity, Key Vault, and certificate.
-   :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/tls-inspection-certificate.png" alt-text="Screenshot showing Firewall Policy TLS Insepction configuration":::
+   :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/tls-inspection-certificate.png" alt-text="Screenshot showing Firewall Policy TLS Inspection configuration":::
 1. Select **Save**.
 
 ## Validate TLS inspection

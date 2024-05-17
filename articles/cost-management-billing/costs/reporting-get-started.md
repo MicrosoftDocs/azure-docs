@@ -1,18 +1,21 @@
 ---
-title: Get started with Cost Management + Billing reporting - Azure
-description: This article helps you to get started with Cost Management + Billing to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
+title: Get started with Cost Management reporting - Azure
+description: This article helps you to get started with Cost Management to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/18/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ---
 
-# Get started with Cost Management + Billing reporting
+# Get started with Cost Management reporting
 
-Cost Management + Billing includes several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs. The following sections describe the major reporting components.
+Cost Management includes several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs. The following sections describe the major reporting components.
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 ## Cost analysis
 
@@ -71,7 +74,7 @@ The app is available for [iOS](https://itunes.apple.com/us/app/microsoft-azure/i
 
 :::image type="content" source="./media/reporting-get-started/azure-app-screenshot.png" alt-text="Example screenshot showing the iOS version of the Azure app with Cost Management subscription information." lightbox="./media//reporting-get-started/azure-app-screenshot.png" :::
 
-## Next steps
+## Related content
 
 - [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md).
 - [Analyze Azure costs with the Power BI App](analyze-cost-data-azure-cost-management-power-bi-template-app.md).

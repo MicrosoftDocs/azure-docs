@@ -1,31 +1,31 @@
 ---
 title: Partial terms, patterns, and special characters
-titleSuffix: Azure Cognitive Search
-description: Use wildcard, regex, and prefix queries to match on whole or partial terms in an Azure Cognitive Search query request. Hard-to-match patterns that include special characters can be resolved using full query syntax and custom analyzers.
+titleSuffix: Azure AI Search
+description: Use wildcard, regex, and prefix queries to match on whole or partial terms in an Azure AI Search query request. Hard-to-match patterns that include special characters can be resolved using full query syntax and custom analyzers.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 02/22/2024
 ---
+
 # Partial term search and patterns with special characters (hyphens, wildcard, regex, patterns)
 
 A *partial term search* refers to queries consisting of term fragments, where instead of a whole term, you might have just the beginning, middle, or end of term (sometimes referred to as prefix, infix, or suffix queries). A partial term search might include a combination of fragments, often with special characters such as hyphens, dashes, or slashes that are part of the query string. Common use-cases include parts of a phone number, URL, codes, or hyphenated compound words.
 
 Partial terms and special characters can be problematic if the index doesn't have a token that represents the text fragment you want to search for. During the [lexical analysis phase](search-lucene-query-architecture.md#stage-2-lexical-analysis) of indexing (assuming the default standard analyzer), special characters are discarded, compound words are split up, and whitespace is deleted. If you're searching for a text fragment that was modified during lexical analysis, the query fails because no match is found. Consider this example: a phone number like `+1 (425) 703-6214` (tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
-The solution is to invoke an analyzer during indexing that preserves a complete string, including spaces and special characters if necessary, so that you can include the spaces and characters in your query string. Having a whole, un-tokenized string enables pattern matching for "starts with" or "ends with" queries, where the pattern you provide can be evaluated against a term that isn't transformed by lexical analysis. 
+The solution is to invoke an analyzer during indexing that preserves a complete string, including spaces and special characters if necessary, so that you can include the spaces and characters in your query string. Having a whole, untokenized string enables pattern matching for "starts with" or "ends with" queries, where the pattern you provide can be evaluated against a term that isn't transformed by lexical analysis. 
 
 If you need to support search scenarios that call for analyzed and non-analyzed content, consider creating two fields in your index, one for each scenario. One field undergoes lexical analysis. The second field stores an intact string, using a content-preserving analyzer that emits whole-string tokens for pattern matching.
 
-> [!TIP]
-> If you are familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article.
-
 ## About partial term search
 
-Azure Cognitive Search scans for whole tokenized terms in the index and won't find a match on a partial term unless you include wildcard placeholder operators (`*` and `?`) , or format the query as a regular expression. 
+Azure AI Search scans for whole tokenized terms in the index and won't find a match on a partial term unless you include wildcard placeholder operators (`*` and `?`), or format the query as a regular expression. 
 
 Partial terms are specified using these techniques:
 
@@ -50,9 +50,6 @@ The approach looks like this:
 1. Evaluate and choose among the various analyzers that emit tokens at the right level of granularity
 1. Assign the analyzer to the field
 1. Build and test the index
-
-> [!TIP]
-> Evaluating analyzers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](/rest/api/searchservice/create-index), [Delete Index](/rest/api/searchservice/delete-index),[Load Documents](/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
 
 ## 1 - Create a dedicated field
 
@@ -88,9 +85,9 @@ When choosing an analyzer that produces whole-term tokens, the following analyze
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
 | [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the [keyword tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) with a [lower-case token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). By itself, the built-in [keyword analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) doesn't lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
 
-If you're using a web API test tool like Postman, you can add the [Test Analyzer REST call](/rest/api/searchservice/test-analyzer) to inspect tokenized output.
+Using a REST client, you can add the [Test Analyzer REST call](/rest/api/searchservice/test-analyzer) to inspect tokenized output.
 
-You must have a populated index to work with. Given an existing index and a field containing dashes or partial terms, you can try various analyzers over specific terms to see what tokens are emitted.  
+The index must exist on the search service, but it can be empty. Given an existing index and a field containing dashes or partial terms, you can try various analyzers over specific terms to see what tokens are emitted.  
 
 1. First, check the Standard analyzer to see how terms are tokenized by default.
 
@@ -224,9 +221,11 @@ The following example illustrates a custom analyzer that provides the keyword to
 
 ## 4 - Build and test
 
-Once you've defined an index with analyzers and field definitions that support your scenario, load documents that have representative strings so that you can test partial string queries. 
+Once you've defined an index with analyzers and field definitions that support your scenario, load documents that have representative strings so that you can test partial string queries.
 
-The previous sections explained the logic. This section steps through each API you should call when testing your solution. As previously noted, if you use an interactive web test tool such as Postman, you can step through these tasks quickly.
+Use a REST client to query partial terms and special characters described in this article.
+
+The previous sections explained the logic. This section steps through each API you should call when testing your solution. 
 
 + [Delete Index](/rest/api/searchservice/delete-index) removes an existing index of the same name so that you can recreate it.
 
@@ -246,9 +245,9 @@ The previous sections explained the logic. This section steps through each API y
 
 If you implement the recommended configuration that includes the keyword_v2 tokenizer and lower-case token filter, you might notice a decrease in query performance due to the extra token filter processing over existing tokens in your index. 
 
-The following example adds an [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) to make prefix matches faster. More tokens are generated for in 2-25 character combinations that include characters: (not only MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). 
+The following example adds an [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) to make prefix matches faster. Tokens are generated in 2-25 character combinations that include characters. Here's an example progression from two to seven tokens: MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL. 
 
-As you can imagine, the extra tokenization results in a larger index. If you have sufficient capacity to accommodate the larger index, this approach with its faster response time might be a better solution.
+Extra tokenization results in a larger index. If you have sufficient capacity to accommodate the larger index, this approach with its faster response time might be the best solution.
 
 ```json
 {
@@ -290,10 +289,10 @@ As you can imagine, the extra tokenization results in a larger index. If you hav
 
 ## Next steps
 
-This article explains how analyzers both contribute to query problems and solve query problems. As a next step, take a closer look at analyzer impact on indexing and query processing. In particular, consider using the Analyze Text API to return tokenized output so that you can see exactly what an analyzer is creating for your index.
+This article explains how analyzers both contribute to query problems and solve query problems. As a next step, take a closer look at analyzers affect indexing and query processing.
 
 + [Tutorial: Create a custom analyzer for phone numbers](tutorial-create-custom-analyzer.md)
 + [Language analyzers](search-language-support.md)
-+ [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md)
-+ [Analyze Text API (REST)](/rest/api/searchservice/test-analyzer)
++ [Analyzers for text processing in Azure AI Search](search-analyzers.md)
++ [Analyze API (REST)](/rest/api/searchservice/indexes/analyze)
 + [How full text search works (query architecture)](search-lucene-query-architecture.md)

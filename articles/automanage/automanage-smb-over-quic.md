@@ -1,12 +1,11 @@
 ---
 title: SMB over QUIC with Azure Automanage machine best practices
-description: Overview of managing SMB over QUIC with Azure Automanage machine best practices 
+description: Overview of managing SMB over QUIC with Azure Automanage machine best practices
 author: daniellee-microsoft
 ms.service: automanage
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/1/2021
-ms.author: jol 
+ms.author: jol
 ---
 
 # SMB over QUIC with Automanage machine best practices

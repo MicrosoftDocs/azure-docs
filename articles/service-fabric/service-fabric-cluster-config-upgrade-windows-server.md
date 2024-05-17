@@ -21,15 +21,15 @@ You can add, update, or remove settings in the `fabricSettings` section under th
 For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under `fabricSettings`:
 
 ```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
+{
+  "name": "Diagnostics",
+  "parameters": [
+    {
+      "name": "MaxDiskQuotaInMB",
+      "value": "65536"
+    }
+  ]
+}
 ```
 
 After you've modified the settings in your ClusterConfig.json file, [test the cluster configuration](#test-the-cluster-configuration) and then [upgrade the cluster configuration](#upgrade-the-cluster-configuration) to apply the settings to your cluster. 

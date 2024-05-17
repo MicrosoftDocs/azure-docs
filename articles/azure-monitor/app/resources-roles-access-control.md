@@ -9,7 +9,7 @@ ms.reviewer: cogoodson
 
 # Resources, roles, and access control in Application Insights
 
-You can control who has read and update access to your data in [Application Insights][start] by using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
+You can control who has read and update access to your data in [Application Insights][start] by using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml).
 
 > [!IMPORTANT]
 > Assign access to users in the resource group or subscription to which your application resource belongs, not in the resource itself. Assign the Application Insights Component Contributor role. This role ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
@@ -40,13 +40,13 @@ Along with the resource you created for your application, there are also separat
 
 You must have Owner rights to the subscription or the resource group.
 
-The user must have a [Microsoft account][account] or access to their [organizational Microsoft account](../../active-directory/fundamentals/sign-up-organization.md). You can provide access to individuals and also to user groups defined in Azure Active Directory.
+The user must have a [Microsoft account][account] or access to their [organizational Microsoft account](../../active-directory/fundamentals/sign-up-organization.md). You can provide access to individuals and also to user groups defined in Microsoft Entra ID.
 
 #### Go to a resource group or directly to the resource itself
 
 Assign the Contributor role to Azure RBAC.
 
-For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 #### Select a role
 
@@ -62,8 +62,8 @@ Where applicable, the link connects to the associated official reference documen
 | Azure Service Deploy Release Management Contributor | Contributor role for services deploying through Azure Service Deploy. |
 | [Data Purger](../../role-based-access-control/built-in-roles.md#data-purger) | Special role for purging personal data. For more information, see [Manage personal data in Log Analytics and Application Insights](../logs/personal-data-mgmt.md).   |
 | Azure ExpressRoute administrator | Can create, delete, and manage express routes.|
-| [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs, reading storage account keys to be able to configure collection of logs from Azure Storage, creating and configuring Automation accounts, adding solutions, and configuring Azure diagnostics on all Azure resources.  |
-| [Log Analytics Reader](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. |
+| [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs, reading storage account keys to be able to configure collection of logs from Azure Storage, creating and configuring Automation accounts, adding solutions, and configuring Azure diagnostics on all Azure resources. If you're having trouble setting up your Azure diagnostics, see [Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md).  |
+| [Log Analytics Reader](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. If you're having trouble setting up your Azure diagnostics, see [Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md). |
 | masterreader | Allows a user to view everything but not make changes. |
 | [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | Can read all monitoring data and update monitoring settings.|
 | [Monitoring Metrics Publisher](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) | Enables publishing metrics against Azure resources. |
@@ -85,7 +85,7 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 
 ## Related content
 
-See the article [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
+See the article [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml).
 
 ## PowerShell query to determine role membership
 

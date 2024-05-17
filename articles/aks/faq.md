@@ -2,8 +2,8 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/20/2022
-ms.custom: references_regions, devx-track-linux
+ms.date: 11/06/2023
+ms.custom: references_regions, linux-related-content
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
@@ -61,6 +61,10 @@ Microsoft provides guidance for other actions you can take to secure your worklo
 
 AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through mTLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
 
+## Can my pods use the API server FQDN instead of the cluster IP?
+
+Yes, you can add the annotation `kubernetes.azure.com/set-kube-service-host-fqdn` to pods to set the `KUBERNETES_SERVICE_HOST` variable to the domain name of the API server instead of the in-cluster service IP. This is useful in cases where your cluster egress is done via a layer 7 firewall, such as when using Azure Firewall with Application Rules.
+
 ## Why are two resource groups created with AKS?
 
 AKS builds upon many Azure infrastructure resources, including Virtual Machine Scale Sets, virtual networks, and managed disks. These integrations enable you to apply many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.
@@ -94,7 +98,10 @@ As you work with the node resource group, keep in mind that you can't:
 
 You might get unexpected scaling and upgrading errors if you modify or delete Azure-created tags and other resource properties in the node resource group. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](manage-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. Another option is to create Azure Policies with a scope on the managed resource group.
 
-However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
+Azure-created tags are created for their respective Azure Services and should always be allowed. For AKS, there are the `aks-managed` and `k8s-azure` tags. Modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
+
+> [!NOTE]
+> In the past, the tag name "Owner" was reserved for AKS to manage the public IP that is assigned on front end IP of the loadbalancer. Now, services follow use the `aks-managed` prefix. For legacy resources, don't use Azure policies to apply the "Owner" tag name. Otherwise, all resources on your AKS cluster deployment and update operations will break. This does not apply to newly created resources.
 
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 
@@ -103,6 +110,7 @@ AKS supports the following [admission controllers][admission-controllers]:
 - *NamespaceLifecycle*
 - *LimitRanger*
 - *ServiceAccount*
+- *DefaultIngressClass*
 - *DefaultStorageClass*
 - *DefaultTolerationSeconds*
 - *MutatingAdmissionWebhook*
@@ -176,11 +184,14 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 Most clusters are deleted upon user request. In some cases, especially cases where you bring your own Resource Group or perform cross-RG tasks, deletion can take more time or even fail. If you have an issue with deletes, double-check that you don't have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
 ## Why is my cluster create/update taking so long?
+
 If you have issues with create and update cluster operations, make sure you don't have any assigned policies or service constraints that may block your AKS cluster from managing resources like VMs, load balancers, tags, etc.
 
 ## Can I restore my cluster after deleting it?
 
-No, you're unable to restore your cluster after deleting it. When you delete your cluster, the associated resource group and all its resources are deleted. If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you have the **Owner** or **User Access Administrator** built-in role, you can lock Azure resources to protect them from accidental deletions and modifications. For more information, see [Lock your resources to protect your infrastructure][lock-azure-resources].
+No, you cannot restore your cluster after deleting it. When you delete your cluster, the node resource group and all its resources are also deleted. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*.
+
+If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you want to protect against accidental deletes, you can lock the AKS managed resource group hosting your cluster resources using [Node resource group lockdown][node-resource-group-lockdown].
 
 ## What is platform support, and what does it include?
 
@@ -307,7 +318,7 @@ The following example shows an ip route setup of Transparent mode. Each Pod's in
 
 ## How to avoid permission ownership setting slow issues when the volume has numerous files?
 
-Traditionally if your pod is running as a nonroot user (which you should), you must specify a `fsGroup` inside the pod’s security context so the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+Traditionally if your pod is running as a nonroot user (which you should), you must specify a `fsGroup` inside the pod's security context so the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
 
 A side effect of setting `fsGroup` is that each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume (with a few exceptions noted below). This scenario happens even if group ownership of the volume already matches the requested `fsGroup`. It can be expensive for larger volumes with lots of small files, which can cause pod startup to take a long time. This scenario has been a known problem before v1.20, and the workaround is setting the Pod run as root:
 
@@ -342,11 +353,11 @@ Any patch, including a security patch, is automatically applied to the AKS clust
 
 ## What is the purpose of the AKS Linux Extension I see installed on my Linux Virtual Machine Scale Sets instances?
 
-The AKS Linux Extension is an Azure VM extension that installs and configures monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:  
+The AKS Linux Extension is an Azure VM extension that installs and configures monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:
 
 - [Node-exporter](https://github.com/prometheus/node_exporter): Collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. Then, a monitoring tool, such as Prometheus, is able to scrap these metrics.
-- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): Aims to make various node problems visible to upstream layers in the cluster management stack. It's a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
-- [Local-gadget](https://inspektor-gadget.io/docs/v0.18.1): Uses in-kernel eBPF helper programs to monitor events related to syscalls from userspace programs in a pod.
+- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): Aims to make various node problems visible to upstream layers in the cluster management stack. It's a systemd unit that runs on each node, detects node problems, and reports them to the cluster's API server using Events and NodeConditions.
+- [ig](https://go.microsoft.com/fwlink/p/?linkid=2260320): An eBPF-powered open-source framework for debugging and observing Linux and Kubernetes systems. It provides a set of tools (or gadgets) designed to gather relevant information, allowing users to identify the cause of performance issues, crashes, or other anomalies. Notably, its independence from Kubernetes enables users to employ it also for debugging control plane issues.
 
 These tools help provide observability around many node health related problems, such as:
 
@@ -377,9 +388,10 @@ The extension **doesn't require additional outbound access** to any URLs, IP add
 [az-regions]: ../availability-zones/az-region.md
 [pricing-tiers]: ./free-standard-pricing-tiers.md
 [aks-keyvault-provider]: ./csi-secrets-store-driver.md
+[node-resource-group-lockdown]: cluster-configuration.md#create-an-aks-cluster-with-node-resource-group-lockdown
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
-[lock-azure-resources]: ../azure-resource-manager/management/lock-resources.md
+

@@ -12,6 +12,9 @@ ms.date: 05/02/2022
 
 # Automate Mobility Service installation
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 This article describes how to automate installation and updates for the Mobility Service agent in [Azure Site Recovery](site-recovery-overview.md).
 
 When you deploy Site Recovery for disaster recovery of on-premises VMware VMs and physical servers to Azure, you install the Mobility Service agent on each machine you want to replicate. The Mobility Service captures data writes on the machine, and forwards them to the Site Recovery process server for replication. You can deploy the Mobility Service in a few ways:

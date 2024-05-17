@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/27/2023
-ms.custom: cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video
 ---
 
 # Consistency levels in Azure Cosmos DB
@@ -39,7 +39,7 @@ Azure Cosmos DB provides native support for wire protocol-compatible APIs for po
 
 ## Scope of the read consistency
 
-Read consistency applies to a single read operation scoped within a logical partition. A remote client or a stored procedure can issue the read operation.
+Read consistency applies to a single read operation scoped within a logical partition. A remote client, a stored procedure, or a trigger can issue the read operation.
 
 ## Configure the default consistency level
 
@@ -177,7 +177,7 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 |**Eventual**|Single Replica|Local Majority|
 
 > [!NOTE]
-> The RU/s cost of reads for Local Minority reads are twice that of weaker consistency levels because reads are made from two replicas to provide consistency guarantees for Strong and Bounded Staleness.
+> The RUs cost of reads for Local Minority reads is twice that of weaker consistency levels because reads are made from two replicas to provide consistency guarantees for the Strong and Bounded Staleness consistency levels.
 
 ## <a id="rto"></a>Consistency levels and data durability
 

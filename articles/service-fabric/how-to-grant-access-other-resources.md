@@ -1,6 +1,6 @@
 ---
 title: Grant an application access to other Azure resources
-description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication.
+description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Microsoft Entra ID-based authentication.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
@@ -19,7 +19,7 @@ The exact sequence of steps will then depend on the type of Azure resource being
 You can use the Service Fabric application's managed identity (user-assigned in this case) to retrieve the data from an Azure storage blob. Grant the identity the required permissions 
 for the storage account by assigning the [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role to the application's managed identity at *resource-group* scope.
 
-For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 
 ## Granting access to Azure Key Vault

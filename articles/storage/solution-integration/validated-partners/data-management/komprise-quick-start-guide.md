@@ -2,8 +2,8 @@
 title: Analyze and migrate your file data to Azure with Komprise Intelligent Data Manager
 titleSuffix: Azure Storage
 description: Getting started guide to implement Komprise Intelligent Data Manager. This guide shows how to analyze your file infrastructure, and migrates your data to Azure Files, Azure NetApp Files, Azure Blob Storage, or any available ISV NAS solution 
-author: timkresler
-ms.author: timkresler
+author: beber
+ms.author: beber
 ms.date: 06/01/2023
 ms.service: azure-storage
 ms.topic: quickstart

@@ -3,7 +3,8 @@ title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with Application Map and Intelligent view.
 ms.topic: conceptual
 ms.date: 07/10/2023
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.reviewer: rijolly 
 ---
@@ -229,6 +230,8 @@ To help you understand the concept of *cloud role names*, look at an application
 :::image type="content" source="media/app-map/cloud-rolename.png" lightbox="media/app-map/cloud-rolename.png" alt-text="Screenshot that shows an application map example.":::
 
 In the application map shown, each of the names in green boxes is a cloud role name value for different aspects of this particular distributed application. For this app, its roles consist of `Authentication`, `acmefrontend`, `Inventory Management`, and `Payment Processing Worker Role`.
+
+The dotted blue circle around `acmefrontend` shows it's the last selected component. A solid blue circle shows a component is currently selected, dimming unrelated components to highlight its performance.
 
 In this app, each of the cloud role names also represents a different unique Application Insights resource with its own instrumentation keys. Because the owner of this application has access to each of those four disparate Application Insights resources, Application Map can stitch together a map of the underlying relationships.
 
@@ -567,6 +570,6 @@ To provide feedback, use the feedback option.
 
 ## Next steps
 
-* To learn more about how correlation works in Application Insights, see [Telemetry correlation](distributed-tracing-telemetry-correlation.md).
-* The [end-to-end transaction diagnostic experience](transaction-diagnostics.md) correlates server-side telemetry from across all your Application Insights-monitored components into a single view.
+* To learn more about how correlation works in Application Insights, see [Telemetry correlation](distributed-trace-data.md).
+* The [end-to-end transaction diagnostic experience](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics) correlates server-side telemetry from across all your Application Insights-monitored components into a single view.
 * For advanced correlation scenarios in ASP.NET Core and ASP.NET, see [Track custom operations](custom-operations-tracking.md).

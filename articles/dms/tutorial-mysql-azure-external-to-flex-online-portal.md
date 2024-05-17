@@ -8,6 +8,8 @@ ms.reviewer: maghan
 ms.date: 08/07/2023
 ms.service: dms
 ms.topic: tutorial
+ms.custom:
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate from MySQL to Azure Database for MySQL - Flexible Server online using DMS via the Azure portal
@@ -44,14 +46,19 @@ To complete this tutorial, you need to:
   * Ensure that the user has “REPLICATION CLIENT” and “REPLICATION SLAVE” permissions on the source server for reading and applying the bin log.
   * If you're targeting an online migration, you will need to configure the binlog expiration on the source server to ensure that binlog files aren't purged before the replica commits the changes. We recommend at least two days to start. The parameter will depend on the version of your MySQL server. For MySQL 5.7 the parameter is expire_logs_days (by default it is set to 0, which is no auto purge). For MySQL 8.0 it is binlog_expire_logs_seconds (by default it is set to 30 days). After a successful cutover, you can reset the value.
 * To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:
-  * “READ” privilege on the source database.
-  * “SELECT” privilege for the ability to select objects from the database
-  * If migrating views, the user must have the “SHOW VIEW” privilege.
-  * If migrating triggers, the user must have the “TRIGGER” privilege.
-  * If migrating routines (procedures and/or functions), the user must be named in the definer clause of the routine. Alternatively, based on version, the user must have the following privilege:
-    * For 5.7, have “SELECT” access to the “mysql.proc” table.
-    * For 8.0, have “SHOW_ROUTINE” privilege or have the “CREATE ROUTINE,” “ALTER ROUTINE,” or “EXECUTE” privilege granted at a scope that includes the routine.
-  * If migrating events, the user must have the “EVENT” privilege for the database from which the events are to be shown.
+  * [“SELECT”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) privilege at the server level on the source.
+  * If migrating views, user must have the [“SHOW VIEW”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-view) privilege on the source server and the [“CREATE VIEW”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-view) privilege on the target server.
+  * If migrating triggers, user must have the [“TRIGGER”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_trigger) privilege on the source and target server.
+  * If migrating routines (procedures and/or functions), the user must have the [“CREATE ROUTINE”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-routine) and [“ALTER ROUTINE”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_alter-routine) privileges granted at the server level on the target.
+  * If migrating events, the user must have the [“EVENT”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_event) privilege on the source and target server.
+  * If migrating users/logins, the user must have the ["CREATE USER"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-user) privilege on the target server.
+  * ["DROP"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_drop) privilege at the server level on the target, in order to drop tables that might already exist. For example, when retrying a migration.
+  * ["REFERENCES"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_references) privilege at the server level on the target, in order to create tables with foreign keys.
+  * If migrating to MySQL 8.0, the user must have the ["SESSION_VARIABLES_ADMIN"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_session-variables-admin) privilege on the target server.
+  * ["CREATE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create) privilege at the server level on the target.
+  * ["INSERT"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_insert) privilege at the server level on the target.
+  * ["UPDATE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_update) privilege at the server level on the target.
+  * ["DELETE"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_delete) privilege at the server level on the target.
 
 ## Limitations
 
@@ -62,7 +69,22 @@ As you prepare for the migration, be sure to consider the following limitations.
 * Currently, DMS doesn't support migrating the DEFINER clause for objects. All object types with definers on the source are dropped and after the migration, the default definer for all objects that support a definer clause and that are created during schema migration, will be set to the login used to run the migration.
 * Currently, DMS only supports migrating a schema as part of data movement. If nothing is selected for data movement, the schema migration won't occur. Note that selecting a table for schema migration also selects it for data movement.
 * Online migration support is limited to the ROW binlog format.
-* Online migration only replicates DML changes; replicating DDL changes isn't supported. Don't make any schema changes to the source while replication is in progress, if DMS detects DDL while replicating, it will generate a warning that can be viewed in the Azure portal.
+* Online migration now supports DDL statement replication when migrating to a v8.0 or v5.7 Azure Database for MySQL Flexible Server target server.
+  * Statement replication is supported for databases, tables, and schema objects (views, routines, triggers) selected for schema migration when configuring an Azure DMS migration activity. Data definition and administration statements for databases, tables, and schema objects that aren’t selected won’t be replicated. Selecting an entire server for migration will replicate statements for any tables, databases, and schema objects that are created on the source server after the initial load has completed.
+  * Azure DMS statement replication supports all of the Data Definition statements listed [here](https://dev.mysql.com/doc/refman/8.0/en/sql-data-definition-statements.html), with the exception of the following commands:
+    • LOGFILE GROUP statements
+    • SERVER statements
+    • SPATIAL REFERENCE SYSTEM statements
+    • TABLESPACE statements
+  * Azure DMS statement replication supports all of the Data Administration – Account Management statements listed [here](https://dev.mysql.com/doc/refman/8.0/en/account-management-statements.html), with the exception of the following commands:
+    * SET DEFAULT ROLE
+    * SET PASSWORD
+  * Azure DMS statement replication supports all of the Data Administration – Table Maintenance statements listed [here](https://dev.mysql.com/doc/refman/8.0/en/table-maintenance-statements.html), with the exception of the following commands:
+    * REPAIR TABLE
+    * ANALYZE TABLE
+    * CHECKSUM TABLE
+  * Azure DMS statement or binlog replication does not support the following syntax: ‘CREATE TABLE `b` as SELECT * FROM `a`;’. The replication of this DDL will result in the following error: “Only BINLOG INSERT, COMMIT and ROLLBACK statements are allowed after CREATE TABLE with START TRANSACTION statement.”
+* Migration duration can be affected by compute maintenance on the backend, which can reset the progress.
 
 ## Best practices for creating a flexible server for faster data loads using DMS
 

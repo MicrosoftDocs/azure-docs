@@ -1,13 +1,13 @@
 ---
 title: Using Trial Matcher
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: This article describes how to use the Trial Matcher
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: quickstart
-ms.date: 01/27/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 
@@ -17,17 +17,18 @@ ms.author: behoorne
 This quickstart provides an overview on how to use the Trial Matcher.
 
 ## Prerequisites
-To use Trial Matcher, you must have an Azure AI services account created. If you haven't already created an Azure AI services account, see [Deploy Project Health Insights using the Azure portal.](../deploy-portal.md)
+To use Trial Matcher, you must have an Azure AI services account created. If you haven't already created an Azure AI services account, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
 
 Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
 
 
 ## Submit a request and get results
 To send an API request, you need your Azure AI services account endpoint and key.
-![Screenshot of the Keys and Endpoints for the Trial Matcher.](../media/keys-and-endpoints.png) 
+
+![[Screenshot of the Keys and Endpoints for the Trial Matcher.](../media/keys-and-endpoints.png)](../media/keys-and-endpoints.png#lightbox)
 
 > [!IMPORTANT]
-> The Trial Matcher is an asynchronous API. Trial Matcher prediction is performed upon receipt of the API request and the results are returned asynchronously. The API results are available for 1 hour from the time the request was ingested and is indicated in the response. After the time period, the results are purged and are no longer available for retrieval.
+> The Trial Matcher is an asynchronous API. Trial Matcher prediction is performed upon receipt of the API request and the results are returned asynchronously. The API results are available for 24 hours from the time the request was ingested and is indicated in the response. After the time period, the results are purged and are no longer available for retrieval.
 
 ### Example Request
 
@@ -77,6 +78,7 @@ Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
 
 ```
 
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/trial-matcher/create-job)
 
 The response includes the operation-location in the response header. The value looks similar to the following URL:
 ```https://eastus.api.cognitive.microsoft.com/healthinsights/trialmatcher/jobs/b58f3776-c6cb-4b19-a5a7-248a0d9481ff?api_version=2022-01-01-preview```
@@ -176,6 +178,7 @@ An example response:
 }
 ```
 
+You can also find a full view of the [response parameters here](/rest/api/cognitiveservices/healthinsights/trial-matcher/get-job)
 
 ## Data limits
 

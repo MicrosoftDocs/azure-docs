@@ -2,12 +2,11 @@
 title: Quickstart - Set and retrieve a secret from Azure Key Vault
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
 author: msmbaldwin
-tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli, mode-api
-ms.date: 01/27/2021
+ms.custom: mvc, devx-track-azurecli, mode-api
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -17,7 +16,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -28,6 +27,10 @@ This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure
 ## Create a key vault
 
 [!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
+
+## Give your user account permissions to manage secrets in Key Vault
+
+[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac-cli.md)]
 
 ## Add a secret to Key Vault
 

@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: rosouz
-ms.custom: synapse-cosmos-db, ignite-2022
+ms.custom: synapse-cosmos-db
 ---
 
 # Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link 
@@ -120,7 +120,7 @@ Next open the Power BI desktop and connect to the serverless SQL endpoint by usi
 
 1. Enter the name of the SQL endpoint where the database is located. Enter `SynapseLinkBI-ondemand.sql.azuresynapse.net` within the **Server** field. In this example,  **SynapseLinkBI** is  name of the workspace. Replace it if you have given a different name to your workspace. Select **Direct Query** for data connectivity mode and then **OK**.
 
-1. Select the preferred authentication method such as Azure AD.
+1. Select the preferred authentication method such as Microsoft Entra ID.
 
 1. Select the **RetailCosmosDB** database and the **RetailSales**, **StoreDemographics** views.
 

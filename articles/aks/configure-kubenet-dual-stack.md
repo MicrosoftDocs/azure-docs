@@ -1,13 +1,13 @@
 ---
 title: Configure dual-stack kubenet networking in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to configure dual-stack kubenet networking in Azure Kubernetes Service (AKS)
+description: Learn how to configure dual-stack kubenet networking in Azure Kubernetes Service (AKS).
 author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, build-2023, devx-track-linux
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 12/07/2023
+ms.custom: devx-track-azurecli, build-2023
 ---
 
 # Use dual-stack kubenet networking in Azure Kubernetes Service (AKS)
@@ -33,7 +33,7 @@ This article shows you how to use dual-stack networking with an AKS cluster. For
 ## Prerequisites
 
 * All prerequisites from [configure kubenet networking](configure-kubenet.md) apply.
-* AKS dual-stack clusters require Kubernetes version v1.21.2 or greater. v1.22.2 or greater is recommended to take advantage of the [out-of-tree cloud controller manager][aks-out-of-tree], which is the default on v1.22 and up.
+* AKS dual-stack clusters require Kubernetes version v1.21.2 or greater. v1.22.2 or greater is recommended.
 * If using Azure Resource Manager templates, schema version 2021-10-01 is required.
 
 ## Overview of dual-stack networking in Kubernetes
@@ -46,6 +46,9 @@ AKS configures the required supporting services for dual-stack networking. This 
 * IPv4 and IPv6 node and pod addresses.
 * Outbound rules for both IPv4 and IPv6 traffic.
 * Load balancer setup for IPv4 and IPv6 services.
+
+> [!NOTE]
+> When using Dualstack with an [outbound type][outbound-type] of user-defined routing, you can choose to have a default route for IPv6 depending on if you need your IPv6 traffic to reach the internet or not. If you don't have a default route for IPv6, a warning will surface when creating a cluster but will not prevent cluster creation.
 
 ## Deploying a dual-stack cluster
 
@@ -68,19 +71,19 @@ The following attributes are provided to support dual-stack clusters:
 1. Create an Azure resource group for the cluster using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create -l <region> -n <resourceGroupName>
+    az group create --location <region> --name <resourceGroupName>
     ```
 
 2. Create a dual-stack AKS cluster using the [`az aks create`][az-aks-create] command with the `--ip-families` parameter set to `ipv4,ipv6`.
 
     ```azurecli-interactive
-    az aks create -l <region> -g <resourceGroupName> -n <clusterName> --ip-families ipv4,ipv6
+    az aks create --location <region> --resource-group <resourceGroupName> --name <clusterName> --ip-families ipv4,ipv6
     ```
 
 3. Once the cluster is created, get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g <resourceGroupName> -n <clusterName>
+    az aks get-credentials --resource-group <resourceGroupName> --name <clusterName>
     ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
@@ -148,7 +151,7 @@ The following attributes are provided to support dual-stack clusters:
 2. Once the cluster is created, get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g <resourceGroupName> -n <clusterName>
+    az aks get-credentials --resource-group <resourceGroupName> --name <clusterName>
     ```
 
 > [!NOTE]
@@ -195,7 +198,7 @@ The following attributes are provided to support dual-stack clusters:
 2. Once the cluster is created, get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g <resourceGroupName> -n <clusterName>
+    az aks get-credentials --resource-group <resourceGroupName> --name <clusterName>
     ```
 
 > [!NOTE]
@@ -295,12 +298,59 @@ Once the cluster has been created, you can deploy your workloads. This article w
 ## Expose the workload via a `LoadBalancer` type service
 
 > [!IMPORTANT]
-> There are currently **two limitations** pertaining to IPv6 services in AKS. These are both preview limitations and work is underway to remove them.
->
-> 1. Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
-> 2. Only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
+> Starting in AKS v1.27, you can create a dual-stack LoadBalancer service which will be provisioned with 1 IPv4 public IP and 1 IPv6 public IP. However, in older versions, only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
 
 # [kubectl](#tab/kubectl)
+
+### AKS starting from v1.27
+
+1. Expose the NGINX deployment using the `kubectl expose deployment nginx` command.
+
+    ```bash-interactive
+    kubectl expose deployment nginx --name=nginx --port=80 --type=LoadBalancer --overrides='{"spec":{"ipFamilyPolicy": "PreferDualStack", "ipFamilies": ["IPv4", "IPv6"]}}'
+    ```
+
+    You receive an output that shows the services have been exposed.
+
+    ```output
+    service/nginx exposed
+    ```
+
+2. Once the deployment is exposed and the `LoadBalancer` services are fully provisioned, get the IP addresses of the services using the `kubectl get services` command.
+
+    ```bash-interactive
+    kubectl get services
+    ```
+
+    ```output
+    NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
+    nginx        LoadBalancer   10.0.223.73   2603:1030:20c:9::22d,4.156.88.133   80:30664/TCP   2m11s
+    ```
+
+    ```bash-interactive
+    kubectl get services nginx -ojsonpath='{.spec.clusterIPs}'
+    ```
+
+    ```output
+    ["10.0.223.73","fd17:d93e:db1f:f771::54e"]
+    ```
+
+3. Verify functionality via a command-line web request from an IPv6 capable host. Azure Cloud Shell isn't IPv6 capable.
+
+    ```bash-interactive
+    SERVICE_IP=$(kubectl get services nginx -o jsonpath='{.status.loadBalancer.ingress[1].ip}')
+    curl -s "http://[${SERVICE_IP}]" | head -n5
+    ```
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Welcome to nginx!</title>
+    <style>
+    ```
+
+### AKS older than v1.27
 
 1. Expose the NGINX deployment using the `kubectl expose deployment nginx` command.
 
@@ -344,6 +394,68 @@ Once the cluster has been created, you can deploy your workloads. This article w
     ```
 
 # [YAML](#tab/yaml)
+
+### AKS starting from v1.27
+
+1. Expose the NGINX deployment using the following YAML manifest.
+
+    ```yml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app: nginx
+      name: nginx
+    spec:
+      externalTrafficPolicy: Cluster
+      ipFamilyPolicy: PreferDualStack
+      ipFamilies:
+      - IPv4
+      - IPv6
+      ports:
+      - port: 80
+        protocol: TCP
+        targetPort: 80
+      selector:
+        app: nginx
+      type: LoadBalancer
+    ```
+
+2. Once the deployment is exposed and the `LoadBalancer` services are fully provisioned, get the IP addresses of the services using the `kubectl get services` command.
+
+    ```bash-interactive
+    kubectl get services
+    ```
+
+    ```output
+    NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
+    nginx        LoadBalancer   10.0.223.73   2603:1030:20c:9::22d,4.156.88.133   80:30664/TCP   2m11s
+    ```
+
+    ```bash-interactive
+    kubectl get services nginx -ojsonpath='{.spec.clusterIPs}'
+    ```
+
+    ```output
+    ["10.0.223.73","fd17:d93e:db1f:f771::54e"]
+    ```
+
+3. Verify functionality via a command-line web request from an IPv6 capable host. Azure Cloud Shell isn't IPv6 capable.
+
+    ```bash-interactive
+    SERVICE_IP=$(kubectl get services nginx -o jsonpath='{.status.loadBalancer.ingress[1].ip}')
+    curl -s "http://[${SERVICE_IP}]" | head -n5
+    ```
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Welcome to nginx!</title>
+    <style>
+    ```
+
+### AKS older than v1.27
 
 1. Expose the NGINX deployment using the following YAML manifest.
 
@@ -417,6 +529,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 [kubernetes-dual-stack]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/
 
 <!-- LINKS - Internal -->
+[outbound-type]: ./egress-outboundtype.md
 [deploy-arm-template]: ../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md
 [deploy-bicep-template]: ../azure-resource-manager/bicep/deploy-cli.md
 [kubenet]: ./configure-kubenet.md
@@ -426,3 +539,4 @@ Once the cluster has been created, you can deploy your workloads. This article w
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+

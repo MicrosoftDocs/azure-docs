@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to use Azure Storage Explorer to create a container and a blob, download the blob to your local computer, and view all of the blobs in the container.
 author: stevenmatthew
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.date: 10/28/2021
 ms.author: shaas
@@ -103,7 +103,7 @@ When you create a SAS for a storage account, Storage Explorer generates an accou
 When you create a SAS for a container or blob, Storage Explorer generates a service SAS. For more information about the service SAS, see [Create a service SAS](/rest/api/storageservices/create-service-sas).
 
 > [!NOTE]
-> When you create a SAS with Storage Explorer, the SAS is always assigned with the storage account key. Storage Explorer does not currently support creating a user delegation SAS, which is a SAS that is signed with Azure AD credentials.
+> When you create a SAS with Storage Explorer, the SAS is always assigned with the storage account key. Storage Explorer does not currently support creating a user delegation SAS, which is a SAS that is signed with Microsoft Entra credentials.
 
 ## Next steps
 

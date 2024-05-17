@@ -10,10 +10,10 @@ ms.author: cherylmc
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Virtual Machine Administrator Login or Virtual Machine User Login role, if you’re using the Azure AD sign-in method. You only need to do this if you're enabling Azure AD login using the processes outlined in one of these articles:
+* Virtual Machine Administrator Login or Virtual Machine User Login role, if you’re using the Microsoft Entra sign-in method. You only need to do this if you're enabling Microsoft Entra login using the processes outlined in one of these articles:
 
-  * [Azure Windows VMs and Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
-  * [Azure Linux VMs and Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
+  * [Azure Windows VMs and Microsoft Entra ID](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
+  * [Azure Linux VMs and Microsoft Entra ID](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
 
 ### Ports
 

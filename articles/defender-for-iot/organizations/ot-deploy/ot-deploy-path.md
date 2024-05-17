@@ -24,7 +24,7 @@ While teams and job titles differ across different organizations, all Defender f
 
 Before you start planning your OT monitoring deployment, make sure that you have an Azure subscription and an OT plan onboarded Defender for IoT.
 
-For more information, see [Add an OT plan to your Azure subscription](../getting-started.md).
+For more information, see [Start a Microsoft Defender for IoT trial](../getting-started.md).
 
 ## Planning and preparing
 
@@ -195,7 +195,7 @@ For more information, see:
 - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
 - [Connect on-premises OT network sensors to Microsoft Sentinel](../integrations/on-premises-sentinel.md)
 - [Integrations with Microsoft and partner services](../integrate-overview.md)
-- [Stream Defender for IoT cloud alerts to a partner SIEM](../integrations/send-cloud-data-to-partners.md)
+- [Stream Defender for IoT cloud alerts to a partner SIEM](../integrations/send-cloud-data-to-partners.yml)
 
 After integrating Defender for IoT alerts with a SIEM, we recommend the following next steps to operationalize OT/IoT alerts and fully integrate them with your existing SOC workflows and tools:
 

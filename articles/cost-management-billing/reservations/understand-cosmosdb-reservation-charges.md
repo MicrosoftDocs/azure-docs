@@ -5,9 +5,8 @@ author: bandersmsft
 ms.author: banders
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 11/17/2023
 ---
 # Understand how the reservation discount is applied to Azure Cosmos DB
 
@@ -114,7 +113,7 @@ To understand and view the application of your Azure reservations in billing usa
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about Azure reservations, see the following articles:
 

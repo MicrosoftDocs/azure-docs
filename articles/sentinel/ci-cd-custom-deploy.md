@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article describes how to customize repository deployments for the repositories feature in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 1/11/2023
+ms.date: 3/13/2024
 ms.author: austinmc
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to optimize my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
@@ -13,7 +13,7 @@ ms.author: austinmc
 
 There are two primary ways to customize the deployment of your repository content to Microsoft Sentinel workspaces. Each method uses different files and syntax, so consider these examples to get you started.
 
-- Modify the GitHub workflow or DevOps pipeline to customize deployment options such as your connection's deployment trigger, deployment path or usage of smart deployments.
+- Modify the GitHub workflow or DevOps pipeline to customize deployment options such as your connection's deployment trigger, deployment path, or usage of smart deployments.
 
 - Utilize the newly introduced configuration file to control the prioritized order of your content deployments, choose to *exclude* specific content files from those deployments, or map parameter files to specific content files. 
 
@@ -29,14 +29,14 @@ Microsoft Sentinel currently supports connections to GitHub and Azure DevOps rep
 - An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
 - Collaborator access to your GitHub repository or Project Administrator access to your Azure DevOps repository
 - Actions enabled for GitHub and Pipelines enabled for Azure DevOps
-- Ensure custom content files you want to deploy to your workspaces are in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
+- Ensure custom content files you want to deploy to your workspaces are in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml)
 
-For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content)
+For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
 
 
 ## Customize the workflow or pipeline
 
-The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may need other customizations such as to configure different deployment triggers, or to deploy content exclusively from a specific root folder.
+The default workflow only deploys content modified since the last deployment, based on commits to the repository. But you may need other customizations such as to configure different deployment triggers, or to deploy content exclusively from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -71,11 +71,11 @@ Select one of the following tabs depending on your connection type:
         For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#configuring-workflow-events) on configuring workflow events.
 
     - **To disable smart deployments**:
-        The smart deployments behavior is separate from the deployment trigger discussed above. Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` default value from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
+        The smart deployments behavior is separate from the deployment trigger discussed. Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` default value from `true` to `false`. Once this change is committed, the smart deployment functionality is turned off, and all future deployments for this connection redeploy all the repository's relevant content files to the connected workspaces. 
 
     - **To modify the deployment path**:
 
-        In the default configuration shown above for the `on` section, the wildcards (`**`) in the first line in the `paths` section indicate that the entire branch is in the path for the deployment triggers.
+        In the default configuration shown for the `on` section, the wildcards (`**`) in the first line in the `paths` section indicate that the entire branch is in the path for the deployment triggers.
 
         This default configuration means that a deployment workflow is triggered anytime that content is pushed to any part of the branch.
 
@@ -114,7 +114,7 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
         Modify this trigger to any available Azure DevOps Triggers, such as a scheduling trigger or a pull request triggers. For more information, see the [Azure DevOps trigger documentation](/azure/devops/pipelines/yaml-schema).
 
     - **To disable smart deployments**:
-        The smart deployments behavior is separate from the deployment trigger discussed above. Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` default value from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
+        The smart deployments behavior is separate from the deployment trigger discussed. Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` default value from `true` to `false`. Once this change is committed, smart deployment functionality is turned off, and all future deployments for this connection redeploy all the repository's relevant content files to the connected workspaces. 
 
     - **To modify the deployment path**:
 
@@ -158,21 +158,21 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Scale your deployments with parameter files
 
-Rather than passing parameters as inline values in your content files, consider [using a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are a number of ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
+Rather than passing parameters as inline values in your content files, consider [using a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are several ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
  
 :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
-1. Is there a mapping in the *sentinel-deployment.config*? [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration) to learn more.
-1. Is there a workspace-mapped parameter file? This would be a parameter file in the same directory as the content files that ends with *.parameters-\<WorkspaceID>.json*
-1. Is there a default parameter file? This would be any parameter file in the same directory as the content files that ends with *.parameters.json*
+1. Is there a mapping in the *sentinel-deployment.config*? For more information, see [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration).
+1. Is there a workspace-mapped parameter file? Yes it is a parameter file in the same directory as the content files that ends with *.parameters-\<WorkspaceID>.json*
+1. Is there a default parameter file? Yes, any parameter file in the same directory as the content files that ends with *.parameters.json*
      
-It is encouraged to map your parameter files through through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
+It is encouraged to map your parameter files through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
 
 > [!IMPORTANT]
 > Once a parameter file match is determined based on the above mapping precedence, the pipeline will ignore any remaining mappings.
 > 
 
-Modifying the mapped parameter file listed in the sentinel-deployment.config will trigger the deployment of its paired content file. Adding or modifying a *.parameters-\<WorkspaceID\>.json* file or *.parameters.json* file will also trigger a deployment of the paired content file(s) along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files won't be deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
+Modifying the mapped parameter file listed in the sentinel-deployment.config triggers the deployment of its paired content file. Adding or modifying a *.parameters-\<WorkspaceID\>.json* file or *.parameters.json* file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
 
 ## Customize your connection configuration
 
@@ -183,7 +183,7 @@ The deployment script for repositories supports the usage of a deployment config
 
      :::image type="content" source="media/ci-cd-custom-deploy/deployment-config.png" alt-text="Screenshot of a repository root directory. The RepositoriesSampleContent is shown with the location of the sentinel-deployment.config file." lightbox="media/ci-cd-custom-deploy/deployment-config.png":::
 
-1. Include JSON structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process will still run. Invalid or unrecognized sections will be ignored.
+1. Include JSON structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process still runs. Invalid or unrecognized sections are ignored.
 
 Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can also be found at the [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
@@ -224,15 +224,14 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
 - **To map parameters**:
 
-    The deployment script will accept three methods of mapping parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the sentinel-deployment.config takes the highest precedence and will guarantee that a given parameter file will be mapped to its associated content files. Simply modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
+    The deployment script accepts three methods of mapping parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the sentinel-deployment.config takes the highest precedence and guarantees that a given parameter file is mapped to its associated content files. Simply modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
 
 
 ## Next steps
 
-A sample repository is available with demonstrating the deployment config file and all three parameter mapping methods. 
+A sample repository is available demonstrating the deployment config file and all three parameter mapping methods. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent).
 
-For more information, see:
+Consider these resources for more information about ARM templates:
 
-- [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent)
 - [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md)
 - [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)

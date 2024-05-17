@@ -73,6 +73,18 @@ There are two common causes for this error:
 
     Occasionally, the Relay service might experience delays in processing requests. It might happen, for example, during periods of high traffic. If it occurs, retry your operation after a delay, until the operation is successful. If the same operation continues to fail after multiple attempts, check the [Azure service status site](https://azure.microsoft.com/status/) to see if there are known service outages.
 
+## ConnectionLostException - NameRenewalFailed
+
+### Symptoms
+Your client receives the exception: `Microsoft.Azure.Relay.ConnectionLostException : InternalServerError: NameRenewalFailed`.
+
+### Cause
+Azure Relay service restarts listener connections every 24 hours. This behavior is by design. The Azure Relay service disconnects a listener active connection every 24 hours, and the listener will reconnect with the server using the retry mechanism.
+ 
+### Resolution
+No action on your part as the listener automatically reconnects to the server. If you notice that your listener isn't connecting again, [submit a ticket](https://azure.microsoft.com/support/options/) to the support team. 
+
+
 ## Next steps
 * [Azure Relay FAQs](relay-faq.yml)
 * [Create a relay namespace](relay-create-namespace-portal.md)

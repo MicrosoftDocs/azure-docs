@@ -1,10 +1,9 @@
 ---
 title: Get started with Azure Service Bus topics (Python)
 description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the Python programming language.
-documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 01/17/2023
+ms.date: 02/06/2024
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, passwordless-python
@@ -34,7 +33,7 @@ In this tutorial, you complete the following steps:
 ## Prerequisites
 
 - An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Python 3.7 or higher, with the [Azure Python SDK](/azure/developer/python/sdk/azure-sdk-overview) package installed.
+- [Python 3.8](https://www.python.org/downloads/) or higher
 
 >[!NOTE]
 > This tutorial works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Create and deploy a Python application to an Azure Website](../app-service/quickstart-python.md). For more information about installing packages used in this tutorial, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
@@ -57,7 +56,7 @@ To follow this quickstart using passwordless authentication and your own Azure a
 * Run the tutorial code in the same terminal or command prompt.
 
 >[!IMPORTANT]
-> Make sure you sign in with `az login`. The `DefaultAzureCredential` class in the passwordless code uses the Azure CLI credentials to authenticate with Azure Active Directory (Azure AD).
+> Make sure you sign in with `az login`. The `DefaultAzureCredential` class in the passwordless code uses the Azure CLI credentials to authenticate with Microsoft Entra ID.
 
 To use the passwordless code, you'll need to specify a:
 
@@ -133,7 +132,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
     > - Replace `FULLY_QUALIFIED_NAMESPACE` with the fully qualified namespace for your Service Bus namespace.
     > - Replace `TOPIC_NAME` with the name of the topic.
 
-    In the preceding code, you used the Azure Identity client library's `DefaultAzureCredential` class. When the app runs locally during development, `DefaultAzureCredential` will automatically discover and authenticate to Azure using the account you logged into the Azure CLI with. When the app is deployed to Azure, `DefaultAzureCredential` can authenticate your app to Azure AD via a managed identity without any code changes.
+    In the preceding code, you used the Azure Identity client library's `DefaultAzureCredential` class. When the app runs locally during development, `DefaultAzureCredential` will automatically discover and authenticate to Azure using the account you logged into the Azure CLI with. When the app is deployed to Azure, `DefaultAzureCredential` can authenticate your app to Microsoft Entra ID via a managed identity without any code changes.
 
 3. Add a method to send a single message.
 

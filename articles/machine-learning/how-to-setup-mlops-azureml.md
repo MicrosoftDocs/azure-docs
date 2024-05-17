@@ -3,12 +3,12 @@ title: Set up MLOps with Azure DevOps
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample MLOps environment in Azure Machine Learning
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+ms.author: kritifaujdar
+author: fkriti
 ms.service: machine-learning
 ms.reviewer: larryfr
 ms.subservice: mlops
-ms.date: 11/29/2022
+ms.date: 11/03/2023
 ms.topic: conceptual
 ms.custom: cli-v2, sdk-v2
 ---
@@ -105,7 +105,7 @@ Before you can set up an MLOps project with Azure Machine Learning, you need to 
 
     ![Screenshot of service principal setup.](./media/how-to-setup-mlops-azureml/SP-setup-ownership-tab.png)
 
-1. Go through the process of creating a Service Principle (SP) selecting **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** and name it  **Azure-ARM-Dev-ProjectName**. Once created, repeat and create a new SP named **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
+1. Go through the process of creating a Service Principle (SP) selecting **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant)** and name it  **Azure-ARM-Dev-ProjectName**. Once created, repeat and create a new SP named **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
 
 1. Go to **Certificates & Secrets** and add for each SP **New client secret**, then store the value and secret separately.
 
@@ -338,7 +338,7 @@ This scenario includes prebuilt workflows for two approaches to deploying a trai
 * [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
 * [Install and set up Python CLI v2](how-to-configure-cli.md)
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
-* Training course on [MLOps with Machine Learning](https://learn.microsoft.com/training/paths/introduction-machine-learn-operations/)
+* Training course on [MLOps with Machine Learning](/training/paths/introduction-machine-learn-operations/)
 * Learn more about [Azure Pipelines with Azure Machine Learning](how-to-devops-machine-learning.md)
 * Learn more about [GitHub Actions with Azure Machine Learning](how-to-github-actions-machine-learning.md)
 * Deploy MLOps on Azure in Less Than an Hour - [Community MLOps V2 Accelerator video](https://www.youtube.com/watch?v=5yPDkWCMmtk)

@@ -3,11 +3,10 @@ title: Update tax details for an Azure billing account
 description: This article describes how to update your Azure billing account tax details.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 09/27/2023
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -25,7 +24,7 @@ This article helps you review and update the sold to information, ship-to/servic
 
 1. Sign in to the Azure portal using the email address with an owner or a contributor role on the billing account for a Microsoft Customer Agreement (MCA). Or, sign in with an account administrator role for a Microsoft Online Subscription Program (MOSP) billing account. MOSP is also referred to as pay-as-you-go.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search in the Azure portal.](./media/manage-tax-information/search-cmb.png)
+    :::image type="content" border="true" source="./media/manage-tax-information/search-cmb.png" alt-text="Screenshot that shows where to search in the Azure portal.":::
 1. In the left menu, select **Properties** and then select **Update sold-to**.  
     :::image type="content" source="./media/manage-tax-information/update-sold-to.png" alt-text="Screenshot showing the properties for an M C A billing account where you modify the sold-to address." lightbox="./media/manage-tax-information/update-sold-to.png" :::
 1. Enter the new address and select **Save**.
@@ -82,8 +81,8 @@ Customers in the following countries or regions can add their Tax IDs.
 |Georgia     | Germany        |
 |Ghana     | Greece        |
 |Guatemala     |   Hungary      |
-|Iceland     |  Italy       |
-|  India ¹   | Indonesia        |
+|Iceland     |  Italy ¹       |
+|India ²    | Indonesia        |
 |Ireland     |  Isle of Man        |
 |Kenya     |   Korea      |
 |  Latvia   |  Liechtenstein      |
@@ -105,17 +104,19 @@ Customers in the following countries or regions can add their Tax IDs.
 |Uzbekistan    |  Vietnam    |
 |Zimbabwe    |   |
 
+¹ For Italy, you must enter your organization's Codice Fiscale using the following steps with the **Manage Tax IDs** option.
+
+² Follow the instructions in the next section to add your Goods and Services Taxpayer Identification Number (GSTIN).
+
 1. Sign in to the Azure portal using the email address that has an owner or a contributor role on the billing account for an MCA or an account administrator role for a MOSP billing account.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search for Cost Management + Billing.](./media/manage-tax-information/search-cmb.png)
+    :::image type="content" border="true" source="./media/manage-tax-information/search-cmb.png" alt-text="Screenshot that shows where to search for Cost Management + Billing.":::
 1. In the left menu under **Settings**, select **Properties**.
 1. Select **Manage Tax IDs**.  
     :::image type="content" source="./media/manage-tax-information/update-tax-id.png" alt-text="Screenshot showing where to update the Tax I D." lightbox="./media/manage-tax-information/update-tax-id.png" :::
 1. Enter new tax IDs and then select **Save**.  
     > [!NOTE]
-    > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or,  updating Tax IDs in the Azure portal isn't supported for your account.
-
-¹ Follow the instructions in the next section to add your Goods and Services Taxpayer Identification Number (GSTIN).
+    > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or, updating Tax IDs in the Azure portal isn't supported for your account.
 
 ## Add your GSTIN for billing accounts in India 
 

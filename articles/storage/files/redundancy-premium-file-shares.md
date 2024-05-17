@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: reference
-ms.date: 03/29/2023
+ms.date: 09/26/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---

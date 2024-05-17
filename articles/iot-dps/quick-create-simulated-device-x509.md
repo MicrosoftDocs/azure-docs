@@ -15,7 +15,7 @@ zone_pivot_groups: iot-dps-set1
 
 # Quickstart: Provision an X.509 certificate simulated device
 
-In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use the [X.509 certificate attestation](concepts-x509-attestation.md) mechanism for authentication. After you've configured your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
+In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use X.509 certificate attestation for authentication. After you've configured your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.  Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 
@@ -103,47 +103,56 @@ In this section, you prepare a development environment that's used to build the 
 
 4. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_01_2023`.
 
-    ```cmd
-    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
-    cd azure-iot-sdk-c
-    git submodule update --init
-    ```
+   ```cmd
+   git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+   cd azure-iot-sdk-c
+   git submodule update --init
+   ```
 
-    This operation could take several minutes to complete.
+   This operation could take several minutes to complete.
 
 5. When the operation is complete, run the following commands from the `azure-iot-sdk-c` directory:
 
-    ```cmd
-    mkdir cmake
-    cd cmake
-    ```
+   ```cmd
+   mkdir cmake
+   cd cmake
+   ```
 
 6. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the `cmake` directory.
 
-    When specifying the path used with `-Dhsm_custom_lib` in the following command, make sure to use the absolute path to the library in the `cmake` directory you previously created. The path shown assumes that you cloned the C SDK in the root directory of the C drive. If you used another directory, adjust the path accordingly.
+   When specifying the path used with `-Dhsm_custom_lib` in the following command, make sure to use the absolute path to the library in the `cmake` directory you previously created. The path shown assumes that you cloned the C SDK in the root directory of the C drive. If you used another directory, adjust the path accordingly.
 
-    ```cmd
-    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
-    ```
+   # [Windows](#tab/windows)
 
-    >[!TIP]
-    >If `cmake` doesn't find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+   ```cmd
+   cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
+   ```
+
+   # [Linux](#tab/linux)
+
+   ```bash
+   cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=/home/<USER>/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/custom_hsm_example.a ..
+   ```
+
+   ---
+
+   >[!TIP]
+   >If `cmake` doesn't find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 7. When the build succeeds, the last few output lines look similar to the following output:
 
-    ```cmd
-    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
-    -- Building for: Visual Studio 17 2022
-    -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.22000.
-    -- The C compiler identification is MSVC 19.32.31329.0
-    -- The CXX compiler identification is MSVC 19.32.31329.0
+   ```output
+   -- Building for: Visual Studio 17 2022
+   -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.22000.
+   -- The C compiler identification is MSVC 19.32.31329.0
+   -- The CXX compiler identification is MSVC 19.32.31329.0
     
-    ...
+   ...
 
-    -- Configuring done
-    -- Generating done
-    -- Build files have been written to: C:/azure-iot-sdk-c/cmake
-    ```
+   -- Configuring done
+   -- Generating done
+   -- Build files have been written to: C:/azure-iot-sdk-c/cmake
+   ```
 
 ::: zone-end
 
@@ -176,7 +185,7 @@ git clone -b v2 https://github.com/Azure/azure-iot-sdk-python.git --recursive
 ```
 
 >[!NOTE]
->The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta. For information about updating V2 code samples to use a V3 release of the Python SDK, see [Azure IoT Device SDK for Python migration guide](https://github.com/Azure/azure-iot-sdk-python/blob/main/migration_guide_provisioning.md).
+>The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta.
 
 ::: zone-end
 
@@ -239,7 +248,7 @@ Perform the steps in this section in your Git Bash prompt.
 
     The certificate file has its subject common name (CN) set to `my-x509-device`. For X.509-based enrollments, the [Registration ID](./concepts-service.md#registration-id) is set to the common name. The registration ID is a case-insensitive string of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format. DPS supports registration IDs up to 128 characters long; however, the maximum length of the subject common name in an X.509 certificate is 64 characters. The registration ID, therefore, is limited to 64 characters when using X.509 certificates.
 
-5. The certificate file is Base64 encoded. To view the subject common name (CN) and other properties of the certificate file, enter the following command:
+5. The certificate file is Base 64 encoded. To view the subject common name (CN) and other properties of the certificate file, enter the following command:
 
     # [Windows](#tab/windows)
 
@@ -948,7 +957,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-To learn how to provision multiple X.509 devices using an enrollment group:
+In this quickstart, you provisioned a single device to your IoT hub using an individual enrollment. Next, learn how to provision multiple devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Provision multiple X.509 devices using an enrollment group](tutorial-custom-hsm-enrollment-group-x509.md)
+> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)

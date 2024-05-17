@@ -9,7 +9,7 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.topic: troubleshooting
-ms.date: 05/23/2023
+ms.date: 04/30/2024
 ms.custom: build-2023
 ---
 
@@ -28,6 +28,17 @@ To use an Azure Virtual Network when creating a workspace through the Azure port
 1. In the __Workspace inbound access__ section, select __Add__ and add a private endpoint for the Azure Virtual Network to use for network isolation.
 1. In the __Workspace Outbound access__ section, select __Use my own virtual network__.
 1. Continue to create the workspace as normal.
+
+## Does not have authorization to perform action 'Microsoft.MachineLearningServices<br/> /workspaces/privateEndpointConnections/read'
+
+When you create a managed virtual network, the operation can fail with an error similar to the following text:
+
+"The client '\<GUID\>' with object id '\<GUID\>' does not have authorization to perform action 'Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read' over scope '/subscriptions/\<GUID\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.MachineLearningServices/workspaces/\<workspace-name\>' or the scope is invalid."
+
+This error occurs when the Azure identity used to create the managed virtual network doesn't have the following Azure role-based access control permissions:
+
+* Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read
+* Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
 
 ## Next steps
 

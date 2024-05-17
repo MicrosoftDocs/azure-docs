@@ -2,21 +2,21 @@
 title: Configure the Grit IAM B2B2C solution with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with the Grit IAM B2B2C solution
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 9/15/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
+
+# Customer intent: I'm a developer, and I want to integrate Azure Active Directory B2C authentication with the Grit IAM B2B2C solution. I need to provide secure and user-friendly identity and access management for my customers.
 ---
 
 # Tutorial: Configure the Grit IAM B2B2C solution with Azure Active Directory B2C
 
-In this tutorial, you learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with a [Grit IAM B2B2C](https://www.gritiam.com/b2b2c) solution. You can use the solution to provide secure, reliable, self-serviceable, and user-friendly identity and access management to your customers. Shared profile data such as first name, last name, home address, and email used in web and mobile applications are stored in a centralized manner with consideration to compliance and regulatory needs.
+In this tutorial, you learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with a [Grit IAM B2B2C](https://www.gritiam.com/b2b2c.html) solution. You can use the solution to provide secure, reliable, self-serviceable, and user-friendly identity and access management to your customers. Shared profile data such as first name, last name, home address, and email used in web and mobile applications are stored in a centralized manner with consideration to compliance and regulatory needs.
 
 
 Use Grit's B2BB2C solution for:
@@ -28,8 +28,8 @@ Use Grit's B2BB2C solution for:
 
 To get started, ensure the following prerequisites are met:
 
-- A Grit IAM account. You can go to [Grit IAM B2B2C solution](https://www.gritiam.com/b2b2c) to get a demo.
-- An Azure AD subscription. If you don't have one, you can create a [free Azure account](https://azure.microsoft.com/free/).
+- A Grit IAM account. You can go to [Grit IAM B2B2C solution](https://www.gritiam.com/b2b2c.html) to get a demo.
+- A Microsoft Entra subscription. If you don't have one, you can create a [free Azure account](https://azure.microsoft.com/free/).
 - An Azure AD B2C tenant linked to the Azure subscription. You can learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md). 
 - Configure your application in the Azure portal. 
 
@@ -43,9 +43,9 @@ Contoso does business with end customers and large enterprises, like Fabrikam_bi
 
 This integration is composed of the following components:
 
-- **Azure AD B2C Identity Experience Framework (IEF)**: An engine that executes user journeys, which can include validating credentials, performing MFA, checking user access. It's aided by the Azure AD database and the API layer, which's configured using XML.
+- **Azure AD B2C Identity Experience Framework (IEF)**: An engine that executes user journeys, which can include validating credentials, performing MFA, checking user access. It's aided by the Microsoft Entra database and the API layer, which's configured using XML.
 
-- **Grit API layer**: This layer exposes user profile data and metadata about organizations and applications. The data is stored in Azure AD and Cosmos DB.
+- **Grit API layer**: This layer exposes user profile data and metadata about organizations and applications. The data is stored in Microsoft Entra ID and Cosmos DB.
 
 - **Grit Onboarding portal**: Used by admins to onboard applications and organizations.
 
@@ -109,7 +109,7 @@ Check the authentication [scenarios](#scenario-description) in your applications
 
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 
-- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](custom-policy-get-started.md?tabs=applications)
+- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
 
 - [SAAS Platform - Organization Application Onboarding Portal](https://app.archbee.com/doc/G_YZFq_VwvgMlmX-_efmX/8m90WVb2M6Yi0gCe7yor2)
 

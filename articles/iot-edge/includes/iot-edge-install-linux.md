@@ -1,9 +1,10 @@
 ---
 ms.topic: include
-ms.date: 05/03/2023
+ms.date: 03/11/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 
@@ -32,14 +33,6 @@ Installing can be done with a few commands.  Open a terminal and run the followi
 
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-   sudo dpkg -i packages-microsoft-prod.deb
-   rm packages-microsoft-prod.deb
-   ```
-
-* **18.04**:
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/18.04/multiarch/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
    sudo dpkg -i packages-microsoft-prod.deb
    rm packages-microsoft-prod.deb
    ```
@@ -78,6 +71,10 @@ Installing can be done with a few commands. Open a terminal and run the followin
     rm packages-microsoft-prod.rpm
     ```
 
+# [Ubuntu Core snaps](#tab/snaps)
+
+You install IoT Edge runtime from the snap store in a later step. Continue to the next section.
+
 ---
 
 For more information about operating system versions, see [Azure IoT Edge supported platforms](../support.md?#linux-containers).
@@ -114,37 +111,61 @@ Install the Moby engine and CLI.
    ```bash
    sudo yum install moby-engine moby-cli
    ```
+
+> [!TIP]
+> If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
+>
+>   ```bash
+>   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+>   chmod +x check-config.sh
+>   ./check-config.sh
+>   ```
+>
+> In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you're missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you're using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. After you've deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies using the following commands:
+
+```bash
+sudo snap install docker
+sudo snap install azure-iot-identity
+```
+
 ---
 
-By default, the Moby container engine does not set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
+By default, the container engine doesn't set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
 
 The following steps show you how to configure your container to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
-1. Create (if the file's not there already) or open the Docker [daemon's config file](https://docs.docker.com/config/daemon/) at `/etc/docker/daemon.json`.
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-1. Set the default logging driver to the `local` logging driver as shown in the example below.   
-   
+1. Create or edit the existing Docker [daemon's config file](https://docs.docker.com/config/daemon/)
+
+    ```bash
+    sudo nano /etc/docker/daemon.json
+    ```
+
+1. Set the default logging driver to the `local` logging driver as shown in the example.
+
     ```JSON
        {
           "log-driver": "local"
        }
     ```
+
 1. Restart the container engine for the changes to take effect.
 
     ```bash
     sudo systemctl restart docker
     ```
 
-   > [!TIP]
-   > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
-   >
-   >   ```bash
-   >   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
-   >   chmod +x check-config.sh
-   >   ./check-config.sh
-   >   ```
-   >
-   > In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you're missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you're using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. After you've deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
+# [Ubuntu Core snaps](#tab/snaps)
+
+Currently, the local logging driver setting is not supported for the Docker snap.
+
+---
+
 
 ### Install the IoT Edge runtime
 
@@ -168,7 +189,7 @@ Install the latest version of IoT Edge and the IoT identity service package (if 
      sudo apt-get install aziot-edge
    ```
 
-* **20.04 or 18.04**:
+* **20.04**:
    ```bash
    sudo apt-get update; \
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge
@@ -194,5 +215,57 @@ The optional defender-iot-micro-agent-edge package includes the Microsoft Defend
    ```bash
    sudo yum install aziot-edge
    ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+Install IoT Edge from the snap store:
+
+```bash
+sudo snap install azure-iot-edge
+```
+
+### Connect snaps
+
+By default, snaps are dependency-free, untrusted, and strictly confined. Hence, snaps must be connected to other snaps and system resources after installation. Use the following commands to connect the IoT Identity Service and IoT Edge snaps to each other and to system resources. To get started, snaps need to be manually connected. For production deployments, they can be configured to automatically connect to reduce the provisioning workload.
+
+```bash
+#------------------------
+#  IoT Identity Service
+#------------------------
+
+# Connect the Identity Service snap to the logging system
+# and grant permission to query system info
+
+sudo snap connect azure-iot-identity:log-observe
+sudo snap connect azure-iot-identity:mount-observe
+sudo snap connect azure-iot-identity:system-observe
+sudo snap connect azure-iot-identity:hostname-control
+
+# If using a TPM, enable TPM access
+
+sudo snap connect azure-iot-identity:tpm
+
+#------------
+#  IoT Edge
+#------------
+
+# Connect to your /home directory to enable writing support bundles
+
+sudo snap connect azure-iot-edge:home
+
+# Connect to logging and grant permission to query system info
+
+sudo snap connect azure-iot-edge:log-observe
+sudo snap connect azure-iot-edge:mount-observe
+sudo snap connect azure-iot-edge:system-observe
+sudo snap connect azure-iot-edge:hostname-control
+# Allow IoT Edge to connect to the /var/run/iotedge folder and use sockets
+
+sudo snap connect azure-iot-edge:run-iotedge
+
+# Connect IoT Edge to Docker
+
+sudo snap connect azure-iot-edge:docker docker:docker-daemon
+```
 
 ---

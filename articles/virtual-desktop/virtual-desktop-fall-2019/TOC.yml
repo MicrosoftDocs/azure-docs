@@ -20,10 +20,26 @@
     href: create-validation-host-pool-2019.md
   - name: 6. Set up service alerts
     href: set-up-service-alerts-2019.md
+- name: Concepts
+  items:
+  - name: Azure Virtual Desktop (classic) retirement
+    href: classic-retirement.md
+  - name: Terminology
+    href: environment-setup-2019.md
+  - name: Delegated access in Azure Virtual Desktop
+    href: delegated-access-virtual-desktop-2019.md
+  - name: Host pool load-balancing methods
+    href: host-pool-load-balancing-2019.md
+  - name: Data locations
+    href: data-locations-2019.md
 - name: How-to
   items:
-  - name: Migrate manually
-    href: ../manual-migration.md
+  - name: Migrate to Azure Virtual Desktop
+    items:
+      - name: Migrate automatically
+        href: ../automatic-migration.md
+      - name: Migrate manually
+        href: ../manual-migration.md
   - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
@@ -70,20 +86,10 @@
           href: diagnostics-log-analytics-2019.md
   - name: Publish built-in apps
     href: publish-apps-2019.md
-  - name: Set up Azure AD Multi-Factor Authentication
+  - name: Set up Microsoft Entra multifactor authentication
     href: ../set-up-mfa.md
   - name: Delete Azure Virtual Desktop classic
     href: manual-delete.md
-- name: Concepts
-  items:
-  - name: Azure Virtual Desktop environment
-    href: environment-setup-2019.md
-  - name: Delegated access in Azure Virtual Desktop
-    href: delegated-access-virtual-desktop-2019.md
-  - name: Host pool load-balancing methods
-    href: host-pool-load-balancing-2019.md
-  - name: Data locations
-    href: data-locations-2019.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support

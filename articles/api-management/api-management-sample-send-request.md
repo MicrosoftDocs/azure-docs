@@ -2,21 +2,19 @@
 title: Using API Management service to generate HTTP requests
 description: Learn to use request and response policies in API Management to call external services from your API
 services: api-management
-documentationcenter: ''
-author: adrianhall
+author: dlepow
 manager: erikre
-editor: ''
-
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/14/2022
-ms.author: adhal
+ms.author: danlep
 
 ---
 # Using external services from the Azure API Management service
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The policies available in Azure API Management service can do a wide range of useful work based purely on the incoming request, the outgoing response, and basic configuration information. However, being able to interact with external services from API Management policies opens up many more opportunities.
 
 You have previously seen how to interact with the [Azure Event Hub service for logging, monitoring, and analytics](api-management-log-to-eventhub-sample.md). This article demonstrates policies that allow you to interact with any external HTTP-based service. These policies can be used for triggering remote events or for retrieving information that is used to manipulate the original request and response in some way.
@@ -63,7 +61,7 @@ There are certain tradeoffs when using a fire-and-forget style of request. If fo
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.
 
 ### Authorizing reference tokens
-A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
+A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) as part of its OAuth2 flow, as [Microsoft Entra ID](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy or `validate-azure-ad-token` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
 
 ### Standardized introspection
 In the past, there has been no standardized way of verifying a reference token with an authorization server. However a recently proposed standard [RFC 7662](https://tools.ietf.org/html/rfc7662) was published by the IETF that defines how a resource server can verify the validity of a token.

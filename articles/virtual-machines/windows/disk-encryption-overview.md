@@ -3,14 +3,11 @@ title: Enable Azure Disk Encryption for Windows VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows VMs.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: windows
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 01/04/2023
-
-ms.custom: seodec18
-
+ms.date: 02/20/2024
 ---
 
 # Azure Disk Encryption for Windows VMs
@@ -26,7 +23,7 @@ If you use [Microsoft Defender for Cloud](../../security-center/index.yml), you'
 ![Microsoft Defender for Cloud disk encryption alert](../media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
+> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-overview-aad.md) for details. 
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 > - Do not use BitLocker to manually decrypt a VM or disk that was encrypted through Azure Disk Encryption.
 
@@ -38,7 +35,7 @@ You can learn the fundamentals of Azure Disk Encryption for Windows in just a fe
 
 Windows VMs are available in a [range of sizes](../sizes-general.md). Azure Disk Encryption is supported on Generation 1 and Generation 2 VMs. Azure Disk Encryption is also available for VMs with premium storage.
 
-Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines with a less than 2 GB of memory.  For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines with a less than 2 GB of memory.  For more exceptions, see [Azure Disk Encryption: Restrictions](disk-encryption-windows.md#restrictions).
 
 ### Supported operating systems
 
@@ -55,7 +52,7 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 
 ## Networking requirements
 To enable Azure Disk Encryption, the VMs must meet the following network endpoint configuration requirements:
-  - To get a token to connect to your key vault, the Windows VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
+  - To get a token to connect to your key vault, the Windows VM must be able to connect to a Microsoft Entra endpoint, \[login.microsoftonline.com\].
   - To write the encryption keys to your key vault, the Windows VM must be able to connect to the key vault endpoint.
   - The Windows VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
   -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).    
@@ -77,17 +74,18 @@ Azure Disk Encryption will fail if domain level group policy blocks the AES-CBC 
 
 Azure Disk Encryption requires an Azure Key Vault to control and manage disk encryption keys and secrets. Your key vault and VMs must reside in the same Azure region and subscription.
 
-For details, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md).
+For details, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.yml).
 
 ## Terminology
+
 The following table defines some of the common terms used in Azure disk encryption documentation:
 
 | Terminology | Definition |
 | --- | --- |
-| Azure Key Vault | Key Vault is a cryptographic, key management service that's based on Federal Information Processing Standards (FIPS) validated hardware security modules. These standards help to safeguard your cryptographic keys and sensitive secrets. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md). |
+| Azure Key Vault | Key Vault is a cryptographic, key management service that's based on Federal Information Processing Standards (FIPS) validated hardware security modules. These standards help to safeguard your cryptographic keys and sensitive secrets. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.yml). |
 | Azure CLI | [The Azure CLI](/cli/azure/install-azure-cli) is optimized for managing and administering Azure resources from the command line.|
 | BitLocker |[BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831713(v=ws.11)) is an industry-recognized Windows volume encryption technology that's used to enable disk encryption on Windows VMs. |
-| Key encryption key (KEK) | The asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security module (HSM)-protected key or software-protected key. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md). |
+| Key encryption key (KEK) | The asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security module (HSM)-protected key or software-protected key. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.yml). |
 | PowerShell cmdlets | For more information, see [Azure PowerShell cmdlets](/powershell/azure/). |
 
 ## Next steps
@@ -97,4 +95,4 @@ The following table defines some of the common terms used in Azure disk encrypti
 - [Azure Disk Encryption scenarios on Windows VMs](disk-encryption-windows.md)
 - [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started) 
 - [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
-- [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md)
+- [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.yml)

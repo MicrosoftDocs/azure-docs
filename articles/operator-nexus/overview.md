@@ -52,7 +52,7 @@ Here are some key features of Azure Operator Nexus.
 
 ### CBL-Mariner
 
-Azure Operator Nexus runs Microsoft's own Linux distribution called [CBL-Mariner](https://microsoft.github.io/CBL-Mariner/docs/) on the bare-metal hosts in the operator's facilities. The same Linux distribution supports Azure cloud infrastructure and edge services. It includes a small set of core packages by default.
+Azure Operator Nexus runs Microsoft's own Linux distribution called [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) on the bare-metal hosts in the operator's facilities. The same Linux distribution supports Azure cloud infrastructure and edge services. It includes a small set of core packages by default.
 
 CBL-Mariner is a lightweight operating system. It consumes limited system resources and is engineered to be efficient. For example, it has a fast startup time with a small footprint and locked-down packages to reduce the threat landscape.
 
@@ -92,7 +92,7 @@ As a platform, Azure Operator Nexus is designed for telco network functions and 
 
 ### Azure Operator Service Manager
 
-Azure Operator Service Manager is a service that allows network equipment providers (NEPs) to publish their NFs in Azure Marketplace. Operators can deploy the NFs by using familiar Azure APIs.
+[Azure Operator Service Manager](../operator-service-manager/azure-operator-service-manager-overview.md) is a service that allows network equipment providers (NEPs) to publish their NFs in Azure Marketplace. Operators can deploy the NFs by using familiar Azure APIs.
 
 Operator Service Manager provides a framework for NEPs and Microsoft to test and validate the basic functionality of the NFs. The validation includes lifecycle management of an NF on Azure Operator Nexus.
 

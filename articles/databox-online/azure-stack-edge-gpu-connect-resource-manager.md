@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 04/10/2024
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
@@ -24,7 +24,7 @@ This article describes how to connect to the local APIs on your Azure Stack Edge
 
 ## Endpoints on Azure Stack Edge device
 
-The following table summarizes the various endpoints exposed on your device, the supported protocols, and the ports to access those endpoints. Throughout the article, you will find references to these endpoints.
+The following table summarizes the various endpoints exposed on your device, the supported protocols, and the ports to access those endpoints. Throughout the article, you'll find references to these endpoints.
 
 | # | Endpoint | Supported protocols | Port used | Used for |
 | --- | --- | --- | --- | --- |
@@ -32,13 +32,13 @@ The following table summarizes the various endpoints exposed on your device, the
 | 2. | Security token service | https | 443 | To authenticate via access and refresh tokens |
 | 3. | Blob* | https | 443 | To connect to Blob storage via REST |
 
-\* *Connection to blob storage endpoint is not required to connect to Azure Resource Manager.*
+\* *Connection to blob storage endpoint isn't required to connect to Azure Resource Manager.*
 
 ## Connecting to Azure Resource Manager workflow
 
 The process of connecting to local APIs of the device using Azure Resource Manager requires the following steps:
 
-| Step # | You'll do this step ... | .. on this location. |
+| Step # | Do this step ... | .. on this location. |
 | --- | --- | --- |
 | 1. | [Configure your Azure Stack Edge device](#step-1-configure-azure-stack-edge-device) | Local web UI |
 | 2. | [Create and install certificates](#step-2-create-and-install-certificates) | Windows client/local web UI |
@@ -52,7 +52,7 @@ The following sections detail each of the above steps in connecting to Azure Res
 
 ## Prerequisites
 
-Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge device](azure-stack-edge-gpu-configure-tls-settings.md).
+Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge device](azure-stack-edge-gpu-configure-tls-settings.yml).
 
 ## Step 1: Configure Azure Stack Edge device
 
@@ -63,9 +63,9 @@ Take the following steps in the local web UI of your Azure Stack Edge device.
     ![Local web UI "Network settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
 
-    Make a note of the device IP address. You will use this IP later.
+    Make a note of the device IP address. You'll use this IP later.
 
-2. Configure the device name and the DNS domain from the **Device** page. Make a note of the device name and the DNS domain as you will use these later.
+2. Configure the device name and the DNS domain from the **Device** page. Make a note of the device name and the DNS domain as you'll use these later.
 
     ![Local web UI "Device" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
@@ -78,15 +78,15 @@ Take the following steps in the local web UI of your Azure Stack Edge device.
 
 Certificates ensure that your communication is trusted. On your Azure Stack Edge device, self-signed appliance, blob, and Azure Resource Manager certificates are automatically generated. Optionally, you can bring in your own signed blob and Azure Resource Manager certificates as well.
 
-When you bring in a signed certificate of your own, you also need the corresponding signing chain of the certificate. For the signing chain, Azure Resource Manager, and the blob certificates on the device, you will need the corresponding certificates on the client machine also to authenticate and communicate with the device.
+When you bring in a signed certificate of your own, you also need the corresponding signing chain of the certificate. For the signing chain, Azure Resource Manager, and the blob certificates on the device, you need the corresponding certificates on the client machine also to authenticate and communicate with the device.
 
-To connect to Azure Resource Manager, you will need to create or get signing chain and endpoint certificates, import these certificates on your Windows client, and finally upload these certificates on the device.
+To connect to Azure Resource Manager, you must create or get signing chain and endpoint certificates, import these certificates on your Windows client, and finally upload these certificates on the device.
 
 ### Create certificates
 
 For test and development use only, you can use Windows PowerShell to create certificates on your local system. While creating the certificates for the client, follow these guidelines:
 
-1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signing-chain-certificate).
+1. You first need to create a root certificate for the signing chain. For more information, see steps to [Create signing chain certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signing-chain-certificate).
 
 2. You can next create the endpoint certificates for Azure Resource Manager and blob (optional). You can get these endpoints from the **Device** page in the local web UI. See the steps to [Create endpoint certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signed-endpoint-certificates).
 
@@ -98,13 +98,13 @@ For test and development use only, you can use Windows PowerShell to create cert
     |Blob storage*|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Multi-SAN single certificate for both endpoints|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
-\* Blob storage is not required to connect to Azure Resource Manager. It is listed here in case you are creating local storage accounts on your device.
+\* Blob storage isn't required to connect to Azure Resource Manager. It's listed here in case you're creating local storage accounts on your device.
 
 For more information on certificates, go to how to [Upload certificates on your device and import certificates on the clients accessing your device](azure-stack-edge-gpu-manage-certificates.md).
 
 ### Upload certificates on the device
 
-The certificates that you created in the previous step will be in the Personal store on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
+The certificates that you created in the previous step is in the Personal store on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
 
 1. The root certificate must be exported as a DER format file with *.cer* file extension. For detailed steps, see [Export certificates as a .cer format file](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-der-format).
 
@@ -115,7 +115,7 @@ The certificates that you created in the previous step will be in the Personal s
 
 ### Import certificates on the client running Azure PowerShell
 
-The Windows client where you will invoke the Azure Resource Manager APIs needs to establish trust with the device. To this end, the certificates that you created in the previous step must be imported on your Windows client into the appropriate certificate store.
+The Windows client where you invoke the Azure Resource Manager APIs needs to establish trust with the device. To this end, the certificates that you created in the previous step must be imported on your Windows client into the appropriate certificate store.
 
 1. The root certificate that you exported as the DER format with *.cer* extension should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store.](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format)
 
@@ -134,7 +134,7 @@ Your Windows client must meet the following prerequisites:
     $PSVersionTable.PSVersion
     ```
 
-    Compare the **Major** version and ensure that it is 5.1 or later.
+    Compare the **Major** version and ensure that it's 5.1 or later.
 
     If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
 
@@ -178,19 +178,19 @@ Your Windows client must meet the following prerequisites:
 Your Windows client must meet the following prerequisites:
 
 
-1. Run Windows PowerShell 5.1. You must have Windows PowerShell 5.1. PowerShell core is not supported. To check the version of PowerShell on your system, run the following cmdlet:
+1. Run Windows PowerShell 5.1. You must have Windows PowerShell 5.1. PowerShell core isn't supported. To check the version of PowerShell on your system, run the following cmdlet:
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Compare the **Major** version and ensure that it is 5.1.
+    Compare the **Major** version and ensure that it's 5.1.
 
     If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
 
     If you don't have PowerShell 5.1, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
 
-    An example output is shown below.
+    Example output:
 
     ```output
     Windows PowerShell
@@ -223,15 +223,15 @@ Your Windows client must meet the following prerequisites:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
 ---
-If your repository is not trusted or you need more information, see [Validate the PowerShell Gallery accessibility](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
+If your repository isn't trusted or you need more information, see [Validate the PowerShell Gallery accessibility](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ## Step 4: Set up Azure PowerShell on the client
 
 ### [Az](#tab/Az)
 
-You will install Azure PowerShell modules on your client that will work with your device.
+Install Azure PowerShell modules on your client that work with your device.
 
-1. Run PowerShell as an administrator. You need access to PowerShell gallery.
+1. Run PowerShell as an administrator. You must have access to PowerShell gallery.
 
 
 1. First verify that there are no existing versions of `AzureRM` and `Az` modules on your client. To check, run the following commands:
@@ -250,7 +250,7 @@ You will install Azure PowerShell modules on your client that will work with you
 
 1. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
 
-    - If your client is using PowerShell Core version 7.0 and later:
+    - If your client is using PowerShell Core version 7.0 or later:
 
         ```powershell
         # Install the Az.BootStrapper module. Select Yes when prompted to install NuGet.
@@ -265,7 +265,7 @@ You will install Azure PowerShell modules on your client that will work with you
         Get-Module -Name "Az*" -ListAvailable
         ```
 
-    - If your client is using PowerShell 5.1 and later:
+    - If your client is using PowerShell 5.1 or later:
 
         ```powershell
         #Install the Az module version 1.10.0
@@ -273,10 +273,10 @@ You will install Azure PowerShell modules on your client that will work with you
         Install-Module -Name Az -RequiredVersion 1.10.0
         ```
 
-3.  Make sure that you have Az module version 1.10.0 running at the end of the installation.
+3.  Make sure that you have the correct Az module version running at the end of the installation.
 
 
-    If you used PowerShell 7 and later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
+    If you used PowerShell 7 or later, the following example output indicates that the Az version 2.0.1 (or later) modules were installed successfully.
 
     ```output
 
@@ -286,22 +286,22 @@ You will install Azure PowerShell modules on your client that will work with you
     PS C:\windows\system32> Get-Module -Name "Az*" -ListAvailable
     ```
 
-    If you used PowerShell 5.1 and later, the example output below indicates that that the Az version 1.10.0 modules were installed successfully.
+    If you used PowerShell 5.1 or later, the following example output indicates that the Az version 1.10.0 modules were installed successfully.
 
     ```powershell
     PS C:\WINDOWS\system32> Get-InstalledModule -Name Az -AllVersions
-    Version              Name                                Repository           Description
-    -------              ----                                ----------           ------
-    1.10.0               Az                                  PSGallery            Mic...
+    Version     Name     Repository     Description
+    -------     ----     ----------     -----------
+    1.10.0      Az       PSGallery      Mic...
 
     PS C:\WINDOWS\system32>
     ```
 
 ### [AzureRM](#tab/AzureRM)
 
-You will install Azure PowerShell modules on your client that will work with your device.
+Install Azure PowerShell modules on your client that work with your device.
 
-1. Run PowerShell as an administrator. You need access to PowerShell gallery.
+1. Run PowerShell as an administrator. You must have access to PowerShell gallery.
 
 
 2. To install the required Azure PowerShell modules from the PowerShell Gallery, run the following command:
@@ -319,15 +319,15 @@ You will install Azure PowerShell modules on your client that will work with you
     Get-Module -Name "Azure*" -ListAvailable
     ```
 
-    Make sure that you have Azure-RM module version 2.5.0 running at the end of the installation.
-    If you have an existing version of Azure-RM module that does not match the required version, uninstall using the following command:
+    Make sure you have Azure-RM module version 2.5.0 running at the end of the installation.
+    If you have an existing version of Azure-RM module that doesn't match the required version, uninstall using the following command:
 
     `Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose`
 
-    You will now need to install the required version again.
+    You'll now need to install the required version again.
 
 
-    An example output shown below indicates that the AzureRM version 2.5.0 modules were installed successfully.
+    The following example output indicates that the AzureRM version 2.5.0 modules were installed successfully.
 
     ```powershell
     PS C:\windows\system32> Install-Module -Name AzureRM.BootStrapper
@@ -365,15 +365,15 @@ You will install Azure PowerShell modules on your client that will work with you
 
 ## Step 5: Modify host file for endpoint name resolution
 
-You will now add the device IP address to:
+You'll now add the device IP address to:
 
 - The host file on the client, OR,
 - The DNS server configuration
 
 > [!IMPORTANT]
-> We recommend that you modify the the DNS server configuration for endpoint name resolution.
+> We recommend that you modify the DNS server configuration for endpoint name resolution.
 
-On your Windows client that you are using to connect to the device, take the following steps:
+On your Windows client that you're using to connect to the device, take the following steps:
 
 1. Start **Notepad** as an administrator, and then open the **hosts** file located at C:\Windows\System32\Drivers\etc.
 
@@ -392,7 +392,7 @@ On your Windows client that you are using to connect to the device, take the fol
 
     You saved the device IP from the local web UI in an earlier step.
 
-    The `login.<appliance name>.<DNS domain>` entry is the endpoint for Security Token Service (STS). STS is responsible for creation, validation, renewal, and cancellation of security tokens. The security token service is used to create the access token and refresh token that are used for continuous communication between the device and the client.
+    The `login.<appliance name>.<DNS domain>` entry is the endpoint for Security Token Service (STS). STS is responsible for creation, validation, renewal, and cancellation of security tokens. The security token service is used to create the access token and refresh token used for continuous communication between the device and the client.
 
     The endpoint for blob storage is optional when connecting to Azure Resource Manager. This endpoint is needed when transferring data to Azure via storage accounts.
 
@@ -402,9 +402,9 @@ On your Windows client that you are using to connect to the device, take the fol
 
 ## Step 6: Verify endpoint name resolution on the client
 
-Check if the endpoint name is resolved on the client that you are using to connect to the device.
+Check if the endpoint name is resolved on the client that you're using to connect to the device.
 
-1. You can use the `ping.exe` command-line utility to check that the endpoint name is resolved. Given an IP address, the `ping` command will return the TCP/IP host name of the computer you\'re tracing.
+1. You can use the `ping.exe` command-line utility to check that the endpoint name is resolved. Given an IP address, the `ping` command returns the TCP/IP host name of the computer you\'re tracing.
 
     Add the `-a` switch to the command line as shown in the example below. If the host name is returnable, it will also return this potentially valuable information in the reply.
 
@@ -449,7 +449,7 @@ Set the Azure Resource Manager environment and verify that your device to client
         Set-AzEnvironment -Name <Environment Name>
         ```
 
-        Here is an example output.
+        Here's an example output.
 
         ```output
         PS C:\WINDOWS\system32> Set-AzEnvironment -Name AzASE
@@ -478,7 +478,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             Connect-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
             ```
 
-            Use the tenant ID c0257de7-538f-415c-993a-1b87a031879d as in this instance it is hard coded.
+            Use the tenant ID c0257de7-538f-415c-993a-1b87a031879d as in this instance it's hard coded.
             Use the following username and password.
 
             - **Username** - *EdgeArmUser*
@@ -487,7 +487,7 @@ Set the Azure Resource Manager environment and verify that your device to client
 
 
 
-            Here is an example output for the `Connect-AzAccount`:
+            Here's an example output for the `Connect-AzAccount`:
 
             ```output
             PS C:\windows\system32> $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
@@ -501,11 +501,11 @@ Set the Azure Resource Manager environment and verify that your device to client
             PS C:\windows\system32>
             ```
 
-            An alternative way to log in is to use the `login-AzAccount` cmdlet.
+            An alternative way to sign in is to use the `login-AzAccount` cmdlet.
 
             `login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-            Here is an example output.
+            Here's an example output.
 
             ```output
             PS C:\WINDOWS\system32> login-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d
@@ -518,7 +518,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             ```
 3. To verify that the connection to the device is working, use the `Get-AzResource` command. This command should return all the resources that exist locally on the device.
 
-    Here is an example output.
+    Here's an example output.
 
     ```output
     PS C:\WINDOWS\system32> Get-AzResource
@@ -567,7 +567,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>/"
     ```
 
-    A sample output is shown below:
+    Sample output:
 
     ```output
     PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com/
@@ -616,11 +616,11 @@ Set the Azure Resource Manager environment and verify that your device to client
             ```
 
 
-            An alternative way to log in is to use the `login-AzureRmAccount` cmdlet.
+            An alternative way to sign in is to use the `login-AzureRmAccount` cmdlet.
 
             `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-            Here is a sample output of the command.
+            Here's a sample output of the command.
 
             ```output
             PS C:\Users\Administrator> login-AzureRMAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d
@@ -643,7 +643,7 @@ You may need to switch between two environments.
 
 ### [Az](#tab/Az)
 
-Run `Disconnect-AzAccount` command to switch to a different `AzEnvironment`. If you use `Set-AzEnvironment` and `Login-AzAccount` without using `Disconnect-AzAccount`, the environment is not actually switched.
+Run `Disconnect-AzAccount` command to switch to a different `AzEnvironment`. If you use `Set-AzEnvironment` and `Login-AzAccount` without using `Disconnect-AzAccount`, the environment isn't switched.
 
 The following examples show how to switch between two environments, `AzASE1` and `AzASE2`.
 
@@ -662,7 +662,7 @@ AzureUSGovernment https://management.usgovcloudapi.net/                https://l
 AzDBE2            https://management.CVV4PX2-Test.microsoftdatabox.com https://login.cvv4px2-test.microsoftdatabox.com/adfs/​
 ```
 ​
-Next, get which environment you are currently connected to via your Azure Resource Manager.
+Next, get which environment you're currently connected to via your Azure Resource Manager.
 
 ```output
 PS C:\WINDOWS\system32> Get-AzContext |fl *​
@@ -693,7 +693,7 @@ CertificateThumbprint :​
 ExtendedProperties    : {[Subscriptions, ...], [Tenants, c0257de7-538f-415c-993a-1b87a031879d]}
 ```
 
-Log into the other environment. The sample output is shown below.
+Sign into the other environment. The sample output is shown below.
 
 ```output
 PS C:\WINDOWS\system32> Login-AzAccount -Environment "AzDBE1" -TenantId $ArmTenantId​
@@ -703,7 +703,7 @@ Account     SubscriptionName   TenantId        Environment​
 EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE1
 ```
 ​
-Run this cmdlet to confirm which environment you are connected to.
+Run this cmdlet to confirm which environment you're connected to.
 
 ```output
 PS C:\WINDOWS\system32> Get-AzContext |fl *​
@@ -721,7 +721,7 @@ ExtendedProperties : {}
 
 ### [AzureRM](#tab/AzureRM)
 
-Run `Disconnect-AzureRmAccount` command to switch to a different `AzureRmEnvironment`. If you use `Set-AzureRmEnvironment` and `Login-AzureRmAccount` without using `Disconnect-AzureRmAccount`, the environment is not actually switched.
+Run `Disconnect-AzureRmAccount` command to switch to a different `AzureRmEnvironment`. If you use `Set-AzureRmEnvironment` and `Login-AzureRmAccount` without using `Disconnect-AzureRmAccount`, the environment isn't switched.
 
 The following examples show how to switch between two environments, `AzDBE1` and `AzDBE2`.
 
@@ -740,7 +740,7 @@ AzureUSGovernment https://management.usgovcloudapi.net/                https://l
 AzDBE2            https://management.CVV4PX2-Test.microsoftdatabox.com https://login.cvv4px2-test.microsoftdatabox.com/adfs/​
 ```
 ​
-Next, get which environment you are currently connected to via your Azure Resource Manager.
+Next, get which environment you're currently connected to via your Azure Resource Manager.
 
 ```output
 PS C:\WINDOWS\system32> Get-AzureRmContext |fl *​
@@ -771,7 +771,7 @@ CertificateThumbprint :​
 ExtendedProperties    : {[Subscriptions, ...], [Tenants, c0257de7-538f-415c-993a-1b87a031879d]}
 ```
 
-Log into the other environment. The sample output is shown below.
+Sign into the other environment. The sample output is shown below.
 
 ```output
 PS C:\WINDOWS\system32> Login-AzureRmAccount -Environment "AzDBE1" -TenantId $ArmTenantId​
@@ -781,7 +781,7 @@ Account     SubscriptionName   TenantId        Environment​
 EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE1
 ```
 ​
-Run this cmdlet to confirm which environment you are connected to.
+Run this cmdlet to confirm which environment you're connected to.
 
 ```output
 PS C:\WINDOWS\system32> Get-AzureRmContext |fl *​

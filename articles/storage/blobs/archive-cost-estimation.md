@@ -6,7 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 08/10/2023
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ---
 
@@ -43,7 +43,7 @@ If you use the [Put Blob](/rest/api/storageservices/put-blob) operation, then th
 
 ###### Put Block and Put Block List
 
-If you upload a blob by using the [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) operations, then an upload will require multiple operations, and each of those operations are charged separately. Each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a **hot** write operation. The number of [Put Block](/rest/api/storageservices/put-block) operations that you need depends on the block size that you specify to upload the data. For example, if the blob size is 100 MiB and you choose block size to 10 MiB when you upload that blob, you would use 10 [Put Block](/rest/api/storageservices/put-block) operations. Blocks are written (committed) to the archive tier by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. That operation is charged the price of an **archive** write operation. Therefore, to upload a single blob, your cost is (<u>number of blocks</u> * <u>price of a hot write operation) + price of an archive write operation</u>.
+If you upload a blob by using the [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) operations, then an upload will require multiple operations, and each of those operations are charged separately. Each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a write operation for the accounts default access tier. The number of [Put Block](/rest/api/storageservices/put-block) operations that you need depends on the block size that you specify to upload the data. For example, if the blob size is 100 MiB and you choose block size to 10 MiB when you upload that blob, you would use 10 [Put Block](/rest/api/storageservices/put-block) operations. Blocks are written (committed) to the archive tier by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. That operation is charged the price of an **archive** write operation. Therefore, to upload a single blob, your cost is (<u>number of blocks</u> * <u>price of a hot write operation) + price of an archive write operation</u>.
 
 > [!NOTE]
 > If you're not using an SDK or the REST API directly, you might have to investigate which operations your data transfer tool is using to upload files. You might be able to determine this by reaching out the tool provider or by using storage logs. 
@@ -73,7 +73,7 @@ In this example, the total cost to rehydrate (retrieving + reading) would be $0.
 > [!NOTE]
 > If you set the rehydration priority to high, then the data retrieval and read rates increase.
 
-If you plan to rehydrate data, you should try to avoid an early deletion fee. To review your options, see [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+If you plan to rehydrate data, you should try to avoid an early deletion fee. To review your options, see [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 ## Scenario: One-time data backup
 
@@ -284,7 +284,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
 
 ## Archive versus cold and cool
 
-Archive storage is the lowest cost tier. However, it can take up to 15 hours to rehydrate 10 GiB files. To learn more, see [Blob rehydration from the Archive tier](archive-rehydrate-overview.md). The archive tier might not be the best fit if your workloads must read data quickly. The cool tier offers a near real-time read latency with a lower price than that the hot tier. Understanding your access requirements will help you to choose between the cool, cold, and archive tiers.
+Archive storage is the lowest cost tier. However, it can take up to 15 hours to rehydrate 10 GiB files. To learn more, see [Blob rehydration from the archive tier](archive-rehydrate-overview.md). The archive tier might not be the best fit if your workloads must read data quickly. The cool tier offers a near real-time read latency with a lower price than that the hot tier. Understanding your access requirements will help you to choose between the cool, cold, and archive tiers.
 
 The following table compares the cost of archive storage with the cost of cool and cold storage by using the [Sample prices](#sample-prices) that appear in this article. This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about 10% of stored capacity (1024 GB), and 10% of total transactions (20,000).
 <br><br>

@@ -7,6 +7,8 @@
     href: ../understand/mca-overview.md
 - name: Concepts
   items:
+  - name: Onboard to the Microsoft Customer Agreement
+    href: onboard-microsoft-customer-agreement.md
   - name: Checklist after signing your agreement
     href: microsoft-customer-agreement-get-started.md
   - name: Manage tenants in your agreement

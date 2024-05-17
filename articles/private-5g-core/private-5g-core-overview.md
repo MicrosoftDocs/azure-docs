@@ -29,6 +29,10 @@ Azure Private 5G Core provides:
 
   Azure Private 5G Core integrates with Azure Monitor to collect data from across the sites and provide real-time monitoring of the entire private mobile network. You can extend this capability to capture radio analytics to provide a complete network view from Azure.
 
+- **High Availability (HA)**
+
+  Azure Private 5G Core can run on a single Azure Stack Edge device, or on a pair of devices for a Highly Available (HA) service. An HA deployment allows the service to be maintained in the event of hardware failure.
+
 You'll also need the following to deploy a private mobile network using Azure Private 5G Core. These aren't included as part of the service.
 
 - **Azure Stack Edge and Azure Arc-enabled Kubernetes** 
@@ -46,6 +50,13 @@ You'll also need the following to deploy a private mobile network using Azure Pr
 
    For more information, see [What is Azure private multi-access edge compute?](../private-multi-access-edge-compute-mec/overview.md).
 
+- **Gateway routers**
+
+  For an HA deployment, you will need to deploy a gateway router between the ASE cluster and:
+
+  - the RAN equipment in the access network
+  - the data network(s).
+  
 The following diagram shows the key components of Azure Private 5G Core.
 
 :::image type="complex" source="media/azure-private-5g-core/azure-private-5g-core-components.png" alt-text="Diagram showing the components of Azure Private 5G Core." border="false":::
@@ -120,6 +131,7 @@ For information on Azure Private 5G Core's support for standards-based 5G and 4G
 Azure Private 5G Core supports the following authentication methods:
 
 - Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI) for 5G user equipment (UEs).
+- SUPI concealment using encrypted Subscription Concealed Identifiers (SUCI).
 - Authentication using International Mobile Subscriber Identities (IMSI) and Globally Unique Temporary Identities (GUTI) for 4G UEs.
 - 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between 5G UEs and the network.
 - Evolved Packet System based Authentication and Key Agreement (EPS-AKA) for mutual authentication between 4G UEs and the network.
@@ -183,9 +195,13 @@ Azure Private 5G Core is integrated with Azure Monitor Metrics Explorer, allowin
 
 For more information on using Azure Monitor to analyze metrics in your deployment, see [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md).
 
+Azure Private 5G Core is integrated with Azure Resource Health, which reports on the health of your control plane resources and allows you to diagnose and get support for service issues.
+
+For more information on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
+
 Azure Private 5G Core can be configured to integrate with Azure Monitor Event Hubs, allowing you to monitor UE usage.
 
-For more information on using Event Hubs to monitor UE usage in your deployment, see [Monitor UE usage via Azure Event Hubs (preview)](ue-usage-event-hub.md).
+For more information on using Event Hubs to monitor UE usage in your deployment, see [Monitor UE usage via Azure Event Hubs](ue-usage-event-hub.md).
 
 ## Next steps
 

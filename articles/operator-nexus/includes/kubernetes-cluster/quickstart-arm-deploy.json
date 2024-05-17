@@ -85,7 +85,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -112,7 +112,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -125,7 +125,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -152,7 +152,7 @@
         /*
           {
             "networkId": "string",
-            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN|IPVLAN"
+            "pluginType": "SRIOV|DPDK|OSDevice|MACVLAN"
           }
         */
       },
@@ -208,7 +208,7 @@
         "metadata": {
           "description": "The size of the control plane nodes"
         },
-        "defaultValue": "NC_G2_v1"
+        "defaultValue": "NC_G6_28_v1"
       },
       "systemPoolNodeCount": {
         "type": "int",
@@ -222,7 +222,7 @@
         "metadata": {
           "description": "The size of the worker nodes"
         },
-        "defaultValue": "NC_M4_v1"
+        "defaultValue": "NC_P10_56_v1"
       },
       "initialPoolAgentOptions": {
         "type": "object",

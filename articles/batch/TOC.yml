@@ -6,7 +6,6 @@
     displayName: overview
     href: batch-technical-overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Create a Batch account and run a job - Azure CLI
     displayName: quickstart, first, create
@@ -15,11 +14,11 @@
     displayName: quickstart, first, create
     href: quick-create-portal.md
   - name: Create a Batch account - Bicep
-    href: quick-create-bicep.md
     displayName: Resource Manager, ARM, Template
+    href: quick-create-bicep.md
   - name: Create a Batch account - ARM template
-    href: quick-create-template.md
     displayName: Resource Manager
+    href: quick-create-template.md
   - name: Create a Batch account - Terraform
     href: quick-create-terraform.md
   - name: Create a Batch pool and run a job - .NET
@@ -28,6 +27,7 @@
   - name: Create a Batch pool and run a job - Python
     displayName: quickstart, first, create
     href: quick-run-python.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
@@ -133,8 +133,8 @@
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
-    - name: Get cost analysis and set budgets
-      href: budget.md
+    - name: Plan to manage costs for Azure Batch
+      href: plan-to-manage-costs.md
     - name: Configure public network access with Batch accounts
       href: public-network-access.md
     - name: Use private endpoints with Batch accounts
@@ -145,11 +145,11 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
-  - name: Authenticate with Azure AD
+  - name: Authenticate with Microsoft Entra ID
     items:
-    - name: Azure AD with Batch service
+    - name: Microsoft Entra ID with Batch service
       href: batch-aad-auth.md
-    - name: Azure AD with Batch Management
+    - name: Microsoft Entra ID with Batch Management
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       displayName: credential, certificate
@@ -193,14 +193,13 @@
     - name: Create a pool with public IP addresses
       displayName: static
       href: create-pool-public-ip.md
-    - name: Create a pool without public IP addresses
-      displayName: private
-      href: batch-pool-no-public-ip-address.md
     - name: Create a simplified node communication pool without public IP addresses
       displayName: private
       href: simplified-node-communication-pool-no-public-ip.md
     - name: Create a pool with ephemeral OS disk nodes
       href: create-pool-ephemeral-os-disk.md
+    - name: Create an Azure Batch pool with Auto OS Upgrade
+      href: batch-upgrade-policy.md
     - name: Use extensions with pools
       href: create-pool-extensions.md
     - name: Configure managed identities
@@ -252,20 +251,17 @@
       href: batch-task-output-files.md
     - name: Persist output with File Conventions library
       href: batch-task-output-file-conventions.md
-  - name: Monitor Batch solutions
-    href: monitoring-overview.md
+  - name: Monitor
+    href: monitor-batch.md
     items:
-    - name: Use metrics and diagnostic logs
-      displayName: alert, monitor
-      href: batch-diagnostics.md
     - name: Monitor with Application Insights
       displayName: debug
       href: monitor-application-insights.md
-    - name: Count resources by state
-      href: batch-get-resource-counts.md
-    - name: Query resources efficiently
+    - name: Create efficient query lists
       displayName: monitor, queries
       href: batch-efficient-list-queries.md
+    - name: Count resources by state
+      href: batch-get-resource-counts.md
   - name: Use scripting tools
     items:
     - name: Use Azure PowerShell
@@ -292,14 +288,8 @@
       items:
       - name: Rendering using Azure
         href: batch-rendering-service.md
-      - name: Batch rendering VM images
-        href: batch-rendering-applications.md
       - name: Batch rendering capabilities
         href: batch-rendering-functionality.md
-      - name: Using Batch rendering
-        href: batch-rendering-using.md
-      - name: Rendering application reference
-        href: batch-rendering-application-reference.md
       - name: Storage and data movement
         displayName: rendering, assets
         href: batch-rendering-storage-data-movement.md
@@ -329,7 +319,9 @@
       href: /rest/api/batchmanagement/
   - name: Resource Manager template
     href: /azure/templates/microsoft.batch/allversions
-  - name: Batch Analytics
+  - name: Monitoring data reference
+    href: monitor-batch-reference.md
+  - name: Batch analytics
     href: batch-analytics.md
     items:
     - name: Pool create event

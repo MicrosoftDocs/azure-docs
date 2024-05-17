@@ -9,11 +9,12 @@ ms.author: danlep
 ms.manager: gwallace
 ms.reviewer: estfan, macolso
 ms.topic: how-to
-tags: connectors
-ms.date: 01/14/2020
+ms.date: 01/04/2024
 ---
 
 # Deploy and manage Azure Container Instances by using Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 With Azure Logic Apps and the Azure Container Instance connector, you can set up automated tasks and workflows that deploy and manage [container groups](../container-instances/container-instances-container-groups.md). The Container Instance connector supports the following actions:
 

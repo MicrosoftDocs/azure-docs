@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how Microsoft partners and their customers can use Cost Management APIs for common tasks.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 11/17/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Automation for partners
@@ -118,7 +118,7 @@ PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 DELETE https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01 
 ```
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management automation at [Cost Management automation overview](automation-overview.md).
 Automation scenarios.

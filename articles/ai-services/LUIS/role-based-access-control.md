@@ -5,9 +5,9 @@ description: Use this article to learn how to add access control to your LUIS re
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.date: 08/23/2022
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
+ms.date: 01/19/2024
 ms.topic: conceptual
 ---
 
@@ -18,9 +18,11 @@ ms.topic: conceptual
 
 LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](../../role-based-access-control/index.yml) for more information.
 
-## Enable Azure Active Directory authentication 
+<a name='enable-azure-active-directory-authentication'></a>
 
-To use Azure RBAC, you must enable Azure Active Directory authentication. You can [create a new resource with a custom subdomain](../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
+## Enable Microsoft Entra authentication 
+
+To use Azure RBAC, you must enable Microsoft Entra authentication. You can [create a new resource with a custom subdomain](../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
 
 ## Add role assignment to Language Understanding Authoring resource
 
@@ -36,7 +38,7 @@ Azure RBAC can be assigned to a Language Understanding Authoring resource. To gr
 1. On the **Members** tab, select a user, group, service principal, or managed identity.
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 
 ## LUIS role types
@@ -47,7 +49,7 @@ These custom roles only apply to authoring (Language Understanding Authoring) an
 
 > [!NOTE]
 > * *Owner* and *Contributor* roles take priority over the custom LUIS roles.
-> * Azure Active Directory (Azure AAD) is only used with custom LUIS roles.
+> * Microsoft Entra ID (Azure Microsoft Entra ID) is only used with custom LUIS roles.
 > * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in LUIS portal.
 
 
@@ -73,14 +75,12 @@ A user that should only be validating and reviewing LUIS applications, typically
     :::column-end:::
     :::column span="":::
       All GET APIs under: 
-        * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-        * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
+        * [LUIS Programmatic v3.0-preview](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true)
+        * [LUIS Programmatic v2.0 APIs](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v2.0&preserve-view=true)
 
       All the APIs under: 
-        * [LUIS Endpoint APIs v2.0](./luis-migration-api-v1-to-v2.md)
-        * [LUIS Endpoint APIs v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
-        * [LUIS Endpoint APIs v3.0-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
-
+        * LUIS Endpoint APIs v2.0
+        * [LUIS Endpoint APIs v3.0](/rest/api/cognitiveservices-luis/runtime/operation-groups?view=rest-cognitiveservices-luis-runtime-v3.0&preserve-view=true)
       All the Batch Testing Web APIs
     :::column-end:::
 :::row-end:::
@@ -111,23 +111,23 @@ A user that is responsible for building and modifying LUIS application, as a col
 
       All POST, PUT and DELETE APIs under:
 
-        * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-        * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2d)
+        * [LUIS Programmatic v3.0-preview](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true)
+        * [LUIS Programmatic v2.0 APIs](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v2.0&preserve-view=true)
 
         Except for
-        * [Delete application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c39)
-        * [Move app to another LUIS authoring Azure resource](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-        * [Publish an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c3b)
-        * [Update application settings](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58aeface39e2bb03dcd5909e)
-        * [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32228e8473de116325515)
-        * [Remove an assigned LUIS azure accounts from an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32554f8591db3a86232e1)
+        * [Delete application](/rest/api/cognitiveservices-luis/authoring/apps/delete?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+        * Move app to another LUIS authoring Azure resource
+        * [Publish an application](/rest/api/cognitiveservices-luis/authoring/apps/publish?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+        * [Update application settings](/rest/api/cognitiveservices-luis/authoring/apps/update-settings?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+        * [Assign a LUIS azure accounts to an application](/rest/api/cognitiveservices-luis/authoring/azure-accounts/assign-to-app?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+        * [Remove an assigned LUIS azure accounts from an application](/rest/api/cognitiveservices-luis/authoring/azure-accounts/remove-from-app?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
     :::column-end:::
 :::row-end:::
 
 ### Cognitive Services LUIS Owner
 
 > [!NOTE]
-> * If you are assigned as an *Owner* and *LUIS Owner* you will be be shown as *LUIS Owner* in LUIS portal.
+> * If you are assigned as an *Owner* and *LUIS Owner* you will be shown as *LUIS Owner* in LUIS portal.
 
 These users are the gatekeepers for LUIS applications in a production environment. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments.
 

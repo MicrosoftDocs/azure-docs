@@ -2,21 +2,17 @@
 title: Azure AI Vision 3.2 GA Read OCR container
 titleSuffix: Azure AI services
 description: Use the Read 3.2 OCR containers from Azure AI Vision to extract text from images and documents, on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 03/02/2023
+ms.date: 08/29/2023
 ms.author: pafarley
-ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
 
 # Install Azure AI Vision 3.2 GA Read OCR container
-
-[!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
 Containers enable you to run the Azure AI Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run the Read (OCR) container.
 
@@ -50,12 +46,6 @@ You must meet the following prerequisites before using the containers:
 |Computer Vision resource |In order to use the container, you must have:<br><br>A **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-
-## Request approval to run the container
-
-Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container. 
-
-[!INCLUDE [Request access to run the container](../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -354,6 +344,6 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
 * Review the [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
-* Refer to the [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) for details about the methods supported by the container.
+* Refer to the [Read API](/rest/api/computervision/operation-groups?view=rest-computervision-v3.2-preview) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Azure AI Vision functionality.
 * Use more [Azure AI containers](../cognitive-services-container-support.md)

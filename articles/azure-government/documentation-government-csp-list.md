@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: todorgb
 ms.author: todorb
-ms.date: 02/15/2023
+ms.date: 10/31/2023
 ---
 
 # Azure Government authorized reseller list
@@ -52,7 +52,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Anautics](https://anautics.com)|
 |[Anika Systems Inc.](https://www.anikasystems.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
-|[Applied Information Sciences, Inc.](https://www.appliedis.com)|
+|Applied Information Sciences, Inc.|
 |[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
@@ -61,6 +61,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Arctic IT](https://arcticit.com/)|
 |[Ardalyst Federal LLC](https://ardalyst.com)|
 |[ArdentMC](https://www.ardentmc.com)|
+|[Ariento Inc.](https://www.ariento.com/)|
 |[Army of Quants](https://www.armyofquants.com/)|
 |[Ascent Innovations LLC](https://www.ascent365.com/)|
 |[ASM Research LLC](https://www.asmr.com)|
@@ -84,7 +85,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CACI Inc - Federal](https://www.caci.com/)|
 |[Caloudi Corporation](https://www.caloudi.com/)|
 |[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
-|[Capgemini Government Solutions LLC](https://www.capgemini.com/us-en/service/capgemini-government-solutions/)|
 |[CAPSYS Technologies, LLC](https://www.capsystech.com/)|
 |[Casserly Consulting](https://www.casserlyconsulting.com)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com/)|
@@ -134,7 +134,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Cyber Advisors](https://cyberadvisors.com)|
 |[Cyber Cloud Technologies](https://www.cyber-cloud.com)|
 |[Cyber Korp Inc.](https://cyberkorp.com/)|
-|[Cybercore Solutions LLC](https://cybercoresolutions.com/)|
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
 |[Dasher Technologies, Inc.](https://www.dasher.com)|
 |[Data Center Services Inc](https://www.d8acenter.com)|
@@ -148,7 +147,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
 |[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
-|[Derek Coleman & Associates Corporation](https://www.dcassociatesgroup.com/)|
+|Derek Coleman & Associates Corporation|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
 |Diamond Capture Associates LLC|
@@ -284,7 +283,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[MetroStar Systems Inc.](https://www.metrostarsystems.com)|
 |[Mibura Inc.](https://www.mibura.com/)|
 |[Microtechnologies, LLC](https://www.microtech.net/)|
-|[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
 |[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
@@ -293,6 +291,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
 |[NCI](https://www.nciinc.com/)|
+|[NeoSystems LLC](https://www.neosystemscorp.com/)|
 |[NeoTech Solutions Inc.](https://neotechreps.com)|
 |[Neovera Inc.](https://www.neovera.com)|
 |[NetData Consulting Services Inc.](https://www.netdatacs.com)|
@@ -332,7 +331,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[People Services Inc. DBA CATCH Intelligence](https://catchintelligence.com)|
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
-|[Phacil (By Light)](https://www.bylight.com/phacil/)|
+|Phacil (By Light) |
 |[Pharicode LLC](https://pharicode.com)|
 |Philistin & Heller Group, Inc.|
 |[Picis Envision](https://www.picis.com/en/)|
@@ -367,13 +366,13 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
 |[Regan Technologies Corporation](http://www.regantech.com/)|
 |Remote Support Solutions Corp DBA RemoteWorks|
-|[Resource Metrix](https://www.rmtrx.com)|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[Ridge IT](https://www.ridgeit.com/)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
 |[RoboTech Science, Inc. (Cyberscend)](https://cyberscend.com)|
 |[Rollout Systems LLC](http://www.rolloutsys.com/)|
+|[RSM US, LLP](https://rsmus.com)|
 |[RV Global Solutions](https://rvglobalsolutions.com/)|
 |[RyanTech Inc.](https://ryantechinc.com)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|
@@ -399,7 +398,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
 |[SKY Terra Technologies LLC](https://www.skyterratech.com)|
 |[Smartronix](https://www.smartronix.com)|
-|[Smoothlogics](https://www.smoothlogics.com)|
+|Smoothlogics|
 |[Socius 1 LLC](http://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
 |[Software Services Group, dba Secant Technologies (Aunalytics)](https://www.aunalytics.com)|
@@ -413,7 +412,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|
 |[Stratus Solutions](https://stratussolutions.com)|
-|[Stratum Technology Manamgent, LLC](https://www.stratumtechnology.com)|
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
 |[Sumo Logic](https://www.sumologic.com/)|
@@ -454,7 +452,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[TSAChoice Inc.](https://www.tsachoice.com)|
 |[Turnkey Technologies, Inc.](https://www.turnkeytec.com)|
 |[Tyto Athene LLC](https://gotyto.com/)|
-|[U2Cloud LLC](https://www.u2cloud.com)|
 |[UDRI - SSG](https://udayton.edu/)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
@@ -472,16 +469,15 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC (ASRC Federal)](https://www.asrcfederal.com/asrc-federal-vistronix-cio-sp3/)|
 |[Vology Inc.](https://www.vology.com/)|
+|[VPLS](https://www.vpls.com/)|
 |[vSolvIT](https://www.vsolvit.com/)|
 |[Warren Averett Technology Group](https://warrenaverett.com/warren-averett-technology-group/)|
-|[Wintellect, LLC](https://www.wintellect.com)|
 |[Wintellisys, Inc.](https://wintellisys.com)|
 |[Withum](https://www.withum.com/service/cyber-information-security-services/)|
 |[Workspot, Inc.](https://workspot.com)|
 |[WorkMagic LLC](https://www.workmagic.com)|
 |[Wovenware US, Inc.](https://www.wovenware.com)|
 |[WCC Global](https://wwcglobal.com)|
-|[WWT](https://www2.wwt.com)|
 |[Xantrion Incorporated](https://www.xantrion.com)|
 |[X-Centric IT Solutions, LLC](https://www.x-centric.com/)|
 |[XentIT, llc](https://xentit.com)|
@@ -491,7 +487,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ZL Technologies Inc.](https://www.zlti.com/)|
 |[Zolon Tech](https://www.zolontech.com/)|
 |[Zones Inc](https://www.zones.com/site/home/index.html)|
-|[ZR Systems Group LLC](https://zrsystems.com)|
+
 
 
 ## Approved indirect providers
@@ -499,7 +495,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |Partner name|
 |----------------------------|
 |[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
-|[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
+|[Crayon Software Experts LCC](https://www.crayon.com/)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com)|
 |[DLT Solutions](https://www.dlt.com)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
@@ -512,6 +508,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 
 |LSP name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
+|Carahsoft Technology Corporation|microsoft@carahsoft.com|844-MSFTGOV|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |Insight Public Sector|federal@insight.com|800-467-4448|
@@ -528,7 +525,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Accenture LLP](https://www.accenture.coM)|
 |[Agile IT, Inc](https://www.agileit.com)|
 |[American Technology Services LLC](https://networkats.com)|
-|[Applied Information Sciences](https://www.appliedis.com)|
+|Applied Information Sciences|
 |[Applied Insight LLC](https://www.applied-insight.com)|
 |[Applied Research Solutions](https://www.appliedres.com)|
 |[Arctic Information Technology, Inc.](https://arcticit.com)|
@@ -539,6 +536,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Catapult Systems, LLC](https://www.catapultsystems.com)|
 |[CGI Federal Inc.](https://www.cgi.com/us/en-us/federal)|
 |[Cloud Navigator, Inc - formerly ISC](https://cloudnav.com)|
+|[CloudFit Software LLC](https://cloudfitsoftware.com/)|
 |[Conquest Cyber](https://conquestcyber.com/)|
 |[Coretek](https://www.coretek.com/)|
 |[CyberSheath](https://cybersheath.com)|
@@ -566,6 +564,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Leidos](https://www.leidos.com/)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
 |[ManTech](https://www.mantech.com/)|
+|[NeoSystems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
 |[Novetta](https://www.novetta.com)|
@@ -577,7 +576,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
 |[Red River](https://www.redriver.com)|
-|[RSMUS, LLC](https://rsmus.com)|
+|[RSM US, LLP](https://rsmus.com)|
 |[SAIC](https://www.saic.com)|
 |[SentinelBlue LLC](https://www.sentinelblue.com/)|
 |[Smartronix](https://www.smartronix.com)|

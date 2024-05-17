@@ -6,7 +6,7 @@ author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 06/20/2023
+ms.date: 03/11/2024
 ms.service: azure-data-lake-storage
 ---
 
@@ -15,11 +15,7 @@ ms.service: azure-data-lake-storage
 This article shows you how to simplify the migration by using the Azure portal.
 
 > [!NOTE]
-> On **Feb. 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date.
->
-> Since **April 1, 2023** Microsoft has been freezing Data Lake Storage Gen1 accounts that have zero read or write transactions in the last 180 days. If any of your accounts match that profile, please identify which ones you intend to migrate so that they won't be frozen. Contact your Microsoft account team or send a message to [ADLSGen1toGen2MigrationQA@service.microsoft.com](mailto:ADLSGen1toGen2MigrationQA@service.microsoft.com).
-
- You can provide your consent in the Azure portal and then migrate your data and metadata (such as timestamps and ACLs) automatically from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2.
+> Azure Data Lake Storage Gen1 is now retired. See the retirement announcement [here](https://aka.ms/data-lake-storage-gen1-retirement-announcement). Data Lake Storage Gen1 resources are no longer accessible. If you require special assistance, please [contact us](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Here's a video that tells you more about it.
 
@@ -76,9 +72,9 @@ As you create the account, make sure to configure settings with the following va
 
 ## Step 2: Verify Azure role-based access control (Azure RBAC) role assignments
 
-For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Azure Active Directory (Azure AD) user identity in the scope of the storage account, parent resource group, or subscription.
+For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Microsoft Entra user identity in the scope of the storage account, parent resource group, or subscription.
 
-For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Azure AD identity in the scope of the Gen1 account, parent resource group, or subscription.
+For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Microsoft Entra identity in the scope of the Gen1 account, parent resource group, or subscription.
 
 ## Step 3: Migrate Azure Data Lake Analytics workloads
 
@@ -89,6 +85,8 @@ For more information, see [Manage Azure Data Lake Analytics using the Azure port
 ## Step 4: Prepare the Gen1 account
 
 File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`) aren't compatible with Gen2. You need to rename these files or directories before you migrate.
+
+For the better performance, consider delaying the migration for at least ten days from the time of the last delete operation. In a Gen1 account, deleted files become _soft_ deleted files, and the Garbage Collector won't remove them permanently until seven days and will take a few extra days to process the cleanup. The time it takes for cleanup will depend on the number of files. All files, including soft deleted files, are processed during migration. If you wait until the Garbage Collector has permanently removed deleted files, your wait time can improve.
 
 ## Step 5: Perform the migration
 
@@ -109,19 +107,19 @@ Whichever option you choose, after you've migrated and verified that all your wo
 3. Select the **Migrate data** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Button to migrate](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
+   > ![Screenshot of the button to migrate.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
 
 4. Select **Copy data to a new Gen2 account**.
 
    > [!div class="mx-imgBorder"]
-   > ![Copy data option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-data-option.png)
+   > ![Screenshot of the copy data option.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-data-option.png)
 
 5. Give Microsoft consent to perform the data migration by selecting the checkbox. Then, select the **Apply** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Checkbox to provide consent](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
+   > ![Screenshot of the checkbox to provide consent.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration.  
+   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration. Because the time to complete each task varies, the progress bar won't advance at a consistent rate. For example, the progress bar might quickly advance to 50 percent, but then take a bit more time to complete the remaining 50 percent. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of progress bar when migrating data.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-progress.png)
@@ -132,7 +130,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
    You can stop the migration at any time by selecting the **Stop migration** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Stop migration option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
+   > ![Screenshot of the stop migration option.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
 
 ### Option 2: Perform a complete migration
 
@@ -143,19 +141,19 @@ Whichever option you choose, after you've migrated and verified that all your wo
 3. Select the **Migrate data** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Migrate button](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
+   > ![Screenshot of the migrate button.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
 
 4. Select **Complete migration to a new Gen2 account**.
 
    > [!div class="mx-imgBorder"]
-   > ![Complete migration option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-complete-option.png)
+   > ![Screenshot of the complete migration option.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-complete-option.png)
 
 5. Give Microsoft consent to perform the data migration by selecting the checkbox. Then, select the **Apply** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
+   > ![Screenshot of the consent checkbox.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration.
+   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration. Because the time to complete each task varies, the progress bar won't advance at a consistent rate. For example, the progress bar might quickly advance to 50 percent, but then take a bit more time to complete the remaining 50 percent. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of progress bar when performing a complete migration.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-progress.png)
@@ -170,7 +168,7 @@ Whichever option you choose, after you've migrated and verified that all your wo
    You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Migration stop button](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
+   > ![Screenshot of the migration stop button.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
 
 ## Step 6: Verify that the migration completed
 
@@ -222,11 +220,62 @@ The following functionality isn't supported in the compatibility layer.
 
 - Chunk-encoding for append operations.
 
-- Any API calls that use `https://management.azure.com/`  as the Azure Active Directory (Azure AD) token audience.
+- Any API calls that use `https://management.azure.com/`  as the Microsoft Entra token audience.
 
 - File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`).
 
 ## Frequently asked questions
+
+#### How long will migration take?
+
+Data and metadata are migrated in parallel. The total time required to complete a migration is equal to whichever of these two processes complete last. 
+
+The following table shows the approximate speed of each migration processing task. 
+
+> [!NOTE]
+> These time estimates are approximate and can vary. For example, copying a large number of small files can slow performance. 
+
+| Processing task                        | Speed                                 |
+|----------------------------------------|---------------------------------------|
+| Data copy                              | 9 TB per hour                        |
+| Data validation                        | 9 million files or folders per hour              |
+| Metadata copy                          | 4 million files or folders per hour  |
+| Metadata processing                    | 25 million files or folders per hour |
+| Additional metadata processing (data copy option)<sup>1</sup> | 50 million files or folders per hour |
+
+<sup>1</sup>    The additional metadata processing time applies only if you choose the **Copy data to a new Gen2 account** option. This processing time does not apply if you choose the **Complete migration to a new gen2 account** option.
+
+##### Example: Processing a large amount of data and metadata
+
+This example assumes **300 TB** of data and **200 million** data and metadata items.
+
+| Task | Estimated time |
+|--|--|
+| Copy data | 300 TB / 9 TB = 33.33 hours |
+| Validate data | 200 million / 9 million = 22.22 hours|
+| **Total data migration time** | **33.33 + 22.2 = 55.55 hours** |   
+| Copy metadata | 200 million / 4 million = 50 hours |
+| Metadata processing | 200 million / 25 million = 8 hours |
+| Additional metadata processing - data copy option only | 200 million / 50 million = 4 hours |
+| **Total metadata migration time** | **50 + 8 + 4 = 62 hours** |
+| **Total time to perform a data-only migration** | **62 hours** |
+| **Total time to perform a complete migration**| **62 - 4 = 58 hours** |
+
+##### Example: Processing a small amount of data and metadata
+
+This example assumes that **2 TB** of data and **56 thousand** data and metadata items.
+
+| Task | Estimated time |
+|--|--|
+| Copy data | (2 TB / 9 TB) * 60 minutes = 13.3 minutes|
+| Validate data | (56,000 / 9 million) * 3,600 seconds = 22.4 seconds  |
+| **Total data migration time** | **13.3 minutes + 22.4 seconds = approximately 14 minutes** |   
+| Copy metadata | (56,000 / 4 million) * 3,600 seconds  = approximately 51 seconds |
+| Metadata processing | 56,000/ 25 million = 8 seconds |
+| Additional metadata processing - data copy option only | (56,000 / 50 million) * 3,600 seconds = 4 seconds|
+| **Total metadata migration time** | **51 + 8 + 4 = 63 seconds** |
+| **Total time to perform a data-only migration** | **14 minutes** |
+| **Total time to perform a complete migration** | **14 minutes - 4 seconds = 13 minutes and 56 seconds (approximately 14 minutes)** |
 
 #### How much does the data migration cost?
 
@@ -242,7 +291,7 @@ Make sure all your Azure Data lake Analytics accounts are [migrated to Azure Syn
 
 If you used [Option 1: Copy data from Gen1 to Gen2](#option-1-copy-data-from-gen1-to-gen2) mentioned above, then both the Gen1 and Gen2 accounts are available for reads and writes post migration. However, if you used [Option 2: Perform a complete migration](#option-2-perform-a-complete-migration), then going back to the Gen1 account isn't supported. In Option 2, after the migration completes, the data in your Gen1 account won't be accessible and will be deleted after 30 days. You can continue to view the Gen1 account in the Azure portal, and when you're ready, you can delete the Gen1 account.
 
-#### I would like to enable Geo-redundant storage (GRS) on the Gen2-enabled account, how do I do that?
+#### I would like to enable Geo-redundant storage (GRS) on the Gen2-enabled account. How do I do that?
 
 Once the migration is complete, both in "Copy data" and "Complete migration" options, you can go ahead and change the redundancy option to GRS as long as you don't plan to use the application compatibility layer. The application compatibility won't work on accounts that use GRS redundancy.
 
@@ -254,9 +303,23 @@ When we copy the data over to your Gen2-enabled account, we automatically create
 
 When you copy the data over to your Gen2-enabled account, two factors that can affect performance are the number of files and the amount of metadata you have. For example, many small files can affect the performance of the migration.
 
-#### Will WebHDFS File System APIs supported on Gen2 account post migration?
+#### Will WebHDFS File System APIs be supported on Gen2 account post-migration?
 
 WebHDFS File System APIs of Gen1 will be supported on Gen2 but with certain deviations, and only limited functionality is supported via the compatibility layer. Customers should plan to leverage Gen2-specific APIs for better performance and features.
+
+#### What happens to my Gen1 account after the retirement date?
+
+The account becomes inaccessible. You won't be able to:
+
+- Manage the account
+
+- Access data in the account 
+
+- Receive service updates to Gen1 or Gen1 APIs, SDKs, or client tools
+
+- Access Gen1 customer support online, by phone or by email
+
+See [Action required: Switch to Azure Data Lake Storage Gen2 by 29 February 2024](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
 ## Next steps
 

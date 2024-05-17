@@ -4,6 +4,7 @@ description: Learn how to get the network trace to help troubleshooting
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
+ms.custom: linux-related-content
 ms.topic: how-to 
 ms.date: 11/08/2021
 ---
@@ -42,6 +43,9 @@ man tcpdump
 ## Collect a network trace in the browser (Browser-based apps only)
 
 Most browser Developer Tools have a "Network" tab that allows you to capture network activity between the browser and the server. 
+
+> [!NOTE]
+> If the issues you are investigating require multiple requests to reproduce, select the **Preserve Log** option with Microsoft Edge, Google Chrome, and Safari. For Mozilla Firefox select the **Persist Logs** option.
 
 ### Microsoft Edge (Chromium)
 

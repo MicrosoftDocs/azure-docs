@@ -17,7 +17,7 @@ Today, you can deploy your critical workloads securely behind Application Gatewa
 - Public IP address - your workloads are accessible over the Internet. 
 - Private IP address- your workloads are accessible privately via your virtual network / connected networks
 
-Private Link for Application Gateway allows you to connect workloads over a private connection spanning across VNets and subscriptions. When configured, a private endpoint is placed into a defined virtual network's subnet, providing a private IP address for clients looking to communicate to the gateway. For a list of other PaaS services that support Private Link functionality, see [What is Azure Private Link?](../private-link/private-link-overview.md).
+Private Link for Application Gateway allows you to connect workloads over a private connection spanning across VNets and subscriptions. When configured, a private endpoint is placed into a defined virtual network's subnet, providing a private IP address for clients looking to communicate to the gateway. For a list of other PaaS services that support Private Link functionality, see [What is Azure Private Link](../private-link/private-link-overview.md).
 
 :::image type="content" source="media/private-link/private-link.png" alt-text="Diagram showing Application Gateway Private Link":::
 
@@ -26,7 +26,7 @@ Private Link for Application Gateway allows you to connect workloads over a priv
 Private Link allows you to extend private connectivity to Application Gateway via a Private Endpoint in the following scenarios:
 -	VNet in the same or different region from Application Gateway
 -	VNet in the same or different subscription from Application Gateway
--	VNet in the same or different subscription and the same or different Azure AD tenant from Application Gateway
+-	VNet in the same or different subscription and the same or different Microsoft Entra tenant from Application Gateway
 
 You may also choose to block inbound public (Internet) access to Application Gateway and allow access only via private endpoints. Inbound management traffic still needs to be allowed to application gateway. For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md#network-security-groups)
 
@@ -63,5 +63,5 @@ Four components are required to implement Private Link with Application Gateway:
 
 ## Next steps
 
-- [Configure Azure Application Gateway Private Link](private-link-configure.md)
-- [What is Azure Private Link?](../private-link/private-link-overview.md)
+- [Configure Azure Application Gateway Private Link](private-link-configure.md).
+- [What is Azure Private Link](../private-link/private-link-overview.md).

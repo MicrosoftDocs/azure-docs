@@ -42,7 +42,7 @@ The template defines three Azure resources:
 - Microsoft.Storage/storageAccounts
 
 > [!NOTE]
-> Local RBAC will be deprecated on September 9th, 2023. Access Policies configuration associated with Local RBAC in ARM template will be deprecated. For questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+> Local RBAC is deprecated. Access Policies configuration associated with Local RBAC in ARM template are deprecated. Existing customers using Local RBAC need to migrate to Azure RBAC by November 2024. For questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 You can deploy the FHIR service resource by **removing** the workspaces resource, the storage resource, and the `dependsOn` property in the “Microsoft.HealthcareApis/workspaces/fhirservices” resource.
 
@@ -119,7 +119,7 @@ You can deploy the FHIR service resource by **removing** the workspaces resource
         {
             "type": "Microsoft.HealthcareApis/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2020-11-01-preview",
+            "apiVersion": "2023-11-01",
             "location": "[parameters('region')]",
             "properties": {}
         },
@@ -127,7 +127,7 @@ You can deploy the FHIR service resource by **removing** the workspaces resource
             "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
             "kind": "fhir-R4",
             "name": "[concat(parameters('workspaceName'), '/', parameters('fhirServiceName'))]",
-            "apiVersion": "2020-11-01-preview",
+            "apiVersion": "2023-11-01",
             "location": "[parameters('region')]",
             "dependsOn": [
                 "[resourceId('Microsoft.HealthcareApis/workspaces', parameters('workspaceName'))]"
@@ -205,7 +205,7 @@ You can create a new resource group, or use an existing one by skipping the step
 $resourcegroupname="your resource group"
 $location="South Central US"
 $workspacename="your workspace name"
-$servicename="your fhir service name"
+$fhirservicename="your fhir service name"
 $tenantid="xxx"
 $subscriptionid="xxx"
 $storageaccountname="storage account name"

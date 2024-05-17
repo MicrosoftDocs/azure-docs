@@ -61,8 +61,8 @@
         href: onboard-windows-admin-center.md
       - name: Connect machines to Azure Arc with PowerShell
         href: onboard-powershell.md
-      - name: Connect machines to Azure Arc with PowerShell DSC
-        href: onboard-dsc.md
+      - name: Connect Windows Server machines through Azure Arc Setup
+        href: onboard-windows-server.md
     - name: Connect machines at scale
       items:
        - name: Connect machines using a service principal
@@ -77,6 +77,10 @@
          href: onboard-ansible-playbooks.md
        - name: Connect machines from Automation Update Management
          href: onboard-update-management-machines.md
+       - name: Connect VMware vCenter managed machines
+         href: ../vmware-vsphere/enable-guest-management-at-scale.md?toc=/azure/azure-arc/servers/toc.json
+       - name: Connect SCVMM managed machines
+         href: ../system-center-virtual-machine-manager/enable-guest-management-at-scale.md?toc=/azure/azure-arc/servers/toc.json
   - name: Migrate
     items:
     - name: Migrate machine to Azure
@@ -115,6 +119,8 @@
       href: migrate-azure-monitor-agent-ansible.md
     - name: Deploy and configure Azure Monitor Agent using Azure Policy
       href: deploy-ama-policy.md
+    - name: Remotely configure servers using Run command
+      href: run-command.md
     - name: Organize and inventory servers
       href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
@@ -125,6 +131,8 @@
     items:
     - name: SSH access to Azure Arc-enabled servers
       href: ssh-arc-overview.md
+    - name: PowerShell remoting to Azure Arc-enabled servers
+      href: ssh-arc-powershell-remoting.md
     - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
   - name: Extended Security Updates
@@ -133,6 +141,14 @@
       href: prepare-extended-security-updates.md
     - name: License provisioning for Extended Security Updates
       href: license-extended-security-updates.md
+    - name: Billing service for Extended Security Updates
+      href: billing-extended-security-updates.md
+    - name: Deliver Extended Security Updates
+      href: deliver-extended-security-updates.md
+    - name: Programmatically manage Extended Security Updates licenses
+      href: api-extended-security-updates.md
+    - name: Troubleshoot Extended Security Updates
+      href: troubleshoot-extended-security-updates.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
@@ -153,6 +169,8 @@
       href: azcmagent-connect.md
     - name: azcmagent disconnect
       href: azcmagent-disconnect.md
+    - name: azcmagent extension
+      href: azcmagent-extension.md
     - name: azcmagent genkey
       href: azcmagent-genkey.md
     - name: azcmagent help
@@ -186,10 +204,12 @@
   - name: Azure Policy built-ins 
     displayName: samples, policies, definitions
     href: policy-reference.md
+  - name: License terms
+    href: /legal/azure-arc/license-terms?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io
+    href: https://aka.ms/AzureArcJumpstart
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates

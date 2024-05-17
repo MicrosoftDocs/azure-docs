@@ -181,6 +181,6 @@ To set the date/time format when using Power Query ADF, please follow these sets
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
 
-## Next steps
+## Related content
 
 Learn how to [create a data wrangling Power Query in ADF](wrangling-tutorial.md).

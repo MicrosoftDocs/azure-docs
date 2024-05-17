@@ -30,6 +30,7 @@ This table shows what features are supported between Azure portal and Visual Stu
 |Share inputs and outputs across multiple queries     |No          |Yes         |
 |Query testing with a sample file     |Yes        |Yes         |
 |Live data local testing     |No        |Yes      |
+| Time policy support in query testing | No        |Yes      |
 |List jobs and view job entities     |Yes          |Yes         |
 |Export a job to a local project     |No        |Yes         |
 |Submit, start, and stop jobs     |Yes          |Yes         |
@@ -43,6 +44,9 @@ This table shows what features are supported between Azure portal and Visual Stu
 |Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |
+| Power BI output | Yes | No |
+| Protobuf serialization | Yes | No |
+| Autogranting managed identity permissions for added endpoints | Yes | No | 
 
 <!-- 
 |Feature  |Portal  |Visual Studio  |Visual Studio Code  |

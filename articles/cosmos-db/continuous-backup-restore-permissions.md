@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: subject-rbac-steps, ignite-2022, devx-track-azurecli
+ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Manage permissions to restore an Azure Cosmos DB account
@@ -29,7 +29,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -103,7 +103,7 @@ This operation is currently not supported.
 
 ## <a id="custom-restorable-action"></a>Custom role creation for restore action with CLI
 
-The subscription owner can provide the permission to restore to any other Azure AD identity. The restore permission is based on the action: `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action`, and it should be included in their restore permission. There is a built-in role called *CosmosRestoreOperator* that has this role included. You can either assign the permission using this built-in role or create a custom role.
+The subscription owner can provide the permission to restore to any other Microsoft Entra identity. The restore permission is based on the action: `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action`, and it should be included in their restore permission. There is a built-in role called *CosmosRestoreOperator* that has this role included. You can either assign the permission using this built-in role or create a custom role.
 
 The RestorableAction below represents a custom role. You have to explicitly create this role. The following JSON template creates a custom role *RestorableAction* with restore permission:
 

@@ -6,6 +6,8 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 ms.topic: article
 ms.date: 06/02/2020
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure an ASP.NET app for Azure App Service

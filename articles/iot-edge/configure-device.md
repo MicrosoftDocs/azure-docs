@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/20/2023
+ms.date: 05/06/2024
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -11,13 +11,17 @@ services: iot-edge
 
 # Configure IoT Edge device settings
 
-This article shows settings and options for configuring the IoT Edge *config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
+
+This article shows settings and options for configuring the IoT Edge */etc/aziot/config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
 A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You can copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
 
+If you change a device's configuration, use `sudo iotedge config apply` to apply the changes.
+
 ## Global parameters
 
-The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_docker_permissions**, and **auto_reprovisioning_mode** parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
+The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_docker_permissions**, and **auto_reprovisioning_mode** parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io](https://toml.io/).
 
 ### Hostname
 
@@ -336,7 +340,7 @@ type = "docker"
 imagePullPolicy = "..."   # "on-create" or "never". Defaults to "on-create"
 
 [agent.config]
-image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+image = "mcr.microsoft.com/azureiotedge-agent:1.5"
 createOptions = { HostConfig = { Binds = ["/iotedge/storage:/iotedge/storage"] } }
 
 [agent.config.auth]
@@ -345,9 +349,9 @@ username = "username"
 password = "password"
 
 [agent.env]
-"RuntimeLogLevel" = "debug"
-"UpstreamProtocol" = "AmqpWs"
-"storageFolder" = "/iotedge/storage"
+RuntimeLogLevel = "debug"
+UpstreamProtocol = "AmqpWs"
+storageFolder = "/iotedge/storage"
 ```
 
 ## Daemon management and workload API endpoints

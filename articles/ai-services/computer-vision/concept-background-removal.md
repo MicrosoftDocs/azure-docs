@@ -2,21 +2,21 @@
 title: Background removal - Image Analysis
 titleSuffix: Azure AI services
 description: Learn about background removal, an operation of Image Analysis
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 01/19/2024
 ms.author: pafarley
 ms.custom: references_regions
 ---
 
 # Background removal (version 4.0 preview)
 
-The Image Analysis service can divide images into multiple segments or regions to help the user identify different objects or parts of the image. Background removal creates an alpha matte that separates the foreground object from the background in an image.
+The Background removal operation can divide images into multiple segments or regions to help the user identify different objects or parts of the image. Background removal creates an alpha matte that separates the foreground object from the background in an image. This service is currently in preview, and the API may change in the future.
+
 
 > [!div class="nextstepaction"]
 > [Call the Background removal API](./how-to/background-removal.md)
@@ -26,7 +26,8 @@ This feature provides two possible outputs based on the customer's needs:
 - The foreground object of the image without the background. This edited image shows the foreground object and makes the background transparent, allowing the foreground to be placed on a new background. 
 - An alpha matte that shows the opacity of the detected foreground object. This matte can be used to separate the foreground object from the background for further processing.
 
-This service is currently in preview, and the API may change in the future.
+> [!IMPORTANT]
+> Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 ## Background removal examples
 
@@ -51,7 +52,7 @@ It's important to note the limitations of background removal:
 
 ## Use the API
 
-The background removal feature is available through the [Segment](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-02-01-preview/operations/63e6b6d9217d201194bbecbd) API (`imageanalysis:segment`). You can call this API through the REST API or the Vision SDK. See the [Background removal how-to guide](./how-to/background-removal.md) for more information.
+The background removal feature is available through the [Segment](/rest/api/computervision/image-analysis/segment?view=rest-computervision-2023-02-01-preview&tabs=HTTP) API (`imageanalysis:segment`). See the [Background removal how-to guide](./how-to/background-removal.md) for more information.
 
 ## Next steps
 

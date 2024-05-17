@@ -6,11 +6,14 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 08/01/2023
-ms.custom: engagement-fy23, devx-track-linux
+ms.date: 03/13/2024
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # About the Mobility service for VMware VMs and physical servers
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 When you set up disaster recovery for VMware virtual machines (VM) and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the Site Recovery Mobility service on each on-premises VMware VM and physical server. The Mobility service captures data, writes on the machine, and forwards them to the Site Recovery process server. The Mobility service is installed by the Mobility service agent software that you can deploy using the following methods:
 
@@ -23,17 +26,17 @@ When you set up disaster recovery for VMware virtual machines (VM) and physical 
 
 ## Antivirus on replicated machines
 
-If machines that you want to replicate are running antivirus software, exclude the Mobility service's installation folder _C:\ProgramData\ASR\agent_ from antivirus operations. This exclusion ensures that replication will work as expected.
+If machines that you want to replicate are running antivirus software, exclude the Mobility service's installation folder _C:\ProgramData\ASR\agent_ from antivirus operations. This exclusion ensures that replication works as expected.
 
 ## Push installation
 
-Push installation is an integral part of the job that's run from the Azure portal to [enable replication](vmware-azure-enable-replication.md#enable-replication). After choosing the set of VMs you wish to protect and enable replication, the configuration server pushes the Mobility service agent to the servers, installs the agent, and completes the agent's registration with the configuration server.
+Push installation is an integral part of the job that runs from the Azure portal to [enable replication](vmware-azure-enable-replication.md#enable-replication). After choosing the set of VMs you wish to protect and enable replication, the configuration server pushes the Mobility service agent to the servers, installs the agent, and completes the agent's registration with the configuration server.
 
 ### Prerequisites
 
 - Ensure that all push installation [prerequisites](vmware-azure-install-mobility-service.md) are met.
 - Ensure that all server configurations meet the criteria in the [Support matrix for disaster recovery of VMware VMs and physical servers to Azure](vmware-physical-azure-support-matrix.md).
-- From 9.36 version onwards, ensure the latest installer for SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4, RHEL 5, CentOS 5, Debian 7, Debian 8, Ubunut 14.04 is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
+- From 9.36 version onwards, ensure the latest installer for SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4, RHEL 5, CentOS 5, Debian 7, Debian 8, Ubuntu 14.04 is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
 - From 9.52 version onwards, ensure the latest installer for Debian 9, is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
 
 The push installation workflow is described in the following sections:
@@ -47,7 +50,7 @@ During a push installation of the Mobility service, the following steps are perf
 1. The agent is pushed to the source machine. Copying the agent to the source machine can fail due to multiple environmental errors. Refer to [our guidance](vmware-azure-troubleshoot-push-install.md) to troubleshoot push installation failures.
 1. After the agent is successfully copied to the server, a prerequisite check is performed on the server.
    - If all prerequisites are met, the installation begins.
-   - If one or more [prerequisites](vmware-physical-azure-support-matrix.md) aren't met, the installation fails.  
+   - If one or more [prerequisites](vmware-physical-azure-support-matrix.md) aren't met, the installation fails.
 1. As part of the agent installation, the Volume Shadow Copy Service (VSS) provider for Azure Site Recovery is installed. The VSS provider is used to generate application-consistent recovery points. If installation of the VSS provider fails, this step is skipped and the agent installation continues.
 1. If the agent installation succeeds but the VSS provider installation fails, then the job status is marked as **Warning**. This doesn't impact crash-consistent recovery point generation.
 
@@ -62,12 +65,12 @@ During a push installation of the Mobility service, the following steps are perf
    - The installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) aren't met.
 
 1. As part of the agent installation, the Volume Shadow Copy Service (VSS) provider for Azure Site Recovery is installed. The VSS provider is used to generate application-consistent recovery points.
-   - If the VSS provider installation fails, the agent installation will fail. To avoid failure of the agent installation, use [version 9.23](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash-consistent recovery points and do a manual install of the VSS provider.
+   - If the VSS provider installation fails, the agent installation fails. To avoid failure of the agent installation, use [version 9.23](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash-consistent recovery points and do a manual install of the VSS provider.
 
 ### Mobility service agent version 9.55 and higher
 
-1. The modernized architecture of mobility agent is set as default for the version 9.55 and above. Follow the instructions [here](#install-the-mobility-service-using-ui-modernized) to install the agent. 
-2. To install the modernized architecture of mobility agent on versions 9.54 and above, follow the instructions [here](#install-the-mobility-service-using-command-prompt-modernized). 
+1. The modernized architecture of mobility agent is set as default for the version 9.55 and above. Follow the instructions [here](#install-the-mobility-service-using-ui-modernized) to install the agent.
+2. To install the modernized architecture of mobility agent on versions 9.54 and above, follow the instructions [here](#install-the-mobility-service-using-command-prompt-modernized).
 
 
 ## Install the Mobility service using UI (Modernized)
@@ -77,7 +80,7 @@ During a push installation of the Mobility service, the following steps are perf
 
 ### Prerequisites
 
-Locate the installer files for the server’s operating system using the following steps:  
+Locate the installer files for the server’s operating system using the following steps:
 - On the appliance, go to the folder *E:\Software\Agents*.
 - Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
 
@@ -85,21 +88,21 @@ Locate the installer files for the server’s operating system using the followi
 **Use the following steps to install the mobility service:**
 
 >[!NOTE]
-> If installing the agent version 9.54 and below, then ensure that the section [here](#install-the-mobility-service-using-command-prompt-modernized) is followed. For agent version 9.55 and above, the continue to follow the steps below. 
+> If installing the agent version 9.54 and below, then ensure that the section [here](#install-the-mobility-service-using-command-prompt-modernized) is followed. For agent version 9.55 and above, the continue to follow the steps below.
 
-1. Copy the installation file to the location *C:\Program Files (x86)\Microsoft Azure Site Recovery*, and run it. This will launch the installer UI: 
+1. Copy the installation file to the location *C:\Program Files (x86)\Microsoft Azure Site Recovery*, and run it. This launches the installer UI:
 
-   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png) 
+   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/mobility-service-install.png)
 
-2. Provide the install location in the UI. This should be *C:\Program Files (x86)\Microsoft Azure Site Recovery*. 
+2. Provide the install location in the UI. This should be *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
 
-4. Click **Install**. This will start the installation of Mobility Service. Wait till the installation has been completed. 
+4. Click **Install**. This starts the installation of Mobility Service. Wait till the installation has been completed.
 
    ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/installation-progress.png)
 
 5. Once the installation is done, you will need to register the source machine with the appliance of your choice. To do so, copy the string present in the field  **Machine Details**.
 
-   This field includes information which is unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file). Learn more about [credential less discovery](#credential-less-discovery-in-modernized-architecture).
+   This field includes information, which is unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file). Learn more about [credential less discovery](#credential-less-discovery-in-modernized-architecture).
 
    ![Screenshot showing source machine string.](./media/vmware-physical-mobility-service-overview-modernized/source-machine-string.png)
 
@@ -144,7 +147,7 @@ Locate the installer files for the server’s operating system using the followi
 Setting | Details
 --- | ---
 Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation <Install Location>`
-`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (MS) will be installed.
+`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (MS) are installed.
 `/InstallLocation`| Optional. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
@@ -157,7 +160,7 @@ Setting | Details
 Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
 `/CSType` |  Optional. Used to define modernized or legacy architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy).
-`/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery will be performed or not.  
+`/CredentialLessDiscovery` | Optional. Specifies whether credential-less discovery are performed or not.
 
 
 ### Linux machine
@@ -196,15 +199,15 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
   Setting | Details
   --- | ---
-    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -S config.json -q -D true -c CSPrime`  
+    Syntax | `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -S config.json -q -D true -c CSPrime`
     `-S` |  Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
     `-c` |  Optional. Used to define modernized and legacy architecture. By default for all agents on or above the version 9.55, modernized architecture would be launched. (CSPrime or CSLegacy).
     `-q` |  Optional. Specifies whether to run the installer in silent mode.
-    `-D` |  Optional. Specifies whether credential-less discovery will be performed or not. 
+    `-D` |  Optional. Specifies whether credential-less discovery are performed or not.
 
 ## Credential-less discovery in modernized architecture
 
-When providing both the machine credentials and the vCenter server or vSphere ESXi host credentials is not possible, then you should opt for credential-less discovery. When performing credential-less discovery, mobility service is installed manually on the source machine and during the installation, the check box for credential-less discovery should be set to true, so that when replication is enabled, no credentials will be required. 
+When providing both the machine credentials and the vCenter server or vSphere ESXi host credentials is not possible, then you should opt for credential-less discovery. When performing credential-less discovery, mobility service is installed manually on the source machine and during the installation, the check box for credential-less discovery should be set to true, so that when replication is enabled, no credentials are required.
 
 ![Screenshot showing credential-less-discovery-check-box.](./media/vmware-physical-mobility-service-overview-modernized/credential-less-discovery.png)
 
@@ -232,16 +235,17 @@ See information about [upgrading the mobility services](upgrade-mobility-service
 
 - Ensure that all server configurations meet the criteria in the [Support matrix for disaster recovery of VMware VMs and physical servers to Azure](vmware-physical-azure-support-matrix.md).
 - [Locate the installer](#locate-installer-files) for the server's operating system.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as C:\Program Files (x86)\Microsoft Azure Site Recovery.
 
 >[!IMPORTANT]
 > Don't use the UI installation method if you're replicating an Azure Infrastructure as a Service (IaaS) VM from one Azure region to another. Use the [command prompt](#install-the-mobility-service-using-command-prompt-classic) installation.
 
 1.  Open command prompt and navigate to the folder where the installer file has been placed. Extract the installer:
       ```cmd
-       Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
+       Microsoft-ASR_UA*Windows*release.exe /q /x:'C:\Program Files (x86)\Microsoft Azure Site Recovery'
       ```
-1. Run the below command to launch the installation wizard for the agent .
-   ```cmd 
+1. Run the below command to launch the installation wizard for the agent.
+   ```cmd
     UnifiedAgentInstaller.exe /CSType CSLegacy
    ```
 1. In **Installation Option**, select **Install mobility service**.
@@ -301,7 +305,7 @@ Setting | Details
 --- | ---
 Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent /CSType CSLegacy`
 Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
-`/Role` | Mandatory installation parameter. Specifies whether the mobility service (MS) or master target (MT) should be installed. 
+`/Role` | Mandatory installation parameter. Specifies whether the mobility service (MS) or master target (MT) should be installed.
 `/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
@@ -394,23 +398,23 @@ Installer file | Operating system (64-bit only)
 
 ## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Debian 9, Oracle Linux 6 and Ubuntu 14.04 server
 
-### SUSE 11 SP3 or SUSE 11 SP4 server 
+### SUSE 11 SP3 or SUSE 11 SP4 server
 
 As a **prerequisite to update or protect SUSE Linux Enterprise Server 11 SP3 or SUSE 11 SP4 machines** from 9.36 version onwards:
 
-1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
+1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale-out process servers
 2. [Download](site-recovery-whats-new.md) the latest SUSE Linux Enterprise Server 11 SP3 or SUSE 11 SP4 agent installer.
 3. Navigate to Configuration server, copy the SUSE Linux Enterprise Server 11 SP3 or SUSE 11 SP4 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
-1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
+1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories are
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ### RHEL 5 Or CentOS 5 server
 
 As a **prerequisite to update or protect RHEL 5 machines** from 9.36 version onwards:
 
-1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
+1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale-out process servers
 2. [Download](site-recovery-whats-new.md) the latest RHEL 5 or CentOS 5 agent installer.
 3. Navigate to Configuration server, copy the RHEL 5 or CentOS 5 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
@@ -422,7 +426,7 @@ As a **prerequisite to update or protect RHEL 5 machines** from 9.36 version onw
 
 As a **prerequisite to update or protect Debian 7, Debian 8 or Debian 9 machines**:
 
-1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
+1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale-out process servers
 2. [Download](site-recovery-whats-new.md) the latest Debian 7, Debian 8 or Debian 9 agent installer.
 3. Navigate to Configuration server, copy the Debian 7, Debian 8 or Debian 9 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
@@ -434,12 +438,12 @@ As a **prerequisite to update or protect Debian 7, Debian 8 or Debian 9 machines
 
 As a **prerequisite to update or protect Ubuntu 14.04 machines** from 9.42 version onwards:
 
-1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
+1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale-out process servers
 2. [Download](site-recovery-whats-new.md) the latest Ubuntu 14.04 agent installer.
 3. Navigate to Configuration server, copy the Ubuntu 14.04 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
-1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
+1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories are
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 

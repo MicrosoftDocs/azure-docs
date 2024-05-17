@@ -1,12 +1,12 @@
 ---
 title: Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 description: Learn how to request billing ownership of Azure billing products from other users for a Microsoft Partner Agreement (MPA).
-author: amberbhargava
-tags: billing
+author: bandersmsft
+ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 03/26/2024
 ms.author: banders
 ---
 
@@ -38,10 +38,15 @@ There are three options to transfer products:
 
 ## Prerequisites
 
+>[!IMPORTANT]
+> When you transfer subscriptions, cost and usage data for your Azure products aren't accessible after the transfer. We recommend that you [download your cost and usage data](../understand/download-azure-daily-usage.md) and invoices before you transfer subscriptions.
+
 1. Establish [reseller relationship](/partner-center/request-a-relationship-with-a-customer) with the customer.
     1. Make sure that both the customer and Partner tenants are within the same authorized region. Check [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview).
     1. [Confirm that the customer has accepted the Microsoft Customer Agreement](/partner-center/confirm-customer-agreement).
 1. Set up an [Azure plan](/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to set up an Azure plan for each combination of a customer and a reseller.
+
+When there's is a currency change during or after an EA enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
 
 Before you begin, make sure that the people involved in the product transfer have the required permissions. 
 
@@ -67,13 +72,13 @@ The reservation product owner (transfer request recipient) must have one of the 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using CSP Admin Agent credentials in the CSP tenant.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing to request billing ownership.](./media/mpa-request-ownership/search-cmb.png)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/search-cmb.png" alt-text="Screenshot that shows Azure portal search for cost management + billing to request billing ownership.":::
 1. Select **Customers** from the left-hand side and then select a customer from the list.  
-    [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-select-customers.png" lightbox="./media/mpa-request-ownership/mpa-select-customers.png" alt-text="Screenshot that shows selecting customers.":::
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
-    [![Screenshot that shows selecting transfer requests](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-select-transfer-requests.png" lightbox="./media/mpa-request-ownership/mpa-select-transfer-requests.png" alt-text="Screenshot that shows selecting transfer requests.":::
 1. Enter the email address of the user in the customer organization who will accept the transfer request. Select **Send transfer request**.  
-    [![Screenshot that shows sending a transfer request](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-send-transfer-requests.png" lightbox="./media/mpa-request-ownership/mpa-send-transfer-requests.png" alt-text="Screenshot that shows sending a transfer request.":::
 
 
 ## Review and approve transfer request
@@ -110,12 +115,12 @@ On the Review request tab, the following status messages might be displayed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing to request transfer status.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search for cost management + billing to request transfer status.":::
 1. Select **Customers** from the left-hand side.  
-    [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-select-customers.png" lightbox="./media/mpa-request-ownership/mpa-select-customers.png" alt-text="Screenshot that shows selecting customers.":::
 1. Select the customer from the list for which you sent the transfer request.
 1. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:
-    [![Screenshot that shows list of transfer requests](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png#lightbox)
+    :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png" lightbox="./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png" alt-text="Screenshot that shows list of transfer requests.":::
 
    |Column|Definition|
    |---------|---------|
@@ -137,7 +142,7 @@ On the Review request tab, the following status messages might be displayed.
    |Declined|The user declined the transfer request|
 
 1. Select a transfer request to view details. The transfer details page displays the following information:
-   [![Screenshot that shows list of transferred subscriptions](./media/mpa-request-ownership/mpa-transfer-completed.png)](./media/mpa-request-ownership/mpa-transfer-completed.png#lightbox)
+   :::image type="content" border="true" source="./media/mpa-request-ownership/mpa-transfer-completed.png" lightbox="./media/mpa-request-ownership/mpa-transfer-completed.png" alt-text="Screenshot that shows list of transferred subscriptions.":::
 
    |Column  |Definition|
    |---------|---------|
@@ -186,7 +191,7 @@ The partners should work with the customer to get access to subscriptions. The p
 
 ### Power BI connectivity
 
-The Cost Management connector for Power BI doesn't currently support Microsoft Partner Agreements.  The connector only supports Enterprise Agreements and direct Microsoft Customer Agreements. For more information about Cost Management connector support, see [Create visuals and reports with the Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). After you transfer a subscription from one of the agreements to a Microsoft Partner Agreement, your Power BI reports stop working.
+The Cost Management connector for Power BI supports Enterprise Agreements, direct Microsoft Customer Agreements and Microsoft Partner Agreements on Billing Account and Billing Profile scopes. For more information about Cost Management connector support, see [Create visuals and reports with the Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). After you transfer a subscription from one of the agreements to a Microsoft Partner Agreement, your Power BI reports stop working.
 
 As an alternative, you can always use Exports in Cost Management to save the consumption and usage information and then use it in Power BI. For more information, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
 
@@ -214,15 +219,15 @@ Some of the customer transition requests may require an additional review proces
 
 ### Azure subscription directory
 
-The Azure AD directory (tenant) of the Azure subscriptions that are transferred must be the same Azure AD directory of the customer that was selected while establishing the CSP relationship.
+The Microsoft Entra directory (tenant) of the Azure subscriptions that are transferred must be the same Microsoft Entra directory of the customer that was selected while establishing the CSP relationship.
 
-If these two directories aren't the same, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+If these two directories aren't the same, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Microsoft Entra directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
 ### EA subscription in the non-organization directory
 
 The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name *[domain name].onmicrosoft.com* or a verified, non-federated custom domain name such as *contoso.com*.  
 
-To add a new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+To add a new user to the directory, see [Quickstart: Add new users to Microsoft Entra ID to add the new user to the directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## Check access to a Microsoft Partner Agreement
 
@@ -235,4 +240,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 * The billing ownership of the Azure products is transferred to you. Keep track of the charges for these products in the [Azure portal](https://portal.azure.com).
-* Work with the customer to get access to the transferred Azure products. [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+* Work with the customer to get access to the transferred Azure products. [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).

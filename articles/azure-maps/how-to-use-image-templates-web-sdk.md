@@ -1,8 +1,8 @@
 ---
 title: Image templates in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn how to add image icons and pattern-filled polygons to maps by using the Azure Maps Web SDK. View available image and fill pattern templates.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 8/6/2019
 ms.topic: how-to
 ms.service: azure-maps
@@ -26,11 +26,11 @@ Image templates can be added to the map image sprite resources by using the `map
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-The `id` is a unique identifier you create. The `id` is assigned to the image when it's added to the maps image sprite. Use this identifier in the layers to specifying which image resource to render. The `templateName` specifies which image template to use. The `color` option sets the primary color of the image and the `secondaryColor` options sets the secondary color of the image. The `scale` option scales the image template before applying it to the image sprite. When the image is applied to the image sprite, it's converted into a PNG. To ensure crisp rendering, it's better to scale up the image template before adding it to the sprite, than to scale it up in a layer.
+The `id` is a unique identifier you create. The `id` is assigned to the image when it's added to the maps image sprite. Use this identifier in the layers to specify which image resource to render. The `templateName` specifies which image template to use. The `color` option sets the primary color of the image and the `secondaryColor` options sets the secondary color of the image. The `scale` option scales the image template before applying it to the image sprite. When the image is applied to the image sprite, it converts into a PNG. To ensure crisp rendering, it's better to scale up the image template before adding it to the sprite, than to scale it up in a layer.
 
 This function asynchronously loads the image into the image sprite. Thus, it returns a Promise that you can wait for this function to complete.
 
-The following code shows how to create an image from one of the built-in templates, and use it with a symbol layer.
+The following code shows how to create an image from one of the built-in templates, then use it with a symbol layer.
 
 ```javascript
 map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#fff').then(function () {
@@ -508,7 +508,9 @@ With the following tool, you can render the different built-in image templates i
 
 <br/>
 
+<!-----
 > [!VIDEO //codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result]
+---->
 
 ## Next steps
 

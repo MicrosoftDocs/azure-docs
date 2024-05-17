@@ -15,6 +15,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # List blobs with Java
 
+[!INCLUDE [storage-dev-guide-selector-list-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-blob.md)]
+
 This article shows how to list blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
 ## Prerequisites

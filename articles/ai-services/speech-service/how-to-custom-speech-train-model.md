@@ -1,43 +1,40 @@
 ---
-title: Train a Custom Speech model - Speech service
+title: Train a custom speech model - Speech service
 titleSuffix: Azure AI services
-description: Learn how to train Custom Speech models. Training a speech to text model can improve recognition accuracy for the Microsoft base model or a custom model.
-services: cognitive-services
+description: Learn how to train custom speech models. Training a speech to text model can improve recognition accuracy for the Microsoft base model or a custom model.
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 1/19/2024
 ms.author: eur
-ms.custom: ignite-fall-2021
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
-# Train a Custom Speech model
+# Train a custom speech model
 
-In this article, you'll learn how to train a custom model to improve recognition accuracy from the Microsoft base model. The speech recognition accuracy and quality of a Custom Speech model will remain consistent, even when a new base model is released.
+In this article, you learn how to train a custom model to improve recognition accuracy from the Microsoft base model. The speech recognition accuracy and quality of a custom speech model remains consistent, even when a new base model is released.
 
 > [!NOTE]
-> You pay for Custom Speech model usage and [endpoint hosting](how-to-custom-speech-deploy-model.md), but you are not charged for training a model. 
+> You pay for custom speech model usage and [endpoint hosting](how-to-custom-speech-deploy-model.md). You'll also be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see  [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and the [Charge for adaptation section in the speech to text 3.2 migration guide](./migrate-v3-1-to-v3-2.md#charge-for-adaptation).
 
-Training a model is typically an iterative process. You will first select a base model that is the starting point for a new model. You train a model with [datasets](./how-to-custom-speech-test-and-train.md) that can include text and audio, and then you test. If the recognition quality or accuracy doesn't meet your requirements, you can create a new model with additional or modified training data, and then test again.
+Training a model is typically an iterative process. You first select a base model that is the starting point for a new model. You train a model with [datasets](./how-to-custom-speech-test-and-train.md) that can include text and audio, and then you test. If the recognition quality or accuracy doesn't meet your requirements, you can create a new model with more or modified training data, and then test again.
 
-You can use a custom model for a limited time after it's trained. You must periodically recreate and adapt your custom model from the latest base model to take advantage of the improved accuracy and quality. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
+You can use a custom model for a limited time after it was trained. You must periodically recreate and adapt your custom model from the latest base model to take advantage of the improved accuracy and quality. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 > [!IMPORTANT]
 > If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. After a model is trained, you can [copy it to a Speech resource](#copy-a-model) in another region as needed. 
 > 
-> In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. See footnotes in the [regions](regions.md#speech-service) table for more information.  
+> In regions with dedicated hardware for custom speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. See footnotes in the [regions](regions.md#speech-service) table for more information.  
 
 ## Create a model
 
 ::: zone pivot="speech-studio"
 
-After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.md), follow these instructions to start training your model:
+After you upload [training datasets](./how-to-custom-speech-test-and-train.md), follow these instructions to start training your model:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Train custom models**.
+1. Select **Custom speech** > Your project name > **Train custom models**.
 1. Select **Train a new model**.
 1. On the **Select a baseline model** page, select a base model, and then select **Next**. If you aren't sure, select the most recent model from the top of the list. The name of the base model corresponds to the date when it was released in YYYYMMDD format. The customization capabilities of the base model are listed in parenthesis after the model name in Speech Studio. 
 
@@ -59,10 +56,10 @@ After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.
 
 To create a model with datasets for training, use the `spx csr model create` command. Construct the request parameters according to the following instructions:
 
-- Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can run the `spx csr project list` command to get available projects.
+- Set the `project` parameter to the ID of an existing project. This parameter is recommended so that you can also view and manage the model in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `dataset` parameter to the ID of a dataset that you want used for training. To specify multiple datasets, set the `datasets` (plural) parameter and separate the IDs with a semicolon.
 - Set the required `language` parameter. The dataset locale must match the locale of the project. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
-- Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
+- Set the required `name` parameter. This parameter is the name that is displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 - Optionally, you can set the `base` property. For example: `--base 1aae1070-7972-47e9-a977-87e3b05c457d`. If you don't specify the `base`, the default base model for the locale is used. The Speech CLI `base` parameter corresponds to the `baseModel` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a model with datasets for training:
@@ -126,12 +123,12 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To create a model with datasets for training, use the [Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a model with datasets for training, use the [Models_Create](/rest/api/speechtotext/models/create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
+- Set the `project` property to the URI of an existing project. This property is recommended so that you can also view and manage the model in Speech Studio. You can make a [Projects_List](/rest/api/speechtotext/projects/list) request to get available projects.
 - Set the required `datasets` property to the URI of the datasets that you want used for training.
 - Set the required `locale` property. The model locale must match the locale of the project and base model. The locale can't be changed later.
-- Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
+- Set the required `displayName` property. This property is the name that is displayed in the Speech Studio.
 - Optionally, you can set the `baseModel` property. For example: `"baseModel": {"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"}`. If you don't specify the `baseModel`, the default base model for the locale is used. 
 
 Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
@@ -196,7 +193,7 @@ You should receive a response body in the following format:
 > 
 > Take note of the date in the `transcriptionDateTime` property. This is the last date that you can use your custom model for speech recognition. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
-The top-level `self` property in the response body is the model's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetCustomModel) details about the model's project, manifest, and deprecation dates. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Delete) the model.
+The top-level `self` property in the response body is the model's URI. Use this URI to [get](/rest/api/speechtotext/models/get-custom-model) details about the model's project, manifest, and deprecation dates. You also use this URI to [update](/rest/api/speechtotext/models/update) or [delete](/rest/api/speechtotext/models/delete) the model.
 
 ::: zone-end
 
@@ -210,7 +207,7 @@ You can copy a model to another project that uses the same locale. For example, 
 Follow these instructions to copy a model to a project in another region:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. Select **Custom Speech** > Your project name > **Train custom models**.
+1. Select **Custom speech** > Your project name > **Train custom models**.
 1. Select **Copy to**.
 1. On the **Copy speech model** page, select a target region where you want to copy the model.
     :::image type="content" source="./media/custom-speech/custom-speech-copy-to-zoom.png" alt-text="Screenshot of a phrase list applied in Speech Studio." lightbox="./media/custom-speech/custom-speech-copy-to-full.png":::
@@ -224,13 +221,13 @@ After the model is successfully copied, you'll be notified and can view it in th
 
 ::: zone pivot="speech-cli"
 
-Copying a model directly to a project in another region is not supported with the Speech CLI. You can copy a model to a project in another region using the [Speech Studio](https://aka.ms/speechstudio/customspeech) or [Speech to text REST API](rest-speech-to-text.md).
+Copying a model directly to a project in another region isn't supported with the Speech CLI. You can copy a model to a project in another region using the [Speech Studio](https://aka.ms/speechstudio/customspeech) or [Speech to text REST API](rest-speech-to-text.md).
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-To copy a model to another Speech resource, use the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To copy a model to another Speech resource, use the [Models_CopyTo](/rest/api/speechtotext/models/copy-to) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `targetSubscriptionKey` property to the key of the destination Speech resource.
 
@@ -289,7 +286,7 @@ Models might have been copied from one project using the Speech CLI or REST API,
 
 ::: zone pivot="speech-studio"
 
-If you are prompted in Speech Studio, you can connect them by selecting the **Connect** button. 
+If you're prompted in Speech Studio, you can connect them by selecting the **Connect** button. 
 
 :::image type="content" source="./media/custom-speech/custom-speech-connect-model.png" alt-text="Screenshot of the connect training page that shows models that can be connected to the current project.":::
 
@@ -299,7 +296,7 @@ If you are prompted in Speech Studio, you can connect them by selecting the **Co
 
 To connect a model to a project, use the `spx csr model update` command. Construct the request parameters according to the following instructions:
 
-- Set the `project` parameter to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can run the `spx csr project list` command to get available projects.
+- Set the `project` parameter to the URI of an existing project. This parameter is recommended so that you can also view and manage the model in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `modelId` parameter to the ID of the model that you want to connect to the project.
 
 Here's an example Speech CLI command that connects a model to a project:
@@ -328,11 +325,11 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To connect a new model to a project of the Speech resource where the model was copied, use the [Models_Update](/rest/api/speechtotext/models/update) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
+- Set the required `project` property to the URI of an existing project. This property is recommended so that you can also view and manage the model in Speech Studio. You can make a [Projects_List](/rest/api/speechtotext/projects/list) request to get available projects.
 
-Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [Models_CopyTo](/rest/api/speechtotext/models/copy-to) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{

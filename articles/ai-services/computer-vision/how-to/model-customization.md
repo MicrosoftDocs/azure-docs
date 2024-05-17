@@ -2,12 +2,12 @@
 title: Create a custom Image Analysis model
 titleSuffix: Azure AI services
 description: Learn how to create and train a custom model to do image classification and object detection that's specific to your use case.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 02/27/2024
 ms.author: pafarley
 ms.custom: devx-track-python
 ---
@@ -21,13 +21,14 @@ This guide shows you how to create and train a custom image classification model
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. If you're following this guide using Vision Studio, you must create your resource in the East US region. If you're using the Python library, you can create it in the East US, West US 2, or West Europe region. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. If you're following this guide using Vision Studio, you must create your resource in the East US region. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 * An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * A set of images with which to train your classification model. You can use the set of [sample images on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images). Or, you can use your own images. You only need about 3-5 images per class.
 
 > [!NOTE]
 > We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
 
+<!-- 
 #### [Python](#tab/python)
 
 Train your own image classifier (IC) or object detector (OD) with your own data using Image Analysis model customization and Python.
@@ -76,7 +77,7 @@ To train a model with your own dataset, the dataset should be arranged in the CO
 
 ### Dataset annotation format
 
-Image Analysis uses the COCO file format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for multiclass classification and object detection.
+Image Analysis uses the COCO file format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for classification and object detection.
 
 Image Analysis model customization for classification is different from other kinds of vision training, as we utilize your class names, as well as image data, in training. So, be sure provide meaningful category names in the annotations.
 
@@ -234,8 +235,7 @@ prediction = prediction_client.predict(model_name, img, content_type='image/png'
 logging.info(f'Prediction: {prediction}')
 ```
 
-<!-- nbend -->
-
+-->
 
 #### [Vision Studio](#tab/studio)
 
@@ -260,9 +260,7 @@ You need to upload your training images to an Azure Blob Storage container. Go t
 
 To train a custom model, you need to associate it with a **Dataset** where you provide images and their label information as training data. In Vision Studio, select the **Datasets** tab to view your datasets.
 
-To create a new dataset, select **add new dataset**. Enter a name and select a dataset type: If you'd like to do image classification, select `Multi-class image classification`. If you'd like to do object detection, select `Object detection`.
-
-
+To create a new dataset, select **add new dataset**. In the popup window, enter a name and select a dataset type for your use case. **Image classification** models apply content labels to the entire image, while **Object detection** models apply object labels to specific locations in the image. **Product recognition** models are a subcategory of object detection models that are optimized for detecting retail products.
 
 ![Choose Blob Storage]( ../media/customization/create-dataset.png)
 
@@ -370,7 +368,7 @@ The `datasets/<dataset-name>` API lets you create a new dataset object that refe
 1. In the request body, set the `"annotationFileUris"` array to an array of string(s) that show the URI location(s) of your COCO file(s) in blob storage.
 
 ```bash
-curl.exe -v -X PUT "https://<endpoint>/computervision/datasets/<dataset-name>?api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X PUT "<endpoint>/computervision/datasets/<dataset-name>?api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'annotationKind':'imageClassification',
 'annotationFileUris':['<URI>']
@@ -388,7 +386,7 @@ The `models/<model-name>` API lets you create a new custom model and associate i
 1. In the request body, set `"modelKind"` to either `"Generic-Classifier"` or `"Generic-Detector"`, depending on your project.
 
 ```bash
-curl.exe -v -X PUT "https://<endpoint>/computervision/models/<model-name>?api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X PUT "<endpoint>/computervision/models/<model-name>?api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'trainingParameters': {
     'trainingDatasetName':'<dataset-name>',
@@ -409,7 +407,7 @@ The `models/<model-name>/evaluations/<eval-name>` API evaluates the performance 
 1. In the request body, set `"testDatasetName"` to the name of the dataset you want to use for evaluation. If you don't have a dedicated dataset, you can use the same dataset you used for training.
 
 ```bash
-curl.exe -v -X PUT "https://<endpoint>/computervision/models/<model-name>/evaluations/<eval-name>?api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X PUT "<endpoint>/computervision/models/<model-name>/evaluations/<eval-name>?api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'evaluationParameters':{
     'testDatasetName':'<dataset-name>'
@@ -432,7 +430,7 @@ The `imageanalysis:analyze` API does ordinary Image Analysis operations. By spec
 1. In the request body, set `"url"` to the URL of a remote image you want to test your model on.
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?model-name=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "<endpoint>/computervision/imageanalysis:analyze?model-name=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'
 }"
 ```
@@ -473,4 +471,4 @@ The API call returns an **ImageAnalysisResult** JSON object, which contains all 
 In this guide, you created and trained a custom image classification model using Image Analysis. Next, learn more about the Analyze Image 4.0 API, so you can call your custom model from an application using REST or library SDKs.
 
 * See the [Model customization concepts](../concept-model-customization.md) guide for a broad overview of this feature and a list of frequently asked questions.
-* [Call the Analyze Image API](./call-analyze-image-40.md). Note the sections [Set model name when using a custom model](./call-analyze-image-40.md#set-model-name-when-using-a-custom-model) and [Get results using custom model](./call-analyze-image-40.md#get-results-using-custom-model).
+* [Call the Analyze Image API](./call-analyze-image-40.md). <!--Note the sections [Set model name when using a custom model](./call-analyze-image-40.md#set-model-name-when-using-a-custom-model) and [Get results using custom model](./call-analyze-image-40.md#get-results-using-custom-model).-->

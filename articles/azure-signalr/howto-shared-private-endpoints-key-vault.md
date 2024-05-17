@@ -5,6 +5,7 @@ description: Learn how Azure SignalR Service can use shared private endpoints to
 services: signalr
 author: ArchangelSDY
 ms.service: signalr
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/23/2022
 ms.author: dayshen

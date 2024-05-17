@@ -5,7 +5,7 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.service: cosmos-db
-  ms.custom: event-tier1-build-2022, ignite-2022, build-2023
+  ms.custom: build-2023
   ms.topic: faq
   ms.reviewer: dech
   ms.date: 05/23/2023
@@ -51,19 +51,14 @@ sections:
       - question: |
           How can I enable burst capacity on an account programatically?
         answer: |
-          You can use the [Azure Cosmos DB Resource Provider REST API version 2022-11-15-preview](/rest/api/cosmos-db-resource-provider/) or a [Resource Manager template](manage-with-templates.md) with API version 2022-11-15-preview to set the property **enableBurstCapacity** to true.
+          You can use the [Azure Cosmos DB Resource Provider REST API version `2023-09-15` or later](/rest/api/cosmos-db-resource-provider/database-accounts/create-or-update) or a [Resource Manager template with API version `2023-03-01-preview`](/azure/templates/microsoft.documentdb/2023-03-01-preview/databaseaccounts) to set the property `enableBurstCapacity` to true.
           You can also use the Azure CLI or PowerShell.
 
           #### [PowerShell](#tab/azure-powershell)
 
           ```azurepowershell
-          // Add the preview extension 2.0.5-preview or higher
-          $installParameters = @{
-              Name = "Az.CosmosDB"
-              AllowPrerelease = $true
-              Force = $true
-          }
-          Install-Module @installParameters
+          // Add Azure Cosmos DB extension 1.13.0 or higher
+          Install-Module -Name Az.CosmosDB -RequiredVersion 1.13.0
 
           // Enable burst capacity on an account
           $parameters = @{
@@ -77,9 +72,6 @@ sections:
           #### [Azure CLI](#tab/azure-cli)
 
           ```azurecli
-          // Add the preview extension version 0.24.0 or higher
-          az extension add --name cosmosdb-preview --version 0.24.0
-
           // Enable burst capacity on an account
           az cosmosdb update  \
           --resource-group '<resource-group-name>' \

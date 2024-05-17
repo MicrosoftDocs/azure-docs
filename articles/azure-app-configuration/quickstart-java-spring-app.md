@@ -6,7 +6,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/11/2023
+ms.date: 04/12/2024
 ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
@@ -44,8 +44,19 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>5.4.0</version>
 </dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.8.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 ```
 
 ### [Spring Boot 2](#tab/spring-boot-2)
@@ -54,8 +65,19 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.10.0</version>
 </dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.14.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 ```
 
 ---
@@ -64,13 +86,13 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 
 To use the Spring Cloud Azure Config starter to have your application communicate with the App Configuration store that you create, configure the application by using the following steps.
 
-1. Create a new Java file named *MessageProperties.java*, and add the following lines:
+1. Create a new Java file named *MyProperties.java*, and add the following lines:
 
    ```java
    import org.springframework.boot.context.properties.ConfigurationProperties;
 
    @ConfigurationProperties(prefix = "config")
-   public class MessageProperties {
+   public class MyProperties {
        private String message;
 
        public String getMessage() {
@@ -91,9 +113,9 @@ To use the Spring Cloud Azure Config starter to have your application communicat
 
    @RestController
    public class HelloController {
-       private final MessageProperties properties;
+       private final MyProperties properties;
 
-       public HelloController(MessageProperties properties) {
+       public HelloController(MyProperties properties) {
            this.properties = properties;
        }
 
@@ -104,13 +126,13 @@ To use the Spring Cloud Azure Config starter to have your application communicat
    }
    ```
 
-1. In the main application Java file, add `@EnableConfigurationProperties` to enable the *MessageProperties.java* configuration properties class to take effect and register it with the Spring container.
+1. In the main application Java file, add `@EnableConfigurationProperties` to enable the *MyProperties.java* configuration properties class to take effect and register it with the Spring container.
 
    ```java
    import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
    @SpringBootApplication
-   @EnableConfigurationProperties(MessageProperties.class)
+   @EnableConfigurationProperties(MyProperties.class)
    public class DemoApplication {
        public static void main(String[] args) {
            SpringApplication.run(DemoApplication.class, args);

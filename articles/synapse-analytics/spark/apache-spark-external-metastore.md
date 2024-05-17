@@ -12,16 +12,20 @@ ms.date: 02/15/2022
 
 # Use external Hive Metastore for Synapse Spark Pool
 
+> [!NOTE]
+> External Hive metastores will no longer be supported in [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) and subsequent versions in Synapse.
+
 Azure Synapse Analytics allows Apache Spark pools in the same workspace to share a managed HMS (Hive Metastore) compatible metastore as their catalog. When customers want to persist the Hive catalog metadata outside of the workspace, and share catalog objects with other computational engines outside of the workspace, such as HDInsight and Azure Databricks, they can connect to an external Hive Metastore. In this article, you can learn how to connect Synapse Spark to an external Apache Hive Metastore. 
 
 ## Supported Hive Metastore versions
 
-The feature works with both Spark 2.4 and Spark 3.1. The following table shows the supported Hive Metastore versions for each Spark version.
+The feature works with Spark 3.1. The following table shows the supported Hive Metastore versions for each Spark version.
 
 |Spark Version|HMS 0.13.X|HMS 1.2.X|HMS 2.1.X|HMS 2.3.x|HMS 3.1.X|
 |--|--|--|--|--|--|
 |2.4|Yes|Yes|Yes|Yes|No|
 |3.1|Yes|Yes|Yes|Yes|Yes|
+
 
 ## Set up linked service to Hive Metastore 
 
@@ -84,7 +88,7 @@ try {
 ```
 
 ## Configure Spark to use the external Hive Metastore
-After creating the linked service to the external Hive Metastore successfully, you need to setup a few Spark configurations to use the external Hive Metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
+After creating the linked service to the external Hive Metastore successfully, you need to set up a few Spark configurations to use the external Hive Metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
 
 Here are the configurations and descriptions:
 
@@ -161,7 +165,7 @@ If the underlying data of your Hive tables are stored in Azure Blob storage acco
 3. Provide **Name** of the linked service. Record the name of the linked service, this info will be used in Spark configuration shortly.
 4. Select the Azure Blob Storage account. Make sure Authentication method is **Account key**. Currently Spark pool can only access Blob Storage account via account key.
 5. **Test connection** and click **Create**.
-6. After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the the Blob Storage account for the Spark session. Learn more about why you need to do this [here](./apache-spark-secure-credentials-with-tokenlibrary.md).
+6. After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the Blob Storage account for the Spark session. Learn more about why you need to do this [here](./apache-spark-secure-credentials-with-tokenlibrary.md).
 
 ```python
 %%pyspark
@@ -190,7 +194,7 @@ After setting up storage connections, you can query the existing tables in the H
 No credentials found for account xxxxx.blob.core.windows.net in the configuration, and its container xxxxx is not accessible using anonymous credentials. Please check if the container exists first. If it is not publicly available, you have to provide account credentials.
 ```
 
-When use key authentication to your storage account via linked service, you need to take an extra step to get the token for Spark session. Run below code to configure your Spark session before running the query. Learn more about why you need to do this here.
+When using key authentication to your storage account via linked service, you need to take an extra step to get the token for Spark session. Run below code to configure your Spark session before running the query. Learn more about why you need to do this here.
 
 ```python
 %%pyspark

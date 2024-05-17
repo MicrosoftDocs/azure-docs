@@ -1,10 +1,9 @@
 ---
-title: Best practices for scaling provisioned throughput (RU/s) 
+title: Best practices for scaling provisioned throughput (RU/s)
 description: Learn best practices for scaling provisioned throughput for manual and autoscale throughput
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.date: 08/20/2021
 ms.author: dech
 ms.topic: troubleshooting
@@ -32,7 +31,7 @@ When you send a request to increase the RU/s of your database or container, depe
 Each physical partition can support a maximum of 10,000 RU/s (applies to all APIs) of throughput and 50 GB of storage (applies to all APIs, except Cassandra, which has 30 GB of storage). 
 
 > [!NOTE]
-> If you perform a [manual region failover operation](how-to-manage-database-account.md#manual-failover) or [add/remove a new region](how-to-manage-database-account.md#addremove-regions-from-your-database-account) while an asynchronous scale-up operation is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
+> If you perform a [manual region failover operation](how-to-manage-database-account.yml#perform-manual-failover-on-an-azure-cosmos-db-account) or [add/remove a new region](how-to-manage-database-account.yml#add-remove-regions-from-your-database-account) while an asynchronous scale-up operation is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
 - **Instant scale-down**
     - For scale down operation Azure Cosmos DB doesn’t need to split or add new partitions. 
     - As a result, the operation completes immediately and the RU/s are available for use, 
@@ -55,7 +54,7 @@ Each PartitionKeyRangeId maps to one physical partition and is assigned to hold 
 Azure Cosmos DB distributes your data across logical and physical partitions based on your partition key to enable horizontal scaling. As data gets written, Azure Cosmos DB uses the hash of the partition key value to determine which logical and physical partition the data lives on.
 
 ### Step 2: Calculate the default maximum throughput
-The highest RU/s you can scale to without triggering Azure Cosmos DB to split partitions is equal to `Current number of physical partitions * 10,000 RU/s`.
+The highest RU/s you can scale to without triggering Azure Cosmos DB to split partitions is equal to `Current number of physical partitions * 10,000 RU/s`. You can get this value from the Azure Cosmos DB Resource Provider. Perform a GET request on your [database](/rest/api/cosmos-db-resource-provider/database-accounts/update) or [container](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers) throughput setting objects and retrieve the `instantMaximumThroughput` property. This value is also available in the Scale and Settings page of your database or container in the portal.
 
 #### Example
 Suppose we have an existing container with five physical partitions and 30,000 RU/s of manual provisioned throughput. We can increase the RU/s to 5 * 10,000 RU/s = 50,000 RU/s instantly. Similarly if we had a container with autoscale max RU/s of 30,000 RU/s (scales between 3000 - 30,000 RU/s), we could increase our max RU/s to 50,000 RU/s instantly (scales between 5000 - 50,000 RU/s). 
@@ -113,7 +112,7 @@ In general, if you have a starting number of physical partitions `P`, and want t
 Increase your RU/s to: `10,000 * P * (2 ^ (ROUNDUP(LOG_2 (S/(10,000 * P))))`. This gives the closest RU/s to the desired value that will ensure all partitions are split evenly. 
 
 > [!NOTE]
-> When you increase the RU/s of a database or container, this can impact the minimum RU/s you can lower to in the future. Typically, the minimum RU/s is equal to MAX(400 RU/s, Current storage in GB * 10 RU/s, Highest RU/s ever provisioned / 100). For example, if the highest RU/s you've ever scaled to is 100,000 RU/s, the lowest RU/s you can set in the future is 1000 RU/s. Learn more about [minimum RU/s](concepts-limits.md#minimum-throughput-limits).
+> When you increase the RU/s of a database or container, this can impact the minimum RU/s you can lower to in the future. Typically, the minimum RU/s is equal to MAX(400 RU/s, Current storage in GB * 1 RU/s, Highest RU/s ever provisioned / 100). For example, if the highest RU/s you've ever scaled to is 100,000 RU/s, the lowest RU/s you can set in the future is 1000 RU/s. Learn more about [minimum RU/s](concepts-limits.md#minimum-throughput-limits).
 
 #### Step 2: Lower your RU/s to the desired RU/s
  

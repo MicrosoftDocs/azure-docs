@@ -94,7 +94,7 @@ Since Role Instances are basically VMs and the health check for VMs is reused fo
 | Provisioning failure | We're sorry, your virtual machine isn't available due to unexpected provisioning problems. The provisioning of your virtual machine has failed due to an unexpected error |
 | Live Migration | This virtual machine is paused because of a memory-preserving Live Migration operation. The virtual machine typically resumes within 10 seconds. No additional action is required from you at this time |
 | Live Migration | This virtual machine is paused because of a memory-preserving Live Migration operation. The virtual machine typically resumes within 10 seconds. No additional action is required from you at this time | 
-| Remote disk disconnected | We're sorry, your virtual machine is unavailable because because of connectivity loss to the remote disk. We're working to reestablish disk connectivity. No additional action is required from you at this time |
+| Remote disk disconnected | We're sorry, your virtual machine is unavailable because of connectivity loss to the remote disk. We're working to reestablish disk connectivity. No additional action is required from you at this time |
 | Azure service issue | Your virtual machine is impacted by Azure service issue |
 | Network issue | This virtual machine is impacted by a top-of-rack network device |
 | Unavailable | Your virtual machine is unavailable. We are currently unable to determine the reason for this downtime |

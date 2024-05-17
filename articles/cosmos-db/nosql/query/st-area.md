@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -23,7 +24,7 @@ Returns the total area of a GeoJSON **Polygon** or **MultiPolygon** expression.
 
 ## Syntax
 
-```sql
+```nosql
 ST_AREA(<spatial_expr>)
 ```
 
@@ -41,7 +42,7 @@ Returns a numeric expression that enumerates the total area of a set of points.
 
 The following example shows how to return the area of a polygon.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-area/query.sql" highlight="2-11":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/st-area/query.sql" highlight="2-11":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-area/result.json":::
 
@@ -51,7 +52,7 @@ The following example shows how to return the area of a polygon.
 - Using this function to calculate the area of zero or one-dimensional figures like GeoJSON **Points** and **LineStrings** results in an area of `0`.
 - The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`ST_WITHIN`](st-within.md)

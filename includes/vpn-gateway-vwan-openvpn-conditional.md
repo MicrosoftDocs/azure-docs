@@ -11,7 +11,7 @@
 
  # this file is used for both virtual wan and vpn gateway. When modifying, make sure that your changes work for both environments.
 ---
-Conditional Access allows for fine-grained access control on a per-application basis. In order to use Conditional Access, you should have Azure AD Premium 1 or greater licensing applied to the users that will be subject to the Conditional Access rules.
+Conditional Access allows for fine-grained access control on a per-application basis. In order to use Conditional Access, you should have Microsoft Entra ID P1 or P2 or greater licensing applied to the users that will be subject to the Conditional Access rules.
 
 1. Navigate to the **Enterprise applications - All applications** page and click **Azure VPN**.
 

@@ -1,10 +1,10 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
 ms.date: 09/24/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Client library     |Supported version     | Link   |     Endpoint specification      |
@@ -16,4 +16,5 @@ Client library     |Supported version     | Link   |     Endpoint specification 
 |    PHP                 |    1.2.0                                           |    GitHub release:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Install via Composer (To learn more, See   the details below.)                                                                                                             |    Connection string setup         |
 |    Python              |    1.1.0                                           |    GitHub release:<br>Common:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Service instance declaration    |
 |    Ruby                |    1.0.1                                           |    RubyGems package:<br>Common:   https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>GitHub release:<br>Common: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Connection string setup         |
+
 

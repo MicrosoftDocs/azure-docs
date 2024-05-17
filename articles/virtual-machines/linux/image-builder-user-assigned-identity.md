@@ -3,19 +3,19 @@ title: Create a virtual machine image and use a user-assigned managed identity t
 description: In this article, you'll use Azure VM Image Builder to create a virtual machine image that can access files that are stored in Azure Storage with a user-assigned managed identity.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/28/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Create an image and use a user-assigned managed identity to access files in an Azure storage account 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-This article shows how to create a customized image by using Azure VM Image Builder. The service uses a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access files in an Azure storage account, without your having to make the files publicly accessible.
+This article shows how to create a customized image by using Azure VM Image Builder. The service uses a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access files in an Azure storage account, and it can achieve blocking unauthenticated access to the storage account.
 
 Azure VM Image Builder supports using scripts and copying files from GitHub, Azure storage accounts, and other locations. If you want to use the locations, they must be externally accessible to VM Image Builder.
 

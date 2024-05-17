@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu
 ms.custom: subject-rbac-steps, devx-track-azurepowershell
@@ -121,7 +121,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
    1. On your Data Factory page in the Azure portal, select **Access control (IAM)**.
    1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
       | Setting | Value |
       | --- | --- |
@@ -226,7 +226,7 @@ In this section, you learn how to create Azure Automation runbook that runs a Po
 
 If you don't have an Azure Automation account, create one by following the instructions in this section. For detailed steps, see [Create an Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
 
-As part of this process, you create an **Azure Run As** account (a service principal in Azure Active Directory) and assign it a **Contributor** role in your Azure subscription. Ensure that it's the same subscription that contains your data factory with the Azure-SSIS IR. Azure Automation will use this account to authenticate to Azure Resource Manager and operate on your resources.
+As part of this process, you create an **Azure Run As** account (a service principal in Microsoft Entra ID) and assign it a **Contributor** role in your Azure subscription. Ensure that it's the same subscription that contains your data factory with the Azure-SSIS IR. Azure Automation will use this account to authenticate to Azure Resource Manager and operate on your resources.
 
 1. Open the Microsoft Edge or Google Chrome web browser. Currently, the Data Factory UI is supported only in these browsers.
 2. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -240,7 +240,7 @@ As part of this process, you create an **Azure Run As** account (a service princ
     2. For **Subscription**, select the subscription that has your data factory with the Azure-SSIS IR.
     3. For **Resource group**, select **Create new** to create a new resource group, or select **Use existing** to use an existing one.
     4. For **Location**, select a location for your Azure Automation account.
-    5. For **Create Azure Run As account**, select **Yes**. A service principal will be created in your Azure Active Directory instance and assigned a **Contributor** role in your Azure subscription.
+    5. For **Create Azure Run As account**, select **Yes**. A service principal will be created in your Microsoft Entra instance and assigned a **Contributor** role in your Azure subscription.
     6. Select **Pin to dashboard** to display the account permanently on the Azure dashboard.
     7. Select **Create**.
 
@@ -398,7 +398,7 @@ In the previous section, you created an Azure Automation runbook that can either
 
 6. When you finish testing, disable your schedules by editing them. Select **Schedules** on the left menu, select **Start IR daily/Stop IR daily**, and then select **No** for **Enabled**.
 
-## Next steps
+## Related content
 
 See the following blog post:
 

@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 08/07/2023
+ms.date: 04/11/2024
 ---
 
 # Deployment stacks (Preview)
@@ -29,20 +29,20 @@ Deployment stacks provide the following benefits:
 - Efficient environment cleanup by employing delete flags during deployment stack updates.
 - Utilizing standard templates such as Bicep, ARM templates, or Template specs for your deployment stacks.
 
+### Known limitations
+
+- Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
+- Deny assignments don't support tags.
+- Deny assignments is not supported within the management group scope.
+- Deployment stacks cannot delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
+
 ### Known issues
 
-- Deleting resource groups currently bypasses deny assignments.
-- Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
+- Deleting resource groups currently bypasses deny assignments. When creating a deployment stack in the resource group scope, the Bicep file doesn't contain the definition for the resource group. Despite the deny assignment setting, it's possible to delete the resource group and its contained stack. However, if a [lock](../management/lock-resources.md) is active on any resource within the group, the delete operation will fail.
 - [What-if](./deploy-what-if.md) isn't available in the preview.
-- Management group scoped deployment stacks can only deploy the template to subscription.
-- When using the Azure CLI create command to modify an existing stack, the deployment process continues regardless of whether you choose _n_ for a prompt. To halt the procedure, use _[CTRL] + C_.
-- If you create or modify a deployment stack in the Azure portal, deny settings will be overwritten (support for deny settings in the Azure portal is currently in progress).
-- Management group deployment stacks are not yet available in the Azure portal.
+- A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
 
 ## Create deployment stacks
-
-> [!WARNING]
-> The `New-Az*DeploymentStack` cmdlets are incorrectly outputting a warning message regarding the current existence of a stack with the same name as the stack attempting to be created. When the stack exists, the warning message is not shown, which could lead to unintended upsert behavior. Conversely, if the stack doesn't exist, the cmdlets display a warning message, suggesting that the stack exists and requiring user interaction to proceed with the upsert. This behavior will be reversed soon with an upcoming change. In the interim, you can use the `-Force` flag when executing the cmdlets to bypass the warning prompt in case the stack doesn't exist. This way, you can proceed with the upsert process without user intervention.
 
 A deployment stack resource can be created at resource group, subscription, or management group scope. The template passed into a deployment stack defines the resources to be created or updated at the target scope specified for the template deployment.
 
@@ -104,11 +104,11 @@ az stack sub create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
-  --deployment-resource-group-name' <resource-group-name>' \
+  --deployment-resource-group' <resource-group-name>' \
   --deny-settings-mode 'none'
 ```
 
-The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
+The `deployment-resource-group` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
 
 # [Portal](#tab/azure-portal)
 
@@ -283,7 +283,7 @@ az stack sub create \
   --name '<deployment-stack-name>' \
   --location '<location>' \
   --template-file '<bicep-file-name>' \
-  --deployment-resource-group-name '<resource-group-name>' \
+  --deployment-resource-group '<resource-group-name>' \
   --deny-settings-mode 'none'
 ```
 
@@ -328,7 +328,7 @@ Currently not implemented.
 You get a warning similar to the following:
 
 ```warning
-The deployment stack 'myStack' you're trying to create already already exists in the current subscription/management group/resource group. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
+The deployment stack 'myStack' you're trying to create already exists in the current subscription/management group/resource group. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
 ```
 
 For more information, see [Create deployment stacks](#create-deployment-stacks).
@@ -601,7 +601,7 @@ The Azure PowerShell includes these parameters to customize the deny assignment:
 - `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
 - `DenySettingsApplyToChildScopes`: Deny settings are applied to nested resources under managed resources.
 - `DenySettingsExcludedAction`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
-- `DenySettingsExcludedPrincipal`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
+- `DenySettingsExcludedPrincipal`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are permitted.
 
 # [CLI](#tab/azure-cli)
 
@@ -610,7 +610,7 @@ The Azure CLI includes these parameters to customize the deny assignment:
 - `deny-settings-mode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `none`, `denyDelete`, and `denyWriteAndDelete`.
 - `deny-settings-apply-to-child-scopes`: Deny settings are applied to nested resources under managed resources.
 - `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed.
-- `deny-settings-excluded-principals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed.
+- `deny-settings-excluded-principals`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are allowed.
 
 # [Portal](#tab/azure-portal)
 
@@ -629,7 +629,7 @@ New-AzResourceGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -641,7 +641,7 @@ az stack group create \
   --template-file '<bicep-file-name>' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
-  --deny-settings-excluded-principals '<object-id>' '<object-id>'
+  --deny-settings-excluded-principals '<object-id> <object-id>'
 ```
 
 # [Portal](#tab/azure-portal)
@@ -661,7 +661,7 @@ New-AzSubscriptionDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedAction "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -675,7 +675,7 @@ az stack sub create \
   --template-file '<bicep-file-name>' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
-  --deny-settings-excluded-principals '<object-id>' '<object-id>'
+  --deny-settings-excluded-principals '<object-id> <object-id>'
 ```
 
 Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -697,7 +697,7 @@ New-AzManagmentGroupDeploymentStack `
   -TemplateFile "<bicep-file-name>" `
   -DenySettingsMode "DenyDelete" `
   -DenySettingsExcludedActions "Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete" `
-  -DenySettingsExcludedPrincipal "<object-id>" "<object-id>"
+  -DenySettingsExcludedPrincipal "<object-id>,<object-id>"
 ```
 
 Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
@@ -711,7 +711,7 @@ az stack mg create \
   --template-file '<bicep-file-name>' \
   --deny-settings-mode 'denyDelete' \
   --deny-settings-excluded-actions 'Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete' \
-  --deny-settings-excluded-principals '<object-id>' '<object-id>'
+  --deny-settings-excluded-principals '<object-id> <object-id>'
 ```
 
 Use the `deployment-subscription ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.

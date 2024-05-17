@@ -11,6 +11,8 @@ ms.date: 06/24/2022
 
 # How to generate an Azure Database for MariaDB connection string with PowerShell
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article demonstrates how to generate a connection string for an Azure Database for MariaDB
 server. You can use a connection string to connect to an Azure Database for MariaDB from many
 different applications.

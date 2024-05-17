@@ -1,5 +1,5 @@
 ---
-title: Inference data collection from models in production (preview)
+title: Inference data collection from models in production
 titleSuffix: Azure Machine Learning
 description: Collect inference data from models deployed on Azure Machine Learning to monitor their performance in production.
 services: machine-learning
@@ -10,17 +10,15 @@ ms.subservice: mlops
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.topic: conceptual 
-ms.date: 05/09/2023
+ms.date: 04/15/2024
 ms.custom: devplatv2, event-tier1-build-2023, build-2023
 ---
 
-# Data collection from models in production (preview)
+# Data collection from models in production
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn about data collection from models that are deployed to Azure Machine Learning online endpoints.
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 Azure Machine Learning **Data collector** provides real-time logging of input and output data from models that are deployed to managed online endpoints or Kubernetes online endpoints. Azure Machine Learning stores the logged inference data in Azure blob storage. This data can then be seamlessly used for model monitoring, debugging, or auditing, thereby, providing observability into the performance of your deployed models.
 
@@ -43,9 +41,9 @@ Data collector can be configured at the deployment level, and the configuration 
 
 Data collector has the following limitations:
 - Data collector only supports logging for online (or real-time) Azure Machine Learning endpoints (Managed or Kubernetes).
-- The Data collector Python SDK only supports logging tabular data via `pandas DataFrames`.
+- The Data collector Python SDK only supports logging tabular data via pandas DataFrames.
 
 ## Next steps
 
-- [How to collect data from models in production (preview)](how-to-collect-production-data.md)
+- [How to collect data from models in production](how-to-collect-production-data.md)
 - [What are Azure Machine Learning endpoints?](concept-endpoints.md)

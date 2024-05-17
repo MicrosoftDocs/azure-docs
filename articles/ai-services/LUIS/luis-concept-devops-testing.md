@@ -1,13 +1,13 @@
 ---
 title: Testing for DevOps for LUIS apps
 description: How to test your Language Understanding (LUIS) app in a DevOps environment.
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 06/3/2020
+ms.date: 01/19/2024
 ---
 
 # Testing for LUIS DevOps
@@ -132,7 +132,7 @@ When LUIS is training a model, such as an intent, it needs both positive data - 
 
 The result of this non-deterministic training is that you may get a slightly [different prediction response between different training sessions](./luis-concept-prediction-score.md), usually for intents and/or entities where the [prediction score](./luis-concept-prediction-score.md) is not high.
 
-If you want to disable non-deterministic training for those LUIS app versions that you're building for the purpose of testing, use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` setting set to `true`.
+If you want to disable non-deterministic training for those LUIS app versions that you're building for the purpose of testing, use the [Version settings API](/rest/api/cognitiveservices-luis/authoring/versions?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true) with the `UseAllTrainingData` setting set to `true`.
 
 ## Next steps
 

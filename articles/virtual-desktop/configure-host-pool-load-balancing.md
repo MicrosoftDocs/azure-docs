@@ -1,12 +1,11 @@
 ---
 title: Configure Azure Virtual Desktop load-balancing - Azure
-description: How to configure the load-balancing method for a Azure Virtual Desktop environment.
+description: How to configure the load-balancing method for an Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Configure the Azure Virtual Desktop load-balancing method
 

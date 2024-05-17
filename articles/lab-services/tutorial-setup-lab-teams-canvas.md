@@ -80,7 +80,7 @@ In the next step, you use the Azure Lab Services app to create a lab.
 
 1. Sign into Canvas, and select your course.
 
-    If you're authenticated in Canvas as an educator, you'll see a sign in screen before you can use the Azure Lab Services app. Sign in here with an Azure AD account or Microsoft account that was added as a lab creator.
+    If you're authenticated in Canvas as an educator, you'll see a sign in screen before you can use the Azure Lab Services app. Sign in here with a Microsoft Entra account or Microsoft account that was added as a lab creator.
 
 1. Select **Azure Lab Services** from the course navigation menu.
 
@@ -108,7 +108,7 @@ A lab contains the configuration and settings for creating lab VMs. All lab VMs 
     | **Virtual machine size** | Select *Small*. |
     | **Location** | Leave the default value. |
 
-    Some virtual machine sizes might not be available depending on the lab plan region and your [subscription core limit](./how-to-request-capacity-increase.md). Learn more about [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
+    Some virtual machine sizes might not be available depending on the lab plan region and your subscription core limit. Learn more about [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing) and how to [request additional capacity](./how-to-request-capacity-increase.md).
 
     You can [enable or disable specific virtual machine images](./specify-marketplace-images.md#enable-and-disable-images) by configuring the lab plan.
 
@@ -162,7 +162,7 @@ To publish the lab:
 
 ## Troubleshooting
 
-This section outlines common error messages that you may see, along with the steps to resolve them.
+This section outlines common error messages that you might see, along with the steps to resolve them.
 
 - Insufficient permissions to create lab.
 
@@ -189,11 +189,11 @@ This section outlines common error messages that you may see, along with the ste
   :::image type="content" source="./media/tutorial-setup-lab-teams-canvas/canvas-access-granted-success.png" alt-text="Screenshot of access granted page in Azure Lab Services.":::
 
   > [!IMPORTANT]
-  > Ensure that students and educators are using an up-to-date version of their browser. For older browser versions, students and educators may experience issues with being able to successfully grant access to Azure Lab Services.
+  > Ensure that students and educators are using an up-to-date version of their browser. For older browser versions, students and educators might experience issues with being able to successfully grant access to Azure Lab Services.
 
   - Educator isn't prompted for their credentials after they select sign-in.
   
-  When an educator accesses Azure Lab Services within their course, they may be prompted to sign in. Ensure that the browser's settings allow popups from the url of your Canvas instance, otherwise the popup may be blocked by default.
+  When an educator accesses Azure Lab Services within their course, they might be prompted to sign in. Ensure that the browser's settings allow popups from the url of your Canvas instance, otherwise the popup might be blocked by default.
 
     :::image type="content" source="./media/tutorial-setup-lab-teams-canvas/canvas-sign-in.png" alt-text="Azure Lab Services sign-in screen.":::
 

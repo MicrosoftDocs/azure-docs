@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 03/21/2024
 ms.reviewer: sgautam
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
@@ -13,21 +13,23 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-templ
 
 # Programmatically create Azure subscriptions for a Microsoft Customer Agreement with the latest APIs
 
-This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md).
+This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you're still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md).
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
-If you need to create an Azure MCA subscription across Azure Active Directory tenants, see [Programmatically create MCA subscriptions across Azure Active Directory tenants](programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md).
+If you need to create an Azure MCA subscription across Microsoft Entra tenants, see [Programmatically create MCA subscriptions across Microsoft Entra tenants](programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md).
 
 When you create an Azure subscription programmatically, that subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
+
 ## Prerequisites
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. You can also give the same role to a service principal name (SPN). For more information about roles and assigning permission to them, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Enterprise application as the Principal ID using [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list).
+If you're using an SPN to create subscriptions, use the ObjectId of the Microsoft Entra Enterprise application as the Principal ID using [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list).
 
 > [!NOTE]
 > Permissions differ between the legacy API (api-version=2018-03-01-preview) and the latest API (api-version=2020-05-01). Although you may have a role sufficient to use the legacy API, you might need an EA admin to delegate you a role to use the latest API.
@@ -75,7 +77,7 @@ Use the `displayName` property to identify the billing account for which you wan
 ```azurepowershell
 Get-AzBillingAccount
 ```
-You will get back a list of all billing accounts that you have access to
+You'll get back a list of all billing accounts that you have access to
 
 ```json
 Name          : 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
@@ -93,7 +95,7 @@ Use the `displayName` property to identify the billing account for which you wan
 ```azurecli
 az billing account list
 ```
-You will get back a list of all billing accounts that you have access to
+You'll get back a list of all billing accounts that you have access to.
 
 ```json
 [
@@ -118,7 +120,7 @@ You will get back a list of all billing accounts that you have access to
 ]
 ```
 
-Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account.  For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
+Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftCustomerAgreement*. Copy the `name` of the account. For example, to create a subscription for the `Contoso` billing account, copy `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
 ---
 
@@ -216,7 +218,7 @@ Use the `id` property to identify the invoice section for which you want to crea
 Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
-You will get the list of billing profiles under this account as part of the response.
+You'll get the list of billing profiles under this account as part of the response.
 
 ```json
 Name              : AW4F-xxxx-xxx-xxx
@@ -238,20 +240,20 @@ Country           : US
 PostalCode        : 98052
 ```
 
-Note the `name` of the billing profile from the above response. The next step is to get the invoice section that you have access to underneath this billing profile. You will need the `name` of the billing account and billing profile
+Note the `name` of the billing profile from the above response. The next step is to get the invoice section that you have access to underneath this billing profile. You'll need the `name` of the billing account and billing profile.
 
 ```azurepowershell
 Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
 ```
 
-You will get the invoice section returned
+You'll get the invoice section returned.
 
 ```json
 Name        : SH3V-xxxx-xxx-xxx
 DisplayName : Development
 ```
 
-The `name` above is the Invoice section name you need to create a subscription under. Construct your billing scope using the format `/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>`. In this example, this value will equate to `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
+The `name` above is the Invoice section name you need to create a subscription under. Construct your billing scope using the format `/providers/Microsoft.Billing/billingAccounts/<BillingAccountName>/billingProfiles/<BillingProfileName>/invoiceSections/<InvoiceSectionName>`. In this example, this value equates to `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -259,7 +261,7 @@ The `name` above is the Invoice section name you need to create a subscription u
 az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
 ```
 
-This API will return the list of billing profiles and invoice sections under the provided billing account.
+This API returns the list of billing profiles and invoice sections under the provided billing account.
 
 ```json
 [
@@ -334,7 +336,7 @@ The following example creates a subscription named *Dev Team subscription* for t
 ### [REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01
 ```
 
 ### Request body
@@ -390,7 +392,7 @@ An in-progress status is returned as an `Accepted` state under `provisioningStat
 
 ### [PowerShell](#tab/azure-powershell)
 
-To install the latest version of the module that contains the `New-AzSubscriptionAlias` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
+To install the version of the module that contains the `New-AzSubscriptionAlias` cmdlet, in below example run `Install-Module Az.Subscription -RequiredVersion 0.9.0`. To install version 0.9.0 of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
 
 Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscriptionalias) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`.
 

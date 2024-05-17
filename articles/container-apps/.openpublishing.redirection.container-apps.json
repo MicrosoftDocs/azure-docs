@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/container-apps/dapr-github-actions.md",
+            "redirect_url": "/azure/container-apps/dapr-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/java-deploy-war-file.md",
+            "redirect_url": "/azure/container-apps/java-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/container-apps/secure-app.md",
             "redirect_url": "/azure/container-apps/manage-secrets",
             "redirect_document_id": false
@@ -14,6 +24,36 @@
             "source_path_from_root": "/articles/container-apps/ingress.md",
             "redirect_url": "/azure/container-apps/ingress-overview",
             "redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/disaster-recovery.md",
+			"redirect_url": "/azure/reliability/reliability-azure-container-apps",
+			"redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/start.md",
+			"redirect_url": "/azure/container-apps/overview",
+			"redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/spring-cloud-eureka-server-usage.md",
+			"redirect_url": "/azure/container-apps/java-eureka-server-usage",
+			"redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/spring-cloud-eureka-server.md",
+			"redirect_url": "/azure/container-apps/java-eureka-server",
+			"redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/spring-cloud-config-server-usage.md",
+			"redirect_url": "/azure/container-apps/java-config-server-usage",
+			"redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/spring-cloud-config-server.md",
+			"redirect_url": "/azure/container-apps/java-config-server",
+			"redirect_document_id": false
         }
     ]
 }

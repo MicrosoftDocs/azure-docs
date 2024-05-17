@@ -6,13 +6,12 @@ summary: Azure Key Vault enables Microsoft Azure applications and users to store
 metadata:
   title: Azure Key Vault documentation - Certificates 
   description: Azure Key Vault enables Microsoft Azure applications and users to store and use certificates, which are built on top of keys and secrets and add an automated renewal feature.
-  services: key-vault
   ms.service: key-vault
   ms.subservice: certificates
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 01/04/2023
+  ms.date: 02/20/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

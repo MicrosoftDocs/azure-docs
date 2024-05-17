@@ -1,7 +1,7 @@
 ---
-title: Dell Edge 5200 (SMB) - Microsoft Defender for IoT
+title: Dell Edge 5200 (E500) - Microsoft Defender for IoT
 description: Learn about the Dell Edge 5200 appliance for OT monitoring with Microsoft Defender for IoT.
-ms.date: 04/24/2022
+ms.date: 04/08/2024
 ms.topic: reference
 ---
 
@@ -14,7 +14,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 |**Hardware profile** | E500|
 |**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
-|**Status** | Supported, Not available preconfigured|
+|**Status** | Supported, available preconfigured |
 
 The following image shows the hardware elements on the Dell Edge 5200 that are used by Defender for IoT:
 
@@ -31,7 +31,7 @@ The following image shows the hardware elements on the Dell Edge 5200 that are u
 |Chipset|Intel C246|
 |Memory	|32 GB = Two 16 GB DDR4 ECC UDIMM|
 |Storage| 1x 512 GB SSD |
-|Network controller|3x Intel GbE: 2x i210 + i219LM PHY|
+|Network controller|3x Intel GbE: 2x i210 or i225 + i219LM PHY<br>(Note - i225 supported from version 23.2.x major release)|
 |Management|Intel AMT supported on i5 and i7 CPUs|
 |Device access|	6x USB 3.0|
 |Power|	DC Input 12–24 V (±10% tolerance) <br>AC Input Optional: 180 W / 220 W, 60 W (for PoE) external AC/DC adapter|
@@ -55,4 +55,4 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

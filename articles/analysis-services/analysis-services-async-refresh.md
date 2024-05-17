@@ -1,11 +1,11 @@
 ---
 title: Learn about asynchronous refresh for Azure Analysis Services models | Microsoft Docs
 description: Describes how to use the Azure Analysis Services REST API to code asynchronous refresh of model data.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan
 ms.custom: references_regions 
 
@@ -54,7 +54,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 ## Authentication
 
-All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token in the Authorization header and must meet the following requirements:
+All calls must be authenticated with a valid Microsoft Entra ID (OAuth 2) token in the Authorization header and must meet the following requirements:
 
 - The token must be either a user token or an application service principal.
 - The token must have the correct audience set to `https://*.asazure.windows.net`.

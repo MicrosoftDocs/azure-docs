@@ -12,7 +12,7 @@ ms.date: 06/29/2023
 
 # Tutorial: Register and access a lab in the Azure Lab Services website
 
-Azure Lab Services supports inviting lab users based on their email address, by syncing with an Azure Active Directory group, or by integrating with Teams or Canvas. In this tutorial, you learn how to register for a lab with your email address, view the lab in the Azure Lab Services website, and connect to the lab virtual machine with a remote desktop client or SSH.
+Azure Lab Services supports inviting lab users based on their email address, by syncing with a Microsoft Entra group, or by integrating with Teams or Canvas. In this tutorial, you learn how to register for a lab with your email address, view the lab in the Azure Lab Services website, and connect to the lab virtual machine with a remote desktop client or SSH.
 
 :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/lab-services-process-register-access-lab.png" alt-text="Diagram that shows the steps involved in registering and accessing a lab from the Azure Lab Services website.":::
 

@@ -2,15 +2,13 @@
 title: "Get speech recognition results - Speech service"
 titleSuffix: Azure AI services
 description: Learn how to get speech recognition results.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 2/16/2024
 ms.author: eur
-ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
+ms.devlang: cpp
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: speech to text, speech to text software

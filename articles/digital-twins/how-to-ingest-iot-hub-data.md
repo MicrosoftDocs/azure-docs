@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/18/2022
+ms.date: 1/3/2024
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurecli
@@ -16,13 +16,13 @@ ms.custom: devx-track-azurecli
 
 # Ingest IoT Hub telemetry into Azure Digital Twins
 
-This guide walks through the process of writing a function that can ingest telemetry from IoT Hub and send it to an instance of Azure Digital Twins.
+This guide walks through the process of writing a function that can ingest device telemetry from IoT Hub and send it to an instance of Azure Digital Twins.
 
 Azure Digital Twins is driven with data from IoT devices and other sources. A common source for device data to use in Azure Digital Twins is [IoT Hub](../iot-hub/about-iot-hub.md).
 
 The process for ingesting data into Azure Digital Twins is to set up an external compute resource, such as a function that's made by using [Azure Functions](../azure-functions/functions-overview.md). The function receives the data and uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md) accordingly. 
 
-This how-to document walks through the process for writing a function that can ingest telemetry from IoT Hub.
+This how-to document walks through the process for writing a function that can ingest device telemetry from IoT Hub.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 
 Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the `Temperature` property of the digital twin should update. This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry to a function in Azure, which updates a Temperature property on a twin in Azure Digital Twins.":::
 
 ## Add a model and twin
 
@@ -74,7 +74,7 @@ When the twin is created successfully, the CLI output from the command should lo
 
 ## Create the Azure function
 
-In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events that it receives. Follow the steps below to create and publish the function.
+In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT device telemetry events that it receives. Follow the steps below to create and publish the function.
 
 1. First, create a new Azure Functions project of Event Grid trigger type. 
 
@@ -133,7 +133,7 @@ You can test your new ingress function by using the device simulator from [Conne
 1. [Register the simulated device with IoT Hub](tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
 2. [Configure and run the simulation](tutorial-end-to-end.md#configure-and-run-the-simulation)
 
-After completing these steps, you should have a project console window running and sending simulated telemetry data to your IoT hub.
+After completing these steps, you should have a project console window running and sending simulated device telemetry data to your IoT hub.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/device-simulator.png" alt-text="Screenshot of the output from the device simulator project.":::
 

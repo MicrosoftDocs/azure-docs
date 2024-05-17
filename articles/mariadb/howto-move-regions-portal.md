@@ -12,6 +12,8 @@ ms.date: 06/24/2022
 
 # Move an Azure Database for MariaDB server to another region by using the Azure portal
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 There are various scenarios for moving an existing Azure Database for MariaDB server from one region to another. For example, you might want to move a production server to another region as part of your disaster recovery planning.
 
 You can use an Azure Database for MariaDB [cross-region read replica](concepts-read-replicas.md#cross-region-replication) to complete the move to another region. To do so, first create a read replica in the target region. Next, stop replication to the read replica server to make it a standalone server that accepts both read and write traffic.

@@ -148,7 +148,7 @@ By default, the application is treated as a hybrid rendered Next.js application,
               api_location: "" # Api source code path - optional
               output_location: "" # Built app content directory - optional
             env: # Add environment variables here
-              is_static_export: true
+              IS_STATIC_EXPORT: true
     ```
 
     ### [Azure Pipelines](#tab/azure-pipelines)
@@ -190,7 +190,7 @@ If you're not going to continue to use this app, you can delete the Azure Static
 
 ## Related articles
 
-- [Set up authentication and authorization](authentication-authorization.md)
-- [Configure app settings](application-settings.md)
+- [Set up authentication and authorization](authentication-authorization.yml)
+- [Configure app settings](application-settings.yml)
 - [Enable monitoring](monitor.md)
 - [Azure CLI](https://github.com/Azure/static-web-apps-cli)

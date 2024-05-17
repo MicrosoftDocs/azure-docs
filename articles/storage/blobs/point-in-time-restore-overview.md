@@ -5,9 +5,9 @@ description: Point-in-time restore for block blobs provides protection against a
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 09/21/2023
 ms.author: normesta
 ---
 
@@ -15,9 +15,10 @@ ms.author: normesta
 
 Point-in-time restore provides protection against accidental deletion or corruption by enabling you to restore block blob data to an earlier state. Point-in-time restore is useful in scenarios where a user or application accidentally deletes data or where an application error corrupts data. Point-in-time restore also enables testing scenarios that require reverting a data set to a known state before running further tests.
 
-Point-in-time restore is supported for general-purpose v2 storage accounts in the standard performance tier only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
+Point-in-time restore is supported for general-purpose v2 storage accounts in the standard performance tier only. Only data in the hot and cool access tiers can be restored with point-in-time restore. Point-in-time restore is not yet supported in accounts that have a hierarchical namespace.
 
 To learn how to enable point-in-time restore for a storage account, see [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md).
+
 
 ## How point-in-time restore works
 
@@ -71,7 +72,7 @@ The time that it takes to restore a set of data is based on the number of write 
 
 ### Permissions for point-in-time restore
 
-To initiate a restore operation, a client must have write permissions to all containers in the storage account. To grant permissions to authorize a restore operation with Azure Active Directory (Azure AD), assign the **Storage Account Contributor** role to the security principal at the level of the storage account, resource group, or subscription.
+To initiate a restore operation, a client must have write permissions to all containers in the storage account. To grant permissions to authorize a restore operation with Microsoft Entra ID, assign the **Storage Account Contributor** role to the security principal at the level of the storage account, resource group, or subscription.
 
 ## Limitations and known issues
 
@@ -86,11 +87,11 @@ Point-in-time restore for block blobs has the following limitations and known is
 - If an immutability policy is configured, then a restore operation can be initiated, but any blobs that are protected by the immutability policy won't be modified. A restore operation in this case won't result in the restoration of a consistent state to the date and time given.
 - A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), isn't part of a blob and so isn't restored as part of a restore operation.
 - If a blob with an active lease is included in the range to restore, and if the current version of the leased blob is different from the previous version at the timestamp provided for PITR, the restore operation fails atomically. We recommend breaking any active leases before initiating the restore operation.
-- Performing a customer-managed failover on a storage account resets the earliest possible restore point for the storage account. For more details, see [Point-in-time restore](../common/storage-disaster-recovery-guidance.md#point-in-time-restore).
+- Performing a customer-managed failover on a storage account resets the earliest possible restore point for the storage account. For more details, see [Point-in-time restore](../common/storage-disaster-recovery-guidance.md#point-in-time-restore-inconsistencies).
 - Snapshots aren't created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Point-in-time restore isn't supported for hierarchical namespaces or operations via Azure Data Lake Storage Gen2.
-- Point-in-time restore isn't supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Azure AD tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).
-- Point-in-time restore isn't supported when version-level immutability is enabled on a storage account or a container in an account. For more information on version-level immutability, see [Overview of immutable storage for blob data](immutable-storage-overview.md#version-level-scope).
+- Point-in-time restore isn't supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Microsoft Entra tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).
+- Point-in-time restore isn't supported when version-level immutability is enabled on a storage account or a container in an account. For more information on version-level immutability, see [Configure immutability policies for blob versions](immutable-version-level-worm-policies.md).
 
 > [!IMPORTANT]
 > If you restore block blobs to a point that is earlier than September 22, 2020, preview limitations for point-in-time restore will be in effect. Microsoft recommends that you choose a restore point that is equal to or later than September 22, 2020 to take advantage of the generally available point-in-time restore feature.

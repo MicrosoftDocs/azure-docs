@@ -2,10 +2,11 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 04/30/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Install and upgrade Azure Backup Server
@@ -332,7 +333,7 @@ If your machine has limited internet access, ensure that firewall settings on th
 
 If you're using ExpressRoute Microsoft peering, select the following services/regions:
 
-* Azure Active Directory (12076:5060)
+* Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 

@@ -7,8 +7,8 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: sample
-ms.date: 06/12/2020 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.date: 06/12/2020
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a resource lock for Azure Cosmos DB MongoDB API database and collection using Azure PowerShell

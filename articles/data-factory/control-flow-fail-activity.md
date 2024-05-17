@@ -2,13 +2,13 @@
 title: Execute a Fail activity in Azure Data Factory and Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This article discusses how a Fail activity in Azure Data Factory and Synapse Analytics intentionally throws an error in a pipeline.
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Execute a Fail activity in Azure Data Factory and Synapse Analytics
@@ -71,7 +71,7 @@ The dynamic content in both `message` and `errorCode` can't be interpreted. | "F
 
 \* This situation shouldn't occur if the pipeline is developed with the web user interface (UI) of Data Factory.
 
-## Next steps
+## Related content
 
 See other supported control flow activities, including:
 

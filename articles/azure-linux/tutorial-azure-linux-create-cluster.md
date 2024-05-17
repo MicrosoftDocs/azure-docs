@@ -4,6 +4,7 @@ description: In this Azure Linux Container Host for AKS tutorial, you will learn
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
+ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 04/18/2023
 ---
@@ -35,9 +36,9 @@ Use the Kubernetes CLI, kubectl, to connect to the Kubernetes cluster from your 
 
 If you don't already have kubectl installed, install it through Azure CLI using `az aks install-cli` or follow the [upstream instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
 
- ```azurecli-interactive
+```azurecli-interactive
 az aks install-cli
-  ```
+```
 
 ## 2 - Create a resource group
 

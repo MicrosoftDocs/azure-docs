@@ -3,6 +3,7 @@ title: Use Azure RBAC for Kubernetes Authorization
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure role-based access control (Azure RBAC) for Kubernetes Authorization with Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 03/02/2023
 ms.author: jpalma
@@ -12,7 +13,7 @@ author: palma21
 
 # Use Azure role-based access control for Kubernetes Authorization
 
-When you leverage [integrated authentication between Azure Active Directory (Azure AD) and AKS](managed-azure-ad.md), you can use Azure AD users, groups, or service principals as subjects in [Kubernetes role-based access control (Kubernetes RBAC)][kubernetes-rbac]. This feature frees you from having to separately manage user identities and credentials for Kubernetes. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately.
+When you leverage [integrated authentication between Microsoft Entra ID and AKS](managed-azure-ad.md), you can use Microsoft Entra users, groups, or service principals as subjects in [Kubernetes role-based access control (Kubernetes RBAC)][kubernetes-rbac]. This feature frees you from having to separately manage user identities and credentials for Kubernetes. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately.
 
 This article covers how to use Azure RBAC for Kubernetes Authorization, which allows for the unified management and access control across Azure resources, AKS, and Kubernetes resources. For more information, see [Azure RBAC for Kubernetes Authorization][kubernetes-rbac].
 
@@ -20,12 +21,14 @@ This article covers how to use Azure RBAC for Kubernetes Authorization, which al
 
 * You need the Azure CLI version 2.24.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * You need `kubectl`, with a minimum version of [1.18.3](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1183).
-* You need managed Azure AD integration enabled on your cluster before you can add Azure RBAC for Kubernetes authorization. If you need to enable managed Azure AD integration, see [Use Azure AD in AKS](managed-azure-ad.md).
+* You need managed Microsoft Entra integration enabled on your cluster before you can add Azure RBAC for Kubernetes authorization. If you need to enable managed Microsoft Entra integration, see [Use Microsoft Entra ID in AKS](managed-azure-ad.md).
 * If you have CRDs and are making custom role definitions, the only way to cover CRDs today is to use `Microsoft.ContainerService/managedClusters/*/read`. For the remaining objects, you can use the specific API groups, such as `Microsoft.ContainerService/apps/deployments/read`.
 * New role assignments can take up to five minutes to propagate and be updated by the authorization server.
-* This article requires that the Azure AD tenant configured for authentication is same as the tenant for the subscription that holds your AKS cluster.
+* Azure RBAC for Kubernetes Authorization requires that the Microsoft Entra tenant configured for authentication is same as the tenant for the subscription that holds your AKS cluster.
 
-## Create a new AKS cluster with managed Azure AD integration and Azure RBAC for Kubernetes Authorization
+<a name='create-a-new-aks-cluster-with-managed-azure-ad-integration-and-azure-rbac-for-kubernetes-authorization'></a>
+
+## Create a new AKS cluster with managed Microsoft Entra integration and Azure RBAC for Kubernetes Authorization
 
 Create an Azure resource group using the [`az group create`][az-group-create] command.
 
@@ -33,10 +36,10 @@ Create an Azure resource group using the [`az group create`][az-group-create] co
 az group create --name myResourceGroup --location westus2
 ```
 
-Create an AKS cluster with managed Azure AD integration and Azure RBAC for Kubernetes Authorization using the [`az aks create`][az-aks-create] command.
+Create an AKS cluster with managed Microsoft Entra integration and Azure RBAC for Kubernetes Authorization using the [`az aks create`][az-aks-create] command.
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myManagedCluster --enable-aad --enable-azure-rbac
+az aks create --resource-group myResourceGroup --name myManagedCluster --enable-aad --enable-azure-rbac
 ```
 
 The output will look similar to the following example output:
@@ -58,7 +61,7 @@ The output will look similar to the following example output:
 Add Azure RBAC for Kubernetes Authorization into an existing AKS cluster using the [`az aks update`][az-aks-update] command with the `enable-azure-rbac` flag.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
+az aks update --resource-group myResourceGroup --name myAKSCluster --enable-azure-rbac
 ```
 
 ## Disable Azure RBAC for Kubernetes Authorization from an AKS cluster
@@ -66,7 +69,7 @@ az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
 Remove Azure RBAC for Kubernetes Authorization from an existing AKS cluster using the [`az aks update`][az-aks-update] command with the `disable-azure-rbac` flag.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster --disable-azure-rbac
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-azure-rbac
 ```
 
 ## Create role assignments for users to access the cluster
@@ -85,7 +88,7 @@ Roles assignments scoped to the **entire AKS cluster** can be done either on the
 Get your AKS resource ID using the [`az aks show`][az-aks-show] command.
 
 ```azurecli
-AKS_ID=$(az aks show -g myResourceGroup -n myManagedCluster --query id -o tsv)
+AKS_ID=$(az aks show --resource-group myResourceGroup --name myManagedCluster --query id -o tsv)
 ```
 
 Create a role assignment using the [`az role assignment create`][az-role-assignment-create] command. `<AAD-ENTITY-ID>` can be a username or the client ID of a service principal.
@@ -99,6 +102,13 @@ az role assignment create --role "Azure Kubernetes Service RBAC Admin" --assigne
 >
 > ```azurecli-interactive
 > az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+> ```
+
+> [!NOTE]
+> In Azure portal, after creating role assignments scoped to a desired namespace, you won't be able to see "role assignments" for namespace [at a scope][list-role-assignments-at-a-scope-at-portal]. You can find it by using the [`az role assignment list`][az-role-assignment-list] command, or [list role assignments for a user or group][list-role-assignments-for-a-user-or-group-at-portal], which you assigned the role to.
+>
+> ```azurecli-interactive
+> az role assignment list --scope $AKS_ID/namespaces/<namespace-name>
 > ```
 
 ## Create custom roles definitions
@@ -140,7 +150,7 @@ az role assignment create --role "AKS Deployment Reader" --assignee <AAD-ENTITY-
 Make sure you have the [Azure Kubernetes Service Cluster User](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) built-in role, and then get the kubeconfig of your AKS cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
 ```azurecli-interactive
-az aks get-credentials -g myResourceGroup -n myManagedCluster
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
 Now, you can use `kubectl` manage your cluster. For example, you can list the nodes in your cluster using `kubectl get nodes`. The first time you run it, you'll need to sign in, as shown in the following example:
@@ -193,13 +203,13 @@ az role assignment delete --ids <LIST OF ASSIGNMENT IDS>
 ### Delete role definition
 
 ```azurecli-interactive
-az role definition delete -n "AKS Deployment Reader"
+az role definition delete --name "AKS Deployment Reader"
 ```
 
 ### Delete resource group and AKS cluster
 
 ```azurecli-interactive
-az group delete -n myResourceGroup
+az group delete --name myResourceGroup
 ```
 
 ## Next steps
@@ -213,19 +223,23 @@ To learn more about AKS authentication, authorization, Kubernetes RBAC, and Azur
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-show]: /cli/azure/aks#az_aks_show
-[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-group-create]: /cli/azure/group#az_group_create
-[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[list-role-assignments-at-a-scope-at-portal]: ../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-at-a-scope
+[list-role-assignments-for-a-user-or-group-at-portal]: ../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-or-group
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-role-assignment-list]: /cli/azure/role/assignment#az-role-assignment-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [managed-aad]: ./managed-azure-ad.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-role-definition-create]: /cli/azure/role/definition#az_role_definition_create
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get-credentials
+[az-role-definition-create]: /cli/azure/role/definition#az-role-definition-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [kubernetes-rbac]: /azure/aks/concepts-identity#azure-rbac-for-kubernetes-authorization
+

@@ -1,26 +1,29 @@
 ---
-title: Manage firewall rules - Azure CLI - Azure Database for PostgreSQL - Flexible Server
+title: Manage firewall rules - Azure CLI
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using Azure CLI command line.
-author: sunilagarwal 
-ms.author: sunila
+author: GennadNY
+ms.author: gennadyk
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 11/30/2021
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
+ms.devlang: azurecli
 ---
 
 # Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
+Azure Database for PostgreSQL flexible server supports two types of mutually exclusive network connectivity methods to connect to your Azure Database for PostgreSQL flexible server instance. The two options are:
 
-* Public access (allowed IP addresses)
+* Public access (allowed IP addresses). That method can be further secured by using [Private Link](./concepts-networking-private-link.md) based networking with Azure Database for PostgreSQL flexible server in Preview. 
 * Private access (VNet Integration)
 
-In this article, we will focus on creation of PostgreSQL server with **Public access (allowed IP addresses)** using Azure CLI and will provide an overview on Azure CLI commands you can use to create, update, delete, list, and show firewall rules after creation of server. With *Public access (allowed IP addresses)*, the connections to the PostgreSQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well.
+This article focuses on creation of an Azure Database for PostgreSQL flexible server instance with **Public access (allowed IP addresses)** using Azure CLI and provides an overview on Azure CLI commands you can use to create, update, delete, list, and show firewall rules after server creation. With *Public access (allowed IP addresses)*, the connections to the Azure Database for PostgreSQL flexible server instance are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well.
 
 ## Launch Azure Cloud Shell
 
@@ -32,7 +35,7 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Prerequisites
 
-You'll need to sign in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **ID** property, which refers to **Subscription ID** for your Azure account.
+You need to sign in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **ID** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
@@ -44,51 +47,51 @@ Select the specific subscription under your account using [az account set](/cli/
 az account set --subscription <subscription id>
 ```
 
-## Create firewall rule during flexible server create using Azure CLI
+## Create firewall rule during Azure Database for PostgreSQL flexible server instance creation using Azure CLI
 
-You can use the `az postgres flexible-server --public access` command to create the flexible server with *Public access (allowed IP addresses)* and configure the firewall rules during creation of flexible server. You can use the **--public-access** switch to provide the allowed IP addresses that will be able to connect to the server. You can provide single or range of IP addresses to be included in the allowed list of IPs. IP address range must be dash separated and does not contain any spaces. There are various options to create a flexible server using CLI as shown in the example below.
+You can use the `az postgres flexible-server --public access` command to create the Azure Database for PostgreSQL flexible server instance with *Public access (allowed IP addresses)* and configure the firewall rules during creation of the Azure Database for PostgreSQL flexible server instance. You can use the **--public-access** switch to provide the allowed IP addresses that will be able to connect to the server. You can provide single or range of IP addresses to be included in the allowed list of IPs. IP address range must be dash separated and does not contain any spaces. There are various options to create an Azure Database for PostgreSQL flexible server instance using CLI as shown in the following examples.
 
 Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. For example, in the below commands you can optionally specify the resource group.
 
-- Create a flexible server with public access and add client IP address to have access to the server
+- Create an Azure Database for PostgreSQL flexible server instance with public access and add client IP address to have access to the server:
     ```azurecli-interactive
     az postgres flexible-server create --public-access <my_client_ip>
     ```
-- Create a flexible server with public access and add the range of IP address to have access to this server
+- Create an Azure Database for PostgreSQL flexible server instance with public access and add the range of IP address to have access to this server:
 
     ```azurecli-interactive
     az postgres flexible-server create --public-access <start_ip_address-end_ip_address>
     ```
-- Create a flexible server with public access and allow applications from Azure IP addresses to connect to your flexible server
+- Create an Azure Database for PostgreSQL flexible server instance with public access and allow applications from Azure IP addresses to connect to your Azure Database for PostgreSQL flexible server instance:
     ```azurecli-interactive
     az postgres flexible-server create --public-access 0.0.0.0
     ```
     > [!IMPORTANT]
     > This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
     >
-- - Create a flexible server with public access and allow all IP address
+- - Create an Azure Database for PostgreSQL flexible server instance with public access and allow all IP address:
     ```azurecli-interactive
     az postgres flexible-server create --public-access all
     ```
     >[!Note]
-    > The above command will create a firewall rule with start IP address=0.0.0.0, end IP address=255.255.255.255 and no IP addresses will be blocked. Any host on the Internet can access this server. It is strongly recommended to use this rule only temporarily and only on test servers that do not contain sensitive data.
-- Create a flexible server with public access and with no IP address
+    > The preceding command creates a firewall rule with start IP address=0.0.0.0, end IP address=255.255.255.255 and no IP addresses are blocked. Any host on the internet can access this server. It is strongly recommended to use this rule only temporarily and only on test servers that don't contain sensitive data.
+- Create an Azure Database for PostgreSQL flexible server instance with public access and with no IP address:
     ```azurecli-interactive
     az postgres flexible-server create --public-access none
     ```
     >[!Note]
-    > we do not recommend to create a server without any firewall rules. If you do not add any firewall rules then no client will be able to connect to the server.
+    > We don't recommend creating a server without any firewall rules. If you don't add any firewall rules then no client will be able to connect to the server.
 ## Create and manage firewall rule after server create
 The **az postgres flexible-server firewall-rule** command is used from the Azure CLI to create, delete, list, show, and update firewall rules.
 
 Commands:
-- **create**: Create an flexible server firewall rule.
-- **list**: List the flexible server firewall rules.
-- **update**: Update an flexible server firewall rule.
-- **show**: Show the details of an flexible server firewall rule.
-- **delete**: Delete an flexible server firewall rule.
+- **create**: Create an Azure Database for PostgreSQL flexible server firewall rule.
+- **list**: List the Azure Database for PostgreSQL flexible server firewall rules.
+- **update**: Update an Azure Database for PostgreSQL flexible server firewall rule.
+- **show**: Show the details of an Azure Database for PostgreSQL flexible server firewall rule.
+- **delete**: Delete an Azure Database for PostgreSQL flexible server firewall rule.
 
-Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. For example, in the below commands you can optionally specify the resource group.
+Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. For example, in the following commands you can optionally specify the resource group.
 
 ### Create a firewall rule
 Use the `az postgres flexible-server firewall-rule create` command to create new firewall rule on the server.
@@ -102,7 +105,7 @@ To allow access for a single IP address, just provide single IP address, as in t
 az postgres flexible-server firewall-rule create --name mydemoserver  --resource-group testGroup  --start-ip-address 1.1.1.1
 ```
 
-To allow applications from Azure IP addresses to connect to your flexible server, provide the IP address 0.0.0.0 as the Start IP, as in this example.
+To allow applications from Azure IP addresses to connect to your Azure Database for PostgreSQL flexible server instance, provide the IP address 0.0.0.0 as the Start IP, as in this example.
 ```azurecli-interactive
 az postgres flexible-server firewall-rule create --name mydemoserver --resource-group testGroup --start-ip-address 0.0.0.0
 ```
@@ -110,7 +113,7 @@ az postgres flexible-server firewall-rule create --name mydemoserver --resource-
 > [!IMPORTANT]
 > This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
-Upon success, each create command output lists the details of the firewall rule you have created, in JSON format (by default). If there is a failure, the output shows error message text instead.
+Upon success, each create command output lists the details of the firewall rule you created, in JSON format (by default). If there is a failure, the output shows error message text instead.
 
 ### List firewall rules 
 Use the `az postgres flexible-server firewall-rule list` command to list the existing server firewall rules on the server. Notice that the server name attribute is specified in the **--name** switch. 
@@ -127,10 +130,10 @@ Use the `az postgres flexible-server firewall-rule update` command to update an 
 ```azurecli-interactive
 az postgres flexible-server firewall-rule update --name mydemoserver --rule-name FirewallRule1 --resource-group testGroup --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
-Upon success, the command output lists the details of the firewall rule you have updated, in JSON format (by default). If there is a failure, the output shows error message text instead.
+Upon success, the command output lists the details of the firewall rule you updated, in JSON format (by default). If there is a failure, the output shows error message text instead.
 
 > [!NOTE]
-> If the firewall rule does not exist, the rule is created by the update command.
+> If the firewall rule doesn't exist, the rule is created by the update command.
 ### Show firewall rule details
 Use the `az postgres flexible-server firewall-rule show` command to show the existing firewall rule details from the server. Provide the name of the existing firewall rule as input.
 ```azurecli-interactive

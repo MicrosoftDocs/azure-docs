@@ -2,13 +2,12 @@
 title: "Tutorial: Generate metadata for Azure images"
 titleSuffix: Azure AI services
 description: In this tutorial, you'll learn how to integrate the Azure AI Vision service into a web app to generate metadata for images.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: tutorial 
-ms.date: 12/29/2022
+ms.date: 02/14/2024
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp, build-2023, build-2023-dataai
@@ -375,9 +374,9 @@ Now you have a way to view the images you uploaded. The next step is to do more 
 <a name="Exercise5"></a>
 ## Use Azure AI Vision to generate metadata
 
-### Create a Vision resource
+### Create a  Vision resource
 
-You'll need to create a Vision resource for your Azure account; this resource manages your access to Azure's Azure AI Vision service. 
+You'll need to create a Computer Vision resource for your Azure account; this resource manages your access to Azure's Azure AI Vision service. 
 
 1. Follow the instructions in [Create an Azure AI services resource](../../multi-service-resource.md?pivots=azportal) to create a multi-service resource or a Vision resource.
 
@@ -403,7 +402,7 @@ Navigate to the *Web.config* file at the root of the project. Add the following 
 <add key="VisionEndpoint" value="VISION_ENDPOINT" />
 ```
 
-Then in the Solution Explorer, right-click the project and use the **Manage NuGet Packages** command to install the package **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. This package contains the types needed to call the Azure AI Vision API.
+In the Solution Explorer. right-click on the project solution and select **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for **Azure.AI.Vision.ImageAnalysis**. Select **Install**.
 
 ### Add metadata generation code
 
@@ -412,29 +411,38 @@ Next, you'll add the code that actually uses the Azure AI Vision service to crea
 1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statements at the top of the file:
 
     ```csharp
-    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+    using Azure;
+    using Azure.AI.Vision.ImageAnalysis;
+    using System;
     ```
 
 1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Azure AI Vision to generate a description for that image. The Azure AI Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
 
     ```csharp
-    // Submit the image to the Azure AI Vision API
-    ComputerVisionClient vision = new ComputerVisionClient(
-        new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
-        new System.Net.Http.DelegatingHandler[] { });
-    vision.Endpoint = ConfigurationManager.AppSettings["VisionEndpoint"];
+    // create a new ImageAnalysisClient
+    ImageAnalysisClient client = new ImageAnalysisClient(
+            new Uri(Environment.GetEnvironmentVariable(ConfigurationManager.AppSettings["VisionEndpoint"])),
+            new AzureKeyCredential(ConfigurationManager.AppSettings["SubscriptionKey"]));
 
-    List<VisualFeatureTypes?> features = new List<VisualFeatureTypes?>() { VisualFeatureTypes.Description };
-    var result = await vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
+    VisualFeatures = visualFeatures = VisualFeatures.Caption | VisualFeatures.Tags;
+
+    ImageAnalysisOptions analysisOptions = new ImageAnalysisOptions()
+    {
+        GenderNeutralCaption = true,
+        Language = "en",
+    };
+
+    Uri imageURL = new Uri(photo.Uri.ToString());
+    
+    ImageAnalysisResult  result = client.Analyze(imageURL,visualFeatures,analysisOptions);
 
     // Record the image description and tags in blob metadata
-    photo.Metadata.Add("Caption", result.Description.Captions[0].Text);
+    photo.Metadata.Add("Caption", result.Caption.Text);
 
-    for (int i = 0; i < result.Description.Tags.Count; i++)
+    for (int i = 0; i < result.Tags.Values.Count; i++)
     {
         string key = String.Format("Tag{0}", i);
-        photo.Metadata.Add(key, result.Description.Tags[i]);
+        photo.Metadata.Add(key, result.Tags.Values[i]);
     }
 
     await photo.SetMetadataAsync();
@@ -546,7 +554,7 @@ In this section, you will add a search box to the home page, enabling users to d
     }
     ```
 
-    Observe that the **Index** method now accepts a parameter _id_ that contains the value the user typed into the search box. An empty or missing _id_ parameter indicates that all the photos should be displayed.
+    Observe that the **Index** method now accepts a parameter `id` that contains the value the user typed into the search box. An empty or missing `id` parameter indicates that all the photos should be displayed.
 
 1. Add the following helper method to the **HomeController** class:
 

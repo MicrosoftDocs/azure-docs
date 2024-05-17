@@ -2,16 +2,15 @@
 title: OCR - Optical Character Recognition
 titleSuffix: Azure AI services
 description: Learn how the optical character recognition (OCR) services extract print and handwritten text from images and documents in global languages.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: overview
-ms.date: 07/04/2023
+ms.date: 04/30/2024
 ms.author: pafarley
-ms.custom: seodec18, devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # OCR - Optical Character Recognition

@@ -3,7 +3,7 @@ title: Bicep functions - date
 description: Describes the functions to use in a Bicep file to work with dates.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 01/17/2024
 ---
 
 # Date functions for Bicep
@@ -29,6 +29,20 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 ### Return value
 
 The datetime value that results from adding the duration value to the base value.
+
+### Remarks
+
+The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as _P30D_. The following Bicep file shows some examples:
+
+```bicep
+output addOneYearNonLeap string = dateTimeAdd('2023-01-01 00:00:00Z', 'P1Y') //2024-01-01T00:00:00Z
+output addOneYearLeap string = dateTimeAdd('2024-01-01 00:00:00Z', 'P1Y')  //2024-12-31T00:00:00Z
+
+output addOneMonthNonLeap string = dateTimeAdd('2023-02-01 00:00:00Z', 'P1M') //2023-03-03T00:00:00Z
+output addOneMonthLeap string = dateTimeAdd('2024-02-01 00:00:00Z', 'P1M') //2023-03-02T00:00:00Z
+```
+
+In the preceding example, considering 2023 as a non-leap year, the outcome of adding one year to the initial day of the year is _2024-01-01T00:00:00Z_. Conversely, adding one year to the starting day of 2024, a leap year, results in _2024-12-31T00:00:00Z_, not _2025-01-01T00:00:00Z_, given that a leap year comprises 366 days instead of 365 days. Furthermore, the distinction between leap and non-leap years becomes apparent when adding one month to the first day of February, leading to varying day-of-the-month results.
 
 ### Examples
 
@@ -96,7 +110,7 @@ An ISO 8601 datetime string.
 
 ### Remarks
 
-This function requires **Bicep version 0.5.6 or later**.
+This function requires [Bicep CLI version 0.5.X or higher](./install.md).
 
 ### Example
 
@@ -138,7 +152,7 @@ An integer that represents the number of seconds from midnight on January 1, 197
 
 ### Remarks
 
-This function requires **Bicep version 0.5.6 or later**.
+This function requires [Bicep CLI version 0.5.X or higher](./install.md).
 
 ### Examples
 

@@ -50,7 +50,7 @@ With Private Link, you can enable cross-premises access to the private endpoint 
 
 > [!NOTE]
 > In some cases the Azure Database for PostgreSQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
-> - Make sure that both the subscription has the **Microsoft.DBforPostgreSQL** resource provider registered. For more information, refer to [resource-manager-registration][resource-manager-portal]
+> - Make sure that both the subscription has the **Microsoft.DBforPostgreSQL** resource provider registered. 
 
 ## Configure Private Link for Azure Database for PostgreSQL Single server
 
@@ -96,7 +96,7 @@ Configure [VNet peering](../../virtual-network/tutorial-connect-virtual-networks
 
 ### Connecting from an Azure VM in VNet-to-VNet environment
 
-Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to a Azure Database for PostgreSQL - Single server from an Azure VM in a different region or subscription.
+Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to an Azure Database for PostgreSQL - Single server from an Azure VM in a different region or subscription.
 
 ### Connecting from an on-premises environment over VPN
 
@@ -122,22 +122,22 @@ If you want to rely only on private endpoints for accessing their Azure Database
 
 When this setting is set to *YES* only connections via private endpoints are allowed to your Azure Database for PostgreSQL. When this setting is set to *NO* clients can connect to your Azure Database for PostgreSQL based on your firewall or VNet service endpoint setting. Additionally, once the value of the Private network access is set, customers cannot add and/or update existing 'Firewall rules' and 'VNet service endpoint rules'.
 
-> [!Note]
+> [!NOTE]
 > This feature is available in all Azure regions where Azure Database for PostgreSQL - Single server supports General Purpose and Memory Optimized pricing tiers.
 >
 > This setting does not have any impact on the SSL and TLS configurations for your Azure Database for PostgreSQL Single server.
 
 To learn how to set the **Deny Public Network Access** for your Azure Database for PostgreSQL Single server from Azure portal, refer to [How to configure Deny Public Network Access](how-to-deny-public-network-access.md).
 
-## Next steps
+## Related content
 
 To learn more about Azure Database for PostgreSQL Single server security features, see the following articles:
 
-* To configure a firewall for Azure Database for PostgreSQL Single server, see [Firewall support](./concepts-firewall-rules.md).
+- To configure a firewall for Azure Database for PostgreSQL Single server, see [Firewall support](./concepts-firewall-rules.md).
 
-* To learn how to configure a virtual network service endpoint for your Azure Database for PostgreSQL Single server, see [Configure access from virtual networks](./concepts-data-access-and-security-vnet.md).
+- To learn how to configure a virtual network service endpoint for your Azure Database for PostgreSQL Single server, see [Configure access from virtual networks](./concepts-data-access-and-security-vnet.md).
 
-* For an overview of Azure Database for PostgreSQL Single server connectivity, see [Azure Database for PostgreSQL Connectivity Architecture](./concepts-connectivity-architecture.md)
+- For an overview of Azure Database for PostgreSQL Single server connectivity, see [Azure Database for PostgreSQL Connectivity Architecture](./concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../../azure-resource-manager/management/resource-providers-and-types.md

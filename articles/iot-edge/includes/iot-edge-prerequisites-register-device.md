@@ -19,7 +19,7 @@ A free or standard [IoT hub](../../iot-hub/iot-hub-create-through-portal.md) in 
 
 * A free or standard [IoT hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension
 
 # [Azure CLI](#tab/azure-cli)

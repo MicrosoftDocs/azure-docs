@@ -4,7 +4,7 @@ description: Get started using HBase in Azure HDInsight. Learn how to create HDI
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-extended-java
-ms.date: 09/15/2022
+ms.date: 10/16/2023
 ---
 
 # Create Apache HBase clusters on HDInsight in Azure Virtual Network
@@ -56,7 +56,7 @@ In this section, you create a Linux-based Apache HBase cluster with the dependen
     |Cluster Login User Name and Password|The default User Name is **admin**. Provide a password.|
     |Ssh User Name and Password|The default User Name is **sshuser**.  Provide a password.|
 
-    Select **I agree to the terms and the conditions stated above**.
+    Select **I agree to the terms and the conditions**.
 
 1. Select **Purchase**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can select the cluster in the portal to open it.
 
@@ -76,11 +76,11 @@ Create an infrastructure as a service (IaaS) virtual machine into the same Azure
 > [!IMPORTANT]  
 > Replace `CLUSTERNAME` with the name you used when creating the HDInsight cluster in previous steps.
 
-Using these values, the virtual machine is placed in the same virtual network and subnet as the HDInsight cluster. This configuration allows them to directly communicate with each other. There is a way to create an HDInsight cluster with an empty edge node. The edge node can be used to manage the cluster.  For more information, see [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md).
+By using these values, the virtual machine is placed in the same virtual network and subnet as the HDInsight cluster. This configuration allows them to directly communicate with each other. There is a way to create an HDInsight cluster with an empty edge node. The edge node can be used to manage the cluster.  For more information, see [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md).
 
 ### Obtain fully qualified domain name
 
-When using a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN). To determine this, you must get the connection-specific DNS suffix of the HBase cluster. To do that, you can use one of the following methods:
+When you use a Java application to connect to HBase remotely, you must use the fully qualified domain name (FQDN). To determine, you must get the connection-specific DNS suffix of the HBase cluster. To do that, you can use one of the following methods:
 
 * Use a Web browser to make an [Apache Ambari](https://ambari.apache.org/) call:
 

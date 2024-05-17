@@ -65,7 +65,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `JavaScript`.|
-    |**Select a JavaScript programming model**|Choose `Model V4 (Preview)`|
+    |**Select a JavaScript programming model**|Choose `Model V4`|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Select how you would like to open your project**|Choose `Open in current window`|
@@ -82,18 +82,6 @@ After you've verified that the function runs correctly on your local computer, i
 ## Create the function app in Azure
 
 [!INCLUDE [functions-create-azure-resources-vs-code](../../includes/functions-create-azure-resources-vs-code.md)]
-
-::: zone pivot="nodejs-model-v4" 
-## Update app settings
-
-To enable your V4 programming model app to run in Azure, you need to add a new application setting named `AzureWebJobsFeatureFlags` with a value of `EnableWorkerIndexing`. This setting is already in your local.settings.json file. 
-
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-
-1. Choose your new function app, type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>. 
-
-1. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
-::: zone-end
 
 ## Deploy the project to Azure
 
@@ -182,13 +170,20 @@ Use the following table to resolve the most common issues encountered when using
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code-extension.md)]
 
 ## Next steps
-
+<!--- Revert this after we get Node.js v4 support added to the follow-on quickstarts -->
+::: zone pivot="nodejs-model-v3"  
 You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by connecting to either Azure Cosmos DB or Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=javascript). If you want to learn more about security, see [Securing Azure Functions](security-concepts.md).
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
+> [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
-> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-javascript)
+::: zone-end  
+::: zone pivot="nodejs-model-v4"  
+You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) to create a function app with a simple HTTP-triggered function. 
 
+> [!div class="nextstepaction"]
+> [Learn more about JavaScript functions](./functions-reference-node.md)
+::: zone-end  
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

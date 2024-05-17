@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: reachnijel 
 ms.author: nijelsf
-ms.date: 11/23/2022
+ms.date: 12/08/2023
 ---
 
 # Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide
@@ -17,9 +17,9 @@ specific tuning.
 
 | Node Type      | Instance | Size     |
 | :---        |    :----:   | :---     |
-| Head      | D13 v2       | 8 vcpus, 56-GB RAM, 400 GB SSD   |
-| Worker   | **D14 v2**        | **16 vcpus, 112 GB RAM, 800 GB SSD**       |
-| ZooKeeper   | A4 v2        | 4 vcpus, 8-GB RAM, 40 GB SSD       |
+| Head      | D13 v2       | 8 `vcpus`, 56-GB RAM, 400 GB SSD   |
+| Worker   | **D14 v2**        | **16 `vcpus`, 112 GB RAM, 800 GB SSD**       |
+| ZooKeeper   | A4 v2        | 4 `vcpus`, 8-GB RAM, 40 GB SSD       |
 
 ***Note: All recommended configurations values are based on D14 v2 type worker node***  
 
@@ -42,7 +42,7 @@ specific tuning.
 
 ### **LLAP Architecture/Components:**  
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="`LLAP Architecture/Components`" border="true":::
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="`LLAP Architecture/Components`." border="true":::
 
 ### **LLAP Daemon size estimations:** 
 
@@ -60,23 +60,23 @@ Configuration: ***yarn.scheduler.maximum-allocation-mb***
 This value indicates the maximum allocation for every container request at the Resource Manager, in MB. Memory requests higher than the specified value won't take effect. The Resource Manager can give memory to containers in increments of *yarn.scheduler.minimum-allocation-mb* and can't exceed the size specified by *yarn.scheduler.maximum-allocation-mb*. The value specified shouldn't be more than the total given memory for all containers on the node specified by *yarn.nodemanager.resource.memory-mb*.    
 For D14 v2 worker nodes, the recommended value is **102400 MB**
 
-#### **3. Determining maximum amount of vcores per YARN container request**  
+#### **3. Determining maximum amount of `vcores` per YARN container request**  
 Configuration: ***yarn.scheduler.maximum-allocation-vcores***  
 
-This value indicates the maximum number of virtual CPU cores for every container request at the Resource Manager. Requesting a higher number of vcores than this value won't take effect. It's a global property of the YARN scheduler. For LLAP daemon container, this value can be set to 75% of total available vcores. The remaining 25% should be reserved for NodeManager, DataNode, and other services running on the worker nodes.  
-There are 16 vcores on D14 v2 VMs and 75% of total 16 vcores can be used by LLAP daemon container.  
+This value indicates the maximum number of virtual CPU cores for every container request at the Resource Manager. Requesting a higher number of `vcores` then this value won't take effect. It's a global property of the YARN scheduler. For LLAP daemon container, this value can be set to 75% of total available `vcores`. The remaining 25% should be reserved for NodeManager, DataNode, and other services running on the worker nodes.  
+There are `16 vcores` on D14 v2 VMs and 75% of total `16 vcores` can be used by LLAP daemon container.  
 For D14 v2, the recommended value is **12**.  
 
 #### **4. Number of concurrent queries**  
 Configuration: ***hive.server2.tez.sessions.per.default.queue***
 
-This configuration value determines the number of Tez sessions that can be launched in parallel. These Tez sessions will be launched for each of the queues specified by "hive.server2.tez.default.queues". It corresponds to the number of Tez AMs (Query Coordinators). It's recommended to be the same as the number of worker nodes. The number of Tez AMs can be higher than the number of LLAP daemon nodes. The Tez AM's primary responsibility is to coordinate the query execution and assign query plan fragments to corresponding LLAP daemons for execution. Keep this value as multiple of many LLAP daemon nodes to achieve higher throughput.  
+This configuration value determines the number of Tez sessions that can be launched in parallel. These Tez sessions are launched for each of the queues specified by "hive.server2.tez.default.queues." It corresponds to the number of Tez AMs (Query Coordinators). It's recommended to be the same as the number of worker nodes. The number of Tez AMs can be higher than the number of LLAP daemon nodes. The Tez AM's primary responsibility is to coordinate the query execution and assign query plan fragments to corresponding LLAP daemons for execution. Keep this value as multiple of many LLAP daemon nodes to achieve higher throughput.  
 
 Default HDInsight cluster has four LLAP daemons running on four worker nodes, so the recommended value is **4**.  
 
 **Ambari UI slider for Hive config variable `hive.server2.tez.sessions.per.default.queue`:**
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="`LLAP maximum concurrent queries`" border="true":::
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="`LLAP maximum concurrent queries`." border="true":::
 
 #### **5. Tez Container and Tez Application Master size**    
 Configuration: ***tez.am.resource.memory.mb, hive.tez.container.size***  
@@ -111,7 +111,7 @@ Number of Tez Ams = value specified by Hive config ***hive.server2.tez.sessions.
 Number of LLAP daemon nodes = specified by env variable ***num_llap_nodes_for_llap_daemons*** in Ambari UI.  
 Tez AM container size = value specified by Tez config ***tez.am.resource.memory.mb***.  
 
-Tez AM memory per node = **(** ceil **(** Number of Tez AMs **/** Number of LLAP daemon nodes **)** **x** Tez AM container size **)**  
+Tez AM memory per node = **(**ceil**(**Number of Tez AMs **/** Number of LLAP daemon nodes**)** **x** Tez AM container size**)**  
 For D14 v2, the default configuration has four Tez AMs and four LLAP daemon nodes.  
 Tez AM memory per node = (ceil(4/4) x 4 GB) = 4 GB
 
@@ -122,7 +122,7 @@ For D14 v2, this value is (100 GB x 0.85) = 85 GB.
 
 The LLAP daemon container size is calculated as follows;
 
-**LLAP daemon container size =  (Total memory for LLAP queue on a workernode) – (Tez AM memory per node) - (Service Master container size)**  
+**LLAP daemon container size =  (Total memory for LLAP queue on a worker node) – (Tez AM memory per node) - (Service Master container size)**  
 There is only one Service Master (Application Master for LLAP service) on the cluster spawned on one of the worker nodes. For calculation purpose, we consider one service master per worker node.  
 For D14 v2 worker node, HDI 4.0 -  the recommended value is (85 GB - 4 GB - 1 GB)) = **80 GB**   
  
@@ -139,7 +139,7 @@ There are 16 vcores on D14 v2 VMs.
 For D14 v2, the recommended value for num of executors is (16 vcores x 120%) ~= **19** on each worker node considering 3 GB per executor.
 
 ***hive.llap.io.threadpool.size***:   
-This value specifies the thread pool size for executors. Since executors are fixed as specified, it will be same as number of executors per LLAP daemon.    
+This value specifies the thread pool size for executors. Since executors are fixed as specified, it is same as number of executors per LLAP daemon.    
 For D14 v2, the recommended value is **19**.
 
 #### **9. Determining LLAP daemon cache size**  
@@ -152,7 +152,7 @@ LLAP daemon container memory consists of following components;
 *  In-memory cache metadata size (applicable only when SSD cache is enabled)
 
 **Headroom size**:
-This size indicates a portion of off-heap memory used for Java VM overhead (metaspace, threads stack, gc data structures, etc.). Generally, this overhead is about 6% of the heap size (Xmx). To be on the safer side, this value can be calculated as 6% of total LLAP daemon memory size.  
+This size indicates a portion of off-heap memory used for Java VM overhead (metaspace, threads stack, `gc` data structures, etc.). Generally, this overhead is about 6% of the heap size (Xmx). To be on the safer side, this value can be calculated as 6% of total LLAP daemon memory size.  
 For D14 v2, the recommended value is ceil(80 GB x 0.06) ~= **4 GB**.  
 
 **Heap size(Xmx)**:
@@ -162,12 +162,12 @@ For D14 v2, this value is 19 x 3 GB = **57 GB**
 
 `Ambari environment variable for LLAP heap size:`
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="`LLAP heap size`" border="true":::
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="`LLAP heap size`." border="true":::
 
 When SSD cache is disabled, the in-memory cache is amount of memory that is left after taking out Headroom size and Heap size from the LLAP daemon container size.
 
 Cache size calculation differs when SSD cache is enabled.
-Setting *hive.llap.io.allocator.mmap* = true will enable SSD caching.
+Setting *hive.llap.io.allocator.mmap* = true enables SSD caching.
 When SSD cache is enabled, some portion of the memory will be used to store metadata for the SSD cache. The metadata is stored in memory and it's expected to be ~8% of SSD cache size.   
 SSD Cache in-memory metadata size = LLAP daemon container size - (Head room + Heap size)  
 For D14 v2, with HDI 4.0, SSD cache in-memory metadata size = 80 GB - (4 GB + 57 GB) = **19 GB**  
@@ -186,7 +186,7 @@ Configuration: ***hive.auto.convert.join.noconditionaltask.size***
 
 Make sure you have *hive.auto.convert.join.noconditionaltask* enabled for this parameter to take effect.
 This configuration determines the threshold for MapJoin selection by Hive optimizer that considers oversubscription of memory from other executors to have more room for in-memory hash tables to allow more map join conversions. Considering 3 GB per executor, this size can be oversubscribed to 3 GB, but some heap memory may also be used for sort buffers, shuffle buffers, etc. by the other operations.   
-So for D14 v2, with 3 GB memory per executor, it's recommended to set this value to **2048 MB**.  
+So for D14 v2, with 3-GB memory per executor, it's recommended to set this value to **2048 MB**.  
 
 (Note: This value may need adjustments that are suitable for your workload. Setting this value too low may not use autoconvert feature. And setting it too high may result into out of memory exceptions or GC pauses that can result into adverse performance.)  
 
@@ -195,15 +195,15 @@ Ambari environment variables: ***num_llap_nodes, num_llap_nodes_for_llap_daemons
 
 **num_llap_nodes** - specifies number of nodes used by Hive LLAP service, this includes nodes running LLAP daemon, LLAP Service Master, and Tez Application Master(Tez AM).  
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="`Number of Nodes for LLAP service`" border="true":::  
-**num_llap_nodes_for_llap_daemons** - specified number of nodes used only for LLAP daemons. LLAP daemon container sizes are set to max fit node, so it will result in one llap daemon on each node.
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="`Number of Nodes for LLAP service`." border="true":::  
+**num_llap_nodes_for_llap_daemons** - specified number of nodes used only for LLAP daemons. LLAP daemon container sizes are set to max fit node, so it results in one `llap` daemon on each node.
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="`Number of Nodes for LLAP daemons`" border="true":::
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="`Number of Nodes for LLAP daemons`." border="true":::
 
 It's recommended to keep both values same as number of worker nodes in Interactive Query cluster.
 
 ### **Considerations for Workload Management**  
-If you want to enable workload management for LLAP, make sure you reserve enough capacity for workload management to function as expected. The workload management requires configuration of a custom YARN queue, which is in addition to `llap` queue. Make sure you divide total cluster resource capacity between llap queue and workload management queue in accordance to your workload requirements.
+If you want to enable workload management for LLAP, make sure you reserve enough capacity for workload management to function as expected. The workload management requires configuration of a custom YARN queue, which is in addition to `llap` queue. Make sure you divide total cluster resource capacity between `llap` queue and workload management queue in accordance to your workload requirements.
 Workload management spawns Tez Application Masters(Tez AMs) when a resource plan is activated.
 
 **Note:**
@@ -218,7 +218,7 @@ Total cluster capacity = 100-GB memory, divided between LLAP, Workload Managemen
  - Workload management queue capacity = 20 GB
  - Default queue capacity = 10 GB
 
-With 20 GB in workload management queue capacity, a resource plan can specify `QUERY_PARALLELISM` value as five, which means workload management can launch five Tez AMs with 4 GB container size each. If `QUERY_PARALLELISM` is higher then the capacity, you may see some Tez AMs stop responding in `ACCEPTED` state. The Hiveserver2 Interactive cannot submit query fragments to the Tez AMs that are not in `RUNNING` state.
+With 20 GB in workload management queue capacity, a resource plan can specify `QUERY_PARALLELISM` value as five, which means workload management can launch five Tez AMs with 4-GB container size each. If `QUERY_PARALLELISM` is higher than the capacity, you may see some Tez AMs stop responding in `ACCEPTED` state. The Hive server 2 Interactive cannot submit query fragments to the Tez AMs that are not in `RUNNING` state.
 
 
 #### **Next Steps**

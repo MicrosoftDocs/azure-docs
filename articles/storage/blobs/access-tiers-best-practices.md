@@ -6,7 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 08/10/2023
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
 ---
 
@@ -41,7 +41,7 @@ To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enab
 
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 
-- [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
+- [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml)
 
 - [How to calculate Container Level Statistics in Azure Blob Storage with Azure Databricks](https://techcommunity.microsoft.com/t5/azure-paas-blog/how-to-calculate-container-level-statistics-in-azure-blob/ba-p/3614650)
 

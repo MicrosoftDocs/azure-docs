@@ -1,5 +1,5 @@
 ---
-title: Design and implement an Oracle database on Azure | Microsoft Docs
+title: Architectures for Oracle Database Enterprise Edition on Azure
 description: Design and implement an Oracle database in your Azure environment.
 author: jjaygbay1
 ms.service: virtual-machines
@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 10/15/2021
 ms.author: jacobjaygbay
 ms.reviewer: tigorman
-
 ---
 
-# Design and implement an Oracle database in Azure
+# Architectures for Oracle Database Enterprise Edition on Azure
 
 **Applies to:** :heavy_check_mark: Linux VMs
 

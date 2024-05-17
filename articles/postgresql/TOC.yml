@@ -1,69 +1,48 @@
-- name: Azure Database for PostgreSQL documentation
+- name: Azure Database for PostgreSQL - Flexible Server documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure DB for PostgreSQL?
-    href: flexible-server/overview.md
-  - name: Which PostgreSQL deployment option to choose?
+  - name: What is Azure Database for PostgreSQL - Flexible Server?
+    href: flexible-server/service-overview.md
+  - name: Self-hosted vs. managed service
     href: flexible-server/overview-postgres-choose-server-options.md
+  - name: Compare deployment options
+    href: flexible-server/concepts-compare-single-server-flexible-server.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring
       href: single-server/concepts-certificate-rotation.md
-- name: Shared documentation
-  items:
-  - name: Migration
-    items:
-      - name: Single Server to Flexible Server migration
-        items:
-          - name: Single to Flexible server migration tool - Concepts
-            href: migrate/concepts-single-to-flexible.md
-          - name: Single to Flexible server migration tool - Using portal
-            href: migrate/how-to-migrate-single-to-flexible-portal.md
-          - name: Single to Flexible server migration tool - Using CLI
-            href: migrate/how-to-migrate-single-to-flexible-cli.md
-          - name: Common errors
-            href: migrate/common-errors-and-special-scenarios-fms.md
-          - name: Troubleshooting Networking and Connectivity issues
-            href: migrate/troubleshooting-networking-and-connectivity-issues.md  
-      - name: Migrate data with pg_dump and pg_restore
-        href: single-server/how-to-migrate-using-dump-and-restore.md
-        displayName: pg_dump, pg_restore
-      - name: Migrate data with pg_dump and psql
-        href: single-server/how-to-migrate-using-export-and-import.md
-        displayName: import , export
-      - name: Minimal-downtime migration with DMS
-        href: single-server/how-to-migrate-online.md
-        displayName: dms, data migration service
-      - name: Migrate from Oracle
-        href: single-server/how-to-migrate-from-oracle.md
   - name: Versioning policy
-    href: single-server/concepts-version-policy.md
+    href: flexible-server/concepts-version-policy.md
     displayName: version, postgresql
   - name: Major version upgrades
     href: single-server/how-to-upgrade-using-dump-and-restore.md
   - name: Prepay for reserved capacity
-    href: single-server/concept-reserved-pricing.md
+    href: flexible-server/concepts-reserved-pricing.md
+  - name: Request quota increase
+    href: flexible-server/how-to-request-quota-increase.md
+  - name: Resolve capacity errors
+    href: flexible-server/how-to-resolve-capacity-errors.md    
   - name: Known issues & limitations
     href: single-server/concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql
-- name: Flexible Server
+- name: Azure Database for PostgreSQL - Flexible Server
   expanded: true
   items:
   - name: Overview
     href: flexible-server/overview.md
   - name: Release notes
     href: flexible-server/release-notes.md
-  - name: API Release notes
+  - name: API release notes
     href: flexible-server/release-notes-api.md
-  - name: Compare Single Server and Flexible Server
-    href: flexible-server/concepts-compare-single-server-flexible-server.md
-  - name: Try Flexible Server for free
+  - name: CLI release notes
+    href: flexible-server/release-notes-cli.md
+  - name: Try for free
     href: flexible-server/how-to-deploy-on-azure-free-account.md
   - name: Quickstarts
     expanded: true
     items:
-    - name: Create Server and Database
+    - name: Create server instance and database
       items:
       - name: ARM template
         displayName: Resource Manager
@@ -79,7 +58,7 @@
         href: flexible-server/quickstart-create-server-bicep.md
     - name: Connect and query
       items:
-        - name: Connect to a server in VNET
+        - name: Connect to a server in virtual network
           href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
@@ -92,7 +71,7 @@
     - name: Database deployment
       items:
       - name: GitHub Actions
-        href: how-to-deploy-github-action.md
+        href: flexible-server/how-to-deploy-github-action.md
       - name: Azure Pipelines
         href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
@@ -101,28 +80,49 @@
       href: flexible-server/concepts-servers.md
     - name: Supported versions
       href: flexible-server/concepts-supported-versions.md
-    - name: Compute and storage
-      href: flexible-server/concepts-compute-storage.md
+    - name: Compute  
+      href: flexible-server/concepts-compute.md
+    - name: Storage
+      href: flexible-server/concepts-storage.md
+    - name: Scaling resources
+      href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity
-      href: concept-reserved-pricing.md
+      href: flexible-server/concepts-reserved-pricing.md
     - name: Networking
-      href: flexible-server/concepts-networking.md
-      displayName: virtual networks, vnet, IP address, public access
+      items:
+      - name: Networking with public access (allowed IP addresses)
+        href: flexible-server/concepts-networking-public.md
+      - name: Networking with private access (virtual network Integration)
+        href: flexible-server/concepts-networking-private.md
+      - name: Networking with Private Endpoint
+        href: flexible-server/concepts-networking-private-link.md
+      - name: Secure connectivity with SSL and TLS
+        href: flexible-server/concepts-networking-ssl-tls.md
     - name: Firewall rules
       href: flexible-server/concepts-firewall-rules.md
     - name: Security
       href: flexible-server/concepts-security.md
-    - name: Azure AD Authentication
+    - name: Generative AI
+      items:
+      - name: Overview
+        href: flexible-server/generative-ai-overview.md
+      - name: Semantic Search
+        href: flexible-server/generative-ai-semantic-search.md
+      - name: Recommendation System
+        href: flexible-server/generative-ai-recommendation-system.md
+      - name: Integrate Azure AI capabilities
+        href: flexible-server/how-to-integrate-azure-ai.md
+    - name: Azure Storage Extension
+      href: flexible-server/concepts-storage-extension.md
+    - name: Microsoft Entra authentication
       href: flexible-server/concepts-azure-ad-authentication.md
-    - name: Major Version Upgrade 
+    - name: Major version upgrade 
       href: flexible-server/concepts-major-version-upgrade.md
     - name: Compliance
       href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
-    - name: Extensions
-      href: flexible-server/concepts-extensions.md
-    - name: Encryption with Customer Managed Keys
+    - name: Encryption with customer managed keys
       href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
@@ -132,14 +132,19 @@
       href: flexible-server/concepts-server-parameters.md
     - name: Troubleshooting guides
       href: flexible-server/concepts-troubleshooting-guides.md
+    - name: Logical replication and logical decoding
+      href: flexible-server/concepts-logical.md
+      displayName: logical decoding, logical replication
     - name: Reliability
       items:
-      - name: High Availability (Reliability)
-        href: ../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json
-      - name: Business continuity overview
+      - name: Overview
         href: flexible-server/concepts-business-continuity.md
-      - name: Back up and restore
+      - name: Reliability and high availability
+        href: ../reliability/reliability-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json&&bc=/azure/postgresql/breadcrumb/toc.json
+      - name: Backup and restore
         href: flexible-server/concepts-backup-restore.md
+      - name: Geo-disaster recovery
+        href: flexible-server/concepts-geo-disaster-recovery.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune overview
@@ -166,20 +171,27 @@
           href: flexible-server/concepts-query-performance-insight.md
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
-    - name: Replication
+    - name: Read replicas
       items:
-        - name: Read replicas
-          href: flexible-server/concepts-read-replicas.md
-          displayName: replication, read replica
-        - name: Logical replication and logical decoding
-          href: flexible-server/concepts-logical.md
-          displayName: logical decoding, logical replication
-    - name: App Development
+      - name: Overview
+        href: flexible-server/concepts-read-replicas.md
+        displayName: replication, read replica
+      - name: Geo-Replication
+        href: flexible-server/concepts-read-replicas-geo.md
+      - name: Promote read replicas
+        href: flexible-server/concepts-read-replicas-promote.md
+      - name: Virtual endpoints
+        href: flexible-server/concepts-read-replicas-virtual-endpoints.md
+    - name: App development
       items: 
-        - name: Connection libraries
-          href: flexible-server/concepts-connection-libraries.md
-        - name: Connection resilience
-          href: flexible-server/concepts-connectivity.md
+      - name: Connection libraries
+        href: flexible-server/concepts-connection-libraries.md
+      - name: Connection resilience
+        href: flexible-server/concepts-connectivity.md
+      - name: Connection pooling best practices
+        href: flexible-server/concepts-connection-pooling-best-practices.md
+      - name: Connect with Azure Kubernetes Service
+        href: single-server/concepts-aks.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
@@ -193,10 +205,16 @@
     items:  
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
+    - name: Connection errors
+      items:
+      - name: Password authentication failed for user
+        href: flexible-server/troubleshoot-password-authentication-failed-for-user.md
     - name: Functional troubleshooting
       items:
       - name: Troubleshoot CLI errors
-        href: flexible-server/how-to-troubleshoot-cli-errors.md 
+        href: flexible-server/how-to-troubleshoot-cli-errors.md
+      - name: Canceling statement due to conflict with recovery
+        href: flexible-server/troubleshoot-canceling-statement-due-to-conflict-with-recovery.md
     - name: Performance troubleshooting
       items:
       - name: Troubleshoot high CPU utilization
@@ -205,12 +223,18 @@
       - name: Troubleshoot high memory utilization
         href: flexible-server/how-to-high-memory-utilization.md 
         displayName: High Memory Utilization
-      - name: Troubleshoot High IO utilization
+      - name: Troubleshoot high IO utilization
         href: flexible-server/how-to-high-io-utilization.md 
         displayName: High IOPS Utilization
       - name: Troubleshoot autovacuum 
         href: flexible-server/how-to-autovacuum-tuning.md
         displayName: Autovacuum troubleshooting, tuning
+      - name: Full vacuum using pg_repack extension 
+        href: flexible-server/how-to-perform-fullvacuum-pg-repack.md
+        displayName: Full vacuum using pg_repack extension
+      - name: Troubleshoot and identify slow running queries
+        href: flexible-server/how-to-identify-slow-queries.md 
+        displayName: Troubleshoot and identify slow running queries
       - name: Troubleshoot connections 
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
         displayName: Troubleshoot connections
@@ -247,6 +271,8 @@
           href: flexible-server/how-to-manage-server-cli.md
         - name: Connect and query guide
           href: flexible-server/how-to-connect-query-guide.md
+      - name: Auto grow storage
+        href: flexible-server/how-to-auto-grow-storage-portal.md
       - name: Scale a server
         items:
         - name: Azure portal
@@ -255,6 +281,12 @@
         items:
         - name: Restore a dropped server
           href: flexible-server/how-to-restore-dropped-server.md
+      - name: Cross subscription and cross resource group restore
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restore-to-different-subscription-or-resource-group.md
+        - name: Azure REST API
+          href: flexible-server/how-to-restore-different-subscription-resource-group-api.md 
       - name: Restart a server
         items:
         - name: Azure portal
@@ -267,12 +299,20 @@
           href: flexible-server/how-to-restore-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
-      - name: Stop/start a server
+      - name: Stop/Start a server
         items:
         - name: Azure portal
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-stop-start-server-cli.md
+      - name: Configure server logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-server-logs-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-server-logs-cli.md
+      - name: Relocate a server 
+        href: ../operational-excellence/relocation-postgresql-flexible-server.md?toc=/azure/postgresql/toc.json
     - name: Encryption with CMK
       items:
       - name: Azure CLI
@@ -287,12 +327,24 @@
         href: flexible-server/how-to-maintenance-portal.md
     - name: Networking
       items:
-      - name: Private access (VNet Integration)
+      - name: Encrypted connectivity using TLS/SSL
+        href: flexible-server/how-to-connect-tls-ssl.md
+      - name: Update application client SSL/TLS certificates
+        href: flexible-server/how-to-update-client-certificates-java.md
+      - name: Private access with virtual network integration
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-virtual-network-cli.md
+      - name: Networking with Private Endpoint
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-virtual-network-private-endpoint-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-virtual-network-private-endpoint-cli.md
+        - name: Connect to managed data factory via Private Endpoint
+          href: flexible-server/how-to-connect-to-data-factory-private-endpoint.md
       - name: Public access (allowed IP addresses)
         items:
         - name: Azure portal
@@ -302,23 +354,25 @@
     - name: Configure server parameters
       items:
       - name: Azure portal
-        href: flexible-server/howto-configure-server-parameters-using-portal.md
+        href: flexible-server/how-to-configure-server-parameters-using-portal.md
         displayName: application development, server parameters
       - name: Azure CLI
-        href: flexible-server/howto-configure-server-parameters-using-cli.md
+        href: flexible-server/how-to-configure-server-parameters-using-cli.md
         displayName: application development, server parameters
-    - name: Enable Authentication
+    - name: Enable authentication
       items:
-      - name: Configure Azure AD integration
+      - name: Create users
+        href: flexible-server/how-to-create-users.md
+      - name: Configure Microsoft Entra integration
         href: flexible-server/how-to-configure-sign-in-azure-ad-authentication.md
         displayName: application development, azure ad, active directory
-      - name: Connect with Managed Identity
+      - name: Connect with managed identity
         href: flexible-server/how-to-connect-with-managed-identity.md
-      - name: Manage Azure AD users
+      - name: Manage Microsoft Entra users
         href: flexible-server/how-to-manage-azure-ad-users.md
       - name: Connect with SCRAM authentication
         href: flexible-server/how-to-connect-scram.md
-    - name: Major Version Upgrade
+    - name: Major version upgrade
       items:
       - name: Azure portal
         href: flexible-server/how-to-perform-major-version-upgrade-portal.md
@@ -333,9 +387,9 @@
     - name: Monitor
       items:
       - name: Create alerts on metrics using portal
-        href: flexible-server/howto-alert-on-metrics.md
+        href: flexible-server/how-to-alert-on-metrics.md
       - name: Configure and access logs
-        href: flexible-server/howto-configure-and-access-logs.md
+        href: flexible-server/how-to-configure-and-access-logs.md
     - name: Intelligent performance
       items:
         - name: Intelligent tuning
@@ -346,27 +400,81 @@
             href: flexible-server/how-to-enable-intelligent-performance-cli.md
     - name: Replication
       items:
-      - name: Azure portal
+      - name: Azure portal, CLI, REST API
         href: flexible-server/how-to-read-replicas-portal.md
         displayName: replica
-      - name: Azure REST API
-        href: flexible-server/how-to-read-replicas-rest-api.md
-        displayName: replica rest api
-    - name: Use vectors and embeddings
+  - name: Extensions
+    items:
+    - name: Overview
+      href: flexible-server/concepts-extensions.md
+    - name: Azure AI (azure_ai)
       items:
-        - name: Basics of pgvector
-          href: flexible-server/how-to-use-pgvector.md
-          displayName: pgvector
-        - name: Optimize performance when using pgvector
-          href: flexible-server/howto-optimize-performance-pgvector.md
-          displayName: pgvector
-- name: Single Server
+      - name: Overview
+        href: flexible-server/generative-ai-azure-overview.md
+      - name: Azure OpenAI
+        href: flexible-server/generative-ai-azure-openai.md
+      - name: Azure Cognitive Services
+        href: flexible-server/generative-ai-azure-cognitive.md
+      - name: Azure Machine Learning Services
+        href: flexible-server/generative-ai-azure-machine-learning.md        
+    - name: Azure Storage (pg_azure_storage)
+      href: flexible-server/reference-pg-azure-storage.md
+    - name: Vector similarity search (pgvector)
+      items:
+      - name: Basics of pgvector
+        href: flexible-server/how-to-use-pgvector.md
+        displayName: vector databases
+      - name: Optimize performance when using pgvector
+        href: flexible-server/how-to-optimize-performance-pgvector.md
+        displayName: vector databases
+    - name: Partitioning
+      items:
+      - name: Partitioning using pg_partman
+        href: flexible-server/how-to-use-pg-partman.md
+        displayName: pg_partman
+- name: Migration Service
+  items:
+  - name: Overview
+    href: migrate/migration-service/concepts-migration-service-postgresql.md
+  - name: Tutorials
+    items:
+    - name: Migrate from Single Server
+      href: migrate/migration-service/tutorial-migration-service-single-to-flexible.md
+    - name: Migrate from on-premises or Azure VM
+      href: migrate/migration-service/tutorial-migration-service-iaas.md
+    - name: Migrate from AWS RDS
+      href: migrate/migration-service/tutorial-migration-service-aws.md
+  - name: Concepts
+    items:
+    - name: Premigration validation
+      href: migrate/migration-service/concepts-premigration-migration-service.md
+    - name: User roles and permissions
+      href: migrate/migration-service/concepts-user-roles-migration-service.md
+    - name: Best practices
+      href: migrate/migration-service/best-practices-migration-service-postgresql.md
+    - name: Known issues and limitations
+      href: migrate/migration-service/concepts-known-issues-migration-service.md
+  - name: How-to guides
+    items:
+    - name: Network setup
+      href: migrate/migration-service/how-to-network-setup-migration-service.md
+  - name: Troubleshoot
+    items:
+    - name: Premigration error codes
+      href: migrate/migration-service/troubleshoot-error-codes-premigration.md
+- name: Migrate data with pg_dump
+  href: migrate/how-to-migrate-using-dump-and-restore.md
+- name: Minimal-downtime migration with DMS
+  href: single-server/how-to-migrate-online.md
+- name: Migrate from Oracle
+  href: single-server/how-to-migrate-from-oracle.md
+- name: Azure Database for PostgreSQL - Single Server
   expanded: false
   items:
-  - name: What's happening to Single Server?
-    href: single-server/whats-happening-to-postgresql-single-server.md
   - name: Overview
     href: single-server/overview-single-server.md
+  - name: What's happening to Azure Database for PostgreSQL - Single Server?
+    href: single-server/whats-happening-to-postgresql-single-server.md
   - name: Quickstarts
     expanded: true
     items:
@@ -450,7 +558,7 @@
       href: single-server/concepts-servers.md
     - name: Supported versions
       href: single-server/concepts-supported-versions.md
-    - name: PostgreSQL extensions
+    - name: Extensions
       href: single-server/concepts-extensions.md
     - name: Limits
       href: single-server/concepts-limits.md
@@ -472,7 +580,7 @@
       - name: Threat protection with Microsoft Defender for Cloud
         href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md
         displayName: security, azure ad, active directory
       - name: Data encryption
@@ -506,7 +614,7 @@
         href: single-server/concepts-business-continuity.md
       - name: High availability
         href: single-server/concepts-high-availability.md
-      - name: Backup and restore
+      - name: Back up and restore
         href: single-server/concepts-backup.md
         displayName: backup ,restore, georestore, geo-restore, outage
     - name: Monitor and tune
@@ -538,7 +646,7 @@
         displayName: query store, performance, optimize, recommendations
       - name: Azure Advisor recommendations
         href: single-server/concepts-azure-advisor-recommendations.md
-    - name: App Development
+    - name: App development
       items:
       - name: Best practices
         href: single-server/application-best-practices.md
@@ -582,7 +690,7 @@
       - name: Azure CLI
         href: single-server/quickstart-create-server-database-azure-cli.md#configure-a-server-based-firewall-rule
         displayName: firewall, rules, cli
-    - name: Connect and Query Guide
+    - name: Connect and query guide
       href: single-server/how-to-connect-query-guide.md
       displayName: application development
     - name: Restore server
@@ -604,10 +712,10 @@
         - name: Create users
           href: single-server/how-to-create-users.md
           displayName: non-admin user, application development
-        - name: Configure Azure AD integration
+        - name: Configure Microsoft Entra integration
           href: single-server/how-to-configure-sign-in-azure-ad-authentication.md
           displayName: application development, azure ad, active directory
-        - name: Connect with Managed Identity
+        - name: Connect with managed identity
           href: single-server/how-to-connect-with-managed-identity.md
     - name: Optimize
       items:
@@ -680,7 +788,7 @@
       - name: Azure CLI
         href: single-server/how-to-manage-vnet-using-cli.md
         displayName: service endpoint, vnet, virtual network
-    - name: Private link
+    - name: Private Link
       items:
       - name: Azure portal
         href: single-server/how-to-configure-privatelink-portal.md
@@ -728,14 +836,8 @@
       items:
       - name: Major version upgrade methods
         href: single-server/how-to-upgrade-using-dump-and-restore.md
-      - name: Upgrade/Migrate data with pg_dump and pg_restore
+      - name: Upgrade/migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
-      - name: Upgrade/Migrate data with pg_dump and psql
-        href: single-server/how-to-migrate-using-export-and-import.md
-- name: Hyperscale (Citus)
-  items:
-  - name: Where is Hyperscale (Citus)?
-    href: hyperscale/moved.md
 - name: Samples
   items:
   - name: Azure CLI samples
@@ -744,7 +846,7 @@
         href: sample-scripts-azure-cli.md
       - name: Create a server and firewall rule
         href: ./scripts/sample-create-server-and-firewall-rule.md
-      - name: Create server with vNet rule
+      - name: Create server with virtual network rule
         href: ./scripts/sample-create-server-with-vnet-rule.md
       - name: Scale a server
         href: ./scripts/sample-scale-server-up-or-down.md
@@ -796,7 +898,7 @@
       - name: Connect your app's data to Power BI
         href: https://aka.ms/postg-powerbi-vid
   - name: Feedback forum
-    href: https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0
+    href: https://aka.ms/pgfeedback
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options

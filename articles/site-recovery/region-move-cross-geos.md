@@ -47,7 +47,7 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml) permissions. 
 
 ### Set up an Azure network
 
@@ -140,8 +140,8 @@ Make sure the machine can access these URLs based on your environment:
 
 IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering is done.
 
-- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the Azure AD, Backup, Replication, and Storage URLs.  
-- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support Azure AD, Backup, Replication, and Storage URLs.  
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the Microsoft Entra ID, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support Microsoft Entra ID, Backup, Replication, and Storage URLs.  
 
 #### Run setup
 Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.

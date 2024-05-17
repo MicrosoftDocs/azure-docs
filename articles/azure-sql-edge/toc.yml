@@ -39,7 +39,7 @@
     - name: Deploy in Kubernetes
       href: deploy-kubernetes.md
     - name: Deploy with Azure Data Studio
-      href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json
+      href: /azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json
   - name: Machine learning 
     items:
     - name: Machine learning and AI with ONNX

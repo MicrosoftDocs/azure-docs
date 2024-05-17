@@ -2,9 +2,9 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 07/26/2023
+ms.date: 01/11/2024
 author: mgoedtel
-
+ms.subservice: aks-storage
 ---
 
 # Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
@@ -16,7 +16,7 @@ To make this process as simple as possible, and to ensure no data loss, this art
 ## Before you begin
 
 * The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. For an Azure Active Directory (Azure AD) RBAC enabled cluster, you're a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
+* Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. For a Microsoft Entra RBAC enabled cluster, you're a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
 
 ## Migrate Disk volumes
 
@@ -110,7 +110,7 @@ The following are important considerations to evaluate:
         i=$((i + 1))
       else
         PVC_CREATION_TIME=$(kubectl get pvc  $PVC -n $NAMESPACE -o jsonpath='{.metadata.creationTimestamp}')
-        if [[ $PVC_CREATION_TIME > $STARTTIMESTAMP ]]; then
+        if [[ $PVC_CREATION_TIME >= $STARTTIMESTAMP ]]; then
           if [[ $ENDTIMESTAMP > $PVC_CREATION_TIME ]]; then
             PV="$(kubectl get pvc $PVC -n $NAMESPACE -o jsonpath='{.spec.volumeName}')"
             RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
@@ -183,7 +183,7 @@ The following are important considerations to evaluate:
    * `namespace` - The cluster namespace
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
    * `targetCSIStorageClass` - The CSI storage driver-based StorageClass, which can be either one of the default storage classes that have the provisioner set to **disk.csi.azure.com** or **file.csi.azure.com**. Or you can create a custom storage class as long as it is set to either one of those two provisioners. 
-   * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
+   * `startTimeStamp` - Provide a start time **before** PVC creation time in the format **yyyy-mm-ddthh:mm:ssz**
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
 
     ```bash

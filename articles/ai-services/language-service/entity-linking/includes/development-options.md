@@ -1,12 +1,11 @@
 ---
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 01/06/2023
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 To use entity linking, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use entity linking:

@@ -3,8 +3,12 @@ title: Restore archived logs from search - Microsoft Sentinel
 description: Learn how to restore archived logs from search job results.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 03/03/2024
 ms.author: cwatson
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Restore archived logs from search
@@ -13,15 +17,15 @@ Restore data from an archived log to use in high performing queries and analytic
 
 Before you restore data in an archived log, see [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md) and [Restore in Azure Monitor](../azure-monitor/logs/restore.md).
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Restore archived log data
 
-To restore archived log data in Microsoft Sentinel, specify  the table and time range for the data you want to restore. Within a few minutes, the log data is available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
+To restore archived log data in Microsoft Sentinel, specify  the table and time range for the data you want to restore. Within a few minutes, the log data is available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full Kusto Query Language (KQL).
 
 You can restore archived data directly from the **Search** page or from a saved search.
 
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-1. Under **General**, select **Search**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Search**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Search**.
 1. Restore log data in one of two ways:
    - At the top of **Search** page, select **Restore**.
       :::image type="content" source="media/restore/search-page-restore.png" alt-text="Screenshot of restore button at the top of the search page.":::
@@ -40,7 +44,7 @@ You can restore archived data directly from the **Search** page or from a saved 
 
 View the status and results of the log data restore by going to the **Restoration** tab. You can view the restored data when the status of the restore job shows **Data Available**.
 
-1. In your Microsoft Sentinel workspace, select **Search** > **Restoration**.
+1. In Microsoft Sentinel, select **Search** > **Restoration**.
 
    :::image type="content" source="media/restore/restoration-tab.png" alt-text="Screenshot of the restoration tab on the search page.":::
 
@@ -59,7 +63,7 @@ View the status and results of the log data restore by going to the **Restoratio
 To save costs, we recommend you delete the restored table when you no longer need it. When you delete a restored table, Azure doesn't delete the underlying source data.
 
 
-1. In your Microsoft Sentinel workspace, select **Search** > **Restoration**.
+1. In Microsoft Sentinel, select **Search** > **Restoration**.
 1. Identify the table you want to delete.
 1. Select **Delete** for that table row.
 

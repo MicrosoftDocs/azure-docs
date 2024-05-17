@@ -3,10 +3,9 @@ title: Metrics Advisor JavaScript quickstart
 titleSuffix: Azure AI services
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: include
-ms.date: 11/04/2022
+ms.date: 01/19/2024
 ms.author: mbullwin
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: How to set up the Defender for Cloud security environment"
 description: Learn how to enable and configure Defender for Cloud security plan features on your Operator Nexus subscription. 
-author: rgendreau
-ms.author: rgendreau
+author: scottsteinbrueck 
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 08/18/2023
@@ -15,7 +15,7 @@ This guide provides you with instructions on how to enable Microsoft Defender fo
 
 ## Before you begin
 
-To aid your understanding of Defender for Cloud and its many security features, there's a wide variety of material available on the [Microsoft Defender for Cloud documentation](https://learn.microsoft.com/azure/defender-for-cloud/) site that you might find helpful.
+To aid your understanding of Defender for Cloud and its many security features, there's a wide variety of material available on the [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/) site that you might find helpful.
 
 ## Prerequisites
 
