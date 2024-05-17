@@ -53,12 +53,12 @@ To assign the required role for storage accounts that you need to protect, follo
 >[!NOTE]
 >You can also assign the roles to the vault at the Subscription or Resource Group levels according to your convenience.
 
-1. In the storage account that needs to be protected, go to the **Access Control (IAM)** tab on the left navigation pane.
+1. In the storage account that needs to be protected, go to the **Access Control (IAM)** tab on the left navigation blade.
 1. Select **Add role assignments** to assign the required role.
 
     ![Add role assignments](./media/blob-backup-configure-manage/add-role-assignments.png)
 
-1. In the Add role assignment pane:
+1. In the Add role assignment blade:
 
     1. Under **Role**, choose **Storage Account Backup Contributor**.
     1. Under **Assign access to**, choose **User, group or service principal**.
@@ -80,7 +80,7 @@ To assign the required role for storage accounts that you need to protect, follo
 
 You can configure backup for blobs in a storage account directly from the ‘Data Protection’ settings of the storage account. 
 
-1. Go to the storage account for which you want to configure backup for blobs, and then go to **Data Protection** in left pane (under **Data management**).
+1. Go to the storage account for which you want to configure backup for blobs, and then go to **Data Protection** in left blade (under **Data management**).
 
 1. In the available data protection options, the first one allows you to enable operational backup using Azure Backup.
 
@@ -98,7 +98,7 @@ You can configure backup for blobs in a storage account directly from the ‘Dat
         ![Enable operational backup with Azure Backup](./media/blob-backup-configure-manage/enable-operational-backup-with-azure-backup.png)
 
 
-        1. On selecting **Manage identity**, brings you to the Identity pane of the storage account. 
+        1. On selecting **Manage identity**, brings you to the Identity blade of the storage account. 
         
         1. Select **Add role assignment** to initiate the role assignment.
 
@@ -118,13 +118,13 @@ You can configure backup for blobs in a storage account directly from the ‘Dat
 
             ![Finish role assignment](./media/blob-backup-configure-manage/finish-role-assignment.png)
 
-        1. Select the cancel icon (**x**) on the top right corner to return to the **Data protection** pane of the storage account.<br><br>Once back, continue configuring backup.
+        1. Select the cancel icon (**x**) on the top right corner to return to the **Data protection** blade of the storage account.<br><br>Once back, continue configuring backup.
 
 ## Effects on backed-up storage accounts
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-- In storage accounts (for which you've configured vaulted backups), the object replication rules get created under the **Object replication** item in the left pane.
+- In storage accounts (for which you've configured vaulted backups), the object replication rules get created under the **Object replication** item in the left blade.
 - Object replication requires versioning and change-feed capabilities. So, Azure Backup service enables these features on the source storage account.
 
 # [Operational backup](#tab/operational-backup)
@@ -152,7 +152,7 @@ Once backup is configured, changes taking place on block blobs in the storage ac
 
 ## Manage backups
 
-You can use Backup Center as your single pane of glass for managing all your backups. Regarding backup for Azure Blobs, you can use Backup Center to do the following:
+You can use Backup Center as your single blade of glass for managing all your backups. Regarding backup for Azure Blobs, you can use Backup Center to do the following:
 
 - As we've seen above, you can use it for creating Backup vaults and policies. You can also view all vaults and policies under the selected subscriptions.
 - Backup Center gives you an easy way to monitor the state of protection of protected storage accounts as well as storage accounts for which backup isn't currently configured.
@@ -184,7 +184,7 @@ To stop backup for a storage account, follow these steps:
  
     ![Stop operational backup](./media/blob-backup-configure-manage/stop-operational-backup.png)
 
-After stopping backup, you may disable other storage data protection capabilities (enabled for configuring backups) from the data protection pane of the storage account.
+After stopping backup, you may disable other storage data protection capabilities (enabled for configuring backups) from the data protection blade of the storage account.
 
 
 ## Next steps
