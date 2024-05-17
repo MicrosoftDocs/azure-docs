@@ -1,8 +1,8 @@
 ---
 title: Configure observability manually
 description: How to configure observability features manually in Azure IoT Operations so that you can monitor your solution.
-author: timlt
-ms.author: timlt
+author: kgremban
+ms.author: kgremban
 ms.topic: how-to
 ms.date: 02/27/2024
 

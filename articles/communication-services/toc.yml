@@ -39,8 +39,6 @@ items:
       href: concepts/chat/concepts.md
     - name: Email
       href: concepts/email/prepare-email-communication-resource.md
-    - name: Network Traversal
-      href: concepts/network-traversal.md
     - name: Advanced Messaging
       expanded: true
       items:
@@ -102,19 +100,21 @@ items:
         - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to your app
-          href: quickstarts/voice-video-calling/get-started-teams-interop.md  
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
       - name: Use a Teams identity
         items:
           - name: Generate an access token for a Teams User
             href: quickstarts/manage-teams-identity.md                
           - name: Add Teams video calling to your app
             href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
-    - name: Connect to a Teams calling applications
+    - name: Connect to a Teams calling application
       items:
         - name: Connect to Call Queue
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
         - name: Connect to Auto Attendant
           href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
+    - name: Connect Teams users to Azure calls
+      href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md
     - name: Connect to a Room call
       items:
       - name: Create a room 
@@ -203,10 +203,6 @@ items:
         href: quickstarts/router/get-started-router.md
       - name: Integrate Azure OpenAI with Job Router
         href: quickstarts/router/job-router-azure-openai-integration.md
-  - name: Network Traversal
-    items:
-    - name: Access TURN relays
-      href: quickstarts/relay-token.md  
   - name: Advanced Messaging
     items:
     - name: WhatsApp
@@ -286,6 +282,10 @@ items:
       displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
     - name: Collecting user feedback with the mobile UI Library
       href: tutorials/collecting-user-feedback/collecting-user-feedback.md
+    - name: Audio quality enhancements
+      items:
+        - name: Enabling audio effects
+          href: tutorials/audio-quality-enhancements/add-noise-supression.md
     - name: Virtual appointments
       items:      
       - name: Sample builder
@@ -316,8 +316,6 @@ items:
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
         href: how-tos/calling-sdk/lobby.md
-      - name: Manage Audio Filters
-        href: how-tos/calling-sdk/manage-audio-filters.md
       - name: PowerPoint Live
         href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls
@@ -395,6 +393,8 @@ items:
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Migrating to Azure Communication Services
       items:
+        - name: Migrate from Twilio Video to Azure Communication Services
+          href: concepts/migrate-to-azure-communication-services.md
         - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
           displayName: migration, migrate, Twilio, move, shift
@@ -402,6 +402,8 @@ items:
       items:
       - name: Integrate with CallKit in iOS
         href: how-tos/calling-sdk/callkit-integration.md
+      - name: Integrate with TelecomManager on Android
+        href: how-tos/calling-sdk/telecommanager-integration.md
       - name: Enable push notifications
         href: how-tos/calling-sdk/push-notifications.md
       - name: Using the mobile UI Library for voice and video
@@ -656,6 +658,8 @@ items:
       items:
       - name: Migrate from Twilio Video to Azure Communication Services
         href: concepts/migrate-to-azure-communication-services.md
+      - name: How to migrate from Twilio Video to Azure Communication Services
+        href: tutorials/migrating-to-azure-communication-services-calling.md
     - name: Web UI library
       href: https://aka.ms/acsstorybook
     - name: Call Automation
@@ -722,6 +726,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
+          - name: Teams users in Azure Communication Services calls
+            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
@@ -736,6 +742,8 @@ items:
         href: concepts/voice-video-calling/closed-captions.md      
       - name: Pricing
         href: concepts/pricing/teams-interop-pricing.md
+      - name: Enable interoperability with Teams
+        href: concepts/interop/enable-interoperability-teams.md
     - name: Advanced audio and video
       items:    
       - name: Rooms API for structured meetings 
@@ -767,13 +775,13 @@ items:
       - name: Tuning video quality
         href: concepts/voice-video-calling/video-constraints.md        
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: SDK best practices
+        href: concepts/best-practices.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Networking and Data
       items:
       - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
-        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: SDK best practices
-        href: concepts/best-practices.md
         displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Call networking internals
         href: concepts/call-flows.md
@@ -827,6 +835,8 @@ items:
       items:    
       - name: WebJS calling SDK
         href: concepts/voice-video-calling/known-issues-webjs.md
+      - name: Native calling SDK
+        href: concepts/voice-video-calling/known-issues-native.md
       - name: Call Automation
         href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Chat
@@ -953,6 +963,8 @@ items:
       href: concepts/email/email-optout-management.md   
     - name: Understanding sender reputation
       href: concepts/email/sender-reputation-managed-suppression-list.md      
+    - name: Quota increase for email domains
+      href: concepts/email/email-quota-increase.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
@@ -961,6 +973,8 @@ items:
         href: concepts/email/email-domain-and-sender-authentication.md
       - name: Best practices for sender authentication support 
         href: concepts/email/email-authentication-best-practice.md
+      - name: Troubleshooting Domain Configuration issues 
+        href: concepts/email/email-domain-configuration-troubleshooting.md
     - name: Messaging policy
       href: concepts/sms/messaging-policy.md
     - name: Events
@@ -1003,18 +1017,6 @@ items:
         href: concepts/analytics/logs/router-logs.md
       - name: Job Router metrics
         href: concepts/router/metrics.md
-  - name: Network Traversal
-    items:
-    - name: Overview
-      href: concepts/network-traversal.md
-    - name: Analytics
-      items:
-      - name: Network Traversal logs
-        href: concepts/analytics/logs/network-traversal-logs.md    
-      - name: Network Traversal metrics
-        href: concepts/analytics/turn-metrics.md  
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Advanced Messaging
     items:
     - name: WhatsApp
@@ -1107,7 +1109,7 @@ items:
           items:
           - name: Overview
             href: resources/troubleshooting/voice-video-calling/video-issues/overview.md
-          - name: The user can not see video from the remote participant
+          - name: The user cannot see video from the remote participant
             items:
             - name: Subscribing to a video that is unavailable
               href: resources/troubleshooting/voice-video-calling/video-issues/subscribing-video-not-available.md
@@ -1263,16 +1265,6 @@ items:
       href: /java/api/overview/azure/communication-jobrouter-readme
     - name: Job Router (Python)
       href: /python/api/overview/azure/communication-jobrouter-readme
-  - name: Network Traversal
-    items:
-    - name: Network Traversal (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-8
-    - name: Network Traversal (.NET)
-      href: /dotnet/api/overview/azure/communication.networktraversal-readme
-    - name: Network Traversal (Java)
-      href: /java/api/overview/azure/communication-networktraversal-readme
-    - name: Network Traversal (Python)
-      href: /python/api/overview/azure/communication-networktraversal-readme
   - name: Phone Numbers
     items:
     - name: Phone Numbers (JavaScript)

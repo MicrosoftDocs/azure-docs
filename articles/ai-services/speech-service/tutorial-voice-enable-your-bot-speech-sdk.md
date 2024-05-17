@@ -278,8 +278,8 @@ If you want to test your deployed bot with text input, use the following steps. 
 
    ```json
    {
-     "MicrosoftAppId": "3be0abc2-ca07-475e-b6c3-90c4476c4370",
-     "MicrosoftAppPassword": "-zRhJZ~1cnc7ZIlj4Qozs_eKN.8Cq~U38G"
+     "MicrosoftAppId": "YourAppId",
+     "MicrosoftAppPassword": "YourAppPassword"
    }
    ```
 

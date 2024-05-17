@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 04/15/2024
 ms.reviewer: akkumari
 
 # Customer intent: As a DevOps admin, I want to collect and analyze autoscale metrics and logs.
@@ -15,7 +15,7 @@ ms.reviewer: akkumari
 
 Autoscale has two log categories and a set of metrics that can be enabled via the **Diagnostics settings** tab on the **Autoscale setting** page.
 
-:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="Screenshot that shows the menu on the Autoscale setting page.":::
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png"  lightbox="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="A screenshot that shows the menu on the Autoscale setting page.":::
 
 The two categories are:
 
@@ -37,7 +37,7 @@ For more information on diagnostics, see [Diagnostic settings in Azure Monitor](
 
 View the history of your autoscale activity on the **Run history** tab. The **Run history** tab includes a chart of resource instance counts over time and the resource activity log entries for autoscale.
 
-:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="Screenshot that shows the Run history tab on the Autoscale setting page.":::
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" lightbox="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="A screenshot that shows the Run history tab on the Autoscale setting page.":::
 
 ## Resource log schemas
 

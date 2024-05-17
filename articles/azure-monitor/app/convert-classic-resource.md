@@ -28,6 +28,11 @@ Workspace-based resources:
 >
 > * Diagnostic settings export might increase costs. For more information, see [Diagnostic settings-based export](export-telemetry.md#diagnostic-settings-based-export).
 
+> [!WARNING]
+> Continuous Export within Classic Application Insights will be shut down on May 15th, 2024. After this date, your Continuous Export configurations will no longer be available.
+> 
+> Beginning April 29th, 2024, and ending May 1st, 2024, Continuous Export will undergo maintenance in preparation for shut down. During this time, Continuous Export will be unavailable. Any data which would have been exported during this time will be exported at the conclusion of the maintenance window on 1 May 2024. Depending on the amount of data you're exporting, it may take up to 72 hours to fully recover.
+
 ## New capabilities
 
 Workspace-based Application Insights resources allow you to take advantage of the latest capabilities of Azure Monitor and Log Analytics:

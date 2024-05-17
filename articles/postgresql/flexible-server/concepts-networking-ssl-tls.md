@@ -4,12 +4,12 @@ description: Learn about secure connectivity with Flexible Server using SSL and 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 04/05/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Secure connectivity with TLS and SSL in Azure Database for PostgreSQL - Flexible Server
@@ -32,6 +32,13 @@ Diagram above shows typical TLS 1.2 handshake sequence, consisting of following:
 1. After the  client successfully receives above mentioned data, and *then* generates its own key share, mixes it with the server key share, and thus generates the encryption keys for the session.
 1. As the final steps, the client sends the server its key share, enables encryption and sends a *Finished* message (which is a hash of a transcript of what happened so far). The server does the same: it mixes the key shares to get the key and sends its own Finished message.
 1. At that time application  data can be sent encrypted on the connection.
+
+## Certificate Chains
+
+A **certificate chain** is an ordered list of certificates, containing an SSL/TLS Certificate and Certificate Authority (CA) Certificates, that enables the receiver to verify that the sender and all CA's are trustworthy. The chain or path begins with the SSL/TLS certificate, and each certificate in the chain is signed by the entity identified by the next certificate in the chain.
+The chain terminates with a **root CA certificate**. The **root CA certificate** is always signed by the Certificate Authority (CA) itself. The signatures of all certificates in the chain must be verified up to the root CA certificate.
+Any certificate that sits between the SSL/TLS certificate and the root CA certificate in the chain is called an intermediate certificate. 
+
 
 ## TLS versions
 
@@ -87,7 +94,11 @@ There are many connection parameters for configuring the client for SSL. Few imp
 |verify-ca| Encryption is used. Moreover, verify the server certificate signature against certificate stored on the client|
 |verify-full| Encryption is used. Moreover, verify server certificate signature and host name  against certificate stored on the client|
 
-3. **sslcert**, **sslkey, and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
+The default **sslmode** mode used is different between libpq-based clients (such as psql) and JDBC. The libpq-based clients default to *prefer*, and JDBC clients default to *verify-full*.
+
+3. **sslcert**, **sslkey**, and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
+
+
 
 **Certificate Authorities (CAs)** are the institutions responsible for issuing certificates. A trusted certificate authority is an entity that’s entitled to verify someone is who they say they are. In order for this model to work, all participants must agree on a set of trusted CAs. All operating systems and most web browsers ship with a set of trusted CAs.
 
@@ -103,7 +114,7 @@ For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](
 
 ### Downloading Root CA certificates and updating application clients in certificate pinning scenarios
 
-To update client applications in certificate pinning scenarios you can download certificates from following URIs:
+To update client applications in certificate pinning scenarios, you can download certificates from following URIs:
 * For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona) download Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root G2 certificates from following URIs:
  Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt, 
  DigiCert Global Root G2  https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem.
@@ -112,17 +123,39 @@ Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/
 * Optionally, to prevent future disruption, it's also recommended to add the following roots to the trusted store:
   Microsoft ECC Root Certificate Authority 2017 - https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt
 
-Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [tutorial](../flexible-server/how-to-update-client-certificates-java.md). 
+To import certificates to client certificate stores you may have to **convert certificate .crt files to .pem format**, after downloading certificate files from URIs above. You can use OpenSSL utility to do these file conversions, as shown in example below:
+
+```powershell
+openssl x509 -in certificate.crt -out certificate.pem -outform PEM
+```
+
+**Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [how-to document](../flexible-server/how-to-update-client-certificates-java.md)**. 
+
+
+> [!IMPORTANT]
+> Some of the Postgres client libraries, while using **sslmode=verify-full** setting, may experience connection failures with Root CA certificates that are cross-signed with intermediate certificates, resulting in alternate trust paths. In this case, its recommended explicitly specify **sslrootcert** parameter, explained above, or set the PGSSLROOTCERT environment variable to local path where Microsoft RSA Root Certificate Authority 2017 Root CA certificate is placed, from default value of *%APPDATA%\postgresql\root.crt*. 
+
 
 ### Read Replicas with certificate pinning scenarios
 
 With Root CA migration to [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) it's feasible for newly created replicas to be on a newer Root CA certificate than primary server created earlier. 
-Therefore, for clients that use **verify-ca** and **verify-full** sslmode configuration settings, i.e. certificate pinning, is imperative for interrupted connectivity to accept **both** root CA certificates:
+Therefore, for clients that use **verify-ca** and **verify-full** sslmode configuration settings, that is, certificate pinning, is imperative for interrupted connectivity to accept **both** root CA certificates:
   * For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona):  [DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) root CA certificates, as services are migrating from Digicert to Microsoft CA. 
   * For connectivity to servers deployed to Azure public cloud regions worldwide: [Digicert Global Root CA](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm), as services are migrating from Digicert to Microsoft CA.
 
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible server doesn't support [certificate based authentication](https://www.postgresql.org/docs/current/auth-cert.html) at this time.
+
+### Testing client certificates by connecting with psql in certificate pinning scenarios
+
+You can use psql command line from your client to test connectivity to the server in  certificate pinning scenarios, as shown in example below:
+
+```bash
+
+$ psql "host=hostname.postgres.database.azure.com port=5432 user=myuser dbname=mydatabase sslmode=verify-full sslcert=client.crt sslkey=client.key sslrootcert=ca.crt"
+
+```
+For more on ssl and certificate parameters, you can follow [psql documentation.](https://www.postgresql.org/docs/current/app-psql.html)
 
 ## Testing SSL/TLS Connectivity
 
@@ -132,6 +165,8 @@ Before trying to access your SSL enabled server from client application, make su
 *psql (14.5)*
 *SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)*
 *Type "help" for help.*
+
+You can also load the **[sslinfo extension](./concepts-extensions.md)** and then call the *ssl_is_used()* function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f.
 
 
 
@@ -146,7 +181,7 @@ A cipher suite is displayed as a long string of seemingly random information—b
 - Message authentication code algorithm (MAC)
 
 Different versions of SSL/TLS support different cipher suites. TLS 1.2 cipher suites can’t be negotiated with TLS 1.3 connections and vice versa.
-As of this time Azure Database for PostgreSQL flexible server supports many cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/16/runtime-config-connection.html#GUC-SSL-CIPHERS)  category. 
+As of this time Azure Database for PostgreSQL flexible server supports many cipher suites with TLS 1.2 protocol version that fall into [HIGH:!aNULL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-CIPHERS) category. 
 
 ## Troubleshooting SSL\TLS connectivity errors
 

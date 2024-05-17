@@ -184,7 +184,7 @@ Second, if the GPU is correctly assigned, but still not being able to use it ins
 The first step before checking *WSSDAgent* logs is to check if the VM was created and is running. 
 
 1. Start an elevated _PowerShell_ session using **Run as Administrator**.
-1. On Windows Client SKUs, check the [HCS](/virtualization/community/team-blog/2017/20170127-introducing-the-host-compute-service-hcs) virtual machines.
+1. On Windows Client SKUs, check the [HCS](https://techcommunity.microsoft.com/t5/containers/introducing-the-host-compute-service-hcs/ba-p/382332) virtual machines.
     ```powershell
     hcsdiag list
     ```

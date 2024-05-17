@@ -36,8 +36,8 @@ For efficient navigation, it might be helpful to navigate by landmarks to move b
 
 In **Explore** you can explore the different capabilities of Azure AI before creating a project. You can find this page in the primary navigation landmark.
 
-Within **Explore**, you can [explore many capabilities](../how-to/models-foundation-azure-ai.md) found within the secondary navigation. These include [model catalog](../how-to/model-catalog.md), model benchmarks, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
-- [Model catalog](../how-to/model-catalog.md) contains three main areas: Announcements, Models, and Filters. You can use Search and Filters to narrow down model selection 
+Within **Explore**, you can [explore many capabilities](../how-to/models-foundation-azure-ai.md) found within the secondary navigation. These include [model catalog](../how-to/model-catalog-overview.md), model benchmarks, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
+- [Model catalog](../how-to/model-catalog-overview.md) contains three main areas: Announcements, Models, and Filters. You can use Search and Filters to narrow down model selection 
 - Azure AI service pages such as Speech consist of many cards containing links. These cards lead you to demo experiences where you can sample our AI capabilities and might link out to another webpage. 
 
 ## Projects 

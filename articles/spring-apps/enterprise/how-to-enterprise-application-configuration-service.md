@@ -436,9 +436,15 @@ This command produces JSON output similar to the following example:
       "example.property.application.name: example-service",
       "example.property.cloud: Azure"
     ]
+  },
+  "metadata": {
+    "gitRevisions": "[{\"url\":\"{gitRepoUrl}\",\"revision\":\"{revisionInfo}\"}]"
   }
 }
 ```
+
+> [!NOTE]
+> The `metadata` and `gitRevisions` properties are not available for the Gen1 version of Application Configuration Service.
 
 You can also use this command with the `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative paths and absolute paths. If you don't specify the path, the command uses the path of the current directory by default.
 
@@ -456,6 +462,9 @@ After you bind the app to the Application Configuration Service and set the [Pat
    ```
 
 1. Check the content of the configuration file using commands such as `cat`.
+
+> [!NOTE]
+> The Git revision information is not available in the app.
 
 ## Check logs
 

@@ -7,6 +7,12 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### April 2024 release
+
+#### Text to speech avatar
+
+- You can now set a static background image for your avatars. To utilize this feature, simply use the `avatarConfig.backgroundImage` property and specify a URL pointing to the desired image. For detials, refer to [How to edit the background](../../text-to-speech-avatar/batch-synthesis-avatar-properties.md#how-to-edit-the-background).
+
 ### March 2024 release
 
 #### Prebuilt neural voice

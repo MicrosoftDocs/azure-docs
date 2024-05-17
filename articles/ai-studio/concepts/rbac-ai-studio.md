@@ -24,7 +24,7 @@ In this article, you learn how to manage access (authorization) to an Azure AI h
 
 ## Azure AI hub resource vs Azure AI project
 
-In the Azure AI Studio, there are two levels of access: the Azure AI hub resource and the Azure AI project. The resource is home to the infrastructure (including virtual network setup, customer-managed keys, managed identities, and policies) as well as where you configure your Azure AI services. Azure AI hub resource access can allow you to modify the infrastructure, create new Azure AI hub resources, and create projects. Azure AI projects are a subset of the Azure AI hub resource that act as workspaces that allow you to build and deploy AI systems. Within a project you can develop flows, deploy models, and manage project assets. Project access lets you develop AI end-to-end while taking advantage of the infrastructure setup on the Azure AI hub resource.
+In the Azure AI Studio, there are two levels of access: the Azure AI hub and the Azure AI project. The AI hub is home to the infrastructure (including virtual network setup, customer-managed keys, managed identities, and policies) as well as where you configure your Azure AI services. Azure AI hub access can allow you to modify the infrastructure, create new Azure AI hub resources, and create projects. Azure AI projects are a subset of the Azure AI hub resource that act as workspaces that allow you to build and deploy AI systems. Within a project you can develop flows, deploy models, and manage project assets. Project access lets you develop AI end-to-end while taking advantage of the infrastructure setup on the Azure AI hub resource.
 
 :::image type="content" source="../media/concepts/azureai-hub-project-relationship.png" alt-text="Diagram of the relationship between AI Studio resources." lightbox="../media/concepts/azureai-hub-project-relationship.png":::
 
@@ -114,7 +114,6 @@ The Azure AI hub resource has dependencies on other Azure services. The followin
 | `Microsoft.Insights/Components/Write` | Write to an application insights component configuration. |
 | `Microsoft.OperationalInsights/workspaces/write` | Create a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
 
-
 ## Sample enterprise RBAC setup
 The following is an example of how to set up role-based access control for your Azure AI Studio for an enterprise.
 
@@ -150,6 +149,34 @@ If the built-in roles are insufficient, you can create custom roles. Custom role
 
 > [!NOTE]
 > You must be an owner of the resource at that level to create custom roles within that resource. 
+
+## Scenario: Use a customer-managed key
+
+When using a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
+
+If your Azure AI hub is configured with a **user-assigned managed identity**, the identity must be granted the following roles. These roles allow the managed identity to create the Azure Storage, Azure Cosmos DB, and Azure Search resources used when using a customer-managed key:
+
+- `Microsoft.Storage/storageAccounts/write`
+- `Microsoft.Search/searchServices/write`
+- `Microsoft.DocumentDB/databaseAccounts/write`
+
+Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](/azure/key-vault/general/security-features#controlling-access-to-key-vault-data).
+
+## Scenario: Use an existing Azure OpenAI resource
+
+When you create a connection to an existing Azure OpenAI resource, you must also assign roles to your users so they can access the resource. You should assign either the **Cognitive Services OpenAI User** or **Cognitive Services OpenAI Contributor** role, depending on the tasks they need to perform. For information on these roles and the tasks they enable, see [Azure OpenAI roles](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles).
+
+## Scenario: Use Azure Container Registry
+
+An Azure Container Registry instance is an optional dependency for Azure AI Studio hub. The following table lists the support matrix when authenticating a hub to Azure Container Registry, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
+
+| Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
+| ---- | :----: | :----: |
+| Admin user | ✓ | ✓ |
+| AI Studio hub system-assigned managed identity | ✓ | ✓ |
+| AI Studio hub user-assigned managed identity</br>with the **ACRPull** role assigned to the identity |  | ✓ |
+
+A system-assigned managed identity is automatically assigned to the correct roles when the Azure AI hub is created. If you're using a user-assigned managed identity, you must assign the **ACRPull** role to the identity.
 
 ## Next steps
 

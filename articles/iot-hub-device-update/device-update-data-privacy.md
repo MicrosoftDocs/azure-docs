@@ -1,9 +1,9 @@
 ---
 title: Data privacy for Device Update for Azure IoT Hub
 description: Understand how Device Update for IoT Hub protects data privacy.
-author: chrisjlin
-ms.author: lichris
-ms.date: 01/19/2023
+author: eshashah-msft
+ms.author: eshashah
+ms.date: 04/26/2024
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
@@ -29,3 +29,7 @@ Microsoft maintains no information and has no access to data that would allow co
 For more information on Microsoft's privacy commitments, see the "Enterprise and developer products" section of the [Microsoft Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
 
 For more information about data residency with Device Update, see [Regional mapping for disaster recovery for Device Update](device-update-region-mapping.md).
+
+**Device Update usage of Content Delivery Networks**
+
+In order to maintain the scalability and availability of your imported updates, the Device Update for IoT Hub service distributes imported updates to select global Content Delivery Networks (CDNs). This allows your IoT devices to download your imported updates from the closest available CDN endpoint, increasing download speed and reliability. To learn more, visit [Content Delivery Networks](/azure/architecture/best-practices/cdn).

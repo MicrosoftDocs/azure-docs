@@ -159,7 +159,7 @@ items:
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
       - name: Encryption of data at rest
         href: encrypt-data-at-rest.md
-      - name: Manage identity
+      - name: Managed identity
         href: ./how-to/managed-identity.md
       - name: Use Azure OpenAI on your data securely
         href: ./how-to/use-your-data-securely.md
@@ -168,7 +168,7 @@ items:
       - name: Resource creation & model deployment
         href: ./how-to/create-resource.md
       - name: OpenAI vs Azure OpenAI (Python)
-        href: ./how-to/switching-endpoints.md
+        href: ./how-to/switching-endpoints.yml
       - name: Manage quota
         href: ./how-to/quota.md
       - name: Dynamic quota
@@ -268,7 +268,7 @@ items:
     - name: REST API (completions & embeddings)
       href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2024-03-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: Templates
