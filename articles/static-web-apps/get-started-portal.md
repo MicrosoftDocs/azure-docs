@@ -56,25 +56,25 @@ This article uses an Azure DevOps repository to make it easy for you to get star
 8. Copy a repository URL for the framework of your choice, and paste it into the *Clone URL* box.
 
     # [No Framework](#tab/vanilla-javascript)
-    
+
     [https://github.com/staticwebdev/vanilla-basic.git](https://github.com/staticwebdev/vanilla-basic.git)
-    
+
     # [Angular](#tab/angular)
-    
+
     [https://github.com/staticwebdev/angular-basic.git](https://github.com/staticwebdev/angular-basic.git)
-    
+
     # [Blazor](#tab/blazor)
-    
+
     [https://github.com/staticwebdev/blazor-basic.git](https://github.com/staticwebdev/blazor-basic.git)
-    
+
     # [React](#tab/react)
-    
+
     [https://github.com/staticwebdev/react-basic.git](https://github.com/staticwebdev/react-basic.git)
-    
+
     # [Vue](#tab/vue)
-    
+
     [https://github.com/staticwebdev/vue-basic.git](https://github.com/staticwebdev/vue-basic.git)
-    
+
     ---
 
 9. Select **Import** and wait for the import process to complete.
@@ -133,11 +133,11 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 | Name | Enter **my-first-static-web-app** in the textbox. |
 | Plan type | Select **Free**. |
 | Azure Functions and staging details | Select a region closest to you. |
-| Source | Select **DevOps**. |
+| Source | Select **Azure DevOps**. |
 | Organization | Select your organization. |
 | Project | Select your project. |
 | Repository| Select **my-first-web-static-app**. |
-| Branch | Select **<branch_name>**. |
+| Branch | Select **main**. |
 
 > [!NOTE]
 > Make sure the branch you are using is not protected, and that you have sufficient permissions to issue a `push` command. To verify, browse to your DevOps repository and go to **Repos** -> **Branches** and select **More options**. Next, select your branch, and then **Branch policies** to ensure required policies aren't enabled.
