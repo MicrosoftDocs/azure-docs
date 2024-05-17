@@ -402,16 +402,16 @@ Now you can view the evaluation status and results by following these steps:
 
     :::image type="content" source="../media/tutorials/chat/evaluate-status-completed.png" alt-text="Screenshot of the metric evaluations page." lightbox="../media/tutorials/chat/evaluate-status-completed.png":::
 
-    > [!TIP]
-    > Once the evaluation is in **Completed** status, you don't need compute session or compute to complete the rest of this tutorial. You can stop your compute instance to avoid incurring unnecessary Azure costs. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
+1. Stop your compute session in prompt flow. Go to your prompt flow and select **Compute session running** > **Stop compute session** from the top menu. 
 
-1. Select the name of the evaluation that completed first (*contoso-evaluate-from-flow_variant_0*) to see the evaluation details with the columns that you mapped previously.
+    :::image type="content" source="../media/tutorials/chat/compute-session-stop.png" alt-text="Screenshot of the button to stop a compute session in prompt flow." lightbox="../media/tutorials/chat/compute-session-stop.png":::
+
+    > [!TIP]
+    > Once the evaluation is in **Completed** status, you don't need a compute session to complete the rest of this tutorial. You can stop your compute instance to avoid incurring unnecessary Azure costs. For more information, see [how to start and stop compute](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance).
+
+1. Select the name of the evaluation (such as *evaluation_evaluate_from_flow_variant_0*) to see the evaluation metrics.
 
     :::image type="content" source="../media/tutorials/chat/evaluate-view-results-detailed.png" alt-text="Screenshot of the detailed metrics results page." lightbox="../media/tutorials/chat/evaluate-view-results-detailed.png":::
-
-1. Select the name of the evaluation that completed second (*evaluation_contoso-evaluate-from-flow_variant_0*) to see the evaluation metrics: **Groundedness**, **Relevance**, and **Retrieval score**.
-
-    :::image type="content" source="../media/tutorials/chat/evaluate-view-results-metrics.png" alt-text="Screenshot of the average metrics scores." lightbox="../media/tutorials/chat/evaluate-view-results-metrics.png":::
 
 For more information, see [view evaluation results](../how-to/evaluate-flow-results.md).
 
