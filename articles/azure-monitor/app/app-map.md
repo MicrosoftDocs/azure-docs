@@ -13,7 +13,7 @@ ms.reviewer: rijolly
 
 # Application Map: Triage distributed applications
 
-Developers use application maps to represent the logical structure of their distributed applications. To produce a map, the individual components in an application are identified by their `roleName` or `name` property in recorded telemetry. The components are shown on the map as circles or _nodes_. HTTP calls between the nodes are shown as directional lines (_connectors_ or _edges_), where a _source_ node makes an HTTP to a _target_ node.
+Developers use application maps to represent the logical structure of their distributed applications. The map is produced by identifying the individual application components based on their `roleName` or `name` property in recorded telemetry. Circles (or _nodes_) on the map represent the components and directional lines (_connectors_ or _edges_) show the HTTP calls from _source_ nodes to _target_ nodes.
 
 Azure Monitor provides the Application Map feature to help you quickly implement a map and spot performance bottlenecks or failure hotspots across all components. Each map node is an application component or its dependencies, and provides health KPI and alerts status. You can select any node to see detailed diagnostics for the component, such as Application Insights events. If your app uses Azure services, you can also select Azure diagnostics, such as SQL Database Advisor recommendations.
 
@@ -37,6 +37,8 @@ The mapping experience starts with the progressive discovery of the components w
 
 :::image type="content" source="media/app-map/load-initial.png" alt-text="Screenshot that shows the initial load of an application map in the Azure portal." border="false" lightbox="media/app-map/load-initial-large.png":::
 
+The following sections describe some of the actions available for working with Application Map in the Azure portal.
+
 ### Update map components
 
 The **Update map components** option triggers discovery of components and refreshes the map to show all current nodes. Depending on the complexity of your application, the update can take a minute to load:
@@ -51,13 +53,15 @@ A key objective for the Application Map experience is to help you visualize comp
 
 :::image type="content" source="media/app-map/view-details.png" alt-text="Screenshot that shows how to view details for a selected node in an application map." lightbox="media/app-map/view-details-large.png":::
 
-Each section of the pane has an option to see more information in a larger view, such as failures, performance, and details about failed requests and dependencies.
+Each pane section includes an option to see more information in an expanded view, including failures, performance, and details about failed requests and dependencies.
 
 ### Investigate failures
 
 In the node details pane, you can use the **Investigate failures** option to view all failures for the component:
 
 :::image type="content" source="media/app-map/investigate-failures.png" alt-text="Screenshot that shows how to select the Investigate failures option in the node details pane." border="false" lightbox="media/app-map/investigate-failures-large.png":::
+
+The **Failures** view lets you explore failure data for operations, dependencies, exceptions, and roles related to the selected component:
 
 :::image type="content" source="media/app-map/view-failures.png" alt-text="Screenshot that shows the Failures view for a selected component." lightbox="media/app-map/view-failures-large.png":::
 
@@ -66,6 +70,8 @@ In the node details pane, you can use the **Investigate failures** option to vie
 In the node details pane, you can troubleshoot performance problems with the component by selecting the **Investigate performance** option:
 
 :::image type="content" source="media/app-map/investigate-performance.png" alt-text="Screenshot that shows how to select the Investigate performance option in the node details pane." border="false" lightbox="media/app-map/investigate-performance-large.png":::
+
+The **Performance** view lets you explore telemetry data for operations, dependencies, and roles connected with the selected component:
 
 :::image type="content" source="media/app-map/view-performance.png" alt-text="Screenshot that shows the Performance view for a selected component." lightbox="media/app-map/view-performance-large.png":::
 
@@ -87,7 +93,7 @@ You can use the **View all** option to see the stack details with trace and even
 
 In the node details pane, you can query and investigate your applications data further with the **View in Logs (Analytics)** option: 
 
-:::image type="content" source="media/app-map/view-in-logs.png" alt-text="Screenshot that shows how to select the View in Logs (Analytics) option in the node details pane." border="false" lightbox="media/app-map/view-in-logs-large.png":::
+:::image type="content" source="media/app-map/view-in-logs.png" alt-text="Screenshot that shows how to select the View in Logs (Analytics) option in the node details pane." lightbox="media/app-map/view-in-logs-large.png":::
 
 The **Logs (Analytics)** page provides options to explore your application telemetry table records with built-in or custom queries and functions. You can work with the data by adjusting the format, and saving and exporting your analysis: 
 
@@ -97,7 +103,7 @@ The **Logs (Analytics)** page provides options to explore your application telem
 
 The **View alerts** option in the node details pane lets you see active alerts:
 
-:::image type="content" source="media/app-map/view-alerts.png" alt-text="Screenshot that shows how to select the View Alerts option in the node details pane." border="false" lightbox="media/app-map/view-alerts-large.png":::
+:::image type="content" source="media/app-map/view-alerts.png" alt-text="Screenshot that shows how to select the View Alerts option in the node details pane." lightbox="media/app-map/view-alerts-large.png":::
 
 The **Alerts** page shows critical and fired alerts:
 
