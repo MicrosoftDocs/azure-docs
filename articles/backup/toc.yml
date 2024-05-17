@@ -42,6 +42,8 @@
       href: quick-blob-vaulted-backup-powershell.md
     - name: Configure blob backup using Azure CLI
       href: quick-blob-vaulted-backup-cli.md
+    - name: Configure blob backup using ARM template
+      href: backup-blobs-storage-account-arm-template.md  
     - name: Configure blob backup using Bicep
       href: backup-blobs-storage-account-bicep.md
   - name: Install Backup extension in AKS cluster

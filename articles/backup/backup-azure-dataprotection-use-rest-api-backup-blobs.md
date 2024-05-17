@@ -14,13 +14,7 @@ ms.author: v-abhmallick
 
 Azure Backup enables you to easily configure backup for protecting block blobs in your storage accounts.
 
-This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level.
-
-In this article, you'll learn about:
-
-> [!div class="checklist"]
-> - Prerequisites
-> - Configure backup
+This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level. You can now perform [operational](blob-backup-overview.md?tabs=operational-backup) and [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts using Azure Backup.
 
 For information on the Azure blob region availability, supported scenarios and limitations, see the [support matrix](blob-backup-support-matrix.md).
 

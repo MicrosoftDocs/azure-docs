@@ -12,7 +12,7 @@ ms.author: v-abhmallick
 
 This tutorial describes how to create a backup policy and configure vaulted backup for Azure Blobs using Azure portal.
 
-Azure Backup allows you to configure operational and vaulted backups to protect block blobs in your storage accounts.
+[!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
 
 ## Prerequisites
 

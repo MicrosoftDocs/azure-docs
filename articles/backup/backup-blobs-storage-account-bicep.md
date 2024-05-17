@@ -12,6 +12,8 @@ ms.author: v-abhmallick
 
 This article describes how to back up a storage account with Azure Blob data with a vaulted backup policy using a Bicep template.
 
+[!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
+
 ## Prerequisites
 
 To set up your environment for Bicep development, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install).
