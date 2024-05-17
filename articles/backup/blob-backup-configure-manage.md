@@ -16,9 +16,9 @@ Azure Backup allows you to configure operational and vaulted backups to protect 
 
 # [Operational backup](#tab/operational-backup)
 
-- Operational backup of blobs is a local backup solution that maintains data for a specified duration in the source storage account itself. This solution doesn't maintain an additional copy of data in the vault. This solution allows you to retain your data for restore for up to 360 days. Long retention durations may, however, lead to longer time taken during the restore operation.
-- The solution can be used to perform restores to the source storage account only and may result in data being overwritten.
-- If you delete a container from the storage account by calling the *Delete Container operation*, that container can't be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers, in addition to operational backup, to protect against accidental deletion of containers.
+- Operational backup of blobs is a local backup solution that maintains data for a specified duration in the source storage account itself. This solution doesn't maintain an additional copy of data in the vault. This solution allows you to retain your data for restore for up to 360 days. Long retention durations can, however, lead to longer time taken during the restore operation.
+- The solution can be used to perform restores to the source storage account only and can result in data being overwritten.
+- If you delete a container from the storage account by calling the *Delete Container operation*, that container can't be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you want to restore them later. Also, Microsoft recommends enabling soft delete for containers, in addition to operational backup, to protect against accidental deletion of containers.
 - Ensure that the **Microsoft.DataProtection** provider is registered for your subscription.
 
 For more information about the supported scenarios, limitations, and availability, see the [support matrix](blob-backup-support-matrix.md).
@@ -184,7 +184,7 @@ To stop backup for a storage account, follow these steps:
  
     ![Stop operational backup](./media/blob-backup-configure-manage/stop-operational-backup.png)
 
-After stopping backup, you may disable other storage data protection capabilities (enabled for configuring backups) from the data protection blade of the storage account.
+After stopping backup, you can disable other storage data protection capabilities (enabled for configuring backups) from the data protection blade of the storage account.
 
 
 ## Next steps
