@@ -1,13 +1,13 @@
 ---
 title: Developer portal - Frequently asked questions
 titleSuffix: Azure API Management
-description: Frequently asked questions about the developer portal in API Management. The developer portal is a customizable website for API consumers to explore your APIs.
+description: Frequently asked questions about the developer portal in API Management. The developer portal is a customizable website where API consumers can explore your APIs.
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: troubleshooting
-ms.date: 05/17/2024
+ms.date: 04/01/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -47,9 +47,9 @@ No.
 
 In most cases - no.
 
-If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. 
+If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you'll see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
-If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the internet, you may need to disable Web Application Firewall rules. See [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
+If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management. You may need to disable Web Application Firewall rules. See [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
 
 ## I assigned a custom API Management domain and the published portal doesn't work
 
@@ -107,6 +107,14 @@ New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM N
 
 After the permissions have been granted to a user, the user must sign out and sign in again to the Azure portal for the new permissions to take effect.
 
+## I'm seeing the `Unable to start the portal. See if settings are specified correctly (...)` error
+
+This error is shown when a `GET` call to `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` fails. The call is issued from the browser by the administrative interface of the portal.
+
+If your API Management service is in a VNet, refer to the [VNet connectivity question](#do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies).
+
+The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and isn't trusted by the browser. As a mitigation, you can remove the management endpoint custom domain. API Management will fall back to the default endpoint with a trusted certificate.
+
 ## What's the browser support for the portal?
 
 | Browser                     | Supported       |
@@ -141,52 +149,6 @@ If you don't need the sign-up functionality enabled by default in the developer 
    Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/current-ga/content-item) REST APIs to list and delete this page.
  
 1. Save your changes, and [republish the portal](developer-portal-overview.md#publish-the-portal).
-
-### How do I enable or disable the developer portal?
-
-> [!NOTE]
-> - Once the legacy portal has been disabled by Microsoft, it cannot be re-enabled.
-> - If you wish to disable the developer portal using the method below, you will not be able to access the administrative interface of the portal (design mode).
-> - If your requirement is to remove the published portal while retaining access to the portal in design mode, please contact [Microsoft support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
-
-Developer portal can be enabled or disabled using this [PATCH REST API](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview) with the appropriate fields: 
-- Use the [LegacyPortalStatus property](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview#legacyportalstatus) to enable or disable the legacy portal.
-- Use the [developerPortalStatus property](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview#developerportalstatus) to enable or disable the new developer portal.
-
-Below are sample REST calls demonstrating how to disable the legacy portal and the new developer portal for an existing API Management service:
-
-To disable the legacy portal:
-
-````
-PATCH https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ApiManagement/service/<apim_service_name>?api-version=2023-05-01-preview
-Authorization: Bearer <<redacted>>
-Content-type: application/json
-
-{
-  "properties": {
-        "legacyPortalStatus": "Disabled"
-   }
-}
-````
-
-To disable the new developer portal:
-
-```
-PATCH https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ApiManagement/service/<apim_service_name>?api-version=2023-05-01-preview
-Authorization: <<redacted>>
-Content-type: application/json
-
-{
-  "properties": {
-       "developerPortalStatus": "Disabled"
-   }
-}
-```
-
-This operation may take up to 1 hour to complete. Ensure that you are using an API version that supports the `legacyPortalStatus` or `developerPortalStatus` property.
-
-To re-enable the developer portal, use the same PATCH operation and set the value of the appropriate property to `Enabled`.
-
 
 ## How can I remove the developer portal content provisioned to my API Management service?
 
