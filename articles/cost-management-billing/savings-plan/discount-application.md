@@ -51,6 +51,6 @@ Azure's intent is to always maximize the benefit you receive from savings plans.
 
 At the end of the savings plan term, the billing discount expires, and the resources are billed at the pay-as-you go price. By default, the savings plans aren't set to renew automatically. You can choose to enable automatic renewal of a savings plan by selecting the option in the renewal settings.
 
-## Next steps
+## Related content
 
 - [Manage Azure savings plans](manage-savings-plan.md)

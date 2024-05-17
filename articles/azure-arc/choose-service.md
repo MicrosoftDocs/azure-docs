@@ -1,7 +1,7 @@
 ---
 title: Choosing the right Azure Arc service for machines
 description: Learn about the different services offered by Azure Arc and how to choose the right one for your machines.
-ms.date: 04/08/2024
+ms.date: 05/07/2024
 ms.topic: conceptual
 ---
 
@@ -14,7 +14,7 @@ There are several different ways you can connect your existing Windows and Linux
 - Azure Arc-enabled servers
 - Azure Arc-enabled VMware vSphere
 - Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
-- Azure Arc-enabled Azure Stack HCI
+- Azure Stack HCI
 
 Each of these services extends the Azure control plane to your existing infrastructure and enables the use of [Azure security, governance, and management capabilities using the Connected Machine agent](/azure/azure-arc/servers/overview). Other services besides Azure Arc-enabled servers also use an [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview), a part of the core Azure Arc platform that provides self-servicing and additional management capabilities.
 
@@ -25,7 +25,7 @@ General recommendations about the right service to use are as follows:
 |VMware VM (not running on AVS) |[Azure Arc-enabled VMware vSphere](vmware-vsphere/overview.md) |
 |Azure VMware Solution (AVS) VM |[Azure Arc-enabled VMware vSphere for Azure VMware Solution](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) |
 |VM managed by System Center Virtual Machine Manager |[Azure Arc-enabled SCVMM](vmware-vsphere/overview.md) |
-|Azure Stack HCI VM |[Arc-enabled Azure Stack HCI](/azure-stack/hci/overview) |
+|Azure Stack HCI VM |[Azure Stack HCI](/azure-stack/hci/overview) |
 |Physical server |[Azure Arc-enabled servers](servers/overview.md) |
 |VM on another hypervisor |[Azure Arc-enabled servers](servers/overview.md) |
 |VM on another cloud provider |[Azure Arc-enabled servers](servers/overview.md) |
@@ -129,18 +129,19 @@ Azure Arc-enabled System Center Virtual Machine Manager also allows you to manag
 
 The following table provides a quick way to see the major capabilities of the three Azure Arc services that connect your existing Windows and Linux machines to Azure Arc.
 
-| _ |Arc-enabled servers  |Arc-enabled VMware vSphere  |Arc-enabled SCVMM  |Arc-enabled Azure Stack HCI  |SQL Server enabled by Azure Arc  |
+| _ |Arc-enabled servers  |Arc-enabled VMware vSphere  |Arc-enabled SCVMM  |Azure Stack HCI  |
 |---------|---------|---------|---------|---------|---------|
-|Microsoft Defender for Cloud     |✓         |✓         |✓         |✓         |✓         |
-|Microsoft Sentinel     | ✓        |✓         |✓         |✓         |✓         |
-|Azure Automation     |✓         |✓         |✓         |✓         |✓         |
-|Azure Update Manager     |✓         |✓         |✓         |✓         |✓         |
-|VM extensions     |✓         |✓         |✓         |✓         |✓         |
-|Azure Monitor     |✓         |✓         |✓         |✓         |✓         |
-|Extended Security Updates for Windows Server 2012/2012R2     |✓         |✓         |✓         |✓         |✓         |
-|Discover & onboard VMs to Azure     |         |✓         |✓         |✓         |✓         |
-|Lifecycle operations (start/stop VMs, etc.)     |         |✓         |✓         |✓         |✓         |
-|Self-serve VM provisioning     |         |✓         |✓         |✓         |✓         |
+|Microsoft Defender for Cloud     |✓         |✓         |✓         |✓         |
+|Microsoft Sentinel     | ✓        |✓         |✓         |✓         |
+|Azure Automation     |✓         |✓         |✓         |✓         |
+|Azure Update Manager     |✓         |✓         |✓         |✓         |
+|VM extensions     |✓         |✓         |✓         |✓         |
+|Azure Monitor     |✓         |✓         |✓         |✓         |
+|Extended Security Updates for Windows Server 2012/2012R2 and SQL Server 2012 (11.x)     |✓         |✓         |✓         |✓         |
+|Discover & onboard VMs to Azure     |         |✓         |✓         |✗         |
+|Lifecycle operations (start/stop VMs, etc.)     |         |✓         |✓         |✓         |
+|Self-serve VM provisioning     |         |✓         |✓         |✓         |
+|SQL Server enabled by Azure Arc     |✓         |✓         |✓         |✓         |
 
 ## Switching from Arc-enabled servers to another service
 

@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: overview
-ms.date: 10/19/2023
+ms.date: 05/06/2024
 ---
 # What is Service Connector?
 
@@ -75,21 +75,10 @@ What's more, Service Connector is also supported in the following client tools w
 
 Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you're recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
 
-## Next steps
+## Related content
 
-Follow the tutorials listed below to start building your own application with Service Connector.
-
-> [!div class="nextstepaction"]
-> [Quickstart: Service Connector in App Service using Azure CLI](./quickstart-cli-app-service-connection.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Service Connector in App Service using Azure portal](./quickstart-portal-app-service-connection.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Service Connector in Spring Cloud using Azure portal](./quickstart-portal-spring-cloud-connection.md)
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+- [Quickstart: Service Connector in Azure App Service](./quickstart-portal-app-service-connection.md)
+- [Quickstart: Service Connector in Azure Functions](./quickstart-portal-functions-connection.md)
+- [Quickstart: Service Connector in Azure Spring Cloud](./quickstart-portal-spring-cloud-connection.md)
+- [Quickstart: Service Connector in Azure Container Apps](./quickstart-portal-container-apps.md)
+- [Learn about Service Connector concepts](./concept-service-connector-internals.md)

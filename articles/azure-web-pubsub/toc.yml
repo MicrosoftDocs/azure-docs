@@ -31,6 +31,8 @@
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
       href: tutorial-build-chat.md
+    - name: Develop with Visual Studio Code
+      href: tutorial-develop-with-visual-studio-code.md
     - name: Client streaming with a service-supported subprotocol
       href: tutorial-subprotocol.md
     - name: Authentication and permissions
@@ -126,7 +128,7 @@
           href: howto-move-across-regions.md
     - name: Troubleshoot
       items:
-        - name: Debug event handlers locally
+        - name: Debug event handlers
           href: howto-local-debug-event-handler.md
         - name: Collect network trace
           href: howto-troubleshoot-network-trace.md

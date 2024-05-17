@@ -4,7 +4,7 @@ description: "You can access HDInsight using Secure Shell (SSH). This document p
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, hdinsightactive, linux-related-content
-ms.date: 04/24/2023
+ms.date: 05/09/2024
 ---
 
 # Connect to HDInsight (Apache Hadoop) using SSH
