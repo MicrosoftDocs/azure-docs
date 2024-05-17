@@ -90,7 +90,7 @@ Models deployed as serverless APIs can be consumed using the chat API, depending
 
 You can find the pricing information on the **Pricing and terms** tab of the deployment wizard when deploying the model. 
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per workspace. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
 
 

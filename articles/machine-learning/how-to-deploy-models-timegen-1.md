@@ -53,7 +53,7 @@ These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 
 1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
 1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a workspace.
+1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a workspace.
 1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, you'll see a **Continue to deploy** option to select.
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region. 
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
@@ -231,11 +231,11 @@ This JSON sample is an example response:
 
 Nixtla offers TimeGEN-1 deployed as a serverless API through the Azure Marketplace. TimeGEN-1 is integrated with Azure Machine Learning for use. You can find more information about Azure Marketplace pricing when you deploy the model.
 
-Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
+Each time a workspace subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
 For more information about how to track costs, visit [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits are insufficient for your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per workspace. Contact Microsoft Azure Support if the current rate limits are insufficient for your scenarios.
 
 ## Related content
 
