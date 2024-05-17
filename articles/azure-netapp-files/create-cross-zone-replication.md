@@ -18,27 +18,7 @@ For information about availability zones, see [Use availability zones for high a
 
 Before you begin, you should review the [requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md).
 
-[!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
-
-## Register the feature 
-
-Cross-zone replication is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossZoneReplication
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossZoneReplication
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+You can also confirm what [regions support cross-zone replication](cross-zone-replication-introduction.md#supported-regions).
 
 ## Create the source volume with an availability zone  
 

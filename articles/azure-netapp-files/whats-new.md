@@ -14,6 +14,8 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Cross-zone replication](cross-zone-replication-introduction.md) is now generally available (GA).
+
 ## May 2024
 
 * [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (Preview)
