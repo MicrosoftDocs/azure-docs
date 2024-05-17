@@ -8,10 +8,9 @@ ms.reviewer: viviandiec
 
 # Understand monitoring costs for Container insights
 
-This article provides guidance for analyzing your cost for collecting 
+This article provides guidance for Container insights to help you understand your costs for Container insights after it's been enabled for one or more containers and how to filter data that you don't require and edit your collection settings to reduce your overall costs.
 
-
-## Data collected
+## Data collected by Container insights
 The following table describes each of the tables stored in the Log Analytics workspace for Container insights.
 
 | Table | Details | 
@@ -22,7 +21,6 @@ The following table describes each of the tables stored in the Log Analytics wor
 | ContainerInventory | – 1 per container per minute |
 | KubeServices | – 1 per service per minute |
 
-The Azure Monitor pricing model is primarily based on the amount of data ingested in gigabytes per day into your Log Analytics workspace. The cost of a Log Analytics workspace isn't based only on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your clusters.
 
 The following types of data collected from a Kubernetes cluster with Container insights influence cost and can be customized based on your usage:
 
@@ -54,9 +52,7 @@ There are two methods that you can use to filter data being collected in Contain
 | Data collection rule (DCR) | [Data collection rules](../monitoring-overview.md) are sets of instructions supporting data collection using the [Azure Monitor pipeline](../essentials/pipeline-overview.md). A DCR is created when you enable Container insights, and you can modify the settings in this DCR either using the Azure portal or other methods. |
 
 ## Container logs
-Depending on the [log schema](container-insights-logs-schema.md) you have configured for your cluster, stdout and stderr logs will be collected in either [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) or [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2). 
-
-You can filter container logs using either ConfigMap or DCR. 
+Depending on the [log schema](container-insights-logs-schema.md) you have configured for your cluster, stdout and stderr logs will be collected in either [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) or [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2). You can filter container logs using either ConfigMap or DCR. 
 
 ### ConfigMap
 
@@ -101,12 +97,17 @@ After you apply one or more of these changes to your ConfigMaps, apply it to you
 
 
 ### Configure Basic Logs
+[Basic Logs in Azure Monitor](../logs/basic-logs-configure.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that 
 
 You can save on data ingestion costs on ContainerLog in your Log Analytics workspace that you primarily use for debugging, troubleshooting, and auditing as Basic Logs. For more information, including the limitations of Basic Logs, see [Configure Basic Logs in Azure Monitor](../logs/basic-logs-configure.md). ContainerLogV2 is the configured version of Basic Logs that Container Insights uses. ContainerLogV2 includes verbose text-based log records.
 
 You must be on the ContainerLogV2 schema to configure Basic Logs. For more information, see [Enable the ContainerLogV2 schema (preview)](container-insights-logs-schema.md).
 
 
+## Transformations
+[Ingestion time transformations](../essentials/data-collection-transformations.md) allow you to apply a KQL query to filter and transform data in the [Azure Monitor pipeline](../essentials/pipeline-overview.md) before it's stored in the Log Analytics workspace. Add a transformation to the DCR created by Container insights to perform any additional filtering that you cannot perform with the options described above. This includes filtering data using more detailed logic, removing columns in the data that you don't require, or even sending data to multiple tables. 
+
+See [Data transformations in Container insights](./container-insights-transformations.md)
 
 
 ## Next steps
