@@ -6,7 +6,7 @@ ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/02/2024
+ms.date: 05/17/2024
 ms.author: cshoe
 ---
 
