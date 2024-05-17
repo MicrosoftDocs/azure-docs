@@ -1,20 +1,22 @@
 ---
-title: Create a .NET app on Service Fabric in Azure 
-description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
+title: "Tutorial: Build a .NET app in Azure Service Fabric" 
+description: In this tutorial, learn how to create an application by using an ASP.NET Core front end and a reliable service, stateful back end. Then, deploy the application to a cluster.
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 ms.custom: devx-track-dotnet
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 05/17/2024
 ---
 
-# Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
+# Tutorial: Build a .NET application
 
-This tutorial is part one of a series. You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. This tutorial series requires a Windows developer machine. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor). If you prefer, you can also watch a [video walk-through](/Events/Connect/2017/E100) of this tutorial.
+This tutorial is **part one** in a series. In this tutorial, learn how to create an Azure Service Fabric application that has an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application that has an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
 
-![AngularJS+ASP.NET API Front End, Connecting to a stateful backend service on Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+This tutorial series requires a Windows developer computer. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor). If you prefer, you can also watch a [video walkthrough](/Events/Connect/2017/E100) of this tutorial.
+
+:::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/application-diagram.png" alt-text="Diagram that shows an AngularJS+ASP.NET API front end connecting to a stateful back-end service in Service Fabric." borders="false":::
 
 In part one of the series, you learn how to:
 
@@ -24,13 +26,13 @@ In part one of the series, you learn how to:
 > * Create an ASP.NET Core Web Application service as a stateless web service
 > * Use the reverse proxy to communicate with the stateful service
 
-In this tutorial series you learn how to:
+In this tutorial series, you learn how to:
 > [!div class="checklist"]
 >
 > * Build a .NET Service Fabric application
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configure CI/CD using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configure CI/CD by using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
@@ -58,6 +60,8 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    ![New project dialog in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
 1. On the **New Service Fabric Service** pane, select **Stateless ASP.NET Core**, name your service **VotingWeb**, and then select **OK**.
+
+   
 
    ![Choosing ASP.NET web service in the new service dialog](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png)
 
