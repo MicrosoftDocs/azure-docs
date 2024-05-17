@@ -48,6 +48,8 @@ In this tutorial you learn how to:
 
 # [OpenAI Python 1.x](#tab/python-new)
 
+This tutorial provides examples of some of the latest OpenAI features include seed/events/checkpoints. In order to take advantage of these features you may need to run `pip install openai --upgrade` to upgrade to the latest release.
+
 ```cmd
 pip install openai requests tiktoken numpy
 ```
@@ -802,7 +804,6 @@ This command isn't available in the 0.28.1 OpenAI Python library. Upgrade to the
 }
 ```
 
-
 ## Final training run results
 
 To get the final results, run the following:
@@ -830,14 +831,6 @@ fine_tuned_model = response["fine_tuned_model"]
 ```
 
 ---
-
-**Python 1.x Output:**
-
-```output
-Fine-tuning job ftjob-900fcfc7ea1d4360a9f0cb1697b4eaa6 finished with status: succeeded
-Checking other fine-tune jobs for this resource.
-Found 4 fine-tune jobs.
-```
 
 ## Deploy fine-tuned model
 
