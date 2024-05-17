@@ -17,7 +17,7 @@ Developers use application maps to represent the logical structure of their dist
 
 Azure Monitor provides the **Application map** feature to help you quickly implement a map and spot performance bottlenecks or failure hotspots across all components. Each map node is an application component or its dependencies, and provides health KPI and alerts status. You can select any node to see detailed diagnostics for the component, such as Application Insights events. If your app uses Azure services, you can also select Azure diagnostics, such as SQL Database Advisor recommendations.
 
-**Application map** also features [Intelligent view](#application-map-intelligent-view) to assist with fast service health investigations.
+**Application map** also features [Intelligent view](#explore-intelligent-view) to assist with fast service health investigations.
 
 ## Understand components
 
@@ -113,6 +113,8 @@ The **Alert rules** option on the **Alerts** page shows the underlying rules tha
 
 :::image type="content" source="media/app-map/review-alert-rules.png" alt-text="Screenshot that shows the list of alert rules defined for the selected component." lightbox="media/app-map/review-alert-rules-large.png":::
 
+<a name="understand-the-cloud-role-name-within-the-context-of-an-application-map">
+
 ## Understand cloud role names and nodes
 
 **Application map** uses the cloud role name property to identify the application components on a map. To explore how cloud role names are used with component nodes, look at an application map that has multiple cloud role names present. 
@@ -141,7 +143,9 @@ A scenario where you might want to override the value for a cloud role instance 
 
 For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-## Set or override cloud role names
+<a name="set-or-override-cloud-role-name">
+
+## Set cloud role names
 
 **Application map** uses the cloud role name property to identify the components on the map. This section provides examples to manually set or override cloud role names and change what appears on the application map. 
 
@@ -419,10 +423,9 @@ There are many filter combinations. Here are some suggestions that apply to most
 
 - Show only connectors that have higher error rates than a specific value
 
-   :::image type="content" source="media/app-map/image-17.png" alt-text="Screenshot that shows the Last 24 hours and Errors greater than 0.01 filters." lightbox="media/app-map/image-17.png :::  
+   :::image type="content" source="media/app-map/image-17.png" alt-text="Screenshot that shows the Last 24 hours and Errors greater than 0.01 filters." lightbox="media/app-map/image-17.png":::  
 
-
-## Intelligent view
+## Explore Intelligent view
 
 The **Intelligent view** feature for **Application map** is designed to aid in service health investigations. It applies machine learning to quickly identify potential root causes of issues by filtering out noise. The machine learning model learns from **Application map**'s historical behavior to identify dominant patterns and anomalies that indicate potential causes of an incident.
 
@@ -434,9 +437,9 @@ There are many benefits to using **Intelligent view**:
 - Provides actionable insights on why a certain red edge was highlighted
 - Enables **Application map** to be used for large distributed applications seamlessly (by focusing only on  edges marked in red)
 
-### Intelligent view in Application map
+### Work with Intelligent view
 
-Enable the **Intelligent view** toggle. Optionally, to change the sensitivity of the detections, select **Low**, **Medium**, or **High**. For more information, see the troubleshooting question about [sensitivity](#how-does-intelligent-view-sensitivity-work).
+Enable the **Intelligent view** toggle. Optionally, to change the sensitivity of the detections, select **Low**, **Medium**, or **High**. For more information, see the troubleshooting question about [sensitivity](#adjust-sensitivity-setting).
 
 :::image type="content" source="media/app-map/intelligent-view-toggle.png" alt-text="Screenshot that shows the Application map user interface with options to toggle Intelligent view and provide feedback." lightbox="media/app-map/intelligent-view-toggle.png":::
 
@@ -448,7 +451,7 @@ To begin troubleshooting, select **Investigate failures**. In the **Failures** p
 
 To provide feedback, select the **Feedback** button on the map.
 
-### Determination of highlighted red edges
+### Determine highlighted red edges
 
 **Intelligent view** uses the patented AIOps machine learning model to highlight the significant and important data in an application map. These edges in your map are highlighted in red. Various application data are used to determine which data to highlight on the map, including:
 
@@ -460,7 +463,7 @@ To provide feedback, select the **Feedback** button on the map.
 
 For comparison, the normal view only utilizes the raw failure rate.
 
-### Sensitivity setting
+### Adjust sensitivity setting
 
 **Intelligent view** sensitivity adjusts the probability that a service issue is detected.
 
@@ -491,7 +494,7 @@ Here are some general recommendations:
 
 - If you use Azure Functions with C#, upgrade to [Azure Functions V2](../../azure-functions/functions-versions.md).
 
-- Confirm the [cloud role name](#set-or-override-cloud-role-name) is correctly configured.
+- Confirm the [cloud role name](#set-cloud-role-names) is correctly configured.
 
 - If a dependency is missing, make sure it's in the list of [autocollected dependencies](asp-net-dependencies.md#dependency-auto-collection). If the dependency isn't listed, you can track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
@@ -511,7 +514,7 @@ To fix this issue, you need to change your instrumentation to properly set the c
 
 - A dependency type should represent the logical type of a dependency. For example, HTTP, SQL, or Azure Blob are typical dependency types. It shouldn't contain unique IDs.
 
-- A cloud role name purpose should apply the description in the [Set or override cloud role name](#set-or-override-cloud-role-name) section.
+- A cloud role name purpose should apply the description in the [Set or override cloud role name](#set-cloud-role-names) section.
 
 ### Intelligent view: Edge not highlighted
 
