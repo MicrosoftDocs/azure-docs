@@ -14,7 +14,7 @@ ms.author: mjyothish
 
 **Applies to:** :heavy_check_mark: Application Gateway v1 deployments
 
-We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. Starting from **April 28, 2026**, we're retiring ApplicationGateway v1 SKU. This means that the service is'nt supported after this date. If you use Application Gateway V1 SKU, start planning your migration to V2 now. Complete it by April 28, 2026, to take advantage of [Application Gateway V2](./overview-v2.md).
+We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. Beginning **April 28, 2026**, the Application Gateway V1 SKU will be retired, meaning it will no longer be supported after this date. If you use Application Gateway V1 SKU, start planning your migration to V2 now. Complete it by April 28, 2026, to take advantage of [Application Gateway V2](./overview-v2.md).
 
 ## Retirement Timelines 
 
@@ -36,7 +36,7 @@ We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. St
 
 Start planning your migration to Application Gateway V2 today.
 
-- Make a list of all Application Gateway V1 Sku gateways: On April 28,2023, we sent out emails with subject "Retirement Notice: Transition to Application Gateway V2 by 28 April 2026" to V1 subscription owners. The email provides the Subscription, Gateway Name and Application Gateway V1 resource details. Use the details to build this list.
+- Make a list of all Application Gateway V1 Sku gateways: On April 28,2023, we sent out emails with subject "Retirement Notice: Transition to Application Gateway V2 by 28 April 2026" to V1 subscription owners. The email provides the Subscription, Gateway Name, and Application Gateway V1 resource details. Use the details to build this list.
 
 - [Learn more](./migrate-v1-v2.md) about migrating your application gateway V1 to V2 SKU. For more information, see [Frequently asked questions about V1 to V2 migration.](./retirement-faq.md#faq-on-v1-to-v2-migration)
 
