@@ -17,7 +17,7 @@ ms.custom: [references_regions]
 # How to deploy a TimeGEN-1 model with Azure Machine Learning
 
 In this article, you learn how to use Azure Machine Learning to deploy the TimeGEN-1 model as a serverless API with pay-as-you-go billing.
-You filter on the Nixtla collection to browse the TimeGEN-1 model in the [Model Catalog](model-catalog.md).
+You filter on the Nixtla collection to browse the TimeGEN-1 model in the [model catalog](concept-model-catalog.md).
 
 The Nixtla TimeGEN-1 is a generative, pretrained forecasting and anomaly detection model for time series data. TimeGEN-1 can produce accurate forecasts for new time series without training, using only historical values and exogenous covariates as inputs.
 
@@ -47,12 +47,12 @@ These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
 1. Select the workspace in which you want to deploy your models. To use the serverless API model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
 1. Choose the model **TimeGEN-1**, from the [model catalog](https://ml.azure.com/model/catalog). 
-1. On the model's overview page in the model catalog, select **Deploy** and then **Serverless API with Azure AI Content Safety**.
+1. On the model's overview page in the model catalog, select **Deploy** to open up the serverless API deployment window.
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**. Then, you can select a model.
 
 1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
-1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
+1. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
 1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a workspace.
 1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, you'll see a **Continue to deploy** option to select.
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region. 
