@@ -10,11 +10,7 @@ ms.author: anfdocs
 ---
 # Use availability zones zonal placement for application high availability with Azure NetApp Files
 
-Azure [availability zones](../availability-zones/az-overview.md#availability-zones) are physically separate locations within each supporting Azure region that are tolerant to local failures.
-
-Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
-
-Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
+Azure [availability zones](../availability-zones/az-overview.md#availability-zones) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
 
 >[!IMPORTANT]
 >Although the use of zonal placement with Azure NetApp Files combined with application-based replication and failover technologies can be used to create a highly-available architecture, using Azure NetApp Files zonal placement alone does not provide zonal redundancy. If your workload does not support application-based replication and failover, consider using Azure NetApp Files [cross-zone replication](cross-zone-replication-introduction.md) for additional redundancy.
@@ -26,13 +22,22 @@ Azure availability zones are highly available, fault tolerant, and more scalable
 
 The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation.
 
-Azure NetApp Files' [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy each volume in an availability zone of your choice, in alignment with Azure compute and other services in the same zone.  
+Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
+
+
+Before using an availability zone, understand the following concepts:
+
+- **Zonal placement**: Resources are pinned to a specific availability zone. You can combine multiple zonal deployments across different zones to meet high reliability requirements. You're responsible for managing data replication and distributing requests across zones. If an outage occurs in a single availability zone, you're responsible for failover to another availability zone.
+
+- **Zone redundancy**: Resources are spread across multiple availability zones. Microsoft manages spreading requests across zones and the replication of data across zones. If an outage occurs in a single availability zone, Microsoft manages failover automatically.
 
 [!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
+Azure NetApp Files' [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy each volume in the specific availability zone of your choice, in alignment with Azure compute and other services in the same zone. 
+
 :::image type="content" alt-text="Diagram of three availability zones in one Azure region." source="./media/use-availability-zones/availability-zone-diagram.png":::
 
-All virtual machines (VMs) within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). VMs accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. 
+In the diagram, all virtual machines (VMs) within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). VMs accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. Note there's no replication between the different volumes at the platform level.
 
 Azure NetApp Files deployments occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
 

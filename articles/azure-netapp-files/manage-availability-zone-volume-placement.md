@@ -185,7 +185,7 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
 
 ## Next steps  
 
-* [Use availability zones for high availability](use-availability-zones.md)
+* [Use availability zones zonal placement for application high availability with Azure NetApp Files](use-availability-zones.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    
