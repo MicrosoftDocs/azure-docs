@@ -32,7 +32,7 @@ There are no PowerShell cmdlets for the data plane for queues. To perform data p
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions. If needed, you can specify a subscription by adding the `-TenantId` and `Subscription` parameters and including the respective values.
 
 ```powershell
 Connect-AzAccount
@@ -99,30 +99,54 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## Add a message to a queue
 
-Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [`Microsoft.Azure.Storage.Queue.CloudQueueMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [`AddMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array.
+<!-->
+Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [`Microsoft.Azure.Storage.Queue.CloudQueueMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [`AddMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array.-->
 
-The following example demonstrates how to add a message to your queue.
+Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient?view=azure-dotnet) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage?view=azure-dotnet#azure-storage-queues-queueclient-sendmessage%28system-string%29) or [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync?view=azure-dotnet#azure-storage-queues-queueclient-sendmessageasync%28system-string%29) method. 
+
+`Insert Send and SenfAsync differentiator here.`
+
+Your message string must be in UTF-8 format. Non-compliant messages can also be passed by setting the [`MessageEncoding`](/dotnet/api/azure.storage.queues.queueclientoptions.messageencoding?view=azure-dotnet) option to Base64.
+
+The following example demonstrates how to add messages to your queue.
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
-$queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 1")
+$queueMessage = "This is message 1"
 
 # Add a new message to the queue
-$queue.CloudQueue.AddMessageAsync($queueMessage)
+$queue.QueueClient.AddMessageAsync($queueMessage)
 
 # Add two more messages to the queue
-$queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 2")
-$queue.CloudQueue.AddMessageAsync($queueMessage)
-
-$queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 3")
-$queue.CloudQueue.AddMessageAsync($queueMessage)
+$queueMessages = @("This is message 2","This is message 3")
+$queueMessages | foreach {$queue.QueueClient.AddMessageAsync($_)}
 ```
 
 If you use the [Azure Storage Explorer](https://storageexplorer.com), you can connect to your Azure account and view the queues in the storage account, and drill down into a queue to view the messages on the queue.
 
+## Retrieve messages from a queue
+
+Though not always guaranteed, messages are retrieved from a queue in *best-try*, *first-in-first-out* order. 
+
+Depending on your use case, you can be retrieve one or more messages from a queue. You also have the option to modify the visibility of the messages, either permitting or preventing other processes from accessing the same message.
+
+When you *read* a message from the queue using a method such as [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage?view=azure-dotnet#azure-storage-queues-queueclient-receivemessage), it becomes invisible to all other processes looking at the queue. This ensures that if the message isn't processed, another instance of your code can retrieve the same message and try again.
+
+`However, you might sometimes feel like making a funny face at Daniel and reading messages in the queue without altering their visibility.` In these cases, you can *peek* at a message from the queue using a method similar to [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage?view=azure-dotnet#azure-storage-queues-queueclient-peekmessage).
+
+Whether Both types of access function, *receive* and *peek*, have 
+
+### Peek at a message in the queue
+
+
+
+
+
+
+
 ## Read a message from the queue, then delete it
 
-Messages are read in best-try first-in-first-out order. This is not guaranteed. When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.
+<!--Messages are read in best-try first-in-first-out order. This is not guaranteed. -->When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.
 
 This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds.
 
