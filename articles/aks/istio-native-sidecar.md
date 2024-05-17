@@ -10,17 +10,15 @@ author: biefy
 
 # Enable native sidecar mode for Istio-based service mesh add-on in Azure Kubernetes Service (AKS) (preview)
 
-Starting from Kubernetes `1.29`, [SidecarContainers][k8s-native-sidecar-support] feature is turned on for AKS. With this change, [Istio native sidecar mode][istio-native-sidecar-support] can be used with the add-on.
-
 Kubernetes native sidecar aims to provide a more robust and user-friendly way to incorporate sidecar patterns into Kubernetes applications, improving efficiency, reliability, and simplicity.
 
 Native sidecar is a good fit for Istio, offering several benefits such as simplified sidecar management, improved reliability and coordination, resource optimization, operational efficiency, and enhanced security. These improvements can help Istio function more smoothly and effectively, making it easier to deploy and manage service meshes on Kubernetes.
 
+Starting from Kubernetes version 1.29, [sidecar containers][k8s-native-sidecar-support] feature is turned on for AKS. With this change, [Istio native sidecar mode][istio-native-sidecar-support] can be used with the Istio add-on for AKS.
+
 This article walks through how to enable native sidecar mode for Istio based service mesh on AKS.
 
 ## Before you begin
-
-  At preview phase, turning on the native sidecar mode requires explicit opt-in by registering a feature flag to your subscription.
 
 1. Register `IstioNativeSidecarModePreview` feature flag through [az feature register][az-feature-register].
 
@@ -28,7 +26,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
     az feature register --namespace Microsoft.ContainerService --name IstioNativeSidecarModePreview
     ```
 
-2. Verfiy the registion status through [az feature show][az-feature-show].
+2. Verify the registration status through [az feature show][az-feature-show].
 
     ```bash
     az feature show --namespace Microsoft.ContainerService --name IstioNativeSidecarModePreview
@@ -54,7 +52,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
 
    If the control plane version is too old, [upgrade Kubernetes control plane][upgrade-aks-cluster].
 
-2. Make sure agent pools have been upgraded to `1.29` or newer version and power state is running.
+2. Make sure node pools have been upgraded to `1.29` or newer version and power state is running.
 
    ```bash
    az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER -o json | jq ".agentPoolProfiles[] | { currentOrchestratorVersion, powerState}"
@@ -62,7 +60,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
 
    > [!CAUTION]
    > Native sidecar mode requires both Kubernetes control plane and data plane on 1.29+. Make sure all your nodes have been upgraded to 1.29 before enabling native sidecar mode. Otherwise, your sidecar will not work as expected.
-   If any agent pool version is too old, [upgrade-node-image][upgrade-node-image] to `1.29` or newer version.
+   If any node pool version is too old, [upgrade-node-image][upgrade-node-image] to `1.29` or newer version.
 
 3. Make sure Istio add-on is on `asm-1-20` or newer revision.
 
@@ -75,7 +73,13 @@ This article walks through how to enable native sidecar mode for Istio based ser
 
 ### Check native sidecar feature status on Istio control plane
 
-Run the following command to check istiod deployment. 
+Run [az aks update][az-aks-update] to update the AKS cluster.
+
+```bash
+az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER
+```
+
+Run the following command to check `istiod` deployment. 
 
 ```bash
 kubectl get deployment -l app=istiod -n aks-istio-system -o json | jq '.items[].spec.template.spec.containers[].env[] | select(.name=="ENABLE_NATIVE_SIDECARS")'
@@ -83,15 +87,17 @@ kubectl get deployment -l app=istiod -n aks-istio-system -o json | jq '.items[].
 
 Make sure environment variable `ENABLE_NATIVE_SIDECARS` appears with value `true` in the pod template.
 
-It may take a while for AKS infrastructure to reconciliate all necessary artifacts.  If you don't want to wait, run [az aks update][az-aks-update] to force a reconciliation.
-
-```bash
-az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER
-```
-
 ### Restart workloads
 
 Once Istio control plane is ready, do a rolling restart of workloads to let istiod inject native sidecars.
+
+```bash
+for ns in $(kubectl get ns -l istio.io/rev -o=jsonpath='{.items[0].metadata.name}'); do
+  kubectl rollout restart deployments -n $ns
+done
+```
+
+### Check sidecar injection
 
 ```bash
 kubectl get pod -o "custom-columns=NAME:.metadata.name,INIT:.spec.initContainers[*].name,CONTAINERS:.spec.containers[*].name"
@@ -117,13 +123,21 @@ az aks create \
   ...
 ```
 
+## Next steps
+
+* [Deploy external or internal ingresses for Istio service mesh add-on][istio-deploy-ingress].
+
+<!--- External Links --->
+[istio-native-sidecar-support]: https://istio.io/latest/blog/2023/native-sidecars/
+[k8s-native-sidecar-support]: https://kubernetes.io/blog/2023/08/25/native-sidecar-containers/
+
+<!--- Internal Links --->
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[istio-native-sidecar-support]: https://istio.io/latest/blog/2023/native-sidecars/
-[k8s-native-sidecar-support]: https://kubernetes.io/blog/2023/08/25/native-sidecar-containers/
+[istio-deploy-ingress]: ./istio-deploy-ingress.md
 [upgrade-aks-cluster]: ./upgrade-aks-cluster.md
 [upgrade-node-image]: ./node-image-upgrade.md

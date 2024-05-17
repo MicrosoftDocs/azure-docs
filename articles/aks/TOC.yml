@@ -676,6 +676,8 @@
               href: istio-about.md
             - name: Deploy Istio service mesh add-on
               href: istio-deploy-addon.md
+            - name: Native sidecar mode support (Preview)
+              href: istio-native-sidecar.md
             - name: Configure Istio service mesh add-on
               href: istio-meshconfig.md
             - name: Deploy external or internal Istio Ingress
