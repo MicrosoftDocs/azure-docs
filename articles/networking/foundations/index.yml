@@ -36,7 +36,7 @@ highlightedContent:
       url: https://www.youtube.com/watch?v=UHs4NTUGZeQ
 
 productDirectory:
-  title: Foundation services
+  title: Network foundation services
   items:
     - title: Azure Virtual Network
       imageSrc: ./media/virtual-network.svg
@@ -155,9 +155,6 @@ conceptualContent:
           text: Azure DNS troubleshooting guide
           itemType: reference
 
-
-
-
 # additionalContent section (optional)
 # Card with summary style
 additionalContent:
@@ -170,10 +167,3 @@ additionalContent:
           url: https://learn.microsoft.com/en-us/azure/networking/security/
         - title: Hybrid connectivity
           url: https://review.learn.microsoft.com/en-us/azure/networking/hybrid-connectivity/?branch=pr-en-us-275407
-
-
-
-
-
-
-
