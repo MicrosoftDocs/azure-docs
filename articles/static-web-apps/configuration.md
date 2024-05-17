@@ -423,13 +423,13 @@ For example, the following configuration shows how you can add a unique identifi
 
 ## Trailing slash
 
-A trailing slash is the `/` at the end of a URL. Conventionally, trailing slash URL refers to a directory on the web server, while a nontrailing slash indicates a file. 
+A trailing slash is the `/` at the end of a URL. Conventionally, a trailing slash URL refers to a directory on the web server, while a nontrailing slash indicates a file.
 
-Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content, which can negatively affect search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
+Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content, which can negatively affect search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO performance.
 
 The following normalization and redirect rules apply for each of the available configurations:
 
-### Always 
+### Always
 
 When you're setting `trailingSlash` to `always`, all requests that don't include a trailing slash are redirected to a trailing slash URL. For example, `/contact` is redirected to `/contact/`.
 
