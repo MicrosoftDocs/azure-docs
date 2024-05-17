@@ -25,7 +25,7 @@ The Azure HPC team is pleased to announce the availability of optimized and pre-
 
 ## Availability on Azure
 
-You may use the HPC images when creating a VM from either Azure Marketplace or Azure CLI. For other deployment methods, please refer to [Deploying HPC VM Images](#Deploying HPC VM Images)
+You may use the HPC images when creating a VM from either Azure Marketplace or Azure CLI. For other deployment methods, refer to the section of Deploying HPC VM Images.
 
 ### Azure Marketplace
 
@@ -41,7 +41,7 @@ Run the following commands to find image URNs of the HPC images:
 az vm image list --publisher microsoft-dsvm --offer ubuntu-hpc --output table --all
 ```
 
-All images are for generation 2 VMs.
+All images support [Gen 2 VMs]](generation-2.md).
 
 #### AlmaLinux-HPC
 
@@ -49,7 +49,7 @@ All images are for generation 2 VMs.
 az vm image list --publisher almalinux --offer almalinux-hpc --output table --all
 ```
 
-All images have both generation 1 and generation 2 versions.
+All images support both [Gen 1 VMs](generation-1.md) and [Gen 2 VMs](generation-2.md).
 
 ## Supported VM Sizes
 
