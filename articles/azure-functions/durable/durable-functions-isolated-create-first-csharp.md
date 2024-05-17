@@ -306,7 +306,7 @@ static class HelloSequence
         string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(HelloCities));
         logger.LogInformation("Created new orchestration with instance ID = {instanceId}", instanceId);
 
-        return client.CreateCheckStatusResponse(req, instanceId);
+        return await client.CreateCheckStatusResponseAsync(req, instanceId);
     }
 }
 
