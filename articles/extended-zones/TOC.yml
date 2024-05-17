@@ -35,4 +35,13 @@
     href: /cli/azure/edge-zones
   - name: Azure PowerShell
     href: /powershell/module/az.edgezones
-
+- name: Resources
+  items:
+  - name: Microsoft Q&A
+    href: /answers/tags/133/azure
+  - name: Azure support
+    href: https://azure.microsoft.com/support/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates
+  - name: SLA
+    href: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
