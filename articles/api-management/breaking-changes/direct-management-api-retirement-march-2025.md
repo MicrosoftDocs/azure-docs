@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Direct management API retirement (March 2025)
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 Effective 15 March 2025, Azure API Management will retire its direct management REST API. If you enable and use the direct management API to configure and manage your API Management instance programmatically, migrate to use the standard Azure Resource Manager-based API instead.
 

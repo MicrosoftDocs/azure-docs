@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Built-in API analytics dashboard retirement (March 2027)
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 Effective 15 March 2027, the dashboard and reports associated with API Management built-in analytics will be retired. To replace them, a new version of API analytics has been introduced using Azure Monitor Log Analytics workbooks.  
   
