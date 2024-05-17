@@ -23,9 +23,9 @@ The Azure HPC team is pleased to announce the availability of optimized and pre-
 - pre-configured with NVIDIA Mellanox OFED driver for InfiniBand, NVIDIA GPU drivers, popular MPI libraries, vendor tuned HPC libraries, and recommended performance optimizations.
 - including optimizations and recommended configurations to deliver optimal performance, consistency, and reliability. 
 
-## Latest Availability on Azure
+## Availability on Azure
 
-You may use the HPC images when creating a VM from either Azure Marketplace or Azure CLI.
+You may use the HPC images when creating a VM from either Azure Marketplace or Azure CLI. For other deployment methods, please refer to [Deploying HPC VM Images](#Deploying HPC VM Images)
 
 ### Azure Marketplace
 
