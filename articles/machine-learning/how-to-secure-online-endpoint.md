@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli, moe-wsvnet
 
 [!INCLUDE [machine-learning-dev-v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll use network isolation to secure a managed online endpoint. You'll create a managed online endpoint that uses an Azure Machine Learning workspace's private endpoint for secure inbound communication. You'll also configure the workspace with a **managed virtual network** that **allows only approved outbound** communication for deployments. Finally, you'll create a deployment that uses the private endpoints of the workspace's managed virtual network for outbound communication.
+In this article, you'll use network isolation to secure a managed online endpoint. You'll create a managed online endpoint that uses an Azure Machine Learning workspace's private endpoint for secure **inbound** communication. You'll also configure the workspace with a **managed virtual network** that **allows only approved outbound** communication for deployments. Finally, you'll create a deployment that uses the private endpoints of the workspace's managed virtual network for outbound communication.
 
 For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-legacy.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow-legacy.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
 
@@ -40,14 +40,18 @@ For examples that use the legacy method for network isolation, see the deploymen
 
 * If you want to use a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) to create and manage online endpoints and online deployments, the identity should have the proper permissions. For details about the required permissions, see [Set up service authentication](./how-to-identity-based-service-authentication.md#workspace). For example, you need to assign the proper RBAC permission for Azure Key Vault on the identity.
 
-#### Migrate from legacy network isolation method to managed virtual network
+### Migrate from legacy network isolation method to workspace managed virtual network
 
-If you've used the [legacy method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) previously for network isolation of managed online endpoints, and you want to migrate to using a workspace managed virtual network to secure your endpoints, follow these steps:
+If you've used the [legacy method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) previously for network isolation of managed online endpoints, and you want to migrate to using a workspace managed virtual network to secure your endpoints, you can follow these steps:
 
-1. Delete all computes in your workspace.
-1. Enable managed virtual network for your workspace. For more information on how to configure a managed network for your workspace, see [Workspace Managed Virtual Network Isolation](how-to-managed-network.md).
-1. Configure private endpoints for outbound communication to private resources that your managed online endpoints need to access. These private resources include a storage account, Azure Key Vault, and Azure Container Registry (ACR).
-1. (Optional) If you're integrating with a user registry, configure private endpoints for outbound communication to your registry, its storage account, and its ACR. 
+1. Create a new workspace and enable managed virtual network. For more information on how to configure a managed network for your workspace, see [Workspace Managed Virtual Network Isolation](how-to-managed-network.md).
+1. (Optional) On the workspace network setting, add outbound rules with the type of private endpoints if your deployments need to access additional private resources, other than Storage account, Azure Key Vault, and Azure Container Registry (ACR) associated with the workspace (which are added by default). 
+1. (Optional) If you intend to use Azure Machine Learning registries, configure private endpoints for outbound communication to your registry, its storage account, and its Azure Container Registry. 
+1. Create online endpoints / deployments in the new workspace. You may leverage Azure Machine Learning registries to directly deploy from them. For more information, see [Deploy from Registry](how-to-share-models-pipelines-across-workspaces-with-registries.md#deploy-model-from-registry-to-online-endpoint-in-workspace). 
+1. Update applications invoking endpoints to use the scoring URIs of the new online endpoints.
+1. Delete online endpoints from old workspace after validation.
+
+If you don't need to maintain computes or keep online endpoints and deployments in the old workspace to serve without downtime, you can simply delete all computes in the existing workspace, and update the workspace to enable workspace managed virtual network.
 
 ## Limitations
 
