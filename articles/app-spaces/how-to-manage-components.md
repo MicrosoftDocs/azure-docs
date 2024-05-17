@@ -26,11 +26,6 @@ Shows the app deployment details in App Space. Here you can view the GitHub acti
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-* * *
-
-
-
-
 
 ## Logs
 
@@ -104,6 +99,18 @@ Listening port
 
 which provides information and options, based on the Azure service you're using to deploy your web application. Select the following tab associated with the Azure service.
 
+
+#### [Static App Component](#tab/static-app-component/)
+
+The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
+
+|Hosting tab  |Actions | 
+|---------|---------|
+|**Environments**   | View production and preview environment name, branch, last update time, and status.   |
+| **Environment variables**  |Add an environment variable. Enter `Name` and `Value` , and then select **Apply**.    |
+| **Backend & API**   |Bring your own API backends. Enter `Environment Name`, `Backend Type`, `Backend Resource Name`, and `Link`, and then select **Apply**.|
+|**Deployment**     | View deployment name, status, and time for code deployment logs.      |
+
 #### [App component](#tab/app-component/)
 
 The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
@@ -121,17 +128,6 @@ The following image shows an example of the Hosting tab, Container details selec
 :::image type="content" source="media/hosting-container-details.png" alt-text="Screenshot showing Hosting tab with Container details selection.":::
 
 In the Monitoring tab, you can view Log Analytics workspace information like the subscription and  resource group used for your App Space, and region.
-
-#### [Static App Component](#tab/static-app-component/)
-
-The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
-
-|Hosting tab  |Actions | 
-|---------|---------|
-|**Environments**   | View production and preview environment name, branch, last update time, and status.   |
-| **Environment variables**  |Add an environment variable. Enter `Name` and `Value` , and then select **Apply**.    |
-| **Backend & API**   |Bring your own API backends. Enter `Environment Name`, `Backend Type`, `Backend Resource Name`, and `Link`, and then select **Apply**.|
-|**Deployment**     | View deployment name, status, and time for code deployment logs.      |
 
 
 * * *
