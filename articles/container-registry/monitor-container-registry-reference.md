@@ -50,7 +50,8 @@ The following table lists the metrics available for the Microsoft.ContainerRegis
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-[!INCLUDE [Microsoft.ContainerRegistry/registries](~/azure-reference-other/azure-monitor-ref/supported-metrics/includes/microsoft-containerregistry-registries-metrics-include)]
+[!INCLUDE [Microsoft.ContainerRegistry/registries](~/azure-reference-other/azure-monitor-ref/supported-metrics/includes/microsoft-containerregistry-registries-metrics-include.md
+)]
 
 <!-- from original:
 ## Metrics
@@ -101,7 +102,7 @@ Azure Container Registry has the following dimensions associated with its metric
 
 ### Supported resource logs for Microsoft.ContainerRegistry/registries
 
-[!INCLUDE [Microsoft.ContainerRegistry/registries](~/azure-reference-other/azure-monitor-ref/supported-logs/includes/microsoft-containerregistry-registries-logs-include)]
+[!INCLUDE [Microsoft.ContainerRegistry/registries](~/azure-reference-other/azure-monitor-ref/supported-logs/includes/microsoft-containerregistry-registries-logs-include.md)]
 
 <!-- ## Log tables -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
