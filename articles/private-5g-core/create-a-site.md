@@ -40,11 +40,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
     :::image type="content" source="media/create-a-site/create-site-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a site resource.":::
 
-1. You'll now see the **Packet core** configuration tab.
-
-    :::image type="content" source="media/create-a-site/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource."::: __REPLACE IMAGE__
-
-1. In the **Packet core** section, set the fields as follows:
+1. You'll now see the **Packet core** configuration tab. Set the fields as follows:
 
     - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type**, **Azure Stack Edge device**, and **Custom location** fields.
     - For a Highly Available (HA) deployment, specify the ASE two node cluster as the Azure Stack Edge device.
@@ -67,8 +63,6 @@ In this step, you'll create the mobile network site resource representing the ph
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
     - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
 
-    :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen."::: __REPLACE IMAGE__
-
     Once you've finished filling out the fields, select **Attach**.
 :::zone-end
 :::zone pivot="ase-pro-2"
@@ -81,8 +75,6 @@ In this step, you'll create the mobile network site resource representing the ph
     - **ASE N6 virtual subnet** (if this site will support 5G UEs), **ASE SGi virtual subnet** (if this site will support 4G UEs), or **ASE N6/SGi virtual subnet** (if this site will support combined 4G and 5G UEs) must match the corresponding virtual network name on port 3 or 4 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
     - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
-
-    :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
 
     Once you've finished filling out the fields, select **Attach**.
 :::zone-end

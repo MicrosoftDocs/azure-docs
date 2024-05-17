@@ -154,15 +154,9 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 5 minutes.
 
-The page should now look like the following image:
-__DIFFERENT IMAGE FOR VLAN TRUNKING MODE__
+The page should now look like the following image (in VLAN-trunking mode):
 
-:::zone pivot="ase-pro-2"
-:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled-ase-2.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
-:::zone-end
-:::zone pivot="ase-pro-gpu"
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
-:::zone-end
 
 ## Enable VM management on the ASE
 
