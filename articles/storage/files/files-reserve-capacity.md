@@ -110,7 +110,7 @@ There's no limit on the number of exchanges you can make. Additionally, there's 
 
 ### Refund reservations
 
-You can refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../..//cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+You can refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Expiration of a Reservation
 
