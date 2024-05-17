@@ -113,7 +113,7 @@ The **Alert rules** option on the **Alerts** page shows the underlying rules tha
 
 :::image type="content" source="media/app-map/review-alert-rules.png" alt-text="Screenshot that shows the list of alert rules defined for the selected component." lightbox="media/app-map/review-alert-rules-large.png":::
 
-<a name="understand-the-cloud-role-name-within-the-context-of-an-application-map">
+<a name="understand-the-cloud-role-name-within-the-context-of-an-application-map"></a>
 
 ## Understand cloud role names and nodes
 
@@ -143,7 +143,7 @@ A scenario where you might want to override the value for a cloud role instance 
 
 For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-<a name="set-or-override-cloud-role-name">
+<a name="set-or-override-cloud-role-name"></a>
 
 ## Set cloud role names
 
@@ -259,7 +259,7 @@ appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
 appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
 ```
 
-***Node.js: Set cloud role name**
+**Node.js: Set cloud role name**
 
 ```javascript
 var appInsights = require("applicationinsights");
