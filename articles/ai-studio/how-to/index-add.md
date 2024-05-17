@@ -126,6 +126,7 @@ You must have:
     :::image type="content" source="../media/index-retrieve/configure-index-lookup-tool.png" alt-text="Screenshot of the prompt flow node to configure index lookup." lightbox="../media/index-retrieve/configure-index-lookup-tool.png":::
 
 
-## Next steps
+## Related content
 
 - [Learn more about RAG](../concepts/retrieval-augmented-generation.md)
+- [Build and consume an index using code](./develop/index-build-consume-sdk.md)
