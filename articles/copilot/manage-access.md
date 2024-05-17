@@ -1,6 +1,6 @@
 ---
 title:  Manage access to Microsoft Copilot for Azure
-description: This article describes the limited access policy for Microsoft Copilot for Azure.
+description: Learn how administrators can manage user access to Microsoft Copilot for Azure.
 ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
@@ -13,15 +13,15 @@ author: JnHs
 > [!NOTE]
 > We're currently in the process of rolling out Microsoft Copilot for Azure (preview) to all Azure tenants. We'll remove this note once the functionality is available to all users.
 
-By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to limit access to Copilot for Azure for their organization. If you turn off access for your tenant, you can still grant access to specific Microsoft Entra users or groups.
+By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to control access to Copilot for Azure for their organization. If you turn off access for your tenant, you can still grant access to specific Microsoft Entra users or groups.
 
 As always, Microsoft Copilot for Azure only has access to resources that the user has access to. It can only take actions that the user has permission to perform, and requires confirmation before making changes. Copilot for Azure complies with all existing access management rules and protections such as Azure role-based access control (Azure RBAC), Privileged Identity Management, Azure Policy, and resource locks.
 
 [!INCLUDE [preview-note](includes/preview-note.md)]
 
-## Limit user access to Microsoft Copilot for Azure
+## Manage user access to Microsoft Copilot for Azure
 
-To limit access to Microsoft Copilot for Azure for users in your tenant, any Global Administrator in that tenant can follow these steps.
+To manage access to Microsoft Copilot for Azure for users in your tenant, any Global Administrator in that tenant can follow these steps.
 
 1. [Elevate your access](/azure/role-based-access-control/elevate-access-global-admin?tabs=azure-portal#step-1-elevate-access-for-a-global-administrator) so that your Global Administrator account can manage all subscriptions in your tenant.
 
