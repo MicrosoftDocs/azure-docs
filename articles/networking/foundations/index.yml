@@ -42,14 +42,41 @@ productDirectory:
       imageSrc: ./media/virtual-network.svg
       summary: "Build your private network infrastructure in the cloud."
       url: /azure/virtual-network/virtual-networks-overview
+      links:
+        - text: Quickstart - Create a Virtual Network
+          url: /azure/virtual-network/quick-create-portal
+        - text: Azure Virtual Network concepts and best practices 
+          url: /azure/virtual-network/concepts-and-best-practices
+        - text: Plan virtual networks
+          url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+        - text: Azure Virtual Network FAQ
+          url: /azure/virtual-network/virtual-networks-faq
     - title: Azure Private Link
       imageSrc: ./media/private-link-product.svg
       summary: "Private access to services hosted on the Azure platform, keeping your data on the Microsoft network."
-      url: /azure/private-link/private-link-overview
+      url: /azure/private-link/private-link-overview          
+      links:
+        - text: Quickstart - Create a private endpoint
+          url: /azure/private-link/create-private-endpoint-portal
+        - text: What is a private endpoint? 
+          url: /azure/private-link/private-endpoint-overview
+        - text: What is Azure Private Link service?
+          url: /azure/private-link/private-link-service-overview
+        - text: Azure Private Link FAQ
+          url: /azure/private-link/private-link-faq
     - title: Azure DNS
       imageSrc: ./media/dns.svg
       summary: "Public and private name resolution for your Azure services."
       url: /azure/dns/dns-overview
+      links:
+        - text: Quickstart - Create a public DNS zone
+          url: /azure/dns/dns-getstarted-portal
+        - text: What is an Azure Private DNS zone?
+          url: /azure/dns/private-dns-privatednszone
+        - text: What is Azure DNS Private Resolver?
+          url: /azure/dns/dns-private-resolver-overview
+        - text: Azure DNS FAQ
+          url: /azure/dns/dns-faq
           
 additionalContent:
   sections:
