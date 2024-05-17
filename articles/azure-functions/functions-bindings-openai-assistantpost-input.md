@@ -1,12 +1,12 @@
 ---
-title: Azure OpenAI assistant post input binding for Azure Functions
+title: Azure OpenAI Assistant Post Input Binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant post input binding to query chat bots during function execution in Azure Functions.
 ms.topic: reference
 ms.date: 05/07/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure OpenAI assistant post input binding for Azure Functions
+# Azure OpenAI Assistant Post Input Binding for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
@@ -34,23 +34,20 @@ A C# function can be created using one of the following C# modes:
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="58-78"::: 
-
+<!-- 
 ### [In-process](#tab/in-process)
 
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)] -->
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-:::code language="java" source="~/functions-openai-extension/samples/{{link to the correct sample.java}}" range="{{named is better than range}}":::
+This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-{{Add more examples if available}}
--->
+:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="83-103":::
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
@@ -70,20 +67,17 @@ This example demonstrates the creation process, where the HTTP POST function tha
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-Here's the _function.json_ file for {{example}}:
+This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="json" source="~/functions-openai-extension/samples/{{link to the correct function.json}}" :::
+Here's the _function.json_ file for post user query:
+
+:::code language="json" source="~/functions-openai-extension/samples/assistant/powershell/PostUserQuery/function.json" :::
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-{{This comes from the example code comment}} 
+:::code language="powershell" source="~/functions-openai-extension/samples/assistant/powershell/PostUserQuery/run.ps1" :::
 
-:::code language="powershell" source="~/functions-openai-extension/samples/{{link to the correct sample.ps1}}" :::
--->
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
@@ -162,5 +156,5 @@ See the [Example section](#example) for complete examples.
 + [Assistant samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant)
 + [Azure OpenAI extension](functions-bindings-openai.md)
 + [Azure OpenAI assistant trigger](functions-bindings-openai-assistant-trigger.md)
-+ [Azure OpenAI assistant query input binding ](functions-bindings-openai-assistantcreate-output.md)
-+ [Azure OpenAI assistant create output binding ](functions-bindings-openai-assistantcreate-output.md)
++ [Azure OpenAI assistant query input binding](functions-bindings-openai-assistantcreate-output.md)
++ [Azure OpenAI assistant create output binding](functions-bindings-openai-assistantcreate-output.md)
