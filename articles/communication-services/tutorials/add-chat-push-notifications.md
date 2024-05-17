@@ -185,10 +185,10 @@ For example, you can use an Azure Function App as the triggering mechanism. It e
 
 
 2.Set Up an Azure Notification Hub<br>
-Azure Notification Hub provides a scalable, easy-to-use push notification infrastructure that can send notifications to any platform (iOS, Android, Windows, and so on) from any backend (cloud or on-premises). It's essential for managing and pushing notifications to devices. You can reuse the same notification hub that you use for regular push notifications. If you want to set up a new one, see [Azure Notification Hubs Documentation](https://learn.microsoft.com/en-us/azure/notification-hubs/). 
+Azure Notification Hub provides a scalable, easy-to-use push notification infrastructure that can send notifications to any platform (iOS, Android, Windows, and so on) from any backend (cloud or on-premises). It's essential for managing and pushing notifications to devices. You can reuse the same notification hub that you use for regular push notifications. If you want to set up a new one, see [Azure Notification Hubs Documentation](../../notification-hubs). 
 
 3.Configure Azure Function App for Regular Notifications<br>
-Adjust the Azure Function App to periodically send remote notifications via the Azure Notification Hub. These notifications are forwarded to the Apple Push Notification Service (APNS) and directed to the specified device. For more instructions, see [Functions-bindings-notification-hubs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-notification-hubs). 
+Adjust the Azure Function App to periodically send remote notifications via the Azure Notification Hub. These notifications are forwarded to the Apple Push Notification Service (APNS) and directed to the specified device. For more instructions, see [Functions-bindings-notification-hubs](https://learn.microsoft.com/azure/azure-functions/functions-bindings-notification-hubs). 
 
 4.Handle Notifications in Your App<br>
 In your iOS app, implement [the application instance method](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application) to trigger a registration auto-refresh upon receiving a silent notification.
