@@ -78,7 +78,7 @@ For example, to use the portal:
 1. Select the network connection in the location you want to update.
 1. Select the virtual network and subnet you want to configure. Optionally select a new public IP. Select **Apply**. 
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
-1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
+1. In the top navigation bar, select **Save**.
 
 After you update the VNet configuration, the status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
 
@@ -110,7 +110,7 @@ The following image shows a high level overview of what happens during migration
 1. In the left menu, select **Subnets**, and then the original subnet. 
 1. Verify that the original IP addresses were released by API Management. Under **Available IPs**, note the number of IP addresses available in the subnet. All addresses (except for Azure reserved addresses) should be available. If necessary, wait for IP addresses to be released. 
 1. Repeat the migration steps in the [preceding section](#trigger-migration-of-a-network-injected-api-management-instance). In each region, specify the original VNet and subnet. Optionally select a new public IP.
-1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
+1. In the top navigation bar, select **Save**.
 
 After you update the VNet configuration, the status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
 

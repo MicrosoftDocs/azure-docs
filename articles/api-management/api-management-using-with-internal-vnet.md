@@ -57,7 +57,7 @@ For configurations specific to the *external* mode, where the API Management end
 1. Select **Apply**. The **Virtual network** page of your API Management instance is updated with your new VNet and subnet choices.
    :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png" alt-text="Set up internal VNet in Azure portal":::
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
-1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
+1. In the top navigation bar, select **Save**.
 
     It can take 15 to 45 minutes to update the API Management instance. The Developer tier has downtime during the process. The Basic and higher SKUs don't have downtime during the process.
 

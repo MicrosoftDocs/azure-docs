@@ -49,7 +49,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 
-7. In the top navigation bar, select **Save**, then select **Apply network configuration**.
+7. In the top navigation bar, select **Save**.
 
 It can take 15 to 45 minutes to update the API Management instance. Instances in the Developer tier have downtime during the process. Instances in the Premium tier don't have downtime during the process. 
 
