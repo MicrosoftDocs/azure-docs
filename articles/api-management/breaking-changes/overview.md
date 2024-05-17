@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/05/2024
+ms.date: 05/17/2024
 ms.author: adhal
 ---
 
@@ -30,7 +30,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [Direct management API retirement][mgmtapi2025] | March 15, 2025 |
 | [ADAL-based Microsoft Entra ID or Azure AD B2C identity provider retirement][msal2025] | September 30, 2025 |
 | [CAPTCHA endpoint update][captcha2025] | September 30, 2025 |
-| [Analytics dashboard retirement][analytics2027] | March 15, 2027 |
+| [Built-in analytics dashboard retirement][analytics2027] | March 15, 2027 |
 
 <!-- Links -->
 [bc1]: ./rp-source-ip-address-change-mar-2023.md
