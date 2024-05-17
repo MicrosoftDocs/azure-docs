@@ -30,7 +30,7 @@ Deploying models to Managed computes deploys model weights to dedicated Virtual 
 
 Although containers for models "Curated by Azure AI" are scanned for vulnerabilities that could exfiltrate data, not all models available through the Model Catalog are scanned. To reduce the risk of data exfiltration, you can protect your deployment using virtual networks. [Learn more](configure-managed-network.md) . You can also use [Azure Policy](../../ai-services/policy-reference.md) to regulate the models that your users can deploy.
 
-:::image type="content" source="../media/explore/platform-service.png" alt-text="A diagram showing the platform service life cycle." lightbox="../media/explore/platform-service.png":::
+:::image type="content" source="../media/explore/subscription-service-cycle.png" alt-text="A diagram showing the platform service life cycle." lightbox="../media/explore/subscription-service-cycle.png":::
 
 ## Generate inferencing outputs as a serverless API   
 
