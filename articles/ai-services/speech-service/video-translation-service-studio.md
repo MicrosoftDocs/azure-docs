@@ -36,13 +36,13 @@ To create a video translation service project, follow these steps:
 
    Ensure the video is in .mp4 format, less than 500 MB, and shorter than 60 minutes. 
 
-1. Provide the **File name**, **Description**, and select the **Language of the video**, **Translate to** language, and **Voice type**. 
+1. Provide the **File name**, **Description**, and select **Voice type**, **Language of the video**, **Translate to** language. 
 
-   You can select **Personal voice** or **Prebuilt neural voice** for **Voice type**. For prebuilt neural voice, the system automatically matches the voice that most closely matches the tone of the video. For personal voice, the system provides the latest model with superior voice cloning similarity.
+   You can select **Prebuilt neural voice** or **Personal voice** for **Voice type**. For prebuilt neural voice, the system automatically select the most suitable prebuilt voice by matching the speaker's voice in the video with prebuilt voices. For personal voice, the system provides the latest model with superior voice cloning similarity. To use personal voice, you need to apply for access. The application form will be available soon.
 
    :::image type="content" source="media/video-translation-service/upload-video-file.png" alt-text="Screenshot of uploading your video file on the video file page.":::
 
-1. After reviewing the pricing information and copyright statement, then proceed to create the project.
+1. After reviewing the pricing information and code of conduct, then proceed to create the project.
 
    When processing the video file, you can check the processing status on the project tab.
 
