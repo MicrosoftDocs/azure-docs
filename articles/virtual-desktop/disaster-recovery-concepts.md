@@ -44,44 +44,22 @@ Azure has many built-in, free-of-charge features that can deliver high availabil
 
 Basically, the disaster recovery strategy we recommend for Azure Virtual Desktop is to deploy resources across multiple availability zones within a region. If you need more protection, you can also deploy resources across multiple paired Azure regions.
 
+## Design and implement a disaster recovery plan
 
+Azure Virtual Desktop doesn't have any native feature for managing disaster recovery. The following table lists recommendations for disaster recovery strategies:
 
 |Column1 |Column2  |
 |---------|---------|
-|Active-passive vs active-active      |         |
-|Session host resiliency     |         |
-|Disaster recovery plans    |         |
-|Azure Site Recovery     |         |
-|Network connectivity    |         |
-|User profiles    |         |
-|File share storage    |         |
-|Identity provider   |         |
-|Backup    |         |
+|Active-passive vs active-active plans | Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). In an active-active deployment, you use both sets of infrastructure at the same time. See [Active-Active vs. Active-Passive](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) for more information.   |
+|Session host resiliency   | To learn about session host resiliency, within an Azure region or across Azure regions, see [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr)       |
+|Disaster recovery plans    | To learn about different disaster recovery plans for pooled and personal host pools, see [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#architecture-diagrams)        |
+|Azure Site Recovery     | To learn about using Azure Site Recovery for personal host pools, see [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#failover-and-failback)         |
+|Network connectivity    | For guidance on your network topology, you can use the Azure Cloud Adoption Framework Network topology and connectivity models. See [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#prerequisites) for more information.       |
+|User profiles    | We recommend that you use Azure Files or Azure NetApp Files to store FSLogix user profile and Office containers. See [Design recommendations](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery#design-recommendations) for more information.      |
+|Files share storage    | To learn about using Files share storage for your host pool, see [Storage](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#storage)       |
+|Identity provider   | Microsoft Entra ID is used to authenticate users for Azure Virtual Destop. You can join session hosts to the same Microsoft Entra tenant, or to an Active Directory domain using Active Directory Domain Services or Microsoft Entra Domain Services. For more information, see [Identity](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#identity).       |
+|Backup    |  To learn about recommended backup options, see [Backup](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#backup).      |
 
-
-## Active-passive and active-active deployments
-
-Something else you should keep in mind is the difference between active-passive and active-active plans. Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). If the active region is taken offline by an emergency, the organization can switch to the passive region by turning it on and moving all their users there.
-
-Another option is an active-active deployment, where you use both sets of infrastructure at the same time. While some users may be affected by outages, the impact is limited to the users in the region that went down. Users in the other region that's still online won't be affected, and the recovery is limited to the users in the affected region reconnecting to the functioning active region. Active-active deployments can take many forms, including:
-
-- Overprovisioning infrastructure in each region to accommodate affected users in the event one of the regions goes down. A potential drawback to this method is that maintaining the additional resources costs more.
-- Have extra session hosts in both active regions, but deallocate them when they aren't needed, which reduces costs.
-- Only provision new infrastructure during disaster recovery and allow affected users to connect to the newly provisioned session hosts. This method requires regular testing with infrastructure-as-code tools so you can deploy the new infrastructure as quickly as possible during a disaster.
-
-## Recommended disaster recovery methods
-
-The disaster recovery methods we recommend are:
-
-- Configure and deploy Azure resources across multiple availability zones.
-
-- Configure and deploy Azure resources across multiple regions in either active-active or active-passive configurations. These configurations are typically found in [shared host pools](create-host-pools-azure-marketplace.md).
-
-- For personal host pools with dedicated VMs, [replicate VMs using Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-replication.md) to another region.
-
-- Configure a separate "disaster recovery" host pool in the secondary region. During a disaster, you can switch users over to the secondary region.
-
-We'll go into more detail about the two main methods you can achieve these methods with for shared and personal host pools in the following sections.
 
 ## Disaster recovery for shared host pools
 
