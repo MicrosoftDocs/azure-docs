@@ -50,8 +50,7 @@ The following table lists the metrics available for the Microsoft.ContainerRegis
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-[!INCLUDE [Microsoft.ContainerRegistry/registries](~/azure-reference-other/azure-monitor-ref/supported-metrics/includes/microsoft-containerregistry-registries-metrics-include.md
-)]
+[!INCLUDE [Microsoft.ContainerRegistry/registries](~/azure-reference-other/azure-monitor-ref/supported-metrics/includes/microsoft-containerregistry-registries-metrics-include.md)]
 
 <!-- from original:
 ## Metrics
