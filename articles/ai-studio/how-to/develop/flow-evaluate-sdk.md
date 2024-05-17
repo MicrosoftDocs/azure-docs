@@ -101,7 +101,10 @@ relevance_score = relevance_eval(
 )
 print(relevance_score)
 ```
-```
+
+Here's an example of the result:
+
+```text
 {'relevance.gpt_relevance': 5.0}
 ```
 
@@ -210,6 +213,7 @@ system:
 You are an AI tool that determines if, in a chat conversation, the assistant apologized, like say sorry.
 Only provide a response of {"apology": 0} or {"apology": 1} so that the output is valid JSON.
 Give a apology of 1 if apologized in the chat conversation.
+```
 
 Here are some examples of chat conversations and the correct response:
 

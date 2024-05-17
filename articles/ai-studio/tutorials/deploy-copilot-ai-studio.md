@@ -177,7 +177,7 @@ After you're done creating your index, return to your prompt flow and follow the
     | **query_type** | *Keyword* |
     | **topK** | *5* |
 
-    You can see the the **queryCustomerIndex** node is connected to the **extractSearchIntent** node in the graph.
+    You can see the **queryCustomerIndex** node is connected to the **extractSearchIntent** node in the graph.
 
     :::image type="content" source="../media/tutorials/chat/connect-to-search-intent.png" alt-text="Screenshot of the prompt flow node for retrieving product info." lightbox="../media/tutorials/chat/connect-to-search-intent.png":::
 
@@ -187,7 +187,7 @@ After you're done creating your index, return to your prompt flow and follow the
 
 In the next section, you aggregate the product and customer info to output it in a format that the large language model can use. But first, you need to connect the customer info to the flow.
 
-1. Select the elipses icon next to **+ More tools** and then select **Raw file mode** to switch to raw file mode. This mode allows you to copy and paste nodes in the graph.
+1. Select the ellipses icon next to **+ More tools** and then select **Raw file mode** to switch to raw file mode. This mode allows you to copy and paste nodes in the graph.
 
     :::image type="content" source="../media/tutorials/chat/raw-file-mode-select.png" alt-text="Screenshot of the raw file mode option in prompt flow." lightbox="../media/tutorials/chat/raw-file-mode-select.png":::
 
