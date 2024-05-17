@@ -53,8 +53,6 @@ All images support both Gen 1 and Gen 2 VMs.
 
 ## Supported VM Sizes
 
-Refer to [Azure VM sizes](sizes.md) for the latest H- and N-series VM size support matrix.
-
 The HPC VM images support the following VM sizes:
 
 - Standard_HB60rs
@@ -66,6 +64,8 @@ The HPC VM images support the following VM sizes:
 - Standard_ND96asr_v4
 - Standard_ND96amsr_A100_v4
 - Standard_ND96isr_H100_v5
+
+Refer to [Azure VM sizes](sizes.md) for the latest H- and N-series VM size support matrix.
 
 ## Installed Software Packages
 
