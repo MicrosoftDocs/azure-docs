@@ -84,7 +84,7 @@ conceptualContent:
     # Card
     - title: Learning paths and modules
       links:
-        - url: /https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/
+        - url: https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/
           itemType: learn
           text: Introduction to Azure Virtual Networks
         - url: https://learn.microsoft.com/training/modules/configure-virtual-networks/
@@ -136,7 +136,7 @@ conceptualContent:
         - url: /azure/virtual-network/virtual-networks-faq
           text: Azure Virtual Network FAQ
           itemType: reference
-        - url: //azure/private-link/private-link-faq
+        - url: /azure/private-link/private-link-faq
           text: Azure Private Link FAQ
           itemType: reference
         - url: /azure/dns/dns-faq
