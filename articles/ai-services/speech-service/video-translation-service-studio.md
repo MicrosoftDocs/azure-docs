@@ -38,7 +38,7 @@ To create a video translation service project, follow these steps:
 
 1. Provide the **File name**, **Description**, and select **Voice type**, **Language of the video**, **Translate to** language. 
 
-   You can select **Prebuilt neural voice** or **Personal voice** for **Voice type**. For prebuilt neural voice, the system automatically select the most suitable prebuilt voice by matching the speaker's voice in the video with prebuilt voices. For personal voice, the system provides the latest model with superior voice cloning similarity. To use personal voice, you need to apply for access. The application form will be available soon.
+   You can select **Prebuilt neural voice** or **Personal voice** for **Voice type**. For prebuilt neural voice, the system automatically select the most suitable prebuilt voice by matching the speaker's voice in the video with prebuilt voices. For personal voice, the system provides the model with superior voice cloning similarity. To use personal voice, you need to apply for access. The application form will be available soon.
 
    :::image type="content" source="media/video-translation-service/upload-video-file.png" alt-text="Screenshot of uploading your video file on the video file page.":::
 
