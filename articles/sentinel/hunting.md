@@ -2,7 +2,7 @@
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
 ms.topic: conceptual
-ms.date: 04/24/2024
+ms.date: 05/17/2024
 ms.author: austinmc
 author: austinmccollum
 appliesto:
@@ -17,16 +17,45 @@ As security analysts and investigators, you want to be proactive about looking f
 
 For example, one built-in query provides data about the most uncommon processes running on your infrastructure. You wouldn't want an alert each time they run. They could be entirely innocent. But you might want to take a look at the query on occasion to see if there's anything unusual.
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-<a name="use-built-in-queries"></a>
 
-## Built-in hunting queries
+## Hunts in Microsoft Sentinel (preview)
 
-The hunting dashboard provides ready-made query examples designed to get you started and get you familiar with the tables and the query language. Queries run on data stored in log tables, such as for process creation, DNS events, or other event types.
+With hunts in Microsoft Sentinel, seek out undetected threats and malicious behaviors by creating a hypothesis, searching through data, validating that hypothesis, and acting when needed. Create new analytic rules, threat intelligence, and incidents based on your findings.
 
-Built-in hunting queries are developed by Microsoft security researchers on a continuous basis, both adding new queries and fine-tuning existing queries to provide you with an entry point to look for new detections and figure out where to start hunting for the beginnings of new attacks.
+
+|Capabilities  |Description |
+|---------|---------|
+|Define a hypothesis     | To define a hypothesis, find inspiration from the MITRE map, recent hunting query results, content hub solutions, or generate your own custom hunts.      |
+|Investigate queries and bookmark results    |  After you define a hypothesis, go to the Hunting page **Queries** tab. Select the queries related to your hypothesis and **New hunt** to get started.    Run hunt related queries and investigate the results using the logs experience. Bookmark results directly to your hunt to annotate your findings, extract entity identifiers, and preserve relevant queries.      |
+|Investigate and take action     | Investigate even deeper by using UEBA entity pages. Run entity specific playbooks on bookmarked entities. Use built-in actions to create new analytic rules, threat indicators, and incidents based on findings.        |
+|Track your results    |  Record the results of your hunt. Track if your hypothesis is validated or not.Leave detailed notes in the comments. Hunts automatically links new analytic rules and incidents. Track the overall impact of your hunting program with the metric bar.      |
+
+To get started, see [Conduct end-to-end proactive threat hunting in Microsoft Sentinel](hunts.md).
+
+<a name="use-the-hunting-dashboard"></a>
+
+## Hunting queries
+
+In Microsoft Sentinel, select **Hunting** > **Queries** tab to run all your queries, or a selected subset. The **Queries** tab lists all the hunting queries installed with security solutions from the **Content hub**, and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These queries are grouped by their MITRE ATT&CK **tactics**. The icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration. MITRE ATT&CK **techniques** are shown in the **Techniques** column and describe the specific behavior identified by the hunting query.
+
+:::image type="content" source="media/hunting/hunting-start.png" alt-text="Microsoft Sentinel starts hunting" lightbox="media/hunting/hunting-start.png":::
+
+Use the queries tab to identify where to start hunting, by looking at result count, spikes, or the change in result count over a 24-hour period. Sort and filter by favorites, data source, MITRE ATT&CK tactic or technique, results, results delta, or results delta percentage. View queries that still need data sources connected, and get recommendations on how to enable these queries.
+
+The following table describes detailed actions available from the hunting dashboard:
+
+| Action | Description  |
+| --------- | --------- |
+| **See how queries apply to your environment**      | Select the **Run all queries** button, or select a subset of queries using the check boxes to the left of each row and select the **Run selected queries** button. <br><br>Running your queries can take anywhere from a few seconds to many minutes, depending on how many queries are selected, the time range, and the amount of data that is being queried.      |
+| **View the queries that returned results**         | After your queries are done running, view the queries that returned results using the **Results** filter: <br>- Sort to see which queries had the most or fewest results. <br>- View the queries that aren't at all active in your environment by selecting *N/A* in the **Results** filter. <br>- Hover over the info icon (**i**) next to the *N/A* to see which data sources are required to make this query active.  |
+| **Identify spikes in your data**                   | Identify spikes in the data by sorting or filtering on **Results delta** or **Results delta percentage**. <br><br>Compares the results of the last 24 hours against the results of the previous 24-48 hours, highlighting any large differences or relative difference in volume.   |
+| **View queries mapped to the MITRE ATT&CK tactic** | The **MITRE ATT&CK tactic bar**, at the top of the table, lists how many queries are mapped to each MITRE ATT&CK tactic. The tactic bar gets dynamically updated based on the current set of filters applied. <br><br>Enables you to see which MITRE ATT&CK tactics show up when you filter by a given result count, a high result delta, *N/A* results, or any other set of filters.        |
+| **View queries mapped to MITRE ATT&CK techniques** | Queries can also be mapped to MITRE ATT&CK techniques. You can filter or sort by MITRE ATT&CK techniques using the **Technique** filter. By opening a query, you're able to select the technique to see the MITRE ATT&CK description of the technique.        |
+| **Save a query to your favorites**                 |   Queries saved to your favorites automatically run each time the **Hunting** page is accessed. You can create your own hunting query or clone and customize an existing hunting query template.      |
+| **Run queries**                                    |   Select **Run Query** in the hunting query details page to run the query directly from the hunting page. The number of matches is displayed within the table, in the **Results** column. Review the list of hunting queries and their matches.     |
+| **Review an underlying query**                     | Perform a quick review of the underlying query in the query details pane. You can see the results by clicking the **View query results** link (below the query window) or the **View Results** button (at the bottom of the pane). The query opens the **Logs** (Log Analytics) page, and below the query, you can review the matches for the query.         |
 
 Use queries before, during, and after a compromise to take the following actions:
 
@@ -46,35 +75,18 @@ Use queries before, during, and after a compromise to take the following actions
 
 You can also create hunting and livestream queries over data stored in Azure Data Explorer. For more information, see details of [constructing cross-resource queries](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md) in the Azure Monitor documentation.
 
-Use community resources, such as the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) to find more queries and data sources.
+To find more queries and data sources, go to the **Content hub** in Microsoft Sentinel or refer to community resources like [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries). 
 
-<a name="use-the-hunting-dashboard"></a>
+<a name="use-built-in-queries"></a>
+### Out of the box hunting queries
 
-## Hunting dashboard
+Many security solutions include out of the box hunting queries. After you install a solution that includes hunting queries from the **Content hub**, the out of the box queries for that solution show on the hunting **Queries** tab.  Queries run on data stored in log tables, such as for process creation, DNS events, or other event types.
 
-The hunting dashboard enables you to run all your queries, or a selected subset, in a single selection. In the Microsoft Sentinel, select **Hunting**.
-
-The **Queries** tab lists all the hunting queries installed with security solutions from the **Content hub**, and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These queries are grouped by their MITRE ATT&CK **tactics**. The icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration. MITRE ATT&CK **techniques** are shown in the **Techniques** column and describe the specific behavior identified by the hunting query.
-
-:::image type="content" source="media/hunting/hunting-start.png" alt-text="Microsoft Sentinel starts hunting" lightbox="media/hunting/hunting-start.png":::
-
-Use the hunting dashboard to identify where to start hunting, by looking at result count, spikes, or the change in result count over a 24-hour period. Sort and filter by favorites, data source, MITRE ATT&CK tactic or technique, results, results delta, or results delta percentage. View queries that still need data sources connected, and get recommendations on how to enable these queries.
-
-The following table describes detailed actions available from the hunting dashboard:
-
-| Action | Description  |
-| --------- | --------- |
-| **See how queries apply to your environment**      | Select the **Run all queries** button, or select a subset of queries using the check boxes to the left of each row and select the **Run selected queries** button. <br><br>Running your queries can take anywhere from a few seconds to many minutes, depending on how many queries are selected, the time range, and the amount of data that is being queried.      |
-| **View the queries that returned results**         | After your queries are done running, view the queries that returned results using the **Results** filter: <br>- Sort to see which queries had the most or fewest results. <br>- View the queries that aren't at all active in your environment by selecting *N/A* in the **Results** filter. <br>- Hover over the info icon (**i**) next to the *N/A* to see which data sources are required to make this query active.  |
-| **Identify spikes in your data**                   | Identify spikes in the data by sorting or filtering on **Results delta** or **Results delta percentage**. <br><br>Compares the results of the last 24 hours against the results of the previous 24-48 hours, highlighting any large differences or relative difference in volume.   |
-| **View queries mapped to the MITRE ATT&CK tactic** | The **MITRE ATT&CK tactic bar**, at the top of the table, lists how many queries are mapped to each MITRE ATT&CK tactic. The tactic bar gets dynamically updated based on the current set of filters applied. <br><br>Enables you to see which MITRE ATT&CK tactics show up when you filter by a given result count, a high result delta, *N/A* results, or any other set of filters.        |
-| **View queries mapped to MITRE ATT&CK techniques** | Queries can also be mapped to MITRE ATT&CK techniques. You can filter or sort by MITRE ATT&CK techniques using the **Technique** filter. By opening a query, you're able to select the technique to see the MITRE ATT&CK description of the technique.        |
-| **Save a query to your favorites**                 |   Queries saved to your favorites automatically run each time the **Hunting** page is accessed. You can create your own hunting query or clone and customize an existing hunting query template.      |
-| **Run queries**                                    |   Select **Run Query** in the hunting query details page to run the query directly from the hunting page. The number of matches is displayed within the table, in the **Results** column. Review the list of hunting queries and their matches.     |
-| **Review an underlying query**                     | Perform a quick review of the underlying query in the query details pane. You can see the results by clicking the **View query results** link (below the query window) or the **View Results** button (at the bottom of the pane). The query opens the **Logs** (Log Analytics) page, and below the query, you can review the matches for the query.         |
+Many available hunting queries are developed by Microsoft security researchers on a continuous basis. They add new queries to security solutions and fine-tune existing queries to provide you with an entry point to look for new detections and attacks.
 
 
-## Custom hunting queries
+
+### Custom hunting queries
 
 Create or edit a query and save it as your own query or share it with users who are in the same tenant. In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Queries** tab.
 
@@ -88,6 +100,25 @@ Create or edit a query and save it as your own query or share it with users who 
 For more information, see [Create custom hunting queries in Microsoft Sentinel](hunts-custom-queries.md).
 
 <a name="create-bookmarks"></a>
+
+
+## Livestream sessions
+
+Create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
+
+- **Test newly created queries as events occur**
+    
+    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecting an option that elevates the session to an alert.
+
+- **Get notified when threats occur**
+    
+    You can compare threat data feeds to aggregated log data and be notified when a match occurs. Threat data feeds are ongoing streams of data that are related to potential or current threats, so the notification might indicate a potential threat to your organization. Create a livestream session instead of a custom alert rule to be notified of a potential issue without the overheads of maintaining a custom alert rule.
+
+- **Launch investigations**
+    
+    If there's an active investigation that involves an asset such as a host or user, view specific (or any) activity in the log data as it occurs on that asset. Be notified when that activity occurs.
+
+For more information, see [Detect threats by using hunting livestream in Microsoft Sentinel](livestream.md).
 
 ## Bookmarks to keep track of data
 
@@ -114,24 +145,6 @@ During the hunting and investigation process, you might come across query result
 To start using bookmarks, see [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md).
 
 <a name="use-notebooks-to-power-investigations"></a>
-
-## Livestream sessions
-
-Create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
-
-- **Test newly created queries as events occur**
-    
-    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecting an option that elevates the session to an alert.
-
-- **Get notified when threats occur**
-    
-    You can compare threat data feeds to aggregated log data and be notified when a match occurs. Threat data feeds are ongoing streams of data that are related to potential or current threats, so the notification might indicate a potential threat to your organization. Create a livestream session instead of a custom alert rule to be notified of a potential issue without the overheads of maintaining a custom alert rule.
-
-- **Launch investigations**
-    
-    If there's an active investigation that involves an asset such as a host or user, view specific (or any) activity in the log data as it occurs on that asset. Be notified when that activity occurs.
-
-For more information, see [Detect threats by using hunting livestream in Microsoft Sentinel](livestream.md).
 
 ## Notebooks to power investigations
 
