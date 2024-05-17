@@ -13,9 +13,9 @@ ms.collection: usx-security
 
 # Threat hunting in Microsoft Sentinel
 
-As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Microsoft Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that aren't detected by your security apps or even by your scheduled analytics rules, Microsoft Sentinel's built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network.
+As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Microsoft Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that aren't detected by your security apps or even by your scheduled analytics rules, hunting queries guide you into asking the right questions to find issues in the data you already have on your network.
 
-For example, one built-in query provides data about the most uncommon processes running on your infrastructure. You wouldn't want an alert each time they run. They could be entirely innocent. But you might want to take a look at the query on occasion to see if there's anything unusual.
+For example, one out of the box query provides data about the most uncommon processes running on your infrastructure. You wouldn't want an alert each time they run. They could be entirely innocent. But you might want to take a look at the query on occasion to see if there's anything unusual.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -30,7 +30,7 @@ With hunts in Microsoft Sentinel, seek out undetected threats and malicious beha
 |Define a hypothesis     | To define a hypothesis, find inspiration from the MITRE map, recent hunting query results, content hub solutions, or generate your own custom hunts.      |
 |Investigate queries and bookmark results    |  After you define a hypothesis, go to the Hunting page **Queries** tab. Select the queries related to your hypothesis and **New hunt** to get started.    Run hunt related queries and investigate the results using the logs experience. Bookmark results directly to your hunt to annotate your findings, extract entity identifiers, and preserve relevant queries.      |
 |Investigate and take action     | Investigate even deeper by using UEBA entity pages. Run entity specific playbooks on bookmarked entities. Use built-in actions to create new analytic rules, threat indicators, and incidents based on findings.        |
-|Track your results    |  Record the results of your hunt. Track if your hypothesis is validated or not.Leave detailed notes in the comments. Hunts automatically links new analytic rules and incidents. Track the overall impact of your hunting program with the metric bar.      |
+|Track your results    |  Record the results of your hunt. Track if your hypothesis is validated or not. Leave detailed notes in the comments. Hunts automatically links new analytic rules and incidents. Track the overall impact of your hunting program with the metric bar.      |
 
 To get started, see [Conduct end-to-end proactive threat hunting in Microsoft Sentinel](hunts.md).
 
