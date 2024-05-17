@@ -1,13 +1,13 @@
 ---
 title: Developer portal - Frequently asked questions
 titleSuffix: Azure API Management
-description: Frequently asked questions about the developer portal in API Management. The developer portal is a customizable website where API consumers can explore your APIs.
+description: Frequently asked questions about the developer portal in API Management. The developer portal is a customizable website for API consumers to explore your APIs.
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: troubleshooting
-ms.date: 04/01/2024
+ms.date: 05/17/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -47,9 +47,9 @@ No.
 
 In most cases - no.
 
-If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you'll see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. 
 
-If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management. You may need to disable Web Application Firewall rules. See [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
+If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the internet, you may need to disable Web Application Firewall rules. See [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
 
 ## I assigned a custom API Management domain and the published portal doesn't work
 
@@ -106,14 +106,6 @@ New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM N
 ```
 
 After the permissions have been granted to a user, the user must sign out and sign in again to the Azure portal for the new permissions to take effect.
-
-## I'm seeing the `Unable to start the portal. See if settings are specified correctly (...)` error
-
-This error is shown when a `GET` call to `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` fails. The call is issued from the browser by the administrative interface of the portal.
-
-If your API Management service is in a VNet, refer to the [VNet connectivity question](#do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies).
-
-The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and isn't trusted by the browser. As a mitigation, you can remove the management endpoint custom domain. API Management will fall back to the default endpoint with a trusted certificate.
 
 ## What's the browser support for the portal?
 
