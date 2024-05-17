@@ -149,7 +149,7 @@ If you don't need the sign-up functionality enabled by default in the developer 
 > - If you wish to disable the developer portal using the method below, you will not be able to access the administrative interface of the portal (design mode).
 > - If your requirement is to remove the published portal while retaining access to the portal in design mode, please contact [Microsoft support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
-Developer portal can be enabled or disabled using this [PATCH REST API](rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview) with the appropriate fields: 
+Developer portal can be enabled or disabled using this [PATCH REST API](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview) with the appropriate fields: 
 - Use the [LegacyPortalStatus property](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview#legacyportalstatus) to enable or disable the legacy portal.
 - Use the [developerPortalStatus property](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2023-05-01-preview#developerportalstatus) to enable or disable the new developer portal.
 
@@ -183,7 +183,7 @@ Content-type: application/json
 }
 ```
 
-This operation may take up to 1 hour to complete. Ensure that you are using an api-version that supports the `legacyPortalStatus` or `developerPortalStatus` property.
+This operation may take up to 1 hour to complete. Ensure that you are using an API version that supports the `legacyPortalStatus` or `developerPortalStatus` property.
 
 To re-enable the developer portal, use the same PATCH operation and set the value of the appropriate property to `Enabled`.
 
