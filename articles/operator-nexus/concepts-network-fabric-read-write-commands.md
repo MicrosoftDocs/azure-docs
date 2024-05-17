@@ -27,7 +27,7 @@ When you execute an RW configuration command and make changes to the device, the
 
 ## Select Network Device
 
-Sign in to [Azure Portal](https://portal.azure.com/)
+Sign in to the [Azure portal](https://portal.azure.com/)
 
 ### Access the Network Devices:
 
