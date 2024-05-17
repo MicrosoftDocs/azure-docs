@@ -251,7 +251,7 @@ Response:
 
 ##### More inference examples
 
-| **Package**       | **Sample Notebook**                             |
+| **Sample Type**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
 | CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/jais/webrequests-sample) |
 | OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/jais/openaisdk) |
