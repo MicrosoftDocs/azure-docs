@@ -1,6 +1,6 @@
 ---
 title: Enable native sidecar mode for Istio-based service mesh add-on in Azure Kubernetes Service (AKS) (preview)
-description: Enable native sidecar mode for Istio-based service mesh add-on in Azure Kubernetes Service (AKS) (preview)
+description: Enable native sidecar mode for Istio-based service mesh add-on in Azure Kubernetes Service (AKS) (preview).
 ms.topic: article
 ms.service: azure-kubernetes-service
 ms.date: 05/07/2024
@@ -12,7 +12,7 @@ author: biefy
 
 Kubernetes native sidecar aims to provide a more robust and user-friendly way to incorporate sidecar patterns into Kubernetes applications, improving efficiency, reliability, and simplicity.
 
-Native sidecar is a good fit for Istio, offering several benefits such as simplified sidecar management, improved reliability and coordination, resource optimization, operational efficiency, and enhanced security. These improvements can help Istio function more smoothly and effectively, making it easier to deploy and manage service meshes on Kubernetes.
+Native sidecar is a good fit for Istio. It offers several benefits, such as simplified sidecar management. Additionally, it improves reliability and coordination. It also optimizes resources and enhances operational efficiency. Finally, it provides enhanced security.
 
 Starting from Kubernetes version 1.29, [sidecar containers][k8s-native-sidecar-support] feature is turned on for AKS. With this change, [Istio native sidecar mode][istio-native-sidecar-support] can be used with the Istio add-on for AKS.
 
@@ -99,8 +99,10 @@ done
 
 ### Check sidecar injection
 
+Run the following command to check sidecar injection:
+
 ```bash
-kubectl get pod -o "custom-columns=NAME:.metadata.name,INIT:.spec.initContainers[*].name,CONTAINERS:.spec.containers[*].name"
+kubectl get pods -o "custom-columns=NAME:.metadata.name,INIT:.spec.initContainers[*].name,CONTAINERS:.spec.containers[*].name"
 ```
 
 If native side mode is successfully enabled, `istio-proxy` container is shown as an init container.
