@@ -130,7 +130,7 @@ Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Co
 
 ### Content safety for models deployed via Serverless API
 
-!INCLUDE [generic-preview](../includes/generic-preview.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio implements a default configuration of [Azure AI Content Safety](../../ai-services/content-safety/overview.md) text moderation filters for harmful content (sexual, violence, hate, and self-harm) in language models deployed with MaaS. To learn more about content filtering (preview), see [Harm categories](../../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. Complete this form to disable content filtering (preview) for [models deployed as a service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2WTn-w_72hGvfUv1OcrZVVUM05MQ1JLQ0xTUlBRVENQQlpQQzVBODNEUiQlQCN0PWcu). Submitting the form disables content filtering (preview) for all active serverless endpoints, and you'll have to resubmit the form to disable content filtering for any newly created endpoints.
 
