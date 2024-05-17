@@ -49,7 +49,7 @@ This can be done manually using the text boxes in the **Input** column.
 
 You can also **Import Data** to choose one of your previous existing datasets in your project or upload a dataset that is in CSV or JSONL format. After loading your data, you'll be prompted to map the columns appropriately. Once you finish and select **Import**, the data is populated appropriately in the columns below.  
 
-:::image type="content" source="../media/evaluations/prompts/generate-manual-eval-results.png" alt-text="Screenshot of generating manual evaluation results." lightbox= "../media/evaluations/prompts/generate-manual-eval-results.png":::
+:::image type="content" source="../media/evaluations/prompts/generate-manual-evaluation-results.png" alt-text="Screenshot of generating manual evaluation results." lightbox= "../media/evaluations/prompts/generate-manual-evaluation-results.png":::
 
 > [!NOTE]
 > You can add as many as 50 input rows to your manual evaluation. If your test data has more than 50 input rows, we will upload the first 50 in the input column. 
