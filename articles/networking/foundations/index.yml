@@ -1,5 +1,5 @@
 ### YamlMime:Hub
-title: Azure Network Foundations
+title: Azure Network Foundation Services
 summary: Azure network foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
 brand: azure ## Used for color theming of icons and hero area 
 
@@ -125,6 +125,9 @@ conceptualContent:
         - url: /azure/architecture/hybrid/hybrid-dns-infra
           itemType: architecture
           text: Design a hybrid Domain Name System solution with Azure
+        - url: /azure/architecture/networking/guide/private-link-virtual-wan-dns-guide
+          itemType: architecture
+          text: Private Link and DNS in Azure Virtual WAN
           
       # footerLink (optional)
       footerLink:
