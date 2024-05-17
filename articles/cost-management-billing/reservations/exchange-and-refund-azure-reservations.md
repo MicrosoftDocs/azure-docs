@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 2/22/2024
+ms.date: 05/08/2024
 ms.author: banders
 ---
 
@@ -19,13 +19,15 @@ However, you can't exchange dissimilar reservations. For example, you can't exch
 You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region.
 
 > [!NOTE]
-> Through a grace period, you will have the ability to exchange Azure compute reservations (Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations) **until at least July 1, 2024**. In October 2022 it was announced that the ability to exchange Azure compute reservations would be deprecated on January 1, 2024. This policy’s start date remains January 1, 2024 but with this grace period **you now have until at least July 1, 2024 to exchange your Azure compute reservations**. Compute reservations purchased prior to the end of the grace period will reserve the right to exchange one more time after the grace period ends.​
+> Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service has been extended **until further notice**.
 >
-> This grace period is designed to provide more time for you to determine your resource needs and plan accordingly. For more information about the exchange policy change, see [Changes to the Azure reservation exchange policy](reservation-exchange-policy-changes.md).​
+>Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we've updated our reservations exchange policy. While [instance size flexibility for VMs](../../virtual-machines/reserved-vm-instance-size-flexibility.md) remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
 >
-> [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) was launched in October 2022 to provide you with more flexibility and accommodate changes such as virtual machine series and regions. With savings plan providing flexibility automatically, we adjusted our reservations exchange policy. You can continue to use [instance size flexibility for VM sizes](../../virtual-machines/reserved-vm-instance-size-flexibility.md), but after the grace period we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations.
+>You may continue [exchanging](exchange-and-refund-azure-reservations.md) your compute reservations for different instance series and regions until we notify you again, which will be **at least 6 months in advance**. In addition, any compute reservations purchased during this extended grace period will retain the right to **one more exchange after the grace period ends**. The extended grace period allows you to better assess your cost savings commitment needs and plan effectively. For more information, see [Changes to the Azure reservation exchange policy](reservation-exchange-policy-changes.md).
 >
-> You can [trade in](../savings-plan/reservation-trade-in.md) your Azure compute reservations for a savings plan or you can continue to use and purchase reservations for those predictable, stable workloads where the specific configuration need is known. For more information, see [Azure savings plan for compute and how it works with reservations](../savings-plan/decide-between-savings-plan-reservation.md).  
+>You may [trade-in](../savings-plan/reservation-trade-in.md) your Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations that are used to cover dynamic/evolving workloads for a savings plan or may continue to use and purchase reservations for stable workloads where the specific configuration needs are known.
+>
+>For more information, see [Azure savings plan for compute and how it works with reservations](../savings-plan/decide-between-savings-plan-reservation.md).
 
 When you exchange a reservation, you can change your term from one-year to three-year. Or, you can change the term from three-year to one-year.
 
@@ -118,7 +120,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's 100 USD per month and exchanged after the 18th payment, the new reservation's lifetime commitment should be 1,800 USD or more (paid monthly or upfront).
 - The new reservation purchased as part of exchange has a new term starting from the time of exchange.
 - There's no penalty or annual limits for exchanges.
-- Through a grace period, you will have the ability to exchange Azure compute reservations (Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations) **until at least July 1, 2024**. In October 2022, it was announced that the ability to exchange Azure compute reservations would be deprecated on January 1, 2024. This policy’s start date remains January 1, 2024 but with this grace period you now have until at least July 1, 2024 to exchange your Azure compute reservations. Compute reservations purchased prior to the end of the grace period will reserve the right to exchange one more time after the grace period ends. For more information about the exchange policy change, see  [Changes to the Azure reservation exchange policy](reservation-exchange-policy-changes.md).
+- As noted previously, through a grace period, you have the ability to exchange Azure compute reservations (Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations) **until further notice**.
 
 **Refund policies**
 
