@@ -44,7 +44,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
 
 ### Check versions
 
-1. Make sure control plane has been upgraded to `1.29` or newer version with [az aks show][az-aks-show].
+1. Make sure control plane runs `1.29` or newer version with [az aks show][az-aks-show].
 
    ```bash
    az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER -o json | jq ".kubernetesVersion"
@@ -52,7 +52,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
 
    If the control plane version is too old, [upgrade Kubernetes control plane][upgrade-aks-cluster].
 
-2. Make sure node pools have been upgraded to `1.29` or newer version and power state is running.
+2. Make sure node pools runs `1.29` or newer version and power state is running.
 
    ```bash
    az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER -o json | jq ".agentPoolProfiles[] | { currentOrchestratorVersion, powerState}"
@@ -73,19 +73,17 @@ This article walks through how to enable native sidecar mode for Istio based ser
 
 ### Check native sidecar feature status on Istio control plane
 
-Run [az aks update][az-aks-update] to update the AKS cluster.
+AKS cluster needs to be reconciled with [az aks update][az-aks-update].
 
 ```bash
 az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER
 ```
 
-Run the following command to check `istiod` deployment. 
+When native sidecare mode is enabled, environment variable `ENABLE_NATIVE_SIDECARS` appears with value `true` istio's control plane pod template. Use the following command to check `istiod` deployment. 
 
 ```bash
 kubectl get deployment -l app=istiod -n aks-istio-system -o json | jq '.items[].spec.template.spec.containers[].env[] | select(.name=="ENABLE_NATIVE_SIDECARS")'
 ```
-
-Make sure environment variable `ENABLE_NATIVE_SIDECARS` appears with value `true` in the pod template.
 
 ### Restart workloads
 
@@ -99,13 +97,13 @@ done
 
 ### Check sidecar injection
 
-Run the following command to check sidecar injection:
+If native side mode is successfully enabled, `istio-proxy` container is shown as an init container. Use the following command to check sidecar injection:
 
 ```bash
 kubectl get pods -o "custom-columns=NAME:.metadata.name,INIT:.spec.initContainers[*].name,CONTAINERS:.spec.containers[*].name"
 ```
 
-If native side mode is successfully enabled, `istio-proxy` container is shown as an init container.
+`istio-proxy` container should be shown as an init container.
 
 ```bash
 NAME                     INIT                     CONTAINERS
