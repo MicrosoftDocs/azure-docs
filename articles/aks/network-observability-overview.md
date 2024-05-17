@@ -1,15 +1,15 @@
 ---
-title: What is Azure Kubernetes Service (AKS) Network Observability?
+title: What is Azure Kubernetes Service (AKS) Network Observability? (Preview)
 description: An overview of network observability for Azure Kubernetes Service (AKS).
 author: asudbring
 ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: overview
-ms.date: 04/30/2024
+ms.date: 06/20/2023
 ---
 
-# What is Azure Kubernetes Service (AKS) Network Observability?
+# What is Azure Kubernetes Service (AKS) Network Observability? (Preview)
 
 Kubernetes is a powerful tool for managing containerized applications. As containerized environments grow in complexity, it can be difficult to identify and troubleshoot networking issues in a Kubernetes cluster.
 
@@ -18,6 +18,10 @@ Network observability is an important part of maintaining a healthy and performa
 :::image type="content" source="./media/network-observability-overview/network-observability-components.png" alt-text="Diagram of Network Observability components.":::
 
 ## Overview of Network Observability add-on in AKS
+
+> [!IMPORTANT]
+> AKS Network Observability is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Networking Observability add-on operates seamlessly on Non-Cilium and Cilium data-planes. It empowers customers with enterprise-grade capabilities for DevOps and SecOps. This solution offers a centralized way to monitor network issues in your cluster for cluster network administrators, cluster security administrators, and DevOps engineers.
 
