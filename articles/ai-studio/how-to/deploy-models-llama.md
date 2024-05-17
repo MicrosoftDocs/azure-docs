@@ -585,7 +585,7 @@ Follow these steps to deploy an open model such as `Meta-Llama-3-7B-Instruct` to
     )
     ```
 
-1. Define the model and the deployment. `The model_id` can be found on the model card in the Azure AI Studio [model catalog](../how-to/model-catalog.md).
+1. Define the model and the deployment. `The model_id` can be found on the model card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md).
 
     ```python
     model_id = "azureml://registries/azureml/models/Llama-3-8b-chat/versions/12"
@@ -629,7 +629,7 @@ Follow these steps to deploy an open model such as `Meta-Llama-2-7B-Chat` to a r
     )
     ```
 
-1. Define the model and the deployment. `The model_id` can be found on the model card in the Azure AI Studio [model catalog](../how-to/model-catalog.md).
+1. Define the model and the deployment. `The model_id` can be found on the model card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md).
 
     ```python
     model_id = "azureml://registries/azureml/models/Llama-2-7b-chat/versions/12"
@@ -652,7 +652,7 @@ Follow these steps to deploy an open model such as `Meta-Llama-2-7B-Chat` to a r
 
 ### Consume Meta Llama 3 models deployed to real-time endpoints
 
-For reference about how to invoke Llama models deployed to real-time endpoints, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
+For reference about how to invoke Llama models deployed to real-time endpoints, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
 ## Cost and quotas
 

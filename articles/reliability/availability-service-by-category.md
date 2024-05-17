@@ -32,7 +32,7 @@ Azure services are presented in the following tables by category. Note that some
 > |----------------------------------------|---------------------------------------------------|
 > | Azure Application Gateway              | Azure API Management                              |
 > | Azure Backup                           | Azure App Configuration                           |
-> | Azure Cosmos DB                        | Azure App Service                                 |
+> | Azure Cosmos DB for NoSQL              | Azure App Service                                 |
 > | Azure Event Hubs                       | Microsoft Entra Domain Services            |
 > | Azure ExpressRoute                     | Azure Bastion                                     |
 > | Azure Key Vault                        | Azure Batch                                       |

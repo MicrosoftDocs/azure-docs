@@ -3,7 +3,7 @@ title: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 4/23/2024
+ms.date: 5/9/2024
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
@@ -54,7 +54,7 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter Server.
 - From the Management VM, verify you  have access to [vCenter Server and NSX Manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
-- An unused, [NSX network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an isolated NSX-T Data Center network segment doesn't exist, one gets created.
+- An unused, [NSX network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an unused NSX network segment doesn't exist, one gets created.
 - The firewall and proxy URLs must be allowlisted to enable communication from the management machine and Appliance VM to the required Arc resource bridge URLs. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
 - Verify your vCenter Server version is 7.0 or higher.
 - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.

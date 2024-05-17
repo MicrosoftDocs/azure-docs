@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 05/03/2024
+ms.date: 05/07/2024
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -198,8 +198,8 @@ The following table lists the fields in the schema and what they signify for vir
 > | **DestPort** | Destination Port | Port at which traffic is incoming. |
 > | **L4Protocol** | - T <br> - U | Transport Protocol. **T** = TCP <br> **U** = UDP |
 > | **L7Protocol** | Protocol Name | Derived from destination port. |
-> | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the network security group per flow log. |
-> | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by network security group per flow log. |
+> | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the target resource per flow log. |
+> | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by target resource per flow log. |
 > | **NSGList** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
 > | **NSGRule** | NSG_RULENAME  | Network security group rule that allowed or denied the flow. |
 > | **NSGRuleType** | - User Defined <br> - Default | The type of network security group rule used by the flow. |
@@ -232,10 +232,10 @@ The following table lists the fields in the schema and what they signify for vir
 > | **DeniedInFlows** | - | Count of inbound flows that were denied. (Inbound to the network interface at which the flow was captured). |
 > | **AllowedOutFlows** | - | Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured). |
 > | **DeniedOutFlows** | - | Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured). |
-> | **PacketsDestToSrc** | Represents packets sent from the destination to the source of the flow | Populated only for the Version 2 of network security group flow log schema. |
-> | **PacketsSrcToDest** | Represents packets sent from the source to the destination of the flow  | Populated only for the Version 2 of network security group flow log schema. |
-> | **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of network security group flow log schema. |
-> | **BytesSrcToDest** | Represents bytes sent from the source to the destination of the flow | Populated only for the Version 2 of network security group flow log schema. |
+> | **PacketsDestToSrc** | - | Represents packets sent from the destination to the source of the flow. |
+> | **PacketsSrcToDest** | - | Represents packets sent from the source to the destination of the flow . |
+> | **BytesDestToSrc** | - | Represents bytes sent from the destination to the source of the flow. |
+> | **BytesSrcToDest** | - | Represents bytes sent from the source to the destination of the flow. |
 > | **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of network security group flow log schema. |
 > | **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
 > | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |

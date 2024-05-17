@@ -31,7 +31,7 @@ You can update the state of the instances and the max ready capacity of your sta
 
 
 ### [CLI](#tab/cli-2)
-Update an existing standby pool using [az standby-vm-pool update](/cli/azure/standby-pool).
+Update an existing standby pool using [az standby-vm-pool update](/cli/azure/standby-vm-pool).
 
 ```azurecli-interactive
 az standby-vm-pool update \
@@ -163,7 +163,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/m
 
 
 ### [CLI](#tab/cli-3)
-Delete an existing standby pool using [az standbypool delete](/cli/azure/standby-pool).
+Delete an existing standby pool using [az standbypool delete](/cli/azure/standby-vm-pool).
 
 ```azurecli-interactive
 az standby-vm-pool delete \

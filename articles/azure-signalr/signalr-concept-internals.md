@@ -28,7 +28,7 @@ A self-hosted ASP.NET Core SignalR application server listens to and connects cl
 With SignalR Service, the application server no longer accepts persistent client connections, instead:
 
 1. A `negotiate` endpoint is exposed by Azure SignalR Service SDK for each hub.
-1. The endpoint responds to client negotiation requests and redirect clients to SignalR Service.
+1. The endpoint responds to client negotiation requests and redirects clients to SignalR Service.
 1. The clients connect to SignalR Service.
 
 For more information, see [Client connections](#client-connections).
@@ -36,10 +36,10 @@ For more information, see [Client connections](#client-connections).
 Once the application server is started:
 
 - For ASP.NET Core SignalR: Azure SignalR Service SDK opens five WebSocket connections per hub to SignalR Service. 
-- For ASP.NET SignalR: Azure SignalR Service SDK opens five WebSocket connections per hub to SignalR Service, and one per application WebSocket connection.
+- For ASP.NET SignalR: Azure SignalR Service SDK opens five WebSocket connections per hub to SignalR Service and one per application WebSocket connection.
 
 
-The initial number of connections defaults to 5 and is configurable using the `InitialHubServerConnectionCount` option in the SignalR Service SDK.  For more information, see  [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/run-asp-net-core.md#maxhubserverconnectioncount). 
+The initial number of connections defaults to 5 and is configurable using the `InitialHubServerConnectionCount` option in the SignalR Service SDK.  For more information, see  [configuration](signalr-howto-use.md#configure-options). 
 
 While the application server is connected to the SignalR service, the Azure SignalR service may send load-balancing messages to the server.  Then, the SDK starts new server connections to the service for better performance. Messages to and from clients are multiplexed into these connections.
 

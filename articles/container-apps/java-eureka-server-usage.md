@@ -1,6 +1,6 @@
 ---
-title: Configure settings for the Eureka Server for Spring component in Azure Container Apps (preview)
-description: Learn to configure the Eureka Server for Spring component in Azure Container Apps.
+title: Configure settings for the Spring Cloud Eureka Server component in Azure Container Apps (preview)
+description: Learn to configure the Spring Cloud Eureka Server component in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -9,9 +9,9 @@ ms.date: 03/15/2024
 ms.author: cshoe
 ---
 
-# Configure settings for the Eureka Server for Spring component in Azure Container Apps (preview)
+# Configure settings for the Spring Cloud Eureka Server component in Azure Container Apps (preview)
 
-Eureka Server for Spring is mechanism for centralized service discovery for microservices. Use the following guidance to learn how to configure and manage your Eureka Server for Spring component.
+Spring Cloud Eureka Server is mechanism for centralized service discovery for microservices. Use the following guidance to learn how to configure and manage your Spring Cloud Eureka Server component.
 
 ## Show
 
@@ -53,14 +53,14 @@ az containerapp update \
 
 ## Allowed configuration list for your Spring Cloud Eureka
 
-The following list details supported configurations. You can find more details in [Eureka Server for Spring](https://cloud.spring.io/spring-cloud-netflix/reference/html/#spring-cloud-eureka-server).
+The following list details supported configurations. You can find more details in [Spring Cloud Eureka Server](https://cloud.spring.io/spring-cloud-netflix/reference/html/#spring-cloud-eureka-server).
 
 > [!NOTE]
 > Please submit support tickets for new feature requests.
 
 ### Configuration options
 
-The `az containerapp update` command uses the `--configuration` parameter to control how the Eureka Server for Spring is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Eureka Server for Spring](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_discovery_first_bootstrap_using_eureka_and_webclient) docs.
+The `az containerapp update` command uses the `--configuration` parameter to control how the Spring Cloud Eureka Server is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Eureka Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_discovery_first_bootstrap_using_eureka_and_webclient) docs.
 
 The following configuration settings are available on the `eureka.server` configuration property.
 
@@ -181,4 +181,4 @@ Now you have a caller and callee application that communicate with each other us
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect to a managed Eureka Server for Spring](java-eureka-server.md)
+> [Tutorial: Connect to a managed Spring Cloud Eureka Server](java-eureka-server.md)

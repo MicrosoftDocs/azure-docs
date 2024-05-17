@@ -72,7 +72,7 @@ You can also configure a standby pool during Virtual Machine Scale Set creation 
 
 
 ### [CLI](#tab/cli)
-Create a standby pool and associate it with an existing scale set using [az standby-vm-pool create](/cli/azure/standby-pool).
+Create a standby pool and associate it with an existing scale set using [az standby-vm-pool create](/cli/azure/standby-vm-pool).
 
 ```azurecli-interactive
 az standby-vm-pool create \

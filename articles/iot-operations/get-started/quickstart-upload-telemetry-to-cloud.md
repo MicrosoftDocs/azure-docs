@@ -41,7 +41,7 @@ To use a tool such as Power BI to analyze your OPC UA data, you need to send the
 You need to allow the MQ extension on your cluster to connect to your Microsoft Fabric workspace. You made a note of the MQ extension name in the [deployment quickstart](quickstart-deploy.md#view-resources-in-your-cluster). The name of the extension looks like `mq-z2ewy`.
 
 > [!TIP]
-> If you need to find the unique name assigned to your MQ extension, run the following command to list your cluster extensions: `az k8s-extension list --resource-group <your-resource-group-name> --cluster-name <your-kubernetes-cluster-name> --cluster-type connectedClusters -o table`
+> If you need to find the unique name assigned to your MQ extension, run the following command in your Codespaces terminal to list your cluster extensions: `az k8s-extension list --resource-group <your-resource-group-name> --cluster-name $CLUSTER_NAME --cluster-type connectedClusters -o table`
 
 Navigate to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi). To ensure you can see the **Manage access** option in your Microsoft Fabric workspace, create a new workspace:
 
@@ -78,15 +78,9 @@ Create a lakehouse in your Microsoft Fabric workspace:
 
 ## Configure a connector
 
-1. To download the sample connector configuration file, run the following command:
+Your codespace comes with the following sample connector configuration file, `/workspaces/explore-iot-operations/samples/quickstarts/datalake-connector.yaml`:
 
-    ```console
-    curl -O https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/datalake-connector.yaml
-    ```
-
-    The following snippet shows the YAML file that you applied:
-
-    :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/datalake-connector.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/datalake-connector.yaml":::
 
 1. Open the _datalake-connector.yaml_ file in a text editor and replace `<your-workspace-name>` with the name of your Microsoft Fabric workspace. You made a note of this value when you created the workspace.
 

@@ -22,12 +22,24 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## May 2024
 
-| Date  | Update                                                            |
-| ----- | ----------------------------------------------------------------- |
+|Date | Update |
+|--|--|
+| May 9 | [Checkov integration for IaC scanning in Defender for Cloud (Preview)](#checkov-integration-for-iac-scanning-in-defender-for-cloud-preview) |
 | May 7 | [General availability of permissions management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
 | May 6 | [AI multicloud security posture management is publicly available for Azure and AWS](#ai-multicloud-security-posture-management-is-publicly-available-for-azure-and-aws) |
 | May 6 | [Limited public preview of threat protection for AI workloads in Azure](#limited-public-preview-of-threat-protection-for-ai-workloads-in-azure) |
-| May  1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
+| May 2 | [Updated security policy management is now generally available](#updated-security-policy-management-is-now-generally-available) |
+| May 1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
+
+### Checkov integration for IaC scanning in Defender for Cloud (Preview)
+
+May 9, 2024
+
+We are announcing the public preview of the Checkov integration for DevOps security in Defender for Cloud. This integration improves both the quality and total number of Infrastructure-as-Code checks run by the MSDO CLI when scanning IaC templates.
+
+While in preview, Checkov must be explicitly invoked through the 'tools' input parameter for the MSDO CLI.
+
+Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md) and configuring the MSDO CLI for [Azure DevOps](azure-devops-extension.yml) and [GitHub](github-action.md). 
 
 ### General availability of permissions management in Defender for Cloud
 
@@ -47,10 +59,22 @@ Learn more about [AI security posture management](ai-security-posture.md).
 
 May 6, 2024
 
-Threat protection for AI workloads in Defender for Cloud provides contextual insights into AI workload threat protection, integrating with [Responsible AI](../ai-services/responsible-use-of-ai-overview.md) and Microsoft Threat Intelligence. Threat protection for AI workloads security alerts are integrated into Defender XDR in the Defender portal. 
+Threat protection for AI workloads in Defender for Cloud provides contextual insights into AI workload threat protection, integrating with [Responsible AI](../ai-services/responsible-use-of-ai-overview.md) and Microsoft Threat Intelligence. Threat protection for AI workloads security alerts are integrated into Defender XDR in the Defender portal.
 This plan helps you monitor your Azure OpenAI powered applications in runtime for malicious activity, identify and remediate security risks.
 
 Learn more about [threat protection for AI workloads](ai-threat-protection.md).
+
+### Updated security policy management is now generally available
+
+May 2, 2024
+
+Security policy management across clouds (Azure, AWS, GCP) is now generally available (GA). This enables security teams to manage their security policies in a consistent way and with new features:
+
+- A simplified and same cross cloud interface for creating and managing the Microsoft Cloud Security Benchmark (MCSB) as well as custom recommendations based on KQL queries.
+- Managing regulatory compliance standards in Defender for Cloud across Azure, AWS, and GCP environments.
+- New filtering and export capabilities for reporting.
+
+For more information, see [Security policies in Microsoft Defender for Cloud](security-policy-concept.md#working-with-security-standards).
 
 ### Defender for open-source databases is now available on AWS for Amazon instances (Preview)
 
@@ -333,7 +357,7 @@ The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is 
 
 |Date | Update |
 |----------|----------|
-| February 28 | [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) | 
+| February 28 | [Microsoft Security Code Analysis (MSCA) is no longer operational](#microsoft-security-code-analysis-msca-is-no-longer-operational) |
 | February 28 | [Updated security policy management expands support to AWS and GCP](#updated-security-policy-management-expands-support-to-aws-and-gcp) |
 | February 26 | [Cloud support for Defender for Containers](#cloud-support-for-defender-for-containers) |
 | February 20 | [New version of Defender sensor for Defender for Containers](#new-version-of-defender-sensor-for-defender-for-containers) |

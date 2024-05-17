@@ -188,7 +188,7 @@ This table lists some of the key configuration parameters for pronunciation asse
 | `ReferenceText` | The text that the pronunciation is evaluated against.<br/><br/>The `ReferenceText` parameter is optional. Set the reference text if you want to run a [scripted assessment](#scripted-assessment-results) for the reading language learning scenario. Don't set the reference text if you want to run an [unscripted assessment](#unscripted-assessment-results).<br/><br/>For pricing differences between scripted and unscripted assessment, see [Pricing](./pronunciation-assessment-tool.md#pricing). |
 | `GradingSystem` | The point system for score calibration. `FivePoint` gives a 0-5 floating point score. `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. |
 | `Granularity` | Determines the lowest level of evaluation granularity. Returns scores for levels greater than or equal to the minimal value. Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph. It depends on your input reference text. Default: `Phoneme`.|
-| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. Enabling miscue is optional. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet below the table. |
+| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. Enabling miscue is optional. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Values are `False` and `True`. Default: `False`. To enable miscue calculation, set the `EnableMiscue` to `True`. You can refer to the code snippet above the table. |
 | `ScenarioId` | A GUID for a customized point system. |
 
 ### Configuration methods
@@ -385,7 +385,7 @@ This table lists some of the key pronunciation assessment results for the script
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. | Full Text level |
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |Full Text level|
 | `ProsodyScore` | Prosody of the given speech. Prosody indicates how natural the given speech is, including stress, intonation, speaking speed, and rhythm. | Full Text level|
-| `PronScore` | Overall score of the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |Full Text level|
+| `PronScore` | Overall score of the pronunciation quality of the given speech. `PronScore` is calculated from `AccuracyScore`, `FluencyScore`, `CompletenessScore`, and `ProsodyScore` with weight, provided that `ProsodyScore` and `CompletenessScore` are available. If either of them isn't available, `PronScore` won't consider that score.|Full Text level|
 | `ErrorType` | This value indicates the error type compared to the reference text. Options include whether a word is omitted, inserted, or improperly inserted with a break. It also indicates a missing break at punctuation. It also indicates whether a word is badly pronounced, or monotonically rising, falling, or flat on the utterance. Possible values are `None` for no error on this word, `Omission`, `Insertion`, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.| Word level|
 
 #### Unscripted assessment results
@@ -405,7 +405,7 @@ This table lists some of the key pronunciation assessment results for the unscri
 | `VocabularyScore`  | Proficiency in lexical usage. It evaluates the speaker's effective usage of words and their appropriateness within the given context to express ideas accurately, and the level of lexical complexity. | Full Text level |
 | `GrammarScore`     | Correctness in using grammar and variety of sentence patterns. Lexical accuracy, grammatical accuracy, and diversity of sentence structures jointly elevate grammatical errors. | Full Text level|
 | `TopicScore`       | Level of understanding and engagement with the topic, which provides insights into the speaker’s ability to express their thoughts and ideas effectively and the ability to engage with the topic. | Full Text level|
-| `PronScore`        | Overall score of the pronunciation quality of the given speech. This value is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. | Full Text level |
+| `PronScore`        | Overall score of the pronunciation quality of the given speech. `PronScore` is calculated from `AccuracyScore`, `FluencyScore`, and `ProsodyScore` with weight, provided that `ProsodyScore` is available. If `ProsodyScore` isn't available, `PronScore` won't consider that score.| Full Text level |
 | `ErrorType`        | A word is badly pronounced, improperly inserted with a break, or missing a break at punctuation. It also indicates whether a pronunciation is monotonically rising, falling, or flat on the utterance. Possible values are `None` for no error on this word, `Mispronunciation`, `UnexpectedBreak`, `MissingBreak`, and `Monotone`. | Word level |
 
 The following table describes the prosody assessment results in more detail:
@@ -619,7 +619,7 @@ You can get pronunciation assessment scores for:
 
 ### Supported features per locale
 
-The following table summarizes which features that locales support. For more specifies, see the following sections.
+The following table summarizes which features that locales support. For more specifies, see the following sections. If the locales you require aren't listed in the following table for the supported feature, fill out this [intake form](https://aka.ms/speechpa/intake) for further assistance.
 
 | Phoneme alphabet | IPA     | SAPI |
 |:-----------------|:--------|:-----|

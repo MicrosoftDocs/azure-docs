@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 Microsoft Defender XDR correlates millions of individual signals to identify active ransomware campaigns or other sophisticated attacks in the environment with high confidence. While an attack is in progress, Defender XDR disrupts the attack by automatically containing compromised assets that the attacker is using through automatic attack disruption. Automatic attack disruption limits lateral movement early on and reduces the overall impact of an attack, from associated costs to loss of productivity. At the same time, it leaves security operations teams in complete control of investigating, remediating, and bringing assets back online.
 
-When you add a new SAP system to Microsoft Sentinel, your default configuration includes attack disruption functionality in the unified SOC platform. This article describes how to ensure that your SAP system is ready to support automatic attack disruption for SAP in the Microsoft Defender portal.
+When you add a new SAP system to Microsoft Sentinel, your default configuration includes attack disruption functionality in the unified security operations platform. This article describes how to ensure that your SAP system is ready to support automatic attack disruption for SAP in the Microsoft Defender portal.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 

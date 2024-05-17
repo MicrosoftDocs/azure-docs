@@ -211,7 +211,7 @@
         href: concept-easm.md
       - name: Critical assets protection
         href: critical-assets-protection.md
-      - name: Permissions management
+      - name: Permissions management (CIEM)
         displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
         href: permissions-management.md
       - name: Agentless machine scanning
@@ -322,7 +322,7 @@
         - name: Integrate security solutions
           displayName: security, solutions, integrate, integrated, data sources
           href: partner-integration.md
-        - name: Enable permissions management
+        - name: Enable permissions management (CIEM)
           displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
           href: enable-permissions-management.md
     - name: AI security posture

@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Bicep to create an Azure A
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 02/28/2024
+ms.date: 04/18/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
@@ -13,7 +13,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Bicep
 
-In this quickstart, you use Bicep to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly.
+In this quickstart, you use Bicep to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly. The Standard v2 SKU is used in this example.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -30,6 +30,9 @@ This Bicep file creates a simple setup with a public frontend IP address, a basi
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 
 :::code language="bicep" source="~/quickstart-templates/demos/ag-docs-qs/main.bicep":::
+
+> [!TIP]
+> You can modify values of the `Name` and `Tier` parameters under `resource\applicationGateWay\properties\sku` to use a different SKU. For example: `Basic`.
 
 Multiple Azure resources are defined in the Bicep file:
 

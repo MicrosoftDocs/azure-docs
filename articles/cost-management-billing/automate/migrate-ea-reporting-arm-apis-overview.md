@@ -72,7 +72,7 @@ After you've migrated to the Cost Management APIs for your existing reporting sc
 - [Alerts](/rest/api/cost-management/alerts) - Use to view alert information including, but not limited to, budget alerts, invoice alerts, credit alerts, and quota alerts.
 - [Exports](/rest/api/cost-management/exports) - Use to schedule recurring data export of your charges to an Azure Storage account of your choice. It's the recommended solution for customers with a large Azure presence who want to analyze their data and use it in their own internal systems.
 
-## Next steps
+## Related content
 
 - Familiarize yourself with the [Azure Resource Manager REST APIs](/rest/api/azure).
 - If needed, determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
