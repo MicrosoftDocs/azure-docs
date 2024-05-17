@@ -5,6 +5,8 @@ ms.topic: include
 ms.date: 04/22/2024
 ---
 
+<a name="dnl-note" />
+
 > [!NOTE]
 > Beginning April 22, 2024, all newly created App Service apps will have the option to create a unique default hostname with a naming convention of `<app-name>`-`<random-hash>`.`<region>`.`azurewebsites.net`. The names of existing apps will not change.
 >

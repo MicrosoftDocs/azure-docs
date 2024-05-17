@@ -39,7 +39,7 @@ This ZIP package deployment uses the same Kudu service that powers continuous in
 
 #### With zip deploy UI in Kudu
 
-In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`.
+In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI` (see [note at top](./includes/regionalization-note.md#dnl-note)).
 
 Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
 
@@ -88,6 +88,9 @@ curl -X POST \
      -T "<zip-package-path>" \
      "https://<app-name>.scm.azurewebsites.net/api/publish?type=zip"
 ```
+
+> [!NOTE]
+> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
 
 # [ARM template](#tab/arm)
 
@@ -148,6 +151,9 @@ curl -X POST \
      -T @"<file-path>" \
      "https://<app-name>.scm.azurewebsites.net/api/publish?type=<package-type>"
 ```
+
+> [!NOTE]
+> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
 
 For more information, see [Kudu publish API reference](#kudu-publish-api-reference)
 
@@ -211,6 +217,9 @@ curl -X POST \
      "https://<app-name>.scm.azurewebsites.net/api/publish?type=startup"
 ```
 
+> [!NOTE]
+> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
+
 ### Deploy a library file
 
 The following example uses the cURL tool to deploy a library file for the application. Replace the placeholders `<lib-file-path>` and `<app-name>`. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in `<username>` and `<password>`.
@@ -231,6 +240,9 @@ curl -X POST \
      "https://<app-name>.scm.azurewebsites.net/api/publish?type=lib&path=/home/site/deployments/tools/my-lib.jar"
 ```
 
+> [!NOTE]
+> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
+
 ### Deploy a static file
 
 The following example uses the cURL tool to deploy a config file for the application. Replace the placeholders `<config-file-path>` and `<app-name>`. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in `<username>` and `<password>`.
@@ -250,6 +262,9 @@ curl -X POST \
      -T @"<config-file-path>" \
      "https://<app-name>.scm.azurewebsites.net/api/publish?type=static&path=/home/site/deployments/tools/my-config.json"
 ```
+
+> [!NOTE]
+> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
 
 # [ARM template](#tab/arm)
 
@@ -296,6 +311,9 @@ curl -X POST \
      -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}' \
      "https://<app-name>.scm.azurewebsites.net/api/publish?type=zip"
 ```
+
+> [!NOTE]
+> For the actual fully qualified domain name to use in the URL, see [note at top](./includes/regionalization-note.md#dnl-note)
 
 # [ARM template](#tab/arm)
 

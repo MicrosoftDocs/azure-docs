@@ -55,7 +55,7 @@ In the Web HTTP logs of your app, you find the client source IP. This feature is
 
 ## DNS
 
-When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default mywebappname.azurewebsites.net.
+When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default mywebappname.azurewebsites.net (see [note at top](./includes/regionalization-note.md#dnl-note)).
 
 By default, without private endpoint, the public name of your web app is a canonical name to the cluster.
 For example, the name resolution is:
