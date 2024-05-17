@@ -13,13 +13,13 @@ ms.custom: template-how-to
 
 Maintenance mode provides ability to isolate network fabric device  from the network in order to perform maintenance operations such as troubleshooting, log collection and diagnostics and executing any supported commands via method D  or method A.  
 
-When user puts device in maintenance mode, all process running on device are gracefully shut down and all physical ports are shut down. During maintenance mode traffic is carried over to the paired device  for example if TOR1 undergoes maintenance, paired device TOR2 would carry all traffic with minimal traffic loss during switch over.  To switch over traffic no user intervention is required. 
+When user puts device in maintenance mode, all process running on device are gracefully shut down and all physical ports are shut down. During maintenance mode traffic is carried over to the paired device for example if TOR1 undergoes maintenance, paired device TOR2 would carry all traffic with minimal traffic loss during switch over. To switch over traffic no user intervention is required.
 
 ## Key considerations  
 
-Only one device at a time can be in maintenance mode  
+Only one device at a time can be in maintenance mode. 
 
-Fabric upgrades are restricted when device is in maintenance mode
+Fabric upgrades are restricted when device is in maintenance mode.
 
 ## How to put a device into maintenance mode
 
@@ -32,7 +32,7 @@ Before you begin, you need to understand the parameters required for managing th
 
 | Parameter          | Description                  | Example           |
 |--------------------|------------------------------|-------------------|
-| `--resource-group` | Resource group name          | resourcegroup     |
+| `--resource-group` | Resource group name          | resource-group-name     |
 | `--resource-name`  | Name of the network device   | AggrRack-CE1      |
 | `--state`          | State of the device          | UnderMaintenance or Enabled |
 
@@ -49,13 +49,13 @@ To place a device into maintenance mode, follow these steps:
 ### Command syntax
 
 ```azurecli
-az networkfabric device update-admin-state --resource-group "resourcegroup" --resource-name "exampledevicename" --state UnderMaintenance
+az networkfabric device update-admin-state --resource-group "resource-group-name" --resource-name "exampledevicename" --state UnderMaintenance
 ```
 
 ### Example command
 
 ```azuecli
-az networkfabric device update-admin-state --resource-group "resourcegroup" --resource-name "AggrRack-CE1" --state UnderMaintenance
+az networkfabric device update-admin-state --resource-group "resource-group-name" --resource-name "AggrRack-CE1" --state UnderMaintenance
 ```
 
 ### Expected output
@@ -63,7 +63,7 @@ az networkfabric device update-admin-state --resource-group "resourcegroup" --re
 After executing the command, you can verify the state of the device using the `az networkfabric device show` command:
 
 ```azurecli
-az networkfabric device show --resource-group "resourcegroup" --resource-name "exampledevicename"
+az networkfabric device show --resource-group "resource-group-name" --resource-name "exampledevicename"
 ```
 
 #### Example output
@@ -73,14 +73,14 @@ az networkfabric device show --resource-group "resourcegroup" --resource-name "e
   "administrativeState": "UnderMaintenance",
   "configurationState": "Succeeded",
   "hostName": "HOSTNAME",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/exampledevicename",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resource-group-name/providers/Microsoft.ManagedNetworkFabric/networkDevices/exampledevicename",
   "location": "eastus",
   "name": "exampledevicename",
   "networkDeviceRole": "CE",
   "networkDeviceSku": "DefaultSku",
-  "networkRackId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab100g-6-1-aggrack",
+  "networkRackId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resource-group-name/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab100g-6-1-aggrack",
   "provisioningState": "Succeeded",
-  "resourceGroup": "resourcegroup",
+  "resourceGroup": "resource-group-name",
   "serialNumber": "Arista;DCS-7280CR3K;11.01;XXXXXXXXXXX",
   "systemData": {
     "createdAt": "2024-04-23T18:06:34.7467102Z",
@@ -102,13 +102,13 @@ Once the maintenance activities are complete, you can return the device to its n
 ### Command Syntax
 
 ```azurecli
-az networkfabric device update-admin-state --resource-group "resourcegroup" --resource-name "exampledevicename" --state Enable
+az networkfabric device update-admin-state --resource-group "resource-group-name" --resource-name "exampledevicename" --state Enable
 ```
 
 ### Example Command
 
 ```azurecli
-az networkfabric device update-admin-state --resource-group "resourcegroup" --resource-name "AggrRack-CE1" --state Enable
+az networkfabric device update-admin-state --resource-group "resource-group-name" --resource-name "AggrRack-CE1" --state Enable
 ```
 
 ### Expected Output
@@ -116,7 +116,7 @@ az networkfabric device update-admin-state --resource-group "resourcegroup" --re
 Verify the state of the device using the `az networkfabric device show` command:
 
 ```azurecli
-az networkfabric device show --resource-group "resourcegroup" --resource-name "exampledevicename"
+az networkfabric device show --resource-group "resource-group-name" --resource-name "exampledevicename"
 ```
 
 #### Example Output
@@ -126,14 +126,14 @@ az networkfabric device show --resource-group "resourcegroup" --resource-name "e
   "administrativeState": "Enabled",
   "configurationState": "Succeeded",
   "hostName": "HOSTNAME",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup/providers/Microsoft.ManagedNetworkFabric/networkDevices/exampledevicename",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resource-group-name/providers/Microsoft.ManagedNetworkFabric/networkDevices/exampledevicename",
   "location": "eastus",
   "name": "exampledevicename",
   "networkDeviceRole": "CE",
   "networkDeviceSku": "DefaultSku",
-  "networkRackId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab100g-6-1-aggrack",
+  "networkRackId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resource-group-name/providers/Microsoft.ManagedNetworkFabric/networkRacks/nffab100g-6-1-aggrack",
   "provisioningState": "Succeeded",
-  "resourceGroup": "resourcegroup",
+  "resourceGroup": "resource-group-name",
   "serialNumber": "Arista;DCS-728XXXX;11.01;XXXXXXXXXXX",
   "systemData": {
     "createdAt": "2024-04-23T18:06:34.7467102Z",
