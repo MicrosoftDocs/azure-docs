@@ -18,7 +18,7 @@ Learn about use cases for Azure Virtual Network Manager, including managing the 
 
 ## Connectivity configuration
 
-You an use a connectivity configuration to create various network topologies based on your network needs. You create a connectivity configuration by adding new or existing virtual networks into [network groups](concept-network-groups.md) and creating a topology that meets your needs. A connectivity configuration offers three topology options: mesh, hub-and-spoke, or hub-and-spoke with direct connectivity between spoke virtual networks.
+You can use a connectivity configuration to create various network topologies based on your network needs. You create a connectivity configuration by adding new or existing virtual networks into [network groups](concept-network-groups.md) and creating a topology that meets your needs. A connectivity configuration offers three topology options: mesh, hub-and-spoke, or hub-and-spoke with direct connectivity between spoke virtual networks.
 
 ### Mesh topology (preview)
 
@@ -30,7 +30,7 @@ We recommend a [hub-and-spoke topology](concept-connectivity-configuration.md#hu
 
 ### Hub-and-spoke topology with direct connectivity
 
-A hub-and-spoke topology with direct connectivity combines the two preceding topologies. We recommend it when you have common central infrastructure in the hub, and you want direct communication between all spokes. [Direct connectivity](concept-connectivity-configuration.md#direct-connectivity) helps you reduce the latency that extra network hops cause they're when going through a hub.
+A hub-and-spoke topology with direct connectivity combines the two preceding topologies. We recommend it when you have common central infrastructure in the hub, and you want direct communication between all spokes. [Direct connectivity](concept-connectivity-configuration.md#direct-connectivity) helps you reduce the latency that extra network hops cause when they're going through a hub.
 
 ### Maintaining a virtual network topology
 

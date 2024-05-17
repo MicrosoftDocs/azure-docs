@@ -36,7 +36,7 @@ For current information about region support, refer to [Products available by re
 
 * You can deny high-risk traffic. As an administrator of an enterprise, you can block specific protocols or sources that override any network security group (NSG) rules that would normally allow the traffic.
 
-* You can always allow traffic. For example, you might to permit a specific security scanner to always have inbound connectivity to all your resources, even if NSG rules are configured to deny the traffic.
+* You can always allow traffic. For example, you might permit a specific security scanner to always have inbound connectivity to all your resources, even if NSG rules are configured to deny the traffic.
 
 ### What's the cost of using Azure Virtual Network Manager?
 
@@ -46,7 +46,7 @@ You can find current pricing for your region on the [Azure Virtual Network Manag
 
 ### How do I deploy Azure Virtual Network Manager?
 
-You can deploy and manage an Azure Virtual Network Manager instance and configurations through a variety of tools, including:
+You can deploy and manage an Azure Virtual Network Manager instance and configurations through various tools, including:
 
 * [Azure portal](./create-virtual-network-manager-portal.md)
 * [Azure CLI](./create-virtual-network-manager-cli.md)
@@ -105,11 +105,11 @@ If a regional outage occurs, all configurations applied to current managed virtu
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to an unmanaged virtual network?
 
-Yes. Azure Virtual Network Manager is fully compatible with preexisting hub-and-spoke topology deployments that use peering. You don't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+Yes. Azure Virtual Network Manager is fully compatible with pre-existing hub-and-spoke topology deployments that use peering. You don't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
 
 ### Can I migrate an existing hub-and-spoke topology to Azure Virtual Network Manager?
 
-Yes. Migrating existing virtual networks to the hub-and-spoke topology in Azure Virtual Network Manager is straightforward. You can [create a hub-and-spoke topology connectivity configuration](how-to-create-hub-and-spoke.md). When you deploy this configuration, Virtual Network Manager automatically creates the necessary peerings. Any preexisting peerings remain intact, so there's no downtime.
+Yes. Migrating existing virtual networks to the hub-and-spoke topology in Azure Virtual Network Manager is straightforward. You can [create a hub-and-spoke topology connectivity configuration](how-to-create-hub-and-spoke.md). When you deploy this configuration, Virtual Network Manager automatically creates the necessary peerings. Any pre-existing peerings remain intact, so there's no downtime.
 
 ### How do connected groups differ from virtual network peering in establishing connectivity between virtual networks?
 
