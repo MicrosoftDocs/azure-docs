@@ -101,6 +101,11 @@ Azure IoT Akri Preview supports the following features:
 
 ## Related content
 
+To learn more about Azure IoT Akri, see:
+
+- [Azure IoT Akri architecture](concept-akri-architecture.md)
+- [Discover OPC UA data sources using Azure IoT Akri](howto-autodetect-opcua-assets-using-akri.md)
+
 To learn more about the open-source CNCF Akri, see the following resources:
 
 - [Documentation](https://docs.akri.sh/)

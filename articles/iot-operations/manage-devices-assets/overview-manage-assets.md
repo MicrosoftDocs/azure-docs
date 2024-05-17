@@ -53,7 +53,7 @@ The following tasks are useful for operations teams in sectors such as industry,
 - Create assets remotely
 - To access asset data, subscribe to OPC UA tags and events
 
-The Azure IoT Operations (preview) portal lets operations teams perform these tasks in a simplified web interface. The portal uses the other services described previously, to complete these tasks.
+The Azure IoT Operations (preview) portal lets operations teams perform these tasks in a simplified web interface. The portal uses the other services described previously, to complete these tasks. You can also use the Azure IoT Operations CLI to manage assets by using the `az iot ops asset` command.
 
 The Azure IoT Operations (preview) portal uses the OPC UA Broker service to exchange data with local OPC UA servers. OPC UA servers are software applications that communicate with assets. The OPC UA broker exposes:
 
