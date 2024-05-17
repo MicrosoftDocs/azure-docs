@@ -34,6 +34,7 @@ The following table links to Azure Blob Storage developer guides and samples tha
 | Lease | [Create and manage container leases](../blobs/storage-blob-containers-lease-java.md)</br></br>[Create and manage blob leases](../blobs/storage-blob-lease-java.md) | |
 | Properties and metadata | [Manage container properties and metadata](../blobs/storage-blob-container-properties-metadata-java.md)</br></br>[Manage blob properties and metadata](../blobs/storage-blob-properties-metadata-java.md)| |
 | Index tags | [Use blob index tags to manage and find data](../blobs/storage-blob-tags-java.md) | |
+| Access tiers | [Set or change a block blob's access tier](../blobs/storage-blob-use-access-tier-java.md) | |
 | Batching | | [Create a blob batch client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L41)</br></br>[Bulk delete blobs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L45)</br></br>[Set access tier on a batch of blobs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L51) |
 | Troubleshooting | | [Trigger a recoverable error using a container client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/StorageErrorHandlingExample.java#L11) |
 
@@ -101,7 +102,7 @@ You can browse and clone the GitHub repository for each library.
 
 ## Getting started guides
 
-See the following articles for instructions on how to install and get started with the Azure Storage Client Libraries.
+See the following articles for instructions on how to install and get started with the Azure Storage client libraries.
 
 - [Quickstart: Azure Blob Storage client library for Java](../blobs/storage-quickstart-blobs-java.md)
 - [Quickstart: Azure Queue Storage client library for Java](../queues/storage-quickstart-queues-java.md)

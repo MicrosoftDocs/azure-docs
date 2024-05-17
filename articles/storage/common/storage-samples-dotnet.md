@@ -36,6 +36,7 @@ The following table links to Azure Blob Storage developer guides and samples tha
 | Index tags | [Use blob index tags to manage and find data](../blobs/storage-blob-tags.md) | |
 | Snapshots | [Create and manage a blob snapshot](../blobs/snapshots-manage-dotnet.md) | |
 | Blob versions | [Create and list blob versions](../blobs/versions-manage-dotnet.md) | |
+| Access tiers | [Set or change a block blob's access tier](../blobs/storage-blob-use-access-tier.md) | |
 | Append blob | [Append data to an append blob](../blobs/storage-blob-append.md) | |
 | Batching | | [Delete several blobs in one request](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs.Batch/samples/Sample03b_BatchingAsync.cs#L22)</br></br>[Set several blob access tiers in one request](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batch/samples/Sample03b_BatchingAsync.cs#L56)</br></br>[Fine-grained control in a batch request](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batch/samples/Sample03b_BatchingAsync.cs#L90)</br></br>[Catch errors from a failed sub-operation](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batch/samples/Sample03b_BatchingAsync.cs#L136) |
 | Troubleshooting | | [Trigger a recoverable error using a container client](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample01b_HelloWorldAsync.cs#L166) |
@@ -86,7 +87,7 @@ The following list links to Azure Table Storage samples that use .NET client lib
 - [Transactional batch operations](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/samples/Sample6TransactionalBatch.md)
 - [Customizing serialization](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/samples/Sample7Serialization.md)
 
-Samples for deprecated v11 client libraries are available at [Azure Table Storage samples for .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/tree/master/TableStorage).
+Samples for deprecated client libraries are available at [Azure Table Storage samples for .NET](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/tree/master/TableStorage).
 
 ## Azure code sample libraries
 

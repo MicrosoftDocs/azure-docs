@@ -15,7 +15,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Azure Storage samples using v12 Python client libraries
 
-The following tables provide an overview of our samples repository and the scenarios covered in each sample. Select the links to view the corresponding sample code in GitHub.
+This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub.
 
 > [!NOTE]
 > These samples use the latest [Azure Storage .NET v12 library](/python/api/overview/azure/storage). For legacy v2.1 code, see [Azure Storage: Getting Started with Azure Storage in Python](https://github.com/Azure-Samples/storage-blob-python-getting-started) in the GitHub repository.
@@ -36,6 +36,7 @@ The following table links to Azure Blob Storage developer guides and samples tha
 | Lease | [Create and manage container leases](../blobs/storage-blob-containers-lease-python.md)</br></br>[Create and manage blob leases](../blobs/storage-blob-lease-python.md) | [Acquire lease on container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L81)</br></br>[Acquire lease on blob](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_common.py#L167) |
 | Properties and metadata | [Manage container properties and metadata](../blobs/storage-blob-container-properties-metadata-python.md)</br></br>[Manage blob properties and metadata](../blobs/storage-blob-properties-metadata-python.md)| [Get container properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L57)</br></br>[Set container metadata](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L102)</br></br>[Get blob properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_common.py#L105) |
 | Index tags | [Use blob index tags to manage and find data](../blobs/storage-blob-tags-python.md) | |
+| Access tiers | [Set or change a block blob's access tier](../blobs/storage-blob-use-access-tier-python.md) | |
 | Blob service | | [Get blob service account info](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L30)</br></br>[Set blob service properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L41)</br></br>[Get blob service properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L61)</br></br>[Get blob service stats](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_service.py#L71) |
 | Access policy | | [Set container access policy](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L129)</br></br>[Get container access policy](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/samples/blob_samples_containers.py#L142) |
 
