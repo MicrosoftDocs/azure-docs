@@ -104,7 +104,7 @@ Listening port
 
 which provides information and options, based on the Azure service you're using to deploy your web application. Select the following tab associated with the Azure service.
 
-#### [Container Apps](#tab/container-apps/)
+#### [App component](#tab/app-component/)
 
 The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
 
@@ -122,7 +122,7 @@ The following image shows an example of the Hosting tab, Container details selec
 
 In the Monitoring tab, you can view Log Analytics workspace information like the subscription and  resource group used for your App Space, and region.
 
-#### [Static Web Apps](#tab/static-web-apps/)
+#### [Static App Component](#tab/static-app-component/)
 
 The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
 
