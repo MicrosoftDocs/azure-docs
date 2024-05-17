@@ -25,7 +25,7 @@ Ensure the following before you install Arc agents at scale for VMware VMs:
 - The user account must have permissions listed in Azure Arc VMware Administrator role.
 - All the target machines are:
     - Powered on and the resource bridge has network connectivity to the host running the VM.
-    - Running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).c
+    - Running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).
     - VMware tools are installed on the machines. If VMware tools aren't installed, enable guest management operation is grayed out in the portal.  
         >[!Note]
         >You can use the [out-of-band method](./enable-guest-management-at-scale.md#approach-d-install-arc-agents-at-scale-using-out-of-band-approach) to install Arc agents if VMware tools aren't installed.  

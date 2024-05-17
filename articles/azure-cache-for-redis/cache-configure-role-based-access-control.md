@@ -24,7 +24,7 @@ Azure Cache for Redis offers three built-in access policies: _Owner_, _Contribut
 
 | **Tier**         | Basic, Standard, Premium | Enterprise, Enterprise Flash |
 |:-----------------|:------------------------:|:----------------------------:|
-| **Availability** | Yes (preview)            | No                           |
+| **Availability** | Yes                      | No                           |
 
 ## Prerequisites and limitations
 
@@ -104,7 +104,7 @@ The following list contains some examples of permission strings for various scen
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you want to configure Microsoft Entra token-based authentication.
 
-1. From the Resource menu, select **(PREVIEW) Data Access configuration**.
+1. From the Resource menu, select **Data Access configuration**.
 
    :::image type="content" source="media/cache-configure-role-based-access-control/cache-data-access-configuration.png" alt-text="Screenshot showing Data Access Configuration highlighted in the Resource menu.":::
 
@@ -118,9 +118,9 @@ The following list contains some examples of permission strings for various scen
 
 1. To add a user to the access policy using Microsoft Entra ID, you must first enable Microsoft Entra ID by selecting **Authentication** from the Resource menu.
 
-1. Select **(PREVIEW) Enable Microsoft Entra Authentication** as the tab in the working pane.
+1. Select **Enable Microsoft Entra Authentication** as the tab in the working pane.
 
-1. If not checked already, check the box labeled **(PREVIEW) Enable Microsoft Entra Authentication** and select **OK**. Then, select **Save**.
+1. If not checked already, check the box labeled **Enable Microsoft Entra Authentication** and select **OK**. Then, select **Save**.
 
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-enable-microsoft-entra.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
 

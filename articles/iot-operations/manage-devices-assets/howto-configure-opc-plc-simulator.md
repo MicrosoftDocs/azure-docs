@@ -1,8 +1,8 @@
 ---
 title: Configure an OPC PLC simulator
 description: How to configure an OPC PLC simulator to work with Azure IoT OPC UA Broker.
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.subservice: opcua-broker
 ms.topic: how-to
 ms.date: 03/01/2024

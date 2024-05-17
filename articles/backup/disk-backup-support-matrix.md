@@ -2,7 +2,7 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 05/09/2024
 ms.custom: references_regions, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
@@ -19,7 +19,11 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 ## Limitations
 
-- Azure Disk Backup is supported for Azure Managed Disks, including shared disks (Shared premium SSDs). Unmanaged disks aren't supported. Currently, this solution doesn't support Premium SSD v2 disks and Ultra-disks, including shared disk, because of lack of snapshot capability.
+- Azure Disk Backup is supported for Azure Managed Disks (Standard HDD, Standard SSD and Premium SSD, Premium SSD v2 disks, and Ultra-disks), including shared disks (Shared premium SSDs). Unmanaged disks aren't supported. 
+
+  >[!Note]
+  >- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
+  >- For Azure Disks belonging to Premium V2 and Ultra Disk SKUs, you can define the backup schedule with *Hourly* frequency of only 12 hours and *Daily* frequency.
 
 - Azure Disk Backup supports backup of Write Accelerator disk. However, during restore the disk would be restored as a normal disk. Write Accelerated cache can be enabled on the disk after mounting it to a VM.
 

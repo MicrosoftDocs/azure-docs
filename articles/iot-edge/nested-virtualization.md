@@ -13,7 +13,7 @@ services: iot-edge
 
 # Nested virtualization for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 There are three forms of nested virtualization compatible with Azure IoT Edge for Linux on Windows. Users can choose to deploy through a local virtual machine (using Hyper-V hypervisor), VMware Windows virtual machine or Azure Virtual Machine. This article will provide users clarity on which option is best for their scenario and provide insight into configuration requirements.
 

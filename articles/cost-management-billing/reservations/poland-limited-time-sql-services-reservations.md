@@ -120,7 +120,7 @@ If you have purchased the one or three year reserved capacity for Azure SQL Data
 
 By participating in the offer, customers agree to be bound by these terms and the decisions of Microsoft. Microsoft reserves the right to disqualify any customer who violates these terms or engages in any fraudulent or harmful activities related to the offer. 
 
-## Next steps
+## Related content
 
 - [Understand Azure reservation discount](reservation-discount-application.md)
 - [Purchase reserved capacity in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade)

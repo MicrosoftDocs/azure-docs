@@ -617,6 +617,10 @@ Data connectors are available as part of the following offerings:
 
 - [Snowflake (using Azure Functions)](data-connectors/snowflake.md)
 
+## SonicWall Inc
+
+- [SonicWall Firewall](data-connectors/sonicwall-firewall.md)
+
 ## Sonrai Security
 
 - [Sonrai Data Connector](data-connectors/sonrai-data-connector.md)

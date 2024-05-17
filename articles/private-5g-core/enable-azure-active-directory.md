@@ -118,11 +118,11 @@ To support Microsoft Entra ID on Azure Private 5G Core applications, you'll need
         namespace: core
     type: Opaque
     data:
-        client_id: <Base64-encoded client ID>
-        client_secret: <Base64-encoded client secret>
-        auth_url: <Base64-encoded authorization URL>
-        token_url: <Base64-encoded token URL>
-        root_url: <Base64-encoded packet core dashboards redirect URI root>
+        GF_AUTH_AZUREAD_CLIENT_ID: <Base64-encoded client ID>
+        GF_AUTH_AZUREAD_CLIENT_SECRET: <Base64-encoded client secret>
+        GF_AUTH_AZUREAD_AUTH_URL: <Base64-encoded authorization URL>
+        GF_AUTH_AZUREAD_TOKEN_URL: <Base64-encoded token URL>
+        GF_AUTH_AZUREAD_TOKEN_URL: <Base64-encoded packet core dashboards redirect URI root>
     ```
 
 ## Apply Kubernetes Secret Objects

@@ -45,19 +45,19 @@ The different face detection models are optimized for different tasks. See the f
 |**detection_03** | Released in February 2021 and available optionally in all face detection operations.                   | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations.       | Returns mask and head pose attributes if they're specified in the detect call. | Returns face landmarks if they're specified in the detect call. |
 
 
-The best way to compare the performances of the detection models is to use them on a sample dataset. We recommend calling the [Face - Detect] API on a variety of images, especially images of many faces or of faces that are difficult to see, using each detection model. Pay attention to the number of faces that each model returns.
+The best way to compare the performances of the detection models is to use them on a sample dataset. We recommend calling the [Detect] API on a variety of images, especially images of many faces or of faces that are difficult to see, using each detection model. Pay attention to the number of faces that each model returns.
 
 ## Detect faces with specified model
 
 Face detection finds the bounding-box locations of human faces and identifies their visual landmarks. It extracts the face's features and stores them for later use in [recognition](../concept-face-recognition.md) operations.
 
-When you use the [Face - Detect] API, you can assign the model version with the `detectionModel` parameter. The available values are:
+When you use the [Detect] API, you can assign the model version with the `detectionModel` parameter. The available values are:
 
 * `detection_01`
 * `detection_02`
 * `detection_03`
 
-A request URL for the [Face - Detect] REST API will look like this:
+A request URL for the [Detect] REST API will look like this:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
@@ -70,7 +70,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId
 
 ## Add face to Person with specified model
 
-The Face service can extract face data from an image and associate it with a **Person** object through the [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API. In this API call, you can specify the detection model in the same way as in [Face - Detect].
+The Face service can extract face data from an image and associate it with a **Person** object through the [Add Person Group Person Face] API. In this API call, you can specify the detection model in the same way as in [Detect].
 
 See the following code example for the .NET client library.
 
@@ -88,7 +88,7 @@ await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imag
 This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Person** to it. Then it adds a Face to this **Person** using the `detection_03` model. If you don't specify the *detectionModel* parameter, the API will use the default model, `detection_01`.
 
 > [!NOTE]
-> You don't need to use the same detection model for all faces in a **Person** object, and you don't need to use the same detection model when detecting new faces to compare with a **Person** object (in the [Face - Identify] API, for example).
+> You don't need to use the same detection model for all faces in a **Person** object, and you don't need to use the same detection model when detecting new faces to compare with a **Person** object (in the [Identify From Person Group] API, for example).
 
 ## Add face to FaceList with specified model
 
@@ -114,16 +114,6 @@ In this article, you learned how to specify the detection model to use with diff
 * [Face .NET SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
 
-[Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
-[Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
-[Face - Identify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
-[Face - Verify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
-[PersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
-[PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
-[PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
-[PersonGroup - Train]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
-[LargePersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
-[FaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
-[FaceList - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
-[FaceList - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250
-[LargeFaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc
+[Detect]: /rest/api/face/face-detection-operations/detect
+[Identify From Person Group]: /rest/api/face/face-recognition-operations/identify-from-person-group
+[Add Person Group Person Face]: /rest/api/face/person-group-operations/add-person-group-person-face

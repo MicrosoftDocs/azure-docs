@@ -30,11 +30,11 @@ Optimization for the following images is supported:
 | Partition | MBR/GPT |
 | Hyper-V | Gen1/Gen2 |
 | OS State | Generalized |
+| Architecture | X64, ARM64 |
 
 The following types of images aren't supported: 
 
 * Images with size greater than 2 TB 
-* ARM64 images 
 * Specialized images
 
 

@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 04/18/2024
+ms.date: 05/01/2024
 ---
 
 ## Supported client versions
@@ -11,14 +11,14 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5331 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Public | 1.2.5405 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 | Insider | 1.2.5405 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.5405 (Insider)
+## Updates for version 1.2.5405
 
 *Date published: April 17, 2024*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
 In this release, we made the following changes:
 
@@ -28,7 +28,7 @@ In this release, we made the following changes:
 
 ## Updates for version 1.2.5331
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHro), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kK2T), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHrn)
 
 *Date published: April 18, 2024*
 
@@ -44,8 +44,6 @@ In this release, we've made the following changes:
 >This release was originally version 1.2.5326, but we made a hotfix after receiving user reports about issues that affected the MFA prompt and tenant URLs. Version 1.2.5331, which fixes these issues, has replaced version 1.2.5326.
 
 ## Updates for version 1.2.5255
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j6Co), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j6Cn), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1j9dS)
 
 *Date published: March 11, 2024*
 

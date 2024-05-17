@@ -17,7 +17,7 @@ ms.custom: language-service-clu
 # Send text classification requests to your model
 
 After you've successfully deployed a model, you can query the deployment to classify text based on the model you assigned to the deployment.
-You can query the deployment programmatically [Prediction API](https://aka.ms/ct-runtime-api) or through the client libraries (Azure SDK). 
+You can query the deployment programmatically [Prediction API](/rest/api/language/text-analysis-runtime/analyze-text) or through the client libraries (Azure SDK). 
 
 ## Test deployed model
 

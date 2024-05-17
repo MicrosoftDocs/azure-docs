@@ -1,16 +1,16 @@
 ---
 title: Azure Files scalability and performance targets
-description: Learn about the capacity, IOPS, and throughput rates for Azure file shares.
+description: Learn about the scalability and performance targets for Azure storage accounts, Azure Files, and Azure File Sync, including file share capacity, IOPS, throughput, ingress, egress, and operations.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/11/2024
+ms.date: 05/13/2024
 ms.author: kendownie
 ---
 
-# Azure Files scalability and performance targets
+# Scalability and performance targets for Azure Files and Azure File Sync
 
-[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB and NFS file system protocols. This article discusses the scalability and performance targets for Azure Files and Azure File Sync.
+[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) and Network File System (NFS) file system protocols. This article discusses the scalability and performance targets for Azure storage accounts, Azure Files, and Azure File Sync.
 
 The targets listed here might be affected by other variables in your deployment. For example, the performance of I/O for a file might be impacted by your SMB client's behavior and by your available network bandwidth. You should test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements.
 

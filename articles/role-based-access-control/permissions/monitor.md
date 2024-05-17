@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -622,6 +622,9 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | microsoft.monitor/accounts/privateEndpointConnections/delete | Delete any Monitoring Account Private Endpoint Connection |
 > | microsoft.monitor/accounts/privateEndpointConnections/operationResults/read | Read Status of any Private Endpoint Connections Asynchronous Operation |
 > | microsoft.monitor/accounts/privateLinkResources/read | Read all Monitoring Account Private Link Resources |
+> | microsoft.monitor/investigations/read | Read any Investigation |
+> | microsoft.monitor/investigations/write | Create or Update any Investigation |
+> | microsoft.monitor/investigations/delete | Delete any Investigation |
 > | microsoft.monitor/locations/operationStatuses/read | Read any Operation Status |
 > | microsoft.monitor/locations/operationStatuses/write | Create or Update any Operation Status |
 > | microsoft.monitor/operations/read | Read All Operations |

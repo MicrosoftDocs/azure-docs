@@ -258,14 +258,18 @@ curl --location --request POST '<endpoint>/contentsafety/text/blocklists/<your_l
 > You can add multiple blocklistItems in one API call. Make the request body a JSON array of data groups:
 >
 > ```json
-> [{
->    "description": "string",
->    "text": "bleed"
-> },
 > {
->    "description": "string",
->    "text": "blood"
-> }]
+>    "blocklistItems": [
+>        {
+>            "description": "string",
+>            "text": "bleed"
+>        },
+>        {
+>            "description": "string",
+>            "text": "blood"
+>        }
+>    ]
+>}
 > ```
 
 

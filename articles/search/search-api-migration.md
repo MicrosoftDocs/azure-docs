@@ -10,62 +10,83 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 05/04/2024
 ---
 
 # Upgrade to the latest REST API in Azure AI Search
 
 Use this article to migrate data plane calls to newer versions of the [**Search REST API**](/rest/api/searchservice/).
 
-+ [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version. Semantic ranking and support for indexing and querying vectors are generally available in this version.
++ [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version. Semantic ranking and support for vector indexing and queries are generally available in this version.
 
-+ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. Preview features include [built-in query vectorization](vector-search-how-to-configure-vectorizer.md), [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) (uses the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill). Refer to [code samples](https://github.com/Azure/azure-search-vector-samples) and [walkthroughs](vector-search-how-to-configure-vectorizer.md) for help with new features.
++ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. Preview features include [built-in query vectorization](vector-search-how-to-configure-vectorizer.md), [built-in data chunking and vectorization during indexing](vector-search-integrated-vectorization.md) (uses the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill). 
 
 + **2023-07-01-preview** was the first REST API for vector support. It's now deprecated and you should migrate to either **2023-11-01** or **2023-10-01-preview** immediately.
 
 > [!NOTE]
-> API reference docs are now versioned. To get the right content, open a reference page and then filter by version, using the selector located above the table of contents.
+> REST API reference docs are now versioned. To get the right content, open a reference page and then filter by version, using the selector located above the table of contents.
 
-<a name="UpgradeSteps"></a>
+## When to upgrade
 
-## How to upgrade
+Azure AI Search breaks backward compatibility as a last resort. Upgrade is necessary when:
 
-Azure AI Search breaks backward compatibility as a last resort. This section provides instructions to help you modify existing code that won't run in a newer version. Upgrade is necessary when:
-
-+ Your code references a retired or deprecated API version and is subject to one or more of the breaking changes. API versions that fall into this category include 2023-07-10-preview for vectors and [2019-05-06](#upgrade-to-2019-05-06). 
++ Your code references a retired or deprecated API version and is subject to one or more of the breaking changes. API versions that fall into this category include [2023-07-10-preview](/rest/api/searchservice/index-preview) for vectors and [2019-05-06](#upgrade-to-2019-05-06). 
 
 + Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
 + Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](/rest/api/searchservice/Search-Documents)).
 
+## Breaking change for client code that reads connection information
+
+Effective March 29, 2024 and applies to all [supported REST APIs](/rest/api/searchservice/search-service-api-versions): 
+
++ [GET Skillset](/rest/api/searchservice/skillsets/get), [GET Index](/rest/api/searchservice/indexes/get), and [GET Indexer](/rest/api/searchservice/indexers/get) no longer return keys or connection properties in a response. This is a breaking change if you have downstream code that reads keys or connections (sensitive data) from a GET response.
+
++ If you need to retrieve admin or query API keys for your search service, use the [Management REST APIs](search-security-api-keys.md?tabs=rest-find#find-existing-keys).
+
++ If you need to retrieve connection strings of another Azure resource such as Azure Storage or Azure Cosmos DB, use the APIs of that resource and published guidance to obtain the information.
+
 ## Upgrade to 2023-10-01-preview
 
-This version is identical to 2023-11-01 but has extra features in public preview: [built-in query vectorizer](vector-search-how-to-configure-vectorizer.md) and [vector prefilter mode](vector-search-filters.md). If you want to use those features, you should upgrade to the latest preview version.
+This section explains the migration path from 2023-07-01-preview to 2023-10-01-preview. You should migrate to 2023-10-01-preview if you want to use vector features that are still in public preview. If you don't need the preview features, we recommend upgrading to the stable release, 2023-11-01.
 
-The vector search algorithm configuration inside a search index is identical to 2023-11-01. To fix breaking changes from 2023-07-01-preview, follow the instructions in the next section.
+Preview features include:
+
++ [built-in text-to-vector indexing](search-get-started-portal-import-vectors.md)
++ [built-in text-to-vector queries](vector-search-how-to-configure-vectorizer.md)
++ [vector prefilter mode](vector-search-filters.md)
+
+Because these features didn't exist in previous API versions, there's no migration path. To learn how to add these features to your code, see [code samples](https://github.com/Azure/azure-search-vector-samples) and [walkthroughs](vector-search-how-to-configure-vectorizer.md).
+
+In contrast, the vector field definitions, vector search algorithm configuration, and vector query syntax that were first introduced in 2023-07-01-preview have changed. The 2023-10-01-preview syntax for vector fields, algorithms, and vector queries is identical to the 2023-11-01 syntax. Migration steps for these vector constructs are explained in [upgrade to 2023-11-01](#upgrade-to-2023-11-01).
+
+### Portal upgrade for vector indexes
+
+Azure portal supports a one-click upgrade path for 2023-07-01-preview indexes. The portal detects 2023-07-01-preview vector fields and provides a **Migrate** button. 
+
++ Migration path is from 2023-07-01-preview to 2023-10-01-preview.
++ Updates are limited to vector field definitions and vector search algorithm configurations.
++ Updates are one-way. You can't reverse the upgrade. Once the index is upgraded, you must use 2023-10-01-preview or later to query the index.
+
+There's no portal migration for upgrading vector query syntax. See [upgrade to 2023-11-01](#upgrade-to-2023-11-01) for query syntax changes.
+
+Before selecting **Migrate**, select **Edit JSON** to review the updated schema first. You should find a schema that conforms to the changes described in [upgrade to 2023-11-01](#upgrade-to-2023-11-01). Portal migration only handles indexes with one vector search algorithm configuration. It creates a default profile that maps to the 2023-07-01-preview vector search algorithm. Indexes with multiple vector search configurations require manual migration.
 
 ## Upgrade to 2023-11-01
 
 This version has breaking changes and behavioral differences for semantic ranking and vector search support. 
 
-+ [Semantic ranking](semantic-search-overview.md) is generally available and no longer uses the `queryLanguage` property. It also requires a `semanticConfiguration` definition. 
++ [Semantic ranking](semantic-search-overview.md) is generally available in 2023-11-01. It no longer uses the `queryLanguage` property. It also requires a `semanticConfiguration` definition. A `semanticConfiguration` replaces `searchFields` in previous versions. See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) for steps.
 
-   To upgrade from 2020-06-30-preview, create a `semanticConfiguration` to replace `searchFields`. See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-preview-versions) for steps.
++ [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). Upgrading from 2023-07-01-preview requires renaming and restructuring the vector configuration in the index. It also requires rewriting your vector queries. Use the instructions in this section to migrate vector fields, configuration, and queries.
 
-+ [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index).
+   If you're upgrading from 2023-10-01-preview to 2023-11-01, there are no breaking changes, but there's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md). If your 2023-10-01-preview code doesn't set `vectorFilterMode` explicitly, make sure you understand the new default behavior, or explicity set `vectorFilterMode` to postfilter to retain the old behavior. 
 
-   To upgrade from 2023-07-01-preview, rename and restructure the vector configuration in the index, and rewrite your vector query syntax using the instructions in this section.
-
-   To upgrade from 2023-10-01-preview, there are no breaking changes, but there's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md). If your 2023-10-01-preview code doesn't set `vectorFilterMode` explicitly, make sure you understand the new behavior, or set the mode to postfilter to retain the old behavior. 
-
-> [!TIP]
-> Azure portal supports a one-click upgrade path for 2023-07-01-preview indexes. The portal detects 2023-07-01-preview indexes and provides a **Migrate** button. Before selecting **Migrate**, select **Edit JSON** to review the updated schema first. You should find a schema that conforms to the changes described in this section. Portal migration only handles indexes with one vector search algorithm configuration, creating a default profile that maps to the algorithm. Indexes with multiple configurations require manual migration.
-
-Here are the steps for migrating from 2023-07-01-preview:
+Here are the steps for migrating from 2023-07-01-preview to 2023-11-01:
 
 1. Call [Get Index](/rest/api/searchservice/indexes/get?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to retrieve the existing definition.
 
-1. Modify the vector search configuration. This API introduces the concept of *vector profiles that bundles together vector-related configurations under one name. It also renames `algorithmConfigurations` to `algorithms`.
+1. Modify the vector search configuration. 2023-11-01 introduces the concept of *vector profiles* that bundle vector-related configurations under one name. It also renames `algorithmConfigurations` to `algorithms`.
 
    + Rename `algorithmConfigurations` to `algorithms`. This is only a renaming of the array. The contents are backwards compatible. This means your existing HNSW configuration parameters can be used.
 
@@ -93,12 +114,6 @@ Here are the steps for migrating from 2023-07-01-preview:
 
     ```http
       "vectorSearch": {
-        "profiles": [
-          {
-            "name": "myHnswProfile",
-            "algorithm": "myHnswConfig"
-          }
-        ],
         "algorithms": [
           {
             "name": "myHnswConfig",
@@ -109,6 +124,12 @@ Here are the steps for migrating from 2023-07-01-preview:
               "efSearch": 500,
               "metric": "cosine"
             }
+          }
+        ],
+        "profiles": [
+          {
+            "name": "myHnswProfile",
+            "algorithm": "myHnswConfig"
           }
         ]
       }
@@ -164,7 +185,7 @@ Here are the steps for migrating from 2023-07-01-preview:
 1. Modify [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-11-01&tabs=HTTP&preserve-view=true) to change the query syntax. This API change enables support for polymorphic vector query types.
 
    + Rename `vectors` to `vectorQueries`.
-   + For each vector query, add `kind`, setting it to "vector".
+   + For each vector query, add `kind`, setting it to `vector`.
    + For each vector query, rename `value` to `vector`.
    + Optionally, add `vectorFilterMode` if you're using [filter expressions](vector-search-filters.md). The default is  prefilter for indexes created after 2023-10-01. Indexes created before that date only support postfilter, regardless of how you set the filter mode. 
 
@@ -224,9 +245,9 @@ In this version, there's one breaking change and several behavioral differences.
 
 ### Breaking change
 
-Code written against earlier API versions breaks on 2020-06-30 and later if code contains the following functionality:
+Code written against earlier API versions breaks on `2020-06-30` and later if code contains the following functionality:
 
-+ Any Edm.Date literals (a date composed of year-month-day, such as `2020-12-12`) in filter expressions must follow the Edm.DateTimeOffset format: `2020-12-12T00:00:00Z`. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
++ Any `Edm.Date` literals (a date composed of year-month-day, such as `2020-12-12`) in filter expressions must follow the `Edm.DateTimeOffset` format: `2020-12-12T00:00:00Z`. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
 
 ### Behavior changes
 
@@ -245,23 +266,23 @@ Features that became generally available in this API version include:
 
 ### Breaking changes
 
-Code written against an earlier API version breaks on 2019-05-06 and later if it contains the following functionality:
+Code written against an earlier API version breaks on `2019-05-06` and later if it contains the following functionality:
 
 1. Type property for Azure Cosmos DB. For indexers targeting an [Azure Cosmos DB for NoSQL API](search-howto-index-cosmosdb.md) data source, change `"type": "documentdb"` to `"type": "cosmosdb"`.
 
 1. If your indexer error handling includes references to the `status` property, you should remove it. We removed status from the error response because it wasn't providing useful information.
 
-1. Data source connection strings are no longer returned in the response. From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API no longer returns connection strings in the response of any REST operation. In previous API versions, for data sources created using POST, Azure AI Search returned **201** followed by the OData response, which contained the connection string in plain text.
+1. Data source connection strings are no longer returned in the response. From API versions `2019-05-06` and `2019-05-06-Preview` onwards, the data source API no longer returns connection strings in the response of any REST operation. In previous API versions, for data sources created using POST, Azure AI Search returned **201** followed by the OData response, which contained the connection string in plain text.
 
 1. Named Entity Recognition cognitive skill is retired. If you called the [Name Entity Recognition](cognitive-search-skill-named-entity-recognition.md) skill in your code, the call fails. Replacement functionality is [Entity Recognition Skill (V3)](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 ### Upgrading complex types
 
-API version 2019-05-06 added formal support for complex types. If your code implemented previous recommendations for complex type equivalency in 2017-11-11-Preview or 2016-09-01-Preview, there are some new and changed limits starting in version 2019-05-06 of which you need to be aware:
+API version `2019-05-06` added formal support for complex types. If your code implemented previous recommendations for complex type equivalency in 2017-11-11-Preview or 2016-09-01-Preview, there are some new and changed limits starting in version `2019-05-06` of which you need to be aware:
 
-+ The limits on the depth of subfields and the number of complex collections per index have been lowered. If you created indexes that exceed these limits using the preview api-versions, any attempt to update or recreate them using API version 2019-05-06 will fail. If you find yourself in this situation, you need to redesign your schema to fit within the new limits and then rebuild your index.
++ The limits on the depth of subfields and the number of complex collections per index have been lowered. If you created indexes that exceed these limits using the preview api-versions, any attempt to update or recreate them using API version `2019-05-06` will fail. If you find yourself in this situation, you need to redesign your schema to fit within the new limits and then rebuild your index.
 
-+ There's a new limit starting in api-version 2019-05-06 on the number of elements of complex collections per document. If you created indexes with documents that exceed these limits using the preview api-versions, any attempt to reindex that data using api-version 2019-05-06 will fail. If you find yourself in this situation, you need to reduce the number of complex collection elements per document before reindexing your data.
++ There's a new limit starting in api-version `2019-05-06` on the number of elements of complex collections per document. If you created indexes with documents that exceed these limits using the preview api-versions, any attempt to reindex that data using api-version `2019-05-06` will fail. If you find yourself in this situation, you need to reduce the number of complex collection elements per document before reindexing your data.
 
 For more information, see [Service limits for Azure AI Search](search-limits-quotas-capacity.md).
 
@@ -302,13 +323,13 @@ If your code is using complex types with one of the older preview API versions, 
 }  
 ```
 
-A newer tree-like format for defining index fields was introduced in API version 2017-11-11-Preview. In the new format, each complex field has a fields collection where its subfields are defined. In API version 2019-05-06, this new format is used exclusively and attempting to create or update an index using the old format will fail. If you have indexes created using the old format, you'll need to use API version 2017-11-11-Preview to update them to the new format before they can be managed using API version 2019-05-06.
+A newer tree-like format for defining index fields was introduced in API version `2017-11-11-Preview`. In the new format, each complex field has a fields collection where its subfields are defined. In API version 2019-05-06, this new format is used exclusively and attempting to create or update an index using the old format will fail. If you have indexes created using the old format, you'll need to use API version `2017-11-11-Preview` to update them to the new format before they can be managed using API version 2019-05-06.
 
-You can update "flat" indexes to the new format with the following steps using API version 2017-11-11-Preview:
+You can update flat indexes to the new format with the following steps using API version `2017-11-11-Preview`:
 
 1. Perform a GET request to retrieve your index. If it’s already in the new format, you’re done.
 
-1. Translate the index from the “flat” format to the new format. You have to write code for this task since there's no sample code available at the time of this writing.
+1. Translate the index from the flat format to the new format. You have to write code for this task since there's no sample code available at the time of this writing.
 
 1. Perform a PUT request to update the index to the new format. Avoid changing any other details of the index, such as the searchability/filterability of fields, because changes that affect the physical expression of existing index isn't allowed by the Update Index API.
 
