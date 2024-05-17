@@ -38,6 +38,10 @@ Here are some of the key scenarios for VPN Gateway:
 
   * **ExpressRoute + VPN Gateway:** A combination of ExpressRoute + VPN Gateway connections (coexisting connections).
 
+> [!NOTE]
+> To combine ExpressRoute + VPN Gateway, if you’ve already deployed an ExpressRoute, you do not need to create a virtual network and gateway subnet as these are prerequisites in creating an ExpressRoute. Also, Gateway SKU must be VpnGw1 at minimum (Basic SKU Gateway doesn’t support a coexisting connection)
+
+
 ## <a name="connectivity"></a> Planning and design
 
 Because you can create multiple connection configurations using VPN Gateway, you need to determine which configuration best fits your needs. Point-to-site, site-to-site, and coexisting ExpressRoute/site-to-site connections all have different instructions and resource configuration requirements.
