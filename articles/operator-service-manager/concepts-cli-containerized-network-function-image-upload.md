@@ -57,7 +57,7 @@ image: repository/release/contoso-c:1.0.0
 image: repository/test-release/contoso-test:1.0.0
 ```
 
-The Azure CLI AOSM extension takes in the above image lines and removes the `repository` (this happens because the repository will be overwritten by the new registry backing the Artifact Store created by AOSM). Then, the Azure CLI AOSM extension searches for the images in `myregistry.azurecr.io/release/contoso-a:1.0.0`, `myregistry.azurecr.io/release/contoso-b:1.0.0`, `myregistry.azurecr.io/release/contoso-c:1.0.0`, and `myregistry.azurecr.io/test-release/contoso-test:1.0.0`. The images must be available in these paths.
+The Azure CLI AOSM extension takes in the above image lines and removes the `repository` (AOSM overwrites the repository with the new registry backing the AOSM Artifact Store). Then, the Azure CLI AOSM extension searches for the images in `myregistry.azurecr.io/release/contoso-a:1.0.0`, `myregistry.azurecr.io/release/contoso-b:1.0.0`, `myregistry.azurecr.io/release/contoso-c:1.0.0`, and `myregistry.azurecr.io/test-release/contoso-test:1.0.0`. The images must be available in these paths.
 
 ### Namespacing
 
