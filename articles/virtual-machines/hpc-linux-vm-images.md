@@ -33,7 +33,7 @@ Search for "Ubuntu HPC" by the publisher "Microsoft-DSVM", or "AlmaLinux HPC" by
 
 ### Azure CLI
 
-[Azure image URNs](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage) of the HPC images can be found by:
+Run the following commands to find [image URNs](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage) of the HPC images:
 
 #### Ubuntu-HPC
 
@@ -103,7 +103,7 @@ The HPC VM images support the following VM sizes:
 
 An installed version index within the VM image is located at this location: ```/opt/azurehpc/component_versions.txt```.
 
-MPI libraries and software packages are available as environment modules. To load an MPI library/package, just run:
+MPI libraries and software packages are available as environment modules. To load an MPI library/package, run:
 
 ```
 module load <package-name>
@@ -134,4 +134,4 @@ Refer to the [azhpc-images](https://github.com/Azure/azhpc-images) repo at GitHu
 
 ## Deploying HPC VM Images
 
-As shown above, the HPC VM images are available from Azure Marketplace and Azure CLI. They can be deployed through a variety of deployment vehicles on Azure (Azure CycleCloud, Azure Batch, ARM templates, etc.). [AzureHPC scripts](https://github.com/Azure/azurehpc/) provide an easy way to quickly deploy an HPC cluster using these images.
+As shown, the HPC VM images are available from Azure Marketplace and Azure CLI. They can be deployed through a variety of deployment vehicles on Azure (Azure CycleCloud, Azure Batch, ARM templates, etc.). [AzureHPC scripts](https://github.com/Azure/azurehpc/) provide an easy way to quickly deploy an HPC cluster using these images.
