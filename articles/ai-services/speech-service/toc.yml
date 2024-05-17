@@ -227,7 +227,7 @@ items:
         - name: Deploy your custom text to speech avatar model as an endpoint
           href: text-to-speech-avatar/custom-avatar-endpoint.md
           displayName: avatar
-    - name: Audio Content Creation
+    - name: Audio content creation
       href: how-to-audio-content-creation.md
       displayName: acc
     - name: OpenAI text to speech voices
@@ -238,12 +238,20 @@ items:
       href: faq-tts.yml
 - name: Speech translation
   items:
-    - name: Speech translation overview
-      href: speech-translation.md
-    - name: Speech translation quickstart
-      href: get-started-speech-translation.md
-    - name: How to recognize and translate speech
-      href: how-to-translate-speech.md
+    - name: Real-time speech translation
+      items:
+       - name: Speech translation overview
+         href: speech-translation.md
+       - name: Speech translation quickstart
+         href: get-started-speech-translation.md
+       - name: How to recognize and translate speech
+         href: how-to-translate-speech.md
+    - name: Video translation service (preview)
+      items:
+       - name: Video translation service overview
+         href: video-translation-service-overview.md
+       - name: Video translation service in the studio
+         href: video-translation-service-studio.md
 - name: Intent recognition
   items:
     - name: Intent recognition overview
