@@ -106,7 +106,7 @@ conceptualContent:
       # footerLink (optional)
       footerLink:
         url: https://learn.microsoft.com/training/browse/
-        text: Browse all courses, learning paths, and modules
+        text: Browse all courses, learning paths, and modules.
     # Card
     - title: Patterns and practices
       links:
@@ -132,7 +132,7 @@ conceptualContent:
       # footerLink (optional)
       footerLink:
         url: https://learn.microsoft.com/en-us/azure/architecture/
-        text: Browse the Azure Architecture Center
+        text: Browse the Azure Architecture Center.
     # Card
     - title: Troubleshooting and FAQs
       links:
