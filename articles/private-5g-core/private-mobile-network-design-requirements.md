@@ -48,7 +48,7 @@ This section outlines some decisions you should consider when designing your net
 :::zone pivot="ase-pro-gpu"
 When deployed on Azure Stack Edge Pro GPU (ASE), AP5GC uses physical port 5 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points).
 
-The recommended setup for your deployment is in VLAN-trunking mode, where data networks are separated by VLANs. In this setup, all core data uses port 6. If not in vlan-trunking mode and more than six data networks are configured, port 5 is also used for core data.
+The recommended setup for your deployment is VLAN-trunking mode, where data networks are separated by VLANs. In this setup, all core data uses port 6. If not in VLAN-trunking mode and more than six data networks are configured, port 5 is used for core data for the remaining data networks.
 
 AP5GC supports deployments with or without layer 3 routers on ports 5 and 6. This is useful for avoiding extra hardware at smaller edge sites.
 
@@ -59,7 +59,7 @@ AP5GC supports deployments with or without layer 3 routers on ports 5 and 6. Thi
 :::zone pivot="ase-pro-2"
 When deployed on Azure Stack Edge 2 (ASE 2), AP5GC uses physical port 3 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 4 for core data (5G N6/4G SGi reference points). 
 
-The recommended setup for your deployment is in VLAN-trunking mode, where data networks are separated by VLANs. In this setup, all core data uses port 4. If not in vlan-trunking mode and more than six data networks are configured, port 3 is also used for core data.
+The recommended setup for your deployment is in VLAN-trunking mode, where data networks are separated by VLANs. In this setup, all core data uses port 4. If not in VLAN-trunking mode and more than six data networks are configured, port 3 is used for core data for the remaining data networks.
 
 AP5GC supports deployments with or without layer 3 routers on ports 3 and 4. This is useful for avoiding extra hardware at smaller edge sites.
 
@@ -88,12 +88,12 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - The recommended setup for deployments with multiple data networks is to use VLAN trunking. In this setup, AP5GC can support up to ten attached data newtorks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - The recommended setup for deployments with multiple data networks is to use VLAN trunking. In this setup, AP5GC can support up to ten attached data newtorks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. You can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - In this topology, there is a single N6 virtual network on the ASE with no IP information. All VLAN and IP configuration is done when configuring each attached data network.
-  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png":::
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png" alt-text="Diagram of a layer 3 network with VLAN trunking." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png":::
 
 - Layer 3 network with multiple data networks without VLAN separation.
-  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. You can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 
@@ -126,12 +126,12 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - The recommended setup for deployments with multiple data networks is to use VLAN trunking. In this setup, AP5GC can support up to ten attached data newtorks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - The recommended setup for deployments with multiple data networks is to use VLAN trunking. In this setup, AP5GC can support up to ten attached data newtorks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. You can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - In this topology, there is a single N6 virtual network on the ASE with no IP information. All VLAN and IP configuration is done when configuring each attached data network.
-  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png":::
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png" alt-text="Diagram of a layer 3 network with VLAN trunking." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png":::
 
 - Layer 3 network with multiple data networks without VLAN separation.
-  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. You can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
 
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns-azure-stack-edge-2.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns-azure-stack-edge-2.png":::
@@ -183,7 +183,7 @@ You need to agree with the enterprise team which IP subnets and addresses will b
 The RAN that you use to broadcast the signal across the enterprise site must comply with local regulations. For example, this could mean:
 
 - The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country/region.
-- You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecom operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
+- You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecommunications operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
 - The RAN units in a site have access to high-precision timing sources, such as Precision Time Protocol (PTP) and GPS location services.
 
 You should ask your RAN partner for the countries/regions and frequency bands for which the RAN is approved. You might find that you need to use multiple RAN partners to cover the countries and regions in which you provide your solution. Although the RAN, UE and packet core all communicate using standard protocols, we recommend that you perform interoperability testing for the specific 4G Long-Term Evolution (LTE) or 5G standalone (SA) protocol between Azure Private 5G Core, UEs and the RAN prior to any deployment at an enterprise customer.
