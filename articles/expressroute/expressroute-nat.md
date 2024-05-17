@@ -24,7 +24,7 @@ The Microsoft peering path lets you connect to Microsoft cloud services that are
 ### Traffic originating from your network destined to Microsoft
 
 * You must ensure that traffic is entering the Microsoft peering path with a valid public IPv4 address. Microsoft must be able to validate the owner of the IPv4 NAT address pool against the regional routing internet registry (RIR) or an internet routing registry (IRR). A check is performed based on the AS number being peered with and the IP addresses used for the NAT. Refer to the [ExpressRoute routing requirements](expressroute-routing.md) page for information on routing registries.
-* IP addresses used for the Azure public peering setup and other ExpressRoute circuits must not be advertised to Microsoft through the BGP session. There's no restriction on the length of the NAT IP prefix advertised through this peering.
+* IP addresses used for the Microsoft peering setup and other ExpressRoute circuits must not be advertised to Microsoft through the BGP session. There's no restriction on the length of the NAT IP prefix advertised through this peering.
   
   > [!IMPORTANT]
   > The NAT IP pool advertised to Microsoft must not be advertised to the Internet. This will break connectivity to other Microsoft services.

@@ -127,6 +127,8 @@
     href: /powershell/module/az.network#networking
   - name: Azure CLI
     href: /cli/azure/network/manager
+  - name: Terraform
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_manager
   - name: REST
     href: /rest/api/networkmanager/
   - name: .NET SDK

@@ -535,8 +535,10 @@
             href: partner-nevis.md
           - name: Nok Nok
             href: partner-nok-nok.md
-          - name: Transmit Security
+          - name: Transmit Security for passwordless
             href: partner-bindid.md
+          - name: Transmit Security for risk detection
+            href: partner-transmit-security.md
           - name: Trusona
             href: partner-trusona.md
           - name: Twilio
