@@ -73,7 +73,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
    If istiod is too old, upgrade to `asm-1-20` or newer following [Istio upgrade][istio-upgrade].
 
 
-### Check Istiod for injecting native sidecars
+### Check native sidecar feature status on Istio control plane
 
 Run the following command to check istiod deployment. 
 
