@@ -12,7 +12,7 @@ ms.author: danlep
 ---
 # Reference: API Management DeveloperPortalAuditLogs schema
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 This article provides a schema reference for the Azure API Management DeveloperPortalAuditLogs resource log. 
 
