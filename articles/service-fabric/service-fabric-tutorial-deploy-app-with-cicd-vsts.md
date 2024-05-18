@@ -1,19 +1,19 @@
 ---
-title:  "Tutorial: Deploy an app by using CI/CD and Azure Pipelines"
+title: "Tutorial: Deploy an app by using CI/CD and Azure Pipelines"
 description: In this tutorial, learn how to set up continuous integration and continuous deployment (CI/CD) for an Azure Service Fabric application by using Azure Pipelines.
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 04/17/2024
+ms.date: 05/17/2024
 ---
 
 # Tutorial: Deploy an application that uses CI/CD to a Service Fabric cluster
 
-This tutorial is **part four** in a series. It shows you how to set up continuous integration and continuous deployment (CI/CD) for an Azure Service Fabric application by using Azure Pipelines. To complete the tutorial, you must have an existing Service Fabric application. The application that you create in [Tutorial: Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
+This tutorial is *part four* in a series. It shows you how to set up continuous integration and continuous deployment (CI/CD) for an Azure Service Fabric application by using Azure Pipelines. To complete the tutorial, you must have an existing Service Fabric application. The application that you create in [Tutorial: Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is the example that's used in this tutorial.
 
-In part three of the series, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -22,14 +22,13 @@ In part three of the series, you learn how to:
 > * Create a release pipeline in Azure Pipelines
 > * Automatically deploy and upgrade an application
 
-In this tutorial series, you learn how to:
-> [!div class="checklist"]
->
-> * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
-> * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * Configure CI/CD by using Azure Pipelines
-> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
+The tutorial series shows you how to:
+
+* [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
+* [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+* [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
+* Configure CI/CD by using Azure Pipelines (*this tutorial*)
+* [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
 

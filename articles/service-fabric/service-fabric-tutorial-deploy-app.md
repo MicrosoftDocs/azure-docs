@@ -1,30 +1,30 @@
 ---
-title: Deploy a Service Fabric app to a cluster in Azure 
-description: Learn how to deploy an existing application to a newly created Azure Service Fabric cluster from Visual Studio.
+title: "Tutorial: Deploy a Service Fabric app to a cluster in Azure"
+description: Learn how to deploy an existing application to a newly created Azure Service Fabric cluster by using Visual Studio.
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 05/17/2024
 ---
 
 # Tutorial: Deploy a Service Fabric application to a cluster in Azure
 
-This tutorial is part two of a series. It shows you how to deploy an Azure Service Fabric application to a new cluster in Azure.
+This tutorial is *part two* in a series. Learn how to deploy an Azure Service Fabric application to a new cluster in Azure.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a cluster.
-> * Deploy an application to a remote cluster using Visual Studio.
+> * Deploy an application to a remote cluster by using Visual Studio.
 
-In this tutorial series, you learn how to:
-> [!div class="checklist"]
-> * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md).
-> * Deploy the application to a remote cluster.
-> * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md).
-> * [Configure CI/CD by using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
-> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md).
+The tutorial series shows you how to:
+
+* [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
+* Deploy the application to a remote cluster (*this tutorial*)
+* [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
+* [Configure CI/CD by using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+* [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Before you begin this tutorial:
 * [Install the Service Fabric SDK](service-fabric-get-started.md).
 
 > [!NOTE]
-> A free account may not meet the requirements to create a virtual machine. This will prevent the completion of the tutorial. In addition, a non-work or non-school account may encounter permission issues while creating the certificate on the keyvault associated with the cluster. If you experience an error related to certificate creation use the Portal to create the cluster instead. 
+> A free account might not meet the requirements to create a virtual machine. To complete the tutorial, you must create a virtual machine. Also, an account that isn't a work or school account might encounter permissions issues when you create the certificate on the key vault that's associated with the cluster. If you encounter an error when you create the certificate, use the Azure portal to create the cluster instead.
 
 ## Download the voting sample application
 
@@ -99,17 +99,11 @@ In **Connection Endpoint**, select the endpoint for the cluster you created in t
 
 Select **Publish**.
 
-Once the application is deployed, open a browser and enter the cluster address followed by **:8080**. Or enter another port if one is configured. An example is `http://mytestcluster.southcentralus.cloudapp.azure.com:8080`. You see the application running in the cluster in Azure. In the voting web page, try adding and deleting voting options and voting for one or more of these options.
+After the application is deployed, open a browser and enter the cluster address followed by `:8080`. Or, you can enter another port if one is configured. An example is `http://mytestcluster.southcentralus.cloudapp.azure.com:8080`. You see the application running in the cluster in Azure. In the voting web page, try adding and deleting voting options and voting for one or more of these options.
 
 ![Service Fabric voting sample](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 
-
-## Next steps
-In this part of the tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a cluster.
-> * Deploy an application to a remote cluster using Visual Studio.
+## Next step
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]

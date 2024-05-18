@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Build a .NET app in Azure Service Fabric" 
+title: "Tutorial: Build a .NET application in Azure Service Fabric" 
 description: In this tutorial, learn how to create an application by using an ASP.NET Core front end and a reliable service, stateful back end. Then, deploy the application to a cluster.
 ms.topic: tutorial
 ms.author: tomcassidy
@@ -10,15 +10,15 @@ services: service-fabric
 ms.date: 05/17/2024
 ---
 
-# Tutorial: Build a .NET application
+# Tutorial: Build a .NET Service Fabric application
 
 This tutorial is **part one** in a series. In this tutorial, learn how to create an Azure Service Fabric application that has an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application that has an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
 
-This tutorial series requires a Windows developer computer. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor). If you prefer, you can also watch a [video walkthrough](/Events/Connect/2017/E100) of this tutorial.
+This tutorial series requires a Windows developer computer. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walk-through-the-voting-sample-application). You also can view a [video walkthrough](/Events/Connect/2017/E100) of this tutorial.
 
-:::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/application-diagram.png" alt-text="Diagram that shows an AngularJS+ASP.NET API front end connecting to a stateful back-end service in Service Fabric." borders="false":::
+:::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/application-diagram.png" alt-text="Diagram that shows an AngularJS+ASP.NET API front end connecting to a stateful back-end service in Service Fabric." border="false":::
 
-In part one of the series, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -26,14 +26,13 @@ In part one of the series, you learn how to:
 > * Create an ASP.NET Core Web Application service as a stateless web service
 > * Use the reverse proxy to communicate with the stateful service
 
-In this tutorial series, you learn how to:
-> [!div class="checklist"]
->
-> * Build a .NET Service Fabric application
-> * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configure CI/CD by using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
+The tutorial series shows you how to:
+
+* Build a .NET Service Fabric application (*this tutorial*)
+* [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+* [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
+* [Configure CI/CD by using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+* [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
 
@@ -53,19 +52,17 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
 
 1. Select **File** > **New** > **Project** to create a new project.
 
-1. In **New Project**, select **Cloud** > **Service Fabric Application**.
+1. On **New Project**, select **Cloud** > **Service Fabric Application**.
 
-1. Name the application **Voting** and select **OK**.
+1. Name the application **Voting**, and then select **OK**.
 
    ![New project dialog in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
 1. On the **New Service Fabric Service** pane, select **Stateless ASP.NET Core**, name your service **VotingWeb**, and then select **OK**.
 
-   
+   :::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png" alt-text="Screenshot that shows choosing an ASP.NET web service on the new service pane.":::
 
-   ![Choosing ASP.NET web service in the new service dialog](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png)
-
-1. The next page provides a set of ASP.NET Core project templates. For this tutorial, select **Web Application (Model-View-Controller)**, and then select **OK**.
+1. The next pane provides a set of ASP.NET Core project templates. For this tutorial, select **Web Application (Model-View-Controller)**, and then select **OK**.
 
    ![Select ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -348,7 +345,7 @@ In this tutorial, you create a service which stores a counter value in a reliabl
 
 1. In the **New Service Fabric Service** dialog, select **Stateful ASP.NET Core**, name the service **VotingData**, and then select **OK**.
 
-    Once your service project is created, you have two services in your application. As you continue to build your application, you can add more services in the same way. Each can be independently versioned and upgraded.
+    After your service project is created, you have two services in your application. As you continue to build your application, you can add more services the same way. Each can be independently versioned and upgraded.
 
 1. The next page provides a set of ASP.NET Core project templates. For this tutorial, select **API**.
 
@@ -634,7 +631,7 @@ To look at what happens in the code, complete the following steps:
 
    1. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
    1. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-   1. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+   1. In the transaction, update the value of the relevant key for the voting option and commits the operation **(3)**. When the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
 1. Select F5 to continue.
 
 To stop the debugging session, select Shift+F5.

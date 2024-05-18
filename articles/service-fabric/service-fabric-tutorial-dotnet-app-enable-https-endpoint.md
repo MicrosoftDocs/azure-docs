@@ -1,38 +1,37 @@
 ---
-title: Add an HTTPS endpoint using Kestrel
-description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.NET Core front-end web service using Kestrel and deploy the application to a cluster.
+title: "Tutorial: Add an HTTPS endpoint by using Kestrel"
+description: In this tutorial, learn how to add an HTTPS endpoint to an ASP.NET Core front-end web service using Kestrel and deploy the application to a cluster.
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 ms.custom: devx-track-azurepowershell, devx-track-dotnet
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 05/17/2024
 ---
 
 # Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service by using Kestrel
 
-This tutorial is part three of a series. You learn how to enable HTTPS in an ASP.NET Core service running on Service Fabric. When you're finished, you have a voting application with an HTTPS-enabled ASP.NET Core web front end listening on port 443. If you don't want to manually create the voting application in [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application.
+This tutorial is *part three* in a series. Learn how to add an HTTPS endpoint in an ASP.NET Core service running in Azure Service Fabric. When you're finished, you have a voting application that has an HTTPS-enabled ASP.NET Core web front-end listening on port 443. If you don't want to manually create the voting application in [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application.
 
-In part three of the series, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
 > * Define an HTTPS endpoint in the service
-> * Configure Kestrel to use HTTPS
+> * Set up Kestrel to use HTTPS
 > * Install the TLS/SSL certificate on the remote cluster nodes
 > * Give NETWORK SERVICE access to the certificate's private key
 > * Open port 443 in the Azure load balancer
 > * Deploy the application to a remote cluster
 
-In this tutorial series you learn how to:
-> [!div class="checklist"]
->
-> * [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * Add an HTTPS endpoint to an ASP.NET Core front-end service
-> * [Configure CI/CD using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
+The tutorial series shows you how to:
+
+* [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
+* [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+* Add an HTTPS endpoint to an ASP.NET Core front-end service (*this tutorial*)
+* [Configure CI/CD by using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+* [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
