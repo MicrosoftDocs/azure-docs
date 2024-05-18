@@ -191,7 +191,7 @@ To change the time range and number of records displayed, use the **Time range**
 
 To switch modes, select **Simple mode** or **KQL mode** from the dropdown in the top right corner of the query editor.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-simple.png" alt-text="Screenshot that shows how to toggle between simple mode and KQL mode in Log Analytics.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-simple.png" alt-text="Screenshot that shows how to toggle between simple mode and KQL mode in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-simple.png":::
 
 When you begin to query logs in simple mode and then switch to KQL mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
 
@@ -199,7 +199,7 @@ When you begin to query logs in simple mode and then switch to KQL mode, the que
 
 For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the right of the top query bar. Select **User Query** to return to the query editor and modify your query at any time.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in simple mode.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in simple mode." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png":::
 
 ## Next steps
 - Walk through a [tutorial on writing queries](../logs/log-analytics-tutorial.md).
