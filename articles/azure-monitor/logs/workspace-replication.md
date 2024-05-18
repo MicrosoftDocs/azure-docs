@@ -14,10 +14,10 @@ ms.custom: references_regions
 
 Replicating your Log Analytics workspace across regions enhances resilience by letting you switch over to the replicated workspace and continue operations if there's a regional failure. To switch between workspaces in the two regions, you call the Workspace Failover API after careful consideration and analysis. 
 
-This article explains how Log Analytics workspace replication works, how to replicate your workspace, how to switch over and back, and how to decide when to when to switch between your replicated workspaces.
+This article explains how Log Analytics workspace replication works, how to replicate your workspace, how to switch over and back, and how to decide when to switch between your replicated workspaces.
 
 > [!IMPORTANT]
-> Although we use the term failover in the API, we use the term switchover throughout this article to emphasize that the switch between replicated workspace is triggered manually, not automatically, after carefully considertion. 
+> Although we sometimes use the term failover, for example in the API call, failover is also commonly used to describe an automatic process. Therefore, this article uses the term switchover to emphasize that the switch between replicated workspace is a decision you make and trigger manually after carefully consideration. 
 
 ## Permissions required
 
@@ -112,7 +112,7 @@ Where:
 - `<resourcegroup_name>` : The resource group that contains your Log Analytics workspace resource.
 - `<workspace_name>`: The name of your workspace.
 - `<primary_region>`: The primary region for your Log Analytics workspace.
-- `<secondary_region>`: The region in which the secondary workspace is created.
+- `<secondary_region>`: The region in Azure Monitor creates the secondary workspace.
 
 For the supported `location` values, see [Supported regions](#supported-regions).
 
