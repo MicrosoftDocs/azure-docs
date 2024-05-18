@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Enhance resilience by replicating your Log Analytics workspace across regions (Preview)
 
-Replicating your Log Analytics workspace across regions enhances resilience by enabling you to switch over to the replicated workspace and continue operations if there's a regional failure. Your original workspace and region are referred to as the **primary**. The replicated workspace and alternate region are referred to as the **secondary**.
+Replicating your Log Analytics workspace across regions enhances resilience by letting you switch over to the replicated workspace and continue operations if there's a regional failure. To switch between workspaces in the two regions, you call the Workspace Failover API after careful consideration and analysis. 
 
 This article explains how Log Analytics workspace replication works, how to replicate your workspace, and how to switch over and back.
 
@@ -25,6 +25,8 @@ This article explains how Log Analytics workspace replication works, how to repl
 | Check workspace state | `Microsoft.OperationalInsights/workspaces/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 
 ## How Log Analytics workspace replication works
+
+Your original workspace and region are referred to as the **primary**. The replicated workspace and alternate region are referred to as the **secondary**.
 
 The workspace replication process creates an instance of your workspace in the secondary region. The process creates the secondary workspace with the same configuration as your primary workspace, and Azure Monitor automatically updates the secondary workspace with any future changes you make to your primary workspace configuration. 
 
