@@ -21,7 +21,7 @@ This article explains how Log Analytics workspace replication works, how to repl
 | Action | Permissions required |
 | --- | --- |
 | Enable workspace replication | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
-| Trigger switchover and switchback | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Switch over and switch back (trigger failover and failback) | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspace at the **resource group level**, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
 | Check workspace state | `Microsoft.OperationalInsights/workspaces/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
 
 ## How Log Analytics workspace replication works
@@ -34,10 +34,10 @@ When you enable workspace replication, Azure Monitor sends new logs ingested to 
 
 If an outage affects your primary region, you can switch over and reroute all ingestion and query requests to your secondary region. After Azure mitigates the outage and your primary workspace is healthy again, you can switch back over to your primary region.
 
-When you switch over, the secondary workspace becomes active and your primary becomes inactive. Azure Monitor then ingests new data through the ingestion pipeline in your secondary region, rather than the primary region. During switchover, Azure Monitor replicates all data you ingest from the secondary region to the primary region. The process is asynchronous and doesn't affect your ingestion latency.
+When you switch over, the secondary workspace becomes active and your primary becomes inactive. Azure Monitor then ingests new data through the ingestion pipeline in your secondary region, rather than the primary region. When you switch over to your secondary region, Azure Monitor replicates all data you ingest from the secondary region to the primary region. The process is asynchronous and doesn't affect your ingestion latency.
 
 > [!IMPORTANT]
-> If the primary region can't process incoming log data, Azure Monitor buffers the data in the secondary region for up to 11 days. During the first four days, Azure Monitor automatically reattempts to replicate the data periodically. If your primary workspace isn't functional for a longer period, contact Microsoft to initiate replication.
+> If the primary region can't process incoming log data, Azure Monitor buffers the data in the secondary region for up to 11 days. During the first four days, Azure Monitor automatically reattempts to replicate the data periodically.
 
 :::image type="content" source="media/workspace-replication/log-analyics-workspace-replication-ingestion-flows.png" alt-text="Diagram that shows ingestion flows during normal and switchover modes." lightbox="media/workspace-replication/log-analyics-workspace-replication-ingestion-flows.png" border="false":::
 
@@ -48,13 +48,21 @@ Workspace replication is currently supported for workspaces in a limited set of 
 
 These region groups and regions are currently supported:
 
-| Region group | Regions | JSON value | Notes |
-| --- | --- | --- | --- |
-| **US (United States)** | East US | `eastus`  | Replication isn't supported to or from the East US 2 region. |
-|                        | East US 2 | `eastus2` | Replication isn't supported to or from the East US region. |
-|                        | West US 2 | `westus2` | 
-| **European**           | West Europe  | `westeurope`  |
-|                        | North Europe | `northeurope` |
+| Region group | Regions | Notes |
+| --- | --- | --- |
+| **North America** | East US | Replication isn't supported to or from the East US 2 region. |
+|                        | East US 2 | Replication isn't supported to or from the East US region. |
+|                        | West US   | | 
+|                        | West US 2 | | 
+|                        | Central US   | | 
+|                        | South Central US   | | 
+|                        | Central Canada   | | 
+| **European**           | West Europe  | |
+|                        | North Europe | |
+|                        | South UK     | |
+|                        | West UK      | |
+|                        | Germany West Central      | |
+|                        | France Central      | |
 
 ### Data residency requirements
 
@@ -62,7 +70,7 @@ Different customers have different data residency requirements, so it's importan
 
 ### Support for Sentinel and other services
 
-Various services and features that use Log Analytics workspaces are compatible with workspace replication and switchover. These services and features continue to work when you switch over to a replicated workspace in another region.
+Various services and features that use Log Analytics workspaces are compatible with workspace replication and switchover. These services and features continue to work when you switch over to the secondary workspace.
 
 For example, regional network issues that cause log ingestion latency can impact Sentinel customers. Customers that use replicated workspaces can switch over to their secondary region to continue working with their Log Analytics workspace and Sentinel. However, if the network issue impacts the Sentinel service health, switching to another region doesn't mitigate the issue.
 
@@ -86,22 +94,22 @@ body:
     "properties": {
         "replication": {
             "enabled": true,
-            "location": "<secondary_location>"
+            "location": "<secondary_region>"
         }
     },
-    "location": "<primary_location>"
+    "location": "<primary_region>"
 }
 ```
 
 Where:
 
-- `<subscription_id>`: Your account subscription ID.
+- `<subscription_id>`: The subscription ID related to your workspace.
 - `<resourcegroup_name>` : The resource group that contains your Log Analytics workspace resource.
 - `<workspace_name>`: The name of your workspace.
-- `<primary_location>`: The primary region for your Log Analytics workspace.
-- `<secondary_location>`: The region to switch to when the primary workspace region isn't healthy.
+- `<primary_region>`: The primary region for your Log Analytics workspace.
+- `<secondary_region>`: The region in which the secondary workspace is created.
 
-For the allowed region values, see [Supported regions](#supported-regions).
+For the supported `location` values, see [Supported regions](#supported-regions).
 
 The `PUT` command is a long running operation that can take some time to complete. A successful call returns a `200` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
 
@@ -117,7 +125,7 @@ https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<res
 
 Where:
 
-- `<subscription_id>`: Your account subscription ID.
+- `<subscription_id>`: The subscription ID related to your workspace.
 - `<resourcegroup_name>`: The resource group that contains your Log Analytics workspace resource.
 - `<workspace_name>`: The name of your Log Analytics workspace.
  
@@ -131,7 +139,7 @@ The `GET` command verifies that the workspace provisioning state changes from `U
 
 You use [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) to collect log data using Azure Monitor Agent and the Logs Ingestion API.
 
-If you have data collection rules that send data to your primary workspace, you need to associate the rules to a system [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md), which Azure Monitor creates when you replicate your workspace. The name of the system data collection endpoint is identical to your workspace ID. Only data collection rules you associate to the workspace's system data collection endpoint enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you control your replication costs.
+If you have data collection rules that send data to your primary workspace, you need to associate the rules to a system [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md), which Azure Monitor creates when you enable workspace replication. The name of the system data collection endpoint is identical to your workspace ID. Only data collection rules you associate to the workspace's system data collection endpoint enable replication and switchover. This behavior lets you specify the set of log streams to replicate, which helps you control your replication costs.
 
 To replicate data you collect using data collection rules, associate your data collection rules to the system data collection endpoint for your Log Analytics workspace:
 
@@ -143,8 +151,7 @@ To replicate data you collect using data collection rules, associate your data c
    For details about the System DCE, check the workspace object properties.
 
 > [!IMPORTANT]
-> - If you use data collection rules to send logs to your workspace, you must connect each data collection rule to the newly created data collection endpoint to support replication and switchover.
-> - Data collection rules connected to a workspace's system data collection endpoint can target only that specific workspace. The data collection rules **must not** target other destinations, such as other workspaces or Azure Storage accounts.
+> Data collection rules connected to a workspace's system data collection endpoint can target only that specific workspace. The data collection rules **must not** target other destinations, such as other workspaces or Azure Storage accounts.
 
 ### Disable workspace replication
 
@@ -162,16 +169,16 @@ body:
             "enabled": false
         }
     },
-    "location": "<primary_location>"
+    "location": "<primary_region>"
 }
 ```
 
 Where:
 
-- `<subscription_id>`: Your account subscription ID.
+- `<subscription_id>`: The subscription ID related to your workspace.
 - `<resourcegroup_name>` : The resource group that contains your workspace resource.
 - `<workspace_name>`: The name of your workspace.
-- `<primary_location>`: The primary region for your workspace.
+- `<primary_region>`: The primary region for your workspace.
 
 The `PUT` command is a long running operation that can take some time to complete. A successful call returns a `200` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
 
@@ -232,14 +239,14 @@ To switch over to your secondary workspace, use this `POST` command:
 
 ```http
 POST 
-https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/locations/<secondary_location>/workspaces/<workspace_name>/failover?api-version=2023-01-01-preview
+https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_name>/providers/Microsoft.OperationalInsights/locations/<secondary_region>/workspaces/<workspace_name>/failover?api-version=2023-01-01-preview
 ```
 
 Where:
 
-- `<subscription_id>`: Your account subscription ID.
+- `<subscription_id>`: The subscription ID related to your workspace.
 - `<resourcegroup_name>` : The resource group that contains your workspace resource.
-- `<secondary_location>`: The region to switch to during switchover.
+- `<secondary_region>`: The region to switch to during switchover.
 - `<workspace_name>`: The name of the workspace to switch to during switchover.
 
 The `POST` command is a long running operation that can take some time to complete. A successful call returns a `202` status code. You can track the provisioning state of your request, as described in [Check request provisioning state](#check-request-provisioning-state).
@@ -285,7 +292,7 @@ https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<res
 
 Where:
 
-- `<subscription_id>`: Your account subscription ID.
+- `<subscription_id>`: The subscription ID related to your workspace.
 - `<resourcegroup_name>` : The resource group that contains your workspace resource.
 - `<workspace_name>`: The name of the workspace to switch to during switchback.
 
