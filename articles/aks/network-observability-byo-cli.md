@@ -86,17 +86,11 @@ az group create \
     --location eastus
 ```
 
-## Create AKS cluster
-
-Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create) command. The following example creates an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group:
+## Create an AKS cluster with Advanced Network Observability
 
 # [**Non-Cilium**](#tab/non-cilium)
 
-Non-Cilium clusters support the enablement of Network Observability on an existing cluster or during the creation of a new cluster. 
-
-## New cluster
-
-Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Network Observability and non-Cilium.
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Advanced Network Observability using a non-Cilium dataplane.
 
 ```azurecli-interactive
 az aks create \
@@ -107,23 +101,15 @@ az aks create \
     --network-plugin azure \
     --network-plugin-mode overlay \
     --pod-cidr 192.168.0.0/16 \
-    --enable-network-observability
-```
-
-## Existing cluster
-
-Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observability on an existing cluster.
-
-```azurecli-interactive
-az aks update \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --enable-network-observability 
+    --enable-advanced-network-observability
 ```
 
 # [**Cilium**](#tab/cilium)
 
-Use the following example to create an AKS cluster with Network Observability and Cilium.
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Advanced Network Observability using a Cilium dataplane.
+
+> [!NOTE]
+> Clusters with Cilium dataplane support Advanced Observability starting with Kubernetes version 1.29
 
 ```azurecli-interactive
 az aks create \
@@ -136,10 +122,25 @@ az aks create \
     --network-plugin-mode overlay \
     --network-dataplane cilium \
     --node-count 2 \
-    --pod-cidr 192.168.0.0/16
+    --pod-cidr 192.168.0.0/16 \
+    --enable-advanced-network-observability
 ```
 
 ---
+
+## Enable on Existing cluster
+
+Use [az aks update](/cli/azure/aks#az-aks-update) to enable Advanced Network Observability for an existing cluster.
+
+> [!NOTE]
+> Clusters with Cilium dataplane support Advanced Observability starting with Kubernetes version 1.29
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --enable-advanced-network-observability
+```
 
 ## Get cluster credentials 
 
