@@ -330,6 +330,19 @@ The Fleet scheduler prioritizes the stability of existing workload placements. T
 
 Resource-only changes (updating the resources or updating the `ResourceSelector` in the `ClusterResourcePlacement` object) roll out gradually in existing placements but do **not** trigger rescheduling of the workload.
 
+## Tolerations
+
+`ClusterResourcePlacement` objects support the specification of tolerations, which apply to the `ClusterResourcePlacement` object. Each toleration object consists of the following fields:
+
+* `key`: The key of the toleration.
+* `value`: The value of the toleration.
+* `effect`: The effect of the toleration, such as `NoSchedule`.
+* `operator`: The operator of the toleration, such as `Exists` or `Equal`.
+
+Each toleration is used to tolerate one or more specific taints applied on the `ClusterResourcePlacement`. Once all taints on a [`MemberCluster`](./concepts-fleet.md#what-are-member-clusters) are tolerated, the scheduler can then propagate resources to the cluster. You can't update or remove tolerations from a `ClusterResourcePlacement` object once it's created.
+
+For more information, see [the upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md#tolerations).
+
 ## Access the Kubernetes API of the Fleet resource cluster
 
 If you created an Azure Kubernetes Fleet Manager resource with the hub cluster enabled, you can use it to centrally control scenarios like Kubernetes object propagation. To access the Kubernetes API of the Fleet resource cluster, follow the steps in [Access the Kubernetes API of the Fleet resource cluster with Azure Kubernetes Fleet Manager](./quickstart-access-fleet-kubernetes-api.md).

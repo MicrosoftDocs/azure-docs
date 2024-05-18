@@ -49,7 +49,7 @@ Other Azure services that will be deployed and configured and not explicitly lis
 - [Public IP addresses](../virtual-network/ip-services/public-ip-addresses.md)
 - [Network security groups](../virtual-network/network-security-groups-overview.md)
 - [Private endpoints](../private-link/private-endpoint-overview.md)
-- [Route tables](../virtual-network/manage-route-table.md)
+- [Route tables](../virtual-network/manage-route-table.yml)
 
 
 ### Deploying the resource group

@@ -131,7 +131,7 @@ Perform the following steps to collect all metrics from all targets on the clust
 
 1. Set `minimalingestionprofile = true` and verify the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify are: `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`, `controlplane-kube-controller-manager`, and `controlplane-etcd`.
 
-1. Under the `default-target-metrics-list`, specify the list of metrics for the `true` targets. For example,
+1. Under the `default-targets-metrics-keep-list`, specify the list of metrics for the `true` targets. For example,
 
     ```yaml
     controlplane-apiserver= "apiserver_admission_webhook_admission_duration_seconds| apiserver_longrunning_requests"
@@ -151,7 +151,7 @@ Perform the following steps to collect all metrics from all targets on the clust
 
 1. Set `minimalingestionprofile = false` and verify the targets under `default-scrape-settings-enabled` that you want to scrape are set to `true`. The only targets you can specify here are `controlplane-apiserver`, `controlplane-cluster-autoscaler`, `controlplane-kube-scheduler`,`controlplane-kube-controller-manager`, and `controlplane-etcd`.
 
-1. Under the `default-target-metrics-list`, specify the list of metrics for the `true` targets. For example,
+1. Under the `default-targets-metrics-keep-list`, specify the list of metrics for the `true` targets. For example,
 
     ```yaml
     controlplane-apiserver= "apiserver_admission_webhook_admission_duration_seconds| apiserver_longrunning_requests"

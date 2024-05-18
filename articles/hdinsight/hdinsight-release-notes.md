@@ -23,7 +23,9 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ### Release date: April 15, 2024
 
-This release note applies to HDInsight 5.1 version. HDInsight release will be available to all regions over several days. This release note is applicable for image number **2403290825**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release note applies to :::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version. 
+
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2403290825**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 

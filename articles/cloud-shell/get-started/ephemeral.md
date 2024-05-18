@@ -9,8 +9,9 @@ title: Get started with Azure Cloud Shell ephemeral sessions
 # Get started with Azure Cloud Shell ephemeral sessions
 
 Using Cloud Shell ephemeral sessions is the fastest way to start using Cloud Shell. Ephemeral
-sessions don't require a storage account. When you close the Cloud Shell window, all files you saved
-are deleted and don't persist across sessions.
+sessions don't require a storage account. When your Cloud Shell session ends, which occurs shortly 
+after the window is closed or when Cloud Shell is restarted, all files you saved are deleted and 
+don't persist across sessions.
 
 ## Start Cloud Shell
 

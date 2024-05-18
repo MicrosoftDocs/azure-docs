@@ -61,7 +61,7 @@ description: Steps on how to integrate TelecomManager with Azure Communication S
   When TelecomManager integration is enabled for the App, the audio output device has to be selected via telecom manager API only.
   
   ```Java
-  call.setAudioRoute(android.telecom.CallAudioState.ROUTE_SPEAKER);
+  call.setTelecomManagerAudioRoute(android.telecom.CallAudioState.ROUTE_SPEAKER);
   ```
 
   ### Configure call resume behavior

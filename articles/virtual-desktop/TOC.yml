@@ -249,11 +249,11 @@
   - name: Deploy
     items:
       - name: Deploy Azure Virtual Desktop
-        displayName: deploy, create, get started, host pool, application group, workspace, assign users, azure stack hci
+        displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci
         href: deploy-azure-virtual-desktop.md
-      - name: Use the getting started feature
-        displayName: deploy, create, get started
-        href: getting-started-feature.md
+      - name: Quickstart
+        displayName: deploy, create, get started, quickstart
+        href: quickstart.md
       - name: Session hosts
         items:
         - name: Add session hosts to a host pool
@@ -364,7 +364,7 @@
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Microsoft Entra ID
           displayName: fslogix, user profiles
-          href: create-profile-container-azure-ad.md
+          href: create-profile-container-azure-ad.yml
       - name: Migrate from classic
         items:
         - name: Migrate automatically 
@@ -551,9 +551,9 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Getting started feature
+  - name: Quickstart
     displayName: troubleshooting
-    href: troubleshoot-getting-started.md
+    href: troubleshoot-quickstart.md
   - name: Host pool creation
     displayName: troubleshooting
     href: troubleshoot-set-up-issues.md

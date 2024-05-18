@@ -5,7 +5,7 @@ services: redis-cache
 author: flang-msft
 ms.service: cache
 ms.topic: "include"
-ms.date: 02/13/2024
+ms.date: 05/07/2024
 ms.author: franlanglois
 ms.custom: "include file"
 ---
@@ -14,11 +14,11 @@ ms.custom: "include file"
 
     :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Create a resource is highlighted in the left navigation pane.":::
 
-1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
+1. On the **Get Started** page, type _Azure Cache for Redis_ in the search box. Then, select **Create**.
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="On New, Databases is highlighted, and Azure Cache for Redis is highlighted.":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Screenshot of the Azure Marketplace with Azure Cache for Redis in the search box and create is highlighted with a red box.":::
 
-1. On the **New Redis Cache** page, configure the settings for your new cache.
+1. On the **New Redis Cache** page, configure the settings for your cache.
 
    | Setting      | Choose a value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -26,7 +26,8 @@ ms.custom: "include file"
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **DNS name** | Enter a unique name. | The cache name must be a string between 1 and 63 characters that contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* is *\<DNS name>.redis.cache.windows.net*. |
    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your cache. |
-   | **Cache type** | Drop down and select a [tier](https://azure.microsoft.com/pricing/details/cache/). |  The tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](../cache-overview.md). |
+   | **Cache SKU** | Drop down and select a [**SKU**](https://azure.microsoft.com/pricing/details/cache/). |  The SKU determines the size, performance, and features parameters that are available for the cache. For more information, see [Azure Cache for Redis Overview](../cache-overview.md). |
+   | **Cache size** | Drop down and select a size of your cache |  For more information, see [Azure Cache for Redis Overview](../cache-overview.md). |
 
 1. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
 

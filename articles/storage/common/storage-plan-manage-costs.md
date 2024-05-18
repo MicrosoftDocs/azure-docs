@@ -160,7 +160,7 @@ See any of these articles to itemize and analyze your existing containers and bl
 
 - [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
 
-- [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.md)
+- [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.yml)
 
 #### Reserve storage capacity
 

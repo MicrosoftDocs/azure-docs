@@ -3,12 +3,13 @@ title: Generate vector embeddings with Azure OpenAI in Azure Databae for Postgre
 description: Use vector indexes and OpenAI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
 author: mulander
 ms.author: adamwolk
-ms.date: 02/29/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Azure Database for PostgreSQL - Flexible Server Azure AI Extension (Preview)
@@ -26,7 +27,7 @@ Before you can enable `azure_ai` on your Azure Database for PostgreSQL flexible 
 
 Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
 
-```postgresql
+```sql
 CREATE EXTENSION azure_ai;
 ```
 
@@ -58,7 +59,7 @@ The `azure_ai_settings_manager` role is by default granted to the `azure_pg_admi
 
 Used to set configuration options.
 
-```postgresql
+```sql
 azure_ai.set_setting(key TEXT, value TEXT)
 ```
 
@@ -80,7 +81,7 @@ Name of a configuration option. Valid values for the `key` are:
 
 Used to obtain current values of configuration options.
 
-```postgresql
+```sql
 azure_ai.get_setting(key TEXT)
 ```
 
@@ -100,7 +101,7 @@ Name of a configuration option. Valid values for the `key` are:
 
 ### `azure_ai.version`
 
-```postgresql
+```sql
 azure_ai.version()
 ```
 
@@ -112,21 +113,21 @@ azure_ai.version()
 
 #### Set the Endpoint and an API Key for Azure OpenAI
 
-```postgresql
+```sql
 select azure_ai.set_setting('azure_openai.endpoint','https://<endpoint>.openai.azure.com'); 
 select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>'); 
 ```
 
 #### Get the Endpoint and API Key for Azure OpenAI
 
-```postgresql
+```sql
 select azure_ai.get_setting('azure_openai.endpoint');
 select azure_ai.get_setting('azure_openai.subscription_key');
 ```
 
 #### Check the Azure AI extension version
 
-```postgresql
+```sql
 select azure_ai.version();
 ```
 

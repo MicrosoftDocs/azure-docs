@@ -189,7 +189,8 @@ with the text "exporting span".
 
 >[!Note]
 > Only attributes set at the start of the span are available for sampling,
-so attributes such as `http.status_code` which are captured later on can't be used for sampling.
+so attributes such as `http.response.status_code` or request duration which are captured later on can be filtered through [OpenTelemetry Java extensions](https://opentelemetry.io/docs/languages/java/automatic/extensions/). Here is a [sample extension that filters spans based on request duration](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples/tree/main/opentelemetry-api/java-agent/TelemetryFilteredBaseOnRequestDuration).
+
 
 ## Troubleshooting
 

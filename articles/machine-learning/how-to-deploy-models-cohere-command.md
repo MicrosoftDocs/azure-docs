@@ -73,7 +73,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 - An Azure Machine Learning workspace. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
 
     > [!IMPORTANT]
-    > Pay-as-you-go model deployment offering is only available in workspaces created in EastUS, EastUS2 or Sweden Central regions.
+    > Pay-as-you-go model deployment offering is only available in workspaces created in EastUS2 or Sweden Central region.
 
 -  Azure role-based access controls (Azure RBAC) are used to grant access to operations. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the Resource Group.
 
@@ -84,7 +84,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the EastUS, EastUS2 or Sweden Central region.
+1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the EastUS2 or Sweden Central region.
 1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
@@ -788,13 +788,23 @@ Response:
 
 ##### Additional inference examples
 
-| **Sample Type**       | **Sample Notebook**                             |
+| **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
 | CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
 | CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
 | OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-command/openaisdk)                                    |
 | LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere/langchain)                                |
 | Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-python-sdk)                                 |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+
+##### Retrieval Augmented Generation (RAG) and tool use samples
+**Description** | **Package** | **Sample Notebook**
+--|--|--
+Create a local Facebook AI Similarity Search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb)
+Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb)
+Command R+ tool/function calling using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb)
 
 ## Cost and quotas
 

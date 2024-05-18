@@ -31,7 +31,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
 
-  * When creating a public IP address resource, ensure you assign a **DNS name label** to it. The label you choose to use does not matter but a label is required if this resource will be assigned to an API Management service.
+  * When creating a public IP address resource, ensure you assign a **DNS name label** to it. In general, you should use the same DNS name as your API Management instance. If you change it, redeploy your instance so that the new DNS label is applied.
 
   * For best network performance, it's recommended to use the default **Routing preference**: **Microsoft network**.  
 

@@ -7,25 +7,23 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 06/09/2023
-ms.author: jushiman #ananyagarg #sgallagher
+ms.author: jushiman #ananyagarg #sgallagher #michamcr
 ms.custom: inspire-july-2022
 ---
 
 # What is confidential computing?
 
-Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC) which is part of the Linux Foundation and is dedicated to defining and accelerating the adoption of confidential computing. 
+Confidential computing is an industry term established by the [Confidential Computing Consortium](https://confidentialcomputing.io/wp-content/uploads/sites/10/2023/03/CCC_outreach_whitepaper_updated_November_2022.pdf) (CCC), part of the Linux Foundation. It defines it as:
 
-The CCC defines confidential computing as: 
+> Confidential Computing protects data in use by performing computation in a hardware-based, attested Trusted Execution Environment.
+>
+> These secure and isolated environments prevent unauthorized access or modification of applications and data while they are in use, thereby increasing the security level of organizations that manage sensitive and regulated data.
 
-> The protection of data in use by performing computation in a hardware-based, attested Trusted Execution Environment (TEE).
-
-These TEEs prevent unauthorized access or modification of applications and data during computation, thereby always protecting data. The TEEs are a trusted environment providing assurance of data integrity, data confidentiality, and code integrity. 
-
-Any code outside TEE can't read or tamper with data inside the TEE. The confidential computing threat model aims at removing or reducing the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed.
+The threat model aims to reduce or remove the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed. This is achieved in Azure using a hardware root of trust not controlled by the cloud provider, which is designed to ensure unauthorized access or modification of the environment.
 
 :::image type="content" source="media/overview/three-states-and-confidential-computing-consortium-definition.png" alt-text="Diagram of three states of data protection, with confidential computing's data in use highlighted.":::
 
-When used with data encryption at rest and in transit, confidential computing eliminates the single largest barrier of encryption - encryption while in use - by protecting sensitive or highly regulated data sets and application workloads in a secure public cloud platform. Confidential computing extends beyond generic data protection. TEEs are also being used to protect proprietary business logic, analytics functions, machine learning algorithms, or entire applications.
+When used with data encryption at rest and in transit, confidential computing extends data protections further to protect data whilst it's in use. This is beneficial for organizations seeking further protections for sensitive data and applications hosted in cloud environments. 
 
 ## Lessen the need for trust
 Running workloads on the cloud requires trust. You give this trust to various providers enabling different components of your application.

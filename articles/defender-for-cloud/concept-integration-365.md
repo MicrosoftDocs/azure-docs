@@ -49,6 +49,6 @@ Customers who integrated their Microsoft 365 Defender incidents into Sentinel an
 
 Learn how [Defender for Cloud and Microsoft 365 Defender handle your data's privacy](data-security.md#defender-for-cloud-and-microsoft-defender-365-defender-integration).
 
-## Next steps
+## Next step
 
 [Security alerts - a reference guide](alerts-reference.md)

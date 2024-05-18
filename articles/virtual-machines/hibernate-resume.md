@@ -41,11 +41,19 @@ Supported operating systems, OS specific limitations, and configuration procedur
 
 ### Supported VM sizes 
 
-VM sizes with up to 32-GB RAM from the following VM series support hibernation.  
+VM sizes with up to 64-GB RAM from the following General Purpose VM series support hibernation.
 - [Dasv5-series](dasv5-dadsv5-series.md) 
 - [Dadsv5-series](dasv5-dadsv5-series.md) 
 - [Dsv5-series](../virtual-machines/dv5-dsv5-series.md)
-- [Ddsv5-series](ddv5-ddsv5-series.md) 
+- [Ddsv5-series](ddv5-ddsv5-series.md)
+- [Easv5-series](easv5-eadsv5-series.md)
+- [Eadsv5-series](easv5-eadsv5-series.md)
+- [Esv5-series](ev5-esv5-series.md)
+- [Edsv5-series](edv5-edsv5-series.md)
+
+VM sizes with up to 112-GB RAM from the following GPU VM series support hibernation.
+- [NVv4-series](../virtual-machines/nvv4-series.md)
+- [NVadsA10v5-series](../virtual-machines/nva10v5-series.md)
 
 ### General limitations
 - You can't enable hibernation on existing VMs.

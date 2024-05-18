@@ -296,7 +296,6 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/list-keys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/aiservices/accountmanagement/accounts/list-keys) |
-| Microsoft.ContainerRegistry/registries | listBuildSourceUploadUrl |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |
@@ -412,6 +411,78 @@ To determine which resource types have a list operation, you have the following 
   ```azurecli
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
+
+## managementGroupResourceId
+
+`managementGroupResourceId(resourceType, resourceName1, [resourceName2], ...)`
+
+Returns the unique identifier for a resource deployed at the management group level.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+The `managementGroupResourceId` function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
+
+The identifier is returned in the following format:
+
+```json
+/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{resourceType}/{resourceName}
+```
+
+### Remarks
+
+You use this function to get the resource ID for resources that are [deployed to the management group](deploy-to-management-group.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a subscription ID and a resource group value.
+
+### managementGroupResourceID example
+
+The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Target Management Group')
+param targetMG string
+
+@description('An array of the allowed locations, all other locations will be denied by the created policy.')
+param allowedLocations array = [
+  'australiaeast'
+  'australiasoutheast'
+  'australiacentral'
+]
+
+var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
+var policyDefinitionName = 'LocationRestriction'
+
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
+  name: policyDefinitionName
+  properties: {
+    policyType: 'Custom'
+    mode: 'All'
+    parameters: {}
+    policyRule: {
+      if: {
+        not: {
+          field: 'location'
+          in: allowedLocations
+        }
+      }
+      then: {
+        effect: 'deny'
+      }
+    }
+  }
+}
+
+resource location_lock 'Microsoft.Authorization/policyAssignments@2021-06-01' = {
+  name: 'location-lock'
+  properties: {
+    scope: mgScope
+    policyDefinitionId: managementGroupResourceId('Microsoft.Authorization/policyDefinitions', policyDefinitionName)
+  }
+  dependsOn: [
+    policyDefinition
+  ]
+}
+```
 
 ## pickZones
 
@@ -642,78 +713,6 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
     roleDefinitionId: roleDefinitionId[builtInRoleType].id
     principalId: principalId
   }
-}
-```
-
-## managementGroupResourceId
-
-`managementGroupResourceId(resourceType, resourceName1, [resourceName2], ...)`
-
-Returns the unique identifier for a resource deployed at the management group level.
-
-Namespace: [az](bicep-functions.md#namespaces-for-functions).
-
-The `managementGroupResourceId` function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
-
-The identifier is returned in the following format:
-
-```json
-/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{resourceType}/{resourceName}
-```
-
-### Remarks
-
-You use this function to get the resource ID for resources that are [deployed to the management group](deploy-to-management-group.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a subscription ID and a resource group value.
-
-### managementGroupResourceID example
-
-The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
-
-```bicep
-targetScope = 'managementGroup'
-
-@description('Target Management Group')
-param targetMG string
-
-@description('An array of the allowed locations, all other locations will be denied by the created policy.')
-param allowedLocations array = [
-  'australiaeast'
-  'australiasoutheast'
-  'australiacentral'
-]
-
-var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
-var policyDefinitionName = 'LocationRestriction'
-
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
-  name: policyDefinitionName
-  properties: {
-    policyType: 'Custom'
-    mode: 'All'
-    parameters: {}
-    policyRule: {
-      if: {
-        not: {
-          field: 'location'
-          in: allowedLocations
-        }
-      }
-      then: {
-        effect: 'deny'
-      }
-    }
-  }
-}
-
-resource location_lock 'Microsoft.Authorization/policyAssignments@2021-06-01' = {
-  name: 'location-lock'
-  properties: {
-    scope: mgScope
-    policyDefinitionId: managementGroupResourceId('Microsoft.Authorization/policyDefinitions', policyDefinitionName)
-  }
-  dependsOn: [
-    policyDefinition
-  ]
 }
 ```
 

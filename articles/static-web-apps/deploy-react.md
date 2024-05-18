@@ -28,7 +28,7 @@ This article uses a GitHub template repository to make it easy for you to get st
 
     [https://github.com/staticwebdev/react-basic/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Freact-basic%2Fgenerate)
 
-1. Name your repository **my-first-static-web-app**
+1. Name your repository **my-first-static-web-app**.
 
 1. Select **Create repository from template**.
 
@@ -107,4 +107,4 @@ Select **Go to resource**.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./application-settings.md)
+> [Add an API to your application](./add-api.md?tabs=react)

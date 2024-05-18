@@ -57,7 +57,7 @@ The **Zero Trust (TIC 3.0)** solution is also enhanced by integrations with othe
 - [Microsoft Defender for Cloud](https://azure.microsoft.com/services/active-directory/)
 - [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender)
 - [Microsoft Defender for Identity](https://www.microsoft.com/microsoft-365/security/identity-defender)
-- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security)
+- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps)
 - [Microsoft Defender for Office 365](https://www.microsoft.com/microsoft-365/security/office-365-defender)
 
 ## Install the Zero Trust (TIC 3.0) solution

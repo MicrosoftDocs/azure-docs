@@ -19,7 +19,7 @@ The following partners have thin client devices that have been approved to use w
 
 | Partner | Partner documentation | Partner support |
 |:-|:-|:-|
-| 10ZiG | [10ZiG client documentation](https://www.10zig.com/about/microsoft-windows-virtual-desktop) | [10ZiG support](https://www.10zig.com/resources/support_faq) |
+| 10ZiG | [10ZiG client documentation](https://www.10zig.com/user-guides) | [10ZiG support](https://www.10zig.com/resources/support_faq) |
 | Dell | [Dell client documentation](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf) | [Dell support](https://www.dell.com/support) |
 | HP | [HP client documentation](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097) | [HP support](https://support.hp.com/us-en/products/workstations-thin-clients) |
 | IGEL | [IGEL client documentation](https://www.igel.com/igel-solution-family/) | [IGEL support](https://www.igel.com/support/) |

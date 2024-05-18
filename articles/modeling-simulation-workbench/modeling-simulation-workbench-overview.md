@@ -41,6 +41,7 @@ Storage (both private within chamber, and shared) is persistent with high availa
 To use the Modeling and Simulation Workbench APIs, you must create your Azure Modeling and Simulation Workbench resources in the supported regions. Currently, it's available in the following Azure regions:
 
 - East US
+- Sweden Central
 - West US 3
 - USGov Virginia
 

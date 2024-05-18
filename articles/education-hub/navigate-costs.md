@@ -24,7 +24,7 @@ Additionally, you can ‘View cost details’, which will send you into Microsof
 
 ## Create Budgets to help conserve your Azure for Students credit
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UrkHiUx19Po?si=EREdwKeBAGnlOeSS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+> [!VIDEO https://www.youtube.com/embed/UrkHiUx19Po?si=EREdwKeBAGnlOeSS]
 
 Read more about this tutorial [Create and Manage Budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md)
 

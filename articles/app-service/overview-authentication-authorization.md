@@ -114,7 +114,7 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 In the [Azure portal](https://portal.azure.com), you can configure App Service with a number of behaviors when incoming request is not authenticated. The following headings describe the options.
 
-**Restric access**
+**Restrict access**
 
 - **Allow unauthenticated requests** This option defers authorization of unauthenticated traffic to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers.
 

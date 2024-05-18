@@ -224,6 +224,9 @@ items:
         - name: How to record video samples
           href: text-to-speech-avatar/custom-avatar-record-video-samples.md
           displayName: avatar
+        - name: Deploy your custom text to speech avatar model as an endpoint
+          href: text-to-speech-avatar/custom-avatar-endpoint.md
+          displayName: avatar
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc

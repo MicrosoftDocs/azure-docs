@@ -65,7 +65,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
   - Select compute type. You can choose between serverless compute and compute instance. 
     - If you choose serverless compute, you can set following settings:
-        - Customize the VM size that the runtime uses.
+        - Customize the VM size that the runtime uses. Please opt for VM series D and above. For additional information, refer to the section on [Supported VM series and sizes](../concept-compute-target.md#supported-vm-series-and-sizes)
         - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
         - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image, auth with connection and install packages. Make sure that the user-assigned managed identity has Azure Container Registry `acrpull` permission. If you don't set this identity, we use the user identity by default. 
 
@@ -86,10 +86,10 @@ Automatic is the default option for a runtime. You can start an automatic runtim
            user_assigned_identities:
             '/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uai_name>': {}
             '<UAI resource ID 2>': {}
-        primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
         ```
 
         > [!TIP]
+        > Please make sure user have permission to `Assign User Assigned Identity` or `Managed Identity Operator` role on the user assigned identity resource.
         > The following [Azure RBAC role assignments](../../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
         
         |Resource|Permission|
@@ -182,7 +182,7 @@ data: <path_to_flow>/data.jsonl
 # identity:
 #   type: user_identity 
 
-# use workspace primary UAI
+# use workspace first UAI
 # identity:
 #   type: managed
   
@@ -348,7 +348,7 @@ environment:
 
 ### Update a compute instance runtime on a runtime page
 
-We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list) if possible.
+We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list) if possible.
 
 Every time you open the page for runtime details, we check whether there are new versions of the runtime. If new versions are available, a notification appears at the top of the page. You can also manually check the latest version by selecting the **Check version** button.
 
@@ -362,7 +362,7 @@ If you select **Use customized environment**, you first need to rebuild the envi
 
 ## Relationship between runtime, compute resource, flow and user
 
-- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. You can find 
+- One single user can have multiple compute resources (serverless or compute instance). Base on customer different need, we allow single user to have multiple compute resources. For example, one user can have multiple compute resources with different VM size. 
 - One compute resource can only be used by single user. Compute resource is model as private dev box of single user, so we didn't allow multiple user share same compute resources. In AI studio case, different user can join different project and data and other asset need to be isolated, so we didn't allow multiple user share same compute resources.
 - One compute resource can host multiple runtimes. Runtime is container running on underlying compute resource, as in common case, prompt flow authoring didn't need too many compute resources, we allow single compute resource to host multiple runtimes from same user. 
 - One runtime only belongs to single compute resource in same time. But you can delete or stop runtime and reallocate it to other compute resource.

@@ -1,12 +1,12 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
-ms.date: 08/22/2022
+ms.date: 4/24/2024
 ms.topic: include
 ms.author: eur
 ---
 
-| Text language| Language code |
+| Text language | Language code |
 |:------------------------|:-------------:|
 | Afrikaans | `af` |
 | Albanian | `sq` |

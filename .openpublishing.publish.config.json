@@ -357,6 +357,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-python-worker",
+      "url": "https://github.com/Azure/azure-functions-python-worker",
+      "branch": "dev",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "functions-openapi-turbine-repair",
       "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
       "branch": "main",
@@ -864,6 +870,12 @@
       "path_to_root": "azure-storage-snippets",
       "url": "https://github.com/azure-samples/AzureStorageSnippets",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "blob-devguide-go",
+      "url": "https://github.com/Azure-Samples/blob-storage-devguide-go",
+      "branch": "main",
       "branch_mapping": {}
     },
     {

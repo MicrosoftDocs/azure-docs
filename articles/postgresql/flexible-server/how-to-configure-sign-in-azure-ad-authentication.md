@@ -4,7 +4,7 @@ description: Learn how to set up Microsoft Entra ID for authentication with Azur
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 03/04/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to

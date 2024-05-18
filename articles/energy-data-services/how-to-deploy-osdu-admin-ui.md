@@ -88,7 +88,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 1. Enter the required environment variables on the terminal.
    ```bash
     export ADMINUI_CLIENT_ID="" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
-    export WEBSITE_NAME="" ## Unique name of the static web app or storage account that will be generated
+    export WEBSITE_NAME="" ## Unique name of the static web app or storage account that will be generated. Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     export RESOURCE_GROUP="" ## Name of resource group
     export LOCATION="" ## Azure region to deploy to, i.e. "westeurope"
    ```
@@ -129,7 +129,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
         --public-access blob
     ```
 
-1. Add the redirect URI to the App Registration.
+1. Add the redirect URI to the App Registration. 
     ```azurecli
     export REDIRECT_URI=$(az storage account show --resource-group $RESOURCE_GROUP --name $WEBSITE_NAME --query "primaryEndpoints.web") && \
     echo "Redirect URL: $REDIRECT_URI" && \

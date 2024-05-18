@@ -25,7 +25,7 @@ For example, you can record 1:1 or 1:N audio and video calls:
 ![Diagram showing a call that it's being recorded.](../media/call-recording-client.png)
 
 But also, you can use Call Recording to record complex PSTN or VoIP inbound and outbound calling workflows managed by [Call Automation](../call-automation/call-automation.md).
-Regardless of how you established the call, Call Recording allows you to produce mixed or unmixed media files that are stored for 48 hours on a built-in temporary storage. You can retrieve the files and take them to the long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
+Regardless of how you established the call, Call Recording allows you to produce mixed or unmixed media files that are stored for 24 hours on a built-in temporary storage. You can retrieve the files , move it your own Azure Blob Store [Bring Your Own Storage](../../quickstarts\call-automation\call-recording\bring-your-own-storage.md) or a storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
 
 ![Diagram showing call recording architecture.](../media/call-recording-with-call-automation.png)
@@ -70,7 +70,7 @@ A `recordingId` is returned when recording is started, which is then used for fo
 Call Recording use [Azure Event Grid](../../../event-grid/event-schema-communication-services.md) to provide you with notifications related to media and metadata.
 
 > [!NOTE]
-> Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 48 hours.** After 48 hours, recordings will no longer be available.
+> Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 24 hours.** After 24 hours, recordings will no longer be available.
 
 
 An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file. 
