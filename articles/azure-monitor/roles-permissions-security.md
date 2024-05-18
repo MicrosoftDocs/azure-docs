@@ -18,12 +18,11 @@ This article shows how to apply role-based access control (RBAC) monitoring role
 
 For more detailed information on the monitoring roles, see [RBAC Monitor](../role-based-access-control/built-in-roles.md#monitor).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Monitor permissions and Azure custom roles
 
 If the built-in roles don't meet the needs of your team, you can [create an Azure custom role](../role-based-access-control/custom-roles.md) with [granular permissions](../role-based-access-control/permissions/monitor.md).
-
-> [!NOTE]
-> Access to alerts, diagnostic settings, and metrics for a resource requires that the user has read access to the resource type and scope of that resource. Creating a diagnostic setting that sends data to a storage account or streams to event hubs requires the user to also have ListKeys permission on the target resource.
 
 For example, you can use granular permissions to create an Azure custom role for an Activity Log Reader with the following PowerShell script.
 
@@ -39,9 +38,10 @@ $role.AssignableScopes.Add("/subscriptions/mySubscription")
 New-AzRoleDefinition -Role $role 
 ```
 
-## Assign a role
+> [!NOTE]
+> Access to alerts, diagnostic settings, and metrics for a resource requires that the user has read access to the resource type and scope of that resource. Creating a diagnostic setting that sends data to a storage account or streams to event hubs requires the user to also have ListKeys permission on the target resource.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## Assign a role
 
 To assign a role, see [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
@@ -77,7 +77,7 @@ You can also [Assign Azure roles by using the Azure portal](../role-based-access
 
 ## PowerShell query to determine role membership
 
-Because certain roles can be linked to notifications and email alerts, it can be helpful to be able to generate a list of users who belong to a given role. To help with generating these types of lists, the following sample queries can be adjusted to fit your specific needs.
+It can be helpful to generate lists of users who belong to a given role. To help with generating these types of lists, the following sample queries can be adjusted to fit your specific needs.
 
 ### Query entire subscription for Admin roles + Contributor roles
 
@@ -88,7 +88,7 @@ Because certain roles can be linked to notifications and email alerts, it can be
 ### Query within the context of a specific Application Insights resource for owners and contributors
 
 ```powershell
-$resourceGroup = "RGNAME"
+$resourceGroup = "ResourceGroupName"
 $resourceName = "AppInsightsName"
 $resourceType = "microsoft.insights/components"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
@@ -97,7 +97,7 @@ $resourceType = "microsoft.insights/components"
 ### Query within the context of a specific resource group for owners and contributors
 
 ```powershell
-$resourceGroup = "RGNAME"
+$resourceGroup = "ResourceGroupName"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
