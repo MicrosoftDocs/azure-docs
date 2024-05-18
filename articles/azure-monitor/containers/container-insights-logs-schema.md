@@ -153,7 +153,7 @@ Follow the below mentioned steps to enable annotation based filtering. Find the 
 | `fluentbit.io/exclude_stdout_container1: "true"` | Exclude only stdout only for the container1 in the pod |
 
 >[!NOTE]
->These annotations are fluent bit based. If you have existing fluent-bit based logs collection solutions, they would also stop collecting logs.
+>These annotations are fluent bit based. If you use your own fluent-bit based log collection solution with the kubernetes plugin filter and annotation based exclusion, it will stop collecting logs from both Container Insights and your solution.
 
 Below is an example of `fluentbit.io/exclude: "true"` annotation in Pod spec:
 
