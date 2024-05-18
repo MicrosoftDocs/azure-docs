@@ -2,8 +2,8 @@
 title: Enhance resilience by replicating your Log Analytics workspace across regions (Preview)
 description: Use the workspace replication feature in Log Analytics to create copies of a workspace in different regions for data resiliency.
 ms.topic: how-to
-author: noakup
-ms.author: noakuper
+ms.author: guywild
+ms.reviewer: noakuper
 ms.date: 04/26/2024
 ms.custom: references_regions 
 
@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 Replicating your Log Analytics workspace across regions enhances resilience by letting you switch over to the replicated workspace and continue operations if there's a regional failure. To switch between workspaces in the two regions, you call the Workspace Failover API after careful consideration and analysis. 
 
-This article explains how Log Analytics workspace replication works, how to replicate your workspace, and how to switch over and back.
+This article explains how Log Analytics workspace replication works, how to replicate your workspace, how to switch over and back, and how to decide when to when to switch between regions.
 
 ## Permissions required
 
