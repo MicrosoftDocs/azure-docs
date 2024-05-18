@@ -26,15 +26,56 @@ Shows the app deployment details in App Space. Here you can view the GitHub acti
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
+#### [App Component (Backend)](#tab/static-app-component/)
+
+#### [Database](#tab/database/)
+
+* * *
 
 ## Logs
 
 Service-level events, or console logs to debug code. 
 
+#### [Static App Component (Frontend)](#tab/static-app-component/)
+
+- Redeploy repeats the latest deployment.
+- Workflow run allows you to view the GitHub actions 
+- View commit
+
+#### [App Component (Backend)](#tab/static-app-component/)
+
+#### [Database](#tab/database/)
+
+* * *
+
 
 ## Metrics
 
+#### [Static App Component (Frontend)](#tab/static-app-component/)
+
+- Redeploy repeats the latest deployment.
+- Workflow run allows you to view the GitHub actions 
+- View commit
+
+#### [App Component (Backend)](#tab/static-app-component/)
+
+#### [Database](#tab/database/)
+
+* * *
+
 ## Settings
+
+#### [Static App Component (Frontend)](#tab/static-app-component/)
+
+- Redeploy repeats the latest deployment.
+- Workflow run allows you to view the GitHub actions 
+- View commit
+
+#### [App Component (Backend)](#tab/static-app-component/)
+
+#### [Database](#tab/database/)
+
+* * *
 
 ## Info
 
@@ -85,7 +126,22 @@ Listening port
 
 #### Environment variables
 
+
+
 ### Info
+
+
+#### [Static App Component (Frontend)](#tab/static-app-component/)
+
+- Redeploy repeats the latest deployment.
+- Workflow run allows you to view the GitHub actions 
+- View commit
+
+#### [App Component (Backend)](#tab/static-app-component/)
+
+#### [Database](#tab/database/)
+
+* * *
 
 - URL
 - Location
