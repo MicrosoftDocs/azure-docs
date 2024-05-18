@@ -68,7 +68,7 @@ To set the **Minimum API version** in the portal:
 1. Select **Save**.
 
 > [!IMPORTANT]
-> If the **Minimum API version** in the portal is greyed out, you can only update the setting programmatically, for example, using the [REST API](/rest/api/apimanagement/api-management-service/update) or the [az apim update](/cli/azure/apim#az-apim-update) command in the Azure CLI.
+> If the **Minimum API version** in the portal is greyed out, you can only update the setting programmatically, for example, using the [REST API](/rest/api/apimanagement/api-management-service/update?view=rest-apimanagement-2022-08-01) or the [az apim update](/cli/azure/apim#az-apim-update) command in the Azure CLI.
    
 ## More information
 
