@@ -476,7 +476,7 @@ When the function is invoked, the HTTP request is passed to the function as `req
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
 
-## SDK type bindings (Preview)
+## SDK type bindings (preview)
  
 For select triggers and bindings, you can work with data types implemented by the underlying Azure SDKs and frameworks. These _SDK type bindings_ let you interact binding data as if you were using the underlying service SDK. 
 ::: zone pivot="python-mode-configuration" 
@@ -519,7 +519,7 @@ You can view other SDK type bindings samples for Blob storage in the Python exte
 
 ::: zone-end
 
-## HTTP streams (Preview)
+## HTTP streams (preview)
 
 HTTP streams lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. 
 
@@ -539,6 +539,8 @@ This feature makes it possible to handle large data stream, OpenAI integrations,
 
 ### Enable HTTP streams
 
+HTTP streams are disabled by default. You need to enable this feature in your application settings and also update your code to use the FastAPI package.
+
 1. Add the `azurefunctions-extensions-http-fastapi` extension package to the `requirements.txt` file in the project, which should include at least these packages:
 
     :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/requirements.txt" range="5-6" ::: 
@@ -547,11 +549,12 @@ This feature makes it possible to handle large data stream, OpenAI integrations,
 
     :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
 
-1. When deploying to a Consumption plan, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings):
+1. When deploying to a Consumption plan, add these [application settings](./functions-how-to-use-azure-function-app-settings.md#settings):
 
     `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`
+    `"PYTHON_ENABLE_INIT_INDEXING": "1"`
 
-    When running locally, you also need to add this same setting to the `local.settings.json` project file.
+    When running locally, you also need to add these same settings to the `local.settings.json` project file.
 
 ### HTTP streams examples
 
