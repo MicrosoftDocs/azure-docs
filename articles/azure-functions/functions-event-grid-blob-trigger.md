@@ -15,7 +15,7 @@ If you're using earlier versions of the Blob Storage trigger with Azure Function
 This article shows how to create a function that runs based on events raised when a blob is added to a container. You'll use Visual Studio Code for local development and to check that the function works locally before deploying your project to Azure.
 
 >[!NOTE]  
->The Blob Storage trigger using Event Grid is the only type of blob trigger supported in the Flex Consumption plan. 
+>The Flex Consumption plan supports only the event-based Blob storage trigger.  
 
 > [!div class="checklist"]
 > * Create a general storage v2 account in Azure Storage.
