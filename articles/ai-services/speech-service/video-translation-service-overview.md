@@ -44,11 +44,21 @@ We support video translation service between various languages, enabling you to 
 
 ## Core features
 
-- **Dialogue audio extraction and spoken content transcription.** - Automatically extracts dialogue audio from the source video and transcribe the spoken content.
-- **Translation from language A to B and large language model (LLM) reformulation.** - Translates the transcribed content from the original language (Language A) to the target language (Language B) using advanced language processing techniques. Enhances translation quality and refines gender-aware translated text through LLM reformulation. 
-- **Automatic dubbing – voice generation in other language.** - Utilizes AI-powered text-to-speech technology to automatically generate human-like voices in the target language. These voices are precisely synchronized with the video, ensuring a flawless dubbing experience. This includes utilizing prebuilt neural voices for high-quality output and offering options for personal voice. 
-- **Human in the loop for content editing.** - Allows for human intervention to review and edit the translated content, ensuring accuracy and cultural appropriateness before finalizing the dubbed video. 
-- **Subtitles generation.** - Delivers the fully dubbed video with translated dialogue, synchronized subtitles, and generated voices, ready for download and distribution across various platforms. You can also set the subtitle length on each screen for optimal display. 
+- **Dialogue audio extraction and spoken content transcription.**
+  
+  Automatically extracts dialogue audio from the source video and transcribe the spoken content.
+- **Translation from language A to B and large language model (LLM) reformulation.**
+  
+  Translates the transcribed content from the original language (Language A) to the target language (Language B) using advanced language processing techniques. Enhances translation quality and refines gender-aware translated text through LLM reformulation. 
+- **Automatic dubbing – voice generation in other language.**
+  
+  Utilizes AI-powered text-to-speech technology to automatically generate human-like voices in the target language. These voices are precisely synchronized with the video, ensuring a flawless dubbing experience. This includes utilizing prebuilt neural voices for high-quality output and offering options for personal voice. 
+- **Human in the loop for content editing.**
+  
+  Allows for human intervention to review and edit the translated content, ensuring accuracy and cultural appropriateness before finalizing the dubbed video. 
+- **Subtitles generation.**
+ 
+  Delivers the fully dubbed video with translated dialogue, synchronized subtitles, and generated voices, ready for download and distribution across various platforms. You can also set the subtitle length on each screen for optimal display. 
 
 ## Get started 
 
