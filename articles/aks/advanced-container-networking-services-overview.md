@@ -14,12 +14,13 @@ ms.date: 05/10/2024
 Kubernetes is a powerful tool for managing containerized applications. As your deployments grow, ensuring smooth network operation becomes more challenging.
 Identifying and resolving network issues within a complex Kubernetes cluster can be a time-consuming task.
 
-Advanced Container Networking Services is a suite of paid services - built on top of existing networking solutions for Azure Kubernetes Services - addressing the intricate needs of modern containerized applications. This premium suite helps solve complex problems ranging from Observability to Security to Compliance.
+Advanced Container Networking Services is a suite of features built on top of existing networking solutions for Azure Kubernetes Services - addressing the intricate needs of modern containerized applications.
+This suite helps solve complex problems ranging from Observability to Security to Compliance.
 The advanced tools and services simplify the management of complex networking scenarios, ensuring your applications are secure, compliant, and performant.
 
 ## What is included in Advanced Container Networking Services?
 
-The first feature for this premium suite is Advanced Observability.
+The first feature for this suite is Advanced Observability.
 
 ## What is Advanced Observability?
 
@@ -31,7 +32,7 @@ In non-Cilium Linux dataplanes, it is supported for all Kubernetes versions.
 Advanced Observability brings managed Hubble metrics and on-demand flow-logs support to Cilium and non-Cilium Linux nodepools.
 With Hubble, customers will have in-depth visibility into network traffic at a pod level.
 
-:::image type="content" source="./media/advanced-container-networking-services/advanced-container-networking-services.png" alt-text="Diagram of Advanced Container Networking Services.":::
+:::image type="content" source="./media/advanced-container-networking-services/advanced-network-observability.png" alt-text="Diagram of Advanced Network Observability.":::
 
 > [!NOTE]
 > This feature is going to be charged. We will share more details in coming weeks
