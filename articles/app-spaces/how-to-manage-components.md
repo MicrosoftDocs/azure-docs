@@ -20,66 +20,69 @@ You can manage the components of your App Space by selecting the component on th
 Shows the app deployment details in App Space. Here you can view the GitHub actions workflow
 
 
-#### [Static App Component (Frontend)](#tab/static-app-component/)
+#### [Static App Component (Frontend)](#tab/swa/)
 
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/static-app-component/)
+#### [App Component (Backend)](#tab/app/)
 
-#### [Database](#tab/database/)
+#### [Database](#tab/db/)
 
 * * *
+
 
 ## Logs
 
 Service-level events, or console logs to debug code. 
 
-#### [Static App Component (Frontend)](#tab/static-app-component/)
+#### [Static App Component (Frontend)](#tab/swa/)
 
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/app-component/)
+#### [App Component (Backend)](#tab/app/)
 
-#### [Database](#tab/database/)
+#### [Database](#tab/db/)
 
 * * *
 
 
 ## Metrics
 
-#### [Static App Component (Frontend)](#tab/static-app-component/)
+#### [Static App Component (Frontend)](#tab/swa/)
 
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/app-component/)
+#### [App Component (Backend)](#tab/app/)
 
-#### [Database](#tab/database/)
+#### [Database](#tab/db/)
 
 * * *
+
 
 ## Settings
 
-#### [Static App Component (Frontend)](#tab/static-app-component/)
+#### [Static App Component (Frontend)](#tab/swa/)
 
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/app-component/)
+#### [App Component (Backend)](#tab/app/)
 
-#### [Database](#tab/database/)
+#### [Database](#tab/db/)
 
 * * *
 
+
 ## Info
 
-#### [Static App Component](#tab/static-app-component/)
+#### [Static App Component](#tab/swa/)
 This tab shows the following details:
 
 | Name | Description |
@@ -93,7 +96,7 @@ This tab shows the following details:
 |Subscription|Azure subscription|
 |Resource name|App space internal name|
 
-#### [App Component (Backend)](#tab/app-component/)
+#### [App Component (Backend)](#tab/app/)
 This tab shows the following details:
 
 | Name | Description |
@@ -107,7 +110,7 @@ This tab shows the following details:
 |Subscription|Azure subscription|
 |Resource name|App space internal name|
 
-#### [Database](#tab/database/)
+#### [Database](#tab/db/)
 | Name | Description |
 |------|-------------|
 |URL | App URL |
@@ -132,15 +135,15 @@ Listening port
 ### Info
 
 
-#### [Static App Component (Frontend)](#tab/static-app-component/)
+#### [Static App Component (Frontend)](#tab/swa/)
 
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/app-component/)
+#### [App Component (Backend)](#tab/app/)
 
-#### [Database](#tab/database/)
+#### [Database](#tab/db/)
 
 * * *
 
@@ -157,7 +160,7 @@ Listening port
 which provides information and options, based on the Azure service you're using to deploy your web application. Select the following tab associated with the Azure service.
 
 
-#### [Static App Component (Frontend)](#tab/static-app-component/)
+#### [Static App Component (Frontend)](#tab/swa/)
 
 The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
 
@@ -168,7 +171,7 @@ The following table shows the components tabs that you can select, which allow y
 | **Backend & API**   |Bring your own API backends. Enter `Environment Name`, `Backend Type`, `Backend Resource Name`, and `Link`, and then select **Apply**.|
 |**Deployment**     | View deployment name, status, and time for code deployment logs.      |
 
-#### [App component (Backend)](#tab/app-component/)
+#### [App component (Backend)](#tab/app/)
 
 The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
 
@@ -187,6 +190,7 @@ The following image shows an example of the Hosting tab, Container details selec
 In the Monitoring tab, you can view Log Analytics workspace information like the subscription and  resource group used for your App Space, and region.
 
 
+#### [Database)](#tab/db/)
 * * *
 
 For more advanced configuration options, select **Go to advanced view**.

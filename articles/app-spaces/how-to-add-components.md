@@ -30,7 +30,7 @@ Follow these steps to add a custom app component.
 
 ### Configure tab
 
-#### [Backend (Container App)](#tab/aca/)
+#### [Container App (Backend)](#tab/aca/)
 
 1. Enter the following values in the _Connect to GitHub to import your repository_ section.
 
@@ -54,7 +54,7 @@ Follow these steps to add a custom app component.
 1. Select the **Add** button at the bottom of the page.
 
 [!include [deployment note](./includes/provisioning-note-aca.md)]
-#### [Frontend (Static Web App)](#tab/swa/)
+#### [Static Web App (Frontend)](#tab/swa/)
 1. Enter the following values in the _Connect to GitHub to import your repository_ section.
 
     | Setting | Action |
