@@ -26,7 +26,7 @@ This article explains how to use Log Analytics simple mode to explore and analyz
 
 Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try Log Analytics simple mode** at the top right corner of the Log Analytics query editor.
 
-:::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
+:::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A screenshot showing the Try new Log Analytics button.":::
 
 ## How simple mode works
 
@@ -55,7 +55,7 @@ The collapsible left pane gives you access to tables in the workspace, sample an
 
 Pin the left pane to keep it open while you work, or maximize your query window by selecting an icon from the left pane only when you need it.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-left-sidebar.png" alt-text="Screenshot that shows the left sidebar in Log Analytics.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-left-sidebar.png" alt-text="Screenshot that shows the left sidebar in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-left-sidebar.png" alt-text="Screenshot that shows the left sidebar in Log Analytics.":::
 
 | Option | Description |
 |:---|:---|
@@ -67,7 +67,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 ### More tools
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-more-tools.png" alt-text="Screenshot that shows the More tools window in Log Analytics.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-more-tools.png" alt-text="Screenshot that shows the More tools window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-more-tools.png" alt-text="Screenshot that shows the More tools window in Log Analytics.":::
 
 | Option | Description |
 |:---|:---|
@@ -90,23 +90,23 @@ To get started:
 
 - Click **Select a table** and select a table from the **Tables** tab to view table data.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-select-table.png" alt-text="Screenshot that shows the Select a table button in Log Analytics.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-select-table.png" alt-text="Screenshot that shows the Select a table button in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-select-table.png":::
 
     Alternatively, select **Tables** from the left pane to view the list of tables in the workspace.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-tables.png" alt-text="Screenshot that shows the Tables tab in Log Analytics.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-tables.png" alt-text="Screenshot that shows the Tables tab in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-tables.png" alt-text="Screenshot that shows the Tables tab in Log Analytics.":::
 
 - Use an existing query, such as a shared or [saved query](../logs/log-analytics-saved-query.md), or an example query.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that shows an example query in Log Analytics.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that shows an example query in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that shows an example query in Log Analytics.":::
 
 - Select a query from your query history.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-query-history.png" alt-text="Screenshot that shows the query history in Log Analytics.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-query-history.png" alt-text="Screenshot that shows the query history in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-query-history.png":::
 
 - Select a [function](../logs/functions.md).
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-functions.png" alt-text="Screenshot that shows the functions tab in Log Analytics."::: 
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-functions.png" alt-text="Screenshot that shows the functions tab in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-functions.png"::: 
 
     > [!IMPORTANT]
     > Functions let you reuse query logic and often require input parameters or additional context. In such cases, the function won't run until you switch to KQL mode and provide the required input.  
@@ -124,7 +124,7 @@ By default, simple mode lists the last 1000 entries in the table from the last 2
 
 To change the time range and number of records displayed, use the **Time range** and **Limit** selectors.
     
-:::image type="content" source="media/log-analytics-explorer/log-analytics-time-range-limit.png" alt-text="Screenshot that shows the time range and limit selectors in Log Analytics.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-time-range-limit.png" alt-text="Screenshot that shows the time range and limit selectors in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-time-range-limit.png":::
 
 **Filter by column**
 
@@ -133,7 +133,7 @@ To change the time range and number of records displayed, use the **Time range**
 
     If you filter by selecting values from a list, you can select multiple values. If the list is long, you'll see a **Not all results are shown** message. Scroll to the bottom of the list and select **Load more results** to retrieve more values.  
     
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows the filter menu that opens when you select Filter in Log Analytics simple mode.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows the filter menu that opens when you select Filter in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-filter.png":::
 
     > [!NOTE]
     > Simple mode doesn't support filtering a dynamic column. To filter on data in a dynamic column, [extend the column](https://azure.microsoft.com/updates/azure-monitor-log-analytics-ui-updates-june-2019/). 
@@ -142,7 +142,7 @@ To change the time range and number of records displayed, use the **Time range**
 
 1. Select **Search**.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-search.png" alt-text="Screenshot that shows the Search option in Log Analytics simple mode.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-search.png" alt-text="Screenshot that shows the Search option in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-search.png":::
 
 1. Enter a value in the **Search this table** box and select **Apply**.
 
@@ -156,14 +156,14 @@ To change the time range and number of records displayed, use the **Time range**
 1. Select **Aggregate**.
 1. Select a column to aggregate by and select an operator to aggregate by, as described in [Use aggregation operators](#use-aggregation-operators).
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-aggregate.png" alt-text="Screenshot that shows the aggregation operators in the Aggregate table window in Log Analytics.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-aggregate.png" alt-text="Screenshot that shows the aggregation operators in the Aggregate table window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-aggregate.png":::
 
 **Show or hide columns**
 
 1. Select **Show columns**.
 1. Select or clear columns to show or hide them, then select **Apply**.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-show-column.png" alt-text="Screenshot that shows the Show columns window in Log Analytics.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-show-column.png" alt-text="Screenshot that shows the Show columns window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-show-column.png":::
 
 > [!NOTE]
 > Showing or hiding columns in simple mode does not add the [project](/azure/data-explorer/kusto/query/projectoperator) or [project-away](/azure/data-explorer/kusto/query/projectawayoperator) operators to your query when you switch to KQL mode.
@@ -175,7 +175,7 @@ To change the time range and number of records displayed, use the **Time range**
 1. Select a column to sort by.
 1. Select **Ascending** or **Descending**, then select **Apply**.  
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-sort.png" alt-text="Screenshot that shows the Sort by column window in Log Analytics.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-sort.png" alt-text="Screenshot that shows the Sort by column window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-sort.png":::
 
 1. Select **Sort** again to sort by another column.
 
@@ -184,8 +184,8 @@ To change the time range and number of records displayed, use the **Time range**
 | Operator | Description |
 |:---|:---|
 |`count`|Counts the number of times each distinct value exists in the column.|
-|`dcount`|For the `dcount` operator, you select two columns. The operator counts the total number of distinct values in the second column correlated to each value in the first column. For example, this shows the distinct number of result codes for successful and failed operations:<br/> :::image type="content" source="media/log-analytics-explorer/log-analytics-dcount.png" alt-text="Screenshot that shows the result of an aggregation using the dcount operator in Azure Monitor Log Analytics.":::  |
-|`sum`<br/>`avg`<br/>`max`<br/>`min`|For these operators, you select two columns. The operators calculate the sum, average, maximum, or minimum of all values in the second column for each value in the first column. For example, this shows the total duration of each operation in milliseconds for the past 24 hours:<br/>:::image type="content" source="media/log-analytics-explorer/log-analytics-sum.png" alt-text="Screenshot that shows the results of an aggregation using the sum operator in Azure Monitor Log Analytics.":::  |
+|`dcount`|For the `dcount` operator, you select two columns. The operator counts the total number of distinct values in the second column correlated to each value in the first column. For example, this shows the distinct number of result codes for successful and failed operations:<br/> :::image type="content" source="media/log-analytics-explorer/log-analytics-dcount.png" alt-text="Screenshot that shows the result of an aggregation using the dcount operator in Azure Monitor Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-dcount.png":::  |
+|`sum`<br/>`avg`<br/>`max`<br/>`min`|For these operators, you select two columns. The operators calculate the sum, average, maximum, or minimum of all values in the second column for each value in the first column. For example, this shows the total duration of each operation in milliseconds for the past 24 hours:<br/>:::image type="content" source="media/log-analytics-explorer/log-analytics-sum.png" alt-text="Screenshot that shows the results of an aggregation using the sum operator in Azure Monitor Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-sum.png":::  |
 
 > [!IMPORTANT]
 > Basic logs tables don't support aggregation using the `avg` and `sum` operators. 
@@ -197,7 +197,7 @@ To switch modes, select **Simple mode** or **KQL mode** from the dropdown in the
 
 When you begin to query logs in simple mode and then switch to KQL mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-kql.png" alt-text="Screenshot that shows a query in Log Analytics KQL mode.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-kql.png" alt-text="Screenshot that shows a query in Log Analytics KQL mode." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-kql.png":::
 
 For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the right of the top query bar. Select **User Query** to return to the query editor and modify your query at any time.
 
