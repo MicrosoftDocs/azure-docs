@@ -50,7 +50,7 @@ In the RAI image dashboard, you can select or create data *cohorts*, which are s
 
 The default dashboard view shows the **Global cohort**, which is all of the data. At the top of the dashboard, select **Switch cohort** to select a different cohort or **New cohort** to create a new cohort. You can also select the **Settings** icon to open a side panel that lists the names and details of all cohorts, and lets you switch or create new cohorts.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/error-analysis-global-cohort.png" alt-text="Screenshot of the top section of the RAI image dashboard showing global cohorts." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/error-analysis-global-cohort.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/error-analysis-global-cohort.png" alt-text="Screenshot of the top section of the RAI image dashboard showing global cohorts." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/error-analysis-global-cohort.png":::
 
 ## RAI image dashboard components
 
@@ -158,7 +158,7 @@ Table view for object detection:
 
 **Class view** breaks down your model predictions by class label. You can identify error patterns per class to diagnose fairness concerns and evaluate under/overrepresentation in your dataset.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-common.png" alt-text="Screenshot of the top part of the Table view." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-common.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-common.png" alt-text="Screenshot of the top part of the Class view." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-common.png":::
 
 - Under **Select a dataset cohort to explore**, you can select or search for a user-defined dataset cohort to view.
 - The **Set thumbnail size** slider adjusts the size of the image cards on the page.
@@ -278,11 +278,11 @@ The **Data analysis** component creates dataset cohorts to analyze dataset stati
 
 # [Image classification](#tab/classification)
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-table-class.png" alt-text="Screenshot of data analysis on the Table view tab for image classification models." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-table-class.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-class.png" alt-text="Screenshot of data analysis on the Table view tab for image classification models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-class.png":::
 
 # [Object detection](#tab/detection)
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-table-object.png" alt-text="Screenshot of data analysis on the Table view tab for object detection models." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-table-object.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-object.png" alt-text="Screenshot of data analysis on the Table view tab for object detection models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-object.png":::
 
 ---
 
@@ -290,11 +290,11 @@ The **Data analysis** component creates dataset cohorts to analyze dataset stati
 
 **Chart view** lets you choose between customized aggregation and local data exploration.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-view.png" alt-text="Screenshot of data analysis on the chart view tab." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-view.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-view.png" alt-text="Screenshot of data analysis on the chart view tab." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-view.png":::
 
 In the chart view, the X axis and Y axis show the values being plotted horizontally and vertically. You can select either label to open a sidebar pane to select and configure that axis.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/axis-value.png" alt-text="Screenshot of the select your axis value sidebar.":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/axis-value.png" alt-text="Screenshot of the select your axis value sidebar.":::
 
 In the axis configuration pane, depending on the value, you can configure options such as **Apply binning to data**, **Number of bins**, or **Enable logarithmic scaling**. **Should dither** adds optional noise to the data to avoid overlapping points in the scatterplot.
 
@@ -309,13 +309,13 @@ Under **Chart type**, you can select whether to aggregate values across all data
 
 Scatter chart for image classifiction:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-scatter-object.png" alt-text="Screenshot of disaggregated data analysis on the Chart view tab for image classification models." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-chart-scatter-object.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-scatter-object.png" alt-text="Screenshot of disaggregated data analysis on the Chart view tab for image classification models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-scatter-object.png":::
 
 # [Object detection](#tab/detection)
 
 Aggregate chart for object detection:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-table-class.png" alt-text="Screenshot of aggregated data analysis on the Chart view tab for object detection models." lightbox="./media/how-to-responsible-ai-dashboard-text-insights/data-analysis-table-class.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-class.png" alt-text="Screenshot of aggregated data analysis on the Chart view tab for object detection models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-class.png":::
 
 ---
 
