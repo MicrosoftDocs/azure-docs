@@ -1492,7 +1492,7 @@ This example shows an HTTP triggered function that streams a file's content as t
   
 ---
 
-For a ready to run sample app using streams, check out this example on [GitHub](https://github.com/Azure-Samples/azure-functions-nodejs-stream).
+For a ready-to-run sample app using streams, check out this example on [GitHub](https://github.com/Azure-Samples/azure-functions-nodejs-stream).
 
 ### Stream considerations
 

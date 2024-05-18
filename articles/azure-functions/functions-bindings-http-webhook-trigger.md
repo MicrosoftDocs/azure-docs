@@ -1024,7 +1024,7 @@ You can programmatically access the `invoke_URL_template` by using the Azure Res
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ### HTTP streams (preview)
 
-You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams-preview).   
+You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams).   
 ::: zone-end  
 
 ### Working with client identities
