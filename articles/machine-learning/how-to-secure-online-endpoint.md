@@ -80,6 +80,9 @@ If you don't need to maintain computes or keep online endpoints and deployments 
 
     When the workspace is configured with a private endpoint, the Azure Container Registry for the workspace must be configured for __Premium__ tier to allow access via the private endpoint. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md). Also, the workspace should be set with the `image_build_compute` property, as deployment creation involves building of images. See [Configure image builds](how-to-managed-network.md#configure-image-builds) for more.
 
+   > [!IMPORTANT]
+   > When workspace managed virtual network is set up for a workspace for the first time, the network is not provisioned yet. Before proceeding to create online deployments, provision the network by following the guideline [Manually provision a managed network](how-to-managed-network.md#manually-provision-a-managed-vnet). Creating online deployments will be rejected until the managed network is provisioned.
+
 1. Configure the defaults for the CLI so that you can avoid passing in the values for your workspace and resource group multiple times.
 
     ```azurecli
