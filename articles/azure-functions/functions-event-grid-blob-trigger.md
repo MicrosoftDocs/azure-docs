@@ -378,13 +378,3 @@ Now that you uploaded a file to the **samples-workitems** container, the functio
 
 - [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Event Grid trigger for Azure Functions](./functions-bindings-event-grid.md)
-
-
-
-
-
-
-
-
-
-  
