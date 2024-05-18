@@ -30,7 +30,7 @@ To create a video translation service project, follow these steps:
 
 1. Select **Video translation service**.
 
-1. On the **Create and manage the projects** page, select **Upload file**.
+1. On the **Create and Manage Projects** page, select **Upload file**.
 
 1. On the **Video file** page, upload your video file by dragging and dropping the video file or selecting the file manually.
 
@@ -60,7 +60,7 @@ If you encounter segments with an "unidentified" voice name, it might be because
 
 :::image type="content" source="media/video-translation-service/voice-unidentified.png" alt-text="Screenshot of one segment with unidentified voice name.":::
 
-If you want to adjust the voice, select **Voice settings** to make some changes. On the **Voice settings** page, you can adjust the voice type, gender, and the voice. Select the voice sample on the right of **Voice** to determine your voice selection. If you find there's missing voice, you can add the new voice name by selecting **Add speaker**. After changing the settings, select **Update**. 
+If you want to adjust the voice, select **Voice settings** to make some changes. On the **Voice settings** page, you can adjust the voice type, gender, and the voice. Select the voice sample on the right of **Voice** to determine your voice selection. If you find there is missing voice, you can add the new voice name by selecting **Add speaker**. After changing the settings, select **Update**. 
 
  :::image type="content" source="media/video-translation-service/voice-settings.png" alt-text="Screenshot of adjusting voice settings on the voice settings page.":::
 
