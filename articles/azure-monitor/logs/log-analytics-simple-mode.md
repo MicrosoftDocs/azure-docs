@@ -11,14 +11,14 @@ ms.date: 09/04/2023
 
 ---
 
-# Analyze data using Log Analytics simple mode 
+# Analyze data using Log Analytics simple mode (Preview)
 
-The new Log Analytics offers two ways to explore data:  
+Log Analytics now offers two ways to explore data:  
 
-- **Simple mode** offers the most commonly used Azure Monitor Logs functionality in an intuitive spreadsheet-like experience. Just point and click to filter, sort, and aggregate data to get to the insights you need 80% of the time. 
-- **Advanced mode** gives advanced users the full power of Kusto Query Language (KQL) to derive deeper insights from their logs.
+- **Simple mode** gives you the most commonly used Azure Monitor Logs functionality in an intuitive spreadsheet-like experience. Just point and click to filter, sort, and aggregate data to get to the insights you need 80% of the time. 
+- **KQL mode** gives advanced users the full power of Kusto Query Language (KQL) to derive deeper insights from their logs.
 
-You can switch seamlessly between simple and advance mode, and advanced users can share complex queries, which anyone can continue working with in simple mode. 
+You can switch seamlessly between simple and advance mode, and advanced users can share complex queries, which anyone can continue working in simple mode. 
 
 This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.     
 
@@ -38,14 +38,14 @@ This section orients you with the controls available in Log Analytics simple mod
 
 ### Top query bar
 
-In simple mode, the top bar has controls for working with data and switching to advanced mode.
+In simple mode, the top bar has controls for working with data and switching to KQL mode.
 
 | Option | Description |
 |:---|:---|
-| **Time range** | Select the [time range](./scope.md) for the data available to the query. In advanced mode, if you set a different time range in your query, the time range you set in the time picker is overridden. |
+| **Time range** | Select the [time range](./scope.md) for the data available to the query. In KQL mode, if you set a different time range in your query, the time range you set in the time picker is overridden. |
 |**Filter**|Filter data, and apply simple mode operators, as described in [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).|
 |**Limit**|Configure the number of entries Log Analytics displays in simple mode. The default limit is 1000.|
-|**Simple/Advanced**|Switch between simple and advanced mode.|
+|**Simple/Advanced**|Switch between simple and KQL mode.|
 | **Search**|Search through query results to find all instances of a particular string.|
 | **Queries** | Open the example queries dialog that appears when you first open Log Analytics. |
 
@@ -76,7 +76,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 | **New alert rule** | [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal). |
 |**Export**|[Export data to Excel](../logs/log-excel.md), CSV, or [Power BI](../logs/log-powerbi.md).|
 |**Pin to**|Pin your query to a [workbook](../visualize/workbooks-overview.md), or an [Azure dashboard](../visualize/tutorial-logs-dashboards.md) or [Grafana dashboard](../visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana).|
-| **Format query** | Format query text in advanced mode. |
+| **Format query** | Format query text in KQL mode. |
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
 | **Switch back to classic Logs** | Switch back to the [classic Log Analytics user interface](../logs/log-analytics-overview.md). |
 
@@ -109,7 +109,7 @@ To get started:
     :::image type="content" source="media/log-analytics-explorer/log-analytics-functions.png" alt-text="Screenshot that shows the functions tab in Log Analytics."::: 
 
     > [!IMPORTANT]
-    > Functions let you reuse query logic and often require input parameters or additional context. In such cases, the function won't run until you switch to advanced mode and provide the required input.  
+    > Functions let you reuse query logic and often require input parameters or additional context. In such cases, the function won't run until you switch to KQL mode and provide the required input.  
   
 ## Explore and analyze data in simple mode 
 
@@ -166,7 +166,7 @@ To change the time range and number of records displayed, use the **Time range**
     :::image type="content" source="media/log-analytics-explorer/log-analytics-show-column.png" alt-text="Screenshot that shows the Show columns window in Log Analytics.":::
 
 > [!NOTE]
-> Showing or hiding columns in simple mode does not add the [project](/azure/data-explorer/kusto/query/projectoperator) or [project-away](/azure/data-explorer/kusto/query/projectawayoperator) operators to your query when you switch to advanced mode.
+> Showing or hiding columns in simple mode does not add the [project](/azure/data-explorer/kusto/query/projectoperator) or [project-away](/azure/data-explorer/kusto/query/projectawayoperator) operators to your query when you switch to KQL mode.
 
 
 **Sort by column**
@@ -191,15 +191,15 @@ To change the time range and number of records displayed, use the **Time range**
 > Basic logs tables don't support aggregation using the `avg` and `sum` operators. 
 ## Switch modes
 
-To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
+To switch modes, select **Simple mode** or **KQL mode** from the dropdown in the top right corner of the query editor.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-simple.png" alt-text="Screenshot that shows how to toggle between simple mode and advanced mode in Log Analytics.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-simple.png" alt-text="Screenshot that shows how to toggle between simple mode and KQL mode in Log Analytics.":::
 
-When you begin to query logs in simple mode and then switch to advanced mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
+When you begin to query logs in simple mode and then switch to KQL mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-advanced.png" alt-text="Screenshot that shows a query in Log Analytics advanced mode.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-kql.png" alt-text="Screenshot that shows a query in Log Analytics KQL mode.":::
 
-For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the right of the top query bar. Select **User Query** to return to the query editor and continue working on your query at any time.
+For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the right of the top query bar. Select **User Query** to return to the query editor and modify your query at any time.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in simple mode.":::
 
