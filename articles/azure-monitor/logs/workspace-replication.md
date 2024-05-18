@@ -212,7 +212,7 @@ There are several points to consider in your plan for switchover, as described i
 
 #### Issue type and scope
 
-The switchover process routes ingestion and query requests to your secondary region, which usually bypasses any faulty component that might be causing latency or failure on your primary region. As a result, switchover isn't likely to help if:
+The switchover process routes ingestion and query requests to your secondary region, which usually bypasses any faulty component that's causing latency or failure in your primary region. As a result, switchover isn't likely to help if:
 
 - There's a cross-regional issue with an underlying resource. For example, if the same resource types fail in both your primary and secondary regions.
 - You experience an issue related to workspace management, such as changing workspace retention. Workspace management operations are always handled in your primary region. During switchover, workspace management operations are blocked.
@@ -263,7 +263,7 @@ There are several points to consider in your plan for switchback, as described i
 
 #### Log replication state
 
-Before you switch back, verify that Azure Monitor has completed replicating all logs ingested during switchover to the primary region. If you fail back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
+Before you switch back, verify that Azure Monitor has completed replicating all logs ingested during switchover to the primary region. If you switch back before all logs replicate to the primary workspace, your queries might return partial results until log ingestion completes.
 
 You can query your primary workspace in the Azure portal for the inactive region, as described in [Audit the inactive workspace](#audit-the-inactive-workspace).
 
