@@ -76,9 +76,6 @@ To create a compute instance in Azure AI Studio:
 
 To avoid getting charged for a compute instance that is switched on but inactive, configure when to shut down your compute instance due to inactivity.
 
-> [!IMPORTANT]
-> The compute won't be idle if you have a [prompt flow compute session](./create-manage-compute-session.md) in **Running** status on the compute. You need to delete any active compute sessions to make the compute instance eligible for idle shutdown. You also can't have any active [VS Code (Web)](./develop/vscode.md) sessions hosted on the compute instance.
-
 The setting can be configured during compute instance creation or modified for existing compute instances.
 
 For a new compute instance, configure idle shutdown during compute instance creation. For more information, see [Create a compute instance](#create-a-compute-instance) earlier in this article.
@@ -90,6 +87,9 @@ To configure idle shutdown for an existing compute instance follow these steps:
 1. Select **Schedule and idle shutdown**.
 
     :::image type="content" source="../media/compute/compute-schedule-update.png" alt-text="Screenshot of the option to change the idle shutdown schedule for a compute instance." lightbox="../media/compute/compute-schedule-update.png":::
+
+    > [!IMPORTANT]
+    > The compute won't be idle if you have a [prompt flow compute session](./create-manage-compute-session.md) in **Running** status on the compute. You need to delete any active compute sessions to make the compute instance eligible for idle shutdown. You also can't have any active [VS Code (Web)](./develop/vscode.md) sessions hosted on the compute instance.
 
 1. Update or add to the schedule. You can have a total of four schedules per compute instance. Then select **Update** to save your changes.
 
