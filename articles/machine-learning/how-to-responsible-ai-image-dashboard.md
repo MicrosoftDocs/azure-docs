@@ -25,24 +25,22 @@ Responsible AI image dashboards are linked to your registered computer vision mo
 ## Prerequisites
 
 - An Azure subscription with an Azure Machine Learning workspace.
-- A registered machine learning model that has a responsible AI image dashboard created.
+- A registered machine learning model that has a responsible AI image dashboard created with a running compute resource connected.
 
   You can create a Responsible AI image dashboard by using:
 
   - [The Azure Machine Learning studio UI](how-to-responsible-ai-insights-ui.md)
   - [YAML and Python via a pipeline job](how-to-responsible-ai-insights-sdk-cli.md)
   - A preconfigured sample Jupyter notebook like [Image Classification scenario with RAI Dashboard](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/vision/responsibleaidashboard-image-classification-fridge.ipynb) or [Object Detection scenario with RAI Dashboard](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/vision/responsibleaidashboard-automl-object-detection-fridge-private-data.ipynb).
-  
-- A running compute resource connected to your dashboard, for full functionality.
 
-  Some features of the RAI image dashboard require dynamic, on-the-fly, and real-time computation. An integrated compute resource enables full functionality of the image scenarios. For example:
+  Some features of the RAI image dashboard require dynamic, on-the-fly, and real-time computation. For complete functionality, you need to connect a running compute resource to your dashboard. For more information, see [Enable full functionality of the Responsible AI dashboard](how-to-responsible-ai-dashboard.md#enable-full-functionality-of-the-responsible-ai-dashboard).
+
+  An integrated compute resource enables full functionality of the image scenarios. For example:
 
   - For object detection, setting an Intersection over Union (IOU) threshold is disabled by default, and is enabled only if a compute resource is attached.
-  - When submitting a Distributed Parallel Version 2 (DPv2) job, attaching a compute resource enables pre-computing of all model explanations instead of loading explanations on-demand.
+  - When you submit a Distributed Parallel Version 2 (DPv2) job, attaching a compute resource enables precomputing of all model explanations instead of loading explanations on-demand.
 
-  For more information, see [Enable full functionality of the Responsible AI dashboard](how-to-responsible-ai-dashboard.md#enable-full-functionality-of-the-responsible-ai-dashboard).
-
-To open the Responsible AI image dashboard in Machine Learning studio, select your registered model in the **Models** list, select **Responsible AI** at the top of the model page, and then select the name of your Responsible AI image dashboard from the list.
+  To open the Responsible AI image dashboard in Machine Learning studio, select your registered model in the **Models** list, select **Responsible AI** at the top of the model page, and then select the name of your Responsible AI image dashboard from the list.
 
 ## Cohorts
 
@@ -54,7 +52,7 @@ The default dashboard view shows the **Global cohort**, which is all of the data
 
 ## RAI image dashboard components
 
-The following sections describe the Responsible AI image dashboard components. Available components and functionality vary between image classification and object detection scenarios.
+The following sections describe the Responsible AI image dashboard components. Available components and functionality differ between image classification and object detection scenarios.
 
 # [Image classification](#tab/classification)
 
@@ -68,7 +66,7 @@ For image classification and multilabel classification models, the Responsible A
 
 # [Object detection](#tab/detection)
 
-For object detection, the Responsible AI image dashboard includes **Vision data explorer** and **Model overview**, and **Data analysis** components. The **Error analysis** dashboard component isn't available for object detection tasks. To learn more about error analysis, see [Assess errors in machine learning models](concept-error-analysis.md).
+For object detection, the Responsible AI image dashboard includes **Vision data explorer**, **Model overview**, and **Data analysis** components. The **Error analysis** dashboard component isn't available for object detection tasks. To learn more about error analysis, see [Assess errors in machine learning models](concept-error-analysis.md).
 
 ---
 
@@ -115,16 +113,14 @@ Selecting an image card opens a flyout to view components that support the analy
 - **Information**: Image metadata values for the selected instance.
 - An enlarged image with predicted and ground truth objects surrounded by bounding boxes, and the predicted image labeled with its IOU score.
 
+  :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object-iou.png" alt-text="Screenshot of selected instance with bounding boxes and IOU score." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object-iou.png":::
+
   > [!NOTE]
   > If an object in an image was correctly labeled, but with an IOU score below the default threshold of 50%, the prediction bounding box for the object isn't visible, but the ground truth bounding box is visible. The image instance appears in the error instance category. Currently, it's not possible to change the default IOU threshold in this component.
-
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png" alt-text="Screenshot of selected instance with an image of a can and the explanation for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png":::
 
 - **Explanation**: A D-Rise saliency map visualization to gain insight on model behavior leading to the execution of the computer vision task.
 
   :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png" alt-text="Screenshot of selected instance with an image of a can and the explanation for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png":::
-
-**Set an Intersection of Union (IOU) threshold** – Changing the IOU threshold impacts which images are considered an incorrect prediction.
 
 ---
 
@@ -163,22 +159,22 @@ Table view for object detection:
 - Under **Select a dataset cohort to explore**, you can select or search for a user-defined dataset cohort to view.
 - The **Set thumbnail size** slider adjusts the size of the image cards on the page.
 - **Rows** selects the number of image rows to display before scrolling the view.
-- Under **Select label type**, choose to view images by the predicted or ground truth label, or by **Correct** or **Incorrect** predictions.
-- Under **Select labels to display**, choose one or more class labels to view image instances containing those labels.
 
-The images are displayed by label and show the distribution of each label in the dataset. A class label of **10/120 examples** means there are 10 images of that class out of 120 total images in the dataset. **Success instances** have solid green underscores, and **Error instances** have in red outline underscores.
+Images display by label and show the distribution of each label in the dataset. A class label of **10/120 examples** means there are 10 images of that class out of 120 total images in the dataset. **Success instances** have solid green underscores, and **Error instances** have red outline underscores.
 
 # [Image classification](#tab/classification)
 
-Class view for multiclass classification:
-
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png" alt-text=" Screenshot of vision data explorer on the class view tab for multiclass classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png":::
+
+- Under **Select label type**, choose to view images by the predicted or ground truth label.
+- Under **Select labels to display**, choose one or more class labels to view image instances containing those labels.
 
 # [Object detection](#tab/detection)
 
-Class view for object detection:
-
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png" alt-text=" Screenshot of vision data explorer on the class view tab for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png":::
+
+- Under **Select label type**, choose to view images by correct or incorrect predictions.
+- Under **Select labels to display**, choose one or more class labels to view image instances containing those labels.
 
 ---
 
@@ -190,7 +186,7 @@ The model overview component provides a comprehensive set of performance metrics
 
 The **Dataset cohorts** view displays the selected metrics across the global cohort and all user-defined cohorts in the dashboard.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts.png" alt-text="Screenshot of the Dataset cohorts view." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts-top.png" alt-text="Screenshot of the Dataset cohorts view." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts-top.png":::
 
 Select **Metric(s)** from the dropdown list, or select **Help me choose metrics** to open a sidebar screen that explains, recommends, and lets you select metrics to display. You can adjust which metrics to view by using the multiselect dropdown list to select and deselect performance metrics.
 
@@ -219,23 +215,21 @@ You can also choose to **Show heatmap** for the displayed data.
 For object detection, in addition to selecting the **Metric(s)**, configure the following settings:
 
 - **Aggregate method**: Select which aggregation method to apply, which affects the calculation of mean average precision.
-- **Select class(es)**: Select which class label to use calculate class-level metrics like average precision and average recall.
-- **IoU Threshold**: Set an IOU threshold value for the Intersection of Union between the ground truth and prediction bounding box. The IOU threshold value defines error and affects calculation of model performance metrics. For example, setting an IOU of greater than  70% means that a prediction with greater than 70% overlap with ground truth is `True`. This feature is disabled by default, and can be enabled by attaching a running compute instance.
+- **Select class(es)**: Select which class label to use to calculate class-level metrics like average precision and average recall.
+- **IoU Threshold**: Set an IOU threshold value for the Intersection of Union between the ground truth and prediction bounding box. The IOU threshold value defines error and affects calculation of model performance metrics.
+
+  For example, setting an IOU of greater than  70% means that a prediction with greater than 70% overlap with ground truth is `True`. This feature is disabled by default, and can be enabled by attaching a running compute instance.
 ---
 
-#### Feature cohorts
+#### Feature cohorts view
 
-In the **Feature cohorts** view, you can investigate your model by comparing model performance across user-specified sensitive and non-sensitive features. For example, compare performance for cohorts across various image metadata values like gender, race, and income. To learn more about feature cohorts, see [Feature cohorts](how-to-responsible-ai-dashboard.md#feature-cohorts).
+In the **Feature cohorts** view, you can investigate your model by comparing model performance across user-specified sensitive and nonsensitive features. For example, compare performance for cohorts across various image metadata values like gender, race, and income. To learn more about feature cohorts, see [Feature cohorts](how-to-responsible-ai-dashboard.md#feature-cohorts).
 
 # [Image classification](#tab/classification)
-
-Feature cohorts for multiclass classification:
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-multiclass.png" alt-text="Screenshot of feature cohorts for multiclass classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-multiclass.png":::
 
 # [Object detection](#tab/detection)
-
-Feature cohorts for object detection:
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png" alt-text="Screenshot of feature cohorts for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png":::
 
@@ -247,11 +241,11 @@ Feature cohorts for object detection:
 
 In the lower half of the **Dataset cohorts** view, you can select between the following visualizations:
 
-- **Metrics visualizations** shows a bar graph that compares aggregated performance metrics across selected dataset cohorts.
+- **Metrics visualizations** showing a bar graph that compares aggregated performance metrics across selected dataset cohorts.
   - Select **Choose cohorts** to open a sidebar that lets you select the dataset and feature cohorts to apply.
   - Select **Choose metric** to open a sidebar that lets you select metrics to show.
 
-- **Confusion matrix** shows a selected model performance metric across selected dataset cohorts and classes.
+- **Confusion matrix** showing a selected model performance metric across selected dataset cohorts and classes.
   - Select **Select dataset cohort** to select a dataset cohort to display from the dropdown list.
   - Select **Select classes** to select classes to display from the dropdown list.
 
@@ -307,7 +301,7 @@ Under **Chart type**, you can select whether to aggregate values across all data
 
 # [Image classification](#tab/classification)
 
-Scatter chart for image classifiction:
+Scatter chart for image classification:
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-scatter-object.png" alt-text="Screenshot of disaggregated data analysis on the Chart view tab for image classification models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-scatter-object.png":::
 
@@ -330,11 +324,11 @@ For AutoML image classification models, four kinds of explainability methods are
 
 The explanations are generated only for the predicted class. For multilabel classification, a threshold on confidence score is required to select the classes to generate explanations for. See the [parameter list](how-to-responsible-ai-vision-insights.md#responsible-ai-vision-insights-component-parameter-automl-specific) for the parameter name.
 
-These four methods are specific to AutoML image classification only, and don't work with other task types such as object detection and instance segmentation. Non-AutoML image classification models can leverage SHAP vision for model interpretability. Both AutoML and non-AutoML object detection models can use [D-RISE](https://github.com/microsoft/vision-explanation-methods) to generate visual explanations for model predictions.
+These four methods are specific to AutoML image classification only, and don't work with other task types such as object detection and instance segmentation. Non-AutoML image classification models can use SHAP vision for model interpretability. Both AutoML and non-AutoML object detection models can use [D-RISE](https://github.com/microsoft/vision-explanation-methods) to generate visual explanations for model predictions.
 
 To learn more about the four explainability methods, see [Generate explanations for predictions](how-to-auto-train-image-models.md#generate-explanations-for-predictions). For more information about vision model interpretability techniques and how to interpret visual explanations of model behavior, see [Model interpretability](how-to-machine-learning-interpretability.md).
 
-## Next steps
+## Related content
 
 - Learn more about the [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - View sample [YAML and Python notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai) to generate a Responsible AI dashboard with YAML or Python.
