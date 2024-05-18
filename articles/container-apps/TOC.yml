@@ -18,6 +18,8 @@
           href: quickstart-portal.md
         - name: Command line
           href: get-started.md
+        - name: Terraform
+          href: quickstart-terraform.md
       - name: Deploy from code
         items:
         - name: Local filesystem
