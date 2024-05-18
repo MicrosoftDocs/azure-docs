@@ -102,7 +102,7 @@ In this article, you learn how to:
 
 1. Open a browser and enter the URL in your browser's address bar.
 
-    :::image type="content" source="./media/connect-apps/azure-container-apps-quickstart-terraform" alt-text="Screenshot of the web site hosted in azure container app.":::
+    :::image type="content" source="./media/connect-apps/azure-container-apps-quickstart-terraform.png" alt-text="Screenshot of the web site hosted in azure container app.":::
 
 ---
 
