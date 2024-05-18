@@ -341,7 +341,7 @@ You can also include a filter on the event subscription so that only JPEG files 
 
 After providing values in the **Basic** tab, navigate to the **Filters** tab, under **Subject filters** check **Enable subject filtering**, type `.jpg` in **Subject ends with**. This filters events to only JPEG files.
 
-    ![Add filter](./media/functions-event-grid-blob-trigger/container_filter.png)
+![Add filter](./media/functions-event-grid-blob-trigger/container_filter.png)
 
 
 ## Upload a file to the container
