@@ -13,24 +13,24 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [functions-opentelemetry-preview-note](../../includes/functions-opentelemetry-preview-note.md)]
 
-Azure Functions generates telemetry data on your function executions from both the Functions host (func.exe) and the language-specific worker process in which your function code runs. You can export all logs and traces host using OpenTelemetry semantics. You can send this telemetry data to Application Insights, as you normally would, but you can also export it to any other OpenTelemetry-compliant endpoint. 
-
-Functions also make it easier to export OpenTelemetry data from your language function code running in the worker. 
+This article shows you how to configure your function app to generate log and trace data in an OpenTelemetry format. Azure Functions generates telemetry data on your function executions from both the Functions host process and the language-specific worker process in which your function code runs. By default, this telemetry data is sent to Application Insights. However, you can also choose to export this data using OpenTelemetry semantics. While you can still use an OpenTelemetry format to send your data to Application Insights, you can now also export the same data to any other OpenTelemetry-compliant endpoint.  
 
 > [!TIP]  
 > Because this article is target at your development language of choice, remember to choose the correct language at the top of the article.
 ::: zone pivot="programming-language-java" 
-> Currently, there's no optimized OpenTelemetry support for Java apps.
+> Currently, there's no client optimized OpenTelemetry support for Java apps.
 :::zone-end
 ::: zone pivot="programming-language-csharp" 
 > OpenTelemetry is currently only supported for C# apps that run in the [isolated process mode](./dotnet-isolated-process-guide.md).
 :::zone-end
 
-OpenTelemetry is enabled at the function app level, both in host configuration (`host.json`) and in your code project. You can obtain these benefits by enabling OpenTelemetry in your function app: 
+ You can obtain these benefits by enabling OpenTelemetry in your function app: 
 
 + Context for correlation across traces and logs being generated both at the host and in your application code.
 + Consistent, standards-based generation of exportable telemetry data, plus extra Functions-specific metrics. 
 + Integrates with other providers that can consume OpenTeleletry-compliant data. 
+
+OpenTelemetry is enabled at the function app level, both in host configuration (`host.json`) and in your code project. Functions also provides a client optimized experience for exporting OpenTelemetry data from your function code that's running in a language-specific worker process.
 
 ## 1. Enable OpenTelemetry in the Functions host
 
@@ -56,7 +56,9 @@ To enable OpenTelemetry output from the Functions host, update the [host.json fi
 
 ## 2. Configure application settings 
 
-When OpenTelemetry is enabled in the host.json file, the endpoints to which data is sent is determined based on which OpenTelemetry-supported application settings are provided. When connection settings are provided for both Application Insights and an OpenTelemetry protocol (OLTP) exporter, OpenTelemetry data is sent to both endpoints.    
+When OpenTelemetry is enabled in the host.json file, the endpoints to which data is sent is determined based on which OpenTelemetry-supported application settings are available in your app's environment variables. 
+
+Create specific application settings in your function app based on the OpenTelemetry output destination. When connection settings are provided for both Application Insights and an OpenTelemetry protocol (OLTP) exporter, OpenTelemetry data is sent to both endpoints.    
 
 ### [Application Insights](#tab/app-insights)
 
@@ -78,7 +80,7 @@ You should remove the `APPLICATIONINSIGHTS_CONNECTION_STRING` setting, unless yo
 
 With the Functions host configured to use OpenTelemetry, you should also update your application code to output OpenTelemetry data. Enabling OpenTelemetry in both the host and your application code enables better correlation between traces and logs emitted both by the Functions host process and from your language worker process. 
 
-The way that you instrument your application to use OpenTelemetry depends on your target endpoint:
+The way that you instrument your application to use OpenTelemetry depends on your target OpenTelemetry endpoint:
 ::: zone pivot="programming-language-csharp"
 1. Run these commands to install the required assemblies in your app:
 
