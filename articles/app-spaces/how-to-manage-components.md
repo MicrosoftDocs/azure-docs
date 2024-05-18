@@ -42,7 +42,7 @@ Service-level events, or console logs to debug code.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/static-app-component/)
+#### [App Component (Backend)](#tab/app-component/)
 
 #### [Database](#tab/database/)
 
@@ -57,7 +57,7 @@ Service-level events, or console logs to debug code.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/static-app-component/)
+#### [App Component (Backend)](#tab/app-component/)
 
 #### [Database](#tab/database/)
 
@@ -71,7 +71,7 @@ Service-level events, or console logs to debug code.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/static-app-component/)
+#### [App Component (Backend)](#tab/app-component/)
 
 #### [Database](#tab/database/)
 
@@ -79,7 +79,7 @@ Service-level events, or console logs to debug code.
 
 ## Info
 
-#### [App Component (Backend)](#tab/app-component/)
+#### [Static App Component](#tab/static-app-component/)
 This tab shows the following details:
 
 | Name | Description |
@@ -92,7 +92,8 @@ This tab shows the following details:
 |Branch|GitHub branch|
 |Subscription|Azure subscription|
 |Resource name|App space internal name|
-#### [Static App Component](#tab/static-app-component/)
+
+#### [App Component (Backend)](#tab/app-component/)
 This tab shows the following details:
 
 | Name | Description |
@@ -137,7 +138,7 @@ Listening port
 - Workflow run allows you to view the GitHub actions 
 - View commit
 
-#### [App Component (Backend)](#tab/static-app-component/)
+#### [App Component (Backend)](#tab/app-component/)
 
 #### [Database](#tab/database/)
 
