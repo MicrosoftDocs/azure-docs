@@ -361,7 +361,7 @@ After you run the query, review the results and rendered chart to determine the 
 
 #### Monitor and alert on current ingestion latency
 
-After you establish the baseline ingestion latency for a specific table, create an alert for the table based on changes in latency over a short period of time.
+After you establish the baseline ingestion latency for a specific table, [create a log search alert rule](../alerts/alerts-create-log-alert-rule.md) for the table based on changes in latency over a short period of time.
 
 This query calculates ingestion latency over the past 20 minutes: 
 
