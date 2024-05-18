@@ -33,12 +33,12 @@ Responsible AI image dashboards are linked to your registered computer vision mo
   - [YAML and Python via a pipeline job](how-to-responsible-ai-insights-sdk-cli.md)
   - A preconfigured sample Jupyter notebook like [Image Classification scenario with RAI Dashboard](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/vision/responsibleaidashboard-image-classification-fridge.ipynb) or [Object Detection scenario with RAI Dashboard](https://github.com/Azure/azureml-examples/blob/main/sdk/python/responsible-ai/vision/responsibleaidashboard-automl-object-detection-fridge-private-data.ipynb).
 
-  Some features of the RAI image dashboard require dynamic, on-the-fly, and real-time computation. For complete functionality, you need to connect a running compute resource to your dashboard. For more information, see [Enable full functionality of the Responsible AI dashboard](how-to-responsible-ai-dashboard.md#enable-full-functionality-of-the-responsible-ai-dashboard).
-
-  An integrated compute resource enables full functionality of the image scenarios. For example:
+  Some features of the RAI image dashboard require dynamic, on-the-fly, and real-time computation. For example:
 
   - For object detection, setting an Intersection over Union (IOU) threshold is disabled by default, and is enabled only if a compute resource is attached.
   - When you submit a Distributed Parallel Version 2 (DPv2) job, attaching a compute resource enables precomputing of all model explanations instead of loading explanations on-demand.
+
+  For complete functionality of the image scenarios, you need to connect a running compute resource to your dashboard. For more information, see [Enable full functionality of the Responsible AI dashboard](how-to-responsible-ai-dashboard.md#enable-full-functionality-of-the-responsible-ai-dashboard).
 
   To open the Responsible AI image dashboard in Machine Learning studio, select your registered model in the **Models** list, select **Responsible AI** at the top of the model page, and then select the name of your Responsible AI image dashboard from the list.
 
@@ -164,17 +164,17 @@ Images display by label and show the distribution of each label in the dataset. 
 
 # [Image classification](#tab/classification)
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png" alt-text=" Screenshot of vision data explorer on the class view tab for multiclass classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png":::
-
 - Under **Select label type**, choose to view images by the predicted or ground truth label.
 - Under **Select labels to display**, choose one or more class labels to view image instances containing those labels.
 
-# [Object detection](#tab/detection)
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png" alt-text=" Screenshot of vision data explorer on the class view tab for multiclass classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-multiclass.png":::
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png" alt-text=" Screenshot of vision data explorer on the class view tab for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png":::
+# [Object detection](#tab/detection)
 
 - Under **Select label type**, choose to view images by correct or incorrect predictions.
 - Under **Select labels to display**, choose one or more class labels to view image instances containing those labels.
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png" alt-text=" Screenshot of vision data explorer on the class view tab for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/class-view-object.png":::
 
 ---
 
@@ -229,15 +229,7 @@ In the **Feature cohorts** view, you can investigate your model by comparing mod
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-multiclass.png" alt-text="Screenshot of feature cohorts for multiclass classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-multiclass.png":::
 
-# [Object detection](#tab/detection)
-
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png" alt-text="Screenshot of feature cohorts for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png":::
-
----
-
 #### Visualizations
-
-# [Image classification](#tab/classification)
 
 In the lower half of the **Dataset cohorts** view, you can select between the following visualizations:
 
@@ -252,6 +244,10 @@ In the lower half of the **Dataset cohorts** view, you can select between the fo
   :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/confusion-matrix.png" alt-text="Screenshot of a Confusion matrix in the Datasets cohort view of the Model overview component." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/confusion-matrix.png":::
 
 # [Object detection](#tab/detection)
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png" alt-text="Screenshot of feature cohorts for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/feature-cohorts-object.png":::
+
+#### Visualizations
 
 In the lower half of the **Dataset cohorts** view, **Metrics visualizations** shows a bar graph that compares aggregated performance metrics across selected dataset cohorts.
 
@@ -268,13 +264,15 @@ The **Data analysis** component creates dataset cohorts to analyze dataset stati
 
 #### Table view
 
-**Table view** shows true and predicted values and the tabular extracted features.
-
 # [Image classification](#tab/classification)
+
+**Table view** shows true and predicted values and the tabular extracted features.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-class.png" alt-text="Screenshot of data analysis on the Table view tab for image classification models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-class.png":::
 
 # [Object detection](#tab/detection)
+
+**Table view** shows correct and incorrect values and the tabular extracted features.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-object.png" alt-text="Screenshot of data analysis on the Table view tab for object detection models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-object.png":::
 
@@ -283,8 +281,6 @@ The **Data analysis** component creates dataset cohorts to analyze dataset stati
 #### Chart view
 
 **Chart view** lets you choose between customized aggregation and local data exploration.
-
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-view.png" alt-text="Screenshot of data analysis on the chart view tab." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-view.png":::
 
 In the chart view, the X axis and Y axis show the values being plotted horizontally and vertically. You can select either label to open a sidebar pane to select and configure that axis.
 
@@ -303,13 +299,13 @@ Under **Chart type**, you can select whether to aggregate values across all data
 
 Scatter chart for image classification:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-scatter-object.png" alt-text="Screenshot of disaggregated data analysis on the Chart view tab for image classification models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-scatter-object.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-scatter-object.png" alt-text="Screenshot of disaggregated data analysis on the Chart view tab for image classification models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-scatter-class.png":::
 
 # [Object detection](#tab/detection)
 
 Aggregate chart for object detection:
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-class.png" alt-text="Screenshot of aggregated data analysis on the Chart view tab for object detection models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-table-class.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-aggregate-object.png" alt-text="Screenshot of aggregated data analysis on the Chart view tab for object detection models." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/data-analysis-chart-aggregate-object.png":::
 
 ---
 
@@ -322,9 +318,9 @@ For AutoML image classification models, four kinds of explainability methods are
 - [Integrated Gradients](https://arxiv.org/abs/1703.01365)
 - [XRAI](https://arxiv.org/abs/1906.02825)
 
-The explanations are generated only for the predicted class. For multilabel classification, a threshold on confidence score is required to select the classes to generate explanations for. See the [parameter list](how-to-responsible-ai-vision-insights.md#responsible-ai-vision-insights-component-parameter-automl-specific) for the parameter name.
-
 These four methods are specific to AutoML image classification only, and don't work with other task types such as object detection and instance segmentation. Non-AutoML image classification models can use SHAP vision for model interpretability. Both AutoML and non-AutoML object detection models can use [D-RISE](https://github.com/microsoft/vision-explanation-methods) to generate visual explanations for model predictions.
+
+The explanations are generated only for the predicted class. For multilabel classification, a threshold on confidence score is required to select the classes to generate explanations for. See the [parameter list](how-to-responsible-ai-vision-insights.md#responsible-ai-vision-insights-component-parameter-automl-specific) for the parameter name.
 
 To learn more about the four explainability methods, see [Generate explanations for predictions](how-to-auto-train-image-models.md#generate-explanations-for-predictions). For more information about vision model interpretability techniques and how to interpret visual explanations of model behavior, see [Model interpretability](how-to-machine-learning-interpretability.md).
 
