@@ -96,7 +96,7 @@ To get started:
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-tables.png" alt-text="Screenshot that shows the Tables tab in Log Analytics.":::
 
-- Use an existing query, such as a shared or [saved query](../logs/save-query.md), or an example query.
+- Use an existing query, such as a shared or [saved query](../logs/log-analytics-saved-query.md), or an example query.
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that shows an example query in Log Analytics.":::
 
