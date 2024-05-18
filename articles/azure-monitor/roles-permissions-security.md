@@ -69,7 +69,7 @@ $RoleDefinition = Get-AzRoleDefinition -Name $RoleName
 New-AzRoleAssignment -ObjectId $User.Id -RoleDefinitionId $RoleDefinition.Id -Scope $Scope
 ```
 
-You can also [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+You can also [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 > [!IMPORTANT]
 > - Ensure you have the necessary permissions to assign roles in the specified scope. You must have *Owner* rights to the subscription or the resource group.
