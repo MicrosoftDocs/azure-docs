@@ -4,7 +4,7 @@ description: Use the workspace replication feature in Log Analytics to create co
 ms.topic: how-to
 ms.author: guywild
 ms.reviewer: noakuper
-ms.date: 04/26/2024
+ms.date: 05/18/2024
 ms.custom: references_regions 
 
 # Customer intent: As a Log Analytics workspace administrator, I want to replicate my workspace across regions to protect and continue to access my log data in the event of a regional failure.
