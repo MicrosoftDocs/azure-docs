@@ -249,7 +249,7 @@ The following list explains the lifecycle events schema:
 
 ## How to test locally
 
-To test locally, read [Local testing with viewer web app](../event-grid-how-tos.md#local-testing-with-viewer-web-app). You can also use the *ngrok* utility as shown in [this tutorial](../functions-event-grid-blob-trigger.md#start-local-debugging).
+To test locally, read [Local testing with viewer web app](../event-grid-how-tos.md#local-testing-with-viewer-web-app).
 
 ## Next steps
 
