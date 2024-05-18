@@ -12,7 +12,7 @@ ms.date: 05/20/2024
 
 You can manage the components of your App Space by selecting the component on the __App Space__ page. 
 
-
+[!include [component types](./includes/component-types-table.md)]
 
 
 ## Deployment
@@ -20,7 +20,7 @@ You can manage the components of your App Space by selecting the component on th
 Shows the app deployment details in App Space. Here you can view the GitHub actions workflow
 
 
-#### [Static App Component (Frontend app)](#tab/static-app-component/)
+#### [Static App Component (Frontend)](#tab/static-app-component/)
 
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
@@ -38,7 +38,7 @@ Service-level events, or console logs to debug code.
 
 ## Info
 
-#### [App Component](#tab/app-component/)
+#### [App Component (Backend)](#tab/app-component/)
 This tab shows the following details:
 
 | Name | Description |
@@ -100,7 +100,7 @@ Listening port
 which provides information and options, based on the Azure service you're using to deploy your web application. Select the following tab associated with the Azure service.
 
 
-#### [Static App Component](#tab/static-app-component/)
+#### [Static App Component (Frontend)](#tab/static-app-component/)
 
 The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
 
@@ -111,7 +111,7 @@ The following table shows the components tabs that you can select, which allow y
 | **Backend & API**   |Bring your own API backends. Enter `Environment Name`, `Backend Type`, `Backend Resource Name`, and `Link`, and then select **Apply**.|
 |**Deployment**     | View deployment name, status, and time for code deployment logs.      |
 
-#### [App component](#tab/app-component/)
+#### [App component (Backend)](#tab/app-component/)
 
 The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
 

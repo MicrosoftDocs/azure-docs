@@ -21,7 +21,7 @@ landingContent:
             url: overview.md
       - linkListType: quickstart
         links:
-          - text: Deploy a sample app
+          - text: Deploy a starter app
             url: quickstart-deploy-starter-app.md
           - text: Deploy your app
             url: quickstart-deploy-your-app.md            

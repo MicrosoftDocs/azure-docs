@@ -8,7 +8,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy a sample app
+    - name: Deploy a starter app
       href: quickstart-deploy-starter-app.md
     - name: Deploy your app
       href: quickstart-deploy-your-app.md

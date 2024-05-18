@@ -9,9 +9,9 @@ ms.date: 05/20/2024
 zone_pivot_groups: app-spaces-frontend-backend
 ---
 
-# Deploy a sample app with App Spaces
+# Deploy a starter app with App Spaces
 
-[App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a sample app to App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About App Spaces](overview.md). 
+[App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a starter app to App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About App Spaces](overview.md). 
 
 
 ## Prerequisites
@@ -32,9 +32,9 @@ Follow these steps to deploy a sample app to App Spaces.
 ::: zone pivot="frontend"  
 2. Under *Use a starter app*, select **React App**.
 
-#### Connect to GitHub
+## Connect to GitHub
 
-1. Enter the following values in the *Connect to GitHub* section.
+- Enter the following values in the *Connect to GitHub* section.
 
     | Setting | Action |
     |---|---|
@@ -42,7 +42,7 @@ Follow these steps to deploy a sample app to App Spaces.
     | Organization | Select your organization. |
     | New repository | Eneter `myReactSample` for your new repository. |
 
-#### Configure app details
+## Configure app details
 
 1. Enter the following values in the *Configure app details* section.
 
@@ -57,11 +57,11 @@ Follow these steps to deploy a sample app to App Spaces.
 
 The sample web application code deploys to App Spaces. The deployment can take a few minutes to complete.
 
-[!include [deployment note](./includes/provisioning-note-swa.md)]
+[!include [deployment note](./includes/provisioning-text-swa.md)]
 ::: zone-end  
 ::: zone pivot="backend"  
 2. Under *Use a starter app*, select **Express.JS App**.
-#### Connect to GitHub
+## Connect to GitHub
 
 1. Enter the following values in the *Connect to GitHub* section.
 
@@ -71,7 +71,7 @@ The sample web application code deploys to App Spaces. The deployment can take a
     | Organization | Select your organization. |
     | New repository | Eneter `myExpressSample` for your new repository. |
 
-#### Configure app details
+## Configure app details
 
 1. Enter the following values in the *Configure app details* section.
 
@@ -86,7 +86,7 @@ The sample web application code deploys to App Spaces. The deployment can take a
 
 The sample web application code deploys to App Spaces. The deployment can take a few minutes to complete.
 
-[!include [deployment note](./includes/provisioning-note-aca.md)]
+[!include [deployment note](./includes/provisioning-text-aca.md)]
 ::: zone-end  
 
 ## Verify deployment
