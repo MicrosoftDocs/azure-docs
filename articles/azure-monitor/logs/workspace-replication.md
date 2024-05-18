@@ -326,7 +326,7 @@ You can confirm that Azure Monitor runs your query in the intended region by che
 
 We recommend using the queries in this section to create alert rules that notify you of possible workspace health or performance issues. However, the decision to switch over requires your careful consideration, and shouldn't be done automatically.
 
-In the query rule, you can define a condition to switch over to your secondary workspace after a specified number of violations occurs. For more information, see [Create or edit a log search alert rule](../alerts/alerts-create-activity-log-alert-rule.md).
+In the query rule, you can define a condition to switch over to your secondary workspace after a specified number of violations. For more information, see [Create or edit a log search alert rule](../alerts/alerts-create-activity-log-alert-rule.md).
 
 Two significant measurements of workspace performance include _ingestion latency_ and _ingestion volume_. The following sections explore these monitoring options.
 
@@ -359,7 +359,7 @@ IngestionDurationSeconds = (ingestion_time()-TimeGenerated)/1s
 
 After you run the query, review the results and rendered chart to determine the expected latency for that table.
 
-#### Measure current ingestion latency
+#### Monitor and alert on current ingestion latency
 
 After you establish the baseline ingestion latency for a specific table, create an alert for the table based on changes in latency over a short period of time.
 
@@ -375,7 +375,7 @@ Perf
 
 Because you can expect some fluctuations, create an alert rule condition to check if the query returns a value significantly greater than the baseline.
 
-#### Monitor ingestion latency breakdown
+#### Determine the source of ingestion latency 
 
 When you notice your total ingestion latency is going up, you can use queries to determine whether the source of the latency is the agents or the ingestion pipeline.
 
