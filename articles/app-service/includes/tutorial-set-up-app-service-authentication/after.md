@@ -59,6 +59,12 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. For **App registration** > **Supported account types**, select **Current tenant-single tenant** so only users in your organization can sign in to the web app.
 
+1. In the **Additional checks** section, select:
+
+    - **Allow requests only from this application itself** for **Client application requirement**
+    - **Allow requests from any identity** for **Identity requirement**
+    - **Allow requests only from the issuer tenant** for **Tenant requirement** 
+
 1. In the **App Service authentication settings** section, leave **Authentication** set to **Require authentication** and **Unauthenticated requests** set to **HTTP 302 Found redirect: recommended for websites**.
 
 1. At the bottom of the **Add an identity provider** page, select **Add** to enable authentication for your web app.

@@ -3,7 +3,7 @@ title: Configure Microsoft Entra authentication
 description: Learn how to configure Microsoft Entra authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 01/31/2023
+ms.date: 05/16/2023
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
@@ -15,19 +15,226 @@ Select another authentication provider to jump to it.
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This article shows you how to configure authentication for Azure App Service or Azure Functions so that your app signs in users with the [Microsoft identity platform](../active-directory/develop/v2-overview.md) (Microsoft Entra ID) as the authentication provider.
+This article shows you how to configure authentication for Azure App Service or Azure Functions so that your app signs in users with the [Microsoft identity platform](../active-directory/develop/v2-overview.md) (Microsoft Entra) as the authentication provider.
 
-The App Service Authentication feature can automatically create an app registration with the Microsoft identity platform. You can also use a registration that you or a directory admin creates separately.
+## Choose a tenant for your application and its users
+
+Before your application can sign in users, you first need to register it in a workforce or external tenant.  If you are making your app available to employee or business guests, register your app in a workforce tenant. If your app is for consumers and business customers, register it in an external tenant. 
+
+# [Workforce configuration](#tab/workforce-configuration)
+
+1. Sign in to the [Azure portal] and navigate to your app.
+    
+1. On your app's left menu, select **Authentication**, and then select **Add identity provider**.
+
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
+
+1. For **Tenant type**, select **External configuration** for consumers and business customers.
+
+## Choose the app registration
+
+The App Service Authentication feature can automatically create an app registration for you or you can use a registration that you or a directory admin created separately. 
+
+Create a new app registration automatically, unless you need to create an app registration separately. You can customize the app registration in the [Microsoft Entra admin center](https://entra.microsoft.com) once it's created.
+
+The following situations are the most common cases to use an existing app registration:
+
+- Your account doesn't have permissions to create app registrations in your Microsoft Entra tenant.
+- You want to use an app registration from a different Microsoft Entra tenant than the one your app is in.
+- The option to create a new registration isn't available for government clouds.
 
 - [Create a new app registration automatically](#express)
 - [Use an existing registration created separately](#advanced)
 
+### <a name="express"> Option 1: Create a new app registration automatically
+
+Use this option unless you need to create an app registration separately. You can customize the app registration in Microsoft Entra once it's created. 
+
 > [!NOTE]
-> The option to create a new registration automatically isn't available for government clouds or when using [Microsoft Entra ID for customers (Preview)]. Instead, [define a registration separately](#advanced).
+> The option to create a new registration automatically isn't available for government clouds. Instead, [define a registration separately](#advanced).
+
+Enter the **Name** for the new app registration and select the supported account type:
+
+- **Current tenant - Single tenant**. Accounts in this organizational directory only. All user and guest accounts in your directory can use your application or API. Use this option if your target audience is internal to your organization.
+- **Any Microsoft Entra directory - Multitenant**. Accounts in any organizational directory. All users with a work or school account from Microsoft can use your application or API. This includes schools and businesses that use Office 365. Use this option if your target audience is business or educational customers and to enable multitenancy.
+- **Any Microsoft Entra directory & personal Microsoft accounts**. Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox). All users with a work or school, or personal Microsoft account can use your application or API. It includes schools and businesses that use Office 365 as well as personal accounts that are used to sign in to services like Xbox and Skype. Use this option to target the widest set of Microsoft identities and to enable multitenancy.
+- **Personal Microsoft accounts only**. Personal accounts that are used to sign in to services like Xbox and Skype. Use this option to target the widest set of Microsoft identities.
+
+You can change the name of the registration or the supported account types later if you want.
+
+A client secret will be created and stored as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.  
+
+### <a name="advanced"> </a>Option 2: Use an existing registration created separately
+
+Either:
+- Select **Pick an existing app registration in this directory** and select an app registration from the drop down
+- Select **Provide the details of an exsiting app registrion** and provide:
+    - Application (client) ID
+    - Client secret
+    - Issuer URL
+
+If you need to manually create an app registration in a workforce tenant, follow the [register an application](/entra/identity-platform/quickstart-register-app) quickstart.
+
+During the registration process, in the **Redirect URIs** section, select **Web** for platform and type `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+
+After creation, modify the app registration:
+
+1. From the left navigation, select **Expose an API** > **Add** > **Save**. This value uniquely identifies the application when it's used as a resource, allowing tokens to be requested that grant access. It's used as a prefix for scopes you create.
+
+    For a single-tenant app, you can use the default value, which is in the form `api://<application-client-id>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multi-tenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri).
+
+1. Select **Add a scope**.
+   1. In **Scope name**, enter *user_impersonation*.
+   1. In **Who can consent**, select **Admins and users** if you want to allow users to consent to this scope.
+   1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, enter *Access &lt;application-name&gt;*.
+   1. Select **Add scope**.
+1. (Optional) To create a client secret:
+    1. From the left navigation, select **Certificates & secrets** > **Client secrets** > **New client secret**. 
+    1. Enter a description and expiration and select **Add**. 
+    1. In the **Value** field, copy the client secret value. It won't be shown again once you navigate away from this page.
+1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
+
+# [External configuration](#tab/external-configuration)
+
+1. Sign in to the [Azure portal] and navigate to your app.
+    
+1. On your app's left menu, select **Authentication**, and then select **Add identity provider**.
+
+1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
+
+1. For **Tenant type**, select **Workforce configuration (current tenant)** for employees and business guests.
+
+## Choose the app registration
+
+The App Service Authentication feature can automatically create an app registration for you or you can use a registration that you or a directory admin created separately. 
+
+Create a new app registration automatically, unless you need to create an app registration separately. You can customize the app registration in the [Microsoft Entra admin center](https://entra.microsoft.com) once it's created.
+
+The following situations are the most common cases to use an existing app registration:
+
+- Your account doesn't have permissions to create app registrations in your Microsoft Entra tenant.
+- You want to use an app registration from a different Microsoft Entra tenant than the one your app is in.
+- The option to create a new registration isn't available for government clouds.
+
+- [Create a new app registration automatically](#express_external)
+- [Use an existing registration created separately](#advanced)
+
+### <a name="express_external"> Option 1: Create a new app registration automatically
+
+Use this option unless you need to create an app registration separately. You can customize the app registration in Microsoft Entra once it's created. 
+
+Select **Create new app registration** to create a new app registration.
+
+1. Click **Create new** to create a new [customer (external) tenant](/entra/external-id/customers/quickstart-tenant-setup), or select an existing tenant to use.
+
+#### To create a new external tenant
+
+1. In the **Create a tenant** page, add the **Tenant Name** and **Domain Name**.  Select a **Location** and click **Review and create**.
+
+1. Select **Configure** to configure external authentication.
+
+1. The browser opens **Configure customer authentication**.  In **Setup sign-in**, select **Create new** to create a sign-in experience for your external users.
+
+1. Enter a **Name** for the user flow.
+
+1. For this quickstart, select **Email and password** which allows new users to sign up and sign in using an email address as the sign-in name and a password as their first factor credential.
+
+1. Select **Create** to create the user flow.
+
+1. Select **Next** to customize branding.
+
+1. Add your company logo, select a background color, and select a sign-in layout.
+
+1. Select **Next** and **Yes, update the changes** to accept the branding changes.
+
+1. Select **Configure** in the **Review** tab to confirm External ID (CIAM) tenant update. 
+
+1. The browser opens **Add an identity provider** again.
+
+### <a name="advanced_external"> </a>Option 2: Use an existing registration created separately
+
+Either:
+- Select **Pick an existing app registration in this directory** and select an app registration from the drop down
+- Select **Provide the details of an exsiting app registrion** and provide:
+    - Application (client) ID
+    - Client secret
+    - Issuer URL
+
+If you need to manually create an app registration in an external tenant, follow the [register an application](/entra/external-id/customers/how-to-register-ciam-app&tabs=webapp#register-your-web-app) quickstart.
+
+During the registration process, in the **Redirect URIs** section, select **Web** for platform and type `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+
+After creation, modify the app registration:
+
+1. From the left navigation, select **Expose an API** > **Add** > **Save**. This value uniquely identifies the application when it's used as a resource, allowing tokens to be requested that grant access. It's used as a prefix for scopes you create.
+
+    For a single-tenant app, you can use the default value, which is in the form `api://<application-client-id>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multi-tenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri).
+
+1. Select **Add a scope**.
+   1. In **Scope name**, enter *user_impersonation*.
+   1. In **Who can consent**, select **Admins and users** if you want to allow users to consent to this scope.
+   1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, enter *Access &lt;application-name&gt;*.
+   1. Select **Add scope**.
+1. (Optional) To create a client secret:
+    1. From the left navigation, select **Certificates & secrets** > **Client secrets** > **New client secret**. 
+    1. Enter a description and expiration and select **Add**. 
+    1. In the **Value** field, copy the client secret value. It won't be shown again once you navigate away from this page.
+1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
+---
+
+## Configure additional checks
+
+Configure **Additional checks** to further control access for your app. In the **Additional checks** section, select:
+
+For **Client application requirement**, choose whether to:
+- Allow requests only from this application itself
+- Allow requests from specific client applications
+- Allow requests from any application (Not recommended)
+
+For **Identity requirement**, choose whether to:
+- Allow requests from any identity
+- Allow requests from specific identities
+
+For **Tenant requirement**, choose whether to:
+- Allow requests only from the issuer tenant
+- Allow requests from specific tenants
+- Use default restrictions based on issuer
+
+Your app may still need to make additional authorization decisions in code. For more information, see [Use a built-in authorization policy](#use-a-built-in-authorization-policy).
+
+## Configure authentication settings
+
+Requiring authentication ensures that requests to your app include information about the caller, but your app may still need to make additional authorization decisions to control access. If unauthenticated requests are allowed, any client can call the app and your code will need to handle both authentication and authorization.  To learn more, read the [authentication and authorization overview](overview-authentication-authorization.md).
+
+For **Restrict access**, decide whether to:
+- Require authentication
+- Allow unauthenticated access
+
+For **Unauthenticated requests**
+- HTTP 302 Found redirect: recommended for websites
+- HTTP 401 Unauthorized: recommended for APIs
+- HTTP 403 Forbidden
+- HTTP 404 Not found
+
+## Add the identity provider
+
+(Optional) Select **Next: Permissions** and add any Microsoft Graph permissions needed by the application. These will be added to the app registration, but you can also change them later.
+
+Select **Add**.
+
+You're now ready to use the Microsoft identity platform for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
+
+For an example of configuring Microsoft Entra sign-in for a web app that accesses Azure Storage and Microsoft Graph, see [this tutorial](scenario-secure-app-authentication-app-service.md).
+
+
+
+
+> [!NOTE]
+> The option to create a new registration automatically isn't available for government clouds. Instead, [define a registration separately](#advanced).
 
 ## <a name="express"> </a> Option 1: Create a new app registration automatically
 
-Use this option unless you need to create an app registration separately. You can customize the app registration in Microsoft Entra ID once it's created. 
+Use this option unless you need to create an app registration separately. You can customize the app registration in Microsoft Entra once it's created. 
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Select **Add identity provider**.
@@ -54,7 +261,7 @@ You can configure App Service authentication to use an existing app registration
 - You want to use an app registration from a different Microsoft Entra tenant than the one your app is in.
 - The option to create a new registration isn't available for government clouds.
 
-#### <a name="register"> </a>Step 1: Create an app registration in Microsoft Entra ID for your App Service app
+#### <a name="register"> </a>Step 1: Create an app registration in Microsoft Entra for your App Service app
 
 During creation of the app registration, collect the following information which you'll need later when you configure the authentication in the App Service app:
 
@@ -72,7 +279,7 @@ To register the app, perform the following steps:
 
     # [Workforce tenant](#tab/workforce-tenant)
 
-    From the portal menu, select **Microsoft Entra ID**. If the tenant you're using is different from the one you use to configure the App Service application, you'll need to [change directories][Switch your directory] first.
+    From the portal menu, select **Microsoft Entra**. If the tenant you're using is different from the one you use to configure the App Service application, you'll need to [change directories][Switch your directory] first.
 
     # [Customer tenant](#tab/customer-tenant)
 
@@ -83,7 +290,7 @@ To register the app, perform the following steps:
         > [!TIP]
         > Because you're working in two tenant contexts (the tenant for your subscription and the customer tenant), you may want to open the Azure portal in two separate tabs of your web browser. Each can be signed into a different tenant.
 
-    1. From the portal menu, select **Microsoft Entra ID**.
+    1. From the portal menu, select **Microsoft Entra**.
 
     ---
 
@@ -140,7 +347,7 @@ To register the app, perform the following steps:
     
     ---
 
-#### <a name="secrets"> </a>Step 2: Enable Microsoft Entra ID in your App Service app
+#### <a name="secrets"> </a>Step 2: Enable Microsoft Entra in your App Service app
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. From the left navigation, select **Authentication** > **Add identity provider** > **Microsoft**.
@@ -234,13 +441,13 @@ Requests that fail these built-in checks are given an HTTP `403 Forbidden` respo
 
 ## Configure client apps to access your App Service
 
-In the prior sections, you registered your App Service or Azure Function to authenticate users. This section explains how to register native clients or daemon apps in Microsoft Entra ID so that they can request access to APIs exposed by your App Service on behalf of users or themselves, such as in an N-tier architecture. Completing the steps in this section isn't required if you only wish to authenticate users.
+In the prior sections, you registered your App Service or Azure Function to authenticate users. This section explains how to register native clients or daemon apps in Microsoft Entra so that they can request access to APIs exposed by your App Service on behalf of users or themselves, such as in an N-tier architecture. Completing the steps in this section isn't required if you only wish to authenticate users.
 
 ### Native client application
 
 You can register native clients to request access your App Service app's APIs on behalf of a signed in user.
 
-1. From the portal menu, select **Microsoft Entra ID**.
+1. From the portal menu, select **Microsoft Entra**.
 1. From the left navigation, select **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Redirect URI**, select **Public client (mobile & desktop)** and type the URL `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
@@ -250,7 +457,7 @@ You can register native clients to request access your App Service app's APIs on
     > [!NOTE]
     > For a Microsoft Store application, use the [package SID](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#package-sid) as the URI instead.
 1. From the left navigation, select **API permissions** > **Add a permission** > **My APIs**.
-1. Select the app registration you created earlier for your App Service app. If you don't see the app registration, make sure that you've added the **user_impersonation** scope in [Create an app registration in Microsoft Entra ID for your App Service app](#register).
+1. Select the app registration you created earlier for your App Service app. If you don't see the app registration, make sure that you've added the **user_impersonation** scope in [Create an app registration in Microsoft Entra for your App Service app](#register).
 1. Under **Delegated permissions**, select **user_impersonation**, and then select **Add permissions**.
 
 You have now configured a native client application that can request access your App Service app on behalf of a user.
@@ -259,7 +466,7 @@ You have now configured a native client application that can request access your
 
 In an N-tier architecture, your client application can acquire a token to call an App Service or Function app on behalf of the client app itself (not on behalf of a user). This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 [client credentials](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) grant.
 
-1. From the portal menu, select **Microsoft Entra ID**.
+1. From the portal menu, select **Microsoft Entra**.
 1. From the left navigation, select **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. For a daemon application, you don't need a Redirect URI so you can keep that empty.
@@ -287,13 +494,13 @@ You have now configured a daemon client application that can access your App Ser
 
 Regardless of the configuration you use to set up authentication, the following best practices will keep your tenant and applications more secure:
 
-- Configure each App Service app with its own app registration in Microsoft Entra ID.
+- Configure each App Service app with its own app registration in Microsoft Entra.
 - Give each App Service app its own permissions and consent.
 - Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When you're testing new code, this practice can help prevent issues from affecting the production app.
 
 ### Migrate to the Microsoft Graph
 
-Some older apps may also have been set up with a dependency on the [deprecated Azure AD Graph][aad-graph], which is scheduled for full retirement. For example, your app code may have called Azure AD Graph to check group membership as part of an authorization filter in a middleware pipeline. Apps should move to the [Microsoft Graph](/graph/overview) by following the [guidance provided by Microsoft Entra ID as part of the Azure AD Graph deprecation process][aad-graph]. In following those instructions, you may need to make some changes to your configuration of App Service authentication. Once you have added Microsoft Graph permissions to your app registration, you can:
+Some older apps may also have been set up with a dependency on the [deprecated Azure AD Graph][aad-graph], which is scheduled for full retirement. For example, your app code may have called Azure AD Graph to check group membership as part of an authorization filter in a middleware pipeline. Apps should move to the [Microsoft Graph](/graph/overview) by following the [guidance provided by Microsoft Entra as part of the Azure AD Graph deprecation process][aad-graph]. In following those instructions, you may need to make some changes to your configuration of App Service authentication. Once you have added Microsoft Graph permissions to your app registration, you can:
 
 1. Update the **Issuer URL** to include the "/v2.0" suffix if it doesn't already. 
 1. Remove requests for Azure AD Graph permissions from your sign-in configuration. The properties to change depend on [which version of the management API you're using](./configure-authentication-api-version.md):
@@ -304,7 +511,7 @@ Some older apps may also have been set up with a dependency on the [deprecated A
 
     You would also need to update the configuration to request the new Microsoft Graph permissions you set up for the application registration. You can use the [.default scope](../active-directory/develop/scopes-oidc.md#the-default-scope) to simplify this setup in many cases. To do so, add a new sign-in parameter `scope=openid profile email https://graph.microsoft.com/.default`.
 
-With these changes, when App Service Authentication attempts to sign in, it will no longer request permissions to the Azure AD Graph, and instead it will get a token for the Microsoft Graph. Any use of that token from your application code would also need to be updated, as per the [guidance provided by Microsoft Entra ID][aad-graph].
+With these changes, when App Service Authentication attempts to sign in, it will no longer request permissions to the Azure AD Graph, and instead it will get a token for the Microsoft Graph. Any use of that token from your application code would also need to be updated, as per the [guidance provided by Microsoft Entra][aad-graph].
 
 [aad-graph]: /graph/migrate-azure-ad-graph-overview
 
