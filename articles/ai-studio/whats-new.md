@@ -92,7 +92,9 @@ With this new capability, you can now efficiently monitor and rectify issues in 
 
 ### Use evaluators in the prompt flow SDK 
 
-Evaluators in the prompt flow SDK offer a streamlined, code-based experience for evaluating and improving your generative AI apps. You can now easily use built-in quality and safety evaluators or define custom evaluators tailored to assess generative AI systems for the specific metrics you value. Learn more 
+Evaluators in the prompt flow SDK offer a streamlined, code-based experience for evaluating and improving your generative AI apps. You can now easily use Microsoft curated quality and safety evaluators or define custom evaluators tailored to assess generative AI systems for the specific metrics you value. For more information about evaluators via the prompt flow SDK, see [Evaluate with the prompt flow SDK](./how-to/develop/flow-evaluate-sdk.md).
+
+Microsoft curated evaluators are also available in the AI Studio evaluator library, where you can view and manage them. However, custom evaluators are currently only available in the prompt flow SDK. For more information about evaluators in AI Studio, see [How to evaluate generative AI apps with Azure AI Studio](./how-to/evaluate-generative-ai-app.md#view-and-manage-the-evaluators-in-the-evaluator-library).
 
 ### Use Prompty for engineering and sharing prompts 
 

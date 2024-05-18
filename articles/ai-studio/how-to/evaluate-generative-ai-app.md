@@ -59,7 +59,7 @@ You can use the help panel to check the FAQs and guide yourself through the wiza
 
 By specifying the appropriate scenario, we can tailor the evaluation to the specific nature of your application, ensuring accurate and relevant metrics. 
 
-- **Evaluate from data**: If you already have your model generated outputs in a test dataset, skip “Select a flow to evaluate” and directly go to the next step to configure test data.  
+- **Evaluate from data**: If you already have your model generated outputs in a test dataset, skip **Select a flow to evaluate** and directly go to the next step to configure test data.  
 - **Evaluate from flow**: If you initiate the evaluation from the Flow page, we'll automatically select your flow to evaluate. If you intend to evaluate another flow, you can select a different one. It's important to note that within a flow, you might have multiple nodes, each of which could have its own set of variants. In such cases, you must specify the node and the variants you wish to assess during the evaluation process.
 
 :::image type="content" source="../media/evaluations/evaluate/select-flow.png" alt-text="Screenshot of the select a flow to evaluate page when creating a new evaluation." lightbox="../media/evaluations/evaluate/select-flow.png":::
@@ -76,7 +76,7 @@ You can select from pre-existing datasets or upload a new dataset specifically t
 
     :::image type="content" source="../media/evaluations/evaluate/upload-file.png" alt-text="Screenshot of the upload file option when creating a new evaluation." lightbox="../media/evaluations/evaluate/upload-file.png":::
 
-- **Data mapping for flow**:  If you select a flow to evaluate, ensure that your data columns are configured to align with the required inputs for the flow to execute a batch run, generating output for assessment. The evaluation will then be conducted using the output from the flow. Subsequently, configure the data mapping for evaluation inputs in the next step.
+- **Data mapping for flow**:  If you select a flow to evaluate, ensure that your data columns are configured to align with the required inputs for the flow to execute a batch run, generating output for assessment. The evaluation will then be conducted using the output from the flow. Then, configure the data mapping for evaluation inputs in the next step.
 
     :::image type="content" source="../media/evaluations/evaluate/data-mapping-flow.png" alt-text="Screenshot of the dataset mapping when creating a new evaluation." lightbox="../media/evaluations/evaluate/data-mapping-flow.png":::
 
@@ -101,7 +101,7 @@ When using AI-assisted metrics for performance and quality evaluation, you must 
 
 For risk and safety metrics, you don't need to provide a connection and deployment. The Azure AI Studio safety evaluations back-end service provisions a GPT-4 model that can generate content risk severity scores and reasoning to enable you to evaluate your application for content harms.
 
-You can set the threshold to calculate the defect rate for the risk and safety metrics. The defect rate is calculated by taking a percentage of instances with severity levels (Very low, Low, Medium, High) above a threshold. By default, we set the threshold as “Medium”.
+You can set the threshold to calculate the defect rate for the risk and safety metrics. The defect rate is calculated by taking a percentage of instances with severity levels (Very low, Low, Medium, High) above a threshold. By default, we set the threshold as "Medium".
 
 :::image type="content" source="../media/evaluations/evaluate/safety-metrics.png" alt-text="Screenshot of the select metrics page with safety metrics selected when creating a new evaluation." lightbox="../media/evaluations/evaluate/safety-metrics.png":::
 
@@ -113,7 +113,7 @@ You can set the threshold to calculate the defect rate for the risk and safety m
 :::image type="content" source="../media/evaluations/evaluate/data-mapping-evaluation.png" alt-text="Screenshot of the dataset mapping to your evaluation input." lightbox="../media/evaluations/evaluate/data-mapping-evaluation.png":::
 
 > [!NOTE]
-> If you are evaluating from data, “answer” should map to the answer column in your dataset `${data$answer}`. If you are evaluating from flow, “answer” should come from flow output `${run.outputs.answer}`.
+> If you are evaluating from data, "answer" should map to the answer column in your dataset `${data$answer}`. If you are evaluating from flow, "answer" should come from flow output `${run.outputs.answer}`.
 
 For guidance on the specific data mapping requirements for each metric, refer to the information provided in the table:
 
@@ -145,10 +145,29 @@ After completing all the necessary configurations, you can review and proceed to
 
 ## Create an evaluation with custom evaluation flow
 
-There are two ways to develop your own evaluation methods:
+You can develop your own evaluation methods:
 
-- Customize a Built-in Evaluation Flow: Modify a built-in evaluation flow. Find the built-in evaluation flow from the flow creation wizard - flow gallery, select “Clone” to do customization.
-- Create a New Evaluation Flow from Scratch: Develop a brand-new evaluation method from the ground up. In flow creation wizard, select “Create” Evaluation flow then you can see a template of evaluation flow. The process of customizing and creating evaluation methods is similar to that of a standard flow.
+From the flow page: From the collapsible left menu, select **Prompt flow** > **Evaluate** > **Custom evaluation**.
+
+:::image type="content" source="../media/evaluations/evaluate/new-custom-evaluation-flow-page.png" alt-text="Screenshot of how to create a custom evaluation from a prompt flow." lightbox="../media/evaluations/evaluate/new-custom-evaluation-flow-page.png":::
+
+## View and manage the evaluators in the evaluator library 
+
+The evaluator library is a centralized place that allows you to see the details and status of your evaluators. You can view and manage Microsoft curated evaluators.
+
+> [!TIP]
+> You can use custom evaluators via the prompt flow SDK. For more information, see [Evaluate with the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md#custom-evaluators).
+ 
+The evaluator library also enables version management. You can compare different versions of your work, restore previous versions if needed, and collaborate with others more easily. 
+
+To use the evaluator library in AI Studio, go to your project's **Evaluation** page and select the **Evaluator library** tab. 
+
+:::image type="content" source="../media/evaluations/evaluate/evaluator-library-list.png" alt-text="Screenshot of the page to select evaluators from the evaluator library." lightbox="../media/evaluations/evaluate/evaluator-library-list.png":::
+
+You can select the evaluator name to see more details. You can see the name, description, and parameters, and check any files associated with the evaluator. Here are some examples of Microsoft curated evaluators:
+- For performance and quality evaluators curated by Microsoft, you can view the annotation prompt on the details page. You can adapt these prompts to your own use case by changing the parameters or criteria according to your data and objectives [with the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md#custom-evaluators). For example, you can select *Groundedness-Evaluator* and check the prompty file showing how we calculate the metric.
+- For risk and safety evaluators curated by Microsoft, you can see the definition of the metrics. For example, you can select the *Self-Harm-Related-Content-Evaluator* and learn what it means and how Microsoft determines the various severity levels for this safety metric
+
 
 ## Next steps
 
@@ -156,6 +175,5 @@ Learn more about how to evaluate your generative AI applications:
 
 - [Evaluate your generative AI apps via the playground](./evaluate-prompts-playground.md)
 - [View the evaluation results](./evaluate-flow-results.md)
-
 - Learn more about [harm mitigation techniques](../concepts/evaluation-improvement-strategies.md).
 - [Transparency Note for Azure AI Studio safety evaluations](../concepts/safety-evaluations-transparency-note.md).
