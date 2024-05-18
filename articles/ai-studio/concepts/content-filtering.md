@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: pafarley
@@ -29,17 +29,60 @@ The content filtering models have been trained and tested on the following langu
 You can create a content filter or use the default content filter for Azure OpenAI model deployment, and can also use a default content filter for other text models curated by Azure AI in the [model catalog](../how-to/model-catalog-overview.md). The custom content filters for those models aren't yet available. Models available through Models as a Service have content filtering enabled by default and can't be configured.
 
 ## How to create a content filter? 
-For any model deployment in [Azure AI Studio](https://ai.azure.com), you could directly use the default content filter, but when you want to have more customized setting on content filter, for example set a stricter or looser filter, or enable more advanced capabilities, like jailbreak risk detection and protected material detection.  To create a content filter, you could go to **Build**, choose one of your projects, then select **Content filters** in the left navigation bar, and create a content filter. 
+For any model deployment in [Azure AI Studio](https://ai.azure.com), you could directly use the default content filter, but when you want to have more customized setting on content filter, for example set a stricter or looser filter, or enable more advanced capabilities, like jailbreak risk detection and protected material detection.  
 
-:::image type="content" source="../media/content-safety/content-filter/create-content-filter.png" alt-text="Screenshot of create content filter." lightbox="../media/content-safety/content-filter/create-content-filter.png":::
+Follow these steps to create a content filter:
 
-### Content filtering categories and configurability
+1. Go to [AI Studio](https://ai.azure.com) and select a project.
+1. Select **Content filters** from the left pane and then select **+ New content filter**.
+
+    :::image type="content" source="../media/content-safety/content-filter/create-content-filter.png" alt-text="Screenshot of the button to create a new content filter." lightbox="../media/content-safety/content-filter/create-content-filter.png":::
+
+1. On the **Basic information** page, enter a name for your content filter. Select a connection to associate with the content filter. Then select **Next**.
+
+    :::image type="content" source="../media/content-safety/content-filter/create-content-filter-basic.png" alt-text="Screenshot of the option to select or enter basic information such as the filter name when creating a content filter." lightbox="../media/content-safety/content-filter/create-content-filter-basic.png":::
+
+1. On the **Input filters** page, you can set the filter for the input prompt. For example, you can enable prompt shields for jailbreak attacks. Then select **Next**.
+
+    :::image type="content" source="../media/content-safety/content-filter/configure-threshold.png" alt-text="Screenshot of the option to select input filters when creating a content filter." lightbox="../media/content-safety/content-filter/configure-threshold.png":::
+
+    Content will be annotated by category and blocked according to the threshold you set. For the violence, hate, sexual, and self-harm categories, adjust the slider to block content of high, medium, or low severity.
+
+1. On the **Output filters** page, you can set the filter for the output completion. For example, you can enable filters for protected material detection. Then select **Next**. 
+    
+    Content will be annotated by each categories and blocked according to the threshold. For violent content, hate content, sexual content, and self-harm content category, adjust the threshold to block harmful content with equal or higher severity levels.
+
+1. Optionally, on the **Deployment** page, you can associate the content filter with a deployment. You can also associate the content filter with a deployment later. Then select **Create**.
+
+    :::image type="content" source="../media/content-safety/content-filter/create-content-filter-deployment.png" alt-text="Screenshot of the option to select a deployment when creating a content filter." lightbox="../media/content-safety/content-filter/create-content-filter-deployment.png":::
+
+    Content filtering configurations are created at the hub level in AI Studio. Learn more about configurability in the [Azure OpenAI docs](/azure/ai-services/openai/how-to/content-filters).
+
+1. On the **Review** page, review the settings and then select **Create filter**.
+
+
+## How to apply a content filter?
+
+A default content filter is set when you create a deployment. You can also apply your custom content filter to your deployment. 
+
+Follow these steps to apply a content filter to a deployment:
+
+1. Go to [AI Studio](https://ai.azure.com) and select a project.
+1. Select **Deployments** and choose one of your deployments, then select **Edit**.
+
+    :::image type="content" source="../media/content-safety/content-filter/deployment-edit.png" alt-text="Screenshot of the button to edit a deployment." lightbox="../media/content-safety/content-filter/deployment-edit.png":::
+
+1. In the **Update deployment** window, select the content filter you want to apply to the deployment.
+
+    :::image type="content" source="../media/content-safety/content-filter/apply-content-filter.png" alt-text="Screenshot of apply content filter." lightbox="../media/content-safety/content-filter/apply-content-filter.png":::
+
+Now, you can go to the playground to test whether the content filter works as expected!
+
+## Content filtering categories and configurability
 
 The content filtering system integrated in Azure AI Studio contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
 
-:::image type="content" source="../media/content-safety/content-filter/configure-threshold.png" alt-text="Screenshot of configuring the threshold." lightbox="../media/content-safety/content-filter/configure-threshold.png":::
-
-#### Categories
+### Categories
 
 |Category|Description|
 |--------|-----------|
@@ -48,7 +91,7 @@ The content filtering system integrated in Azure AI Studio contains neural multi
 | Violence | The violence category describes language related to physical actions intended to hurt, injure, damage, or kill someone or something; describes weapons, etc.   |
 | Self-Harm | The self-harm category describes language related to physical actions intended to purposely hurt, injure, or damage one's body, or kill oneself.|
 
-#### Severity levels
+### Severity levels
 
 |Category|Description|
 |--------|-----------|
@@ -70,22 +113,8 @@ The default content filtering configuration for the GPT model series is set to f
 
 <sup>1</sup> For Azure OpenAI models, only customers who have been approved for modified content filtering have full content filtering control, including configuring content filters at severity level high only or turning off content filters. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters and Abuse Monitoring (microsoft.com)](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURE01NDY1OUhBRzQ3MkQxMUhZSE1ZUlJKTiQlQCN0PWcu)
 
-Content filtering configurations are created within a Resource in Azure AI Studio and can be associated with Deployments. Learn more about configurability in the [Azure OpenAI docs](/azure/ai-services/openai/how-to/content-filters).
-
 Customers are responsible for ensuring that applications integrating Azure OpenAI comply with the [Code of Conduct](/legal/cognitive-services/openai/code-of-conduct?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext). 
 
-### More filters for generative AI scenarios
-You could also enable filters for generative AI scenarios: jailbreak risk detection and protected material detection. 
-
-:::image type="content" source="../media/content-safety/content-filter/additional-models.png" alt-text="Screenshot of additional models." lightbox="../media/content-safety/content-filter/additional-models.png":::
-
-## How to apply a content filter?
-
-A default content filter is set when you create a deployment. You can also apply your custom content filter to your deployment. Select **Deployments** and choose one of your deployments, then select **Edit**, a window of updating deployment will open up. Then you can update the deployment by selecting one of your created content filters.
-
-:::image type="content" source="../media/content-safety/content-filter/apply-content-filter.png" alt-text="Screenshot of apply content filter." lightbox="../media/content-safety/content-filter/apply-content-filter.png":::
-
-Now, you can go to the playground to test whether the content filter works as expected!
 
 ## Next steps
 
