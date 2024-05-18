@@ -255,7 +255,7 @@ The `POST` command is a long running operation that can take some time to comple
 
 The switchback process cancels the rerouting of queries and log ingestion requests to the secondary workspace. When you switch back, Azure Monitor goes back to routing queries and log ingestion requests to your primary workspace. 
 
-During switchover, Azure Monitor replicates logs from your secondary workspace to your primary workspace. While switchover is in progress, if an outage impacts the log ingestion process on the primary region, it can take time for the logs to complete the ingestion process.
+When you switch over to your secondary region, Azure Monitor replicates logs from your secondary workspace to your primary workspace. If an outage impacts the log ingestion process in the primary region, it can take time for Azure Monitor to complete the ingestion of the replicated logs to your primary workspace.
 
 ### When should I switch back?
 
@@ -274,7 +274,7 @@ There are two important health items to check in preparation for switchback to y
 - Confirm there are no outstanding Service Health notifications for the primary workspace and region.
 - Confirm your primary workspace is ingesting logs and processing queries as expected.
 
-For examples of how to query your primary workspace during switchover and bypass the rerouting of requests to your secondary workspace, see [Audit the inactive workspace](#audit-the-inactive-workspace).
+For examples of how to query your primary workspace when your secondary workspace is active and bypass the rerouting of requests to your secondary workspace, see [Audit the inactive workspace](#audit-the-inactive-workspace).
 
 ### Trigger switchback
 
