@@ -43,11 +43,11 @@ In simple mode, the top bar has controls for working with data and switching to 
 | Option | Description |
 |:---|:---|
 | **Time range** | Select the [time range](./scope.md) for the data available to the query. In KQL mode, if you set a different time range in your query, the time range you set in the time picker is overridden. |
-|**Filter**|Filter data, and apply simple mode operators, as described in [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).|
 |**Limit**|Configure the number of entries Log Analytics displays in simple mode. The default limit is 1000.|
-|**Simple/Advanced**|Switch between simple and KQL mode.|
+|**Add**|Add filters, and apply simple mode operators, as described in [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).|
+|**Simple/KQL mode**|Switch between simple and KQL mode.|
 | **Search**|Search through query results to find all instances of a particular string.|
-| **Queries** | Open the example queries dialog that appears when you first open Log Analytics. |
+| **Queries Hub** | Open the example queries dialog that appears when you first open Log Analytics. |
 
 ### Left pane
 
@@ -71,14 +71,13 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 | Option | Description |
 |:---|:---|
-| **Save** | [Save a query to a query pack](../logs/save-query.md). |
-| **Share** | Copy a link to your query, the query text, or query results. |
+| **Save** | [Save a query to a query pack](../logs/save-query.md) or as a [function](functions.md), or pin your query to a [workbook](../visualize/workbooks-overview.md), an [Azure dashboard](../visualize/tutorial-logs-dashboards.md), or [Grafana dashboard](../visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana). |
+| **Share** | Copy a link to your query, the query text, or query results, or [export data to Excel](../logs/log-excel.md), CSV, or [Power BI](../logs/log-powerbi.md). |
 | **New alert rule** | [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal). |
-|**Export**|[Export data to Excel](../logs/log-excel.md), CSV, or [Power BI](../logs/log-powerbi.md).|
-|**Pin to**|Pin your query to a [workbook](../visualize/workbooks-overview.md), or an [Azure dashboard](../visualize/tutorial-logs-dashboards.md) or [Grafana dashboard](../visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana).|
-| **Format query** | Format query text in KQL mode. |
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
+| **Log Analytics settings**| Define whether Log Analytics opens in simple or KQL mode by default.|
 | **Switch back to classic Logs** | Switch back to the [classic Log Analytics user interface](../logs/log-analytics-overview.md). |
+
 
 ## Get started in simple mode
 
