@@ -202,7 +202,7 @@ Service Health notifications are useful for service-related issues. To identify 
 
 ## Switch over to your secondary workspace
 
-During switchover, most operations work the same as when you use the primary workspace and region. However, some operations have slightly different behavior or are blocked.
+During switchover, most operations work the same as when you use the primary workspace and region. However, some operations have slightly different behavior or are blocked. For more information, see [Restrictions and limitations](#restrictions-and-limitations).
 
 ### When should I switch over?
 
