@@ -143,11 +143,6 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 
 ## Visualization using Grafana
 
-> [!NOTE]
-> The following section requires installations of Prometheus and Grafana.
-
-Use the following example to configure scrape jobs on Prometheus and enable visualization on Grafana for your AKS cluster.
-
 1. Add the following scrape job to your existing Prometheus configuration and restart your Prometheus server:
 
 ```yml
