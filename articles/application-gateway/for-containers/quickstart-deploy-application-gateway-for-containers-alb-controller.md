@@ -48,8 +48,8 @@ You need to complete the following tasks before deploying Application Gateway fo
     If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster. Workload identities can be enabled via the following:
 
     ```azurecli-interactive
-    AKS_NAME='your cluster name>'
-    RESOURCE_GROUP='your resource group name>'
+    AKS_NAME='<your cluster name>'
+    RESOURCE_GROUP='<your resource group name>'
     az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
     ```
 
@@ -143,7 +143,7 @@ You need to complete the following tasks before deploying Application Gateway fo
 
     ```azurecli-interactive
     HELM_NAMESPACE='<your cluster name>'
-    CONTROLLER_NAMESPACE='<alb-controller-namespace'
+    CONTROLLER_NAMESPACE='azure-alb-system'
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
          --namespace $HELM_NAMESPACE \
@@ -161,7 +161,7 @@ You need to complete the following tasks before deploying Application Gateway fo
 
     ```azurecli-interactive
     HELM_NAMESPACE='<your cluster name>'
-    CONTROLLER_NAMESPACE='<alb-controller-namespace'
+    CONTROLLER_NAMESPACE='azure-alb-system'
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace $HELM_NAMESPACE \
