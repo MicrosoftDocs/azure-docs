@@ -129,7 +129,7 @@ Where:
 - `<resourcegroup_name>`: The resource group that contains your Log Analytics workspace resource.
 - `<workspace_name>`: The name of your Log Analytics workspace.
  
-The `GET` command verifies that the workspace provisioning state changes from `Updating` to `Succeeded`, and the secondary region is set as expected.
+Use the `GET` command to verify that the workspace provisioning state changes from `Updating` to `Succeeded`, and the secondary region is set as expected.
 
 
 > [!NOTE]
@@ -366,7 +366,7 @@ After you establish the baseline ingestion latency for a specific table, [create
 This query calculates ingestion latency over the past 20 minutes: 
 
 ```kusto
-// track the recent ingestion latency (in seconds) of a specific data type
+// track the recent ingestion latency (in seconds) of a specific table
 Perf
 | where TimeGenerated > ago(20m) 
 | extend IngestionDurationSeconds = (ingestion_time()-TimeGenerated)/1s
@@ -382,7 +382,7 @@ When you notice your total ingestion latency is going up, you can use queries to
 This query charts the 90th percentile latency of the agents and of the pipeline, separately:  
 
 ```kusto
-// Agent and pipeline (backend) latency
+// assess agent and pipeline (backend) latency
 Perf
 | where TimeGenerated > ago(1h) 
 | extend AgentLatencySeconds = (_TimeReceived-TimeGenerated)/1s,
@@ -411,7 +411,7 @@ You can define a query to monitor the ingestion volume per table in your workspa
 This query calculates the total ingestion volume over the past hour per table in megabytes per second (MBs):
 
 ```kusto
-// Calculate total ingestion volume over the past hour per table
+// calculate total ingestion volume over the past hour per table
 Usage 
 | where TimeGenerated > ago(1h) 
 | summarize BillableDataMB = sum(_BilledSize)/1.E6 by bin(TimeGenerated,1h), DataType
@@ -424,7 +424,7 @@ If you ingest logs through agents, you can use the agent's _heartbeat_ to detect
 The following query checks the agent heartbeat to detect connectivity issues:
 
 ```kusto
-//Count agent heartbeats in the last ten minutes
+//count agent heartbeats in the last ten minutes
 Heartbeat 
 | where TimeGenerated>ago(10m) 
 | count
@@ -439,7 +439,7 @@ You can identify spikes and dips in your workspace ingestion volume data in vari
 The `series_decompose_anomalies()` function identifies anomalies in a series of data values. This query calculates the hourly ingestion volume of each table in your Log Analytics workspace, and uses `series_decompose_anomalies()` to identify anomalies:
 
 ```kusto
-// Calculate hourly ingestion volume per table and identify anomalies
+// calculate hourly ingestion volume per table and identify anomalies
 Usage
 | where TimeGenerated > ago(24h)
 | project TimeGenerated, DataType, Quantity
@@ -475,7 +475,7 @@ To filter out insignificant differences between the expected and the actual inge
 - **Volume of change**: Indicates whether the increased or decreased volume is more than 0.1% of the monthly volume of that table
 
 ```kusto
-// Calculate expected vs actual hourly ingestion per table
+// calculate expected vs actual hourly ingestion per table
 let TimeRange=24h;
 let MonthlyIngestionByType=
     Usage
@@ -520,7 +520,7 @@ Each query returns a response code that indicates success or failure. When the q
 This query counts how many queries returned a server error code:
 
 ```kusto
-// Count query errors
+// count query errors
 LAQueryLogs 
 | where ResponseCode>=500 and ResponseCode<600 
 | count
