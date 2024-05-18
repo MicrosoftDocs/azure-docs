@@ -24,7 +24,7 @@ This article explains how to use Log Analytics simple mode to explore and analyz
 
 ## Try Log Analytics simple mode
 
-Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try Log Analytics simple mode** at the top right corner of the Log Analytics query editor.
+Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor.
 
 :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A screenshot showing the Try new Log Analytics button.":::
 
@@ -47,7 +47,6 @@ In simple mode, the top bar has controls for working with data and switching to 
 |**Add**|Add filters, and apply simple mode operators, as described in [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).|
 |**Simple/KQL mode**|Switch between simple and KQL mode.|
 | **Search**|Search through query results to find all instances of a particular string.|
-| **Queries Hub** | Open the example queries dialog that appears when you first open Log Analytics. |
 
 ### Left pane
 
@@ -77,7 +76,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
 | **Log Analytics settings**| Define whether Log Analytics opens in simple or KQL mode by default.|
 | **Switch back to classic Logs** | Switch back to the [classic Log Analytics user interface](../logs/log-analytics-overview.md). |
-
+| **Queries Hub** | Open the example queries dialog that appears when you first open Log Analytics. |
 
 ## Get started in simple mode
 
