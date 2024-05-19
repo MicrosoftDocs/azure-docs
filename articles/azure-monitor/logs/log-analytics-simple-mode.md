@@ -66,7 +66,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 |:---|:---|
 | **Tables** | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog with a description of the table and options to view its documentation and preview its data. Expand a table to view its columns. Select a table or column name to add it to the query. |
 | **Queries** | Lists example and saved queries. This is the same list that in the Queries Hub. Select **Group by** to change the grouping of the queries. Select a query to add it to the query window or hover over it for other options. |
-|**Functions**|Lists functions, which allow you to reuse predefined query logic in your log queries. For more information, see [Function](../logs/functions.md)|
+|**Functions**|Lists [functions](../logs/functions.md), which allow you to reuse predefined query logic in your log queries. |
 |**Query history**|Lists your query history. Select a query to rerun it.|
 
 ### More tools
