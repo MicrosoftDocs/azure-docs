@@ -56,7 +56,7 @@ In simple mode, the top bar has controls for working with data and switching to 
 
 ### Left pane
 
-The collapsible left pane gives you access to tables in the workspace, sample and saved queries, query history, and filter options for the current query.
+The collapsible left pane gives you access to tables, example and saved queries, and query history.
 
 Pin the left pane to keep it open while you work, or maximize your query window by selecting an icon from the left pane only when you need it.
 
@@ -64,8 +64,8 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 | Option | Description |
 |:---|:---|
-| **Tables** | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog with a description of the table and options to view its documentation and preview its data. Expand a table to view its columns. Double-click a table or column name to add it to the query. |
-| **Queries** | List of example and saved queries you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click a query to add it to the query window or hover over it for other options. |
+| **Tables** | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog with a description of the table and options to view its documentation and preview its data. Expand a table to view its columns. Select a table or column name to add it to the query. |
+| **Queries** | List of example and saved queries you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Select a query to add it to the query window or hover over it for other options. |
 |**Functions**|Lists functions, which allow you to reuse predefined query logic in your log queries. For more information, see [Function](../logs/functions.md)|
 |**Query history**|Lists your query history. Select a query to rerun it.|
 | **Filter** | We recommend using the new filter experience in the [top query bar](#top-query-bar). However, you can still access the classic filter experience here.|
@@ -120,7 +120,7 @@ To get started:
 After you [get started in simple mode](#get-started-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). 
 
 > [!NOTE]
-> The order in which you apply filters and operators affects your inquiry and results. For example, if you apply a filter and then aggregate, Log Analytics applies the aggregation to the filtered data. If you aggregate and then filter, the aggregation is applied to the unfiltered data.
+> The order in which you apply filters and operators affects your query and results. For example, if you apply a filter and then aggregate, Log Analytics applies the aggregation to the filtered data. If you aggregate and then filter, the aggregation is applied to the unfiltered data.
 
 **Change time range and number of records displayed**
 
@@ -202,7 +202,7 @@ When you begin to query logs in simple mode and then switch to KQL mode, the que
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-kql.png" alt-text="Screenshot that shows a query in Log Analytics KQL mode." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-kql.png":::
 
-For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the right of the top query bar. Select **User Query** to return to the query editor and modify your query at any time.
+For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the left of the top query bar. Select **User Query** to return to the query editor and modify your query at any time.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in simple mode." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png":::
 
