@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Enhance resilience by replicating your Log Analytics workspace across regions (Preview)
 
-Replicating your Log Analytics workspace across regions enhances resilience by letting you switch over to the replicated workspace and continue operations if there's a regional failure. To switch between workspaces in the two regions, you call the Workspace Failover API after careful consideration and analysis. 
+Replicating your Log Analytics workspace across regions enhances resilience by letting you switch over to the replicated workspace and continue operations if there's a regional failure. To switch between workspaces in the two regions, you call the Workspace Failover API endpoint after careful consideration and analysis. 
 
 This article explains how Log Analytics workspace replication works, how to replicate your workspace, how to switch over and back, and how to decide when to switch between your replicated workspaces.
 
@@ -21,7 +21,7 @@ Here's a video that provides a quick overview of how Log Analytics workspace rep
 >[!VIDEO https://www.youtube.com/embed/9t7T7D4oVMk]
 
 > [!IMPORTANT]
-> Although we sometimes use the term failover, for example in the API call, failover is also commonly used to describe an automatic process. Therefore, this article uses the term switchover to emphasize that the switch between replicated workspaces is a decision you make and trigger manually after carefully consideration. 
+> Although we sometimes use the term failover, for example in the API call, failover is also commonly used to describe an automatic process. Therefore, this article uses the term switchover to emphasize that the switch to the replicated workspace is an action you trigger manually after carefully consideration. 
 
 ## Permissions required
 
