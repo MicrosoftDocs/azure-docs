@@ -30,10 +30,9 @@ Learn how to use Azure AI Content Safety Groundedness detection to check whether
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select the hub you'd like to work in.
 1. On the left nav menu, select **AI Services**. Select the **Content Safety** panel.
-   :::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected.":::
+   :::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected." lightbox="../media/content-safety/select-panel.png":::
 1. Then, select **Groundedness detection**.
-1. On the next page, in the drop-down menu under **Try it out**, select the resource you want to use.
-    :::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected.":::
+1. On the next page, in the drop-down menu under **Try it out**, select the **Azure AI Services** connection you want to use.
     
 ## Check groundedness without reasoning
 

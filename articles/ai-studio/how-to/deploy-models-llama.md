@@ -123,7 +123,7 @@ To create a deployment:
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
-    Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
+    Alternatively, you can initiate deployment by starting from your project in AI Studio. Select a project and then select **Deployments** > **+ Create**.
 
 1. On the model's **Details** page, select **Deploy** and then select **Pay-as-you-go**.
 
@@ -144,7 +144,7 @@ To create a deployment:
 
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions.
 
-1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
+1. You can always find the endpoint's details, URL, and access keys by navigating to the project page and selecting **Deployments** from the left menu.
 
 To learn about billing for Meta Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
 
@@ -155,7 +155,7 @@ To create a deployment:
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
-    Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
+    Alternatively, you can initiate deployment by starting from your project in AI Studio. Select a project and then select **Deployments** > **+ Create**.
 
 1. On the model's **Details** page, select **Deploy** and then select **Pay-as-you-go**.
 
@@ -181,7 +181,7 @@ To create a deployment:
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 1. Select **Open in playground** to start interacting with the model.
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions.
-1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
+1. You can always find the endpoint's details, URL, and access keys by navigating to your project and selecting **Deployments** from the left menu.
 
 To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
 
@@ -193,7 +193,7 @@ To learn about billing for Llama models deployed with pay-as-you-go, see [Cost a
 
 Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
 
-1. On the **Build** page, select **Deployments**.
+1. Select your project or hub and then select **Deployments** from the left menu.
 
 1. Find and select the deployment you created.
 
@@ -213,7 +213,7 @@ Models deployed as a service can be consumed using either the chat or the comple
 
 Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
 
-1. On the **Build** page, select **Deployments**.
+1. Select your project or hub and then select **Deployments** from the left menu.
 
 1. Find and select the deployment you created.
 
@@ -491,7 +491,7 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
-    Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select the **Deployments** option, then select **+ Create**.
+    Alternatively, you can initiate deployment by starting from your project in AI Studio. Select your project and then select **Deployments** > **+ Create**.
 
 1. On the model's **Details** page, select **Deploy** and then **Real-time endpoint**.
 

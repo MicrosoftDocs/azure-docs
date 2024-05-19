@@ -29,7 +29,7 @@ Learn how to use Azure AI Content Safety Prompt Shields to check large language 
 1. On the left nav menu, select **AI Services**. Select the **Content Safety** panel.
    :::image type="content" source="../media/content-safety/select-panel.png" alt-text="Screenshot of the Azure AI Studio Content Safety panel selected." lightbox="../media/content-safety/select-panel.png":::
 1. Then, select **Prompt Shields**.
-1. On the next page, in the drop-down menu under **Try it out**, select the resource you want to use.
+1. On the next page, in the drop-down menu under **Try it out**, select the **Azure AI Services** connection you want to use.
 
 ## Analyze prompt attacks
 
