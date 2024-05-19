@@ -43,7 +43,7 @@ In simple mode, the top bar has controls for working with data and switching to 
 | Option | Description |
 |:---|:---|
 | **Time range** | Select the [time range](./scope.md) for the data available to the query. In KQL mode, if you set a different time range in your query, the time range you set in the time picker is overridden. |
-|**Limit**|Configure the number of entries Log Analytics displays in simple mode. The default limit is 1000.|
+|**Limit**|Configure the number of entries Log Analytics retrieves in simple mode. The default limit is 1000. For more information on query limits, see [Configure query results limit](#configure-query-results-limit).|
 |**Add**|Add filters, and apply simple mode operators, as described in [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).|
 |**Simple/KQL mode**|Switch between simple and KQL mode.|
 | **Search**|Search through query results to find all instances of a particular string.|
@@ -94,7 +94,7 @@ To get started:
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-tables.png" alt-text="Screenshot that shows the Tables tab in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-tables.png":::
 
-- Use an existing query, such as a shared or [saved query](../logs/log-analytics-saved-query.md), or an example query.
+- Use an existing query, such as a shared or [saved query](../logs/save-query.md), or an example query.
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that shows an example query in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png":::
 
@@ -200,6 +200,27 @@ When you begin to query logs in simple mode and then switch to KQL mode, the que
 For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the right of the top query bar. Select **User Query** to return to the query editor and modify your query at any time.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in simple mode." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png":::
+
+## Configure query result limit
+
+1. Select **Limit** to open the **Limit results** window.
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-result-limits.png" alt-text="Screenshot that shows the limit results window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-result-limits.png":::
+
+1. Select one of the preset limits, or enter a custom limit. 
+ 
+    The maximum number of results that you can retrieve in the Log Analytics portal experience, in both simple mode and KQL mode, is 30,000. However, when you[share the query](#more-tools) you define in Log Analytics with an integrated tool, or run a [search job](search-jobs.md), your query is not limited to the maximum number of results in Log Analytics.
+
+    Select **Max. limit** to return the maximum number of results provided by any of the options available on the **Share** window or using a search job.
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-share-query.png" alt-text="Screenshot that shows the limit results window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-share-query.png":::
+
+    |Share option|Description|Result limit|
+    |-|-|-|
+    |Log Analytics||30,000|
+    || **Share** |[Excel](../logs/log-excel.md), [Power BI](../logs/log-powerbi.md), API||500,000|
+    |Search job||1,000,000|
+
 
 ## Next steps
 - Walk through a [tutorial on writing queries](../logs/log-analytics-tutorial.md).
