@@ -164,7 +164,7 @@ az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | The name of your AKS cluster. |
-    | `<CONTAINER-IMAGE-VERSION>` | [!INCLUDE [version](../includes/prometheus-remotewrite-image-version.md)]| 
+    | `<CONTAINER-IMAGE-VERSION>` | [!INCLUDE [version](../includes/prometheus-remotewrite-image-version.md)]<br>The remote write container image version.| 
     | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
    
 
