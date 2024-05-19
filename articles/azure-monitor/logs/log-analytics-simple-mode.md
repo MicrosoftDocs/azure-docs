@@ -24,7 +24,7 @@ This article explains how to use Log Analytics simple mode to explore and analyz
 
 This video provides a quick overview of how to query logs in Log Analytics using simple and KQL mode:
 
->[!VIDEO https://youtube/85Xxj5FhTk0]
+>[!VIDEO https://www.youtube.com/embed/85Xxj5FhTk0]
 
 ## Try Log Analytics simple mode
 
