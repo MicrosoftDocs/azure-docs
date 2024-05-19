@@ -81,9 +81,9 @@ While projects show up as their own tracking resources in the Azure portal, they
 
 ## Connections to Azure and third-party resources
 
-Azure AI offers a set of connectors that allows you to connect to different types of data sources and other Azure tools. You can take advantage of connectors to connect with data such as indices in Azure AI Search to augment your flows.
+Azure AI offers a set of connectors that allows you to connect to different types of data sources and other Azure tools. You can take advantage of connectors to connect with data such as indexes in Azure AI Search to augment your flows.
 
-Connections can be set up as shared with all projects in the same hub, or created exclusively for one project. To manage project connections via Azure AI Studio, navigate to a project page, then navigate to **Project settings** > **Connections**. To manage shared connections, navigate to the **Manage** page. As an administrator, you can audit both shared and project-scoped connections on a hub level to have a single pane of glass of connectivity across projects.
+Connections can be set up as shared with all projects in the same hub, or created exclusively for one project. To manage project connections via Azure AI Studio, go to your project and then select **Settings** > **Connections**. To manage shared connections for a hub, go to your hub settings. As an administrator, you can audit both shared and project-scoped connections on a hub level to have a single pane of glass of connectivity across projects.
 
 ## Azure AI dependencies
 
