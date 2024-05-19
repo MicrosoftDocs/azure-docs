@@ -165,7 +165,7 @@ To use the evaluator library in AI Studio, go to your project's **Evaluation** p
 :::image type="content" source="../media/evaluations/evaluate/evaluator-library-list.png" alt-text="Screenshot of the page to select evaluators from the evaluator library." lightbox="../media/evaluations/evaluate/evaluator-library-list.png":::
 
 You can select the evaluator name to see more details. You can see the name, description, and parameters, and check any files associated with the evaluator. Here are some examples of Microsoft curated evaluators:
-- For performance and quality evaluators curated by Microsoft, you can view the annotation prompt on the details page. You can adapt these prompts to your own use case by changing the parameters or criteria according to your data and objectives [with the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md#custom-evaluators). For example, you can select *Groundedness-Evaluator* and check the prompty file showing how we calculate the metric.
+- For performance and quality evaluators curated by Microsoft, you can view the annotation prompt on the details page. You can adapt these prompts to your own use case by changing the parameters or criteria according to your data and objectives [with the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md#custom-evaluators). For example, you can select *Groundedness-Evaluator* and check the Prompty file showing how we calculate the metric.
 - For risk and safety evaluators curated by Microsoft, you can see the definition of the metrics. For example, you can select the *Self-Harm-Related-Content-Evaluator* and learn what it means and how Microsoft determines the various severity levels for this safety metric
 
 

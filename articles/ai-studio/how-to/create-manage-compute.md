@@ -50,7 +50,7 @@ To create a compute instance in Azure AI Studio:
     
     For more information on configuration details such as CPU and RAM, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/) and [virtual machine sizes](/azure/virtual-machines/sizes).
 
-1. On the **Scheduling** page under **Auto shut down** make sure idle shutdown is enabled by default. You can opt to automatically shutdown compute after the instance has been idle for a set amount of time. If you disable auto shutdown costs continue to accrue even during periods of inactivity. For more information, see [Configure idle shutdown](#configure-idle-shutdown).
+1. On the **Scheduling** page under **Auto shut down** make sure idle shutdown is enabled by default. You can opt to automatically shut down compute after the instance has been idle for a set amount of time. If you disable auto shutdown costs continue to accrue even during periods of inactivity. For more information, see [Configure idle shutdown](#configure-idle-shutdown).
 
     :::image type="content" source="../media/compute/compute-scheduling.png" alt-text="Screenshot of the option to enable idle shutdown and create a schedule." lightbox="../media/compute/compute-scheduling.png":::
 

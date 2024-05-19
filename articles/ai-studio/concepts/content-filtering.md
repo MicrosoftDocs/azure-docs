@@ -50,7 +50,7 @@ Follow these steps to create a content filter:
 
 1. On the **Output filters** page, you can set the filter for the output completion. For example, you can enable filters for protected material detection. Then select **Next**. 
     
-    Content will be annotated by each categories and blocked according to the threshold. For violent content, hate content, sexual content, and self-harm content category, adjust the threshold to block harmful content with equal or higher severity levels.
+    Content will be annotated by each category and blocked according to the threshold. For violent content, hate content, sexual content, and self-harm content category, adjust the threshold to block harmful content with equal or higher severity levels.
 
 1. Optionally, on the **Deployment** page, you can associate the content filter with a deployment. You can also associate the content filter with a deployment later. Then select **Create**.
 
