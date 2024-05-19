@@ -215,11 +215,13 @@ For straightforward queries on a single table, Log Analytics displays the table 
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-share-query.png" alt-text="Screenshot that shows the Share window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-share-query.png":::
 
-    |Share option|Description|Result limit|
+    This table lists the maximum result limits of Azure Monitor log queries:
+
+    |Tool|Description|Result limit|
     |---|---|---|
-    |Log Analytics||30,000|
-    |[Excel](../logs/log-excel.md), [Power BI](../logs/log-powerbi.md), API||500,000|
-    |[Search job](search-jobs.md)||1,000,000|
+    |Log Analytics|Queries you run in the Azure portal.|30,000|
+    |[Excel](../logs/log-excel.md), [Power BI](../logs/log-powerbi.md), [Log Analytics Query API](../logs/api/overview.md)|Queries you use in Excel and Power BI, which are integrated with Log Analytics, and queries you run using the API.|500,000|
+    |[Search job](search-jobs.md)|Azure Monitor reingests the results of a query your run in search job mode into a new table in your Log Analytics.|1,000,000|
 
 
 ## Next steps
