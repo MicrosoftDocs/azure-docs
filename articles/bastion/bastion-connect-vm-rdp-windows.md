@@ -53,6 +53,9 @@ See the [Azure Bastion FAQ](bastion-faq.md) for additional requirements.
 ## <a name="rdp"></a>Connect
 
 [!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
+
+> [!NOTE]  
+> Network Security Group (NSG) rules by default allow virtual machines within the same virtual network to communicate with each other. So, while you are connected to the virtual machine, you can RDP to other virtual machines within the virtual network.
  
 ## Next steps
 
