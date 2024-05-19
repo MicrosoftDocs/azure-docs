@@ -21,7 +21,7 @@ Here's a video that provides a quick overview of how Log Analytics workspace rep
 >[!VIDEO https://www.youtube.com/embed/9t7T7D4oVMk]
 
 > [!IMPORTANT]
-> Although we sometimes use the term failover, for example in the API call, failover is also commonly used to describe an automatic process. Therefore, this article uses the term switchover to emphasize that the switch between replicated workspace is a decision you make and trigger manually after carefully consideration. 
+> Although we sometimes use the term failover, for example in the API call, failover is also commonly used to describe an automatic process. Therefore, this article uses the term switchover to emphasize that the switch between replicated workspaces is a decision you make and trigger manually after carefully consideration. 
 
 ## Permissions required
 
