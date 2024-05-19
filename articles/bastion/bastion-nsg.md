@@ -39,7 +39,8 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
    * **Ingress Traffic from Azure Bastion control plane:** For control plane connectivity, enable port 443 inbound from **GatewayManager** service tag. This enables the control plane, that is, Gateway Manager to be able to talk to Azure Bastion.
    * **Ingress Traffic from Azure Bastion data plane:** For data plane communication between the underlying components of Azure Bastion, enable ports 8080, 5701 inbound from the **VirtualNetwork** service tag to the **VirtualNetwork** service tag. This enables the components of Azure Bastion to talk to each other.
    * **Ingress Traffic from Azure Load Balancer:** For health probes, enable port 443 inbound from the **AzureLoadBalancer** service tag. This enables Azure Load Balancer to detect connectivity
-
+> [!NOTE]  
+> NSGs rules by default allow traffic that is coming from within the virtual network, in other words, virtual machines within the virtual network can communicate with each other. Subsequently, you can RDP via Azure Bastion to connect from your first virtual machine then connect to the second virtual machine.
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Screenshot shows inbound security rules for Azure Bastion connectivity." lightbox="./media/bastion-nsg/inbound.png":::
 
