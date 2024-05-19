@@ -1,36 +1,44 @@
 ---
-title: Configure email notifications for alerts
+title: Configure email notifications for alerts and attack paths
 description: Learn how to fine-tune the Microsoft Defender for Cloud security alert emails to ensure the right people receive timely notifications.
-ms.topic: quickstart
+ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 05/12/2024
+ms.date: 05/19/2024
 ms.custom: mode-other
-#customer intent: As a user, I want to learn how to customize email notifications for security alerts in Microsoft Defender for Cloud.
+#customer intent: As a user, I want to learn how to customize email notifications for alerts and attack paths in Microsoft Defender for Cloud.
 ---
 
-# Configure email notifications for security alerts
+# Configure email notifications for alerts and attack paths
 
-In this quickstart you will learn how to configure security alert emails in Microsoft Defender for Cloud to ensure that security alerts reach the right people in your organization. By default, Microsoft Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
+Microsoft Defender for Cloud allows you to configure email notifications for alerts and attack paths. Configuring email notifications allows for the delivery of timely notifications to the appropriate recipients. By modifying the email notification settings, preferences can be defined for the severity levels of alerts and the risk level of attack paths that trigger notifications. By default, subscription owners receive email notifications for high-severity alerts and attack paths. 
 
 Defender for Cloud's **Email notifications** settings page allows you to define preferences for notification emails including:
 
 - ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription.
 - ***what* they should be notified about** - Modify the severity levels for which Defender for Cloud should send out notifications.
 
+:::image type="content" source="./media/configure-email-notifications/email-notification-settings.png" alt-text="Configuring the details of the contact who is to receive emails about alerts and attack paths." lightbox="media/configure-email-notifications/email-notification-settings.png":::
+
+## Email frequency
+
 To avoid alert fatigue, Defender for Cloud limits the volume of outgoing emails. For each email address, Defender for Cloud sends:
 
-- approximately **four emails per day** for **high-severity** alerts
-- approximately **two emails per day** for **medium-severity** alerts
-- approximately **one email per day** for **low-severity** alerts
-
-:::image type="content" source="./media/configure-email-notifications/email-notification-settings.png" alt-text="Configuring the details of the contact who is to receive emails about security alerts." lightbox="media/configure-email-notifications/email-notification-settings.png":::
+|Alert type | Severity/Risk level | Email volume |
+|--|--|--|
+| Alert | High | Four emails per day |
+| Alert | Medium | Two emails per day | 
+| Alert | Low | One email per day |
+| Attack path | Critical | One email per 30 minutes |
+| Attack path | High | One email per hour |
+| Attack path | Medium | One email per two hours |
+| Attack path | Low | One email per three hours |
 
 ## Availability
 
 Required roles and permissions: Security Admin, Subscription Owner or Contributor.
 
-## Customize the security alerts email notifications via the portal<a name="email"></a>
+## Customize the email notifications in the portal
 
 You can send email notifications to individuals or to all users with specific Azure roles.
 
@@ -54,7 +62,7 @@ You can send email notifications to individuals or to all users with specific Az
 
 1. Select **Save**.
 
-## Customize the alerts email notifications through the API
+## Customize the email notifications with an API
 
 You can also manage your email notifications through the supplied REST API. For full details, see the [SecurityContacts API documentation](/rest/api/defenderforcloud/security-contacts).
 
@@ -79,10 +87,10 @@ URI: `https://management.azure.com/subscriptions/<SubscriptionId>/providers/Micr
 }
 ```
 
-## Next steps
-
-To learn more about security alerts, see the following pages:
+## Related content
 
 - [Security alerts - a reference guide](alerts-reference.md) - Learn about the security alerts you might see in Microsoft Defender for Cloud's Threat Protection module.
 - [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml) - Learn how to manage and respond to security alerts.
+- [Identify and remediate attack paths](how-to-manage-attack-path.md).
+- [Investigating risk with security explorer/attack paths](concept-attack-path.md)
 - [Workflow automation](workflow-automation.yml) - Automate responses to alerts with custom notification logic.
