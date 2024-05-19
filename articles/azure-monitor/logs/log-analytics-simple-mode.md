@@ -16,9 +16,9 @@ ms.date: 09/04/2023
 Log Analytics now offers two ways to explore data:  
 
 - **Simple mode** gives you the most commonly used Azure Monitor Logs functionality in an intuitive spreadsheet-like experience. Just point and click to filter, sort, and aggregate data to get to the insights you need 80% of the time. 
-- **KQL mode** gives advanced users the full power of Kusto Query Language (KQL) to derive deeper insights from their logs.
+- **KQL mode** gives advanced users the full power of Kusto Query Language (KQL) to derive deeper insights from their logs using the [Log Analytics query editor](log-analytics-overview.md).
 
-You can switch seamlessly between simple and advance mode, and advanced users can share complex queries, which anyone can continue working in simple mode. 
+You can switch seamlessly between simple and KQL mode, and advanced users can share complex queries, which anyone can continue working in simple mode. 
 
 This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.     
 
@@ -72,15 +72,18 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 ### More tools
 
+This section describes more tools available above the query area of the screen, as shown below, from left to right.
+
 :::image type="content" source="media/log-analytics-explorer/log-analytics-more-tools.png" alt-text="Screenshot that shows the More tools window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-more-tools.png":::
 
 | Option | Description |
 |:---|:---|
+| **Tab context menu**|[Change query scope](scope.md) or rename, duplicate, or close tab. |
 | **Save** | [Save a query to a query pack](../logs/save-query.md) or as a [function](functions.md), or pin your query to a [workbook](../visualize/workbooks-overview.md), an [Azure dashboard](../visualize/tutorial-logs-dashboards.md), or [Grafana dashboard](../visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana). |
 | **Share** | Copy a link to your query, the query text, or query results, or [export data to Excel](../logs/log-excel.md), CSV, or [Power BI](../logs/log-powerbi.md). |
 | **New alert rule** | [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal). |
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
-| **Log Analytics settings**| Define whether Log Analytics opens in simple or KQL mode by default.|
+| **Log Analytics settings**| Define default Log Analytics settings, including time zone, whether Log Analytics first opens in simple or KQL mode, whether to display tables with no data, configure the default results limit, sort by TimeGenerated in simple or KQL mode, show row numbers in query editor, and save query history.|
 | **Switch back to classic Logs** | Switch back to the [classic Log Analytics user interface](../logs/log-analytics-overview.md). |
 | **Queries Hub** | Open the example queries dialog that appears when you first open Log Analytics. |
 
@@ -151,9 +154,9 @@ To change the time range and number of records displayed, use the **Time range**
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-search.png" alt-text="Screenshot that shows the Search option in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-search.png":::
 
-1. Enter a value in the **Search this table** box and select **Apply**.
+1. Enter a string in the **Search this table** box and select **Apply**.
 
-    Log Analytics filters the table to show only entries that contain the value you entered.
+    Log Analytics filters the table to show only entries that contain the string you entered.
 
 > [!IMPORTANT]
 > We recommend using **Filter** if you know which column holds the data you're searching for. The [search operator is substantially less performant](../logs/query-optimization.md#avoid-unnecessary-use-of-search-and-union-operators) than filtering, and might not function well on large volumes of data.
