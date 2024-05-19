@@ -149,7 +149,7 @@ landingContent:
         - text: Use feature flags in Spring Boot
           url: use-feature-flags-spring-boot.md
         - text: Enable a feature for specified users/groups
-          url: howto-targetingfilter-aspnet-core.md
+          url: howto-targetingfilter.md
       - linkListType: reference
         links:
         - text: .NET library
