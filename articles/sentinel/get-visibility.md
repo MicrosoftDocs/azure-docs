@@ -3,7 +3,7 @@ title: Visualize collected data
 description: Learn how to quickly view and monitor what's happening across your environment by using Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 05/19/2024
 ms.author: yelevin
 ---
 
