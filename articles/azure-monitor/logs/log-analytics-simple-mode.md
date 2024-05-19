@@ -160,7 +160,7 @@ To change the time range and number of records displayed, use the **Time range**
 > [!IMPORTANT]
 > We recommend using **Filter** if you know which column holds the data you're searching for. The [search operator is substantially less performant](../logs/query-optimization.md#avoid-unnecessary-use-of-search-and-union-operators) than filtering, and might not function well on large volumes of data.
 
-**Aggregate**
+**Aggregate data**
 
 1. Select **Aggregate**.
 1. Select a column to aggregate by and select an operator to aggregate by, as described in [Use aggregation operators](#use-aggregation-operators).
@@ -185,6 +185,8 @@ To change the time range and number of records displayed, use the **Time range**
 1. Select **Sort** again to sort by another column.
 
 ### Use aggregation operators
+
+Use aggregation operators to summarize data from multiple rows, as described in this table.
 
 | Operator | Description |
 |:---|:---|
