@@ -24,7 +24,7 @@ To deploy your repository to App Spaces, you must have the following items:
 
 Follow these steps to deploy your app from a GitHub repository:
 
-1. Browse to [https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView).
+1. Browse to [https://ms.portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotCreate.ReactView](https://ms.portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotCreate.ReactView).
 
 #### Connect to GitHub to import your repository
 

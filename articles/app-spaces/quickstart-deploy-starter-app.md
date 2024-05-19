@@ -27,7 +27,7 @@ While Express.JS (backend) and React (frontend) apps are used in this quickstart
 
 Follow these steps to deploy a sample app to App Spaces. 
 
-1. Browse to [https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView).
+1. Browse to [https://ms.portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotHome.ReactView](https://ms.portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotHome.ReactView).
 
 ::: zone pivot="frontend"  
 2. Under *Use a starter app*, select **React App**.
@@ -49,7 +49,6 @@ Follow these steps to deploy a sample app to App Spaces.
     | Setting | Action |
     |---|---|
     | App Space name | Enter `myAppSpace`. |
-    | Organization | Select your organization. |
     | Subscription | Select your subscription. |
     | Region | Select your region. |
 
@@ -68,7 +67,6 @@ The sample web application code deploys to App Spaces. The deployment can take a
     | Setting | Action |
     |---|---|
     | GitHub account | Select your GitHub account. |
-    | Organization | Select your organization. |
     | New repository | Eneter `myExpressSample` for your new repository. |
 
 ## Configure app details

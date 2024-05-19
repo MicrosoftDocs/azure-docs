@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/20/2024
 ---
 
-# Manage app component
+# Manage components in App Spaces
 
 You can manage the components of your App Space by selecting the component on the __App Space__ page. 
 
@@ -42,8 +42,12 @@ Service-level events, or console logs to debug code.
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
+- 
+- https://go.microsoft.com/fwlink/?linkid=2269911
 
 #### [App Component (Backend)](#tab/app/)
+
+Logs link: https://go.microsoft.com/fwlink/?linkid=2259026
 
 #### [Database](#tab/db/)
 
@@ -69,6 +73,18 @@ Service-level events, or console logs to debug code.
 
 #### [Static App Component (Frontend)](#tab/swa/)
 
+### General
+|Section| Name | Description |
+|-------|------|-------------|
+|General | Component name | App Space component name |
+|Domains | Domain | App Space domain name |
+|Routes | - | Route rules allow you to restrict access to users in specific roles or perform actions such as redirect or rewrite. |
+|Authentication | - | Setup an authentication provider to authenticate users who visit your site. Once authenticated, users can be authorized by the GET roles API which will return which roles have been assigned to the user. The paths and APIs that each role has access to are determined by the routes which you defined above.|
+
+
+Routes link: https://go.microsoft.com/fwlink/?linkid=2264948
+
+
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
@@ -83,6 +99,10 @@ Service-level events, or console logs to debug code.
 ## Info
 
 #### [Static App Component](#tab/swa/)
+
+
+SWA info link: https://go.microsoft.com/fwlink/?linkid=2260405
+
 This tab shows the following details:
 
 | Name | Description |
@@ -97,6 +117,9 @@ This tab shows the following details:
 |Resource name|App space internal name|
 
 #### [App Component (Backend)](#tab/app/)
+
+ACA info link: https://go.microsoft.com/fwlink/?linkid=2261690
+
 This tab shows the following details:
 
 | Name | Description |
@@ -111,6 +134,9 @@ This tab shows the following details:
 |Resource name|App space internal name|
 
 #### [Database](#tab/db/)
+
+DB info link: https://go.microsoft.com/fwlink/?linkid=2261690
+
 | Name | Description |
 |------|-------------|
 |URL | App URL |
