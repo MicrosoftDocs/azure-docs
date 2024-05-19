@@ -55,7 +55,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. For **App registration** > **App registration type**, select **Create new app registration** to create a new app registration in Microsoft Entra.
 
-1. Add a **Name** for the app registration, a public facing display name.
+1. Enter a display **Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.
 
 1. For **App registration** > **Supported account types**, select **Current tenant-single tenant** so only users in your organization can sign in to the web app.
 
@@ -93,7 +93,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. Select **Create new app registration** to create a new app registration.
 
-1. Click **Create new** to create a new [customer (external) tenant](/entra/external-id/customers/quickstart-tenant-setup), or select an existing tenant to use.
+1. Click **Create new** to create a new [external tenant](/entra/external-id/customers/quickstart-tenant-setup), or select an existing tenant to use.
 
     :::image type="content" alt-text="Screenshot that shows the Select a tenent dropdown." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-select.png":::
 
@@ -121,9 +121,9 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. Select **Next** and **Yes, update the changes** to accept the branding changes.
 
-1. Select **Configure** in the **Review** tab to confirm External ID (CIAM) tenant update. 
+1. Select **Configure** in the **Review** tab to confirm external tenant update. 
 
-1. The browser opens **Add an identity provider**.
+1. The browser returns to the **Add an identity provider** page.
 
 1. In the **Additional checks** section, select:
 
@@ -143,9 +143,9 @@ Now that you have a web app running on App Service, enable authentication and au
 
 ## 4. Verify limited access to the web app
 
-When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your workforce or customer (external) tenant. The app registration has the same display name as your web app. 
+When you enabled the App Service authentication/authorization module in the previous section, an app registration was created in your workforce or external tenant. The app registration has the display name you created in a previous step. 
 
-1. To check the settings, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/entra/identity/role-based-access-control/permissions-reference#application-developer).  If necessary, use the **Settings** icon  in the top menu to switch to the customer (external) tenant with your web app from the **Directories** + **subscriptions** menu.   When you are in the correct tenant:
+1. To check the settings, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/entra/identity/role-based-access-control/permissions-reference#application-developer).  If you chose external configuration, use the **Settings** icon  in the top menu to switch to the external tenant with your web app from the **Directories** + **subscriptions** menu.   When you are in the correct tenant:
 
 1. Browse to **Identity** > **Applications** > **App registrations** and select **Applications** > **App registrations** from the menu. 
 1. Select the app registration that was created. 
