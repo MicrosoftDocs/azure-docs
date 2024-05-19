@@ -17,18 +17,18 @@ ms.custom: [references_regions]
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-In this article, you learn about the Meta Llama models. You also learn how to use Azure AI Studio to deploy models from this set either as a service with pay-as you go billing or with hosted infrastructure in real-time endpoints.
+In this article, you learn about the Meta Llama models. You also learn how to use Azure AI Studio to deploy models from this set either to serverless APIs with pay-as you go billing or to managed compute.
 
   > [!IMPORTANT]
   > Read more about the announcement of Meta Llama 3 models available now on Azure AI Model Catalog: [Microsoft Tech Community Blog](https://aka.ms/Llama3Announcement) and from [Meta Announcement Blog](https://aka.ms/meta-llama3-announcement-blog).
 
 Meta Llama 3 models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 8 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF), called Meta-Llama-3-8B-Instruct and Meta-Llama-3-70B-Instruct. See the following GitHub samples to explore integrations with [LangChain](https://aka.ms/meta-llama3-langchain-sample), [LiteLLM](https://aka.ms/meta-llama3-litellm-sample), [OpenAI](https://aka.ms/meta-llama3-openai-sample) and the [Azure API](https://aka.ms/meta-llama3-azure-api-sample).
 
-## Deploy Meta Llama models with pay-as-you-go
+## Deploy Meta Llama models as a serverless API
 
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-Meta Llama 3 models are deployed as a service with pay-as-you-go through Microsoft Azure Marketplace, and they might add more terms of use and pricing.
+Meta Llama 3 models are deployed as a serverless API with pay-as-you-go billing through Microsoft Azure Marketplace, and they might add more terms of use and pricing.
 
 ### Azure Marketplace model offerings
 
@@ -41,7 +41,7 @@ The following models are available in Azure Marketplace for Llama 3 when deploye
 
 # [Meta Llama 2](#tab/llama-two)
 
-The following models are available in Azure Marketplace for Llama 3 when deployed as a service with pay-as-you-go:
+The following models are available in Azure Marketplace for Llama 3 when deployed as a serverless API:
 
 * Meta Llama-2-7B (preview)
 * Meta Llama 2 7B-Chat (preview)
@@ -52,7 +52,7 @@ The following models are available in Azure Marketplace for Llama 3 when deploye
   
 ---
 
-If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-meta-llama-models-to-real-time-endpoints) instead.
+If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-real-time-endpoints) instead.
 
 ### Prerequisites
 
@@ -125,7 +125,7 @@ To create a deployment:
 
     Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
 
-1. On the model's **Details** page, select **Deploy** and then select **Pay-as-you-go**.
+1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety**.
 
 1. Select the project in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
@@ -157,7 +157,7 @@ To create a deployment:
 
     Alternatively, you can initiate deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
 
-1. On the model's **Details** page, select **Deploy** and then select **Pay-as-you-go**.
+1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety**.
 
     :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
 
@@ -193,7 +193,7 @@ To learn about billing for Llama models deployed with pay-as-you-go, see [Cost a
 
 Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
 
-1. On the **Build** page, select **Deployments**.
+1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
 1. Find and select the deployment you created.
 
@@ -213,7 +213,7 @@ Models deployed as a service can be consumed using either the chat or the comple
 
 Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
 
-1. On the **Build** page, select **Deployments**.
+1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
 1. Find and select the deployment you created.
 
@@ -483,9 +483,9 @@ The following is an example response:
 }
 ```
     
-## Deploy Meta Llama models to real-time endpoints
+## Deploy Meta Llama models to managed compute
 
-Apart from deploying with the pay-as-you-go managed service, you can also deploy Meta Llama models to real-time endpoints in AI Studio. When deployed to real-time endpoints, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to real-time endpoints consume quota from your subscription. All the models in the Llama family can be deployed to real-time endpoints.
+Apart from deploying with the pay-as-you-go managed service, you can also deploy Meta Llama models to managed compute in AI Studio. When deployed to managed compute, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to managed compute consume quota from your subscription. All the models in the Llama family can be deployed to managed compute.
 
 Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
 
@@ -520,9 +520,9 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 1. Select the **Consume** tab of the deployment to obtain code samples that can be used to consume the deployed model in your application.
 
-### Consume Llama 2 models deployed to real-time endpoints
+### Consume Llama 2 models deployed to managed compute
 
-For reference about how to invoke Llama models deployed to real-time endpoints, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
+For reference about how to invoke Llama models deployed to managed compute, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
 ## Cost and quotas
 
@@ -538,13 +538,13 @@ For more information on how to track costs, see [monitor costs for models offere
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-### Cost and quota considerations for Llama models deployed as real-time endpoints
+### Cost and quota considerations for Llama models deployed as managed compute
 
-For deployment and inferencing of Llama models with real-time endpoints, you consume virtual machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once you reach this limit, you can request a quota increase.  
+For deployment and inferencing of Llama models with managed compute, you consume virtual machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once you reach this limit, you can request a quota increase.  
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by Azure AI Content Safety. When deployed to real-time endpoints, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
+Models deployed as a serverless API with pay-as-you-go are protected by Azure AI Content Safety. When deployed to managed compute, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
 
 ## Next steps
 

@@ -38,9 +38,9 @@ Azure OpenAI allows you to get access to the latest OpenAI models with the enter
 
 The model catalog offers access to a large variety of models across different modalities. Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need.
 
-#### Deploy models with model as a service
+#### Deploy models with Model as a Service (Maas)
 
-This deployment option doesn't require quota from your subscription. You're billed per token in a pay-as-you-go fashion. Learn how to deploy and consume [Llama 2 model family](../how-to/deploy-models-llama.md) with model as a service.
+This deployment option doesn't require quota from your subscription. You deploy as a Serverless API deployment and are billed per token in a pay-as-you-go fashion. Learn how to deploy and consume [Llama 2 model family](../how-to/deploy-models-llama.md) with model as a service.
 
 #### Deploy models with hosted managed infrastructure
 
@@ -50,7 +50,7 @@ You can also host open models in your own subscription with managed infrastructu
 
 The following table describes how you're billed for deploying and inferencing LLMs in Azure AI Studio. See [monitor costs for models offered throughout the Azure Marketplace](../how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
 
-| Use case | Azure OpenAI models | Models deployed with pay-as-you-go | Models deployed to real-time endpoints |
+| Use case | Azure OpenAI models | Models deployed as Serverless APIs (pay-as-you-go) | Models deployed with managed compute |
 | --- | --- | --- | --- |
 | Deploying a model from the model catalog to your project | No, you aren't billed for deploying an Azure OpenAI model to your project. | Yes, you're billed per the infrastructure of the endpoint<sup>1</sup> | Yes, you're billed for the infrastructure hosting the model<sup>2</sup> |
 | Testing chat mode on Playground after deploying a model to your project | Yes, you're billed based on your token usage | Yes, you're billed based on your token usage | None. |
