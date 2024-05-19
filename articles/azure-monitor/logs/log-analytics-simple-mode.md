@@ -124,7 +124,7 @@ After you [get started in simple mode](#get-started-in-simple-mode), you can exp
 
 **Change time range and number of records displayed**
 
-By default, simple mode lists the latest 1000 entries in the table from the last 24 hours. 
+By default, simple mode lists the latest 1,000 entries in the table from the last 24 hours. 
 
 To change the time range and number of records displayed, use the **Time range** and **Limit** selectors.
     
@@ -214,7 +214,7 @@ For straightforward queries on a single table, Log Analytics displays the table 
 
 1. Select one of the preset limits, or enter a custom limit. 
  
-    The maximum number of results that you can retrieve in the Log Analytics portal experience, in both simple mode and KQL mode, is 30,000. However, when you [share the query](#more-tools) you define in Log Analytics with an integrated tool, or run a [search job](search-jobs.md), your query is not limited to the maximum number of results in Log Analytics.
+    The maximum number of results that you can retrieve in the Log Analytics portal experience, in both simple mode and KQL mode, is 30,000. However, when you [share the query](#more-tools) you define in Log Analytics with an integrated tool, or run a [search job](search-jobs.md), your query isn't limited to the maximum number of results in Log Analytics.
 
     Select **Max. limit** to return the maximum number of results provided by any of the options available on the **Share** window or using a search job.
 
