@@ -12,16 +12,14 @@ ms.custom: references_regions
 
 # Enhance resilience by replicating your Log Analytics workspace across regions (Preview)
 
-Replicating your Log Analytics workspace across regions enhances resilience by letting you switch over to the replicated workspace and continue operations if there's a regional failure. To switch between workspaces in the two regions, you call the Workspace Failover API endpoint after careful consideration and analysis. 
-
-This article explains how Log Analytics workspace replication works, how to replicate your workspace, how to switch over and back, and how to decide when to switch between your replicated workspaces.
+Replicating your Log Analytics workspace across regions enhances resilience by letting you switch over to the replicated workspace and continue operations if there's a regional failure. This article explains how Log Analytics workspace replication works, how to replicate your workspace, how to switch over and back, and how to decide when to switch between your replicated workspaces.
 
 Here's a video that provides a quick overview of how Log Analytics workspace replication works:
 
 >[!VIDEO https://www.youtube.com/embed/9t7T7D4oVMk]
 
 > [!IMPORTANT]
-> Although we sometimes use the term failover, for example in the API call, failover is also commonly used to describe an automatic process. Therefore, this article uses the term switchover to emphasize that the switch to the replicated workspace is an action you trigger manually after carefully consideration. 
+> Although we sometimes use the term failover, for example in the API call, failover is also commonly used to describe an automatic process. Therefore, this article uses the term switchover to emphasize that the switch to the replicated workspace is an action you trigger manually. 
 
 ## Permissions required
 
@@ -536,6 +534,9 @@ LAQueryLogs
 ```
 ## Restrictions and limitations
 
+- Replication of Log Analytics workspaces linked to a dedicated cluster is currently not supported.  
+- The [purge operation](personal-data-mgmt.md#delete), which deletes records from a workspace, removes the relevant records from both the primary and the secondary workspaces. If one of the workspace instances isn't available, the purge operation fails.
+- Replication of alert rules across regions is currently not supported. Since Azure Monitor supports querying the inactive region, query-based alerts continue to work when you switch between regions unless the Alerts service in the active region isn't working properly or the alert rules aren't available.
 - When you enable replication for workspaces that interact with Sentinel, it can take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
 - During switchover, workspace management operations aren't supported, including:
    - Change workspace retention, pricing tier, daily cap, and so on
