@@ -20,11 +20,11 @@ Log Analytics now offers two ways to explore data:
 
 You can switch seamlessly between simple and advance mode, and advanced users can share complex queries, which anyone can continue working in simple mode. 
 
+This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.     
+
 This video provides a quick overview of how to query logs in Log Analytics using simple and KQL mode:
 
 >[!VIDEO https://youtube/85Xxj5FhTk0]
-
-This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.     
 
 ## Try Log Analytics simple mode
 
