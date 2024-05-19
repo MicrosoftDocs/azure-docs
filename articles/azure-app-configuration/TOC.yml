@@ -307,6 +307,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2270866
     - name: Feature management
       items:
+        - name: .NET Feature Management
+          href: ./dotnet-feature-management.md
         - name: .NET
           href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring
