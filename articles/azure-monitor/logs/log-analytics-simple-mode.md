@@ -23,6 +23,7 @@ You can switch seamlessly between Simple and KQL modes, and advanced users can s
 This article explains how to use Log Analytics Simple mode to explore and analyze data in Azure Monitor Logs.    
 
 Here's a video that provides a quick overview of how to query logs in Log Analytics using both Simple and KQL modes:
+<br>
 
 >[!VIDEO https://www.youtube.com/embed/85Xxj5FhTk0]
 
