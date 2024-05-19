@@ -16,7 +16,7 @@ Replicating your Log Analytics workspace across regions enhances resilience by l
 
 This article explains how Log Analytics workspace replication works, how to replicate your workspace, how to switch over and back, and how to decide when to switch between your replicated workspaces.
 
-Here's a video that provides a quick overview of of how Log Analytics workspace replication works:
+Here's a video that provides a quick overview of how Log Analytics workspace replication works:
 
 >[!VIDEO https://www.youtube.com/embed/9t7T7D4oVMk]
 
