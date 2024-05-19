@@ -114,7 +114,7 @@ Where:
 - `<resourcegroup_name>` : The resource group that contains your Log Analytics workspace resource.
 - `<workspace_name>`: The name of your workspace.
 - `<primary_region>`: The primary region for your Log Analytics workspace.
-- `<secondary_region>`: The region in Azure Monitor creates the secondary workspace.
+- `<secondary_region>`: The region in which Azure Monitor creates the secondary workspace.
 
 For the supported `location` values, see [Supported regions](#supported-regions).
 
