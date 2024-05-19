@@ -20,7 +20,7 @@ Log Analytics now offers two ways to explore data:
 
 You can switch seamlessly between simple and advance mode, and advanced users can share complex queries, which anyone can continue working in simple mode. 
 
-This video provides a quick overview of how to query logs in Log Analytics using simple and KQL mode.
+This video provides a quick overview of how to query logs in Log Analytics using simple and KQL mode:
 
 >[!VIDEO https://youtu.be/85Xxj5FhTk0]
 
@@ -28,7 +28,7 @@ This article explains how to use Log Analytics simple mode to explore and analyz
 
 ## Try Log Analytics simple mode
 
-Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor.
+Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor. You can switch back to the classic Log Analytics experience.
 
 :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A screenshot showing the Try new Log Analytics button.":::
 
