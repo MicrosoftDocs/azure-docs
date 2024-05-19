@@ -164,8 +164,9 @@ az ad app federated-credential create --id ${APPLICATION_OBJECT_ID} --parameters
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | The name of your AKS cluster. |
-    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
     | `<CONTAINER-IMAGE-VERSION>` | [!INCLUDE [version](../includes/prometheus-remotewrite-image-version.md)]| 
+    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
+   
 
 1. Use Helm to apply the YAML file and update your Prometheus configuration:
 
