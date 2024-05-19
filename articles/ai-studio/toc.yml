@@ -166,7 +166,7 @@ items:
       items:
       - name: Overview of SDKs
         href: how-to/develop/sdk-overview.md
-      - name: Work with Azure AI projects in VS Code
+      - name: Work with AI Studio projects in VS Code
         href: how-to/develop/vscode.md
       - name: Start with an AI template
         href: how-to/develop/ai-template-get-started.md
