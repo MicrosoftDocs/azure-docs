@@ -18,7 +18,7 @@ You can manage the components of your App Space by selecting the component on th
 
 ## Deployment
 
-Shows the app deployment details in App Space. Here you can view the GitHub actions workflow
+Shows the app deployment details including GitHub actions workflow. 
 ::: zone pivot="static"
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
@@ -36,14 +36,11 @@ Deployment info for database.
 Service-level events, or console logs to debug code. 
 
 ::: zone pivot="static"
-- Redeploy repeats the latest deployment.
-- Workflow run allows you to view the GitHub actions 
-- View commit
-- 
-- https://go.microsoft.com/fwlink/?linkid=2269911
+
+For more information, see [Enable a framework extension for Application Insights JavaScript SDK](https://go.microsoft.com/fwlink/?linkid=2269911).
 
 ::: zone pivot="app"
-Logs link: https://go.microsoft.com/fwlink/?linkid=2259026
+For more information, see [View log streams in Azure Container Apps](https://go.microsoft.com/fwlink/?linkid=2259026).
 ::: zone pivot="database"
 Logs info for database.
 ::: zone-end
@@ -69,12 +66,8 @@ settings info for static app component.
 |-------|------|-------------|
 |General | Component name | App Space component name |
 |Domains | Domain | App Space domain name |
-|Routes | - | Route rules allow you to restrict access to users in specific roles or perform actions such as redirect or rewrite. |
+|Routes | - | [Route rules allow you to restrict access to users in specific roles or perform actions such as redirect or rewrite](https://learn.microsoft.com/en-us/azure/static-web-apps/configuration#routes). |
 |Authentication | - | Setup an authentication provider to authenticate users who visit your site. Once authenticated, users can be authorized by the GET roles API which will return which roles have been assigned to the user. The paths and APIs that each role has access to are determined by the routes which you defined above.|
-
-
-Routes link: https://go.microsoft.com/fwlink/?linkid=2264948
-
 
 ::: zone pivot="app"
 settings info for app component.
@@ -86,11 +79,6 @@ settings info for database.
 ## Info
 
 ::: zone pivot="static"
-info for static app component.
-
-
-SWA info link: https://go.microsoft.com/fwlink/?linkid=2260405
-
 This tab shows the following details:
 
 | Name | Description |
@@ -98,7 +86,7 @@ This tab shows the following details:
 |URL | App URL |
 |Location | App region |
 |Resource group | App's resource group |
-|Pricing | Pricing details |
+|Pricing | [Pricing details](https://go.microsoft.com/fwlink/?linkid=2260405) |
 |Repository|Component's GitHub repo|
 |Branch|GitHub branch|
 |Subscription|Azure subscription|
