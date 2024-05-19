@@ -1,6 +1,6 @@
 ---
-title: Analyze data using Log Analytics simple mode 
-description: This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.
+title: Analyze data using Log Analytics Simple mode 
+description: This article explains how to use Log Analytics Simple mode to explore and analyze data in Azure Monitor Logs.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
@@ -11,47 +11,47 @@ ms.date: 09/04/2023
 
 ---
 
-# Analyze data using Log Analytics simple mode (Preview)
+# Analyze data using Log Analytics Simple mode (Preview)
 
-Log Analytics now offers two ways to explore data:  
+Log Analytics now offers two modes that make it easier for both basic and advanced users to explore and analyze log data:  
 
-- **Simple mode** gives you the most commonly used Azure Monitor Logs functionality in an intuitive spreadsheet-like experience. Just point and click to filter, sort, and aggregate data to get to the insights you need 80% of the time. 
+- **Simple mode** provides the most commonly used Azure Monitor Logs functionality in an intuitive, spreadsheet-like experience. Just point and click to filter, sort, and aggregate data to get to the insights you need 80% of the time. 
 - **KQL mode** gives advanced users the full power of Kusto Query Language (KQL) to derive deeper insights from their logs using the [Log Analytics query editor](log-analytics-overview.md).
 
-You can switch seamlessly between simple and KQL mode, and advanced users can share complex queries, which anyone can continue working in simple mode. 
+You can switch seamlessly between Simple and KQL modes, and advanced users can share complex queries that anyone can continue working with in Simple mode.
 
-This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.     
+This article explains how to use Log Analytics Simple mode to explore and analyze data in Azure Monitor Logs.     
 
-Here's a video that provides a quick overview of how to query logs in Log Analytics using simple and KQL mode:
+Here's a video that provides a quick overview of how to query logs in Log Analytics using both Simple and KQL mode:
 
 >[!VIDEO https://www.youtube.com/embed/85Xxj5FhTk0]
 
-## Try Log Analytics simple mode
+## Try Log Analytics Simple mode
 
 Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor. You can switch back to the classic Log Analytics experience.
 
-:::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A screenshot showing the Try new Log Analytics button." lightbox="media/log-analytics-explorer/try-new-log-analytics.png":::
+:::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A screenshot showing the Try the new Log Analytics button." lightbox="media/log-analytics-explorer/try-new-log-analytics.png":::
 
-## How simple mode works
+## How Simple mode works
 
 Simple mode lets you [get started quickly by retrieving data from one or more tables with one click](#get-started-in-simple-mode). You then use a set of intuitive controls to [explore and analyze the retrieved data](#explore-and-analyze-data-in-simple-mode).  
 
-This section orients you with the controls available in Log Analytics simple mode.
+This section orients you with the controls available in Log Analytics Simple mode.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png" alt-text="Screenshot that shows Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png" alt-text="Screenshot that shows Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png":::
 
 ### Top query bar
 
-In simple mode, the top bar has controls for working with data and switching to KQL mode.
+In Simple mode, the top bar has controls for working with data and switching to KQL mode.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-top-query-bar.png" alt-text="Screenshot that shows the top query bar in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-top-query-bar.png":::
 
 | Option | Description |
 |:---|:---|
 | **Time range** | Select the [time range](./scope.md) for the data available to the query. In KQL mode, if you set a different time range in your query, the time range you set in the time picker is overridden. |
-|**Limit**|Configure the number of entries Log Analytics retrieves in simple mode. The default limit is 1000. For more information on query limits, see [Configure query results limit](#configure-query-result-limit).|
-|**Add**|Add filters, and apply simple mode operators, as described in [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).|
-|**Simple/KQL mode**|Switch between simple and KQL mode.|
+|**Limit**|Configure the number of entries Log Analytics retrieves in Simple mode. The default limit is 1000. For more information on query limits, see [Configure query results limit](#configure-query-result-limit).|
+|**Add**|Add filters, and apply Simple mode operators, as described in [Explore and analyze data in Simple mode](#explore-and-analyze-data-in-simple-mode).|
+|**Simple/KQL mode**|Switch between Simple and KQL mode.|
 | **Search**|Search through query results to find all instances of a particular string.|
 
 ### Left pane
@@ -64,8 +64,8 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 | Option | Description |
 |:---|:---|
-| **Tables** | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog with a description of the table and options to view its documentation and preview its data. Expand a table to view its columns. Select a table or column name to add it to the query. |
-| **Queries** | Lists example and saved queries. This is the same list that in the Queries Hub. Select **Group by** to change the grouping of the queries. Select a query to add it to the query window or hover over it for other options. |
+| **Tables** | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to view the table's description and a link to its documentation. Expand a table to view its columns. Select a table to run a query on it. |
+| **Queries** | Lists example and saved queries. This is the same list that's in the Queries Hub. Select **Group by** to change the grouping of the queries. Select a query to add it to the query window or hover over it for other options. |
 |**Functions**|Lists [functions](../logs/functions.md), which allow you to reuse predefined query logic in your log queries. |
 |**Query history**|Lists your query history. Select a query to rerun it.|
 
@@ -82,13 +82,13 @@ This section describes more tools available above the query area of the screen, 
 | **Share** | Copy a link to your query, the query text, or query results, or [export data to Excel](../logs/log-excel.md), CSV, or [Power BI](../logs/log-powerbi.md). |
 | **New alert rule** | [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal). |
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
-| **Log Analytics settings**| Define default Log Analytics settings, including time zone, whether Log Analytics first opens in simple or KQL mode, whether to display tables with no data, configure the default results limit, sort by TimeGenerated in simple or KQL mode, show row numbers in query editor, and save query history.|
+| **Log Analytics settings**| Define default Log Analytics settings, including time zone, whether Log Analytics first opens in Simple or KQL mode, whether to display tables with no data, configure the default results limit, sort by TimeGenerated in Simple or KQL mode, show row numbers in query editor, and save query history.|
 | **Switch back to classic Logs** | Switch back to the [classic Log Analytics user interface](../logs/log-analytics-overview.md). |
 | **Queries Hub** | Open the example queries dialog that appears when you first open Log Analytics. |
 
-## Get started in simple mode
+## Get started in Simple mode
 
-When you select a table or a predefined query or function in simple mode, Log Analytics automatically retrieves the relevant data for you to explore and analyze. 
+When you select a table or a predefined query or function in Simple mode, Log Analytics automatically retrieves the relevant data for you to explore and analyze. 
 
 This lets you retrieve logs with one click whether you open Log Analytics in resource or workspace context.
 
@@ -117,16 +117,16 @@ To get started:
     > [!IMPORTANT]
     > Functions let you reuse query logic and often require input parameters or additional context. In such cases, the function won't run until you switch to KQL mode and provide the required input.  
   
-## Explore and analyze data in simple mode 
+## Explore and analyze data in Simple mode 
 
-After you [get started in simple mode](#get-started-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). 
+After you [get started in Simple mode](#get-started-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). 
 
 > [!NOTE]
 > The order in which you apply filters and operators affects your query and results. For example, if you apply a filter and then aggregate, Log Analytics applies the aggregation to the filtered data. If you aggregate and then filter, the aggregation is applied to the unfiltered data.
 
 **Change time range and number of records displayed**
 
-By default, simple mode lists the latest 1,000 entries in the table from the last 24 hours. 
+By default, Simple mode lists the latest 1,000 entries in the table from the last 24 hours. 
 
 To change the time range and number of records displayed, use the **Time range** and **Limit** selectors.
     
@@ -136,13 +136,13 @@ To change the time range and number of records displayed, use the **Time range**
 
 1. Select **Add** and choose a column.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-add-filter.png" alt-text="Screenshot that shows the Add filters menu that opens when you select Add in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-add-filter.png":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-add-filter.png" alt-text="Screenshot that shows the Add filters menu that opens when you select Add in Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-add-filter.png":::
 
 1. Select a value to filter by, or enter text or numbers in the **Search** box.
 
     If you filter by selecting values from a list, you can select multiple values. If the list is long, you'll see a **Not all results are shown** message. Scroll to the bottom of the list and select **Load more results** to retrieve more values.  
     
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows filter values for the OperationId column in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-filter.png":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows filter values for the OperationId column in Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-filter.png":::
 
     > [!NOTE]
     > Simple mode doesn't support filtering a dynamic column. To filter on data in a dynamic column, [extend the column](https://azure.microsoft.com/updates/azure-monitor-log-analytics-ui-updates-june-2019/). 
@@ -151,7 +151,7 @@ To change the time range and number of records displayed, use the **Time range**
 
 1. Select **Search**.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-search.png" alt-text="Screenshot that shows the Search option in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-search.png":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-search.png" alt-text="Screenshot that shows the Search option in Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-search.png":::
 
 1. Enter a string in the **Search this table** box and select **Apply**.
 
@@ -198,15 +198,15 @@ To change the time range and number of records displayed, use the **Time range**
 
 To switch modes, select **Simple mode** or **KQL mode** from the dropdown in the top right corner of the query editor.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-simple.png" alt-text="Screenshot that shows how to toggle between simple mode and KQL mode in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-simple.png":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-Simple.png" alt-text="Screenshot that shows how to toggle between Simple mode and KQL mode in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-simple.png":::
 
-When you begin to query logs in simple mode and then switch to KQL mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
+When you begin to query logs in Simple mode and then switch to KQL mode, the query editor is prepopulated with the KQL query related to your Simple mode analysis. You can then edit and continue working with the query.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-kql.png" alt-text="Screenshot that shows a query in Log Analytics KQL mode." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-kql.png":::
 
-For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the left of the top query bar. Select **User Query** to return to the query editor and modify your query at any time.
+For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in Simple mode. For more complex queries, Log Analytics displays **User Query** at the left of the top query bar. Select **User Query** to return to the query editor and modify your query at any time.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in simple mode." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in Simple mode." lightbox="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png":::
 
 ## Configure query result limit
 
@@ -216,7 +216,7 @@ For straightforward queries on a single table, Log Analytics displays the table 
 
 1. Select one of the preset limits, or enter a custom limit. 
  
-    The maximum number of results that you can retrieve in the Log Analytics portal experience, in both simple mode and KQL mode, is 30,000. However, when you [share the query](#more-tools) you define in Log Analytics with an integrated tool, or run a [search job](search-jobs.md), your query isn't limited to the maximum number of results in Log Analytics.
+    The maximum number of results that you can retrieve in the Log Analytics portal experience, in both Simple mode and KQL mode, is 30,000. However, when you [share the query](#more-tools) you define in Log Analytics with an integrated tool, or run a [search job](search-jobs.md), your query isn't limited to the maximum number of results in Log Analytics.
 
     Select **Max. limit** to return the maximum number of results provided by any of the options available on the **Share** window or using a search job.
 
