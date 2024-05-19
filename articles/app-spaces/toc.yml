@@ -22,7 +22,10 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Add components
-      href: how-to-add-components.md  
-    - name: Manage components
-      href: how-to-manage-components.md
+    - name: Full stack app
+      href: https://link-to-elliotts-page.com
+- name: Frequently asked questions
+  expanded: true
+  items:
+    - name: FAQ
+      href: frequently-asked-questions.md

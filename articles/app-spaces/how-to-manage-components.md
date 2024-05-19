@@ -6,6 +6,7 @@ author: msangapu-msft
 ms.service: app-spaces
 ms.topic: how-to
 ms.date: 05/20/2024
+zone_pivot_groups: app-spaces-component-types
 ---
 
 # Manage components in App Spaces
@@ -18,62 +19,52 @@ You can manage the components of your App Space by selecting the component on th
 ## Deployment
 
 Shows the app deployment details in App Space. Here you can view the GitHub actions workflow
-
-
-#### [Static App Component (Frontend)](#tab/swa/)
-
+::: zone pivot="static"
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
+::: zone pivot="app"
+Deployment info for app component.
+::: zone pivot="database"
+Deployment info for database.
+::: zone-end
 
-#### [App Component (Backend)](#tab/app/)
-
-#### [Database](#tab/db/)
-
-* * *
 
 
 ## Logs
 
 Service-level events, or console logs to debug code. 
 
-#### [Static App Component (Frontend)](#tab/swa/)
-
+::: zone pivot="static"
 - Redeploy repeats the latest deployment.
 - Workflow run allows you to view the GitHub actions 
 - View commit
 - 
 - https://go.microsoft.com/fwlink/?linkid=2269911
 
-#### [App Component (Backend)](#tab/app/)
-
+::: zone pivot="app"
 Logs link: https://go.microsoft.com/fwlink/?linkid=2259026
-
-#### [Database](#tab/db/)
-
-* * *
+::: zone pivot="database"
+Logs info for database.
+::: zone-end
 
 
 ## Metrics
 
-#### [Static App Component (Frontend)](#tab/swa/)
-
-- Redeploy repeats the latest deployment.
-- Workflow run allows you to view the GitHub actions 
-- View commit
-
-#### [App Component (Backend)](#tab/app/)
-
-#### [Database](#tab/db/)
-
-* * *
-
+::: zone pivot="static"
+metrics info for static app component.
+::: zone pivot="app"
+metrics info for app component.
+::: zone pivot="database"
+metrics info for database.
+::: zone-end
 
 ## Settings
 
-#### [Static App Component (Frontend)](#tab/swa/)
 
-### General
+::: zone pivot="static"
+settings info for static app component.
+
 |Section| Name | Description |
 |-------|------|-------------|
 |General | Component name | App Space component name |
@@ -85,20 +76,17 @@ Logs link: https://go.microsoft.com/fwlink/?linkid=2259026
 Routes link: https://go.microsoft.com/fwlink/?linkid=2264948
 
 
-- Redeploy repeats the latest deployment.
-- Workflow run allows you to view the GitHub actions 
-- View commit
-
-#### [App Component (Backend)](#tab/app/)
-
-#### [Database](#tab/db/)
-
-* * *
+::: zone pivot="app"
+settings info for app component.
+::: zone pivot="database"
+settings info for database.
+::: zone-end
 
 
 ## Info
 
-#### [Static App Component](#tab/swa/)
+::: zone pivot="static"
+info for static app component.
 
 
 SWA info link: https://go.microsoft.com/fwlink/?linkid=2260405
@@ -116,8 +104,8 @@ This tab shows the following details:
 |Subscription|Azure subscription|
 |Resource name|App space internal name|
 
-#### [App Component (Backend)](#tab/app/)
-
+::: zone pivot="app"
+info for app component.
 ACA info link: https://go.microsoft.com/fwlink/?linkid=2261690
 
 This tab shows the following details:
@@ -133,8 +121,8 @@ This tab shows the following details:
 |Subscription|Azure subscription|
 |Resource name|App space internal name|
 
-#### [Database](#tab/db/)
-
+::: zone pivot="database"
+info for database.
 DB info link: https://go.microsoft.com/fwlink/?linkid=2261690
 
 | Name | Description |
@@ -147,86 +135,13 @@ DB info link: https://go.microsoft.com/fwlink/?linkid=2261690
 |Subscription|Azure subscription|
 |Resource name|App space internal name|
 
-* * *
+::: zone-end
 
 
-
-Component name
-Listening port
-
-#### Environment variables
-
-
-
-### Info
-
-
-#### [Static App Component (Frontend)](#tab/swa/)
-
-- Redeploy repeats the latest deployment.
-- Workflow run allows you to view the GitHub actions 
-- View commit
-
-#### [App Component (Backend)](#tab/app/)
-
-#### [Database](#tab/db/)
-
-* * *
-
-- URL
-- Location
-- Subscription
-- Resource name
-- Repository
-- Resource group
-- Pricing (goes to a generic page)
-
-
-
-which provides information and options, based on the Azure service you're using to deploy your web application. Select the following tab associated with the Azure service.
-
-
-#### [Static App Component (Frontend)](#tab/swa/)
-
-The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
-
-|Hosting tab  |Actions | 
-|---------|---------|
-|**Environments**   | View production and preview environment name, branch, last update time, and status.   |
-| **Environment variables**  |Add an environment variable. Enter `Name` and `Value` , and then select **Apply**.    |
-| **Backend & API**   |Bring your own API backends. Enter `Environment Name`, `Backend Type`, `Backend Resource Name`, and `Link`, and then select **Apply**.|
-|**Deployment**     | View deployment name, status, and time for code deployment logs.      |
-
-#### [App component (Backend)](#tab/app/)
-
-The following table shows the components tabs that you can select, which allow you to view information and perform tasks for your App Space.
-
-|Hosting tab  |Actions | 
-|---------|---------|
-|**Secrets**     | Add a secret. Enter `Key` and `Value`, and then select **Apply**.  |
-|**Container details**   | View container information, like name, image source, registry, and resource allocation.     |
-|**Environment variables** | Add an environment variable. Enter `Name` and `Value` of manually entered or referenced secret, and then select **Apply**.        |
-|**Log Stream**    | View logs.        |
-|**Deployment**   |  View deployment name, status, and time for code deployment logs.|
-
-The following image shows an example of the Hosting tab, Container details selection.
-
-:::image type="content" source="media/hosting-container-details.png" alt-text="Screenshot showing Hosting tab with Container details selection.":::
-
-In the Monitoring tab, you can view Log Analytics workspace information like the subscription and  resource group used for your App Space, and region.
-
-
-#### [Database)](#tab/db/)
-* * *
-
-For more advanced configuration options, select **Go to advanced view**.
-
-:::image type="content" source="media/select-go-to-advanced-view.png" alt-text="Screenshot showing red box around button, Go to advanced view for App Space.":::
-
-You can also view the essentials for your Container Apps Environment and Managed Identities on the **Additional** tab. This view is hidden by default.
 
 
 ## Related articles
 
 - [App Spaces overview](overview.md)
-- [Deploy an App Spaces template](deploy-app-spaces-template.md)
+- [Deploy a starter app in App Spaces](quickstart-deploy-starter-app.md)
+- [Deploy your app in App Spaces](quickstart-deploy-your-app.md)

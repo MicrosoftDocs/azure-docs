@@ -2095,10 +2095,10 @@ groups:
   title: App Spaces components
   prompt: Select the component type
   pivots:
-  - id: app-component
-    title: App component
-  - id: static-app-component
-    title: Static app component
+  - id: static
+    title: Static app component (frontend)
+  - id: app
+    title: App component (backend)
   - id: database
     title: Database
 # Owner: msangapu
@@ -2109,7 +2109,7 @@ groups:
   - id: custom
     title: GitHub repository
   - id: sample
-    title: Sample (Template)
+    title: Starter app (Template)
   - id: database
     title: Database
 # Owner: msangapu
@@ -2118,9 +2118,9 @@ groups:
   prompt: Choose an app type
   pivots:
   - id: frontend
-    title: Frontend
+    title: Frontend (Static Web App)
   - id: backend
-    title: Backend
+    title: Backend (Azure Container App)
 # Owner: mbullwin
 - id: qnamaker-quickstart
   title: Programming languages
