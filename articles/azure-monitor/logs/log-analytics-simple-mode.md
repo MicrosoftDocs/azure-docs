@@ -232,5 +232,5 @@ For straightforward queries on a single table, Log Analytics displays the table 
 
 
 ## Next steps
-- Walk through a [tutorial on writing queries](../logs/log-analytics-tutorial.md).
+- Walk through a [tutorial on using KQL mode in Log Analytics](../logs/log-analytics-tutorial.md).
 - Access the complete [reference documentation for KQL](/azure/kusto/query/).
