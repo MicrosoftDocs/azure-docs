@@ -44,6 +44,8 @@ This section orients you with the controls available in Log Analytics simple mod
 
 In simple mode, the top bar has controls for working with data and switching to KQL mode.
 
+:::image type="content" source="media/log-analytics-explorer/log-analytics-top-query-bar.png" alt-text="Screenshot that shows the top query bar in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-top-query-bar.png":::
+
 | Option | Description |
 |:---|:---|
 | **Time range** | Select the [time range](./scope.md) for the data available to the query. In KQL mode, if you set a different time range in your query, the time range you set in the time picker is overridden. |
@@ -217,7 +219,7 @@ For straightforward queries on a single table, Log Analytics displays the table 
 
     This table lists the maximum result limits of Azure Monitor log queries:
 
-    |Tool|Description|Result limit|
+    |Tool|Description|Max. limit|
     |---|---|---|
     |Log Analytics|Queries you run in the Azure portal.|30,000|
     |[Excel](../logs/log-excel.md), [Power BI](../logs/log-powerbi.md), [Log Analytics Query API](../logs/api/overview.md)|Queries you use in Excel and Power BI, which are integrated with Log Analytics, and queries you run using the API.|500,000|
