@@ -52,7 +52,7 @@ export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
 Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+az aks create --resource-group "${RESOURCE_GROUP}" --name myAKSCluster --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -65,15 +65,15 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 You can update an AKS cluster using the [az aks update][az aks update] command with the `--enable-oidc-issuer` and the `--enable-workload-identity` parameter to use the OIDC Issuer and enable workload identity. The following example updates a cluster named *myAKSCluster*:
 
 ```azurecli-interactive
-az aks update -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
+az aks update --resource-group "${RESOURCE_GROUP}" --name myAKSCluster --enable-oidc-issuer --enable-workload-identity
 ```
 
 ## Retrieve the OIDC Issuer URL
 
-To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster:
+To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `--name`, which is the name of the cluster:
 
 ```bash
-export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
+export AKS_OIDC_ISSUER="$(az aks show --name myAKSCluster --resource-group "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
 ```
 
 The variable should contain the Issuer URL similar to the following example:
@@ -103,7 +103,7 @@ export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_
 Create a Kubernetes service account and annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
+az aks get-credentials --name myAKSCluster --resource-group "${RESOURCE_GROUP}"
 ```
 
 Copy and paste the following multi-line input in the Azure CLI.
@@ -195,7 +195,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 3. Export Key Vault URL:
     ```azurecli-interactive
-    export KEYVAULT_URL="$(az keyvault show -g ${KEYVAULT_RESOURCE_GROUP} -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
+    export KEYVAULT_URL="$(az keyvault show --resource-group ${KEYVAULT_RESOURCE_GROUP} --name ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
     ```
 
 4. Deploy a pod that references the service account and Key Vault URL above:

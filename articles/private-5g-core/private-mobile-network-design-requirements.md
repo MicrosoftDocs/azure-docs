@@ -148,6 +148,15 @@ You might have existing IP networks at the enterprise site that the private cell
 
 You need to document the IPv4 subnets that will be used for the deployment and agree on the IP addresses to use for each element in the solution, and on the IP addresses that will be allocated to UEs when they attach. You need to deploy (or configure existing) routers and firewalls at the enterprise site to permit traffic. You should also agree how and where in the network any NAPT or MTU changes are required and plan the associated router/firewall configuration. For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
+### High Availability (HA)
+
+You can optionally deploy Azure Private 5G Core as a Highly Available (HA) service on a pair of Azure Stack Edge (ASE) devices. This requires a gateway router (strictly, a Layer 3 capable device – either a router or an L3 switch (router/switch hybrid)) between the ASE cluster and:
+
+- the RAN equipment in the access network.
+- the data network(s).
+
+For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+
 ### Network access
 
 Your design must reflect the enterprise’s rules on what networks and assets should be reachable by the RAN and UEs on the private 5G network. For example, they might be permitted to access local Domain Name System (DNS), Dynamic Host Configuration Protocol (DHCP), the internet, or Azure, but not a factory operations local area network (LAN). You might need to arrange for remote access to the network so that you can troubleshoot issues without requiring a site visit. You also need to consider how the enterprise site will be connected to upstream networks such as Azure for management and/or for access to other resources and applications outside of the enterprise site.

@@ -474,7 +474,11 @@
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako"
+        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "Juliako",
+        "articles/virtual-network-manager/*.yml": "mbender-ms",
+        "articles/virtual-network-manager/*.md": "mbender-ms",
+        "articles/load-balancer/*.yml": "mbender-ms",
+        "articles/load-balancer/*.md": "mbender-ms"
       },
       "featureFlags": {
         "articles/**/*.md": [

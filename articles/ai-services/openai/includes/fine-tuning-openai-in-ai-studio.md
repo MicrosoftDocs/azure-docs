@@ -246,7 +246,9 @@ Look for your loss to decrease over time, and your accuracy to increase. If you 
 
 ## Deploy a fine-tuned model
 
-Once your model is fine-tuned, you can deploy the model and can use it in your own application. You can deploy the fine-tuned model from the **Playground** or **Deployments** page. When you deploy the model, you make the model available for inferencing, and that incurs an hourly hosting charge. Fine-tuned models, however, can be stored in Azure AI Studio at no cost until you're ready to use them.
+Once your model is fine-tuned, you can deploy the model and can use it in your own application. You can't deploy a fine-tuned model from the deployments page or the playground page in Azure AI Studio. The only way, currently, to deploy a fine-tuned model is from the model details page for that model.
+
+When you deploy the model, you make the model available for inferencing, and that incurs an hourly hosting charge. Fine-tuned models, however, can be stored in Azure AI Studio at no cost until you're ready to use them.
 
 [!INCLUDE [Fine-tuning deletion](../../../ai-services/openai/includes/fine-tune.md)]
 
