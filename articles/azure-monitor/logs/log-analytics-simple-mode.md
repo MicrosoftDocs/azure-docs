@@ -20,7 +20,7 @@ Log Analytics now offers two ways to explore data:
 
 You can switch seamlessly between simple and advance mode, and advanced users can share complex queries, which anyone can continue working in simple mode. 
 
-This video provides a quick overview of Azure RBAC.
+This video provides a quick overview of how to query logs in Log Analytics using simple and KQL mode.
 
 >[!VIDEO https://youtu.be/85Xxj5FhTk0]
 
