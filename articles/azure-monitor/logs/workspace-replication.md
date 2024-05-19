@@ -64,7 +64,7 @@ These region groups and regions are currently supported:
 |                        | Central US   | | 
 |                        | South Central US   | | 
 |                        | Central Canada   | | 
-| **European**           | West Europe  | |
+| **Europe**           | West Europe  | |
 |                        | North Europe | |
 |                        | South UK     | |
 |                        | West UK      | |
