@@ -216,7 +216,7 @@
         href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
-      - name: Copilot
+      - name: Copilot for security
         displayName: copilot, security, recommendations
         href: copilot.md
       - name: Secrets protection
@@ -376,7 +376,7 @@
           displayName: security, recommendations, owner, azure, resource, graph, azure
             resource graph, csv report
           href: review-security-recommendations.md
-        - name: Review recommendations wih Copilot
+        - name: Review recommendations with Copilot
           displayName: copilot, security, recommendations
           href: review-with-copilot.md
         - name: Review resources exempted from recommendations

@@ -20,25 +20,30 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## June 2024
+
+|Date | Update |
+|--|--|
+| June 10 | [Copilot in Defender for Cloud](#copilot-in-defender-for-cloud) |
+
+### Copilot in Defender for Cloud
+
+June 10, 2024
+
+Defender for Cloud has integrated Copilot into the security experience in order to provide users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the impact of implementing a recommendation, the steps to take to implement a recommendation, and assist with the delegation of recommendations.
+
+Learn more about [Copilot in Defender for Cloud](copilot.md).
+
 ## May 2024
 
 |Date | Update |
 |--|--|
-| May 31 | [Copilot in Defender for Cloud](#copilot-in-defender-for-cloud) |
 | May 9 | [Checkov integration for IaC scanning in Defender for Cloud (Preview)](#checkov-integration-for-iac-scanning-in-defender-for-cloud-preview) |
 | May 7 | [General availability of permissions management in Defender for Cloud](#general-availability-of-permissions-management-in-defender-for-cloud) |
 | May 6 | [AI multicloud security posture management is publicly available for Azure and AWS](#ai-multicloud-security-posture-management-is-publicly-available-for-azure-and-aws) |
 | May 6 | [Limited public preview of threat protection for AI workloads in Azure](#limited-public-preview-of-threat-protection-for-ai-workloads-in-azure) |
 | May 2 | [Updated security policy management is now generally available](#updated-security-policy-management-is-now-generally-available) |
 | May 1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
-
-### Copilot in Defender for Cloud
-
-May 7, 2024
-
-Defender for Cloud has integrated Copilot into the security experience in order to provide users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the impact of implementing a recommendation, the steps to take to implement a recommendation, and assist with the delegation of recommendations.
-
-Learn more about [Copilot in Defender for Cloud](copilot.md).
 
 ### Checkov integration for IaC scanning in Defender for Cloud (Preview)
 
