@@ -43,7 +43,7 @@ In simple mode, the top bar has controls for working with data and switching to 
 | Option | Description |
 |:---|:---|
 | **Time range** | Select the [time range](./scope.md) for the data available to the query. In KQL mode, if you set a different time range in your query, the time range you set in the time picker is overridden. |
-|**Limit**|Configure the number of entries Log Analytics retrieves in simple mode. The default limit is 1000. For more information on query limits, see [Configure query results limit](#configure-query-results-limit).|
+|**Limit**|Configure the number of entries Log Analytics retrieves in simple mode. The default limit is 1000. For more information on query limits, see [Configure query results limit](#configure-query-result-limit).|
 |**Add**|Add filters, and apply simple mode operators, as described in [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).|
 |**Simple/KQL mode**|Switch between simple and KQL mode.|
 | **Search**|Search through query results to find all instances of a particular string.|
@@ -213,10 +213,10 @@ For straightforward queries on a single table, Log Analytics displays the table 
 
     Select **Max. limit** to return the maximum number of results provided by any of the options available on the **Share** window or using a search job.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-share-query.png" alt-text="Screenshot that shows the limit results window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-share-query.png":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-share-query.png" alt-text="Screenshot that shows the Share window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-share-query.png":::
 
     |Share option|Description|Result limit|
-    |-|-|-|
+    |---|---|---|
     |Log Analytics||30,000|
     || **Share** |[Excel](../logs/log-excel.md), [Power BI](../logs/log-powerbi.md), API||500,000|
     |Search job||1,000,000|
