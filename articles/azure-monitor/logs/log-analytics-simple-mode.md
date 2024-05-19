@@ -22,7 +22,7 @@ You can switch seamlessly between simple and advance mode, and advanced users ca
 
 This video provides a quick overview of how to query logs in Log Analytics using simple and KQL mode:
 
->[!VIDEO https://youtu.be/85Xxj5FhTk0]
+>[!VIDEO https://youtube/85Xxj5FhTk0]
 
 This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.     
 
@@ -166,10 +166,6 @@ To change the time range and number of records displayed, use the **Time range**
 1. Select or clear columns to show or hide them, then select **Apply**.
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-show-column.png" alt-text="Screenshot that shows the Show columns window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-show-column.png":::
-
-> [!NOTE]
-> Showing or hiding columns in simple mode does not add the [project](/azure/data-explorer/kusto/query/projectoperator) or [project-away](/azure/data-explorer/kusto/query/projectawayoperator) operators to your query when you switch to KQL mode.
-
 
 **Sort by column**
 
