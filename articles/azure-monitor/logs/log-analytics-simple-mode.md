@@ -218,11 +218,11 @@ For straightforward queries on a single table, Log Analytics displays the table 
  
     The maximum number of results that you can retrieve in the Log Analytics portal experience, in both Simple mode and KQL mode, is 30,000. However, when you [share the query](#more-tools) you define in Log Analytics with an integrated tool, or run a [search job](search-jobs.md), your query isn't limited to the maximum number of results in Log Analytics.
 
-    Select **Max. limit** to return the maximum number of results provided by any of the options available on the **Share** window or using a search job.
+    Select **Max. limit** to return the maximum number of results provided by any of the tools available on the **Share** window or using a search job.
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-share-query.png" alt-text="Screenshot that shows the Share window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-share-query.png":::
 
-    This table lists the maximum result limits of Azure Monitor log queries:
+    This table lists the maximum result limits of Azure Monitor log queries using the various tools:
 
     |Tool|Description|Max. limit|
     |---|---|---|
