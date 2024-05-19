@@ -45,7 +45,7 @@ az upgrade
 az extension add --name containerapps --upgrade --allow-preview
 ```
 
-Custom container session pools require an Azure Container Apps environment. If you don't have an environment, use the `az containerapp env create` command to create one.
+Custom container session pools require a workload profile enabled Azure Container Apps environment. If you don't have an environment, use the `az containerapp env create -n <env-name>-g <resource-group> --location <location> --enable-workload-profiles` command to create one.
 
 
 Use the `az containerapp sessionpool create` command to create a custom container session pool.
