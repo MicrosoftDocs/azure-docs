@@ -20,6 +20,10 @@ Log Analytics now offers two ways to explore data:
 
 You can switch seamlessly between simple and advance mode, and advanced users can share complex queries, which anyone can continue working in simple mode. 
 
+This video provides a quick overview of Azure RBAC.
+
+>[!VIDEO https://youtu.be/85Xxj5FhTk0]
+
 This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.     
 
 ## Try Log Analytics simple mode
