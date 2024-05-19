@@ -38,9 +38,23 @@ You see different types of automation data under **Automation**.
 
 :::image type="content" source="./media/qs-get-visibility/automation.png" alt-text="Screenshot of the Automation section in the Microsoft Sentinel Overview page." lightbox="./media/qs-get-visibility/automation.png":::
 
-- At the top, you see a summary of the automation rules activity: Incidents closed by automation, the time the automation saved, and related playbooks health. 
+- At the top, you see a summary of the automation rules activity: Incidents closed by automation, the time the automation saved, and related playbooks health.
+
+   Microsoft Sentinel calculates the time saved by automation by finding the average time that a single automation saved, multiplied by the number of incident that were resolved by automation. The formula is as follows:
+
+   `(avgWithout - avgWith) * resolvedByAutomation`
+
+   Where:
+
+   - **avgWithout** is the average time it takes for an incident to be resolved without automation.
+   - **avgWith** is the average time it takes for an incident to be resolved by automation.
+   - **resolvedByAutomation** is the number of incidents that are resolved by automation.
+
+
 - Below the summary, a graph summarizes the numbers of actions performed by automation, by type of action. 
+
 - At the bottom, you can find a count of the active automation rules with a link to the automation blade. 
+
 
 ### View status of data records, data collectors, and threat intelligence
 
