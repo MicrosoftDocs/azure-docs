@@ -124,7 +124,7 @@ After you [get started in simple mode](#get-started-in-simple-mode), you can exp
 
 **Change time range and number of records displayed**
 
-By default, simple mode lists the last 1000 entries in the table from the last 24 hours. 
+By default, simple mode lists the latest 1000 entries in the table from the last 24 hours. 
 
 To change the time range and number of records displayed, use the **Time range** and **Limit** selectors.
     
@@ -132,12 +132,15 @@ To change the time range and number of records displayed, use the **Time range**
 
 **Filter by column**
 
-1. Select **Filter** and choose a column.
-1. Select an operator and a value to filter by, or enter text or numbers in the **Search** box.
+1. Select **Add** and choose a column.
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-add-filter.png" alt-text="Screenshot that shows the Add filters menu that opens when you select Add in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-add-filter.png":::
+
+1. Select a value to filter by, or enter text or numbers in the **Search** box.
 
     If you filter by selecting values from a list, you can select multiple values. If the list is long, you'll see a **Not all results are shown** message. Scroll to the bottom of the list and select **Load more results** to retrieve more values.  
     
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows the filter menu that opens when you select Filter in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-filter.png":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows filter values for the OperationId column in Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-filter.png":::
 
     > [!NOTE]
     > Simple mode doesn't support filtering a dynamic column. To filter on data in a dynamic column, [extend the column](https://azure.microsoft.com/updates/azure-monitor-log-analytics-ui-updates-june-2019/). 
