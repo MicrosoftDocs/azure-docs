@@ -66,18 +66,18 @@ These steps explain how to create a File typed data in Azure AI Studio:
 
 1. Choose your **Data source**. You have three options to choose a data source.
    - You can select data from **Existing Connections**.
-   - You can **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server.
-   - You can choose **Upload files/folders** to upload a folder from your local drive.
+   - You can select **Get data with Storage URL** if you have a direct URL to a storage account or a public accessible HTTPS server.
+   - You can select **Upload files/folders** to upload a folder from your local drive.
     
     :::image type="content" source="../media/data-add/select-connection.png" alt-text="This screenshot shows the existing connections.":::
     
-    1. **Existing Connections**: You can select an existing connection, browse into this connection, and choose a file you need. If the existing connections don't work for you, select the **New connection** button at the upper right.
+    - **Existing Connections**: You can select an existing connection, browse into this connection, and choose a file you need. If the existing connections don't work for you, select the **New connection** button at the upper right.
     :::image type="content" source="../media/data-add/new-connection.png" alt-text="This screenshot shows the creation of a new connection to an external asset.":::
 
-    1. **Get data with Storage URL**: You can choose the **Type** as "File", and then provide a URL based on the supported URL formats listed on that page.
+    - **Get data with Storage URL**: You can choose the **Type** as "File", and then provide a URL based on the supported URL formats listed on that page.
     :::image type="content" source="../media/data-add/file-url.png" alt-text="This screenshot shows provision of a URL that points to a file.":::
 
-    1. **Upload files/folders**: You can select **Upload files or folder**, select **Upload files**, and choose the local file to upload. The file uploads into the default "workspaceblobstore" connection.
+    - **Upload files/folders**: You can select **Upload files or folder**, select **Upload files**, and choose the local file to upload. The file uploads into the default "workspaceblobstore" connection.
     :::image type="content" source="../media/data-add/upload.png" alt-text="This screenshot shows the step to upload files/folders.":::
 
     1. Select **Next** after you choose the data source.
@@ -103,15 +103,15 @@ A Folder (`uri_folder`) data source type points to a *folder* on a storage resou
 
        :::image type="content" source="../media/data-add/select-connection.png" alt-text="This screenshot shows the existing connections.":::
 
-    1. **Existing Connections**: You can select an existing connection and browse into this connection and choose a file you need. If the existing connections don't work for you, you can select the **New connection** button at the right.
+    - **Existing Connections**: You can select an existing connection and browse into this connection and choose a file you need. If the existing connections don't work for you, you can select the **New connection** button at the right.
     
        :::image type="content" source="../media/data-add/choose-folder.png" alt-text="This screenshot shows the step to choose a folder from an existing connection.":::
 
-    1. **Get data with Storage URL**: You can choose the **Type** as "Folder", and provide a URL based on the supported URL formats listed on that page.
+    - **Get data with Storage URL**: You can choose the **Type** as "Folder", and provide a URL based on the supported URL formats listed on that page.
 
        :::image type="content" source="../media/data-add/folder-url.png" alt-text="This screenshot shows the step to provide a URL that points to a folder.":::
 
-    1. **Upload files/folders**: You can select **Upload files or folder**, and select **Upload files**, and choose the local file to upload. The file resources upload into the default "workspaceblobstore" connection.
+    - **Upload files/folders**: You can select **Upload files or folder**, and select **Upload files**, and choose the local file to upload. The file resources upload into the default "workspaceblobstore" connection.
 
        :::image type="content" source="../media/data-add/upload.png" alt-text="This screenshot shows the step to upload files/folders.":::
 
@@ -126,20 +126,17 @@ A Folder (`uri_folder`) data source type points to a *folder* on a storage resou
 ### Delete data
 
 > [!IMPORTANT]
-> ***By design*, data deletion is not supported.**
->
-> If Azure AI allowed data deletion, it would have the following adverse effects:
->
-> - **Production jobs** that consume data that is later deleted would fail.
-> - ML experiment reproduction would become more difficult.
-> - Job **lineage** would break, because it would become impossible to view the deleted data version.
-> - You could no longer **track and audit** correctly, since versions could be missing.
->
-> Therefore, data *immutability* provides a level of protection when working in a team that creates production workloads.
+> Data deletion is not supported. Data is immutable in AI Studio. Once you create a data version, it can't be modified or deleted. This immutability provides a level of protection when working in a team that creates production workloads.
+
+If AI Studio allowed data deletion, it would have the following adverse effects:
+- Production jobs that consume data that is later deleted would fail.
+- Machine learning experiment reproduction would become more difficult.
+- Job lineage would break, because it would become impossible to view the deleted data version.
+- You could no longer track and audit correctly, since versions could be missing.
 
 When a data resource is erroneously created - for example, with an incorrect name, type or path - Azure AI offers solutions to handle the situation without the negative consequences of deletion:
 
-|*I want to delete this data because...* | Solution  |
+|Reason that you might want to delete data | Solution  |
 |---------|---------|
 |The **name** is incorrect     |  [Archive the data](#archive-data)       |
 |The team **no longer uses** the data | [Archive the data](#archive-data) |
