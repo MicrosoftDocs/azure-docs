@@ -4,8 +4,8 @@ description: This article explains how to use Log Analytics Simple mode to explo
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: roygal
-ms.date: 09/04/2023
+ms.reviewer: ilanawaitser
+ms.date: 05/19/2024
 
 # Customer intent: As an analyst or DevOps troubleshooter, I want to get insights from log data without using Kusto Query Language (KQL).
 
@@ -28,7 +28,7 @@ Here's a video that provides a quick overview of how to query logs in Log Analyt
 
 ## Try Log Analytics Simple mode
 
-Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor. You can switch back to the classic Log Analytics experience.
+Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor. You can switch back to the classic Log Analytics experience at any time.
 
 :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A screenshot showing the Try the new Log Analytics button." lightbox="media/log-analytics-explorer/try-new-log-analytics.png":::
 
