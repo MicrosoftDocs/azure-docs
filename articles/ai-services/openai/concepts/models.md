@@ -287,8 +287,9 @@ For Assistants you need a combination of a supported model, and a supported regi
 | Sweden Central  | ✅ |✅ |✅ |✅| |
 | UK South  | ✅ |  ✅ | ✅ |✅ | |
 
+### Early access playground
 
-
+The GPT-4o model is now [GA and available for regular model deployment](#gpt-4o-and-gpt-4-turbo).
 
 ## Next steps
 
