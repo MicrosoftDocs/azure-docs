@@ -52,7 +52,7 @@ The following models are available in Azure Marketplace for Llama 3 when deploye
   
 ---
 
-If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-real-time-endpoints) instead.
+If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-managed-compute) instead.
 
 ### Prerequisites
 
