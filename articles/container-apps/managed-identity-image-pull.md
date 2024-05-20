@@ -686,7 +686,6 @@ $UserAssignedIdentityName = '<YOUR_USER_ASSIGNED_IDENTITY_NAME>'
 $LogAnalyticsWorkspaceName = '<YOUR_LOG_ANALYTICS_WORKSPACE_NAME>'
 $AppInsightsName = '<YOUR_LOG_ANALYTICS_WORKSPACE_NAME>'
 $AcrPullDefinitionId = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
-
 ```
 
 ---
@@ -700,7 +699,12 @@ If you don't already have a container registry, you can create it with the follo
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az acr create --name "$CONTAINER_REGISTRY_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION" --sku Basic --admin-enabled true
+az acr create \
+  --name "$CONTAINER_REGISTRY_NAME" \
+  --resource-group "$RESOURCE_GROUP" \
+  --location "$LOCATION" \
+  --sku Basic \
+  --admin-enabled true
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -718,7 +722,9 @@ Push your image to the container registry with the following command.
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az acr build --registry "$CONTAINER_REGISTRY_NAME" --image "$CONTAINER_REGISTRY_IMAGE_NAME:$CONTAINER_REGISTRY_IMAGE_TAG" "$CONTAINER_REGISTRY_IMAGE_URL"
+az acr build \
+  --registry "$CONTAINER_REGISTRY_NAME" \
+  --image "$CONTAINER_REGISTRY_IMAGE_NAME:$CONTAINER_REGISTRY_IMAGE_TAG" "$CONTAINER_REGISTRY_IMAGE_URL"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
