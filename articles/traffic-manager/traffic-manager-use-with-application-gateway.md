@@ -14,6 +14,20 @@ ms.custom: template-how-to
 
 Azure Traffic Manager and Azure Application Gateway can be used together to provide global load balancing and failover capabilities for your web applications. Azure Traffic Manager uses DNS-based routing to distribute incoming traffic across multiple regions, while Azure Application Gateway provides application-level routing and load balancing within a region.
 
+## Scenarios for using Azure App Gateway with Azure Traffic Manager
+
+* Improve application performance: By using Azure Traffic Manager to route traffic to the closest Azure Application Gateway, you can reduce latency and improve application performance for your users.
+* Increase application availability: By using Azure Traffic Manager to distribute traffic across multiple Azure Application Gateways, you can ensure that your application remains available even if one or more gateways become unavailable.
+* Scale your application: By using Azure Application Gateway to load balance traffic within a region, you can scale your application horizontally to handle increased traffic.
+* Secure your application: By using Azure Application Gateway to terminate SSL/TLS connections and protect against web attacks, you can secure your application from external threats.
+
+## Process overview: How to use Azure App Gateway with Azure Traffic Manager
+
+1.	Create an Azure Traffic Manager profile: Start by creating an Azure Traffic Manager profile. Configure it to use the desired traffic routing method (priority, weighted, performance, or geographic).
+2.	Create an Azure Application Gateway: Next, create an Azure Application Gateway. Configure it to use the desired backend pool and routing rules.
+3.	Add the Azure Application Gateway endpoint to the Azure Traffic Manager profile: Once your Application Gateway is set up, add it as an endpoint to your Traffic Manager profile.
+4.	Test Your Setup: Finally, test the configuration by accessing the Azure Traffic Manager DNS name from a web browser. This will help ensure that traffic is being correctly routed and load balanced.
+
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -27,22 +41,8 @@ Create a resource group for the Traffic Manager profile.
 3. In **Resource groups**, on the top of the page, select **Add**.
 4. In **Resource group name**, type a name *myResourceGroupTM1*. For **Resource group location**, select **East US**, and then select **OK**.
 
-## Scenarios for Using Azure App Gateway with Azure Traffic Manager
-
-* Improve application performance: By using Azure Traffic Manager to route traffic to the closest Azure Application Gateway, you can reduce latency and improve application performance for your users.
-* Increase application availability: By using Azure Traffic Manager to distribute traffic across multiple Azure Application Gateways, you can ensure that your application remains available even if one or more gateways become unavailable.
-* Scale your application: By using Azure Application Gateway to load balance traffic within a region, you can scale your application horizontally to handle increased traffic.
-* Secure your application: By using Azure Application Gateway to terminate SSL/TLS connections and protect against web attacks, you can secure your application from external threats.
-
-
-## Steps to Use Azure App Gateway with Azure Traffic Manager
-
-1.	Create an Azure Traffic Manager profile: Start by creating an Azure Traffic Manager profile. Configure it to use the desired traffic routing method (priority, weighted, performance, or geographic).
-2.	Create an Azure Application Gateway: Next, create an Azure Application Gateway. Configure it to use the desired backend pool and routing rules.
-3.	Add the Azure Application Gateway endpoint to the Azure Traffic Manager profile: Once your Application Gateway is set up, add it as an endpoint to your Traffic Manager profile.
-4.	Test Your Setup: Finally, test the configuration by accessing the Azure Traffic Manager DNS name from a web browser. This will help ensure that traffic is being correctly routed and load balanced.
-
 By using Azure Traffic Manager with Azure Application Gateway, you can achieve high availability and scalability for your web applications across multiple regions. This combination of services can help you to improve application performance, increase application availability, scale your application, and secure your application.
+
 Remember to monitor the health of your endpoints and adjust your Traffic Manager and Application Gateway configurations as needed to ensure high availability, optimal geographic distribution, and effective load balancing.
 
 ## Next steps
