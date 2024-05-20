@@ -135,8 +135,8 @@ Depending on your use case, you can retrieve one or more messages from a queue. 
 
 There are two ways to retrieve messages from a queue:
 
-- **Receive**: Retrieving a message using `Receive` will dequeue the message and increment its `DequeueCount` property. Unless a message is deleted, it will be reinserted in the queue to be processed again.
-- **Peek**: Retrieving a message using `Peek` allows you to "preview" messages from the queue. `Peek` does not dequeue the message or increment its `DequeueCount` property.
+- **Receive**: Retrieving a message using `Receive` dequeues the message and increments its `DequeueCount` property. Unless a message is deleted, it's reinserted in the queue to be processed again.
+- **Peek**: Retrieving a message using `Peek` allows you to "preview" messages from the queue. `Peek` doesn't dequeue the message or increment its `DequeueCount` property.
 
 ### Receive messages
 
@@ -144,7 +144,7 @@ There are two ways to retrieve messages from a queue:
 
 This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds. -->
 
-When you *read* a message from the queue using a method such as [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage), it's dequeued and becomes invisible for a period of time. This **visibility timeout** defines how long the message remains invisible. The default visibility timeout is 30 seconds. 
+When you *read* a message from a queue using a method such as [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage), the message is temporarily dequeued and becomes temporarily invisible to other processes. This **visibility timeout** defines how long the message remains invisible. The default visibility timeout is 30 seconds. 
 
 If the message isn't processed before the visibility timeout passes, its `DequeueCount` property is incremented and it's reinserted at the end of the queue. Reinserting the same message ensures that another process can retrieve the same message and try again.
 
@@ -179,7 +179,7 @@ $queueMessage.Value
 
 `Describe a use case which requires you to retrieve a message in the queue without altering its visibility.` 
 
-In these cases, you can use a methods such as [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage) and [`PeekMessages`](/dotnet/api/azure.storage.queues.queueclient.peekmessages). As with the [`ReadMessages`](#receive-messages) example, multiple messages can be peeked simultaneously by passing an integer value to specify the maximum number of messages. 
+In these cases, you can use a method such as [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage) and [`PeekMessages`](/dotnet/api/azure.storage.queues.queueclient.peekmessages). As with the [`ReadMessages`](#receive-messages) example, multiple messages can be peeked simultaneously by passing an integer value to specify the maximum number of messages. 
 
 The following examples use both the `PeekMessage` and `PeekMessages` methods to retrieve messages from a queue.
 
@@ -194,9 +194,9 @@ $queueMessage.Value
 
 ## Delete messages from a queue
 
-To prevent accidental deletion, both the `MessageId` and `PopReceipt` properties must be supplied before permanently deleting a message. Because of this requirement, it's usually easiest to delete a message using a two-step process. 
+To prevent accidental deletion, both the `MessageId` and `PopReceipt` properties must be supplied before permanently deleting a message. Because of this requirement, it's easiest to delete a message using a two-step process. 
 
-First, fetch the next message in the queue by calling the [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage) or [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) methods. Pass the values obtained from the message to the [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage) method to finish removing the message from the queue. 
+First, fetch the next message in the queue by calling the [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage) or [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) methods. To finish removing the message from the queue, pass the values obtained from the message to the [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage) method. 
 
 This process is illustrated in the following examples. 
 
@@ -225,7 +225,7 @@ Remove-AzStorageQueue -Name $queueName -Context $ctx
 
 ## Clean up resources
 
-To remove all of the assets you have created in this exercise, remove the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
+Remove the resource group to delete the assets and resources created in this exercise. In this case, the storage account and the resource group itself are also deleted.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
