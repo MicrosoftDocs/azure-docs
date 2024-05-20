@@ -163,13 +163,13 @@ This template creates a session pool with the following settings:
 | `scaleConfiguration.readySessionInstances` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
 | `dynamicPoolConfiguration.executionType` | `Timed` | The type of execution for the session pool. Must be `Timed` for custom container sessions. |
 | `dynamicPoolConfiguration.cooldownPeriodInSeconds` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
-| `customContainerTemplate.containers` | `myregistry.azurecr.io/my-container-image:1.0` | The container image to use for the session pool. |
-| `customContainerTemplate.resources.cpu` | `1.0` | The required CPU in cores. |
-| `customContainerTemplate.resources.memory` | `2.0Gi` | The required memory. |
-| `customContainerTemplate.env` | `{"key1": "value1", "key2": "value2"}` | The environment variables to set in the container. |
-| `customContainerTemplate.command` | `["/bin/sh"]` | The command to run in the container. |
-| `customContainerTemplate.args` | `["-c", "while true; do echo hello; sleep 10; done"]` | The arguments to pass to the command. |
-| `customContainerTemplate.ingress.targetPort` | `80` | The session port used for ingress traffic. |
+| `customContainerTemplate.containers[0]` | `myregistry.azurecr.io/my-container-image:1.0` | The container image to use for the session pool. |
+| `customContainerTemplate.containers[0].resources.cpu` | `1.0` | The required CPU in cores. |
+| `customContainerTemplate.containers[0].resources.memory` | `2.0Gi` | The required memory. |
+| `customContainerTemplate.containers[0].env` | `{"key1": "value1", "key2": "value2"}` | The environment variables to set in the container. |
+| `customContainerTemplate.containers[0].command` | `["/bin/sh"]` | The command to run in the container. |
+| `customContainerTemplate.containers[0].args` | `["-c", "while true; do echo hello; sleep 10; done"]` | The arguments to pass to the command. |
+| `customContainerTemplate.containers[0].ingress.targetPort` | `80` | The session port used for ingress traffic. |
 | `sessionNetworkConfiguration.status` | `EgressDisabled` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
 
 ---
