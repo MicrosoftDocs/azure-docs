@@ -47,16 +47,11 @@ Before running the sample app, open [*main.py*](https://github.com/Azure-Samples
 The following lines of code instantiate a *SessionPythonREPLTool* and provide it to the LangChain agent:
 
 ```python
-repl = SessionsPythonREPLTool(
-    pool_management_endpoint=pool_management_endpoint,
-)
+repl = SessionsPythonREPLTool(pool_management_endpoint=pool_management_endpoint)
 
 tools = [repl]
-react_agent = agents.create_react_agent(
-    llm=llm,
-    tools=tools,
-    prompt=hub.pull("hwchase17/react"),
-)
+prompt = hub.pull("hwchase17/openai-functions-agent")
+agent = agents.create_tool_calling_agent(llm, tools, prompt)
 ```
 
 When it needs to perform calculations, the agent uses the *SessionPythonREPLTool* to run the code. The code is executed in a session in the session pool. By default, a random session identifier is generated when you instantiate the tool. If the agent uses the tool to run multiple Python code snippets, it uses the same session. To ensure each end user has a unique session, use a separate agent and tool for each user.
