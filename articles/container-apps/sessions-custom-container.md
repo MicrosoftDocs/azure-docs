@@ -175,7 +175,7 @@ This template creates a session pool with the following settings:
 ---
 
 > [!IMPORTANT]
-> If the session is used to run untrusted code, don't include environment variables or secrets that you don't want the untrusted code to access. Assume the code is malicious and has full access to the container, including its environment variables and secrets. 
+> If the session is used to run untrusted code, don't include information or data that you don't want the untrusted code to access. Assume the code is malicious and has full access to the container, including its environment variables, secrets, and files. 
 
 ### Working with sessions
 
