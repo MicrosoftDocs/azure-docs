@@ -30,7 +30,7 @@ This section highlights different steps to run Event Hubs emulator. Details are 
 
 ### [Automated Script](#tab/automated-script)
 
- Before running automated script, clone the Event Hubs emulator GitHub [repository](https://github.com/Azure/azure-event-hubs-emulator) locally.
+Before running automated script, clone the Event Hubs emulator GitHub [repository](https://github.com/Azure/azure-event-hubs-emulator) locally.
  
 ### Windows
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
@@ -38,15 +38,12 @@ After completing the prerequisites, you can proceed with the following steps to 
 
 `$>Start-Process powershell -Verb RunAs -ArgumentList 'Set-ExecutionPolicy Bypass –Scope CurrentUser’`
 
-2. Execute setup script `LaunchEmulator.ps1`. Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
+2. Execute setup script `LaunchEmulator.ps1`. Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator).
 
 ### Linux & macOS
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 
-1. Execute the setup script `LaunchEmulator.sh` . Running the script would  bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
-
-
-
+1. Execute the setup script `LaunchEmulator.sh` . Running the script would  bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator).
 
 ### [Docker (Linux Container)](#tab/docker-linux-container)
 1. To start the emulator, you should supply configuration for the entities you want to use. Save the following JSON file locally as config.json
@@ -137,7 +134,7 @@ ACCEPT_EULA="N"
 ```
  docker compose -f <PathToDockerComposeFile> up -d
 ```
----
+
 Once the steps are successful, you could find containers running in Docker:
 
 :::image type="content" source="./media/test-locally-with-event-hub-emulator/test-locally-with-event-hub-emulator.png" alt-text="Screenshot showing the event hubs emulator running in container":::
