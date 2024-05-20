@@ -118,13 +118,13 @@ Selecting an image card opens a flyout to view components that support the analy
 - **Selected instance**: The correct detections and incorrect detections for the image or objects in the image.
 - **Information**: Image metadata values for the selected instance.
 - An enlarged image with predicted and ground truth objects surrounded by bounding boxes, and the predicted image labeled with its IOU score.
-
-> [!NOTE]
-> If an object in an image was correctly labeled, but with an IOU score below the default threshold of 50%, the prediction bounding box for the object isn't visible, but the ground truth bounding box is visible. The image instance appears in the error instance category. Currently, it's not possible to change the default IOU threshold in this component.
+  
+  > [!NOTE]
+  > If an object in an image was correctly labeled, but with an IOU score below the default threshold of 50%, the prediction bounding box for the object isn't visible, but the ground truth bounding box is visible. The image instance appears in the error instance category. Currently, it's not possible to change the default IOU threshold in this component.
 
 - **Explanation**: A D-Rise saliency map visualization to gain insight on model behavior leading to the execution of the computer vision task.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png" alt-text="Screenshot of selected instance with an image of a can and the explanation for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png":::
+  :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png" alt-text="Screenshot of selected instance with an image of a can and the explanation for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png":::
 
 ---
 
@@ -204,15 +204,14 @@ Recommended metrics for image classification and image multilabel classification
 
 Recommended metrics for object detection include **Mean Average Precision score**, **Average Precision score**, and **Average Recall score**.
 
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts-object.png" alt-text="Screenshot of vision data explorer showing successful instances of object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts-object.png":::
+
 For object detection, in addition to selecting the **Metric(s)**, configure the following settings:
 
 - **Aggregate method**: Select which aggregation method to apply, which affects the calculation of mean average precision.
 - **Select class(es)**: Select which class label to use to calculate class-level metrics like average precision and average recall.
 - **IoU Threshold**: Set an IOU threshold value for the Intersection over Union between the ground truth and prediction bounding box. The IOU threshold value defines error and affects calculation of model performance metrics.
-
-  For example, setting an IOU of greater than  70% means that a prediction with greater than 70% overlap with ground truth is `True`. This feature is disabled by default, and can be enabled by attaching a running compute instance.
-  
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts-object.png" alt-text="Screenshot of vision data explorer showing successful instances of object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts-object.png":::
+  For example, setting an IOU of greater than 70% means that a prediction with greater than 70% overlap with ground truth is `True`. This feature is disabled by default, and can be enabled by attaching a running compute instance.
 
 ---
 
@@ -252,7 +251,7 @@ In the lower half of the **Model overview** component, you can select between **
 
 # [Object detection](#tab/detection)
 
-In the lower half of both the **Dataset cohorts** and **Feature cohorts** views, **Metrics visualizations** shows a bar graph that compares aggregated performance metrics across selected dataset cohorts.
+In the lower half of the **Model overview** component, **Metrics visualizations** shows a bar graph that compares aggregated performance metrics across selected dataset cohorts.
 
 - Select **Choose cohorts** to open a sidebar that lets you select the dataset and feature cohorts to apply.
 - Select **Choose metric** to open a sidebar that lets you select metrics to show.
