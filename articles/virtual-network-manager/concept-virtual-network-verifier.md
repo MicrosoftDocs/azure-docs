@@ -12,7 +12,7 @@ ms.date: 05/20/2024
 
 In Azure Virtual Network Manager, Virtual Network Verifier enables you to check if your network policies allow or disallow traffic between your Azure network resources. It can help you answer simple diagnostic questions to triage why reachability isn't working as expected and prove conformance of your Azure setup to your organization’s security compliance requirements. When you run a reachability analysis in Virtual Network Verifier, it can answer questions such as why two virtual machines can't communicate with each other.
 
-[!INCLUDE [virtual-network-verifier-preview.md](../../includes/virtual-network-verifier-preview.md.md)]
+[!INCLUDE [virtual-network-verifier-preview](../../includes/virtual-network-verifier-preview.md)]
 
 ## How does Verifier Workspace work?
 
