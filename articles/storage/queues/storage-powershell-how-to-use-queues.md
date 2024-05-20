@@ -5,7 +5,7 @@ description: Perform operations on Azure Queue Storage via PowerShell. With Azur
 author: stevenmatthew
 ms.author: shaas
 ms.reviewer: dineshm 
-ms.date: 05/19/2024
+ms.date: 05/20/2024
 ms.topic: how-to
 ms.service: azure-queue-storage
 ms.custom: devx-track-azurepowershell
@@ -19,9 +19,9 @@ Azure Queue Storage is a service for storing large numbers of messages that can 
 >
 > - Create a queue
 > - Retrieve a queue
-> - Add a message
-> - Retrieve a message
-> - Delete a message
+> - Add messages
+> - Retrieve messages
+> - Delete a messages
 > - Delete a queue
 
 This how-to guide requires the Azure PowerShell (`Az`) module v0.7 or later. Run `Get-Module -ListAvailable Az` to find the currently installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
@@ -196,52 +196,27 @@ $queueMessage.Value
 
 To prevent accidental deletion, both the `MessageId` and `PopReceipt` properties must be supplied before permanently deleting a message. Because of this requirement, it's usually easiest to delete a message using a two-step process. 
 
-First, fetch the next message in the queue by calling the [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage) method. Pass the values obtained from the message to the [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage) method to finish removing the message from the queue. Thsi process is illustrated in the following example:
+First, fetch the next message in the queue by calling the [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage) or [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) methods. Pass the values obtained from the message to the [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage) method to finish removing the message from the queue. 
+
+This process is illustrated in the following examples. 
 
 ```PowerShell
 # Set the amount of time you want to entry to be invisible after read from the queue
 # If it is not deleted by the end of this time, it will show up in the queue again
 $visibilityTimeout = [System.TimeSpan]::FromSeconds(10)
 
-# Read the message from the queue, then show the contents of the message. 
-# Read the next message, too.
+# Receive one message from the queue, then delete the message. 
 $queueMessage = $queue.QueueClient.ReceiveMessage($visibilityTimeout)
-Write-Host "Deleting $($queueMessage.Value.MessageId)"
-$queue.QueueClient.DeleteMessage($queueMessage.Value.MessageId,$queueMessage.Value.PopReceipt)
-```
+$queue.QueueClient.DeleteMessage($queueMessage.Value.MessageId, $queueMessage.Value.PopReceipt)
 
-In the following example, you read through the three queue messages, then wait 10 seconds (the invisibility timeout). Then you read the three messages again, deleting the messages after reading them by calling `DeleteMessage`. If you try to read the queue after the messages are deleted, `$queueMessage` will be returned as `$null`.
-
-```powershell
-# Set the amount of time you want to entry to be invisible after read from the queue
-# If it is not deleted by the end of this time, it will show up in the queue again
-$invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
-
-# Read the message from the queue, then show the contents of the message. Read the other two messages, too.
-$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
-$queueMessage.Result
-$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
-$queueMessage.Result
-$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
-$queueMessage.Result
-
-# After 10 seconds, these messages reappear on the queue.
-# Read them again, but delete each one after reading it.
-# Delete the message.
-$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
-$queueMessage.Result
-$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
-$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
-$queueMessage.Result
-$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
-$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
-$queueMessage.Result
-$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
+# Receive four message from the queue, then delete the messages. 
+$queueMessage = $queue.QueueClient.ReceiveMessages(4,$visibilityTimeout)
+$queueMessage.Value | foreach { $queue.QueueClient.DeleteMessage($_.MessageId, $_.PopReceipt)}
 ```
 
 ## Delete a queue
 
-To delete a queue and all the messages contained in it, call the `Remove-AzStorageQueue` cmdlet. The following example shows how to delete the specific queue used in this exercise using the `Remove-AzStorageQueue` cmdlet.
+To delete a queue and all the messages contained in it, call the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class's [`Delete`](/dotnet/api/azure.storage.queues.queueclient.delete) method. The following example shows how to delete the specific queue used in this exercise.
 
 ```powershell
 # Delete the queue
@@ -264,9 +239,9 @@ In this how-to article, you learned about basic Queue Storage management with Po
 >
 > - Create a queue
 > - Retrieve a queue
-> - Add a message
-> - Read the next message
-> - Delete a message
+> - Add messages
+> - Read messages
+> - Delete messages
 > - Delete a queue
 
 ### Microsoft Azure PowerShell storage cmdlets
