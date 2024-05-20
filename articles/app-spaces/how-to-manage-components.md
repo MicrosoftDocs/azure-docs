@@ -22,34 +22,45 @@ The **Deployment** section in App Spaces provides a detailed log of all deployme
 ::: zone-end
 ::: zone pivot="app"
 ## Deployment
-Deployment info for app component.
+The **Deployment** section in App Spaces provides a detailed log of all deployment activities and utilizes GitHub Actions to automate the deployment process. You have the option to redeploy the application if necessary. The section also includes a **Workflow run** log that tracks the deployment process step-by-step, starting from setting up the job, logging into Azure, checking out the branch, building and pushing the container image to the registry, and completing the job. This detailed workflow, powered by GitHub Actions, ensures transparency and provides insights into the deployment timeline, making it easier to manage and troubleshoot deployments.
 ::: zone-end
 ::: zone pivot="database"
 ::: zone-end
 
 ::: zone pivot="static"
 ## Logs
-App Spaces provides robust logging capabilities for static app components, which can be filtered over a range of time periods from the last hour to the last 30 days. Users can enable logs through the "Log Settings" button, which offers different configuration options. The "Auto" setting automatically collects logs for HTTP requests, global errors, and usage analytics. For more customized tracking, users can choose the "Manual with npm packages" option to set up custom event tracking with IntelliSense. Alternatively, the "Manual with React and Angular plug-ins" option allows users to configure connection strings to define where to send telemetry data by replacing the placeholder `YOUR_CONNECTION_STRING` with the actual connection string. These flexible logging options ensure comprehensive monitoring and analysis tailored to specific needs.
+App Spaces provides robust logging capabilities for static app components, which can be filtered over a range of time periods from the last hour to the last 30 days. You can enable logs through the **Log Settings** button, which offers different configuration options. The **Auto** setting automatically collects logs for HTTP requests, global errors, and usage analytics. For more customized tracking, users can choose the **Manual with npm packages** option to set up custom event tracking with IntelliSense. Alternatively, the **Manual with React and Angular plug-ins** option allows users to configure connection strings to define where to send telemetry data by replacing the placeholder `YOUR_CONNECTION_STRING` with the actual connection string. These flexible logging options ensure comprehensive monitoring and analysis tailored to specific needs.
+
+Select **Open in advanced queries** to go to the [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
 For Application Insights, see [Enable a framework extension for Application Insights JavaScript SDK](https://go.microsoft.com/fwlink/?linkid=2269911).
 ::: zone-end
 ::: zone pivot="app"
 ## Logs
-For more information, see [View log streams in Azure Container Apps](https://go.microsoft.com/fwlink/?linkid=2259026).
+
+Select system logs to check service-level events, or console logs to debug code. For more information, see [View log streams in Azure Container Apps](https://go.microsoft.com/fwlink/?linkid=2259026).
+
+Select **Open in advanced queries** to go to the [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview).
 ::: zone-end
 ::: zone pivot="database"
 ::: zone-end
 
 ::: zone pivot="static"
 ## Metrics
-This tab provides metrics for static web apps, displayed in two primary graphs: "Requests" and "Data Out." The "Requests" graph tracks the number of HTTP requests made to the static web app, giving insights into traffic and user activity. The "Data Out" graph measures the amount of data transferred from the app to users, which helps in understanding bandwidth usage. Users can filter these metrics to view data over various time ranges, from the last hour up to the last 30 days, allowing for flexible monitoring and analysis of app performance and usage trends.
+This tab provides metrics for Static Web Apps, displayed in two primary graphs: **Requests** and **Data Out**.
+- The **Requests** graph tracks the number of HTTP requests made to the static web app, giving insights into traffic and user activity.
+- The **Data Out** graph measures the amount of data transferred from the app to users, which helps in understanding bandwidth usage. Users can filter these metrics to view data over various time ranges, from the last hour up to the last 30 days, allowing for flexible monitoring and analysis of app performance and usage trends.
 ::: zone-end
 ::: zone pivot="app"
 ## Metrics
-metrics info for app component.
+This tab provides metrics for Azure Container Apps, displayed in three primary graphs: **Requests**, **CPU Usage Nanocores**, and **Memory Working Set Bytes**. 
+- The **Requests** graph provides a visual representation of HTTP requests made to the app, offering valuable insights into app traffic and user engagement over time. 
+- The **CPU Usage Nanocores** graph illustrates the CPU utilization of the app in nanocores, aiding in monitoring resource consumption and performance optimization.
+- The **Memory Working Set Bytes** graph displays the memory usage of the app, enabling users to track memory utilization trends and identify potential memory-related issues.
+
+With the ability to adjust the time range from the last hour to the past 30 days, users can analyze app performance and resource usage patterns, to make informed decision-making and efficient management of App Spaces.
 ::: zone-end
 ::: zone pivot="database"
-metrics info for database.
 ::: zone-end
 
 ## Settings
@@ -96,40 +107,35 @@ This tab shows the following details:
 | Resource name  | The internal name used within Azure App Spaces|
 ::: zone-end
 ::: zone pivot="app"
-info for app component.
-ACA info link: https://go.microsoft.com/fwlink/?linkid=2261690
 
 This tab shows the following details:
 
 | Name | Description |
 |------|-------------|
-|URL | App URL |
-|Location | App region |
-|Resource group | App's resource group |
-|Pricing | Pricing details |
-|Repository|Component's GitHub repo|
-|Branch|GitHub branch|
-|Subscription|Azure subscription|
-|Resource name|App space internal name|
+| URL            | The direct link to your app|
+| Location       | The Azure region where your app is hosted|
+| Resource group | The specific resource group managing your app|
+| Pricing        | [Pricing details](https://go.microsoft.com/fwlink/?linkid=2261690)|
+| Repository     | The GitHub repository used for the app's source code|
+| Branch         | The GitHub branch used for the app's source code|
+| Subscription   | The Azure subscription under which the app is running|
+| Resource name  | The internal name used within Azure App Spaces|
+
 ::: zone-end
 ::: zone pivot="database"
-info for database.
-DB info link: https://go.microsoft.com/fwlink/?linkid=2261690
+
+This tab shows the following details:
 
 | Name | Description |
 |------|-------------|
-|URL | App URL |
-|Resource group | App's resource group |
-|Pricing | Pricing details |
-|Location | App region |
-|Branch|GitHub branch|
-|Subscription|Azure subscription|
-|Resource name|App space internal name|
+| URL            | The direct link to your app|
+| Location       | The Azure region where your app is hosted|
+| Resource group | The specific resource group managing your app|
+| Pricing        | [Pricing details](https://go.microsoft.com/fwlink/?linkid=2261690)|
+| Subscription   | The Azure subscription under which the app is running|
+| Resource name  | The internal name used within Azure App Spaces|
 
 ::: zone-end
-
-
-
 
 ## Related articles
 
