@@ -239,75 +239,16 @@ This article describes how to configure your container app to use managed identi
 
 | Prerequisite | Description |
 |--------------|-------------|
-| Azure account | An Azure account with an active subscription. If you don't have one, you can [can create one for free](https://azure.microsoft.com/free/). |
+| Azure account | An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
 | Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
 |Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
 
-## Setup
-
-First, sign in to Azure from the CLI or PowerShell. Run the following command, and follow the prompts to complete the authentication process.
-
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az login
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Connect-AzAccount
-```
-
----
-
-# [Azure CLI](#tab/azure-cli)
-
-Install the Azure Container Apps extension for the CLI.
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-You must have the latest Az PowerShell module installed. Ignore any warnings about modules currently in use.
-
-```azurepowershell
-Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-```
-
-Now install the Az.App module.
-
-```azurepowershell
-Install-Module -Name Az.App
-```
-
----
-
-Now that the current extension or module is installed, register the `Microsoft.App` namespace and the `Microsoft.OperationalInsights` provider if you haven't register them before.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az provider register --namespace Microsoft.App
-az provider register --namespace Microsoft.OperationalInsights
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.App
-Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
-```
-
----
-
-# [Azure CLI](#tab/azure-cli)
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 Next, set the following environment variables. Replace the *\<PLACEHOLDERS\>* with your own values.
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 RESOURCE_GROUP="<YOUR_RESOURCE_GROUP_NAME>"
@@ -320,15 +261,13 @@ IMAGE_NAME="<YOUR_IMAGE_NAME>"
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Next, set the following environment variables. Replace the *\<Placeholders\>* with your own values.
-
 ```azurepowershell
-$ResourceGroupName = '<YourResourceGroupName>'
-$Location = '<YourLocation>'
-$ContainerAppsEnvironment = '<YourEnvironmentName>'
-$RegistryName = '<YourRegistryName>'
-$ContainerAppName = '<YourContainerAppName>'
-$ImageName = '<YourImageName>'
+$ResourceGroupName = '<YOUR_RESOURCE_GROUP_NAME>'
+$Location = '<YOUR_LOCATION>'
+$ContainerAppsEnvironment = '<YOUR_ENVIRONMENT_NAME>'
+$RegistryName = '<YOUR_REGISTRY_NAME>'
+$ContainerAppName = '<YOUR_CONTAINERAPP_NAME>'
+$ImageName = '<YOUR_IMAGE_NAME>'
 ```
 
 ---
@@ -672,7 +611,288 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ::: zone-end
 ::: zone pivot="bicep"
 
+This article describes how to use a Bicep template to configure your container app to use user-assigned managed identities to pull images from private Azure Container Registry repositories.
 
+## Prerequisites
+
+- An Azure account with an active subscription.
+  - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/)
+- If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine.
+- If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`.
+
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
+
+### Install Bicep
+
+If you don't have Bicep installed, you can install it as follows.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az bicep install
+```
+
+If you do have Bicep installed, make sure you have the latest version.
+
+```azurecli
+az bicep upgrade
+```
+
+For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install).
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+You must manually install Bicep for any use other than Azure CLI. For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install#install-manually).
+
+---
+
+### Set environment variables
+
+Next, set the following environment variables. Replace the *\<PLACEHOLDERS\>* with your own values.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+RESOURCE_GROUP="<YOUR_RESOURCE_GROUP_NAME>"
+LOCATION="<YOUR_LOCATION>"
+REGISTRY_NAME="<YOUR_REGISTRY_NAME>"
+IMAGE_NAME="<YOUR_IMAGE_NAME>"
+IMAGE_TAG="<YOUR_IMAGE_TAG>"
+IMAGE_URL="<YOUR_IMAGE_URL>"
+BICEP_TEMPLATE="<YOUR_BICEP_TEMPLATE>"
+CONTAINERAPPS_ENVIRONMENT="<YOUR_ENVIRONMENT_NAME>"
+CONTAINER_NAME="<YOUR_CONTAINER_NAME>"
+CONTAINERAPP_NAME="<YOUR_CONTAINERAPP_NAME>"
+USER_ASSIGNED_IDENTITY_NAME="<YOUR_USER_ASSIGNED_IDENTITY_NAME>"
+LOG_ANALYTICS_WORKSPACE_NAME="<YOUR_LOG_ANALYTICS_WORKSPACE_NAME>"
+APP_INSIGHTS_NAME="<YOUR_APP_INSIGHTS_NAME>"
+ACR_PULL_DEFINITION_ID="7f951dda-4ed3-4680-a7ca-43fe172d538d"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$ResourceGroupName = '<YOUR_RESOURCE_GROUP_NAME>'
+$Location = '<YOUR_LOCATION>'
+$RegistryName = '<YOUR_REGISTRY_NAME>'
+$ImageName = '<YOUR_IMAGE_NAME>'
+$ImageTag = '<YOUR_IMAGE_TAG>'
+$ImageUrl = '<YOUR_IMAGE_URL>'
+$BicepTemplate = '<YOUR_BICEP_TEMPLATE>'
+$ContainerAppsEnvironment = '<YOUR_ENVIRONMENT_NAME>'
+$ContainerName = '<YOUR_CONTAINER_NAME>'
+$ContainerAppName = '<YOUR_CONTAINERAPP_NAME>'
+$UserAssignedIdentityName = '<YOUR_USER_ASSIGNED_IDENTITY_NAME>'
+$LogAnalyticsWorkspaceName = '<YOUR_LOG_ANALYTICS_WORKSPACE_NAME>'
+$AppInsightsName = '<YOUR_LOG_ANALYTICS_WORKSPACE_NAME>'
+$AcrPullDefinitionId = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
+
+```
+
+---
+
+The [`AcrPull`](/azure/role-based-access-control/built-in-roles#acrpull) role grants your user-assigned managed identity permission to pull the image from the registry.
+
+### Create a container registry
+
+If you don't already have a container registry, you can create it with the following command.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az acr create --name "$CONTAINER_REGISTRY_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION" --sku Basic --admin-enabled true
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+TODO1
+```
+
+---
+
+### Push your image to the container registry
+
+Push your image to the container registry with the following command.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az acr build --registry "$CONTAINER_REGISTRY_NAME" --image "$CONTAINER_REGISTRY_IMAGE_NAME:$CONTAINER_REGISTRY_IMAGE_TAG" "$CONTAINER_REGISTRY_IMAGE_URL"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+TODO1
+```
+
+---
+
+## Bicep template
+
+Copy the following Bicep template and save it as a file with the extension `.bicep`.
+
+```bicep
+param environmentName string 
+param logAnalyticsWorkspaceName string
+param appInsightsName string
+param containerAppName string 
+param azureContainerRegistry string
+param azureContainerRegistryImage string 
+param azureContainerRegistryImageTag string
+param acrPullDefinitionId string
+param userAssignedIdentityName string
+param location string = resourceGroup().location
+
+resource identity 'Microsoft.ManagedIdentity/userAssignedIdentities@2022-01-31-preview' = {
+  name: userAssignedIdentityName
+  location: location 
+}
+
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(resourceGroup().id, azureContainerRegistry, 'AcrPullTestUserAssigned')
+  properties: {
+    principalId: identity.properties.principalId  
+    principalType: 'ServicePrincipal'
+    // acrPullDefinitionId has a value of 7f951dda-4ed3-4680-a7ca-43fe172d538d
+    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', acrPullDefinitionId)
+  }
+}
+
+resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
+  name: logAnalyticsWorkspaceName
+  location: location
+  properties: any({
+    retentionInDays: 30
+    features: {
+      searchVersion: 1
+    }
+    sku: {
+      name: 'PerGB2018'
+    }
+  })
+}
+
+resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
+  name: appInsightsName
+  location: location
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    WorkspaceResourceId: logAnalyticsWorkspace.id
+  }
+}
+
+resource appEnvironment 'Microsoft.App/managedEnvironments@2022-06-01-preview' = {
+  name: environmentName
+  location: location
+  properties: {
+    daprAIInstrumentationKey: appInsights.properties.InstrumentationKey
+    appLogsConfiguration: {
+      destination: 'log-analytics'
+      logAnalyticsConfiguration: {
+        customerId: logAnalyticsWorkspace.properties.customerId
+        sharedKey: logAnalyticsWorkspace.listKeys().primarySharedKey
+      }
+    }
+  }
+}
+
+resource containerApp 'Microsoft.App/containerApps@2022-06-01-preview' = {
+  name: containerAppName
+  location: location
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${identity.id}': {}
+    }
+  }
+  properties: {
+    environmentId: appEnvironment.id
+    configuration: {
+      ingress: {
+        targetPort: 8080
+        external: true
+      }
+      registries: [
+        {
+          server: '${azureContainerRegistry}.azurecr.io'
+          identity: identity.id
+        }
+      ]
+    }
+    template: {
+      containers: [
+        {
+          image: '${azureContainerRegistry}.azurecr.io/${azureContainerRegistryImage}:${azureContainerRegistryImageTag}'
+          name: '${azureContainerName}'
+          resources: {
+            cpu: 1
+            memory: '2Gi'
+          }
+        }
+      ]
+      scale: {
+        minReplicas: 1
+        maxReplicas: 1
+      }
+    }
+  }
+}
+
+output location string = location
+output environmentId string = appEnvironment.id
+```
+
+## Deploy the container app
+
+Deploy your container app with the following command.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group "$RESOURCE_GROUP" \
+  --template-file "$BICEP_TEMPLATE" \
+  --parameters environmentName="$CONTAINERAPPS_ENVIRONMENT" \
+  logAnalyticsWorkspaceName="$LOG_ANALYTICS_WORKSPACE_NAME" \
+  appInsightsName="$APP_INSIGHTS_NAME" \
+  containerAppName="$CONTAINERAPP_NAME" \
+  azureContainerRegistry="$CONTAINER_REGISTRY_NAME" \
+  azureContainerRegistryImage="$CONTAINER_REGISTRY_IMAGE_NAME" \
+  azureContainerRegistryImageTag="$CONTAINER_REGISTRY_IMAGE_TAG" \
+  azureContainerName="$CONTAINER_NAME" \
+  acrPullDefinitionId="$ACR_PULL_DEFINITION_ID" \
+  userAssignedIdentityName="$USER_ASSIGNED_IDENTITY_NAME" \
+  location="$LOCATION"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+TODO1
+```
+
+---
+
+This command deploys the following.
+- An Azure resource group.
+- A Container Apps environment.
+- A Log Analytics workspace associated with the Container Apps environment.
+- An Application Insights resource for distributed tracing.
+- A user-assigned managed identity.
+- A container to store the image.
+- A container app based on the image.
+
+If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep template file has the extension `.bicep`.
+
+## Additional resources
+
+For more information, see the following.
+- [Bicep format](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep)
+- [Example Bicep templates](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep#quickstart-templates)
+- [Using Managed Identity and Bicep to pull images with Azure Container Apps](https://azureossd.github.io/2023/01/03/Using-Managed-Identity-and-Bicep-to-pull-images-with-Azure-Container-Apps/)
 
 ::: zone-end
 
