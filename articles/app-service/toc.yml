@@ -306,7 +306,7 @@
       items:
         - name: Networking features overview
           href: networking-features.md
-        - name: Find inbound and outbound IPs
+        - name: Inbound and outbound IPs
           href: overview-inbound-outbound-ips.md
         - name: Access restriction
           items:

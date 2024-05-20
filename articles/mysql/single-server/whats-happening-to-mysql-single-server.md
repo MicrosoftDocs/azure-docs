@@ -189,7 +189,11 @@ After the forced migration, you must reconfigure the features listed above on th
 
 **Q. Is there cross-version support?**
 
-Yes, migration from lower version MySQL servers (v5.6 and above) to higher versions is supported through Azure Database Migration Service migrations.
+**A.** Yes, migration from lower version MySQL servers (v5.6 and above) to higher versions is supported through Azure Database Migration Service migrations.
+
+**Q. MyAzure Database for MySQL Single Server utilizes non-default ports such as 3308,3309 and 3310, which is not supported on Flexible Server. What should I do to ensure connectivity when migrating to Flexible Server?**
+
+**A.** If your source Azure Database for MySQL Single Server utilizes non-default ports such as 3308,3309 and 3310, change your connectivity port to 3306 as the above mentioned non-default ports are not supported on Flexible Server.
 
 **Q. I have further questions on retirement. How can I get assistance around it?**
 

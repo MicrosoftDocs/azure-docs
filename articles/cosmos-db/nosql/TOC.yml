@@ -347,8 +347,10 @@
           href: ../consistency-levels.md
         - name: High availability
           items:
-            - name: High availability overview
-              href: ../high-availability.md
+            - name: High availability and reliability
+              href: ../../reliability/reliability-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+            - name: Proactive resiliency
+              href: ../../reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
             - name: Multi-region writes
               items:
                 - name: Understanding multi-region writes
@@ -567,6 +569,8 @@
           items:
             - name: Spark 3.x online transaction processing (OLTP) connector
               href: sdk-java-spark-v3.md
+            - name: Use a service principal with the OLTP Spark 3 connector
+              href: how-to-spark-service-principal.md
             - name: Throughput control
               href: throughput-control-spark.md
         - name: ASP.NET session state and cache provider

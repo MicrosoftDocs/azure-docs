@@ -73,7 +73,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
 ```azurecli-interactive
-az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
+az aks create --name <clusterName> --resource-group <resourceGroupName> --loctaion <location> \
   --network-plugin azure \
   --network-plugin-mode overlay \
   --pod-cidr 192.168.0.0/16 \
@@ -94,15 +94,15 @@ az group create --name <resourceGroupName> --location <location>
 
 ```azurecli-interactive
 # Create a virtual network with a subnet for nodes and a subnet for pods
-az network vnet create -g <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
-az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
-az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
+az network vnet create --resource-group <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
+az network vnet subnet create --resource-group <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
+az network vnet subnet create --resource-group<resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
 ```
 
 Create the cluster using `--network-dataplane cilium`:
 
 ```azurecli-interactive
-az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
+az aks create --name <clusterName> --resource-group <resourceGroupName> --location <location> \
   --max-pods 250 \
   --network-plugin azure \
   --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
@@ -131,7 +131,7 @@ To perform the upgrade, you will need Azure CLI version 2.52.0 or later. Run `az
 Use the following command to upgrade an existing cluster to Azure CNI Powered by Cilium. Replace the values for `<clusterName>` and `<resourceGroupName>`:
 
 ```azurecli-interactive
-az aks update -n <clusterName> -g <resourceGroupName> \
+az aks update --name <clusterName> --resource-group <resourceGroupName> \
   --network-dataplane cilium
 ```
 
