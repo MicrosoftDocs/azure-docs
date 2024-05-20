@@ -140,14 +140,14 @@ retriever.get_relevant_documents("<your search query>")
 retriever=get_langchain_retriever_from_index(local_index_cohere)
 retriever.get_relevant_documents("<your search query>")
 ```
-### Registering the index in your AI project (Optional)
+### Registering the index in your AI Studio project (Optional)
 
-Optionally, you can register the index in your AI project so that you or others who have access to your project can use it from the cloud. Before proceeding [install the required packages](#required-packages-for-remote-index-operations) for remote operations.
+Optionally, you can register the index in your AI Studio project so that you or others who have access to your project can use it from the cloud. Before proceeding [install the required packages](#required-packages-for-remote-index-operations) for remote operations.
 
 #### Connect to the project
 
 ```python
-# connect to the AI project
+# connect to the AI Studio project
 from azure.identity import DefaultAzureCredential
 from azure.ai.ml import MLClient
 
@@ -183,9 +183,9 @@ client.indexes.create_or_update(
 > [!NOTE]
 > Environment variables are intended for convenience in a local environment. However, if you register a local index created using environment variables, the index may not function as expected because secrets from environment variables won’t be transferred to the cloud index. To address this issue, you can use a `ConnectionConfig` or `connection_id` to create a local index before registering.
 
-## Build an index (remotely) in your AI project
+## Build an index (remotely) in your AI Studio project
 
-We build an index in the cloud in your AI project. 
+We build an index in the cloud in your AI Studio project. 
 
 ### Required packages for remote index operations
 
@@ -195,12 +195,12 @@ Install the following packages required for remote index creation.
 pip install azure-ai-ml promptflow-rag langchain langchain-openai
 ```
 
-### Connect to the AI project
+### Connect to the AI Studio project
 
 To get started, we connect to the project. The `subscription`, `resource_group` and `workspace` in the code below refers to the project you want to connect to.
 
 ```python
-# connect to the AI project
+# connect to the AI Studio project
 from azure.identity import DefaultAzureCredential
 from azure.ai.ml import MLClient
 

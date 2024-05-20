@@ -75,15 +75,15 @@ For more information, see [Role-based access control in Azure AI Studio](rbac-ai
 
 ## Attribute-based access control
 
-Each AI hub you create has a default storage account. Each child AI project of the AI hub inherits the storage account of the AI hub. The storage account is used to store data and artifacts.
+Each hub you create has a default storage account. Each child project of the hub inherits the storage account of the hub. The storage account is used to store data and artifacts.
 
-To secure the shared storage account, Azure AI Studio uses both Azure RBAC and Azure attribute-based access control (Azure ABAC). Azure ABAC is a security model that defines access control based on attributes associated with the user, resource, and environment. Each AI project has:
+To secure the shared storage account, Azure AI Studio uses both Azure RBAC and Azure attribute-based access control (Azure ABAC). Azure ABAC is a security model that defines access control based on attributes associated with the user, resource, and environment. Each project has:
 
 - A service principal that is assigned the Storage Blob Data Contributor role on the storage account.
 - A unique ID (workspace ID).
-- A set of containers in the storage account. Each container has a prefix that corresponds to the workspace ID value for the AI project.
+- A set of containers in the storage account. Each container has a prefix that corresponds to the workspace ID value for the project.
 
-The role assignment for each AI project's service principal has a condition that only allows the service principal access to containers with the matching prefix value. This condition ensures that each AI project can only access its own containers.
+The role assignment for each project's service principal has a condition that only allows the service principal access to containers with the matching prefix value. This condition ensures that each project can only access its own containers.
 
 > [!NOTE]
 > For data encryption in the storage account, the scope is the entire storage and not per-container. So all containers are encrypted using the same key (provided either by Microsoft or by the customer).
@@ -92,10 +92,10 @@ For more information on Azure access-based control, see [What is Azure attribute
 
 ## Containers in the storage account
 
-The default storage account for an AI hub has the following containers. These containers are created for each AI project, and the `{workspace-id}` prefix matches the unique ID for the AI project. The container is accessed by the AI project using a [connection](connections.md).
+The default storage account for an hub has the following containers. These containers are created for each project, and the `{workspace-id}` prefix matches the unique ID for the project. The container is accessed by the project using a [connection](connections.md).
 
 > [!TIP]
-> To find the ID for your AI project, go to the AI project in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
+> To find the ID for your project, go to the project in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
 
 | Container name | Connection name | Description |
 | --- | --- | --- |

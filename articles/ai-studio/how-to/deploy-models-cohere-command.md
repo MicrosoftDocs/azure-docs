@@ -55,7 +55,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
     > [!IMPORTANT]
     > For Cohere family models, the serverless API model deployment offering is only available with hubs created in **EastUS2** or **Sweden Central** region.
 
-- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 

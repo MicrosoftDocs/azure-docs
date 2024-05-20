@@ -73,7 +73,7 @@ Design and safeguard applications.
 ### Enterprise-grade production at scale 
 
 Deploy AI innovations to Azure’s managed infrastructure with continuous monitoring and governance across environments. 
-- Collaborative AI hubs
+- Collaborative hubs
 - LLMOps
 - Monitoring & observability
 - IT governance
