@@ -17,7 +17,7 @@ items:
 - name: Decide
   items:
   - name: Build a business case (preview)
-    href: ../how-to-build-a-business-case.md?context=/azure/migrate/context/migrate-context
+    href: ../how-to-build-a-business-case.md?context=/azure/migrate/context/vmware-context
 - name: Assess
   items:
   - name: Assess servers for migration to Azure VMs

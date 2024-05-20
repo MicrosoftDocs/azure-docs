@@ -89,7 +89,7 @@ export KEYVAULT_RESOURCE_ID=$(az keyvault create --name MyKeyVault --resource-gr
 Assign yourself permissions to create a key:
 
 ```azurecli-interactive
-az role assignment create --role "Key Vault Crypto Officer" --assignee-object-id $(az ad signed-in-user show --query id --out tsv) --assignee-principal-type "User" --scope $KEYVAULT_RESOURCE_ID
+az role assignment create --role "Key Vault Crypto Officer" --assignee-object-id $(az ad signed-in-user show --query id -o tsv) --assignee-principal-type "User" --scope $KEYVAULT_RESOURCE_ID
 ```
 
 Use `az keyvault key create` to create a key:
@@ -142,7 +142,7 @@ The following sections describe how to assign decrypt and encrypt permissions fo
 If your key vault is not set with  `--enable-rbac-authorization`, you can use `az keyvault set-policy` to create an Azure key vault policy.
 
 ```azurecli-interactive
-az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+az keyvault set-policy --name MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
 #### Assign permissions for an RBAC public key vault
@@ -251,7 +251,7 @@ The following sections describe how to assign decrypt and encrypt permissions fo
 If your key vault is not set with  `--enable-rbac-authorization`, you can use `az keyvault set-policy` to create a key vault policy in Azure:
 
 ```azurecli-interactive
-az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+az keyvault set-policy --name MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
 #### Assign permissions for an RBAC private key vault

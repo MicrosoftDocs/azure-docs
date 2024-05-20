@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: overview
-ms.date: 3/22/2023
+ms.date: 3/22/2024
 ms.author: mbender
 ms.custom: references_regions
 #Customer intent: As an IT administrator, I want to learn about Azure Virtual Network Manager and what I can use it for.

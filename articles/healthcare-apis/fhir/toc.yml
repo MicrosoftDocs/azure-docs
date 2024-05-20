@@ -7,7 +7,7 @@ items:
     - name: What is the FHIR service?
       href: overview.md
     - name: FHIR service autoscale
-      href: fhir-service-autoscale.md
+      href: autoscale.md
     - name: FHIR REST API capabilities
       href: fhir-rest-api-capabilities.md
     - name: Versioning policy and history management
