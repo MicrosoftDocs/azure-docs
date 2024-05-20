@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI Embeddings Store Output Binding for Azure Functions
+title: Azure OpenAI embeddings store output binding for Azure Functions
 description: Learn how to use the Azure OpenAI embeddings store output binding to write searchable content to a semantic document store during function execution in Azure Functions.
 ms.topic: reference
 ms.date: 05/08/2024
@@ -14,6 +14,7 @@ zone_pivot_groups: programming-languages-set-functions
 The Azure OpenAI embeddings store output binding allows you to write files to a semantic document store that can be referenced later in a semantic search.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](../search/semantic-search-overview.md).
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 > [!NOTE]  
 > References and examples are only provided for the [Node.js v4 model](./functions-reference-node.md?pivots=nodejs-model-v4).
@@ -36,9 +37,9 @@ This example writes an HTTP input stream to a semantic document store at the pro
 
 :::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="29-61"::: 
 
-<!-- ### [In-process](#tab/in-process)
+### [In-process](#tab/in-process)
 
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)] -->
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
 
 ---
 
@@ -67,7 +68,6 @@ This example writes an HTTP input stream to a semantic document store at the pro
 
 :::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/nodejs/src/app.ts" range="7-38":::
 
-
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
@@ -80,7 +80,6 @@ Here's the _function.json_ file for ingesting files:
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
 :::code language="powershell" source="~/functions-openai-extension/samples/rag-aisearch/powershell/IngestFile/run.ps1" :::
-
 
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
@@ -110,7 +109,7 @@ Apply the `EmbeddingsStoreOutput` attribute to define an embeddings store output
 ::: zone pivot="programming-language-java"
 ## Annotations
 
-The `EmbeddingsStoreOutput` annotation enables you to define a embeddings store output binding, which supports these parameters: 
+The `EmbeddingsStoreOutput` annotation enables you to define an embeddings store output binding, which supports these parameters: 
 
 | Element | Description |
 | ------- | ----------- |

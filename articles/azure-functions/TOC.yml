@@ -814,37 +814,39 @@
             - name: Output
               href: functions-bindings-azure-data-explorer-output.md
               displayName: Azure Data Explorer
-        - name: Azure OpenAPI
+        - name: Azure OpenAI
           items:
             - name: Overview
               href: functions-bindings-openai.md
-              displayName: OpenAPI    
+              displayName: OpenAI    
             - name: Assistants 
               items: 
                 - name: Trigger
                   href: functions-bindings-openai-assistant-trigger.md  
-                  displayName: Assistants     
+                  displayName: assistants, OpenAI     
                 - name: Query input
                   href: functions-bindings-openai-assistantquery-input.md 
-                  displayName: Assistants
+                  displayName: assistants, OpenAI 
                 - name: Create output
                   href: functions-bindings-openai-assistantcreate-output.md
-                  displayName: Assistants   
+                  displayName: assistants, OpenAI    
                 - name: Post input
                   href: functions-bindings-openai-assistantpost-input.md 
-                  displayName: Assistants
+                  displayName: assistants, OpenAI 
             - name: Embeddings  
               items: 
                 - name: Input
                   href: functions-bindings-openai-embeddings-input.md 
-                  displayName: embeddings
+                  displayName: embeddings, OpenAI
                 - name: Store output
                   href: functions-bindings-openai-embeddingsstore-output.md  
-                  displayName: embeddings
+                  displayName: embeddings, OpenAI
             - name: Semantic search input
-              href: functions-bindings-openai-semanticsearch-input.md   
+              href: functions-bindings-openai-semanticsearch-input.md 
+              displayName: OpenAI  
             - name: Text Completion input
               href: functions-bindings-openai-textcompletion-input.md                      
+              displayName: OpenAI  
         - name: Azure SQL
           items:
             - name: Overview
