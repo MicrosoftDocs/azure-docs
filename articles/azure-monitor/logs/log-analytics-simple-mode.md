@@ -25,7 +25,7 @@ This article explains how to use Log Analytics Simple mode to explore and analyz
 Here's a video that provides a quick overview of how to query logs in Log Analytics using both Simple and KQL modes:
 <br>
 
->[!VIDEO https://www.youtube.com/embed/85Xxj5FhTk0]
+>[!VIDEO https://www.youtube.com/embed/85Xxj5FhTk0?cc_load_policy=1&cc_lang_pref=auto]
 
 ## Try Log Analytics Simple mode
 
@@ -93,7 +93,7 @@ When you select a table or a predefined query or function in Simple mode, Log An
 
 This lets you retrieve logs with one click whether you open Log Analytics in resource or workspace context.
 
-To get started:
+To get started, you can:
 
 - Click **Select a table** and select a table from the **Tables** tab to view table data.
 
@@ -125,7 +125,7 @@ After you [get started in Simple mode](#get-started-in-simple-mode), you can exp
 > [!NOTE]
 > The order in which you apply filters and operators affects your query and results. For example, if you apply a filter and then aggregate, Log Analytics applies the aggregation to the filtered data. If you aggregate and then filter, the aggregation is applied to the unfiltered data.
 
-**Change time range and number of records displayed**
+#### Change time range and number of records displayed
 
 By default, Simple mode lists the latest 1,000 entries in the table from the last 24 hours. 
 
@@ -133,7 +133,7 @@ To change the time range and number of records displayed, use the **Time range**
     
 :::image type="content" source="media/log-analytics-explorer/log-analytics-time-range-limit.png" alt-text="Screenshot that shows the time range and limit selectors in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-time-range-limit.png":::
 
-**Filter by column**
+#### Filter by column
 
 1. Select **Add** and choose a column.
 
@@ -145,7 +145,7 @@ To change the time range and number of records displayed, use the **Time range**
     
     :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows filter values for the OperationId column in Log Analytics Simple mode." lightbox="media/log-analytics-explorer/log-analytics-filter.png":::
 
-**Search for entries that have a specific value in the table**
+#### Search for entries that have a specific value in the table
 
 1. Select **Search**.
 
@@ -158,21 +158,21 @@ To change the time range and number of records displayed, use the **Time range**
 > [!IMPORTANT]
 > We recommend using **Filter** if you know which column holds the data you're searching for. The [search operator is substantially less performant](../logs/query-optimization.md#avoid-unnecessary-use-of-search-and-union-operators) than filtering, and might not function well on large volumes of data.
 
-**Aggregate data**
+#### Aggregate data
 
 1. Select **Aggregate**.
 1. Select a column to aggregate by and select an operator to aggregate by, as described in [Use aggregation operators](#use-aggregation-operators).
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-aggregate.png" alt-text="Screenshot that shows the aggregation operators in the Aggregate table window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-aggregate.png":::
 
-**Show or hide columns**
+#### Show or hide columns
 
 1. Select **Show columns**.
 1. Select or clear columns to show or hide them, then select **Apply**.
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-show-column.png" alt-text="Screenshot that shows the Show columns window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-show-column.png":::
 
-**Sort by column**
+#### Sort by column
 
 1. Select **Sort**.
 1. Select a column to sort by.
