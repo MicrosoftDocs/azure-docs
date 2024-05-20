@@ -21,7 +21,7 @@ This article provides reference documentation for Python and REST for the new As
 ## Create a thread
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-05-01-preview
 ```
 
 Create a thread.
@@ -46,7 +46,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -57,7 +57,7 @@ print(empty_thread)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d ''
@@ -68,7 +68,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads?api-version=2024
 ## Retrieve thread
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview
 ```
 
 Retrieves a thread.
@@ -93,7 +93,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -104,7 +104,7 @@ print(my_thread)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -114,7 +114,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 ## Modify thread
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview
 ```
 
 Modifies a thread.
@@ -144,7 +144,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -161,7 +161,7 @@ print(my_updated_thread)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -177,7 +177,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 ## Delete thread
 
 ```http
-DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview
+DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview
 ```
 
 Delete a thread
@@ -201,7 +201,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -212,7 +212,7 @@ print(response)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X DELETE

@@ -22,7 +22,7 @@ This article provides reference documentation for Python and REST for the new As
 ## Create an assistant
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-05-01-preview
 ```
 
 Create an assistant with a model and instructions.
@@ -55,7 +55,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -69,7 +69,7 @@ assistant = client.beta.assistants.create(
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -86,7 +86,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2
 ## Create assistant file
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files?api-version=2024-05-01-preview
 ```
 
 Create an assistant file by attaching a `File` to an `assistant`.
@@ -116,7 +116,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -130,7 +130,7 @@ print(assistant_file)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -143,7 +143,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id
 ## List assistants
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-05-01-preview
 ```
 
 Returns a list of all assistants.
@@ -170,7 +170,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -185,7 +185,7 @@ print(my_assistants.data)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-02-15-preview  \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2024-05-01-preview  \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -195,7 +195,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants?api-version=2
 ## List assistant files
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files?api-version=2024-05-01-preview
 ```
 
 Returns a list of assistant files.
@@ -228,7 +228,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -241,7 +241,7 @@ print(assistant_files)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}/files?api-version=2024-02-15-preview  \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}/files?api-version=2024-05-01-preview  \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -251,7 +251,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id
 ## Retrieve assistant
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-05-01-preview
 ```
 
 Retrieves an assistant.
@@ -273,7 +273,7 @@ The [assistant](#assistant-object) object matching the specified ID.
 ```python
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -284,7 +284,7 @@ print(my_assistant)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-02-15-preview  \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-05-01-preview  \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -294,7 +294,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id
 ## Retrieve assistant file
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-05-01-preview
 ```
 
 Retrieves an Assistant file.
@@ -317,7 +317,7 @@ The [assistant file](#assistant-file-object) object matching the specified ID
 ```python
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -331,7 +331,7 @@ print(assistant_file)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}/files/{file-id}?api-version=2024-02-15-preview  \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}/files/{file-id}?api-version=2024-05-01-preview  \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -341,7 +341,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id
 ## Modify assistant
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-05-01-preview
 ```
 
 Modifies an assistant.
@@ -375,7 +375,7 @@ The modified [assistant object](#assistant-object).
 ```python
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -394,7 +394,7 @@ print(my_updated_assistant)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-02-15-preview  \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-05-01-preview  \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -410,7 +410,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id
 ## Delete assistant
 
 ```http
-DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-02-15-preview
+DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}?api-version=2024-05-01-preview
 ```
 
 Delete an assistant.
@@ -432,7 +432,7 @@ Deletion status.
 ```python
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -443,7 +443,7 @@ print(response)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-02-15-preview  \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id}?api-version=2024-05-01-preview  \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X DELETE
@@ -454,7 +454,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant-id
 ## Delete assistant file
 
 ```http
-DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-02-15-preview
+DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-05-01-preview
 ```
 
 Delete an assistant file.
@@ -477,7 +477,7 @@ File deletion status
 ```python
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -492,7 +492,7 @@ print(deleted_assistant_file)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-02-15-preview
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id}/files/{file-id}?api-version=2024-05-01-preview
 ```  \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -503,7 +503,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/assistants/{assistant_id
 
 ## File upload API reference
 
-Assistants use the [same API for file upload as fine-tuning](/rest/api/azureopenai/files/upload?view=rest-azureopenai-2024-02-15-preview&tabs=HTTP&preserve-view=true). When uploading a file you have to specify an appropriate value for the [purpose parameter](/rest/api/azureopenai/files/upload?view=rest-azureopenai-2024-02-15-preview&tabs=HTTP#purpose&preserve-view=true).
+Assistants use the [same API for file upload as fine-tuning](/rest/api/azureopenai/files/upload?view=rest-azureopenai-2024-05-01-preview&tabs=HTTP&preserve-view=true). When uploading a file you have to specify an appropriate value for the [purpose parameter](/rest/api/azureopenai/files/upload?view=rest-azureopenai-2024-05-01-preview&tabs=HTTP#purpose&preserve-view=true).
 
 
 ## Assistant object

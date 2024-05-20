@@ -21,7 +21,7 @@ This article provides reference documentation for Python and REST for the new As
 ## Create run
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-05-01-preview
 ```
 
 Create a run.
@@ -55,7 +55,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -69,7 +69,7 @@ print(run)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -82,7 +82,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 ## Create thread and run
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/runs?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/runs?api-version=2024-05-01-preview
 ```
 
 Create a thread and run it in a single request.
@@ -111,7 +111,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -128,7 +128,7 @@ run = client.beta.threads.create_and_run(
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/runs?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/runs?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -146,7 +146,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/runs?api-version
 ## List runs
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-05-01-preview
 ```
 
 Returns a list of runs belonging to a thread.
@@ -179,7 +179,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -192,7 +192,7 @@ print(runs)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -202,7 +202,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 ## List run steps
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps?api-version=2024-05-01-preview
 ```
 
 Returns a list of steps belonging to a run.
@@ -236,7 +236,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -250,7 +250,7 @@ print(run_steps)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -260,7 +260,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 ## Retrieve run
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-05-01-preview
 ```
 
 Retrieves a run.
@@ -285,7 +285,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -299,7 +299,7 @@ print(run)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -309,7 +309,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 ## Retrieve run step
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps/{step_id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps/{step_id}?api-version=2024-05-01-preview
 ```
 
 Retrieves a run step.
@@ -335,7 +335,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -350,7 +350,7 @@ print(run_step)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps/{step_id}?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/steps/{step_id}?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -360,7 +360,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 ## Modify run
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-05-01-preview
 ```
 
 Modifies a run.
@@ -391,7 +391,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -406,7 +406,7 @@ print(run)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
   -d '{
@@ -421,7 +421,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 ## Submit tool outputs to run
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/submit_tool_outputs?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/submit_tool_outputs?api-version=2024-05-01-preview
 ```
 
 When a run has the status: "requires_action" and required_action.type is submit_tool_outputs, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request.
@@ -452,7 +452,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -472,7 +472,7 @@ print(run)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/submit_tool_outputs?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/submit_tool_outputs?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -491,7 +491,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 ## Cancel a run
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/cancel?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/cancel?api-version=2024-05-01-preview
 ```
 
 Cancels a run that is in_progress.
@@ -516,7 +516,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -530,7 +530,7 @@ print(run)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/cancel?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}/cancel?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST
@@ -584,7 +584,7 @@ Represent a step in execution of a run.
 | `step_details`| object | The details of the run step.|
 | `last_error`| object or null | The last error associated with this run step. Will be null if there are no errors.|
 | `expired_at`| integer or null | The Unix timestamp (in seconds) for when the run step expired. A step is considered expired if the parent run is expired.|
-| `cancelled_at`| integer or null | The Unix timestamp (in seconds) for when the run step was cancelled.|
+| `cancelled_at`| integer or null | The Unix timestamp (in seconds) for when the run step was canceled.|
 | `failed_at`| integer or null | The Unix timestamp (in seconds) for when the run step failed.|
 | `completed_at`| integer or null | The Unix timestamp (in seconds) for when the run step completed.|
 | `metadata`| map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
@@ -684,14 +684,14 @@ Events are emitted whenever a new object is created, transitions to a new state,
 | `thread.run.completed` | `data` is a run. | Occurs when a run is completed. |
 | `thread.run.failed` | `data` is a run. | Occurs when a run fails. |
 | `thread.run.cancelling` | `data` is a run. | Occurs when a run moves to a `cancelling` status. |
-| `thread.run.cancelled` | `data` is a run. | Occurs when a run is cancelled. |
+| `thread.run.cancelled` | `data` is a run. | Occurs when a run is canceled. |
 | `thread.run.expired` | `data` is a run. | Occurs when a run expires. |
 | `thread.run.step.created` | `data` is a run step. | Occurs when a run step is created. |
 | `thread.run.step.in_progress` | `data` is a run step. | Occurs when a run step moves to an `in_progress` state. | 
 | `thread.run.step.delta` | `data` is a run step delta. | Occurs when parts of a run step are being streamed. |
 | `thread.run.step.completed` | `data` is a run step. | Occurs when a run step is completed. |
 | `thread.run.step.failed` | `data` is a run step. | Occurs when a run step fails. |
-| `thread.run.step.cancelled` | `data` is a run step. | Occurs when a run step is cancelled. |
+| `thread.run.step.cancelled` | `data` is a run step. | Occurs when a run step is canceled. |
 | `thread.run.step.expired` | `data` is a run step. | Occurs when a run step expires. |
 | `thread.message.created` | `data` is a message. | Occurs when a message is created. |
 | `thread.message.in_progress` | `data` is a message. | Occurs when a message moves to an in_progress state. | 

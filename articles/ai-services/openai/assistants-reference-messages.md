@@ -21,7 +21,7 @@ This article provides reference documentation for Python and REST for the new As
 ## Create message
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-05-01-preview
 ```
 
 Create a message.
@@ -54,7 +54,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -69,7 +69,7 @@ print(thread_message)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -83,7 +83,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 ## List messages
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-05-01-preview
 ```
 
 Returns a list of messages for a given thread.
@@ -117,7 +117,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -129,7 +129,7 @@ print(thread_messages.data)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -139,7 +139,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 ## List message files
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files?api-version=2024-05-01-preview
 ```
 
 Returns a list of message files.
@@ -147,7 +147,7 @@ Returns a list of message files.
 |Parameter| Type | Required | Description |
 |---|---|---|---|
 |`thread_id` | string | Required | The ID of the thread that the message and files belong to. |
-|`message_id`| string | Required | The ID of the message that the files belongs to. |
+|`message_id`| string | Required | The ID of the message that the files belong to. |
 
 **Query Parameters**
 
@@ -171,7 +171,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -186,7 +186,7 @@ print(message_files)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/files?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/files?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -196,7 +196,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 ## Retrieve message
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-05-01-preview
 ```
 
 Retrieves a message file.
@@ -222,7 +222,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -237,7 +237,7 @@ print(message)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-02-15-preview \
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-05-01-preview \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
 ```
@@ -247,7 +247,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 ## Retrieve message file
 
 ```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files/{file_id}?api-version=2024-02-15-preview
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files/{file_id}?api-version=2024-05-01-preview
 ```
 
 Retrieves a message file.
@@ -273,7 +273,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -288,7 +288,7 @@ print(message_files)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files/{file_id}?api-version=2024-02-15-preview
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}/files/{file_id}?api-version=2024-05-01-preview
 ``` \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' 
@@ -299,7 +299,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 ## Modify message
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-02-15-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-05-01-preview
 ```
 
 Modifies a message.
@@ -328,7 +328,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
 
@@ -346,7 +346,7 @@ print(message)
 # [REST](#tab/rest)
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-02-15-preview
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-05-01-preview
 ``` \
   -H "api-key: $AZURE_OPENAI_API_KEY" \
   -H 'Content-Type: application/json' \
