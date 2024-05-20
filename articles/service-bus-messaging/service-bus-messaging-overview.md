@@ -58,7 +58,7 @@ Messages are delivered in **pull** mode, only delivering messages when requested
 
 You can also use **topics** to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish-subscribe scenarios.
 
-:::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-queue.png" alt-text="Diagram that shows a Service Bus topic with one sender and multiple receivers.":::
+:::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-topic.png" alt-text="Diagram that shows a Service Bus topic with one sender and multiple receivers.":::
 
 Topics can have multiple, independent subscriptions, which attach to the topic and otherwise work exactly like queues from the receiver side. A subscriber to a topic can receive a copy of each message sent to that topic. Subscriptions are named entities. Subscriptions are durable by default, but can be configured to expire and then be automatically deleted. Via the Java Message Service (JMS) API, Service Bus Premium also allows you to create volatile subscriptions that exist for the duration of the connection.
 
