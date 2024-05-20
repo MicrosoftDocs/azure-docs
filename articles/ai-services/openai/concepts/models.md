@@ -30,6 +30,14 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 GPT-4o is the latest model from OpenAI. GPT-4o integrates text and images in a single model, enabling it to handle multiple data types simultaneously. This multimodal approach enhances accuracy and responsiveness in human-computer interactions. GPT-4o matches GPT-4 Turbo in English text and coding tasks while offering superior performance in non-English languages and vision tasks, setting new benchmarks for AI capabilities.
 
+### How do I access the GPT-4o model?
+
+GPT-4o is available for **standard** and **global-standard** model deployment.
+
+You need to [create](../how-to/create-resource.md) or use an existing resource in a [supported standard](#gpt-4-and-gpt-4-turbo-model-availability) or [global standard](#global-standard-model-availability-preview) region where the model is available.
+
+Once you resource is created you can [deploy](../how-to/create-resource.md#deploy-a-model) the GPT-4o model. If you are performing a programmatic deployment the **model** name is `gpt-4o`, and the **version** is `2024-05-13`.
+
 ### GPT-4 Turbo
 
 GPT-4 Turbo is a large multimodal model (accepting text or image inputs and generating text) that can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, and older GPT-4 models GPT-4 Turbo is optimized for chat and works well for traditional completions tasks.
@@ -158,6 +166,21 @@ This table doesn't include fine-tuning regional availability, consult the dedica
 You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
 
 For more information on Provisioned deployments, see our [Provisioned guidance](./provisioned-throughput.md).
+
+### Global standard model availability (preview)
+
+**Supported models:**
+
+- `gpt-4o` **Version:** `2024-05-13`  
+
+**Supported regions:**
+
+ - eastus
+ - eastus2
+ - northcentralus
+ - southcentralus
+ - westus
+ - westus3
 
 ### GPT-4 and GPT-4 Turbo model availability
 
