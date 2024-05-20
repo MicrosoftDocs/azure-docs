@@ -39,7 +39,7 @@ productDirectory:
   title: Network foundation services
   items:
     - title: Azure Virtual Network
-      imageSrc: ./media/virtual-network.svg
+      imageSrc: media/virtual-network.svg
       links:
         - text: Azure Virtual Network overview 
           url: /azure/virtual-network/virtual-networks-overview
@@ -51,7 +51,7 @@ productDirectory:
           url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
 
     - title: Azure Private Link
-      imageSrc: ./media/private-link-product.svg
+      imageSrc: media/private-link-product.svg
       links:
         - text: Azure Private Link overview
           url: /azure/private-link/private-link-overview   
@@ -63,7 +63,7 @@ productDirectory:
           url: /azure/private-link/private-link-service-overview
 
     - title: Azure DNS
-      imageSrc: ./media/dns.svg
+      imageSrc: media/dns.svg
       links:
         - text: Azure DNS overview         
           url: /azure/dns/dns-overview
@@ -73,7 +73,8 @@ productDirectory:
           url: /azure/dns/private-dns-privatednszone
         - text: What is Azure DNS Private Resolver?
           url: /azure/dns/dns-private-resolver-overview
-
+        - text: What is Traffic Manager?
+          url: /azure/traffic-manager/traffic-manager-overview
           
 # conceptualContent section (optional)
 conceptualContent:
