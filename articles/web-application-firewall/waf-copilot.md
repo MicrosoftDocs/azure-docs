@@ -4,7 +4,7 @@ description: Learn about using Microsoft Copilot for Security to investigate tra
 keywords: security copilot, copilot for security, threat intelligence, intrusion detection and prevention system, plugin, integration, azure web application firewall, copilot, open ai, openai co-pilot
 author: sowmyam2019
 ms.author: victorh
-ms.date: 04/11/2024
+ms.date: 05/20/2024
 ms.topic: conceptual
 ms.service: firewall
 ms.localizationpriority: high
