@@ -1,7 +1,7 @@
 ---
-title: Video translation service overview - Speech service
+title: Video translation overview - Speech service
 titleSuffix: Azure AI services
-description: With video translation service, you can seamlessly integrate multi-language voice-over capabilities into your videos.
+description: With video translation, you can seamlessly integrate multi-language voice-over capabilities into your videos.
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
@@ -12,17 +12,17 @@ author: eric-urban
 ms.custom: references_regions
 ---
 
-# What is video translation service (preview) 
+# What is video translation (preview) 
 
 [!INCLUDE [Feature preview](../includes/preview-feature.md)]
 
-Video translation service is a feature in Azure AI Speech that enables you to seamlessly translate and generate videos in multiple languages automatically. This feature is designed to help you localize your video content to cater to diverse audiences around the globe. You can efficiently create immersive, localized videos across various use cases such as vlogs, education, news, enterprise training, advertising, film, TV shows, and more.
+Video translation is a feature in Azure AI Speech that enables you to seamlessly translate and generate videos in multiple languages automatically. This feature is designed to help you localize your video content to cater to diverse audiences around the globe. You can efficiently create immersive, localized videos across various use cases such as vlogs, education, news, enterprise training, advertising, film, TV shows, and more.
 
-The process of replacing the original language of a video with audio recorded in a different language is often relied upon to cater to diverse audiences. Traditionally achieved through human recording and manual post-production, dubbing is essential for ensuring that viewers can enjoy video content in their native language. However, this process comes with key pain points, including its high cost, lengthy duration, and inability to replicate the original speaker's voice accurately. Video translation service in Azure AI Speech addresses these challenges by providing an automated, efficient, and cost-effective solution for creating localized videos.
+The process of replacing the original language of a video with audio recorded in a different language is often relied upon to cater to diverse audiences. Traditionally achieved through human recording and manual post-production, dubbing is essential for ensuring that viewers can enjoy video content in their native language. However, this process comes with key pain points, including its high cost, lengthy duration, and inability to replicate the original speaker's voice accurately. Video translation in Azure AI Speech addresses these challenges by providing an automated, efficient, and cost-effective solution for creating localized videos.
 
 ## Use case 
 
-The video translation service provided by Azure AI Speech has a wide range of use cases across various industries and content types. Here are some key applications: 
+Video translation provided by Azure AI Speech has a wide range of use cases across various industries and content types. Here are some key applications: 
 
 - **News + interviews**: News organizations can translate and dub news segments and interviews to provide accurate and timely information to audiences worldwide. 
 
@@ -38,9 +38,9 @@ The video translation service provided by Azure AI Speech has a wide range of us
 
 ## Supported regions and languages
 
-Currently, video translation service in Azure AI Speech is only supported in the East US region.
+Currently, video translation in Azure AI Speech is only supported in the East US region.
 
-We support video translation service between various languages, enabling you to tailor your content to specific linguistic preferences. For the languages supported for video translation service, refer to the [supported source and target languages](language-support.md?tabs=speech-translation#video-translation-service). 
+We support video translation between various languages, enabling you to tailor your content to specific linguistic preferences. For the languages supported for video translation, refer to the [supported source and target languages](language-support.md?tabs=speech-translation#video-translation). 
 
 ## Core features
 
@@ -62,13 +62,13 @@ We support video translation service between various languages, enabling you to 
 
 ## Get started 
 
-To get started with video translation service, refer to [video translation service in the studio](video-translation-service-studio.md). The video translation service API will be available soon.
+To get started with video translation, refer to [video translation in the studio](video-translation-studio.md). The video translation API will be available soon.
 
 ## Price 
 
-Pricing details for the video translation service will be effective from June 2024. 
+Pricing details for video translation will be effective from June 2024. 
 
 ## Related content
 
-* Try the [video translation service in the studio](video-translation-service-studio.md)
+* Try the [video translation in the studio](video-translation-studio.md)
   
