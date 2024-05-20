@@ -62,17 +62,17 @@ Advanced Observability offers the following capabilities to monitor network-rela
 
 ### Key Benefits of Advanced Observability
 
-* **CNI-Agnostic**: supported on kubenet and all Azure CNI modes.
+- **CNI-Agnostic**: Supported on kubenet and all Azure CNI modes.
 
-* **Cilium and Non-Cilium**: Uniform and seamless experince across Cilium and Non-Cilium dataplanes.
+- **Cilium and Non-Cilium**: Uniform and seamless experince across Cilium and Non-Cilium dataplanes.
 
-* **eBPF-Based Network Observability:** Identify potential bottlenecks and congestion issues before they impact application performance. Gain insights into key network health indicators, including traffic volume, dropped packets, and connection information.
+- **eBPF-Based Network Observability:** Identify potential bottlenecks and congestion issues before they impact application performance. Gain insights into key network health indicators, including traffic volume, dropped packets, and connection information.
 
-* **Deep Visibility into Network Activity:** Understand how your applications are communicating with each other through detailed network flow logs.
+- **Deep Visibility into Network Activity:** Understand how your applications are communicating with each other through detailed network flow logs.
 
-* **Simplified Monitoring Options:** Choose between:
-    **Azure Managed Prometheus and Grafana:** A convenient option where Azure manages the infrastructure and maintenance, allowing you to focus on configuring and visualizing metrics.
-    **Bring Your Own (BYO) Prometheus and Grafana:** Set up your own instances and manage the underlying infrastructure.
+- **Simplified Monitoring Options:** Choose between:
+  - **Azure Managed Prometheus and Grafana:** A convenient option where Azure manages the infrastructure and maintenance, allowing you to focus on configuring and visualizing metrics.
+  - **Bring Your Own (BYO) Prometheus and Grafana:** Set up your own instances and manage the underlying infrastructure.
 
 ### Metrics
 
