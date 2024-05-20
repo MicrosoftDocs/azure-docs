@@ -1,27 +1,27 @@
 ---
-title: How to deploy TimeGEN-1 model with Azure AI Studio
-titleSuffix: Azure AI Studio
-description: Learn how to deploy TimeGEN-1 with Azure AI Studio.
+title: How to deploy TimeGEN-1 model with Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Learn how to deploy TimeGEN-1 with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: azure-ai-studio
+ms.service: machine-learning
+ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: kritifaujdar 
-reviewer: fkriti
-ms.author: mopeakande
-author: msakande
+ms.author: kritifaujdar
+author: fkriti
+ms.reviewer: mopeakande
+reviewer: msakande
 ms.custom: [references_regions]
-
 ---
 
-# How to deploy a TimeGEN-1 model with Azure AI Studio
+# How to deploy a TimeGEN-1 model with Azure Machine Learning
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
-
-In this article, you learn how to use Azure AI Studio to deploy the TimeGEN-1 model as a serverless API with pay-as-you-go billing.
-You filter on the Nixtla collection to browse the TimeGEN-1 model in the [Model Catalog](model-catalog.md).
+In this article, you learn how to use Azure Machine Learning to deploy the TimeGEN-1 model as a serverless API with pay-as-you-go billing.
+You filter on the Nixtla collection to browse the TimeGEN-1 model in the [model catalog](concept-model-catalog.md).
 
 The Nixtla TimeGEN-1 is a generative, pretrained forecasting and anomaly detection model for time series data. TimeGEN-1 can produce accurate forecasts for new time series without training, using only historical values and exogenous covariates as inputs.
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Deploy TimeGEN-1 as a serverless API
 
@@ -32,48 +32,46 @@ You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla 
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions don't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
-  > [!IMPORTANT]
-  > The serverless API model deployment offering for TimeGEN-1 is only available with hubs created in the **East US 2** or **Sweden Central** regions.
+    > [!IMPORTANT]
+    > The serverless API model deployment offering for TimeGEN-1 is only available with workspaces created in the **East US 2** or **Sweden Central** regions.
 
-- An [Azure AI Studio project](../how-to/create-projects.md).
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, visit [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
 
 ### Create a new deployment
 
 These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the left sidebar.
-1. Search for and select **TimeGEN-1** to open its Details page.
-1. Select **Deploy** to open a serverless API deployment window for the model.
-1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
-    1. From the left sidebar of your project, select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
-    1. Search for and select **TimeGEN-1**. to open the Model's Details page.
-    1. Select **Confirm** to open a serverless API deployment window for the model.
-1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model, your project must be in the **East US 2** or **Sweden Central**  region.
-1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
-1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
-1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you,  there's a **Continue to deploy** option to select.
-1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-serverless-api) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
+1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
+1. Select the workspace in which you want to deploy your models. To use the serverless API model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
+1. Choose the model **TimeGEN-1**, from the [model catalog](https://ml.azure.com/model/catalog). 
+1. On the model's overview page in the model catalog, select **Deploy** to open up the serverless API deployment window.
 
-To learn about billing for the TimeGEN-1 model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for the TimeGEN-1 family of models deployed as a service](#cost-and-quota-considerations-for-timegen-1-deployed-as-a-serverless-api).
+   Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**. Then, you can select a model.
+
+1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
+1. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
+1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a workspace.
+1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, you'll see a **Continue to deploy** option to select.
+1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region. 
+1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
+1. Take note of the **Target URI** and the secret **Key**, which you can use to call the deployment and generate completions. For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-serverless-api) section.
+1. Select the **Test** tab to start interacting with the model.  
+1. You can always find the endpoint's details, URI, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
+
+To learn about billing for the TimeGEN-1 model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for TimeGEN-1 deployed as a serverless API](#cost-and-quota-considerations-for-timegen-1-deployed-as-a-serverless-api).
 
 ### Consume the TimeGEN-1 model as a service
 
 You can consume TimeGEN-1 models by using the forecast API.
 
-1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
+1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 
 1. Find and select the deployment you created.
 
-1. Copy the **Target** URL and the **Key** value.
+1. Copy the **Target** URI and the **Key** token values.
 
 1. Try the samples here:
 
@@ -85,7 +83,7 @@ You can consume TimeGEN-1 models by using the forecast API.
 |Exogenous Variables|Exogenous variables are external factors that can influence forecasts. These variables take on one of a limited, fixed number of possible values, and induce a grouping of your observations. For example, if you're forecasting daily product demand for a retailer, you could benefit from an event variable that may tell you what kind of event takes place on a given day, for example 'None', Sporting', or 'Cultural'. Or you might also include external factors such as weather.|[Exogenous Variables](https://aka.ms/exogenous-variables)|
 |Demand Forecasting|Demand forecasting involves application of historical data and other analytical information, to build models that help predict future estimates of customer demand, for specific products, over a specific time period. It helps shape product road map, inventory production, and inventory allocation, among other things.|[Demand Forecasting](https://aka.ms/demand-forecasting-with-TimeGEN1)|
 
-For more information about use of the APIs, visit the [reference](#reference-for-timegen-1-deployed-as-a-serverless-api) section.
+For more information about use of the APIs, visit the [Reference](#reference-for-timegen-1-deployed-as-a-serverless-api) section.
 
 ### Reference for TimeGEN-1 deployed as a serverless API
 
@@ -231,15 +229,16 @@ This JSON sample is an example response:
 
 ### Cost and quota considerations for TimeGEN-1 deployed as a serverless API
 
-Nixtla offers TimeGEN-1 deployed as a serverless API through the Azure Marketplace. TimeGEN-1 is integrated with Azure AI Studio for use. You can find more information about Azure Marketplace pricing when you deploy the model.
+Nixtla offers TimeGEN-1 deployed as a serverless API through the Azure Marketplace. TimeGEN-1 is integrated with Azure Machine Learning for use. You can find more information about Azure Marketplace pricing when you deploy the model.
 
-Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
+Each time a workspace subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
-For more information about how to track costs, visit [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+For more information about how to track costs, visit [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits are insufficient for your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per workspace. Contact Microsoft Azure Support if the current rate limits are insufficient for your scenarios.
 
 ## Related content
 
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Azure AI FAQ article](../faq.yml)
+- [Model Catalog and Collections](concept-model-catalog.md)
+- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
+- [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)
