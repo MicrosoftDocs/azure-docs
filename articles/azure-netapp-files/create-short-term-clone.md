@@ -22,11 +22,13 @@ Short-term clones can be converted to regular volumes. By default, they convert 
 
 * If the capacity pool hosting the clone doesn't have enough space, the capacity pool automatically resizes to accommodate the clone, which can incur additional charges. 
 * If the capacity pool hosting the short-term clone is set to auto QoS, throughput is calculated based on the quota value you assign when creating the short-term clone. 
-* When you convert a short-term clone to a regular volume, the size of the regular volume is calculated based on inherited size (the shared space between the short-term clone and its parent volume) plus short-term clone quota in bytes, which will affect throughput. 
+* When you convert a short-term clone to a regular volume, the size of the regular volume is calculated based on inherited size (the shared space between the short-term clone and its parent volume) plus short-term clone quota in bytes, which affects throughput. 
 * Short-term clones in capacity pools with manual QoS operate normally.  
 * Short term clones don't support the same operations as regular volumes. You can't create a snapshot, snapshot policy, backup, default user quota, or export policy on a short-term clone. 
     * If the parent volume has a snapshot policy, the policy isn't applied to the short-term clone.
-* Short-term clones aren't supported on large volumes, data protection volumes, sub volumes, or volumes with cool access enabled.  
+* Short-term clones aren't supported on large volumes or volumes enabled for cool access.
+* Short-term clones are supported for volumes in cross-zone and cross-region replication. To create a short-term clone of a DR volume, create a snapshot from the source then create the short-term clone from the destination volume. 
+<!-- subvolumes not supported -->
 * A short-term clone is automatically converted to a regular volume in its designated capacity pool 28 days after the clone operation completes. To prevent this conversion, manually delete the short-term clone before 28 days have elapsed. 
     * Details about automatic conversion, including necessary capacity pool resizing, are sent to the volume's **Activity Log**. The Activity Log notifies you twice of impending automatic clone operations: first seven days before the operation, then one day before the operation. 
 * You can't delete the parent volume of a short-term clone. You must first delete the clone or convert it to a regular volume, then you can delete the parent volume. 
@@ -54,6 +56,9 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 
 ## Create a short-term clone
 
+>[!NOTE]
+>To create a short-term clone on a data replication volume, you must first create a snapshot from the source volume. Once the snapshot has transferred to the destination, you can create the short-term clone _from_ the DR volume. 
+
 1. Select **Snapshots**.
 1. Right-click the snapshot you want to clone. Select **Create short-term clone from snapshot**.
 1. Confirm you understand that the short-term clone automatically converts to a regular volume 28 days after the clone completes, which may incur costs due to a capacity pool automatically resizing. 
@@ -79,7 +84,7 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 1. Confirm the conversion is successful by checking the **Volume overview** page. When the **Short-term clone volume** field displays **No**, the conversion has succeeded. 
 
     >[!NOTE]
-    >Short-term clones may fail to convert even when triggered automatically at the end of the 28 day period. The conversion may fail due to a capacity pool resize issue or a volume issue. Consult activity logs for further information. 
+    >Short-term clones can fail to convert even when triggered automatically at the end of the 28 day period. The conversion can fail due to a capacity pool resize issue or a volume issue. Consult activity logs for further information. 
 
 ## Next steps
 
