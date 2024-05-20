@@ -88,7 +88,7 @@ For example, the following PowerShell script assigns a role to a specified user.
 
 Replace `<RoleId>` with the [RBAC Monitoring Role](../role-based-access-control/built-in-roles.md#monitor) ID you want to assign.
 
-Replace `<SubscriptionID>`, `<ResourceGroupName>`, `<UserPrincipalName>`, and `<Scope>` with the appropriate values for your environment.
+Replace `<SubscriptionID>`, `<ResourceGroupName>`, and `<UserPrincipalName>` with the appropriate values for your environment.
 
 ```powershell
 # Define variables
