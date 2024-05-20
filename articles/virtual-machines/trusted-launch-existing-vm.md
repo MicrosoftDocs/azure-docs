@@ -21,7 +21,6 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Gener
 
 > [!IMPORTANT]
 >
-> - If enabled for Generation 2 VM, **[Server-side encryption with customer-managed keys](disk-encryption.md)** (SSE-CMK) should be disabled before executing Trusted launch upgrade. SSE-CMK encryption should be re-enabled after completion of Trusted launch upgrade.
 > - Support for **enabling Trusted launch on existing Azure Generation 1 VMs** is currently in private preview. You can gain access to preview using registration link **https://aka.ms/Gen1ToTLUpgrade**.
 > - Enabling Trusted launch on existing Azure virtual machine scale sets (VMSS) Uniform & Flex are currently not supported.
 
