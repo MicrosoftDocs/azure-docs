@@ -1,9 +1,9 @@
 ---
 title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 08/06/2021
+ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

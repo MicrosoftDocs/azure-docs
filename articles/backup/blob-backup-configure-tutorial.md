@@ -23,7 +23,7 @@ This tutorial describes how to create a backup policy and configure vaulted back
 
 - Vaulted backup of blobs is a managed offsite backup solution that transfers data to the backup vault and retains as per the retention configured in the backup policy. You can retain data for a maximum of *10 years*.
 - Currently, you can use the vaulted backup solution to restore data to a different storage account only. While performing restores, ensure that the target storage account doesn't contain any *containers* with the same name as those backed up in a recovery point. If any conflicts arise due to the same name of containers, the restore operation fails.
-- **Ensure the storage accounts that need to be backed up have cross-tenant replication enabled. You can check this by navigating to the storage account > Object replication > Advanced settings. Once here, ensure that the check-box is enabled.**
+- Ensure the storage accounts that need to be backed up have cross-tenant replication enabled. You can check this in the **storage account** > **Object replication** > **Advanced settings**. Once here, ensure that the checkbox is enabled.
 
 For more information about the supported scenarios, limitations, and availability, See the [support matrix](blob-backup-support-matrix.md).
 
@@ -35,4 +35,4 @@ For more information about the supported scenarios, limitations, and availabilit
 
 ## Next step
 
-[Restore Azure Blobs](blob-restore.md)
+[Restore Azure Blobs using Azure Backup](blob-restore.md).

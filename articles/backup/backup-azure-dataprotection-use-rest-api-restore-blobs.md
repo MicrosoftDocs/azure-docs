@@ -1,7 +1,7 @@
 ---
 title: Restore blobs in a storage account using Azure Data Protection REST API
 description: In this article, learn how to restore blobs of a storage account using REST API.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2024
 ms.custom: engagement-fy24
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
@@ -20,13 +20,18 @@ This article describes how to restore [blobs](blob-backup-overview.md) using Azu
 
 This article considers that you have a backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md) if not configured.
 
-To illustrate the restoration steps in this article, we'll refer to blobs in a storage account named `"msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d"` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
+To illustrate the restoration steps in this article, we'll refer to blobs in a storage account named ``"msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d"` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
+
+
+## Prepare for Azure Blobs restore
+
+You can now do the restore operation for *operational backup* and *vaulted backup* for Azure Blobs.
 
 **Choose the backup tier**:
 
 # [Restore using operational backup](#tab/restore-using-operational-backup)
 
-## Fetching the valid time range for restore
+### Fetch the valid time range for restore
 
 As the operational backup for blobs is continuous, there are no distinct points to restore from. Instead, we need to fetch the valid time-range under which blobs can be restored to any point-in-time. In this example, let's check for valid time-ranges to restore within the last 30 days.
 
@@ -42,7 +47,7 @@ For our example, this translates to
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d/findRestorableTimeRanges?api-version=2021-01-01
 ```
 
-### Create the request body to fetch valid time ranges for restore
+#### Create the request body to fetch valid time ranges for restore
 
 To trigger an operation to calculate valid time ranges, following are the components of a request body.
 
@@ -64,7 +69,7 @@ The following request body defines properties required to fetch the time ranges 
 }
 ```
 
-#### Responses for fetch valid time ranges
+####$ Responses for fetch valid time ranges
 
 Once you submit the *POST* request, the response is 200(OK) with the start and end time of the range available for restore within the specified start and end time of the request.
 
@@ -110,11 +115,11 @@ X-Powered-By: ASP.NET
 
 Once the point-in-time to restore to the same storage account is fixed, there are multiple options to restore.
 
-## Option 1: Restore all the blobs to a point-in-time
+### Option 1: Restore all the blobs to a point-in-time
 
 Using this option restores all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn can take longer times to restore.
 
-### Constructing the request body for point-in-time restore of all blobs
+#### Constructing the request body for point-in-time restore of all blobs
 
 The key points to remember in this scenario are:
 
@@ -147,7 +152,7 @@ The key points to remember in this scenario are:
 }
 ```
 
-## Option 2: Restore few containers to a point-in-time
+### Option 2: Restore few containers to a point-in-time
 
 Using this option allows you to select up to 10 containers to restore or restore a subset of blobs using a prefix match. You can specify up to 10 lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point in time. In case of using prefixes, here are a few things to keep in mind:
 

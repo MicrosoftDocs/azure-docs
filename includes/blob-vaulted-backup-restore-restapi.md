@@ -6,7 +6,7 @@ ms.date: 05/30/2024
 ms.author: v-abhmallick
 ---
 
-## Fetch the relevant recovery point
+### Fetch the relevant recovery point
 
 To list all the available recovery points for a backup instance, use the list recovery points API.
 
@@ -14,7 +14,7 @@ To list all the available recovery points for a backup instance, use the list re
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/recoveryPoints?api-version=2021-07-01
 ```
 
-## Prepare the request body to perform restore from vaulted backup.
+### Prepare the request body to perform restore from vaulted backup.
 
 Following is the request body to restore container bash 2 from a vaulted backup.
 

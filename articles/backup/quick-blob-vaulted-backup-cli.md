@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 
 # Quickstart: Configure vaulted backup for Azure Blobs using Azure CLI
 
-This quickstart describes how to configure vaulted backup for Azure Blobs using Azure PowerShell.
+This quickstart describes how to configure vaulted backup for Azure Blobs using Azure CLI.
 
 [!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
 

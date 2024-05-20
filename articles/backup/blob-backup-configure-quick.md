@@ -35,4 +35,4 @@ For more information about the supported scenarios, limitations, and availabilit
 
 ## Next step
 
-[Restore Azure Blobs](blob-restore.md)
+[Restore Azure Blobs using Azure Backup](blob-restore.md)
