@@ -52,7 +52,7 @@ Here are a few examples of the kinds of prompts you can use to get information a
 
 ## Answer questions about Azure Monitor alerts
 
-Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Monitor alerts. When asked about alerts, Microsoft Copilot for Azure (preview) summarizes the list of alerts, their severity , and allows you to further explore the data in the alerts page. 
+Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Monitor alerts. When asked about alerts, Microsoft Copilot for Azure (preview) summarizes the list of alerts, their severity, and allows you to further explore the data in the alerts page. 
 
 ### Sample prompts
 
