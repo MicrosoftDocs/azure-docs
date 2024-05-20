@@ -483,7 +483,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-**Advanced:** `IHttpContextAccessor`/`HttpContext` should not be used in the Razor components of server-side Blazor apps. [The recommended approach](https://learn.microsoft.com/aspnet/core/blazor/security/server/interactive-server-side-rendering#ihttpcontextaccessorhttpcontext-in-razor-components) for passing http context in Blazor apps is to copy the data into a scoped service. For Blazor apps, `AddScopedFeatureManagement` should be used to register the feature management services.
+**Advanced:** `IHttpContextAccessor`/`HttpContext` should not be used in the Razor components of server-side Blazor apps. [The recommended approach](/aspnet/core/blazor/security/server/interactive-server-side-rendering#ihttpcontextaccessorhttpcontext-in-razor-components) for passing http context in Blazor apps is to copy the data into a scoped service. For Blazor apps, `AddScopedFeatureManagement` should be used to register the feature management services.
 Please refer to the `Scoped Feature Management Services` section for more details.
 
 ## Providing a Context For Feature Evaluation
@@ -870,7 +870,7 @@ There are scenarios which require the state of a feature to remain consistent du
 
 ## Custom Feature Providers
 
-Implementing a custom feature provider enables developers to pull feature flags from sources such as a database or a feature management service. The included feature provider that is used by default pulls feature flags from .NET Core's configuration system. This allows for features to be defined in an [appsettings.json](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#jcp) file or in configuration providers like [Azure App Configuration](./quickstart-feature-flag-aspnet-core.md). This behavior can be substituted to provide complete control of where feature definitions are read from.
+Implementing a custom feature provider enables developers to pull feature flags from sources such as a database or a feature management service. The included feature provider that is used by default pulls feature flags from .NET Core's configuration system. This allows for features to be defined in an [appsettings.json](/aspnet/core/fundamentals/configuration/#jcp) file or in configuration providers like [Azure App Configuration](./quickstart-feature-flag-aspnet-core.md). This behavior can be substituted to provide complete control of where feature definitions are read from.
 
 To customize the loading of feature definitions, one must implement the `IFeatureDefinitionProvider` interface.
 
