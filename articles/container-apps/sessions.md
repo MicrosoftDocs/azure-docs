@@ -57,7 +57,7 @@ You can configure pools to set the maximum number of sessions that can be alloca
 
 ### Sessions
 
-A session is a sandboxed environment that runs your code or application. Each session is isolated from other sessions and from the host environment with a Hyper-V sandbox. Optionally, you can enable network isolation to further enhance security.
+A session is a sandboxed environment that runs your code or application. Each session is isolated from other sessions and from the host environment with a [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) sandbox. Optionally, you can enable network isolation to further enhance security.
 
 #### Session identifiers
 
