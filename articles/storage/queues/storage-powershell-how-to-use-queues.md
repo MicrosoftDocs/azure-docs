@@ -5,7 +5,7 @@ description: Perform operations on Azure Queue Storage via PowerShell. With Azur
 author: stevenmatthew
 ms.author: shaas
 ms.reviewer: dineshm 
-ms.date: 05/15/2019
+ms.date: 05/19/2024
 ms.topic: how-to
 ms.service: azure-queue-storage
 ms.custom: devx-track-azurepowershell
@@ -107,7 +107,7 @@ $queue
 
 <!--Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [`Microsoft.Azure.Storage.Queue.CloudQueueMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [`AddMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array.-->
 
-Operations that impact the messages in a queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient?view=azure-dotnet) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage?view=azure-dotnet#azure-storage-queues-queueclient-sendmessage%28system-string%29) or [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync?view=azure-dotnet#azure-storage-queues-queueclient-sendmessageasync%28system-string%29) method. 
+Operations that impact the messages in a queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage) or [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessages) methods. 
 
 `Insert Send and SendAsync differentiator here.`
 
@@ -143,7 +143,7 @@ Depending on your use case, you can retrieve one or more messages from a queue. 
 
 This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds. -->
 
-When you *read* a message from the queue using a method such as [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage?view=azure-dotnet#azure-storage-queues-queueclient-receivemessage), it's dequeued and becomes invisible for a period of time. This **visibility timeout** defines how long the message remains invisible. The default visibility timeout is 30 seconds. 
+When you *read* a message from the queue using a method such as [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage), it's dequeued and becomes invisible for a period of time. This **visibility timeout** defines how long the message remains invisible. The default visibility timeout is 30 seconds. 
 
 If the message isn't processed before the visibility timeout passes, its `DequeueCount` property is incremented and it's reinserted at the end of the queue. Reinserting the same message ensures that another process can retrieve the same message and try again.
 
@@ -164,7 +164,7 @@ $queueMessage = $queue.QueueClient.ReceiveMessage($visibilityTimeout)
 $queueMessage.Value
 ```
 
-You can retrieve multiple messages from the queue simultaneously by using the `ReceiveMessages` cmdlet and passing and integer value to specify the maximum number of messages to return. 
+You can retrieve multiple messages from the queue simultaneously by using the `ReceiveMessages` method and passing and integer value to specify the maximum number of messages to return. 
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -180,10 +180,18 @@ $queueMessage.Value
 
 `Describe a use case which requires you to retrieve a message in the queue without altering its visibility.` 
 
-In these cases, you can use a method such as [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage?view=azure-dotnet#azure-storage-queues-queueclient-peekmessage) cmdlet.
+In these cases, you can use a methods such as [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage) and [`PeekMessages`](/dotnet/api/azure.storage.queues.queueclient.peekmessages). As with the [`ReadMessages`](#receive-messages) example, multiple messages can be peeked simultaneously by passing an integer value to specify the maximum number of messages. 
 
+The following examples use both the `PeekMessage` and `PeekMessages` methods to retrieve messages from a queue.
 
-
+```powershell
+# Read the message from the queue, then show the contents of the message. 
+# Read the next four messages, then show the contents of the messages.
+$queueMessage = $queue.QueueClient.PeekMessage()
+$queueMessage.Value
+$queueMessage = $queue.QueueClient.PeekMessages(4)
+$queueMessage.Value
+```
 
 ## Delete a message from the queue
 
