@@ -42,7 +42,7 @@ For more information about available MCU tiers and pricing discounts, see the re
 
 ## Purchase Defender for Cloud commit units
 
-You buy Defender for Cloud plans in the [Azure portal](https://portal.azure.com/). To buy a prepurchase plan, you must have the owner role for at least one enterprise or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates subscription, or the required role for CSP subscriptions.
+You can buy Defender for Cloud plans in the [Azure portal](https://portal.azure.com/). To buy a prepurchase plan, you must have the owner role for at least one enterprise or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates subscription, or the required role for CSP subscriptions.
 
 - To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 
@@ -63,7 +63,7 @@ You buy Defender for Cloud plans in the [Azure portal](https://portal.azure.com/
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select how many Microsoft Defender for Cloud commit units you want to purchase and complete the purchase.
 
-:::image type="content" source="media/prepay-reserved-capacity/purchase-reservations.png" alt-text="Screenshot of purchase reservations for Defender for Cloud." lightbox="media/prepay-reserved-capacity/purchase-reservations.png":::
+    :::image type="content" source="media/prepay-reserved-capacity/purchase-reservations.png" alt-text="Screenshot of purchase reservations for Defender for Cloud." lightbox="media/prepay-reserved-capacity/purchase-reservations.png":::
 
 ## Change scope and ownership
 
