@@ -1,7 +1,7 @@
 ---
 title: Understanding Azure OpenAI Service deployment types
 titleSuffix: Azure AI services
-description: Learn how to use Azure OpenAI deployment types | Global-Standard | Standard | Provisioned
+description: Learn how to use Azure OpenAI deployment types | Global-Standard | Standard | Provisioned.
 #services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: mbullwin
 
 # Azure OpenAI deployment types
 
-Azure OpenAI provides customers with choices on the hosting structure that fits their business and usage patterns. The service offers two types of deployment: **standard** and **provisioned**. Standard is offered with a global deployment option, routing traffic globally to provide higher throughput. All deployments can be perform the exact same inference operations, however the billing, scale and performance are substantially different. As part of your solution design, you will need to make two key decisions:
+Azure OpenAI provides customers with choices on the hosting structure that fits their business and usage patterns. The service offers two main types of deployment: **standard** and **provisioned**. Standard is offered with a global deployment option, routing traffic globally to provide higher throughput. All deployments can perform the exact same inference operations, however the billing, scale and performance are substantially different. As part of your solution design, you will need to make two key decisions:
 
 - **Data residency needs**: global vs. regional resources  
 - **Call volume**: standard vs. provisioned
