@@ -25,7 +25,7 @@ Microsoft strives to ensure that Azure services are always available. However, u
 - [Data protection](../blobs/data-protection-overview.md)
 - [Backup and restore](../../backup/index.yml)
 - [Data redundancy](storage-redundancy.md)
-- [Failover](#plan-for-storage-account-failover)
+- [Failover](#plan-for-failover)
 - [Designing applications for high availability](#design-for-high-availability)
 
 This article describes the options available for globally redundant storage accounts, and provides recommendations for developing highly available applications and testing your disaster recovery plan.
