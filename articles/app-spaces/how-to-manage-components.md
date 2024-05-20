@@ -71,7 +71,7 @@ settings info for static app component.
 |-------|------|-------------|
 |General | Component name | App Space component name |
 |Domains | Domain | App Space domain name |
-|Routes | - | [Route rules allow you to restrict access to users in specific roles or perform actions such as redirect or rewrite](../static-web-apps/custom-domain.md#routes). |
+|Routes | - | [Route rules allow you to restrict access to users in specific roles or perform actions such as redirect or rewrite](../static-web-apps/configuration.md#routes). |
 |Authentication | - | Setup an authentication provider to authenticate users who visit your site. Once authenticated, users can be authorized by the GET roles API which will return which roles have been assigned to the user. The paths and APIs that each role has access to are determined by the routes which you defined above.|
 ::: zone-end
 ::: zone pivot="app"
