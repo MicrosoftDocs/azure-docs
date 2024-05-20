@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DNS?
     href: dns-overview.md
+  - name: What is Azure Public DNS?
+    href: public-dns-overview.md
   - name: What is Azure Private DNS?
     href: private-dns-overview.md
   - name: What is Azure DNS Private Resolver?
