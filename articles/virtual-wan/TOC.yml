@@ -142,6 +142,8 @@
       href: how-to-nva-hub.md
     - name: Configure DNAT/Internet inbound
       href: how-to-network-virtual-appliance-inbound.md
+    - name: Managed IP configurations
+      href: how-to-network-virtual-appliance-add-ipconfigurations.md
   - name: Connect a VNet to a virtual hub
     items:
     - name: Azure portal
