@@ -8,7 +8,7 @@ ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/26/2023
+ms.date: 05/20/2024
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai/samples)
@@ -30,19 +30,14 @@ ms.date: 07/26/2023
 
 [!INCLUDE [environment-variables](environment-variables.md)]
 
-
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. Then run the `npm init` command to create a node application with a _package.json_ file.
-
-```console
-npm init
-```
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
 ## Install the client library
 
-Install the Azure OpenAI client library for JavaScript with npm:
+Install the Azure OpenAI client library for JavaScript with npm from within the context of your new directory:
 
 ```console
-npm install @azure/openai
+npm install openai @azure/openai dotenv
 ```
 
 Your app's _package.json_ file will be updated with the dependencies.
@@ -56,8 +51,14 @@ Open a command prompt where you created the new project, and create a new file n
 
 ```javascript
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
-const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
+
+// Load the .env file if it exists
+const dotenv = require("dotenv");
+dotenv.config();
+
+// You will need to set these environment variables or edit the following values
+const endpoint = process.env["ENDPOINT"] || "<endpoint>";
+const azureApiKey = process.env["AZURE_API_KEY"] || "<api key>";
 
 const prompt = ["When was Microsoft founded?"];
 
@@ -65,8 +66,8 @@ async function main() {
   console.log("== Get completions Sample ==");
 
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-  const deploymentId = "gpt-35-turbo-instruct";
-  const result = await client.getCompletions(deploymentId, prompt);
+  const deploymentId = "gpt-35-turbo-instruct"; //The deployment name for your completions API model. The instruct model is the only new model that supports the legacy API.
+  const result = await client.getCompletions(deploymentId, prompt, { maxTokens: 128 });
 
   for (const choice of result.choices) {
     console.log(choice.text);
@@ -74,7 +75,7 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("The sample encountered an error:", err);
+  console.error("Error occurred:", err);
 });
 
 module.exports = { main };
