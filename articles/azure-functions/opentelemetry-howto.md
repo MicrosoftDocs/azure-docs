@@ -231,7 +231,10 @@ These instructions only apply for an OTLP exporter:
     ### [OTLP Exporter](#tab/otlp-export) 
 
     ```text
-    azure.monitor.opentelemetry
+    opentelemetry-api
+    opentelemetry-sdk
+    opentelemetry-exporter-otlp
+    opentelemetry-instrumentation-logging
     ```
     ---
 
@@ -245,10 +248,35 @@ These instructions only apply for an OTLP exporter:
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
+    Traces, metrics, and logs being exported using OpenTelemetry must be configured manually. For more information, see [Instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/) for Python.
+
+    This is a simple implementaton for exporting logs:
+
     ```python
-    from azure.monitor.opentelemetry import configure_azure_monitor 
-    configure_azure_monitor() 
+    logging.basicConfig(level=logging.DEBUG)
+
+    from opentelemetry import _logs
+    from opentelemetry.sdk._logs import LoggerProvider, LoggingHandler
+    from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
+    from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
+
+    # Initialize logging and an exporter that can send data to an OTLP endpoint by attaching OTLP handler to root logger
+    # SELECT * FROM Log WHERE instrumentation.provider='opentelemetry'
+    _logs.set_logger_provider(
+        LoggerProvider(resource=Resource.create(OTEL_RESOURCE_ATTRIBUTES))
+    )
+    logging.getLogger().addHandler(
+        LoggingHandler(
+            logger_provider=_logs.get_logger_provider().add_log_record_processor(
+                BatchLogRecordProcessor(OTLPLogExporter())
+            )
+        )
+    )
+
     ```
+
+    Review the [OpenTelemetry Logging SDK](https://opentelemetry-python.readthedocs.io/en/stable/sdk/_logs.html) to learn how to use OpenTelemetry components to collect logs.
+
     ---
 
 ::: zone-end  
