@@ -34,7 +34,7 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 
 ## Install the client library
 
-Install the Azure OpenAI client library for JavaScript with npm from within the context of your new directory:
+Install the required packages for JavaScript with npm from within the context of your new directory:
 
 ```console
 npm install openai @azure/openai dotenv
