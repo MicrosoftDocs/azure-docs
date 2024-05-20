@@ -5,7 +5,7 @@ description: Learn how to use the ADE extensibility model to build and utilize c
 ms.service: deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/13/2024
+ms.date: 05/20/2024
 ms.topic: how-to
 
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
@@ -21,17 +21,49 @@ The ADE extensibility model enables you to create custom container images to use
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
-The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Deployment Environments set up in your Azure subscription. 
   - To set up ADE, follow the [Quickstart: Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
+
+## Use container images with ADE
+
+You can take one of the following approaches to use container images with ADE:
+
+1.    Use the standard image directly by configuring runner: Bicep
+2.    Build a container image using the script in the repo
+3.    Build out the container image manually
+
+Select the appropriate tab to learn more about each approach.
+
+# [Standard image](#standard-image)
+
+ADE supports Bicep natively, so you can configure an environment definition that deploys Azure resources for a deployment environment by adding the template files (azuredeploy.json and environment.yaml) to your catalog. ADE then uses the standard Bicep container image to create the deployment environment.
+
+### Specify the standard Bicep container image
+
+In the environment.yaml file, the runner property specifies the location of the container image you want to use. To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers runner, as listed in the following table.
+
+The following example shows a runner that references the sample Bicep container image:
+```yaml
+    name: WebApp
+    version: 1.0.0
+    summary: Azure Web App Environment
+    description: Deploys a web app in Azure without a datastore
+    runner: Bicep
+    templatePath: azuredeploy.json
+```
+You can see the standard Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
+
+# [Custom image](#custom-image)
+
 ## Create and build a Docker image
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image off of one of the ADE authored images.
+
+The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 
 To build an image configured for ADE, follow these steps:
 1. Base your image on an ADE-authored sample image or the image of your choice by using the FROM statement.
@@ -227,9 +259,12 @@ When authoring environment definitions to use your custom image in their deploym
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
-## Build a container image with a script
+
+# [Build a container image with a script](#build-a-container-image-with-a-script)
 
 [!INCLUDE [custom-image-script](includes/custom-image-script.md)]
+
+---
 
 ## Access operation logs and error details
 
@@ -238,3 +273,4 @@ runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ## Related content
 
 - [ADE CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference)
+- [ADE CLI variables reference](reference-deployment-environment-variables.md)
