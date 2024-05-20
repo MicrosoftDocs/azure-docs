@@ -6,17 +6,19 @@ manager: KumuD
 ms.service: dns
 ms.topic: article
 ms.custom:
-ms.date: 04/30/2024
+ms.date: 05/20/2024
 ms.author: greglin
 ---
 
 # What is DNSSEC?
 
-This article provides an overview of how DNSSEC works, and scenarios in which reverse DNS is supported in Azure.
+Domain Name System Security Extensions (DNSSEC) is a suite of extensions that add security to the Domain Name System (DNS) protocol by enabling DNS responses to be validated. DNSSEC provides origin authority, data integrity, and authenticated denial of existence. With DNSSEC, the DNS protocol is much less susceptible to certain types of attacks, particularly DNS spoofing attacks.
 
 ## How DNSSEC works
 
-This is how DNSSEC works.
+DNS zones can be secured with DNSSEC using a process called zone signing when used with an authoritative DNS server that supports DNSSEC. Signing a zone with DNSSEC adds validation support to a zone without changing the basic mechanism of a DNS query and response.
+
+Validation of DNS responses occurs by using digital signatures included with DNS responses. These digital signatures are contained in DNSSEC-related resource records that are generated and added to the zone during zone signing.
 
 
 ## Next steps
