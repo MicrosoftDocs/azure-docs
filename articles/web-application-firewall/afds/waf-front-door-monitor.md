@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 02/07/2023
+ms.date: 05/20/2024
 ms.author: victorh
 zone_pivot_groups: front-door-tiers
 ---
