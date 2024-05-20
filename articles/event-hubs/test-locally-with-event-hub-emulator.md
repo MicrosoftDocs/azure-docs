@@ -39,13 +39,12 @@ After completing the prerequisites, you can proceed with the following steps to 
 `$>Start-Process powershell -Verb RunAs -ArgumentList 'Set-ExecutionPolicy Bypass –Scope CurrentUser’`
 
 2. Execute setup script `LaunchEmulator.ps1`. Running the script would bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
-3. Once the steps are successful, you could find containers running in Docker Desktop.
 
 ### Linux & macOS
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
 
 1. Execute the setup script `LaunchEmulator.sh` . Running the script would  bring up two containers – Event Hubs emulator & Azurite (dependency for Emulator)
-2. Once the steps are successful, you could find containers running in Docker.
+
 
 
 
@@ -138,6 +137,11 @@ ACCEPT_EULA="N"
 ```
  docker compose -f <PathToDockerComposeFile> up -d
 ```
+Once the steps are successful, you could find containers running in Docker:
+
+:::image type="content" source="./media/test-locally-with-event-hub-emulator/test-locally-with-event-hub-emulator.png" alt-text="Screenshot showing the event hubs emulator running in container":::
+
+
 ---  
 ## Interacting with Emulator
 
