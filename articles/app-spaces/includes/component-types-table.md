@@ -10,4 +10,4 @@ App Spaces uses a concept of components. The following table describes the compo
 |--------|----------|-----------|
 |App component|Backend|Azure Container Apps|
 |Static app component|Frontend|Static Web Apps|
-|Database|N/A|Various|
+|Database component|N/A|Azure Container Apps|
