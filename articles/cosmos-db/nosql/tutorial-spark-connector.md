@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql-r-csharp
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-In this tutorial, you use the Azure Cosmos DB Spark connector to read or write data from an Azure Cosmos DB for NoSQL account. This tutorial uses Azure Databricks and a Jupyter notebook to illustrate how to integrate with the API for NoSQL from Spark. This tutorial focuses on Python and Scala even though you can use any language or interface supported by Spark.
+In this tutorial, you use the Azure Cosmos DB Spark connector to read or write data from an Azure Cosmos DB for NoSQL account. This tutorial uses Azure Databricks and a Jupyter notebook to illustrate how to integrate with the API for NoSQL from Spark. This tutorial focuses on Python and Scala, although you can use any language or interface supported by Spark.
 
 In this tutorial, you learn how to:
 
@@ -47,12 +47,12 @@ Use your existing Azure Databricks workspace to create a compute cluster ready t
     | --- | --- |
     | Runtime version | 13.3 LTS (Scala 2.12, Spark 3.4.1) |
 
-1. Use the workspace interface to search for **Maven** packages from **Maven Central** with a **Group ID** of `com.azure.cosmos.spark`. Install the package specific for Spark 3.4 with an **Artifact ID** prefixed with `azure-cosmos-spark_3-4` to the cluster.
+1. Use the workspace interface to search for **Maven** packages from **Maven Central** with a **Group ID** of `com.azure.cosmos.spark`. Install the package specifically for Spark 3.4 with an **Artifact ID** prefixed with `azure-cosmos-spark_3-4` to the cluster.
 
 1. Finally, create a new **notebook**.
 
     > [!TIP]
-    > By default, the notebook will be attached to the recently created cluster.
+    > By default, the notebook is attached to the recently created cluster.
 
 1. Within the notebook, set online transaction processing (OLTP) configuration settings for the NoSQL account endpoint, database name, and container name.
 
@@ -132,7 +132,7 @@ Use the Catalog API to manage account resources such as databases and containers
 
     ::: zone-end
 
-1. Create a new container named `products` by using `CREATE TABLE IF NOT EXISTS`. Ensure that you set the partition key path to `/category` and enable autoscale throughput with a maximum throughput of `1000` request units per second (RUs).
+1. Create a new container named `products` by using `CREATE TABLE IF NOT EXISTS`. Ensure that you set the partition key path to `/category` and enable autoscale throughput with a maximum throughput of `1000` request units (RUs) per second.
 
     ::: zone pivot="programming-language-python"
 
@@ -152,7 +152,7 @@ Use the Catalog API to manage account resources such as databases and containers
 
     ::: zone-end
 
-1. Create another container named `employees` by using a hierarchical partition key configuration with `/organization`, `/department`, and `/team` as the set of partition key paths. Follow that specific order. Also, set the throughput to a manual amount of `400` RUs.
+1. Create another container named `employees` by using a hierarchical partition key configuration. Use `/organization`, `/department`, and `/team` as the set of partition key paths. Follow that specific order. Also, set the throughput to a manual amount of `400` RUs.
 
     ::: zone pivot="programming-language-python"
 
@@ -240,7 +240,7 @@ Create a sample dataset. Then use OLTP to ingest that data to the API for NoSQL 
 
 Load OLTP data into a data frame to perform common queries on the data. You can use various syntaxes to filter or query data.
 
-1. Use `spark.read` to load the OLTP data into a dataframe object. Use the same configuration you used earlier in this tutorial. Also, set `spark.cosmos.read.inferSchema.enabled` to `true` to allow the Spark connector to infer the schema by sampling existing items.
+1. Use `spark.read` to load the OLTP data into a data-frame object. Use the same configuration you used earlier in this tutorial. Also, set `spark.cosmos.read.inferSchema.enabled` to `true` to allow the Spark connector to infer the schema by sampling existing items.
 
     ::: zone pivot="programming-language-python"
 
@@ -266,7 +266,7 @@ Load OLTP data into a data frame to perform common queries on the data. You can 
 
     ::: zone-end
 
-1. Render the schema of the data loaded in the dataframe by using `printSchema`.
+1. Render the schema of the data loaded in the data frame by using `printSchema`.
 
     ::: zone pivot="programming-language-python"
 
@@ -380,7 +380,7 @@ When you work with API for NoSQL data in Spark, you can perform partial updates 
 
 1. To perform a partial update of an item:
 
-    1. Copy the existing `config` configuration variable and modify the properties in the new copy. Specifically, configure the write strategy to `ItemPatch`, disable bulk support, set the columns and mapped operations, and finally set the default operation type to `Set`.
+    1. Copy the existing `config` configuration variable and modify the properties in the new copy. Specifically, configure the write strategy to `ItemPatch`. Then disable bulk support. Set the columns and mapped operations. Finally, set the default operation type to `Set`.
 
         ::: zone pivot="programming-language-python"
 

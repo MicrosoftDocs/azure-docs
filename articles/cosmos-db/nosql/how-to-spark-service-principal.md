@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql-r-csharp
 
 # Use a service principal with the Spark 3 connector for Azure Cosmos DB for NoSQL
 
-In this article, you learn how to create a Microsoft Entra application and service principal that can be used with the role-based access control. You can then use this service principal to connect to an Azure Cosmos DB for NoSQL account from Spark 3.
+In this article, you learn how to create a Microsoft Entra application and service principal that can be used with role-based access control. You can then use this service principal to connect to an Azure Cosmos DB for NoSQL account from Spark 3.
 
 ## Prerequisites
 
@@ -117,14 +117,14 @@ Now that you've created a Microsoft Entra application and service principal, cre
     | --- | --- |
     | Runtime version | `13.3 LTS (Scala 2.12, Spark 3.4.1)` |
 
-1. Use the workspace interface to search for **Maven** packages from **Maven Central** with a **Group ID** of `com.azure.cosmos.spark`. Install the package specific for Spark 3.4 with an **Artifact ID** prefixed with `azure-cosmos-spark_3-4` to the cluster.
+1. Use the workspace interface to search for **Maven** packages from **Maven Central** with a **Group ID** of `com.azure.cosmos.spark`. Install the package specifically for Spark 3.4 with an **Artifact ID** prefixed with `azure-cosmos-spark_3-4` to the cluster.
 
 1. Finally, create a new **notebook**.
 
     > [!TIP]
-    > By default, the notebook will be attached to the recently created cluster.
+    > By default, the notebook is attached to the recently created cluster.
 
-1. Within the notebook, set Azure Cosmos DB Spark Connector configuration settings for the NoSQL account endpoint, database name, and container name. Use the **Subscription ID**, **Resource Group**, **Application (client) ID**, **Directory (tenant) ID**, and **Client Secret** values recorded earlier in this article.
+1. Within the notebook, set Azure Cosmos DB Spark connector configuration settings for the NoSQL account endpoint, database name, and container name. Use the **Subscription ID**, **Resource Group**, **Application (client) ID**, **Directory (tenant) ID**, and **Client Secret** values recorded earlier in this article.
 
     ::: zone pivot="programming-language-python"
 
@@ -297,7 +297,7 @@ Now that you've created a Microsoft Entra application and service principal, cre
     ::: zone-end
 
     > [!TIP]
-    > In this quickstart example, credentials are assigned to variables in clear text. For security, we recommend that you use secrets. For more information on configuring secrets, see [Add secrets to your Spark configuration](/azure/databricks/security/secrets/secrets#read-a-secret).
+    > In this quickstart example, credentials are assigned to variables in clear text. For security, we recommend that you use secrets. For more information on how to configure secrets, see [Add secrets to your Spark configuration](/azure/databricks/security/secrets/secrets#read-a-secret).
 
 ## Related content
 
