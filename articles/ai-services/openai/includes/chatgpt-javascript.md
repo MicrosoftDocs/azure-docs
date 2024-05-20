@@ -32,15 +32,11 @@ ms.date: 05/20/2024
 
 ## Create a Node application
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. Then run the `npm init` command to create a node application with a _package.json_ file.
-
-```console
-npm init
-```
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ## Install the client library
 
-Install the Azure OpenAI client library for JavaScript with npm:
+Install the required client libraries for JavaScript with npm from within the context of your new directory:
 
 ```console
 npm install openai @azure/openai dotenv
