@@ -92,7 +92,7 @@ For more information on Azure access-based control, see [What is Azure attribute
 
 ## Containers in the storage account
 
-The default storage account for an hub has the following containers. These containers are created for each project, and the `{workspace-id}` prefix matches the unique ID for the project. The container is accessed by the project using a [connection](connections.md).
+The default storage account for a hub has the following containers. These containers are created for each project, and the `{workspace-id}` prefix matches the unique ID for the project. The container is accessed by the project using a [connection](connections.md).
 
 > [!TIP]
 > To find the ID for your project, go to the project in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
