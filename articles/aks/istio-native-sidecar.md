@@ -80,7 +80,7 @@ AKS cluster needs to be reconciled with [az aks update][az-aks-update] command.
 az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER
 ```
 
-When native sidecare mode is enabled, environment variable `ENABLE_NATIVE_SIDECARS` appears with value `true` in Istio's control plane pod template. Use the following command to check `istiod` deployment. 
+When native sidecar mode is enabled, environment variable `ENABLE_NATIVE_SIDECARS` appears with value `true` in Istio's control plane pod template. Use the following command to check `istiod` deployment.
 
 ```bash
 kubectl get deployment -l app=istiod -n aks-istio-system -o json | jq '.items[].spec.template.spec.containers[].env[] | select(.name=="ENABLE_NATIVE_SIDECARS")'
@@ -144,5 +144,6 @@ az aks create \
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [istio-deploy-ingress]: ./istio-deploy-ingress.md
+[istio-upgrade]: ./istio-upgrade.md
 [upgrade-aks-cluster]: ./upgrade-aks-cluster.md
 [upgrade-node-image]: ./node-image-upgrade.md
