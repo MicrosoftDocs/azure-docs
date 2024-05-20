@@ -616,7 +616,7 @@ This article describes how to use a Bicep template to configure your container a
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/)
+  - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
 - If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 - If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`.
 
@@ -626,7 +626,7 @@ This article describes how to use a Bicep template to configure your container a
 
 If you don't have Bicep installed, you can install it as follows.
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep install
