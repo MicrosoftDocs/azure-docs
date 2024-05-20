@@ -52,7 +52,7 @@ In this step, you create a reachability analysis intent in your verifier workspa
     | **Destination IP address** | Enter an IPv4 or IPv6 address or a range using CIDR notation of the destination you want to verify. |
     | **Destination port** | Enter a port or a range of the destination you want to verify. To specify any port, enter *. |
 
-    :::image type="content" source="media/how-to-create-virtual-network-verifier-workspace/create-analysis-intent.png" alt-text="Screenshot of Create analysis intent window with settings and values.":::
+    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/create-analysis-intent.png" alt-text="Screenshot of Create analysis intent window with settings and values.":::
 
 3. Repeat the process to create more reachability analysis intents in the verifier workspace.
 
@@ -63,7 +63,7 @@ After setting up a reachability analysis intent, you can initiate an analysis. T
 1. Under **Reachability analysis intents**, select the checkbox next to the reachability analysis intent you want to analyze and select **Start analysis**.
 2. In the **Start analysis** pane, enter a name and optional description for the analysis, and then select the **Start analysis** button.
 
-    :::image type="content" source="media/how-to-create-virtual-network-verifier-workspace/start-analysis-run.png" alt-text="Screenshot of Start analysis window for analysis intent run job.":::
+    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/start-analysis-run.png" alt-text="Screenshot of Start analysis window for analysis intent run job.":::
 
 > [!NOTE]
 > The analysis run may take a few minutes to complete. You can monitor the progress of the analysis in the Azure Portal.
@@ -73,22 +73,22 @@ In this step, you view the results of the analysis you started in the previous s
 
 1. In the verifier workspace, select **Reachability analysis intents** under *Settings* and select the corresponding **View results** for your reachability analysis intent. Alternatively, navigate to **Reachability analysis results** and select the name of the result you want to view.
 
-    :::image type="content" source="media/how-to-create-virtual-network-verifier-workspace/select-analysis-results.png" alt-text="Screenshot of Reachability analysis intent windows showing analysis intent run to view.":::
+    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/select-analysis-results.png" alt-text="Screenshot of Reachability analysis intent windows showing analysis intent run to view.":::
 2. In the **View analysis results** pane, you can view the results of the analysis, including the status of the analysis, the path taken by the traffic, the resources traversed, and the result outcome.
 
-    :::image type="content" source="media/how-to-create-virtual-network-verifier-workspace/view-analysis-results.png" alt-text="Screenshot of Reachability analysis results window with analysis results.":::
+    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-analysis-results.png" alt-text="Screenshot of Reachability analysis results window with analysis results.":::
 
 3. On the **Reachability analysis results** tab in the **View analysis results** pane, you see the results in a visual format. The visualization shows the path taken by the traffic and the resources traversed.
 
-    :::image type="content" source="media/how-to-create-virtual-network-verifier-workspace/view-analysis-results-visualization.png" alt-text="Screenshot of Reachability analysis results window with visualization of analysis results.":::
+    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-analysis-results-visualization.png" alt-text="Screenshot of Reachability analysis results window with visualization of analysis results.":::
 
 4. Select one of the resources in the visualization to view the resource details. You can also select any of the lengths in the visualization to view details of that step.
 
-   :::image type="content" source="media/how-to-create-virtual-network-verifier-workspace/network-manager-reachability-results-details.png" alt-text="Screenshot of resource details for network manager from analysis intent results.":::
+   :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/network-manager-reachability-results-details.png" alt-text="Screenshot of resource details for network manager from analysis intent results.":::
 
 5. Select the **JSON output** tab to view the full JSON output of the analysis result. The beginning of the JSON object details the outcome of the result, which indicates whether all packets reached, some packets reached, or no packets reached. Explanations are provided for each outcome and each reachability step.
     
-    :::image type="content" source="media/how-to-create-virtual-network-verifier-workspace/view-json-results.png" alt-text="Screenshot of JSON output for reachability analysis results.":::
+    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-json-results.png" alt-text="Screenshot of JSON output for reachability analysis results.":::
 
 6. Select **Close** to close the analysis results.
 
