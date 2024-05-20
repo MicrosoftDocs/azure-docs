@@ -12,7 +12,7 @@ author: biefy
 
 Kubernetes native sidecar aims to provide a more robust and user-friendly way to incorporate sidecar patterns into Kubernetes applications, improving efficiency, reliability, and simplicity.
 
-Native sidecar is a good fit for Istio. It offers several benefits, such as simplified sidecar management. Additionally, it improves reliability and coordination. It also optimizes resources and enhances operational efficiency. Finally, it provides enhanced security.
+Native sidecar is a good fit for Istio. It offers several benefits, such as simplified sidecar management. Additionally, it improves reliability and coordination. It also optimizes resources and enhances operational efficiency.
 
 Starting from Kubernetes version 1.29, [sidecar containers][k8s-native-sidecar-support] feature is turned on for AKS. With this change, [Istio native sidecar mode][istio-native-sidecar-support] can be used with the Istio add-on for AKS.
 
@@ -60,6 +60,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
 
    > [!CAUTION]
    > Native sidecar mode requires both Kubernetes control plane and data plane on 1.29+. Make sure all your nodes have been upgraded to 1.29 before enabling native sidecar mode. Otherwise, sidecars will not work as expected.
+
    If any node pool version is too old, [upgrade-node-image][upgrade-node-image] to `1.29` or newer version.
 
 3. Make sure Istio add-on is on `asm-1-20` or newer revision.
@@ -68,18 +69,18 @@ This article walks through how to enable native sidecar mode for Istio based ser
    az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER -o json | jq ".serviceMeshProfile.istio.revisions"
    ```
 
-   If istiod is too old, upgrade to `asm-1-20` or newer following [Istio upgrade][istio-upgrade].
+   If `istiod` is too old, upgrade to `asm-1-20` or newer by following the steps in [Istio upgrade][istio-upgrade].
 
 
 ### Check native sidecar feature status on Istio control plane
 
-AKS cluster needs to be reconciled with [az aks update][az-aks-update].
+AKS cluster needs to be reconciled with [az aks update][az-aks-update] command.
 
 ```bash
 az aks update --resource-group $RESOURCE_GROUP --name $CLUSTER
 ```
 
-When native sidecare mode is enabled, environment variable `ENABLE_NATIVE_SIDECARS` appears with value `true` istio's control plane pod template. Use the following command to check `istiod` deployment. 
+When native sidecare mode is enabled, environment variable `ENABLE_NATIVE_SIDECARS` appears with value `true` in Istio's control plane pod template. Use the following command to check `istiod` deployment. 
 
 ```bash
 kubectl get deployment -l app=istiod -n aks-istio-system -o json | jq '.items[].spec.template.spec.containers[].env[] | select(.name=="ENABLE_NATIVE_SIDECARS")'
@@ -87,13 +88,15 @@ kubectl get deployment -l app=istiod -n aks-istio-system -o json | jq '.items[].
 
 ### Restart workloads
 
-Once Istio control plane is ready, do a rolling restart of workloads to let istiod inject native sidecars.
+Once Istio control plane is ready, do a rolling restart of workloads to let `istiod` inject native sidecars.
 
 ```bash
 for ns in $(kubectl get ns -l istio.io/rev -o=jsonpath='{.items[0].metadata.name}'); do
   kubectl rollout restart deployments -n $ns
 done
 ```
+
+For deployments having istio sidecars injected with [istioctl kube-inject][istioctl-kube-inject], you need to reinject sidecars.
 
 ### Check sidecar injection
 
@@ -112,7 +115,7 @@ sleep-7656cf8794-5b5j4   istio-init,istio-proxy   sleep
 
 ## Create a new cluster
 
-For new AKS cluster with [az aks create][az-aks-create], choose a version `1.29` or newer, istio `asm-1-20` or newer. The new cluster should have native sidecar mode turned on automatically.
+When creating a new AKS cluster with [az aks create][az-aks-create] command, choose a version `1.29` or newer, istio `asm-1-20` or newer. The new cluster should have native sidecar mode turned on automatically.
 
 ```bash
 az aks create \
@@ -129,6 +132,7 @@ az aks create \
 
 <!--- External Links --->
 [istio-native-sidecar-support]: https://istio.io/latest/blog/2023/native-sidecars/
+[istioctl-kube-inject]: https://istio.io/latest/docs/reference/commands/istioctl/#istioctl-kube-inject
 [k8s-native-sidecar-support]: https://kubernetes.io/blog/2023/08/25/native-sidecar-containers/
 
 <!--- Internal Links --->
