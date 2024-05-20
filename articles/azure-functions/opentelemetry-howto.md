@@ -13,21 +13,21 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [functions-opentelemetry-preview-note](../../includes/functions-opentelemetry-preview-note.md)]
 
-This article shows you how to configure your function app to generate log and trace data in an OpenTelemetry format. Azure Functions generates telemetry data on your function executions from both the Functions host process and the language-specific worker process in which your function code runs. By default, this telemetry data is sent to Application Insights. However, you can also choose to export this data using OpenTelemetry semantics. While you can still use an OpenTelemetry format to send your data to Application Insights, you can now also export the same data to any other OpenTelemetry-compliant endpoint.  
+This article shows you how to configure your function app to generate log and trace data in an OpenTelemetry format. Azure Functions generates telemetry data on your function executions from both the Functions host process and the language-specific worker process in which your function code runs. By default, this telemetry data is sent to Application Insights using the Application Insights SDK. However, you can also choose to export this data using OpenTelemetry semantics. While you can still use an OpenTelemetry format to send your data to Application Insights, you can now also export the same data to any other OpenTelemetry-compliant endpoint.  
 
 > [!TIP]  
-> Because this article is target at your development language of choice, remember to choose the correct language at the top of the article.
+> Because this article is targeted at your development language of choice, remember to choose the correct language at the top of the article.
 ::: zone pivot="programming-language-java" 
 > Currently, there's no client optimized OpenTelemetry support for Java apps.
 :::zone-end
 ::: zone pivot="programming-language-csharp" 
-> OpenTelemetry is currently only supported for C# apps that run in the [isolated process mode](./dotnet-isolated-process-guide.md).
+> OpenTelemetry currently isn't supported for C# in-process apps.
 :::zone-end
 
  You can obtain these benefits by enabling OpenTelemetry in your function app: 
 
-+ Context for correlation across traces and logs being generated both at the host and in your application code.
-+ Consistent, standards-based generation of exportable telemetry data, plus extra Functions-specific metrics. 
++ Correlation across traces and logs being generated both at the host and in your application code.
++ Consistent, standards-based generation of exportable telemetry data. 
 + Integrates with other providers that can consume OpenTeleletry-compliant data. 
 
 OpenTelemetry is enabled at the function app level, both in host configuration (`host.json`) and in your code project. Functions also provides a client optimized experience for exporting OpenTelemetry data from your function code that's running in a language-specific worker process.
@@ -58,7 +58,7 @@ To enable OpenTelemetry output from the Functions host, update the [host.json fi
 
 When OpenTelemetry is enabled in the host.json file, the endpoints to which data is sent is determined based on which OpenTelemetry-supported application settings are available in your app's environment variables. 
 
-Create specific application settings in your function app based on the OpenTelemetry output destination. When connection settings are provided for both Application Insights and an OpenTelemetry protocol (OLTP) exporter, OpenTelemetry data is sent to both endpoints.    
+Create specific application settings in your function app based on the OpenTelemetry output destination. When connection settings are provided for both Application Insights and an OpenTelemetry protocol (OTLP) exporter, OpenTelemetry data is sent to both endpoints.    
 
 ### [Application Insights](#tab/app-insights)
 
