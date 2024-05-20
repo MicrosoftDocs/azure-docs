@@ -11,7 +11,7 @@ ms.author: cherylmc
 ---
 # Azure VPN Client versions
 
-This article helps you view each of the versions of the Azure VPN Client. As new client versions become available, they're added to this article.
+This article helps you view each of the versions of the Azure VPN Client. As new client versions become available, they're added to this article. To view the version number of an installed Azure VPN Client, launch the client and select **Help**.
 
 ## Azure VPN Client - Windows
 
@@ -30,7 +30,7 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 
 | Version | New in this release |
 |---|---|
-| 2.5.0.| - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience<br> - TLSv 1.3 support<br> - Bug fixes |
+| 2.5.0 | - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience<br> - TLSv 1.3 support<br> - Bug fixes |
 | 2.4.0 | - Multiple server root certificate feature |
 
 ## Next steps
