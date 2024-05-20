@@ -150,6 +150,7 @@ To export a specification in the extension's tree view:
 You can also export a specification using the Command Palette:
 
 1. Type the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. 
+1. Select **Azure API Center: Export API**.
 1. Make selections to navigate to an API definition. A new tab appears that renders an API specification document.
 
 ## Related content
