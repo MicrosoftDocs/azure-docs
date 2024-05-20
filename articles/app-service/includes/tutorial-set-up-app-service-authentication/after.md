@@ -65,7 +65,10 @@ Now that you have a web app running on App Service, enable authentication and au
     - **Allow requests from any identity** for **Identity requirement**
     - **Allow requests only from the issuer tenant** for **Tenant requirement** 
 
-1. In the **App Service authentication settings** section, leave **Authentication** set to **Require authentication** and **Unauthenticated requests** set to **HTTP 302 Found redirect: recommended for websites**.
+1. In the **App Service authentication settings** section, set:
+    - **Require authentication** for **Authentication**
+    - **HTTP 302 Found redirect: recommended for websites** for **Unauthenticated requests**
+    - **Token store** box
 
 1. At the bottom of the **Add an identity provider** page, select **Add** to enable authentication for your web app.
 
@@ -93,11 +96,11 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. Select **Create new app registration** to create a new app registration.
 
-1. Click **Create new** to create a new [external tenant](/entra/external-id/customers/quickstart-tenant-setup), or select an existing tenant to use.
+1. Select an existing tenant to use from the drop-down, or select **Create new** to create a new [external tenant](/entra/external-id/customers/quickstart-tenant-setup).
 
     :::image type="content" alt-text="Screenshot that shows the Select a tenent dropdown." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-select.png":::
 
-1. In the **Create a tenant** page, add the *Tenant Name** and **Domain Name**.  Select a **Location** and click **Review and create**.
+1. In the **Create a tenant** page, add the *Tenant Name** and **Domain Name**.  Select a **Location** and select **Review and create**.
 
     :::image type="content" alt-text="Screenshot the Create a tenant page." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-create-tenant.png":::
 
@@ -117,7 +120,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
 1. Add your company logo, select a background color, and select a sign-in layout.
 
-    :::image type="content" alt-text="Screenshot that shows the customize branding tab." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-branding.png":::
+    :::image type="content" alt-text="Screenshot that shows the customized branding tab." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-branding.png":::
 
 1. Select **Next** and **Yes, update the changes** to accept the branding changes.
 
