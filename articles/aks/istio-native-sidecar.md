@@ -122,6 +122,7 @@ az aks create \
   --resource-group $RESOURCE_GROUP \
   --name $CLUSTER \
   --enable-asm \
+  --kubernetes-version 1.29 \
   --revision asm-1-20
   ...
 ```
