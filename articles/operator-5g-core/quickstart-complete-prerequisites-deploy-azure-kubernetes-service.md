@@ -7,7 +7,7 @@ ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.custom: devx-track-azurecli
 ms.topic: quickstart #required; leave this attribute/value as-is.
-ms.date: 05/15/2024
+ms.date: 05/20/2024
 ---
 
 # Quickstart: Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
@@ -20,12 +20,12 @@ To deploy on the Azure Kubernetes Service, you will need the following configura
 
 - [Resource Group/Subscription](../cost-management-billing/manage/create-enterprise-subscription.md)
 - The [Azure Operator 5G Core release version and corresponding Kubernetes version](overview-product.md#compatibility)
-- Azure Kubernetes Service (AKS) system and user node pool vm series and sizing 
+- [Azure Kubernetes Service (AKS) system and user node pool vm series and sizing](../virtual-machines/dv5-dsv5-series.md) 
     - Recommended node series : system node - D8s_v5,  user node - D16s_v5
     - Recommended node count: system node-3, user node-8   
 - Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.yml) in your tenant to create the cluster and modify the Azure Virtual Machine Scale Sets.
-- Detailed Networks and subnet planning – user designed routes can be added to virtual networks and network interfaces as required.
-- Azure Active Directory/Entra Application ID with subscription level contributor access. Throughout this article, leave unspecified settings as default.
+- Detailed Networks and subnet planning – [user defined routes](../virtual-network/virtual-networks-udr-overview.md) can be added to virtual networks and network interfaces as required.
+- [Azure Active Directory/Entra Application ID ](/entra/fundamentals/whatis)with subscription level contributor access. Throughout this article, leave unspecified settings as default.
 - Express route connectivity - required to connect your Azure infrastructure to your on-premises infrastructure and exchange IP routes. The express route and required vpn gateway setup is outside the scope of this document. 
 
 ## Assign subnets for specific network functions
