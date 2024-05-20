@@ -34,9 +34,8 @@ Azure OpenAI offers three types of deployments. These provide a varied level of 
 | **How it works**         | Traffic may be routed anywhere in the world | | |
 | **Getting started**      | [Model deployment](./create-resource.md) | [Model deployment](./create-resource.md) | [Provisioned onboarding](./provisioned-throughput-onboarding.md) |
 | **Cost**                 | [Baseline](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) | [Regional Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) | May experience cost savings for consistent usage |
-| **What you get**         | Easy access to all new models with highest default pay-per-call limits. | Easy access with [SLA on availability](https://azure.microsoft.com/support/legal/sla/). Optimized for low to medium volume workloads with high burstiness. Customers with high consistent volume may experience greater latency variability. | Regional access with very high & predictable throughput. Determine throughput per PTU using the provided capacity calculator |
+| **What you get**         | Easy access to all new models with highest default pay-per-call limits.<br><br> Customers with high volume usage may see higher latency variability | Easy access with [SLA on availability](https://azure.microsoft.com/support/legal/sla/). Optimized for low to medium volume workloads with high burstiness. <br><br>Customers with high consistent volume may experience greater latency variability. | Regional access with very high & predictable throughput. Determine throughput per PTU using the provided [capacity calculator](./provisioned-throughput-onboarding.md#estimate-provisioned-throughput-and-cost) |
 | **What you don’t get**   | Data residency guarantees | High volume w/consistent low latency | Pay-per-call flexibility |
-| **SLA uptime** | In preview | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) |
 | **Per-call Latency**     | Optimized for real-time calling & low to medium volume usage. Customers with high volume usage may see higher latency variability. Threshold set per model | Optimized for real-time calling & low to medium volume usage. Customers with high volume usage may see higher latency variability. Threshold set per model | Optimized for real-time. |
 | **Sku Name in code**     |    `GlobalStandard`               | `Standard`   |      `ProvisionedManaged`       |
 | **Billing model**        | Pay-per-token | Pay-per-token | Monthly Commitments |
@@ -53,7 +52,7 @@ Standard deployments provide a pay-per-call billing model on the chosen model. P
 
 Standard deployments are optimized for low to medium volume workloads with high burstiness. Customers with high consistent volume may experience greater latency variability.
 
-## Global standard
+## Global standard (preview)
 
 Global deployments are available in the same Azure OpenAI resources as non-global offers but allow you to leverage Azure's global infrastructure to dynamically route traffic to the data center with best availability for each request.  Global standard will provide the highest default quota for new models and eliminates the need to load balance across multiple resources.  
 
