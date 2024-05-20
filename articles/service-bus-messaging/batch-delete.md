@@ -21,16 +21,21 @@ There are several scenarios where you may want to use the batch delete messages 
 By using the batch delete messages feature, you can delete multiple messages from a queue or subscription in one operation, instead of deleting them one by one. Since deletion is done at service side, you don't need to receive the messages before deleting them. This method minimizes both the number of service requests and network latency.
 
 >[!IMPORTANT]
-> Currently, Batch delete is not supported with partitioned entities. You can delete a maximum of 4000 messages in a batch delete call. However, keep in mind that batch deletion is done on a best-effort basis and doesn’t guarantee the maximum number of messages will be deleted in every call.  
+> Currently, Batch delete is not supported with partitioned entities. You can delete a maximum of 4000 messages in a batch delete call. Batch deletion is done on a best-effort basis and doesn’t guarantee the exact messageCount  will be deleted in single API call.  
 
 ## How to batch delete messages in Service Bus
 
-You can delete messages by calling [DeleteMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deletemessagesasync?view=azure-dotnet-preview) on Service Bus Receiver object. From service side, both messageCount and beforeEnqueueTime are required parameters. In case you are using Azure SDKs, beforeEnqueueTime takes DateTime.UtcNow() as default value. Ensure to pass in the correct values to avoid unexpected deletion of messages.
+You can delete messages by calling [DeleteMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deletemessagesasync?view=azure-dotnet-preview) on Service Bus Receiver object. On the server side, DeleteMessagesAsync requires two parameters: messageCount and beforeEnqueueTime as described below:
 
-Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deletemessagesasync?view=azure-dotnet-preview) to purge all messages from entity. If you're calling Purge using Azure SDKs, beforeEnqueueTime takes DateTime.UtcNow() as default value. Ensure to pass in the correct values to avoid unexpected deletion of messages. 
+- messageCount : The desired number of messages to delete.The service may delete fewer messages than this limit.
+- beforeEnqueueTime : An optional DateTimeOffset, in UTC, representing the cutoff time for deletion. Only messages that were enqueued before this time will be deleted. 
+
+Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deletemessagesasync?view=azure-dotnet-preview) to purge all messages from entity. 
+
+When using Azure SDKs to perform these operations, the beforeEnqueueTime parameter defaults to the current UTC time (DateTime.UtcNow()). It’s important to ensure you provide the correct values to prevent unintended message deletion.
 
 >[!NOTE]
-> Since Purge would make multiple API calls under the hood, this could cause high CPU consumption.During Purge, locked messages are not eligible for removal and will remain in the entity.
+> Since Purge would make multiple API calls under the hood, this could cause high CPU consumption. During Purge, locked messages are not eligible for removal and will remain in the entity.
 
 
 ## Next steps
