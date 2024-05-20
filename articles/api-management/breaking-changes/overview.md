@@ -7,7 +7,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: reference
 ms.date: 05/17/2024
-ms.author: adhal
+ms.author: dlepow
 ---
 
 # Upcoming breaking changes
@@ -45,3 +45,4 @@ The following table lists all the upcoming breaking changes and feature retireme
 [git2025]: ./git-configuration-retirement-march-2025.md
 [analytics2027]: ./analytics-dashboard-retirement-march-2027.md
 [mgmtapi2025]: ./direct-management-api-retirement-march-2025.md
+[workspaces2024]: ./workspaces-breaking-changes-june-2024.md
