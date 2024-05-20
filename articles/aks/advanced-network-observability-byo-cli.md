@@ -116,6 +116,7 @@ az aks create \
     --network-dataplane cilium \
     --node-count 2 \
     --pod-cidr 192.168.0.0/16 \
+    --kubernetes-version 1.29 \
     --enable-advanced-network-observability
 ```
 

@@ -79,15 +79,11 @@ az group create \
     --location eastus
 ```
 
-## Create New AKS cluster
-
-Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create). The following example creates an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group:
+## Create an AKS cluster with Advanced Network Observability
 
 # [**Non-Cilium**](#tab/non-cilium)
 
-Non-Cilium clusters support the enablement of Advanced Network Observability on an existing cluster or during the creation of a new cluster. 
-
-Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Advanced Network Observability on non-Cilium.
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Advanced Network Observability using a non-Cilium dataplane.
 
 ```azurecli-interactive
 az aks create \
@@ -103,7 +99,10 @@ az aks create \
 
 # [**Cilium**](#tab/cilium)
 
-Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Cilium.
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Advanced Network Observability using a Cilium dataplane.
+
+> [!NOTE]
+> Clusters with Cilium dataplane support Advanced Observability starting with Kubernetes version 1.29
 
 ```azurecli-interactive
 az aks create \
@@ -116,8 +115,11 @@ az aks create \
     --network-plugin-mode overlay \
     --network-dataplane cilium \
     --node-count 2 \
-    --pod-cidr 192.168.0.0/16
+    --pod-cidr 192.168.0.0/16 \
+    --kubernetes-version 1.29 \
+    --enable-advanced-network-observability
 ```
+
 ---
 
 ## Enable on Existing cluster
@@ -125,7 +127,7 @@ az aks create \
 Use [az aks update](/cli/azure/aks#az-aks-update) to enable Advanced Network Observability for an existing cluster.
 
 > [!NOTE]
-> Run the below command only if you are using non-cilium cluster
+> Clusters with Cilium dataplane support Advanced Observability starting with Kubernetes version 1.29
 
 ```azurecli-interactive
 az aks update \
