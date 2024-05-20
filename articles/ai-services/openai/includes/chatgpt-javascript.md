@@ -8,10 +8,10 @@ ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/26/2023
+ms.date: 05/20/2024
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/javascript/get-started-app-chat-template)|
+[Source code](https://github.com/openai/openai-node) | [Package (npm)](https://www.npmjs.com/package/openai) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/openai-azure-samples/sdk/openai/openai/samples/v1-beta/javascript) 
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ ms.date: 07/26/2023
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either a `gpt-35-turbo` or `gpt-4` series models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
@@ -43,7 +43,7 @@ npm init
 Install the Azure OpenAI client library for JavaScript with npm:
 
 ```console
-npm install @azure/openai
+npm install openai @azure/openai dotenv
 ```
 
 Your app's _package.json_ file will be updated with the dependencies.
@@ -57,22 +57,26 @@ Open a command prompt where you want the new project, and create a new file name
 
 ```javascript
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
-const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
-const messages = [
-  { role: "system", content: "You are a helpful assistant." },
-  { role: "user", content: "Does Azure OpenAI support customer managed keys?" },
-  { role: "assistant", content: "Yes, customer managed keys are supported by Azure OpenAI" },
-  { role: "user", content: "Do other Azure AI services support this too" },
-];
+// Load the .env file if it exists
+const dotenv = require("dotenv");
+dotenv.config();
+
+// You will need to set these environment variables or edit the following values
+const endpoint = process.env["ENDPOINT"] || "<endpoint>";
+const azureApiKey = process.env["AZURE_API_KEY"] || "<api key>";
 
 async function main() {
   console.log("== Chat Completions Sample ==");
 
   const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-  const deploymentId = "gpt-35-turbo";
-  const result = await client.getChatCompletions(deploymentId, messages);
+  const deploymentId = "gpt-35-turbo"; //set this value to match your model deployment name
+  const result = await client.getChatCompletions(deploymentId, [
+    { role: "system", content: "You are a helpful assistant." },
+    { role: "user", content: "Does Azure OpenAI support customer managed keys?" },
+    { role: "assistant", content: "Yes, customer managed keys are supported by Azure OpenAI?" },
+    { role: "user", content: "Do other Azure AI services support this too?" },
+  ]);
 
   for (const choice of result.choices) {
     console.log(choice.message);
@@ -80,7 +84,7 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("The sample encountered an error:", err);
+  console.error("Error occurred:", err);
 });
 
 module.exports = { main };
@@ -100,8 +104,8 @@ node.exe ChatCompletion.js
 ```output
 == Chat Completions Sample ==
 {
-  role: 'assistant',
-  content: 'Yes, most Azure AI services support customer managed keys. It is always best to check the specific service documentation to confirm this.'
+  content: 'Yes, several other Azure AI services also support customer managed keys for enhanced security and control over encryption keys.',
+  role: 'assistant'
 }
 ```
 
