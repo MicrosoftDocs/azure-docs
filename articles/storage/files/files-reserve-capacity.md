@@ -110,7 +110,7 @@ There's no limit on the number of exchanges you can make. Additionally, there's 
 
 ### Refund a Reservation
 
-You may cancel an Azure Files Reservation at any time. When you cancel, you'll receive a prorated refund based on the remaining term of the Reservation, minus a 12 percent early termination fee. The maximum refund per year is $50,000.
+You may cancel an Azure Files Reservation at any time. When you cancel, you'll receive a prorated refund based on the remaining term of the Reservation. The maximum refund per year is $50,000.
 
 Cancelling a Reservation immediately terminates the Reservation and returns the remaining months to Microsoft. The remaining prorated balance, minus the fee, will be refunded to your original form of purchase.
 
