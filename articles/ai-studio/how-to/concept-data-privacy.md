@@ -47,7 +47,7 @@ Microsoft acts as the data processor for prompts and outputs sent to and generat
 
 ## Fine-tune a model for pay-as-you-go deployment (Models-as-a-Service)
 
-If a model available for pay-as-you-go deployment (MaaS) supports fine-tuning, you can upload data to (or designate data already in) a [datastore](../concepts/connections.md#connections-to-datastores) to fine-tune the model. You can then create a pay-as-you-go deployment for the fine-tuned model. The fine-tuned model can't be downloaded, but the fine-tuned model:
+If a model available for serverless APIs supports fine-tuning, you can upload data to (or designate data already in) a [datastore](../concepts/connections.md#connections-to-datastores) to fine-tune the model. You can then create a serverless API deployment for the fine-tuned model. The fine-tuned model can't be downloaded, but the fine-tuned model:
 
 * Is available exclusively for your use;
 * Can be double [encrypted at rest](../../ai-services/openai/encrypt-data-at-rest.md) (by default with Microsoft's AES-256 encryption and optionally with a customer managed key).
