@@ -13,9 +13,11 @@ ms.date: 05/20/2024
 # Quickstart: Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service
 
 This article shows you how to prepare the prerequisite infrastructure required to deploy the Azure Operator 5G Core. The first section discusses the preparation of the Azure Kubernetes Service cluster; the second shows you how to modify the cluster to add extra accelerated networking interfaces - Single Root I/O Virtualization (SR-IOV) interfaces, which we also refer to these interfaces interchangeably as data plane ports. Lastly, we include the preparation of the Azure loadbalncer and storage services required distribute traffic and store data from the cluster. 
+This article shows you how to prepare the prerequisite infrastructure required to deploy the Azure Operator 5G Core. The first section discusses the preparation of the Azure Kubernetes Service cluster; the second shows you how to modify the cluster to add extra accelerated networking interfaces - Single Root I/O Virtualization (SR-IOV) interfaces, which we also refer to these interfaces interchangeably as data plane ports. Lastly, we include the preparation of the Azure loadbalncer and storage services required distribute traffic and store data from the cluster. 
 
 ## Prerequisites
 
+To deploy on the Azure Kubernetes Service, you will need the following configurations:
 To deploy on the Azure Kubernetes Service, you will need the following configurations:
 
 - [Resource Group/Subscription](../cost-management-billing/manage/create-enterprise-subscription.md)
@@ -30,6 +32,7 @@ To deploy on the Azure Kubernetes Service, you will need the following configura
 
 ## Assign subnets for specific network functions
 
+Azure assigns a virtual network address by default, but based on the network architecture, detailed network and subnet planning is required.
 Azure assigns a virtual network address by default, but based on the network architecture, detailed network and subnet planning is required.
 
 The reference deployment of Azure Operator 5G Core is a single cluster, with one virtual network and multiple constituent subnets as part of the same virtual network.
@@ -52,7 +55,10 @@ Additional IP subnets exist for the Access and Mobility Function (AMF) and User 
 |AMF_N2-LB_subnet     | SCTP loopback address         |
 |UPF_N3-LB_subnet     | GTP-U loopback address        |
 |UPF_N6-LB_subnet     | Data networks names (DNN) loopback addresses       |
+|UPF_N3-LB_subnet     | GTP-U loopback address        |
+|UPF_N6-LB_subnet     | Data networks names (DNN) loopback addresses       |
 
+The topology and quantity of vnets and subnets can differ based on your custom requirements. For more information, see [Quickstart: Use the Azure portal to create a virtual network](../virtual-network/quick-create-portal.md) to create a virtual network.
 The topology and quantity of vnets and subnets can differ based on your custom requirements. For more information, see [Quickstart: Use the Azure portal to create a virtual network](../virtual-network/quick-create-portal.md) to create a virtual network.
 
 > [!NOTE]
@@ -81,6 +87,9 @@ Once you complete these steps, you can create the AKS cluster:
 1. Navigate to the **Add a node pool** tab, then modify the node details where required to meet infrastructure standards. In this setup, there are two node pools.  
     - Rename the sample **Node pool names** from **agentpool** and  **userpool** to **system** and **worker**. 
     - Select the appropriate pool name to edit the names and choose VM series and size based on the recommended sizing, availability, and capacity requirements.   
+1. Navigate to the **Add a node pool** tab, then modify the node details where required to meet infrastructure standards. In this setup, there are two node pools.  
+    - Rename the sample **Node pool names** from **agentpool** and  **userpool** to **system** and **worker**. 
+    - Select the appropriate pool name to edit the names and choose VM series and size based on the recommended sizing, availability, and capacity requirements.   
     - Select **system** for the **Node pool name** and **System** as the **Mode** type.
     - Select **Azure Linux** as the **OS SKU**.
     - Select **Zones 1,2,3** as the **Availability zones** and leave the **Enable Azure Spot instances** field unmarked.
@@ -88,6 +97,9 @@ Once you complete these steps, you can create the AKS cluster:
     - Select the appropriate **Node count** for each pool as shown.
     - Select **250** as the **Max pods per node**, and don't choose to **Enable public IP per node**. Use the default values for the remaining settings.
     - Select **update** and move to the **Networking** tab.
+      
+    > [!NOTE]
+    > update the worker node pool details as shown.
       
     > [!NOTE]
     > update the worker node pool details as shown.
@@ -118,6 +130,7 @@ Once you complete these steps, you can create the AKS cluster:
 
 9. Navigate to the **Advanced** tab and mark the box to **Enable secret store CSI driver**. Don't edit any other field.
 10. Note the name of the **managed Infrastructure Resource group** displayed. This name is required to modify the cluster nodes and add extra data plane ports.
+10. Note the name of the **managed Infrastructure Resource group** displayed. This name is required to modify the cluster nodes and add extra data plane ports.
 11. Select **Review + create** once validation completes.
 
     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/advanced-tab.png" alt-text="Advanced tab showing the checkbox and button user must select to successfully create an AKS cluster.":::
@@ -126,6 +139,7 @@ Once you complete these steps, you can create the AKS cluster:
 
 1. Once you successfully create the cluster, navigate to the **settings** section of the AKS cluster and verify that the provisioning status of **Node pools** is **Succeeded**. 
 1. Stop the AKS cluster. 
+1. Navigate to the **Managed Infrastructure Resource group** referenced during the cluster creation process.
 1. Navigate to the **Managed Infrastructure Resource group** referenced during the cluster creation process.
 1. Select the **Virtual Machine Scale Set** resource named `aks-worker-<random-number>-vmss`.
 1. Navigate to the **Networking > Network Settings tab** to add more data plane ports to the worker nodes to support the defined network subnets earlier. 
@@ -153,8 +167,10 @@ Once you complete these steps, you can create the AKS cluster:
 11. For each of your data planes ports, ensure that the **enableAcceleratedNetworking** and the **enableIPForwarding** fields are set to **True**.  
 
 The following shows an example for the example for the AMF_N2_subnet:
+The following shows an example for the example for the AMF_N2_subnet:
 
 ```properties
+"name": "AMF_N2_SUBNET",
 "name": "AMF_N2_SUBNET",
             "properties": {
               "primary": false,
@@ -169,6 +185,7 @@ The following shows an example for the example for the AMF_N2_subnet:
               "enableIPForwarding": true,
               "ipConfigurations": [
                 {
+                  "name": "AMF_N2_SUBNET-defaultIpConfiguration",
                   "name": "AMF_N2_SUBNET-defaultIpConfiguration",
                   "properties": {
                     "primary": true,
