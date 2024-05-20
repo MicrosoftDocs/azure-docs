@@ -26,7 +26,6 @@ The following table lists the metrics available for the Microsoft.ContainerRegis
 [!INCLUDE [Microsoft.ContainerRegistry/registries](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerregistry-registries-metrics-include.md)]
 
 > [!NOTE]
-
 > Because of layer sharing, registry **Storage used** might be less than the sum of storage for individual repositories. When you [delete](container-registry-delete.md) a repository or tag, you recover only the storage used by manifest files and the unique layers referenced.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
@@ -43,7 +42,7 @@ The following table lists the metrics available for the Microsoft.ContainerRegis
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+For a reference of all Azure Monitor Logs and Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ### Container Registry Microsoft.ContainerRegistry/registries
 
@@ -67,15 +66,6 @@ The following table lists operations related to Azure Container Registry that ca
 | List Container Registry Login Credentials | Show credentials for registry's admin account |
 | Import Image | Import an image or other artifact to a registry |
 | Create Role Assignment | Assign an identity a Role-based access control (RBAC) role to access a resource  |
-
-## Schemas
-
-The following schemas are in use by Azure Container Registry's resource logs.
-
-| Schema | Description |
-|:--- |:---|
-| [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/ContainerRegistryLoginEvents)  | Schema for registry authentication events and status, including the incoming identity and IP address |
-| [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/ContainerRegistryRepositoryEvents) | Schema for operations on images and other artifacts in registry repositories |
 
 ## Related content
 
