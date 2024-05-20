@@ -35,7 +35,7 @@ Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.serv
 When using Azure SDKs to perform these operations, the beforeEnqueueTime parameter defaults to the current UTC time (DateTime.UtcNow()). It’s important to ensure you provide the correct values to prevent unintended message deletion.
 
 >[!NOTE]
-> Since Purge would make multiple API calls under the hood, this could cause high CPU consumption. During Purge, locked messages are not eligible for removal and will remain in the entity.
+> The purge operation could lead to increased CPU usage as it involves multiple API calls. During purge, locked messages are not eligible for removal and will remain in the entity.
 
 
 ## Next steps
