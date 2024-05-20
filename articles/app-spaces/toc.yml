@@ -24,8 +24,3 @@
   items:
     - name: Full stack app
       href: https://link-to-elliotts-page.com
-- name: Frequently asked questions
-  expanded: true
-  items:
-    - name: FAQ
-      href: frequently-asked-questions.md
