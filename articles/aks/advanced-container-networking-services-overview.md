@@ -34,6 +34,15 @@ With Hubble, customers will have in-depth visibility into network traffic at a p
 
 :::image type="content" source="./media/advanced-container-networking-services/advanced-network-observability.png" alt-text="Diagram of Advanced Network Observability.":::
 
+Non-Cilium dataplane is powered by [Retina](https://retina.sh), an open-source project. Below is a comparison of dataplanes:
+
+| Advanced Observability Features  | Cilium Dataplane   | Non-Cilium Dataplane |
+|---|-----------|------------|
+| *Powered By* | Cilium | [Retina](https://retina.sh) |
+| *Node-Level Metrics* | ✅ (from Cilium) | ✅ (from Retina) |
+| *Hubble Metrics (DNS and Pod-Level Metrics)* | ✅ | ✅ |
+| *Hubble Flow Logs (Hubble UI/CLI)* | ✅ | ✅ |
+
 > [!NOTE]
 > This feature is going to be charged. We will share more details in coming weeks
 
