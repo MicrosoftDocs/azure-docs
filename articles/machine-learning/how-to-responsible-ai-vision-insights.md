@@ -21,7 +21,7 @@ The [Responsible AI (RAI) dashboard](concept-responsible-ai-dashboard.md) brings
 
 The Responsible AI text dashboard provides several mature RAI tools in the areas of model performance, data exploration, and model interpretability. The dashboard supports holistic assessment and debugging of computer vision models, leading to informed mitigations for fairness issues and transparency across stakeholders to build trust.
 
-You can generate a Responsible AI image dashboard via an Azure Machine Learning pipeline job by using the Responsible AI vision insights component in a pipeline job. The following sections provide specifications and requirements for the vision insights component and example code snippets in YAML and Python. To view the full code, see the [sample YAML and Python notebooks for Responsible AI](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
+This article describes the Responsible AI vision insights component and how to use it in a pipeline job to generate a Responsible AI image dashboard. The following sections provide specifications and requirements for the vision insights component and example code snippets in YAML and Python. To view the full code, see the [sample YAML and Python notebooks for Responsible AI](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
 
 > [!IMPORTANT]
 > The Responsible AI vision insights component is currently in public preview. This preview is provided without a service-level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -37,8 +37,8 @@ The core component for constructing the Responsible AI image dashboard in Azure 
 - The dataset inputs must be in `mltable` format.
 - The test dataset is restricted to 5,000 rows of the visualization UI, for performance reasons.
 - Complex objects, such as lists of column names, must be supplied as single JSON-encoded strings to the RAI vision insights component.
-- `Guided_gradcam` doesn't work with vision-transformer models.
 - Hierarchical cohort naming or creating a new cohort from a subset of an existing cohort, and adding images to an existing cohort, aren't supported.
+- `Guided_gradcam` doesn't work with vision-transformer models.
 - SHapley Additive ExPlanations (SHAP) isn't supported for AutoML computer vision models.
 <!-- - IOU threshold values can't be changed. The current default value is 50%. -->
 
@@ -64,7 +64,7 @@ The RAI vision insights component also accepts the following optional parameters
 | `use_model_dependency`            | The Responsible AI environment doesn't include the model dependencies by default. When set to `True`, installs the model dependency packages. | Boolean |
 | `use_conda`                       | Install the model dependency packages using `conda` if `True`, otherwise uses `pip`.    | Boolean                      |
 
-### Responsible AI vision insights
+### Ports
 
 The Responsible AI vision insights component has three major input ports:
 
@@ -103,16 +103,14 @@ The component assembles the generated insights into a single Responsible AI imag
 - The `insights_pipeline_job.outputs.dashboard` port contains the completed `RAIVisionInsights` object.
 - The `insights_pipeline_job.outputs.ux_json` port contains the data required to display a minimal dashboard.
 
-### Create the pipeline job
+### Pipeline job
 
-To create the Responsible AI image dashboard, you can define the RAI components in a pipeline and submit the pipeline job. After you specify and submit the pipeline to Azure Machine Learning for execution, the dashboard should appear in the Machine Learning studio in the registered model view
+To create the Responsible AI image dashboard, you can define the RAI components in a pipeline and submit the pipeline job.
  .
 
 # [YAML](#tab/yaml)
 
 You can specify the pipeline in a YAML file, as in the following example.
-
-# [YAML](#tab/yaml)
 
 ```yml
   analyse_model:
@@ -133,7 +131,6 @@ You can specify the pipeline in a YAML file, as in the following example.
       classes: '["cat", "dog"]'
       precompute_explanation: True
       enable_error_analysis: True
-
 ```
 
 # [Python SDK](#tab/python)
@@ -172,17 +169,15 @@ And assemble the output:
 
 ---
 
-### Submit the Responsible AI vision insights pipeline
-
 You can submit the RAI vision insights pipeline through one of the following methods:
 
 - **Azure CLI:** You can submit the pipeline by using the Azure CLI `az ml job create` command.
 - **Python SDK:** To learn how to submit the pipeline through Python, see the [AutoML Image Classification scenario with RAI Dashboard sample notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
-- **Azure Machine Learning studio UI**: You can use the RAI-vision insights component to create and submit a pipeline from the **Designer** in Azure Machine Learning studio.
+- **Azure Machine Learning studio UI**: You can use the RAI-vision insights component to [create and submit a pipeline from the Designer in Azure Machine Learning studio](how-to-create-component-pipelines-ui.md).
 
 After you specify and submit the pipeline and it executes, the dashboard should appear in the Machine Learning studio in the registered model view.
 
-## Integration with AutoML Image Classification
+## Integration with AutoML image classification
 
 Automated ML in Azure Machine Learning supports model training for computer vision tasks like image classification and object detection. AutoML models for computer vision are integrated with the RAI image dashboard for debugging AutoML vision models and explaining model predictions.
 
@@ -193,22 +188,23 @@ To generate Responsible AI insights for AutoML computer vision models, register 
 
 For notebooks related to AutoML supported computer vision tasks, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
 
-### AutoML specific RAI vision insights parameters
+### AutoML-specific RAI vision insights parameters
+<a name="responsible-ai-vision-insights-component-parameter-automl-specific"></a>
 
-In addition to the parameters in the preceding section, the following RAI component parameters apply specifically to AutoML models.
+In addition to the parameters in the preceding section, the following RAI vision component parameters apply specifically to AutoML models.
 
 > [!NOTE]
 > A few parameters are specific to the Explainable AI (XAI) algorithm chosen and are optional for other algorithms.
 
 | Parameter name | Description                                           | Type                             | Values |
 |----------------|-------------------------------------------------------|----------------------------------|--------|
-| `model_type`   | Flavor of the model. Select `pyfunc` for AutoML models. | Enum |- `Pyfunc` <br> - `fastai` |
-| `dataset_type` | Whether the images in the dataset are read from publicly available URLs or are stored in the user's datastore. <br> For AutoML models, images are always read from the user's workspace datastore, so the dataset type for AutoML models is `private`. For `private` dataset type, you download the images on the compute before generating the explanations. | Enum | - `public` <br> - `private` |
-| `xai_algorithm` | Type of XAI algorithm supported for AutoML models <br> Note: SHAP isn't supported for AutoML models. | Enum | - `guided_backprop` <br> - `guided_gradCAM` <br> - `integrated_gradients` <br> - `xrai` |
+| `model_type`   | Flavor of the model. Select `pyfunc` for AutoML models. | Enum |• `Pyfunc` <br> • `fastai` |
+| `dataset_type` | Whether the images in the dataset are read from publicly available URLs or are stored in the user's datastore. <br> For AutoML models, images are always read from the user's workspace datastore, so the dataset type for AutoML models is `private`. For `private` dataset type, you download the images on the compute before generating the explanations. | Enum | • `public` <br> • `private` |
+| `xai_algorithm` | Type of XAI algorithm supported for AutoML models <br> Note: SHAP isn't supported for AutoML models. | Enum | • `guided_backprop` <br> • `guided_gradCAM` <br> • `integrated_gradients` <br> • `xrai` |
 | `xrai_fast` | Whether to use the faster version of `xrai`. If `True`, computation time for explanations is faster but leads to less accurate explanations or attributions. | Boolean ||
-| `approximation_method` | This parameter is specific to `integrated gradients`. <br> Method for approximating the integral.| Enum | - `riemann_middle` <br> - `gausslegendre` |
+| `approximation_method` | This parameter is specific to `integrated gradients`. <br> Method for approximating the integral.| Enum | • `riemann_middle` <br> • `gausslegendre` |
 | `n_steps` | This parameter is specific to `integrated gradients` and `xrai`. <br> The number of steps used by the approximation method. Larger number of steps lead to better approximations of attributions or explanations. The range of `n_steps` is [2, inf], but the performance of attributions starts to converge after 50 steps.| Integer||
-| `confidence_score_threshold_multilabel` | This parameter is specific to multilabel classification. Specify the confidence score threshold above which labels are selected for generating explanations. | Float ||
+| `confidence_score_threshold_multilabel` | This parameter is specific to multilabel classification. The confidence score threshold above which labels are selected for generating explanations. | Float ||
 
 ### Generate model explanations for AutoML models
 
