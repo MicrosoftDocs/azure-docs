@@ -246,7 +246,7 @@ This article describes how to configure your container app to use managed identi
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-Next, set the following environment variables. Replace the *\<PLACEHOLDERS\>* with your own values.
+Next, set the following environment variables. Replace the placeholders surrounded by `<>` with your values.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -262,12 +262,12 @@ IMAGE_NAME="<YOUR_IMAGE_NAME>"
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$ResourceGroupName = '<YOUR_RESOURCE_GROUP_NAME>'
-$Location = '<YOUR_LOCATION>'
-$ContainerAppsEnvironment = '<YOUR_ENVIRONMENT_NAME>'
-$RegistryName = '<YOUR_REGISTRY_NAME>'
-$ContainerAppName = '<YOUR_CONTAINERAPP_NAME>'
-$ImageName = '<YOUR_IMAGE_NAME>'
+$ResourceGroupName = '<RESOURCE_GROUP_NAME>'
+$Location = '<LOCATION>'
+$ContainerAppsEnvironment = '<ENVIRONMENT_NAME>'
+$RegistryName = '<REGISTRY_NAME>'
+$ContainerAppName = '<CONTAINERAPP_NAME>'
+$ImageName = '<IMAGE_NAME>'
 ```
 
 ---
@@ -353,7 +353,7 @@ Follow this procedure to configure user-assigned managed identity:
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a user-assigned managed identity. Replace the *\<PLACEHOLDERS\>* with the name of your managed identity.
+Create a user-assigned managed identity. Before you run the following command, replace placeholders surrounded by `<>` with the name of your managed identity.
 
 ```azurecli
 IDENTITY="<YOUR_IDENTITY_NAME>"
@@ -367,7 +367,7 @@ az identity create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Create a user-assigned managed identity. Replace the *\<Placeholders\>* with the name of your managed identity.
+Create a user-assigned managed identity. Before you run the following command, replace placeholders surrounded by `<>` with the name of your managed identity.
 
 ```azurepowershell
 $IdentityName = '<YourIdentityName>'
@@ -399,7 +399,7 @@ $IdentityId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName
 $PrincipalId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroupName).PrincipalId
 ```
 
-Get the registry's resource ID. Replace the *\<placeholders\>* with the resource group name for your registry.
+Get the registry's resource ID. Before you run the following command, replace placeholders surrounded by `<>` with the resource group name for your registry.
 
 ```azurepowershell
 $RegistryId = (Get-AzContainerRegistry -ResourceGroupName <RegistryResourceGroup> -Name $RegistryName).Id
@@ -648,43 +648,43 @@ You must manually install Bicep for any use other than Azure CLI. For more infor
 
 ### Set environment variables
 
-Next, set the following environment variables. Replace the *\<PLACEHOLDERS\>* with your own values.
+Next, set the following environment variables. Replace placeholders surrounded by `<>` with your values.
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-RESOURCE_GROUP="<YOUR_RESOURCE_GROUP_NAME>"
-LOCATION="<YOUR_LOCATION>"
-REGISTRY_NAME="<YOUR_REGISTRY_NAME>"
-IMAGE_NAME="<YOUR_IMAGE_NAME>"
-IMAGE_TAG="<YOUR_IMAGE_TAG>"
-IMAGE_URL="<YOUR_IMAGE_URL>"
-BICEP_TEMPLATE="<YOUR_BICEP_TEMPLATE>"
-CONTAINERAPPS_ENVIRONMENT="<YOUR_ENVIRONMENT_NAME>"
-CONTAINER_NAME="<YOUR_CONTAINER_NAME>"
-CONTAINERAPP_NAME="<YOUR_CONTAINERAPP_NAME>"
-USER_ASSIGNED_IDENTITY_NAME="<YOUR_USER_ASSIGNED_IDENTITY_NAME>"
-LOG_ANALYTICS_WORKSPACE_NAME="<YOUR_LOG_ANALYTICS_WORKSPACE_NAME>"
-APP_INSIGHTS_NAME="<YOUR_APP_INSIGHTS_NAME>"
+RESOURCE_GROUP="<RESOURCE_GROUP_NAME>"
+LOCATION="<LOCATION>"
+REGISTRY_NAME="<REGISTRY_NAME>"
+IMAGE_NAME="<IMAGE_NAME>"
+IMAGE_TAG="<IMAGE_TAG>"
+IMAGE_URL="<IMAGE_URL>"
+BICEP_TEMPLATE="<BICEP_TEMPLATE>"
+CONTAINERAPPS_ENVIRONMENT="<ENVIRONMENT_NAME>"
+CONTAINER_NAME="<CONTAINER_NAME>"
+CONTAINERAPP_NAME="<CONTAINERAPP_NAME>"
+USER_ASSIGNED_IDENTITY_NAME="<USER_ASSIGNED_IDENTITY_NAME>"
+LOG_ANALYTICS_WORKSPACE_NAME="<LOG_ANALYTICS_WORKSPACE_NAME>"
+APP_INSIGHTS_NAME="<APP_INSIGHTS_NAME>"
 ACR_PULL_DEFINITION_ID="7f951dda-4ed3-4680-a7ca-43fe172d538d"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$ResourceGroupName = '<YOUR_RESOURCE_GROUP_NAME>'
-$Location = '<YOUR_LOCATION>'
-$RegistryName = '<YOUR_REGISTRY_NAME>'
-$ImageName = '<YOUR_IMAGE_NAME>'
-$ImageTag = '<YOUR_IMAGE_TAG>'
-$ImageUrl = '<YOUR_IMAGE_URL>'
-$BicepTemplate = '<YOUR_BICEP_TEMPLATE>'
-$ContainerAppsEnvironment = '<YOUR_ENVIRONMENT_NAME>'
-$ContainerName = '<YOUR_CONTAINER_NAME>'
-$ContainerAppName = '<YOUR_CONTAINERAPP_NAME>'
-$UserAssignedIdentityName = '<YOUR_USER_ASSIGNED_IDENTITY_NAME>'
-$LogAnalyticsWorkspaceName = '<YOUR_LOG_ANALYTICS_WORKSPACE_NAME>'
-$AppInsightsName = '<YOUR_LOG_ANALYTICS_WORKSPACE_NAME>'
+$ResourceGroupName = '<RESOURCE_GROUP_NAME>'
+$Location = '<LOCATION>'
+$RegistryName = '<REGISTRY_NAME>'
+$ImageName = '<IMAGE_NAME>'
+$ImageTag = '<IMAGE_TAG>'
+$ImageUrl = '<IMAGE_URL>'
+$BicepTemplate = '<BICEP_TEMPLATE>'
+$ContainerAppsEnvironment = '<ENVIRONMENT_NAME>'
+$ContainerName = '<CONTAINER_NAME>'
+$ContainerAppName = '<CONTAINERAPP_NAME>'
+$UserAssignedIdentityName = '<USER_ASSIGNED_IDENTITY_NAME>'
+$LogAnalyticsWorkspaceName = '<LOG_ANALYTICS_WORKSPACE_NAME>'
+$AppInsightsName = '<LOG_ANALYTICS_WORKSPACE_NAME>'
 $AcrPullDefinitionId = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
 ```
 
