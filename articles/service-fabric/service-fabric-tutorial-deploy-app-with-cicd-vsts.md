@@ -64,7 +64,7 @@ Create a [new GitHub repo and Azure DevOps repo](/visualstudio/version-control/g
 
 Select your account and enter your repository name. Select **Create and Push**.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/publish-app-profile.png" alt-text="Screenshot of creating new Git repository.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/publish-app-profile.png" alt-text="Screenshot that shows creating a new Git repository.":::
 
 Publishing the repo creates a new project in your Azure DevOps Services account that has the same name as the local repo.
 

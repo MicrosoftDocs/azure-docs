@@ -99,7 +99,7 @@ Open Visual Studio by using the **Run as administrator** option, and then open t
 </ServiceManifest>
 ```
 
-## Set up Kestrel to use HTTPS
+## Configure Kestrel to use HTTPS
 
 In Solution Explorer, open the *VotingWeb/VotingWeb.cs* file. Configure Kestrel to use HTTPS and look up the certificate in the `Cert:\LocalMachine\My` store. Add the following `using` statements:
 
