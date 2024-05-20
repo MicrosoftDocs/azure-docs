@@ -773,7 +773,7 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 ## WEBSITES_ENABLE_APP_SERVICE_STORAGE
 
-Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container. d 
+Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container.
 
 ## App Service site settings
 
@@ -820,7 +820,7 @@ Sets the specific version of PowerShell on which your functions run. For more in
 
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
-### vnetrouteallenabled
+### vnetRouteAllEnabled
 
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
@@ -845,15 +845,26 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `properties.powerShellVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `properties.netFrameworkVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `properties.LinuxFxVersion` |Replaced by `properties.functionAppConfig.runtime`|
+| `properties.vnetBackupRestoreEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetContentShareEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetImagePullEnabled` |Not used for networking in Flex Consumptionlid|
+| `properties.vnetRouteAllEnabled` |Not used for networking in Flex Consumption|
 | `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `FUNCTIONS_EXTENSION_VERSION` |App Setting is set by the backend. A value of ~1 can be ignored. |
 | `FUNCTIONS_WORKER_RUNTIME` |Replaced by `name` in `properties.functionAppConfig.runtime`|
 | `FUNCTIONS_WORKER_RUNTIME_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
-| `FUNCTIONS_MAX_HTTP_CONCURRENCY` |App Setting replaced by scale and concurrency's trigger section|
+| `FUNCTIONS_MAX_HTTP_CONCURRENCY` |Replaced by scale and concurrency's trigger section|
 | `FUNCTIONS_WORKER_PROCESS_COUNT` |Setting not valid|
 | `FUNCTIONS_WORKER_DYNAMIC_CONCURRENCY_ENABLED` |Setting not valid|
-| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |App Setting replaced by functionAppConfig's deployment section|
-| `WEBSITE_CONTENTSHARE` |App Setting replaced by functionAppConfig's deployment section|
+| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated VNet in Flex|
+| `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
+| `WEBSITE_VNET_ROUTE_ALL` |Not used for networking in Flex Consumption|
+| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |Replaced by functionAppConfig's deployment section|
+| `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|
+| `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
+| `ENABLE_ORYX_BUILD` |Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
+| `SCM_DO_BUILD_DURING_DEPLOYMENT`|Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
 
 ## Next steps
 
