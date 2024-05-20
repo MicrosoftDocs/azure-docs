@@ -43,7 +43,7 @@ Code interpreter sessions allow you to run code in a sandbox that is preinstalle
 
 ### Custom container
 
-Custom container sessions allow you to run your own container images in secure, isolated sandboxes. You can use them to run a custom code interpreter for a language that isn't supported out of the box, or to run any other workload that requires strong isolation. Learn more about [custom container sessions](./sessions-custom-container.md).
+Custom container sessions allow you to run your own container images in secure, isolated sandboxes. You can use them to run a custom code interpreter for a language that isn't supported out of the box, or to run workloads that require strong isolation. Learn more about [custom container sessions](./sessions-custom-container.md).
 
 ## Concepts
 
@@ -175,7 +175,7 @@ The Container Apps runtime automatically manages the lifecycle for each session 
 
 * **Allocated**: When you send a request to a non-running session, the pool provides a new session and placed it in an allocated state. Subsequent requests with the same session identifier are routed to the same session.
 
-* **Deleting**: When a session hasn't received any requests during the time defined by the `cooldownPeriodInSeconds` setting, the session and its Hyper-V sandbox are completely and securely deleted.
+* **Deleting**: When a session stop receiving requests during the time defined by the `cooldownPeriodInSeconds` setting, the session and its Hyper-V sandbox are completely and securely deleted.
 
 ## Security
 
@@ -191,7 +191,7 @@ Azure Container Apps dynamic sessions is currently in preview. The following lim
     * North Central US
     * East Asia
     * North Europe
-* Logging is not supported. Your application can log requests to the session pool management API and its responses.
+* Logging isn't supported. Your application can log requests to the session pool management API and its responses.
 
 ## Next steps
 

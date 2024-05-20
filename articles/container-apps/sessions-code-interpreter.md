@@ -15,7 +15,7 @@ ms.custom: references_regions
 Azure Container Apps [dynamic sessions](sessions.md) provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
 
 > [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
+> The Azure Container Apps dynamic sessions feature is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
 
 ## Uses for code interpreter sessions
 

@@ -212,7 +212,7 @@ Authorization: Bearer <TOKEN>
 
 This request is forwarded to the custom container session with the identifier for the user's ID. If the session isn't already running, Azure Container Apps allocates a session from the pool before forwarding the request.
 
-In the example, the session's container receives the request at `http://0.0.0.0:<ingress_port>/api/execute-command`.
+In the example, the session's container receives the request at `http://0.0.0.0:<INGRESS_PORT>/api/execute-command`.
 
 ## Next steps
 
