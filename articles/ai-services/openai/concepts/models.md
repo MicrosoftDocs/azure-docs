@@ -293,6 +293,9 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
 
+> [!NOTE]
+> Assistants also supports the [gpt-4o](#gpt-4o-and-gpt-4-turbo) model.
+
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` |
 |-----|---|---|---|---|---|---|
 | Australia East | ✅ | ✅ | | ✅ |✅ | |

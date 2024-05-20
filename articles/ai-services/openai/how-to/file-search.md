@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 05/20/2024
 author: aahill
 ms.author: aahi
 recommendations: false
@@ -16,8 +16,13 @@ recommendations: false
 
 File Search augments the Assistant with knowledge from outside its model, such as proprietary product information or documents provided by your users. OpenAI automatically parses and chunks your documents, creates and stores the embeddings, and use both vector and keyword search to retrieve relevant content to answer user queries.
 
+<!--
 > [!IMPORTANT]
-> File search has [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) beyond the token based fees for Azure OpenAI usage. If your Assistant calls file search simultaneously in two different threads, two file search sessions are created.
+> * File search has [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) beyond the token based fees for Azure OpenAI usage. For example, if your Assistant calls file search simultaneously in two different threads, two file search sessions are created.
+-->
+
+> [!NOTE]
+> File search is currently not billed. 
 
 [!INCLUDE [Assistants v2 note](../includes/assistants-v2-note.md)]
 
@@ -25,16 +30,7 @@ File Search augments the Assistant with knowledge from outside its model, such a
 
 ### Supported regions
 
-File search is available in the following regions:
-* Canada East
-* East US
-* East US 2
-* France Central
-* Japan East
-* South India
-* Sweden Central
-* West US 3
-* UK South
+File search is available in [regions](../concepts/models.md#assistants-preview) that support Assistants. 
 
 ### API Version
 
