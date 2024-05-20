@@ -30,7 +30,7 @@ This section highlights different steps to run Event Hubs emulator. Details are 
 
 ### [Automated Script](#tab/automated-script)
 
-Before running automated script, clone the Event Hubs emulator GitHub [repository](https://github.com/Azure/azure-event-hubs-emulator) locally.
+Before running automated script, clone the Event Hubs emulator GitHub Installer [repository](https://github.com/Azure/azure-event-hubs-emulator-installer) locally.
  
 ### Windows
 After completing the prerequisites, you can proceed with the following steps to run the Event Hubs emulator locally. 
@@ -125,7 +125,7 @@ ACCEPT_EULA="N"
 ```
 
 >[!IMPORTANT]
->Argument 'ACCEPT_EULA' is to confirm on the license terms, read more about the license [here](https://github.com/Azure/azure-event-hubs-emulator/blob/main/LICENSE)
+>Argument 'ACCEPT_EULA' is to confirm on the license terms, read more about the license [here](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md)
 >. Ensure to place .env file in same directory to docker-compose.yaml file.
 >. When specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid issues with escape characters.
 
@@ -142,11 +142,14 @@ Once the steps are successful, you could find containers running in Docker:
 
 ## Interacting with Emulator
 
-You can use the following connection string to connect to Azure Event Hubs emulator.
+1. You can use the following connection string to connect to Azure Event Hubs emulator.
 ```
 "Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
 ```
-To get started, refer to our GitHub Samples [here.](https://github.com/Azure/azure-event-hubs-emulator/tree/main/Sample-Code-Snippets)
+2. With the latest client SDK releases, you can interact with the emulator in various programming language. For details, refer
+[here](./sdks.md)
+
+To get started, refer to our GitHub [samples.](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/Sample-Code-Snippets/.NET/EventHubs-Emulator-Demo)
 
 ## Next Steps
 
