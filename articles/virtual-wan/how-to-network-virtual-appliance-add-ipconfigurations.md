@@ -17,14 +17,14 @@ The following article describes how to manage IP configurations for Network Virt
 
 ## Background
 
-Network Virtual Appliances (NVAs) in Azure Virtual WAN are deployed as Virtual Machine Scale Sets (VMSS) with Virtual Machine instances that have two or three network interfaces. Each interface on a Virtual Machine instance is automatically allocated one IP address. You can increase the number of IP configurations (which translates to number of IP addresses) assigned to each NVA network interface.
+Network Virtual Appliances (NVAs) in Azure Virtual WAN are deployed as Virtual Machine Scale Sets with Virtual Machine instances that have two or three network interfaces. Each interface on a Virtual Machine instance is automatically allocated one IP address. You can increase the number of IP configurations (which translates to number of IP addresses) assigned to each NVA network interface.
 
 Common reasons to increase the number of IP configurations on NVA interfaces include:
-* Allocating additional Public IP addresses:
-    * Increasing the amount of Source Network Address Translation (SNAT) ports available for each NVA instance for theInternet egress use case (e.g. Virtual Network to Internet traffic).
+* Allocating extra Public IP addresses:
+    * Increasing the number of Source Network Address Translation (SNAT) ports available for each NVA instance for theInternet egress use case (for example Virtual Network to Internet traffic).
     * Allow SD-WAN/VPN tunnels from different sources to use different public IP addresses for tunnel termination on a single NVA instance.
     * Allow different applications to use different source IPs when communicating with the Internet.
-* Allocating additional Private IP addresses:
+* Allocating extra Private IP addresses:
     * Increasing the amount of ports available for [Destination Network Address Translation (DNAT)](how-to-network-virtual-appliance-inbound.md) use cases.
 
 
@@ -32,7 +32,7 @@ For a full-list of use-cases enabled with multiple IP addresses on NVA instances
 
 ## Concepts
 
-IP configurations are logical representations of the IP addresses associated to each NIC in a Virtual WNA NVA. Each NIC of a Virtual WAN NVA by default has exactly one IP configuration. This means exactly one IP (private or public/private pair) is assigned to each VM instance's NICs. The default-assigned IP configuration is also known as the **primary** IP configuration.
+IP configurations are logical representations of the IP addresses associated to each NIC (Network Interface Card) in a Virtual WAN NVA. Each NIC of a Virtual WAN NVA by default has exactly one IP configuration. Therefore, exactly one IP (private or public/private pair) is assigned to each Virtual Machine (VM) instance's NICs. The default-assigned IP configuration is also known as the **primary** IP configuration.
 
 You can allocate additional IP addresses to by creating additional IP configurations and associating it to your NVAs NICs. These additional IP configurations are called **secondary** IP configurations.
 
@@ -44,7 +44,7 @@ The following table describes the types of Network Interfaces that are attached 
 |Internal/Private| Mandatory | one private IP| Yes|
 |Additional/Auxillary| Optional| one private IP or one \<private, public IP\> pair| No|
 
-The following example describes a NVA in Virtual WAN hub with three IP configurations assigned to the External NIC and two IP configurations assigned to the Internal NIC:
+The following example describes a NVA in Virtual WAN hub where multiple IP configurations are assigned to NICs:
 
 |NIC|IP Configuration count| IP Configurations| IPs assigned |
 |--|--|--| --|
@@ -55,30 +55,30 @@ The following example describes a NVA in Virtual WAN hub with three IP configura
 
 ## Known Limitations and Considerations
 
-The following section desribes known limitations and considerations associated to assigning additional IP address to Network Virtual Appliance NICs.
+The following section describes known limitations and considerations associated to assigning multiple IP address to Network Virtual Appliance NICs.
 
 ### Limitations
 
 * Each NVA NIC (External or Internal) can have at most three IP-configurations. This limit is to help ensure that there are sufficient IP addresses available in the Virtual WAN hub to allocate to  Network Virtual Appliance.  
 * Additonal/Auxillary NICs must have exactly one IP-configuration. You can't add additional IP addresses to Additional/Auxillary NICs.
-* Azure Virtual WAN Hub routers  initiates/accepts Border Gateway Protocol (BGP) sessions with the primary IP configuration associated to each NVA VM instance. Addtional IP configurations assigned to the internal/trusted NIC of NVA instances can't be used to establish BGP.
+* Azure Virtual WAN Hub routers  initiates/accepts Border Gateway Protocol (BGP) sessions with the primary IP configuration associated to each NVA VM instance. Non-primary IP configurations assigned to the internal/trusted NIC of NVA instances can't be used to establish BGP.
 * IP configurations must adhere to the following naming convention:
-    * IP configurations on the private/internal NIC must have *privatenicipconfig* prefix. For example *privatenicipconfig-1* is a valid name while *myprivateipconfig* isn't a valid name for private/internal NIC IP configurations.
-    * IP configurations on the public/external NIC must have *publicnicipconfig* prefix. For example *publicnicipconfig-1* is a valid name while *mypublicipconfig* isn't a valid name for public/external NIC IP configurations.
-* You can't modify IP configurations on a NVA resource if the NVA is not in a **Succeeded** provisioning state. Wait for any existing operations to complete before modifying IP configurations.
+    * IP configurations on the private/internal NIC must have *privatenicipconfig* prefix. For example, *privatenicipconfig-1* is a valid name while *myprivateipconfig* isn't a valid name for private/internal NIC IP configurations.
+    * IP configurations on the public/external NIC must have *publicnicipconfig* prefix. For example, *publicnicipconfig-1* is a valid name while *mypublicipconfig* isn't a valid name for public/external NIC IP configurations.
+* You can't modify IP configurations on an NVA resource if the NVA isn't in a **Succeeded** provisioning state. Wait for any existing operations to complete before modifying IP configurations.
 
 
 ### Considerations
 
 * Associating an additional IP configuration to your NVA allocates additional IP addresses to all NVA instances.
-* The primary IP configuration associated to each NIC cannot be modified or deleted.
-* For the full list of use cases supported with assigning multiple IP configurations to NVA NICs, reference provider documentation. Depending on the implementation of your NVA operating system, you may not be able to leverage additional IP configurations for certain use ases.
-* Azure automatically allocates IP addresses to each Network Virtual Appliance. You can't choose the IP addresses allocated to each NVA instance. Private IP addresses are allocated from the set of unused IPs in the Virtual WAN hub address space reserved for Integrated NVAs in the hub. Public IP addresses are allocated from the set of available Azure-owned public IPs in the NVAs deployed Azure region.
-* IP addresses are not preserved. Once an IP configuration from a NIC, re-creating the IP configuration does not guarantee the same public and/or private IP addresses are allocated to the NVA.
+* The primary IP configuration associated to each NIC can;t be modified or deleted.
+* For the full list of use cases supported with assigning multiple IP configurations to NVA NICs, reference provider documentation. Depending on the implementation of your NVA operating system, you may not be able to apply multiple IP configurations for certain use cases.
+* Azure automatically allocates IP addresses to each Network Virtual Appliance. You can't choose the IP addresses allocated to each NVA instance. Private IP addresses are allocated from the Virtual WAN hub address space that is reserved  for Integrated NVAs in the hub. Public IP addresses are allocated from the set of available Azure-owned public IPs in the NVAs deployed Azure region.
+* IP addresses aren't preserved. Once an IP configuration from a NIC, re-creating the IP configuration doesn't guarantee the same public and/or private IP addresses are allocated to the NVA.
 
 ## Creating IP configurations
 
-The following sections describes the steps needed to add additional IP configuration to your Network Virtual Appliance.
+The following section describes the steps needed to add additional IP configuration to your Network Virtual Appliance.
 1. Navigate to your Virtual WAN hub and select **Network Virtual Appliances** under Third-party providers. 
 :::image type="content" source="./media/network-virtual-appliance-address/select-network-virtual-appliance.png"alt-text="Screenshot showing how to find NVA from Virtual WAN Hub."lightbox="./media/network-virtual-appliance-address/select-network-virtual-appliance.png":::
 2. Select your NVA and select **Manage configurations**.
@@ -94,7 +94,7 @@ The following sections describes the steps needed to add additional IP configura
 
 ## Removing IP configurations
 
-The following sections describes the steps needed to remove IP configurations from  your Network Virtual Appliance.
+The following section describes the steps needed to remove IP configurations from  your Network Virtual Appliance.
 
 1. Select the IP configuration you want to delete and select **Remove Configurations**.
 :::image type="content" source="./media/network-virtual-appliance-address/delete-button.png"alt-text="Screenshot showing how to delete  NVA IP configurations."lightbox="./media/network-virtual-appliance-address/delete-button.png"::: 
