@@ -34,7 +34,7 @@ A *scope* within Azure Virtual Network Manager represents the level of access gr
 > [!NOTE]
 > You can't create multiple Azure Virtual Network Manager instances with an overlapping scope of the same hierarchy and the same features selected.
 >
-> When you're specifying a scope at the management group level, you need to register the Azure Virtual Network provider at the management group scope before you deploy a Virtual Network Manager instance. This process is included as part of [Creating a Virtual Network Manager instance in the Azure portal](./create-virtual-network-manager-portal.md), but not with programmatic methods such as the Azure CLI and Azure PowerShell. [Learn more about registering providers at the management group scope](/rest/api/resources/providers/register-at-management-group-scope).
+> When you're specifying a scope at the management group level, you need to register the Azure Virtual Network provider at the management group scope before you deploy a Virtual Network Manager instance. This process is included as part of [creating a Virtual Network Manager instance in the Azure portal](./create-virtual-network-manager-portal.md), but not with programmatic methods such as the Azure CLI and Azure PowerShell. [Learn more about registering providers at the management group scope](/rest/api/resources/providers/register-at-management-group-scope).
 
 ### Scope applicability
 
@@ -61,4 +61,4 @@ For example, you can have the top-level [management group](../governance/managem
 ## Next steps
 
 - Learn how to create an [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md).
-- Learn about [Network groups](concept-network-groups.md).
+- Learn about [network groups](concept-network-groups.md).

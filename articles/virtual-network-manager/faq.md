@@ -15,9 +15,11 @@ ms.custom:
 
 # Azure Virtual Network Manager FAQ
 
-## General
+This article answers frequently asked questions about Azure Virtual Network Manager.
 
 [!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
+
+## General
 
 ### Which Azure regions support Azure Virtual Network Manager?
 
@@ -26,7 +28,7 @@ For current information about region support, refer to [Products available by re
 > [!NOTE]
 > All regions have [availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
 
-### What are common use cases for using Azure Virtual Network Manager?
+### What are common use cases for Azure Virtual Network Manager?
 
 * You can create network groups to meet the security requirements of your environment and its functions. For example, you can create network groups for your production and test environments to manage their connectivity and security rules at scale.
   
@@ -85,7 +87,7 @@ See [Configuration deployments in Azure Virtual Network Manager](concept-deploym
 
 ### How do I delete an Azure Virtual Network Manager component?
 
-See [Remove and update a Azure Virtual Network Manager components checklist](concept-remove-components-checklist.md).
+See [Remove and update Azure Virtual Network Manager components checklist](concept-remove-components-checklist.md).
 
 ### Does Azure Virtual Network Manager store customer data?
 
@@ -140,7 +142,7 @@ Currently, security admin rules don't apply to Azure private endpoints that fall
 
 No, an Azure Virtual WAN hub can't be in a network group at this time.
 
-### Can an Azure Virtual WAN be used as the hub in a Virtual Network Manager hub-and-spoke topology configuration?
+### Can I use an Azure Virtual WAN instance as the hub in a Virtual Network Manager hub-and-spoke topology configuration?
 
 No, an Azure Virtual WAN hub isn't supported as the hub in a hub-and-spoke topology at this time.
 
