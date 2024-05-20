@@ -28,8 +28,8 @@ The following table lists the parameters available when creating a [StorageRetry
 | `maxTries` | `number` | Optional. The maximum number of retry attempts before giving up. | 4 |
 | `retryDelayInMs` | `number` | Optional. Specifies the amount of delay to use before retrying an operation. | 4 seconds (or 4 * 1000 ms) |
 | `retryPolicyType` | [StorageRetryPolicyType](/javascript/api/@azure/storage-blob/storageretrypolicytype) | Optional. StorageRetryPolicyType, default is exponential retry policy. | StorageRetryPolicyType.Exponential |
-| `secondaryHost` | `string` | Optional. Secondary storage account endpoint to retry requests against. Before setting this value, you should understand the issues around reading stale and potentially inconsistent data. To learn more, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md). | 120 ms |
-| `tryTimeoutInMs` | `number` | Optional. Maximum time allowed before a request is canceled and assumed failed. Note that the timeout applies to the operation request, not the overall operation end to end. This value should be based on the bandwidth available to the host machine and proximity to the Storage service. |  |
+| `secondaryHost` | `string` | Optional. Secondary storage account endpoint to retry requests against. Before setting this value, you should understand the issues around reading stale and potentially inconsistent data. To learn more, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md). | None |
+| `tryTimeoutInMs` | `number` | Optional. Maximum time allowed before a request is canceled and assumed failed. This timeout applies to the operation request, not the overall operation end to end. This value should be based on the bandwidth available to the host machine and proximity to the Storage service. | |
 
 In the following code example, we configure the retry options in an instance of [StorageRetryOptions](/javascript/api/@azure/storage-blob/storageretryoptions), pass it to a new [StoragePipelineOptions](/javascript/api/@azure/storage-blob/storagepipelineoptions) instance, and pass `pipeline` when instantiating `BlobServiceClient`:
 
@@ -45,7 +45,6 @@ const options = {
 
 const pipeline = newPipeline(credential, options);
 
-// Create BlobServiceClient
 const blobServiceClient = new BlobServiceClient(
   `https://${accountName}.blob.core.windows.net`,
   credential,
