@@ -16,7 +16,7 @@ Replicating your Log Analytics workspace across regions enhances resilience by l
 
 Here's a video that provides a quick overview of how Log Analytics workspace replication works:
 
->[!VIDEO https://www.youtube.com/embed/9t7T7D4oVMk]
+>[!VIDEO https://www.youtube.com/embed/9t7T7D4oVMk?cc_load_policy=1&cc_lang_pref=auto]
 
 > [!IMPORTANT]
 > Although we sometimes use the term failover, for example in the API call, failover is also commonly used to describe an automatic process. Therefore, this article uses the term switchover to emphasize that the switch to the replicated workspace is an action you trigger manually. 
@@ -86,6 +86,9 @@ Some Azure Monitor experiences, including Application Insights and VM Insights, 
 ## Enable and disable workspace replication
 
 You enable and disable workspace replication by using a REST command. The command triggers a long running operation, which means that it can take a few minutes for the new settings to apply. After you enable replication, it can take up to one hour for all tables (data types) to begin replicating, and some data types might start replicating before others. Changes you make to table schemas after you enable workspace replication - for example, new custom log tables or custom fields you create, or diagnostic logs set up for new resource types - can take up to one hour to start replicating.
+
+> [!IMPORTANT]
+> Replication of Log Analytics workspaces linked to a dedicated cluster is currently not supported.  
 
 ### Enable workspace replication
 
