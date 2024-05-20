@@ -90,8 +90,7 @@ package com.communication.quickstart;
 
 import com.azure.communication.email.models.*;
 import com.azure.communication.email.*;
-import com.azure.core.util.polling.PollResponse;
-import com.azure.core.util.polling.SyncPoller;
+import com.azure.core.util.polling.*;
 
 public class App
 {
@@ -155,11 +154,23 @@ EmailClient emailClient = new EmailClientBuilder()
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
+#### Creating async client
 
+The [Azure SDK for Java also contains non-blocking, asynchronous APIs for interacting with Azure services](https://learn.microsoft.com/en-us/azure/developer/java/sdk/async-programming).
+
+To instantiate an async client, add the following code to the `main` method:
+
+```java
+String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
+
+EmailAsyncClient emailClient = new EmailClientBuilder()
+    .connectionString(connectionString)
+    .buildAsyncClient();
+```
 
 ## Basic email sending 
 
-To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will not be sent until either the `poll` method is called or we wait for completion of the poller.
+An email message can be crafted using the `EmailMessage` object in the SDK.
 
 ```java
 EmailMessage message = new EmailMessage()
@@ -167,7 +178,19 @@ EmailMessage message = new EmailMessage()
     .setToRecipients("<emailalias@emaildomain.com>")
     .setSubject("Welcome to Azure Communication Services Email")
     .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.");
+```
 
+Make these replacements in the code:
+- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
+- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
+
+To send the email message, call the `beginSend` function from the `EmailClient`. This method is present in both the sync and async client.
+
+#### Email sending with the sync client
+
+Calling `beginSend` on the sync client method returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the `beginSend` method is called.
+
+```java
 try
 {
     SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
@@ -208,10 +231,25 @@ catch (Exception exception)
 }
 ```
 
-Make these replacements in the code:
+#### Email sending with the async client
 
-- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
-- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
+Calling `beginSend` on the async client method returns a `PollerFlux` object to which you can subscribe. You will want to set up the subscriber in a seperate process to take advantage of the asynchronous functionality. Note that the initial request to send an email will not be sent until a subscriber is set up.
+
+```java
+emailAsyncClient.beginSend(emailMessage).subscribe(
+        response -> {
+            if (response.getStatus() == LongRunningOperationStatus.SUCCESSFULLY_COMPLETED) {
+                System.out.printf("Successfully sent the email (operation id: %s)", response.getValue().getId());
+            }
+            else {
+                System.out.println("Email send status: " + response.getStatus());
+            }
+        },
+        error -> {
+            System.out.println("Error occurred while sending email: " + error.getMessage());
+        }
+);
+```
 
 ### Run the code
 
