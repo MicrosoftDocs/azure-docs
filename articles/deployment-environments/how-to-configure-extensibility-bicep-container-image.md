@@ -57,6 +57,10 @@ The following example shows a runner that references the sample Bicep container 
 ```
 You can see the standard Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
 
+## [Build a container image with a script](#tab/build-a-container-image-with-a-script/)
+
+[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
+
 ## [Create a custom bicep container image](#tab/create-a-custom-bicep-container-image/)
 
 ### Create and build a Docker image
@@ -260,9 +264,6 @@ runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
 
-## [Build a container image with a script](#tab/build-a-container-image-with-a-script/)
-
-[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
 
 ---
 
