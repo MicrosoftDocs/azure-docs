@@ -109,8 +109,6 @@ $queue
 
 Operations that impact the messages in a queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage) method. 
 
-`Insert Send and SendAsync differentiator here.`
-
 Your message string must be in UTF-8 format.
 
 The following example demonstrates how to add messages to your queue.
@@ -151,8 +149,6 @@ When you *read* a message from the queue using a method such as [`ReceiveMessage
 If the message isn't processed before the visibility timeout passes, its `DequeueCount` property is incremented and it's reinserted at the end of the queue. Reinserting the same message ensures that another process can retrieve the same message and try again.
 
 The following example sets the invisibleTimeout variable to 10 seconds, then reads two messages from the queue.
-
-`What's the deal with the cancellation token?`
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -198,7 +194,9 @@ $queueMessage.Value
 
 ## Delete a message from the queue
 
-Your code reads a message from the queue in two steps. When you call the [`Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) method, you get the next message in the queue. A message returned from `GetMessage` becomes invisible to any other code reading messages from this queue. To finish removing the message from the queue, you call the [`Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) method.
+To prevent accidental deletion of messages from a queue, 
+
+Deleting a message from a queue is a two-step process.Your code reads a message from the queue in two steps. When you call the [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage) method, you fetch the next message in the queue. A message returned from `GetMessage` becomes invisible to any other process fetching messages from the queue. To finish removing the message from the queue, call the [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage) method.
 
 In the following example, you read through the three queue messages, then wait 10 seconds (the invisibility timeout). Then you read the three messages again, deleting the messages after reading them by calling `DeleteMessage`. If you try to read the queue after the messages are deleted, `$queueMessage` will be returned as `$null`.
 
