@@ -27,7 +27,7 @@ $ResourceId="/subscriptions/xxxxxx /resourceGroups/StorageRG/providers/Microsoft
 $restorerequest =Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore VaultStore -RestoreType AlternateLocation -BackupInstance $instance -RecoveryPoint $rp[0].Name -TargetResourceId $ResourceId
 ```
 
-4. To restore specific containers, pass the container list explicitly to the -ContainerList parameter and also pass the parameter -ItemLevelRecovery.
+4. To restore specific containers, pass the container list explicitly to the `-ContainersList` parameter and also pass the parameter -ItemLevelRecovery.
 
 ```azurepowershell-interactive
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore VaultStore -RestoreType AlternateLocation -RecoveryPoint $rp[0].Name -TargetResourceId $ResourceId -ContainersList "test1" -RestoreLocation "eastus" -ItemLevelRecovery
@@ -41,4 +41,4 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -
 
 6. Restore specific blobs based on the prefix match in each container.
 
-Learn how to restore specific blobs from vaulted backup.
+Learn [how to restore specific blobs from vaulted backup](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore?view=azps-11.6.0&preserveview=true#example-10-trigger-vaulted-backup-conatiners-itemlevelrestore-with-prefixmatch-for-azureblob).

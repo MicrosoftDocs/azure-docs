@@ -8,9 +8,9 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Restore Azure Blobs to point-in-time using Azure CLI
+# Restore Azure Blobs using Azure CLI
 
-This article describes how to restore [blobs](blob-backup-overview.md) to any point-in-time using Azure Backup.
+This article describes how to restore [blobs](blob-backup-overview.md) using Azure Backup.
 
 You can restore Azure Blobs to point-in-time using *operational backups* and *vaulted backups* for Azure Blobs via Azure CLI. Here, we'll use an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG` in the examples.
 
