@@ -246,12 +246,12 @@ items:
          href: get-started-speech-translation.md
        - name: How to recognize and translate speech
          href: how-to-translate-speech.md
-    - name: Video translation service (preview)
+    - name: Video translation (preview)
       items:
-       - name: Video translation service overview
-         href: video-translation-service-overview.md
-       - name: Video translation service in the studio
-         href: video-translation-service-studio.md
+       - name: Video translation overview
+         href: video-translation-overview.md
+       - name: Video translation in the studio
+         href: video-translation-studio.md
 - name: Intent recognition
   items:
     - name: Intent recognition overview

@@ -1,7 +1,7 @@
 ---
-title: How to use video translation service in the studio
+title: How to use video translation in the studio
 titleSuffix: Azure AI services
-description: With Azure AI Speech video translation service, you can seamlessly translate and generate videos in multiple languages automatically. 
+description: With Azure AI Speech video translation, you can seamlessly translate and generate videos in multiple languages automatically. 
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
@@ -12,23 +12,23 @@ author: eric-urban
 ms.custom: references_regions
 ---
 
-# Video translation service in the studio
+# Video translation in the studio
 
 [!INCLUDE [Feature preview](../includes/preview-feature.md)]
 
-In this article, you learn how to use Azure AI Speech video translation service in the studio.
+In this article, you learn how to use Azure AI Speech video translation in the studio.
 
-All it takes to get started is an original video. See if video translation service supports your [language](language-support.md?tabs=speech-translation#video-translation-service) and [region](video-translation-service-overview.md#supported-regions-and-languages).
+All it takes to get started is an original video. See if video translation supports your [language](language-support.md?tabs=speech-translation#video-translation) and [region](video-translation-overview.md#supported-regions-and-languages).
 
-## Create a video translation service project
+## Create a video translation project
 
-To create a video translation service project, follow these steps:
+To create a video translation project, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio).
    
 1. Select the subscription and Speech resource to work with. 
 
-1. Select **Video translation service**.
+1. Select **Video translation**.
 
 1. On the **Create and Manage Projects** page, select **Upload file**.
 
@@ -40,7 +40,7 @@ To create a video translation service project, follow these steps:
 
    You can select **Prebuilt neural voice** or **Personal voice** for **Voice type**. For prebuilt neural voice, the system automatically select the most suitable prebuilt voice by matching the speaker's voice in the video with prebuilt voices. For personal voice, the system provides the model with superior voice cloning similarity. To use personal voice, you need to apply for access. The application form will be available soon.
 
-   :::image type="content" source="media/video-translation-service/upload-video-file.png" alt-text="Screenshot of uploading your video file on the video file page.":::
+   :::image type="content" source="media/video-translation/upload-video-file.png" alt-text="Screenshot of uploading your video file on the video file page.":::
 
 1. After reviewing the pricing information and code of conduct, then proceed to create the project.
 
@@ -58,18 +58,18 @@ You can also add or remove segments as needed. When you want to add a segment, e
 
 If you encounter segments with an "unidentified" voice name, it might be because the system couldn't accurately detect the voice, especially in situations where speaker voices overlap. In such cases, it's advisable to manually change the voice name.  
 
-:::image type="content" source="media/video-translation-service/voice-unidentified.png" alt-text="Screenshot of one segment with unidentified voice name.":::
+:::image type="content" source="media/video-translation/voice-unidentified.png" alt-text="Screenshot of one segment with unidentified voice name.":::
 
 If you want to adjust the voice, select **Voice settings** to make some changes. On the **Voice settings** page, you can adjust the voice type, gender, and the voice. Select the voice sample on the right of **Voice** to determine your voice selection. If you find there is missing voice, you can add the new voice name by selecting **Add speaker**. After changing the settings, select **Update**. 
 
- :::image type="content" source="media/video-translation-service/voice-settings.png" alt-text="Screenshot of adjusting voice settings on the voice settings page.":::
+ :::image type="content" source="media/video-translation/voice-settings.png" alt-text="Screenshot of adjusting voice settings on the voice settings page.":::
 
 If you make changes multiple times but haven't finished, you only need to save the changes you've made by selecting **Save**. After making all changes, select **Apply changes** to apply them to the video. You'll be charged only after you select **Apply changes**.
 
- :::image type="content" source="media/video-translation-service/apply-changes.png" alt-text="Screenshot of selecting apply changes button after making all changes.":::
+ :::image type="content" source="media/video-translation/apply-changes.png" alt-text="Screenshot of selecting apply changes button after making all changes.":::
 
 You can translate the original video into a new language by selecting **New language**. On the **Translate** page, you can choose a new translated language and voice type. Once the video file has been translated, a new project is automatically created. 
 
 ## Related content
 
-- [Video translation service overview](video-translation-service-overview.md)
+- [Video translation overview](video-translation-overview.md)
