@@ -77,8 +77,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-You can choose between **Recommended** and **Legacy** versions of Azure SQL Database connector. The **Recommended**
-version supports TLS 1.3. See the corresponding sections for details.
+The **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-sql-database-version) to upgrade your linked service if you use **Legacy** version. For the property details, see the corresponding sections.
 
 - [Recommended version](#recommended-version)
 - [Legacy version](#legacy-version)
@@ -1090,7 +1089,7 @@ derivedColumn1 sink(allowSchemaDrift: true,
 
 ## Upgrade the Azure SQL Database version
 
-To upgrade the Azure SQL Database version, in **Edit linked service** page, select **Recommended** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties).
+To upgrade the Azure SQL Database version, in **Edit linked service** page, select **Recommended** under **Version** and configure the linked service by referring to [Linked service properties for the recommended version](#recommended-version).
 
 ## Related content
 
