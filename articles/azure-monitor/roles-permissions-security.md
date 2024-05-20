@@ -16,9 +16,48 @@ This article shows how to apply role-based access control (RBAC) monitoring role
 
 [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) provides built-in roles for monitoring that you can assign to users, groups, service principals, and managed identities. The most common roles are *Monitoring Reader* and *Monitoring Contributor* for read and write permissions, respectively.
 
-For more detailed information on the monitoring roles, see [RBAC Monitor](../role-based-access-control/built-in-roles.md#monitor).
+For more detailed information on the monitoring roles, see [RBAC Monitoring Roles](../role-based-access-control/built-in-roles.md#monitor).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+### Monitoring Reader
+
+People assigned the Monitoring Reader role can view all monitoring data in a subscription but can't modify any resource or edit any settings related to monitoring resources. This role is appropriate for users in an organization, such as support or operations engineers, who need to:
+
+* View monitoring dashboards in the Azure portal.
+* View alert rules defined in [Azure alerts](alerts/alerts-overview.md).
+* Query Azure Monitor Metrics by using the [Azure Monitor REST API](/rest/api/monitor/metrics), [PowerShell cmdlets](powershell-samples.md), or [cross-platform CLI](cli-samples.md).
+* Query the Activity log by using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
+* View the [diagnostic settings](essentials/diagnostic-settings.md) for a resource.
+* View the [log profile](essentials/activity-log.md#legacy-collection-methods) for a subscription.
+* View autoscale settings.
+* View alert activity and settings.
+* Search Log Analytics workspace data, including usage data for the workspace.
+* Retrieve the table schemas in a Log Analytics workspace.
+* Retrieve and execute log queries in a Log Analytics workspace.
+* Access Application Insights data. 
+
+> [!NOTE]
+> This role doesn't give read access to log data that has been streamed to an event hub or stored in a storage account. For information on how to configure access to these resources, see the [Security considerations for monitoring data](#security-considerations-for-monitoring-data) section later in this article.
+
+### Monitoring Contributor
+
+People assigned the Monitoring Contributor role can view all monitoring data in a subscription. They can also create or modify monitoring settings, but they can't modify any other resources.
+
+This role is a superset of the Monitoring Reader role. It's appropriate for members of an organization's monitoring team or managed service providers who, in addition to the permissions mentioned earlier, need to:
+
+* View monitoring dashboards in the portal and create their own private monitoring dashboards.
+* Create and edit [diagnostic settings](essentials/diagnostic-settings.md) for a resource. <sup>1</sup>
+* Set alert rule activity and settings using [Azure alerts](alerts/alerts-overview.md).
+* List shared keys for a Log Analytics workspace.
+* Create, delete, and execute saved searches in a Log Analytics workspace.
+* Create and delete the workspace storage configuration for Log Analytics.
+* Create web tests and components for Application Insights. See [Resources, roles, and access control in Application Insights](app/resources-roles-access-control.md).
+
+<sup>1</sup> To create or edit a diagnostic setting, users must also separately be granted ListKeys permission on the target resource (storage account or event hub namespace).
+
+> [!NOTE]
+> This role doesn't give read access to log data that has been streamed to an event hub or stored in a storage account. For information on how to configure access to these resources, see the [Security considerations for monitoring data](#security-considerations-for-monitoring-data) section later in this article.
 
 ## Monitor permissions and Azure custom roles
 
@@ -45,7 +84,9 @@ New-AzRoleDefinition -Role $role
 
 To assign a role, see [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
-For example, the following PowerShell script assigns the *Monitoring Reader* role to a specified user.
+For example, the following PowerShell script assigns a role to a specified user.
+
+Replace `<RoleId>` with the [RBAC Monitoring Role](../role-based-access-control/built-in-roles.md#monitor) ID you want to assign.
 
 Replace `<SubscriptionID>`, `<ResourceGroupName>`, `<UserPrincipalName>`, and `<Scope>` with the appropriate values for your environment.
 
@@ -54,7 +95,7 @@ Replace `<SubscriptionID>`, `<ResourceGroupName>`, `<UserPrincipalName>`, and `<
 $SubscriptionId = "<SubscriptionID>"
 $ResourceGroupName = "<ResourceGroupName>"
 $UserPrincipalName = "<UserPrincipalName>"  # The UPN of the user to whom you want to assign the role
-$RoleName = "Monitoring Reader"
+$RoleId = "<RoleId>"  # The ID of the role
 
 # Get the user object
 $User = Get-AzADUser -UserPrincipalName $UserPrincipalName
@@ -62,11 +103,8 @@ $User = Get-AzADUser -UserPrincipalName $UserPrincipalName
 # Define the scope (e.g., subscription or resource group level)
 $Scope = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName"
 
-# Get the role definition
-$RoleDefinition = Get-AzRoleDefinition -Name $RoleName
-
 # Assign the role
-New-AzRoleAssignment -ObjectId $User.Id -RoleDefinitionId $RoleDefinition.Id -Scope $Scope
+New-AzRoleAssignment -ObjectId $User.Id -RoleDefinitionId $RoleId -Scope $Scope
 ```
 
 You can also [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
