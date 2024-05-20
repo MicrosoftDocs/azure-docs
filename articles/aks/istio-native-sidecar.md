@@ -44,7 +44,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
 
 ### Check versions
 
-1. Make sure control plane runs `1.29` or newer version with [az aks show][az-aks-show].
+1. Check that the AKS cluster's Kubernetes control plane version is 1.29 or higher using [az aks show][az-aks-show].
 
    ```bash
    az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER -o json | jq ".kubernetesVersion"
