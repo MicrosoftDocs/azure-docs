@@ -138,7 +138,9 @@ For *incoming traffic*, there will be a `destination` label with destination Pod
 
 ### Limitations
 
-* Pod-level metrics available only on Linux
+- Pod-level metrics available only on Linux.
+- Cilium dataplane is supported starting with Kubernetes version 1.29.
+- Metric labels may have subtle differences between Cilium and Non-Cilium clusters.
 
 ### Scale
 
