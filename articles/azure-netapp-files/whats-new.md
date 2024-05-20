@@ -14,13 +14,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<<<<<<< HEAD
 
 * [Short-term clone](create-short-term-clone.md) (Preview)
 
 <!-- pending PM feedback -->
 
-=======
 ## May 2024
 
 * [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (Preview)
@@ -46,7 +44,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Azure NetApp Files application volume group shortens Oracle database deployment time and increases overall application performance and stability, including the use of multiple storage endpoints. The application volume group feature supports a wide range of Oracle database layouts from small databases with a single volume up to multi 100-TiB sized databases. It supports up to eight data volumes with latency-optimized performance and is only limited by the database VM's network capabilities. 
 
     Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
->>>>>>> 93e3eac47bd24d6a2115ab4f1e0c858ff0d75c35
   
 ## March 2024
 
