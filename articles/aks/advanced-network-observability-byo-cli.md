@@ -266,8 +266,9 @@ hubble relay service
 
 ## How to Visualize Using Hubble UI
 
-1. To deploy Hubble UI, save the following into hubble-ui.yaml
-```yml
+1. Use this command to deploy the yaml manifest for Hubble UI to your cluster:
+```azurecli-interactive
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -502,12 +503,9 @@ spec:
     - name: http
       port: 80
       targetPort: 8081
+EOF
 ```
 
-1. Apply the hubble-ui.yaml manifest to your cluster, using the following command 
-```azurecli-interactive
-kubectl apply -f hubble-ui.yaml
-```
 1. Expose Service with port forwarding:
 ```azurecli-interactive
 kubectl port-forward svc/hubble-ui 12000:80
