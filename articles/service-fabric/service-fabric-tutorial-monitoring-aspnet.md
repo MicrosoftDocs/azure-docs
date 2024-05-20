@@ -88,22 +88,23 @@ To configure Application Insights for the VotingWeb and VotingData services:
 
 ## Add the Microsoft.ApplicationInsights.ServiceFabric.Native NuGet to the services
 
-Application Insights has two Service Fabric specific NuGets that can be used depending on the scenario. One is used with Service Fabric's native services, and the other with containers and guest executables. In this case, we are using the Microsoft.ApplicationInsights.ServiceFabric.Native NuGet to use the understanding of service context that it brings. To read more about the Application Insights SDK and the Service Fabric specific NuGet packages, see [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md).
+Application Insights has two Service Fabric specific NuGets that can be used depending on the scenario. One is used with Service Fabric's native services, and the other with containers and guest executables. In this case, we're using the Microsoft.ApplicationInsights.ServiceFabric.Native NuGet to use the understanding of service context that it brings. To read more about the Application Insights SDK and the Service Fabric specific NuGet packages, see [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md).
 
 Here are the steps to set up the NuGet package:
 
 1. Right-click **Solution 'Voting'** at the top of Solution Explorer, and select **Manage NuGet Packages for Solution**.
 1. Select **Browse** on the top navigation menu of the "NuGet - Solution" window, and check the **Include prerelease** box next to the search bar.
 
-   >[!NOTE]
-   >You might need to install the Microsoft.ServiceFabric.Diagnostics.Internal package in a similar fashion if not preinstalled before installing the Application Insights package
+   > [!NOTE]
+   > You might need to install the Microsoft.ServiceFabric.Diagnostics.Internal package in a similar fashion if not preinstalled before installing the Application Insights package.
 
 1. Search for `Microsoft.ApplicationInsights.ServiceFabric.Native` and select the appropriate NuGet package.
 1. On the right, select the two check boxes next to the two services in the application, **VotingWeb** and **VotingData** and select **Install**.
 
-    ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
-1. On the *Preview Changes* dialog box that appears, select **OK** to accept the license. This adds the NuGet packages to the services.
-1. You now need to set up the telemetry initializer in the two services. To do this, open up *VotingWeb.cs* and *VotingData.cs*. For both of them, do the following two steps:
+    :::image type="content" source="media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.PNG" alt-text="Screenshot that shows the Application Insights SDK in NuGet.":::
+1. On the *Preview Changes* dialog box that appears, select **OK** to accept the license. The NuGet packages are added to the services.
+1. You now need to set up the telemetry initializer in the two services. To do this, open up *VotingWeb.cs* and *VotingData.cs*. For both of them, complete these steps:
+
     1. Add these two *using* statements at the top of each *\<ServiceName>.cs*, after the existing *using* statements:
 
       ```csharp
@@ -117,7 +118,7 @@ Here are the steps to set up the NuGet package:
        .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
        ```
 
-    This adds the *Service Context* to your telemetry, allowing you to better understand the source of your telemetry in Application Insights. Your nested *return* statement in *VotingWeb.cs* should look like this example:
+      This code adds the *Service Context* to your telemetry, so you can better understand the source of your telemetry in Application Insights. Your nested *return* statement in *VotingWeb.cs* should look like this example:
 
     ```csharp
     return new WebHostBuilder()
@@ -136,7 +137,7 @@ Here are the steps to set up the NuGet package:
         .Build();
     ```
 
-    Similarly, in *VotingData.cs*, you should have:
+    Similarly, in *VotingData.cs*, your code should look like this example:
 
     ```csharp
     return new WebHostBuilder()
@@ -156,8 +157,8 @@ Here are the steps to set up the NuGet package:
 
 Double-check that the `UseApplicationInsights()` method is called in both *VotingWeb.cs* and *VotingData.cs* as shown in the example.
 
->[!NOTE]
->This sample app uses HTTP for the services to communicate. If you develop an app by using Service Remoting V2, you also add the following lines of code in the same place in the code:
+> [!NOTE]
+> This sample app uses HTTP for the services to communicate. If you develop an app by using Service Remoting V2, you also add the following lines in the same place in the code:
 
 ```csharp
 ConfigureServices(services => services
@@ -167,53 +168,53 @@ ConfigureServices(services => services
 )
 ```
 
-At this point, you are ready to deploy the application. Select **Start** at the top (or select F5). Visual Studio builds and packages the application, sets up your local cluster, and deploys the application to it.
+At this point, you're ready to deploy the application. Select **Start** at the top (or select F5). Visual Studio builds and packages the application, sets up your local cluster, and deploys the application to the cluster.
 
 > [!NOTE]
-> You might get a build error if you do not have an up-to-date version of the .NET Core SDK installed.
+> You might get a build error if you don't have an up-to-date version of the .NET Core SDK installed.
 
-When the application is done deploying, go to `localhost:8080`, where you should be able to see the Voting Sample single-page application. Vote for a few different items of your choice to create some sample data and telemetry - I went for desserts!
+When the application is deployed, go to `localhost:8080`, where you should be able to see the Voting Sample single-page application. Vote for a few different items of your choice to create some sample data and telemetry. For example, desserts!
 
-![AI sample votes](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
+:::image type="content" source="media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png" alt-text="Screenshot that shows an example of voting for types of dessert.":::
 
-Feel free to *remove* some of the voting options as well when you're done adding a few votes.
+You also can *remove* some of the voting options when you're done adding a few votes.
 
-## View telemetry and the App map in Application Insights
+## View telemetry and the application map in Application Insights
 
 In the Azure portal, go to your Application Insights resource.
 
-Select **Overview** to go back to the landing page of your resource. Then select **Search** in the top to see the traces coming in. It takes a few minutes for traces to appear in Application Insights. In the case that you do not see any, wait a minute and hit the **Refresh** button at the top.
+Select **Overview** to go back to the overview pane of your resource. Select **Search** to see the traces coming in. It takes a few minutes for traces to appear in Application Insights. If you don't see any traces, wait a minute, and then select the **Refresh** button.
 
 :::image type="content" source="media/service-fabric-tutorial-monitoring-aspnet/ai-search.png" alt-text="Screenshot that shows the Application Insights see traces view.":::
 
-Scroll down on the search window to view all the incoming telemetry that comes with Application Insights. For each action that you took in the Voting application, there should be an outgoing PUT request from *VotingWeb* (PUT Votes/Put [name]), an incoming PUT request from *VotingData* (PUT VoteData/Put [name]), followed by a pair of GET requests for refreshing the data being displayed. There will also be a dependency trace for HTTP on localhost, since these are HTTP requests. Here is an example of what you will see for how one vote is added:
+Scroll down on the search window to view all the incoming telemetry that comes with Application Insights. For each action that you took in the Voting application, there should be an outgoing PUT request from *VotingWeb* (PUT Votes/Put [name]), an incoming PUT request from *VotingData* (PUT VoteData/Put [name]), followed by a pair of GET requests for refreshing the data that's displayed. There will also be a dependency trace for HTTP on `localhost` because these are HTTP requests. Here's an example of what you see for how one vote is added:
 
 :::image type="content" source="media/service-fabric-tutorial-monitoring-aspnet/sample-request.png" alt-text="Screenshot that shows a sample request trace in Application Insights.":::
 
-You can select on one of the traces to view more details about it. There is useful information about the request that is provided by Application Insights, including the *Response time* and the *Request URL*. In addition, since you added the Service Fabric specific NuGet, you will also get data about your application in the context of a Service Fabric cluster in the *Custom Data* section below. This includes the service context, so you can see the *PartitionID* and *ReplicaId* of the source of the request, and better localize issues when diagnosing errors in your application.
+You can select a trace to see more details about it. Application Insights includes useful information about the request, including values for **Response time** and **Request URL**. Because you added the Service Fabric-specific NuGet, you also get data about your application in the context of a Service Fabric cluster in the **Custom Data** section. The data includes the service context, so you can see the **PartitionID** and **ReplicaId** values of the source of the request and better isolate issues when you diagnose errors in your application.
 
 ![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-Additionally, you can select *Application map* on the left menu on the **Overview** pane, or select the **App map** icon to take you to the App Map showing your two services connected.
+To go to Application Map, select **Application map** on the resource menu on the **Overview** pane, or select the **App map** icon. The map shows your two services connected.
 
-![Screenshot that highlights Application map in the left menu.](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
+![Screenshot that highlights Application map on the resource menu.](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-The App map can help you understand your application topology better, especially as you start adding multiple different services that work together. It also gives you basic data on request success rates, and can help you diagnose failed request to understand where things might have gone wrong. To learn more about using the App map, see [Application Map in Application Insights](../azure-monitor/app/app-map.md).
+Application Map can help you understand your application topology better, especially as you start to add services that work together. It also gives you basic data about request success rates, and it can help you diagnose failed request to understand where things went wrong. To learn more, see [Application Map in Application Insights](../azure-monitor/app/app-map.md).
 
 ## Add custom instrumentation to your application
 
-Although Application Insights provides a lot of telemetry out of the box, you might want to add further custom instrumentation. This could be based on your business needs or to improve diagnostics when things go wrong in your application. Application Insights has an API to ingest custom events and metrics, which you can read more about [here](../azure-monitor/app/api-custom-events-metrics.md).
+Although Application Insights provides telemetry out of the box, you might want to add more custom instrumentation. Maybe you might have business needs for custom instrumention or you want to improve diagnostics when things go wrong in your application. You can ingest custom events and metrics with the [Application Insights API](../azure-monitor/app/api-custom-events-metrics.md).
 
-Let's add some custom events to *VoteDataController.cs* (under **VotingData** > **Controllers**) to track when votes are being added and deleted from the underlying *votesDictionary*.
+Next, add some custom events to *VoteDataController.cs* (under **VotingData** > **Controllers**) to track when votes are being added and deleted from the underlying *votesDictionary*:
 
 1. Add `using Microsoft.ApplicationInsights;` at the end of the other `using` statements.
 1. Declare a new value for `TelemetryClient` at the start of the class, under the creation of `IReliableStateManager`: `private TelemetryClient telemetry = new TelemetryClient();`.
-1. In the `Put()` function, add an event that confirms a vote has been added. Add `telemetry.TrackEvent($"Added a vote for {name}");` after the transaction has completed, right before the return **OkResult** statement.
-1. In `Delete()`, there is an "if/else" based on the condition that `votesDictionary` contains votes for a specific voting option.
+1. In the `Put()` function, add an event that confirms that a vote is added. Add `telemetry.TrackEvent($"Added a vote for {name}");` after the transaction is completed, right before the return **OkResult** statement.
+1. In `Delete()`, there's an "if/else" based on the condition that `votesDictionary` contains votes for a specific voting option.
 
     1. Add an event that confirms the deletion of a vote in the *if* statement, after `await tx.CommitAsync()`:
      `telemetry.TrackEvent($"Deleted votes for {name}");`
-    1. Add an event to show that the deletion did not take place in the **else** statement, before the return statement:
+    1. Add an event to show that the deletion didn't take place in the **else** statement, before the return statement:
     `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
 
 Here's an example of what your `Put()` and `Delete()` functions might look like after you add the events:
@@ -259,14 +260,12 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-When you finish making these changes, select **Start** in the application so that it builds and deploys the latest version. When the application is finished deploying, go to `localhost:8080`, and add and delete some voting options. Then, go back to your Application Insights resource to see the traces for the latest run (as before, traces can take from 1 to 2 minutes to appear in Application Insights). For all the votes you added and deleted, you should now see an entry for *Custom Event* with all the response telemetry.
+When you finish making these changes, select **Start** in the application so that it builds and deploys the latest version. When the application is finished deploying, go to `localhost:8080`, and add and delete some voting options. Then, go back to your Application Insights resource to see the traces for the latest run (as before, traces can take from 1 to 2 minutes to appear in Application Insights). For all the votes that you added and deleted, you should now see an entry for *Custom Event* with all the response telemetry.
 
-![Screenshot that shows custom events.](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
+:::image type="content" source="media/service-fabric-tutorial-monitoring-aspnet/custom-events.png" alt-text="Screenshot that shows custom events.":::
 
 ## Related content
 
-Now that you have set up monitoring and diagnostics for your ASP.NET application, try the following:
-
-* [Further explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
-* [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* To learn more about Application Insights, see [Application Insights Documentation](/azure/application-insights/)
+* Learn more about [monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md).
+* Review [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
+* Learn more about [Application Insights](/azure/application-insights/).
