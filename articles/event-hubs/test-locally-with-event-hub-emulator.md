@@ -134,6 +134,7 @@ ACCEPT_EULA="N"
 ```
  docker compose -f <PathToDockerComposeFile> up -d
 ```
+---
 
 Once the steps are successful, you could find containers running in Docker:
 
