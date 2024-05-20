@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 04/18/2024
+ms.date: 05/01/2024
 ---
 
 ## Supported client versions
@@ -11,10 +11,10 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5331  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Public | 1.2.5405  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
 | Insider | 1.2.5405 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5405 (Insider)
+## Updates for version 1.2.5405
 
 *Date published: April 17, 2024*
 

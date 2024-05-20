@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 04/19/2024
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -15,13 +15,10 @@ keywords: on-premises, Docker, container, identify
 
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD051 -->
 
 # Install and run Azure AI Translator container
-
-> [!IMPORTANT]
->
-> * To use the Translator container, you must submit an online request and have it approved. For more information, *see* [Request container access](overview.md#request-container-access).
-> * Azure AI Translator container supports limited features compared to the cloud offerings.
 
 Containers enable you to host the Azure AI Translator API on your own infrastructure. The container image includes all libraries, tools, and dependencies needed to run an application consistently in any private, public, or personal computing environment. If your security or data governance requirements can't be fulfilled by calling Azure AI Translator API remotely, containers are a good option.
 
@@ -35,7 +32,7 @@ In this article, learn how to install and run the Translator container online wi
 
 ## Prerequisites
 
-To get started, you need the following resources, access approval, and tools:
+To get started, you need the following resources, gated access approval, and tools:
 
 ##### Azure resources
 
@@ -46,6 +43,9 @@ To get started, you need the following resources, access approval, and tools:
 * An [**Azure AI Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Azure AI services resource) created under the approved subscription ID. You need the API key and endpoint URI associated with your resource. Both values are required to start the container and can be found on the resource overview page in the Azure portal.
 
   * For Translator **connected** containers, select the `S1` pricing tier.
+
+    :::image type="content" source="media/connected-pricing-tier.png" alt-text="Screenshot of pricing tier selection for Translator connected container.":::
+
   * For Translator **disconnected** containers, select **`Commitment tier disconnected containers`** as your pricing tier. You only see the option to purchase a commitment tier if your disconnected container access request is approved.
 
       :::image type="content" source="media/disconnected-pricing-tier.png" alt-text="A screenshot showing resource creation on the Azure portal.":::
@@ -96,12 +96,12 @@ The following table describes the minimum and recommended specifications and the
    > [!TIP]
    > You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
    >
-   >  ```docker
+   > ```docker
    >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
    >
    >  IMAGE ID         REPOSITORY                TAG
    >  <image-id>       <repository-path/name>    <tag-name>
-   >  ```
+   > ```
 
 ## Required input
 
@@ -151,7 +151,7 @@ To use the latest version of the container, use the latest tag. You can view
 
 Select a tab to choose your Azure AI Translator container environment:
 
-## [**Connected containers**](#tab/connected)
+### [**Connected containers**](#tab/connected)
 
 Azure AI Translator containers enable you to run the Azure AI Translator service `on-premise` in your own environment. Connected containers run locally and send usage information to the cloud for billing.
 
@@ -586,22 +586,26 @@ https://<service>/records/usage-logs/{MONTH}/{YEAR}
 
 The usage-logs endpoints return a JSON response similar to the following example:
 
+### [**Connected containers**](#tab/connected)
+
 ***Connected container***
 
-The `quantity` is the amount you're charged for connected container usage.
+Usage charges are calculated based upon the `quantity` value.
 
    ```json
    {
-   "apiType": "string",
+     "apiType": "string",
    "serviceName": "string",
    "meters": [
-   {
+     {
        "name": "string",
        "quantity": 256345435
        }
      ]
    }
    ```
+
+### [**Disconnected (offline) containers**](#tab/disconnected)
 
 ***Disconnected container***
 
@@ -630,6 +634,8 @@ The aggregated value of `billedUnit` for the following meters is counted  toward
 * `CognitiveServices.TextTranslation.Container.OneDocumentTranslatedCharacters`
 
 * `CognitiveServices.TextTranslation.Container.TranslatedCharacters`
+
+---
 
 ### Summary
 

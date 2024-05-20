@@ -1111,7 +1111,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | grafana | Yes | No |
+> | grafana | Yes | Yes |
 > | grafana / privateEndpointConnections | No | No |
 > | grafana / privateLinkResources | No | No |
 

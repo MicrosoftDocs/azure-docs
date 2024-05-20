@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 05/07/2024
 ms.author: franlanglois 
 ms.custom: engagement-fy23
 ---
@@ -135,8 +135,6 @@ For information on moving resources from one resource group to another, and from
 The **Settings** section allows you to access and configure the following settings for your cache.
 
 - [Authentication](#authentication)
-  - [Access keys](#access-keys)
-  - [(Preview) Microsoft Entra Authentication](#preview-microsoft-entra-authentication)
 - [Advanced settings](#advanced-settings)
 - [Scale](#scale)
 - [Cluster size](#cluster-size)
@@ -153,15 +151,15 @@ The **Settings** section allows you to access and configure the following settin
 
 You have two options for authentication: access keys and Microsoft Entra Authentication.
 
-#### Access keys
+#### [Access keys](#tab/access-keys)
 
 Select **Access keys** to view or regenerate the access keys for your cache. These keys are used by the clients connecting to your cache.
 
 :::image type="content" source="media/cache-configure/redis-cache-manage-keys.png" alt-text="Screenshot showing Authentication selected in the Resource menu and access Keys in the working pane.":::
 
-#### (Preview) Microsoft Entra Authentication
+#### [Microsoft Entra Authentication](#tab/entra)
 
-Select **(Preview) Microsoft Entra Authentication** to  a password-free authentication mechanism by integrating with Microsoft Entra ID. This integration also includes role-based access control functionality provided through access control lists (ACLs) supported in open source Redis.
+Select **Microsoft Entra Authentication** to  a password-free authentication mechanism by integrating with Microsoft Entra ID. This integration also includes role-based access control functionality provided through access control lists (ACLs) supported in open source Redis.
 
 :::image type="content" source="media/cache-configure/cache-microsoft-entra.png" alt-text="Screenshot showing Authentication selected in the Resource menu and Microsoft Entra ID in the working pane.":::
 

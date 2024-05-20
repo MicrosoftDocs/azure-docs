@@ -313,6 +313,7 @@ The metrics dashboard can be used to better understand the performance and healt
 
 For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](#how-to-use-nat-gateway-metrics).
 
+## Metrics FAQ
 
 ### What type of metrics are available for NAT gateway?
 
@@ -320,7 +321,7 @@ The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essent
 
 Refer to the dimensions column in the [metrics overview](#metrics-overview) table to see which dimensions are available for each NAT gateway metric. 
 
-### How to store NAT gateway metrics long-term
+### How do I store NAT gateway metrics long-term?
 
 All [platform metrics are stored](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics) for 93 days. If you require long term access to your NAT gateway metrics data, NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). For more information on how to use the API, see the [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).  
 
@@ -329,7 +330,7 @@ All [platform metrics are stored](/azure/azure-monitor/essentials/data-platform-
 >
 >To retrieve NAT gateway metrics, use the metrics REST API.
 
-### How to interpret metrics charts
+### How do I interpret metrics charts?
 
 Refer to [troubleshooting metrics charts](/azure/azure-monitor/essentials/metrics-troubleshoot) if you run into issues with creating, customizing or interpreting charts in Azure metrics explorer. 
 

@@ -1,12 +1,13 @@
 ---
 title: Understand how reservation discounts are applied to Azure storage services | Microsoft Docs
 description: Learn about how reserved capacity discounts are applied to Azure Blob storage, Azure Files, and Azure Data Lake Storage Gen2 resources.
-author: tamram
+author: akashdubey-ms
+
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 11/17/2023
-ms.author: tamram
+ms.author: akashdubey
 ---
 
 # Understand how reservation discounts are applied to Azure storage services 
@@ -44,7 +45,8 @@ Suppose that in a given hour within the reservation period, you used 101 TiB of 
 ## Need help? Contact us
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - [Optimize costs for Blob storage with reserved capacity](../../storage/blobs/storage-blob-reserved-capacity.md)
 - [Optimize costs for Azure Files with reserved capacity](../../storage/files/files-reserve-capacity.md)
 - [What are Azure Reservations?](save-compute-costs-reservations.md)

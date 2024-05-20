@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/25/2024
+ms.date: 05/01/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
@@ -284,18 +284,25 @@ public class DocIntelligence {
 
   public static void main(String[] args) {
 
-    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+    // create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
     DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
       .credential(new AzureKeyCredential(key))
       .endpoint(endpoint)
       .buildClient();
 
     // sample document
-    String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
     String modelId = "prebuilt-layout";
+    String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
 
-    SyncPoller <AnalyzeResultOperation, AnalyzeResultOperation> analyzeLayoutResultPoller =
-      client.beginAnalyzeDocument(modelId, documentUrl);
+    SyncPoller <AnalyzeResultOperation, AnalyzeResultOperation> analyzeLayoutPoller =
+      client.beginAnalyzeDocument(modelId,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          new AnalyzeDocumentRequest().setUrlSource(documentUrl));
 
     AnalyzeResult analyzeLayoutResult = analyzeLayoutPoller.getFinalResult().getAnalyzeResult();
 
@@ -658,25 +665,27 @@ public class DocIntelligence {
 
   public static void main(String[] args) {
 
-    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
-      .credential(new AzureKeyCredential(key))
-      .endpoint(endpoint)
-      .buildClient();
-
     // sample document
     String modelId = "prebuilt-invoice";
     String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
     public static void main(final String[] args) throws IOException {
+
       // Instantiate a client that will be used to call the service.
       DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
-        .credential(new AzureKeyCredential("{key}"))
-        .endpoint("https://{endpoint}.cognitiveservices.azure.com/")
+        .credential(new AzureKeyCredential(key))
+        .endpoint(endpoint)
         .buildClient();
 
-      SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-        client.beginAnalyzeDocument(modelId, invoiceUrl);
+      SyncPoller<AnalyzeResultOperation, AnalyzeResultOperation > analyzeInvoicesPoller =
+        client.beginAnalyzeDocument(modelId, 
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            new AnalyzeDocumentRequest().setUrlSource(invoiceUrl));
 
       AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult().getAnalyzeResult();
 
