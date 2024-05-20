@@ -107,7 +107,7 @@ $queue
 
 <!--Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [`Microsoft.Azure.Storage.Queue.CloudQueueMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [`AddMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array.-->
 
-Operations that impact the messages in a queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage) or [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessages) methods. 
+Operations that impact the messages in a queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage) method. 
 
 `Insert Send and SendAsync differentiator here.`
 
@@ -135,7 +135,10 @@ Though not always guaranteed, messages are retrieved from a queue in *best-try*,
 
 Depending on your use case, you can retrieve one or more messages from a queue. You can also modify the visibility of the messages, either permitting or preventing other processes from accessing the same message.
 
-`Receive vs. Peek`
+There are two ways to retrieve messages from a queue:
+
+- **Receive**: Retrieving a message using `Receive` will dequeue the message and increment its `DequeueCount` property. Unless a message is deleted, it will be reinserted in the queue to be processed again.
+- **Peek**: Retrieving a message using `Peek` allows you to "preview" messages from the queue. `Peek` does not dequeue the message or increment its `DequeueCount` property.
 
 ### Receive messages
 
