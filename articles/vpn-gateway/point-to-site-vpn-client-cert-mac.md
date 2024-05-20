@@ -63,7 +63,7 @@ The **Generic** folder contains the following files.
 
 ### Root certificate
 
-1. Copy to the root certificate file - **VpnServerRoot.cer** - to your Mac. Double-click the certificate. Depending on your operating system, the certificate will either automatically install, or you'll see the **Add Certificates** page.
+1. Copy the root certificate file - **VpnServerRoot.cer** - to your Mac. Double-click the certificate. Depending on your operating system, the certificate will either automatically install, or you'll see the **Add Certificates** page.
 1. If you see the **Add Certificates** page, for **Keychain:** click the arrows and select **login** from the dropdown.
 1. Click **Add** to import the file.
 
