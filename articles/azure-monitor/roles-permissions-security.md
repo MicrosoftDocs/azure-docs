@@ -52,7 +52,7 @@ This role is a superset of the Monitoring Reader role. It's appropriate for memb
 * List shared keys for a Log Analytics workspace.
 * Create, delete, and execute saved searches in a Log Analytics workspace.
 * Create and delete the workspace storage configuration for Log Analytics.
-* Create web tests and components for Application Insights. See [Resources, roles, and access control in Application Insights](app/resources-roles-access-control.md).
+* Create web tests and components for Application Insights.
 
 <sup>1</sup> To create or edit a diagnostic setting, users must also separately be granted ListKeys permission on the target resource (storage account or event hub namespace).
 
