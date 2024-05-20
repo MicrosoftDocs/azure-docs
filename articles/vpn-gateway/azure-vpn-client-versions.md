@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/09/2024
+ms.date: 05/20/2024
 ms.author: cherylmc
 
 ---
@@ -15,37 +15,23 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 
 ## Azure VPN Client - Windows
 
-### Version 3.3.1.0
-
-* Microsoft-registered App ID support for Microsoft Entra ID authentication Audience.
-* Backward compatibility for manually registered Microsoft Entra ID authentication Audience.
-
-### Version 3.2.0.0
-
-New in this release:
-
-* Microsoft Entra authentication is now available from the settings page.
-* Server High Availability(HA), releasing on a rolling basis until October 20.
-* Accessibility Improvements
-* Connection logs in UTC
-* Minor bug fixes
+| Version | New in this release |
+|---|---|
+| 3.3.1.0 | - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience<br> - Backward compatibility for manually registered Microsoft Entra ID authentication|
+| 3.2.0.0 | - Microsoft Entra authentication is now available from the settings page<br> - Server High Availability(HA), releasing on a rolling basis until October 20<br> - Accessibility Improvements<br>- Connection logs in UTCM<br>- Minor bug fixes
 
 ## Azure VPN Client - Linux
 
-### Version 3.3.0.0
-
-New in this release:
-
-* New client for Linux.
-* Microsoft-registered App ID support for Microsoft Entra ID authentication Audience.
+| Version | New in this release |
+|---|---|
+| 3.3.0.0 | - New client for Linux<br>- Microsoft-registered App ID support for Microsoft Entra ID authentication|
 
 ## Azure VPN Client - macOS
 
-### Version 2.5.0
-
-* Microsoft-registered App ID support for Microsoft Entra ID authentication Audience.
-* TLSv 1.3 support
-* Bug fixes
+| Version | New in this release |
+|---|---|
+| 2.5.0.| - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience<br> - TLSv 1.3 support<br> - Bug fixes |
+| 2.4.0 | - Multiple server root certificate feature |
 
 ## Next steps
 
