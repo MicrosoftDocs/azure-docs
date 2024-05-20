@@ -15,7 +15,7 @@ ms.custom: responsible-ml, build-2023
 
 # Use the responsible AI image dashboard (preview)
 
-[Responsible AI (RAI) dashboards](how-to-responsible-ai-dashboard.md) include a robust, rich set of visualizations and functionality to help you analyze your machine learning model or make data-driven business decisions. The steps to view and configure RAI dashboards are similar across scenarios, but some features are unique to image scenarios. This article describes how to access and configure RAI image dashboard components and functionality.
+[Responsible AI (RAI) dashboards](how-to-responsible-ai-dashboard.md) include visualizations and functionality to help you analyze your machine learning model and make data-driven business decisions. The steps to view and configure RAI dashboards are similar across scenarios, but some features are unique to image scenarios. This article describes how to access and configure RAI image dashboard components and functionality.
 
 Responsible AI image dashboards are linked to your registered computer vision models in Azure Machine Learning. The [Responsible AI Vision Insights component](how-to-responsible-ai-vision-insights.md) supports image classification and object detection scenarios.
 
@@ -80,10 +80,10 @@ The **Vision data explorer** component has several views to provide various pers
 
 The **Image explorer** view displays image instances of model predictions, automatically categorized by correctly and incorrectly labeled predictions. This view helps you quickly identify high-level error patterns in your data and select which instances to investigate further.
 
-:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer.png" alt-text="Screenshot of image explorer for multilabel classification." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer.png":::
-
-- Under **Select a dataset cohort to explore**, you can select or search for a user-defined dataset cohort to view.
+- **Select a dataset cohort to explore** lets you select or search for a user-defined dataset cohort to view.
 - The **Set thumbnail size** slider adjusts the size of the image cards on the page.
+
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer.png" alt-text="Screenshot of image explorer view in Vision data explorer." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-explorer.png":::
 
 # [Image classification](#tab/classification)
 
@@ -113,31 +113,31 @@ Each image card displays the image and how many object predictions were **Correc
 
 Selecting an image card opens a flyout to view components that support the analysis of model predictions.
 
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object-iou.png" alt-text="Screenshot of selected instance with bounding boxes and IOU score." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object-iou.png":::
+
 - **Selected instance**: The correct detections and incorrect detections for the image or objects in the image.
 - **Information**: Image metadata values for the selected instance.
 - An enlarged image with predicted and ground truth objects surrounded by bounding boxes, and the predicted image labeled with its IOU score.
 
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object-iou.png" alt-text="Screenshot of selected instance with bounding boxes and IOU score." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object-iou.png":::
-
-  > [!NOTE]
-  > If an object in an image was correctly labeled, but with an IOU score below the default threshold of 50%, the prediction bounding box for the object isn't visible, but the ground truth bounding box is visible. The image instance appears in the error instance category. Currently, it's not possible to change the default IOU threshold in this component.
+> [!NOTE]
+> If an object in an image was correctly labeled, but with an IOU score below the default threshold of 50%, the prediction bounding box for the object isn't visible, but the ground truth bounding box is visible. The image instance appears in the error instance category. Currently, it's not possible to change the default IOU threshold in this component.
 
 - **Explanation**: A D-Rise saliency map visualization to gain insight on model behavior leading to the execution of the computer vision task.
 
-  :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png" alt-text="Screenshot of selected instance with an image of a can and the explanation for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png":::
+:::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png" alt-text="Screenshot of selected instance with an image of a can and the explanation for object detection." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/image-instance-object.png":::
 
 ---
 
 #### Table view
 
-The **Table view** shows your dataset with rows for each image instance and columns for the corresponding index, ground truth class labels, predicted class labels, and metadata features.
+**Table view** shows your dataset with rows for each image instance and columns for the corresponding index, ground truth class labels, predicted class labels, and metadata features.
 
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/table-view-common.png" alt-text="Screenshot of the top part of the Table view." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/table-view-common.png":::
 
 - **Select a dataset cohort to explore** lets you can select or search for a user-defined dataset cohort to view.
-- **Save cohort** lets you create new dataset cohorts by manually selecting images.
+- **Save cohort** lets you save new dataset cohorts you create by manually selecting images.
 
-Hover on an image row and select the checkbox to include the image in the new cohort. You can filter your dataset by index, metadata values, and classification outcome. You can add more filters, save the resulting filtered data with a new cohort name, and automatically switch to display your new cohort.
+Hover on an image row and select the checkbox to include the image in the new cohort. You can filter your dataset by index, metadata values, and classification outcome. You can add more filters, save the resulting filtered data with a new cohort name, and automatically switch to display the new cohort.
 
 # [Image classification](#tab/classification)
 
@@ -198,8 +198,6 @@ You can also choose to **Show heatmap** for the displayed data.
 
 Recommended metrics for image classification and image multilabel classification include **Accuracy score**, **Macro Precision score**, **Macro Recall score**, and **Macro F1 score**.
 
-This view also shows **Fairness metrics** such as **Difference** and **Ratio** parity.
-
 :::image type="content" source="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts.png" alt-text="Screenshot of model overview on the dataset cohorts pane." lightbox="./media/how-to-responsible-ai-dashboard-vision-insights/dataset-cohorts.png":::
 
 # [Object detection](#tab/detection)
@@ -210,7 +208,7 @@ For object detection, in addition to selecting the **Metric(s)**, configure the 
 
 - **Aggregate method**: Select which aggregation method to apply, which affects the calculation of mean average precision.
 - **Select class(es)**: Select which class label to use to calculate class-level metrics like average precision and average recall.
-- **IoU Threshold**: Set an IOU threshold value for the Intersection of Union between the ground truth and prediction bounding box. The IOU threshold value defines error and affects calculation of model performance metrics.
+- **IoU Threshold**: Set an IOU threshold value for the Intersection over Union between the ground truth and prediction bounding box. The IOU threshold value defines error and affects calculation of model performance metrics.
 
   For example, setting an IOU of greater than  70% means that a prediction with greater than 70% overlap with ground truth is `True`. This feature is disabled by default, and can be enabled by attaching a running compute instance.
   
@@ -220,7 +218,9 @@ For object detection, in addition to selecting the **Metric(s)**, configure the 
 
 #### Feature cohorts view
 
-In the **Feature cohorts** view, you can investigate your model by comparing model performance across user-specified sensitive and nonsensitive features. For example, compare performance for cohorts across various image metadata values like gender, race, and income. To learn more about feature cohorts, see [Feature cohorts](how-to-responsible-ai-dashboard.md#feature-cohorts).
+In the **Feature cohorts** view, you can investigate your model by comparing model performance across user-specified sensitive and nonsensitive features. For example, compare performance for cohorts across various image metadata values like gender, race, and income.
+
+This view also shows **Fairness metrics** such as **Difference** and **Ratio** parity. To learn more about feature cohorts, see [Feature cohorts](how-to-responsible-ai-dashboard.md#feature-cohorts).
 
 # [Image classification](#tab/classification)
 
@@ -236,7 +236,7 @@ In the **Feature cohorts** view, you can investigate your model by comparing mod
 
 # [Image classification](#tab/classification)
 
-In the lower half of both the **Dataset cohorts** and **Feature cohorts** views, you can select between the following visualizations of the data in that view:
+In the lower half of the **Model overview** component, you can select between **Metrics visualizations** or a **Confusion matrix** view of the data:
 
 - **Metrics visualizations** shows a bar graph that compares aggregated performance metrics across selected dataset cohorts.
   - Select **Choose cohorts** to open a sidebar that lets you select the dataset and feature cohorts to apply.
