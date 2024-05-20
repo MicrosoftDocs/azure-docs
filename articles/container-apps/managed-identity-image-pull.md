@@ -619,6 +619,7 @@ This article describes how to use a Bicep template to configure your container a
   - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
 - If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 - If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`.
+- A private Azure Container Registry containing an image you want to pull. To create a container registry and push an image to it, see [Quickstart: Create a private container registry using the Azure CLI](/container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](/container-registry/container-registry-get-started-powershell.md)
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -658,7 +659,6 @@ LOCATION="<LOCATION>"
 REGISTRY_NAME="<REGISTRY_NAME>"
 IMAGE_NAME="<IMAGE_NAME>"
 IMAGE_TAG="<IMAGE_TAG>"
-IMAGE_URL="<IMAGE_URL>"
 BICEP_TEMPLATE="<BICEP_TEMPLATE>"
 CONTAINERAPPS_ENVIRONMENT="<ENVIRONMENT_NAME>"
 CONTAINER_NAME="<CONTAINER_NAME>"
@@ -677,7 +677,6 @@ $Location = '<LOCATION>'
 $RegistryName = '<REGISTRY_NAME>'
 $ImageName = '<IMAGE_NAME>'
 $ImageTag = '<IMAGE_TAG>'
-$ImageUrl = '<IMAGE_URL>'
 $BicepTemplate = '<BICEP_TEMPLATE>'
 $ContainerAppsEnvironment = '<ENVIRONMENT_NAME>'
 $ContainerName = '<CONTAINER_NAME>'
@@ -691,49 +690,6 @@ $AcrPullDefinitionId = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
 ---
 
 The [`AcrPull`](/azure/role-based-access-control/built-in-roles#acrpull) role grants your user-assigned managed identity permission to pull the image from the registry.
-
-### Create a container registry
-
-If you don't already have a container registry, you can create it with the following command.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az acr create \
-  --name "$CONTAINER_REGISTRY_NAME" \
-  --resource-group "$RESOURCE_GROUP" \
-  --location "$LOCATION" \
-  --sku Basic \
-  --admin-enabled true
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-TODO1
-```
-
----
-
-### Push your image to the container registry
-
-Push your image to the container registry with the following command.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az acr build \
-  --registry "$CONTAINER_REGISTRY_NAME" \
-  --image "$CONTAINER_REGISTRY_IMAGE_NAME:$CONTAINER_REGISTRY_IMAGE_TAG" "$CONTAINER_REGISTRY_IMAGE_URL"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-TODO1
-```
-
----
 
 ## Bicep template
 
@@ -865,9 +821,9 @@ az deployment group create \
   logAnalyticsWorkspaceName="$LOG_ANALYTICS_WORKSPACE_NAME" \
   appInsightsName="$APP_INSIGHTS_NAME" \
   containerAppName="$CONTAINERAPP_NAME" \
-  azureContainerRegistry="$CONTAINER_REGISTRY_NAME" \
-  azureContainerRegistryImage="$CONTAINER_REGISTRY_IMAGE_NAME" \
-  azureContainerRegistryImageTag="$CONTAINER_REGISTRY_IMAGE_TAG" \
+  azureContainerRegistry="$REGISTRY_NAME" \
+  azureContainerRegistryImage="$IMAGE_NAME" \
+  azureContainerRegistryImageTag="$IMAGE_TAG" \
   azureContainerName="$CONTAINER_NAME" \
   acrPullDefinitionId="$ACR_PULL_DEFINITION_ID" \
   userAssignedIdentityName="$USER_ASSIGNED_IDENTITY_NAME" \
@@ -877,7 +833,25 @@ az deployment group create \
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-TODO1
+$params = @{
+  environmentName = $ContainerAppsEnvironment
+  logAnalyticsWorkspaceName = $LogAnalyticsWorkspaceName
+  appInsightsName = $AppInsightsName
+  containerAppName = $ContainerAppName
+  azureContainerRegistry = $RegistryName
+  azureContainerRegistryImage = $ImageName
+  azureContainerRegistryImageTag = $ImageTag
+  azureContainerName = $ContainerName
+  acrPullDefinitionId = $AcrPullDefinitionId
+  userAssignedIdentityName = $UserAssignedIdentityName
+  location = $Location
+}
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName $ResourceGroupName `
+  -TemplateParameterObject $params `
+  -TemplateFile $BicepTemplate `
+  -SkipTemplateParameterPrompt
 ```
 
 ---
