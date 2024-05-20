@@ -52,7 +52,7 @@ To enable hibernation during VM creation, you can use the Azure portal, CLI, Pow
 
 To enable hibernation in the Azure portal, check the 'Enable hibernation' box during VM creation.
 
-![Screenshot of the checkbox in the Azure portal to enable hibernation while creating a new Windows VM.](../media/hibernate-resume/hibernate-enable-during-vm-creation.png)
+![Screenshot of the checkbox in the Azure portal to enable hibernation while creating a new Windows VM.](../media/hibernate-resume/create-vm-with-hibernation-enabled.png)
 
 
 ### [CLI](#tab/enableWithCLI)
