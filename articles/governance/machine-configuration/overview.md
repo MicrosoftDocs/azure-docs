@@ -473,8 +473,8 @@ Machine configuration built-in policy samples are available in the following loc
 [35]: /azure/virtual-machines/windows/run-command
 [36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
-[38]: ../policy/samples/built-in-policies.md
-[39]: ../policy/samples/built-in-initiatives.md
+[38]: ../policy/samples/built-in-policies.md#guest-configuration
+[39]: ../policy/samples/built-in-initiatives.md#guest-configuration
 [40]: https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
 [42]: ./how-to/develop-custom-package/overview.md
