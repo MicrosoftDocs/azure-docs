@@ -103,7 +103,7 @@ $queue = Get-AzStorageQueue -Name $queueName -Context $ctx
 $queue
 ```
 
-## Add a message to a queue
+## Add messages to a queue
 
 <!--Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [`Microsoft.Azure.Storage.Queue.CloudQueueMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [`AddMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array.-->
 
@@ -192,11 +192,23 @@ $queueMessage = $queue.QueueClient.PeekMessages(4)
 $queueMessage.Value
 ```
 
-## Delete a message from the queue
+## Delete messages from a queue
 
-To prevent accidental deletion of messages from a queue, 
+To prevent accidental deletion, both the `MessageId` and `PopReceipt` properties must be supplied before permanently deleting a message. Because of this requirement, it's usually easiest to delete a message using a two-step process. 
 
-Deleting a message from a queue is a two-step process.Your code reads a message from the queue in two steps. When you call the [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage) method, you fetch the next message in the queue. A message returned from `GetMessage` becomes invisible to any other process fetching messages from the queue. To finish removing the message from the queue, call the [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage) method.
+First, fetch the next message in the queue by calling the [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage) method. Pass the values obtained from the message to the [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage) method to finish removing the message from the queue. Thsi process is illustrated in the following example:
+
+```PowerShell
+# Set the amount of time you want to entry to be invisible after read from the queue
+# If it is not deleted by the end of this time, it will show up in the queue again
+$visibilityTimeout = [System.TimeSpan]::FromSeconds(10)
+
+# Read the message from the queue, then show the contents of the message. 
+# Read the next message, too.
+$queueMessage = $queue.QueueClient.ReceiveMessage($visibilityTimeout)
+Write-Host "Deleting $($queueMessage.Value.MessageId)"
+$queue.QueueClient.DeleteMessage($queueMessage.Value.MessageId,$queueMessage.Value.PopReceipt)
+```
 
 In the following example, you read through the three queue messages, then wait 10 seconds (the invisibility timeout). Then you read the three messages again, deleting the messages after reading them by calling `DeleteMessage`. If you try to read the queue after the messages are deleted, `$queueMessage` will be returned as `$null`.
 
