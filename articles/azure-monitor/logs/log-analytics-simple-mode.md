@@ -71,7 +71,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 ### More tools
 
-This section describes more tools available above the query area of the screen, as shown below, from left to right.
+This section describes more tools available above the query area of the screen, as shown in this screenshot, from left to right.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-more-tools.png" alt-text="Screenshot that shows the More tools window in Log Analytics." lightbox="media/log-analytics-explorer/log-analytics-more-tools.png":::
 
