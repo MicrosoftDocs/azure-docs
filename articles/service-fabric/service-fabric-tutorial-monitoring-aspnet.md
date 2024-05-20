@@ -11,7 +11,7 @@ ms.date: 05/17/2024
 
 # Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric by using Application Insights
 
-This tutorial is *part five* in a series. It walks through the steps to configure monitoring and diagnostics for an ASP.NET Core application running on an Azure Service Fabric cluster by using Application Insights. You collect telemetry from the application that's developed in the first part of the tutorial, [Tutorial: Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md).
+This tutorial is *part five* in a series. It walks through the steps to configure monitoring and diagnostics for an ASP.NET Core application running on an Azure Service Fabric cluster by using Application Insights. You collect telemetry from the application that's developed in [part one of the tutorial](service-fabric-tutorial-create-dotnet-app.md).
 
 In this tutorial, you learn how to:
 
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 >
 > * Set up an Application Insights resource
 > * Add Application Insights to the application's services
-> * View telemetry and the App map in Application Insights
+> * View telemetry and Application Map in Application Insights
 > * Add custom instrumentation to your application
 
 The tutorial series shows you how to:
@@ -179,7 +179,7 @@ When the application is deployed, go to `localhost:8080`, where you should be ab
 
 You also can *remove* some of the voting options when you're done adding a few votes.
 
-## View telemetry and the application map in Application Insights
+## View telemetry and Application Map in Application Insights
 
 In the Azure portal, go to your Application Insights resource.
 

@@ -70,7 +70,7 @@ Publishing the repo creates a new project in your Azure DevOps Services account 
 
 View the newly created repository by going to `https://dev.azure.com/><organizationname>`. Hover your mouse over the name of your project and select the **Repos** icon.
 
-## Configure continuous delivery with Azure Pipelines
+## Configure continuous delivery by using Azure Pipelines
 
 An Azure Pipelines build pipeline describes a workflow that is composed of a set of build steps that are executed sequentially. To deploy to a Service Fabric cluster, create a build pipeline that produces a Service Fabric application package and other artifacts. Learn more about [Azure Pipelines build pipelines](https://www.visualstudio.com/docs/build/define/create).
 
@@ -136,7 +136,7 @@ Select **Create Release** >  **Create** to manually create a release. To monitor
 
 Verify that the deployment succeeded and that the application is running in the cluster. Open a web browser and go to `https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`. Note the application version. In this example, it's `1.0.0.20170616.3`.
 
-## Commit and push changes, trigger a release
+## Commit and push changes to trigger a release
 
 To verify that the continuous integration pipeline is functioning, check in some code changes to Azure DevOps.
 

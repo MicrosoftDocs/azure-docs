@@ -43,7 +43,7 @@ Before you begin this tutorial:
 * [Install Visual Studio 2019](https://www.visualstudio.com/) version 16.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
-## Obtain a certificate or create a self-signed development certificate
+## Get a certificate or create a self-signed development certificate
 
 For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. The Service Fabric SDK provides the *CertSetup.ps1* script, which creates a self-signed certificate and imports it into the `Cert:\LocalMachine\My` certificate store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=mytestcert":
 
@@ -368,9 +368,9 @@ Save all files and select F5 to run the application locally. After the applicati
 
 :::image type="content" source="media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png" alt-text="Screenshot that shows the Service Fabric Voting Sample app running in a browser and the localhost URL.":::
 
-## Install certificate on cluster nodes
+## Install the certificate on cluster nodes
 
-Before you deploy the application to Azure, install the certificate in the `Cert:\LocalMachine\My` store of all the remote cluster nodes. Services can move to different nodes of the cluster. When the front-end web service starts on a cluster node, the startup script looks up the certificate and configures access permissions.
+Before you deploy the application to Azure, install the certificate in the *Cert:\LocalMachine\My store* of all the remote cluster nodes. Services can move to different nodes of the cluster. When the front-end web service starts on a cluster node, the startup script looks up the certificate and configures access permissions.
 
 To install certificate on cluster nodes, first export the certificate to a PFX file. Open the *certlm.msc* application and go to **Personal** > **Certificates**. Right-click the **mytestcert** certificate, and then select **All Tasks** > **Export**.
 
