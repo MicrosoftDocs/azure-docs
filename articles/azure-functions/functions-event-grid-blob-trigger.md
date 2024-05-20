@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 Previous versions of the Azure Functions Blob Storage trigger poll your storage container for changes. More recent version of the Blob Storage extension (5.x+) instead use an Event Grid event subscription on the container. This event subscription reduces latency by triggering your function instantly as changes occur in the subscribed container. 
 
-This article shows how to create a function that runs based on events raised when a blob is added to a container. You'll use Visual Studio Code for local development and to validate your code before deploying your project to Azure.
+This article shows how to create a function that runs based on events raised when a blob is added to a container. You use Visual Studio Code for local development and to validate your code before deploying your project to Azure.
 
 > [!div class="checklist"]
 > * Create an event-based Blob Storage triggered function in a new project.
@@ -59,7 +59,7 @@ This article creates a C# app that runs in isolated worker mode, which supports 
 
 ## Create a Blob triggered function
 
-When you create a Blob Storage trigger function using Visual Studio Code, you also create a new project. You'll need to edit the function to consume an event subscription as the source, rather than use the regular polled container.
+When you create a Blob Storage trigger function using Visual Studio Code, you also create a new project. You need to edit the function to consume an event subscription as the source, rather than use the regular polled container.
 
 1. In Visual Studio Code, open your function app.
 
@@ -180,7 +180,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 
 ## Prepare local storage emulation
 
-Visual Studio Code uses Azurite to emulate Azure Storage services when running locally. You'll use Azurite to emulate the Azure Blob Storage service during local development and testing. 
+Visual Studio Code uses Azurite to emulate Azure Storage services when running locally. You use Azurite to emulate the Azure Blob Storage service during local development and testing. 
 
 1. If haven't already done so, install the [Azurite v3 extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite). 
 
@@ -196,7 +196,7 @@ Visual Studio Code uses Azurite to emulate Azure Storage services when running l
  
 1. Expand **Blob Containers** > **samples-workitems** and select **Upload files...**.
  
-    :::image type="content" source="media/functions-event-grid-blob-trigger/upload-file-blob-container.png" alt-text="Select Upload Files in the the samples-workitems container in local emulation in Visual Studio Code.":::
+    :::image type="content" source="media/functions-event-grid-blob-trigger/upload-file-blob-container.png" alt-text="Select Upload Files in the samples-workitems container in local emulation in Visual Studio Code.":::
 
 1. Choose a file to upload to the locally emulated container. This file gets processed later by your function to verify and debug your function code. A text file might work best with the Blob trigger template code.
 
@@ -226,7 +226,7 @@ Event subscriptions to Azure Storage require a general-purpose v2 storage accoun
 
    |Prompt|Action|
    |--|--|
-   |**Enter the name of the new storage account**| Provide a globally unique name. Storage account names must have 3 to 24 characters in length with only lowercase letters and numbers. For easier identification, we'll use the same name for the resource group and the function app name. |
+   |**Enter the name of the new storage account**| Provide a globally unique name. Storage account names must have 3 to 24 characters in length with only lowercase letters and numbers. For easier identification, we use the same name for the resource group and the function app name. |
    |**Select a location for new resources**| For better performance, choose a [region near you](https://azure.microsoft.com/regions/). |
 
    The extension creates a general-purpose v2 storage account with the name you provided. The same name is also used for the resource group that contains the storage account. The Event Grid-based Blob Storage trigger requires a general-purpose v2 storage account.
@@ -255,7 +255,7 @@ Use these steps to create a function app in the Flex Consumption plan. When your
     | **Select a runtime stack.** | Choose the language stack and version on which you've been running locally. |
     | **Select a resource group for new resources.** | Choose the existing resource group in which you created the storage account. |
     | **Select a location for new resources.** | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](#view-currently-supported-regions).|
-    | **Select a storage account.** | Choose the name of the storage account you just created. |
+    | **Select a storage account.** | Choose the name of the storage account you created. |
     | **Select an Application Insights** resource for your app. | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
 
     A notification appears after your function app is created. Select **View Output** in this notification to view the creation results, including the Azure resources that you created.
@@ -282,7 +282,7 @@ Now both the Functions host and the trigger are sharing the same storage account
 
 ## Build the endpoint URL
 
-To create an event subscription, you need to provide Event Grid with the URL of the specific endpoint to report Blob Storage events. This _blob extension_ URL is comprised of these parts:
+To create an event subscription, you need to provide Event Grid with the URL of the specific endpoint to report Blob Storage events. This _blob extension_ URL is composed of these parts:
 
 | Part | Example |
 | --- | --- |
@@ -299,7 +299,7 @@ The blob extension access key is designed to make it more difficult for others t
  
 1. Under **System keys** select the key named **blobs_extension**, and copy the key **Value**. 
 
-    You'll include this value in the query string of new endpoint URL.  
+    You include this value in the query string of new endpoint URL.  
 
 1. Create a new endpoint URL for the Blob Storage trigger based on the following example: 
 
@@ -317,7 +317,7 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
 
 1. In Visual Studio Code, choose the Azure icon in the Activity bar. In **Resources**, expand your subscription, expand **Storage accounts**, right-click the storage account you created earlier, and select **Open in portal**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and make a note of the **Resource group** for your storage account. You'll create your other resources in the same group to make it easier to clean up resources when you're done. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and make a note of the **Resource group** for your storage account. You create your other resources in the same group to make it easier to clean up resources when you're done. 
 
 1. select the **Events** option from the left menu.
 
