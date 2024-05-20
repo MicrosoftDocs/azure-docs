@@ -56,82 +56,86 @@ resources
 ## Enable the ContainerLogV2 schema
 You can enable the **ContainerLogV2** schema for a cluster either using the cluster's Data Collection Rule (DCR) or ConfigMap. If both settings are enabled, the ConfigMap takes precedence. Stdout and stderr logs are only ingested to the ContainerLog table when both the DCR and ConfigMap are explicitly set to off.
 
-## Kubernetes Metadata and Logs Filtering 
-Kubernetes Metadata and Logs Filtering enhances the ContainerLogsV2 schema with more Kubernetes metadata such as *PodLabels, PodAnnotations, PodUid, Image, ImageID, ImageRepo and ImageTag*. Additionally, the **Logs Filtering** feature provides filtering capabilities for both workload and platform (that is system namespaces) containers. With these features, users gain richer context and improved visibility into their workloads.
+## Kubernetes metadata and logs filtering 
+Kubernetes Metadata and Logs Filtering enhances the ContainerLogsV2 schema with more Kubernetes metadata such as *PodLabels, PodAnnotations, PodUid, Image, ImageID, ImageRepo, and ImageTag*. Additionally, the **Logs Filtering** feature provides filtering capabilities for both workload and platform (that is system namespaces) containers. With these features, users gain richer context and improved visibility into their workloads.
 
-### Key Features 
-- **Enhanced ContainerLogV2 schema with Kubernetes Metadata Fields:** Kubernetes Logs Metadata introduces other optional metadata fields that enhance troubleshooting experience with simple Log Analytics queries and removes the need for joining with other tables. These fields include essential information such as *"PodLabels", "PodAnnotations", "PodUid", "Image", "ImageID", "ImageRepo" and "ImageTag"*. By having this context readily available, users can expediate their troubleshooting and identify the issues quickly.
+### Key features 
+- **Enhanced ContainerLogV2 schema with Kubernetes metadata fields:** Kubernetes Logs Metadata introduces other optional metadata fields that enhance troubleshooting experience with simple Log Analytics queries and removes the need for joining with other tables. These fields include essential information such as *"PodLabels," "PodAnnotations," "PodUid," "Image," "ImageID," "ImageRepo," and "ImageTag"*. By having this context readily available, users can expediate their troubleshooting and identify the issues quickly.
 
-- **Customized Include List Configuration:**  Users can tailor new metadata fields they want to see through editing the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml). Note that all metadata fields are collected by default when the `metadata_collection` is enabled and if you want to select specific fields, uncomment `include_fields` and specify the fields that need to be collected.
+- **Customized include list configuration:**  Users can tailor new metadata fields they want to see through editing the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml). Note that all metadata fields are collected by default when the `metadata_collection` is enabled and if you want to select specific fields, uncomment `include_fields` and specify the fields that need to be collected.
 
 <!-- convertborder later -->
 :::image type="content" source="./media/container-insights-logging-v2/configmap-listconfig.png" lightbox="./media/container-insights-logging-v2/configmap-listconfig.png" alt-text="Screenshot that shows metadata fields." border="false":::
 
-- **Enhanced ContainerLogV2 schema with Log Level:** Users can now assess application health based on color coded severity levels such as CRITICAL, ERROR, WARNING, INFO, DEBUG, TRACE, or UNKNOWN. It’s a crucial tool for incident response and proactive monitoring. By visually distinguishing severity levels, users can quickly pinpoint affected resources. The color-coded system streamlines the investigation process and allows users to drill down even further by selecting the panel for an explore experience for further debugging. However, it’s important to note that this functionality is only applicable when using Grafana. If you’re using Log Analytics Workspace, the LogLevel is simply another column in the ContainerLogV2 table.
+- **Enhanced ContainerLogV2 schema with log level:** Users can now assess application health based on color coded severity levels such as CRITICAL, ERROR, WARNING, INFO, DEBUG, TRACE, or UNKNOWN. It’s a crucial tool for incident response and proactive monitoring. By visually distinguishing severity levels, users can quickly pinpoint affected resources. The color-coded system streamlines the investigation process and allows users to drill down even further by selecting the panel for an explore experience for further debugging. However, it’s important to note that this functionality is only applicable when using Grafana. If you’re using Log Analytics Workspace, the LogLevel is simply another column in the ContainerLogV2 table.
 
-- **Annotation Based Log Filtering for workloads:** Efficient log filtering technique through Pod Annotations. Users can focus on relevant information without sifting through noise. Annotation-based filtering enables users to exclude log collection for certain pods and containers by annotating the pod, which would help reduce the log analytics cost significantly.
+- **Annotation based log filtering for workloads:** Efficient log filtering technique through Pod Annotations. Users can focus on relevant information without sifting through noise. Annotation-based filtering enables users to exclude log collection for certain pods and containers by annotating the pod, which would help reduce the log analytics cost significantly.
 
-- **ConfigMap Based Log Filtering for platform logs (System Kubernetes Namespaces):** Platform logs are emitted by containers in the system (or similar restricted) namespaces. By default, all the container logs from the system namespace are excluded to minimize the Log Analytics cost. However, in specific troubleshooting scenarios, container logs of system container play a crucial role. For instance, consider the coredns container within the kube-system namespace. To collect logs (stdout and stderr) exclusively from the coredns container form kube-system, you can enable the following settings in the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml).
+- **ConfigMap based log filtering for platform logs (System Kubernetes Namespaces):** Platform logs are emitted by containers in the system (or similar restricted) namespaces. By default, all the container logs from the system namespace are excluded to minimize the Log Analytics cost. However, in specific troubleshooting scenarios, container logs of system container play a crucial role. For instance, consider the coredns container within the kube-system namespace. To collect logs (stdout and stderr) exclusively from the coredns container form kube-system, you can enable the following settings in the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml).
 
 <!-- convertborder later -->
 :::image type="content" source="./media/container-insights-logging-v2/configmap-filtering.png" lightbox="./media/container-insights-logging-v2/configmap-filtering.png" alt-text="Screenshot that shows filtering fields." border="false":::
 
-**Grafana Dashboard for Visualization:** The Grafana dashboard not only displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN, but also dives into Log Volume, Log Rate, Log Records, Logs. Users can get Time-Sensitive Analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. We also provide a Detailed breakdown by Computer, Pod, and Container, which empowers in-depth analysis and pinpointed troubleshooting.​ And finally in the new Logs table experience, users can view in depth details with expand view, and view the data in each column and zoom into the information they want to see.
+- **Grafana dashboard for visualization:** The Grafana dashboard not only displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN, but also dives into Log Volume, Log Rate, Log Records, Logs. Users can get Time-Sensitive Analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. We also provide a Detailed breakdown by Computer, Pod, and Container, which empowers in-depth analysis and pinpointed troubleshooting.​ And finally in the new Logs table experience, users can view in depth details with expand view, and view the data in each column and zoom into the information they want to see.
 
-### How to Enable Kubernetes Metadata and Logs Filtering?
+Here's a video showcasing the Grafana Dashboard:
 
-#### Pre-Requisites:
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=15c1c297-9e96-47bf-a31e-76056d026bd1]
+
+### How to enable Kubernetes metadata and logs filtering
+
+#### Prerequisites
 
 1. Migrate to Managed Identity Authentication. [Learn More](./container-insights-authentication.md#migrate-to-managed-identity-authentication).
 
 2. Ensure that the ContainerLogV2 is enabled. Managed Identity Auth clusters have this schema enabled by default. If not, [enable the ContainerLogV2 schema](./container-insights-logs-schema.md#enable-the-containerlogv2-schema).
 
-#### Limitations:
+#### Limitations
 
 The [ContainerLogV2 Grafana Dashboard](https://grafana.com/grafana/dashboards/20995-azure-monitor-container-insights-containerlogv2/) is not supported with the Basic Logs SKU on the ContainerLogV2 table.
 
-#### Enable Kubernetes Metadata:
+#### Enable Kubernetes metadata
 
 1. Download the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) and modify the settings from **false** to **true** as seen in the below screenshot. Note that all the supported metadata fields are collected by default. If you wish to collect specific fields, specify the required fields in `include_fields`.
 
 <!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/configmap-enablemetadata.png" lightbox="./media/container-insights-logging-v2/configmap-enablemetadata.png" alt-text="Screenshot that shows enabling metadata fields." border="false":::
+:::image type="content" source="./media/container-insights-logging-v2/configmap-enable-metadata.png" lightbox="./media/container-insights-logging-v2/configmap-enable-metadata.png" alt-text="Screenshot that shows enabling metadata fields." border="false":::
 
-2. Apply the ConfigMap. Click [here](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to learn more about deploying and configuring the ConfigMap.
+2. Apply the ConfigMap. See [configure configmap](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to learn more about deploying and configuring the ConfigMap.
 
 3. After a few minutes, data should be flowing into your ContainerLogV2 table with Kubernetes Logs Metadata, as shown in the below screenshot.
 
 <!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/containerlogv2.png" lightbox="./media/container-insights-logging-v2/containerlogv2.png" alt-text="Screenshot that shows containerlogv2." border="false":::
+:::image type="content" source="./media/container-insights-logging-v2/container-log-v2.png" lightbox="./media/container-insights-logging-v2/container-log-v2.png" alt-text="Screenshot that shows containerlogv2." border="false":::
 
-#### Onboard to the Grafana Dashboard Experience:
+#### Onboard to the Grafana dashboard experience
 
 1. Under the Insights tab, select monitor settings and onboard to Grafana Dashboard with version 10.3.4+
 
 <!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/configureci.png" lightbox="./media/container-insights-logging-v2/configureci.png" alt-text="Screenshot that shows grafana onboarding." border="false":::
+:::image type="content" source="./media/container-insights-logging-v2/configure-ci.png" lightbox="./media/container-insights-logging-v2/configure-ci.png" alt-text="Screenshot that shows grafana onboarding." border="false":::
 
 2. Ensure that you have one of the Grafana Admin/Editor/Reader roles by checking Access control (IAM). If not, add them.
 
 <!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/grafana1.png" lightbox="./media/container-insights-logging-v2/grafana1.png" alt-text="Screenshot that shows grafana roles." border="false":::
+:::image type="content" source="./media/container-insights-logging-v2/grafana-1.png" lightbox="./media/container-insights-logging-v2/grafana-1.png" alt-text="Screenshot that shows grafana roles." border="false":::
 
 3. Ensure your Grafana instance has access to the Azure Logs Analytics(LA) workspace. If it doesn’t have access, you need to grant Grafana Instance Monitoring Reader role access to your LA workspace.
 
 <!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/grafana2.png" lightbox="./media/container-insights-logging-v2/grafana2.png" alt-text="Screenshot that shows grafana." border="false":::
+:::image type="content" source="./media/container-insights-logging-v2/grafana-2.png" lightbox="./media/container-insights-logging-v2/grafana-2.png" alt-text="Screenshot that shows grafana." border="false":::
 
 4. Navigate to your Grafana workspace and import the [ContainerLogV2 Dashboard](https://grafana.com/grafana/dashboards/20995-azure-monitor-container-insights-containerlogv2/) from Grafana gallery.
 
 5. Select your information for DataSource, Subscription, ResourceGroup, Cluster, Namespace, and Labels. The dashboard then populates as depicted in the below screenshot.
 
 <!-- convertborder later -->
-:::image type="content" source="./media/container-insights-logging-v2/grafana3.png" lightbox="./media/container-insights-logging-v2/grafana3.png" alt-text="Screenshot that shows grafana dashboard." border="false":::
+:::image type="content" source="./media/container-insights-logging-v2/grafana-3.png" lightbox="./media/container-insights-logging-v2/grafana-3.png" alt-text="Screenshot that shows grafana dashboard." border="false":::
 
 >[!NOTE]
 > When you initially load the Grafana Dashboard, it could throw some errors due to variables not yet being selected. To prevent this from recurring, save the dashboard after selecting a set of variables so that it becomes default on the first open.
 
-#### Enable Annotation Based Filtering:
+#### Enable annotation based filtering
 
 Follow the below mentioned steps to enable annotation based filtering. Find the link *here* once the related filtering documentation is published.
 
@@ -140,7 +144,7 @@ Follow the below mentioned steps to enable annotation based filtering. Find the 
 <!-- convertborder later -->
 :::image type="content" source="./media/container-insights-logging-v2/config-annotations.png" lightbox="./media/container-insights-logging-v2/config-annotations.png" alt-text="Screenshot that shows annotations." border="false":::
 
-2. Apply the ConfigMap. Click [here](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to learn more about deploying and configuring the ConfigMap.
+2. Apply the ConfigMap. See [configure configmap](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to learn more about deploying and configuring the ConfigMap.
 
 3. Add the required annotations on your workload pod spec. Following table highlights different possible Pod annotations and descriptions of what they do.
 
@@ -153,7 +157,7 @@ Follow the below mentioned steps to enable annotation based filtering. Find the 
 | `fluentbit.io/exclude_stdout_container1: "true"` | Exclude only stdout only for the container1 in the pod |
 
 >[!NOTE]
->These annotations are fluent bit based. If you use your own fluent-bit based log collection solution with the kubernetes plugin filter and annotation based exclusion, it will stop collecting logs from both Container Insights and your solution.
+>These annotations are fluent bit based. If you use your own fluent-bit based log collection solution with the Kubernetes plugin filter and annotation based exclusion, it will stop collecting logs from both Container Insights and your solution.
 
 Here is an example of `fluentbit.io/exclude: "true"` annotation in Pod spec:
 
@@ -172,7 +176,7 @@ spec:
   image: edsiper/apache_logs 
 
 ```
-#### ConfigMap Based Log Filtering for Platform Logs (System Kubernetes Namespaces):
+#### ConfigMap based log filtering for platform logs (System Kubernetes Namespaces)
 
 1. Download the [configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) and modify the settings related to `collect_system_pod_logs` and `exclude_namespaces`.
 
@@ -183,7 +187,7 @@ For example, in order to collect stdout & stderr logs of coredns container in th
 
 
 
-2. Apply the ConfigMap. Click [here](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to learn more about deploying and configuring the ConfigMap.
+2. Apply the ConfigMap. See [configure configmap](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to learn more about deploying and configuring the ConfigMap.
 
 
 ## Multi-line logging in Container Insights
