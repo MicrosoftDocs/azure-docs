@@ -1,11 +1,11 @@
 ---
 title: Azure OpenAI Service Assistants Python & REST API threads reference 
 titleSuffix: Azure OpenAI
-description: Learn how to use Azure OpenAI's Python & REST API threads with Assistants
+description: Learn how to use Azure OpenAI's Python & REST API threads with Assistants.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 05/20/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -37,7 +37,7 @@ Create a thread.
 
 A [thread object](#thread-object).
 
-### Example create thread request
+### Example: create thread request
 
 # [Python 1.x](#tab/python)
 
@@ -84,7 +84,7 @@ Retrieves a thread.
 
 The thread object matching the specified ID.
 
-### Example retrieve thread request
+### Example: retrieve thread request
 
 # [Python 1.x](#tab/python)
 
@@ -135,7 +135,7 @@ Modifies a thread.
 
 The modified [thread object](#thread-object) matching the specified ID.
 
-### Example modify thread request
+### Example: modify thread request
 
 # [Python 1.x](#tab/python)
 
@@ -180,7 +180,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-
 DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}?api-version=2024-05-01-preview
 ```
 
-Delete a thread
+Delete a thread.
 
 **Path Parameters**
 
@@ -192,7 +192,7 @@ Delete a thread
 
 Deletion status.
 
-### Example delete thread request
+### Example: delete thread request
 
 # [Python 1.x](#tab/python)
 
