@@ -1,6 +1,6 @@
 ---
-title: Optimize Microsoft Defender for Cloud costs with a prepurchase
-description: Learn how you can prepay for Microsoft Defender for Cloud charges with reserved capacity to save money.
+title: Optimize Microsoft Defender for Cloud costs with a prepurchase plan
+description: Learn how you can optimize Microsoft Defender for Cloud costs with a prepurchase plan.
 ms.topic: how-to
 ms.date: 05/15/2024
 ---
