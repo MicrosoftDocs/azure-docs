@@ -38,7 +38,7 @@ For Application Insights, see [Enable a framework extension for Application Insi
 ::: zone pivot="app"
 ## Logs
 
-Select system logs to check service-level events, or console logs to debug code. For more information, see [View log streams in Azure Container Apps](https://go.microsoft.com/fwlink/?linkid=2259026).
+Select system logs to check service-level events, or console logs to debug code. For more information, see [Use queries in Log Analytics](../azure-monitor/logs/queries.md).
 
 Select **Open in advanced queries** to go to the [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview).
 ::: zone-end
@@ -78,7 +78,12 @@ This comprehensive settings structure ensures that your application is secure, m
 
 ::: zone-end
 ::: zone pivot="app"
-settings info for app component.
+The **Settings** tab is divided into three categories: General, Environment variables, and Secrets.
+
+- In **General** section, options include defining the component name for easy identification within the app space, specifying the listening port to manage inbound connections, and configuring the ingress settings for controlling network traffic routing to the database.
+- In the **Environment variables** section, users can set up essential environment-specific variables, such as database usernames, connection strings, mount locations, and other parameters crucial for seamless database operations.
+- In the **Secrets** section provides a secure repository for storing sensitive data by inputting key/value pairs. These secrets can then be referenced by environment variables, ensuring the protection of confidential information within the database component. 
+- With these comprehensive settings, users can tailor their database configurations to meet specific requirements while prioritizing security and efficiency within Azure App Spaces.
 ::: zone-end
 ::: zone pivot="database"
 The **Settings** tab is divided into three categories: General, Environment variables, and Secrets.
