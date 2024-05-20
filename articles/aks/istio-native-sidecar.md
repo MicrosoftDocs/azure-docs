@@ -59,7 +59,7 @@ This article walks through how to enable native sidecar mode for Istio based ser
    ```
 
    > [!CAUTION]
-   > Native sidecar mode requires both Kubernetes control plane and data plane on 1.29+. Make sure all your nodes have been upgraded to 1.29 before enabling native sidecar mode. Otherwise, your sidecar will not work as expected.
+   > Native sidecar mode requires both Kubernetes control plane and data plane on 1.29+. Make sure all your nodes have been upgraded to 1.29 before enabling native sidecar mode. Otherwise, sidecars will not work as expected.
    If any node pool version is too old, [upgrade-node-image][upgrade-node-image] to `1.29` or newer version.
 
 3. Make sure Istio add-on is on `asm-1-20` or newer revision.
