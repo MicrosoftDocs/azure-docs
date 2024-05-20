@@ -185,6 +185,7 @@ Azure Container Apps dynamic sessions are built to run untrusted code and applic
 Azure Container Apps dynamic sessions is currently in preview. The following limitations apply:
 
 * It's only available in the following regions:
+
     | Region | Code interpreter | Custom container |
     |--------|------------------|------------------|
     | East Asia | ✔ | ✔ |
@@ -192,6 +193,7 @@ Azure Container Apps dynamic sessions is currently in preview. The following lim
     | West US 2 | ✔ | ✔ |
     | North Central US | ✔ | - |
     | North Europe | ✔ | - |
+    
 * Logging isn't supported. Your application can log requests to the session pool management API and its responses.
 
 ## Next steps
