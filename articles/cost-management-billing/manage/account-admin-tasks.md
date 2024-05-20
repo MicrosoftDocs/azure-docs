@@ -145,7 +145,7 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 
 ## Add credits to Azure in Open subscription
 
-If you have an Azure in Open Licensing subscription, you can add credits to your subscription. In the Azure portal, enter a product key or by buy credits directly with a credit card.
+If you have an Azure in Open Licensing subscription, you can add credits to your subscription. In the Azure portal, enter a product key or buy credits directly with a credit card.
 
 1. Sign in to the Azure portal as the Account Administrator.
 1. Search for **Cost Management + Billing**.
