@@ -58,6 +58,8 @@
         - name: Send events using Data Generator
           href: send-and-receive-events-using-data-generator.md
           displayName: No Code, Sample data
+        - name: Stream Large messages with Event Hubs
+          href: event-hubs-quickstart-stream-large-messages.md
     - name: Capture events
       items:
         - name: Use the Azure portal to enable Event Hubs Capture
