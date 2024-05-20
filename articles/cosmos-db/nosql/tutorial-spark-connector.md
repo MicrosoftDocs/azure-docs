@@ -43,7 +43,7 @@ Use your existing Azure Databricks workspace to create a compute cluster ready t
 
 1. In the workspace interface, create a new **cluster**. Configure the cluster with these settings, at a minimum:
 
-    | | Value |
+    | Version  | Value |
     | --- | --- |
     | Runtime version | 13.3 LTS (Scala 2.12, Spark 3.4.1) |
 

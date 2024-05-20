@@ -113,7 +113,7 @@ Now that you've created a Microsoft Entra application and service principal, cre
 
 1. In the workspace interface, create a new **cluster**. Configure the cluster with these settings, at a minimum:
 
-    | | Value |
+    | Version | Value |
     | --- | --- |
     | Runtime version | `13.3 LTS (Scala 2.12, Spark 3.4.1)` |
 
