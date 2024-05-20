@@ -58,7 +58,7 @@ Choose a target profile in your application project to use for your continuous i
 
 ## Share your Visual Studio solution to a new Azure DevOps Git repo
 
-Share your application source files to a project in Azure DevOps so you can generate builds.
+Share your application source files to a project in Azure DevOps, so you can generate builds.
 
 Create a [new GitHub repo and Azure DevOps repo](/visualstudio/version-control/git-create-repository#create-a-github-repo) from Visual Studio 2022 IDE by selecting **Git** >  **Create Git Repository** on the Git menu.
 

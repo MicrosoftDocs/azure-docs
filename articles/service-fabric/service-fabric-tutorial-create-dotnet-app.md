@@ -582,8 +582,6 @@ public class VotesController : Controller
 }
 ```
 
-<a id="walkthrough" name="walkthrough_anchor"></a>
-
 ## Walk through the voting sample application
 
 The voting application consists of two services:

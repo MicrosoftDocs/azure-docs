@@ -52,7 +52,7 @@ Open Visual Studio by using the **Run as administrator** option. Open the applic
 
 Now that the application is ready, you create a Service Fabric cluster and then deploy the application to the cluster. A [Service Fabric cluster](./service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines or physical computers into which you deploy and manage your microservices.
 
-In this tutorial, you create a new three-node test cluster in the Visual Studio integrated development environment (IDE), and then publish the application to that cluster. For information about creating a production cluster, see the [Create and manage a cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md). You can also deploy the application to an existing cluster that you previously created by using the [Azure portal](https://portal.azure.com), [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md), [Azure CLI](./scripts/cli-create-cluster.md) scripts, or an [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+In this tutorial, you create a new three-node test cluster in the Visual Studio integrated development environment (IDE), and then publish the application to that cluster. For information about creating a production cluster, see the [Create and manage a cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md). You can also deploy the application to an existing cluster that you previously created by using the [Azure portal](https://portal.azure.com), [Azure PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md), [Azure CLI](./scripts/cli-create-cluster.md) scripts, or an [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
 > The Voting application, like many other applications, use Service Fabric reverse proxy to communicate between services. Clusters that you create by using Visual Studio have reverse proxy enabled by default. If you're deploying to an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy-setup.md) for the Voting application to work.
@@ -65,7 +65,7 @@ The front-end web service of the Voting application listens on a specific port (
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Note the service endpoint, which you use in a later step. If you're deploying to an existing cluster, open this port by creating a load-balancing rule and probe in the Azure load balancer via a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or via the load balancer for this cluster in the [Azure portal](https://portal.azure.com).
+Note the service endpoint, which you use in a later step. If you're deploying to an existing cluster, open this port by creating a load-balancing rule and probe in the Azure load balancer via an [Azure PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or via the load balancer for this cluster in the [Azure portal](https://portal.azure.com).
 
 ### Create a test cluster in Azure
 
