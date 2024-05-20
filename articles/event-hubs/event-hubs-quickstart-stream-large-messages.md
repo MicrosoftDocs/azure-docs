@@ -16,16 +16,16 @@ To complete this QuickStart, you need the following prerequisites:
 
 - Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com/). 
 
-- Create [Self-serve scalable dedicated cluster](event-hubs-dedicated-cluster-create-portal.md), event hubs namespace and an event hub. The first step is to use the Azure portal to create a Dedicated cluster and namespace inside a cluster. To create an event hub, see [QuickStart: Create an event hub using Azure portal. ](/azure/event-hubs/event-hubs-create.md) 
+- Create [Self-serve scalable dedicated cluster](event-hubs-dedicated-cluster-create-portal.md), event hubs namespace and an event hub. The first step is to use the Azure portal to create a Dedicated cluster and namespace inside a cluster. To create an event hub, see [QuickStart: Create an event hub using Azure portal. ](event-hubs-create.md). You can skip this step if you already have a self-serve scalable dedicated cluster.
 
 > [!NOTE]
 > Large Message Support, currently in Public Preview, is exclusively available with certain Event Hubs self-serve dedicated clusters. Streaming large messages with these clusters incurs no extra charges.
 
 ## Configuring Event Hubs Dedicated Cluster
 
-To stream large messages, you must configure your self-serve scalable dedicated clusters. You could follow below steps below:
+To stream large messages, you must configure your self-serve scalable dedicated cluster. You could follow below steps below:
 
-- After the cluster is successfully created, navigate to the ‘Settings’ section and select the ‘Quota’ tab under Settings.
+- On Azure Portal, navigate to the ‘Settings’ section for Dedicated cluster and select the ‘Quota’ tab under Settings.
   
 :::image type="content" source="./media/event-hubs-quickstart-stream-large-messages/LMSconfigforCluster.png" alt-text="Screenshot showing the Quota blade for Dedicated Cluster":::
 
