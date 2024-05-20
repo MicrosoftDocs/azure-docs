@@ -37,7 +37,7 @@ Do all the setup steps in [Visual Studio Code](https://code.visualstudio.com/) w
 ## Resources Created
 The removal tool will create a resouce group and create the following resouces to manage the removal of agents. Some of these may have an Azure cost.
 
-:::image type="content" source="media/RemovalTool/RemovalToolResources.png" lightbox="media/RemovalTool/RemovalToolResources.png" alt-text="List of resource that are created by the Discovery and Removal tool":::
+:::image type="content" source="media/RemovalTool/RemovalTool.png" lightbox="media/RemovalTool/RemovalTool.png" alt-text="List of resource that are created by the Discovery and Removal tool":::
 
 ## Download the deployment package
 
