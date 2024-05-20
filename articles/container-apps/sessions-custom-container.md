@@ -14,7 +14,7 @@ ms.author: antchu
 In addition to the built-in code interpreter that Azure Container Apps dynamic sessions provide, you can also use custom containers to define your own session sandboxes.
 
 > [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview.
+> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
 
 ## Uses for custom container sessions
 
@@ -42,11 +42,10 @@ To create a custom container session pool using the Azure CLI, ensure you have t
 
 ```bash
 az upgrade
-az extension add --name containerapps --upgrade --allow-preview
+az extension add --name containerapp --upgrade --allow-preview -y
 ```
 
 Custom container session pools require a workload profile enabled Azure Container Apps environment. If you don't have an environment, use the `az containerapp env create -n <env-name>-g <resource-group> --location <location> --enable-workload-profiles` command to create one.
-
 
 Use the `az containerapp sessionpool create` command to create a custom container session pool.
 
@@ -67,9 +66,9 @@ az containerapp sessionpool create \
     --cpu 1.0 --memory 2.0Gi \
     --target-port 80 \
     --cooldown-period 300 \
-    --egress-enabled false \
-    --max-concurrent-sessions 10 \
-    --ready-session-instances 5 \
+    --network-status EgressDisabled \
+    --max-sessions 10 \
+    --ready-sessions 5 \
     --env-vars "key1=value1" "key2=value2"
 ```
 
@@ -89,9 +88,9 @@ This command creates a session pool with the following settings:
 | `--memory` | `2.0Gi` | The required memory. |
 | `--target-port` | `80` | The session port used for ingress traffic. |
 | `--cooldown-period` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
-| `--egress-enabled` | `false` | Whether the session can make outbound network requests. |
-| `--max-concurrent-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
-| `--ready-session-instances` | `5` | The target number of sessions that are ready in the session pool all the time. |
+| `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
+| `--max-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
+| `--ready-sessions` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
 | `--env-vars` | `"key1=value1" "key2=value2"` | The environment variables to set in the container. |
 
 To update the session pool, use the `az containerapp sessionpool update` command.
@@ -152,10 +151,31 @@ Before you send the request, replace the placeholders between the `<>` brackets 
 }
 ```
 
+This template creates a session pool with the following settings:
+
+| Parameter | Value | Description |
+|---------|-------|-------------|
+| `name` | `my-session-pool` | The name of the session pool. |
+| `location` | `westus2` | The location of the session pool. |
+| `environmentId` | `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerApps/environments/<ENVIRONMENT_NAME>` | The resource ID of the container app's environment. |
+| `containerType` | `CustomContainer` | The container type of the session pool. Must be `CustomContainer` for custom container sessions. |
+| `scaleConfiguration.maxConcurrentSessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
+| `scaleConfiguration.readySessionInstances` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
+| `dynamicPoolConfiguration.executionType` | `Timed` | The type of execution for the session pool. Must be `Timed` for custom container sessions. |
+| `dynamicPoolConfiguration.cooldownPeriodInSeconds` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
+| `customContainerTemplate.containers` | `myregistry.azurecr.io/my-container-image:1.0` | The container image to use for the session pool. |
+| `customContainerTemplate.resources.cpu` | `1.0` | The required CPU in cores. |
+| `customContainerTemplate.resources.memory` | `2.0Gi` | The required memory. |
+| `customContainerTemplate.env` | `{"key1": "value1", "key2": "value2"}` | The environment variables to set in the container. |
+| `customContainerTemplate.command` | `["/bin/sh"]` | The command to run in the container. |
+| `customContainerTemplate.args` | `["-c", "while true; do echo hello; sleep 10; done"]` | The arguments to pass to the command. |
+| `customContainerTemplate.ingress.targetPort` | `80` | The session port used for ingress traffic. |
+| `sessionNetworkConfiguration.status` | `EgressDisabled` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
+
 ---
 
 > [!IMPORTANT]
-> If the session is used for running untrusted code, don't include environment variables or secrets that you don't want the untrusted code to access. Assume the code is malicious and has full access to the container, including environment variables and secrets. 
+> If the session is used to run untrusted code, don't include environment variables or secrets that you don't want the untrusted code to access. Assume the code is malicious and has full access to the container, including its environment variables and secrets. 
 
 ### Working with sessions
 
