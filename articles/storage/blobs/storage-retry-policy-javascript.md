@@ -20,7 +20,7 @@ In this article, you learn how to use the Azure Storage client library for JavaS
 
 Retry policies for Blob Storage are configured programmatically, offering control over how retry options are applied to various service requests and scenarios. For example, a web app issuing requests based on user interaction might implement a policy with fewer retries and shorter delays to increase responsiveness and notify the user when an error occurs. Alternatively, an app or component running batch requests in the background might increase the number of retries and use an exponential backoff strategy to allow the request time to complete successfully.
 
-The following table lists the parameters available when constructing a [StorageRetryOptions](/javascript/api/@azure/storage-blob/storageretryoptions) instance, along with the type, a brief description, and the default value if you make no changes. You should be proactive in tuning the values of these properties to meet the needs of your app.
+The following table lists the parameters available when creating a [StorageRetryOptions](/javascript/api/@azure/storage-blob/storageretryoptions) instance, along with the type, a brief description, and the default value if you make no changes. You should be proactive in tuning the values of these properties to meet the needs of your app.
 
 | Property | Type | Description | Default value |
 | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ The following table lists the parameters available when constructing a [StorageR
 | `retryDelayInMs` | `number` | Optional. Specifies the amount of delay to use before retrying an operation. | 4 seconds (or 4 * 1000 ms) |
 | `retryPolicyType` | [StorageRetryPolicyType](/javascript/api/@azure/storage-blob/storageretrypolicytype) | Optional. StorageRetryPolicyType, default is exponential retry policy. | StorageRetryPolicyType.Exponential |
 | `secondaryHost` | `string` | Optional. Secondary storage account endpoint to retry requests against. Before setting this value, you should understand the issues around reading stale and potentially inconsistent data. To learn more, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md). | 120 ms |
-| `tryTimeoutInMs` | `number` | Maximum time allowed before a request is canceled and assumed failed. Note that the timeout applies to the operation request, not the overall operation end to end. This value should be based on the bandwidth available to the host machine and proximity to the Storage service. A good starting point might be 60 seconds per MB of anticipated payload size. |  |
+| `tryTimeoutInMs` | `number` | Optional. Maximum time allowed before a request is canceled and assumed failed. Note that the timeout applies to the operation request, not the overall operation end to end. This value should be based on the bandwidth available to the host machine and proximity to the Storage service. |  |
 
 In the following code example, we configure the retry options in an instance of [StorageRetryOptions](/javascript/api/@azure/storage-blob/storageretryoptions), pass it to a new [StoragePipelineOptions](/javascript/api/@azure/storage-blob/storagepipelineoptions) instance, and pass `pipeline` when instantiating `BlobServiceClient`:
 
