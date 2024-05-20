@@ -21,7 +21,7 @@ The primary advantages of using the emulator are:
 - Optimized Inner Development loop: Developers can use the Emulator to quickly prototype and test their applications before deploying them to the cloud.
 
 >[!NOTE]
-> Event Hubs emulator is licensed under End user License Agreement. For more details, refer [here.](https://github.com/Azure/azure-event-hubs-emulator/blob/main/LICENSE)
+> Event Hubs emulator is licensed under End user License Agreement. For more details, refer [here.](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md)
 
 ### Features of Emulator
 
@@ -57,7 +57,7 @@ Since Emulator is only meant for development and test purpose, there are functio
 
 >[!CAUTION]
 >The emulator is intended solely for development and testing scenarios.Any kind of Production use is strictly discouraged. There is no official support provided for emulator.
-> Any issues/suggestions should be reported via GitHub issues on emulator [GitHub project](https://github.com/Azure/azure-event-hubs-emulator/issues).
+> Any issues/suggestions should be reported via GitHub issues on emulator Installer [repository.](https://github.com/Azure/azure-event-hubs-emulator-installer/issues).
 
 ### Managing Quotas and Configuration
 
@@ -70,12 +70,12 @@ Maximum number of Event Hubs within namespace| 10| Yes|
 Maximum number of consumer groups within event hub| 20 |Yes| 
 Maximum number of partitions in event hub |32 |Yes 
 Maximum size of event being published to event hub (batch/nonbatch) |1 MB |No
-Maximum event retention time | 1 hr | No
+Minimum event retention time | 1 hr | No
 
 
 ### Making configuration changes
 
-You could use config.json to configure quotas associated with Event Hubs. By default, emulator would run with following [configuration](https://github.com/Azure/azure-event-hubs-emulator/blob/main/EventHub-Emulator/Config/Config.json). Under the configuration file, you could make following edits as per needs: 
+You could use config.json to configure quotas associated with Event Hubs. By default, emulator would run with following [configuration](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json). Under the configuration file, you could make following edits as per needs: 
 
 - **Entities**: You could add more entities (event hubs), with customized partition count and consumer groups count as per supported quotas.
 - **Logging**: Emulator supports Logging in file or console or both. You could set as per your personal preference.
