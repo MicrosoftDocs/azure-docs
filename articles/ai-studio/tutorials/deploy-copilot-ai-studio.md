@@ -58,6 +58,7 @@ In this section, you learn how to transition to prompt flow from the playground.
 You can create a prompt flow from the playground by following these steps:
 1. Go to your project in [AI Studio](https://ai.azure.com). 
 1. Select **Playgrounds** > **Chat** from the left pane.
+1. Since we're using our own data, you need to select **Add your data**. You should already have an index named *product-info* that you created previously in the chat playground. Select it from the **Select available project index** dropdown. Otherwise, [first create an index with your product data](#add-your-data-and-try-the-chat-model-again) and then return to this step. 
 1. Select **Prompt flow** from the menu above the chat session pane.
 1. Enter a folder name for your prompt flow. Then select **Open**. AI Studio exports the playground chat environment to prompt flow. The export includes the connections to the data that you added.
 
