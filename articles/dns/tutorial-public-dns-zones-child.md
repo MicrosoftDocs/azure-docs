@@ -6,7 +6,7 @@ author: jonbeck
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.topic: tutorial
-ms.date: 11/30/2023
+ms.date: 05/20/2024
 ms.author: jonbeck
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---

@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 05/20/2024
 ms.author: greglin
 ---
 # How to manage DNS Zones in the Azure portal
