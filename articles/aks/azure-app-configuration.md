@@ -1,6 +1,6 @@
 ---
 title: Azure App Configuration extension for Azure Kubernetes Service (Preview) 
-description: Install and configure Azure App Configuration extension on your Azure Kubernetes Service (AKS)
+description: Install and configure Azure App Configuration extension on your Azure Kubernetes Service (AKS).
 author: RichardChen820
 ms.author: junbchen
 ms.service: azure-kubernetes-service
@@ -40,7 +40,7 @@ az extension update --name k8s-extension
 If you haven't previously used cluster extensions, you may need to register the resource provider with your subscription. You can check the status of the provider registration using the [az provider list](/cli/azure/provider#az-provider-list) command, as shown in the following example:
 
 ```azurecli
-az provider list --query "[?contains(namespace,'Microsoft.KubernetesConfiguration')]" -o table
+az provider list --query "[?namespace=='Microsoft.KubernetesConfiguration']" -o table
 ```
 
 The *Microsoft.KubernetesConfiguration* provider should report as *Registered*, as shown in the following example output:
@@ -59,7 +59,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration
 
 ## Install the extension on your AKS cluster
 
-Create the Azure App Configuration extension, which installs Azure App Configuration Kubernetes Provider on your AKS
+Create the Azure App Configuration extension, which installs Azure App Configuration Kubernetes Provider on your AKS.
 
 For example, install the latest version of Azure App Configuration Kubernetes Provider via the Azure App Configuration extension on your AKS cluster:
 
@@ -72,11 +72,11 @@ az k8s-extension create --cluster-type managedClusters \
     --release-train preview
 ```
 
-### Configuring automatic updates
+### Configure automatic updates
 
 If you create Azure App Configuration extension without specifying a version, `--auto-upgrade-minor-version` *is automatically enabled*, configuring the Azure App Configuration extension to automatically update its minor version on new releases.
 
-You can disable auto-update by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `false`. 
+You can disable auto update by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `false`. 
 
 ```azurecli
 --auto-upgrade-minor-version false
@@ -109,11 +109,11 @@ The Azure App Configuration extension is available in the following regions:
 > East US 2 EUAP, Canada Central, West Central US, Central India, East US, East US 2, North Europe, UK South, Australia East, Central US, West Europe, West US, West US 2, West US 3
 
 
-## Troubleshooting extension installation errors
+## Troubleshoot extension installation errors
 
 If the extension fails to create or update, try suggestions and solutions in the [Azure App Configuration extension troubleshooting guide](/troubleshoot/azure/azure-kubernetes/extensions/troubleshoot-app-configuration-extension-installation-errors).
 
-## Troubleshooting Azure App Configuration Kubernetes Provider
+## Troubleshoot Azure App Configuration Kubernetes Provider
 
 Troubleshoot Azure App Configuration Kubernetes Provider errors via the [troubleshooting guide](/azure/azure-app-configuration/quickstart-azure-kubernetes-service#troubleshooting).
 
@@ -128,6 +128,5 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 ## Next Steps
 
 - Learn more about [extra settings and preferences you can set on the Azure App Configuration extension](./azure-app-configuration-settings.md).
-- Once you have successfully provisioned Azure App Configuration extension in your AKS cluster, try [quickstart](../azure-app-configuration/quickstart-azure-kubernetes-service.md) to learn how to use it.
+- Once you successfully install Azure App Configuration extension in your AKS cluster, try [quickstart](../azure-app-configuration/quickstart-azure-kubernetes-service.md) to learn how to use it.
 - See all the supported features of [Azure App Configuration Kubernetes Provider](../azure-app-configuration/reference-kubernetes-provider.md).
-

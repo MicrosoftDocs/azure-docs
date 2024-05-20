@@ -1,6 +1,6 @@
 ---
 title: Configure the Azure App Configuration extension for your Azure Kubernetes Service (Preview)
-description: Learn how to configure the Azure App Configuration extension specifically for your Azure Kubernetes Service (AKS) 
+description: Learn how to configure the Azure App Configuration extension specifically for your Azure Kubernetes Service (AKS).
 author: RichardChen820
 ms.author: junbchen
 ms.topic: article
@@ -11,13 +11,13 @@ ms.date: 05/09/2024
 
 # Configure the Azure App Configuration extension for your Azure Kubernetes Service (Preview)
 
-Once you've [created the Azure App Configuration extension](./azure-app-configuration.md), you can configure the extension to work best for you and your project using various configuration options, like:
+Once you [created the Azure App Configuration extension](./azure-app-configuration.md), you can configure the extension to work best for you and your project using various configuration options, like:
 
 - Configuring the replica count.
 - Configuring the log verbosity.
 - Configuring the installation namespace.
 
-The extension enables you to configure Azure App Configuration extension settings by using the `--configuration-settings` parameter in the Azure CLI 
+The extension enables you to configure Azure App Configuration extension settings by using the `--configuration-settings` parameter in the Azure CLI. 
 
 > [!TIP]
 > For a list of available options, see [Azure App Configuration Kubernetes Provider helm values](https://raw.githubusercontent.com/Azure/AppConfiguration-KubernetesProvider/main/deploy/parameter/helm-values.yaml).
@@ -53,10 +53,10 @@ az k8s-extension create --cluster-type managedClusters \
     --configuration-settings "logVerbosity=3"
 ```
 
-Log verbosity levels follows the [klog](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/logging.md#what-method-to-use) convention:
+Log verbosity levels follow the [klog](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/logging.md#what-method-to-use) convention:
 
 - `0`: Warning and error only.
-- `1`: Informational, this is default log verbosity level.
+- `1`: Informational, this level is default.
 - `2`: Detailed steady state information.
 - `3`: Extended information about changes.
 - `4`: Debug level verbosity.
@@ -90,7 +90,7 @@ az k8s-extension show --cluster-type managedClusters \
 
 ## Update configuration settings
 
-To update your Azure App Configuration extension settings, recreate the extension with the desired state. For example, assume we've previously created and installed the extension using the following configuration:
+To update your Azure App Configuration extension settings, recreate the extension with the desired state. For example, assume we installed the extension using the following configuration:
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
@@ -116,5 +116,5 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Next Steps
 
-Once you have successfully provisioned Azure App Configuration extension in your AKS cluster, try [quickstart](../azure-app-configuration/quickstart-azure-kubernetes-service.md) to learn how to use it.
+Once you successfully install Azure App Configuration extension in your AKS cluster, try [quickstart](../azure-app-configuration/quickstart-azure-kubernetes-service.md) to learn how to use it.
 
