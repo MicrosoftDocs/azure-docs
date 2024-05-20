@@ -190,8 +190,6 @@
         href: flexible-server/concepts-connectivity.md
       - name: Connection pooling best practices
         href: flexible-server/concepts-connection-pooling-best-practices.md
-      - name: Connect with Azure Kubernetes Service
-        href: single-server/concepts-aks.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
@@ -656,6 +654,8 @@
       - name: Connection resiliency
         href: single-server/concepts-connectivity.md
         displayName: transient errors, connection issues, connectivity issues, pooling
+      - name: Connect with Azure Kubernetes Service
+        href: single-server/concepts-aks.md
     - name: Replication
       items:
       - name: Read replicas
