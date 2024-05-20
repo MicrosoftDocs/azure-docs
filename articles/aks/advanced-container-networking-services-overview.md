@@ -42,14 +42,18 @@ Advanced Container Networking Services offers support for both Cilium and non-Ci
 
 Advanced Observability offers the following capabilities to monitor network-related issues in your cluster:
 
-* **Metrics:** Understanding the health of your container network at the node-level is crucial for maintaining optimal application performance. By leveraging advanced observability unlocks granular pod-level metrics. Analyze traffic volume, dropped packets, source/destination information, and even DNS metrics at pod-level. This empowers you to pinpoint network related issues at much granular level compared to the network observability , ensuring the health and optimal performance of your applications across the entire cluster.
+- **Node-Level Metrics:** Understanding the health of your container network at the node-level is crucial for maintaining optimal application performance. These metrics indicate traffic volume, dropped packets, number of connections, etc. by node. Since they are Prometheus metrics, you can view them in Grafana or create custom alerts.
 
-* **Hubble CLI:** Hubble CLI unlocks deep visibility into your cluster's network activity. It allows you to monitor data flow between applications, identifying bottlenecks, and tracking traffic origin and destination which proactively troubleshoot performance issues, optimize resource allocation, and ensure only authorized communication occurs, all contributing to a smoothly running and secure containerized environment.
+- **Hubble Metrics (DNS and Pod-Level Metrics):** These Prometheus metrics include source/destination Pod information, empowering you to pinpoint network-related issues at a granular level. Metrics cover traffic volume, dropped packets, TCP resets, L4/L7 packet flows, etc. There are also DNS metrics (currently only for Non-Cilium dataplanes), covering DNS errors and DNS requests missing respones.
 
-  > [!Note]
-  > Users are responsible for provisioning and managing the infrastructure required to run **Hubble UI**.
+- **Hubble Flow Logs:** Flow logs unlock deep visibility into your cluster's network activity. All communications to/from Pods are logged, allowing you to investigate connectivity issues and more. Flow logs help answer questions such as: did the server receive the client's request? What is the round-trip latency between the client's request and server's response?
 
-* **Hubble UI:** Hubble UI provides a user-friendly interface for exploring your cluster's network activity with Hubble. This intuitive visualization empowers you to troubleshoot performance issues, optimize resource allocation, and ensure there is secure communication within your cluster, all contributing to a smoothly running and well-managed containerized environment.
+  - **Hubble CLI:** The Hubble Command-Line Interface (CLI) provides a means to retrieve flow logs from across the cluster with customizable filtering and formatting.
+
+  - **Hubble UI:** Hubble UI is a user-friendly web-browser interface for exploring your cluster's network activity. It creates a service-connection graph based on Flow logs, and it also displays flow logs for the selected namespace.
+
+    > [!Note]
+    > Users are responsible for provisioning and managing the infrastructure required to run **Hubble UI**.
 
 ### Key Benefits of Advanced Observability
 
