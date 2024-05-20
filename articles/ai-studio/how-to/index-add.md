@@ -113,7 +113,7 @@ You must have:
 
 ## Use an index in prompt flow
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. 
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project. 
 1. From the collapsible left menu, select **Prompt flow**.
 1. Open an existing prompt flow or select **+ Create** to create a new flow.
 1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***.

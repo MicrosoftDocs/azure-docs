@@ -29,7 +29,7 @@ pip install promptflow-evals
 
 from promptflow.evals.synthetic import AdversarialSimulator
 ```
-The adversarial simulator works by setting up a service-hosted GPT large language model to simulate an adversarial user and interact with your application. An Azure AI project is required to run the adversarial simulator:
+The adversarial simulator works by setting up a service-hosted GPT large language model to simulate an adversarial user and interact with your application. An AI Studio project is required to run the adversarial simulator:
 ```python
 from azure.identity import DefaultAzureCredential
 

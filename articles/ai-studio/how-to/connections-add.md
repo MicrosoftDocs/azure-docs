@@ -69,11 +69,11 @@ If your hub is configured for [network isolation](configure-managed-network.md),
 
 To create an outbound private endpoint rule to the data source, use the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure AI hub.
+1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure AI Studio hub.
 1. Select **Networking**, then **Workspace managed outbound access**.
 1. To add an outbound rule, select **Add user-defined outbound rules**. From the **Workspace outbound rules** sidebar, provide the following information:
     
-    - **Rule name**: A name for the rule. The name must be unique for the AI hub.
+    - **Rule name**: A name for the rule. The name must be unique for the AI Studio hub.
     - **Destination type**: Private Endpoint.
     - **Subscription**: The subscription that contains the Azure resource you want to connect to.
     - **Resource type**: `Microsoft.Storage/storageAccounts`. This resource provider is used for Azure Storage, Azure Data Lake Storage Gen2, and Microsoft OneLake.
