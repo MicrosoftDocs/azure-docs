@@ -93,7 +93,7 @@ az role assignment create \
     --scope <SESSION_POOL_RESOURCE_ID>
 ```
 
-If you're using an [LLM framework integration](sessions-code-interpreter.md#llm-integrations), the framework handles the token generation and management for you. Ensure that the application is configured with a managed identity with the necessary role assignments on the session pool.
+If you're using an [LLM framework integration](sessions-code-interpreter.md#llm-framework-integrations), the framework handles the token generation and management for you. Ensure that the application is configured with a managed identity with the necessary role assignments on the session pool.
 
 If you're using the pool's management API endpoints directly, you must generate a token and include it in the `Authorization` header of your HTTP requests. In addition to the role assignments previously mentioned, token needs to contain an audience (`aud`) claim with the value `https://dynamicsessions.io`.
 
