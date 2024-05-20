@@ -306,15 +306,15 @@ if ($cert -eq $null)
 
 ```
 
-Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
+Modify properties for the *SetCertAccess.ps1* file to set **Copy to Output Directory** to **Copy if newer**.
 
 ### Run the setup script as an administrator
 
 By default, the service setup entry point executable runs under the same credentials as Service Fabric (typically the NetworkService account). The *SetCertAccess.ps1* requires administrator privileges. In the application manifest, you can change the security permissions to run the startup script under a local administrator account.
 
-In Solution Explorer, open *Voting/ApplicationPackageRoot/ApplicationManifest.xml*. First, create a **Principals** section and add a new user (for example, "SetupAdminUser". Add the SetupAdminUser user account to the Administrators system group.
+In Solution Explorer, open *Voting/ApplicationPackageRoot/ApplicationManifest.xml*. First, create a **Principals** section and add a new user (for example, "SetupAdminUser"). Add the SetupAdminUser user account to the Administrators system group.
 
-Next, in the VotingWebPkg `ServiceManifestImport** section, configure a **RunAsPolicy** to apply the SetupAdminUser principal to the setup entry point. This policy tells Service Fabric that the *Setup.bat* file runs as **SetupAdminUser** (with administrator privileges).
+Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAsPolicy** to apply the SetupAdminUser principal to the setup entry point. This policy tells Service Fabric that the *Setup.bat* file runs as **SetupAdminUser** (with administrator privileges).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -374,7 +374,7 @@ Before you deploy the application to Azure, install the certificate in the `Cert
 
 To install certificate on cluster nodes, first export the certificate to a PFX file. Open the *certlm.msc* application and go to **Personal** > **Certificates**. Right-click the **mytestcert** certificate, and then select **All Tasks** > **Export**.
 
-![Export certificate][image4]
+:::image type="content" source="media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/ExportCert.png" alt-text="Screenshot that shows exporting the certificate.":::
 
 In the export wizard, select **Yes, export the private key**, and then select the Personal Information Exchange (PFX) format. Export the file to *C:\Users\sfuser\votingappcert.pfx*.
 
@@ -432,17 +432,12 @@ $nsg | Set-AzNetworkSecurityGroup
 
 Save all files, switch from Debug to Release, and select F6 to rebuild. In Solution Explorer, right-click **Voting** and select **Publish**. Select the connection endpoint of the cluster created in [Deploy an application to a cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), or select another cluster. Select **Publish** to publish the application to the remote cluster.
 
-When the application deploys, open a web browser and go to `https://mycluster.region.cloudapp.azure.com:443` (update the URL with the connection endpoint for your cluster). If you're using a self-signed certificate, you see a warning that your PC doesn't trust this website's security. Continue on to the web page.
+When the application deploys, open a web browser and go to `https://mycluster.region.cloudapp.azure.com:443` (update the URL with the connection endpoint for your cluster). If you're using a self-signed certificate, you see a warning that your PC doesn't trust this website's security. Continue to the webpage.
 
-![Screenshot of the Service Fabric Voting Sample app running in a browser window with the URL https://mycluster.region.cloudapp.azure.com:443.][image3]
+:::image type="content" source="media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppAzure.png" alt-text="Screenshot that shows the Service Fabric Voting Sample app running in a browser window.":::
 
 ## Next step
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Configure CI/CD by using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-
-[image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
-[image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png
-[image3]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppAzure.png
-[image4]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/ExportCert.png

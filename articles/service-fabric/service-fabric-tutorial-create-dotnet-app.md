@@ -322,7 +322,7 @@ Also update the `Application URL` property value in the Voting project so that a
 
 ### Deploy and run the Voting application locally
 
-You can now run the Voting application for debugging. In Visual Studio, select F5 to deploy the application to your local Service Fabric cluster in debug mode. The application will fail if you didn't previously open Visual Studio as **administrator**.
+You can now run the Voting application for debugging. In Visual Studio, select F5 to deploy the application to your local Service Fabric cluster in debug mode. The application fails if you didn't previously open Visual Studio as **administrator**.
 
 > [!NOTE]
 > The first time you run and deploy the application locally, Visual Studio creates a local Service Fabric cluster for debugging. Cluster creation may take some time. The cluster creation status is displayed in the Visual Studio output window.
@@ -337,9 +337,9 @@ To stop debugging the application, go back to Visual Studio and select Shift+F5.
 
 Now that an ASP.NET Web API service is running in the application, go ahead and add a stateful reliable service to store some data in the application.
 
-Service Fabric allows you to consistently and reliably store your data right inside your service by using reliable collections. Reliable collections are a set of highly available and reliable collection classes that are familiar to anyone who has used C# collections.
+Service Fabric allows you to consistently and reliably store your data right inside your service by using reliable collections. Reliable collections are a set of highly available and reliable collection classes that are familiar to anyone who has experience using C# collections.
 
-In this tutorial, you create a service which stores a counter value in a reliable collection.
+In this tutorial, you create a service that stores a counter value in a reliable collection.
 
 1. In Solution Explorer, right-click **Services** within the Voting application project and select **Add** > **New Service Fabric Service**.
 
@@ -463,13 +463,13 @@ This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-commu
 
 To find the reverse proxy port used in your local development cluster, view the **HttpApplicationGatewayEndpoint** element in the local Service Fabric cluster manifest:
 
-1. Open a browser window and go to `http://localhost:19080` to open the Service Fabric Explorer tool.
+1. To open the Service Fabric Explorer tool, open a browser and go to `http://localhost:19080`.
 1. Select **Cluster** > **Manifest**.
-1. Make a note of the `HttpApplicationGatewayEndpoint` element port. By default, the port is 19081. If it is not 19081, change the port in the `GetProxyAddress` method of the following *VotesController.cs* code.
+1. Make a note of the `HttpApplicationGatewayEndpoint` element port. By default, the port is **19081**. If it isn't **19081**, change the port in the `GetProxyAddress` method of the following *VotesController.cs* code.
 
 ### Update the VotesController.cs file
 
-In the **VotingWeb** project, open the *Controllers/VotesController.cs* file. Replace the `VotesController` class definition contents with the following, and then save your changes. If the reverse proxy port you discovered in the pervious step is not 19081, change the port used in the `GetProxyAddress` method from 19081 to the port that you discovered.
+In the **VotingWeb** project, open the *Controllers/VotesController.cs* file. Replace the `VotesController` class definition contents with the following, and then save your changes. If the reverse proxy port you discovered in the pervious step isn't **19081**, change the port used in the `GetProxyAddress` method from **19081** to the port that you discovered.
 
 ```csharp
 public class VotesController : Controller
@@ -593,7 +593,7 @@ The voting application consists of two services:
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-When you vote in the application the following events occur:
+When you vote in the application, the following events occur:
 
 1. A JavaScript file sends the vote request to the web API in the web front-end service as an HTTP PUT request.
 
@@ -603,29 +603,29 @@ When you vote in the application the following events occur:
 
 ## Debug in Visual Studio
 
-When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, store data in the back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
+When debugging application in Visual Studio, you're using a local Service Fabric development cluster. You can adjust your debugging experience to your scenario. In this application, store data in the back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
 
-1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 72).
+1. Open the *VotingWeb\VotesController.cs* file and set a breakpoint in the web API's **Put** method (line 72).
 
-1. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
+1. Open the *VotingData\VoteDataController.cs* file and set a breakpoint in this web API's **Put** method (line 54).
 
 1. Select F5 to start the application in debug mode.
 
 1. Go back to the browser and select a voting option or add a new voting option. You hit the first breakpoint in the web front-end's API controller.
 
-   1. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+   1. The JavaScript in the browser sends a request to the web API controller in the front-end service.
 
-      ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![Screenshot that shows adding a vote front-end service.](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   1. First construct the URL to the ReverseProxy for the back-end service **(1)**.
-   1. Then send the HTTP PUT Request to the ReverseProxy **(2)**.
-   1. Finally the return the response from the back-end service to the client **(3)**.
+   1. First, construct the URL to the ReverseProxy for the back-end service **(1)**.
+   1. Then send the HTTP PUT request to the ReverseProxy **(2)**.
+   1. Finally, the return the response from the back-end service to the client **(3)**.
 
 1. Select F5 to continue.
 
-   1. You are now at the break point in the back-end service.
+   1. You're now at the break point in the back-end service.
 
       ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
@@ -636,7 +636,7 @@ To look at what happens in the code, complete the following steps:
 
 To stop the debugging session, select Shift+F5.
 
-## Next steps
+## Next step
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]

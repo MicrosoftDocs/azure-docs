@@ -11,7 +11,7 @@ ms.date: 05/17/2024
 
 # Tutorial: Deploy an application that uses CI/CD to a Service Fabric cluster
 
-This tutorial is *part four* in a series. It shows you how to set up continuous integration and continuous deployment (CI/CD) for an Azure Service Fabric application by using Azure Pipelines. To complete the tutorial, you must have an existing Service Fabric application. The application that you create in [Tutorial: Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is the example that's used in this tutorial.
+This tutorial is *part four* in a series. It shows you how to set up continuous integration and continuous deployment (CI/CD) for an Azure Service Fabric application by using Azure Pipelines. To complete the tutorial, you must have an existing Service Fabric application. As an example, this tutorial uses the application that you create in [Tutorial: Build a .NET application](service-fabric-tutorial-create-dotnet-app.md).
 
 In this tutorial, you learn how to:
 
@@ -54,25 +54,25 @@ Now that you [created an application](service-fabric-tutorial-create-dotnet-app.
 
 Choose a target profile in your application project to use for your continuous integration workflow, for example, **Cloud**. Specify the cluster connection endpoint. Select the **Upgrade the Application** checkbox so that your application upgrades for each deployment in Azure DevOps. Select the **Save** link to save the settings to the publish profile, and then select **Cancel** to close the dialog.
 
-![Push profile][publish-app-profile]
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png" alt-text="Screenshot that shows pushing a profile to publish the application.":::
 
 ## Share your Visual Studio solution to a new Azure DevOps Git repo
 
 Share your application source files to a project in Azure DevOps so you can generate builds.
 
-Create a [new GitHub repo and Azure DevOps repo](/visualstudio/version-control/git-create-repository#create-a-github-repo) from Visual Studio 2022 IDE by selecting **Git** >  **Create Git Repository** from the Git menu.
+Create a [new GitHub repo and Azure DevOps repo](/visualstudio/version-control/git-create-repository#create-a-github-repo) from Visual Studio 2022 IDE by selecting **Git** >  **Create Git Repository** on the Git menu.
 
 Select your account and enter your repository name. Select **Create and Push**.
 
-![Screenshot of creating new Git repository.][push-git-repo]
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/publish-app-profile.png" alt-text="Screenshot of creating new Git repository.":::
 
 Publishing the repo creates a new project in your Azure DevOps Services account that has the same name as the local repo.
 
-View the newly created repository by navigating to <https://dev.azure.com/\><organizationname\>, hover mouse over the name of your project, and select the **Repos** icon.
+View the newly created repository by going to `https://dev.azure.com/><organizationname>`. Hover your mouse over the name of your project and select the **Repos** icon.
 
-## Configure Continuous Delivery with Azure Pipelines
+## Configure continuous delivery with Azure Pipelines
 
-An Azure Pipelines build pipeline describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build pipeline that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Azure Pipelines build pipelines](https://www.visualstudio.com/docs/build/define/create).
+An Azure Pipelines build pipeline describes a workflow that is composed of a set of build steps that are executed sequentially. To deploy to a Service Fabric cluster, create a build pipeline that produces a Service Fabric application package and other artifacts. Learn more about [Azure Pipelines build pipelines](https://www.visualstudio.com/docs/build/define/create).
 
 An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow, starting with source files to ending with a running application in your cluster. Learn more about [Azure Pipelines release pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
@@ -82,13 +82,13 @@ Open a web browser and go to your new project at `https://dev.azure.com/<organiz
 
 Select the **Pipelines** tab, and then select **Create Pipeline**.
 
-![New Pipeline][new-pipeline]
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/new-pipeline.png" alt-text="Screenshot that shows creating a new pipeline.":::
 
-Select **Use the classic editor** to create a pipeline without YAML.
+Select **Use the classic editor** to create a pipeline without using YAML.
 
-![Classic Editor][classic-editor]
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/classic-editor.png" alt-text="Screenshot that shows using the classic editor to create a pipeline.":::
 
-Select **Azure Repos Git** as source, **VotingSample** Team project, **VotingApplication** Repository, and **master** Default branch for manual and scheduled builds. Then select **Continue**.
+For the source, select **Azure Repos Git**. For **Team project**, select **VotingSample**. For **Repository**, select **VotingApplication**. Leave the default branch for manual and scheduled builds. Then select **Continue**.
 
 :::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-repo.png" alt-text="Screenshot that shows selecting the repository in Azure DevOps.":::
 
@@ -96,7 +96,7 @@ In **Select a template**, select the **Azure Service Fabric application** templa
 
 :::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-build-template.png" alt-text="Screenshot that shows selecting and building a template.":::
 
- In **Tasks**, for **Agent pool**, enter **Azure Pipelines**. For **Agent Specification**, enter **windows-2022**.
+In **Tasks**, for **Agent pool**, enter **Azure Pipelines**. For **Agent Specification**, enter **windows-2022**.
 
 :::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/save-and-queue.png" alt-text="Screenshot that shows selecting tasks.":::
 
@@ -144,7 +144,7 @@ As you write your code, Visual Studio keeps track of the file changes to your pr
 
 On **Changes**, enter a message to describe your update, and then commit your changes.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/changes-latest.png" alt-text="Screenshot that shows the committing the latest changes..":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/changes-latest.png" alt-text="Screenshot that shows the committing the latest changes.":::
 
 On **Git Changes**, select **Push** (the up arrow) to update your code in Azure Pipelines.
 
@@ -156,7 +156,7 @@ When the build finishes, a release is automatically created and starts upgrading
 
 Verify that the deployment succeeded and that the application is running in the cluster. Open a web browser and go to `https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`. Note the application version. In this example, it's `1.0.0.20170815.3`.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png" alt-text="Screenshot of the Voting app in Service Fabric Explorer running in a browser, with the app version highlighted..":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png" alt-text="Screenshot of the Voting app in Service Fabric Explorer running in a browser, with the app version highlighted.":::
 
 ## Update the application
 
@@ -164,7 +164,7 @@ Make code changes in the application. Save and commit the changes.
 
 When the application upgrade begins, you can track the upgrade progress in Service Fabric Explorer:
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png" alt-text="Screenshot of the Voting app in Service Fabric Explorer running in a browser, with the status message "Upgrading" and the "Upgrade in Progress" message highlighted..":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png" alt-text="Screenshot of the Voting app in Service Fabric Explorer running in a browser, with the status message "Upgrading" and the "Upgrade in Progress" message highlighted.":::
 
 The application upgrade might take several minutes. When the upgrade is finished, the application is running the next version. In this example, it's running version `1.0.0.20170815.4`.
 
@@ -175,24 +175,3 @@ The application upgrade might take several minutes. When the upgrade is finished
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
-
-<!-- Image References 
-[publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
-[push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/publish-app-profile.png
-[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/new-pipeline.png
-[classic-editor]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/classic-editor.png
-./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-repo.png
-[select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-build-template.png
-[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/save-and-queue.png
-[save-and-queue-2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/save-and-queue-2.png
-[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-release-template.png
-[add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/add-cluster-connection.png
-[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/add-artifact.png
-[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/enable-trigger.png
-./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
-./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
-./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
-./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/changes-latest.png
-./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/push-latest.png
-
--->
