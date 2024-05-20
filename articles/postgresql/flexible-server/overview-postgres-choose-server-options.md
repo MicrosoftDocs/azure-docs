@@ -1,13 +1,15 @@
 ---
 title: Choose hosting type
 description: Provides guidelines for choosing the right Azure Database for PostgreSQL - Flexible Server hosting option for your deployments.
+author: varun-dhawan
+ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-author: varun-dhawan
-ms.author: varundhawan
-ms.custom: mvc
-ms.date: 02/03/2024
+ms.custom:
+  - mvc
 ---
 
 # Choose the right Azure Database for PostgreSQL - Flexible Server hosting option in Azure

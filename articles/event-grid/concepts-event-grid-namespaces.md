@@ -1,7 +1,7 @@
 ---
 ms.date: 11/15/2023
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 title: Concepts for Event Grid namespace topics
 description: General concepts of Event Grid namespace topics and their main functionality such as pull and push delivery.
 ms.topic: conceptual

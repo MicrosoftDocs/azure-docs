@@ -135,7 +135,7 @@ By navigating to Monitoring under the Overview section, or navigate to [IO count
 
 ## Next steps
 - Learn more about [service limitations](./concepts-limitations.md).
-- Learn more about [Pricing](./concepts-service-tiers-storage.md#pricing) information.
+- Learn more about [Pricing](./concepts-service-tiers-storage.md#price) information.
 
 
 

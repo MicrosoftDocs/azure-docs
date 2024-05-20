@@ -1,14 +1,14 @@
 ---
 title: Target-based scaling in Azure Functions
 description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 01/16/2024
+ms.date: 05/05/2024
 ms.topic: conceptual
 ms.service: azure-functions
 ---
 
 # Target-based scaling
 
-Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for the following extensions:
+Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for these binding extensions:
 
 - [Apache Kafka](#apache-kafka)
 - [Azure Cosmos DB](#azure-cosmos-db)
@@ -26,10 +26,10 @@ The default _target executions per instance_ values come from the SDKs used by t
 
 The following considerations apply when using target-based scaling:
 
-+ Target-based scaling is enabled by default for function apps on the Consumption plan or for Premium plans, but you can [opt-out](#opting-out). Event-driven scaling isn't supported when running on Dedicated (App Service) plans. 
-+ Target Based Scaling is enabled by default on function app runtime 4.19.0 or a later version.
-+ When using target-based scaling, the `functionAppScaleLimit` site setting is still honored. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
-+ To achieve the most accurate scaling based on metrics, use only one target-based triggered function per function app.
++ Target-based scaling is enabled by default for function apps on the [Consumption plan](./consumption-plan.md), [Flex Consumption plan](./flex-consumption-plan.md), and [Elastic Premium plans](./functions-premium-plan.md). Event-driven scaling isn't supported when running on [Dedicated (App Service) plans](./dedicated-plan.md). 
++ Target-based scaling is enabled by default starting with version 4.19.0 of the Functions runtime.
++ When you use target-based scaling, scale limits are still honored. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
++ To achieve the most accurate scaling based on metrics, use only one target-based triggered function per function app. You should also consider running in a Flex Consumption plan, which offers [per-function scaling](./flex-consumption-plan.md#per-function-scaling).
 + When multiple functions in the same function app are all requesting to scale out at the same time, a sum across those functions is used to determine the change in desired instances. Functions requesting to scale out override functions requesting to scale in.
 + When there are scale-in requests without any scale-out requests, the max scale in value is used. 
 
@@ -339,7 +339,7 @@ Java example pending.
 
 #### [Python](#tab/python)
 
-For Functions languages that use `function.json`, the `MaxItemsPerInvocation` parameter is defined in the specific binding, as in this Azure Cosmos DB trigger example
+For Functions languages that use `function.json`, the `MaxItemsPerInvocation` parameter is defined in the specific binding, as in this Azure Cosmos DB trigger example:
 
 ```json
 {

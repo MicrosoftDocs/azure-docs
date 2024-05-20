@@ -55,7 +55,7 @@ Azure AI Search is well suited for the following application scenarios:
 
 + Use it for traditional full text search and next-generation vector similarity search. Back your generative AI apps with information retrieval that leverages the strength of keyword and similarity search. Use both modalities to retrieve the most relevant results.
 
-+ Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. You own and control what's searchable.
++ Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. You maintain ownership and control over what's searchable.
 
 + [Integrate data chunking and vectorization](vector-search-integrated-vectorization.md) for generative AI and RAG apps.
 
@@ -109,18 +109,10 @@ Customers often ask how Azure AI Search compares with other search-related solut
 
 Key strengths include:
 
-+ Store, index, and search vector embeddings for sentences, images, graphs, and more. 
-+ Find information that’s semantically similar to search queries, even if the search terms aren’t exact matches. 
-+ Use hybrid search for the best of keyword and vector search.
-+ Relevance tuning through semantic ranking and scoring profiles.
-+ Data integration (crawlers) at the indexing layer.
++ Support for vector and nonvector (text) indexing and queries. With vector similarity search, you can find information that’s semantically similar to search queries, even if the search terms aren’t exact matches. Use hybrid search for the best of keyword and vector search.
++ Ranking and relevance tuning through semantic ranking and scoring profiles. Query syntax supports term boosting and field prioritization.
++ Azure data integration (crawlers) at the indexing layer.
 + Azure AI integration for transformations that make content text and vector searchable.
 + Microsoft Entra security for trusted connections, and Azure Private Link for private connections in no-internet scenarios.
 + [Full search experience](search-features-list.md): Linguistic and custom text analysis in 56 languages. Faceting, autocomplete queries and suggested results, and synonyms.
 + Azure scale, reliability, and global reach.
-
-<!-- ## Watch this video
-
-In this 15-minute video, review the main capabilities of Azure AI Search.
-
->[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3] -->

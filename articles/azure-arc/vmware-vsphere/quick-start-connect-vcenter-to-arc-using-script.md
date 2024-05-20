@@ -93,15 +93,17 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 11. Provide a name for your vCenter Server instance in Azure. For example: **contoso-nyc-vcenter**.
 
-12. Select **Next: Download and run script**.
+12. You may choose to **Enable Kubernetes Service on VMware [Preview]**. If you choose to do so, please ensure you update the namespace of your custom location to "default" in the onboarding script: $customLocationNamespace = ("default".ToLower() -replace '[^a-z0-9-]', ''). For more details about this update, refer to the [known issues from AKS on VMware (preview)](/azure/aks/hybrid/aks-vmware-known-issues)
 
-13. If your subscription isn't registered with all the required resource providers, a **Register** button will appear. Select the button before you proceed to the next step.
+13. Select **Next: Download and run script**.
+
+14. If your subscription isn't registered with all the required resource providers, a **Register** button will appear. Select the button before you proceed to the next step.
 
     :::image type="content" source="media/quick-start-connect-vcenter-to-arc-using-script/register-arc-vmware-providers.png" alt-text="Screenshot that shows the button to register required resource providers during vCenter onboarding to Azure Arc.":::
 
-14. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the [workstation](#prerequisites).
+15. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the [workstation](#prerequisites).
 
-15. If you want to see the status of your onboarding after you run the script on your workstation, select **Next: Verification**. Closing this page won't affect the onboarding.
+16. If you want to see the status of your onboarding after you run the script on your workstation, select **Next: Verification**. Closing this page won't affect the onboarding.
 
 ## Run the script
 

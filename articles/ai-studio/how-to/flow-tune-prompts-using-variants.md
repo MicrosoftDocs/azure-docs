@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 2/24/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: lagayhar
 author: lgayhardt
@@ -15,7 +15,7 @@ author: lgayhardt
 
 # Tune prompts using variants in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 In this article, you learn how to use variants to tune prompts and evaluate the performance of different variants.
 

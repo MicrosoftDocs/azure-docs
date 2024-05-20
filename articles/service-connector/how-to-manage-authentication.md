@@ -33,8 +33,9 @@ Select one of the four different authentication options offered by Service Conne
 
 Service Connector offers the following authentication options:
 
-| Target resource                               | System assigned managed identity | User assigned managed identity | Connection string | Service principal |
+| Target resource                               | System assigned managed identity | User assigned managed identity (Workload identity) | Connection string | Service principal |
 |-----------------------------------------------|----------------------------------|--------------------------------|-------------------|-------------------|
+| Azure AI services                             | Yes                              | Yes                            | Yes               | Yes               |
 | Azure App Configuration                       | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Blob Storage                            | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Cache for Redis                         | No                               | No                             | Yes               | No                |

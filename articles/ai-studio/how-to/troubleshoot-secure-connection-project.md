@@ -5,7 +5,7 @@ description: 'Learn how to troubleshoot connectivity problems to a project that 
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 5/21/2024
 ms.reviewer: meerakurup
 ms.author: larryfr 
 author: Blackmist 
@@ -13,7 +13,8 @@ author: Blackmist
 
 # Troubleshoot connection to a project with a private endpoint
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+
 When connecting to a project that has been configured with a private endpoint, you may encounter a 403 or a messaging saying that access is forbidden. Use the information in this article to check for common configuration problems that can cause this error.
 
 ## Securely connect to your project

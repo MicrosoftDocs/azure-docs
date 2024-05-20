@@ -8,7 +8,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 02/08/2024
+ms.date: 05/13/2024
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -136,8 +136,8 @@ The Azure services that support each encryption model:
 | Product, Feature, or Service | Server-Side Using Service-Managed Key   | Server-Side Using Customer-Managed Key | Client-Side Using Client-Managed Key  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **AI and Machine Learning**      |                    |                    |                    |
-| Azure AI Search           | Yes                | Yes                | -                  |
-| Azure AI services         | Yes                | Yes, including Managed HSM | -                  |
+| Azure AI Search                  | Yes                | Yes                | -                  |
+| Azure AI services                | Yes                | Yes, including Managed HSM | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
 | Content Moderator                | Yes                | Yes, including Managed HSM | -                  |
 | Face                             | Yes                | Yes, including Managed HSM | -                  |
@@ -147,7 +147,9 @@ The Azure services that support each encryption model:
 | QnA Maker                        | Yes                | Yes, including Managed HSM | -                  |
 | Speech Services                  | Yes                | Yes, including Managed HSM | -                  |
 | Translator Text                  | Yes                | Yes, including Managed HSM | -                  |
-| Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
+| [Power Platform](https://www.microsoft.com/power-platform) | Yes                | Yes, including Managed HSM | -                  |
+| [Dataverse](https://www.microsoft.com/power-platform/dataverse) | Yes                | Yes, including Managed HSM | -                  |
+| [Dynamics 365](https://www.microsoft.com/dynamics-365) | Yes                | Yes, including Managed HSM | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Event Hubs                       | Yes                | Yes                | -                  |
@@ -191,8 +193,8 @@ The Azure services that support each encryption model:
 | Azure Databricks                 | Yes                | Yes, including Managed HSM                | -                  |
 | Azure Database Migration Service | Yes                | N/A\*              | -                  |
 | **Identity**                     |                    |                    |                    |
-| Microsoft Entra ID           | Yes                | -                  | -                  |
-| Microsoft Entra Domain Services | Yes          | Yes                | -                  |
+| Microsoft Entra ID               | Yes                | -                  | -                  |
+| Microsoft Entra Domain Services  | Yes                | Yes                | -                  |
 | **Integration**                  |                    |                    |                    |
 | Service Bus                      | Yes                | Yes                | -                |
 | Event Grid                       | Yes                | -                  | -                  |
@@ -207,7 +209,7 @@ The Azure services that support each encryption model:
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | Yes                | Yes                |
 | **Security**                     |                    |                    |                    |
-| Microsoft Defender for IoT    | Yes                | Yes                | -                  |
+| Microsoft Defender for IoT       | Yes                | Yes                | -                  |
 | Microsoft Sentinel               | Yes                | Yes, including Managed HSM | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes, including Managed HSM | Yes                |
@@ -229,7 +231,7 @@ The Azure services that support each encryption model:
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |
 | **Other**                        |                    |                    |                    |
-| Azure Data Manager for Energy Preview  | Yes                | -                  | Yes                |
+| Azure Data Manager for Energy    | Yes                | Yes                | Yes                |
 
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 

@@ -10,9 +10,7 @@ ms.date: 2/7/2024
 ms.author: eur
 ---
 
-# Create a project for personal voice (preview)
-
-[!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
+# Create a project for personal voice
 
 Personal voice projects contain the user consent statement and the personal voice ID. You can only create a personal voice project using the custom voice API. You can't create a personal voice project in the Speech Studio.
 

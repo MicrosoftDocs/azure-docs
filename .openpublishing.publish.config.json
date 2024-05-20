@@ -873,6 +873,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "blob-devguide-go",
+      "url": "https://github.com/Azure-Samples/blob-storage-devguide-go",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
@@ -996,6 +1002,12 @@
       "path_to_root": "functions-sql-todo-sample",
       "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
       "branch": "docs-snippets",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-openai-extension",
+      "url": "https://github.com/Azure/azure-functions-openai-extension",
+      "branch": "main",
       "branch_mapping": {}
     },
     {

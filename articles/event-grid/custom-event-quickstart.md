@@ -25,7 +25,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named *gridResourceGroup* in the *westus2* location. If you select **Try it**, you'll see the Azure Cloud Shell window in the right pane. Then, select **Copy** to copy the command and paste it in the Azure Cloud Shell window, and press ENTER to run the command. Change the name of the resource group and the location if you like. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named *gridResourceGroup* in the *westus2* location. If you select **Try it**, you see the Azure Cloud Shell window in the right pane. Then, select **Copy** to copy the command and paste it in the Azure Cloud Shell window, and press ENTER to run the command. Change the name of the resource group and the location if you like. 
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2

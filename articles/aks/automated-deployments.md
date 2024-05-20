@@ -1,5 +1,5 @@
 ---
-title: Automated deployments for Azure Kubernetes Service (Preview)
+title: Automated deployments for Azure Kubernetes Service
 description: Learn how to use automated deployments to simplify the process of adding GitHub Actions to your Azure Kubernetes Service (AKS) project
 ms.author: qpetraroia
 ms.topic: tutorial
@@ -9,11 +9,9 @@ ms.subservice: aks-developer
 author: qpetraroia
 ---
 
-# Automated Deployments for Azure Kubernetes Service (Preview)
+# Automated Deployments for Azure Kubernetes Service
 
 Automated deployments simplify the process of setting up a GitHub Action and creating an automated pipeline for your code releases to your Azure Kubernetes Service (AKS) cluster. Once connected, every new commit will kick off the pipeline, resulting in your application being updated.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE]
 > Private clusters are currently not supported.
@@ -29,7 +27,7 @@ Automated deployments simplify the process of setting up a GitHub Action and cre
 
 In the Azure portal, navigate to the resource group containing the AKS cluster you want to deploy the application to.
 
-Select your AKS cluster, and then select **Automated deployments (preview)** on the left blade. Upon selecting **Create**, you'll be presented with two options. If you have an application that isn't yet containerized, you can select **Automatically containerize and deploy**  to allow Azure to take care of the process for you. If you already have a containerized application, select **Deploy an application**.
+Select your AKS cluster, and then select **Automated deployments** on the left blade. Upon selecting **Create**, you'll be presented with two options. If you have an application that isn't yet containerized, you can select **Automatically containerize and deploy**  to allow Azure to take care of the process for you. If you already have a containerized application, select **Deploy an application**.
 
 :::image type="content" source="media/automated-deployments/create-inline.png" alt-text="The automated deployments screen in the Azure portal. 'Create' has been selected, showing the options for already containerized applications and applications that aren't yet containerized."  lightbox="media/automated-deployments/create.png":::
 
@@ -89,4 +87,3 @@ Learn more about [GitHub Actions for Kubernetes][kubernetes-action].
 
 <!-- LINKS -->
 [kubernetes-action]: kubernetes-action.md
-

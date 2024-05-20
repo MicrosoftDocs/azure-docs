@@ -80,8 +80,10 @@
       href: flexible-server/concepts-servers.md
     - name: Supported versions
       href: flexible-server/concepts-supported-versions.md
-    - name: Compute and storage
-      href: flexible-server/concepts-compute-storage.md
+    - name: Compute  
+      href: flexible-server/concepts-compute.md
+    - name: Storage
+      href: flexible-server/concepts-storage.md
     - name: Scaling resources
       href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity
@@ -167,6 +169,8 @@
           href: flexible-server/concepts-query-store-best-practices.md
         - name: Query Performance Insight
           href: flexible-server/concepts-query-performance-insight.md
+        - name: Index tuning (preview)
+          href: flexible-server/concepts-index-tuning.md
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Read replicas
@@ -390,6 +394,12 @@
         href: flexible-server/how-to-configure-and-access-logs.md
     - name: Intelligent performance
       items:
+        - name: Index tuning
+          items:
+          - name: Configure index tuning
+            href: flexible-server/how-to-configure-index-tuning.md
+          - name: Use index recommendations
+            href: flexible-server/how-to-get-and-apply-recommendations-from-index-tuning.md
         - name: Intelligent tuning
           items:
           - name: Azure portal
@@ -403,6 +413,8 @@
         displayName: replica
   - name: Extensions
     items:
+    - name: Create embeddings with azure_local_ai (preview)
+      href: ./flexible-server/generative-ai-azure-local-ai.md
     - name: Overview
       href: flexible-server/concepts-extensions.md
     - name: Azure AI (azure_ai)
@@ -414,7 +426,13 @@
       - name: Azure Cognitive Services
         href: flexible-server/generative-ai-azure-cognitive.md
       - name: Azure Machine Learning Services
-        href: flexible-server/generative-ai-azure-machine-learning.md        
+        href: flexible-server/generative-ai-azure-machine-learning.md
+    - name: In-database Embeddings (azure_local_ai)
+      items:
+      - name: Overview  
+        href: flexible-server/azure-local-ai.md
+      - name: Create embeddings with azure_local_ai
+        href: flexible-server/generative-ai-azure-local-ai.md
     - name: Azure Storage (pg_azure_storage)
       href: flexible-server/reference-pg-azure-storage.md
     - name: Vector similarity search (pgvector)
@@ -456,6 +474,10 @@
     items:
     - name: Network setup
       href: migrate/migration-service/how-to-network-setup-migration-service.md
+  - name: Troubleshoot
+    items:
+    - name: Premigration error codes
+      href: migrate/migration-service/troubleshoot-error-codes-premigration.md
 - name: Migrate data with pg_dump
   href: migrate/how-to-migrate-using-dump-and-restore.md
 - name: Minimal-downtime migration with DMS

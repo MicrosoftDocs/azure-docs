@@ -379,7 +379,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
     # [Bash](#tab/bash)
 
     ```bash
-        az containerapp service kafka create \
+        az containerapp add-on kafka create \
         --name "$KAFKA_SVC" \
         --resource-group "$RESOURCE_GROUP" \
         --environment "$ENVIRONMENT"

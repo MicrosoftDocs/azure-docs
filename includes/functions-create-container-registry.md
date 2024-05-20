@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/24/2023
+ms.date: 05/10/2024
 ms.author: glenga
 ---
 
@@ -17,7 +17,7 @@ Core Tools automatically generates a Dockerfile for your project that uses the m
 Before you begin, you must have the following requirements in place:
 
 ::: zone pivot="programming-language-csharp"
-+ Install the [.NET 6 SDK](https://dotnet.microsoft.com/download).
++ Install the [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
 
 + Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.0.5198, or a later version.
 ::: zone-end  

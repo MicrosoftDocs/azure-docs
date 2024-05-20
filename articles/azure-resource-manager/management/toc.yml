@@ -26,6 +26,8 @@
       href: tls-support.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
+    - name: Service tag
+      href: service-tags.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

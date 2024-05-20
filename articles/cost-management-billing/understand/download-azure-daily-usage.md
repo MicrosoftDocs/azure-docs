@@ -112,7 +112,7 @@ Then use the [az costmanagement export](/cli/azure/costmanagement/export) comman
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about your invoice and usage charges, see:
 

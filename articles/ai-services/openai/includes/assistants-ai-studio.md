@@ -11,7 +11,7 @@ ms.author: mbullwin
 author: mrbullwinkle
 ---
 
-[!INCLUDE [Azure AI Studio preview](../../../ai-studio/includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../../../ai-studio/includes/feature-preview.md)]
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ author: mrbullwinkle
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Go to your project or [create a new project](../../../ai-studio//how-to/create-projects.md) in Azure AI Studio.
-1. From the Azure AI Studio Home page, select **Build** > **Playground**.
+1. From your project overview, select **Assistants**, located under **Project playground**.
 
     The Assistants playground allows you to explore, prototype, and test AI Assistants without needing to run any code. From this page, you can quickly iterate and experiment with new ideas.
     
@@ -41,20 +41,17 @@ author: mrbullwinkle
     | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
     | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. Not used in this quickstart. |
     
-    
-1. Select your deployment from the **Deployments** dropdown.
-1. Select **Assistants** from the **Mode** dropdown menu.
-    
     :::image type="content" source="../media/quickstarts/assistants-ai-studio-playground.png" alt-text="Screenshot of the Assistant configuration screen without all the values filled in." lightbox="../media/quickstarts/assistants-ai-studio-playground.png":::
 
 ## Create your first Assistant
 
+1. Select your deployment from the **Deployments** dropdown.
 1. From the Assistant setup drop-down, select **New**.
-2. Give your Assistant a name.
-3. Enter the following instructions "You are an AI assistant that can write code to help answer math questions"
-4. Select a model deployment. We recommend testing with one of the latest gpt-4 models.
-5. Select the toggle enabling code interpreter.
-6. Select Save.
+1. Give your Assistant a name.
+1. Enter the following instructions "You are an AI assistant that can write code to help answer math questions"
+1. Select a model deployment. We recommend testing with one of the latest gpt-4 models.
+1. Select the toggle enabling code interpreter.
+1. Select Save.
 
     :::image type="content" source="../media/quickstarts/assistant-configuration.png" alt-text="Screenshot of the assistant with configuration details entered." lightbox="../media/quickstarts/assistant-configuration.png":::
 

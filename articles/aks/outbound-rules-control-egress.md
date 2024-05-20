@@ -227,6 +227,15 @@ There are two options to provide access to Azure Monitor for containers:
 | **`data.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
 
+### AKS cost analysis add-on
+
+#### Required FQDN / application rules
+
+| FQDN                                                       | Port      | Use      |
+|------------------------------------------------------------|-----------|----------|
+| **`management.azure.com`** <br/> **`management.usgovcloudapi.net`** (Azure Government) <br/> **`management.chinacloudapi.cn`** (Azure operated by 21Vianet)| **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
+| **`login.microsoftonline.com`** <br/> **`login.microsoftonline.us`** (Azure Government) <br/> **`login.microsoftonline.cn`** (Azure operated by 21Vianet) | **`HTTPS:443`** | Required for Microsoft Entra ID authentication. |
+
 ## Cluster extensions
 
 ### Required FQDN / application rules

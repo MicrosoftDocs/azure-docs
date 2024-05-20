@@ -64,6 +64,7 @@ az account set --subscription <subscription id>
 - If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with Azure Database for MySQL Import CLI input parameters or post migration as well.
 - If the Single Server instance has 'Query Store' enabled, enabling slow query logs on target Flexible Server instance is recommended to support similar functionality. You can configure slow query logs on the target flexible server by following steps [here](/azure/mysql/flexible-server/tutorial-query-performance-insights#configure-slow-query-logs-by-using-the-azure-portal). You can then view query insights by using [workbooks template](/azure/mysql/flexible-server/tutorial-query-performance-insights#view-query-insights-by-using-workbooks).
 - If your Single Server instance has Legacy Storage architecture (General Purpose storage V1), you need to set the parameter log_bin=ON for your Single Server instance before initiating the import operation. In order to do so, create a read replica for your Single Server instance and then delete it. This operation will set the parameter log_bin to ON and you can then trigger an import operation to migrate to Flexible Server.
+- If your Single Server instance has Advanced Threat Protection enabled, you need to enable Advanced Threat Protection on the migrated Flexible Server instance post migration by following steps [here] (/azure/mysql/flexible-server/advanced-threat-protection-setting?view=azure-cli-latest).
 - If your Single Server instance has engine version v8.0, consider performing the following actions to avoid any breaking changes due to community minor version differences between the Single and Flexible Server instance :
 
   - Run the following statement to check if your instance could be impacted by erroneous histogram information. If the corresponding tables are output, we recommend that you refer to [https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/](https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/) to delete the histogram information, and then recreate it on the Flexible Server. It's worth noting that the histogram inf` is only statistical information about the columns, and this information only exists in system tables, so deleting the histogram info will not affect the table data.
@@ -238,7 +239,7 @@ CALL mysql.az_show_binlog_file_and_pos_for_mysql_import();
 
 ## How long does Azure Database for MySQL Import take to migrate my Single Server instance?
 
-Below is the benchmarked performance based on storage size.
+Below is the benchmarked performance based on storage size for General Purpose V2 storage architecture. (Servers with General purpose V1 storage will take longer time to migrate as it involves upgrading the storage architecture as well)
 
   | Single Server Storage Size | Import time |
   | ------------- |:-------------:|

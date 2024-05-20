@@ -1,8 +1,8 @@
 ---
 title: Event Grid on Kubernetes with Azure Arc legal terms and third-party notices
 description: This article provides information legal terms and third-party notices associated with Event Grid on Kubernetes.  
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: article

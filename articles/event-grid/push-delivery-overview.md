@@ -1,7 +1,7 @@
 ---
 ms.date: 11/15/2023
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 title: Introduction to push delivery
 description: Learn about Event Grid's http push delivery and the resources that support them.
 ms.topic: conceptual

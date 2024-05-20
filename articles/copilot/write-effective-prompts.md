@@ -1,6 +1,6 @@
 ---
-title: Write effective prompts for Microsoft Copilot for Azure (preview)
-description: Maximize productivity and intent understanding with prompt engineering in Microsoft Copilot for Azure (preview).
+title: Write effective prompts for Microsoft Copilot for Azure
+description: Maximize productivity and intent understanding with prompt engineering in Microsoft Copilot for Azure.
 ms.date: 04/16/2024
 ms.topic: how-to
 ms.service: copilot-for-azure
@@ -8,11 +8,11 @@ ms.author: jenhayes
 author: JnHs
 ---
 
-# Write effective prompts for Microsoft Copilot for Azure (preview)
+# Write effective prompts for Microsoft Copilot for Azure
 
 Prompt engineering is the process of designing prompts that elicit the best and most accurate responses from large language models (LLMs) like Microsoft Copilot for Azure (preview). As these models become more sophisticated, understanding how to create effective prompts becomes even more essential.
 
-This article explains how to use prompt engineering to create effective prompts for Microsoft Copilot for Azure (preview).
+This article explains how to use prompt engineering to create effective prompts for Microsoft Copilot for Azure.
 
 [!INCLUDE [preview-note](includes/preview-note.md)]
 
@@ -64,16 +64,15 @@ When asking for on-demand code generation, specify known parameters, resource na
 
 ### Use Azure terminology
 
-When possible, use Azure-specific terms for resources, services, and tasks. Copilot may not grasp your intent if it doesn't know which parts of Azure you're referring to. If you aren't sure about which term to use, you can ask Copilot for general information about your scenario, then use the terms it provides in your prompt.
+When possible, use Azure-specific terms for resources, services, and tasks. Copilot for Azure may not grasp your intent if it doesn't know which parts of Azure you're referring to. If you aren't sure about which term to use, you can ask Copilot for Azure about general information about your scenario, then use the terms it provides in your prompt.
 
 ### Use the feedback loop
 
-If you don't get the response you were looking for, try again, using the previous response to help refine your prompts. For example, you can ask Microsoft Copilot for Azure to tell you more about a previous response or to explain more about one aspect. For generated code, you can ask to change one aspect or add another step. Don't be afraid to experiment to see what works best.
+If you don't get the response you were looking for, try again, using the previous response to help refine your prompts. For example, you can ask Copilot for Azure to tell you more about a previous response or to explain more about one aspect. For generated code, you can ask to change one aspect or add another step. Don't be afraid to experiment to see what works best.
 
-To leave feedback on any response that Microsoft Copilot for Azure provides, use the thumbs up/down control. This feedback helps us understand your expectations so that we can improve the Microsoft Copilot for Azure experience over time.
+To leave feedback on any response that Microsoft Copilot for Azure provides, use the thumbs up/down control. This feedback helps us understand your expectations so that we can improve the Copilot for Azure experience over time.
 
 ## Next steps
 
 - Learn about [some of the things you can do with Microsoft Copilot for Azure](capabilities.md).
 - Review our [Responsible AI FAQ for Microsoft Copilot for Azure](responsible-ai-faq.md).
-- [Request access](https://aka.ms/MSCopilotforAzurePreview) to Microsoft Copilot for Azure (preview).

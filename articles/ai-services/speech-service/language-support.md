@@ -96,7 +96,7 @@ Note that the following neural voices are retired.
 
 - The English (United Kingdom) voice `en-GB-MiaNeural` is retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. All requests with previous versions won't succeed starting from October 30, 2021.
 - The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria."
-- The Chinese (Mandarin, Simplified) voice `zh-CN-XiaoxuanNeural` is retired on Feburary 29, 2024. All service requests to `zh-CN-XiaoxuanNeural` will be redirected to `zh-CN-XiaoyiNeural` automatically as of Feburary 29, 2024. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. All requests with previous versions won't succeed starting from Feburary 29, 2024.
+- The Chinese (Mandarin, Simplified) voice `zh-CN-XiaoxuanNeural` is retired on February 29, 2024. All service requests to `zh-CN-XiaoxuanNeural` will be redirected to `zh-CN-XiaoyiNeural` automatically as of February 29, 2024. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. All requests with previous versions won't succeed starting from February 29, 2024.
 
 ### Custom neural voice
 
@@ -118,11 +118,13 @@ With the cross-lingual feature, you can transfer your custom neural voice model 
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the 30 locales supported for pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). Latest update extends support from English to 29 more languages and quality enhancements to existing features, including accuracy, fluency and miscue assessment. You should specify the language that you're learning or practicing improving pronunciation. The default language is set as `en-US`. If you know your target learning language, [set the locale](how-to-pronunciation-assessment.md#get-pronunciation-assessment-results) accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario. 
+The table in this section summarizes the 31 locales supported for pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). Latest update extends support from English to 30 more languages and quality enhancements to existing features, including accuracy, fluency and miscue assessment. You should specify the language that you're learning or practicing improving pronunciation. The default language is set as `en-US`. If you know your target learning language, [set the locale](how-to-pronunciation-assessment.md#get-pronunciation-assessment-results) accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario. If you're interested in languages not listed in the following table, fill out this [intake form](https://aka.ms/speechpa/intake) for further assistance.
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 
 # [Speech translation](#tab/speech-translation)
+
+### Real-time speech translation
 
 The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech to speech and speech to text translation. The available target languages depend on whether the translation target is speech or text. 
 

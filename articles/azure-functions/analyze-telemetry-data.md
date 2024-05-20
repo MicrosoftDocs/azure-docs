@@ -84,7 +84,7 @@ The tables that are available are shown in the **Schema** tab on the left. You c
 
 | Table | Description |
 | ----- | ----------- |
-| **traces** | Logs created by the runtime, scale controller, and traces from your function code. |
+| **traces** | Logs created by the runtime, scale controller, and traces from your function code. For Flex Consumption plan hosting, `traces` also includes logs created during code deployment. |
 | **requests** | One request for each function invocation. |
 | **exceptions** | Any exceptions thrown by the runtime. |
 | **customMetrics** | The count of successful and failing invocations, success rate, and duration. |
@@ -155,6 +155,19 @@ traces
 | extend Reason = CustomDimensions.Reason
 | extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
 | extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
+
+## Query Flex Consumption code deployment logs
+
+[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
+
+The following query can be used to search for all code deployment logs for the current function app within the specified time period:
+
+```kusto
+traces
+| extend deploymentId = customDimensions.deploymentId
+| where deploymentId != ''
+| project timestamp, deploymentId, message, severityLevel, customDimensions, appName
 ```
 
 ## Consumption plan-specific metrics
