@@ -31,7 +31,7 @@ Azure's diagnostic logs are essential to capture Azure resource logs for an Azur
 
 ## Create diagnostic settings
 
-Platform metrics and activity logs are gathered automatically. To collect resource logs and route them externally from Azure Monitor, you must establish a diagnostic setting. To learn how, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
+Platform metrics and activity logs are gathered automatically. To collect resource logs and route them externally from Azure Monitor, you must establish a diagnostic setting. To learn how, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings?tabs=cli).
 
 ## Manage diagnostic settings
 
