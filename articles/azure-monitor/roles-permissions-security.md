@@ -10,15 +10,13 @@ ms.reviewer: dalek
 
 # Roles, permissions, and security in Azure Monitor
 
-This article shows how to apply role-based access control (RBAC) monitoring roles to grant or limit access, and discusses security considerations for your Azure Monitor-related resources.
+This article shows how to apply [role-based access control (RBAC)](../role-based-access-control/overview.md) monitoring roles to grant or limit access, and discusses security considerations for your Azure Monitor-related resources.
 
 ## Built-in monitoring roles
 
-[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) provides built-in roles for monitoring that you can assign to users, groups, service principals, and managed identities. The most common roles are *Monitoring Reader* and *Monitoring Contributor* for read and write permissions, respectively.
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) provides built-in roles for monitoring that you can assign to users, groups, service principals, and managed identities. The most common roles are [*Monitoring Reader*](#monitoring-reader) and [*Monitoring Contributor*](#monitoring-contributor) for read and write permissions, respectively.
 
 For more detailed information on the monitoring roles, see [RBAC Monitoring Roles](../role-based-access-control/built-in-roles.md#monitor).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### Monitoring Reader
 
@@ -81,6 +79,8 @@ New-AzRoleDefinition -Role $role
 > Access to alerts, diagnostic settings, and metrics for a resource requires that the user has read access to the resource type and scope of that resource. Creating a diagnostic setting that sends data to a storage account or streams to event hubs requires the user to also have ListKeys permission on the target resource.
 
 ## Assign a role
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To assign a role, see [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
