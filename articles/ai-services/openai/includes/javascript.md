@@ -11,7 +11,7 @@ ms.author: mbullwin
 ms.date: 05/20/2024
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai/samples)
+[Source code](https://github.com/openai/openai-node) | [Package (npm)](https://www.npmjs.com/package/openai) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/openai-azure-samples/sdk/openai/openai/samples/v1-beta/javascript) 
 
 ## Prerequisites
 
