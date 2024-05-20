@@ -92,11 +92,13 @@ With this new capability, you can now efficiently monitor and rectify issues in 
 
 ### Use evaluators in the prompt flow SDK 
 
-Evaluators in the prompt flow SDK offer a streamlined, code-based experience for evaluating and improving your generative AI apps. You can now easily use built-in quality and safety evaluators or define custom evaluators tailored to assess generative AI systems for the specific metrics you value. Learn more 
+Evaluators in the prompt flow SDK offer a streamlined, code-based experience for evaluating and improving your generative AI apps. You can now easily use Microsoft curated quality and safety evaluators or define custom evaluators tailored to assess generative AI systems for the specific metrics you value. For more information about evaluators via the prompt flow SDK, see [Evaluate with the prompt flow SDK](./how-to/develop/flow-evaluate-sdk.md).
+
+Microsoft curated evaluators are also available in the AI Studio evaluator library, where you can view and manage them. However, custom evaluators are currently only available in the prompt flow SDK. For more information about evaluators in AI Studio, see [How to evaluate generative AI apps with Azure AI Studio](./how-to/evaluate-generative-ai-app.md#view-and-manage-the-evaluators-in-the-evaluator-library).
 
 ### Use Prompty for engineering and sharing prompts 
 
-Prompty is a new prompt template part of the prompt flow SDK that can be run standalone and integrated into your code. You can download a prompty from the AI Studio playground, continue iterating on it in your local development environment, and check it into your git repo to share and collaborate on prompts with others. The prompty format is supported in Semantic Kernel, C#, and LangChain as a community extension.  
+Prompty is a new prompt template part of the prompt flow SDK that can be run standalone and integrated into your code. You can download a Prompty from the AI Studio playground, continue iterating on it in your local development environment, and check it into your git repo to share and collaborate on prompts with others. The Prompty format is supported in Semantic Kernel, C#, and LangChain as a community extension.  
 
 ### Mistral Small
 
@@ -116,7 +118,7 @@ For more information about Phi-3, see the [blog announcement](https://techcommun
 
 ### Phi-3
 
-The Phi-3 family of models developed by Microsoft are available in the Azure AI model catalog. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across various language, reasoning, coding, and math benchmarks. This release expands the selection of high-quality models for customers, offering more practical choices as they compose and build generative AI applications.
+The Phi-3 family of models developed by Microsoft is available in the Azure AI model catalog. Phi-3 models are the most capable and cost-effective small language models (SLMs) available, outperforming models of the same size and next size up across various language, reasoning, coding, and math benchmarks. This release expands the selection of high-quality models for customers, offering more practical choices as they compose and build generative AI applications.
 
 - Phi-3-mini is available in two context-length variants—4K and 128K tokens. It's the first model in its class to support a context window of up to 128K tokens, with little effect on quality.
 - It's instruction-tuned, meaning that it's trained to follow different types of instructions reflecting how people normally communicate. This ensures the model is ready to use out-of-the-box.
