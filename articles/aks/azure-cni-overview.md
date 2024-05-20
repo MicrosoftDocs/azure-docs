@@ -23,21 +23,21 @@ With [Azure Container Networking Interface (CNI)][cni-networking], every pod get
 
 ## Prerequisites
 
-* The virtual network for the AKS cluster must allow outbound internet connectivity.
+- The virtual network for the AKS cluster must allow outbound internet connectivity.
 
-* AKS clusters can't use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range, or cluster virtual network address range.
+- AKS clusters can't use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range, or cluster virtual network address range.
 
-* The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
+- The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
 
-  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  - `Microsoft.Network/virtualNetworks/subnets/join/action`
 
-  * `Microsoft.Network/virtualNetworks/subnets/read`
+  - `Microsoft.Network/virtualNetworks/subnets/read`
 
-  * `Microsoft.Authorization/roleAssignments/write`
+  - `Microsoft.Authorization/roleAssignments/write`
 
-* The subnet assigned to the AKS node pool can't be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
+- The subnet assigned to the AKS node pool can't be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
 
-* AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic within the node CIDR range. For more information, see [Network security groups][aks-network-nsg].
+- AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic within the node CIDR range. For more information, see [Network security groups][aks-network-nsg].
 
 
 
@@ -53,10 +53,10 @@ When you create an AKS cluster, the following parameters are configurable for Az
 
 **Kubernetes service address range**: This parameter is the set of virtual IPs that Kubernetes assigns to internal [services][services] in your cluster. This range can't be updated after you create your cluster. You can use any private address range that satisfies the following requirements:
 
-* Must not be within the virtual network IP address range of your cluster
-* Must not overlap with any other virtual networks with which the cluster virtual network peers
-* Must not overlap with any on-premises IPs
-* Must not be within the ranges `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24`
+- Must not be within the virtual network IP address range of your cluster
+- Must not overlap with any other virtual networks with which the cluster virtual network peers
+- Must not overlap with any on-premises IPs
+- Must not be within the ranges `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24`
 
 Although it's technically possible to specify a service address range within the same virtual network as your cluster, doing so isn't recommended. Unpredictable behavior can result if overlapping IP ranges are used. For more information, see the [FAQ](#frequently-asked-questions) section of this article. For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
 
@@ -64,31 +64,31 @@ Although it's technically possible to specify a service address range within the
 
 ## Frequently asked questions
 
-* **Can I deploy VMs in my cluster subnet?**
+- **Can I deploy VMs in my cluster subnet?**
 
   Yes. But for [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], the VMs cannot be deployed in pod's subnet. 
 
-* **What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?**
+- **What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?**
 
   Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod.
   
   But for [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation], no matter the connection is inside the same virtual network or cross virtual networks, the pod IP is always the source address for any traffic from the pod. This is because the [Azure CNI for dynamic IP allocation][configure-azure-cni-dynamic-ip-allocation] implements [Microsoft Azure Container Networking][github-azure-container-networking] infrastructure, which gives end-to-end experience. Hence, it eliminates the use of [`ip-masq-agent`][ip-masq-agent], which is still used by traditional Azure CNI.  
 
-* **Can I configure per-pod network policies?**
+- **Can I configure per-pod network policies?**
 
   Yes, Kubernetes network policy is available in AKS. To get started, see [Secure traffic between pods by using network policies in AKS][network-policy].
 
-* **Is the maximum number of pods deployable to a node configurable?**
+- **Is the maximum number of pods deployable to a node configurable?**
 
   Yes, when you deploy a cluster with the Azure CLI or a Resource Manager template. See [Maximum pods per node][max-pods].
 
   You can't change the maximum number of pods per node on an existing cluster.
 
-* **How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.**
+- **How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.**
 
   The complete list of properties for the virtual network and subnets that you create during AKS cluster creation can be configured in the standard virtual network configuration page in the Azure portal.
 
-* **Can I use a different subnet within my cluster virtual network for the *Kubernetes service address range*?**
+- **Can I use a different subnet within my cluster virtual network for the *Kubernetes service address range*?**
 
   It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to internal services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. The lack of visibility into the cluster's service address range can lead to issues. It's possible to later create a new subnet in the cluster virtual network that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's virtual network, you can avoid this overlap risk.
 
@@ -99,11 +99,11 @@ Although it's technically possible to specify a service address range within the
 
 Learn more about networking in AKS in the following articles:
 
-* [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
+- [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
 
-* [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
+- [Use an internal load balancer with Azure Kubernetes Service (AKS)](internal-lb.md)
 
-* [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
+- [Use the application routing addon in Azure Kubernetes Service (AKS)](app-routing.md)
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
