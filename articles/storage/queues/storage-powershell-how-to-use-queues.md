@@ -20,7 +20,7 @@ Azure Queue Storage is a service for storing large numbers of messages that can 
 > - Create a queue
 > - Retrieve a queue
 > - Add a message
-> - Read a message
+> - Retrieve a message
 > - Delete a message
 > - Delete a queue
 
@@ -32,38 +32,43 @@ There are no PowerShell cmdlets for the data plane for queues. To perform data p
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions. If needed, you can specify a subscription by adding the `-TenantId` and `Subscription` parameters and including the respective values.
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions. If needed, you can specify a subscription by adding the `TenantId` and `Subscription` parameters, and including the respective values.
 
 ```powershell
 Connect-AzAccount
 ```
 
-## Retrieve list of locations
+## Retrieve a list of locations
 
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This exercise will use `eastus`. Store this in the variable `location` for future use.
+If you don't know which location you want to use, you can list the available locations using the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) cmdlet as shown in the example provided. After the list is displayed, choose a location and store it in the `location` variable for future use. The examples in this exercise use the `eastus` location.
 
 ```powershell
 Get-AzLocation | Select-Object Location
 $location = "eastus"
 ```
 
-## Create resource group
+## Create a resource group
 
-Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command.
+An Azure resource group is a logical container into which Azure resources are deployed and managed. Choose a name for your resource group and store it in the `resourceGroup` variable for future use. This example uses the name `howtoqueuesrg`.
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. Store the resource group name in a variable for future use. In this example, a resource group named `howtoqueuesrg` is created in the `eastus` region.
+Create a resource group by calling the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet and providing the name and location to the `ResourceGroupName` parameter as shown.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## Create storage account
+## Create a storage account
 
-Create a standard general-purpose storage account with locally redundant storage (LRS) using [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Get the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials.
+An Azure storage account is a uniquely named resource that contains all of your data objects as blobs, files, queues, and tables.
+
+Choose a name for your storage account and store it in the `storageAccountName` variable for future use. This example uses the name `howtoqueuestorage`.
+
+Next, create a standard general-purpose storage account with locally redundant storage (LRS) using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet. Finally, set the storage account context that defines the storage account, saving it to the `ctx` variable. Referencing the context with the variable allows you to perform operations against a storage account without repeatedly providing credentials.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
+
 $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
@@ -74,7 +79,7 @@ $ctx = $storageAccount.Context
 
 ## Create a queue
 
-The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/az.storage/new-azstoragequeue) cmdlet to create a queue named `howtoqueue`.
+First, choose a name for your storage account and store it in the `queueName` variable. This example uses the name `howtoqueuestorage`. Next, create a queue using the [New-AzStorageQueue](/powershell/module/az.storage/new-azstoragequeue) cmdlet and passing the `queueName` and `ctx` variables to the `Name` and `Context` parameters as shown.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -85,28 +90,28 @@ For information on naming conventions for Azure Queue Storage, see [Naming queue
 
 ## Retrieve a queue
 
-You can query and retrieve a specific queue or a list of all the queues in a storage account. The following examples demonstrate how to retrieve all queues in the storage account, and a specific queue; both commands use the [Get-AzStorageQueue](/powershell/module/az.storage/get-azstoragequeue) cmdlet.
+You can use the [Get-AzStorageQueue](/powershell/module/az.storage/get-azstoragequeue) cmdlet to retrieve a specific queue, or a list of all queues within a storage account. The following examples demonstrate how to retrieve all queues by using the `Get-AzStorageQueue` cmdlet, and how to specify a queue by using `Name` parameter.
 
 ```powershell
-# Retrieve a specific queue
-$queue = Get-AzStorageQueue -Name $queueName -Context $ctx
-# Show the properties of the queue
-$queue
-
 # Retrieve all queues and show their names
 Get-AzStorageQueue -Context $ctx | Select-Object Name
+
+# Retrieve a specific queue
+$queue = Get-AzStorageQueue -Name $queueName -Context $ctx
+
+# Show the properties of the queue
+$queue
 ```
 
 ## Add a message to a queue
 
-<!-->
-Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [`Microsoft.Azure.Storage.Queue.CloudQueueMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [`AddMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array.-->
+<!--Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [`Microsoft.Azure.Storage.Queue.CloudQueueMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [`AddMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array.-->
 
-Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient?view=azure-dotnet) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage?view=azure-dotnet#azure-storage-queues-queueclient-sendmessage%28system-string%29) or [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync?view=azure-dotnet#azure-storage-queues-queueclient-sendmessageasync%28system-string%29) method. 
+Operations that impact the messages in a queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient?view=azure-dotnet) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage?view=azure-dotnet#azure-storage-queues-queueclient-sendmessage%28system-string%29) or [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync?view=azure-dotnet#azure-storage-queues-queueclient-sendmessageasync%28system-string%29) method. 
 
-`Insert Send and SenfAsync differentiator here.`
+`Insert Send and SendAsync differentiator here.`
 
-Your message string must be in UTF-8 format. Non-compliant messages can also be passed by setting the [`MessageEncoding`](/dotnet/api/azure.storage.queues.queueclientoptions.messageencoding?view=azure-dotnet) option to Base64.
+Your message string must be in UTF-8 format.
 
 The following example demonstrates how to add messages to your queue.
 
@@ -128,27 +133,59 @@ If you use the [Azure Storage Explorer](https://storageexplorer.com), you can co
 
 Though not always guaranteed, messages are retrieved from a queue in *best-try*, *first-in-first-out* order. 
 
-Depending on your use case, you can be retrieve one or more messages from a queue. You also have the option to modify the visibility of the messages, either permitting or preventing other processes from accessing the same message.
+Depending on your use case, you can retrieve one or more messages from a queue. You can also modify the visibility of the messages, either permitting or preventing other processes from accessing the same message.
 
-When you *read* a message from the queue using a method such as [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage?view=azure-dotnet#azure-storage-queues-queueclient-receivemessage), it becomes invisible to all other processes looking at the queue. This ensures that if the message isn't processed, another instance of your code can retrieve the same message and try again.
+`Receive vs. Peek`
 
-`However, you might sometimes feel like making a funny face at Daniel and reading messages in the queue without altering their visibility.` In these cases, you can *peek* at a message from the queue using a method similar to [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage?view=azure-dotnet#azure-storage-queues-queueclient-peekmessage).
+### Receive messages
 
-Whether Both types of access function, *receive* and *peek*, have 
+<!--Messages are read in best-try first-in-first-out order. This is not guaranteed.When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.
 
-### Peek at a message in the queue
+This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds. -->
+
+When you *read* a message from the queue using a method such as [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage?view=azure-dotnet#azure-storage-queues-queueclient-receivemessage), it's dequeued and becomes invisible for a period of time. This **visibility timeout** defines how long the message remains invisible. The default visibility timeout is 30 seconds. 
+
+If the message isn't processed before the visibility timeout passes, its `DequeueCount` property is incremented and it's reinserted at the end of the queue. Reinserting the same message ensures that another process can retrieve the same message and try again.
+
+The following example sets the invisibleTimeout variable to 10 seconds, then reads two messages from the queue.
+
+`What's the deal with the cancellation token?`
+
+```powershell
+# Set the amount of time you want to entry to be invisible after read from the queue
+# If it is not deleted by the end of this time, it will show up in the queue again
+$visibilityTimeout = [System.TimeSpan]::FromSeconds(10)
+
+# Read the message from the queue, then show the contents of the message. 
+# Read the next message, too.
+$queueMessage = $queue.QueueClient.ReceiveMessage($visibilityTimeout)
+$queueMessage.Value
+$queueMessage = $queue.QueueClient.ReceiveMessage($visibilityTimeout)
+$queueMessage.Value
+```
+
+You can retrieve multiple messages from the queue simultaneously by using the `ReceiveMessages` cmdlet and passing and integer value to specify the maximum number of messages to return. 
+
+```powershell
+# Set the amount of time you want to entry to be invisible after read from the queue
+# If it is not deleted by the end of this time, it will show up in the queue again
+$visibilityTimeout = [System.TimeSpan]::FromSeconds(10)
+
+# Read the messages from the queue, then show the contents of the messages.
+$queueMessage = $queue.QueueClient.ReceiveMessages(5,$visibilityTimeout)
+$queueMessage.Value
+```
+
+### Peek messages
+
+`Describe a use case which requires you to retrieve a message in the queue without altering its visibility.` 
+
+In these cases, you can use a method such as [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage?view=azure-dotnet#azure-storage-queues-queueclient-peekmessage) cmdlet.
 
 
 
 
-
-
-
-## Read a message from the queue, then delete it
-
-<!--Messages are read in best-try first-in-first-out order. This is not guaranteed. -->When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.
-
-This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds.
+## Delete a message from the queue
 
 Your code reads a message from the queue in two steps. When you call the [`Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) method, you get the next message in the queue. A message returned from `GetMessage` becomes invisible to any other code reading messages from this queue. To finish removing the message from the queue, you call the [`Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) method.
 
