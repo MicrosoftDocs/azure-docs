@@ -183,12 +183,12 @@ Your application interacts with a session using the session pool's management AP
 
 A pool management endpoint for custom container sessions follows this format: `https://<SESSION_POOL>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io`.
 
-To retrieve the pool's management endpoint, use the `az containerapp sessionpool show` command:
+To retrieve the session pool's management endpoint, use the `az containerapp sessionpool show` command:
 
 ```bash
 az containerapp sessionpool show \
-  --name <SESSION_POOL_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+    --name <SESSION_POOL_NAME> \
+    --resource-group <RESOURCE_GROUP> \
     --query "properties.poolManagementEndpoint" \
     --output tsv
 ```
