@@ -52,7 +52,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 - An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Phi-3 family models, the pay-as-you-go model deployment offering is only available with hubs created in **East US 2** and **Sweden Central** regions.
+    > For Phi-3 family models, the serverless API model deployment offering is only available with hubs created in **East US 2** and **Sweden Central** regions.
 
 - An [Azure AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -96,7 +96,7 @@ To create a deployment:
 
 ### Consume Phi-3  models as a service
 
-Models deployed as a service can be consumed using the chat API, depending on the type of model you deployed.
+Models deployed as serverless APIs can be consumed using the chat API, depending on the type of model you deployed.
 
 1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
@@ -108,7 +108,7 @@ Models deployed as a service can be consumed using the chat API, depending on th
 
 ## Cost and quotas
 
-### Cost and quota considerations for Phi-3 models deployed as a service
+### Cost and quota considerations for Phi-3 models deployed as serverless APIs
 
 You can find the pricing information on the **Pricing and terms** tab of the deployment wizard when deploying the model. 
 
