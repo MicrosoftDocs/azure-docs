@@ -242,9 +242,9 @@ Once Log Analytics workspace linked to a dedicated cluster, new data sent to wor
 
 Clusters are regional and can be linked to up to 1,000 workspaces located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
-Linked workspaces can be in different subscriptions than the subscription the cluster is located. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
+Linked workspaces can be in different subscriptions than the subscription the cluster is located in. The workspace and cluster can be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
 
-When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
+When a dedicated cluster is configured with a customer-managed key (CMK), the newly ingested data is encrypted with your key, while older data remains encrypted with a Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
 Use the following steps to link a workspace to a cluster. You can use automation for linking multiple workspaces:
 
