@@ -37,7 +37,7 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 Install the required packages for JavaScript with npm from within the context of your new directory:
 
 ```console
-npm install openai @azure/openai dotenv
+npm install openai dotenv @azure/identity
 ```
 
 Your app's _package.json_ file will be updated with the dependencies.
@@ -50,7 +50,7 @@ Your app's _package.json_ file will be updated with the dependencies.
 Open a command prompt where you created the new project, and create a new file named Completion.js. Copy the following code into the Completion.js file.
 
 ```javascript
-const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
+const { AzureOpenAI } = require("openai");
 
 // Load the .env file if it exists
 const dotenv = require("dotenv");
@@ -58,16 +58,18 @@ dotenv.config();
 
 // You will need to set these environment variables or edit the following values
 const endpoint = process.env["ENDPOINT"] || "<endpoint>";
-const azureApiKey = process.env["AZURE_API_KEY"] || "<api key>";
+const apiKey = process.env["AZURE_API_KEY"] || "<api key>";
+const apiVersion = "2024-04-01-preview";
+const deployment = "gpt-35-turbo-instruct"; //The deployment name for your completions API model. The instruct model is the only new model that supports the legacy API.
 
 const prompt = ["When was Microsoft founded?"];
 
 async function main() {
   console.log("== Get completions Sample ==");
 
-  const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-  const deploymentId = "gpt-35-turbo-instruct"; //The deployment name for your completions API model. The instruct model is the only new model that supports the legacy API.
-  const result = await client.getCompletions(deploymentId, prompt, { maxTokens: 128 });
+  const client = new AzureOpenAI({ endpoint, apiKey, apiVersion, deployment });  
+
+  const result = await client.completions.create({ prompt, model: deployment, max_tokens: 128 });
 
   for (const choice of result.choices) {
     console.log(choice.text);
@@ -80,9 +82,6 @@ main().catch((err) => {
 
 module.exports = { main };
 ```
-
-> [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 Run the script with the following command:
 
@@ -97,6 +96,45 @@ node.exe Completion.js
 
 Microsoft was founded on April 4, 1975.
 ```
+
+## Microsoft Entra ID
+
+> [!IMPORTANT]
+> In the previous example we are demonstrating key-based authentication. Once you have tested with key based authentication successfully, we recommend using the more secure [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication which is demonstrated in the next code sample.
+
+```javascript
+const { AzureOpenAI } = require("openai");
+const { DefaultAzureCredential, getBearerTokenProvider } = require("@azure/identity");
+
+// Set AZURE_OPENAI_ENDPOINT to the endpoint of your
+// OpenAI resource. You can find this in the Azure portal.
+// Load the .env file if it exists
+require("dotenv/config");
+
+const prompt = ["When was Microsoft founded?"];
+
+async function main() {
+  console.log("== Get completions Sample ==");
+
+  const scope = "https://cognitiveservices.azure.com/.default";
+  const azureADTokenProvider = getBearerTokenProvider(new DefaultAzureCredential(), scope);
+  const deployment = "gpt-35-turbo-instruct";
+  const apiVersion = "2024-04-01-preview";
+  const client = new AzureOpenAI({ azureADTokenProvider, deployment, apiVersion });
+  const result = await client.completions.create({ prompt, model: deployment, max_tokens: 128 });
+
+  for (const choice of result.choices) {
+    console.log(choice.text);
+  }
+}
+
+main().catch((err) => {
+  console.error("Error occurred:", err);
+});
+
+module.exports = { main };
+```
+
 
 > [!div class="nextstepaction"]
 > [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&&Product=gpt&Page=quickstart&Section=Create-application)
