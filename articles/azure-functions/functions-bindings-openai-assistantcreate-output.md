@@ -1,50 +1,30 @@
 ---
-title: Azure OpenAI Assistant Create Output Binding for Azure Functions
+title: Azure OpenAI assistant create output binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant create output binding to create Azure OpenAI assistants from your function code executions.
 ms.topic: reference
-ms.date: 05/07/2024
+ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure OpenAI Assistant Create Output Binding for Azure Functions
+# Azure OpenAI assistant create output binding for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
 The Azure OpenAI assistant create output binding allows you to create a new assistant chat bot from your function code execution.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-> [!NOTE]  
-> References and examples are only provided for the [Node.js v4 model](./functions-reference-node.md?pivots=nodejs-model-v4).
-::: zone-end  
-::: zone pivot="programming-language-python"  
-> [!NOTE]  
-> References and examples are only provided for the [Python v2 model](functions-reference-python.md?pivots=python-mode-decorators#development-options).
-::: zone-end  
+
+[!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"  
-A C# function can be created using one of the following C# modes:
-
-[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
-
-### [Isolated process](#tab/isolated-process)
-
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
 :::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="20-45"::: 
 
-<!-- ### [In-process](#tab/in-process)
-
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)] -->
-
----
-
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-<!-- [!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)] -->
-
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
 :::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="33-58":::
@@ -70,8 +50,6 @@ This example demonstrates the creation process, where the HTTP PUT function that
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-<!-- [!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)] -->
-
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
 Here's the _function.json_ file for Create Assistant:

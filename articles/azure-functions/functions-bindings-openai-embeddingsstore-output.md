@@ -2,12 +2,12 @@
 title: Azure OpenAI embeddings store output binding for Azure Functions
 description: Learn how to use the Azure OpenAI embeddings store output binding to write searchable content to a semantic document store during function execution in Azure Functions.
 ms.topic: reference
-ms.date: 05/08/2024
+ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 <!--- Question: It seems like this binding uses Azure AI Search and not Azure OpenAI. Do we need to rename the article to:
 "Azure AI Search semantic output binding" or something like that?-->
-# Azure OpenAI Embeddings Store Output Binding for Azure Functions
+# Azure OpenAI embeddings store output binding for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
@@ -15,41 +15,20 @@ The Azure OpenAI embeddings store output binding allows you to write files to a 
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](../search/semantic-search-overview.md).
 
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-> [!NOTE]  
-> References and examples are only provided for the [Node.js v4 model](./functions-reference-node.md?pivots=nodejs-model-v4).
-::: zone-end  
-::: zone pivot="programming-language-python"  
-> [!NOTE]  
-> References and examples are only provided for the [Python v2 model](functions-reference-python.md?pivots=python-mode-decorators#development-options).
-::: zone-end  
+[!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"  
-A C# function can be created using one of the following C# modes:
-
-[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
-
-### [Isolated process](#tab/isolated-process)
-
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
 :::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="29-61"::: 
 
-### [In-process](#tab/in-process)
-
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-
----
-
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
 :::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="24-68":::
-
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
@@ -63,14 +42,12 @@ This example writes an HTTP input stream to a semantic document store at the pro
 -->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
-
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
 :::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/nodejs/src/app.ts" range="7-38":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
 Here's the _function.json_ file for ingesting files:
@@ -83,7 +60,6 @@ For more information about *function.json* file properties, see the [Configurati
 
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
-
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
 :::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-25":::
