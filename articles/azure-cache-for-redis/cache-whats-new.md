@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/09/2024
+ms.date: 05/20/2024
 
 ---
 
@@ -15,7 +15,8 @@ ms.date: 05/09/2024
 
 ## May 2024
 
-Support Microsoft Entra ID for authentication and role-based access control across regions that support Azure Cache for Redis is now in General Availability (GA).
+- Using Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures is now in General Availability (GA).
+- Support Microsoft Entra ID for authentication and role-based access control across regions that support Azure Cache for Redis is now in General Availability (GA).
 
 ## April 2024
 
