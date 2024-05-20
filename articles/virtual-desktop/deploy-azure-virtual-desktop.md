@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/16/2023
+ms.date: 04/11/2024
 ---
 
 # Deploy Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Using Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Virtual Desktop for Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop you:
 - Create a host pool.
@@ -23,13 +23,14 @@ This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Sta
 
 You can do all these tasks in a single process when using the Azure portal, but you can also do them separately.
 
-The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [getting started feature](getting-started-feature.md).
-
 For more information on the terminology used in this article, see [Azure Virtual Desktop terminology](environment-setup.md), and to learn about the service architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
+
+> [!TIP]
+> The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want to try Azure Virtual Desktop with a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [quickstart](quickstart.md).
 
 ## Prerequisites
 
-Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required and supported, such as operating systems (OS), virtual networks, and identity providers. It also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region, and on-premises with [Azure Stack HCI (preview)](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
+Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required and supported, such as operating systems (OS), virtual networks, and identity providers. It also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region, and on-premises with [Azure Stack HCI](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 Select the relevant tab for your scenario for more prerequisites.
 
@@ -60,6 +61,8 @@ In addition, you need:
    - A stable connection to Azure from your on-premises network.
 
    - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+   
+   - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -132,9 +135,10 @@ Here's how to create a host pool using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on if you want to create session hosts on Azure or Azure Stack HCI:
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on whether you want to create session hosts on Azure or Azure Stack HCI:<br /><br />
 
-   1. To add session hosts on Azure:
+   <details>
+       <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
@@ -145,9 +149,9 @@ Here's how to create a host pool using the Azure portal.
       | Virtual machine location | Select the Azure region where you want to deploy your session hosts. This must be the same region that your virtual network is in. |
       | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
       | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
-      | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.md). |
+      | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.yml). |
       | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
-      | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. You will need to self-register your subscription to use the hibernation feature. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Teams media optimizations you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).|   
+      | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Teams media optimizations you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).|   
       | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session hosts at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
       | OS disk type | Select the disk type to use for your session hosts. We recommend only **Premium SSD** is used for production workloads. |
       | OS disk size | Select a size for the OS disk.<br /><br />If you enable hibernate, ensure the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |
@@ -166,15 +170,17 @@ Here's how to create a host pool using the Azure portal.
       | Confirm password | Reenter the password. |
       | **Custom configuration** |  |
       | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
+   </details>
 
-   1. To add session hosts on Azure Stack HCI:
+   <details>
+       <summary>To add session hosts on <b>Azure Stack HCI</b>, select to expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
       | Add virtual machines | Select **Yes**. This shows several new options. |
       | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
       | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | Virtual machine type | Select **Azure Stack HCI virtual machine (Preview)**. |
+      | Virtual machine type | Select **Azure Stack HCI virtual machine**. |
       | Custom location | Select the Azure Stack HCI cluster where you want to deploy your session hosts from the drop-down list. |
       | Images | Select the OS image you want to use from the list, or select **Manage VM images** to manage the images available on the cluster you selected. |
       | Number of VMs | Enter the number of virtual machines you want to deploy. You can add more later. |
@@ -194,6 +200,7 @@ Here's how to create a host pool using the Azure portal.
       | Username | Enter a name to use as the local administrator account for the new session hosts. |
       | Password | Enter a password for the local administrator account. |
       | Confirm password | Reenter the password. |
+   </details>
 
    Once you've completed this tab, select **Next: Workspace**.
 
@@ -223,9 +230,9 @@ Here's how to create a host pool using the Azure portal.
 
 1. Once the host pool has been created, select **Go to resource** to go to the overview of your new host pool, then select **Properties** to view its properties.
 
-### Optional: Post deployment
+### Post deployment
 
-If you also added session hosts to your host pool, there's some extra configuration you might need to do, which is covered in the following sections.
+If you also added session hosts to your host pool, there's some extra configuration you need to do, which is covered in the following sections.
 
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
 
@@ -750,6 +757,8 @@ Here's how to assign users or user groups to an application group to a workspace
 
 ## Next steps
 
+# [Portal](#tab/portal)
+
 Once you've deployed Azure Virtual Desktop, your users can connect. There are several platforms you can connect from, including from a web browser. For more information, see [Remote Desktop clients for Azure Virtual Desktop](users/remote-desktop-clients-overview.md) and [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md).
 
 Here are some extra tasks you might want to do:
@@ -757,5 +766,25 @@ Here are some extra tasks you might want to do:
 - Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
 
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+- [Enable diagnostics settings](diagnostics-log-analytics.md).
+
+# [Azure PowerShell](#tab/powershell)
+
+Once you've deployed a host pool, workspace, and application group, you'll need to create session hosts before your users can connect. You can do this by following the steps in [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+Here are some extra tasks you might want to do:
+
+- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
+
+- [Enable diagnostics settings](diagnostics-log-analytics.md).
+
+# [Azure CLI](#tab/cli)
+
+Once you've deployed a host pool, workspace, and application group, you'll need to create session hosts before your users can connect. You can do this by following the steps in [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+Here are some extra tasks you might want to do:
+
+- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).

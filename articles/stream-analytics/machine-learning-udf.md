@@ -6,7 +6,6 @@ ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2022
-ms.custom: event-tier1-build-2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
 
@@ -54,6 +53,9 @@ The following table describes each property of Azure Machine Learning Service fu
 ## Calling machine learning endpoint from your query
 
 When your Stream Analytics query invokes an Azure Machine Learning UDF, the job creates a JSON serialized request to the web service. The request is based on a model-specific schema that Stream Analytics infers from the endpoint's swagger.
+
+> [!WARNING]
+> Machine Learning endpoints aren't called when you're testing with the Azure portal query editor because the job isn't running. To test the endpoint call from the portal, the Stream Analytics job needs to be running.  
 
 The following Stream Analytics query is an example of how to invoke an Azure Machine Learning UDF:
 
@@ -186,7 +188,7 @@ You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS)
 
 ## Limitations
 
-If you're using an Azure ML Managed Endpoint service, Stream Analytics can currently only access endpoints that have public network access enabled. Read more about it on the page about [Azure ML private endpoints](/azure/machine-learning/concept-secure-online-endpoint?view=azureml-api-2&tabs=cli#secure-inbound-scoring-requests).
+If you're using an Azure ML Managed Endpoint service, Stream Analytics can currently only access endpoints that have public network access enabled. Read more about it on the page about [Azure ML private endpoints](/azure/machine-learning/concept-secure-online-endpoint#secure-inbound-scoring-requests).
 
 ## Next steps
 

@@ -6,10 +6,8 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 07/19/2022
 ms.author: mapankra
-
 ---
 # Expose SAP legacy middleware securely with Azure PaaS
 
@@ -126,7 +124,7 @@ For insights into Network File System (NFS) file shares as an alternative to Blo
 
 SAP RISE deployments are technically identical to the scenarios described earlier, with the exception that SAP itself manages the target SAP workload. The described concepts can be applied here.
 
-The following diagrams show two setups as examples. For more information, see the [SAP RISE reference guide](rise-integration.md#virtual-network-peering-with-sap-riseecs).
+The following diagrams show two setups as examples. For more information, see the [SAP RISE reference guide](rise-integration-network.md#virtual-network-peering-with-sap-riseecs).
 
 > [!IMPORTANT]
 > Contact SAP to ensure that communication ports for your scenario are allowed and opened in NSGs.

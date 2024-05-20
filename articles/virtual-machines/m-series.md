@@ -1,16 +1,19 @@
 ---
 title: M-series - Azure Virtual Machines
 description: Specifications for the M-series VMs.
-author: lauradolan
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.custom: devx-track-linux
+ms.custom:
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: ayshak
 ---
 
 # M-series
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -53,7 +56,7 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 
 <sup>3</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
-<sup>4</sup> M-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
+<sup>4</sup> M-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

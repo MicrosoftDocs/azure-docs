@@ -4,7 +4,7 @@ description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/23/2022
+ms.date: 01/10/2024
 ---
 
 # Migrate Apache HBase to a new version and storage account
@@ -45,7 +45,7 @@ To upgrade and migrate your Apache HBase cluster on Azure HDInsight to a new sto
 
 Prepare the source cluster:
 1. Stop data ingestion.
-1. Flush memstore data.
+1. Flush `memstore` data.
 1. Stop HBase from Ambari.
 1. For clusters with accelerated writes, back up the Write Ahead Log (WAL) directory.
 
@@ -72,11 +72,11 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
    
 1. Flush the source HBase cluster you're upgrading.
    
-   HBase writes incoming data to an in-memory store called a *memstore*. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. Deleting the source cluster after an upgrade also deletes any data in the memstores. To retain the data, manually flush each table's memstore to disk before upgrading.
+   HBase writes incoming data to an in-memory store called a `memstore`. After the `memstore` reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. Deleting the source cluster after an upgrade also deletes any data in the `memstores`. To retain the data, manually flush each table's `memstore` to disk before upgrading.
    
-   You can flush the memstore data by running the [flush_all_tables.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/flush_all_tables.sh) script from the [hbase-utils GitHub repository](https://github.com/Azure/hbase-utils/).
+   You can flush the `memstore` data by running the [flush_all_tables.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/flush_all_tables.sh) script from the [hbase-utils GitHub repository](https://github.com/Azure/hbase-utils/).
    
-   You can also flush the memstore data by running the following HBase shell command from inside the HDInsight cluster:
+   You can also flush the `memstore` data by running the following HBase shell command from inside the HDInsight cluster:
    
    ```bash
    hbase shell

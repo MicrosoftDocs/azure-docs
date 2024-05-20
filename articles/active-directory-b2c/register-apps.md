@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to register my applications in Azure Active Directory B2C, so that I can enable authentication for various modern application architectures and specify the type of app that I want to register.
+
 ---
 
 # Register apps in Azure Active Directory B2C

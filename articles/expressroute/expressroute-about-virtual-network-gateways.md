@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/16/2023
+ms.date: 03/18/2024
 ms.author: duau
 ms.custom: ignite-2023
 ---
@@ -44,15 +44,18 @@ Additionally, you can downgrade the virtual network gateway SKU. The following d
 
 For all other downgrade scenarios, you need to delete and recreate the gateway. Recreating a gateway incurs downtime.
 
+## Virtual network gateway limitations and performance
+
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 
-The following table shows the features supported across each gateway type.
+The following table shows the features supported across each gateway types and max number of ExpressRoute circuit connections supported by each gateway SKU.
 
-|Gateway SKU|VPN Gateway and ExpressRoute coexistence|FastPath|Max Number of Circuit Connections|
-| --- | --- | --- | --- |
-|**Standard SKU/ERGw1Az**|Yes|No|4|
-|**High Perf SKU/ERGw2Az**|Yes|No|8
-|**Ultra Performance SKU/ErGw3Az**|Yes|Yes|16
+| Gateway SKU | VPN Gateway and ExpressRoute coexistence | FastPath | Max Number of Circuit Connections |
+|--|--|--|--|
+| **Standard SKU/ERGw1Az** | Yes | No | 4 |
+| **High Perf SKU/ERGw2Az** | Yes | No | 8 |
+| **Ultra Performance SKU/ErGw3Az** | Yes | Yes | 16 |
+| **ErGwScale (Preview)** | Yes | Yes - minimum 10 of scale units | 4 - minimum 1 of scale unit<br>8 - minimum of 2 scale units<br>16 - minimum of 10 scale units |
 
 >[!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
@@ -68,8 +71,6 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 
 > [!NOTE]
 > [!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
->
-
 > - We don't recommend deploying Azure DNS Private Resolver into a virtual network that has an ExpressRoute virtual network gateway and setting wildcard rules to direct all name resolution to a specific DNS server. Such a configuration can cause management connectivity issues.
 
 
@@ -87,7 +88,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ### <a name="zrgw"></a>Zone-redundant gateway SKUs
 
-You can also deploy ExpressRoute gateways in Azure Availability Zones. This configuration physically and logically separates them into different Availability Zones, protecting your on-premises network connectivity to Azure from zone-level failures.
+You can also deploy ExpressRoute gateways in Azure Availability Zones. This configuration physically and logically separates them into different Availability Zones, protecting your on-premises network connectivity to Azure from zone-level failures. 
 
 ![Zone-redundant ExpressRoute gateway](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
@@ -98,6 +99,12 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 * ErGw3AZ
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you can deploy the gateway in a specific zone. This type of gateway is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
+
+To learn about migrating an ExpressRoute gateway, see [Gateway migration](gateway-migration.md).
+
+## VNet to VNet and VNet to Virtual WAN connectivity
+
+By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enabled this traffic, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 ## <a name="fastpath"></a>FastPath
 
@@ -151,9 +158,18 @@ ErGwScale supports both zonal and zonal-redundant deployments in Azure availabil
 ErGwScale is available in preview in the following regions:
 
 * Australia East
+* Canada Central
+* East US
+* East Asia
 * France Central
+* Germany West Central
+* India Central
+* Italy North
 * North Europe
+* Norway East
 * Sweden Central
+* UAE North
+* UK South
 * West US 3
 
 ### Autoscaling vs. fixed scale unit
@@ -174,17 +190,20 @@ ErGwScale is free of charge during public preview. For information about Express
 
 #### Supported performance per scale unit
 
-| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
+| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections <sup>1</sup> | Maximum number of flows |
 |--|--|--|--|--|--|
-| 1 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
+| 1-10 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
+| 11-40 | 1 | 100,000 | 7,000 | 1,000 | 100,000 |
 
 #### Sample performance with scale unit
 
-| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections | Maximum number of flows |
+| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections <sup>1</sup> | Maximum number of flows |
 |--|--|--|--|--|--|
 | 10 | 10 | 1,000,000 | 70,000 | 20,000 | 1,000,000 |
-| 20 | 20 | 2,000,000 | 140,000 | 40,000 | 2,000,000 |
-| 40 | 40 | 4,000,000 | 280,000 | 80,000 | 4,000,000 |
+| 20 | 20 | 2,000,000 | 140,000 | 30,000 | 2,000,000 |
+| 40 | 40 | 4,000,000 | 280,000 | 50,000 | 4,000,000 |
+
+<sup>1</sup> Maximum VM connections scales differently beyond 10 scale units. The first 10 scale units will provide capacity for 2,000 VMs per scale unit. Scale units 11 and above will provide 1,000 additional VM capacity per scale unit.
 
 ## Next steps
 

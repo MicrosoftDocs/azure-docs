@@ -5,8 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 04/12/2023
-ms.custom: template-quickstart, ignite-fall-2021, mode-api, engagement-fy23, devx-track-azurepowershell
+ms.date: 04/12/2024
+ms.custom: template-quickstart, mode-api, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager by using Azure PowerShell

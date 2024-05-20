@@ -9,7 +9,6 @@ ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2023
-keywords: 
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai/samples)
@@ -58,7 +57,7 @@ Open a command prompt where you created the new project, and create a new file n
 ```javascript
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_KEY"] ;
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
 const prompt = ["When was Microsoft founded?"];
 

@@ -2,13 +2,13 @@
 title: Monitor and debug with insights in Azure Cosmos DB
 description: Learn how to use metrics and insights in Azure Cosmos DB to debug common issues and monitor the database.
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/14/2023
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Monitor and debug with insights in Azure Cosmos DB

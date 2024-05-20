@@ -51,16 +51,9 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 1. **Destination details**: Select the checkbox for each destination. Options appear so that you can add more information.
 
-   :::image type="content" source="media/diagnostic-settings/send-to-log-analytics-event-hubs.png" alt-text="Screenshot that shows Send to Log Analytics and Stream to an event hub." border="false":::
+   :::image type="content" source="media/diagnostic-settings/send-to-log-analytics-event-hubs.png" alt-text="Screenshot that shows the available options under the Destination details section." border="false":::
 
-   1. **Log Analytics**: Enter the subscription and workspace. If you don't have a workspace, you must [create one before you proceed](../logs/quick-create-workspace.md).
-
-   1. **Event Hubs**: Specify the following criteria:
-
-      - **Subscription**: The subscription that the event hub is part of.
-      - **Event hub namespace**: If you don't have one, you must [create one](../../event-hubs/event-hubs-create.md).
-      - **Event hub name (optional)**: The name to send all data to. If you don't specify a name, an event hub is created for each log category. If you're sending to multiple categories, you might want to specify a name to limit the number of event hubs created. For more information, see [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md).
-      - **Event hub policy name** (also optional): A policy defines the permissions that the streaming mechanism has. For more information, see [Event Hubs features](../../event-hubs/event-hubs-features.md#publisher-policy).
+   1. **Send to Log Analytics workspace**: Select your **Subscription** and the **Log Analytics workspace** where you want to send the data. If you don't have a workspace, you must [create one before you proceed](../logs/quick-create-workspace.md).
 
    1. **Archive to a storage account**: Select your **Subscription** and the **Storage account** where you want to store the data.
 
@@ -69,7 +62,14 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
       > [!TIP]
       > Use the [Azure Storage Lifecycle Policy](../../storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal) to manage the length of time that your logs are retained. The Retention Policy as set in the Diagnostic Setting settings is now deprecated.
 
-   1. **Partner integration**: You must first install partner integration into your subscription. Configuration options vary by partner. For more information, see [Azure Monitor partner integrations](../../partner-solutions/overview.md).
+   1. **Stream to an event hub**: Specify the following criteria:
+
+      - **Subscription**: The subscription that the event hub is part of.
+      - **Event hub namespace**: If you don't have one, you must [create one](../../event-hubs/event-hubs-create.md).
+      - **Event hub name (optional)**: The name to send all data to. If you don't specify a name, an event hub is created for each log category. If you're sending to multiple categories, you might want to specify a name to limit the number of event hubs created. For more information, see [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md).
+      - **Event hub policy name** (also optional): A policy defines the permissions that the streaming mechanism has. For more information, see [Event Hubs features](../../event-hubs/event-hubs-features.md#publisher-policy).
+
+   1. **Send to partner solution**: You must first install Azure Native ISV Services into your subscription. Configuration options vary by partner. For more information, see [Azure Native ISV Services overview](../../partner-solutions/overview.md).
 
 1. If the service supports both [resource-specific](resource-logs.md#resource-specific) and [Azure diagnostics](resource-logs.md#azure-diagnostics-mode) mode, then an option to select the [destination table](resource-logs.md#select-the-collection-mode) displays when you select **Log Analytics workspace** as a destination. You should usually select **Resource specific** since the table structure allows for more flexibility and more efficient queries.
 
@@ -212,7 +212,7 @@ When you deploy a diagnostic setting, you receive an error message similar to "M
 
 The problem occurs when you use a Resource Manager template, REST API, the CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal aren't affected because only the supported category names are presented.
 
-The problem occurs because of a recent change in the underlying API. Metric categories other than **AllMetrics** aren't supported and never were except for a few specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor back end redirected these categories to **AllMetrics**. As of February 2021, the back end was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
+The problem occurs because of a recent change in the underlying API. Metric categories other than **AllMetrics** aren't supported and never were except for a few specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor back end redirected these categories to **AllMetrics**. As of February 2021, the back end was updated to specifically confirm the metric category provided is accurate. This change can cause some deployments to fail.
 
 If you receive this error, update your deployments to replace any metric category names with **AllMetrics** to fix the issue. If the deployment was previously adding multiple categories, only keep one with the **AllMetrics** reference. If you continue to have the problem, contact Azure support through the Azure portal.
 
@@ -222,7 +222,7 @@ Diagnostic settings don't support resource IDs with non-ASCII characters. For ex
 
 ### Possibility of duplicated or dropped data
 
-Every effort is made to ensure all log data is sent correctly to your destinations, however it's not possible guarantee 100% data transfer of logs between endpoints. Retries and other mechanisms are in place to work around these issues and attempt to ensure log data arrives at the endpoint.
+Every effort is made to ensure all log data is sent correctly to your destinations, however it's not possible to guarantee 100% data transfer of logs between endpoints. Retries and other mechanisms are in place to work around these issues and attempt to ensure log data arrives at the endpoint.
 
 ## Next steps
 

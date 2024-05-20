@@ -4,11 +4,11 @@ description: Secure database connectivity (Azure SQL Database, Database for MySQ
 keywords: azure app service, web app, security, msi, managed service identity, managed identity, .net, dotnet, asp.net, c#, csharp, node.js, node, python, java, visual studio, visual studio code, visual studio for mac, azure cli, azure powershell, defaultazurecredential
 author: cephalin
 ms.author: cephalin
-
-ms.devlang: csharp,java,javascript,python
+ms.devlang: csharp
+# ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity, service-connector
+ms.custom: mvc, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity, service-connector
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -19,7 +19,7 @@ ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.yml).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -45,7 +45,7 @@ What you will learn:
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ## 1. Install the Service Connector passwordless extension
@@ -188,27 +188,31 @@ If you encounter any problem when creating a connection, refer to [Troubleshooti
 
 ## 3. Modify your code
 
-In this section, connectivity to the Azure database in your code follows the `DefaultAzureCredential` pattern for all language stacks. `DefaultAzureCredential` is flexible enough to adapt to both the development environment and the Azure environment. When running locally, it can retrieve the logged-in Azure user from the environment of your choice (Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell). When running in Azure, it retrieves the managed identity. So it's possible to have connectivity to database both at development time and in production. The pattern is as follows:
-
-1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity.
-2. Get an access token for the resource URI respective to the database type.
-    * For Azure SQL Database: `https://database.windows.net/.default`
-    * For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net/.default`
-    * For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net/.default`
-3. Add the token to your connection string.
-4. Open the connection.
-
 # [Azure SQL Database](#tab/sqldatabase-sc)
 
-[!INCLUDE [code sample for postgres managed identity authentication connection](./includes/tutorial-connect-msi-azure-database/code-sql-mi.md)]
+[!INCLUDE [code sample for sql managed identity authentication connection](./includes/tutorial-connect-msi-azure-database/code-sql-mi.md)]
 
 # [Azure Database for MySQL](#tab/mysql-sc)
+
+Connectivity to the Azure Database for MySQL in your code follows the `DefaultAzureCredential` pattern for all language stacks. `DefaultAzureCredential` is flexible enough to adapt to both the development environment and the Azure environment. When running locally, it can retrieve the logged-in Azure user from the environment of your choice (Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell). When running in Azure, it retrieves the managed identity. So it's possible to have connectivity to database both at development time and in production. The pattern is as follows:
+
+1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity.
+2. Get an access token for Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net/.default`.
+3. Add the token to your connection string.
+4. Open the connection.
 
 [!INCLUDE [code sample for mysql managed identity authentication connection](./includes/tutorial-connect-msi-azure-database/code-mysql-mi.md)]
 
 # [Azure Database for PostgreSQL](#tab/postgresql-sc)
 
-[!INCLUDE [code sample for sql managed identity authentication connection](./includes/tutorial-connect-msi-azure-database/code-postgres-mi.md)]
+Connectivity to the Azure Database for PostgreSQL in your code follows the `DefaultAzureCredential` pattern for all language stacks. `DefaultAzureCredential` is flexible enough to adapt to both the development environment and the Azure environment. When running locally, it can retrieve the logged-in Azure user from the environment of your choice (Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell). When running in Azure, it retrieves the managed identity. So it's possible to have connectivity to database both at development time and in production. The pattern is as follows:
+
+1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity.
+2. Get an access token for Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net/.default`.
+3. Add the token to your connection string.
+4. Open the connection.
+
+[!INCLUDE [code sample for postgres managed identity authentication connection](./includes/tutorial-connect-msi-azure-database/code-postgres-mi.md)]
 
 -----
 

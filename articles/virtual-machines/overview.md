@@ -1,12 +1,12 @@
 ---
-title: Overview of virtual machines in Azure 
+title: Overview of virtual machines in Azure
 description: Overview of virtual machines in Azure.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: overview
-ms.date: 02/27/2023
-ms.author: cynthn
+ms.date: 01/02/2024
+ms.author: jushiman
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -29,13 +29,32 @@ The number of virtual machines that your application uses can scale up and out t
 ## What do I need to think about before creating a virtual machine?
 There's always a multitude of [design considerations](/azure/architecture/reference-architectures/n-tier/linux-vm) when you build out an application infrastructure in Azure. These aspects of a virtual machine are important to think about before you start:
 
-* The names of your application resources
+* The names of your resources
 * The location where the resources are stored
 * The size of the virtual machine
 * The maximum number of virtual machines that can be created
 * The operating system that the virtual machine runs
 * The configuration of the virtual machine after it starts
 * The related resources that the virtual machine needs
+
+## Parts of a VM and how they're billed
+
+When you create a virtual machine, you're also creating resources that support the virtual machine. These resources come with their own costs that should be considered.
+
+The default resources supporting a virtual machine and how they're billed are detailed in the following table:
+
+| Resource | Description | Cost | 
+|-|-|-|
+| Virtual network | For giving your virtual machine the ability to communicate with other resources | [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/) |
+| A virtual Network Interface Card (NIC) | For connecting to the virtual network  | There is no separate cost for NICs. However, there is a limit to how many NICs you can use based on your [VM's size](sizes.md). Size your VM accordingly and reference [Virtual Machine pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). | 
+| A private IP address and sometimes a public IP address. | For communication and data exchange on your network and with external networks | [IP Addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/) |
+| Network security group (NSG) | For managing the network traffic to and from your VM. For example, you might need to open port 22 for SSH access, but you might want to block traffic to port 80. Blocking and allowing port access is done through the NSG.| There are no additional charges for network security groups in Azure. |
+| OS Disk and possibly separate disks for data. | It's a best practice to keep your data on a separate disk from your operating system, in case you ever have a VM fail, you can simply detach the data disk, and attach it to a new VM. | All new virtual machines have an operating system disk and a local disk. <br> Azure doesn't charge for local disk storage. <br> The operating system disk, which is usually 127GiB but is smaller for some images, is charged at the [regular rate for disks](https://azure.microsoft.com/pricing/details/managed-disks/). <br> You can see the cost for attach Premium (SSD based) and Standard (HDD) based disks to your virtual machines on the [Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/). |
+| In some cases, a license for the OS | For providing your virtual machine runs to run the OS | The cost varies based on the number of cores on your VM, so [size your VM accordingly](sizes.md). The cost can be reduced through the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/#overview). |
+
+You can also choose to have Azure can create and store public and private SSH keys - Azure uses the public key in your VM and you use the private key when you access the VM over SSH. Otherwise, you will need a username and password.
+
+By default, these resources are created in the same resource group as the VM. 
 
 ### Locations
 There are multiple [geographical regions](https://azure.microsoft.com/regions/) around the world where you can create Azure resources. Usually, the region is called **location** when you create a virtual machine. For a virtual machine, the location specifies where the virtual hard disks will be stored.
@@ -94,7 +113,7 @@ For more information, see [Using cloud-init on Azure Linux virtual machines](lin
 ## Storage
 * [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
 * [Add a disk to a Linux virtual machine using the azure-cli](linux/add-disk.md)
-* [How to attach a data disk to a Linux virtual machine in the Azure portal](linux/attach-disk-portal.md)
+* [How to attach a data disk to a Linux virtual machine in the Azure portal](linux/attach-disk-portal.yml)
 
 ## Networking
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)

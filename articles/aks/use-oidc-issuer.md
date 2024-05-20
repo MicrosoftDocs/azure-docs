@@ -2,8 +2,9 @@
 title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS) cluster
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 11/10/2023
+ms.date: 03/04/2024
 ---
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
@@ -20,6 +21,9 @@ In this article, you learn how to create, update, and manage the OIDC Issuer for
 > [!IMPORTANT]
 > After enabling OIDC issuer on the cluster, it's not supported to disable it.
 
+> [!IMPORTANT]
+> The token needs to be refreshed periodically. If you use [SDK][sdk], the rotation is automatic, otherwise, you need to refresh the token every 24 hours manually.
+
 ## Prerequisites
 
 * The Azure CLI version 2.42.0 or higher. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
@@ -30,7 +34,7 @@ In this article, you learn how to create, update, and manage the OIDC Issuer for
 You can create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-issuer
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-oidc-issuer
 ```
 
 ## Update an AKS cluster with OIDC Issuer
@@ -38,7 +42,7 @@ az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-is
 You can update an AKS cluster using the [az aks update][az-aks-update] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example updates a cluster named *myAKSCluster*:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster --enable-oidc-issuer 
+az aks update --resource-group myResourceGroup --name myAKSCluster --enable-oidc-issuer 
 ```
 
 ## Show the OIDC Issuer URL
@@ -46,7 +50,7 @@ az aks update -g myResourceGroup -n myAKSCluster --enable-oidc-issuer
 To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+az aks show --name myAKScluster --resource-group myResourceGroup --query "oidcIssuerProfile.issuerUrl" -o tsv
 ```
 
 By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com`, where the value for `{region}` matches the location the AKS cluster is deployed in.
@@ -56,7 +60,7 @@ By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks
 To rotate the OIDC key, run the [az aks oidc-issuer][az-aks-oidc-issuer] command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
+az aks oidc-issuer rotate-signing-keys --name myAKSCluster --resource-group myResourceGroup
 ```
 
 > [!IMPORTANT]
@@ -69,7 +73,7 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+az aks show --name myAKScluster --resource-group myResourceGroup --query "oidcIssuerProfile.issuerUrl" -o tsv
 ```
 
 The output should resemble the following:
@@ -142,6 +146,7 @@ During key rotation, there's one other key present in the discovery document.
 
 <!-- LINKS - internal -->
 [open-id-connect-overview]: ../active-directory/fundamentals/auth-oidc.md
+[sdk]: workload-identity-overview.md#azure-identity-client-libraries
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update

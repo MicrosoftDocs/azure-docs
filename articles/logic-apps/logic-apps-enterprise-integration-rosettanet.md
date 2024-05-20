@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 01/31/2024
 #Customer intent: As a logic apps developer, I want to send and receive RosettaNet messages using workflows in Azure Logic Apps so that I can use a standardized process to share business information with partners.
 ---
 
@@ -15,7 +15,7 @@ ms.date: 11/07/2022
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use the RosettaNet connector, which provides actions that manage and support communication that follows RosettaNet standards. RosettaNet is a non-profit consortium that has established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies. For more information, visit the [RosettaNet site](https://resources.gs1us.org).
+To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use the RosettaNet connector, which provides actions that manage and support communication that follows RosettaNet standards. RosettaNet is a non-profit consortium that has established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies. For more information, visit the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
 
 The connector is based on the RosettaNet Implementation Framework (RNIF) version 2.0.01 and supports all PIPs defined by this version. RNIF is an open network application framework that enables business partners to collaboratively run RosettaNet PIPs. This framework defines the message structure, the need for acknowledgments, Multipurpose Internet Mail Extensions (MIME) encoding, and the digital signature. Communication with the partner can be synchronous or asynchronous. The connector provides the following capabilities:
 
@@ -38,7 +38,7 @@ The following concepts and terms are unique to the RosettaNet specification and 
 
   The RosettaNet organization creates and maintains PIPs, which provide common business process definitions for all RosettaNet message exchanges. Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message guideline document, which is a human-readable HTML file, specifies element-level constraints. Together, these files provide a complete definition of the business process.
 
-   PIPs are categorized by a high-level business function, or cluster, and a subfunction, or segment. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. For more information, visit the [RosettaNet site](https://resources.gs1us.org).
+   PIPs are categorized by a high-level business function, or cluster, and a subfunction, or segment. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. For more information, visit the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
 
 * **Action**
 
@@ -58,7 +58,7 @@ The RosettaNet connector is available only for Consumption logic app workflows.
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 | **Consumption** | Integration service environment (ISE) | Built-in connector, which appears in the designer with the **CORE** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 
 <a name="rosettanet-operations"></a>
@@ -86,7 +86,12 @@ The **RosettaNet** connector has no triggers. The following table describes the 
   > To work together, both your integration account and logic app resource must exist in the same Azure subscription and Azure region. 
   > To use integration account artifacts in your workflow, make sure to [link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
-* At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that are defined in your integration account and configured with the **DUNS** qualifier under **Business Identities** in the Azure portal.
+* At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) defined in your integration account and use the **DUNS** qualifier under **Business Identities** in the Azure portal.
+
+  > [!NOTE]
+  >
+  > Make sure that you select **DUNS** as the qualifier, which you can find near the 
+  > bottom of the **Qualifier** list, and not **1 - D-U-N-S (Dun & Bradstreet)**.
 
 * Optional [certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md) for encrypting, decrypting, or signing the messages that you upload to the integration account. Certificates are required only if you use signing or encryption.
 
@@ -112,7 +117,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
    | **PIP Code** | Yes | The three-digit PIP code. For more information, see [RosettaNet PIPs](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
    | **PIP Version** | Yes | The PIP version number, which depends on your selected PIP code. |
 
-   For more information about these PIP properties, visit the [RosettaNet website](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg).
+   For more information about these PIP properties, visit the [RosettaNet website](https://www.gs1us.org/resources/rosettanet/standards-library/pip-directory).
 
 1. When you're done, select **OK** to create the PIP configuration.
 
@@ -132,11 +137,11 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
 
 1. On the integration account navigation menu, under **Settings**, select **Agreements**.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/select-agreements.png" alt-text="Screenshot of the Azure portal with the integration account page open. On the navigation menu, Agreements is selected.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/select-agreements.png" alt-text="Screenshot shows Azure portal with the integration account page open. On the navigation menu, the Agreements option is selected.":::
 
 1. On the **Agreements** page, select **Add**. Under **Add**, enter your agreement details.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png" alt-text="Screenshot of the Agreements page, with Add selected. On the Add pane, boxes appear for the agreement name and type and for partner information.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png" alt-text="Screenshot shows Agreements page with Add option selected. On the pane named Add, boxes appear for the agreement name and type and for partner information.":::
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -185,7 +190,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
       | **Action URL** |  Yes | The URL to use for sending action messages. The URL is a required field for both synchronous and asynchronous messages. |
       | **Acknowledgment URL** | Yes | The URL to use for sending acknowledgment messages. The URL is a required field for asynchronous messages. |
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png" alt-text="Screenshot of the Send Settings page, with options for signing and encrypting messages and for entering algorithms, certificates, and endpoints.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-send-details.png" alt-text="Screenshot shows the Send Settings page, with options for signing and encrypting messages and for entering algorithms, certificates, and endpoints.":::
 
 1. To set up your agreement with the RosettaNet PIP references for partners, select **RosettaNet PIP references**. Under **PIP Name**, select the name of the PIP that you created earlier.
 
@@ -193,7 +198,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
 
    Your selection populates the remaining properties, which are based on the PIP that you set up in your integration account. If necessary, you can change the **PIP Role**.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-selected-pip.png" alt-text="Screenshot that shows a table of PIP information. A row for the PIP called MyPIPConfig contains accurate information.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-selected-pip.png" alt-text="Screenshot shows a table with PIP information. The row for the PIP named MyPIPConfig shows accurate information.":::
 
 After you complete these steps, you're ready to send or receive RosettaNet messages.
 

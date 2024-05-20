@@ -3,11 +3,12 @@ title: Azure SignalR Service serverless quickstart - Python
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Python.
 author: vicancy
 ms.author: lianwei
-ms.date: 12/15/2022
+ms.date: 01/23/2024
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
 ms.custom: devx-track-python, mode-api
+zone_pivot_groups: python-mode-functions
 ---
 # Quickstart: Create a serverless app with Azure Functions and Azure SignalR Service in Python
 
@@ -25,7 +26,7 @@ This quickstart can be run on macOS, Windows, or Linux.  You will need the follo
 | An Azure subscription |If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|
 | A code editor | You'll need a code editor such as [Visual Studio Code](https://code.visualstudio.com/). |
 | [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)| Requires version 2.7.1505 or higher to run Python Azure Function apps locally.|
-| [Python 3.6+](https://www.python.org/downloads/)| Azure Functions requires Python 3.6+. See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version). |
+| [Python 3.7+](https://www.python.org/downloads/)| Azure Functions requires Python 3.7+. See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version). |
 | [Azurite](../storage/common/storage-use-azurite.md)| SignalR binding needs Azure Storage.  You can use a local storage emulator when a function is running locally. |
 | [Azure CLI](/cli/azure/install-azure-cli)| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. |
 
@@ -33,6 +34,7 @@ This quickstart can be run on macOS, Windows, or Linux.  You will need the follo
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+::: zone pivot="python-mode-decorators"
 ## Create the Azure Function project
 
 Create a local Azure Function project.
@@ -44,6 +46,102 @@ Create a local Azure Function project.
   ```bash
   # Initialize a function project
   func init --worker-runtime python
+  ```
+
+## Create the functions
+
+After you initialize a project, you need to create functions. This project requires three functions: 
+
+- `index`: Hosts a web page for a client.
+- `negotiate`: Allows a client to get an access token.
+- `broadcast`: Uses a time trigger to periodically broadcast messages to all clients.
+
+When you run the `func new` command from the root directory of the project, the Azure Functions Core Tools appends the function code in the `function_app.py` file.  You'll edit the parameters ad content as necessary by replacing the default code with the app code.
+
+### Create the index function
+
+You can use this sample function as a template for your own functions.  
+
+Open the file `function_app.py`. This file will contain your functions. First, modify the file to include the neccessary import statements, and define global variables that we will be using in the following functions.
+
+```python
+import azure.functions as func
+import os
+import requests
+import json 
+
+app = func.FunctionApp()
+
+etag = ''
+start_count = 0
+```
+
+2. Add the function `index` by adding the following code
+
+  ```python
+  @app.route(route="index", auth_level=func.AuthLevel.ANONYMOUS)
+  def index(req: func.HttpRequest) -> func.HttpResponse:
+      f = open(os.path.dirname(os.path.realpath(__file__)) + '/content/index.html')
+      return func.HttpResponse(f.read(), mimetype='text/html')
+  ```
+
+This function hosts a web page for a client.
+
+### Create the negotiate function
+
+Add the function `negotiate` by adding the following code
+
+  ```python
+  @app.route(route="negotiate", auth_level=func.AuthLevel.ANONYMOUS, methods=["POST"])
+  @app.generic_input_binding(arg_name="connectionInfo", type="signalRConnectionInfo", hubName="serverless", connectionStringSetting="AzureSignalRConnectionString")
+  def negotiate(req: func.HttpRequest, connectionInfo) -> func.HttpResponse:
+      return func.HttpResponse(connectionInfo)
+  ```
+
+This function allows a client to get an access token.
+
+### Create a broadcast function.
+
+Add the function `broadcast` by adding the following code
+
+  ```python
+  @app.timer_trigger(schedule="*/1 * * * *", arg_name="myTimer",
+                run_on_startup=False,
+                use_monitor=False)
+  @app.generic_output_binding(arg_name="signalRMessages", type="signalR", hubName="serverless", connectionStringSetting="AzureSignalRConnectionString")
+  def broadcast(myTimer: func.TimerRequest, signalRMessages: func.Out[str]) -> None:
+      global etag
+      global start_count
+      headers = {'User-Agent': 'serverless', 'If-None-Match': etag}
+      res = requests.get('https://api.github.com/repos/azure/azure-functions-python-worker', headers=headers)
+      if res.headers.get('ETag'):
+          etag = res.headers.get('ETag')
+
+      if res.status_code == 200:
+          jres = res.json()
+          start_count = jres['stargazers_count']
+      
+      signalRMessages.set(json.dumps({
+          'target': 'newMessage',
+          'arguments': [ 'Current star count of https://api.github.com/repos/azure/azure-functions-python-worker is: ' + str(start_count) ]
+      }))
+  ```
+
+This function uses a time trigger to periodically broadcast messages to all clients.
+::: zone-end
+
+::: zone pivot="python-mode-configuration"
+## Create the Azure Function project
+
+Create a local Azure Function project.
+
+1. From a command line, create a directory for your project.
+1. Change to the project directory.
+1. Use the Azure Functions `func init` command to initialize your function project.
+
+  ```bash
+  # Initialize a function project
+  func init --worker-runtime python --model v1
   ```
 
 ## Create the functions
@@ -212,6 +310,7 @@ You can use this sample function as a template for your own functions.
           'arguments': [ 'Current star count of https://github.com/Azure/azure-signalr is: ' + str(start_count) ]
       }))
   ```
+::: zone-end
 
 ### Create the index.html file
 

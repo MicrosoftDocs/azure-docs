@@ -1,29 +1,30 @@
 ---
-title: Compare Azure Database for PostgreSQL - Single Server and Flexible Server
-description: Detailed comparison of features and capabilities between Azure Database for PostgreSQL Single Server and Flexible Server
-ms.author: alkuchar
+title: Compare deployment options
+description: Detailed comparison of features and capabilities between Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server.
 author: AwdotiaRomanowna
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/11/2023
 ---
 
-# Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
+# Comparison chart: Azure Database for PostgreSQL - Flexible Server vs. Single Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 ## Overview
 
-Azure Database for PostgreSQL Flexible Server is the next generation managed PostgreSQL service in Azure. It provides maximum flexibility over your database, built-in cost-optimizations, and offers several improvements over Single Server.
+Azure Database for PostgreSQL flexible server is the next generation managed PostgreSQL service in Azure. It provides maximum flexibility over your database, built-in cost-optimizations, and offers several improvements over Azure Database for PostgreSQL single server.
 
 >[!NOTE]
-> For all your new PostgreSQL deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
+> For all your new deployments, we recommend using Azure Database for PostgreSQL flexible server. However, you should consider your own requirements against the comparison table below.
 
 ## Comparison table
-The following table provides a list of high-level features and capabilities comparisons between Single Server and Flexible Server. 
+The following table provides a list of high-level features and capabilities comparisons between Azure Database for PostgreSQL single server and Azure Database for PostgreSQL flexible server. 
 
-| **Feature / Capability** | **Single Server** | **Flexible Server** |
+| **Feature / Capability** | **Azure Database for PostgreSQL single server** | **Azure Database for PostgreSQL flexible server** |
 | ---- | ---- | ---- |
 | **General**  | | |
 | General availability | GA since 2018 | GA since 2021|
@@ -49,12 +50,12 @@ The following table provides a list of high-level features and capabilities comp
 | Burstable SKUs | No | Yes |
 | Ability to scale across compute tiers | Can't scale Basic tier | Yes. Can scale across tiers |
 | Stop/Start | No | Yes (for all compute SKUs). Only compute is stopped/started |
-| Max. Storage size | 1 TB (Basic), 4 TB or 16 TB (GP, MO). Note: Not all regions support 16 TB. | 16 TB |
+| Max. Storage size | 1 TB (Basic), 4 TB or 16 TB (GP, MO). Note: Not all regions support 16 TB. | 64 TB. Note: Not all regions support 64 TB.|
 | Min storage size | 5 GB (Basic), 100 GB (GP, MO) | 32 GB |
 | Storage auto-grow | Yes | Yes |
-| Max IOPS | Basic - Variable. GP/MO: up to 18 K  | Up to 18 K |
+| Max IOPS | Basic - Variable. GP/MO: up to 18 K  | Up to 80 K |
 | **Networking/Security** | | |
-| Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
+| Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access |
 | Public access control | Firewall | Firewall |
 | Private link support | Yes | Yes (Preview) |
 | Private VNET injection support | No | Yes |
@@ -70,7 +71,7 @@ The following table provides a list of high-level features and capabilities comp
 | Cost | 1x | 2x (compute + storage) |
 | Availability with non-HA configuration | Automatic restart, compute relocation | Automatic restart, compute relocation
 | Protect from zone failure | Compute - Yes. Storage - No | Compute & storage - Yes |
-| Protect from region failure | No | No |
+| Protect from region failure | No | Yes |
 | Mode of HA replication | N/A | Postgres physical streaming replication in SYNC mode
 | Standby can be used for read purposes | N/A | No |
 | Application performance impact | No (not replicating) | Yes (Due to sync replication. Depends on the workload) |
@@ -93,7 +94,7 @@ The following table provides a list of high-level features and capabilities comp
 | Ability to restore on a different zone | N/A | Yes |
 | Ability to restore to a different VNET | No | Yes |
 | Ability to restore to a different region | Yes (Geo-redundant) | Yes (in [selected regions](overview.md#azure-regions)) |
-| Ability to restore a deleted server | Limited via API | Limited via support ticket |
+| Ability to restore a deleted server | Limited via API | Limited via API |
 | **Read Replica** | | |
 | Support for read replicas | Yes | Yes |
 | Number of read replicas | 5 | 5 |
@@ -106,7 +107,7 @@ The following table provides a list of high-level features and capabilities comp
 | Maintenance period | Anytime within 15-hrs window | 1 hr window | 
 | **Metrics** | | |
 | Errors | Failed connections | Failed connections |
-| Latency | Max lag across replicas, Replica lag | N/A |
+| Latency | Max lag across replicas, Replica lag | Max lag across replicas, Replica lag  |
 | Saturation | Backup storage used, CPU %, IO %, Memory %, Server log storage limit, server log storage %, server log storage used, Storage limit, Storage %, Storage used | Backup storage used, CPU credits consumed, CPU credits remaining, CPU %, Disk queue depth, IOPS, Memory %, Read IOPS, Read throughput bytes/s, storage free, storage %, storage used, Transaction log storage used, Write IOPS, Write throughput bytes/s |
 | Traffic | Active connections, Network In, Network out | Active connections, Max. used transaction ID, Network In, Network Out, succeeded connections |
 | **Extensions** | | (offers latest versions)|
@@ -120,16 +121,16 @@ The following table provides a list of high-level features and capabilities comp
 | Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
 | Alerts | Yes | Yes |
-| Microsoft Defender for Cloud | Yes | No |
+| Microsoft Defender for Cloud | Yes | Yes |
 | Resource health | Yes | Yes |
 | Service health | Yes | Yes |
-| Performance insights (iPerf) | Yes | Yes. Not available in portal |
+| Performance insights (iPerf) | Yes | Yes |
 | Major version upgrades support | No | Yes |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 
 
 ## Next steps
 
-- Understand [what’s available for compute and storage options - Flexible server](concepts-compute-storage.md)
-- Learn about [supported PostgreSQL Database Versions in Flexible Server](concepts-supported-versions.md)
-- Learn about [current limitations in Flexible Server](concepts-limits.md)
+- Understand [what’s available for compute and storage options - Azure Database for PostgreSQL - Flexible Server](concepts-compute-storage.md)
+- Learn about [supported PostgreSQL database versions - Azure Database for PostgreSQL - Flexible Server](concepts-supported-versions.md)
+- Learn about [current limitations in Azure Database for PostgreSQL flexible server](concepts-limits.md)

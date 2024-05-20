@@ -7,7 +7,6 @@ ms.topic: faq
 ms.author: chugu
 author: chugugrace
 ms.reviewer: chugugrace
-ms.custom: seo-lt-2019
 ms.date: 08/10/2023
 ---
 

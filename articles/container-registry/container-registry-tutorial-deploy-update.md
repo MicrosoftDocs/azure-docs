@@ -4,8 +4,8 @@ description: Push an updated Docker image to your geo-replicated Azure container
 ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom: "seodec18, mvc"
+ms.date: 10/31/2023
+ms.custom: mvc
 ms.service: container-registry
 ---
 

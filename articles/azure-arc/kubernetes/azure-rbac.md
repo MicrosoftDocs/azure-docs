@@ -35,7 +35,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
+> You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
 
 <a name='set-up-azure-ad-applications'></a>
 
@@ -716,6 +716,11 @@ node-3    Ready    agent    6m33s    v1.18.14
 
 If the secret for the server application's service principal has expired, you'll need to rotate it.
 
+### [Azure CLI >= v2.3.7](#tab/AzureCLI)
+```azurecli
+SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}" --query password -o tsv)
+```
+### [Azure CLI < v2.3.7](#tab/AzureCLI236)
 ```azurecli
 SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
 ```
@@ -725,6 +730,8 @@ Update the secret on the cluster. Include any optional parameters you configured
 ```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
+
+---
 
 ## Next steps
 

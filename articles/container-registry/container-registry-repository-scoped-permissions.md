@@ -4,8 +4,8 @@ description: Create a token to grant and manage repository scoped permissions wi
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.date: 10/31/2023
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.service: container-registry
 ---

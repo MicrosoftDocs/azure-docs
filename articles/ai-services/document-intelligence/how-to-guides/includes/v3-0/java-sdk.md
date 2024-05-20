@@ -5,11 +5,12 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 03/28/2024
 ms.author: lajanuar
 ms.custom:
   - devx-track-csharp
   - ignite-2023
+monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD001 -->
@@ -17,19 +18,21 @@ ms.custom:
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-> [!NOTE]
->
-> This project targets Document Intelligence REST API version 3.1.
+:::moniker range="doc-intel-3.1.0"
+[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)| [Supported REST API versions](../../../sdk-overview-v3-1.md)
+:::moniker-end
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)| [Supported REST API versions](../../../sdk-overview-v3-1.md)
+:::moniker range="doc-intel-3.0.0"
+[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API versions](../../../sdk-overview-v3-0.md)
+:::moniker-end
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. See [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
 
-  - Visual Studio Code offers a *Coding Pack for Java* for Windows and macOS. The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
-  - If you're using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
+  - Visual Studio Code offers a *Coding Pack for Java* for Windows and macOS. The coding pack is a bundle of `VS Code`, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
+  - If you're using `VS Code` and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
 
   If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
@@ -59,11 +62,9 @@ ms.custom:
   | **Invoice model**  | prebuilt-invoice | [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf) |
   | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
   | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
+  | **Business card model**|prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/business-card-english.jpg)|
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
-
-[!INCLUDE [environment-variables](set-environment-variables.md)]
+[!INCLUDE [environment-variables](../set-environment-variables.md)]
 
 ## Set up your programming environment
 
@@ -88,9 +89,6 @@ To set up your programming environment, create a Gradle project and install the 
 
 1. Select **Enter** to accept the default project name, *form-recognizer-app*.
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue creating a gradle project.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=create-gradle-project) -->
-
 ### Install the client library
 
 This article uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
@@ -113,9 +111,6 @@ This article uses the Gradle dependency manager. You can find the client library
     }
     ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue installing the client library.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=install-client-library.) -->
-
 ## Create a Java application
 
 To interact with the Document Intelligence service, create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
@@ -136,17 +131,14 @@ To interact with the Document Intelligence service, create an instance of the `D
    >
    > You can create a new file by using PowerShell. Open a PowerShell window in your project directory by holding down the **Shift** key and right-clicking the folder, then type the following command: *New-Item FormRecognizer.java*.
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue creating the Java application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=create-java-app) -->
+1. Open the *FormRecognizer.java* file and select one of the following code samples and copy/paste into your application:
 
-1. Open the *FormRecognizer.java* file and select one of the following code samples to copy and paste into your application:
-
-   - The [prebuilt-read](#use-the-read-model) model is at the core of all Document Intelligence models and can detect lines, words, locations, and languages. The layout, general document, prebuilt, and custom models all use the read model as a foundation for extracting texts from documents.
+   - The [prebuilt-read](#use-the-read-model) model is at the core of all Document Intelligence models and can detect lines, words, locations, and languages. The layout, general document, prebuilt, and custom models all use the `read` model as a foundation for extracting texts from documents.
    - The [prebuilt-layout](#use-the-layout-model) model extracts text and text locations, tables, selection marks, and structure information from documents and images.
    - The [prebuilt-tax.us.w2](#use-the-w-2-tax-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
    - The [prebuilt-invoice](#use-the-invoice-model) model extracts key fields and line items from sales invoices in various formats.
    - The [prebuilt-receipt](#use-the-receipt-model) model extracts key information from printed and handwritten sales receipts.
-   - The [prebuilt-idDocument](#use-the-id-document-model) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident cards or *green cards*.
+   - The [prebuilt-idDocument](#use-the-id-document-model) model extracts key information from US Drivers Licenses; international passport biographical pages; US state IDs; social security cards; and permanent resident cards.
 
 1. Type the following commands:
 
@@ -220,10 +212,7 @@ analyzeLayoutResult.getPages().forEach(documentPage -> {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-read) -->
-
-Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/read-model-output.md).
+Visit the Azure samples repository on GitHub and view the [`read` model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Use the Layout model
 
@@ -317,10 +306,7 @@ private static String getBoundingCoordinates(List < Point > boundingPolygon) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-layout) -->
-
-Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/layout-model-output.md).
+Visit the Azure samples repository on GitHub and view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/layout-model-output.md).
 
 ## Use the General document model
 
@@ -413,10 +399,7 @@ analyzeResult.getKeyValuePairs().forEach(documentKeyValuePair -> {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-general-document) -->
-
-Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/general-document-model-output.md).
+Visit the Azure samples repository on GitHub and view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Use the W-2 tax model
 
@@ -552,10 +535,7 @@ for (int i = 0; i < analyzeTaxResult.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-w2-tax) -->
-
-Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/w2-tax-model-output.md).
+Visit the Azure samples repository on GitHub and view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Use the Invoice model
 
@@ -710,10 +690,7 @@ for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-invoice) -->
-
-Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/invoice-model-output.md).
+Visit the Azure samples repository on GitHub and view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/invoice-model-output.md).
 
 ## Use the Receipt-model
 
@@ -840,10 +817,7 @@ for (int i = 0; i < receiptResults.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-receipt) -->
-
-Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/receipt-model-output.md).
+Visit the Azure samples repository on GitHub and view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/receipt-model-output.md).
 
 ## Use the ID document model
 
@@ -965,10 +939,7 @@ for (int i = 0; i < identityDocumentResults.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-id-document) -->
-
-Visit the Azure samples repository on GitHub to view the [ID document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/id-document-output.md).
+Visit the Azure samples repository on GitHub and view the [ID document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/id-document-output.md).
 
 ## Use the Business card model
 
@@ -1172,7 +1143,4 @@ for (int i = 0; i < businessCardPageResults.getDocuments().size(); i++) {
 }
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=how-to&Section=run-business-card) -->
-
-Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/business-card-model-output.md).
+Visit the Azure samples repository on GitHub and view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/business-card-model-output.md).

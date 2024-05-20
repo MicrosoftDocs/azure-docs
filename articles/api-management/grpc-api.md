@@ -12,6 +12,8 @@ ms.custom: devx-track-arm-template, devx-track-bicep
 ---
 # Import a gRPC API (preview)
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article shows how to import a gRPC service definition as an API in API Management. You can then manage the API in API Management, secure access and apply other polices, and pass gRPC API requests through the gateway to the gRPC backend. 
 
 To add a gRPC API to API Management, you need to:
@@ -26,8 +28,6 @@ API Management supports pass-through with the following types of gRPC service me
 > [!NOTE]
 > * Importing a gRPC API is in preview. Currently, gRPC APIs are only supported in the self-hosted gateway, not the managed gateway for your API Management instance.
 > * Currently, testing gRPC APIs isn't supported in the test console of the Azure portal or in the API Management developer portal.
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 

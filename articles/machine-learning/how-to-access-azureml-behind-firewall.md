@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 04/14/2023
-ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
+ms.date: 04/08/2024
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -83,7 +83,7 @@ __Outbound traffic__
 | `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
 
 > [!IMPORTANT]
-> If a compute instance or compute cluster is configured for no public IP, by default it can't access the internet. If it *can* still send outbound traffic to the internet, it is because of Azure [default outbound access](../virtual-network/ip-services/default-outbound-access.md#when-is-default-outbound-access-provided) and you have an NSG that allows outbound to the internet. We **don't recocmmend** using the default outbound access. If you need outbound access to the internet, we recommend using one of the following options instead of the default outbound access:
+> If a compute instance or compute cluster is configured for no public IP, by default it can't access the internet. If it *can* still send outbound traffic to the internet, it is because of Azure [default outbound access](../virtual-network/ip-services/default-outbound-access.md#when-is-default-outbound-access-provided) and you have an NSG that allows outbound to the internet. We **don't recommend** using the default outbound access. If you need outbound access to the internet, we recommend using one of the following options instead of the default outbound access:
 > 
 > * __Azure Virtual Network NAT with a public IP__: For more information on using Virtual Network Nat, see the [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) documentation.
 > * __User-defined route and firewall__: Create a user-defined route in the subnet that contains the compute. The __Next hop__ for the route should reference the private IP address of the firewall, with an address prefix of 0.0.0.0/0.
@@ -197,11 +197,13 @@ To install the Azure Machine Learning extension on Kubernetes compute, all Azure
 
 
 ## Scenario: Visual Studio Code
+Visual Studio Code relies on specific hosts and ports to establish a remote connection.
 
+### Hosts
 The hosts in this section are used to install Visual Studio Code packages to establish a remote connection between Visual Studio Code and compute instances in your Azure Machine Learning workspace.
 
 > [!NOTE]
-> This is not a complete list of the hosts required for all Visual Studio Code resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+> This is not a complete list of the hosts required for all Visual Studio Code resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario. For a complete list of host names, see [Network Connections in Visual Studio Code](https://code.visualstudio.com/docs/setup/network).
 
 | __Host name__ | __Purpose__ |
 | ---- | ---- |
@@ -210,6 +212,10 @@ The hosts in this section are used to install Visual Studio Code packages to est
 | `update.code.visualstudio.com`<br>`*.vo.msecnd.net` | Used to retrieve VS Code server bits that are installed on the compute instance through a setup script. |
 | `marketplace.visualstudio.com`<br>`vscode.blob.core.windows.net`<br>`*.gallerycdn.vsassets.io` | Required to download and install VS Code extensions. These hosts enable the remote connection to compute instances using the Azure Machine Learning extension for VS Code. For more information, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) |
 | `raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/*` | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
+| `vscode.download.prss.microsoft.com` | Used for Visual Studio Code download CDN |
+
+### Ports
+You must allow network traffic to ports 8704 to 8710. The VS Code server dynamically selects the first available port within this range.
 
 ## Scenario: Third party firewall or Azure Firewall without service tags
 
@@ -471,7 +477,7 @@ If you haven't [secured Azure Monitor](./v1/how-to-secure-workspace-vnet.md#secu
 * `dc.services.visualstudio.com`
 * `*.in.applicationinsights.azure.com`
 
-For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
+For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md).
 
 ## Next steps
 

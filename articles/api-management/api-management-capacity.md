@@ -2,7 +2,6 @@
 title: Capacity of an Azure API Management instance | Microsoft Docs
 description: This article explains what the capacity metric is and how to make informed decisions whether to scale an Azure API Management instance.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -13,6 +12,8 @@ ms.custom: fasttrack-edit
 ---
 
 # Capacity of an Azure API Management instance
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 **Capacity** is the most important [Azure Monitor metric](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) for making informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. Its construction is complex and imposes certain behavior.
 
@@ -43,6 +44,7 @@ To follow the steps in this article, you must have:
 + API Management management plane services, such as management actions applied via the Azure portal or Azure Resource Manager, or load coming from the [developer portal](api-management-howto-developer-portal.md).
 + Selected operating system processes, including processes that involve cost of TLS handshakes on new connections.
 + Platform updates, such as OS updates on the underlying compute resources for the instance.
++ Number of APIs deployed, regardless of activity, which can consume additional capacity.
 
 Total **capacity** is an average of its own values from every [unit](upgrade-and-scale.md) of an API Management instance.
 

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -49,7 +50,7 @@ Multi-value subqueries can optimize ``JOIN`` expressions by pushing predicates a
 
 Consider the following query:
 
-```sql
+```nosql
 SELECT VALUE
     COUNT(1)
 FROM
@@ -72,7 +73,7 @@ The ``WHERE`` clause then applies the filter predicate on each ``<c, t, n, s>`` 
 
 This query is equivalent to the preceding one but uses subqueries:
 
-```sql
+```nosql
 SELECT VALUE
     COUNT(1)
 FROM
@@ -101,7 +102,7 @@ function getTotalWithTax(subTotal){
 
 The following query runs the UDF `getTotalWithTax` multiple times:
 
-```sql
+```nosql
 SELECT VALUE {
     subtotal: p.price,
     total: udf.getTotalWithTax(p.price)
@@ -114,7 +115,7 @@ WHERE
 
 Here's an equivalent query that runs the UDF only once:
 
-```sql
+```nosql
 SELECT VALUE {
     subtotal: p.price,
     total: totalPrice
@@ -148,7 +149,7 @@ For instance, consider this set of measurements:
 
 The following query mimics joining with this data so that you add the name of the unit to the output:
 
-```sql
+```nosql
 SELECT
     s.id,
     (s.weight.quantity * m.multiplier) AS calculatedWeight,
@@ -187,7 +188,7 @@ A simple-expression scalar subquery is a correlated subquery that has a ``SELECT
 
 As a first example, consider this trivial query.
 
-```sql
+```nosql
 SELECT
     1 AS a,
     2 AS b
@@ -195,7 +196,7 @@ SELECT
 
 You can rewrite this query, by using a simple-expression scalar subquery.
 
-```sql
+```nosql
 SELECT
     (SELECT VALUE 1) AS a, 
     (SELECT VALUE 2) AS b
@@ -214,7 +215,7 @@ Both queries produce the same output.
 
 This next example query concatenates the unique identifier with a prefix as a simple-expression scalar subquery.
 
-```sql
+```nosql
 SELECT 
     (SELECT VALUE Concat('ID-', p.id)) AS internalId
 FROM
@@ -223,7 +224,7 @@ FROM
 
 This example uses a simple-expression scalar subquery to only return the relevant fields for each item. The query outputs something for each item, but it only includes the projected field if it meets the filter within the subquery.
 
-```sql
+```nosql
 SELECT
     p.id,
     (SELECT p.name WHERE CONTAINS(p.name, "glove")).name
@@ -274,7 +275,7 @@ As a first example, consider an item with the following fields.
 
 Here's a subquery with a single aggregate function expression in its projection. This query counts all tags for each item.
 
-```sql
+```nosql
 SELECT
     p.name,
     (SELECT VALUE COUNT(1) FROM i IN p.inventory) AS locationCount
@@ -293,7 +294,7 @@ FROM
 
 Here's the same subquery with a filter.
 
-```sql
+```nosql
 SELECT
     p.name,
     (SELECT VALUE COUNT(1) FROM i IN p.inventory WHERE ENDSWITH(i.location, "WA")) AS washingtonLocationCount
@@ -312,7 +313,7 @@ FROM
 
 Here's another subquery with multiple aggregate function expressions:
 
-```sql
+```nosql
 SELECT
     p.name,
     (SELECT
@@ -337,7 +338,7 @@ FROM
 
 Finally, here's a query with an aggregate subquery in both the projection and the filter:
 
-```sql
+```nosql
 SELECT
     p.name,
     (SELECT VALUE AVG(q.quantity) FROM q IN p.inventory WHERE q.quantity > 10) AS averageInventory
@@ -358,7 +359,7 @@ WHERE
 
 A more optimal way to write this query is to join on the subquery and reference the subquery alias in both the SELECT and WHERE clauses. This query is more efficient because you need to execute the subquery only within the join statement, and not in both the projection and filter.
 
-```sql
+```nosql
 SELECT
     p.name,
     inventoryData.inventoryAverage
@@ -382,14 +383,14 @@ Because the query engine doesn't differentiate between boolean expressions and a
 
 If the ``EXISTS`` subquery returns a single value that's ``undefined``, ``EXISTS`` evaluates to false. For example, consider the following query that returns nothing.
 
-```sql
+```nosql
 SELECT VALUE
     undefined
 ```
 
 If you use the ``EXISTS`` expression and the preceding query as a subquery, the expression returns ``false``.
 
-```sql
+```nosql
 SELECT
     EXISTS (SELECT VALUE undefined)
 ```
@@ -404,7 +405,7 @@ SELECT
 
 If the VALUE keyword in the preceding subquery is omitted, the subquery evaluates to an array with a single empty object.
 
-```sql
+```nosql
 SELECT
     undefined
 ```
@@ -417,7 +418,7 @@ SELECT
 
 At that point, the ``EXISTS`` expression evaluates to ``true`` since the object (``{}``) technically exits.
 
-```sql
+```nosql
 SELECT 
     EXISTS (SELECT undefined) 
 ```
@@ -432,7 +433,7 @@ SELECT
 
 A common use case of ``ARRAY_CONTAINS`` is to filter an item by the existence of an item in an array. In this case, we're checking to see if the ``tags`` array contains an item named **"outerwear."**
 
-```sql
+```nosql
 SELECT
     p.name,
     p.tags
@@ -444,7 +445,7 @@ WHERE
 
 The same query can use ``EXISTS`` as an alternative option.
 
-```sql
+```nosql
 SELECT
     p.name,
     p.tags
@@ -483,7 +484,7 @@ Consider this example item in a set with multiple items each containing an ``acc
 
 Now, consider the following query that filters based on the ``type`` and ``quantityOnHand`` properties in the array within each item.
 
-```sql
+```nosql
 SELECT
     p.name,
     a.name AS accessoryName
@@ -509,7 +510,7 @@ For each of the items in the collection, a cross-product is performed with its a
 
 Using ``EXISTS`` can help to avoid this expensive cross-product. In this next example, the query filters on array elements within the ``EXISTS`` subquery. If an array element matches the filter, then you project it and ``EXISTS`` evaluates to true.
 
-```sql
+```nosql
 SELECT VALUE
     p.name
 FROM
@@ -532,7 +533,7 @@ WHERE
 
 Queries can also alias ``EXISTS`` and reference the alias in the projection:
 
-```sql
+```nosql
 SELECT
     p.name,
     EXISTS (SELECT VALUE
@@ -580,7 +581,7 @@ For these examples, let's assume there's a container with at least this item.
 
 In this first example, the expression is used within the ``SELECT`` clause.
 
-```sql
+```nosql
 SELECT
     p.name,
     ARRAY (SELECT VALUE t.name FROM t in p.tags) AS tagNames
@@ -603,7 +604,7 @@ FROM
 
 As with other subqueries, filters with the ``ARRAY`` expression are possible.
 
-```sql
+```nosql
 SELECT
     p.name,
     ARRAY (SELECT VALUE t.name FROM t in p.tags) AS tagNames,
@@ -630,7 +631,7 @@ FROM
 
 Array expressions can also come after the ``FROM`` clause in subqueries.
 
-```sql
+```nosql
 SELECT
     p.name,
     n.t.name AS nonBikeTagName

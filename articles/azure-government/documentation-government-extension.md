@@ -6,9 +6,7 @@ cloud: gov
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
-ms.date: 08/31/2021 
+ms.date: 08/31/2021
 ---
 
 # Azure Government virtual machine extensions

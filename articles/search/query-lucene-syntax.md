@@ -10,21 +10,21 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 02/22/2024
 ---
 
 # Lucene query syntax in Azure AI Search
 
 When creating queries in Azure AI Search, you can opt for the full [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure AI Search](search-lucene-query-architecture.md), except for *range searches, which are constructed through **`$filter`** expressions. 
 
-To use full Lucene syntax, set the queryType to "full" and pass in a query expression patterned for wildcard, fuzzy search, or one of the other query forms supported by the full syntax. In REST, query expressions are provided in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
+To use full Lucene syntax, set the queryType to `full` and pass in a query expression patterned for wildcard, fuzzy search, or one of the other query forms supported by the full syntax. In REST, query expressions are provided in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
 
 ## Example (full syntax)
 
 The following example is a search request constructed using the full syntax. This particular example shows in-field search and term boosting. It looks for hotels where the category field contains the term `budget`. Any documents containing the phrase `"recently renovated"` are ranked higher as a result of the term boost value (3).  
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
   "queryType": "full",
   "search": "category:budget AND \"recently renovated\"^3",
@@ -89,7 +89,7 @@ You can embed Boolean operators in a query string to improve the precision of a 
 * In full syntax, queries with a single negation are not allowed. For example, the query `-luxury` is not allowed.
 * In full syntax, negations will behave as if they are always ANDed onto the query regardless of the search mode.
    * For example, the full syntax query `wifi -luxury` in full syntax only fetches documents that contain the term `wifi`, and then applies the negation `-luxury` to those documents.
-* If you want to use negations to search over all documents in the index, simple syntax with the any search mode is recommended.
+* If you want to use negations to search over all documents in the index, simple syntax with the `any` search mode is recommended.
 * If you want to use negations to search over a subset of documents in the index, full syntax or the simple syntax with the all search mode are recommended.
 
 | Query Type | Search Mode | Example Query | Behavior |
@@ -140,9 +140,11 @@ The following example helps illustrate the differences. Suppose that there's a s
 
  For example, to find documents containing `motel` or `hotel`, specify `/[mh]otel/`. Regular expression searches are matched against single words.
 
-Some tools and languages impose other escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: `microsoft.com/azure/` becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
+Some tools and languages impose extra escape character requirements beyond the [escape rules](#escaping-special-characters) imposed by Azure AI Search. For JSON, strings that include a forward slash are escaped with a backward slash: `microsoft.com/azure/` becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash. 
 
 Two common symbols in regex queries are `.` and `*`. A `.` matches any one character and a `*` matches the previous character zero or more times.  For example, `/be./` matches the terms `bee` and `bet` while `/be*/` would match `be`, `bee`, and `beee` but not `bet`. Together, `.*` allow you to match any series of characters so `/be.*/` would match any term that starts with `be` such as `better`.
+
+If you get syntax errors in your regular expression, review the [escape rules](#escaping-special-characters) for special characters. You might also try a different client to confirm whether the problem is tool-specific.
 
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
@@ -184,7 +186,7 @@ In some circumstances, you may want to search for a special character, like an '
 
 Analyzers that tokenize special characters include the whitespace analyzer, which takes into consideration any character sequences separated by whitespaces as tokens (so the `❤` string would be considered a token). Also, a language analyzer like the Microsoft English analyzer ("en.microsoft"), would take the "€" string as a token. You can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
 
-When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for `❤` would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.  
+When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for `❤` would use the escape sequence `%E2%9D%A4+`). Some REST clients do this translation automatically.  
 
 ## Precedence (grouping)
 

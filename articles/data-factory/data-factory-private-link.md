@@ -6,8 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019, contperf-fy22q2
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Azure Private Link for Azure Data Factory
@@ -94,6 +93,9 @@ If you don't allow the preceding outbound traffic in the firewall and NSG, self-
 
 > [!NOTE]
 > If one data factory (shared) has a self-hosted IR and the self-hosted IR is shared with other data factories (linked), you only need to create a private endpoint for the shared data factory. Other linked data factories can leverage this private link for the communications between self-hosted IR and Data Factory.
+
+> [!NOTE]
+> We do not currently support establishing a private link between a self-hosted integration runtime and a Synapse Analytics workspace. And the self-hosted integration runtime can still communicate with Synapse even when data exfiltration protection is enabled on the Synapse workspace.
 
 ## DNS changes for private endpoints
 

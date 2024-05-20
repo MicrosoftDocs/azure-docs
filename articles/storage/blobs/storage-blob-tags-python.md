@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/29/2023
+ms.date: 02/02/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
@@ -29,11 +29,7 @@ To learn about setting blob index tags using asynchronous APIs, see [Set blob in
     - [Set Blob Tags](/rest/api/storageservices/set-blob-tags#authorization)
     - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags#authorization)
 
-## About blob index tags
-
-Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
-
-To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+[!INCLUDE [storage-dev-guide-about-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-tags.md)]
 
 ## Set tags
 
@@ -45,11 +41,11 @@ You can set tags by using the following method:
 
 The specified tags in this method will replace existing tags. If old values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_set_blob_tags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_set_blob_tags":::
 
 You can delete all tags by passing an empty `dict` object into the `set_blob_tags` method:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_clear_blob_tags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_clear_blob_tags":::
 
 ## Get tags
 
@@ -61,7 +57,7 @@ You can get tags by using the following method:
 
 The following example shows how to retrieve and iterate over the blob's tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_get_blob_tags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_get_blob_tags":::
 
 ## Filter and find data with blob index tags
 
@@ -76,7 +72,7 @@ You can find data by using the following method:
 
 The following example finds and lists all blobs tagged as an image:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py" id="Snippet_find_blobs_by_tags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py" id="Snippet_find_blobs_by_tags":::
 
 ## Set blob index tags asynchronously
 
@@ -112,7 +108,7 @@ Follow these steps to set blob index tags using asynchronous APIs:
 
 1. Add code to set the blob index tags. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `get_blob_tags` and `set_blob_tags` methods.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags-async.py" id="Snippet_set_blob_tags":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags_async.py" id="Snippet_set_blob_tags":::
 
 With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
@@ -130,7 +126,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs-properties-metadata-tags-async.py) code samples from this article (GitHub)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_blobs_properties_metadata_tags_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

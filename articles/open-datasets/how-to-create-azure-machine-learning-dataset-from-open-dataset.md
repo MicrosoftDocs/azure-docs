@@ -3,20 +3,21 @@ title: Create datasets with Azure Open Datasets
 description: Learn how to create an Azure Machine Learning dataset from Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: conceptual
-ms.author: franksolomon 
+ms.author: franksolomon
 author: fbsolo-ms1
 ms.date: 08/05/2020
-ms.custom: how-to, tracking-python, event-tier1-build-2022
-#Customer intent: As an experienced Python developer, I want to use Azure Open Datasets in my ML workflows for improved model accuracy.
+ms.custom: how-to, tracking-python
 ---
-
 # Create Azure Machine Learning datasets from Azure Open Datasets
 
-In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) datasets and [Azure Open Datasets](./index.yml). 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) datasets and [Azure Open Datasets](./index.yml).
 
 By creating an [Azure Machine Learning dataset](../machine-learning/v1/how-to-create-register-datasets.md), you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily evaluated, and the data remains in its existing location, you
 * Incur no extra storage cost.
-* Don't risk unintentionally changing your original data sources. 
+* Don't risk unintentionally changing your original data sources.
 * Improve ML workflow performance speeds.
 
 To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/v1/concept-data.md#data-workflow) article.
@@ -57,7 +58,7 @@ To create Azure Machine Learning datasets via Azure Open Datasets classes in the
 
 You can retrieve certain `opendatasets` classes as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can get a dataset **only** by using the `get_tabular_dataset()` or `get_file_dataset()` functions from the `Dataset`class in the Python SDK.
 
-The following code shows that the MNIST `opendatasets` class can return either a `TabularDataset` or `FileDataset`. 
+The following code shows that the MNIST `opendatasets` class can return either a `TabularDataset` or `FileDataset`.
 
 
 ```python
@@ -83,7 +84,7 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 Register an Azure Machine Learning dataset with your workspace, so you can share them with others and reuse them across experiments in your workspace. When you register an Azure Machine Learning dataset created from Open Datasets, no data is immediately downloaded, but the data will be accessed later when requested (during training, for example) from a central storage location.
 
-To register your datasets with a workspace, use the [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#register-workspace--name--description-none--tags-none--create-new-version-false-) method. 
+To register your datasets with a workspace, use the [`register()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#register-workspace--name--description-none--tags-none--create-new-version-false-) method.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,

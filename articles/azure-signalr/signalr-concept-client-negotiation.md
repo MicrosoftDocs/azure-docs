@@ -5,7 +5,7 @@ author: JialinXin
 ms.author: jixin
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/08/2023
+ms.date: 04/02/2024
 ---
 
 # Client negotiation
@@ -20,8 +20,9 @@ The response to the `POST [endpoint-base]/negotiate` request contains one of thr
 
   ```json
   {
+    "connectionToken":"05265228-1e2c-46c5-82a1-6a5bcc3f0143",
     "connectionId":"807809a5-31bf-470d-9e23-afaee35d8a0d",
-    "negotiateVersion":0,
+    "negotiateVersion":1,
     "availableTransports":[
       {
         "transport": "WebSockets",
@@ -42,11 +43,10 @@ The response to the `POST [endpoint-base]/negotiate` request contains one of thr
   The payload that this endpoint returns provides the following data:
 
   * The `connectionId` value is required by the `LongPolling` and `ServerSentEvents` transports to correlate sending and receiving.
-  * The `negotiateVersion` value is the negotiation protocol version that you use between the server and the client.
+  * The `negotiateVersion` value is the negotiation protocol version that you use between the server and the client, see [Transport Protocols](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md).
+    * `negotiateVersion: 0` only returns `connectionId`, and client should use the value of `connectionId` as `id` in connect requests.
+    * `negotiateVersion: 1` returns `connectionId` and `connectionToken`, and client should use the value of `connectionToken` as `id` in connect requests.
   * The `availableTransports` list describes the transports that the server supports. For each transport, the payload lists the name of the transport (`transport`) and a list of transfer formats that the transport supports (`transferFormats`).
-
-  > [!NOTE]
-  > Azure SignalR Service supports only `Version 0` for the negotiation protocol. A client that has a `negotiateVersion` value greater than zero will get a response with `negotiateVersion=0` by design. For protocol details, see [Transport Protocols](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md).
 
 * A redirect response that tells the client which URL and (optionally) access token to use as a result:
 
@@ -215,6 +215,74 @@ public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous
 ```
 
 Then your clients can request the function endpoint `https://<Your Function App Name>.azurewebsites.net/api/negotiate` to get the service URL and access token. You can find a full sample on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat).
+
+### Self-exposing `/negotiate` endpoint
+
+You could also expose the negotiation endpoint in your own server and return the negotiation response by yourself if you are using other languages. 
+
+#### Using ConnectionString
+
+Below is a pseudo code in JavaScript showing how to implement the negotiation endpoint for hub `chat` and generate access token from Azure SignalR connection string.
+
+```js
+import express from 'express';
+const connectionString = '<your-connection-string>';
+const hub = 'chat';
+let app = express();
+app.post('/chat/negotiate', (req, res) => {
+  let endpoint = /Endpoint=(.*?);/.exec(connectionString)[1];
+  let accessKey = /AccessKey=(.*?);/.exec(connectionString)[1];
+  let url = `${endpoint}/client/?hub=${hub}`;
+  let token = jwt.sign({ aud: url }, accessKey, { expiresIn: 3600 });
+  res.json({ url: url, accessToken: token });
+});
+app.listen(8080, () => console.log('server started'));
+```
+
+A JavaScript SignalR client then connects with URL `/chat`:
+
+```js
+let connection = new signalR.HubConnectionBuilder().withUrl('/chat').build();
+connection.start();
+```
+
+#### Using Microsoft Entra ID
+Azure SignalR also provides REST API `POST /api/hubs/${hub}/:generateToken?api-version=2022-11-01&userId=${userId}&minutesToExpire=${minutesToExpire}` to generate the client access token for you when you are using Microsoft Entra ID.
+
+The steps are:
+1. Follow [Add role assignments](signalr-howto-authorize-application.md#add-role-assignments-in-the-azure-portal) to assign role `SignalR REST API Owner` or `SignalR Service Owner` to your identity so that your identity has the permission to invoke the REST API to generate the client access token.
+2. Use Azure Identity client library to fetch the Microsoft Entra ID token with scope `https://signalr.azure.com/.default`
+3. Use this token to visit the generate token REST API
+4. Return the client access token in the negotiation response.
+
+Below is a pseudo code in JavaScript showing how to implement the negotiation endpoint for hub `chat` and get access token using Microsoft Entra ID and REST API `/generateToken`.
+```js
+import express from "express";
+import axios from "axios";
+import { DefaultAzureCredential } from "@azure/identity";
+
+const endpoint = "https://<your-service>.service.signalr.net";
+const hub = "chat";
+const generateTokenUrl = `${endpoint}/api/hubs/${hub}/:generateToken?api-version=2022-11-01`;
+let app = express();
+app.get("/chat/negotiate", async (req, res) => {
+  // use DefaultAzureCredential to get the Entra ID token to call the Azure SignalR REST API
+  const credential = new DefaultAzureCredential();
+  const entraIdToken = await credential.getToken("https://signalr.azure.com/.default");
+  const token = (
+    await axios.post(generateTokenUrl, undefined, {
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${entraIdToken.token}`,
+      },
+    })
+  ).data.token;
+  let url = `${endpoint}/client/?hub=${hub}`;
+  res.json({ url: url, accessToken: token });
+});
+app.listen(8080, () => console.log("server started"));
+
+```
 
 ## Next steps
 

@@ -8,10 +8,9 @@ metadata:
   description: Azure Policy helps you manage and prevent IT issues with policy definitions that enforce rules and effects for your resources.
   ms.service: azure-policy
   ms.topic: landing-page
-  ms.collection: collection
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 06/02/2021
+  ms.date: 04/08/2024
 
 landingContent:
   - title: About Azure Policy
@@ -20,10 +19,10 @@ landingContent:
         links:
           - text: What is Azure Policy?
             url: ./overview.md
-          - text: Policy effects
-            url: ./concepts/effects.md
+          - text: Policy effect
+            url: ./concepts/effect-basics.md
           - text: Definition structure
-            url: ./concepts/definition-structure.md
+            url: ./concepts/definition-structure-basics.md
           - text: Scope
             url: ./concepts/scope.md
           - text: Assignment structure
@@ -41,18 +40,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Assign a policy (Portal)
+          - text: Assign a policy (Azure portal)
             url: ./assign-policy-portal.md
           - text: Assign a policy (Azure CLI)
             url: ./assign-policy-azurecli.md
           - text: Assign a policy (Azure PowerShell)
             url: ./assign-policy-powershell.md
-          - text: Assign a policy (.NET)
-            url: ./assign-policy-dotnet.md
-          - text: Assign a policy (JavaScript)
-            url: ./assign-policy-javascript.md
-          - text: Assign a policy (Python)
-            url: ./assign-policy-python.md
           - text: Assign a policy (REST)
             url: ./assign-policy-rest-api.md
           - text: Assign a policy (ARM template)

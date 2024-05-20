@@ -24,7 +24,7 @@ This article assumes that you're familiar with:
 -	[Modifying](virtual-machine-scale-sets-upgrade-policy.md) Virtual Machine Scale Sets
 
 > [!CAUTION]
-> Application Health Extension expects to receive a consistent probe response at the configured port `tcp` or request path `http/https` in order to label a VM as *Healthy*. If no application is running on the VM, or you're unable to configure a probe response, your VM is going to show up as *Unhealthy*.
+> Application Health Extension expects to receive a consistent probe response at the configured port `tcp` or request path `http/https` in order to label a VM as *Healthy*. If no application is running on the VM, or you're unable to configure a probe response, your VM is going to show up as *Unhealthy* (Binary Health States) or *Unknown* (Rich Health States).
 
 > [!NOTE]
 > Only one source of health monitoring can be used for a Virtual Machine Scale Set, either an Application Health Extension or a Health Probe. If you have both options enabled, you will need to remove one before using orchestration services like Instance Repairs or Automatic OS Upgrades.
@@ -152,24 +152,27 @@ The following JSON shows the schema for the Application Health extension. The ex
 
 ```json
 {
-  "type": "extensions",
-  "name": "HealthExtension",
-  "apiVersion": "2018-10-01",
-  "location": "<location>",  
-  "properties": {
-    "publisher": "Microsoft.ManagedServices",
-    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
-    "autoUpgradeMinorVersion": true,
-    "typeHandlerVersion": "1.0",
-    "settings": {
-      "protocol": "<protocol>",
-      "port": <port>,
-      "requestPath": "</requestPath>",
-      "intervalInSeconds": 5,
-      "numberOfProbes": 1
-    }
+  "extensionProfile" : {
+     "extensions" : [
+      {
+        "name": "HealthExtension",
+        "properties": {
+          "publisher": "Microsoft.ManagedServices",
+          "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
+          "autoUpgradeMinorVersion": true,
+          "typeHandlerVersion": "1.0",
+          "settings": {
+            "protocol": "<protocol>",
+            "port": <port>,
+            "requestPath": "</requestPath>",
+            "intervalInSeconds": 5,
+            "numberOfProbes": 1
+          }
+        }
+      }
+    ]
   }
-}  
+} 
 ```
 
 ### Property values
@@ -198,25 +201,28 @@ The following JSON shows the schema for the Rich Health States extension. The ex
 
 ```json
 {
-  "type": "extensions",
-  "name": "HealthExtension",
-  "apiVersion": "2018-10-01",
-  "location": "<location>",  
-  "properties": {
-    "publisher": "Microsoft.ManagedServices",
-    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
-    "autoUpgradeMinorVersion": true,
-    "typeHandlerVersion": "2.0",
-    "settings": {
-      "protocol": "<protocol>",
-      "port": <port>,
-      "requestPath": "</requestPath>",
-      "intervalInSeconds": 5,
-      "numberOfProbes": 1,
-      "gracePeriod": 600
-    }
+  "extensionProfile" : {
+     "extensions" : [
+      {
+        "name": "HealthExtension",
+        "properties": {
+          "publisher": "Microsoft.ManagedServices",
+          "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
+          "autoUpgradeMinorVersion": true,
+          "typeHandlerVersion": "2.0",
+          "settings": {
+            "protocol": "<protocol>",
+            "port": <port>,
+            "requestPath": "</requestPath>",
+            "intervalInSeconds": 5,
+            "numberOfProbes": 1,
+            "gracePeriod": 600
+          }
+        }
+      }
+    ]
   }
-}  
+} 
 ```
 
 ### Property values
@@ -258,6 +264,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 ```json
 {
   "name": "myHealthExtension",
+  "location": "<location>", 
   "properties": {
     "publisher": "Microsoft.ManagedServices",
     "type": "ApplicationHealthWindows",
@@ -383,6 +390,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 ```json
 {
   "name": "myHealthExtension",
+  "location": "<location>",
   "properties": {
     "publisher": "Microsoft.ManagedServices",
     "type": "ApplicationHealthWindows",

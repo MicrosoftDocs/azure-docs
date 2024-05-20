@@ -2,14 +2,15 @@
 title: How to add and manage data in your Azure AI project
 titleSuffix: Azure AI Studio
 description: Learn how to add and manage data in your Azure AI project
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/22/2024
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # How to add and manage data in your Azure AI project
@@ -34,7 +35,7 @@ To create and work with data, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin.
 
-* An Azure AI Studio project.
+* An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
 
 ## Create data
 
@@ -59,7 +60,7 @@ The supported source paths are shown in Azure AI Studio. You can create a data f
 # [Python SDK](#tab/python)
 
 
-If you're using SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
+If you're using the SDK or CLI to create data, you must specify a `path` that points to the data location. Supported paths include:
 
 |Location  | Examples  |
 |---------|---------|
@@ -76,8 +77,6 @@ If you're using SDK or CLI to create data, you must specify a `path` that points
 ### Create data: File type
 
 A data that is a File (`uri_file`) type points to a *single file* on storage (for example, a CSV file). You can create a file typed data using:
-
-
 
 # [Studio](#tab/azure-studio)
 
@@ -113,7 +112,7 @@ These steps explain how to create a File typed data in the Azure AI Studio:
 To create a data that is a File type, use the following code and update the `<>` placeholders with your information.
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -130,7 +129,6 @@ myfile = Data(
 
 client.data.create_or_update(myfile)
 ```
-
 
 ---
 
@@ -173,7 +171,7 @@ Use these steps to create a Folder typed data in the Azure AI Studio:
 To create a data that is a Folder type use the following code and update the `<>` placeholders with your information.
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -239,7 +237,7 @@ To archive *all versions* of the data under a given name, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -264,7 +262,7 @@ To archive a specific data version, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -293,7 +291,7 @@ To restore *all versions* of the data under a given name, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -320,7 +318,7 @@ To restore a specific data version, use:
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.generative import AIClient
+from azure.ai.resources.client import AIClient
 from azure.ai.generative.entities import Data
 from azure.ai.generative.constants import AssetTypes
 from azure.identity import DefaultAzureCredential
@@ -347,6 +345,14 @@ Data support tagging, which is extra metadata applied to the data in the form of
 - Identify whether data is approved from a responsible AI (RAI) audit. For example, `RAI_audit:approved`/`RAI_audit:todo`.
 
 You can add tags to existing data.
+
+### Data preview
+
+You can browse the folder structure and preview the file in the Data details page.
+We support data preview for the following types:
+- Data file types will be supported via preview API: ".tsv", ".csv", ".parquet", ".jsonl".
+- Other file types, Studio UI will attempt to preview the file in the browser natively. So the supported file types may depend on the browser itself.
+Normally for images, these are supported: ".png", ".jpg", ".gif". And normally, these are support ".ipynb", ".py", ".yml", ".html".
 
 ## Next steps
 

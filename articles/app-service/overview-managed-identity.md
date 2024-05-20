@@ -1,13 +1,13 @@
 ---
 title: Managed identities
 description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back-end resource.
-
 ms.topic: article
 ms.date: 06/27/2023
 ms.reviewer: yevbronsh,mahender
-ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, AppServiceConnectivity, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # How to use managed identities for App Service and Azure Functions
@@ -23,6 +23,11 @@ This article shows you how to create a managed identity for App Service and Azur
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, navigate to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app-name>/slots/<slot-name>`.
+
+This video shows you how to use managed identities for App Service.
+> [!VIDEO 4fdf7a78-b3ce-48df-b3ce-cd7796d0ad5a]
+
+The steps in the video are also described in the following sections.
 
 ## Add a system-assigned identity
 

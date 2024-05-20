@@ -285,15 +285,15 @@ For more information, see [Map configuration] in the article about indoor map co
 [Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
 [Create a dataset using a GeoJSON package (Preview)]: how-to-dataset-geojson.md
 [How to create data registry]: how-to-create-data-registries.md
-[Conversion API]: /rest/api/maps/v2/conversion
-[Conversion service]: /rest/api/maps/v2/conversion/convert
+[Conversion API]: /rest/api/maps-creator/conversion
+[Conversion service]: /rest/api/maps-creator/conversion/convert
 [Creator Long-Running Operation]: creator-long-running-operation-v2.md
 [Drawing error visualizer]: drawing-error-visualizer.md
 [Drawing conversion errors and warnings]: drawing-conversion-error-codes.md
-[Dataset Create API]: /rest/api/maps/v2/dataset/create
-[Dataset service]: /rest/api/maps/v2/dataset
-[Tileset service]: /rest/api/maps/2023-03-01-preview/tileset
-[tileset get]: /rest/api/maps/2023-03-01-preview/tileset/get
+[Dataset Create API]: /rest/api/maps-creator/dataset/create
+[Dataset service]: /rest/api/maps-creator/dataset
+[Tileset service]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[tileset get]: /rest/api/maps-creator/tileset/get?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [Map configuration]: creator-indoor-maps.md#map-configuration
 [What is Azure Maps Creator?]: about-creator.md
 [Creator for indoor maps]: creator-indoor-maps.md

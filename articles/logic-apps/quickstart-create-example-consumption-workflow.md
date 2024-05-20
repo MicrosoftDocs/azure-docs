@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: contperf-fy21q4, mode-ui
+ms.custom: mode-ui
 ms.date: 12/05/2023
 #Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 ---

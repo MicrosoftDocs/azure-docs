@@ -25,7 +25,7 @@ This tutorial walks you through how to create an RAG pipeline. For advanced scen
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* Access to Azure Open AI. 
+* Access to Azure OpenAI. 
 
 * Enable prompt flow in your Azure Machine Learning workspace
 

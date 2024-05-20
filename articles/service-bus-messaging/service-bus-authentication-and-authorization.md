@@ -2,7 +2,7 @@
 title: Azure Service Bus authentication and authorization | Microsoft Docs
 description: Authenticate apps to Service Bus with Shared Access Signature (SAS) authentication.
 ms.topic: article
-ms.date: 02/17/2023
+ms.date: 02/23/2024
 ---
 
 # Service Bus authentication and authorization
@@ -16,7 +16,7 @@ This article gives you details on using these two types of security mechanisms.
 <a name='azure-active-directory'></a>
 
 ## Microsoft Entra ID
-Microsoft Entra integration with Service Bus provides role-based access control (RBAC) to Service Bus resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal. Microsoft Entra authenticates the security principal and returns an OAuth 2.0 token. This token can be used to authorize a request to access a Service Bus resource (queue, topic, and so on).
+Microsoft Entra integration with Service Bus provides role-based access control (RBAC) to Service Bus resources. You can use Azure RBAC to grant permissions to a security principal, which can be a user, a group, an application service principal, or a managed identity. Microsoft Entra authenticates the security principal and returns an OAuth 2.0 token. This token can be used to authorize a request to access a Service Bus resource (queue, topic, and so on).
 
 For more information about authenticating with Microsoft Entra ID, see the following articles:
 

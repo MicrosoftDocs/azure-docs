@@ -15,10 +15,10 @@ items:
   - name: Document Intelligence SDKs
     expanded: true
     items:
-      - name: Changelog and release history
+      - name: Changelog and migration guide
         displayName: latest, update, beta, package, preview, version
         href: changelog-release-history.md
-      - name: "🆕 SDK targets: REST API 2023–10–31-preview"
+      - name: "SDK targets: REST API 2024–02–29-preview"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v4-0.md
       - name: "SDK targets: REST API 2023–7–31 latest (GA)"
@@ -58,7 +58,7 @@ items:
     - name: Document Intelligence Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-document-intelligence-studio.md
-    - name: "Get started with Document Intelligence"
+    - name: "Get started with Document Intelligence SDKs"
       displayName: formRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
     - name: Sample Labeling tool
@@ -72,7 +72,17 @@ items:
   - name: Create a Document Intelligence resource
     displayName: endpoint, key, portal
     href:  create-document-intelligence-resource.md
-  - name: Migrate to Document Intelligence v3.1
+  - name: "SDK Migration guides: 2023-10-31-preview"
+    items:
+    - name: ".NET/C# SDK"
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/MigrationGuide.md
+    - name: Java SDK
+      href: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md
+    - name: JavaScript SDK
+      href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md
+    - name: Python SDK
+      href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md
+  - name: "Migration guide: 2023—07—31 latest (GA)"
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-1-migration-guide.md
   - name: Check my usage and estimate the cost
@@ -151,7 +161,7 @@ items:
   - name: Analyze document API response
     displayName: words, lines, pages, bounding regions, documents
     href: concept-analyze-document-response.md
-  - name: Read OCR model
+  - name: Read model
     displayName: text
     href: concept-read.md
   - name: General document model
@@ -162,7 +172,22 @@ items:
     href: concept-layout.md
   - name: Add-on capabilities
     displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
-    href: concept-add-on-capabilities.md  
+    href: concept-add-on-capabilities.md
+  - name: Query field extraction
+    displayName: queries, fields, OpenAI, chat
+    href: concept-query-fields.md
+  - name: 🆕 Retrieval-Augmented Generation (RAG)
+    displayName: RAG, LLM, semantic, chunk, LangChain, language model
+    href: concept-retrieval-augmented-generation.md
+  - name: 🆕 Credit card model
+    displayName: debit
+    href: concept-credit-card.md
+  - name: 🆕 US mortgage documents
+    displayName: 1003, 1008, closing, disclosure
+    href: concept-mortgage-documents.md
+  - name: 🆕 Marriage certificate model
+    displayName: license
+    href: concept-marriage-certificate.md
   - name: Contract model
     displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
     href: concept-contract.md
@@ -185,7 +210,7 @@ items:
     displayName: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
     href: concept-business-card.md?view<=doc-intel-3.1.0&preserve-view=true
   - name: Query field extraction
-    displayName: queries, fields, OpenAI, chat
+    displayName: queries, fields
     href: concept-query-fields.md
   - name: Custom models
     items:
@@ -193,7 +218,7 @@ items:
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
     - name: Custom model lifecycle
-      displayName: custom, train, modelId, model ID
+      displayName: custom, train, modelId, model ID, expiration, train, build
       href: concept-custom-lifecycle.md
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
@@ -204,6 +229,9 @@ items:
     - name: Custom classification model
       displayName: custom, train, classification, splitting
       href: concept-custom-classifier.md
+    - name: 🆕 Incremental classifier
+      displayName: custom, classification, training
+      href: concept-incremental-classifier.md
     - name: Custom labels
       displayName: structure, selection, labels, tables, tabular, train
       href: concept-custom-label.md
@@ -213,9 +241,6 @@ items:
     - name: Composed models
       displayName: custom, assign, modelId, model ID
       href:  concept-composed-models.md
-    - name: Custom model lifecycle
-      displayName: custom, model, expiration, train, build
-      href:  concept-custom-lifecycle.md    
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -226,16 +251,10 @@ items:
     href: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python#examples&preserve-view=true
   - name: "JavaScript"
     href: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest#examples&preserve-view=true
-- name: Responsible use of AI
+- name: Responsible AI
   items:
-  - name: Transparency notes
-    items:
-    - name: Document Intelligence scenarios
-      href: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-  - name: Integration and responsible use
-    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+  - name: Transparency note
+    href: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
   - name: Data, privacy, and security
     href: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
 - name: Tutorials
@@ -261,16 +280,30 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-    - name: REST API v4.0
-      href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
-    - name: REST API v3.1
+  - name: REST APIs
+    items:
+    - name: 2024-02-29-preview (v4.0)
+      href: /rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP
+    - name: 2023-10-31-preview (v4.0)
+      href: /rest/api/aiservices/operation-groups?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
+    - name: 2023-07-31 (v3.1)
       href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
-    - name: REST API v3.0
+    - name: 2022-08-31 (v3.0)
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Error codes v4.0, v3.1, and v3.0
       href: v3-error-guide.md
-    - name: REST API v2.1
+    - name: v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
+  - name: SDKs (2023-10-31-preview)
+    items:
+    - name: C# / .NET
+      href: /dotnet/api/overview/azure/ai.documentintelligence-readme?view=azure-dotnet-preview&preserve-view=true
+    - name: Java
+      href: /java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true
+    - name: JavaScript
+      href: /javascript/api/overview/azure/ai-document-intelligence-rest-readme?view=azure-node-preview&preserve-view=true
+    - name: Python
+      href: /python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true
 - name: Resources
   items:
   - name: Enterprise readiness

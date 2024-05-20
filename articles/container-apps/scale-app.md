@@ -4,7 +4,7 @@ description: Learn how applications scale in and out in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 12/08/2022
 ms.author: cshoe
@@ -15,35 +15,33 @@ zone_pivot_groups: arm-azure-cli-portal
 
 Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app revision scales out, new instances of the revision are created on-demand. These instances are known as replicas.
 
-Adding or editing scaling rules creates a new revision of your container app. A revision is an immutable snapshot of your container app. See revision [change types](./revisions.md#change-types) to review which types of changes trigger a new revision.
+Adding or editing scaling rules creates a new revision of your container app. A revision is an immutable snapshot of your container app. To learn which types of changes trigger a new revision, see revision [change types](./revisions.md#change-types).
 
 [Event-driven Container Apps jobs](jobs.md#event-driven-jobs) use scaling rules to trigger executions based on events.
 
 ## Scale definition
 
-Scaling is defined by the combination of limits, rules, and behavior.
+Scaling is the combination of limits, rules, and behavior.
 
-- **Limits** are the minimum and maximum possible number of replicas per revision as your container app scales.
+- **Limits** define the minimum and maximum possible number of replicas per revision as your container app scales.
 
     | Scale limit | Default value | Min value | Max value |
     |---|---|---|---|
-    | Minimum number of replicas per revision | 0 | 0 | 300 |
-    | Maximum number of replicas per revision | 10 | 1 | 300 |
-
-    To request an increase in maximum replica amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).
+    | Minimum number of replicas per revision | 0 | 0 | Maximum replicas configurable are 300 in Azure portal and 1,000 in Azure CLI. |
+    | Maximum number of replicas per revision | 10 | 1 | Maximum replicas configurable are 300 in Azure portal and 1,000 in Azure CLI. |
 
 - **Rules** are the criteria used by Container Apps to decide when to add or remove replicas.
 
-    [Scale rules](#scale-rules) are implemented as HTTP, TCP, or custom.
+    [Scale rules](#scale-rules) are implemented as HTTP, TCP (Transmission Control Protocol), or custom.
 
-- **Behavior** is how the rules and limits are combined together to determine scale decisions over time.
+- **Behavior** is the combination of rules and limits to determine scale decisions over time.
 
-    [Scale behavior](#scale-behavior) explains how scale decisions are calculated.
-  
-As you define your scaling rules, keep in mind the following items:
+    [Scale behavior](#scale-behavior) explains how scale decisions are made.
+
+As you define your scaling rules, it's important to consider the following items:
 
 - You aren't billed usage charges if your container app scales to zero.
-- Replicas that aren't processing, but remain in memory may be billed at a lower "idle" rate. For more information, see [Billing](./billing.md).
+- Replicas that aren't processing, but remain in memory might be billed at a lower "idle" rate. For more information, see [Billing](./billing.md).
 - If you want to ensure that an instance of your revision is always running, set the minimum  number of replicas to 1 or higher.
 
 ## Scale rules
@@ -62,7 +60,7 @@ If you define more than one scale rule, the container app begins to scale once t
 
 ## HTTP
 
-With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. [Container Apps jobs](jobs.md) don't support HTTP scaling rules. 
+With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. Every 15 seconds, the number of concurrent requests is calculated as the number of requests in the past 15 seconds divided by 15. [Container Apps jobs](jobs.md) don't support HTTP scaling rules.
 
 In the following example, the revision scales out up to five replicas and can scale in to zero. The scaling property is set to 100 concurrent requests per second.
 
@@ -157,7 +155,7 @@ az containerapp create \
 
 ## TCP
 
-With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales. [Container Apps jobs](jobs.md) don't support TCP scaling rules.
+With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales. Every 15 seconds, the number of concurrent connections is calculated as the number of connections in the past 15 seconds divided by 15. [Container Apps jobs](jobs.md) don't support TCP scaling rules.
 
 In the following example, the container app revision scales out up to five replicas and can scale in to zero. The scaling threshold is set to 100 concurrent connections per second.
 
@@ -169,7 +167,7 @@ The `tcp` section defines a TCP scale rule.
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `concurrentConnections`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
+| `concurrentConnections`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas continue to be added up to the `maxReplicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
 
 ```json
 {
@@ -206,7 +204,7 @@ Define a TCP scale rule using the `--scale-rule-tcp-concurrency` parameter in th
 
 | CLI parameter | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `--scale-rule-tcp-concurrency`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas will continue to be added up to the `max-replicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
+| `--scale-rule-tcp-concurrency`| When the number of concurrent TCP connections exceeds this value, then another replica is added. Replicas continue to be added up to the `max-replicas` amount as the number of concurrent connections increase. | 10 | 1 | n/a |
 
 ```azurecli-interactive
 az containerapp create \
@@ -216,6 +214,9 @@ az containerapp create \
   --image <CONTAINER_IMAGE_LOCATION>
   --min-replicas 0 \
   --max-replicas 5 \
+  --transport tcp \
+  --ingress <external/internal> \
+  --target-port <CONTAINER_TARGET_PORT> \
   --scale-rule-name azure-tcp-rule \
   --scale-rule-type tcp \
   --scale-rule-tcp-concurrency 100
@@ -298,7 +299,7 @@ The following procedure shows you how to convert a KEDA scaler to a Container Ap
 
 Refer to this excerpt for context on how the below examples fit in the ARM template.
 
-First, you'll define the type and metadata of the scale rule.
+First, you define the type and metadata of the scale rule.
 
 1. From the KEDA scaler specification, find the `type` value.
 
@@ -318,7 +319,7 @@ First, you'll define the type and metadata of the scale rule.
 
 ### Authentication
 
-A KEDA scaler may support using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
+A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
 > [!NOTE]
 > Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
@@ -361,13 +362,13 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. In the CLI command, set the `--scale-rule-metadata` parameter to the metadata values.
 
-    You'll need to transform the values from a YAML format to a key/value pair for use on the command line. Separate each key/value pair with a space.
+    You need to transform the values from a YAML format to a key/value pair for use on the command line. Separate each key/value pair with a space.
 
     :::code language="bash" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-cli.bash" highlight="11,12,13":::
 
 ### Authentication
 
-A KEDA scaler may support using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the authenticationRef property. You can map the TriggerAuthentication object to the Container Apps scale rule.
+A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the authenticationRef property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
 > [!NOTE]
 > Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
@@ -378,7 +379,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 1. In your container app, create the [secrets](./manage-secrets.md) that match the `secretTargetRef` properties.
 
-1. In the CLI command, set parameters for each `secretTargetRef` entry. 
+1. In the CLI command, set parameters for each `secretTargetRef` entry.
 
     1. Create a secret entry with the `--secrets` parameter. If there are multiple secrets, separate them with a space.
 
@@ -422,7 +423,7 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 ### Authentication
 
-A KEDA scaler may support using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the authenticationRef property. You can map the TriggerAuthentication object to the Container Apps scale rule.
+A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the authenticationRef property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
 > [!NOTE]
 > Container Apps scale rules only support secret references. Other authentication types such as pod identity are not supported.
@@ -492,7 +493,7 @@ For the following scale rule:
 ]
 ```
 
-Starting with an empty queue, KEDA takes the following steps in a scale up scenario:
+As your app scales out, KEDA starts with an empty queue and performs the following steps:
 
 1. Check `my-queue` every 30 seconds.
 1. If the queue length equals 0, go back to (1).
@@ -508,6 +509,8 @@ If the app was scaled to the maximum replica count of 20, scaling goes through t
 - In "multiple revisions" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
 
 - No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
+
+- You need to enable data protection for all .NET apps on Azure Container Apps. See [Deploying and scaling an ASP.NET Core app on Azure Container Apps](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps) for details.
 
 ### Known limitations
 

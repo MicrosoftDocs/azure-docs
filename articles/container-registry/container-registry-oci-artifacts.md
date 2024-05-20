@@ -4,7 +4,7 @@ description: Push and pull Open Container Initiative (OCI) artifacts using a con
 author: tejaswikolli-web
 manager: gwallace
 ms.topic: article
-ms.date: 01/03/2023
+ms.date: 10/31/2023
 ms.author: tejaswikolli
 ms.service: container-registry
 ---

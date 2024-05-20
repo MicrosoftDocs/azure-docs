@@ -303,7 +303,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
     # [Bash](#tab/bash)
 
     ```bash
-    az containerapp service postgres create \
+    az containerapp add-on postgres create \
         --name "$PG_SVC" \
         --resource-group "$RESOURCE_GROUP" \
         --environment "$ENVIRONMENT"

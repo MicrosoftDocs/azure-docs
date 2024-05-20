@@ -10,73 +10,53 @@ ms.author: pafarley
 
 ## Prerequisites
 
-This guide assumes you have successfully followed the steps mentioned in the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) page. This means:
+This guide assumes you've followed the steps mentioned in the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) page. This means:
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
 * You have the appropriate SDK package installed and you have a running [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) application. You can modify this quickstart application based on code examples here.
 
-## Authenticate against the service
+## Create and authenticate the client
 
-To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL.
+To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL. This guide assumes that you've defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 > [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault). 
+> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault).
 
-The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
+Start by creating a [ImageAnalysisClient](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisclient) object. For example:
 
-
-Start by creating a [VisionServiceOptions](/dotnet/api/azure.ai.vision.common.visionserviceoptions) object using one of the constructors. For example:
-
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_service_options)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_client)]
 
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, a local image file name, or by copying the image into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, or by passing binary data to the SDK. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
 
 ### Image URL
 
-Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.common.visionsource.fromurl). **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
+Create a [Uri](/dotnet/api/system.uri) object for the image you want to analyze.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_url)]
 
-### Image file
-
-Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile). **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
-
-```csharp
-using var imageSource = VisionSource.FromFile("sample.jpg");
-```
 
 ### Image buffer
 
-Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource.FromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer).
+Alternatively, you can pass the image data to the SDK through a [BinaryData](/dotnet/api/system.binarydata) object. For example, read from a local image file you want to analyze.
 
-Start by creating a new [ImageSourceBuffer](/dotnet/api/azure.ai.vision.common.imagesourcebuffer), then get access to its [ImageWriter](/dotnet/api/azure.ai.vision.common.imagewriter) object and write the image data into it. In the following code example, `imageBuffer` is a variable of type `Memory<byte>` containing the image data.
-
-```csharp
-using var imageSourceBuffer = new ImageSourceBuffer();
-imageSourceBuffer.GetWriter().Write(imageBuffer);
-using var imageSource = VisionSource.FromImageSourceBuffer(imageSourceBuffer);
-```
-
-Both **VisionSource** and **ImageSourceBuffer** implement **IDisposable**, therefore create the objects with a **using** statement or explicitly call their **Dispose** method after analysis completes.
-
-## Select analysis options
-
-### Select visual features when using the standard model
-
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
-
-Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
-
-> [!NOTE]
-> The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**. The SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_file)]
 
 
-Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property. [ImageAnalysisFeature](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisfeature) enum defines the supported values.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=visual_features)]
+
+## Select visual features
+
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the [available visual features](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures), but for practical usage you likely need fewer.
+
+> [!IMPORTANT]
+> The visual features `Captions` and `DenseCaptions` are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
+
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_features)]
 
 <!--
 ### Set model name when using a custom model
@@ -89,60 +69,34 @@ To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vi
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/custom-model/program.cs?name=model_name)]
 -->
 
-### Specify languages
 
-You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language.
+## Select analysis options
 
-Language option only applies when you're using the standard model.
+Use an [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object to specify various options for the Analyze API call.
 
-
-Use the [Language](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.language) property of your **ImageAnalysisOptions** object to specify a language.
-
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=language)]
+- **Language**: You can specify the language of the returned data. The language is optional, with the default being English. See [Language support](https://aka.ms/cv-languages) for a list of supported language codes and which visual features are supported for each language. 
+- **Gender neutral captions**: If you're extracting captions or dense captions (using [VisualFeatures.Caption](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures) or [VisualFeatures.DenseCaptions](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures)), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**.
+- **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when [VisualFeatures.SmartCrops](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures) was selected as part the visual feature list. If you select [VisualFeatures.SmartCrops](/dotnet/api/azure.ai.vision.imageanalysis.visualfeatures) but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 
-### Select gender neutral captions
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_options)]
 
-If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
+## Call the Analyze API
 
-Gender neutral caption option only applies when you're using the standard model.
+This section shows you how to make an analysis call to the service.
 
+Call the [Analyze](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisclient#methods) method on the [ImageAnalysisClient](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisclient) object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the non-blocking [AnalyzeAsync](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisclient#methods) method.
 
-Set the [GenderNeutralCaption](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.genderneutralcaption) property of your **ImageAnalysisOptions** object to true to enable gender neutral captions.
+Use the input objects created in the above sections. To analyze from an image buffer instead of URL, replace `imageURL` in the method call with the `imageData` variable.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=gender_neutral_caption)]
-
-
-### Select smart cropping aspect ratios
-
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
-
-Smart cropping aspect rations only applies when you're using the standard model.
-
-
-Set the [CroppingAspectRatios](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.croppingaspectratios) property of your **ImageAnalysisOptions** to a list of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
-
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=cropping_aspect_ratios)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_call)]
 
 
 ## Get results from the service
 
-### Get results using the standard model
+The following code shows you how to parse the results of the various Analyze operations.
 
-This section shows you how to make an analysis call to the service using the standard model, and get the results.
-
-
-1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](/dotnet/api/azure.ai.vision.imageanalysis.imageanalyzer) object. **ImageAnalyzer** implements **IDisposable**, therefore create the object with a **using** statement, or explicitly call **Dispose** method after analysis completes.
-
-1. Call the **Analyze** method on the **ImageAnalyzer** object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the nonblocking **AnalyzeAsync** method.
-
-1. Check the **Reason** property on the [ImageAnalysisResult](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresult) object, to determine if analysis succeeded or failed.
-
-1. If succeeded, proceed to access the relevant result properties based on your selected visual features, as shown here. Additional information (not commonly needed) can be obtained by constructing the [ImageAnalysisResultDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object.
-
-1. If failed, you can construct the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object to get information on the failure.
-
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=analyze)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/4-0/image-analysis-how-to/Program.cs?name=snippet_results)]
 
 <!--
 ### Get results using custom model
@@ -155,17 +109,35 @@ The code is similar to the standard model case. The only difference is that resu
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/custom-model/program.cs?name=analyze)]
 -->
 
-## Error codes
 
-The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. The error information includes:
+## Troubleshooting
 
-* Error reason. See enum [ImageAnalysisErrorReason](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrorreason).
-* Error code and error message. Click on the **REST API** tab to see a list of some common error codes and messages.
+### Exception handling
 
-In addition to those errors, the SDK has a few other error messages, including:
-  * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
-  * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
+When you interact with Image Analysis using the .NET SDK, any response from the service that doesn't have a `200` (success) status code results in an exception being thrown. For example, if you try to analyze an image that is not accessible due to a broken URL, a `400` status is returned, indicating a bad request, and a corresponding exception is thrown.
 
-Make sure the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix these errors. 
+In the following snippet, errors are handled gracefully by catching the exception and displaying additional information about the error.
 
-To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new one.
+```C# Snippet:ImageAnalysisException
+var imageUrl = new Uri("https://some-host-name.com/non-existing-image.jpg");
+
+try
+{
+    var result = client.Analyze(imageUrl, VisualFeatures.Caption);
+}
+catch (RequestFailedException e)
+{
+    if (e.Status != 200)
+    {
+        Console.WriteLine("Error analyzing image.");
+        Console.WriteLine($"HTTP status code {e.Status}: {e.Message}");
+    }
+    else
+    {
+        throw;
+    }
+}
+```
+You can learn more about how to enable SDK logging [here](/dotnet/azure/sdk/logging).
+
+

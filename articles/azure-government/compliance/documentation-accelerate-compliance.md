@@ -4,15 +4,11 @@ description: Provides an overview of resources for Development, Automation, and 
 titleSuffix: Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
 author: todorgb
 manager: vernonw
 
-ms.assetid: 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
 ms.date: 05/30/2023
 ms.author: todorb
 ---

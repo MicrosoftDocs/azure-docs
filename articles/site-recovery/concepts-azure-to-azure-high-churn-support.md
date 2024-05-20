@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/14/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 ---
 
@@ -110,3 +110,7 @@ The following table summarizes Site Recovery limits:
 
 - **High Churn** uses *Premium Block Blob* storage accounts which may have higher cost implications as compared to **Normal Churn** which uses *Standard* storage accounts. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 - For High churn VMs, more data changes may get replicated to target for **High churn** compared to **Normal churn**. This may lead to more network cost.
+
+## Next steps
+
+[Set up disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md).

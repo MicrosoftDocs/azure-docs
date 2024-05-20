@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 03/15/2019
+ms.date: 02/23/2024
 ms.author: kgremban
 ms.custom: include file
 ---
@@ -14,5 +14,5 @@ ms.custom: include file
 >    
 > The encoding format can be only set at the time the blob storage endpoint is configured. The format cannot be changed for an endpoint that has already been set up. When using JSON encoding, you must set the contentType to JSON and the contentEncoding to UTF-8 in the message system properties. 
 >
-> For more detailed information about using a blob storage endpoint, please see [guidance on routing to storage](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> For more detailed information about using a blob storage endpoint, please see [guidance on routing to storage](../articles/iot-hub/iot-hub-devguide-endpoints.md#azure-storage-as-a-routing-endpoint).
 >

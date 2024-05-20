@@ -6,7 +6,7 @@ ms.topic: sample
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.custom: subject-resourcegraph-sample, ignite-2022
+ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Azure Cosmos DB
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]

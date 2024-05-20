@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 12/1/2023
+ms.date: 2/7/2024
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -19,7 +19,7 @@ With personal voice, you can get AI generated replication of your voice (or user
 
 > [!NOTE]
 > Personal voice is available in these regions: West Europe, East US, and South East Asia. 
-> For supported locales, see [personal voice language support](./language-support.md#personal-voice).
+> For supported locales, see [personal voice language support](./language-support.md?tabs=tts#personal-voice).
 
 The following table summarizes the difference between personal voice and professional custom neural voice.  
  
@@ -38,18 +38,15 @@ The following table summarizes the difference between personal voice and profess
 
 ## Try the demo
 
-The demo in Speech Studio is made available to approved customers. You can apply for access [here](https://aka.ms/customneural).
+If you have an S0 resource, you can access the personal voice demo in Speech Studio. To use the personal voice API, you can apply for access [here](https://aka.ms/customneural).
 
 1. Go to [Speech Studio](https://aka.ms/speechstudio/)
+   
 1. Select the **Personal Voice** card.
 
     :::image type="content" source="./media/personal-voice/personal-voice-home.png" alt-text="Screenshot of the Speech Studio home page with the personal voice card visible." lightbox="./media/personal-voice/personal-voice-home.png":::
 
-1. Select **Request demo access**.
-
-    :::image type="content" source="./media/personal-voice/personal-voice-request-access.png" alt-text="Screenshot of the button to request access to personal voice in Speech Studio." lightbox="./media/personal-voice/personal-voice-request-access.png":::
-
-1. After your access is approved, you can record your own voice and try the voice output samples in different languages. The demo includes a subset of the languages supported by personal voice.
+1. You can record your own voice and try the voice output samples in different languages. The demo includes a subset of the languages supported by personal voice.
 
     :::image type="content" source="./media/personal-voice/personal-voice-samples.png" alt-text="Screenshot of the personal voice demo experience in Speech Studio." lightbox="./media/personal-voice/personal-voice-samples.png":::
 
@@ -63,10 +60,13 @@ To get started, here's a summary of the steps to create a personal voice:
 
 Once you have a personal voice, you can [use it](./personal-voice-how-to-use.md) to synthesize speech in any of the 91 languages supported across 100+ locales. A locale tag isn't required. Personal voice uses automatic language detection at the sentence level. For more information, see [use personal voice in your application](./personal-voice-how-to-use.md).
 
+> [!TIP]
+> Check out the code samples in the [Speech SDK repository on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/custom-voice/README.md) to see how to use personal voice in your application.
+
 ## Reference documentation
 
 > [!div class="nextstepaction"]
-> [Custom voice API specification - 2023-12-01-preview](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/Speech/TextToSpeech/preview/2023-12-01-preview/texttospeech.json/)
+> [Custom voice REST API reference documentation](/rest/api/speech/)
 
 ## Responsible AI 
 

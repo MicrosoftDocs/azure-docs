@@ -1,23 +1,22 @@
 ---
 title: Configure core MQTT broker settings
-titleSuffix: Azure IoT MQ
-description: Configure core MQTT broker settings for high availability, scale, memory usage, and disk-backed message buffer behavior.
+description: Configure core Azure IoT MQ MQTT broker settings for high availability, scale, memory usage, and disk-backed message buffer behavior.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
 ms.subservice: mq
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
 
-# Configure core MQTT broker settings
+# Configure core Azure IoT MQ Preview MQTT broker settings
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The **Broker** resource is the main resource that defines the overall settings for Azure IoT MQ's MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
+The **Broker** resource is the main resource that defines the overall settings for Azure IoT MQ Preview MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
 
 You can horizontally scale the MQTT broker by adding more frontend replicas and backend chains. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend chains. The backend chains are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
 
@@ -37,10 +36,11 @@ The `cardinality` field is a nested field that has these subfields:
 
 - `frontend`: This subfield defines the settings for the frontend pods, such as:
   - `replicas`: The number of frontend pods to deploy. This subfield is required if the `mode` field is set to `distributed`.
+  - `workers`: The number of workers to deploy per frontend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
 - `backendChain`: This subfield defines the settings for the backend chains, such as:
   - `redundancyFactor`: The number of data copies in each backend chain. This subfield is required if the `mode` field is set to `distributed`.
   - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `workers`: The number of workers to deploy per backend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
 
 ## Configure memory profile
 
@@ -89,7 +89,7 @@ Medium is the default profile.
 
 ## Default broker
 
-By default, Azure IoT Operations deploys a default Broker resource named `broker`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
+By default, Azure IoT Operations Preview deploys a default Broker resource named `broker`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
 
 ```bash
 kubectl get broker broker -n azure-iot-operations -o yaml
@@ -117,11 +117,11 @@ spec:
   authImage:
     pullPolicy: Always
     repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   brokerImage:
     pullPolicy: Always
     repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   memoryProfile: medium
   mode: distributed
   cardinality:
@@ -158,20 +158,19 @@ If you don't specify settings, default values are used. The following table show
 
 | Name                                       | Required | Format           | Default| Description                                              |
 | ------------------------------------------ | -------- | ---------------- | -------|----------------------------------------------------------|
-| `brokerRef`                                | true    | String            |N/A     |The associated broker                                     |
-| `diagnosticServiceEndpoint`                | true    | String            |N/A     |An endpoint to send metrics/ traces to                    |
-| `enableMetrics`                            | false   | Boolean           |true    |Enable or disable broker metrics                          |
-| `enableTracing`                            | false   | Boolean           |true    |Enable or disable tracing                                 |
-| `logLevel`                                 | false   | String            | `info` |Log level. `trace`, `debug`, `info`, `warn`, or `error`   |
-| `enableSelfCheck`                          | false   | Boolean           |true    |Component that periodically probes the health of broker   |
-| `enableSelfTracing`                        | false   | Boolean           |true    |Automatically traces incoming messages at a frequency of 1 every `selfTraceFrequencySeconds`  |
-| `logFormat`                                | false   | String            | `text` |Log format in `json` or `text`                         |
+| `diagnosticServiceEndpoint`                | true    | String            | N/A    |An endpoint to send metrics/ traces to                    |
+| `enableMetrics`                            | false   | Boolean           | true   |Enable or disable broker metrics                          |
+| `enableTracing`                            | false   | Boolean           | true   |Enable or disable tracing                                 |
+| `logLevel`                                 | false   | String            |`info`  |Log level. `trace`, `debug`, `info`, `warn`, or `error`   |
+| `enableSelfCheck`                          | false   | Boolean           | true   |Component that periodically probes the health of broker   |
+| `enableSelfTracing`                        | false   | Boolean           | true   |Automatically traces incoming messages at a frequency of 1 every `selfTraceFrequencySeconds`  |
+| `logFormat`                                | false   | String            |`text`  |Log format in `json` or `text`                         |
 | `metricUpdateFrequencySeconds`             | false   | Integer           | 30     |The frequency to send metrics to diagnostics service endpoint, in seconds |
 | `selfCheckFrequencySeconds`                | false   | Integer           | 30     |How often the probe sends test messages|
-| `selfCheckTimeoutSeconds`                  | false   | Integer           |  15    |Timeout interval for probe messages  |
-| `selfTraceFrequencySeconds`                | false   | Integer           |30      |How often to automatically trace external messages if `enableSelfTracing` is true |  
-| `spanChannelCapacity`                      | false   | Integer           |1000    |Maximum number of spans that selftest can store before sending to the diagnostics service     |  
-| `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.1.0-preview | Image used for self check |
+| `selfCheckTimeoutSeconds`                  | false   | Integer           | 15     |Timeout interval for probe messages  |
+| `selfTraceFrequencySeconds`                | false   | Integer           | 30     |How often to automatically trace external messages if `enableSelfTracing` is true |  
+| `spanChannelCapacity`                      | false   | Integer           | 1000   |Maximum number of spans that selftest can store before sending to the diagnostics service     |  
+| `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.4.0-preview | Image used for self check |
 
 
 Here's an example of a Broker CR with metrics and tracing enabled and self-check disabled:

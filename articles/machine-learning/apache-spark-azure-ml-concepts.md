@@ -71,6 +71,13 @@ A Conda dependency YAML file can define many session-level Conda packages in a s
 - [Azure Synapse Runtime for Apache Spark 3.3](../synapse-analytics/spark/apache-spark-33-runtime.md#python-libraries-normal-vms)
 - [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime.md#python-libraries-normal-vms)
 
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark: Announcements
+> * Azure Synapse Runtime for Apache Spark 3.2:
+>   * EOLA Announcement Date: July 8, 2023
+>   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
+> * For continued support and optimal performance, we advise that you migrate to
+
 > [!NOTE]
 > For a session-level Conda package:
 > - the *Cold start* will need about ten to fifteen minutes.
@@ -115,8 +122,8 @@ To access data and other resources, a Spark job can use either a managed identit
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
-|Serverless Spark compute|User identity and managed identity|User identity|
-|Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
+|Serverless Spark compute|User identity, user-assigned managed identity attached to the workspace|User identity|
+|Attached Synapse Spark pool|User identity, user-assigned managed identity attached to the attached Synapse Spark pool, system-assigned managed identity of the attached Synapse Spark pool|System-assigned managed identity of the attached Synapse Spark pool|
 
 [This article](./apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs) describes resource access for Spark jobs. In a notebook session, both the serverless Spark compute and the attached Synapse Spark pool use user identity passthrough for data access during [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md).
 

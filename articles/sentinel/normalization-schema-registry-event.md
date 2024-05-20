@@ -5,7 +5,6 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
 ---
 
 # The Advanced Security Information Model (ASIM) Registry Event normalization schema reference (Public preview)

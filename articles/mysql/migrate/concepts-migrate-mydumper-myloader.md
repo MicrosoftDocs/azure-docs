@@ -5,12 +5,15 @@ author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: devx-track-linux
+ms.custom:
 ms.topic: conceptual
 ms.date: 05/03/2023
 ---
 
 # Migrate large databases to Azure Database for MySQL using mydumper/myloader
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
@@ -35,21 +38,22 @@ Before you begin migrating your MySQL database, you need to:
     > [!Note]
     > Prior to installing the tools, consider the following points:
     >
-    > * If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM.<br> 
+    > * If your source is on-premises and has a high bandwidth connection to Azure (using ExpressRoute), consider installing the tool on an Azure VM.<br>
     > * If you have a challenge in the bandwidth between the source and target, consider installing mydumper near the source and myloader near the target server. You can use tools **[Azcopy](../../storage/common/storage-use-azcopy-v10.md)** to move the data from on-premises or other cloud solutions to Azure.
 
 3. Install mysql client, do the following steps:
 
-4. 
+4.
 
-    * Update the package index on the Azure VM running Linux by running the following command:
-        ```bash
-        sudo apt update
-        ```
-    * Install the mysql client package by running the following command:
-        ```bash
-        sudo apt install mysql-client
-        ```
+* Update the package index on the Azure VM running Linux by running the following command:
+```bash
+sudo apt update
+```
+* Install the mysql client package by running the following command:
+
+```bash
+sudo apt install mysql-client
+```
 
 ## Install mydumper/myloader
 
@@ -84,7 +88,7 @@ To install mydumper/myloader, do the following steps.
 This command uses the following variables:
 
 * **--host:** The host to connect to
-* **--user:** Username with the necessary privileges 
+* **--user:** Username with the necessary privileges
 * **--password:** User password
 * **--rows:** Try to split tables into chunks of this many rows
 * **--outputdir:** Directory to dump output files to
@@ -92,7 +96,7 @@ This command uses the following variables:
 * **--trx-consistency-only:** Transactional consistency only
 * **--threads:** Number of threads to use, default 4. Recommended a use a value equal to 2x of the vCore of the computer.
 
-    >[!Note] 
+    >[!Note]
     >For more information on other options, you can use with mydumper, run the following command:
     **mydumper --help** . For more details see, [mydumper\myloader documentation](https://centminmod.com/mydumper.html)<br>
     >To dump multiple databases in parallel, you can modify regex variable as shown in the example:  **regex ’^(DbName1\.|DbName2\.)**
@@ -108,9 +112,9 @@ This command uses the following variables:
 This command uses the following variables:
 
 * **--host:** The host to connect to
-* **--user:** Username with the necessary privileges 
+* **--user:** Username with the necessary privileges
 * **--password:** User password
-* **--directory:** Location where the backup is stored. 
+* **--directory:** Location where the backup is stored.
 * **--queries-per-transaction:** Recommend setting to value not more than 500
 * **--threads:** Number of threads to use, default 4. Recommended a use a value equal to 2x of the vCore of the computer
 

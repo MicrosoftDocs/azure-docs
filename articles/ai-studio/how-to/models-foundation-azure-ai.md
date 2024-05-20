@@ -2,14 +2,15 @@
 title: Explore Azure AI capabilities in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces Azure AI capabilities in Azure AI Studio.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 2/6/2024
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Explore Azure AI capabilities in Azure AI Studio
@@ -48,6 +49,9 @@ Explore more Speech capabilities in the [Speech Studio](https://aka.ms/speechstu
 
 :::image type="content" source="../media/explore/explore-vision.png" alt-text="Screenshot of vision capability cards in the Azure AI Studio explore tab." lightbox="../media/explore/explore-vision.png":::
 
+> [!TIP]
+> You can also try GPT-4 Turbo with Vision capabilities in the Azure AI Studio playground. For more information, see [GPT-4 Turbo with Vision on your images and videos in Azure AI Studio playground](../quickstarts/multimodal-vision.md).
+
 Explore more vision capabilities in the [Vision Studio](https://portal.vision.cognitive.azure.com/) and the [Azure AI Vision documentation](/azure/ai-services/computer-vision/).
 
 
@@ -78,19 +82,19 @@ To try more Azure AI services, go to the following studio links:
 - [Content Safety](https://contentsafety.cognitive.azure.com/)
 - [Custom Translator](https://portal.customtranslator.azure.ai/)
 
-You can conveniently access these links from a menu at the top-right corner of AI Studio.
+You can conveniently access these links from the **All Azure AI** menu at the top-right corner of AI Studio.
 
 
 ## Prompt samples
 
 Prompt engineering is an important aspect of working with generative AI models as it allows users to have greater control, customization, and influence over the outputs. By skillfully designing prompts, users can harness the capabilities of generative AI models to generate desired content, address specific requirements, and cater to various application domains.   
 
-The prompt samples are designed to assist AI studio users in finding and utilizing prompts for common use-cases and quickly get started. Users can explore the catalog, view available prompts, and easily open them in a playground for further customization and fine-tuning. 
+The prompt samples are designed to assist AI Studio users in finding and utilizing prompts for common use-cases and quickly get started. Users can explore the catalog, view available prompts, and easily open them in a playground for further customization and fine-tuning. 
 
 > [!NOTE]
 > These prompts serve as starting points to help users get started and we recommend users to tune and evaluate before using in production. 
 
-On the **Explore** page, select **Samples** > **Prompts** from the left menu to learn more and try it out.
+On the **Explore** page, select **Models** > **Prompt catalog** from the left menu to learn more and try it out.
 
 ### Filter by Modalities, Industries or Tasks 
 
@@ -103,4 +107,4 @@ You can filter the prompt samples by modalities, industries, or task to find the
 
 ## Next steps
 
-- [Explore the model catalog in Azure AI Studio](model-catalog.md)
+- [Explore the model catalog in Azure AI Studio](model-catalog-overview.md)

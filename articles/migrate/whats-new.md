@@ -6,13 +6,32 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 12/07/2023
+ms.date: 04/01/2024
 ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (April 2024)
+
+- Public preview: Azure Migrate now supports discovery and assessment of SAP Systems. Using this capability, you can now perform import-based assessments for your on-premises SAP inventory and workloads. [Learn more.](./concepts-azure-sap-systems-assessment.md)
+- Public Preview: You now have the capability to assess your Java (Tomcat) web apps to both Azure App Service and Azure Kubernetes Service (AKS).  
+
+
+## Update (March 2024)
+
+- Public preview: Springboot Apps discovery and assessment is now available using Packaged solution to deploy Kubernetes appliance. 
+
+## Update (February 2024)
+
+- Public preview: Envision savings with Azure Hybrid Benefits by bringing your existing Enterprise Linux subscriptions (RHEL and SLES) to Azure using Azure VM assessments and business case.
+
+
+## Update (January 2024)
+
+- Public preview: Using the RVTools XLSX, you can import an on-premises VMware environment's servers' configuration data into Azure Migrate and create a quick business case and also assess the cost of hosting these workloads on Azure and/or Azure VMware Solution (AVS) environments. [Learn more](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview). 
 
 ## Update (December 2023)
 

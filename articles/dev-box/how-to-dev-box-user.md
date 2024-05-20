@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/25/2023
+ms.date: 12/21/2023
 ms.topic: how-to
 ---
 
@@ -36,13 +36,13 @@ To grant a user access to create and manage a dev box in Microsoft Dev Box, you 
 
 1. Select the project that you want to give your team members access to.
 
-   :::image type="content" source="./media/how-to-dev-box-user/projects-grid.png" alt-text="Screenshot that shows a list of existing projects.":::
+   :::image type="content" source="./media/how-to-dev-box-user/projects-grid.png" alt-text="Screenshot that shows a list of existing projects." lightbox="./media/how-to-dev-box-user/projects-grid.png":::
 
 1. On the left menu, select **Access Control (IAM)**.
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -50,7 +50,7 @@ To grant a user access to create and manage a dev box in Microsoft Dev Box, you 
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups that you want to have access to the project. |
 
-    :::image type="content" source="media/how-to-dev-box-user/add-role-assignment-user.png" alt-text="Screenshot that shows the pane for adding role assignments.":::
+    :::image type="content" source="media/how-to-dev-box-user/add-role-assignment-user.png" alt-text="Screenshot that shows the pane for adding role assignments." lightbox="media/how-to-dev-box-user/add-role-assignment-user.png":::
 
 The users can now view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 

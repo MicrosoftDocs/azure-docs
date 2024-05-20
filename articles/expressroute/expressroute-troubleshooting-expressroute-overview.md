@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 08/23/2023
 ms.author: duau
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Verify ExpressRoute connectivity

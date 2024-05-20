@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2023
+ms.date: 05/08/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,7 +14,7 @@ ms.reviewer: benshy
 
 This article explains how to install and use the Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-The Cost Management Power BI app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+The Cost Management Power BI app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/). Sovereign clouds, including Azure Government, Azure China, and Azure Germany, aren't supported by any Power BI template apps.
 
 The app limits customizability. If you want to modify and extend the default filters, views, and visualizations to customize for your needs, use [Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) instead. With the Cost Management connector you can join additional data from other sources to create customized reports to get holistic views of your overall business cost. The connector also supports Microsoft Customer Agreements.
 
@@ -25,6 +25,9 @@ The app limits customizability. If you want to modify and extend the default fil
 
 - A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) is required to install and use the app.
 - To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account. The Enterprise Administrator (read only) role is supported.
+
+>[!NOTE]
+> When you convert an EA enrollment to a Microsoft Customer Agreement (MCA), you can’t use the Cost Management Power BI template app any longer because the app doesn’t support MCA. However, the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) supports MCA accounts.
 
 ## Installation steps
 
@@ -65,7 +68,6 @@ The following reports are available in the app.
 - Azure Marketplace charges
 - Overages and total charges
 
-The Billing account overview page might show costs that differ from costs shown in the EA portal. 
 
 >[!NOTE]
 >The **Select date range** selector doesn’t affect or change overview tiles. Instead, the overview tiles show the costs for the current billing month. This behavior is intentional.
@@ -81,9 +83,7 @@ Here's how values in the overview tiles are calculated.
 - The value shown in the **New purchase amount** tile is calculated as the sum of `newPurchases`.
 - The value shown in the **Total charges** tile is calculated as the sum of (`adjustments` + `ServiceOverage` + `chargesBilledseparately` + `azureMarketplaceServiceCharges`).
 
-The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure Marketplace service charges as Total charges.
- 
-The Prepayment Usage shown in the EA portal isn't available in the Template app as part of the total charges.
+The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure Marketplace service charges as Total charges.
 
 **Usage by Subscriptions and Resource Groups** - Provides a cost over time view and charts showing cost by subscription and resource group.
 

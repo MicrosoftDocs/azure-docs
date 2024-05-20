@@ -1,20 +1,19 @@
 ---
 title: Configure vehicle analysis containers
 titleSuffix: Azure AI services
-description: Vehicle analysis provides each container with a common configuration framework, so that you can easily configure and manage compute, AI insight egress, logging, and security settings.
+description: Vehicle analysis is a set of capabilities that, when used with the Spatial Analysis container, enable you to analyze real-time streaming video to understand vehicle characteristics and placement.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 01/20/2024
 ms.author: pafarley
 ---
 
 # Install and run vehicle analysis (preview)
 
-Vehicle analysis is a set of capabilities that, when used with the Spatial Analysis container, enable you to analyze real-time streaming video to understand vehicle characteristics and placement. In this article, you learn how to use the capabilities of the spatial analysis container to deploy vehicle analysis operations.
+Vehicle analysis is a set of capabilities that, when used with the Spatial Analysis container, enable you to analyze real-time streaming video to understand vehicle characteristics and placement. In this article, you learn how to use the capabilities of the Spatial Analysis container to deploy vehicle analysis operations.
 
 ## Prerequisites
 
@@ -22,10 +21,9 @@ Vehicle analysis is a set of capabilities that, when used with the Spatial Analy
    * When you configure your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, refer to the steps below to add the graph configurations for vehicle analysis to your manifest prior to deploying the container. Or, once the spatial analysis container is up and running, you may add the graph configurations and follow the steps to redeploy. The steps below will outline how to properly configure your container.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!NOTE]
-> Make sure that the edge device has at least 50GB disk space available before deploying the Spatial Analysis module.
 
-
+> [!TIP]
+> Make sure the edge device you're using has at least 50GB disk space available before you deploy the Spatial Analysis module.
 
 ## Vehicle analysis operations
 

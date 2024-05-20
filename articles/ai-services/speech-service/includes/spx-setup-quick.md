@@ -5,7 +5,6 @@ ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 08/24/2023
 ms.author: eur
-ms.custom: ignite-fall-2021
 ---
 
 Follow these steps and see the [Speech CLI quickstart](~/articles/ai-services/speech-service/spx-basics.md#download-and-install) for other requirements for your platform.

@@ -2,7 +2,11 @@
 title: Manage local accounts with AKS-managed Microsoft Entra integration
 description: Learn how to managed local accounts when integrating Microsoft Entra ID in your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 04/20/2023
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurecli
 ---
 
@@ -29,7 +33,7 @@ You can disable local accounts using the parameter `disable-local-accounts`. The
 1. Create a new AKS cluster without any local accounts using the [`az aks create`][az-aks-create] command with the `disable-local-accounts` flag.
 
     ```azurecli-interactive
-    az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
+    az aks create --resource-group <resource-group> --name <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
     ```
 
 2. In the output, confirm local accounts are disabled by checking that the field `properties.disableLocalAccounts` is set to `true`.
@@ -59,7 +63,7 @@ You can disable local accounts using the parameter `disable-local-accounts`. The
 1. Disable local accounts on an existing Microsoft Entra integration enabled AKS cluster using the [`az aks update`][az-aks-update] command with the `disable-local-accounts` parameter.
 
     ```azurecli-interactive
-    az aks update -g <resource-group> -n <cluster-name> --disable-local-accounts
+    az aks update --resource-group <resource-group> --name <cluster-name> --disable-local-accounts
     ```
 
 2. In the output, confirm local accounts are disabled by checking that the field `properties.disableLocalAccounts` is set to `true`.
@@ -89,7 +93,7 @@ You can disable local accounts using the parameter `disable-local-accounts`. The
 1. Re-enable a disabled local account on an existing cluster using the [`az aks update`][az-aks-update] command with the `enable-local-accounts` parameter.
 
     ```azurecli-interactive
-    az aks update -g <resource-group> -n <cluster-name> --enable-local-accounts
+    az aks update --resource-group <resource-group> --name <cluster-name> --enable-local-accounts
     ```
 
 2. In the output, confirm local accounts are re-enabled by checking that the field `properties.disableLocalAccounts` is set to `false`.
@@ -123,3 +127,4 @@ You can disable local accounts using the parameter `disable-local-accounts`. The
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac-integration]: manage-azure-rbac.md
+

@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 03/30/2023
+ms.date: 04/11/2024
 ---
 
 # Enable Private Link on an HDInsight cluster
@@ -42,7 +42,7 @@ To start, deploy the following resources if you haven't created them already. Yo
 ## <a name="DisableNetworkPolicy"></a>Step 2: Configure HDInsight subnet
 
 - **Disable privateLinkServiceNetworkPolicies on subnet.** In order to choose a source IP address for your Private Link service, an explicit disable setting ```privateLinkServiceNetworkPolicies``` is required on the subnet. Follow the instructions here to [disable network policies for Private Link services](../private-link/disable-private-link-service-network-policy.md).
-- **Enable Service Endpoints on subnet.** For successful deployment of a Private Link HDInsight cluster, we recommend that you add the *Microsoft.SQL*, *Microsoft.Storage*, and *Microsoft.KeyVault* service endpoint(s) to your subnet prior to cluster deployment.  [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) route traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. 
+- **Enable Service Endpoints on subnet.** For successful deployment of a Private Link HDInsight cluster, we recommend that you add the `Microsoft.SQL`, `Microsoft.Storage`, and `Microsoft.KeyVault` service endpoint(s) to your subnet prior to cluster deployment.  [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) route traffic directly from your virtual network to the service on the Microsoft Azure backbone network. Keeping traffic on the Azure backbone network allows you to continue auditing and monitoring outbound Internet traffic from your virtual networks, through forced-tunneling, without impacting service traffic. 
 
 
 ## <a name="NATorFirewall"></a>Step 3: Deploy NAT gateway *or* firewall
@@ -119,7 +119,7 @@ To create the private endpoints:
     | Subnet | default |
     
     :::image type="content" source="media/hdinsight-private-link/basic-tab-private-endpoint.png" alt-text="Diagram of the Private Link basic tab.":::
-    :::image type="content" source="media/hdinsight-private-link/resource-tab-private-endpoint.png" alt-text="Diagram of the Private Link resource tab":::
+    :::image type="content" source="media/hdinsight-private-link/resource-tab-private-endpoint.png" alt-text="Diagram of the Private Link resource tab.":::
     :::image type="content" source="media/hdinsight-private-link/virtual-network-tab-private-endpoint.png" alt-text="Diagram of the Private Link virtual network tab.":::
     :::image type="content" source="media/hdinsight-private-link/dns-tab-private-endpoint.png" alt-text="Diagram of the Private Link dns end point tab.":::
     :::image type="content" source="media/hdinsight-private-link/tag-tab-private-endpoint.png" alt-text="Diagram of the Private Link tag tab.":::

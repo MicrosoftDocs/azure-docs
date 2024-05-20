@@ -8,12 +8,17 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 04/22/2024
 ---
 
 # Azure AI Search performance benchmarks
 
-Azure AI Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect.
+> [!IMPORTANT]
+> These benchmarks apply to search services created before April 3, 2024, and they apply to nonvector workloads only. Updates are pending for services and workloads on the new limits. 
+
+Performance benchmarks are useful for estimating potential performance under similar configurations. Actual performance depends on a [variety of factors](search-performance-tips.md), including the size of your search service and the types of queries you're sending. 
+
+To help you estimate the size of search service needed for your workload, we ran several benchmarks to document the performance for different search services and configurations. 
 
 To cover a range of different use cases, we ran benchmarks for two main scenarios:
 
@@ -49,11 +54,12 @@ Each scenario used at least 10,000 unique queries to avoid tests being overly sk
 
 - **Latency** - The server's latency for a query; these numbers don't include [round trip delay (RTT)](https://en.wikipedia.org/wiki/Round-trip_delay). Values are in milliseconds (ms).
 
-### Disclaimer
+## Testing disclaimer
 
 The code we used to run these benchmarks is available on the [azure-search-performance-testing](https://github.com/Azure-Samples/azure-search-performance-testing/tree/main/other_tools) repository. It's worth noting that we observed slightly lower QPS levels with the [JMeter performance testing solution](https://github.com/Azure-Samples/azure-search-performance-testing) than in the benchmarks. The differences can be attributed to differences in the style of the tests. This speaks to the importance of making your performance tests as similar to your production workload as possible.
 
-These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect based on your scenario.
+> [!IMPORTANT]
+> These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect based on your scenario.
 
 If you have any questions or concerns, reach out to us at azuresearch_contact@microsoft.com.
 
@@ -87,14 +93,13 @@ The following chart shows the highest query load a service could handle for an e
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
 | 20%  | 104 ms  | 35 ms  | 115 ms   | 177 ms | 257 ms | 738 ms |
 | 50%  | 140 ms  | 47 ms  | 144 ms   | 241 ms | 400 ms | 1175 ms |
 | 80%  | 239 ms  | 77 ms  | 248 ms   | 466 ms | 763 ms | 1752 ms | 
-
 
 ### S2 Performance
 
@@ -106,7 +111,7 @@ The following chart shows the highest query load a service could handle for an e
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
@@ -126,7 +131,7 @@ In this case, we see that adding a second partition significantly increases the 
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -153,7 +158,7 @@ The following chart shows the highest query load a service could handle for an e
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -171,7 +176,7 @@ The following chart shows the highest query load a service could handle for an e
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -189,7 +194,7 @@ The following chart shows the highest query load a service could handle for an e
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -204,9 +209,9 @@ Through these benchmarks, you can get an idea of the performance Azure AI Search
 Some key take ways from these benchmarks are:
 
 * An S2 can typically handle at least four times the query volume as an S1
-* An S2 will typically have lower latency than an S1 at comparable query volumes
+* An S2 typically has lower latency than an S1 at comparable query volumes
 * As you add replicas, the QPS a service can handle typically scales linearly (for example, if one replica can handle 10 QPS then five replicas can usually handle 50 QPS)
-* The higher the load on the service, the higher the average latency will be
+* The higher the load on the service, the higher the average latency
 
 You can also see that performance can vary drastically between scenarios. If you're not getting the performance you expect, check out the [tips for better performance](search-performance-tips.md).
 

@@ -41,7 +41,7 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 |**Autoscaling**|Supported on request and incurs charge|Enabled by default at no extra charge|
 |**Search parameters**|Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, last name, birthdate and clinical date|Bundle type supported: Batch and transaction  <br> • Selectable search parameters  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields|
 |**Events**|Not Supported|Supported|
-|**Infrastructure**|Supported: <br> • Customer managed keys <br> • AZ support and PITR  <br> • Cross region DR|Supported: <br> • Data recovery <br> Upcoming: <br> • AZ support for customer managed keys|
+|**Infrastructure**|Supported: <br> • Customer managed keys <br> • AZ support and PITR  <br> • Cross region DR|Supported: <br> • Data recovery  <br> • [Customer managed keys](configure-customer-managed-keys.md) <br> Upcoming: <br> • Availability zone support|
 
 ### Things to consider that may affect your architecture
 
@@ -98,7 +98,7 @@ Migrate applications that were pointing to the old FHIR server.
 
 - Reconfigure any remaining settings in the new Azure Health Data Services FHIR Service server after migration.
 
-- If you’d like to double check to make sure that the Azure Health Data Services FHIR Service and Azure API for FHIR servers have the same configurations, you can check both [metadata endpoints](use-postman.md#get-capability-statement) to compare and contrast the two servers.
+- If you’d like to double check to make sure that the Azure Health Data Services FHIR Service and Azure API for FHIR servers have the same configurations, you can check both [metadata endpoints](use-postman.md#get-the-capability-statement) to compare and contrast the two servers.
 
 - Set up any jobs that were previously running in your old Azure API for FHIR server (for example, \$export jobs)
 

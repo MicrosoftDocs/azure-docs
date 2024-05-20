@@ -1,10 +1,9 @@
 ---
 title: How Azure applies centrally assigned SQL licenses to hourly usage
 description: This article provides a detailed explanation about how Azure applies centrally assigned SQL licenses to hourly usage with Azure Hybrid Benefit.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/20/2023
+ms.date: 05/08/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -20,6 +19,9 @@ Each resource reports its usage once an hour using the appropriate full price or
 ## License discount 
 
 The following diagram shows the discounting process when there's enough unutilized NCs to discount the entire vCore consumption by all the SQL resources for the hour.
+
+>[!NOTE]
+> Although the Hyperscale service tier is shown in the diagram, it's no longer available to receive the Azure Hybrid Benefit discount for new Hyperscale databases. Existing Hyperscale single databases with provisioned compute can continue to use Azure Hybrid Benefits to save on compute costs.
 
 Prices shown in the following image are only examples.
 
@@ -38,7 +40,7 @@ The following diagram shows how the assigned SQL Server licenses apply over time
 
 :::image type="content" source="./media/manage-licenses-centrally/ncl-utilization-over-time.png" alt-text="Diagram showing NC use over time." border="false" lightbox="./media/manage-licenses-centrally/ncl-utilization-over-time.png":::
 
-## Next steps
+## Related content
 
 - Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how to [transition from existing Azure Hybrid Benefit experience](transition-existing.md).

@@ -19,7 +19,7 @@ This article steps through using an ARM template to create a Virtual Machine Sca
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       "vmSku": {
         "type": "string",
-        "defaultValue": "Standard_D1_v2",
+        "defaultValue": "Standard_D2s_v3",
         "metadata": {
           "description": "Size of VMs in the VM Scale Set."
         }
@@ -91,6 +91,17 @@ ARM templates let you deploy groups of related resources. In a single template, 
           "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
         }
       },
+      "securityType": {
+          "type": "string",
+          "defaultValue": "TrustedLaunch",
+          "allowedValues": [
+            "Standard",
+            "TrustedLaunch"
+          ],
+          "metadata": {
+            "description": "Security Type of the Virtual Machine."
+          }
+      },
       "_artifactsLocation": {
         "type": "string",
         "defaultValue": "[deployment().properties.templatelink.uri]",
@@ -125,12 +136,19 @@ ARM templates let you deploy groups of related resources. In a single template, 
       "ipConfigName": "[concat(parameters('vmssName'), 'ipconfig')]",
       "frontEndIPConfigID": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', variables('loadBalancerName'),'loadBalancerFrontEnd')]",
       "osType": {
-        "publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "16.04-LTS",
-        "version": "latest"
+          "publisher": "Canonical",
+          "offer": "0001-com-ubuntu-server-focal",
+          "sku": "20_04-lts-gen2",
+          "version": "latest"
       },
       "imageReference": "[variables('osType')]",
+      "securityProfileJson": {
+          "uefiSettings": {
+            "secureBootEnabled": true,
+            "vTpmEnabled": true
+          },
+          "securityType": "[parameters('securityType')]"
+      },
       "linuxConfiguration": {
         "disablePasswordAuthentication": true,
         "ssh": {
@@ -146,7 +164,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
     "resources": [
               {
             "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2023-04-01",
             "name": "[variables('networkSecurityGroupName')]",
             "location": "[parameters('location')]",
             "properties": {
@@ -169,7 +187,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
         },
       {
         "type": "Microsoft.Network/virtualNetworks",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('virtualNetworkName')]",
         "location": "[parameters('location')]",
         "properties": {
@@ -193,7 +211,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Network/publicIPAddresses",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('publicIPAddressName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -209,7 +227,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Network/loadBalancers",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[variables('loadBalancerName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -273,7 +291,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Compute/virtualMachineScaleSets",
-        "apiVersion": "2021-03-01",
+        "apiVersion": "2023-09-01",
         "name": "[parameters('vmssName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -301,8 +319,9 @@ ARM templates let you deploy groups of related resources. In a single template, 
               "computerNamePrefix": "[parameters('vmssName')]",
               "adminUsername": "[parameters('adminUsername')]",
               "adminPassword": "[parameters('adminPasswordOrKey')]",
-              "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
+              "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
             },
+            "securityProfile": "[if(equals(parameters('securityType'), 'TrustedLaunch'), variables('securityProfileJson'), null())]",
             "networkProfile": {
               "networkApiVersion": "[variables('networkApiVersion')]",
               "networkInterfaceConfigurations": [
@@ -355,7 +374,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       {
         "type": "Microsoft.Insights/autoscaleSettings",
-        "apiVersion": "2015-04-01",
+        "apiVersion": "2022-10-01",
         "name": "[concat(parameters('vmssName'), '-autoscalehost')]",
         "location": "[parameters('location')]",
         "dependsOn": [

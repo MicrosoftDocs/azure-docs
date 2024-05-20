@@ -6,7 +6,6 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 07/20/2023
 ---
 

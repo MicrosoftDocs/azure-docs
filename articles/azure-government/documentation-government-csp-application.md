@@ -4,12 +4,9 @@ description: Provides an overview of the process to become an Azure Government C
 titleSuffix: Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
 ms.date: 05/30/2023
 ---
 

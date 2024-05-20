@@ -10,7 +10,7 @@ ms.author:  ericadebarge
 ms.reviewer: larryfr
 ms.date: 06/09/2023
 ms.topic: troubleshooting
-ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
@@ -78,7 +78,7 @@ There are some ways to decrease the impact of vulnerabilities:
 
 You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
 
-To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
+To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.yml).
 
 ### Vulnerabilities vs Reproducibility
 
@@ -866,7 +866,7 @@ channels:
 Choose which Python version you want to use, and remove all other versions 
 
 ```python
-myenv.python.conda_dependencies.remove_conda_package("python=3.6")
+myenv.python.conda_dependencies.remove_conda_package("python=3.8")
 ```
 
 :::moniker-end
@@ -1705,7 +1705,7 @@ Ensure that you have a working MPI installation (preference for MPI-3 support an
 * If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/appendix.html#building-mpi-from-sources)
 
 Ensure that you're using a compatible python version
-* Azure Machine Learning requires Python 2.5 or 3.5+, but Python 3.7+ is recommended
+* Python 3.8+ is recommended due to older versions reaching end-of-life
 * See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 **Resources**

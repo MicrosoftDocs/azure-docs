@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: article
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 
 #Customer intent: As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.

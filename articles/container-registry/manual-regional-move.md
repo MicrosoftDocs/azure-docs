@@ -5,7 +5,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.service: container-registry
 ---
 
@@ -25,7 +25,7 @@ While [Azure Resource Mover](../resource-mover/overview.md) can't currently auto
 
 Azure CLI
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Considerations
 

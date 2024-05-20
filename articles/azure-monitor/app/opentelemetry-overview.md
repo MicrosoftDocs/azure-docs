@@ -2,7 +2,7 @@
 title: Data Collection Basics of Azure Monitor Application Insights 
 description: This article provides an overview of how to collect telemetry to send to Azure Monitor Application Insights.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 12/15/2023
 ms.reviewer: mmcc
 ---
 
@@ -62,7 +62,7 @@ A direct exporter sends telemetry in-process (from the application's code) direc
 *The currently available Application Insights SDKs and Azure Monitor OpenTelemetry Distros rely on a direct exporter*.
 
 > [!NOTE]
-> For Azure Monitor's position on the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md), see the [OpenTelemetry FAQ](./opentelemetry-enable.md#can-i-use-the-opentelemetry-collector).
+> For Azure Monitor's position on the OpenTelemetry-Collector, see the [OpenTelemetry FAQ](./opentelemetry-enable.md#can-i-use-the-opentelemetry-collector).
 
 > [!TIP]
 > If you are planning to use OpenTelemetry-Collector for sampling or additional data processing, you may be able to get these same capabilities built-in to Azure Monitor. Customers who have migrated to [Workspace-based Application Insights](convert-classic-resource.md) can benefit from [Ingestion-time Transformations](../essentials/data-collection-transformations.md). To enable, follow the details in the [tutorial](../logs/tutorial-workspace-transformations-portal.md), skipping the step that shows how to set up a diagnostic setting since with Workspace-centric Application Insights this is already configured. If you’re filtering less than 50% of the overall volume, it’s no additional cost. After 50%, there is a cost but much less than the standard per GB charge.
@@ -85,8 +85,16 @@ Codeless / Agent-based | Autoinstrumentation
 Traces | Logs
 Requests | Server Spans
 Dependencies | Other Span Types (Client, Internal, etc.)
+Operation ID | Trace ID
+ID or Operation Parent ID | Span ID
 
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
+
+## Frequently asked questions
+
+#### Where can I find a list of Application Insights SDK versions and their names?
+
+A list of SDK versions and names is hosted on GitHub. For more information, see [SDK Version](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/docs/versions_and_names.md).
 
 ## Next steps
 

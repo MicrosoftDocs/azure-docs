@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 ms.service: container-registry
 author: karolz-ms
 ms.author: karolz
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Pull images from an Azure container registry to a Kubernetes cluster using a pull secret

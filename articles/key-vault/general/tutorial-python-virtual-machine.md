@@ -5,10 +5,10 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/17/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ms.devlang: python
-ms.custom: mvc, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 

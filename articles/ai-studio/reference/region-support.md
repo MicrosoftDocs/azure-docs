@@ -1,13 +1,14 @@
 ---
 title: Azure AI Studio feature availability across clouds regions
-titleSuffix: Azure AI studio
+titleSuffix: Azure AI Studio
 description: This article lists Azure AI Studio feature availability across clouds regions.
-author: deeikele
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: conceptual
-ms.date: 12/11/2023
+ms.date: 04/26/2024
+ms.reviewer: deeikele
 ms.author: eur
+author: eric-urban
 ms.custom: references_regions
 ---
 
@@ -19,7 +20,7 @@ Azure AI Studio brings together various Azure AI capabilities that previously we
 
 ## Azure Public regions
 
-Azure AI Studio is currently available in preview in the following Azure regions. You can create [Azure AI resources](../how-to/create-azure-ai-resource.md) and projects in these regions.
+Azure AI Studio is currently available in preview in the following Azure regions. You can create [Azure AI hub resources](../how-to/create-azure-ai-resource.md) and projects in these regions.
 
 - Australia East
 - Brazil South
@@ -40,14 +41,26 @@ Azure AI Studio is currently available in preview in the following Azure regions
 - UK South
 - West Europe
 - West US
+- West US 3
 
 ### Azure Government regions
 
 Azure AI Studio preview is currently not available in Azure Government regions or air-gap regions.
 
+## Azure OpenAI
+
+[!INCLUDE [OpenAI Quotas](../../ai-services/openai/includes/model-matrix/quota.md)]
+
+> [!NOTE]
+> Some models might not be available within the AI Studio model catalog.
+
+For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits).
+
 ## Speech capabilities
 
-Speech capabilities including custom neural voice vary in regional availability due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions.md) for an overview.
+[!INCLUDE [Limited AI services](../includes/limited-ai-services.md)]
+
+Azure AI Speech capabilities including custom neural voice vary in regional availability due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions.md) for an overview.
 
 ## Next steps
 

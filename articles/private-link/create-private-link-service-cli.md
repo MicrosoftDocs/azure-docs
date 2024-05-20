@@ -2,11 +2,11 @@
 title: 'Quickstart - Create an Azure Private Link service - Azure CLI'
 description: In this quickstart, learn how to create an Azure Private Link service using Azure CLI.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 02/03/2023
-ms.author: allensu
+ms.date: 03/28/2024
+ms.author: abell
 ms.devlang: azurecli
 ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
@@ -20,7 +20,7 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

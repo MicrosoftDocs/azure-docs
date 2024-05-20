@@ -9,8 +9,9 @@ ms.service: azure-ai-translator
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar
-ms.devlang: csharp, golang, java, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-other, devx-track-python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, python
+ms.custom: mode-other, devx-track-python
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 

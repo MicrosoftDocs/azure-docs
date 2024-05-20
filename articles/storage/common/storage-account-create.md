@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/12/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, devx-track-extended-azdevcli
 ---
 
 # Create a storage account
@@ -311,7 +311,7 @@ To create an account with Azure DNS zone endpoints (preview), follow these steps
 1. Make sure you have the latest version of PowerShellGet installed.
 
     ```azurepowershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 1. Close and reopen the PowerShell console.

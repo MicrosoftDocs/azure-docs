@@ -2,12 +2,13 @@
 title: Build and deploy a question and answer copilot with prompt flow in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Use this article to build and deploy a question and answer copilot with prompt flow in Azure AI Studio
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 3/19/2024
+ms.reviewer: eur
 ms.author: eur
+author: eric-urban
 ---
 
 # Tutorial: Build and deploy a question and answer copilot with prompt flow in Azure AI Studio
@@ -34,9 +35,9 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- You need an Azure AI resource and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the Azure AI resource. For more information, see [Azure AI resources](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
-    - If your role is **Contributor** or **Owner**, you can [create an Azure AI resource in this tutorial](#create-an-azure-ai-project-in-azure-ai-studio). 
-    - If your role is **Azure AI Developer**, the Azure AI resource must already be created. 
+- You need an Azure AI hub resource and your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the Azure AI hub resource. For more information, see [Azure AI hub resources](../concepts/ai-resources.md) and [Azure AI roles](../concepts/rbac-ai-studio.md).
+    - If your role is **Contributor** or **Owner**, you can [create an Azure AI hub resource in this tutorial](#create-an-azure-ai-project-in-azure-ai-studio). 
+    - If your role is **Azure AI Developer**, the Azure AI hub resource must already be created. 
 
 - Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models-openai.md).
 
@@ -44,50 +45,20 @@ The steps in this tutorial are:
 
 ## Create an Azure AI project in Azure AI Studio
 
-Your Azure AI project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the Azure AI projects and resources model, see [Azure AI resources](../concepts/ai-resources.md).
+Your Azure AI project is used to organize your work and save state while building your copilot. During this tutorial, your project contains your data, prompt flow runtime, evaluations, and other resources. For more information about the Azure AI projects and resources model, see [Azure AI hub resources](../concepts/ai-resources.md).
 
-To create an Azure AI project in Azure AI Studio, follow these steps:
-
-1. Sign in to [Azure AI Studio](https://ai.azure.com) and go to the **Build** page from the top menu. 
-1. Select **+ New project**.
-1. Enter a name for the project.
-1. Select an Azure AI resource from the dropdown to host your project. If you don't have access to an Azure AI resource yet, select **Create a new resource**. 
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/create-project-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/tutorials/copilot-deploy-flow/create-project-details.png":::
-
-    > [!NOTE]
-    > To create an Azure AI resource, you must have **Owner** or **Contributor** permissions on the selected resource group. It's recommended to share an Azure AI resource with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend.
-
-1. If you're creating a new Azure AI resource, enter a name.
-
-    :::image type="content" source="../media/tutorials/copilot-deploy-flow/create-project-resource.png" alt-text="Screenshot of the create resource page within the create project dialog." lightbox="../media/tutorials/copilot-deploy-flow/create-project-resource.png":::
-
-1. Select your **Azure subscription** from the dropdown. Choose a specific Azure subscription for your project for billing, access, or administrative reasons. For example, this grants users and service principals with subscription-level access to your project.
-
-1. Leave the **Resource group** as the default to create a new resource group. Alternatively, you can select an existing resource group from the dropdown.
-
-    > [!TIP]
-    > Especially for getting started it's recommended to create a new resource group for your project. This allows you to easily manage the project and all of its resources together. When you create a project, several resources are created in the resource group, including an Azure AI resource, a container registry, and a storage account.
-
-1. Enter the **Location** for the Azure AI resource and then select **Next**. The location is the region where the Azure AI resource is hosted. The location of the Azure AI resource is also the location of the project. 
-
-    > [!NOTE]
-    > Azure AI resources and services availability differ per region. For example, certain models might not be available in certain regions. The resources in this tutorial are created in the **East US 2** region.
-
-1. Review the project details and then select **Create a project**. 
-
-Once a project is created, you can access the **Tools**, **Components**, and **Settings** assets in the left navigation panel. 
+[!INCLUDE [Create AI project](../includes/create-projects.md)]
 
 ## Deploy a chat model
 
 Follow these steps to deploy an Azure OpenAI chat model for your copilot. 
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
-1. Select **Build** from the top menu and then select **Deployments** > **Create**.
+1. Select **Build** from the top menu and then select **Deployments** > **Create** > **Real-time endpoint**.
     
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-create.png" alt-text="Screenshot of the deployments page with a button to create a new project." lightbox="../media/tutorials/copilot-deploy-flow/deploy-create.png":::
 
-1. On the **Select a model** page, select the model you want to deploy from the **Model** dropdown. For example, select **gpt-35-turbo-16k**. Then select **Confirm**.
+1. On the **Select a model** page, select the model you want to deploy from the list of models. For example, select **gpt-35-turbo-16k**. Then select **Confirm**.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k.png" alt-text="Screenshot of the model selection page." lightbox="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k.png":::
 
@@ -106,7 +77,7 @@ In the [Azure AI Studio](https://ai.azure.com) playground you can observe how yo
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/playground-chat.png" alt-text="Screenshot of the chat playground with the chat mode and model selected." lightbox="../media/tutorials/copilot-deploy-flow/playground-chat.png":::
 
-1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You're an AI assistant that helps people find information." You can tailor the prompt for your scenario. For more information, see [prompt samples](../how-to/models-foundation-azure-ai.md#prompt-samples). 
+1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt for your scenario. For more information, see [prompt samples](../how-to/models-foundation-azure-ai.md#prompt-samples). 
 1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the chat session pane, enter the following question: "How much do the TrailWalker hiking shoes cost", and then select the right arrow icon to send.
 
@@ -210,6 +181,9 @@ To facilitate node configuration and fine-tuning, a visual representation of the
 
    :::image type="content" source="../media/tutorials/copilot-deploy-flow/prompt-flow-overview-graph.png" alt-text="Screenshot of the default graph exported from the playground to prompt flow." lightbox="../media/tutorials/copilot-deploy-flow/prompt-flow-overview-graph.png":::
 
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
+
 Nodes can be added, updated, rearranged, or removed. The nodes in your flow at this point include:
 - **DetermineIntent**: This node determines the intent of the user's query. It uses the system prompt to determine the intent. You can edit the system prompt to provide scenario-specific few-shot examples.
 - **ExtractIntent**: This node formats the output of the **DetermineIntent** node and sends it to the **RetrieveDocuments** node.
@@ -223,7 +197,7 @@ The **FormatReply** node formats the output of the **DetermineReply** node.
 
 In prompt flow, you should also see:
 - **Save**: You can save your prompt flow at any time by selecting **Save** from the top menu. Be sure to save your prompt flow periodically as you make changes in this tutorial. 
-- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **Settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
+- **Runtime**: The runtime that you created [earlier in this tutorial](#create-compute-and-runtime-that-are-needed-for-prompt-flow). You can start and stop runtimes and compute instances via **AI project settings** in the left menu. To work in prompt flow, make sure that your runtime is in the **Running** status.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png" alt-text="Screenshot of the prompt flow editor and surrounding menus." lightbox="../media/tutorials/copilot-deploy-flow/prompt-flow-overview.png":::
 
@@ -284,6 +258,9 @@ For more information on how to create an index, see [Create an index](../how-to/
 
 ### Add customer information to the flow
 
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
+
 After you're done creating your index, return to your prompt flow and follow these steps to add the customer info to the flow:
 
 1. Select the **RetrieveDocuments** node from the graph and rename it **RetrieveProductInfo**. Now the retrieve product info node can be distinguished from the retrieve customer info node that you add to the flow.
@@ -323,6 +300,9 @@ After you're done creating your index, return to your prompt flow and follow the
 1. Select **Save** from the top menu to save your changes.
 
 ### Format the retrieved documents to output
+
+> [!WARNING]
+> Azure AI Studio is in preview and is subject to change. The screenshots and instructions in this tutorial might not match the current experience. 
 
 Now that you have both the product and customer info in your prompt flow, you format the retrieved documents so that the large language model can use them.
 
@@ -406,18 +386,18 @@ In this section, you use the built-in evaluation to evaluate your flow with a qu
 You need a question and answer evaluation dataset that contains questions and answers that are relevant to your scenario. Create a new file locally named **qa-evaluation.jsonl**. Copy and paste the following questions and answers (`"truth"`) into the file.
 
 ```json
-{"question": "What color is the CozyNights Sleeping Bag?", "truth": "Red"}
-{"question": "When did Daniel Wilson order the BaseCamp Folding Table?", "truth": "May 7th, 2023"}
-{"question": "How much do TrailWalker Hiking Shoes cost? ", "truth": "$110"}
-{"question": "What kind of tent did Sarah Lee buy?", "truth": "SkyView 2 person tent"}
-{"question": "What is Melissa Davis's phone number?", "truth": "555-333-4444"}
-{"question": "What is the proper care for trailwalker hiking shoes?", "truth": "After each use, remove any dirt or debris by brushing or wiping the shoes with a damp cloth."}
-{"question": "Does TrailMaster Tent come with a warranty?", "truth": "2 years"}
-{"question": "How much did David Kim spend on the TrailLite Daypack?", "truth": "$240"}
-{"question": "What items did Amanda Perez purchase?", "truth": "TrailMaster X4 Tent, TrekReady Hiking Boots (quantity 3), CozyNights Sleeping Bag, TrailBlaze Hiking Pants, RainGuard Hiking Jacket, and CompactCook Camping Stove"}
-{"question": "What is the Brand for TrekReady Hiking Boots", "truth": "TrekReady"}
-{"question": "How many items did Karen Williams buy?", "truth": "three items of the Summit Breeze Jacket"}
-{"question": "France is in Europe", "truth": "Sorry, I can only truth questions related to outdoor/camping gear and equipment"}
+{"question": "What color is the CozyNights Sleeping Bag?", "truth": "Red", "chat_history": [], }
+{"question": "When did Daniel Wilson order the BaseCamp Folding Table?", "truth": "May 7th, 2023", "chat_history": [] }
+{"question": "How much does TrailWalker Hiking Shoes cost? ", "truth": "$110", "chat_history": [] }
+{"question": "What kind of tent did Sarah Lee buy?", "truth": "SkyView 2 person tent", "chat_history": [] }
+{"question": "What is Melissa Davis's phone number?", "truth": "555-333-4444", "chat_history": [] }
+{"question": "What is the proper care for trailwalker hiking shoes?", "truth": "After each use, remove any dirt or debris by brushing or wiping the shoes with a damp cloth.", "chat_history": [] }
+{"question": "Does TrailMaster Tent come with a warranty?", "truth": "2 years", "chat_history": [] }
+{"question": "How much did David Kim spend on the TrailLite Daypack?", "truth": "$240", "chat_history": [] }
+{"question": "What items did Amanda Perez purchase?", "truth": "TrailMaster X4 Tent, TrekReady Hiking Boots (quantity 3), CozyNights Sleeping Bag, TrailBlaze Hiking Pants, RainGuard Hiking Jacket, and CompactCook Camping Stove", "chat_history": [] }
+{"question": "What is the Brand for TrekReady Hiking Boots", "truth": "TrekReady", "chat_history": [] }
+{"question": "How many items did Karen Williams buy?", "truth": "three items of the Summit Breeze Jacket", "chat_history": [] }
+{"question": "France is in Europe", "truth": "Sorry, I can only truth questions related to outdoor/camping gear and equipment", "chat_history": [] }
 ```
 
 Now that you have your evaluation dataset, you can evaluate your flow by following these steps:
@@ -442,7 +422,7 @@ Now that you have your evaluation dataset, you can evaluate your flow by followi
 1. Select a model to use for evaluation. In this example, select **gpt-35-turbo-16k**. Then select **Next**.
 
     > [!NOTE]
-    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a GPT-4 or gpt-35-turbo-16k model. If you didn't previously deploy a GPT-4 or gpt-35-turbo-16k model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
+    > Evaluation with AI-assisted metrics needs to call another GPT model to do the calculation. For best performance, use a model that supports at least 16k tokens such as gpt-4-32k or gpt-35-turbo-16k model. If you didn't previously deploy such a model, you can deploy another model by following the steps in [Deploy a chat model](#deploy-a-chat-model). Then return to this step and select the model you deployed.
 
 1. Select **Add new dataset**. Then select **Next**.
 
@@ -542,15 +522,20 @@ Your copilot application can use the deployed prompt flow to answer questions in
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deployments-score-url-samples.png" alt-text="Screenshot of the prompt flow deployment endpoint and code samples." lightbox = "../media/tutorials/copilot-deploy-flow/deployments-score-url-samples.png":::
 
-
 ## Clean up resources
 
-To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
+To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true). 
 
 You can also [stop or delete your compute instance](../how-to/create-manage-compute.md#start-or-stop-a-compute-instance) in [Azure AI Studio](https://ai.azure.com).
+
+
+## Azure AI Studio enterprise chat solution demo
+
+Learn how to create a retail copilot using your data with Azure AI Studio in this [end-to-end walkthrough video](https://youtu.be/Qes7p5w8Tz8).
+> [!VIDEO https://www.youtube.com/embed/Qes7p5w8Tz8]
 
 ## Next steps
 
 * Learn more about [prompt flow](../how-to/prompt-flow.md).
 * [Deploy a web app for chat on your data](./deploy-chat-web-app.md).
-* [Get started building a sample copilot application with the SDK](https://github.com/azure/aistudio-copilot-sample)
+* [Get started building a sample copilot application with the SDK](./deploy-copilot-sdk.md)

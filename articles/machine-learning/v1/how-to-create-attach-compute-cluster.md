@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley

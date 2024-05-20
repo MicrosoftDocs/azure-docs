@@ -31,7 +31,7 @@ For an overview of options to secure the developer portal, see [Secure access to
 
 - [Import and publish](import-and-publish.md) an API in the Azure API Management instance.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
@@ -151,7 +151,7 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 1. Select **Microsoft Entra ID** from the list.
 1. In the **Client library** dropdown, select **MSAL**.
 1. Select **Update**.
-1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+1. [Republish your developer portal](developer-portal-overview.md#publish-the-portal).
 
 
 <a name='add-an-external-azure-ad-group'></a>
@@ -208,14 +208,13 @@ In the developer portal, you can sign in with Microsoft Entra ID using the **Sig
 Although a new account will automatically be created when a new user signs in with Microsoft Entra ID, consider adding the same widget to the sign-up page. The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
 > [!IMPORTANT]
-> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the Microsoft Entra ID changes to take effect.
+> You need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the Microsoft Entra ID changes to take effect.
 
-## Next Steps
+## Related content
 
 - Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL](../active-directory/develop/msal-migration.md).
-- [Create an API Management service instance](./get-started-create-service-instance.md).
-- [Manage your first API](./import-and-publish.md).
+- [Troubleshoot network connectivity to Microsoft Graph from inside a VNet](api-management-using-with-vnet.md#troubleshoot-connection-to-microsoft-graph-from-inside-a-vnet). 
 
 [api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
 [api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
@@ -229,7 +228,7 @@ Although a new account will automatically be created when a new user signs in wi
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-policies.md#caching-policies
+[Caching policies]: ./api-management-policies.md#caching
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/

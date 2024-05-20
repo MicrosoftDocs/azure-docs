@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 11/06/2023
+ms.date: 05/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to create and read user accounts using custom policies, so that I can store and retrieve user information from Microsoft Entra ID storage and issue JWT tokens.
+
 ---
 
 # Create and read a user account by using Azure Active Directory B2C custom policy
@@ -202,7 +206,7 @@ We use the `ClaimGenerator` technical profile to execute three claims transforma
                         </Precondition>
                     </Preconditions>
                 </ValidationTechnicalProfile>                        
-                <ValidationTechnicalProfile ReferenceId="DisplayNameClaimGenerator"/>
+                <ValidationTechnicalProfile ReferenceId="UserInputDisplayNameGenerator"/>
                 <ValidationTechnicalProfile ReferenceId="AAD-UserWrite"/>
             </ValidationTechnicalProfiles>
         <!--</TechnicalProfile>-->
@@ -403,15 +407,14 @@ To configure a display control, use the following steps:
 
 1. Use the procedure in [step 6](#step-6---upload-policy) and [step 7](#step-7---test-policy) to upload your policy file, and test it. This time, you must verify your email address before a user account is created.  
 
-<a name='update-user-account-by-using-azure-ad-technical-profile'></a>
 
 ## Update user account by using Microsoft Entra ID technical profile
 
-You can configure a Microsoft Entra ID technical profile to update a user account instead of attempting to create a new one. To do so, set the Microsoft Entra ID technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
+You can configure a Microsoft Entra ID technical profile to update a user account instead of attempting to create a new one. To do so, set the Microsoft Entra ID technical profile to throw an error if the specified user account doesn't already exist in the metadata collection by using the following code. Also, remove the `Key="UserMessageIfClaimsPrincipalAlreadyExists` metadata entry. The *Operation* needs to be set to *Write*:
 
 ```xml
-    <!--<Item Key="Operation">Write</Item>-->
-    <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+    <Item Key="Operation">Write</Item>
+    <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
 ``` 
 
 ## Use custom attributes 

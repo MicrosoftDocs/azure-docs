@@ -3,7 +3,6 @@ title: Resource governance with application groups
 description: This article describes how to enable resource governance using application groups.
 ms.topic: article
 ms.date: 10/12/2022
-ms.custom: ignite-2022
 ---
 
 # Resource governance with application groups 

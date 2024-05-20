@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication between Azure Machine Learning and other Azure services.
 services: machine-learning
 author: meyetman
-ms.author: meyetman 
+ms.author: meyetman
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 09/23/2022
+ms.date: 01/05/2024
 ms.topic: how-to
-ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, devx-track-azurecli
+ms.custom: has-adal-ref, subject-rbac-steps, cliv2, sdkv2, devx-track-azurecli
 ---
 
 # Set up authentication between Azure Machine Learning and other services
@@ -35,6 +35,16 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 * You must be familiar with creating and working with [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
+## Azure Container Registry and identity types
+
+The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
+
+| Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
+| ---- | :----: | :----: |
+| Admin user | ✓ | ✓ |
+| Workspace system-assigned managed identity | ✓ | ✓ |
+| Workspace user-assigned managed identity</br>with the ACRPull role assigned to the identity |  | ✓ |
+
 ## User-assigned managed identity
 
 ### Workspace
@@ -42,7 +52,7 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 You can add a user-assigned managed identity when creating an Azure Machine Learning workspace from the [Azure portal](https://portal.azure.com). Use the following steps while creating the workspace:
 
 1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
-1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
+1. From the __Identity__ page, select __User-assigned identity__ and then select the managed identity to use.
 
 The following [Azure RBAC role assignments](../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity for your Azure Machine Learning workspace to access data on the workspace-associated resources.
 
@@ -262,7 +272,7 @@ The identity-based access allows you to use [role-based access controls (RBAC)](
 
 ### Accessing storage services
 
-You can connect to storage services via identity-based data access with[Azure Machine Learning datastores](how-to-datastore.md). 
+You can connect to storage services via identity-based data access with [Azure Machine Learning datastores](how-to-datastore.md). 
 
 When you use identity-based data access, Azure Machine Learning prompts you for your Microsoft Entra token for data access authentication instead of keeping your credentials in the datastore. That approach allows for data access management at the storage level and keeps credentials confidential. 
 
@@ -291,6 +301,10 @@ Certain machine learning scenarios involve working with private data. In such ca
 To enable authentication with compute managed identity:
 
  * Create compute with managed identity enabled. See the [compute cluster](#compute-cluster) section, or for compute instance, the [Assign managed identity](how-to-create-compute-instance.md#assign-managed-identity) section.
+
+    > [!IMPORTANT]
+    > If the compute instance is also configured for [idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown), the compute instance won't shut down due to inactivity unless the managed identity has *contributor* access to the Azure Machine Learning workspace. For more information on assigning permissions, see [Manage access to Azure Machine Learning workspaces](how-to-assign-roles.md).
+
  * Grant compute managed identity at least Storage Blob Data Reader role on the storage account.
  * Create any datastores with identity-based authentication enabled. See [Create datastores](how-to-datastore.md).
 
@@ -348,7 +362,7 @@ The following steps outline how to set up data access with user identity for tra
 
 1. Grant data access and create data store as described above for CLI.
 
-1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
+1. Submit a training job with identity parameter set to [azure.ai.ml.UserIdentityConfiguration](/python/api/azure-ai-ml/azure.ai.ml.entities.useridentityconfiguration). This parameter setting enables the job to access data on behalf of user submitting the job.
 
     ```python
     from azure.ai.ml import command
@@ -451,7 +465,7 @@ To access the workspace ACR, create machine learning compute cluster with system
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-```azurecli-interaction
+```azurecli-interactive
 az ml compute create --name cpu-cluster --type <cluster name>  --identity-type systemassigned
 ```
 

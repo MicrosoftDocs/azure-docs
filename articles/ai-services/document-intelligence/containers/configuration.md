@@ -16,22 +16,24 @@ ms.author: lajanuar
 
 # Configure Document Intelligence containers
 
-:::moniker range="doc-intel-2.1.0 || doc-intel-3.1.0||doc-intel-4.0.0"
+:::moniker range="doc-intel-2.1.0 || doc-intel-4.0.0"
 
-Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` only:
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read and Layout only:
 
 * [REST API `2022-08-31 (GA)`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+* [REST API `2023-07-31 (GA)`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 * [SDKs targeting `REST API 2022-08-31 (GA)`](../sdk-overview-v3-0.md)
+* [SDKs targeting `REST API 2023-07-31 (GA)`](../sdk-overview-v3-1.md)
 
 ✔️ See [**Configure Document Intelligence v3.0 containers**](?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation.
 
 :::moniker-end
 
-:::moniker range="doc-intel-3.0.0"
+:::moniker range="doc-intel-3.0.0 || doc-intel-3.1.0"
 
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)**
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** ![checkmark](../media/yes-icon.png) **v3.1 (GA)**
 
-With Document Intelligence containers, you can build an application architecture optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, we show you how to configure the Document Intelligence container run-time environment by using the `docker compose` command arguments. Document Intelligence features are supported by six Document Intelligence feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
+With Document Intelligence containers, you can build an application architecture optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, we show you how to configure the Document Intelligence container run-time environment by using the `docker compose` command arguments. Document Intelligence features are supported by seven Document Intelligence feature containers—**Read**, **Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
 ## Configuration settings
 

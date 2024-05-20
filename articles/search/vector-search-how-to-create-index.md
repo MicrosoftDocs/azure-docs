@@ -1,5 +1,5 @@
 ---
-title: Add vector search
+title: Create a vector store
 titleSuffix: Azure AI Search
 description: Create or update a search index to include vector fields.
 
@@ -9,38 +9,38 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 03/27/2024
 ---
 
-# Add vector fields to a search index
+# Create a vector store
 
-In Azure AI Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md). 
+In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests. The [Create Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store.
 
 Follow these steps to index vector data:
 
 > [!div class="checklist"]
-> + Add one or more vector configurations to an index schema. 
-> + Add one or more vector fields.
-> + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), or use [integrated vectorization (preview)](vector-search-integrated-vectorization.md) for data chunking and encoding during indexing.
+> + Define a schema with one or more vector configurations that specifies algorithms for indexing and search 
+> + Add one or more vector fields
+> + Load prevectorized data [as a separate step](#load-vector-data-for-indexing), or use [integrated vectorization (preview)](vector-search-integrated-vectorization.md) for data chunking and encoding during indexing.
 
-This article applies to the generally available, non-preview version of [vector search](vector-search-overview.md), which assumes your application code calls external resources for chunking and encoding. 
+This article applies to the generally available non-preview version of [vector search](vector-search-overview.md), which assumes your application code calls external resources for chunking and encoding. 
 
 > [!NOTE]
 > Looking for migration guidance from 2023-07-01-preview? See [Upgrade REST APIs](search-api-migration.md). 
 
 ## Prerequisites
 
-+ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created prior to January 2019, there's a small subset that can't support vector search. If an index containing vector fields fails to be created or updated, this is an indicator. In this situation, a new service must be created.
 
-+ Pre-existing vector embeddings in your source documents. Azure AI Search doesn't generate vectors in the generally available version of vector search. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Generate embeddings](vector-search-how-to-generate-embeddings.md).
++ Pre-existing vector embeddings in your source documents. Azure AI Search doesn't generate vectors in the generally available version of the Azure SDKs and REST APIs. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Generate embeddings](vector-search-how-to-generate-embeddings.md).
 
-+ You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
++ You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`. Valid values are 2 through 3072 dimensions.
 
 + You should be familiar with [creating an index](search-how-to-create-search-index.md). The schema must include a field for the document key, other fields you want to search or filter, and other configurations for behaviors needed during indexing and queries. 
 
 ## Prepare documents for indexing
 
-Prior to indexing, assemble a document payload that includes fields of vector and non-vector data. The document structure must conform to the index schema. 
+Prior to indexing, assemble a document payload that includes fields of vector and nonvector data. The document structure must conform to the index schema. 
 
 Make sure your documents:
 
@@ -48,13 +48,13 @@ Make sure your documents:
 
 1. Provide vector data (an array of single-precision floating point numbers) in source fields.
 
-   Vector fields contain numeric data generated by embedding models, one embedding per field. We recommend the embedding models in [Azure OpenAI](https://aka.ms/oai/access), such as **text-embedding-ada-002** for text documents or the [Image Retrieval REST API](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) for images.
+   Vector fields contain numeric data generated by embedding models, one embedding per field. We recommend the embedding models in [Azure OpenAI](https://aka.ms/oai/access), such as **text-embedding-ada-002** for text documents or the [Image Retrieval REST API](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) for images. Only index top-level vector fields are supported: Vector sub-fields are not currently supported.
 
 1. Provide other fields with human-readable alphanumeric content for the query response, and for hybrid query scenarios that include full text search or semantic ranking in the same request. 
 
-Your search index should include fields and content for all of the query scenarios you want to support. Suppose you want to search or filter over product names, versions, metadata, or addresses. In this case, similarity search isn't especially helpful. Keyword search, geo-search, or filters would be a better choice. A search index that includes a comprehensive field collection of vector and non-vector data provides maximum flexibility for query construction and response composition.
+Your search index should include fields and content for all of the query scenarios you want to support. Suppose you want to search or filter over product names, versions, metadata, or addresses. In this case, similarity search isn't especially helpful. Keyword search, geo-search, or filters would be a better choice. A search index that includes a comprehensive field collection of vector and nonvector data provides maximum flexibility for query construction and response composition.
 
-A short example of a documents payload that includes vector and non-vector fields is in the [load vector data](#load-vector-data-for-indexing) section of this article.
+A short example of a documents payload that includes vector and nonvector fields is in the [load vector data](#load-vector-data-for-indexing) section of this article.
 
 ## Add a vector search configuration
 
@@ -234,19 +234,19 @@ REST API version [**2023-07-01-Preview**](/rest/api/searchservice/index-preview)
 
 + Use the [**Azure.Search.Documents**](https://www.nuget.org/packages/Azure.Search.Documents) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-add-config)
 
 + Use the [**Azure.Search.Documents**](https://pypi.org/project/azure-search-documents) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-add-config)
 
 + Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.  
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -271,7 +271,7 @@ Use this version if you want generally available features only.
    + `retrievable` can be true or false. True returns the raw vectors (1536 of them) as plain text and consumes storage space. Set to true if you're passing a vector result to a downstream app.
    + `filterable`, `facetable`, `sortable` must be false. 
 
-1. Add filterable non-vector fields to the collection, such as "title" with `filterable` set to true, if you want to invoke [prefiltering or postfiltering](vector-search-filters.md) on the [vector query](vector-search-how-to-query.md).
+1. Add filterable nonvector fields to the collection, such as "title" with `filterable` set to true, if you want to invoke [prefiltering or postfiltering](vector-search-filters.md) on the [vector query](vector-search-how-to-query.md).
 
 1. Add other fields that define the substance and structure of the textual content you're indexing. At a minimum, you need a document key. 
 
@@ -361,7 +361,7 @@ In the following REST API example, "title" and "content" contain textual content
    + `retrievable` can be true or false. True returns the raw vectors (1536 of them) as plain text and consumes storage space. Set to true if you're passing a vector result to a downstream app.
    + `filterable`, `facetable`, `sortable` must be false. 
 
-1. Add filterable non-vector fields to the collection, such as "title" with `filterable` set to true, if you want to invoke [prefiltering or postfiltering](vector-search-filters.md) on the [vector query](vector-search-how-to-query.md
+1. Add filterable nonvector fields to the collection, such as "title" with `filterable` set to true, if you want to invoke [prefiltering or postfiltering](vector-search-filters.md) on the [vector query](vector-search-how-to-query.md
 
 1. Add other fields that define the substance and structure of the textual content you're indexing. At a minimum, you need a document key. 
 
@@ -571,25 +571,25 @@ Although you can add a field to an index, there's no portal (Import data wizard)
 
 + Use the [**Azure.Search.Documents**](https://www.nuget.org/packages/Azure.Search.Documents) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-add-field)
 
 + Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-add-field)
 
 + Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.  
 
-+ See the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
++ See the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 
 ## Load vector data for indexing
 
-Content that you provide for indexing must conform to the index schema and include a unique string value for the document key. Pre-vectorized data is loaded into one or more vector fields, which can coexist with other fields containing alphanumeric content.
+Content that you provide for indexing must conform to the index schema and include a unique string value for the document key. Prevectorized data is loaded into one or more vector fields, which can coexist with other fields containing alphanumeric content.
 
 You can use either [push or pull methodologies](search-what-is-data-import.md) for data ingestion. 
 
@@ -628,7 +628,7 @@ api-key: {{admin-api-key}}
                 . . .
             ],
             "contentVector": [
-                -0.02780858241021633,,
+                -0.02780858241021633,
                  . . .
             ],
             "@search.action": "upload"
@@ -672,7 +672,7 @@ You can use [Search Explorer](search-explorer.md) to query an index. Search expl
 
 ### [**REST API**](#tab/rest-check-index)
 
-The following REST API example is a vector query, but it returns only non-vector fields (title, content, category). Only fields marked as "retrievable" can be returned in search results.
+The following REST API example is a vector query, but it returns only nonvector fields (title, content, category). Only fields marked as "retrievable" can be returned in search results.
 
 ```http
 POST https://my-search-service.search.windows.net/indexes/my-index/docs/search?api-version=2023-11-01
@@ -696,10 +696,26 @@ api-key: {{admin-api-key}}
 
 ---
 
+## Update a vector store
+
+To update a vector store, modify the schema and if necessary, reload documents to populate new fields. APIs for schema updates include [Create or Update Index (REST)](/rest/api/searchservice/indexes/create-or-update), [CreateOrUpdateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createorupdateindexasync) in the Azure SDK for .NET, [create_or_update_index](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient?view=azure-python#azure-search-documents-indexes-searchindexclient-create-or-update-index&preserve-view=true) in the Azure SDK for Python, and similar methods in other Azure SDKs.
+
+The standard guidance for updating an index is covered in [Drop and rebuild an index](search-howto-reindex.md). 
+
+Key points include:
+
++ Drop and rebuild is often required for updates to and deletion of existing fields.
+
++ However, you can update an existing schema with the following modifications, with no rebuild required:
+
+  + Add new fields to a fields collection.
+  + Add new vector configurations, assigned to new fields but not existing fields that have already been vectorized.
+  + Change "retrievable" (values are true or false) on an existing field. Vector fields must be searchable and retrievable, but if you want to disable access to a vector field in situations where drop and rebuild isn't feasible, you can set retrievable to false.
+
 ## Next steps
 
 As a next step, we recommend [Query vector data in a search index](vector-search-how-to-query.md). 
 
-Code samples in the [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
+Code samples in the [azure-search-vector](https://github.com/Azure/azure-search-vector-samples) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
-There's demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
+There's demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).

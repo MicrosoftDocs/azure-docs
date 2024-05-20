@@ -3,7 +3,7 @@ title: Azure SQL output binding for Functions
 description: Learn to use the Azure SQL output binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.custom: event-tier1-build-2022, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 4/17/2023
 ms.author: drskwier
 ms.reviewer: glenga
@@ -26,6 +26,8 @@ For information on setup and configuration details, see the [overview](./functio
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -376,13 +378,13 @@ public class ToDoItem {
 <a id="http-trigger-write-record-to-table-java"></a>
 ### HTTP trigger, write a record to a table
 
-The following example shows a SQL output binding in a Java function that adds a record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes an additional dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
+The following example shows a SQL output binding in a Java function that adds a record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
 
 ```xml
 <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.13.4.1</version>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
 </dependency>
 ```
 
@@ -393,10 +395,7 @@ import java.util.*;
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.sql.annotation.SQLOutput;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import java.util.Optional;
 
@@ -408,10 +407,10 @@ public class PostToDo {
                 name = "toDoItem",
                 commandText = "dbo.ToDo",
                 connectionStringSetting = "SqlConnectionString")
-                OutputBinding<ToDoItem> output) throws JsonParseException, JsonMappingException, JsonProcessingException {
+                OutputBinding<ToDoItem> output) {
         String json = request.getBody().get();
-        ObjectMapper mapper = new ObjectMapper();
-        ToDoItem newToDo = mapper.readValue(json, ToDoItem.class);
+        Gson gson = new Gson();
+        ToDoItem newToDo = gson.fromJson(json, ToDoItem.class);
 
         newToDo.Id = UUID.randomUUID();
         output.setValue(newToDo);
@@ -424,13 +423,13 @@ public class PostToDo {
 <a id="http-trigger-write-to-two-tables-java"></a>
 ### HTTP trigger, write to two tables
 
-The following example shows a SQL output binding in a JavaS function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.  The function takes an additional dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
+The following example shows a SQL output binding in a JavaS function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.  The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
 
 ```xml
 <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.13.4.1</version>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
 </dependency>
 ```
 
@@ -475,10 +474,7 @@ import java.util.*;
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.sql.annotation.SQLOutput;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import java.util.Optional;
 
@@ -496,12 +492,12 @@ public class PostToDoWithLog {
                 commandText = "dbo.RequestLog",
                 connectionStringSetting = "SqlConnectionString")
                 OutputBinding<RequestLog> outputLog,
-            final ExecutionContext context) throws JsonParseException, JsonMappingException, JsonProcessingException {
+            final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
         String json = request.getBody().get();
-        ObjectMapper mapper = new ObjectMapper();
-        ToDoItem newToDo = mapper.readValue(json, ToDoItem.class);
+        Gson gson = new Gson();
+        ToDoItem newToDo = gson.fromJson(json, ToDoItem.class);
         newToDo.Id = UUID.randomUUID();
         output.setValue(newToDo);
 

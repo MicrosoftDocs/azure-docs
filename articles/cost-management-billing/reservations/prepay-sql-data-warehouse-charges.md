@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 11/17/2023
+ms.date: 04/15/2024
 ms.author: banders
 ---
 
@@ -24,8 +24,8 @@ For pricing information, see the [Azure Synapse Analytics reserved capacity offe
 
 You can buy Azure Synapse Analytics reserved capacity in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](./prepare-buy-reservation.md). To buy reserved capacity:
 
-- You must have the owner role for at least one enterprise, Pay-As-You-Go, or Microsoft Customer Agreement subscription.
-- For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin to enable it. Direct Enterprise customers can update the **Reserved Instances** setting ine the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). Navigate to the Policies menu to change settings.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
+- For Enterprise subscriptions, the **Reserved Instances** policy option must be enabled in the [Azure portal](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies). If the setting is disabled, you must be an EA Admin to enable it.
 
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Synapse Analytics reserved capacity.
 
@@ -48,7 +48,7 @@ For example, assume your total consumption of Azure Synapse Analytics is DW3000c
    - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
    - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
    - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
-       - For enterprise customers, the billing context is the EA enrollment. The reservation shared scope would include multiple Active Directory Microsoft Entra tenants in an enrollment.
+       - For enterprise customers, the billing context is the EA enrollment. The reservation shared scope would include multiple Microsoft Entra tenants in an enrollment.
        - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
        - For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.
    - **Management group** — Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.

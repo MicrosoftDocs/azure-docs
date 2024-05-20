@@ -10,11 +10,13 @@ ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: how-to
-ms.date: 07/16/2020
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # Get an answer from a QNA Maker knowledge base
+
+> [!NOTE]
+> [Azure Open AI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure Open AI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 

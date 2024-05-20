@@ -5,11 +5,11 @@ description: Learn about the latest updates to Azure Machine Learning Python SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: UpdateFrequency5, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, devx-track-python
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/13/2023
+ms.date: 01/29/2024
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,30 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2024-04-29
+### Azure Machine Learning SDK for Python v1.56.0
+  + **azureml-core**
+    + Enable Application Insights re-mapping for new region China East 3, since it doesn't support classic resource mode. Also fixed the missing update for China North 3. 
+  + **azureml-defaults**
+    + Bumped azureml-inference-server-http pin to 1.0.0 in azureml-defaults.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.31.*
+  + **azureml-responsibleai**
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.33.0
+    + Increase responsibleai and fairlearn dependency versions
+
+## 2024-01-29
+### Azure Machine Learning SDK for Python v1.55.0
+  + **azureml-core**
+    + Enable Application Insights re-mapping for new region China East 3, since it doesn't support classic resource mode. Also fixed the missing update for China North 3.
+  + **azureml-defaults**
+    + Bumped azureml-inference-server-http pin to 1.0.0 in azureml-defaults.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.31.*
+  + **azureml-responsibleai**
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.33.0
+    + Increase responsibleai and fairlearn dependency versions
 
 ## 2023-11-13
   + **azureml-automl-core, azureml-automl-runtime, azureml-contrib-automl-dnn-forecasting, azureml-train-automl-client, azureml-train-automl-runtime, azureml-training-tabular**
@@ -42,6 +66,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Support of features/regressors known at the time of forecast in AutoML forecasting TCN models.
   + **azureml-core**
     + Add appinsights location swap for qatarcentral to point to uaenorth
+    + [Python 3.7 reached end-of-life on June 27th 2023](https://devguide.python.org/versions/). Consequently, 3.7 will be deprecated in azureml-core starting in October 2023 and azureml-core will end support for 3.7 in February 2024.
   + **azureml-mlflow**
     + Fix for loading models with MLflow load_model APIs when passing an AzureML URI
   + **azureml-pipeline-core**
@@ -2387,7 +2412,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + **Preview features**
     + We are releasing preview support for disk encryption of your local SSD in Azure Machine Learning Compute. Raise a technical support ticket to get your subscription allow listed to use this feature.
     + Public Preview of Azure Machine Learning Batch Inference. Azure Machine Learning Batch Inference targets large inference jobs that are not time-sensitive. Batch Inference provides cost-effective inference compute scaling, with unparalleled throughput for asynchronous applications. It is optimized for high-throughput, fire-and-forget inference over large collections of data.
-    + [**azureml-contrib-dataset**](/python/api/azureml-contrib-dataset)
+    + **azureml-contrib-dataset**
         + Enabled functionalities for labeled dataset
         ```Python
         import azureml.core

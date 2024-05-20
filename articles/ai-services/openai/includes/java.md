@@ -9,7 +9,6 @@ ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2023
-keywords: 
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)
@@ -109,7 +108,7 @@ dependencies {
     public class GetCompletionsSample {
     
         public static void main(String[] args) {
-            String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");;
+            String azureOpenaiKey = System.getenv("AZURE_OPENAI_API_KEY");;
             String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
             String deploymentOrModelId = "gpt-35-turbo-instruct";
     

@@ -7,10 +7,10 @@ metadata:
   description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
   ms.service: azure-ai-studio
   ms.topic: landing-page
-  ms.collection: collection
-  author: eric-urban
+  ms.reviewer: eur
   ms.author: eur
-  ms.date: 11/15/2023
+  author: eric-urban
+  ms.date: 2/6/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -41,18 +41,22 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Use Azure OpenAI Assistants in the playground
+            url: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
           - text: Hear and speak with chat in the playground
             url: quickstarts/hear-speak-playground.md
-          - text: Generate product name ideas
-            url: quickstarts/playground-completions.md
           - text: Moderate text and images
             url: quickstarts/content-safety.md
+          - text: Get started using GPT-4 Turbo with Vision
+            url: quickstarts/multimodal-vision.md
       - linkListType: tutorial
         links:
           - text: Deploy a web app for chat on your data
             url: tutorials/deploy-chat-web-app.md
           - text: Build your own copilot using prompt flow
             url: tutorials/deploy-copilot-ai-studio.md
+          - text: Build your own copilot using Azure AI CLI and SDK
+            url: tutorials/deploy-copilot-sdk.md
 
   # Card
   - title: Develop apps
@@ -61,10 +65,8 @@ landingContent:
         links:
           - text: Get started with the Azure AI SDK
             url: how-to/sdk-install.md
-          - text: Get started with the Azure AI CLI
-            url: how-to/cli-install.md
-          - text: Get started with projects in VS Code (Web)
-            url: how-to/vscode-web.md
+          - text: Work with Azure AI projects in VS Code
+            url: how-to/develop-in-vscode.md
       - linkListType: concept
         links:
           - text: Connections for flows and indexing

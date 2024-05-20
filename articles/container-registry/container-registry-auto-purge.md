@@ -3,9 +3,10 @@ title: Purge tags and manifests
 description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
 ms.topic: article
 ms.service: container-registry
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Automatically purge images from an Azure container registry
@@ -43,7 +44,7 @@ At a minimum, specify the following when you run `acr purge`:
 
 * `--untagged` - Specifies that all manifests that don't have associated tags (*untagged manifests*) are deleted. This parameter also deletes untagged manifests in addition to tags that are already being deleted.
 * `--dry-run` - Specifies that no data is deleted, but the output is the same as if the command is run without this flag. This parameter is useful for testing a purge command to make sure it does not inadvertently delete data you intend to preserve.
-* `--keep` - Specifies that the latest x number of to-be-deleted tags are retained.
+* `--keep` - Specifies that the latest x number of to-be-deleted tags are retained. The latest tags are determined by the last modified time of the tag.
 * `--concurrency` - Specifies a number of purge tasks to process concurrently. A default value is used if this parameter is not provided.
 
 > [!NOTE]

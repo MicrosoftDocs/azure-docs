@@ -6,3 +6,11 @@
     tocHref: /azure/sentinel/
     topicHref: /azure/azure-monitor/index
 
+## Network Insights articles
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure Monitor
+    tocHref: /azure/network-watcher/
+    topicHref: /azure/azure-monitor/index

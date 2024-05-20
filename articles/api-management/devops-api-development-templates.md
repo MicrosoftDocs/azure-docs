@@ -2,15 +2,17 @@
 title: Use DevOps and CI/CD to publish APIs
 description: Introduction to API DevOps with Azure API Management
 services: api-management
-author: adrianhall
+author: dlepow
 ms.service: api-management
 
 ms.topic: conceptual
 ms.date: 08/15/2022
-ms.author: adhal
+ms.author: danlep
 ---
 
 # Use DevOps and CI/CD to publish APIs
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 With the strategic value of APIs in the enterprise, adopting DevOps continuous integration (CI) and deployment (CD) techniques has become an important aspect of API development.  This article discusses the decisions you'll need to make to adopt DevOps principles for the management of APIs.
 

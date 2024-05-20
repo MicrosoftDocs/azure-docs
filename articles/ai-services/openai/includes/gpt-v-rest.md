@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use GPT-4 Turbo with Vision on your images and videos with the Azure Open AI REST API'
+title: 'Quickstart: Use GPT-4 Turbo with Vision on your images and videos with the Azure OpenAI REST API'
 titleSuffix: Azure OpenAI
 description: Get started using the Azure OpenAI REST APIs to deploy and use the GPT-4 Turbo with Vision model.
 services: cognitive-services
@@ -16,10 +16,13 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
-- <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
+- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - The following Python libraries: `requests`, `json`.
-- An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
-- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource.
+- An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. See [GPT-4 and GPT-4 Turbo Preview model availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability) for available regions. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource, in the paid (S1) tier.
+
+> [!NOTE]
+> It is currently not supported to turn off content filtering for the GPT-4 Turbo with Vision model.
 
 ## Retrieve key and endpoint
 
@@ -68,8 +71,10 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
                     "text": "Describe this picture:" 
                 },
                 { 
-                    "type": "image_url", 
-                    "image_url": "<URL or base 64 encoded image>" # Can url or data url with base64 image string
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "<image URL>"
+                    }
                 }
             ] } 
         ], 
@@ -86,7 +91,10 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 1. Make the following changes:
     1. Enter your endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
-    1. Change the value of the `"image"` field to the base 64 byte data of your image.
+
+    1. Change the value of the `"image"` field to the URL of your image.
+        > [!TIP]
+        > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
 1. Run the application with the `python` command:
 
     ```console
@@ -102,7 +110,7 @@ The **Optical Character Recognition (OCR)** integration allows the model to prod
 The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
 
 > [!CAUTION]
-> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 1. Replace the contents of _quickstart.py_ with the following code. 
     
@@ -136,9 +144,10 @@ The **object grounding** integration brings a new layer to data analysis and use
         "dataSources": [
         {
             "type": "AzureComputerVision",
-            "endpoint": " <your_computer_vision_endpoint> ",
-            "key": "<your_computer_vision_key>",
-            "indexName": "test-products"
+            "parameters": {
+                "endpoint": "<your_computer_vision_endpoint>",
+                "key": "<your_computer_vision_key>"
+            }
         }],
         "messages": [ 
             { "role": "system", "content": "You are a helpful assistant." }, 
@@ -150,7 +159,9 @@ The **object grounding** integration brings a new layer to data analysis and use
                 },
                 { 
                     "type": "image_url", 
-                    "image_url": "<URL or base 64 encoded image>" # Can be url or data url with base64 image string
+                    "image_url": {
+                        "url" : "<image URL>"
+                    }
                 }
             ]} 
         ], 
@@ -165,10 +176,11 @@ The **object grounding** integration brings a new layer to data analysis and use
     ```
 
 1. Make the following changes:
-    1. Enter your Azure OpenAI endpoint URL and key in the appropriate fields.
     1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
     1. Enter your Computer Vision endpoint URL and key in the appropriate fields.
-    1. Change the value of the `"image"` field to the base 64 byte data of your image.
+    1. Change the value of the `"image"` field to the URL of your image.
+        > [!TIP]
+        > You can also use a base 64 encoded image data instead of a URL. For more information, see the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-a-local-image).
 1. Run the application with the `python` command:
 
     ```console
@@ -188,6 +200,4 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 - [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-## Next steps
 
-* Learn more in the [Azure OpenAI overview](../overview.md).

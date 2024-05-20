@@ -4,7 +4,7 @@ description: Learn how to set up Private Link with Azure Virtual Desktop to priv
 author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 07/17/2023
+ms.date: 04/19/2024
 ms.author: daknappe
 ---
 
@@ -18,7 +18,7 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), an [application group, and workspace](create-application-group-workspace.md).
 
-- An existing [virtual network](../virtual-network/manage-virtual-network.md) and [subnet](../virtual-network/virtual-network-manage-subnet.md) you want to use for private endpoints.
+- An existing [virtual network](../virtual-network/manage-virtual-network.yml) and [subnet](../virtual-network/virtual-network-manage-subnet.md) you want to use for private endpoints.
 
 - The [required Azure role-based access control permissions to create private endpoints](../private-link/rbac-permissions.md).
 
@@ -28,14 +28,14 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
 
-## Enable the feature
+## Enable Private Link with Azure Virtual Desktop on a subscription
 
 To use Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider on each subscription you want to use Private Link with Azure Virtual Desktop.
 
 > [!IMPORTANT]
 > For Azure for US Government and Azure operated by 21Vianet, you also need to register the feature for each subscription.
 
-### Register the feature (Azure for US Government and Azure operated by 21Vianet only)
+### Register Private Link with Azure Virtual Desktop (Azure for US Government and Azure operated by 21Vianet only)
 
 To register the *Azure Virtual Desktop Private Link* feature:
 
@@ -65,13 +65,24 @@ To re-register the *Microsoft.DesktopVirtualization* resource provider:
 
 ## Create private endpoints
 
-During the setup process, you create private endpoints to the following resources:
+During the setup process, you create private endpoints to the following resources, depending on your scenario.
 
-| Purpose | Resource type | Target sub-resource | Quantity | Private DNS zone name |
-|--|--|--|--|--|
-| Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | `privatelink.wvd.microsoft.com` |
-| Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | `privatelink.wvd.microsoft.com` |
-| Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | `privatelink-global.wvd.microsoft.com` |
+1. Both clients and session host VMs use private routes. You need the following private endpoints:
+   
+   | Purpose | Resource type | Target sub-resource | Endpoint quantity | IP address quantity |
+   |--|--|--|--|--|
+   | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | Four per endpoint |
+   | Feed download | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace | Two per endpoint |
+   | Initial feed discovery | Microsoft.DesktopVirtualization/workspaces | global | **Only one for all your Azure Virtual Desktop deployments** | One per endpoint |
+
+1. Clients use public routes while session host VMs use private routes. You need the following private endpoints. Endpoints to workspaces aren't required.
+
+   | Purpose | Resource type | Target sub-resource | Endpoint quantity | IP address quantity |
+   |--|--|--|--|--|
+   | Connections to host pools | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool | Four per endpoint |
+
+> [!IMPORTANT]
+> IP address allocations are subject to change as the demand for IP addresses increases. During capacity expansions, additional addresses are needed for private endpoints. It's important you consider potential address space exhaustion and ensure sufficient headroom for growth. For more information on determining the appropriate network configuration for private endpoints in either a hub or a spoke topology, see [Decision tree for Private Link deployment](/azure/architecture/networking/guide/private-link-hub-spoke-network#decision-tree-for-private-link-deployment).
 
 ### Connections to host pools
 
@@ -124,7 +135,6 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
 1. Select **Create** to create the private endpoint for the connection sub-resource.
-
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -232,7 +242,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
       New-AzPrivateEndpoint @parameters
       ```
 
-   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
+   Your output should be similar to the following output. Check that the value for **ProvisioningState** is **Succeeded**.
 
    ```output
    ResourceGroupName Name            Location ProvisioningState Subnet
@@ -312,7 +322,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
           --output table
       ```
 
-   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
+   Your output should be similar to the following output. Check that the value for **ProvisioningState** is **Succeeded**.
 
    ```output
    CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
@@ -374,7 +384,6 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
 1. Select **Create** to create the private endpoint for the feed sub-resource.
-
 
 # [Azure PowerShell](#tab/powershell)
 

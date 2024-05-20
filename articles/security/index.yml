@@ -7,11 +7,8 @@ brand: azure
 metadata:
   title: Azure security documentation
   description: Azure offers security advantages that support your compliance efforts, provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
-  services: security
   ms.service: security
-  ms.subservice: na
   ms.topic: hub-page
-  ms.collection: na
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
@@ -75,9 +72,6 @@ conceptualContent:
         - url: /security/zero-trust/deploy/identity
           itemType: how-to-guide
           text: Securing identity with Zero Trust
-        - url: /security/compass/overview
-          itemType: concept
-          text: Securing privleged access
         - url: /security/zero-trust/develop/identity
           itemType: concept
           text: Building apps with a Zero Trust approach to identity
@@ -146,9 +140,6 @@ additionalContent:
         - title: Azure Architecture Center
           summary: A set of guiding tenets that can be used to protect your applications and data from threats
           url: /azure/architecture/guide/security/security-start-here
-        - title: Microsoft Security Best Practices
-          summary: Collection of best practices that provide clear actionable guidance for security related decisions, includes Azure and Microsoft 365
-          url: /security/compass/compass
         - title: Secure development
           summary: Learn how to develop and deploy secure applications on Azure with our sample apps, best practices, and guidance
           url: ./develop/index.yml

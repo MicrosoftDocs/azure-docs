@@ -9,7 +9,6 @@ ms.date: 11/30/2023
 ms.service: dms
 ms.topic: troubleshooting
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 
@@ -27,6 +26,18 @@ This article provides a list of known issues and troubleshooting steps associate
 - **Cause**: The error can occur due to the backups being placed incorrectly in the Azure Storage container. If the backups are placed in the network file share, this error could also occur due to network connectivity issues.
 
 - **Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you're using network file share, there can be network-related issues and lags that are causing this error. Wait for the process to be completed.
+
+- **Message**: `Cutover failed or cancelled for database '{databaseName}'. Error details: 'errorCode: Ext_RestoreSettingsError, message: RestoreId: {RestoreId}, OperationId: {operationId}, Detail: Failed to complete restore., RestoreJobState: Restoring, CompleteRestoreErrorMessage: The database contains incompatible physical layout. Too many full text catalog files.`
+
+- **Cause**:  SQL Vm restore currently does not support restoring databases with full text catalog files as Azure SQL Vm does not support them at the moment.
+
+- **Recommendation**: Remove full text catalog files from database when creating the restore
+
+- **Message**: `Cutover failed or cancelled for database '{databaseName}'. Error details: 'Migration cannot be completed because provided backup file name '{providedFileName}' should be the last restore backup file '{lastRestoredFileName}'.'`
+
+- **Cause**:  This error occurs due to a known limitation in SqlMi. It means the '{providedFileName}' is different from '{lastRestoredFileName}'. SqlMi will automatically restore all valid backup files in the container based on the LSN sequence. A typical failure case could be: the '{providedFileName}' is "log1", but the files in container has other files, like "log2", which have largest LSN number than "log1". In this case, SqlMi will automatically restore all files in the container. In the end of completing the migration, SqlMi will report this error message.
+
+- **Recommendation**: For offline migration mode, please provide the "lastBackupName" with the largest LSN. For online migration scenario this warning/error can be ignored if the migration status is succeeded.
 
 ## Error code: 2009 - MigrationRestoreFailed
 
@@ -223,6 +234,15 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**: Make sure to change the target Azure SQL Database collation to the same as the source SQL Server database. Azure SQL Database uses `SQL_Latin1_General_CP1_CI_AS` collation by default, in case your source SQL Server database uses a different collation you might need to re-create or select a different target database whose collation matches. For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
 
+- **Message**: `TableColumnCollationMismatch: Table <Tablename> with column <columnname> has collation <collationoptionsource> on source but has collation <collationoptiontarget> on target table.`
+
+- **Cause**: The source database table column's collation isn't the same as the target database table column's collation.
+
+- **Recommendation**:
+  1) Make sure to migrate the Schema to target Azure SQL Database using Database Migration Service. Refer [blog](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/public-preview-schema-migration-for-target-azure-sql-db/ba-p/3990463).
+  2) Follow this [article](/sql/relational-databases/collations/set-or-change-the-column-collation) to manually change collation. 
+  For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
+
 - **Message**: `DatabaseSizeMoreThanMax: No tables were found in the target Azure SQL Database. Check if schema migration was completed beforehand.`
 
 - **Cause**: The selected tables for the migration don't exist in the target Azure SQL Database.
@@ -254,15 +274,15 @@ This article provides a list of known issues and troubleshooting steps associate
 - **Recommendation**: Check if the selected tables exist in the target Azure SQL Database. If this migration is called from a PowerShell script, check if the table list parameter includes the correct table names and is passed into the migration.
 
 ## Error code: 2060 - SqlSchemaCopyFailed
-
+<!-- Comment:Now supported by SHIR 5.37 onwards--
 - **Message**: `Login failed for user 'Domain\MachineName$`.
 
 - **Cause**: This error generally happens when customer uses Windows authentication to login the source. The customer provides Windows authentication credential but SHIR converts it to machine account (Domain\MachineName$).
 
-- **Recommendation**: Possible solution for this issue are:
+- **Recommendation**: Possible solutions for this issue are:
   1) Add login for machine account "Domain\MachineName$" to the source SQL Server. [How to Create a SQL Server Computer Account Login](https://stackoverflow.com/questions/38680366/how-to-add-a-new-sql-server-machine-account).
   2) Or Use SQL login to connect to source SQL Server in Azure Data Studio.
-  3) Or As an alternative, Migrate the database schema from source to target by using [Powershell](https://learn.microsoft.com/powershell/module/az.datamigration/new-azdatamigrationsqlserverschema?view=azps-11.1.0) or  the [SQL Server dacpac extension](https://learn.microsoft.com/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects](https://learn.microsoft.com/azure-data-studio/extensions/sql-database-project-extension) extension in Azure Data Studio.
+  3) Or As an alternative, Migrate the database schema from source to target by using [PowerShell](/powershell/module/az.datamigration/new-azdatamigrationsqlserverschema) or  the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects](/azure-data-studio/extensions/sql-database-project-extension) extension in Azure Data Studio.-->
   
 - **Message**: `The SELECT permission was denied on the object 'sql_logins', database 'master', schema 'sys'.`
 
@@ -367,6 +387,10 @@ This article provides a list of known issues and troubleshooting steps associate
 - **Cause**: The error is possible to occur for both storage accounts with public network and private endpoint configuration. It's also possible that you have an on-premises DNS server that controls a hybrid network routing and DHCP. Unless you allow the Azure IP addresses configured in your DNS server, your SQL Server on Azure VM target has no chance to resolve the remote storage blob endpoint.
 
 - **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
+
+## Azure Database Migration Service Naming Rules
+
+If your DMS service failed with "Error: Service name 'x_y_z' is not valid", then you need to follow the Azure Database Migration Service Naming Rules. As Azure Database Migration Service uses Azure Data factory for its compute, it follows the exact same naming rules as mentioned [here](../data-factory/naming-rules.md).
 
 ## Azure SQL Database limitations
 

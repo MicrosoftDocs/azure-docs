@@ -1,19 +1,18 @@
 ---
 title: Azure IoT Akri architecture
-description: Understand the key components in Azure IoT Akri Preview architecture.
-author: timlt
-ms.author: timlt
+description: Understand the key components in Azure IoT Akri architecture.
+author: dominicbetts
+ms.author: dobett
 ms.subservice: akri
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
 ms.date: 10/26/2023
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to to understand the key components in
-# in the Azure IoT Akri architecture so that I understand how it works to enable device and asset discovery for my edge solution.
+# CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Akri architecture so that I understand how it works to enable device and asset discovery for my edge solution.
 ---
 
-# Azure IoT Akri architecture
+# Azure IoT Akri Preview architecture
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -28,7 +27,7 @@ Azure IoT Akri consists of five components: two custom resources, Discovery Hand
 - **Akri Instance**. The second custom resource, Akri Instance, tracks the availability and usage of the device. Each Akri Instance represents a leaf device.
 - **Akri Controller**.  After the configured device is found, the Akri Controller helps you use it. The Controller sees each Akri Instance and deploys a broker Pod that knows how to connect to the resource and utilize it.
 
-:::image type="content" source="media/concept-akri-architecture/akri-architecture.png" alt-text="Diagram for Azure IoT Akri architecture." border="false":::
+:::image type="content" source="media/concept-akri-architecture/akri-architecture.png" alt-text="Diagram for Azure IoT Akri Preview architecture." border="false":::
 
 ## Custom Resource Definitions
 

@@ -7,9 +7,9 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-pii, ignite-fall-2021
+ms.custom: language-service-pii
 ---
 
 # Supported Personally Identifiable Information (PII) entity categories

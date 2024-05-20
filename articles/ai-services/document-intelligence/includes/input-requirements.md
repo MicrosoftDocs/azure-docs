@@ -16,10 +16,11 @@ ms.author: lajanuar
     |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
-    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
+    |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
-    |Custom          |  ✔  | ✔ |   |
+    |Custom extraction |  ✔  | ✔ |   |
+    |Custom classification  |  ✔  | ✔ | ✔ (2024-02-29-preview)  |
 
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 

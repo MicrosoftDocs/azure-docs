@@ -5,10 +5,10 @@ description: Learn how to use the Set Variable activity to set the value of an e
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
+ms.date: 01/05/2024
 ms.topic: conceptual
-ms.date: 02/16/2023
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ---
 

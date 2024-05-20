@@ -1,8 +1,8 @@
 ---
 title: Azure Private Endpoint private DNS zone values
 description: Learn about the private DNS zone values for Azure services that support private endpoints.
-author: asudbring
-ms.author: allensu
+author: abell
+ms.author: abell
 ms.service: private-link
 ms.topic: concept-article
 ms.date: 11/15/2023
@@ -108,8 +108,10 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Analytical | privatelink.analytics.cosmos.azure.com | analytics.cosmos.azure.com |
 >| Azure Cosmos DB (Microsoft.DBforPostgreSQL/serverGroupsv2) | coordinator | privatelink.postgres.cosmos.azure.com | postgres.cosmos.azure.com |
 >| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
+>| Azure Database for PostgreSQL - Flexible server (Microsoft.DBforPostgreSQL/flexibleServers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 >| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 >| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 >| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
@@ -192,7 +194,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.windows.net | web.core.windows.net |
 >| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.windows.net | dfs.core.windows.net |
 >| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
->| Azure Managed Disks (Microsoft.Compute/diskAccesses) | disks | privatelink.blob.core.windows.net | privatelink.blob.core.windows.net |
+>| Azure Managed Disks (Microsoft.Compute/diskAccesses) | disks | privatelink.blob.core.windows.net | blob.core.windows.net |
 
 ### Web
 
@@ -202,7 +204,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.net | search.windows.net |
 >| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 >| Azure Web Apps - Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net | azurewebsites.net </br> scm.azurewebsites.net |
->| SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.service.signalr.net | service.signalr.net |
+>| SignalR (Microsoft.SignalRService/SignalR) | signalr | privatelink.service.signalr.net | service.signalr.net |
 >| Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 >| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 
@@ -268,6 +270,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.us | documents.azure.us |
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
 >| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
+>| Azure Database for PostgreSQL - Flexible server (Microsoft.DBforPostgreSQL/flexibleServers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
 >| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
 >| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
 >| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.usgovcloudapi.net| mariadb.database.usgovcloudapi.net |
@@ -340,7 +343,7 @@ For Azure services, use the recommended zone names as described in the following
 >[!div class="mx-tdBreakAll"]
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
->| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.us | search.windows.us |
+>| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.azure.us | search.azure.us |
 >| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 >| Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us | azurewebsites.us </br> scm.azurewebsites.us |
 >| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net | 
@@ -399,6 +402,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
 >| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
 >| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
+>| Azure Database for PostgreSQL - Flexible server (Microsoft.DBforPostgreSQL/flexibleServers) | postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 >| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |
 >| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |
 >| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |

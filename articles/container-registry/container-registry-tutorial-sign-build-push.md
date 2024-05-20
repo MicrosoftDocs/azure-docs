@@ -1,5 +1,5 @@
 ---
-title: Sign container images with Notation and Azure Key Vault using a self-signed certificate (Preview)
+title: Sign container images with Notation and Azure Key Vault using a self-signed certificate
 description: In this tutorial you'll learn to create a self-signed certificate in Azure Key Vault (AKV), build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image with notation.
 author: yizha1
 ms.author: yizha1
@@ -9,12 +9,9 @@ ms.topic: how-to
 ms.date: 4/23/2023
 ---
 
-# Sign container images with Notation and Azure Key Vault using a self-signed certificate (Preview)
+# Sign container images with Notation and Azure Key Vault using a self-signed certificate
 
 Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been modified. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by the [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store certificates with signing keys that can be used by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach signatures to container images and other artifacts as well as view those signatures.
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 In this tutorial:
 
@@ -33,35 +30,27 @@ In this tutorial:
 
 ## Install Notation CLI and AKV plugin
 
-1. Install Notation v1.0.1 on a Linux amd64 environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/).
+1. Install Notation v1.1.0 on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.1/notation_1.0.1_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.1.0/notation_1.1.0_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the Notation binary to the desired bin directory in your $PATH, for example
     cp ./notation /usr/local/bin
     ```
 
-2. Install the Notation Azure Key Vault plugin on a Linux amd64 environment. You can also download the package for other environments by following the [Notation AKV plugin installation guide](https://github.com/Azure/notation-azure-kv#installation-the-akv-plugin).
+2. Install the Notation Azure Key Vault plugin `azure-kv` v1.1.0 on a Linux amd64 environment.
 
     > [!NOTE]
-    > The plugin directory varies depending upon the operating system being used. The directory path below assumes Ubuntu. Please read the [Notation directory structure for system configuration](https://notaryproject.dev/docs/user-guides/how-to/directory-structure/) for more information.
-    
+    > The URL and SHA256 checksum for the Notation Azure Key Vault plugin can be found on the plugin's [release page](https://github.com/Azure/notation-azure-kv/releases).
+
     ```bash
-    # Create a directory for the plugin
-    mkdir -p ~/.config/notation/plugins/azure-kv
-    
-    # Download the plugin
-    curl -Lo notation-azure-kv.tar.gz \
-        https://github.com/Azure/notation-azure-kv/releases/download/v1.0.1/notation-azure-kv_1.0.1_linux_amd64.tar.gz 
-    
-    # Extract to the plugin directory
-    tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv
+    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.1.0/notation-azure-kv_1.1.0_linux_amd64.tar.gz --sha256sum 2fc959bf850275246b044203609202329d015005574fabbf3e6393345e49b884
     ```
 
-3. List the available plugins.
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.1.0` is included in the list. 
 
     ```bash
     notation plugin ls
@@ -153,6 +142,9 @@ The following steps show how to create a self-signed certificate for testing pur
           "keyType": "RSA",
           "reuseKey": true
         },
+        "secretProperties": {
+          "contentType": "application/x-pem-file"
+        },
         "x509CertificateProperties": {
         "ekus": [
             "1.3.6.1.5.5.7.3.3"
@@ -194,7 +186,7 @@ The following steps show how to create a self-signed certificate for testing pur
     In this tutorial, if the image has already been built and is stored in the registry, the tag serves as an identifier for that image for convenience.
 
     ```bash
-    IMAGE=$REGISTRY/${REPO}@$TAG
+    IMAGE=$REGISTRY/${REPO}:$TAG
     ```
 
 3. Get the Key ID of the signing key. A certificate in AKV can have multiple versions, the following command gets the Key ID of the latest version.
@@ -208,6 +200,28 @@ The following steps show how to create a self-signed certificate for testing pur
     ```bash
     notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true $IMAGE
     ```
+
+    To authenticate with AKV, by default, the following credential types if enabled will be tried in order:
+ 
+    - [Environment credential](/dotnet/api/azure.identity.environmentcredential)
+    - [Workload identity credential](/dotnet/api/azure.identity.workloadidentitycredential)
+    - [Managed identity credential](/dotnet/api/azure.identity.managedidentitycredential)
+    - [Azure CLI credential](/dotnet/api/azure.identity.azureclicredential)
+    
+    If you want to specify a credential type, use an additional plugin configuration called `credential_type`. For example, you can explicitly set `credential_type` to `azurecli` for using Azure CLI credential, as demonstrated below:
+    
+    ```bash
+    notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true --plugin-config credential_type=azurecli $IMAGE
+    ```
+
+    See below table for the values of `credential_type` for various credential types.
+
+    | Credential type              | Value for `credential_type` |
+    | ---------------------------- | -------------------------- |
+    | Environment credential       | `environment`              |
+    | Workload identity credential | `workloadid`               |
+    | Managed identity credential  | `managedid`                |
+    | Azure CLI credential         | `azurecli`                 |
     
 5. View the graph of signed images and associated signatures.
 

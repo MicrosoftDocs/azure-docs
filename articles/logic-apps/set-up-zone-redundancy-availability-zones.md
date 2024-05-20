@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 01/04/2024
 ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
 
-# Protect logic apps from region failures with zone redundancy and availability zones
+# Protect logic apps from zonal failures with zone redundancy and availability zones
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 

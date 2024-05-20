@@ -1,6 +1,6 @@
 ---
 title: Security recommendations for multifactor authentication
-description: Learn how to enforce multifactor authentication for your Azure subscriptions using Microsoft Defender for Cloud
+description: Learn how to enforce multifactor authentication for your Azure subscriptions using Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.date: 08/22/2023
 ---
@@ -20,7 +20,6 @@ The following recommendations in the Enable MFA control ensure you're meeting th
 - Accounts with owner permissions on Azure resources should be MFA enabled
 - Accounts with write permissions on Azure resources should be MFA enabled
 - Accounts with read permissions on Azure resources should be MFA enabled
-
 
 There are three ways to enable MFA and be compliant with the two recommendations in Defender for Cloud: security defaults, per-user assignment, and conditional access (CA) policy.
 
@@ -72,7 +71,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 
 1. Enter the following query and select **Run query**.
 
-    ```
+    ```Kusto
     securityresources
     | where type =~ "microsoft.security/assessments/subassessments"
     | where id has "assessments/dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c" or id has "assessments/c0cb17b2-0607-48a7-b0e0-903ed22de39b" or id has "assessments/6240402e-f77c-46fa-9060-a7ce53997754"
@@ -94,7 +93,6 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 - Conditional Access feature to enforce MFA on external users/tenants isn't supported yet.
 - Conditional Access policy applied to Microsoft Entra roles (such as all global admins, external users, external domain, etc.) isn't supported yet.
 - External MFA solutions such as Okta, Ping, Duo, and more aren't supported within the identity MFA recommendations.
-
 
 ## Next steps
 

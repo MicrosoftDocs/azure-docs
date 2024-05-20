@@ -7,10 +7,9 @@ metadata:
   description: Learn about solutions for SAP on Azure, including SAP workloads on Azure VMs, Azure Center for SAP solutions, Azure Monitor for SAP solutions, SAP on Azure Large Instances, and the SAP on Azure deployment automation framework.
   ms.service: sap-on-azure
   ms.topic: landing-page
-  author: lauradolan
-  ms.author: ladolan
+  author: ju-shim
+  ms.author: jushiman
   ms.date: 02/08/2023
-
 landingContent:
   - title: SAP workloads on Azure VMs
     linkLists:
@@ -142,7 +141,9 @@ landingContent:
           - text: How to configure M365 Exchange Online for SAP
             url: ./workloads/exchange-online-integration-sap-email-outbound.md
           - text: How to expose SAP Process Orchestration on Azure securely
-            url: ./workloads/exchange-online-integration-sap-email-outbound.md
+            url: ./workloads/expose-sap-process-orchestration-on-azure.md
+          - text: How to configure SAP printing with Microsoft Universal Print
+            url: ./workloads/universal-print-sap-frontend.md
       - linkListType: quickstart
         links:
           - text: Deploy an ERP extension using SAP's Cloud SDK on Azure in one click

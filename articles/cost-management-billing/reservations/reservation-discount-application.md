@@ -5,7 +5,6 @@ author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/14/2023
 ms.author: banders
@@ -67,7 +66,7 @@ Read the following articles that apply to you to learn how discounts apply to a 
 - [Virtual machines](../manage/understand-vm-reservation-charges.md)
 
 
-## Next steps
+## Related content
 
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your subscription with pay-as-you-go rates](understand-reserved-instance-usage.md)

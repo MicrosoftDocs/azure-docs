@@ -23,9 +23,11 @@ items:
     href: quickstart-text.md
   - name: Image moderation
     href: quickstart-image.md
-  - name: Jailbreak risk detection (new)
+  - name: Prompt Shields (preview)
     href: quickstart-jailbreak.md
-  - name: Protected material detection (new)
+  - name: Groundedness detection (preview)
+    href: quickstart-groundedness.md
+  - name: Protected material detection (preview)
     href: quickstart-protected-material.md
 
 - name: Samples 
@@ -56,8 +58,10 @@ items:
   items:
   - name: Harm categories
     href: concepts/harm-categories.md
-  - name: Jailbreak risk detection
+  - name: Prompt Shields
     href: concepts/jailbreak-detection.md
+  - name: Groundedness detection
+    href: concepts/groundedness.md
 - name: Reference
   items:
   - name: Azure AI Content Safety REST API

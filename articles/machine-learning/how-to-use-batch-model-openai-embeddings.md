@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 11/04/2023
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, update-code
 ---
 
 # Run OpenAI models in batch endpoints to compute embeddings
@@ -225,7 +225,7 @@ Model deployments in batch endpoints can only deploy registered models. You can 
     > * Add an environment variable `AZUREML_BI_TEXT_COLUMN` to control (optionally) which input field you want to generate embeddings for.
 
     > [!TIP]
-    > By default, MLflow will use the first text column available in the input data to generate embeddings from. Use the environment variable `AZUREML_BI_TEXT_COLUMN` with the name of an existing column in the input dataset to change the column if needed. Leave it blank if the defaut behavior works for you.
+    > By default, MLflow will use the first text column available in the input data to generate embeddings from. Use the environment variable `AZUREML_BI_TEXT_COLUMN` with the name of an existing column in the input dataset to change the column if needed. Leave it blank if the default behavior works for you.
     
     The scoring script looks as follows:
 
@@ -307,7 +307,10 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/openai-embeddings/deploy-and-run.sh" ID="start_batch_scoring_job" :::
    
    # [Python](#tab/python)
-   
+
+   > [!TIP]
+   > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/openai-embeddings/deploy-and-test.ipynb?name=start_batch_scoring_job)]
 
 1. Track the progress:

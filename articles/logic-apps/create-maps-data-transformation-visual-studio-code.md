@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, kewear, alexzuniga, azla
 ms.topic: how-to
 ms.date: 11/15/2023
-# As a developer, I want to transform data in Azure Logic Apps by creating a map between schemas with Visual Studio Code.
+# Customer intent: As a developer, I want to transform data in Azure Logic Apps by creating a map between schemas with Visual Studio Code.
 ---
 
 # Create maps to transform data in Azure Logic Apps with Visual Studio Code

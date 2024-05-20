@@ -61,8 +61,6 @@
         href: onboard-windows-admin-center.md
       - name: Connect machines to Azure Arc with PowerShell
         href: onboard-powershell.md
-      - name: Connect machines to Azure Arc with PowerShell DSC
-        href: onboard-dsc.md
       - name: Connect Windows Server machines through Azure Arc Setup
         href: onboard-windows-server.md
     - name: Connect machines at scale
@@ -79,6 +77,10 @@
          href: onboard-ansible-playbooks.md
        - name: Connect machines from Automation Update Management
          href: onboard-update-management-machines.md
+       - name: Connect VMware vCenter managed machines
+         href: ../vmware-vsphere/enable-guest-management-at-scale.md?toc=/azure/azure-arc/servers/toc.json
+       - name: Connect SCVMM managed machines
+         href: ../system-center-virtual-machine-manager/enable-guest-management-at-scale.md?toc=/azure/azure-arc/servers/toc.json
   - name: Migrate
     items:
     - name: Migrate machine to Azure
@@ -129,6 +131,8 @@
     items:
     - name: SSH access to Azure Arc-enabled servers
       href: ssh-arc-overview.md
+    - name: PowerShell remoting to Azure Arc-enabled servers
+      href: ssh-arc-powershell-remoting.md
     - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
   - name: Extended Security Updates
@@ -165,6 +169,8 @@
       href: azcmagent-connect.md
     - name: azcmagent disconnect
       href: azcmagent-disconnect.md
+    - name: azcmagent extension
+      href: azcmagent-extension.md
     - name: azcmagent genkey
       href: azcmagent-genkey.md
     - name: azcmagent help

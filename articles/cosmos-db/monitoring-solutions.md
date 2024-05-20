@@ -4,7 +4,6 @@ description: This article will describe monitoring third-party tools helps monit
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/28/2021
 ---

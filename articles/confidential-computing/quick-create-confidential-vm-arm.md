@@ -4,11 +4,10 @@ description: Learn how to quickly create and deploy an Azure confidential virtua
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, devx-track-linux, has-azure-ad-ps-ref
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, has-azure-ad-ps-ref
 ms.devlang: azurecli
 ---
 
@@ -16,11 +15,11 @@ ms.devlang: azurecli
 
 You can use an Azure Resource Manager template (ARM template) to create an Azure [confidential VM](confidential-vm-overview.md) quickly. Confidential VMs run on both AMD processors backed by AMD SEV-SNP and Intel processors backed by Intel TDX to achieve VM memory encryption and isolation. For more information, see [Confidential VM Overview](confidential-vm-overview.md).
 
-This tutorial covers deployment of a confidential VM with a custom configuration. 
+This tutorial covers deployment of a confidential VM with a custom configuration.
 
 ## Prerequisites
 
-- An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/). 
+- An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 - If you want to deploy from the Azure CLI, [install PowerShell](/powershell/azure/install-azure-powershell) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Deploy confidential VM template with Azure CLI
@@ -59,7 +58,7 @@ To create and deploy your confidential VM using an ARM template through the Azur
     az group create -n $resourceGroup -l $region
     ```
 
-1. Deploy your VM to Azure using an ARM template with a custom parameter file. For TDX deployments here is an example template: https://aka.ms/TDXtemplate. 
+1. Deploy your VM to Azure using an ARM template with a custom parameter file. For TDX deployments here is an example template: https://aka.ms/TDXtemplate.
 
     ```azurecli-interactive
     az deployment group create `
@@ -81,9 +80,9 @@ When you create a confidential VM through the Azure Command-Line Interface (Azur
 
 1. Depending on the OS image you're using, copy either the [example Windows parameter file](#example-windows-parameter-file) or the [example Linux parameter file](#example-linux-parameter-file) into your parameter file.
 
-1. Edit the JSON code in the parameter file as needed. For example,  update the OS image name (`osImageName`) or the administrator username (`adminUsername`). 
+1. Edit the JSON code in the parameter file as needed. For example,  update the OS image name (`osImageName`) or the administrator username (`adminUsername`).
 
-1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For Intel TDX SKUs and Linux-based images only, customers may choose the `NonPersistedTPM` security type to deploy with an ephemeral vTPM. For the `NonPersistedTPM` security type use the minimum "apiVersion": "2023-09-01" in the template file.
+1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For Intel TDX SKUs and Linux-based images only, customers may choose the `NonPersistedTPM` security type to deploy with an ephemeral vTPM. For the `NonPersistedTPM` security type use the minimum "apiVersion": "2023-09-01" under `Microsoft.Compute/virtualMachines` in the template file.
 
 1. Save your parameter file.
 
@@ -166,12 +165,12 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     ```
 
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
-    
-    For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.
 
-    ```azurecli-interactive
-    Connect-AzureAD -Tenant "your tenant ID"
-    New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    
+    For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role. [Install Microsoft Graph SDK](/powershell/microsoftgraph/installation) to execute the commands below.
+
+    ```Powershell
+    Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
+    New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
 1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
@@ -188,7 +187,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
         ```azurecli-interactive
         $KeyVault = <name of key vault>
-        az keyvault create --name $KeyVault --resource-group $resourceGroup --location $region --sku Premium --enable-purge-protection 
+        az keyvault create --name $KeyVault --resource-group $resourceGroup --location $region --sku Premium --enable-purge-protection
         ```
 
     1. Make sure that you have an **owner** role in this key vault.
@@ -201,9 +200,9 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
 
-    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](../key-vault/managed-hsm/quick-create-cli.md) to provision and activate Azure Key Vault Managed HSM. 
+    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](../key-vault/managed-hsm/quick-create-cli.md) to provision and activate Azure Key Vault Managed HSM.
     1. Enable purge protection on the Azure Managed HSM. This step is required to enable key release.
-    
+
         ```azurecli-interactive
         az keyvault update-hsm --subscription $subscriptionId -g $resourceGroup --hsm-name $hsm --enable-purge-protection true
         ```
@@ -212,7 +211,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
         ```azurecli-interactive
         $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
-        az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.Id --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName 
+        az keyvault role assignment create --hsm-name $hsm --assignee $cvmAgent.Id --role "Managed HSM Crypto Service Release User" --scope /keys/$KeyName
         ```
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
@@ -223,14 +222,14 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```azurecli-interactive
         $KeyName = <name of key>
         $KeySize = 3072
-        az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"    
+        az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"
         ```
 
     1. Get information about the key that you created.
 
         ```azurecli-interactive
         $encryptionKeyVaultId = ((az keyvault show -n $KeyVault -g $resourceGroup) | ConvertFrom-Json).id
-        $encryptionKeyURL= ((az keyvault key show --vault-name $KeyVault --name $KeyName) | ConvertFrom-Json).key.kid        
+        $encryptionKeyURL= ((az keyvault key show --vault-name $KeyVault --name $KeyName) | ConvertFrom-Json).key.kid
         ```
 
     1. Deploy a Disk Encryption Set (DES) using a [DES ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployDES.json) (`deployDES.json`).
@@ -246,18 +245,18 @@ Use this example to create a custom parameter file for a Linux-based confidentia
             -p desName=$desName `
             -p encryptionKeyURL=$encryptionKeyURL `
             -p encryptionKeyVaultId=$encryptionKeyVaultId `
-            -p region=$region        
+            -p region=$region
         ```
 
     1. Assign key access to the DES file.
 
         ```azurecli-interactive
-        $desIdentity= (az disk-encryption-set show -n $desName -g 
+        $desIdentity= (az disk-encryption-set show -n $desName -g
         $resourceGroup --query [identity.principalId] -o tsv)
         az keyvault set-policy -n $KeyVault `
             -g $resourceGroup `
             --object-id $desIdentity `
-            --key-permissions wrapkey unwrapkey get        
+            --key-permissions wrapkey unwrapkey get
         ```
 
  1. (Optional) Create a new key from an Azure Managed HSM.
@@ -267,13 +266,13 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```azurecli-interactive
         $KeyName = <name of key>
         $KeySize = 3072
-        az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"   
+        az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"
         ```
 
     1. Get information about the key that you created.
 
           ```azurecli-interactive
-          $encryptionKeyURL = ((az keyvault key show --hsm-name $hsm --name $KeyName) | ConvertFrom-Json).key.kid      
+          $encryptionKeyURL = ((az keyvault key show --hsm-name $hsm --name $KeyName) | ConvertFrom-Json).key.kid
           ```
 
     1. Deploy a DES.
@@ -298,12 +297,12 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 1. Deploy your confidential VM with the customer-managed key.
 
     1. Get the resource ID for the DES.
- 
+
         ```azurecli-interactive
         $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
         ```
 
-    1. Deploy your confidential VM using the [confidential VM ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) (`deployCPSCVM_cmk.json`) and a [deployment parameter file](#example-deployment-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
+    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
 
         ```azurecli-interactive
         $deployName = <name of deployment>
@@ -321,38 +320,6 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```
 
 1. Connect to your confidential VM to make sure the creation was successful.
-
-### Example deployment parameter file
-
-This is an example parameter file for a Windows Server 2022 Gen 2 confidential VM: 
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-  
-      "vmSize": {
-        "value": "Standard_DC2as_v5"
-      },
-      "osImageName": {
-        "value": "Windows Server 2022 Gen 2"
-      },
-      "osDiskType": {
-        "value": "StandardSSD_LRS"
-      },
-      "securityType": {
-        "value": "DiskWithVMGuestState"
-      },
-      "adminUsername": {
-        "value": "testuser"
-      },
-      "adminPasswordOrKey": {
-        "value": "<Your-Password>"
-      }
-    }
-}
-```
 
 ## Next steps
 

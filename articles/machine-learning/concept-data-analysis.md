@@ -9,8 +9,8 @@ ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 11/09/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.date: 02/23/2024
+ms.custom: responsible-ml
 ---
 
 # Understand your datasets

@@ -1,6 +1,6 @@
 ---
 title: Configure a pipeline MQ source stage
-description: Configure a pipeline source stage to read messages from an Azure IoT MQ topic for processing. The source stage is the first stage in a Data Processor pipeline.
+description: Configure a pipeline source stage to read messages from an Azure IoT MQ topic for processing. The source stage is the first stage in an Azure IoT Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,11 +12,11 @@ ms.date: 10/23/2023
 #CustomerIntent: As an operator, I want to configure an Azure IoT Data Processor pipeline MQ source stage so that I can read messages from Azure IoT MQ for processing.
 ---
 
-# Configure a pipeline MQ source stage
+# Configure an MQ source stage in an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The source stage is the first and required stage in an Azure IoT Data Processor (preview) pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The MQ source stage lets you subscribe to messages from an MQTT topic. In the source stage, you define connection details to the MQ source and establish a partitioning configuration based on your specific data processing requirements.
+The source stage is the first and required stage in an Azure IoT Data Processor Preview pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. The MQ source stage lets you subscribe to messages from an MQTT topic. In the source stage, you define connection details to the MQ source and establish a partitioning configuration based on your specific data processing requirements.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ The following table describes the MQ source configuration parameters:
 | Clean session | Set to `FALSE` for a persistent session. | Required | `FALSE` | `FALSE` |
 | Topic | The topic to subscribe to for data acquisition. | Required | NA | `contoso/site1/asset1`, `contoso/site1/asset2` |
 
-To learn more about secrets, see [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+To learn more about secrets, see [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
 
 Data Processor doesn't reorder out-of-order data coming from the MQTT broker. If the data is received out of order from the broker, it remains so in the pipeline.
 
@@ -75,10 +75,10 @@ The following shows an example configuration for the stage:
 | Name | `input data` |
 | Broker | `tls://aio-mq-dmqtt-frontend:8883` |
 | Authentication | `Service Account Token (SAT)` |
-| Topic | `azure-iot-operations/data/opc.tcp/opc.tcp-1/#` |
+| Topic | `azure-iot-operations/data/opc-ua-connector-0/#` |
 | Data format | `JSON` |
 
-This example shows the topic used in the [Quickstart: Use Data Processor pipelines to process data from your OPC UA assets](../get-started/quickstart-process-telemetry.md). This configuration then generates messages that look like the following example:
+This configuration then generates messages that look like the following example:
 
 ```json
 {

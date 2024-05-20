@@ -107,7 +107,7 @@
         - name: Node DNS names
           href: concepts-node-domain-name.md
           displayName: DNS, FQDN, connection, connect
-        - name: Customer managed keys
+        - name: Customer-managed keys
           href: concepts-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
         - name: Row-level security
@@ -185,7 +185,7 @@
           href: howto-monitoring.md
         - name: Create alerts on metrics
           href: howto-alert-on-metric.md
-          dispalyName: alerts
+          displayName: alerts
         - name: Access database logs
           href: howto-logging.md
           displayName: log
@@ -231,7 +231,7 @@
         - name: Manage Microsoft Entra ID and Postgres users
           href: how-to-configure-authentication.md
           displayName: Azure Active Directory, PosgreSQL roles, authentication
-        - name: Customer managed keys
+        - name: Customer-managed keys
           href: how-to-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
         - name: Configure TLS/SSL
@@ -261,12 +261,12 @@
       href: reference-versions.md
     - name: PostgreSQL extensions
       items:
-        - name: Overview
+        - name: Supported extensions
           href: reference-extensions.md
-        - name: Pg_azure_storage
+        - name: pg_azure_storage extension
           href: reference-pg-azure-storage.md
           displayName: pg_azure_storage, extensions
-    - name: COPY
+    - name: COPY command support
       href: reference-copy-command.md
       displayName: pg_azure_storage, copy
     - name: Limits and limitations
@@ -283,6 +283,8 @@
           href: reference-metadata.md
     - name: REST APIs
       href: /rest/api/postgresqlhsc/
+    - name: Terraform support
+      href: reference-terraform.md
     - name: ARM templates
       href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
     - name: Bicep

@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 01/05/2024
 ms.author: abnarain 
 ms.custom: subject-rbac-steps
 ---
@@ -175,7 +175,7 @@ You can find the managed identity information from Azure portal -> your data fac
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. Select **Access control (IAM)**.
 

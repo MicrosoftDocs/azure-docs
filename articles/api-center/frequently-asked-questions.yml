@@ -1,0 +1,59 @@
+### YamlMime:FAQ
+metadata:
+  title: "Frequently asked questions - Azure API Center"
+  description: "Answers to frequently asked questions about Azure API Center."
+  author: dlepow
+  ms.author: danlep
+  ms.service: api-center
+  ms.topic: faq 
+  ms.date: 04/15/2024
+
+title: "Frequently asked questions - Azure API Center"
+summary: |
+  Get the answers to frequently asked questions about Azure API Center.
+
+sections:
+  - name: Default
+    questions:
+      - question: What's the difference between Azure API Management and Azure API Center?
+        answer: |
+          Azure API Management and Azure API Center are two distinct services offered by Microsoft Azure, each with its own set of features, focus areas, and tools. Use the services independently, or together, depending on your needs. 
+
+          API Management is a runtime API governance and observability solution that enables you to expose APIs securely at scale, monitor their health, and analyze their usage. [Learn more](../api-management/api-management-key-concepts.md)
+ 
+          API Center is a design-time API governance and centralized API discovery solution. Use an API center to collect and maintain your organization's API inventory with rich metadata, and assess and help enforce API design consistency and quality.
+
+          Both services support portals for developers to discover APIs. In API Management, the developer portal is scoped to a single instance. In API Center, the portal can show APIs from any number of API Management instances, APIs managed with other API management solutions, and unmanaged APIs. 
+    
+      - question: How do I use Azure API Center with my API management solution?
+        answer: |
+          Azure API Center is a stand-alone Azure service that's complementary to Azure API Management and API management services from other providers. API Center provides a unified API inventory for all APIs in the organization, including APIs that don't run in API gateways (such as those that are still in design) and those that are managed with different API management solutions.
+
+          For APIs that are managed using an API management solution, Azure API Center can store metadata such as the runtime environment and deployment details. 
+
+      - question: Does Azure API Center provide a developer portal?
+        answer: Yes, you have an option to build and self-host a developer portal where developers can discover APIs in your API center and view API details. A reference implementation is available in the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository. [Learn more](enable-api-center-portal.md).
+      
+      - question: Does Azure API Center support availability zones?
+        answer: Yes. The Azure API Center service runs in a multitenant environment on availability zone-enabled components. No additional configuration is required to enable availability zones for the service. 
+        
+      - question: Does my API center's data stay within the region I choose?
+        answer: Yes, all data is stored in the region you choose when you create an API center.
+      
+      - question: Is my data encrypted in Azure API Center?
+        answer: Yes, all data in API Center is encrypted at rest.
+
+      - question: How do I upgrade my API center from the Free plan to the Standard plan?
+        answer: |
+          To upgrade your API center from the Free plan to the Standard plan, follow these steps:
+
+          1. In the Azure portal, navigate to your API center.
+          2. In the left menu, select **Overview** > **Select plan**.
+          3. Select **Standard plan**.
+          4. Select **Submit**.
+
+          Your API center is now upgraded to the Standard plan.
+additionalContent: |
+    ## Related content
+
+    To learn more, see [Azure API Center overview](overview.md).

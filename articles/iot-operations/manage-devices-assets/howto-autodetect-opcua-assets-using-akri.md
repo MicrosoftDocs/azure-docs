@@ -1,8 +1,8 @@
 ---
 title: Discover OPC UA data sources using Azure IoT Akri
-description: How to discover OPC UA data sources by using Azure IoT Akri Preview
-author: timlt
-ms.author: timlt
+description: How to discover OPC UA data sources by using Azure IoT Akri
+author: dominicbetts
+ms.author: dobett
 ms.subservice: akri
 ms.topic: how-to 
 ms.date: 11/14/2023
@@ -15,20 +15,20 @@ ms.date: 11/14/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to discover OPC UA data sources. After you deploy Azure IoT Operations, you configure Azure IoT Akri to discover OPC UA data sources at the edge. Azure IoT Akri creates custom resources into the Azure IoT Operations namespace on your cluster to represent the discovered devices. The capability to discover OPC UA data sources simplifies the process of manually configuring them from the cloud and onboarding them to your cluster. Currently, Azure IoT Akri can't detect and create assets that can be ingested into the Azure Device Registry. For more information on supported features, see [Azure IoT Akri overview](overview-akri.md#features).
+In this article, you learn how to discover OPC UA data sources. After you deploy Azure IoT Operations, you configure Azure IoT Akri Preview to discover OPC UA data sources at the edge. Azure IoT Akri creates custom resources into the Azure IoT Operations namespace on your cluster to represent the discovered devices. The capability to discover OPC UA data sources simplifies the process of manually configuring them from the cloud and onboarding them to your cluster. Currently, Azure IoT Akri can't detect and create assets that can be ingested into the Azure Device Registry Preview. For more information on supported features, see [Azure IoT Akri overview](overview-akri.md#features).
 
-Azure IoT Akri enables you to detect and create `Assets` in the address space of an OPC UA Server. The OPC UA asset detection generates `AssetType` and `Asset` Kubernetes custom resources (CRs) for [OPC UA Device Integration (DI) specification](https://reference.opcfoundation.org/DI/v104/docs/) compliant `Assets`.  
+Azure IoT Akri enables you to detect and create `Assets` in the address space of an OPC UA server. The OPC UA asset detection generates `AssetType` and `Asset` Kubernetes custom resources (CRs) for [OPC UA Device Integration (DI) specification](https://reference.opcfoundation.org/DI/v104/docs/) compliant `Assets`.  
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. The installation includes Azure IoT Akri. For more information, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
+- Azure IoT Operations Preview installed. The installation includes Azure IoT Akri. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md).
 - Ensure that Azure IoT Akri agent pod is properly configured by running the following code:
 
     ```bash
     kubectl get pods -n azure-iot-operations
     ```
 
-    You should see the agent and discovery handler pod running:
+    You should see the agent and discovery handler pod running.
     
     ```output
     NAME                                             READY   STATUS    RESTARTS   AGE
@@ -40,10 +40,10 @@ Azure IoT Akri enables you to detect and create `Assets` in the address space of
 
 To configure the custom OPC UA discovery handler with asset detection, first you create a YAML configuration file using the values described in this section. Before you create the file, note the following configuration details:
 
-- The specified server contains a sample address model that uses the Robotics companion specification, which is based on the DI specification.  A model that uses these specifications is required for asset detection. The Robot contains five assets with observable variables and a `DeviceHealth` node that is automatically detected for monitoring.
+- The specified server contains a sample address model that uses the Robotics companion specification, which is based on the DI specification. A model that uses these specifications is required for asset detection. The Robot contains five assets with observable variables and a `DeviceHealth` node that is automatically detected for monitoring.
 - You can specify other servers by providing the `endpointUrl` and ensuring that a security `None` profile is enabled.
 - To enable Azure IoT Akri to discover the servers, confirm that you specified the correct discovery endpoint URL during installation.
-- Discovery URLs appear as `opc.tcp://<FQDN>:50000/`. To find the FQDNs of your OPC PLC servers, navigate to your deployments in the Azure portal. For each server, copy and paste the **FQDN** value into your discovery URLs. The following example demonstrates discovery of two OPC PLC servers. You can add the asset parameters for each OPC PLC server.  If you only have one OPC PLC server, delete one of the assets.
+- Discovery URLs appear as `opc.tcp://<FQDN>:50000/`. To find the FQDNs of your OPC PLC servers, navigate to your deployments in the Azure portal. For each server, copy and paste the **FQDN** value into your discovery URLs. The following example demonstrates discovery of two OPC PLC servers. You can add the asset parameters for each OPC PLC server. If you only have one OPC PLC server, delete one of the assets.
     
 
     > [!div class="mx-tdBreakAll"]
@@ -59,7 +59,7 @@ To configure the custom OPC UA discovery handler with asset detection, first you
     ² Temporary implementation until Azure IoT Akri can pass K8S secrets.
 
 
-1. To create the YAML configuration file, copy and paste the following content into a new file, and save it as `opcua-configuration.yaml`. 
+1. To create the YAML configuration file, copy and paste the following content into a new file, and save it as `opcua-configuration.yaml`:
     
     If you're using the simulated PLC server that was deployed with the Azure IoT Operations Quickstart, you don't need to change the `endpointUrl`. If you have your own OPC UA servers running or are using the simulated PLC servers deployed on Azure, add in your endpoint URL accordingly.
 
@@ -77,13 +77,13 @@ To configure the custom OPC UA discovery handler with asset detection, first you
     ```
 
 
-2. Apply the YAML to configure Azure Iot Akri to discover the assets:
+1. Apply the YAML to configure Azure Iot Akri to discover the assets:
 
     ```bash
     kubectl apply -f opcua-configuration.yaml -n azure-iot-operations
     ```
 
-3. To confirm that the asset discovery container is configured and started, check the pod logs with the following command: 
+1. To confirm that the asset discovery container is configured and started, check the pod logs with the following command: 
 
     ```bash
     kubectl logs <insert aio-akri-opcua-asset-discovery pod name> -n azure-iot-operations
@@ -143,13 +143,20 @@ To configure the custom OPC UA discovery handler with asset detection, first you
 
     After the discovery is completed, the result is sent back to Azure IoT Akri to create an Akri instance custom resource with asset information and observable variables. The discovery handler repeats the discovery every 10 minutes to detect changes on the server.
 
-4. To view the discovered Azure IoT Akri instances, run the following command:
+1. To view the discovered Azure IoT Akri instances, run the following command:
 
     ```bash
     kubectl get akrii -n azure-iot-operations
     ```
 
-    Note that it may take a few minutes for the instance to show up.
+    It might take a few minutes for the instance to show up.
+
+    The output from the previous command looks like the following example. You might need to wait for a few seconds for the Akri instance to be created:
+    
+    ```console
+    NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
+    azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["my-aio-vm"]   35m
+    ```
 
     You can inspect the instance custom resource by using an editor such as OpenLens, under `CustomResources/akri.sh/Instance`.
 
@@ -161,7 +168,22 @@ To configure the custom OPC UA discovery handler with asset detection, first you
 
     The OPC UA Connector supervisor watches for new Azure IoT Akri instance custom resources of type `opc-ua-asset`, and generates the initial asset types and asset custom resources for them. You can modify asset custom resources to add settings such as extending publishing for more data points, or to add OPC UA Broker observability settings.
 
+1. To confirm that the Akri instance properly connected to the OPC UA Broker, copy and paste the name of the Akri instance that was the output of the previous step, into the following command: 
 
+    ```bash
+    kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
+    ```
+
+    The command output looks like the following example. This example output shows the Akri instance `brokerProperties` values and confirms that the OPC UA Broker is connected.
+
+    ```json
+    "spec": {
+    
+            "brokerProperties": {
+                "ApplicationUri": "Boiler #2",
+                "AssetEndpointProfile": "{\"spec\":{\"uuid\":\"opc-ua-broker-opcplc-000000-azure-iot-operation\"……   
+    ```
+    
 ## Related content
 
 - [Azure IoT Akri overview](overview-akri.md)

@@ -4,7 +4,6 @@ description: In this article, you'll learn common tasks for managing and monitor
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.service: backup
-ms.custom: ignite-2022
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

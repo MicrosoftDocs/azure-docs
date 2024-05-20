@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # How to convert a SEG-Y file to ZGY
 
-In this article, you learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion). This tutorial is a step by step guideline how to perform the conversion. Note the actual production workflow may differ and use as a guide for the required set of steps to achieve the conversion. 
+In this article, you learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&reg; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion). This tutorial is a step by step guideline how to perform the conversion. Note the actual production workflow may differ and use as a guide for the required set of steps to achieve the conversion. 
 
 ## Prerequisites
 - An Azure subscription
@@ -122,7 +122,7 @@ The user needs to be part of the `users.datalake.admins` group. Validate the cur
 Later in this tutorial, you need at least one `owner` and at least one `viewer`. These user groups look like `data.default.owners` and `data.default.viewers`. Make sure to note one of each in your list.
 
 If the user isn't part of the required group, you can add the required entitlement using the following sample call:
-    email-id: Is the value "Id" returned from the call above.
+    email-id: Is the value "ID" returned from the call above.
 
 [![Screenshot that shows the API call to get register a user as an admin in Postman.](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png)](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png#lightbox)
 
@@ -150,7 +150,7 @@ Use your previously created entitlement groups that you would like to add as ACL
 ### Upload the File
 
 There are two ways to upload a SEGY file. One option is used the sasurl through Postman / curl call. You need to download Postman or setup Curl on your OS. 
-The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To login to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate a refresh token](how-to-generate-refresh-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you have not already, you need to setup SDUTIL. Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
+The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you have not already, you need to setup SDUTIL. Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
 seistore:
@@ -226,7 +226,7 @@ Insert the contents of your `all_records.json` file in storage for work-product,
 
 1. Trigger the ZGY Conversion DAG to convert your data using the execution context values you had saved above.
 
-    Fetch the id token from sdutil for the uploaded file or use an access/bearer token from Postman.
+    Fetch the ID token from sdutil for the uploaded file or use an access/bearer token from Postman.
 
 ```markdown
 python sdutil auth idtoken
@@ -251,7 +251,7 @@ python sdutil auth idtoken
     ```bash
     python sdutil cp sd://<data-partition-id>/<subproject>/<filename.zgy> <local/destination/path>
     ```
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

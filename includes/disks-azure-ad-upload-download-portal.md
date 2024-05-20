@@ -4,7 +4,7 @@
  author: roygara
  ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 10/17/2023
+ ms.date: 01/30/2024
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -25,13 +25,13 @@ To access managed disks secured with Microsoft Entra ID, the requesting user mus
 - **Microsoft.Compute/snapshots/download/action**
 - **Microsoft.Compute/snapshots/upload/action**
 
-For detailed steps on assigning a role, see the following articles for [portal](../articles/role-based-access-control/role-assignments-portal.md), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md). To create or update a custom role, see the following articles for [portal](../articles/role-based-access-control/custom-roles-portal.md), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md).
+For detailed steps on assigning a role, see the following articles for [portal](../articles/role-based-access-control/role-assignments-portal.yml), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md). To create or update a custom role, see the following articles for [portal](../articles/role-based-access-control/custom-roles-portal.md), [PowerShell](../articles/role-based-access-control/role-assignments-powershell.md), or [CLI](../articles/role-based-access-control/role-assignments-cli.md).
 
 ### Enable data access authentication mode
 
 # [Portal](#tab/azure-portal)
 
-Enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or you can enable it on the **Disk Export** page for existing disks.
+Enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or you can enable it on the **Disk Export** page under **Settings** for existing disks.
 
 :::image type="content" source="./media/disks-upload-download-portal/disks-data-access-auth-mode.png" alt-text="Screenshot of a disk's data access authentication mode checkbox, tick the checkbox to restrict access to the disk, and save your changes." lightbox="./media/disks-upload-download-portal/disks-data-access-auth-mode.png":::
 

@@ -3,14 +3,14 @@ title: Declare resources in templates
 description: Describes how to declare resources to deploy in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/28/2022
+ms.date: 03/20/2024
 ---
 
 # Resource declaration in ARM templates
 
 To deploy a resource through an Azure Resource Manager template (ARM template), you add a resource declaration. Use the `resources` array in a JSON template.
 
-[languageVersion 2.0](./syntax.md#languageversion-20) makes a list of enhancements to ARM JSON templates, such as changing the resources declaration from an array to an object. The majority of the samples shown in this article still use `resources` array.  For languageVersion 2.0 specific information, see [Use symbolic name](#use-symbolic-name).
+[languageVersion 2.0](./syntax.md#languageversion-20) makes a list of enhancements to ARM JSON templates, such as changing the resources declaration from an array to an object. Most the samples shown in this article still use `resources` array.  For languageVersion 2.0 specific information, see [Use symbolic name](#use-symbolic-name).
 
 
 
@@ -21,7 +21,7 @@ To deploy a resource through an Azure Resource Manager template (ARM template), 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource declaration](../bicep/resource-declaration.md).
 
-You are limited to 800 resources in a template. For more information, see [Template limits](./best-practices.md#template-limits).
+You're limited to 800 resources in a template. For more information, see [Template limits](./best-practices.md#template-limits).
 
 ## Set resource type and version
 
@@ -207,7 +207,7 @@ Symbolic names are case-sensitive. The allowed characters for symbolic names are
 }
 ```
 
-The [reference](./template-functions-resource.md#reference) function can use a resource's symbolic name, as shown in the preceding example. The reference function can no longer use a resource's name, for example, `reference(parameters('storageAccountName'))` is not allowed.
+The [reference](./template-functions-resource.md#reference) function can use a resource's symbolic name, as shown in the preceding example. The reference function can no longer use a resource's name, for example, `reference(parameters('storageAccountName'))` isn't allowed.
 
 If [Deployments resource](/azure/templates/microsoft.resources/deployments?tabs=json) is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
 

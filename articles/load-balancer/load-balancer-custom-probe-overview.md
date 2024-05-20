@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 10/10/2023
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
-#customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
+# Customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
 ---
 
 # Azure Load Balancer health probes
@@ -99,6 +99,8 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
 * Don't configure your virtual network with the Microsoft owned IP address range that contains 168.63.129.16. The configuration collides with the IP address of the health probe and can cause your scenario to fail.
  
 * To test a health probe failure or mark down an individual instance, use a [network security group](../virtual-network/network-security-groups-overview.md) to explicitly block the health probe. Create an NSG rule to block the destination port or [source IP](#probe-source-ip-address) to simulate the failure of a probe.
+
+* Unlike load balancing rules, inbound NAT rules do not need a health probe attached to it. 
 
 ## Monitoring
 

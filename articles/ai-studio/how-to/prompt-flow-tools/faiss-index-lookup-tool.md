@@ -2,25 +2,29 @@
 title: Faiss Index Lookup tool for flows in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces the Faiss Index Lookup tool for flows in Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.date: 11/15/2023
-ms.author: eur
+ms.topic: how-to
+ms.date: 2/22/2024
+ms.reviewer: keli19
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Faiss Index Lookup tool for flows in Azure AI Studio
 
 [!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
 
+> [!IMPORTANT]
+> Vector, Vector DB and Faiss Index Lookup tools are deprecated and will be retired soon. [Migrated to the new Index Lookup tool (preview).](index-lookup-tool.md#migrate-from-legacy-tools-to-the-index-lookup-tool)
+
 The prompt flow *Faiss Index Lookup* tool is tailored for querying within a user-provided Faiss-based vector store. In combination with the [Large Language Model (LLM) tool](llm-tool.md), it can help to extract contextually relevant information from a domain knowledge base.
 
 ## Build with the Faiss Index Lookup tool
 
-1. Create or open a flow in Azure AI Studio. For more information, see [Create a flow](../flow-develop.md).
+1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Faiss Index Lookup** to add the Faiss Index Lookup tool to your flow.
 
     :::image type="content" source="../../media/prompt-flow/faiss-index-lookup-tool.png" alt-text="Screenshot of the Faiss Index Lookup tool added to a flow in Azure AI Studio." lightbox="../../media/prompt-flow/faiss-index-lookup-tool.png":::
@@ -41,7 +45,7 @@ The following are available input parameters:
 
 ## Outputs
 
-The following JSON format response is an example returned by the tool that includes the top-k scored entities. The entity follows a generic schema of vector search result provided by promptflow-vectordb SDK. For the Faiss Index Search, the following fields are populated:
+The following JSON format response is an example returned by the tool that includes the top-k scored entities. The entity follows a generic schema of vector search result provided by the `promptflow-vectordb` SDK. For the Faiss Index Search, the following fields are populated:
 
 | Field Name | Type | Description |
 | ---- | ---- | ----------- |

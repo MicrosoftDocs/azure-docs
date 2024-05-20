@@ -8,9 +8,8 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 07/04/2023
+ms.date: 04/30/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
 ---
 
 # Image descriptions

@@ -6,8 +6,7 @@ description: Learn how to use the Azure portal to create an Azure OpenAI resourc
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/25/2023
-keywords: 
+ms.date: 01/30/2024
 ---
 
 ## Prerequisites
@@ -39,7 +38,7 @@ The following steps show how to create an Azure OpenAI resource in the Azure por
    | **Resource group** | The Azure resource group to contain your Azure OpenAI resource. You can create a new group or use a pre-existing group. |
    | **Region** | The location of your instance. Different locations can introduce latency, but they don't affect the runtime availability of your resource. |
    | **Name** | A descriptive name for your Azure OpenAI Service resource, such as _MyOpenAIResource_. |
-   | **Pricing Tier** | The pricing tier for the resource. Currently, only the Standard tier is available for the Azure OpenAI Service. |
+   | **Pricing Tier** | The pricing tier for the resource. Currently, only the Standard tier is available for the Azure OpenAI Service. For more info on pricing visit the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 
    :::image type="content" source="../media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to configure an Azure OpenAI resource in the Azure portal.":::
 
@@ -90,7 +89,9 @@ As an option, you can add a private endpoint for access to your resource. Select
 
 1. Confirm your configuration settings, and select **Create**.
 
-The Azure portal displays a notification when the new resource is available.
+1. The Azure portal displays a notification when the new resource is available. Select **Go to resource**.
+
+   :::image type="content" source="../media/create-resource/create-resource-go-to-resource.png" alt-text="Screenshot showing the Go to resource button in the Azure portal.":::
 
 ## Deploy a model
 
@@ -100,25 +101,28 @@ To deploy a model, follow these steps:
 
 1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 
-1. Choose the subscription and the Azure OpenAI resource to work with, and select **Use resource**.
+2. Choose the subscription and the Azure OpenAI resource to work with, and select **Use resource**.
 
-1. Under **Management** select **Deployments**.
+3. Under **Management** select **Deployments**.
 
-1. Select **Create new deployment** and configure the following fields:
+4. Select **Create new deployment** and configure the following fields:
 
    | Field | Description |
    |---|---|
    | **Select a model** | Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability). |
    | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs. |
-   | **Advanced options** (Optional) | You can set optional advanced settings, as needed for your resource. <br> - For the **Content Filter**, assign a content filter to your deployment.<br> - For the **Tokens per Minute Rate Limit**, adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time by using the [**Quotas**](../how-to/quota.md) menu. |
+   | **Advanced options** (Optional) | You can set optional advanced settings, as needed for your resource. <br> - For the **Content Filter**, assign a content filter to your deployment.<br> - For the **Tokens per Minute Rate Limit**, adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time by using the [**Quotas**](../how-to/quota.md) menu. [**Dynamic Quota**](../how-to/dynamic-quota.md) allows you to take advantage of more quota when extra capacity is available. |
 
-   1. Select a model from the dropdown list.
+5. Select a model from the dropdown list.
 
-   1. Enter a deployment name to help you identify the model.
+6. Enter a deployment name to identify the model.
 
-   1. For your first deployment, leave the **Advanced options** set to the defaults.
+    > [!IMPORTANT]
+    > When you access the model via the API, you need to refer to the deployment name rather than the underlying model name in API calls, which is one of the [key differences](../how-to/switching-endpoints.yml) between OpenAI and Azure OpenAI. OpenAI only requires the model name. Azure OpenAI always requires deployment name, even when using the model parameter. In our docs, we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.
 
-1. Select **Create**.
+7. For your first deployment, leave the **Advanced options** set to the defaults.
+
+8. Select **Create**.
 
 The deployments table shows a new entry that corresponds to your newly created model.
 

@@ -65,6 +65,12 @@ additionalContent:
               url: ../../firewall/index.yml
             - text: Learn about the Azure Firewall solution for Microsoft Sentinel
               url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/new-detections-hunting-queries-and-response-automation-in-azure/ba-p/2688746
+            - text: Detect malware
+              url: ../../firewall/detect-malware-with-sentinel.md
+            - text: Detect new threats
+              url: ../../web-application-firewall/waf-new-threat-detection.md
+            - text: Enhance network security using custom WAF geomatch rules
+              url: ../../web-application-firewall/geomatch-custom-rules-examples.md
         - title: Training
           links:
             - text: Introduction to Azure Firewall
@@ -195,7 +201,7 @@ additionalContent:
             - text: Learn more about Azure Bastion
               url: ../../bastion/index.yml
             - text: Enable just-in-time access on VMs
-              url: ../../defender-for-cloud/just-in-time-access-usage.md
+              url: ../../defender-for-cloud/just-in-time-access-usage.yml
         - title: Training
           links:
             - text: Configure the network for your virtual machines

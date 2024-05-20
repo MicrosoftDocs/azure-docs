@@ -1,16 +1,9 @@
 ---
 title: Azure NetApp Files double encryption at rest | Microsoft Docs
-description: Explains Azure NetApp Files double encryption at rest to help you use this feature.  
+description: Explains Azure NetApp Files double encryption at rest to help you use this feature.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/28/2023
 ms.author: anfdocs
@@ -30,7 +23,7 @@ If you are using this feature for the first time, you need to [register for the 
 
 When you create a volume in a double-encryption capacity pool, the default key management (the **Encryption key source** field) is `Microsoft Managed Key`, and the other choice is `Customer Managed Key`. Using customer-managed keys requires additional preparation of an Azure Key Vault and other details.  For more information about using volume encryption with customer managed keys, see [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md).
 
-:::image type="content" source="../media/azure-netapp-files/double-encryption-create-volume.png" alt-text="Screenshot of the Create Volume page in a double-encryption capacity pool." lightbox="../media/azure-netapp-files/double-encryption-create-volume.png":::
+:::image type="content" source="./media/double-encryption-at-rest/double-encryption-create-volume.png" alt-text="Screenshot of the Create Volume page in a double-encryption capacity pool." lightbox="./media/double-encryption-at-rest/double-encryption-create-volume.png":::
 
 ## Supported regions
 
@@ -42,7 +35,6 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * Australia Southeast 
 * Brazil South  
 * Canada Central  
-* Canada East
 * Central US  
 * East Asia
 * East US

@@ -77,7 +77,7 @@ If the preceding built-in roles don't meet the exact needs of your team, you can
 | Microsoft.Insights/MetricDefinitions/Read |Read metric definitions (list of available metric types for a resource). |
 | Microsoft.Insights/Metrics/Read |Read metrics for a resource. |
 | Microsoft.Insights/Register/Action |Register the Azure Monitor resource provider. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Read, write, or delete log alerts in Azure Monitor. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Read, write, or delete log search alerts in Azure Monitor. |
 
 > [!NOTE]
 > Access to alerts, diagnostic settings, and metrics for a resource requires that the user has read access to the resource type and scope of that resource. Creating a diagnostic setting that sends data to a storage account or streams to event hubs requires the user to also have ListKeys permission on the target resource.

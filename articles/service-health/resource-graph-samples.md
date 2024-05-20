@@ -16,6 +16,8 @@ and [Resource Graph samples by Table](../governance/resource-graph/samples/sampl
 
 [!INCLUDE [azure-resource-graph-samples-cat-servicehealth](../../includes/resource-graph/samples/bycat/azure-service-health.md)]
 
+[!INCLUDE [azure-service-health-impacted-resources](includes/azure-service-health-impacted-resources.md)]
+
 ## Resource health
 
 [!INCLUDE [azure-resource-graph-samples-cat-resourcehealth](../../includes/resource-graph/samples/bycat/resource-health.md)]

@@ -10,7 +10,7 @@ author: rsethur
 ms.author: seramasu
 ms.date: 11/28/2023
 ms.reviewer: franksolomon
-ms.custom: sdkv2, build-2023, ignite-2023
+ms.custom: sdkv2, build-2023, ignite-2023, update-code2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -500,6 +500,7 @@ The Storage Blob Data Reader role must be assigned to your user account on the o
 ---
 
    > [!TIP]
+   > - The `timestamp` column should follow `yyyy-MM-ddTHH:mm:ss.fffZ` format. 
    > - The `feature_window_start_time` and `feature_window_end_time` granularity is limited to seconds. Any milliseconds provided in the `datetime` object will be ignored.
    > - A materialization job will only be submitted if data in the feature window matches the `data_status` that is defined while submitting the backfill job.
 

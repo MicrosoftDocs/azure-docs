@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---
@@ -25,7 +25,7 @@ The script in this article demonstrates performing resource lock operations for 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

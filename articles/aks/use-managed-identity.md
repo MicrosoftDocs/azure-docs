@@ -2,20 +2,38 @@
 title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-security
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
-ms.date: 07/31/2023
+ms.date: 03/07/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. This identity can be a *managed identity* or *service principal*. A system-assigned managed identity is automatically created when you create an AKS cluster. This identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources][managed-identity-resources-overview].
+Azure Kubernetes Service (AKS) clusters require an identity to access Azure resources like load balancers and managed disks. The identity can be a *managed identity* or a *service principal*.
 
-AKS doesn't automatically create a [service principal](kubernetes-service-principal.md), so you have to create one. Clusters that use a service principal eventually expire, and the service principal must be renewed to avoid impacting cluster authentication with the identity. Managing service principals adds complexity, so it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities. Managed identities use certificate-based authentication. Each managed identity's credentials have an expiration of *90 days* and are rolled after *45 days*. AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable.
+This article provides details on how to enable the following managed identity types on a new or existing AKS cluster:
 
-> [!NOTE]
-> If you're considering implementing [Microsoft Entra pod-managed identity][aad-pod-identity] on your AKS cluster, we recommend you first review the [Microsoft Entra Workload ID overview][workload-identity-overview]. This authentication method replaces Microsoft Entra pod-managed identity (preview) and is the recommended method.
+* System-assigned managed identity
+* Bring your own user-assigned managed identity
+* Pre-created Kubelet managed identity
+
+## Overview
+
+When you deploy an AKS cluster, a system-assigned managed identity is automatically created, and it's managed by the Azure platform, so it doesn't require you to provision or rotate any secrets. For more information, see [managed identities for Azure resources][managed-identity-resources-overview].
+
+AKS doesn't automatically create a [service principal](kubernetes-service-principal.md), so you have to create one. Clusters that use a service principal eventually expire, and the service principal must be renewed to avoid impacting cluster authentication with the identity. Managing service principals adds complexity, so it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities. Managed identities use certificate-based authentication. Each managed identity's credentials have an expiration of *90 days* and are rolled after *45 days*.
+
+AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable. These identity types shouldn't be confused with a [Microsoft Entra Workload identity][workload-identity-overview], which is intended for use by an application running on a pod.
+
+> [!IMPORTANT]
+> The open source [Microsoft Entra pod-managed identity][entra-id-pod-managed-identity] (preview) in Azure Kubernetes Service was deprecated on 10/24/2022, and the project archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement). The AKS Managed add-on begins deprecation in Sept. 2024.
+>
+> We recommend you first review [Microsoft Entra Workload ID][workload-identity-overview] overview. Entra Workload ID authentication replaces Microsoft Entra pod-managed identity (preview) and is the recommended method to enable an application running on a pod to authenticate itself against other Azure services that support it.
 
 ## Before you begin
 
@@ -31,7 +49,7 @@ AKS doesn't automatically create a [service principal](kubernetes-service-princi
 * If the cluster has Microsoft Entra pod-managed identity (`aad-pod-identity`) enabled, Node-Managed Identity (NMI) pods modify the iptables of the nodes to intercept calls to the Azure Instance Metadata (IMDS) endpoint. This configuration means any request made to the Metadata endpoint is intercepted by NMI, even if the pod doesn't use `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity` of any requests to the Metadata endpoint originating from a pod that matches labels defined in CRD should be proxied without any processing in NMI. The system pods with `kubernetes.azure.com/managedby: aks` label in *kube-system* namespace should be excluded in  `aad-pod-identity` by configuring the AzurePodIdentityException CRD.
   * For more information, see [Disable Microsoft Entra ID-pod-identity for a specific pod or application](./use-azure-ad-pod-identity.md#clean-up).
   * To configure an exception, install the [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
-* AKS doesn't support the use of a system-assigned managed identity if using a custom private DNS zone.
+* AKS doesn't support the use of a system-assigned managed identity when using a custom private DNS zone.
 
 ## Summary of managed identities
 
@@ -47,18 +65,21 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | azure-policy | No identity required. | N/A | No
 | Add-on | Calico | No identity required. | N/A | No
 | Add-on | Dashboard | No identity required. | N/A | No
-| Add-on | application-routing | Manages Azure DNS and Azure Key Vault certificates | Key Vault Secrets User role for Key Vault, DNZ Zone Contributor role for DNS zone | No
+| Add-on | application-routing | Manages Azure DNS and Azure Key Vault certificates | Key Vault Secrets User role for Key Vault, DNZ Zone Contributor role for DNS zones, Private DNS Zone Contributor role for private DNS zones | No
 | Add-on | HTTPApplicationRouting | Manages required network resources. | Reader role for node resource group, contributor role for DNS zone | No
 | Add-on | Ingress application gateway | Manages required network resources. | Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor. | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI). | Contributor role for node resource group | No
-| Add-on | Cost analysis | Used to gather cost allocation data | | 
-| OSS project | Microsoft Entra ID-pod-identity | Enables applications to access cloud resources securely with Microsoft Entra ID. | N/A | Steps to grant permission at [Microsoft Entra Pod Identity Role Assignment configuration](./use-azure-ad-pod-identity.md).
+| Add-on | Cost analysis | Used to gather cost allocation data | |
+| Workload identity | Microsoft Entra workload ID | Enables applications to access cloud resources securely with Microsoft Entra workload ID. | N/A | No |
 
 ## Enable managed identities on a new AKS cluster
 
 > [!NOTE]
 > AKS creates a user-assigned kubelet identity in the node resource group if you don't [specify your own kubelet managed identity][use-a-pre-created-kubelet-managed-identity].
+
+> [!NOTE]
+> If your cluster is already using managed identity and the identity was changed, for example you update the cluster identity type from system-assigned to user-assigned, there is a delay for control plane components to switch to the new identity. Control plane components keep using the old identity until its token expires. After the token is refreshed, they switch to the new identity. This process can take several hours.
 
 1. Create an Azure resource group using the [`az group create`][az-group-create] command.
 
@@ -69,7 +90,7 @@ AKS uses several managed identities for built-in services and add-ons.
 2. Create an AKS cluster using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
+    az aks create --resource-group myResourceGroup --name myManagedCluster --enable-managed-identity
     ```
 
 3. Get credentials to access the cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
@@ -83,10 +104,10 @@ AKS uses several managed identities for built-in services and add-ons.
 To update your existing AKS cluster that's using a service principal to use a system-assigned managed identity, run the [`az aks update`][az-aks-update] command.
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myManagedCluster --enable-managed-identity
+az aks update --resource-group myResourceGroup --name myManagedCluster --enable-managed-identity
 ```
 
-After updating your cluster, the control plane and pods use the managed identity. kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned/drained and reimaged.
+After updating your cluster, the control plane and pods use the managed identity. Kubelet continues using a service principal until you upgrade your agentpool. You can use the `az aks nodepool upgrade --resource-group myResourceGroup --cluster-name myAKSCluster --name mynodepool --node-image-only` command on your nodes to update to a managed identity. A node pool upgrade causes downtime for your AKS cluster as the nodes in the node pools are cordoned/drained and reimaged.
 
 > [!NOTE]
 >
@@ -147,7 +168,7 @@ For a user-assigned kubelet identity outside the default worker node resource gr
     ```
 
 > [!NOTE]
-> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to populate.
+> It may take up to 60 minutes for the permissions granted to your cluster's managed identity to propagate.
 
 ## Bring your own managed identity
 
@@ -206,7 +227,7 @@ A custom user-assigned managed identity for the control plane enables access to 
 ### Update managed identity on an existing cluster
 
 > [!NOTE]
-> Migrating a managed identity for the control plane, from system-assigned to user-assigned, doesn't cause any downtime for control plane and agent pools. Meanwhile, control plane components will keep using the old system-assigned identity for several hours until the next token refresh.
+> Migrating a managed identity for the control plane, from system-assigned to user-assigned, doesn't cause any downtime for control plane and agent pools. Meanwhile, control plane components keep using the old system-assigned identity for several hours until the next token refresh.
 
 * If you don't have a managed identity, create one using the [`az identity create`][az-identity-create] command.
 
@@ -231,7 +252,7 @@ A custom user-assigned managed identity for the control plane enables access to 
     }
     ```
   
-* After creating the identity, [add the role assignment for control plane managed identity][add-role-assignment-for-control-plane-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
+* After creating the custom user-assigned managed identity for the control plane, [add the role assignment for the managed identity][add-role-assignment-for-managed-identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure to provide the resource ID of the managed identity for the control plane by including the `assign-identity` argument.
 
@@ -365,7 +386,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 ### Update an existing cluster using kubelet identity
 
 > [!WARNING]
-> Updating kubelet managed identity upgrades node pools, which causes downtime for your AKS cluster as the nodes in the node pools will be cordoned/drained and reimaged.
+> Updating kubelet managed identity upgrades node pools, which causes downtime for your AKS cluster as the nodes in the node pools are cordoned/drained and reimaged.
 
 > [!NOTE]
 > If your cluster was using `--attach-acr` to pull from images from Azure Container Registry, you need to run the `az aks update --resource-group myResourceGroup --name myAKSCluster --attach-acr <ACR Resource ID>` command after updating your cluster to let the newly-created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the upgrade.
@@ -375,7 +396,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 1. Confirm your AKS cluster is using the user-assigned managed identity using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
+    az aks show --resource-group <RGName> --name <ClusterName> --query "servicePrincipalProfile"
     ```
 
     If your cluster is using a managed identity, the output shows `clientId` with a value of **msi**. A cluster using a service principal shows an object ID. For example:
@@ -389,7 +410,7 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 2. After confirming your cluster is using a managed identity, find the managed identity's resource ID using the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
-    az aks show -g <RGName> -n <ClusterName> --query "identity"
+    az aks show --resource-group <RGName> --name <ClusterName> --query "identity"
     ```
 
     For a user-assigned managed identity, your output should look similar to the following example output:
@@ -466,10 +487,12 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
 
 ## Next steps
 
-Use [Azure Resource Manager templates][aks-arm-template] to create a managed identity-enabled cluster.
+* Use [Azure Resource Manager templates][aks-arm-template] to create a managed identity-enabled cluster.
+* Learn how to [use kubelogin][kubelogin-authentication] for all supported Microsoft Entra authentication methods in AKS.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[entra-id-pod-managed-identity]: https://github.com/furkanyildiz/azure-docs/blob/feature/inform-deprecated-aks-identity/articles/aks/use-azure-ad-pod-identity.md
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
@@ -480,8 +503,7 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [use-a-pre-created-kubelet-managed-identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [update-managed-identity-on-an-existing-cluster]: use-managed-identity.md#update-managed-identity-on-an-existing-cluster
 [workload-identity-overview]: workload-identity-overview.md
-[aad-pod-identity]: use-azure-ad-pod-identity.md
-[add-role-assignment-for-control-plane-managed-identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
+[add-role-assignment-for-managed-identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
 [az-group-create]: /cli/azure/group#az_group_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
@@ -489,3 +511,4 @@ Use [Azure Resource Manager templates][aks-arm-template] to create a managed ide
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [managed-identity-operator]: ../role-based-access-control/built-in-roles.md#managed-identity-operator
+

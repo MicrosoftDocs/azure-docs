@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements, devx-track-js
-ms.date: 11/20/2023
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating customer-facing apps with Azure Active Directory B2C custom policy, I want to learn how to call a REST API from my custom policy, so that I can send and receive data from external services.
+
 ---
 
 # Call a REST API by using Azure Active Directory B2C custom policy
@@ -31,7 +35,7 @@ In this article, you learn how to:
 
 ## Scenario overview 
 
-In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP `409 Conflict` response, and the user must reenter an access code. 
+In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 4xx response, and the user must reenter an access code. 
 
 :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
@@ -104,7 +108,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
 
 1. To test the app works as expected, use the following steps:
     1. In your terminal, run the `node index.js` command to start your app server. 
-    1. To make a POST request similar to the one shown in this example, you can use an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/):
+    1. To make a POST request similar to the one shown in this example, you can use an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview).
     
     ```http
         POST http://localhost/validate-accesscode HTTP/1.1
@@ -137,12 +141,13 @@ You need to deploy an app, which serves as your external app. Your custom policy
             "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```
+Your REST service can return HTTP 4xx status code, but the value of `status` in the JSON response must be `409`.
 
 At this point, you're ready to deploy your Node.js app. 
 
 ### Step 1.2 - Deploy the Node.js app in Azure App Service
 
-For your custom policy to reach your Node.js app, it needs to be reachable, so, you need deploy it. In this article, you deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
+For your custom policy to reach your Node.js app, it needs to be reachable, so, you need to deploy it. In this article, you deploy the app by using [Azure App Service](../app-service/overview-vnet-integration.md), but you use an alternative hosting approach. 
 
 Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.md#deploy-to-azure) to deploy your Node.js app to Azure. For the **Name** of the app, use a descriptive name such as `custompolicyapi`. Hence:
 
@@ -150,7 +155,7 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 - Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net/validate-accesscode`.
 
-You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
+You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview). This time, use `https://custompolicyapi.azurewebsites.net/validate-accesscode` URL as the endpoint. 
 
 ## Step 2 - Call the REST API
 

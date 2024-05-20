@@ -5,7 +5,7 @@
     - name: What is Azure Cosmos DB for Table?
       href: introduction.md
     - name: FAQ
-      href: table-api-faq.yml
+      href: faq.yml
 - name: Quickstarts
   items:
     - name: .NET
@@ -24,7 +24,8 @@
       href: tutorial-global-distribution.md
     - name: Create Jupyter notebooks
       href: ../nosql/tutorial-create-notebook.md
-    - name: KQL transformations for workspace data
+    - name: Kusto Query Language (KQL) transformations
+      displayName: KQL, workspace, data
       href: ../tutorial-log-transformation.md
 - name: Samples
   items:
@@ -38,12 +39,8 @@
       href: quickstart-python.md
     - name: Go
       href: how-to-use-go.md
-    - name: PHP
-      href: how-to-use-php.md
     - name: C++
       href: how-to-use-c-plus.md
-    - name: Ruby
-      href: how-to-use-ruby.md
     - name: F#
       href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
       maintainContext: true
@@ -169,7 +166,7 @@
                       href: ../latest-restore-timestamp-continuous-backup.md
                     - name: Auditing restore action with continuous backup
                       href: ../audit-restore-continuous.md
-                - name: Restore in the same account (preview)
+                - name: Restore in the same account
                   items:
                     - name: Introduction
                       href: ../restore-in-account-continuous-backup-introduction.md
@@ -194,10 +191,16 @@
           displayName: session, consistency prefix, strong, eventual, bounded staleness
           href: ../consistency-levels.md
         - name: High availability
-          href: ../high-availability.md
-        - name: Conflict types and resolution policies
-          displayName: last write wins, custom, multi-region writes, multi-master
-          href: ../conflict-resolution-policies.md
+          items:
+              - name: High availability overview
+                href: ../high-availability.md
+              - name: Multi-region writes
+                items:
+                  - name: Understanding multi-region writes
+                    href: ../multi-region-writes.md
+                  - name: Conflict resolution
+                    displayName: last write wins, custom, multi-region writes, multi-master
+                    href: ../conflict-resolution-policies.md
         - name: Global distribution - under the hood
           href: ../global-dist-under-the-hood.md
     - name: Security
@@ -238,6 +241,8 @@
           href: ../notebooks-faq.yml    
     - name: Emulator
       href: ../emulator.md
+    - name: Network bandwidth
+      href: ../network-bandwidth.md
 - name: How to
   items:
     - name: Develop applications
@@ -269,8 +274,12 @@
       items:
         - name: Set up CI/CD with Azure Pipelines
           href: ../tutorial-setup-ci-cd.md
-        - name: Use Azure Cosmos DB Explorer
-          href: ../data-explorer.md
+        - name: Azure Cosmos DB Explorer
+          items:
+            - name: Use explorer
+              href: ../data-explorer.md
+            - name: Keyboard shorcuts
+              href: ../data-explorer-shortcuts.md
     - name: Migrate data
       items:
         - name: Desktop data migration tool
@@ -278,7 +287,7 @@
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
-          href: ../how-to-manage-database-account.md
+          href: ../how-to-manage-database-account.yml
         - name: Manage using PowerShell
           href: powershell-samples.md
         - name: Manage using Azure CLI
@@ -307,7 +316,7 @@
               items:
                 - name: Restore to a different account
                   href: ../restore-account-continuous-backup.md
-                - name: Restore in the same account (preview)
+                - name: Restore in the same account
                   href: ../how-to-restore-in-account-continuous-backup.md
                 - name: Get the latest restorable timestamp
                   href: ../get-latest-restore-timestamp.md
@@ -348,7 +357,7 @@
           href: ../access-previews.md
     - name: Monitor
       items:
-        - name: Monitor Azure Cosmos DB
+        - name: Monitor
           href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
@@ -382,7 +391,7 @@
               href: ../how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
           href: ../monitor-reference.md
-        - name: Third-party monitoring solutions
+        - name: Partner monitoring solutions
           href: ../monitoring-solutions.md
 - name: Reference
   items:
@@ -416,7 +425,7 @@
       href: ../whitepapers.md
     - name: Partners
       href: ../partners-migration.md
-    - name: Microsoft Q&A question page
+    - name: Microsoft Questions and Answers
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db

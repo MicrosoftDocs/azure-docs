@@ -5,9 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/20/2022
-
-# As a developer, I want to learn about DevOps deployment support for single-tenant Azure Logic Apps.
+ms.date: 01/04/2024
+# Customer intent: As a developer, I want to learn about DevOps deployment support for single-tenant Azure Logic Apps.
 ---
 
 # DevOps deployment for single-tenant Azure Logic Apps

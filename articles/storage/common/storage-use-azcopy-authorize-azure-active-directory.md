@@ -1,5 +1,5 @@
 ---
-title: Authorize access to blobs with AzCopy & Microsoft Entra ID
+title: Authorize access to blobs & files with AzCopy & Microsoft Entra ID
 description: You can provide authorization credentials for AzCopy operations by using Microsoft Entra ID.
 author: normesta
 ms.service: azure-storage
@@ -7,9 +7,10 @@ ms.topic: how-to
 ms.date: 11/03/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Authorize access to blobs with AzCopy and Microsoft Entra ID
+# Authorize access to blobs and files with AzCopy and Microsoft Entra ID
 
 You can provide AzCopy with authorization credentials by using Microsoft Entra ID. That way, you won't have to append a shared access signature (SAS) token to each command.
 
@@ -25,21 +26,23 @@ For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role has been assigned to your user identity, managed identity, or service principal.
+If you just want to download files, then verify that the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role (Azure Blob Storage) or the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) role (Azure Files) has been assigned to your user identity, managed identity, or service principal.
 
-If you want to upload files, then verify that one of these roles has been assigned to your security principal:
+If you want to upload files to Azure Blob Storage, then verify that one of these roles has been assigned to your security principal.
 
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
+If you want to upload files to an Azure file share, then verify that the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) has been assigned to your security principal.
+
 These roles can be assigned to your security principal in any of these scopes:
 
-- Container (file system)
+- Container (file system) or file share
 - Storage account
 - Resource group
 - Subscription
 
-To learn how to verify and assign roles, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
+To learn how to verify and assign roles, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md) (Blob Storage) or [Choose how to authorize access to file data in the Azure portal](../files/authorize-data-operations-portal.md) (Azure Files).
 
 > [!NOTE]
 > Keep in mind that Azure role assignments can take up to five minutes to propagate.
@@ -176,12 +179,9 @@ Then, run any azcopy command (For example: `azcopy list https://contoso.blob.cor
 
 ### Authorize by using the AzCopy login command
 
-As an alternative to using in-memory variables, you authorize access by using the azcopy login command. However, this approach is not recommended as the azcopy login command will soon be deprecated. 
+As an alternative to using in-memory variables, you authorize access by using the azcopy login command.
 
 The azcopy login command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux keyring, the azcopy login command won't work because there is nowhere to place the token.
-
-> [!IMPORTANT]
-> The azcopy login command will soon be deprecated.
 
 #### Authorize a user identity (azcopy login command)
 
@@ -318,8 +318,8 @@ If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth
 
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
-```bash
-export AZCOPY_AUTO_LOGIN_TYPE=PSCRED
+```PowerShell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
 ```
 
 For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).

@@ -1,21 +1,22 @@
 ---
-title: Restart - Azure portal - Azure Database for PostgreSQL Flexible Server
-description: This article describes how to restart operations in Azure Database for PostgreSQL through the Azure CLI.
+title: Restart - Azure CLI
+description: This article describes how to restart operations in Azure Database for PostgreSQL - Flexible Server through the Azure CLI.
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.custom:
+  - devx-track-azurecli
 ---
 
-# Restart an Azure Database for PostgreSQL - Flexible Server
+# Restart an Azure Database for PostgreSQL - Flexible Server instance
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article shows you how to perform restart, start and stop flexible server using Azure CLI.
+This article shows you how to perform restart, start and stop an Azure Database for PostgreSQL flexible server instance using Azure CLI.
 
 ## Prerequisites
 
@@ -27,20 +28,20 @@ This article shows you how to perform restart, start and stop flexible server us
     az login
     ````
 
-- If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the ```az account set``` command.
+- If you have multiple subscriptions, choose the appropriate subscription in which you want to create the server using the `az account set` command.
 `
     ```azurecli
     az account set --subscription <subscription id>
     ```
 
-- Create a PostgreSQL Flexible Server if you have not already created one using the ```az postgres flexible-server create``` command.
+- Create an Azure Database for PostgreSQL flexible server instance if you haven't already created one using the `az postgres flexible-server create` command.
 
     ```azurecli
     az postgres flexible-server create --resource-group myresourcegroup --name myservername
     ```
 
 ## Restart a server
-To restart a server, run  ```az postgres flexible-server restart``` command. If you are using [local context](/cli/azure/config/param-persist), you don't need to provide any arguments.
+To restart a server, run the ```az postgres flexible-server restart``` command. If you're using [local context](/cli/azure/config/param-persist), you don't need to provide any arguments.
 
 **Usage:**
 ```azurecli
@@ -60,7 +61,7 @@ az postgres flexible-server restart
 ```
 
 > [!IMPORTANT]
-> Once the server has restarted successfully, all management operations are now available for the flexible server.
+> Once the server has restarted successfully, all management operations are now available for the Azure Database for PostgreSQL flexible server instance.
 
 ## Next steps
-- Learn more about [stopping and starting Azure Database for PostgreSQL Flexible Server](./how-to-stop-start-server-cli.md)
+- Learn more about [stopping and starting Azure Database for PostgreSQL - Flexible Server](./how-to-stop-start-server-cli.md)

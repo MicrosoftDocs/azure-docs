@@ -2,20 +2,26 @@
 title: Container insights region mappings
 description: Describes the region mappings supported between Container insights, Log Analytics Workspace, and custom metrics.
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 2/28/2024
 ms.custom: references_regions
 ms.reviewer: aul
 ---
 
-# Region mappings supported by Container insights
+# Regions supported by Container insights
 
- When enabling Container insights, only certain regions are supported for linking a Log Analytics workspace and an AKS cluster, and collecting custom metrics submitted to Azure Monitor.
+## Kubernetes cluster region
+The following table specifies the regions that are supported for Container insights on different platforms.
 
-## Log Analytics workspace supported mappings
-Supported AKS regions are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). The Log Analytics workspace must be in the same region except for the regions listed in the following table. Watch [AKS release notes](https://github.com/Azure/AKS/releases) for updates.
+| Platform | Regions |
+|:---|:---|
+| AKS | All regions supported by AKS as specified in [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=kubernetes-service). | 
+| Arc-enabled Kubernetes | All public regions supported by Arc-enabled Kubernetes as specified in [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc). |
+
+## Log Analytics workspace region
+The Log Analytics workspace supporting Container insights must be in the same region except for the regions listed in the following table. 
 
 
-|**AKS Cluster region** | **Log Analytics Workspace region** |
+|**Cluster region** | **Log Analytics Workspace region** |
 |-----------------------|------------------------------------|
 |**Africa** | |
 |SouthAfricaNorth |WestEurope |
@@ -37,14 +43,9 @@ Supported AKS regions are listed in [Products available by region](https://azure
 |**Korea** | |
 |KoreaSouth |KoreaCentral |
 |**US** | |
-|WestCentralUS<sup>1</sup>|EastUS |
+|WestCentralUS|EastUS |
 
-
-
-## Custom metrics supported regions
-
-Collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods are supported for publishing as custom metrics only in the following [Azure regions](../essentials/metrics-custom-overview.md#supported-regions).
 
 ## Next steps
 
-To begin monitoring your AKS cluster, review [How to enable the Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.  
+To begin monitoring your cluster, see [Enable monitoring for Kubernetes clusters](kubernetes-monitoring-enable.md) to understand the requirements and available methods to enable monitoring.  

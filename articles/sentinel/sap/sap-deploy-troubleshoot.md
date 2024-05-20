@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications deployment troubleshooting
 description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel solution for SAP® applications deployment.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: troubleshooting
 ms.date: 01/09/2023
 ---
@@ -13,12 +13,12 @@ ms.date: 01/09/2023
 
 When troubleshooting your Microsoft Sentinel for SAP data connector, you may find the following commands useful:
 
-|Function  |Command  |
-|---------|---------|
-|**Stop the Docker container**     |  `docker stop sapcon-[SID]`       |
-|**Start the Docker container**     |`docker start sapcon-[SID]`         |
-|**View Docker system logs**     |  `docker logs -f sapcon-[SID]`       |
-|**Enter the Docker container**     |   `docker exec -it sapcon-[SID] bash`      |
+| Function  | Command  |
+| --------- | -------- |
+| **Stop the Docker container**  | `docker stop sapcon-[SID]`          |
+| **Start the Docker container** | `docker start sapcon-[SID]`         |
+| **View Docker system logs**    | `docker logs -f sapcon-[SID]`       |
+| **Enter the Docker container** | `docker exec -it sapcon-[SID] bash` |
 
 
 For more information, see the [Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/docker/).
@@ -77,7 +77,10 @@ Connector execution logs for your Microsoft Sentinel solution for SAP® applicat
 
 If you want to check the Microsoft Sentinel for SAP data connector configuration file and make manual updates, perform the following steps:
 
-1. On your VM, open the **sapcon/[SID]/systemconfig.ini** file.
+1. On your VM, open the configuration file:
+
+    - **sapcon/[SID]/systemconfig.json** for agent versions released on or after June 22, 2023.
+    - **sapcon/[SID]/systemconfig.ini** for agent versions released before June 22, 2023.
 
 1. Update the configuration if needed, and save the file.
 
@@ -222,7 +225,7 @@ For more information, see [ValidateSAP environment validation steps](prerequisit
 ### No records / late records
 
 The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835](<https://me.sap.com/notes/481835/E>) for more details.
-
+Additionally, there can be issues with the clock on the VM where the Microsoft Sentinel solution for SAP® applications agent is hosted. Any deviation of the VM's clock from UTC will impact data collection. More importantly, the SAP VM's clock and the Sentinel agent's VM's clock should match.
 
 
 ### Network connectivity issues

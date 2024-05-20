@@ -7,12 +7,12 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 1/21/2024
 ---
 
 # Power automate batch transcription
 
-This article describes how to use [Power Automate](/power-automate/getting-started) and the [Azure AI services for Batch Speech to text connector](/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container. The connector uses the [Batch Transcription REST API](batch-transcription.md), but you don't need to write any code to use it. If the connector doesn't meet your requirements, you can still use the [REST API](rest-speech-to-text.md#transcriptions) directly.
+This article describes how to use [Power Automate](/power-automate/getting-started) and the [Azure AI services for Batch Speech to text connector](/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container. The connector uses the [Batch Transcription REST API](batch-transcription.md), but you don't need to write any code to use it. If the connector doesn't meet your requirements, you can still use the [REST API](rest-speech-to-text.md#batch-transcription) directly.
 
 In addition to [Power Automate](/power-automate/getting-started), you can use the [Azure AI services for Batch Speech to text connector](/connectors/cognitiveservicesspe/) with [Power Apps](/power-apps) and [Logic Apps](../../logic-apps/index.yml).
 
@@ -25,7 +25,7 @@ In addition to [Power Automate](/power-automate/getting-started), you can use th
 
 ## Create the Azure Blob Storage container
 
-In this example, you'll transcribe audio files that are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account.
+In this example, you transcribe audio files that are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account.
 
 Follow these steps to create a new storage account and container. 
 
@@ -35,7 +35,7 @@ Follow these steps to create a new storage account and container.
 1. In the **Data storage** group in the left pane, select **Containers**.
 1. Select **+ Container**.
 1. Enter a name for the new container such as "batchtranscription" and select **Create**.
-1. Get the **Access key** for the storage account. Select **Access keys** in the **Security + networking** group in the left pane. View and take note of the **key1** (or **key2**) value. You'll need the access key later when you [configure the connector](#create-a-power-automate-flow). 
+1. Get the **Access key** for the storage account. Select **Access keys** in the **Security + networking** group in the left pane. View and take note of the **key1** (or **key2**) value. You need the access key later when you [configure the connector](#create-a-power-automate-flow). 
 
 Later you'll [upload files to the container](#upload-files-to-the-container) after the connector is configured, since the events of adding and modifying files kick off the transcription process.
 
@@ -65,14 +65,14 @@ Later you'll [upload files to the container](#upload-files-to-the-container) aft
     1. Select **Create** to continue.
 1. Configure the **When a blob is added or modified** trigger. 
 
-    :::image type="content" source="./media/power-platform/flow-connection-settings-blob.png" alt-text="A screenshot of the configure blob trigger dialog." lightbox="./media/power-platform/flow-connection-settings-blob.png":::
+    :::image type="content" source="./media/power-platform/flow-connection-settings-blob.png" alt-text="A screenshot of the dialog to configure the blob trigger." lightbox="./media/power-platform/flow-connection-settings-blob.png":::
 
     1. From the **Storage account name or blob endpoint** drop-down list, select **Use connection settings**. You should see the storage account name as a component of the connection string.
     1. Under **Container** select the folder icon. Choose the container that you [created previously](#create-the-azure-blob-storage-container).
 
 ### Create SAS URI by path
 
-To transcribe an audio file that's in your [Azure Blob Storage container](#create-the-azure-blob-storage-container) you need a [Shared Access Signature (SAS) URI](../../storage/common/storage-sas-overview.md) for the file.
+To transcribe an audio file that's in your [Azure Blob Storage container](#create-the-azure-blob-storage-container), you need a [Shared Access Signature (SAS) URI](../../storage/common/storage-sas-overview.md) for the file.
 
 The [Azure Blob Storage connector](/connectors/azureblob/) supports SAS URIs for individual blobs, but not for entire containers.
 
@@ -92,7 +92,7 @@ By now, you should have a flow that looks like this:
 1. Enter "batch speech to text" in the search connectors and actions box to narrow the results. 
 1. Select the **Azure AI services for Batch Speech to text** connector.
 1. Select the **Create transcription** action.
-1. Create a new connection to the Speech resource that you [created previously](#prerequisites). The connection will be available throughout the Power Automate environment. For more information, see [Manage connections in Power Automate](/power-automate/add-manage-connections). 
+1. Create a new connection to the Speech resource that you [created previously](#prerequisites). The connection is available throughout the Power Automate environment. For more information, see [Manage connections in Power Automate](/power-automate/add-manage-connections). 
     1. Enter a name for the connection such as "speech-resource-key". You can choose any name that you like. 
     1. In the **API Key** field, enter the Speech resource key.
     
@@ -101,7 +101,7 @@ By now, you should have a flow that looks like this:
     :::image type="content" source="./media/power-platform/flow-progression-speech-resource-connection.png" alt-text="A screenshot of the view connections dialog." lightbox="./media/power-platform/flow-progression-speech-resource-connection.png":::
 
 1. Configure the **Create transcription** action. 
-    1. In the **locale** field enter the expected locale of the audio data to transcribe. 
+    1. In the locale field, enter the expected locale of the audio data to transcribe. 
     1. Select `DisplayName` as dynamic content for the **displayName** field. You can choose any name that you would like to refer to later.
     1. Select `Web Url` as dynamic content for the **contentUrls Item - 1** field. This is the SAS URI output from the [Create SAS URI by path](#create-sas-uri-by-path) action. 
     

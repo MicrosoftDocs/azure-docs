@@ -2,14 +2,15 @@
 title: How to create and manage compute instances in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article provides instructions on how to create and manage compute instances in Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: eur
+ms.date: 2/22/2024
+ms.reviewer: deeikele
+ms.author: sgilley
+author: sdgilley
 ---
 
 # How to create and manage compute instances in Azure AI Studio
@@ -21,7 +22,7 @@ In this article, you learn how to create a compute instance in Azure AI Studio. 
 You need a compute instance to:
 - Use prompt flow in Azure AI Studio. 
 - Create an index
-- Open Visual Studio Code (Web) in the Azure AI Studio.
+- Open Visual Studio Code (Web or Desktop) in Azure AI Studio.
 
 You can use the same compute instance for multiple scenarios and workflows. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user in the security step.
 
@@ -42,8 +43,6 @@ To create a compute instance in Azure AI Studio:
 
 1. Enter a custom name for your compute.
 
-    :::image type="content" source="../media/compute/compute-create.png" alt-text="Screenshot of the option to create a new compute instance from the manage page." lightbox="../media/compute/compute-create.png":::
-
 1. Select your virtual machine type and size and then select **Next**. 
 
     - Virtual machine type: Choose CPU or GPU. The type can't be changed after creation.
@@ -56,7 +55,7 @@ To create a compute instance in Azure AI Studio:
     :::image type="content" source="../media/compute/compute-scheduling.png" alt-text="Screenshot of the option to enable idle shutdown and create a schedule." lightbox="../media/compute/compute-scheduling.png":::
 
     > [!IMPORTANT]
-    > The compute can't be idle if you have [prompt flow runtime](./create-manage-runtime.md) in **Running** status on the compute. You need to delete any active runtime before the compute instance can be eligible for idle shutdown. You also can't have any active [VS Code (Web)](./vscode-web.md) sessions hosted on the compute instance.
+    > The compute can't be idle if you have [prompt flow runtime](./create-manage-runtime.md) in **Running** status on the compute. You need to delete any active runtime before the compute instance can be eligible for idle shutdown. You also can't have any active [VS Code (Web)](./develop-in-vscode.md) sessions hosted on the compute instance.
 
 1. You can update the schedule days and times to meet your needs. You can also add additional schedules. For example, you can create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday. You can create a total of four schedules per compute instance.
 
@@ -66,10 +65,6 @@ To create a compute instance in Azure AI Studio:
     - **Assign to another user**: You can create a compute instance on behalf of another user. Note that a compute instance can't be shared. It can only be used by a single assigned user. By default, it will be assigned to the creator and you can change this to a different user.
     - **Assign a managed identity**: You can attach system assigned or user assigned managed identities to grant access to resources. The name of the created system managed identity will be in the format `/workspace-name/computes/compute-instance-name` in your Microsoft Entra ID.
     - **Enable SSH access**: Enter credentials for an administrator user account that will be created on each compute node. These can be used to SSH to the compute nodes.
-Note that disabling SSH prevents SSH access from the public internet. But when a private virtual network is used, users can still SSH from within the virtual network.
-    - **Enable virtual network**:
-        - If you're using an Azure Virtual Network, specify the Resource group, Virtual network, and Subnet to create the compute instance inside an Azure Virtual Network. You can also select No public IP to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these network requirements for virtual network setup.
-        - If you're using a managed virtual network, the compute instance is created inside the managed virtual network. You can also select No public IP to prevent the creation of a public IP address. For more information, see managed compute with a managed network.
 
 1. On the **Applications** page you can add custom applications to use on your compute instance, such as RStudio or Posit Workbench. Then select **Next**.
 1. On the **Tags** page you can add additional information to categorize the resources you create. Then select **Review + Create** or **Next** to review your settings.
@@ -83,7 +78,7 @@ Note that disabling SSH prevents SSH access from the public internet. But when a
 To avoid getting charged for a compute instance that is switched on but inactive, you can configure when to shut down your compute instance due to inactivity. 
 
 > [!IMPORTANT]
-> The compute can't be idle if you have [prompt flow runtime](./create-manage-runtime.md) in **Running** status on the compute. You need to delete any active runtime before the compute instance can be eligible for idle shutdown. You also can't have any active [VS Code (Web)](./vscode-web.md) sessions hosted on the compute instance.
+> The compute can't be idle if you have [prompt flow runtime](./create-manage-runtime.md) in **Running** status on the compute. You need to delete any active runtime before the compute instance can be eligible for idle shutdown. You also can't have any active [VS Code (Web)](./develop-in-vscode.md) sessions hosted on the compute instance.
 
 The setting can be configured during compute instance creation or for existing compute instances.
 
@@ -110,7 +105,7 @@ You can start or stop a compute instance from the Azure AI Studio.
 
     :::image type="content" source="../media/compute/compute-start-stop.png" alt-text="Screenshot of the option to start or stop a compute instance." lightbox="../media/compute/compute-start-stop.png":::
 
-
 ## Next steps
 
 - [Create and manage prompt flow runtimes](./create-manage-runtime.md)
+- [Vulnerability management](../concepts/vulnerability-management.md)

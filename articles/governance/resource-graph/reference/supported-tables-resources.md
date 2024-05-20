@@ -1,11 +1,9 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 06/27/2023
+ms.date: 05/03/2024
 ms.topic: reference
 ms.custom: generated
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
 
 # Azure Resource Graph table and resource type reference
@@ -50,6 +48,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.compute/locations/communitygalleries/images
 - microsoft.compute/locations/communitygalleries/images/versions
 
+## computeresources
+
+- microsoft.compute/virtualmachinescalesets/virtualmachines
+- microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces
+- microsoft.compces/ute/virtualmachinescalesets/virtualmachines/networkinterfaipconfigurations/publicipaddresses
+
 ## desktopvirtualizationresources
 
 - microsoft.desktopvirtualization/hostpools/sessionhosts
@@ -80,10 +84,10 @@ For sample queries for this table, see [Resource Graph sample queries for guestc
 For sample queries for this table, see [Resource Graph sample queries for healthresources](../samples/samples-by-table.md#healthresources).
 
 - microsoft.resourcehealth/availabilitystatuses
-  - Sample query: [Count of virtual machines by availability state and Subscription Id](../samples/samples-by-category.md#count-of-virtual-machines-by-availability-state-and-subscription-id)
-  - Sample query: [List of virtual machines and associated availability states by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
-  - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
-  - Sample query: [List of virtual machines that are not Available by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
+  - Sample query: [Count of virtual machines by availability state and Subscription ID](../samples/samples-by-category.md#count-of-virtual-machines-by-availability-state-and-subscription-id)
+  - Sample query: [List of virtual machines and associated availability states by Resource IDs](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
+  - Sample query: [List of virtual machines by availability state and power state with Resource IDs and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
+  - Sample query: [List of virtual machines that are not Available by Resource IDs](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
 
 ## iotsecurityresources
 
@@ -139,6 +143,12 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.network/securityadminconfigurations/rulecollections
 - microsoft.network/securityadminconfigurations/rulecollections/rules
 
+## orbitalresources
+
+For sample queries for this table, see [Resource Graph sample queries for orbitalresources](../samples/samples-by-table.md#orbitalresources).
+
+- microsoft.orbital/spacecrafts/contacts
+
 ## patchassessmentresources
 
 For sample queries for this table, see [Resource Graph sample queries for patchassessmentresources](../samples/samples-by-table.md#patchassessmentresources).
@@ -161,7 +171,9 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 
 - microsoft.authorization/policyassignments
 - microsoft.authorization/policydefinitions
+- microsoft.authorization/policyexemptions
 - microsoft.authorization/policysetdefinitions
+- microsoft.policyinsights/componentpolicystates
 - microsoft.policyinsights/policystates
   - Sample query: [Compliance by policy assignment](../samples/samples-by-category.md#compliance-by-policy-assignment)
   - Sample query: [Compliance by resource type](../samples/samples-by-category.md#compliance-by-resource-type)
@@ -171,13 +183,24 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 
 ## recoveryservicesresources
 
+- microsoft.azurebusinesscontinuity/deletedunifiedprotecteditems
+- microsoft.azurebusinesscontinuity/unifiedprotecteditems
 - microsoft.dataprotection/backupvaults/backupinstances
 - microsoft.dataprotection/backupvaults/backupjobs
 - microsoft.dataprotection/backupvaults/backuppolicies
+- microsoft.dataprotection/backupvaults/deletedbackupinstances
+- microsoft.recoveryservices/locations/deletedvaults
+- microsoft.recoveryservices/locations/deletedvaults/backupfabrics/protectioncontainers/protecteditems
+- microsoft.recoveryservices/vaults
 - microsoft.recoveryservices/vaults/alerts
-- microsoft.recoveryservices/vaults/backupFabrics/protectionContainers/protectedItems (Backup Items)
+- microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems (Backup Items)
 - microsoft.recoveryservices/vaults/backupjobs
 - microsoft.recoveryservices/vaults/backuppolicies
+- microsoft.recoveryservices/vaults/replicationfabrics/replicationprotectioncontainers/replicationprotecteditems
+- microsoft.recoveryservices/vaults/replicationjobs
+- microsoft.recoveryservices/vaults/replicationpolicies
+
+For Azure Site Recovery, only _Azure to Azure_ and _VMware to Azure_ resources return results in Azure Resource Graph Explorer, like in a query for `replicationprotecteditems`.
 
 ## resourcechanges
 
@@ -225,9 +248,9 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - livearena.broadcast/services
 - mailjet.email/services
 - micorosft.web/kubeenvironments
-- microsoft.AAD/domainServices (Azure AD Domain Services)
+- microsoft.AAD/domainServices (Microsoft Entra Domain Services)
 - microsoft.aadiam/azureadmetrics
-- microsoft.aadiam/privateLinkForAzureAD (Private Link for Azure AD)
+- microsoft.aadiam/privateLinkForAzureAD (Private Link for Microsoft Entra ID)
 - microsoft.aadiam/tenants
 - microsoft.AgFoodPlatform/farmBeats (Azure FarmBeats)
 - microsoft.aisupercomputer/accounts
@@ -256,7 +279,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.Automation/automationAccounts/runbooks (Runbook)
 - microsoft.autonomousdevelopmentplatform/accounts
 - microsoft.AutonomousSystems/workspaces (Bonsai)
-- microsoft.AVS/privateClouds (AVS Private clouds)
+- microsoft.AVS/privateClouds (Azure VMware Private clouds)
 - microsoft.azconfig/configurationstores
 - microsoft.AzureActiveDirectory/b2cDirectories (B2C Tenants)
 - microsoft.AzureActiveDirectory/guestUsages (Guest Usages)
@@ -324,10 +347,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.ClassicStorage/StorageAccounts (Storage accounts (classic))
 - microsoft.cloudes/accounts
 - microsoft.cloudsearch/indexes
-- microsoft.CloudTest/accounts (CloudTest Accounts)
-- microsoft.CloudTest/hostedpools (1ES Hosted Pools)
-- microsoft.CloudTest/images (CloudTest Images)
-- microsoft.CloudTest/pools (CloudTest Pools)
 - microsoft.ClusterStor/nodes (ClusterStors)
 - microsoft.codesigning/codesigningaccounts
 - microsoft.codespaces/plans
@@ -364,7 +383,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [Count virtual machines by OS type with extend](../samples/samples-by-category.md#count-virtual-machines-by-os-type-with-extend)
   - Sample query: [List all extensions installed on a virtual machine](../samples/samples-by-category.md#list-all-extensions-installed-on-a-virtual-machine)
   - Sample query: [List machines that are not running and the last compliance status](../samples/samples-by-category.md#list-machines-that-are-not-running-and-the-last-compliance-status)
-  - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
+  - Sample query: [List of virtual machines by availability state and power state with Resource IDs and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Sample query: [List virtual machines with their network interface and public IP](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
   - Sample query: [Show all virtual machines ordered by name in descending order](../samples/samples-by-category.md#show-all-virtual-machines-ordered-by-name-in-descending-order)
   - Sample query: [Show first five virtual machines by name and their OS type](../samples/samples-by-category.md#show-first-five-virtual-machines-by-name-and-their-os-type)
@@ -779,7 +798,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.powerplatform/enterprisepolicies
 - microsoft.projectbabylon/accounts
 - microsoft.providerhubdevtest/regionalstresstests
-- microsoft.Purview/Accounts (microsoft Purview accounts)
+- microsoft.Purview/Accounts (Microsoft Purview accounts)
 - microsoft.Quantum/Workspaces (Quantum Workspaces)
 - microsoft.RecommendationsService/accounts (Intelligent Recommendations Accounts)
 - microsoft.RecommendationsService/accounts/modeling (Modeling)
@@ -858,7 +877,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
 - microsoft.SqlVirtualMachine/SqlVirtualMachines (SQL virtual machines)
 - microsoft.sqlvm/dwvm
-- microsoft.storage/datamovers
 - microsoft.Storage/StorageAccounts (Storage accounts)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
@@ -1017,10 +1035,6 @@ For sample queries for this table, see [Resource Graph sample queries for servic
 
 - microsoft.compute/skuspotevictionrate/location
 - microsoft.compute/skuspotpricehistory/ostype/location
-
-## workloadmonitorresources
-
-- microsoft.workloadmonitor/monitors
 
 ## Next steps
 

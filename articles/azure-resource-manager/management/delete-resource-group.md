@@ -1,11 +1,12 @@
 ---
 title: Delete resource group and resources
-description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
+description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded.
 ms.topic: conceptual
 ms.date: 09/27/2023
-ms.custom: seodec18, devx-track-arm-template
+ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Azure Resource Manager resource group and resource deletion
@@ -167,7 +168,7 @@ If you have the required access, but the delete request fails, it may be because
 
 ## Can I recover a deleted resource group?
 
-No, you can't recover a deleted resource group. However, you might be able to resore some recently deleted resources.
+No, you can't recover a deleted resource group. However, you might be able to restore some recently deleted resources.
 
 Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For information about enabling soft delete, see:
 

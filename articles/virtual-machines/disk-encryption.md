@@ -2,7 +2,7 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 12/13/2023
+ms.date: 01/11/2024
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: azure-disk-storage
@@ -75,7 +75,7 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](/pow
 
 #### Automatic key rotation of customer-managed keys
 
-If you're using customer-managed keys, you should enable automatic key rotation to the latest key version. Automatic key rotation helps ensure your keys are secure. A disk references a key via its disk encryption set. When you enable automatic rotation for a disk encryption set, the system will automatically update all managed disks, snapshots, and images referencing the disk encryption set to use the new version of the key within one hour. To learn how to enable customer-managed keys with automatic key rotation, see [Set up an Azure Key Vault and DiskEncryptionSet with automatic key rotation](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
+Generally, if you're using customer-managed keys, you should enable automatic key rotation to the latest key version. Automatic key rotation helps ensure your keys are secure. A disk references a key via its disk encryption set. When you enable automatic rotation for a disk encryption set, the system will automatically update all managed disks, snapshots, and images referencing the disk encryption set to use the new version of the key within one hour. To learn how to enable customer-managed keys with automatic key rotation, see [Set up an Azure Key Vault and DiskEncryptionSet with automatic key rotation](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
 
 > [!NOTE]
 > Virtual Machines aren't rebooted during automatic key rotation.
@@ -95,7 +95,7 @@ Customer-managed keys are available in all regions that managed disks are availa
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Microsoft Entra ID. When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Microsoft Entra directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Microsoft Entra directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-To enable customer-managed keys for managed disks, see our articles covering how to enable it with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md).
+To enable customer-managed keys for managed disks, see our articles covering how to enable it with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.yml).
 
 See [Create a managed disk from a snapshot with CLI](scripts/create-managed-disk-from-snapshot.md#disks-with-customer-managed-keys) for a code sample.
 
@@ -143,6 +143,6 @@ To enable double encryption at rest for managed disks, see our articles covering
 
 - Enable end-to-end encryption using encryption at host with either the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md), the [Azure CLI](linux/disks-enable-host-based-encryption-cli.md), or the [Azure portal](disks-enable-host-based-encryption-portal.md).
 - Enable double encryption at rest for managed disks with either the [Azure PowerShell module](windows/disks-enable-double-encryption-at-rest-powershell.md), the [Azure CLI](linux/disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](disks-enable-double-encryption-at-rest-portal.md).
-- Enable customer-managed keys for managed disks with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md).
+- Enable customer-managed keys for managed disks with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.yml).
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [What is Azure Key Vault?](../key-vault/general/overview.md)

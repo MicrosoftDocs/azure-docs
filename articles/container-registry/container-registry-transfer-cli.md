@@ -4,7 +4,7 @@ description: Use ACR Transfer with Az CLI
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.custom: devx-track-azurecli
 ms.service: container-registry
 ---

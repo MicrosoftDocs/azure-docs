@@ -80,6 +80,8 @@
       href: ./afds/waf-front-door-exclusion.md
     - name: Policy settings
       href: ./afds/waf-front-door-policy-settings.md
+    - name: Sensitive Data Protection
+      href: ./afds/waf-sensitive-data-protection-frontdoor.md
     - name: Rate limiting
       href: ./afds/waf-front-door-rate-limit.md
     - name: Geo-filtering
@@ -154,6 +156,8 @@
       href: ./afds/waf-front-door-configure-custom-response-code.md
     - name: Configure IP restrictions
       href: ./afds/waf-front-door-configure-ip-restriction.md
+    - name: Mask sensitive data
+      href: ./afds/waf-sensitive-data-protection-configure-frontdoor.md
     - name: Configure rate limit
       href: ./afds/waf-front-door-rate-limit-configure.md
     - name: Configure a geo-filtering WAF policy
@@ -168,8 +172,12 @@
     href: ./afds/protect-azure-open-ai.md
   - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
+  - name: Detect new threats using Microsoft Sentinel
+    href: waf-new-threat-detection.md
   - name: Automated detection and response
     href: ./afds/automated-detection-response-with-sentinel.md
+  - name: Use geomatch custom rules to enhance network security
+    href: geomatch-custom-rules-examples.md
   - name: Troubleshoot
     items:
      - name: Application Gateway

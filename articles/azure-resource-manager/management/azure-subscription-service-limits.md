@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 09/26/2023
+ms.date: 04/08/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -59,15 +59,31 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## Microsoft Entra ID limits
 
-[!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
+[!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
 
-## API Center (preview) limits
+## API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
 ## API Management limits
 
+This section provides information about limits that apply to Azure API Management instances in different [service tiers](../../api-management/api-management-features.md), including the following:
+
+* [API Management classic tiers](#limits---api-management-classic-tiers)
+* [API Management v2 tiers](#limits---api-management-v2-tiers)
+* [Developer portal in API Management v2 tiers](#limits---developer-portal-in-api-management-v2-tiers)
+
+### Limits - API Management classic tiers
+
 [!INCLUDE [api-management-service-limits](../../../includes/api-management-service-limits.md)]
+
+### Limits - API Management v2 tiers
+
+[!INCLUDE [api-management-service-limits-v2](../../../includes/api-management-service-limits-v2.md)]
+
+### Limits - Developer portal in API Management v2 tiers
+
+[!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
 
 ## App Service limits
 
@@ -198,6 +214,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [maps-limits](../../../includes/maps-limits.md)]
 
+## Azure Managed Grafana limits
+
+[!INCLUDE [Azure Managed Grafana limits](../../../includes/azure-managed-grafana-limits.md)]
+
 ## Azure Monitor limits
 
 For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
@@ -212,7 +232,7 @@ For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor
 
 ## Azure Policy limits
 
-[!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+[!INCLUDE [azure-policy-limits](../../governance/includes/policy/azure-policy-limits.md)]
 
 ## Azure Quantum limits
 
@@ -230,7 +250,7 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 ## Azure Spring Apps limits
 
-To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
+To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/enterprise/quotas.md).
 
 ## Azure Storage limits
 
@@ -274,6 +294,10 @@ To learn more about the creation limits for Azure subscriptions, see [Billing ac
 ## Azure VMware Solution limits
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
+
+## Azure Web PubSub limits
+
+[!INCLUDE [azure-web-pubsub-limits](../../../includes/azure-web-pubsub-limits.md)]
 
 ## Backup limits
 
@@ -431,7 +455,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
 
-### Virtual Network Gateway limits
+### VPN Gateway limits
+
+The following limits apply to VPN Gateway resources and VPN Gateway virtual network gateways, unless otherwise stated.
 
 [!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
 
@@ -529,6 +555,10 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 100 compute galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
+
+### Managed Run Command limit
+
+The maximum number of allowed Managed Run Commands is currently limited to 25.
 
 ## Virtual Machine Scale Sets limits
 

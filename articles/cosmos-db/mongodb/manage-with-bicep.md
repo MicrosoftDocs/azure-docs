@@ -4,7 +4,7 @@ description: Use Bicep to create and configure API for MongoDB Azure Cosmos DB A
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022, devx-track-bicep
+ms.custom: devx-track-bicep
 ms.topic: how-to
 ms.date: 05/23/2022
 ms.author: sidandrews

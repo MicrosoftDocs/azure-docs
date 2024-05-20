@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/22/2023
+ms.date: 04/11/2024
 ms.topic: how-to
 ms.custom:
   - build-2023
@@ -16,13 +16,15 @@ ms.custom:
   - ignite-2023
 ---
 
-# Workspace managed virtual network isolation
+# Workspace Managed Virtual Network Isolation
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet.
+Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet. The managed VNet secures your managed Azure Machine Learning resources, such as compute instances, compute clusters, serverless compute, and managed online endpoints. 
 
-## managed virtual network architecture
+Securing your workspace with a *managed network* provides network isolation for __outbound__ access from the workspace and managed computes. An *Azure Virtual Network that you create and manage* is used to provide network isolation __inbound__ access to the workspace. For example, a private endpoint for the workspace is created in your Azure Virtual Network. Any clients connecting to the virtual network can access the workspace through the private endpoint. When running jobs on managed computes, the managed network restricts what the compute can access.
+
+## Managed Virtual Network Architecture
 
 When you enable managed virtual network isolation, a managed VNet is created for the workspace. Managed compute resources you create for the workspace automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
@@ -40,7 +42,7 @@ There are two different configuration modes for outbound traffic from the manage
 1: You can use outbound rules with _allow only approved outbound_ mode to achieve the same result as using allow internet outbound. The differences are:
 
 * You must add rules for each outbound connection you need to allow.
-* Adding FQDN outbound rules increase your costs as this rule type uses Azure Firewall.
+* Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall. For more information, see [Pricing](#pricing)
 * The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add may increase your risk.
 
 The managed VNet is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace, workspace's default storage, container registry and key vault __if they're configured as private__ or __the workspace isolation mode is set to allow only approved outbound__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
@@ -55,6 +57,10 @@ The following diagram shows a managed VNet configured to __allow only approved o
 > In this configuration, the storage, key vault, and container registry used by the workspace are flagged as private. Since they are flagged as private, a private endpoint is used to communicate with them.
 
 :::image type="content" source="./media/how-to-managed-network/only-approved-outbound.svg" alt-text="Diagram of managed VNet isolation configured for allow only approved outbound." lightbox="./media/how-to-managed-network/only-approved-outbound.svg":::
+
+> [!NOTE]
+> Once a managed VNet workspace is configured to __allow internet outbound__, the workspace cannot be reconfigured to __disabled__. Similarily, once a managed VNet workspace is configured to __allow only approved outbound__, the workspace cannot be reconfigured to __allow internet outbound__. Please keep this in mind when selecting the isolation mode for managed VNet in your workspace.
+
 
 ### Azure Machine Learning studio
 
@@ -93,6 +99,8 @@ Before following the steps in this article, make sure you have the following pre
 * The CLI examples in this article assume that you're using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
 
 * The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
+
+* With Azure CLI and managed VNet, SSH using public IP works, but SSH using private IP doesn't work. 
 
 # [Python SDK](#tab/python)
 
@@ -152,6 +160,9 @@ Before following the steps in this article, make sure you have the following pre
     * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
 
 ---
+
+> [!NOTE]
+> If you are using UAI workspace please make sure to add the Network Contributor role to your identity. For more information, see [User-assigned managed identity](how-to-identity-based-service-authentication.md).
 
 ## Configure a managed virtual network to allow internet outbound
 
@@ -379,7 +390,7 @@ You can also define _outbound rules_ to define approved outbound communication. 
 > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
 
 > [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
+> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
 ```yaml
 managed_network:
@@ -440,7 +451,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
     The following YAML file defines a managed VNet for the workspace. It also demonstrates how to add an approved outbound to the managed VNet. In this example, an outbound rule is added for both a service tag:
 
     > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing.For more information, see [Pricing](#pricing).
+    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing.For more information, see [Pricing](#pricing).
 
     ```yaml
     name: myworkspace_dep
@@ -486,7 +497,7 @@ To configure a managed VNet that allows only approved outbound communications, u
     > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
 
     > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
+    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
     ```python
     # Basic managed VNet configuration
@@ -554,7 +565,7 @@ To configure a managed VNet that allows only approved outbound communications, u
     > Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
 
     > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
+    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
     
     ```python
     # Get the existing workspace
@@ -646,7 +657,7 @@ To configure a managed VNet that allows only approved outbound communications, u
         If the destination type is __FQDN__, provide the following information:
 
         > [!WARNING]
-        > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
+        > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
         * __FQDN destination__: The fully qualified domain name to add to the approved outbound rules.
 
@@ -693,7 +704,7 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
     Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Storage Account. Also set `spark_enabled: true`:
 
     > [!TIP]
-    > This example is for a managed VNet configured using `isolation_mode: allow_internet_outbound` to allow internet traffic.  If you want to allow only approved outbound traffic to enable data exfiltration protection (DEP), use `isolation_mode: allow_only_approved_outbound`.
+    > This example is for a managed VNet configured using `isolation_mode: allow_internet_outbound` to allow internet traffic.  If you want to allow only approved outbound traffic, use `isolation_mode: allow_only_approved_outbound`.
 
     ```yml
     name: myworkspace
@@ -715,15 +726,14 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
     ```
 
     > [!NOTE]
-    > - When data exfiltration protection (DEP) is enabled, conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in your Spark job.
-    > - If the workspace was created with `isolation_mode: allow_internet_outbound`, it can not be updated later to use `isolation_mode: allow_only_approved_outbound`.
+    > When **Allow Only Approved Outbound** is enabled (`isolation_mode: allow_only_approved_outbound`), conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in your Spark job. Setting an FQDN outbound rule will not bypass this issue as FQDN rule propagation is not supported by Spark. 
 
     # [Python SDK](#tab/python)
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the Azure Storage Account and sets `spark_enabled=true`:
 
     > [!TIP]
-    > The following example is for a managed VNet configured using `IsolationMode.ALLOW_INTERNET_OUTBOUND` to allow internet traffic. If you want to allow only approved outbound traffic to enable data exfiltration protection (DEP), use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.  
+    > The following example is for a managed VNet configured using `IsolationMode.ALLOW_INTERNET_OUTBOUND` to allow internet traffic. If you want to allow only approved outbound traffic, use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.  
         
     ```python
     # Get the existing workspace
@@ -750,7 +760,7 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
     ml_client.workspaces.begin_update(ws)
     ```
     > [!NOTE]
-    > - When data exfiltration protection (DEP) is enabled, conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in the Spark job.
+    > - When **Allow Only Approved Outbound** is enabled (`isolation_mode: allow_only_approved_outbound`), conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in the Spark job.
     > - If the workspace was created with `IsolationMode.ALLOW_INTERNET_OUTBOUND`, it can not be updated later to use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`. 
 
 
@@ -800,12 +810,9 @@ To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the manag
 
 ## Manually provision a managed VNet
 
-The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. 
+The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. If you have a large set of outbound rules to be provisioned in the managed network, it can take longer for provisioning to complete. The increased provisioning time can cause your first compute creation, or your first managed online endpoint deployment, to time out.
 
-To reduce the wait time when someone attempts to create the first compute, you can manually provision the managed VNet after creating the workspace without creating a compute resource:
-
-> [!NOTE]
-> If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed VNet. If you don't disable public network access when provisioning the managed VNet, the private endpoints for the managed endpoint may not be created successfully.
+To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute resource or managed online endpoint deployment.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -816,6 +823,12 @@ The following example shows how to provision a managed VNet.
 
 ```azurecli
 az ml workspace provision-network -g my_resource_group -n my_workspace_name
+```
+
+To verify that the provisioning has completed, use the following command:
+
+```azurecli
+az ml workspace show -n my_workspace_name -g my_resource_group --query managed_network
 ```
 
 # [Python SDK](#tab/python)
@@ -830,6 +843,13 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 include_spark = True
 
 provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
+```
+
+To verify that the workspace has been provisioned, use `ml_client.workspaces.get()` to get the workspace information. The `managed_network` property contains the status of the managed network.
+
+```python
+ws = ml_client.workspaces.get()
+print(ws.managed_network.status)
 ```
 
 # [Azure portal](#tab/portal)
@@ -973,7 +993,7 @@ __Inbound__ service tag rules:
 To allow installation of __Python packages for training and deployment__, add outbound _FQDN_ rules to allow traffic to the following host names:
 
 > [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing.For more information, see [Pricing](#pricing).
+> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
 [!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
 
@@ -982,7 +1002,7 @@ To allow installation of __Python packages for training and deployment__, add ou
 If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbound _FQDN_ rules to allow traffic to the following hosts:
 
 > [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
+> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
 * `*.vscode.dev`
 * `vscode.blob.core.windows.net`
@@ -996,6 +1016,7 @@ If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbo
 * `update.code.visualstudio.com`
 * `*.vo.msecnd.net`
 * `marketplace.visualstudio.com`
+* `vscode.download.prss.microsoft.com`
 
 ### Scenario: Use batch endpoints
 
@@ -1004,7 +1025,7 @@ If you plan to use __Azure Machine Learning batch endpoints__ for deployment, ad
 * `queue`
 * `table`
 
-### Scenario: Use prompt flow with Azure Open AI, content safety, and Azure AI Search
+### Scenario: Use prompt flow with Azure OpenAI, content safety, and Azure AI Search
 
 * Private endpoint to Azure AI Services
 * Private endpoint to Azure AI Search
@@ -1014,7 +1035,7 @@ If you plan to use __Azure Machine Learning batch endpoints__ for deployment, ad
 If you plan to use __HuggingFace models__ with Azure Machine Learning, add outbound _FQDN_ rules to allow traffic to the following hosts:
 
 > [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
+> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
 * `docker.io`
 * `*.docker.io`
@@ -1022,6 +1043,18 @@ If you plan to use __HuggingFace models__ with Azure Machine Learning, add outbo
 * `production.cloudflare.docker.com`
 * `cdn.auth0.com`
 * `cdn-lfs.huggingface.co`
+
+### Scenario: Enable access from selected IP Addresses
+
+If you want to enable access from specific IP addresses, use the following actions:
+
+1. Add an outbound _private endpoint_ rule to allow traffic to the Azure Machine Learning workspace. This allows compute instances created in the managed virtual network to access the workspace.
+
+    > [!TIP]
+    > You can't add this rule during workspace creation, as the workspace doesn't exist yet.
+
+1. Enable public network access to the workspace. For more information, see [public network access enabled](how-to-configure-private-link.md#enable-public-access).
+1. Add your IP addresses to the firewall for Azure Machine Learning. For more information, see [enable access only from IP ranges](how-to-configure-private-link.md#enable-public-access-only-from-internet-ip-ranges-preview).
 
 ## Private endpoints
 
@@ -1044,6 +1077,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Database for PostgreSQL
 * Azure Database for MySQL
 * Azure SQL Managed Instance
+* Azure API Management
 
 When you create a private endpoint, you provide the _resource type_ and _subresource_ that the endpoint connects to. Some resources have multiple types and subresources. For more information, see [what is a private endpoint](/azure/private-link/private-endpoint-overview).
 
@@ -1057,10 +1091,10 @@ When you create a private endpoint for Azure Machine Learning dependency resourc
 The Azure Machine Learning managed VNet feature is free. However, you're charged for the following resources that are used by the managed VNet:
 
 * Azure Private Link - Private endpoints used to secure communications between the managed VNet and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. The Azure Firewall (standard SKU) is provisioned by Azure Machine Learning.
+* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. The Azure Firewall (standard SKU) is provisioned by Azure Machine Learning.
 
     > [!IMPORTANT]
-    > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/) and view prices for the _standard_ version.
+    > The firewall isn't created until you add an outbound FQDN rule. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/) and view prices for the _standard_ version.
 
 ## Limitations
 
@@ -1070,6 +1104,7 @@ The Azure Machine Learning managed VNet feature is free. However, you're charged
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed VNet.
 * Kubernetes and attached VMs aren't supported in an Azure Machine Learning managed VNet.
+* Using FQDN outbound rules increases the cost of the managed VNet because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
 
 ### Migration of compute resources
 

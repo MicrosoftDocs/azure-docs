@@ -3,13 +3,13 @@ title: Frequently Asked Questions
 titleSuffix: Azure AI services
 description: Use this article to quickly get the answers to FAQ about conversational language understanding
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: faq
-ms.date: 09/29/2022
-ms.author: aahi
-ms.custom: ignite-fall-2021, mode-other
+ms.date: 12/19/2023
+ms.author: jboback
+ms.custom: mode-other
 ---
 
 # Frequently asked questions for conversational language understanding

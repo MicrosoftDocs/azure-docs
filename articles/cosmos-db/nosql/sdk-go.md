@@ -6,9 +6,9 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 04/24/2024
 ms.author: maquaran
-ms.custom: devx-track-go, ignite-2022
+ms.custom: devx-track-go
 ---
 # Azure Cosmos DB Go SDK for API for NoSQL: Download and release notes
 
@@ -24,10 +24,6 @@ ms.custom: devx-track-go, ignite-2022
 |**Samples**|[Code samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos#pkg-overview)|
 |**Get started**|[Get started with the Azure Cosmos DB Go SDK](quickstart-go.md)|
 
-> [!IMPORTANT]
-> The Go SDK for Azure Cosmos DB is currently in beta. This beta is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities.
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Release history
 

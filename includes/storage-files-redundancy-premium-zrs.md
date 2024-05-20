@@ -10,12 +10,15 @@ ZRS for premium file shares is available for a subset of Azure regions:
 
 - (Africa) South Africa North
 - (Asia Pacific) Australia East
-- (Asia Pacific) Japan East
+- (Asia Pacific) Australia South East
 - (Asia Pacific) China North 3
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Korea Central
 - (Asia Pacific) East Asia
+- (Asia Pacific) Japan East
 - (Asia Pacific) Central India
+- (Asia Pacific) South India
+- (Canada) Canada Central 
 - (Europe) France Central
 - (Europe) Germany West Central
 - (Europe) North Europe
@@ -25,7 +28,9 @@ ZRS for premium file shares is available for a subset of Azure regions:
 - (Europe) Norway East
 - (Europe) Sweden Central
 - (Europe) Switzerland North
+- (Europe) Italy North
 - (Middle East) Qatar Central
+- (Middle East) Israel Central
 - (Middle East) UAE North
 - (North America) East US
 - (North America) East US 2

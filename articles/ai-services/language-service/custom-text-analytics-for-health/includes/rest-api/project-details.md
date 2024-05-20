@@ -1,13 +1,12 @@
 ---
 titleSuffix: Azure AI services
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 04/14/2023
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 Use the following **GET** request to get your project details. Replace the placeholder values below with your own values. 

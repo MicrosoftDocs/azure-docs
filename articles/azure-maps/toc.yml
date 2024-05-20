@@ -44,24 +44,6 @@ items:
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
       href: weather-service-tutorial.md
-  - name: Migrate from Bing Maps
-    items:
-    - name: Migrate from Bing Maps
-      href: migrate-from-bing-maps.md
-    - name: Migrate a web app
-      href: migrate-from-bing-maps-web-app.md
-    - name: Migrate a web service
-      href: migrate-from-bing-maps-web-services.md
-  - name: Migrate from Google Maps
-    items:
-    - name: Migrate from Google Maps
-      href: migrate-from-google-maps.md
-    - name: Migrate a web app
-      href: migrate-from-google-maps-web-app.md
-    - name: Migrate an Android app
-      href: migrate-from-google-maps-android-app.md
-    - name: Migrate a web service
-      href: migrate-from-google-maps-web-services.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -110,6 +92,62 @@ items:
     href: weather-services-faq.yml
 - name: How-to guides
   items:
+  - name: Migrate from Bing Maps
+    items:
+    - name: Bing Maps migration overview
+      href: migrate-bing-maps-overview.md
+    - name: Migrate Web SDK
+      items:
+      - name: Migrate Web SDK
+        href: migrate-from-bing-maps-web-app.md
+      - name: Use Copilot to help migrate
+        href: migrate-help-using-copilot.md
+    - name: Migrate REST API
+      items:
+      - name: Bing Maps Imagery Services
+        items:
+        - name: Get Imagery Metadata
+          href: migrate-get-imagery-metadata.md
+      - name: Bing Maps Locations Services
+        items:
+        - name: Find a Location by Address
+          href: migrate-find-location-address.md
+        - name: Find a Location by Point
+          href: migrate-find-location-by-point.md
+        - name: Find a Location by Query
+          href: migrate-find-location-query.md
+      - name: Bing Maps Routes Services
+        items:
+        - name: Calculate a Route
+          href: migrate-calculate-route.md
+        - name: Calculate a Truck Route
+          href: migrate-calculate-truck-route.md
+      - name: Bing Maps Spatial Data Services (SDS)
+        items:
+        - name: Data Source Management
+          href: migrate-sds-data-source-management.md 
+        - name: Geocode Dataflow
+          href: migrate-geocode-dataflow.md
+        - name: Geodata
+          href: migrate-geodata.md
+      - name: Bing Maps Time Zone Services
+        items:
+        - name: Find Time Zone
+          href: migrate-find-time-zone.md
+      - name: Bing Maps Traffic Services
+        items:
+        - name: Get Traffic Incidents
+          href: migrate-get-traffic-incidents.md
+  - name: Migrate from Google Maps
+    items:
+    - name: Migrate from Google Maps
+      href: migrate-from-google-maps.md
+    - name: Migrate a web app
+      href: migrate-from-google-maps-web-app.md
+    - name: Migrate an Android app
+      href: migrate-from-google-maps-android-app.md
+    - name: Migrate a web service
+      href: migrate-from-google-maps-web-services.md          
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template
@@ -181,7 +219,7 @@ items:
       href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
-    - name: Web SDK v1 migration guide
+    - name: Web SDK migration guide
       href: web-sdk-migration-guide.md
     - name: Map control
       items:
@@ -283,6 +321,8 @@ items:
       href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
+    - name: Android SDK migration guide
+      href: android-sdk-migration-guide.md
     - name: The Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
@@ -319,6 +359,8 @@ items:
       href: android-map-events.md
   - name: Develop with the iOS SDK
     items:
+    - name: iOS SDK migration guide
+      href: ios-sdk-migration-guide.md
     - name: The iOS map control
       href: how-to-use-ios-map-control-library.md
     - name: Change the style of a map
@@ -367,6 +409,8 @@ items:
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
       href: power-bi-visual-add-bubble-layer.md
+    - name: Add a cluster bubble layer
+      href: power-bi-visual-cluster-bubbles.md
     - name: Add a pie chart layer
       href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a 3D column layer
@@ -383,6 +427,8 @@ items:
       href: power-bi-visual-on-object-interaction.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
+    - name: Power BI Azure Maps Visual Data Residency
+      href: power-bi-visual-data-residency.md
     - name: Manage access
       href: power-bi-visual-manage-access.md
     - name: Use Azure Maps in Power Apps
@@ -419,75 +465,11 @@ items:
       href: supported-search-categories.md
   - name: REST
     items:
-    - name: Overview
-      href: /rest/api/maps
-    - name: Data
-      href: /rest/api/maps/data
-    - name: Data V2
-      href: /rest/api/maps/data-v2
-    - name: Data Registry
-      href: /rest/api/maps/data-registry
-    - name: Geolocation
-      href: /rest/api/maps/geolocation
-    - name: Render
-      href: /rest/api/maps/render
-    - name: Render V2
-      href: /rest/api/maps/render-v2
-    - name: Route
-      href: /rest/api/maps/route
-    - name: Search
-      href: /rest/api/maps/search
-    - name: Search V2
-      href: /rest/api/maps/search-v2
-    - name: Spatial
-      href: /rest/api/maps/spatial
-    - name: Timezone
-      href: /rest/api/maps/timezone
-    - name: Traffic
-      href: /rest/api/maps/traffic
-    - name: Weather
-      href: /rest/api/maps/weather
-    - name: Maps Creator
-      items:
-      - name: Overview
-        href: /rest/api/maps-creator/
-      - name: 2023-03-01-preview
-        items:
-        - name: Alias
-          href: /rest/api/maps/2023-03-01-preview/alias
-        - name: Conversion
-          href: /rest/api/maps/2023-03-01-preview/conversion		
-        - name: Dataset
-          href: /rest/api/maps/2023-03-01-preview/dataset
-        - name: Feature State
-          href: /rest/api/maps/2023-03-01-preview/feature-state
-        - name: Features
-          href: /rest/api/maps/2023-03-01-preview/features
-        - name: Map configuration
-          href: /rest/api/maps/2023-03-01-preview/map-configuration
-        - name: Routeset
-          href: /rest/api/maps/2023-03-01-preview/routeset
-        - name: Style
-          href: /rest/api/maps/2023-03-01-preview/style
-        - name: Tileset
-          href: /rest/api/maps/2023-03-01-preview/tileset
-        - name: Wayfinding
-          href: /rest/api/maps/2023-03-01-preview/wayfinding
-      - name: V2
-        items:
-          - name: Alias
-            href: /rest/api/maps/v2/alias
-          - name: Conversion
-            href: /rest/api/maps/v2/conversion
-          - name: Dataset
-            href: /rest/api/maps/v2/dataset
-          - name: Feature State
-            href: /rest/api/maps/v2/feature-state
-          - name: Tileset
-            href: /rest/api/maps/v2/tileset
-          - name: WFS
-            href: /rest/api/maps/v2/wfs
-    - name: Maps account management
+    - name: Maps API
+      href: rest-api-azure-maps.md
+    - name: Maps Creator API
+      href: rest-api-creator.md
+    - name: Maps Management API
       href: /rest/api/maps-management/
   - name: JavaScript
     items:

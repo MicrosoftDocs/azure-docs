@@ -6,13 +6,13 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
 # Grant access to create Azure Enterprise subscriptions (legacy)
 
-As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
+As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
 
 > [!NOTE]
 > - This API only works with the [legacy APIs for subscription creation](programmatically-create-subscription-preview.md). 
@@ -191,7 +191,7 @@ To track the subscriptions created via this API, use the [Tenant Activity Log AP
 
 To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
 
-## Next steps
+## Related content
 
 * Now that the user or service principal has permission to create a subscription, you can use that identity to [programmatically create Azure Enterprise subscriptions](programmatically-create-subscription-enterprise-agreement.md).
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).

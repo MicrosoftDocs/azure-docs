@@ -11,8 +11,7 @@ author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 zone_pivot_groups: "openai-embeddings"
 recommendations: false
-ms.custom:
-
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Explore Azure OpenAI Service embeddings and document search
@@ -27,10 +26,7 @@ In this tutorial, you learn how to:
 > * Create environment variables for your resources endpoint and API key.
 > * Use the **text-embedding-ada-002 (Version 2)** model
 > * Use [cosine similarity](../concepts/understand-embeddings.md) to rank search results.
-
-> [!IMPORTANT]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.  
-
+ 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python](../includes/embeddings-python.md)]
 ::: zone-end
@@ -43,7 +39,7 @@ Using this approach, you can use embeddings as a search mechanism across documen
 
 ## Clean up resources
 
-If you created an OpenAI resource solely for completing this tutorial and want to clean up and remove an OpenAI resource, you'll need to delete your deployed models, and then delete the resource or associated resource group if it's dedicated to your test resource. Deleting the resource group also deletes any other resources associated with it.
+If you created an Azure OpenAI resource solely for completing this tutorial and want to clean up and remove an Azure OpenAI resource, you'll need to delete your deployed models, and then delete the resource or associated resource group if it's dedicated to your test resource. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
@@ -56,6 +52,7 @@ Learn more about Azure OpenAI's models:
 * Store your embeddings and perform vector (similarity) search using your choice of Azure service:
   * [Azure AI Search](../../../search/vector-search-overview.md)
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
+  * [Azure SQL Database](/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications?view=azuresql&preserve-view=true#vector-search)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
   * [Azure Cache for Redis](../../../azure-cache-for-redis/cache-tutorial-vector-similarity.md)

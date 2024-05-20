@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 12/14/2023
+ms.date: 12/15/2023
 
 
 ---
@@ -32,7 +32,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
    > Enterprise/Enterprise Flash tier does not support `publicNetworkAccess` flag.
 
 - Any external cache dependencies don't affect the VNet's NSG rules.
-- Persisting to any storage accounts protected with firewall rules is supported when using managed identity to connect to Storage account, see more [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
+- Persisting to any storage accounts protected with firewall rules is supported on the Premium tier when using managed identity to connect to Storage account, see more [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 
 ### Limitations of Private Link
 
@@ -75,7 +75,7 @@ Azure Cache for Redis allows configuring Firewall rules for specifying IP addres
 
 ### Limitations of firewall rules
 
-- Firewall rules can be used with VNet injected caches, but not private endpoints.
+- Firewall rules can be applied to a private endpoint cache only if the public network access is enabled. If public network access is enabled on the private endpoint cache with no firewall rules are configured, the cache accepts all public network traffic.  
 - Firewall rules configuration is available for all Basic, Standard, and Premium tiers.
 - Firewall rules configuration isn't available for Enterprise nor Enterprise Flash tiers.
 

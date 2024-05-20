@@ -3,20 +3,20 @@ title: LLMOps with prompt flow and Azure DevOps
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample LLMOps environment and pipeline on Azure DevOps for prompt flow project
 services: machine-learning
-author: jiaochenlu
+author: ritesh-modi
 ms.author: chenlujiao
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
 ms.reviewer: lagayhar
-ms.date: 10/24/2023
+ms.date: 01/02/2024
 ms.custom:
   - cli-v2
   - sdk-v2
   - ignite-2023
 ---
 
-# LLMOps with prompt flow and Azure DevOps (preview)
+# LLMOps with prompt flow and Azure DevOps
 
 Large Language Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
 
@@ -35,13 +35,15 @@ LLMOps with prompt flow is a "LLMOps template and guidance" to help you build LL
 
 - **Variant and Hyperparameter Experimentation**: Experiment with multiple variants and hyperparameters, evaluating flow variants with ease. Variants and hyperparameters are like ingredients in a recipe. This platform allows you to experiment with different combinations of variants across multiple nodes in a flow.
 
-- **Multiple Deployment Targets**: The repo supports deployment of flows to Kubernetes, Azure Managed computes driven through configuration ensuring that your flows can scale as needed.
+- **Multiple Deployment Targets**: The repo supports deployment of flows to **Azure App Services, Kubernetes, Azure Managed computes** driven through configuration ensuring that your flows can scale as needed. It also generates **Docker images** infused with Flow runtime and your flows for deployment to **any target platform and Operating system** supporting Docker.
     :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/endpoints.png" alt-text="Screenshot of endpoints." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/endpoints.png":::
 
 - **A/B Deployment**: Seamlessly implement A/B deployments, enabling you to compare different flow versions effortlessly. Just as in traditional A/B testing for websites, this platform facilitates A/B deployment for prompt flow. This means you can effortlessly compare different versions of a flow in a real-world setting to determine which performs best.
     :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/a-b-deployments.png" alt-text="Screenshot of deployments." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/a-b-deployments.png":::
 
 - **Many-to-many dataset/flow relationships**: Accommodate multiple datasets for each standard and evaluation flow, ensuring versatility in flow test and evaluation. The platform is designed to accommodate multiple datasets for each flow.
+
+- **Conditional Data and Model registration**: The platform creates a new version for dataset in Azure Machine Learning Data Asset and flows in model registry only when there is a change in them, not otherwise.
 
 - **Comprehensive Reporting**: Generate detailed reports for each variant configuration, allowing you to make informed decisions. Provides detailed Metric collection, experiment and variant bulk runs for all runs and experiments, enabling data-driven decisions in csv as well as HTML files.
     :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/variants.png" alt-text="Screenshot of flow variants report." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/variants.png":::
@@ -96,7 +98,7 @@ The repository for this article is available at [LLMOps with Prompt flow templat
 From here on, you can learn **LLMOps with prompt flow** by following the end-to-end samples we provided, which help you build LLM-infused applications using prompt flow and Azure DevOps. Its primary objective is to provide assistance in the development of such applications, leveraging the capabilities of prompt flow and LLMOps.
 
 > [!TIP]
-> We recommend you understand how we integrate [LLMOps with prompt flow](how-to-integrate-with-llm-app-devops.md).
+> We recommend you understand how to integrate [LLMOps with prompt flow](how-to-integrate-with-llm-app-devops.md).
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.

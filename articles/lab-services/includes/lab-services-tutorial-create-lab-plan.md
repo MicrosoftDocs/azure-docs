@@ -9,11 +9,11 @@ ms.service: lab-services
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 
-    :::image type="content" source="../media/lab-services-tutorial-create-lab-plan/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal home page, highlighting the Create a resource button.":::
+    :::image type="content" source="../media/lab-services-tutorial-create-lab-plan/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal home page, highlighting the Create a resource button." lightbox="../media/lab-services-tutorial-create-lab-plan/azure-portal-create-resource.png":::
 
-1. Enter **Lab Plan** in the search field, and then select **Create** > **Lab plan**.
+1. Enter *Lab Plan* in the search field, and then select **Create** > **Lab plan**.
 
-    :::image type="content" source="../media/lab-services-tutorial-create-lab-plan/select-lab-plans-service.png" alt-text="Screenshot of the Azure Marketplace and how to search for and create a lab plan resource.":::
+    :::image type="content" source="../media/lab-services-tutorial-create-lab-plan/select-lab-plans-service.png" alt-text="Screenshot of the Azure Marketplace and how to search for and create a lab plan resource." lightbox="../media/lab-services-tutorial-create-lab-plan/select-lab-plans-service.png":::
 
 1. On the **Basics** tab of the **Create a lab plan** page, provide the following information:
 
@@ -24,7 +24,7 @@ ms.service: lab-services
     | **Name** | Enter *MyLabPlan* as the lab plan name. |
     | **Region** | Select a geographic location to host your lab plan resource. |
 
-1. After you're finished configuring the resource, select **Review + Create**.
+1. After you finish configuring the resource, select **Review + Create**.
 
 1. Review all the configuration settings and select **Create** to start the deployment of the Lab Plan.
 
@@ -34,4 +34,4 @@ ms.service: lab-services
 
 1. Confirm that you see the Lab Plan **Overview** page for *MyLabPlan*.
 
-    :::image type="content" source="../media/lab-services-tutorial-create-lab-plan/lab-plan-page.png" alt-text="Screenshot that shows the lab plan overview page in the Azure portal.":::
+    :::image type="content" source="../media/lab-services-tutorial-create-lab-plan/lab-plan-page.png" alt-text="Screenshot that shows the lab plan overview page in the Azure portal." lightbox="../media/lab-services-tutorial-create-lab-plan/lab-plan-page.png":::

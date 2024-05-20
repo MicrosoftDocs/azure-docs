@@ -1,7 +1,7 @@
 ---
 title: Change storage account access keys
 titleSuffix: Azure Machine Learning
-description: Learn how to change the access keys for the Azure Storage account used by your workspace. Azure Machine Learning uses an Azure Storage account to store data and models. 
+description: Learn how to change the access keys for the Azure Storage account used by your workspace. Azure Machine Learning uses an Azure Storage account to store data and models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -10,7 +10,6 @@ ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
 ms.date: 11/01/2023
-ms.custom: event-tier1-build-2022, ignite-2022
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 

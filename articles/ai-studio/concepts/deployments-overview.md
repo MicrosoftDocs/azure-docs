@@ -2,14 +2,15 @@
 title: Deploy models, flows, and web apps with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn about deploying models, flows, and web apps with Azure AI Studio.
-author: eric-urban
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
 ms.date: 12/7/2023
-ms.author: eur
+ms.reviewer: fasantia
+ms.author: mopeakande
+author: msakande
 ---
 
 # Overview: Deploy models, flows, and web apps with Azure AI Studio
@@ -24,14 +25,14 @@ You often hear this interaction with a model referred to as "inferencing". Infer
 
 First you might ask:
 - "What models can I deploy?" Azure AI Studio supports deploying some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, and Meta.
-- "How do I choose the right model?" Azure AI Studio provides a [model catalog](../how-to/model-catalog.md) that allows you to search and filter models based on your use case. You can also test a model on a sample playground before deploying it to your project.
+- "How do I choose the right model?" Azure AI Studio provides a [model catalog](../how-to/model-catalog-overview.md) that allows you to search and filter models based on your use case. You can also test a model on a sample playground before deploying it to your project.
 - "From where in Azure AI Studio can I deploy a model?" You can deploy a model from the model catalog or from your project's deployment page.
 
 Azure AI Studio simplifies deployments. A simple select or a line of code deploys a model and generate an API endpoint for your applications to consume. 
 
 ### Azure OpenAI models
 
-Azure OpenAI allows you to get access to the latest OpenAI models with the enterprise features from Azure. Learn more about [how to deploy OpenAI models in AI studio](../how-to/deploy-models-openai.md).
+Azure OpenAI allows you to get access to the latest OpenAI models with the enterprise features from Azure. Learn more about [how to deploy OpenAI models in AI Studio](../how-to/deploy-models-openai.md).
 
 ### Open models
 
@@ -75,7 +76,7 @@ The model or flow that you deploy can be used in a web application hosted in Azu
 
 ## Planning AI safety for a deployed model
 
-For Azure OpenAI models such as GPT-4, Azure AI Studio provides AI safety filter during the deployment to ensure responsible use of AI. AI content safety filter allows moderation of harmful and sensitive contents to promote the safety of AI-enhanced applications. In addition to AI safety filter, Azure AI Studio offers model monitoring for deployed models. Model monitoring for LLMs uses the latest GPT language models to monitor and alert when the outputs of the model perform poorly against the set thresholds of generation safety and quality. For example, you can configure a monitor to evaluate how well the model’s generated answers align with information from the input source ("groundedness") and closely match to a ground truth sentence or document ("similarity"). 
+For Azure OpenAI models such as GPT-4, Azure AI Studio provides AI safety filter during the deployment to ensure responsible use of AI. AI content safety filter allows moderation of harmful and sensitive contents to promote the safety of AI-enhanced applications. In addition to AI safety filter, Azure AI Studio offers model monitoring for deployed models. Model monitoring for LLMs uses the latest GPT language models to monitor and alert when the outputs of the model perform poorly against the set thresholds of generation safety and quality. For example, you can configure a monitor to evaluate how well the model's generated answers align with information from the input source ("groundedness") and closely match to a ground truth sentence or document ("similarity"). 
 
 ## Optimizing the performance of a deployed model
 

@@ -5,6 +5,7 @@ ms.author: qpetraroia
 ms.topic: tutorial
 ms.custom: build-2023
 ms.date: 05/10/2023
+ms.subservice: aks-developer
 author: qpetraroia
 ---
 
@@ -88,3 +89,4 @@ Learn more about [GitHub Actions for Kubernetes][kubernetes-action].
 
 <!-- LINKS -->
 [kubernetes-action]: kubernetes-action.md
+

@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
- author: eur
- ms.author: eric-urban
- ms.service: azure-ai-services
- ms.topic: include
- ms.date: 12/1/2023
- ms.custom: include
+title: include file
+description: include file
+author: eric-urban
+ms.author: eur
+ms.service: azure-ai-speech
+ms.topic: include
+ms.date: 2/18/2024
+ms.custom: include
 ---
 
 
@@ -40,16 +40,16 @@ The language of the training data must be one of the [languages that are support
 
 # [Neural](#tab/neural)
 
-To create a neural voice, use the `Models_Create` operation of the custom voice API. Construct the request body according to the following instructions:
+To create a neural voice, use the [Models_Create](/rest/api/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
 - Set the required `trainingSetId` property. See [create a training set](../../../../professional-voice-create-training-set.md).
-- Set the required recipe `kind` property to `Default` for neural voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model).
+- Set the required recipe `kind` property to `Default` for neural voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model). See [Bilingual training](#bilingual-training) for more information about bilingual training and differences between locales.
 - Set the required `voiceName` property. The voice name must end with "Neural" and can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP PUT request using the URI as shown in the following `Models_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/speechapi/models/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
@@ -93,7 +93,7 @@ You should receive a response body in the following format:
 
 # [Neural - cross lingual](#tab/crosslingual)
 
-To create a cross lingual neural voice, use the `Models_Create` operation of the custom voice API. Construct the request body according to the following instructions:
+To create a cross lingual neural voice, use the [Models_Create](/rest/api/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
@@ -103,7 +103,7 @@ To create a cross lingual neural voice, use the `Models_Create` operation of the
 - Set the required `locale` property for the language that your voice speaks. The voice speaks a different language from your training data. You can specify only one target language for a voice model.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP PUT request using the URI as shown in the following `Models_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/speechapi/models/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
@@ -146,7 +146,7 @@ You should receive a response body in the following format:
 
 # [Neural - multi style](#tab/multistyle)
 
-To create a multi-style neural voice, use the `Models_Create` operation of the custom voice API. Construct the request body according to the following instructions:
+To create a multi-style neural voice, use the [Models_Create](/rest/api/speechapi/models/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
@@ -161,7 +161,7 @@ To create a multi-style neural voice, use the `Models_Create` operation of the c
     - For each dictionary value, specify the ID of a training set that you [already created](../../../../professional-voice-create-training-set.md#add-a-professional-voice-training-dataset) for the same voice model. The training set must contain at least 100 utterances for each style.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP PUT request using the URI as shown in the following `Models_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following [Models_Create](/rest/api/speechapi/models/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
@@ -227,6 +227,12 @@ You should receive a response body in the following format:
 }
 ```
 
+---
+
+### Bilingual training
+
+[!INCLUDE [Bilingual training](./bilingual-training.md)]
+
 ## Available preset styles across different languages
 
 The following table summarizes the different preset styles according to different languages.
@@ -237,9 +243,9 @@ The following table summarizes the different preset styles according to differen
 
 ## Get training status
 
-To get the training status of a voice model, use the `Models_Get` operation of the custom voice API. Construct the request URI according to the following instructions:
+To get the training status of a voice model, use the [Models_Get](/rest/api/speechapi/models/get) operation of the custom voice API. Construct the request URI according to the following instructions:
 
-Make an HTTP GET request using the URI as shown in the following `Models_Get` example. 
+Make an HTTP GET request using the URI as shown in the following [Models_Get](/rest/api/speechapi/models/get) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` if you specified a different model ID in the previous step.

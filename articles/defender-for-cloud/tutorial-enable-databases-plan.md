@@ -85,4 +85,3 @@ These plans protect all of the supported databases in your subscription.
 - [Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)
 - [Overview of Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Overview of Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
-

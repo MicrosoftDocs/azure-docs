@@ -6,6 +6,7 @@ ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 12/01/2023
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
@@ -57,7 +58,7 @@ The main differences between these options are listed in the following table:
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Supported with TLS v1.2, 1.1 and 1.0 |
 | Data Encryption at rest | Supported with customer-managed keys (BYOK) | Supported with service managed keys | Not Supported |
 | Microsoft Entra authentication | Supported | Supported | Not Supported |
-| Microsoft Defender for Cloud support | Yes | No | No |
+| Microsoft Defender for Cloud support | Yes | Yes | No |
 | Server Audit | Supported | Supported | User Managed |
 | [**Patching & Maintenance**](flexible-server/concepts-maintenance.md) | | |
 | Operating system patching | Automatic | Automatic | User managed |

@@ -2,14 +2,19 @@
 title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 11/13/2023
-ms.custom: contperf-fy21q1, contperf-fy21q3-portal, devx-track-arm-template
+ms.date: 02/16/2024
+ms.custom: devx-track-arm-template
 ---
+
 # What is Azure Resource Manager?
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
 To learn about Azure Resource Manager templates (ARM templates), see the [ARM template overview](../templates/overview.md). To learn about Bicep, see [Bicep overview](../bicep/overview.md).
+
+The following video covers basic concepts of Azure Resource Manager.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d257e6ec-abab-47f4-a209-22049e7a40b4]
 
 ## Consistent management layer
 
@@ -19,7 +24,7 @@ The following image shows the role Azure Resource Manager plays in handling Azur
 
 :::image type="content" source="./media/overview/consistent-management-layer.png" alt-text="Diagram that shows the role of Azure Resource Manager in handling Azure requests." border="false":::
 
-All capabilities that are available in the portal are also available through PowerShell, Azure CLI, REST APIs, and client SDKs. Functionality initially released through APIs will be represented in the portal within 180 days of initial release.
+All capabilities that are available in the portal are also available through PowerShell, Azure CLI, REST APIs, and client SDKs. Functionality initially released through APIs are represented in the portal within 180 days of initial release.
 
 > [!IMPORTANT]
 > Azure Resource Manager will only support Transport Layer Security (TLS) 1.2 or later by Fall 2023. For more information, see [Migrating to TLS 1.2 for Azure Resource Manager](tls-support.md).
@@ -33,7 +38,8 @@ If you're new to Azure Resource Manager, there are some terms you might not be f
 * **resource provider** - A service that supplies Azure resources. For example, a common resource provider is `Microsoft.Compute`, which supplies the virtual machine resource. `Microsoft.Storage` is another common resource provider. See [Resource providers and types](resource-providers-and-types.md).
 * **declarative syntax** - Syntax that lets you state "Here's what I intend to create" without having to write the sequence of programming commands to create it. ARM templates and Bicep files are examples of declarative syntax. In those files, you define the properties for the infrastructure to deploy to Azure.
 * **ARM template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](../templates/overview.md).
-* **Bicep file** - A file for declaratively deploying Azure resources. Bicep is a language that's been designed to provide the best authoring experience for infrastructure as code solutions in Azure. See [Bicep overview](../bicep/overview.md).
+* **Bicep file** - A file for declaratively deploying Azure resources. Bicep is a language that was designed to provide the best authoring experience for infrastructure as code solutions in Azure. See [Bicep overview](../bicep/overview.md).
+* **extension resource** - A resource that adds to another resource's capabilities. For example, a role assignment is an extension resource. You apply a role assignment to any other resource to specify access. See [Extension resources](./extension-resource-types.md).
 
 For more definitions of Azure terminology, see [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts).
 
@@ -57,7 +63,7 @@ With Resource Manager, you can:
 
 ## Understand scope
 
-Azure provides four levels of scope: [management groups](../../governance/management-groups/overview.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
+Azure provides four levels of management scope: [management groups](../../governance/management-groups/overview.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
 
 :::image type="content" source="./media/overview/scope-levels.png" alt-text="Diagram that illustrates the four levels of scope in Azure: management groups, subscriptions, resource groups, and resources." border="false":::
 
@@ -91,11 +97,11 @@ There are some important factors to consider when defining your resource group:
 
   To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to your current location. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
   
-  If a resource group's region is temporarily unavailable, you may not be able to update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you may not be able to update them. This condition may also apply to global resources like Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door. You can view which types have their metadata managed by Azure Resource Manager via the [list of types for the Azure Resource Graph resources table](../../governance/resource-graph/reference/supported-tables-resources.md#resources).
+  If a resource group's region is temporarily unavailable, you may not be able to update resources in the resource group because the metadata is unavailable. The resources in other regions still function as expected, but you may not be able to update them. This condition may also apply to global resources like Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door. You can view which types have their metadata managed by Azure Resource Manager via the [list of types for the Azure Resource Graph resources table](../../governance/resource-graph/reference/supported-tables-resources.md#resources).
    
   For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
-* A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [Azure roles](../../role-based-access-control/role-assignments-portal.md), or [resource locks](lock-resources.md).
+* A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [Azure roles](../../role-based-access-control/role-assignments-portal.yml), or [resource locks](lock-resources.md).
 
 * You can [apply tags](tag-resources.md) to a resource group. The resources in the resource group don't inherit those tags.
 
@@ -123,10 +129,21 @@ The Azure Resource Manager service is designed for resiliency and continuous ava
 
 This resiliency applies to services that receive requests through Resource Manager. For example, Key Vault benefits from this resiliency.
 
-### Resource group location alignment
-To reduce the likelihood of being impacted by region outages, if they occur, it's recommended to co-locate your resources with their resource group in the same region together. 
-The resource group location is used to determine the location where Azure Resource Manager will store metadata related to all the resources within the resource group, which is then used for routing and caching. For instance, when you list your resources at the subscription or resource group scopes, Azure Resource Manager responds based off this cache.
-When the resource group's region is unavailable, Azure Resource Manager may be unable to update your resource's metadata and may block your write calls. By co-locating your resource and resource group region, you can reduce your chance of being affected by region unavailability since your resource and resource management metadata will all be stored in one region instead of multiple.
+## Resource group location alignment
+
+To reduce the impact of regional outages, we recommend that you locate resources in the same region as the resource group.
+
+The resource group location is where Azure Resource Manager stores metadata for the resources in the resource group. Azure Resource Manager uses this location for routing and caching. For example, when you list your resources at the subscription or resource group scopes, Azure Resource Manager gets the information from the cache.
+
+When the resource group's region is unavailable, Azure Resource Manager is unable to update your resource's metadata and blocks your write calls. By colocating your resource and resource group region, you reduce the risk of region unavailability because your resources and metadata exist in one region instead of multiple regions.
+
+## Resolve concurrent operations
+
+When two or more operations try to update the same resource at the same time, Azure Resource Manager detects the conflict and permits only one operation to complete successfully. Azure Resource Manager blocks the other operations and returns an error.
+
+Concurrent resource updates can cause unexpected results. This resolution ensures that your updates are deterministic and reliable. You know the status of your resources and avoid any inconsistency or data loss.  
+
+Suppose you have two requests (A and B) that try to update the same resource at the same time. If request A finishes before request B, request A succeeds and request B fails. Request B returns the 409 error. After getting that error code, you can get the updated status of the resource and determine if you want to resend request B.
 
 ## Next steps
 

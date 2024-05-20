@@ -27,7 +27,7 @@ P2S connections don't require a VPN device or a public-facing IP address. P2S cr
 
 * OpenVPN® Protocol, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux and Mac devices (macOS versions 10.13 and above).
 
-* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
+* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Windows, Linux and Mac devices (macOS versions 10.11 and above).
 
 For this configuration, connections require the following:
 

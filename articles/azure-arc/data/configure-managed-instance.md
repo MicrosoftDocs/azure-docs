@@ -1,8 +1,8 @@
 ---
 title: Configure SQL Managed Instance enabled by Azure Arc
 description: Configure SQL Managed Instance enabled by Azure Arc.
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray, randolphwest
 ms.date: 12/05/2023
 ms.service: azure-arc
@@ -114,7 +114,7 @@ spec:
 
 If you already have an existing SQL managed instance enabled by Azure Arc, you can run `kubectl edit sqlmi <sqlminame> -n <namespace>` and add the above options into the spec.
 
-Sample Azure Arc-enabled SQL Managed Instance YAML file:
+Example YAML file:
 
 ```yml
 apiVersion: sql.arcdata.microsoft.com/v13

@@ -5,8 +5,8 @@ ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback
-ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
+ms.date: 12/19/2023
+ms.custom: language-service-question-answering
 ---
 
 # Improve quality of response with synonyms
@@ -109,4 +109,3 @@ As you can see, when `troubleshoot` was not added as a synonym, we got a low con
 
 
 ## Next steps
-

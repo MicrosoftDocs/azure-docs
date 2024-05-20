@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 01/11/2023
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q4
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -214,7 +213,7 @@ Use these steps to create the role assignment for your registration.
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the appropriate role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the appropriate role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |

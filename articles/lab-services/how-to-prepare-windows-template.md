@@ -3,7 +3,7 @@ title: Prepare Windows lab template
 description: Prepare a Windows-based lab template in Azure Lab Services. Configure commonly used software and OS settings, such as Windows Update, OneDrive, and Microsoft 365.
 services: lab-services
 ms.service: lab-services
-ms.custom: has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -68,11 +68,9 @@ Folders like Documents, Downloads, and Pictures are often used to store lab user
         Learn how to [find your Microsoft 365 organization ID](/onedrive/find-your-office-365-tenant-id).  Alternately, you can also get the organization ID by using the following PowerShell script:
 
         ```powershell
-        Install-Module MSOnline -Confirm
-        Connect-MsolService
-        $officeTenantID = Get-MSOLCompanyInformation |
-            Select-Object -expand objectID |
-            Select-Object -expand Guid
+        Install-Module Microsoft.Graph -Scope CurrentUser
+        Connect-MgGraph -Scopes "User.Read"
+        $officeTenantID = Get-MgOrganization | Select-Object -expand Id
         ```
 
     1. Configure OneDrive to prompt to move known folders to OneDrive by using the following PowerShell script:

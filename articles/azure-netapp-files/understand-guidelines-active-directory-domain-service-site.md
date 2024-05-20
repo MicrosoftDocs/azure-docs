@@ -2,15 +2,8 @@
 title: Understand guidelines for Active Directory Domain Services site design and planning
 description: Proper Active Directory Domain Services (AD DS) design and planning are key to solution architectures that use Azure NetApp Files volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2023
 ms.author: anfdocs
@@ -33,7 +26,6 @@ Azure NetApp Files supports identity-based authentication over SMB through the f
 * **Microsoft Entra Domain Services authentication**: Cloud-based, Microsoft Entra Domain Services-joined Windows VMs can access Azure NetApp Files file shares with Microsoft Entra Domain Services credentials. In this solution, Microsoft Entra Domain Services runs a traditional Windows Server AD domain on behalf of the customer.
 * **Microsoft Entra Kerberos for hybrid identities**: Using Microsoft Entra ID for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Microsoft Entra users to access Azure NetApp Files file shares using Kerberos authentication. This means your end users can access Azure NetApp Files file shares without requiring a line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined Windows or Linux virtual machines. *Cloud-only identities aren't currently supported.*
 * **AD Kerberos authentication for Linux clients**: Linux clients can use Kerberos authentication over SMB for Azure NetApp Files using AD DS.
-
 
 ### <a name="network-requirements"></a>Network requirements 
 
@@ -61,6 +53,7 @@ The required network ports are as follows:
 | Kerberos | 88 | UDP |
 | LDAP | 389 | TCP |
 | LDAP | 389 | UDP |
+| LDAP | 389 | TLS | 
 | LDAP | 3268 | TCP |
 | NetBIOS name | 138 | UDP |
 | SAM/LSA | 445 | TCP |
@@ -79,7 +72,7 @@ Ensure that you meet the following requirements about the DNS configurations:
     * Ensure that DNS servers have network connectivity to the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Ensure that network ports UDP 53 and TCP 53 are not blocked by firewalls or NSGs.
 * Ensure that [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers.
-* Ensure that the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers.
+* Ensure the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers in the same domain as your Azure NetApp Files configuration.
 * Azure NetApp Files doesn’t automatically delete pointer records (PTR) associated with DNS entries when a volume is deleted. PTR records are used for reverse DNS lookups, which map IP addresses to hostnames. They are typically managed by the DNS server's administrator.
 When you create a volume in Azure NetApp Files, you can associate it with a DNS name. However, the management of DNS records, including PTR records, is outside the scope of Azure NetApp Files. Azure NetApp Files provides the option to associate a volume with a DNS name for easier access, but it doesn't manage the DNS records associated with that name. 
 If you delete a volume in Azure NetApp Files, the associated DNS records (such as the A records for forwarding DNS lookups) need to be managed and deleted from the DNS server or the DNS service you are using.
@@ -199,7 +192,7 @@ An AD DS site topology is a logical representation of the network where Azure Ne
 
 The following diagram shows a sample network topology:
 sample-network-topology.png
-:::image type="content" source="../media/azure-netapp-files/sample-network-topology.png" alt-text="Diagram illustrating network topology." lightbox="../media/azure-netapp-files/sample-network-topology.png":::
+:::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/sample-network-topology.png" alt-text="Diagram illustrating network topology." lightbox="./media/understand-guidelines-active-directory-domain-service-site/sample-network-topology.png":::
 
 In the sample network topology, an on-premises AD DS domain (`anf.local`) is extended into an Azure virtual network. The on-premises network is connected to the Azure virtual network using an Azure ExpressRoute circuit. 
 
@@ -209,17 +202,17 @@ Azure NetApp Files can only use one AD DS site to determine which domain control
 
 In the Active Directory Sites and Services tool, verify that the AD DS domain controllers deployed into the AD DS subnet are assigned to the `ANF` site: 
 
-:::image type="content" source="../media/azure-netapp-files/active-directory-servers.png" alt-text="Screenshot of the Active Directory Sites and Services window with a red box drawing attention to the ANF > Servers directory." lightbox="../media/azure-netapp-files/active-directory-servers.png":::
+:::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/active-directory-servers.png" alt-text="Screenshot of the Active Directory Sites and Services window with a red box drawing attention to the ANF > Servers directory." lightbox="./media/understand-guidelines-active-directory-domain-service-site/active-directory-servers.png":::
 
 To create the subnet object that maps to the AD DS subnet in the Azure virtual network, right-click the **Subnets** container in the **Active Directory Sites and Services** utility and select **New Subnet...**.
  
 In the **New Object - Subnet** dialog, the 10.0.0.0/24 IP address range for the AD DS Subnet is entered in the **Prefix** field. Select `ANF` as the site object for the subnet. Select **OK** to create the subnet object and assign it to the `ANF` site.
 
-:::image type="content" source="../media/azure-netapp-files/new-object-subnet-menu.png" alt-text="Screenshot of the New Object – Subnet menu." lightbox="../media/azure-netapp-files/new-object-subnet-menu.png":::
+:::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/new-object-subnet-menu.png" alt-text="Screenshot of the New Object – Subnet menu." lightbox="./media/understand-guidelines-active-directory-domain-service-site/new-object-subnet-menu.png":::
 
 To verify that the new subnet object is assigned to the correct site, right-click the 10.0.0.0/24 subnet object and select **Properties**. The **Site** field should show the `ANF` site object:
 
-:::image type="content" source="../media/azure-netapp-files/properties-menu.png" alt-text="Screenshot of the properties menu with a red box surrounding the site field that reads 'ANF'." lightbox="../media/azure-netapp-files/properties-menu.png":::
+:::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/properties-menu.png" alt-text="Screenshot of the properties menu with a red box surrounding the site field that reads 'ANF'." lightbox="./media/understand-guidelines-active-directory-domain-service-site/properties-menu.png":::
 
 To create the subnet object that maps to the Azure NetApp Files delegated subnet in the Azure virtual network, right-click the **Subnets** container in the **Active Directory Sites and Services** utility and select **New Subnet...**.
 

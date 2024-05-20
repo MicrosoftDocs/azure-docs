@@ -10,6 +10,9 @@ ms.author: patricka
 
 In this tutorial, you use the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.
 
+> [!IMPORTANT]
+> The Azure IoT Edge Visual Studio Code extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+
 You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](/azure/container-registry/index) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry.
 
 If you don't already have a container registry, follow these steps to create a new one in Azure:

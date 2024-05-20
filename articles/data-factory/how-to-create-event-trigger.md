@@ -5,11 +5,11 @@ description: Learn how to create a trigger in an Azure Data Factory or Azure Syn
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 01/05/2024
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event

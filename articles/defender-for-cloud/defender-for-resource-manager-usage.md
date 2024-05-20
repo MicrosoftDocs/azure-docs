@@ -23,7 +23,7 @@ Security alerts from Defender for Resource Manager are based on threats detected
 
 Defender for Resource Manager provides visibility into activity that comes from third party service providers that have delegated access as part of the resource manager alerts. For example, `Azure Resource Manager operation from suspicious proxy IP address - delegated access`.
 
-`Delegated access` refers to access with [Azure Lighthouse](/azure/lighthouse/overview) or with [Delegated administration privileges](/partner-center/dap-faq). 
+`Delegated access` refers to access with [Azure Lighthouse](../lighthouse/overview.md) or with [Delegated administration privileges](/partner-center/dap-faq).
 
 Alerts that show `Delegated access` also include a customized description and remediation steps.
 
@@ -45,7 +45,7 @@ To investigate security alerts from Defender for Resource Manager:
 > [!TIP]
 > For a better, richer investigation experience, stream your Azure activity logs to Microsoft Sentinel as described in [Connect data from Azure Activity log](../sentinel/data-connectors/azure-activity.md).
 
-## Step 3: Immediate mitigation 
+## Step 3: Immediate mitigation
 
 1. Remediate compromised user accounts:
     - If they’re unfamiliar, delete them as they might have been created by a threat actor
@@ -71,4 +71,3 @@ This page explained the process of responding to an alert from Defender for Reso
 - [Overview of Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Suppress security alerts](alerts-suppression-rules.md)
 - [Continuously export Defender for Cloud data](continuous-export.md)
-

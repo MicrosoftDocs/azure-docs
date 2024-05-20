@@ -61,7 +61,7 @@ If the image files you use are large, it affects the response time of the Face s
 The quality of the input images affects both the accuracy and the latency of the Face service. Images with lower quality may result in erroneous results. Images of higher quality may enable more precise interpretations. However, images of higher quality also increase the network latency due to their larger file sizes. The service requires more time to receive the entire file from the client and to process it, in proportion to the file size. Above a certain level, further quality enhancements won't significantly improve the accuracy.
 
 To achieve the optimal balance between accuracy and speed, follow these tips to optimize your input data. 
-- For face detection and recognition operations, see [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).
+- For face detection and recognition operations, see [input data for face detection](../concept-face-detection.md#input-requirements) and [input data for face recognition](../concept-face-recognition.md#input-requirements).
 - For liveness detection, see the [tutorial](../Tutorials/liveness.md#select-a-good-reference-image). 
 
 #### Other file size tips

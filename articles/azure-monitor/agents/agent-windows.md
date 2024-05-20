@@ -48,7 +48,7 @@ The change doesn't require any customer action unless you're running the agent o
 See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements) for the network requirements for the Windows agent.
  
 ### Configure Agent to use TLS 1.2
-[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) protocol ensures the security of data in transit for communication between the Windows agent and the Log Analytics service. If you're installing on an [operating system without TLS 1.2 enabled by default](../logs/data-security.md#sending-data-securely-using-tls-12), then you should configure TLS 1.2 using the steps below.
+[TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) protocol ensures the security of data in transit for communication between the Windows agent and the Log Analytics service. If you're installing on an [operating system without TLS enabled by default](../logs/data-security.md#sending-data-securely-using-tls), then you should configure TLS 1.2 using the steps below.
 
 1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**.
 1. Create a subkey under **Protocols** for TLS 1.2: **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**.
@@ -76,7 +76,7 @@ Regardless of the installation method used, you'll require the workspace ID and 
 > You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#add-or-remove-a-workspace) after installation by updating the settings from Control Panel or PowerShell.
 
 >[!NOTE]
->While regenerating the [Log Analytics Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
+>While regenerating the Log Analytics Workspace shared keys is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
 
 ## Install the agent 
 
@@ -212,7 +212,7 @@ To retrieve the product code from the agent install package directly, you can us
 
 After installation of the agent is finished, you can verify that it's successfully connected and reporting in two ways.
 
-From the computer in **Control Panel**, find the item **Microsoft Monitoring Agent**. Select it, and on the **Azure Log Analytics** tab, the agent should display a message stating *The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.*
+From **System and Security** in **Control Panel**, find the item **Microsoft Monitoring Agent**. Select it, and on the **Azure Log Analytics** tab, the agent should display a message stating *The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.*
 <!-- convertborder later -->
 :::image type="content" source="media/agent-windows/log-analytics-mma-laworkspace-status.png" lightbox="media/agent-windows/log-analytics-mma-laworkspace-status.png" alt-text="Screenshot that shows the MMA connection status to Log Analytics message." border="false":::
 

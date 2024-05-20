@@ -2,7 +2,7 @@
 title: Troubleshoot Artifact Cache
 description: Learn how to troubleshoot the most common problems for a registry enabled with the Artifact Cache feature.
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 10/31/2023
 ms.author: tejaswikolli
 ms.service: container-registry
 ---

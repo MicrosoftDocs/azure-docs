@@ -4,7 +4,6 @@ description: This article describes how to troubleshoot common errors that might
 ms.topic: troubleshooting
 ms.date: 11/02/2023
 ms.service: backup
-ms.custom: ignite-2022
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

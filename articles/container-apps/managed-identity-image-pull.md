@@ -17,6 +17,8 @@ You can pull images from private repositories in Microsoft Azure Container Regis
 
 With a system-assigned managed identity, the identity is created and managed by Azure Container Apps.  The identity is tied to your container app and is deleted when your app is deleted.   With a user-assigned managed identity, you create and manage the identity outside of Azure Container Apps.  It can be assigned to multiple Azure resources, including Azure Container Apps.
 
+Container Apps checks for a new version of the image whenever a container is started. In Docker or Kubernetes terminology, Container Apps sets each container's image pull policy to `always`.
+
 ::: zone pivot="azure-portal"
 
 This article describes how to use the Azure portal to configure your container app to use user-assigned and system-assigned managed identities to pull images from private Azure Container Registry repositories.
@@ -27,13 +29,25 @@ The following steps describe the process to configure your container app to use 
 
 1. Create a container app with a public image.
 1. Add the user-assigned managed identity to the container app.
-1. Create a container app revision with a private image and the system-assigned managed identity.
+1. Create a container app revision with a private image and the user-assigned managed identity.
 
 ### Prerequisites
 
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - A private Azure Container Registry containing an image you want to pull.
+- Your Azure Container Registry must allow ARM audience tokens for authentication in order to use managed identity to pull images.
+    Use the following command to check if ARM tokens are allowed to access your ACR:
+
+    ```azurecli
+    az acr config authentication-as-arm show -r <REGISTRY>
+    ```
+
+    If ARM tokens are disallowed, you can allow them with the following command:
+
+    ```azurecli
+    az acr config authentication-as-arm update -r <REGISTRY> --status enabled
+    ```
 - Create a user-assigned managed identity. For more information, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 ### Create a container app 
@@ -103,6 +117,16 @@ You can verify that the role was added by checking the identity from the **Ident
 1. Select the user-assigned managed identity.
 1. Select **Azure role assignments** from the menu on the managed identity resource page.
 1. Verify that the `acrpull` role is assigned to the user-assigned managed identity.
+
+### Create a container app with a private image
+
+If you don't want to start by creating a container app with a public image, you can also do the following.
+
+1. Create a user-assigned managed identity.
+1. Add the `acrpull` role to the user-assigned managed identity.
+1. Create a container app with a private image and the user-assigned managed identity.
+
+This method is typical in Infrastructure as Code (IaC) scenarios.
 
 ### Clean up resources
 
@@ -540,7 +564,7 @@ az containerapp create \
   --name $CONTAINERAPP_NAME \
   --resource-group $RESOURCE_GROUP \
   --environment $CONTAINERAPPS_ENVIRONMENT \
-  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+  --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
   --ingress external
 ```
@@ -550,7 +574,7 @@ az containerapp create \
 ```powershell
 $ImageParams = @{
     Name = "my-container-app"
-    Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
+    Image = "mcr.microsoft.com/k8se/quickstart:latest"
 }
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 $EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id

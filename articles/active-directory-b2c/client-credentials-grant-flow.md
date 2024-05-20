@@ -6,11 +6,14 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 11/21/2023
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer, I want to set up OAuth 2.0 client credentials flow in Azure Active Directory B2C, so that I can authenticate my app and call web resources without user interaction.
+
 ---
 
 # Set up OAuth 2.0 client credentials flow in Azure Active Directory B2C

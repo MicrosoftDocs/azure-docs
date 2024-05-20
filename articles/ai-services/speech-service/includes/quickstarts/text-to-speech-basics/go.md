@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 08/25/2023
+ms.date: 2/1/2024
 ms.author: eur
 ---
 
@@ -24,9 +24,9 @@ Install the Speech SDK for Go. For requirements and instructions, see [Install t
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new Go module.
+Follow these steps to create a Go module.
 
-1. Open a console window where you want the new module, and then create a new file named *speech-synthesis.go*.
+1. Open a command prompt window in the folder where you want the new project. Create a new file named *speech-synthesis.go*.
 1. Copy the following code into *speech-synthesis.go*:
 
     ```go
@@ -82,7 +82,7 @@ Follow these steps to create a new Go module.
         }
         defer speechConfig.Close()
 
-        speechConfig.SetSpeechSynthesisVoiceName("en-US-JennyNeural")
+        speechConfig.SetSpeechSynthesisVoiceName("en-US-AvaMultilingualNeural")
 
         speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
         if err != nil {
@@ -134,7 +134,7 @@ Follow these steps to create a new Go module.
     }
     ```
 
-1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
+1. To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
    All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
@@ -146,7 +146,7 @@ Follow these steps to create a new Go module.
    ```
 
    > [!IMPORTANT]
-   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described in [Set environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
+   > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` [environment variables](#set-environment-variables). If you don't set these variables, the sample fails with an error message.
 
 1. Now build and run the code:
 
@@ -154,6 +154,12 @@ Follow these steps to create a new Go module.
    go build
    go run speech-synthesis
    ```
+
+## Remarks
+
+### OpenAI text to speech voices in Azure AI Speech
+
+OpenAI text to speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-AvaMultilingualNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
 
 ## Clean up resources
 

@@ -59,7 +59,7 @@ By default, a listing operation returns blobs in a flat listing. In a flat listi
 
 The following example lists the blobs in the specified container using a flat listing:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py" id="Snippet_list_blobs_flat":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_list_blobs.py" id="Snippet_list_blobs_flat":::
 
 Sample output is similar to:
 
@@ -73,7 +73,7 @@ Name: folderA/folderB/file3.txt
 
 You can also specify options to filter list results or show additional information. The following example lists blobs and blob tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py" id="Snippet_list_blobs_flat_options":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_list_blobs.py" id="Snippet_list_blobs_flat_options":::
 
 Sample output is similar to:
 
@@ -98,7 +98,7 @@ To list blobs hierarchically, use the following method:
 
 The following example lists the blobs in the specified container using a hierarchical listing:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py" id="Snippet_list_blobs_hierarchical":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_list_blobs.py" id="Snippet_list_blobs_hierarchical":::
 
 Sample output is similar to:
 
@@ -131,11 +131,11 @@ Follow these steps to list blobs using asynchronous APIs:
 
 1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that lists the blobs. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs-async.py" id="Snippet_create_client_async":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_list_blobs_async.py" id="Snippet_create_client_async":::
 
 1. Add code to list the blobs. The following code example lists blobs using a flat listing. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and `async for` is used when calling the `list_blobs` method.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs-async.py" id="Snippet_list_blobs_flat":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_list_blobs_async.py" id="Snippet_list_blobs_flat":::
 
 With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
@@ -151,7 +151,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs-async.py) code samples from this article (GitHub)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_list_blobs.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_list_blobs_async.py) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

@@ -27,7 +27,7 @@ A suite of features within Azure container registry. See [Frequently asked quest
 
 ### **Adaptive network hardening**
 
-Adaptive network hardening provides recommendations to further harden the [network security groups (NSG)](../virtual-network/network-security-groups-overview.md) rules. See [What is Adaptive Network Hardening?](../defender-for-cloud/adaptive-network-hardening.md#what-is-adaptive-network-hardening).
+Adaptive network hardening provides recommendations to further harden the [network security groups (NSG)](../virtual-network/network-security-groups-overview.md) rules. See [What is Adaptive Network Hardening?](adaptive-network-hardening.md#what-is-adaptive-network-hardening).
 
 ### **ADO**
 
@@ -35,7 +35,7 @@ Azure DevOps provides developer services for allowing teams to plan work, collab
 
 ### **AKS**
 
-Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications. See [Kubernetes concepts](/azure-stack/aks-hci/kubernetes-concepts).
+Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications. See [Kubernetes concepts](/azure/aks/hybrid/kubernetes-concepts).
 
 ### **Alerts**
 
@@ -51,7 +51,7 @@ Advanced Persistent Threats See the [video: Understanding APTs](/events/teched-2
 
 ### **Arc-enabled Kubernetes**
 
-Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center. See [What is Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
+Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center. See [What is Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 
 ### **ARG**
 
@@ -75,7 +75,7 @@ To make sure that your server resources are secure, Microsoft Defender for Cloud
 
 ### Azure Policy for Kubernetes
 
-A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. It's deployed as an AKS add-on in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes).
+A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. It's deployed as an AKS add-on in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md).
 
 ## B
 
@@ -127,9 +127,9 @@ Cloud Workload Protection Platform. See [CWPP](./overview-page.md).
 
 Data-aware security posture automatically discovers datastores containing sensitive data, and helps reduce risk of data breaches. Learn about [data-aware security posture](concept-data-security-posture.md).
 
-### Defender agent
+### Defender sensor
 
-The DaemonSet that is deployed on each node, collects signals from hosts using eBPF technology, and provides runtime protection. The agent is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace. It's deployed under AKS Security profile in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Architecture for each Kubernetes environment](defender-for-containers-architecture.md#architecture-for-each-kubernetes-environment).
+The DaemonSet that is deployed on each node, collects signals from hosts using eBPF technology, and provides runtime protection. The sensor is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace. It's deployed under AKS Security profile in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Architecture for each Kubernetes environment](defender-for-containers-architecture.md#architecture-for-each-kubernetes-environment).
 
 ### **DDOS Attack**
 
@@ -151,7 +151,7 @@ Amazon Elastic Kubernetes Service, Amazon's managed service for running Kubernet
 
 ### **eBPF**
 
-Extended Berkley Packet Filter [What is eBPF?](https://ebpf.io/)
+Extended Berkeley Packet Filter [What is eBPF?](https://ebpf.io/)
 
 ## F
 
@@ -285,7 +285,7 @@ Regulatory compliance refers to the discipline and process of ensuring that a co
 
 ### **SAS**
 
-Shared access signature that provides secure delegated access to resources in your storage account.[Storage SAS Overview](/azure/storage/common/storage-sas-overview).
+Shared access signature that provides secure delegated access to resources in your storage account.[Storage SAS Overview](../storage/common/storage-sas-overview.md).
 
 ### **SaaS**
 
@@ -297,7 +297,7 @@ Defender for Cloud continually assesses your cross-cloud resources for security 
 
 ### **Security Alerts**
 
-Security alerts are the notifications generated by Defender for Cloud and Defender for Cloud plans when threats are identified in your cloud, hybrid, or on-premises environment.[What are security alerts?](../defender-for-cloud/alerts-overview.md#what-are-security-alerts)
+Security alerts are the notifications generated by Defender for Cloud and Defender for Cloud plans when threats are identified in your cloud, hybrid, or on-premises environment.[What are security alerts?](alerts-overview.md#what-are-security-alerts)
 
 ### **Security Initiative**
 

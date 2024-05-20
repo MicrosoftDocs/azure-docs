@@ -6,7 +6,6 @@ author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 10/02/2023
 ms.author: duau
 ms.custom: mode-ui

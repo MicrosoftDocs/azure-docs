@@ -2,14 +2,15 @@
 title: Deploy a web app for chat on your data in the Azure AI Studio playground
 titleSuffix: Azure AI Studio
 description: Use this article to deploy a web app for chat on your data in the Azure AI Studio playground.
-author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
-ms.date: 11/15/2023
-ms.author: eur
+ms.date: 4/8/2024
+ms.reviewer: eur
+ms.author: aahi
+author: aahill
 ---
 
 # Tutorial: Deploy a web app for chat on your data
@@ -35,7 +36,7 @@ The steps in this tutorial are:
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
+- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md) and [project](../how-to/create-projects.md) in Azure AI Studio.
 
 - You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure/aistudio-copilot-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
 
@@ -43,8 +44,9 @@ The steps in this tutorial are:
 
 Follow these steps to deploy a chat model and test it without your data. 
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
-1. Select **Build** from the top menu and then select **Deployments** > **Create**.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Go to your project or [create a new project](../how-to/create-projects.md) in Azure AI Studio.
+1. Select **Build** from the top menu and then select **Deployments** > **Create** > **Real-time endpoint**.
     
     :::image type="content" source="../media/tutorials/chat-web-app/deploy-create.png" alt-text="Screenshot of the deployments page without deployments." lightbox="../media/tutorials/chat-web-app/deploy-create.png":::
 
@@ -76,6 +78,12 @@ In the next section, you'll add your data to the model to help it answer questio
 ## Add your data
 
 Follow these steps to add your data to the playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. 
+
+> [!IMPORTANT]
+> The "Add your data" feature in the Azure AI Studio playground doesn't support using a virtual network or private endpoint on the following resources:
+> * Azure AI Search
+> * Azure OpenAI
+> * Storage resource
 
 1. If you aren't already in the playground, select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. On the **Assistant setup** pane, select **Add your data (preview)** > **+ Add a data source**.
@@ -124,30 +132,22 @@ Follow these steps to add your data to the playground to help the assistant answ
 
    :::image type="content" source="../media/tutorials/chat-web-app/chat-with-data.png" alt-text="Screenshot of the assistant's reply with grounding data." lightbox="../media/tutorials/chat-web-app/chat-with-data.png":::
 
-### Remarks about adding your data
-
-Although it's beyond the scope of this tutorial, to understand more about how the model uses your data, you can export the playground setup to prompt flow. 
-
-:::image type="content" source="../media/tutorials/chat-web-app/prompt-flow-open.png" alt-text="Screenshot of the chat playground with the open in prompt flow button in view." lightbox="../media/tutorials/chat-web-app/prompt-flow-open.png":::
-
-Following through from there you can see the graphical representation of how the model uses your data to construct the response. For more information about prompt flow, see [prompt flow](../how-to/prompt-flow.md).
-
 ## Deploy your web app
 
 Once you're satisfied with the experience in Azure AI Studio, you can deploy the model as a standalone web application. 
 
 ### Find your resource group in the Azure portal
 
-In this tutorial, your web app is deployed to the same resource group as your Azure AI resource. Later you configure authentication for the web app in the Azure portal.
+In this tutorial, your web app is deployed to the same resource group as your Azure AI hub resource. Later you configure authentication for the web app in the Azure portal.
 
 Follow these steps to navigate from Azure AI Studio to your resource group in the Azure portal:
 
-1. In Azure AI Studio, select **Manage** from the top menu and then select **Details**. If you have multiple Azure AI resources, select the one you want to use in order to see its details.
+1. In Azure AI Studio, select **Manage** from the top menu and then select **Details**. If you have multiple Azure AI hub resources, select the one you want to use in order to see its details.
 1. In the **Resource configuration** pane, select the resource group name to open the resource group in the Azure portal. In this example, the resource group is named `rg-docsazureairesource`.
 
     :::image type="content" source="../media/tutorials/chat-web-app/resource-group-manage-page.png" alt-text="Screenshot of the resource group in the Azure AI Studio." lightbox="../media/tutorials/chat-web-app/resource-group-manage-page.png":::
 
-1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the Azure AI resource.
+1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the Azure AI hub resource.
 
     :::image type="content" source="../media/tutorials/chat-web-app/resource-group-azure-portal.png" alt-text="Screenshot of the resource group in the Azure portal." lightbox="../media/tutorials/chat-web-app/resource-group-azure-portal.png":::
 
@@ -172,10 +172,10 @@ To deploy the web app:
 1. On the **Deploy to a web app** page, enter the following details:
     - **Name**: A unique name for your web app.
     - **Subscription**: Your Azure subscription.
-    - **Resource group**: Select a resource group in which to deploy the web app. You can use the same resource group as the Azure AI resource.
-    - **Location**: Select a location in which to deploy the web app. You can use the same location as the Azure AI resource.
+    - **Resource group**: Select a resource group in which to deploy the web app. You can use the same resource group as the Azure AI hub resource.
+    - **Location**: Select a location in which to deploy the web app. You can use the same location as the Azure AI hub resource.
     - **Pricing plan**: Choose a pricing plan for the web app.
-    - **Enable chat history in the web app**: For the tutorial, make sure this box isn't selected.
+    - **Enable chat history in the web app**: For the tutorial, the chat history box isn't selected. If you enable the feature, your users will have access to their individual previous queries and responses. For more information, see [chat history remarks](#chat-history).
     - **I acknowledge that web apps will incur usage to my account**: Selected
 
 1. Wait for the app to be deployed, which might take a few minutes. 
@@ -188,7 +188,7 @@ To deploy the web app:
 
 By default, the web app will only be accessible to you. In this tutorial, you add authentication to restrict access to the app to members of your Azure tenant. Users are asked to sign in with their Microsoft Entra account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign in information in any other way other than verifying they're a member of your tenant.
 
-1. Return to the browser tab containing the Azure portal (or re-open the [Azure portal](https://portal.azure.com?azure-portal=true) in a new browser tab) and view the contents of the resource group where you deployed the Azure AI resource and web app (you might need to refresh the view the see the web app).
+1. Return to the browser tab containing the Azure portal (or re-open the [Azure portal](https://portal.azure.com?azure-portal=true) in a new browser tab) and view the contents of the resource group where you deployed the Azure AI hub resource and web app (you might need to refresh the view the see the web app).
 
 1. Select the **App Service** resource from the list of resources in the resource group.
 
@@ -222,6 +222,24 @@ You're almost there! Now you can test the web app.
 ## Clean up resources
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this quickstart if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true).
+
+## Remarks
+
+### Chat history
+
+With the chat history feature, your users will have access to their individual previous queries and responses.
+
+You can enable chat history when you [deploy the web app](#deploy-the-web-app). Select the **Enable chat history in the web app** checkbox.
+
+:::image type="content" source="../media/tutorials/chat-web-app/deploy-web-app-chat-history.png" alt-text="Screenshot of the option to enable chat history when deploying a web app." lightbox="../media/tutorials/chat-web-app/deploy-web-app-chat-history.png":::
+
+> [!IMPORTANT]
+> Enabling chat history will create a [Cosmos DB instance](/azure/cosmos-db/introduction) in your resource group, and incur [additional charges](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/) for the storage used.
+> Deleting your web app does not delete your Cosmos DB instance automatically. To delete your Cosmos DB instance, along with all stored chats, you need to navigate to the associated resource in the Azure portal and delete it.
+
+Once you've enabled chat history, your users will be able to show and hide it in the top right corner of the app. When the history is shown, they can rename, or delete conversations. As they're logged into the app, conversations will be automatically ordered from newest to oldest, and named based on the first query in the conversation.
+
+If you delete the Cosmos DB resource but keep the chat history option enabled on the studio, your users will be notified of a connection error, but can continue to use the web app without access to the chat history.
 
 ## Next steps
 

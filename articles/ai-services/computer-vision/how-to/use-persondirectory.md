@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 02/27/2024
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
@@ -28,6 +28,7 @@ Currently, the Face API offers the **LargePersonGroup** structure, which has sim
 Another major difference between **PersonDirectory** and previous data structures is that you'll no longer need to make any Train API calls after adding faces to a **Person** object&mdash;the update process happens automatically.
 
 ## Prerequisites
+
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * Once you have your Azure subscription, [create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below.
@@ -171,7 +172,7 @@ After the Add Faces call, the face data will be processed asynchronously, and yo
 
 When the operation for the face addition finishes, the data will be ready for in Identify calls.
 
-## Create and update a **DynamicPersonGroup**
+## Create and update a DynamicPersonGroup
 
 **DynamicPersonGroups** are collections of references to **Person** objects within a **PersonDirectory**; they're used to create subsets of the directory. A common use is when you want to get fewer false positives and increased accuracy in an Identify operation by limiting the scope to just the **Person** objects you expect to match. Practical use cases include directories for specific building access among a larger campus or organization. The organization directory may contain 5 million individuals, but you only need to search a specific 800 people for a particular building, so you would create a **DynamicPersonGroup** containing those specific individuals. 
 
@@ -337,7 +338,7 @@ using (var content = new ByteArrayContent(byteData))
 }
 ```
 
-### Scenario 3: Identify against the entire **PersonDirectory**
+### Scenario 3: Identify against the entire PersonDirectory
 
 Providing a single asterisk in the _personIds_ property in the request compares the face against every single **Person** enrolled in the **PersonDirectory**. 
  
@@ -366,7 +367,7 @@ using (var content = new ByteArrayContent(byteData))
 ```
 For all three scenarios, the identification only compares the incoming face against faces whose AddPersonFace call has returned with a "succeeded" response.
 
-## Verify faces against persons in the **PersonDirectory**
+## Verify faces against persons in the PersonDirectory
 
 With a face ID returned from a detection call, you can verify if the face belongs to a specific **Person** enrolled inside the **PersonDirectory**. Specify the **Person** using the _personId_ property.
 

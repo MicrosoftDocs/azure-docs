@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot guidance
 titleSuffix: Azure Machine Learning
-description: This article addresses frequent questions about tool usage.
+description: This article addresses frequent questions prompt flow usage.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -16,7 +16,7 @@ ms.date: 09/05/2023
 
 # Troubleshoot guidance
 
-This article addresses frequent questions about tool usage.
+This article addresses frequent questions about prompt flow usage.
 
 ## "Package tool isn't found" error occurs when you update the flow for a code-first experience
 
@@ -64,13 +64,21 @@ Prompt flow relies on a file share storage to store a snapshot of the flow. If t
 
 :::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot that shows a flow missing an authoring page." lightbox = "../media/faq/flow-missing.png":::
 
-Prompt flow relies on a file share to store a snapshot of a flow. This error means that prompt flow service can operate a prompt flow folder in the file share storage, but the prompt flow UI can't find the folder in the file share storage. There are some potential reasons:
+There are possible reasons for this issue:
+- If public access to your storage account is disabled, you must ensure access by either adding your IP to the storage firewall or enabling access through a virtual network that has a private endpoint connected to the storage account.
 
-- Prompt flow relies on a datastore named `workspaceworkingdirectory` in your workspace, which uses `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`. Make sure your datastore uses the same container. If your datastore is using a different file share name, you need to use a new workspace.
+    :::image type="content" source="../media/faq/storage-account-networking-firewall.png" alt-text="Screenshot that shows firewall setting on storage account." lightbox = "../media/faq/storage-account-networking-firewall.png":::
 
-  ![Screenshot that shows the name of a file share in a datastore detail page.](../media/faq/file-share-name.png)
+- There are some cases. The account key in data store is out of sync with the storage account, you can try to update the account key in data store detail page to fix this.
 
-- If your file share storage is correctly named, try a different network environment, such as a home or company network. There's a rare case where a file share storage can't be accessed in some network environments even if it's enabled for public access.
+    :::image type="content" source="../media/faq/datastore-with-wrong-account-key.png" alt-text="Screenshot that shows datastore with wrong account key." lightbox = "../media/faq/datastore-with-wrong-account-key.png":::
+ 
+- If you're using AI studio, the storage account needs to set CORS to allow AI studio access the storage account, otherwise, you'll see the flow missing issue. You can add following CORS settings to the storage account to fix this issue.
+    - Go to storage account page, select `Resource sharing (CORS)` under `settings`, and select to `File service` tab.
+    - Allowed origins: `https://mlworkspace.azure.ai,https://ml.azure.com,https://*.ml.azure.com,https://ai.azure.com,https://*.ai.azure.com,https://mlworkspacecanary.azure.ai,https://mlworkspace.azureml-test.net`
+    - Allowed methods: `DELETE, GET, HEAD, POST, OPTIONS, PUT`
+
+    :::image type="content" source="../media/faq/resource-sharing-setting-storage-account.png" alt-text="Screenshot that shows data store with wrong account key." lightbox = "../media/faq/resource-sharing-setting-storage-account.png":::
 
 ## Runtime-related issues
 
@@ -84,9 +92,16 @@ First, go to the compute instance terminal and run `docker ps` to find the root 
 
 Use `docker images` to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime. It attempts to restart the runtime and compute instance.
 
+If you're using compute instance runtime AI studio, this scenario isn't currently supported, so use automatic runtime instead, [Switch compute instance runtime to automatic runtime](../how-to-create-manage-runtime.md#switch-compute-instance-runtime-to-automatic-runtime-preview).
+
 ### Run failed because of "No module named XXX"
 
-This type of error related to runtime lacks required packages. If you're using a default environment, make sure the image of your runtime is using the latest version. For more information, see [Runtime update](../how-to-create-manage-runtime.md#update-runtime-from-ui). If you're using a custom image and you're using a conda environment, make sure you installed all the required packages in your conda environment. For more information, see [Customize a prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+This type of error related to runtime lacks required packages. If you're using a default environment, make sure the image of your runtime is using the latest version. For more information, see [Runtime update](../how-to-create-manage-runtime.md#update-a-runtime-on-the-ui). If you're using a custom image and you're using a conda environment, make sure you installed all the required packages in your conda environment. For more information, see [Customize a prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+
+### Where to find the serverless instance used by automatic runtime?
+
+Automatic runtime is running on a serverless instance, you can find the serverless instance under compute quota page, [View your usage and quotas in the Azure portal](../../how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal). The serverless instances with have with name like this `sessionxxxxyyyy`.
+
 
 ### Request timeout issue
 
@@ -94,17 +109,11 @@ You might experience timeout issues.
 
 #### Request timeout error shown in the UI
 
-**MIR runtime request timeout error in the UI:**
-
-:::image type="content" source="../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot that shows an MIR runtime timeout error in the studio UI." lightbox = "../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
-
-The error in the example says "UserError: Upstream request timeout."
-
 **Compute instance runtime request timeout error:**
 
 :::image type="content" source="../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot that shows a compute instance runtime timeout error in the studio UI." lightbox = "../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
 
-The error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing."
+The error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient. Timeout of 100 seconds elapsing."
 
 ### Identify which node consumes the most time
 
@@ -118,7 +127,7 @@ The error in the example says "UserError: Invoking runtime gega-ci timeout, erro
 
    - **Case 1:** Python script node runs for a long time.
 
-        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run log in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run sign in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
 
         In this case, you can find that `PythonScriptNode` was running for a long time (almost 300 seconds). Then you can check the node details to see what's the problem.
 
@@ -136,7 +145,7 @@ The error in the example says "UserError: Invoking runtime gega-ci timeout, erro
 
 1. If you can't find anything in runtime logs to indicate it's a specific node issue:
 
-    - Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
+    - Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
 
 ### Find the compute instance runtime log for further investigation
 
@@ -150,9 +159,9 @@ Check if this compute instance is assigned to you and you have access to the wor
 
 This error occurs because you're cloning a flow from others that's using a compute instance as the runtime. Because the compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
 
-### Find Python packages installed in runtime
+### Find Python packages installed in compute instance runtime
 
-Follow these steps to find Python packages installed in runtime:
+Follow these steps to find Python packages installed in compute instance runtime:
 
 - Add a Python node in your flow.
 - Put the following code in the code section:
@@ -171,3 +180,52 @@ Follow these steps to find Python packages installed in runtime:
 - Run the flow. Then you can find `packages.txt` in the flow folder.
 
   :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot that shows finding Python packages installed in runtime." lightbox = "../media/faq/list-packages.png":::
+
+### Runtime start failures using custom environment
+
+#### CI (Compute instance) runtime start failure using custom environment
+
+To use prompt flow as runtime on CI, you need to use the base image provide by prompt flow. If you want to add extra packages to the base image, you need to follow the [Customize environment with Docker context for runtime](../how-to-customize-environment-runtime.md) to create a new environment. Then use it to create CI runtime.
+
+If you got `UserError: FlowRuntime on compute instance is not ready`, you need sign-in into to terminal of CI and run `journalctl -u c3-progenitor.serivice` to check the logs.
+
+#### Automatic runtime start failure with requirements.txt or custom base image
+
+Automatic runtime support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more then python packages, you need to follow the [Customize environment with Docker context for runtime](../how-to-customize-environment-runtime.md) to create build a new image base on top of prompt flow base image. Then use it in `flow.dag.yaml`. Learn more about [Customize environment with Docker context for runtime](../how-to-create-manage-runtime.md#update-an-automatic-runtime-preview-on-a-flow-page).
+
+- You cannot use arbitrary base image to create runtime, you need to use the base image provide by prompt flow.
+- Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
+
+## Flow run related issues
+
+### How to find the raw inputs and outputs of in LLM tool for further investigation?
+
+In prompt flow, on flow page with successful run and run detail page, you can find the raw inputs and outputs of LLM tool in the output section. Select the `view full output` button to view full output. 
+
+:::image type="content" source="../media/faq/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/faq/view-full-output.png":::
+
+`Trace` section includes each request and response to the LLM tool. You can check the raw message sent to the LLM model and the raw response from the LLM model.
+
+:::image type="content" source="../media/faq/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/faq/trace-large-language-model-tool.png":::
+
+## How to fix 409 error from Azure OpenAI? 
+
+You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../../ai-services/openai/quotas-limits.md).
+
+:::image type="content" source="../media/faq/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/faq/429-rate-limit.png":::
+
+## Authentication and identity related issues
+
+### How do I use credential-less data store in prompt flow?
+
+You can follow [Identity-based data authentication](../../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your data store credential-less. 
+
+To use credential-less data store in prompt flow, you need to grand enough permissions to user identity or managed identity to access the data store.
+- If you're using user identity this default option in prompt flow, you need to make sure the user identity has following role on the storage account:
+    - `Storage Blob Data Contributor` on the storage account, at least need read/write (better have delete) permission.
+    - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better have delete) permission
+- If you're using user assigned managed identity, you need to make sure the managed identity has following role on the storage account:
+    - `Storage Blob Data Contributor` on the storage account, at least need read/write (better have delete) permission.
+    - `Storage File Data Privileged Contributor` on the storage account, at least need read/write (better have delete) permission
+    - Meanwhile, you need to assign user identity `Storage Blob Data Read` role to storage account, if your want use prompt flow to authoring and test flow.
+ 

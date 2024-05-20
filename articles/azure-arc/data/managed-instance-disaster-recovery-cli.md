@@ -4,9 +4,9 @@ description: Describes how to configure disaster recovery with a failover group 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022, devx-track-azurecli
-author: dnethi
-ms.author: dinethi
+ms.custom: devx-track-azurecli
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 08/02/2023
 ms.topic: conceptual
@@ -52,19 +52,19 @@ Follow the steps below if Azure Arc data services are deployed in `indirectly` c
 2. Switch context to the secondary cluster by running ```kubectl config use-context <secondarycluster>``` and provision the managed instance in the secondary site that will be the disaster recovery instance. At this point, the system databases are not part of the contained availability group.
 
     > [!NOTE]
-    > It is important to specify `--license-type DisasterRecovery` **during** the Azure Arc-enabled SQL MI creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
+    > It is important to specify `--license-type DisasterRecovery` **during** the managed instance. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
 
    ```azurecli
    az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 --license-type DisasterRecovery --k8s-namespace <namespace> --use-k8s
    ```
 
-3. Mirroring certificates - The binary data inside the Mirroring Certificate property of the Azure Arc-enabled SQL MI is needed for the Instance Failover Group CR (Custom Resource) creation. 
+3. Mirroring certificates - The binary data inside the Mirroring Certificate property of the managed instance is needed for the Instance Failover Group CR (Custom Resource) creation. 
 
     This can be achieved in a few ways:
 
     (a) If using `az` CLI, generate the mirroring certificate file first, and then point to that file while configuring the Instance Failover Group so the binary data is read from the file and copied over into the CR. The cert files are not needed after failover group creation. 
 
-    (b) If using `kubectl`, directly copy and paste the binary data from the Azure Arc-enabled SQL MI CR into the yaml file that will be used to create the Instance Failover Group. 
+    (b) If using `kubectl`, directly copy and paste the binary data from the managed instance CR into the yaml file that will be used to create the Instance Failover Group. 
 
 
     Using (a) above: 
@@ -159,7 +159,7 @@ Use `az sql instance-failover-group-arc update ...` command group to initiate a 
 Run the following command to initiate a manual failover, in `direct` connected mode using ARM APIs:
 
 ```azurecli
-az sql instance-failover-group-arc update --name <shared name of failover group> --mi <primary Azure Arc-enabled SQL MI> --role secondary --resource-group <resource group>
+az sql instance-failover-group-arc update --name <shared name of failover group> --mi <primary instance> --role secondary --resource-group <resource group>
 ```
 Example:
 
@@ -190,7 +190,7 @@ On the geo-secondary DR instance, run the following command to promote it to pri
 
 ### Directly connected mode
 ```azurecli
-az sql instance-failover-group-arc update --name <shared name of failover group> --mi <secondary Azure Arc-enabled SQL MI> --role force-primary-allow-data-loss --resource-group <resource group> --partner-sync-mode async
+az sql instance-failover-group-arc update --name <shared name of failover group> --mi <instance> --role force-primary-allow-data-loss --resource-group <resource group> --partner-sync-mode async
 ```
 Example:
 
@@ -203,11 +203,11 @@ az sql instance-failover-group-arc update --name myfog --mi sqlmi2 --role force-
 az sql instance-failover-group-arc update --k8s-namespace my-namespace --name secondarycr --use-k8s --role force-primary-allow-data-loss --partner-sync-mode async
 ```
 
-When the geo-primary Azure Arc-enabled SQL MI instance becomes available, run the below command to bring it into the failover group and synchronize the data:
+When the geo-primary instance becomes available, run the below command to bring it into the failover group and synchronize the data:
 
 ### Directly connected mode
 ```azurecli
-az sql instance-failover-group-arc update --name <shared name of failover group> --mi <old primary Azure Arc-enabled SQL MI> --role force-secondary --resource-group <resource group>
+az sql instance-failover-group-arc update --name <shared name of failover group> --mi <old primary instance> --role force-secondary --resource-group <resource group>
 ```
 
 ### Indirectly connected mode

@@ -245,8 +245,6 @@ items:
         href: ./hdinsight-use-oozie-linux-mac.md
       - name: Cluster and service ports and URIs
         href: ./hdinsight-hadoop-port-settings-for-services.md
-      - name: Migrate to Resource Manager development tools
-        href: ./hdinsight-hadoop-development-using-azure-resource-manager.md
       - name: Upgrade HDInsight cluster to newer version
         href: ./hdinsight-upgrade-cluster.md
       - name: OS patching for HDInsight cluster
@@ -261,6 +259,8 @@ items:
         href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
+      - name: Monitor
+        href: monitor-hdinsight.md
       - name: Use Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
       - name: Use selective logging to monitor logs
@@ -273,12 +273,24 @@ items:
         href: ./hdinsight-cluster-availability.md
       - name: Cluster availability - Azure Monitor logs
         href: ./cluster-availability-monitor-logs.md
-      - name: Azure Monitor table updates
+      - name: Enable new Azure Monitor integration
         href: ./log-analytics-migration.md
+      - name: Monitoring data reference
+        href: monitor-hdinsight-reference.md
     - name: Troubleshoot
       items:
-      - name: Known issues in HDInsight
-        href: ./hdinsight-known-issues.md
+      - name: Known issues 
+        items:
+        - name: Known issues in HDInsight
+          href: ./hdinsight-known-issues.md
+        - name: Conda version regression in a recent HDInsight release
+          href: ./hdinsight-known-issues-conda-version-regression.md
+        - name: Cluster Reliability Issues
+          href: ./cluster-reliability-issues.md
+        - name: Kafka 2.4.1 validation error in ARM templates
+          href: ./kafka241-validation-error-arm-templates.md
+        - name: Switch Users in Ambari UI
+          href: ./hdinsight-known-issues-ambari-users-cache.md
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
       - name: Troubleshoot Apache Ambari Metrics Collector
@@ -639,6 +651,8 @@ items:
         href: ./hadoop/troubleshoot-wasbs-storage-exception.md
       - name: Manage disk space
         href: ./hadoop/troubleshoot-disk-space.md
+      - name: Ambari user configs migration
+        href: ./migrate-ambari-recent-version-hdinsight.md  
 - name: Apache Kafka
   items:
   - name: Overview
@@ -963,6 +977,8 @@ items:
       href: ./domain-joined/apache-domain-joined-run-kafka.md
     - name: Use Apache Oozie in ESP clusters
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
+    - name: Use Apache Spark-SQL RBAC with Apache Ranger
+      href: ./spark/ranger-policies-for-spark.md
   - name: Concepts
     items:
     - name: Security baseline

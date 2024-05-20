@@ -3,10 +3,9 @@ title: "Share gallery images across tenants using an app registration"
 description: Learn how to share Azure Compute Gallery images across Azure tenants using an app registration.
 ms.service: virtual-machines
 ms.subservice: gallery
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/02/2023
-ms.reviewer: cynthn 
+ms.reviewer: cynthn
 ms.custom: devx-track-azurecli devx-track-azurepowershell
 author: sandeepraichura
 ms.author: saraic
@@ -47,7 +46,7 @@ az account get-access-token
 Sign in the service principal for tenant 2 using the appID, the app key, and the ID of tenant 2:
 
 ```azurecli-interactive
-az login --service-principal -u $appid -p secret --tenant $tenant2
+az login --service-principal -u $appid -p $secret --tenant $tenant2
 az account get-access-token
 ```
 

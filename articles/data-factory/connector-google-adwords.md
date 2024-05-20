@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/14/2023
+ms.date: 05/06/2024
 ---
 
 # Copy data from Google Ads using Azure Data Factory or Synapse Analytics
@@ -17,6 +17,9 @@ ms.date: 09/14/2023
 
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google Ads. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!Important]
+> Please kindly [upgrade your Google Ads driver version](#upgrade-the-google-ads-driver-version) before **February 18, 2024**. If not, connection will start to fail with an [error](connector-troubleshoot-google-ads.md#error-code-deprecatedgoogleadslegacydriverversion) because of the deprecation of the legacy driver.
 
 ## Supported capabilities
 
@@ -66,27 +69,29 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-> [!Important]
-> Due to the sunset of Google AdWords API by **April 27, 2022**, the service has upgraded to the new Google Ads API.  Please recreate the linked service with the latest Google Ads API if you use the legacy version.
-
 The following properties are supported for Google Ads linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleAdWords** | Yes |
-| googleAdsApiVersion | The Google Ads API version that you use.| Yes |
+| googleAdsApiVersion | The Google Ads API version that you use when you select the recommended driver version. You can refer this [article](https://developers.google.com/google-ads/api/docs/release-notes) for API version information.|  Yes |
 | clientCustomerID | The Client customer ID of the Ads account that you want to fetch report data for.  | Yes |
 | loginCustomerID | The customer ID of the Google Ads manager account through which you want to fetch report data of specific customer.| No |
 | developerToken | The developer token associated with the manager account that you use to grant access to the Ads API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication** | Yes |
+| authenticationType | The OAuth 2.0 authentication mechanism used for authentication. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication**. <br/>ServiceAuthentication can only be used on self-hosted IR. | Yes |
+|*For **UserAuthentication***:|||
 | refreshToken | The refresh token obtained from Google for authorizing access to Ads for UserAuthentication. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientId | The client ID of the Google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | The client secret of the google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+|*For **ServiceAuthentication***:|||
 | email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
 | privateKey | The service private key that is used for ServiceAuthentication for recommended driver version and can only be used on self-hosted IR. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md).| No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
-| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
-| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
+|*For **ServiceAuthentication** using the legacy driver version*:|||
+| email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. | No |
+| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. | No |
+| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. | No |
+
 
 **Example:**
 
@@ -199,17 +204,21 @@ To copy data from Google Ads set the source type in the copy activity to **Googl
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Google Ads linked service
+## Upgrade the Google Ads driver version
 
-To upgrade your Google Ads linked service, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
+To upgrade your Google Ads driver version, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
 
 ### Update the linked service configuration
 
-Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it.
+In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
 
 ### Migrate from SQL to GAQL
 
-If you use SQL statements in your pipelines that refer to the old Google Ads linked service, you need to update them to GAQL statements. 
+Convert your query statements and field names when migrating from SQL to GAQL. 
+
+#### Query statements
+
+If you use SQL query in the copy activity source or the lookup activity that refers to the legacy Google Ads linked service, you need to update them to GAQL query.
 
 In contrast to SQL, the query in GAQL is made up of six kinds of clauses:
 
@@ -238,7 +247,7 @@ Here are two very useful tools offered by Google and they are highly recommended
 - [Interactive GAQL query builder](https://developers.google.com/google-ads/api/fields/v14/overview_query_builder) 
 - [GAQL query validator](https://developers.google.com/google-ads/api/fields/v14/query_validator) 
 
-### Field name
+#### Field name
 
 The field name used in SQL is not aligned with GAQL. You also need to learn the conversion rules from field names in SQL to field names in GAQL. The conversion rule can be summarized as follows:
 
@@ -248,12 +257,79 @@ The field name used in SQL is not aligned with GAQL. You also need to learn the 
 
 Here are the concrete examples of the field name conversion:
 
-| Category | Field names in SQL | Field  names in GAQL | 
+| Category | Field names in SQL | Field names in GAQL | 
 |---------| --------|---------| 
 | Resource fields | `Campaign_startDate` | `campaign.start_date` | 
 | Resource fields | `Customer_conversionTrackingSetting_conversionTrackingStatus` | `customer.conversion_tracking_setting.conversion_tracking_status` | 
 | Segments | `DayOfWeek` | `segments.day_of_week` | 
 | Metrics | `VideoViews` | `metrics.video_views` | 
+
+## Differences between Google Ads using the recommended and the legacy driver version
+
+The table below shows the feature differences between Google Ads using the recommended and the legacy driver version.
+
+| Recommended driver version | Legacy driver version |
+|:---|:---|
+|Specifying Google Ads API version is supported.|Specifying Google Ads API version is not supported.|
+|ServiceAuthentication supports two properties: <br>&nbsp; • email<br>&nbsp; • privateKey |ServiceAuthentication supports four properties:<br>&nbsp; • email<br>&nbsp; • keyFilePath<br>&nbsp; • trustedCertPath<br>&nbsp; • useSystemTrustStore |
+|Selecting a table in a dataset is not supported.|Support selecting a table in a dataset and querying the table in copy activities.|
+|Support GAQL syntax as the query language.|Support SQL syntax as the query language.|
+|The output column names are the same as the field names defined in Google Ads.|The output column names don't match the field names defined in Google Ads.|
+|The following mappings are used from Google Ads data types to interim data types used by the service internally.<br><br>float -> float <br>int32 -> int <br>int64 -> long |The following mappings are used from Google Ads data types to interim data types used by the service internally. <br><br>float -> string <br>int32 -> string <br>int64 -> string |
+
+## Upgrade Google AdWords connector to Google Ads connector 
+
+Upgrade your Google AdWords linked service to the latest Google Ads linked service following the steps below:
+
+1. Select **Recommended** as driver version to create a new Google Ads linked service and configure it by referring to [Linked service properties](connector-google-adwords.md#linked-service-properties). 
+1. Update your pipelines that refer to the legacy Google AdWords linked service. Considering that the Google Ads linked service only supports using query to copy data, so:
+    1. If your pipeline is directly retrieving data from the report of Google AdWords, find the corresponding resource name of Google Ads in the table below and use this [tool](https://developers.google.com/google-ads/api/fields/v15/overview_query_builder) to build the query.
+        
+        | Google AdWords report| Google Ads resource |
+        |---------| --------|
+        | ACCOUNT_PERFORMANCE_REPORT | customer |  
+        | AD_PERFORMANCE_REPORT | ad_group_ad |  
+        | ADGROUP_PERFORMANCE_REPORT | ad_group |  
+        | AGE_RANGE_PERFORMANCE_REPORT | age_range_view | 
+        | AUDIENCE_PERFORMANCE_REPORT | campaign_audience_view,ad_group_audience_view | 
+        | AUTOMATIC_PLACEMENTS_PERFORMANCE_REPORT | group_placement_view |  
+        | BID_GOAL_PERFORMANCE_REPORT | bidding_strategy | 
+        | BUDGET_PERFORMANCE_REPORT | campaign_budget |  
+        | CALL_METRICS_CALL_DETAILS_REPORT | call_view | 
+        | CAMPAIGN_AD_SCHEDULE_TARGET_REPORT | ad_schedule_view |  
+        | CAMPAIGN_CRITERIA_REPORT | campaign_criterion | 
+        | CAMPAIGN_PERFORMANCE_REPORT | campaign | 
+        | CAMPAIGN_SHARED_SET_REPORT | campaign_shared_set |  
+        | CAMPAIGN_LOCATION_TARGET_REPORT | location_view | 
+        | CLICK_PERFORMANCE_REPORT | click_view | 
+        | DISPLAY_KEYWORD_PERFORMANCE_REPORT | display_keyword_view | 
+        | DISPLAY_TOPICS_PERFORMANCE_REPORT | topic_view |  
+        | GENDER_PERFORMANCE_REPORT | gender_view |  
+        | GEO_PERFORMANCE_REPORT | geographic_view,user_location_view |  
+        | KEYWORDLESS_QUERY_REPORT | dynamic_search_ads_search_term_view | 
+        | KEYWORDS_PERFORMANCE_REPORT | keyword_view |  
+        | LABEL_REPORT | label |  
+        | LANDING_PAGE_REPORT | landing_page_view,expanded_landing_page_view | 
+        | PAID_ORGANIC_QUERY_REPORT | paid_organic_search_term_view |  
+        | PARENTAL_STATUS_PERFORMANCE_REPORT | parental_status_view |  
+        | PLACEHOLDER_FEED_ITEM_REPORT | feed_item,feed_item_target |  
+        | PLACEHOLDER_REPORT | feed_placeholder_view | 
+        | PLACEMENT_PERFORMANCE_REPORT | managed_placement_view | 
+        | PRODUCT_PARTITION_REPORT | product_group_view | 
+        | SEARCH_QUERY_PERFORMANCE_REPORT | search_term_view |  
+        | SHARED_SET_CRITERIA_REPORT | shared_criterion |  
+        | SHARED_SET_REPORT | shared_set |  
+        | SHOPPING_PERFORMANCE_REPORT | shopping_performance_view | 
+        | TOP_CONTENT_PERFORMANCE_REPORT | No longer available in the Google Ads API. | 
+        | URL_PERFORMANCE_REPORT | detail_placement_view |  
+        | USER_AD_DISTANCE_REPORT | distance_view |  
+        | VIDEO_PERFORMANCE_REPORT | video | 
+
+    1. If the pipeline is using query to retrieve data from Google AdWords, use [Query Migration tool](https://developers.google.com/google-ads/scripts/docs/reference/query-migration-tool) to translate the AWQL (AdWords Query Language) into GAQL (Google Ads Query Language). 
+
+1. Be aware that there are certain limitations with this upgrade: 
+    1. Not all report types from AWQL are supported in GAQL. 
+    1. Not all AWQL queries are cleanly translated to GAQL queries.  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

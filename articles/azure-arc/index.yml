@@ -7,10 +7,10 @@ brand: azure
 
 metadata:
   title: Azure Arc
-  description: Learn how to deploy resources to complex and distributed environments across on-premises, edge and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
+  description: Learn how to deploy resources to complex and distributed environments across on-premises, edge, and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
   ms.service: azure-arc
   ms.topic: hub-page
-  ms.date: 11/08/2022
+  ms.date: 02/15/2024
   ms.custom:
     - e2e-hybrid
     - ignite-2023
@@ -127,7 +127,7 @@ conceptualContent:
           text: Azure Arc-enabled System Center Virtual Machine Manager
         - url: /azure-stack/hci/manage/azure-arc-vm-management-overview
           itemType: overview
-          text: Azure Arc VM management on Azure Stack HCI (preview)
+          text: Azure Arc VM management on Azure Stack HCI
       # Card
     - title: Training modules
       links:
@@ -162,10 +162,14 @@ additionalContent:
           summary: Run App Service, Functions, and Logic Apps on Azure Arc-enabled Kubernetes clusters.
           url: /azure/app-service/overview-arc-integration
         # Card
-        - title: AKS hybrid deployment options
-          summary: AKS hybrid simplifies on-premises Kubernetes clusters, natively connecting to Azure Arc.
+        - title: Azure Kubernetes Service (AKS) enabled by Azure Arc 
+          summary: Extend AKS to your on-premises environment.
           url: https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-hybrid-options-overview
         # Card
         - title: Azure IoT Operations Preview – enabled by Azure Arc
           summary: Azure IoT Operations is a unified data plane for the edge that helps organizations deploy the industrial metaverse.
           url: /azure/iot-operations/
+        # Card
+        - title: Azure Arc site manager (preview)
+          summary: Use Arc sites to represent your on-premises environments and see centralized monitoring information across your edge infrastructure.
+          url: /azure/azure-arc/site-manager/

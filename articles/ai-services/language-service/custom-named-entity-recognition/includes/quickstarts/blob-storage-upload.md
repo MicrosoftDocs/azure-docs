@@ -1,12 +1,11 @@
 ---
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
-ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/05/2022
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 After you have created an Azure storage account and connected it to your Language resource, you will need to upload the documents from the sample dataset to the root directory of your container. These documents will later be used to train your model.

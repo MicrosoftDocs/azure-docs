@@ -20,10 +20,10 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Gener
 [Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2 VMs](generation-2.md). Trusted launch protects your Virtual Machines against advanced and persistent attack techniques like boot kits and rootkits by combining infrastructure technologies like Secure Boot, vTPM and Boot Integrity Monitoring on your VM.
 
 > [!IMPORTANT]
-> Enabling Trusted launch on existing virtual machines (VMs) is currently not supported for following scenarios:
 >
-> - Azure Generation 1 VMs is currently not supported.
-> - Azure Virtual Machine Scale Sets (VMSS) Uniform & Flex are currently not supported.
+> - If enabled for Generation 2 VM, **[Server-side encryption with customer-managed keys](disk-encryption.md)** (SSE-CMK) should be disabled before executing Trusted launch upgrade. SSE-CMK encryption should be re-enabled after completion of Trusted launch upgrade.
+> - Support for **enabling Trusted launch on existing Azure Generation 1 VMs** is currently in private preview. You can gain access to preview using registration link **https://aka.ms/Gen1ToTLUpgrade**.
+> - Enabling Trusted launch on existing Azure virtual machine scale sets (VMSS) Uniform & Flex are currently not supported.
 
 ## Prerequisites
 
@@ -32,7 +32,8 @@ Azure Virtual Machines supports enabling Trusted launch on existing [Azure Gener
   - [Trusted launch supported OS Image](trusted-launch.md#operating-systems-supported). For custom OS image or disks, the base image should be **Trusted launch capable**.
 - Azure Generation 2 VM(s) is not using [features currently not supported with Trusted launch](trusted-launch.md#unsupported-features).
 - Azure Generation 2 VM(s) should be **stopped and deallocated** before enabling Trusted launch security type.
-- Azure Backup if enabled for Generation 2 VM(s) should be configured with [Enhanced Backup Policy](../backup/backup-azure-vms-enhanced-policy.md). Trusted launch security type cannot be enabled for Generation 2 VM(s) configured with *Standard Policy* backup protection.
+- Azure Backup if enabled for VM(s) should be configured with [Enhanced Backup Policy](../backup/backup-azure-vms-enhanced-policy.md). Trusted launch security type cannot be enabled for Generation 2 VM(s) configured with *Standard Policy* backup protection.
+    - Existing Azure VM backup can be migrated from *Standard* to *Enhanced* policy using private preview migration feature. Submit on-boarding request to preview using link https://aka.ms/formBackupPolicyMigration.
 
 ## Best practices
 
@@ -54,7 +55,7 @@ This section steps through using the Azure portal to enable Trusted launch on ex
 1. Log in to [Azure portal](https://portal.azure.com)
 2. Validate virtual machine generation is **V2** and **Stop** VM.
 
-:::image type="content" source="./media/trusted-launch/02-generation-2-to-trusted-launch-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be de-allocated.":::
+:::image type="content" source="./media/trusted-launch/02-generation-2-to-trusted-launch-stop-vm.png" alt-text="Screenshot of the Gen2 VM to be deallocated.":::
 
 3. On **Overview** page in VM **Properties**, Select **Standard** under **Security type**. This navigates to **Configuration** page for VM.
 
@@ -68,7 +69,7 @@ This section steps through using the Azure portal to enable Trusted launch on ex
 
 > [!NOTE]
 >
-> - Generation 2 VMs created using [Azure Compute Gallery (ACG)](azure-compute-gallery.md), [Managed Image](capture-image-resource.md), [OS Disk](./scripts/create-vm-from-managed-os-disks.md) cannot be upgraded to Trusted launch using Portal. Please ensure [OS Version is supported for Trusted launch](trusted-launch.md#operating-systems-supported) and use PowerShell, CLI or ARM template to execute upgrade.
+> - Generation 2 VMs created using [Azure Compute Gallery (ACG)](azure-compute-gallery.md), [Managed Image](capture-image-resource.yml), [OS Disk](./scripts/create-vm-from-managed-os-disks.md) cannot be upgraded to Trusted launch using Portal. Please ensure [OS Version is supported for Trusted launch](trusted-launch.md#operating-systems-supported) and use PowerShell, CLI or ARM template to execute upgrade.
 
 :::image type="content" source="./media/trusted-launch/05-generation-2-to-trusted-launch-select-uefi-settings.png" alt-text="Screenshot of the Secure boot and vTPM settings.":::
 

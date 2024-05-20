@@ -9,6 +9,9 @@ ms.topic: conceptual
 
 # How to deploy updates and review results
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 This article describes how to schedule an update deployment and review the process after the deployment is complete. You can configure an update deployment from a selected Azure virtual machine, from the selected Azure Arc-enabled server, or from the Automation account across all configured machines and servers.
 
 Under each scenario, the deployment you create targets that selected machine or server, or in the case of creating a deployment from your Automation account, you can target one or more machines. When you schedule an update deployment from an Azure VM or Azure Arc-enabled server, the steps are the same as deploying from your Automation account, with the following exceptions:

@@ -1,16 +1,15 @@
 ---
-title: Scheduled Events for Windows VMs in Azure 
+title: Scheduled Events for Windows VMs in Azure
 description: Scheduled events using the Azure Metadata Service for your Windows virtual machines.
 author: EricRadzikowskiMSFT
 ms.service: virtual-machines
 ms.subservice: scheduled-events
 ms.collection: windows
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: devx-track-python
 ms.date: 06/01/2020
 ms.author: ericrad
-ms.reviwer: mimckitt 
+ms.reviwer: mimckitt
 ---
 
 # Azure Metadata Service: Scheduled Events for Windows VMs
@@ -217,7 +216,7 @@ Each event is scheduled a minimum amount of time in the future based on the even
 | Redeploy | 10 minutes |
 | Terminate | [User Configurable](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 to 15 minutes |
 
-Once an event is scheduled, it will move into the `Started` state after it's been approved or the `NotBefore` time passes. However, in rare cases, the operation will be canceled by Azure before it starts. In that case the event will be removed from the Events array, and the impact won't occur as previously scheduled. 
+This means that you can detect a future schedule of event at least by the minimum notice time before the event occurs. Once an event is scheduled, it will move into the `Started` state after it's been approved or the `NotBefore` time passes. However, in rare cases, the operation will be canceled by Azure before it starts. In that case the event will be removed from the Events array, and the impact won't occur as previously scheduled. 
 	
 > [!NOTE] 
 > In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there's a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.

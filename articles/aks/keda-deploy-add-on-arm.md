@@ -99,7 +99,6 @@ The following snippet is a sample deployment that creates a cluster with KEDA en
                         "enableAutoScaling": false,
                         "vmSize": "Standard_D2S_v5",
                         "osType": "Linux",
-                        "storageProfile": "ManagedDisks",
                         "type": "VirtualMachineScaleSets",
                         "mode": "System",
                         "maxPods": 110,
@@ -165,3 +164,4 @@ To learn more, view the [upstream KEDA docs][keda].
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue
 [keda]: https://keda.sh/docs/2.12/
+

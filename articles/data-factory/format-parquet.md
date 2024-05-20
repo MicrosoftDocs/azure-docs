@@ -5,7 +5,7 @@ description: This topic describes how to deal with Parquet format in Azure Data 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, contperf-fy22q2
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/17/2023
 ms.author: jianleishen

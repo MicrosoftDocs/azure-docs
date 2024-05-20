@@ -3,7 +3,7 @@ title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save your money with your enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2022
+ms.date: 02/13/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -24,17 +24,9 @@ We’ll issue a partial refund when EA customers return reservations that were p
 
 To return a partial refund with Azure Prepayment:
 
-1. The refund amount is reflected on the purchase month. In the EA portal, navigate to **Usage Summary** > **Adjustments/Charge by services**.
-2. The refund is shown in the EA portal as a negative adjustment in the purchase month and a positive adjustment in the current month. It appears similar to a reservations exchange.
+You can view refund details in the Azure portal. To view refunds:
 
-To return a partial refund with an overage:
-
-1. View the refund amount displayed in the purchase month. In the EA portal, navigate to **Usage Summary** > **Charge by services**.
-2. The credit memo references the original invoice number. To reconcile the initial purchase with the credit memo, refer to the original invoice number.
-
-Direct Enterprise customers can view the refund details in the Azure portal. To view refunds:
-
-1. Navigate to **Cost Management + Billing** > select a billing scope > in the left menu under **Billing**, select  **Reservation transactions** menu. 
+1. Navigate to **Cost Management + Billing** > select a billing scope > in the left menu under **Billing**, select  **Reservation transactions** menu.
 1. In the list of reservation transactions, you'll see entries under **Type** labeled with `Refund`.
 
 ## Reservation costs and usage
@@ -54,7 +46,7 @@ For information about pricing, see [Linux Virtual Machines Pricing](https://azur
 
 ### Reservation prices
 
-Any reservation discounts that your organization might have negotiated aren't shown in the EA portal price sheet. Previously, the discounted rates were available in the EA portal, however that functionality was removed. If you’ve negotiated reduced reservation prices, currently the only way to view the discounted prices is in the purchase reservation purchase experience.
+If you’ve negotiated reduced reservation prices, currently the only way to view the discounted prices is in the purchase reservation purchase experience.
 
 The prices for reservations aren't necessarily the same between retail rates and EA. They could be the same, but if you’ve negotiated a discount, the rates will differ.
 
@@ -79,13 +71,13 @@ Reserved instances can reduce your virtual machine costs up to 72 percent over P
 
 ### How to buy reserved virtual machine instances
 
-To purchase an Azure reserved virtual machine instance, an Enterprise Azure enrollment admin must enable the _Reserve Instance_ purchase option. The option is in the _Enrollment Detail_ section on the _Enrollment_ tab in the [Azure EA Portal](https://ea.azure.com/).
+To purchase an Azure reserved virtual machine instance, an Enterprise administrator must enable the _Reserved Instances_ purchase option. For more information, see [View and manage enrollment policies](direct-ea-administration.md#view-and-manage-enrollment-policies).
 
 Once the EA enrollment is enabled to add reserved instances, any account owner with an active subscription associated to the EA enrollment can buy a reserved virtual machine instance in the [Azure portal](https://aka.ms/reservations). For more information, see [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/prepay-reserved-vm-instances.md).
 
 ### How to view reserved instance purchase details
 
-You can view your reserved instance purchase details via the _Reservations_ menu on the left side of the [Azure portal](https://aka.ms/reservations) or from the [Azure EA portal](https://ea.azure.com/). Select **Reports** from the left-side menu and scroll down to the _Charges by Services_ section on the _Usage Summary_ Tab. Scroll to the bottom of the section and your reserved instance purchases and usage will list at the end as indicated by the `1 year` or `3 years` designation next to the service name, for example: `Standard_DS1_v2 eastus 1 year` or `Standard_D2s_v3 eastus2 3 years`.
+You can view your reserved instance purchase details via the _Reservations_ menu on the left side of the [Azure portal](https://aka.ms/reservations). The _Reservations_ menu provides a summary of your reserved instance purchases, including the number of reserved instances purchased.
 
 ### How can I change the subscription associated with reserved instance or transfer my reserved instance benefits to a subscription under the same account?
 
@@ -98,7 +90,7 @@ For more information about changing the scope of a reservation, see [Change the 
 
 ### How to view reserved instance usage details
 
-You can view your reserved instance usage detail in the [Azure portal](https://aka.ms/reservations) or in the [Azure EA portal](https://ea.azure.com/) (for EA customers who have access to view billing information) under _Reports_ > _Usage Summary_ > _Charges by Services_. Your reserved instances can be identified as service names containing 'Reservation', for example: `Reservation-Base VM or Virtual Machines Reservation-Windows Svr (1 Core)`.
+You can view your reserved instance usage detail in the [Azure portal](https://aka.ms/reservations). 
 
 Your usage detail and advanced report download CSV has more reserved instance usage information. The _Additional Info_ field helps you identify the reserved instance usage.
 
@@ -114,7 +106,7 @@ In scenarios where Azure EA customers have used all their Azure Prepayment, rese
 
 You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Virtual Machine Instances offering.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-## Next steps
+## Related content
 
 - For more information about Azure reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
 - To learn more about enterprise reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).

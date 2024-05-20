@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 04/02/2024
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -31,16 +31,20 @@ A search service uses Azure Storage as an indexer data source and as a data sink
 
 | Scenario | System managed identity | User-assigned managed identity (preview) |
 |----------|-------------------------|---------------------------------|
-| [Indexer connections to supported Azure data sources](search-indexer-overview.md) <sup>1</sup>| Yes | Yes |
+| [Indexer connections to supported Azure data sources](search-indexer-overview.md) <sup>1,</sup> <sup>3</sup>| Yes | Yes |
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | Yes |
 | [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)	<sup>1</sup> | Yes | No |
 | [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md) <sup>1,</sup> <sup>2</sup> | Yes | Yes |
 | [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) <sup>1</sup>| Yes | Yes |
 | [Custom skills (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md) | Yes | Yes |
+| [Azure OpenAI embedding skill](cognitive-search-skill-azure-openai-embedding.md) | Yes | Yes |
+| [Azure OpenAI vectorizer](vector-search-how-to-configure-vectorizer.md) | Yes | Yes |
 
 <sup>1</sup> For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. Only a system managed identity can be used for a same-region connection to storage via the trusted service exception or resource instance rule. See [Access to a network-protected storage account](search-indexer-securing-resources.md#access-to-a-network-protected-storage-account) for details.
 
 <sup>2</sup> One method for specifying an enrichment cache is in the Import data wizard. Currently, the wizard doesn't accept a managed identity connection string for enrichment cache. However, after the wizard completes, you can update the connection string in the indexer JSON definition to specify either a system or user-assigned managed identity, and then rerun the indexer.
+
+<sup>3</sup> Note that [disabling keys in the Azure storage account](../storage/common/shared-key-authorization-prevent.md) is not currently supported for Azure Table used as a data source. Although managed identity is used to not provide the storage keys explicitly, the AI search service still uses the keys for this implementation. 
 
 ## Create a system managed identity
 
@@ -201,6 +205,7 @@ The following steps are for Azure Storage. If your resource is Azure Cosmos DB o
    | Write to a knowledge store | Add **Storage Blob DataContributor** for object and file projections, and **Reader and Data Access** for table projections. |
    | Write to an enrichment cache | Add **Storage Blob Data Contributor**  |
    | Save debug session state | Add **Storage Blob Data Contributor**  |
+   | Embedding data (vectorizing) using Azure OpenAI embedding models | Add **Cognitive Services OpenAI User** |
 
 1. On the **Members** page, select **Managed Identity**.
 
@@ -284,6 +289,44 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
   "outputs": [ ...]
 }
 ```
+[**Azure OpenAI embedding skill**](cognitive-search-skill-azure-openai-embedding.md) and [**Azure OpenAI vectorizer:**](vector-search-how-to-configure-vectorizer.md)
+
+ An Azure OpenAI embedding skill and vectorizer in AI Search target the endpoint of an Azure OpenAI service hosting an embedding model. The endpoint is specified in the [Azure OpenAI embedding skill definition](cognitive-search-skill-azure-openai-embedding.md) and/or in the [Azure OpenAI vectorizer definition](vector-search-how-to-configure-vectorizer.md). The system-managed identity is used if configured and if the "apikey" and "authIdentity" are empty. The "authIdentity" property is used for user-assigned managed identity only.
+
+ 
+```json
+{
+  "@odata.type": "#Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill",
+  "description": "Connects a deployed embedding model.",
+  "resourceUri": "https://url.openai.azure.com/",
+  "deploymentId": "text-embedding-ada-002",
+  "inputs": [
+    {
+      "name": "text",
+      "source": "/document/content"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "embedding"
+    }
+  ]
+}
+```
+
+```json
+ "vectorizers": [
+    {
+      "name": "my_azure_open_ai_vectorizer",
+      "kind": "azureOpenAI",
+      "azureOpenAIParameters": {
+        "resourceUri": "https://url.openai.azure.com",
+        "deploymentId": "text-embedding-ada-002"
+      }
+    }
+  ]
+```
+
 
 ## See also
 

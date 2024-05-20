@@ -1,23 +1,22 @@
 ---
 title: Manage secrets using Azure Key Vault or Kubernetes secrets
-titleSuffix: Azure IoT MQ
-description: Learn how to manage secrets using Azure Key Vault or Kubernetes secrets.
+description: Learn how to manage secrets using Azure Key Vault or Kubernetes secrets in Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to use Azure Key Vault or Kubernetes secrets so that I can securely manage secrets.
 ---
 
-# Manage secrets using Azure Key Vault or Kubernetes secrets
+# Manage secrets using Azure Key Vault or Kubernetes secrets in Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can use [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage secrets for your Azure IoT MQ distributed MQTT broker instead of Kubernetes secrets. This article shows you how to set up Key Vault for your broker and use it to manage secrets.
+You can use [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage secrets for your Azure IoT MQ Preview distributed MQTT broker instead of Kubernetes secrets. This article shows you how to set up Key Vault for your broker and use it to manage secrets.
 
 ## Prerequisites
 
@@ -55,15 +54,16 @@ The `keyVault` field is available wherever Kubernetes secrets (`secretName`) are
 | vaultCert | Yes, when using Key Vault certificates | Specifies the certificate in the Azure Key Vault. |
 | vaultCert.name | Yes | Specifies the name of the certificate secret. |
 | vaultCert.version | No | Specifies the version of the certificate secret. |
-| vaultCaChainCert | Yes, when using certificate chain | Specifies the certificate chain in the Azure Key Vault. |
-| vaultCaChainCert.name | Yes | Specifies the name of the certificate chain. |
-| vaultCaChainCert.version | No | Specifies the version of the certificate chain. |
+| vaultCaChainSecret | Yes, when using certificate chain | Specifies the certificate chain in the Azure Key Vault. |
+| vaultCaChainSecret.name | Yes | Specifies the name of the certificate chain. |
+| vaultCaChainSecret.version | No | Specifies the version of the certificate chain. |
+| username | No | Used only for Event Hubs Kafka connector, see [Send and receive messages between Azure IoT MQ and Event Hubs or Kafka](../connect-to-cloud/howto-configure-kafka.md). |
 
 The type of secret you're using determines which of the following fields you can use:
 
 - `vaultSecret`: Use this field when you're using a regular secret. For example, you can use this field for configuring a *BrokerAuthentication* resource with the `usernamePassword` field.
 - `vaultCert`: Use this field when you're using the certificate type secret with client certificate and key. For example, you can use this field for enabling TLS on a *BrokerListener*.
-- `vaultCaChainCert`: Use this field when you're using a regular Key Vault secret that contains the CA chain of the client certificate. This field is for when you need IoT MQ to present the CA chain of the client certificate to a remote connection. For example, you can use this field for configuring a *MqttBridgeConnector* resource with the `remoteBrokerConnection` field.
+- `vaultCaChainSecret`: Use this field when you need to present a full certificate chain, with all extra intermediate or root certificates, to the remote server. For example, you can use this field for configuring a *MqttBridgeConnector* resource with the `remoteBrokerConnection` field. To use this field, import X.509 certificates without private keys in PEM format as a multi-line regular secret (not certificate-type) to Key Vault. This field should be used in addition to `vaultCert` that has the client certificate and private key.
 
 ## Examples
 
@@ -89,7 +89,7 @@ spec:
           servicePrincipalLocalSecretName: aio-akv-sp
       vaultCert:
         name: my-server-certificate
-        version: latest
+        # version: 939ecc2...
 ```
 
 This next example shows how to use Azure Key Vault for the `usernamePassword` field in a BrokerAuthentication resource:
@@ -113,7 +113,7 @@ spec:
               servicePrincipalLocalSecretName: aio-akv-sp
           vaultSecret:
             name: my-username-password-db
-            version: latest
+            # version: 939ecc2...
 ```
 
 This example shows how to use Azure Key Vault for MQTT bridge remote broker credentials:
@@ -127,7 +127,7 @@ metadata:
 spec:
   image:
     repository: mcr.microsoft.com/azureiotoperations/mqttbridge
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1
@@ -144,9 +144,9 @@ spec:
             directoryId: <AKV directory ID>
             credentials:
               servicePrincipalLocalSecretName: aio-akv-sp
-          vaultCaChainCert:
+          vaultCaChainSecret:
             name: my-remote-broker-certificate
-            version: latest
+            # version: 939ecc2...
 ```
 
 ## Related content

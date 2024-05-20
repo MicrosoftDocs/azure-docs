@@ -11,7 +11,7 @@ metadata:
   ms.author: dacurwin
   manager: raynew
   ms.topic: landing-page
-  ms.collection: collection
+
   ms.date: 06/29/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -39,7 +39,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Troubleshooting multicloud connectors
-            url: troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector
+            url: troubleshooting-guide.md#troubleshoot-connectors
             
   # Card
   - title: Defend Amazon AWS resources
@@ -65,7 +65,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Secure your AWS management ports with just-in-time access
-            url: just-in-time-access-usage.md?tabs=jit-config-asc%2Cjit-request-asc
+            url: just-in-time-access-usage.yml?tabs=jit-config-asc%2Cjit-request-asc
           - text: Protect your AWS virtual machines with Microsoft Defender for Endpoint
             url: integration-defender-for-endpoint.md?tabs=windows
           - text: Harden your AWS Docker hosts

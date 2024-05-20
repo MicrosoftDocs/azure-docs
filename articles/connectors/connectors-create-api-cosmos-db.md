@@ -7,9 +7,7 @@ author: jcocchi
 ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
-tags: connectors
-ms.custom: ignite-2022
+ms.date: 01/04/2024
 ---
 
 # Process and create Azure Cosmos DB documents using Azure Logic Apps

@@ -1,137 +1,162 @@
 ---
-title: "Quickstart: New policy assignment with Azure CLI"
-description: In this quickstart, you use Azure CLI to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 08/17/2021
+title: "Quickstart: Create policy assignment using Azure CLI"
+description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure CLI.
+ms.date: 02/26/2024
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, mode-api
+ms.custom: devx-track-azurecli
 ---
-# Quickstart: Create a policy assignment to identify non-compliant resources with Azure CLI
 
-The first step in understanding compliance in Azure is to identify the status of your resources.
-This quickstart steps you through the process of creating a policy assignment to identify virtual
-machines that aren't using managed disks.
+# Quickstart: Create a policy assignment to identify non-compliant resources using Azure CLI
 
-At the end of this process, you'll successfully identify virtual machines that aren't using managed
-disks. They're _non-compliant_ with the policy assignment.
+The first step in understanding compliance in Azure is to identify the status of your resources. In this quickstart, you create a policy assignment to identify non-compliant resources using Azure CLI. The policy is assigned to a resource group and audits virtual machines that don't use managed disks. After you create the policy assignment, you identify non-compliant virtual machines.
 
-Azure CLI is used to create and manage Azure resources from the command line or in scripts. This
-guide uses Azure CLI to create a policy assignment and to identify non-compliant resources in your
-Azure environment.
+Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide uses Azure CLI to create a policy assignment and to identify non-compliant resources in your Azure environment.
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
-  account before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli).
+- [Visual Studio Code](https://code.visualstudio.com/).
+- `Microsoft.PolicyInsights` must be [registered](../../azure-resource-manager/management/resource-providers-and-types.md) in your Azure subscription. To register a resource provider, you must have permission to register resource providers. That permission is included in the Contributor and Owner roles.
+- A resource group with at least one virtual machine that doesn't use managed disks.
 
-- This quickstart requires that you run Azure CLI version 2.0.76 or later. To find the version, run
-  `az --version`. If you need to install or upgrade, see
-  [Install Azure CLI](/cli/azure/install-azure-cli).
+## Connect to Azure
 
-- Register the Azure Policy Insights resource provider using Azure CLI. Registering the resource
-  provider makes sure that your subscription works with it. To register a resource provider, you
-  must have permission to the register resource provider operation. This operation is included in
-  the Contributor and Owner roles. Run the following command to register the resource provider:
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
 
-  ```azurecli-interactive
-  az provider register --namespace 'Microsoft.PolicyInsights'
-  ```
+```azurecli
+az login
 
-  For more information about registering and viewing resource providers, see
-  [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md)
-
-- If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a
-  tool that sends HTTP requests to Azure Resource Manager-based APIs.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## Create a policy assignment
-
-In this quickstart, you create a policy assignment and assign the **Audit VMs that do not use
-managed disks** definition. This policy definition identifies resources that aren't compliant to the
-conditions set in the policy definition.
-
-Run the following command to create a policy assignment:
-
-```azurecli-interactive
-az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit VMs without managed disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
+# Run these commands if you have multiple subscriptions
+az account list --output table
+az account set --subscription <subscriptionID>
 ```
 
-The preceding command uses the following information:
+## Register resource provider
 
-- **Name** - The actual name of the assignment. For this example, _audit-vm-manageddisks_ was used.
-- **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
-  without managed disks Assignment_.
-- **Policy** - The policy definition ID, based on which you're using to create the assignment. In
-  this case, it's the ID of policy definition _Audit VMs that do not use managed disks_. To get the
-  policy definition ID, run this command:
-  `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
-- **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
-  enforced on. It could range from a subscription to resource groups. Be sure to replace
-  &lt;scope&gt; with the name of your resource group.
+When a resource provider is registered, it's available to use in your Azure subscription.
+
+To verify if `Microsoft.PolicyInsights` is registered, run `Get-AzResourceProvider`. The resource provider contains several resource types. If the result is `NotRegistered` run `Register-AzResourceProvider`:
+
+```azurecli
+az provider show \
+  --namespace Microsoft.PolicyInsights \
+  --query "{Provider:namespace,State:registrationState}" \
+  --output table
+
+az provider register --namespace Microsoft.PolicyInsights
+```
+
+The Azure CLI commands use a backslash (`\`) for line continuation to improve readability. For more information, go to [az provider](/cli/azure/provider).
+
+## Create policy assignment
+
+Use the following commands to create a new policy assignment for your resource group. This example uses an existing resource group that contains a virtual machine _without_ managed disks. The resource group is the scope for the policy assignment. This example uses the built-in policy definition [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json).
+
+Run the following commands and replace `<resourceGroupName>` with your resource group name:
+
+```azurepowershell
+rgid=$(az group show --resource-group <resourceGroupName> --query id --output tsv)
+
+definition=$(az policy definition list \
+  --query "[?displayName=='Audit VMs that do not use managed disks']".name \
+  --output tsv)
+```
+
+The `rgid` variable stores the resource group ID. The `definition` variable stores the policy definition's name, which is a GUID.
+
+Run the following command to create the policy assignment:
+
+```azurecli
+az policy assignment create \
+  --name 'audit-vm-managed-disks' \
+  --display-name 'Audit VM managed disks' \
+  --scope $rgid \
+  --policy $definition \
+  --description 'Azure CLI policy assignment to resource group'
+```
+
+- `name` creates the policy assignment name used in the assignment's `ResourceId`.
+- `display-name` is the name for the policy assignment and is visible in Azure portal.
+- `scope` uses the `$rgid` variable to assign the policy to the resource group.
+- `policy` assigns the policy definition stored in the `$definition` variable.
+- `description` can be used to add context about the policy assignment.
+
+The results of the policy assignment resemble the following example:
+
+```output
+"description": "Azure CLI policy assignment to resource group",
+"displayName": "Audit VM managed disks",
+"enforcementMode": "Default",
+"id": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks",
+"identity": null,
+"location": null,
+"metadata": {
+  "createdBy": "11111111-1111-1111-1111-111111111111",
+  "createdOn": "2024-02-23T18:42:27.4780803Z",
+  "updatedBy": null,
+  "updatedOn": null
+},
+"name": "audit-vm-managed-disks",
+```
+
+If you want to redisplay the policy assignment information, run the following command:
+
+```azurecli
+az policy assignment show --name "audit-vm-managed-disks" --scope $rgid
+```
+
+For more information, go to [az policy assignment](/cli/azure/policy/assignment).
 
 ## Identify non-compliant resources
 
-To view the resources that aren't compliant under this new assignment, get the policy assignment ID
-by running the following commands:
+The compliance state for a new policy assignment takes a few minutes to become active and provide results about the policy's state.
 
-```azurecli-interactive
-az policy assignment list --query "[?displayName=='Audit VMs without managed disks Assignment'].id"
+Use the following command to identify resources that aren't compliant with the policy assignment
+you created:
+
+```azurecli
+policyid=$(az policy assignment show \
+  --name "audit-vm-managed-disks" \
+  --scope $rgid \
+  --query id \
+  --output tsv)
+
+az policy state list --resource $policyid --filter "(isCompliant eq false)"
 ```
 
-For more information about policy assignment IDs, see
-[az policy assignment](/cli/azure/policy/assignment).
+The `policyid` variable uses an expression to get the policy assignment's ID. The `filter` parameter limits the output to non-compliant resources.
 
-Next, run the following command to get the resource IDs of the non-compliant resources that are
-output into a JSON file:
+The `az policy state list` output is verbose, but for this article the `complianceState` shows `NonCompliant`:
 
-```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+```output
+"complianceState": "NonCompliant",
+"components": null,
+"effectiveParameters": "",
+"isCompliant": false,
 ```
 
-Your results resemble the following example:
-
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-    "@odata.count": 3,
-    "value": [{
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
-        }
-
-    ]
-}
-```
-
-The results are comparable to what you'd typically see listed under **Non-compliant resources** in
-the Azure portal view.
+For more information, go to [az policy state](/cli/azure/policy/state).
 
 ## Clean up resources
 
-To remove the assignment created, use the following command:
+To remove the policy assignment, run the following command:
 
-```azurecli-interactive
-az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+```azurecli
+az policy assignment delete --name "audit-vm-managed-disks" --scope $rgid
+```
+
+To sign out of your Azure CLI session:
+
+```azurecli
+az logout
 ```
 
 ## Next steps
 
-In this quickstart, you assigned a policy definition to identify non-compliant resources in your
-Azure environment.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial for:
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [Creating and managing policies](./tutorials/create-and-manage.md)
+> [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

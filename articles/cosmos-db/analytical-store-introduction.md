@@ -1,13 +1,13 @@
 ---
 title: What is Azure Cosmos DB analytical store?
-description: Learn about Azure Cosmos DB transactional (row-based) and analytical(column-based) store. Benefits of analytical store, performance impact for large-scale workloads, and auto sync of data from transactional store to analytical store.  
+description: Learn about Azure Cosmos DB transactional (row-based) and analytical(column-based) store. Benefits of analytical store, performance impact for large-scale workloads, and auto sync of data from transactional store to analytical store.
 author: Rodrigossz
 ms.author: rosouz
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/18/2023
-ms.custom: seo-nov-2020, devx-track-azurecli, ignite-2022
+ms.date: 05/08/2024
+ms.custom: devx-track-azurecli
 ---
 
 # What is Azure Cosmos DB analytical store?
@@ -576,7 +576,8 @@ Although analytical store has built-in protection against physical failures, bac
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
-* Currently Continuous backup mode and Synapse Link aren't supported in the same database account. Customers have to choose one of these two features and this decision can't be changed.
+* Synapse Link for database accounts using continuous backup mode is GA.
+* Continuous backup mode for Synapse Link enabled accounts is in public preview. Currently, customers that disabled Synapse Link from containers can't migrate to continuous backup.
 
 ### Backup policies
 

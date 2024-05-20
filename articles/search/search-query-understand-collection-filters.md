@@ -1,5 +1,5 @@
 ---
-title: Understanding OData collection filters
+title: OData collection filters
 titleSuffix: Azure AI Search
 description: Learn the mechanics of how OData collection filters work in Azure AI Search queries, including limitations and behaviors unique to collections.
 
@@ -9,31 +9,33 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 01/11/2024
 ---
-# Understanding OData collection filters in Azure AI Search
 
-To [filter](query-odata-filter-orderby-syntax.md) on collection fields in Azure AI Search, you can use the [`any` and `all` operators](search-query-odata-collection-operators.md) together with **lambda expressions**. Lambda expressions are Boolean expressions that refer to a **range variable**. The `any` and `all` operators are analogous to a `for` loop in most programming languages, with the range variable taking the role of loop variable, and the lambda expression as the body of the loop. The range variable takes on the "current" value of the collection during iteration of the loop.
+# Understand how OData collection filters work in Azure AI Search
+
+This article provides background for developers who are writing advanced filters with complex lambda expressions. The article explains why the rules for collection filters exist by exploring how Azure AI Search executes these filters.
+
+When you build a [filter](query-odata-filter-orderby-syntax.md) on collection fields in Azure AI Search, you can use the [`any` and `all` operators](search-query-odata-collection-operators.md) together with **lambda expressions**. Lambda expressions are Boolean expressions that refer to a **range variable**. In filters that use a lambda expression, the `any` and `all` operators are analogous to a `for` loop in most programming languages, with the range variable taking the role of loop variable, and the lambda expression as the body of the loop. The range variable takes on the "current" value of the collection during iteration of the loop.
 
 At least that's how it works conceptually. In reality, Azure AI Search implements filters in a very different way to how `for` loops work. Ideally, this difference would be invisible to you, but in certain situations it isn't. The end result is that there are rules you have to follow when writing lambda expressions.
 
-This article explains why the rules for collection filters exist by exploring how Azure AI Search executes these filters. If you're writing advanced filters with complex lambda expressions, you may find this article helpful in building your understanding of what's possible in filters and why.
-
-For information on what the rules for collection filters are, including examples, see [Troubleshooting OData collection filters in Azure AI Search](search-query-troubleshoot-collection-filters.md).
+> [!NOTE]
+> For information on what the rules for collection filters are, including examples, see [Troubleshooting OData collection filters in Azure AI Search](search-query-troubleshoot-collection-filters.md).
 
 ## Why collection filters are limited
 
-There are three underlying reasons why not all filter features are supported for all types of collections:
+There are three underlying reasons why filter features aren't fully supported for all types of collections:
 
 1. Only certain operators are supported for certain data types. For example, it doesn't make sense to compare the Boolean values `true` and `false` using `lt`, `gt`, and so on.
-1. Azure AI Search doesn't support **correlated search** on fields of type `Collection(Edm.ComplexType)`.
+1. Azure AI Search doesn't support *correlated search* on fields of type `Collection(Edm.ComplexType)`.
 1. Azure AI Search uses inverted indexes to execute filters over all types of data, including collections.
 
 The first reason is just a consequence of how the OData language and EDM type system are defined. The last two are explained in more detail in the rest of this article.
 
 ## Correlated versus uncorrelated search
 
-When applying multiple filter criteria over a collection of complex objects, the criteria are **correlated** since they apply to *each object in the collection*. For example, the following filter will return hotels that have at least one deluxe room with a rate less than 100:
+When you apply multiple filter criteria over a collection of complex objects, the criteria are correlated because they apply to *each object in the collection*. For example, the following filter returns hotels that have at least one deluxe room with a rate less than 100:
 
 ```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
@@ -47,7 +49,7 @@ However, for full-text search, there's no way to refer to a specific range varia
     Rooms/Type:deluxe AND Rooms/Description:"city view"
 ```
 
-you may get hotels back where one room is deluxe, and a different room mentions "city view" in the description. For example, the document below with `Id` of `1` would match the query:
+you might get hotels back where one room is deluxe, and a different room mentions "city view" in the description. For example, the document below with `Id` of `1` would match the query:
 
 ```json
 {
@@ -96,7 +98,7 @@ So unlike the filter above, which basically says "match documents where a room h
 
 ## Inverted indexes and collections
 
-You may have noticed that there are far fewer restrictions on lambda expressions over complex collections than there are for simple collections like `Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)`, and so on. This is because Azure AI Search stores complex collections as actual collections of sub-documents, while simple collections aren't stored as collections at all.
+You might have noticed that there are far fewer restrictions on lambda expressions over complex collections than there are for simple collections like `Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)`, and so on. This is because Azure AI Search stores complex collections as actual collections of subdocuments, while simple collections aren't stored as collections at all.
 
 For example, consider a filterable string collection field like `seasons` in an index for an online retailer. Some documents uploaded to this index might look like this:
 
@@ -133,7 +135,7 @@ The values of the `seasons` field are stored in a structure called an **inverted
 
 This data structure is designed to answer one question with great speed: In which documents does a given term appear? Answering this question works more like a plain equality check than a loop over a collection. In fact, this is why for string collections, Azure AI Search only allows `eq` as a comparison operator inside a lambda expression for `any`.
 
-Building up from equality, next we'll look at how it's possible to combine multiple equality checks on the same range variable with `or`. It works thanks to algebra and [the distributive property of quantifiers](https://en.wikipedia.org/wiki/Existential_quantification#Negation). This expression:
+Next, we look at how it's possible to combine multiple equality checks on the same range variable with `or`. It works thanks to algebra and [the distributive property of quantifiers](https://en.wikipedia.org/wiki/Existential_quantification#Negation). This expression:
 
 ```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')
@@ -174,7 +176,7 @@ In summary, here are the rules of thumb for what's allowed in a lambda expressio
 
 - Inside `any`, *positive checks* are always allowed, like equality, range comparisons, `geo.intersects`, or `geo.distance` compared with `lt` or `le` (think of "closeness" as being like equality when it comes to checking distance).
 - Inside `any`, `or` is always allowed. You can use `and` only for data types that can express range checks, and only if you use ORs of ANDs (DNF).
-- Inside `all`, the rules are reversed -- only *negative checks* are allowed, you can use `and` always, and you can use `or` only for range checks expressed as ANDs of ORs (CNF).
+- Inside `all`, the rules are reversed. Only *negative checks* are allowed, you can use `and` always, and you can use `or` only for range checks expressed as ANDs of ORs (CNF).
 
 In practice, these are the types of filters you're most likely to use anyway. It's still helpful to understand the boundaries of what's possible though.
 

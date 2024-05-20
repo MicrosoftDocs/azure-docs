@@ -2,15 +2,8 @@
 title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication  | Microsoft Docs
 description: Describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 08/22/2022
 ms.author: anfdocs
@@ -27,7 +20,7 @@ Instead of using HANA System Replication (HSR), you can use cross-region replica
 
 The following diagram illustrates cross-region replication between the source and destination HANA servers. Cross-region replication is asynchronous. As such, not all volumes need to be replicated.  
 
- ![Diagram that shows cross-region replication between the source and destination HANA servers.](../media/azure-netapp-files/application-cross-region-replication.png) 
+ ![Diagram that shows cross-region replication between the source and destination HANA servers.](./media/application-volume-group-disaster-recovery/application-cross-region-replication.png) 
 
 > [!NOTE]  
 > When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix will then be changed to `DR2-`. 
@@ -90,7 +83,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     Click **Next: Volume Group**.    
 
-    [ ![Screenshot that shows the Create a Volume Group page in a cross-region replication configuration.](../media/azure-netapp-files/application-cross-region-create-volume.png) ](../media/azure-netapp-files/application-cross-region-create-volume.png#lightbox)
+    [ ![Screenshot that shows the Create a Volume Group page in a cross-region replication configuration.](./media/application-volume-group-disaster-recovery/application-cross-region-create-volume.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-create-volume.png#lightbox)
 
 3. In the **Volume group** tab, provide information for creating the volume group:
 
@@ -113,7 +106,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
 5. In the **Replication** section of the Volume Group tab, the Replication Schedule field defaults to "Multiple" (disabled). The default replication schedules are different for the replicated volumes. As such, you can modify the replication schedules only for each volume individually from the Volumes tab, and not globally for the entire volume group. 
 
-    [ ![Screenshot that shows Multiple field is disabled in Create a Volume Group page.](../media/azure-netapp-files/application-cross-region-multiple-disabled.png) ](../media/azure-netapp-files/application-cross-region-multiple-disabled.png#lightbox)
+    [ ![Screenshot that shows Multiple field is disabled in Create a Volume Group page.](./media/application-volume-group-disaster-recovery/application-cross-region-multiple-disabled.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-multiple-disabled.png#lightbox)
 
     Click **Next: Tags**.
 
@@ -136,13 +129,13 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     The default type for the data-backup volume is DP, but this setting can be changed to RW.  
 
-    [ ![Screenshot that shows volume types in Create a Volume Group page.](../media/azure-netapp-files/application-cross-region-volume-types.png) ](../media/azure-netapp-files/application-cross-region-volume-types.png#lightbox)
+    [ ![Screenshot that shows volume types in Create a Volume Group page.](./media/application-volume-group-disaster-recovery/application-cross-region-volume-types.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-volume-types.png#lightbox)
 
 8. Click each volume with the DP type to specify the **Source volume ID**. For more information, see [Locate the source volume resource ID](cross-region-replication-create-peering.md#locate-the-source-volume-resource-id). 
  
     You can optionally change the default replication schedule of a volume. See [Replication schedules, RTO, and RPO](#replication-schedules-rto-and-rpo) for the replication schedule options. 
 
-    [ ![Screenshot that shows the Replication tab in Create a Volume Group page.](../media/azure-netapp-files/application-cross-region-replication-tab.png) ](../media/azure-netapp-files/application-cross-region-replication-tab.png#lightbox)
+    [ ![Screenshot that shows the Replication tab in Create a Volume Group page.](./media/application-volume-group-disaster-recovery/application-cross-region-replication-tab.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-replication-tab.png#lightbox)
 
 9. After you create the volume group, set up replication by following instructions in [Authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume).  
 
@@ -160,7 +153,7 @@ In this scenario, you typically don’t change roles for primary and secondary s
 
 The following diagram describes this scenario:
 
-[ ![Diagram that shows replication for only the primary HANA database volumes.](../media/azure-netapp-files/replicate-only-primary-database-volumes.png) ](../media/azure-netapp-files/replicate-only-primary-database-volumes.png#lightbox)
+[ ![Diagram that shows replication for only the primary HANA database volumes.](./media/application-volume-group-disaster-recovery/replicate-only-primary-database-volumes.png) ](./media/application-volume-group-disaster-recovery/replicate-only-primary-database-volumes.png#lightbox)
 
 In this scenario, a DR setup must include only the volumes of the primary HANA system. With the daily replication of the primary data volume and the log backups of both the primary and secondary systems, the system can be recovered at the DR site. In the diagram, a single volume is used for the log backups of the primary and secondary systems.
 
@@ -174,7 +167,7 @@ For reasons other than HA, you might want to periodically switch roles between t
 
 The following diagram describes this scenario:
 
-[ ![Diagram that shows replication for both the primary and the secondary HANA database volumes.](../media/azure-netapp-files/replicate-both-primary-secondary-database-volumes.png) ](../media/azure-netapp-files/replicate-both-primary-secondary-database-volumes.png#lightbox)
+[ ![Diagram that shows replication for both the primary and the secondary HANA database volumes.](./media/application-volume-group-disaster-recovery/replicate-both-primary-secondary-database-volumes.png) ](./media/application-volume-group-disaster-recovery/replicate-both-primary-secondary-database-volumes.png#lightbox)
 
 In this scenario, you might want to replicate both sets of volumes from the primary and secondary HANA systems as shown in the diagram. 
 

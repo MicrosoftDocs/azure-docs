@@ -14,7 +14,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 
 # Tutorial: Send device data to Azure Storage using IoT Hub message routing
 
-Use [message routing](iot-hub-devguide-messages-d2c.md) in Azure IoT Hub to send telemetry data from your IoT devices to Azure services such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs. Every IoT hub has a default built-in endpoint that is compatible with Event Hubs. You can also create custom endpoints and route messages to other Azure services by defining  [routing queries](iot-hub-devguide-routing-query-syntax.md). Each message that arrives at the IoT hub is routed to all endpoints whose routing queries it matches. If a message doesn't match any of the defined routing queries, it is routed to the default endpoint.
+Use message routing in Azure IoT Hub to send telemetry data from your IoT devices to Azure services such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs. Every IoT hub has a default built-in endpoint that is compatible with Event Hubs. You can also create custom endpoints and route messages to other Azure services by defining routing queries. Each message that arrives at the IoT hub is routed to all endpoints whose routing queries it matches. If a message doesn't match any of the defined routing queries, it is routed to the default endpoint.
 
 In this tutorial, you perform the following tasks:
 
@@ -46,7 +46,7 @@ There are no other prerequisites for the Azure portal.
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
 
@@ -302,29 +302,26 @@ Now set up the routing for the storage account. In this section you define a new
    routeName=ROUTE_NAME
    ```
 
-1. Use the [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) command to create a custom endpoint that points to the storage container you made in the previous section.
+1. Use the [az iot hub message-endpoint create](/cli/azure/iot/hub/message-endpoint/create#az-iot-hub-message-endpoint-create-storage-container) command to create a custom endpoint that points to the storage container you made in the previous section.
 
    ```azurecli-interactive
-   az iot hub routing-endpoint create \
+   az iot hub message-endpoint create storage-container \
      --connection-string $(az storage account show-connection-string --name $storageName --query connectionString -o tsv) \
      --endpoint-name $endpointName \
-     --endpoint-resource-group $resourceGroup \
-     --endpoint-subscription-id $(az account show --query id -o tsv) \
-     --endpoint-type azurestoragecontainer
      --hub-name $hubName \
      --container $containerName \
      --resource-group $resourceGroup \
      --encoding json
    ```
 
-1. Use the [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) command to create a route that passes any message where `level=storage` to the storage container endpoint.
+1. Use the [az iot hub message-route create](/cli/azure/iot/hub/message-route#az-iot-hub-message-route-create) command to create a route that passes any message where `level=storage` to the storage container endpoint.
 
    ```azurecli-interactive
-   az iot hub route create \
-     --name $routeName \
+   az iot hub message-route create \
+     --route-name $routeName \
      --hub-name $hubName \
      --resource-group $resourceGroup \
-     --source devicemessages \
+     --source-type devicemessages \
      --endpoint-name $endpointName \
      --enabled true \
      --condition 'level="storage"'

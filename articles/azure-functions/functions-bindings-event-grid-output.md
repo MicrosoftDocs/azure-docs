@@ -4,7 +4,8 @@ description: Learn to send an Event Grid event in Azure Functions.
 
 ms.topic: reference
 ms.date: 09/22/2023
-ms.devlang: csharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -52,6 +53,8 @@ The following example shows how the custom type is used in both the trigger and 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
 
@@ -449,8 +452,10 @@ import logging
 import azure.functions as func
 import datetime
 
+app = func.FunctionApp()
+
 @app.function_name(name="eventgrid_output")
-@app.route(route="eventgrid_output")
+@app.event_grid_trigger(arg_name="eventGridEvent")
 @app.event_grid_output(
     arg_name="outputEvent",
     topic_endpoint_uri="MyEventGridTopicUriSetting",

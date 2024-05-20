@@ -1,14 +1,13 @@
 ---
 title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
-author: Heidilohr
 ms.topic: release-notes
-ms.date: 12/14/2023
-ms.author: helohr
-ms.reviewer: thhickli; darank
-manager: femila
 ms.custom: references_regions
+author: Heidilohr
+ms.author: helohr
+ms.date: 04/15/2024
 ---
+
 # What's new in Azure Virtual Desktop?
 
 Azure Virtual Desktop updates regularly. This article is where you find out about:
@@ -22,6 +21,70 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## March 2024
+
+Here's what changed in March 2024:
+
+### URI schemes with the Remote Desktop client for Azure Virtual Desktop now available
+
+You can now use Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values designed for using Azure Virtual Desktop. For example, you can use URI to subscribe to a workspace or connect to a particular desktop or RemoteApp. 
+
+For more information and examples, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](uri-scheme.md). 
+
+### Every time sign-in frequency Conditional Access option for Azure Virtual Desktop is now in public preview 
+
+Using Microsoft Entra sign-in frequency with Azure Virtual Desktop prompts users to reauthenticate when launching a new connection after a period of time. You can now require reauthentication after a shorter period of time. 
+
+For more information, see [Configure sign-in frequency](set-up-mfa.md?tabs=avd#configure-sign-in-frequency). 
+
+### Configuring the clipboard transfer direction in Azure Virtual Desktop is now in public preview 
+
+Clipboard redirection in Azure Virtual Desktop allows users to copy and paste content in either direction between the user's local device and the remote session. However, in some scenarios you might want to limit the direction of the clipboard for users to prevent data exfiltration or copying malicious files to a session host. You can configure users to only be able to use the clipboard to copy data from session host to client or client to session host, as well as what kind of data they can copy.
+
+For more information, see [Configure the clipboard transfer direction in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md?tabs=intune). 
+
+### Azure Proactive Resiliency Library (APRL) for Azure Virtual Desktop workload now available
+
+The ARPL now has recommendations for Azure Virtual Desktop, which can help you can meet resiliency targets for your applications through a holistic self-serve resilience experience. APRL recommendations cover Azure Virtual Desktop requirements & definitions, letting you run automated configuration checks, such as *Zonal,Regional*, against workload requirements. APRL also contains supporting Azure Resource Graph queries that you can use to identify resources that aren't fully compliant with APRL guidance and recommendations. 
+
+For more information about these recommendations, see the [Azure Proactive Resiliency Library (APRL)](https://azure.github.io/Azure-Proactive-Resiliency-Library/).
+
+## February 2024
+
+Here's what changed in February 2024:
+
+### Azure Virtual Desktop for Azure Stack HCI now generally available 
+
+Azure Virtual Desktop for Azure Stack HCI extends the capabilities of the Microsoft Cloud to your datacenters. Bringing the benefits of Azure Virtual Desktop and Azure Stack HCI together, organizations can securely run virtualized desktops and apps on-premises in their datacenter and at the edges of their organization. This versatility is especially useful for organizations with data residency and proximity requirements or latency-sensitive workloads.
+
+For more information, see [Azure Virtual Desktop for Azure Stack HCI now available!](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/azure-virtual-desktop-for-azure-stack-hci-now-available/ba-p/4038030)
+
+### New Azure Virtual Desktop web client is now available
+
+We've updated the Azure Virtual Desktop web client to the new web client. All users automatically migrate to this new version of the web client to access their resources.
+
+For more information about the new features available in the new web client, see [Use features of the Remote Desktop Web client](./users/client-features-web.md).  
+
+## January 2024
+
+There were no major releases or new features in January 2024.
+
+## December 2023
+
+Here's what changed in December 2023:
+
+### New app attach features for Azure Virtual Desktop in public preview
+
+The preview of *app attach* is now available. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host.
+
+For more information, see [New app attach features for Azure Virtual Desktop in public preview](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-app-attach-features-for-azure-virtual-desktop-in-public/ba-p/4002826) and [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+### The new Microsoft Teams desktop client is now generally available to use with Azure Virtual Desktop
+
+The [new Microsoft Teams desktop client](/microsoftteams/new-teams-desktop-admin) is now generally available to use with Azure Virtual Desktop. The new Teams desktop client has feature parity with the classic Teams app and improved performance, reliability, and security.
+
+For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
 
 ## November 2023
 
@@ -45,7 +108,9 @@ Windows 11 Enterprise multi-session, versions 23H2 and 22H2 with Microsoft 365 a
 
 ### Autoscale for personal host pools is now generally available
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using.
+
+For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
 
 ### Updated preview of Azure Virtual Desktop on Azure Stack HCI
 
@@ -53,11 +118,15 @@ We've updated the preview of Azure Virtual Desktop on Azure Stack HCI. You can n
 
 ### Single sign-on using Microsoft Entra authentication is now generally available
 
-Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
+Single sign-on using Microsoft Entra authentication is now generally available. Single sign-on enables users to automatically sign the user into Windows, without prompting them for their credentials for every connection.
+
+For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
 
 ### In-session passwordless authentication is now generally available
 
-In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
+In-session passwordless authentication is now generally available. Azure Virtual Desktop supports in-session passwordless authentication using Windows Hello for Business or security devices like FIDO keys.
+
+For more information, see [In-session passwordless authentication](authentication.md#in-session-authentication).
 
 ### Windows App preview
 

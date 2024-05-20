@@ -5,7 +5,7 @@ title: include file
  author: tamram
  ms.service: azure-storage
  ms.topic: include
- ms.date: 05/02/2023
+ ms.date: 04/24/2024
  ms.author: tamram
  ms.custom: include file, references_regions
 ---
@@ -31,8 +31,8 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Default maximum egress for general-purpose v2 and Blob storage accounts in regions that aren't listed in the previous row. | 50 Gbps<sup>2</sup> |
 | Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS |
 | Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS |
-| Maximum number of IP address rules per storage account | 200 |
-| Maximum number of virtual network rules per storage account | 200 |
+| Maximum number of IP address rules per storage account | 400 |
+| Maximum number of virtual network rules per storage account | 400 |
 | Maximum number of resource instance rules per storage account | 200 |
 | Maximum number of private endpoints per storage account | 200 |
 

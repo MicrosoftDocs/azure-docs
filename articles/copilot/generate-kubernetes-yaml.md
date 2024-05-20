@@ -1,7 +1,7 @@
 ---
 title: Generate Kubernetes YAML files using Microsoft Copilot for Azure (preview)
 description: Learn how Microsoft Copilot for Azure (preview) can generate Kubernetes YAML files for you to customize and use.
-ms.date: 11/15/2023
+ms.date: 04/26/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -32,7 +32,7 @@ Here are a few examples of the kinds of prompts you can use to generate Kubernet
 
 ## Examples
 
-In this example, Microsoft Copilot for Azure (preview) generates a YAML file based on the prompt "Help me generate a Kubernetes YAML file for a "frontend" service using port 8080."
+In this example, Microsoft Copilot for Azure (preview) generates a YAML file based on the prompt "**Help me generate a Kubernetes YAML file for a "frontend" service using port 8080**."
 
 :::image type="content" source="media/generate-kubernetes-yaml/kubernetes-yaml-file.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) generating a Kubernetes YAML file.":::
 

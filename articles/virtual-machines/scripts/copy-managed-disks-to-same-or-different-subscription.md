@@ -1,13 +1,11 @@
 ---
 title: Copy managed disks to same or different subscription - CLI Sample
 description: Azure CLI Script Sample - Copy (or move) managed disks to the same or a different subscription
-documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
-ms.workload: infrastructure
 ms.date: 02/22/2023
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurecli
@@ -19,7 +17,7 @@ This article contains two scripts. The first script copies a managed disk that's
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
