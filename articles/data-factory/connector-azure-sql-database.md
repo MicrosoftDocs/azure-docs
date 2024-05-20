@@ -77,7 +77,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-sql-database-version) to upgrade your linked service if you use **Legacy** version. For the property details, see the corresponding sections.
+The Azure SQL Database connector **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-sql-database-version) to upgrade your Azure SQL Database connector version from **Legacy** one. For the property details, see the corresponding sections.
 
 - [Recommended version](#recommended-version)
 - [Legacy version](#legacy-version)
@@ -101,7 +101,7 @@ These generic properties are supported for an Azure SQL Database linked service 
 | hostNameInCertificate | The host name to use when validating the server certificate for the connection. When not specified, the server name is used for certificate validation. | No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
 
-[!INCLUDE [Connector overview](includes/sql-connector-addtional-connection-properties.md)]
+[!INCLUDE [SQL connector additional connection properties](includes/sql-connector-addtional-connection-properties.md)]
 
 #### SQL authentication
 
