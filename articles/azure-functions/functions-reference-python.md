@@ -551,8 +551,8 @@ HTTP streams are disabled by default. You need to enable this feature in your ap
 
 1. When deploying to a Consumption plan, add these [application settings](./functions-how-to-use-azure-function-app-settings.md#settings):
 
-    `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`
-    `"PYTHON_ENABLE_INIT_INDEXING": "1"`
+    + `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"` 
+    + `"PYTHON_ENABLE_INIT_INDEXING": "1"`
 
     When running locally, you also need to add these same settings to the `local.settings.json` project file.
 
