@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: howto
-ms.date: 05/15/2024
+ms.date: 05/20/2024
 ms.author: cherylmc
 
 ---
@@ -35,7 +35,7 @@ This article continues on from the [Configure a P2S VPN gateway for Microsoft En
 
 ## <a name="generate"></a>Extract client profile configuration files
 
-To configure your Azure VPN Client profile, you download a VPN client profile configuration package from the Azure P2S gateway. This package contains the necessary settings to configure the VPN client.
+To configure your Azure VPN Client profile, you must first download the VPN client profile configuration package from the Azure P2S gateway. This package is specific to the configured VPN gateway and contains the necessary settings to configure the VPN client.
 
 If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download).
 
@@ -51,9 +51,11 @@ After you obtain the VPN client profile configuration package, extract the zip f
 
 When your P2S configuration specifies Microsoft Entra ID authentication, the VPN client profile configuration settings are contained in the **azurevpnconfig.xml** file. This file is located in the **AzureVPN** folder of the VPN client profile configuration package.
 
-1. On the page, select **Import**. Browse to the Azure VPN Client profile configuration folder that you extracted. In the AzureVPN folder, select **azurevpnconfig.xml**. With the file selected, select **Open**.
+1. On the page, select **Import**.
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/import.png" alt-text="Screenshot that shows the Add button selected and the Import action highlighted in the lower left-side of the window." lightbox="./media/point-to-site-entra-vpn-client-windows/import.png":::
+
+1. Browse to the Azure VPN Client profile configuration folder that you extracted. In the AzureVPN folder, select **azurevpnconfig.xml**. With the file selected, select **Open**.
 
 1. Change the name of the Connection name (optional). In this example, you'll notice that the Audience value shown is the new Azure Public value associated to the Microsoft-registered Azure VPN Client App ID. The value in this field must match the value that your P2S VPN gateway is configured to use.
 
@@ -73,13 +75,11 @@ When your P2S configuration specifies Microsoft Entra ID authentication, the VPN
 
 These steps help you configure your connection to connect automatically with Always-on.
 
-1. On the home page for your VPN client, select **VPN Settings**.
+1. On the home page for your VPN client, select **VPN Settings**. If you see the switch apps dialogue box, select **Yes**.
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/vpn-settings.png" alt-text="Screenshot of the VPN home page with VPN Settings selected." lightbox="./media/point-to-site-entra-vpn-client-windows/vpn-settings.png":::
 
-1. If you see the switch apps dialogue box, select **Yes**.
-
-1. Make sure the connection that you want to set isn't already connected, then highlight the profile and check the **Connect automatically** check box.
+1. If the connection you want to configure is connected, disconnect the connection, then highlight the profile and select the **Connect automatically** check box.
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/automatic.png" alt-text="Screenshot of the Settings window, with the Connect automatically box checked." lightbox="./media/point-to-site-entra-vpn-client-windows/automatic.png":::
 
