@@ -33,7 +33,7 @@ Examples of each scenario are provided in the following table.
 | [Configuration management][05] | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website."                                                                                                                                |
 | [Compliance][06]               | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they're deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it's needed, in a controlled way, at scale. For new machines, enforce the setting when they're deployed." |
 
-You can view the per-setting results from configurations in the [Guest assignments page][07]. If an
+You can view the per-setting results from configurations in the [Guest assignments page][44]. If an
 Azure Policy assignment orchestrated the configuration is orchestrated, you can select the "Last
 evaluated resource" link on the ["Compliance details" page][07].
 
@@ -479,3 +479,4 @@ Machine configuration built-in policy samples are available in the following loc
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
 [42]: ./how-to/develop-custom-package/overview.md
 [43]: ./how-to/create-policy-definition.md
+[44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
