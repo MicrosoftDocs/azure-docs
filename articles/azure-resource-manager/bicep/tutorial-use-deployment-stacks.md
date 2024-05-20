@@ -1,7 +1,7 @@
 ---
 title: Use deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack.
-ms.date: 05/15/2024
+ms.date: 05/20/2024
 ms.topic: tutorial
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ---
@@ -82,7 +82,7 @@ az stack group create \
   --deny-settings-mode 'none'
 ```
 
-The `deny-settings-mode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+Use the `action-on-unmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion). The `deny-settings-mode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -99,7 +99,7 @@ New-AzResourceGroupDeploymentStack `
   -DenySettingsMode "none"
 ```
 
-The `DenySettingsMode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+Use the `ActionOnUnmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion). The `DenySettingsMode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
 
 ---
 
@@ -134,14 +134,14 @@ The output shows two managed resources - one storage account and one virtual net
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/demoRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-08-14-58-28-fd6bb",
+  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051714epybc",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
-  "duration": "PT30.1685405S",
+  "duration": "PT32.5330364S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
   "location": null,
   "name": "demoStack",
   "outputs": null,
@@ -152,26 +152,26 @@ The output shows two managed resources - one storage account and one virtual net
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     }
   ],
   "systemData": {
-    "createdAt": "2023-06-08T14:58:28.377564+00:00",
-    "createdBy": "johndole@contoso.com",
+    "createdAt": "2024-05-17T14:50:18.382948+00:00",
+    "createdBy": "jgao@microsoft.com",
     "createdByType": "User",
-    "lastModifiedAt": "2023-06-08T14:58:28.377564+00:00",
-    "lastModifiedBy": "johndole@contoso.com",
+    "lastModifiedAt": "2024-05-17T14:50:18.382948+00:00",
+    "lastModifiedBy": "jgao@microsoft.com",
     "lastModifiedByType": "User"
   },
-  "tags": null,
+  "tags": {},
   "template": null,
   "templateLink": null,
   "type": "Microsoft.Resources/deploymentStacks"
@@ -189,16 +189,18 @@ Get-AzResourceGroupDeploymentStack `
 The output shows two managed resources - one storage account and one virtual network:
 
 ```output
-Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
-Name                        : demoStack
-ProvisioningState           : succeeded
-ResourcesCleanupAction      : detach
-ResourceGroupsCleanupAction : detach
-DenySettingsMode            : none
-CreationTime(UTC)           : 6/5/2023 8:55:48 PM
-DeploymentId                : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-05-20-55-48-38d09
-Resources                   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
-                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
+Id                            : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
+Name                          : demoStack
+ProvisioningState             : succeeded
+resourcesCleanupAction        : detach
+resourceGroupsCleanupAction   : detach
+managementGroupsCleanupAction : detach
+CorrelationId                 : 62f1631c-a823-46c1-b240-9182ccf39cfa
+DenySettingsMode              : none
+CreationTime(UTC)             : 5/17/2024 3:37:42 PM
+DeploymentId                  : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051715b17ls
+Resources                     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+                                /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 ---
@@ -231,11 +233,11 @@ The output is similar to:
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-05-20-55-48-38d09",
+  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051714epybc",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
-  "duration": "PT29.006353S",
+  "duration": "PT32.5330364S",
   "error": null,
   "failedResources": [],
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
@@ -249,26 +251,26 @@ The output is similar to:
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
       "resourceGroup": "demoRg",
       "status": "managed"
     }
   ],
   "systemData": {
-    "createdAt": "2023-06-05T20:55:48.006789+00:00",
-    "createdBy": "johndole@contoso.com",
+    "createdAt": "2024-05-17T14:50:18.382948+00:00",
+    "createdBy": "jgao@microsoft.com",
     "createdByType": "User",
-    "lastModifiedAt": "2023-06-05T20:55:48.006789+00:00",
-    "lastModifiedBy": "johndole@contoso.com",
+    "lastModifiedAt": "2024-05-17T14:50:18.382948+00:00",
+    "lastModifiedBy": "jgao@microsoft.com",
     "lastModifiedByType": "User"
   },
-  "tags": null,
+  "tags": {},
   "template": null,
   "templateLink": null,
   "type": "Microsoft.Resources/deploymentStacks"
@@ -286,8 +288,8 @@ The output is similar to:
 ```output
 Status  DenyStatus Id
 ------  ---------- --
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 ---
@@ -311,7 +313,7 @@ At the end of the previous step, you have one stack with two managed resources. 
 Edit the **main.bicep** file to change the sku name from `Standard_LRS` to `Standard_GRS`:
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   kind: 'StorageV2'
@@ -368,7 +370,7 @@ At the end of the previous step, you have one stack with two managed resources. 
 Edit the **main.bicep** file to include another storage account definition:
 
 ```bicep
-resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount1 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: '1${storageAccountName}'
   location: location
   kind: 'StorageV2'
@@ -432,7 +434,7 @@ At the end of the previous step, you have one stack with three managed resources
 Edit the **main.bicep** file to remove the following storage account definition from the previous step:
 
 ```bicep
-resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount1 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: '1${storageAccountName}'
   location: location
   kind: 'StorageV2'
@@ -512,7 +514,7 @@ At the end of the previous step, you have one stack with two managed resources. 
 Edit the **main.bicep** file to include the storage account definition of the unmanaged resource:
 
 ```bicep
-resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount1 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: '1${storageAccountName}'
   location: location
   kind: 'StorageV2'
@@ -576,7 +578,7 @@ At the end of the previous step, you have one stack with three managed resources
 Edit the **main.bicep** file to remove the following storage account definition:
 
 ```bicep
-resource storageAccount1 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount1 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: '1${storageAccountName}'
   location: location
   kind: 'StorageV2'
