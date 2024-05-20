@@ -41,4 +41,4 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -
 
 6. Restore specific blobs based on the prefix match in each container.
 
-Learn [how to restore specific blobs from vaulted backup](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore?view=azps-11.6.0&preserveview=true#example-10-trigger-vaulted-backup-conatiners-itemlevelrestore-with-prefixmatch-for-azureblob).
+Learn [how to restore specific blobs from vaulted backup](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore?view=azps-11.6.0&preserve-view=true#example-10-trigger-vaulted-backup-conatiners-itemlevelrestore-with-prefixmatch-for-azureblob).
