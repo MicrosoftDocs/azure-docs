@@ -254,7 +254,7 @@ Use these steps to create a function app in the Flex Consumption plan. When your
     | **Select a hosting plan.** | Choose **Flex Consumption (Preview)**. |
     | **Select a runtime stack.** | Choose the language stack and version on which you've been running locally. |
     | **Select a resource group for new resources.** | Choose the existing resource group in which you created the storage account. |
-    | **Select a location for new resources.** | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](#view-currently-supported-regions).|
+    | **Select a location for new resources.** | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).|
     | **Select a storage account.** | Choose the name of the storage account you created. |
     | **Select an Application Insights** resource for your app. | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
 
