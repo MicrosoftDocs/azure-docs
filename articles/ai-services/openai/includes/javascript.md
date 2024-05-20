@@ -100,7 +100,7 @@ Microsoft was founded on April 4, 1975.
 ## Microsoft Entra ID
 
 > [!IMPORTANT]
-> In the previous example we are demonstrating key-based authentication. Once you have tested with key based authentication successfully, we recommend using the more secure [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication which is demonstrated in the next code sample.
+> In the previous example we are demonstrating key-based authentication. Once you have tested with key-based authentication successfully, we recommend using the more secure [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication which is demonstrated in the next code sample. Getting started with [Microsoft Entra ID] will require some additional [prerequisites](https://www.npmjs.com/package/@azure/identity).
 
 ```javascript
 const { AzureOpenAI } = require("openai");
