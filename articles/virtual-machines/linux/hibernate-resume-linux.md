@@ -4,7 +4,7 @@ description: Learn how to hibernate a Linux virtual machine.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 05/16/2024
+ms.date: 05/20/2024
 ms.author: jainan
 ms.reviewer: mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -207,7 +207,7 @@ If the extension is missing, you can [manually install the LinuxHibernateExtensi
 > Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the Linux hibernation troubleshooting guide](../linux/hibernate-resume-troubleshooting-linux.md#azure-extensions-disabled-on-debian-images).
 
 >[!NOTE]
-> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](/virtual-machines/linux/expand-disks#increase-the-size-of-the-os-disk).
+> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](/virtual-machines/linux/expand-disks?tabs=rhellvm#increase-the-size-of-the-os-disk).
 
 #### [CLI](#tab/cliLHE)
     
@@ -271,7 +271,7 @@ sudo dnf install hibernation-setup-tool
 ---
 
 >[!NOTE]
-> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](/virtual-machines/linux/expand-disks#increase-the-size-of-the-os-disk).
+> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](/virtual-machines/linux/expand-disks?tabs=rhellvm#increase-the-size-of-the-os-disk).
 
 Once the package installs successfully, your Linux guest OS is configured for hibernation. You can also create a new Azure Compute Gallery Image from this VM and use the image to create VMs. VMs created with this image have the hibernation package preinstalled, simplifying your VM creation experience. 
 
