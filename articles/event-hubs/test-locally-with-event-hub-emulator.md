@@ -137,12 +137,12 @@ ACCEPT_EULA="N"
 ```
  docker compose -f <PathToDockerComposeFile> up -d
 ```
+---
 Once the steps are successful, you could find containers running in Docker:
 
 :::image type="content" source="./media/test-locally-with-event-hub-emulator/test-locally-with-event-hub-emulator.png" alt-text="Screenshot showing the event hubs emulator running in container":::
 
 
----  
 ## Interacting with Emulator
 
 You can use the following connection string to connect to Azure Event Hubs emulator.
