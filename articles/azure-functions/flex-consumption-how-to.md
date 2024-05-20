@@ -157,7 +157,7 @@ To support your function code, you need to create three resources:
     | Select a storage account. | Choose **Create new storage account** and at the prompt provide a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
     | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
 
-    A notification appears after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
+    A notification appears after your function app is created. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
 ---
 
