@@ -38,7 +38,7 @@ You can take one of the following approaches to use container images with ADE:
 
 Select the appropriate tab to learn more about each approach.
 
-## [Use the standard Bicep container image](#use-the-standard-bicep-container-image)
+## [Use the standard Bicep container image](#tab/use-the-standard-bicep-container-image/)
 
 ADE supports Bicep natively, so you can configure an environment definition that deploys Azure resources for a deployment environment by adding the template files (azuredeploy.json and environment.yaml) to your catalog. ADE then uses the standard Bicep container image to create the deployment environment.
 
@@ -57,7 +57,7 @@ The following example shows a runner that references the sample Bicep container 
 ```
 You can see the standard Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
 
-## [Create a custom bicep container image](#create-a-custom-bicep-container-image)
+## [Create a custom bicep container image](#tab/create-a-custom-bicep-container-image/)
 
 ### Create and build a Docker image
 
@@ -260,7 +260,7 @@ runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
 
-## [Build a container image with a script](#build-a-container-image-with-a-script)
+## [Build a container image with a script](#tab/build-a-container-image-with-a-script/)
 
 [!INCLUDE [custom-image-script](includes/custom-image-script.md)]
 
