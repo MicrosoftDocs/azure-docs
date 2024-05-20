@@ -65,6 +65,10 @@ We strongly recommend the following data access controls:
 - Routinely audit which accounts/individuals have access to the Azure OpenAI resource. API keys and resource level access enable a wide range of operations including reading and modifying messages and files.
 - Enable [diagnostic settings](../how-to/monitoring.md#configure-diagnostic-settings) to allow long-term tracking of certain aspects of the Azure OpenAI resource's activity log.
 
+## Parameters
+
+The Assistants API has support for several parameters that let you customize the Assistants' output. The `tool_choice` parameter lets you force the Assistant to use a specified tool. You can also create messages with the `assistant` role to create custom conversation histories in Threads. `temperature`, `top_p`, `response_format` let you further tune responses. For more information, see the [reference](../assistants-reference.md#create-an-assistant) documentation.
+
 ## Context window management
 
 Assistants automatically truncates text to ensure it stays within the model's maximum context length. You can customize this behavior by specifying the maximum tokens you'd like a run to utilize and/or the maximum number of recent messages you'd like to include in a run.
