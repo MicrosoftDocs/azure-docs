@@ -53,30 +53,19 @@ Advanced Observability offers the following capabilities to monitor network-rela
 
 ### Key Benefits of Advanced Observability
 
-* **Proactive Problem Detection:** Identify potential bottlenecks and congestion issues before they impact application performance. Gain insights into key network health indicators, including traffic volume, dropped packets, and connection information.
+* **CNI-Agnostic**: supported on kubenet and all Azure CNI modes.
 
-* **Deep Visibility into Network Activity:** Understand how your applications communicate with each other through detailed network analysis.
+* **Cilium and Non-Cilium**: Uniform and seamless experince across Cilium and Non-Cilium dataplanes.
+
+* **eBPF-Based Network Observability:** Identify potential bottlenecks and congestion issues before they impact application performance. Gain insights into key network health indicators, including traffic volume, dropped packets, and connection information.
+
+* **Deep Visibility into Network Activity:** Understand how your applications are communicating with each other through detailed network flow logs.
 
 * **Simplified Monitoring Options:** Choose between:
     **Azure Managed Prometheus and Grafana:** A convenient option where Azure manages the infrastructure and maintenance, allowing you to focus on configuring and visualizing metrics.
     **Bring Your Own (BYO) Prometheus and Grafana:** Set up your own instances and manage the underlying infrastructure.
 
-* **Multi CNI Support:** Advanced Observability supports both Azure CNI and Kubenet network plugins.
-
-### Comparison between Basic Observability and Advanced Observability
-
-For more information about Basic Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](https://learn.microsoft.com/azure/aks/network-observability-overview).
-
-| Feature | Basic Observability | Advanced Observability |
-|-------------|-------------|--------|
-| **Node-level metrics** | ✅  | ✅  | 
-| **Pod-level level metric** | ❌ | ✅  | 
-| **Hubble CLI**  | ❌ | ✅  |
-| **Hubble UI** | ❌ | ✅  |
-
-
 ### Metrics
-
 
 #### Node-Level Metrics
 
