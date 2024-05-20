@@ -6,7 +6,7 @@ ms.service: event-hubs
 ms.topic: release-notes
 ms.date: 05/20/2024
 ---
-## Azure Event Hubs emulator- Release Notes 
+# Azure Event Hubs emulator- Release Notes 
 
 This article provides detailed release notes on latest and previous versions of [Azure Event Hubs emulator](overview-emulator.md).
 
