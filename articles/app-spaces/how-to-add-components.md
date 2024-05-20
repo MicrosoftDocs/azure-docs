@@ -53,7 +53,7 @@ Follow these steps to add a custom app component.
 
 1. Select the **Add** button at the bottom of the page.
 
-[!include [deployment note](./includes/provisioning-note-aca.md)]
+[!include [deployment note](./includes/provisioning-text-aca.md)]
 #### [Static Web App (Frontend)](#tab/swa/)
 1. Enter the following values in the _Connect to GitHub to import your repository_ section.
 
@@ -74,7 +74,7 @@ Follow these steps to add a custom app component.
 
 1. Select the **Add** button at the bottom of the page.
 
-[!include [deployment note](./includes/provisioning-note-swa.md)]
+[!include [deployment note](./includes/provisioning-text-swa.md)]
 
 * * *
 
