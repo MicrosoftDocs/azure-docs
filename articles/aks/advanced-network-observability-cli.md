@@ -142,6 +142,73 @@ Get your cluster credentials using the [`az aks get-credentials`](/cli/azure/aks
 az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 ```
 
+## Azure managed Prometheus and Grafana
+
+Use the following example to install and enable Prometheus and Grafana for your AKS cluster.
+
+### Create Azure Monitor resource
+
+```azurecli-interactive
+#Set an environment variable for the Grafana name. Make sure to replace the placeholder with your own value.
+export AZURE_MONITOR_NAME="<azure-monitor-name>"
+
+# Create Azure monitor resource
+az resource create \
+    --resource-group $RESOURCE_GROUP \
+    --namespace microsoft.monitor \
+    --resource-type accounts \
+    --name $AZURE_MONITOR_NAME \
+    --location eastus \
+    --properties '{}'
+```
+
+### Create Grafana instance
+
+Use [az grafana create](/cli/azure/grafana#az-grafana-create) to create a Grafana instance. The name of the Grafana instance must be unique.
+
+```azurecli-interactive
+#Set an environment variable for the Grafana name. Make sure to replace the placeholder with your own value.
+export GRAFANA_NAME="<grafana-name>"
+
+# Create Grafana instance
+az grafana create \
+    --name $GRAFANA_NAME \
+    --resource-group $RESOURCE_GROUP 
+```
+
+### Place the Grafana and Azure Monitor resource IDs in variables
+
+Use [az grafana show](/cli/azure/grafana#az-grafana-show) to place the Grafana resource ID in a variable. Use [az resource show](/cli/azure/resource#az-resource-show) to place the Azure Monitor resource ID in a variable. Replace **myGrafana** with the name of your Grafana instance.
+
+```azurecli-interactive
+grafanaId=$(az grafana show \
+                --name $GRAFANA_NAME \
+                --resource-group $RESOURCE_GROUP \
+                --query id \
+                --output tsv)
+azuremonitorId=$(az resource show \
+                    --resource-group $RESOURCE_GROUP \
+                    --name $AZURE_MONITOR_NAME \
+                    --resource-type "Microsoft.Monitor/accounts" \
+                    --query id \
+                    --output tsv)
+```
+
+### Link Azure Monitor and Grafana to AKS cluster
+
+Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and Grafana resources to your AKS cluster.
+
+```azurecli-interactive
+az aks update \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --enable-azure-monitor-metrics \
+    --azure-monitor-workspace-resource-id $azuremonitorId \
+    --grafana-resource-id $grafanaId
+```
+---
+
+
 ## Visualization using Grafana
 
 > [!NOTE]
