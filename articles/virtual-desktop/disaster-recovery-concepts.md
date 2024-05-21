@@ -46,113 +46,20 @@ Basically, the disaster recovery strategy we recommend for Azure Virtual Desktop
 
 ## Design and implement a disaster recovery plan
 
-Azure Virtual Desktop doesn't have any native feature for managing disaster recovery. The following table lists recommendations for disaster recovery strategies:
+Azure Virtual Desktop doesn't have any native feature for managing disaster recovery. The following table lists the technology areas you need to consider as part of your disaster recovery strategy and links to other Microsoft documentation that provides guidance for each area::
 
-|Column1 |Column2  |
+|Technology area |Documentation link |
 |---------|---------|
-|Active-passive vs active-active plans | Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). In an active-active deployment, you use both sets of infrastructure at the same time. See [Active-Active vs. Active-Passive](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) for more information.   |
-|Session host resiliency   | To learn about session host resiliency, within an Azure region or across Azure regions, see [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr)       |
-|Disaster recovery plans    | To learn about different disaster recovery plans for pooled and personal host pools, see [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#architecture-diagrams)        |
-|Azure Site Recovery     | To learn about using Azure Site Recovery for personal host pools, see [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#failover-and-failback)         |
-|Network connectivity    | For guidance on your network topology, you can use the Azure Cloud Adoption Framework Network topology and connectivity models. See [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#prerequisites) for more information.       |
-|User profiles    | We recommend that you use Azure Files or Azure NetApp Files to store FSLogix user profile and Office containers. See [Design recommendations](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery#design-recommendations) for more information.      |
-|Files share storage    | To learn about using Files share storage for your host pool, see [Storage](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#storage)       |
-|Identity provider   | Microsoft Entra ID is used to authenticate users for Azure Virtual Destop. You can join session hosts to the same Microsoft Entra tenant, or to an Active Directory domain using Active Directory Domain Services or Microsoft Entra Domain Services. For more information, see [Identity](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#identity).       |
-|Backup    |  To learn about recommended backup options, see [Backup](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#backup).      |
+|Active-passive vs active-active plans | [Active-Active vs. Active-Passive](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive)   |
+|Session host resiliency   | [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr)    |
+|Disaster recovery plans    | [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#architecture-diagrams)        |
+|Azure Site Recovery     | [Failover and failback](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#failover-and-failback)         |
+|Network connectivity    | [Multiregion Business Continuity and Disaster Recovery](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#prerequisites)   |
+|User profiles    | [Design recommendations](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-business-continuity-and-disaster-recovery#design-recommendations)     |
+|Files share storage    |  [Storage](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#storage)       |
+|Identity provider   | [Identity](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#identity)     |
+|Backup    |  [Backup](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#backup)     |
 
-
-## Disaster recovery for shared host pools
-
-In this section, we'll discuss shared (or "pooled") host pools using an active-passive approach. The active-passive approach is when you divide up existing resources into a primary and secondary region. Normally, your organization would do all its work in the primary (or "active") region, but during a disaster, all it takes to switch over to the secondary (or "passive") region is to turn off the resources in the primary region (if you can do so, depending on the outage's extent) and turn on the ones in the secondary one.
-
-The following diagram shows an example of a deployment with redundant infrastructure in a secondary region. "Redundant" means that a copy of the original infrastructure exists in this other region, and is standard in deployments to provide resiliency for all components. Beneath a single Microsoft Entra ID, there are two regions: West US and East US. Each region has two session hosts running a multi-session operating system (OS), A server running Microsoft Entra Connect, an Active Directory Domain Controller, an Azure Files Premium File share for FSLogix profiles, a storage account, and a virtual network (VNET). In the primary region, West US, all resources are turned on. In the secondary region, East US, the session hosts in the host pool are either turned off or in drain mode, and the Microsoft Entra Connect server is in staging mode. The two VNETs in both regions are connected by peering.
-
-:::image type="content" source="media/shared-host-pool-recovery-new.png" alt-text="A diagram of a deployment using the recommended shared host pool disaster recovery strategy described in the previous paragraph.":::
-
-In most cases, if a component fails or the primary region isn't available, then the only action the customer needs to perform is to turn on the hosts or remove drain mode in the secondary region to enable end-user connections. This scenario focuses on reducing downtime. However, a redundancy-based disaster recovery plan may cost more due to having to maintain those extra components in the secondary region.
-
-The potential benefits of this plan are as follows:
-
-- Less time spent recovering from disasters. For example, you'll spend less time on provisioning, configuring, integrating, and validating newly deployed resources.
-- There's no need to use complicated procedures.
-- It's easy to test failover outside of disasters.
-
-The potential drawbacks are as follows:
-
-- May cost more due to having more infrastructure to maintain, such as storage accounts, hosts, and so on.
-- You'll need to spend more time configuring your deployment to accommodate this plan.
-- You need to maintain the extra infrastructure you set up even when you don't need it.
-
-## Important information for shared host pool recovery
-
-When using this disaster recovery strategy, it's important to keep the following things in mind:
-
-- Having multiple session hosts online across many regions can impact user experience. The managed network load balancer doesn't account for geographic proximity, instead treating all hosts in a host pool equally.
-
-- During a disaster, users will be creating new profiles in the secondary region. You should store any business- or mission-critical data in OneDrive ([using known folder redirection](/sharepoint/redirect-known-folders)) or Sharepoint. Storing data here will give users quick access to their applications with minor disruption to the user experience.
-
-- Make sure that you configure your virtual machines (VMs) exactly the same way within your host pool. Also, make sure all VMs within your host pool are the same size. If your VMs aren't the same, the managed network load balancer will distribute user connections evenly across all available VMs. The smaller VMs may become resource-constrained earlier than expected compared to larger VMs, resulting in a negative user experience.
-
-- Region availability affects data or workspace monitoring. If a region isn't available, the service may lose all historical monitoring data during a disaster. We recommend using a custom export or dump of historical monitoring data.
-
-- We recommend you update your session hosts at least once every month. This recommendation applies to session hosts you keep turned off for extended periods of time.
-
-- Test your deployment by running a controlled failover at least once every six months. Part of the controlled failover could mean your secondary location becomes primary until the next controlled failover. Changing your secondary location to primary allows users to have nearly identical profiles during a real disaster.
-
-The following table lists deployment recommendations for host pool disaster recovery strategies:
-
-| Technology        | Recommendations  |
-|-------------------|-----------|
-| Network           | Create and deploy a secondary virtual network in another region and configure [Azure Peering](../virtual-network/virtual-network-manage-peering.md) with your primary virtual network. |
-| Session hosts     | [Create and deploy an Azure Virtual Desktop shared host pool](create-host-pools-azure-marketplace.md) with multi-session OS SKU and include VMs from other availability zones and another region. |
-| Storage           | Create storage accounts in multiple regions using premium-tier accounts.  |
-| User profile data | Create SMB storage locations in multiple regions.   |
-| Identity          | Active Directory Domain Controllers from the same directory. |
-
-## Disaster recovery for personal host pools
-
-For personal host pools, your disaster recovery strategy should involve replicating your resources to a secondary region using Azure Site Recovery Services Vault. If your primary region goes down during a disaster, Azure Site Recovery can fail over and turn on the resources in your secondary region.
-
-For example, let's say we have a deployment with a primary region in the West US and a secondary region in the East US. The primary region has a personal host pool with two session hosts each. Each session host has their own local disk containing the user profile data and their own VNET that's not paired with anything. If there's a disaster, you can use Azure Site Recovery to fail over to the secondary region in East US (or to a different availability zone in the same region). Unlike the primary region, the secondary region doesn't have local machines or disks. During the failover, Azure Site Recovery takes the replicated data from the Azure Site Recovery Vault and uses it to create two new VMs that are copies of the original session hosts, including the local disk and user profile data. The secondary region has its own independent VNET, so the VNET going offline in the primary region won't affect functionality.
-
-The following diagram shows the example deployment we just described.
-
-:::image type="content" source="media/personal-host-pool-recovery.png" alt-text="A diagram of a deployment using the recommended personal host pool disaster recovery strategy described in the previous paragraph.":::
-
-The benefits of this plan include a lower overall cost and not requiring maintenance to patch or update due to resources only being provisioned when you need them. However, a potential drawback is that you'll spend more time provisioning, integrating, and validating failover infrastructure than you would with a shared host pool disaster recovery setup.
-
-## Important information about personal host pool recovery
-
-When using this disaster recovery strategy, it's important to keep the following things in mind:
-
-- There may be requirements that the host pool VMs need to function in the secondary site, such as virtual networks, subnets, network security, or VPNs to access a directory such as on-premises Active Directory.
-
-    >[!NOTE]
-    > Using an [Microsoft Entra joined VM](deploy-azure-ad-joined-vm.md) fulfills some of these requirements automatically.
-
-- You may experience integration, performance, or contention issues for resources if a large-scale disaster affects multiple customers or tenants.
-
-- Personal host pools use VMs that are dedicated to one user, which means affinity load load-balancing rules direct all user sessions back to a specific VM. This one-to-one mapping between user and VM means that if a VM is down, the user won't be able to sign in until the VM comes back online or the VM is recovered after disaster recovery is finished.
-
-- VMs in a personal host pool store user profile on drive C, which means FSLogix isn't required.
-
-- Region availability affects data or workspace monitoring. If a region isn't available, the service may lose all historical monitoring data during a disaster. We recommend using a custom export or dump of historical monitoring data.
-
-- We recommend you avoid using FSLogix when using a personal host pool configuration.
-
-- Virtual machine provisioning isn't guaranteed in the failover region.
-
-- Run [controlled failover](../site-recovery/azure-to-azure-tutorial-dr-drill.md) and [failback](../site-recovery/azure-to-azure-tutorial-failback.md) tests at least once every six months.
-
-The following table lists deployment recommendations for host pool disaster recovery strategies:
-
-| Technology        | Recommendations  |
-|-------------------|------------|
-| Network           | Create and deploy a secondary virtual network in another region to follow custom naming conventions or security requirements outside of the Azure Site Recovery default naming scheme.  |
-| Session hosts     | [Enable and configure Azure Site Recovery for VMs](../site-recovery/azure-to-azure-tutorial-enable-replication.md). Optionally, you can pre-stage an image manually or use the Azure Image Builder service for ongoing provisioning. |
-| Storage           | Creating an Azure Storage account is optional to store profiles.  |
-| User profile data | User profile data is locally stored on drive C. |
-| Identity          | Active Directory Domain Controllers from the same directory across multiple regions.|
 
 ## Next steps
 
