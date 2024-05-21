@@ -126,7 +126,7 @@ landingContent:
         links:
         - text: Bicep resource reference
           url: /azure/templates/
-        - text: Graph Bicep reference
+        - text: Microsoft Graph Bicep reference
           url: https://learn.microsoft.com/graph/templates/reference/overview
         - text: Azure PowerShell
           url: /powershell/module/az.resources
