@@ -42,6 +42,8 @@
   items:
   - name: Set up an ingestion agent for uploading data
     href: set-up-ingestion-agent.md
+  - name: Use Azure Data Factory for ingestion
+    href: ingestion-with-data-factory.md
   - name: Use Azure Operator Insights Data Product dashboards
     href: dashboards-use.md
   - name: Query data in the Azure Operator Insights Data Product

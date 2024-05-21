@@ -458,6 +458,10 @@
     items:
     - name: Network setup
       href: migrate/migration-service/how-to-network-setup-migration-service.md
+  - name: Troubleshoot
+    items:
+    - name: Premigration error codes
+      href: migrate/migration-service/troubleshoot-error-codes-premigration.md
 - name: Migrate data with pg_dump
   href: migrate/how-to-migrate-using-dump-and-restore.md
 - name: Minimal-downtime migration with DMS

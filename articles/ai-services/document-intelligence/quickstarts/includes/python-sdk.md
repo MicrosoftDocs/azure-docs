@@ -564,7 +564,7 @@ def analyze_invoice():
     )
 
     poller = document_intelligence_client.begin_analyze_document(
-        "prebuilt-invoice", AnalyzeDocumentRequest(url_source=invoiceUrl
+        "prebuilt-invoice", AnalyzeDocumentRequest(url_source=invoiceUrl)
     )
     invoices = poller.result()
 

@@ -455,7 +455,7 @@ For more information about this command, use the `help` parameter:
 
 ## Cancel the migration using CLI
 
-You can cancel any ongoing migration attempts by using the `cancel` command. This command stops the particular migration attempt but doesn't drop or roll back any changes on your target server. Here's the CLI command to delete a migration:
+You can cancel any ongoing migration attempts by using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
 
 ```azurecli
 az postgres flexible-server migration update cancel [--subscription]

@@ -55,6 +55,7 @@ Following described are the ways to review your migration schedule once you rece
 * The MySQL engine doesn't guarantee any sort order if there's no 'SORT' clause present in queries. Post in-place automigration, you may observe a change in the sort order. If preserving sort order is crucial, ensure your queries are updated to include 'SORT' clause before the scheduled in-place automigration.
 * If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
 * If your source Azure Database for MySQL Single Server has firewall rule names exceeding 80 characters, rename them to ensure length of name is fewer than 80 characters. (The firewall rule name length supported on Flexible Server is 80 characters whereas on Single Server the allowed length is 12 8 characters.)
+* If your source Azure Database for MySQL Single Server utilizes non-default ports such as 3308,3309 and 3310, change your connectivity port to 3306 as the above mentioned non-default ports are not supported on Flexible Server.
 
 ## How is the target MySQL Flexible Server auto-provisioned?
 

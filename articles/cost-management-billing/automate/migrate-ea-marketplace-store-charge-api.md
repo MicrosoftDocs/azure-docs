@@ -142,6 +142,6 @@ New response:
 
 ```
 
-## Next steps
+## Related content
 
 - Read the [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.
