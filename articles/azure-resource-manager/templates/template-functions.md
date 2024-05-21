@@ -141,6 +141,7 @@ For Bicep files, use the [deployment](../bicep/bicep-functions-deployment.md) fu
 Resource Manager provides the following functions for working with lambda expressions.
 
 * [filter](template-functions-lambda.md#filter)
+* [groupBy](template-functions-lambda.md#groupby)
 * [map](template-functions-lambda.md#map)
 * [mapValues](template-functions-lambda.md#mapvalues)
 * [reduce](template-functions-lambda.md#reduce)
