@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/06/2024
+ms.date: 05/21/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
@@ -113,10 +113,11 @@ Azure OpenAI token-per-minute limits are per model, per subscription. Keep this 
 
 On Azure AI Search, remember there are [service limits](search-limits-quotas-capacity.md) by tier and workloads. 
 
+If you need a [shared private link connection](search-indexer-howto-access-private.md) from a vectorizer, you must review the supportability of your setup and follow the respective instructions.
+
 Finally, the following features aren't currently supported: 
 
 + [Customer-managed encryption keys](search-security-manage-encryption-keys.md)
-+ [Shared private link connections](search-indexer-howto-access-private.md) to a vectorizer
 + Currently, there's no batching for integrated data chunking and vectorization
 
 ## Benefits of integrated vectorization 
