@@ -1,13 +1,13 @@
 ---
 title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
-author: lakmeedee
+author: Howie425
 ms.author: howieasmerom
 ms.reviewer: jushiman
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 05/21/2024
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
