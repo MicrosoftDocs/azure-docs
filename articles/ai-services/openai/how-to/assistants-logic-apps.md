@@ -18,66 +18,23 @@ recommendations: false
 
 Azure Logic Apps is fully managed by Microsoft Azure, which frees you from worrying about hosting, scaling, managing, monitoring, and maintaining solutions built with these services. When you use these capabilities to create [serverless](../../../logic-apps/logic-apps-overview.md) apps and solutions, you can just focus on the business logic and functionality. These services automatically scale to meet your needs, make automation workflows faster, and help you build robust cloud apps using little to no code.
 
+## Function calling on Azure Logic Apps through the Assistants Playground 
+
 To accelerate and simplify the creation of intelligent applications, we are now enabling the ability to call Logic Apps workflows through function calling in Azure OpenAI Assistants.
 
 The Assistants playground enumerates and lists all the workflows in your subscription that are eligible for function calling. Here are the requirements for these workflows:
 
-* Consumption Logic Apps: Currently we only support consumption workflows.
-* Request Trigger: Function calling requires a REST-based API. Logic Apps with a request trigger provides a REST endpoint. Therefore only workflows with a request trigger are supported for function calling.
+* [Consumption Logic Apps](../../../logic-apps/quickstart-create-example-consumption-workflow.md): Currently we only support consumption workflows.
+* [Request trigger](../../../connectors/connectors-native-reqres.md?tabs=consumption): Function calling requires a REST-based API. Logic Apps with a request trigger provides a REST endpoint. Therefore only workflows with a request trigger are supported for function calling.
 * Schema: The workflows you want to use for function calling should have a JSON schema describing the inputs and expected outputs. Using Logic Apps you can streamline and provide schema in the trigger, which would be automatically imported as a function definition.
 
-## Import your Logic Apps workflows as functions
-
-Here are the steps to import your Logic Apps workflows as function in the Assistants playground in Azure OpenAI Studio:
-
-1. In Azure OpenAI Studio, select **Assistants**. Select an existing Assistant or create a new one. After you have configured the assistant with a name and instructions, you are ready to add a function. Select **+ Add function**. 
-
-    :::image type="content" source="..\media\how-to\assistants\logic-apps\assistants-playground-add-function.png" alt-text="A screenshot showing the Assistant playground with the add function button." lightbox="..\media\how-to\assistants\logic-apps\assistants-playground-add-function.png":::
-
-1. The **Add function** option opens a screen with two tabs. Navigate to the tab for Logic Apps to browse your workflows with a request trigger. Select the workflow from list and select **Save**.  
-
-    > [!NOTE]
-    > This list only shows the consumption SKU workflows and with a request trigger.
-
-
-    :::image type="content" source="..\media\how-to\assistants\logic-apps\import-logic-apps.png" alt-text="A screenshot showing the menu for adding functions." lightbox="..\media\how-to\assistants\logic-apps\import-logic-apps.png":::
-
-You have now successfully imported your workflow and it is ready to be invoked. The function specification is generated based on the logic apps workflow swagger and includes the schema and description based on what you configured in the request trigger action.
-
-:::image type="content" source="..\media\how-to\assistants\logic-apps\edit-function.png" alt-text="A screenshot showing the imported workflow." lightbox="..\media\how-to\assistants\logic-apps\edit-function.png":::
-
-The workflow now will be invoked by the Azure OpenAI Assistants based on the user prompt. Below is an example where the workflow is invoked automatically based on user prompt to get the weather.
-
-:::image type="content" source="..\media\how-to\assistants\logic-apps\playground-weather-example.png" alt-text="A screenshot showing a weather prompt example." lightbox="..\media\how-to\assistants\logic-apps\playground-weather-example.png":::
-
-You can confirm the invocation by looking at the logs as well as your [workflow run history](../../../logic-apps/monitor-logic-apps.md?tabs=consumption.md#review-workflow-run-history).
-
-
-:::image type="content" source="..\media\how-to\assistants\logic-apps\example-log.png" alt-text="A screenshot showing a logging example." lightbox="..\media\how-to\assistants\logic-apps\example-log.png":::
-
-## FAQ 
-
-### What happens when a Logic Apps is imported in AI Studio and invoked
-
-**The Logic Apps swagger file is used to populate function definitions**
-
-Azure Logic App publishes an OpenAPI 2.0 definition (swagger) for workflows with a request trigger based on [annotations on the workflow](/rest/api/logic/workflows/list-swagger). Users are able to modify the content of this swagger by updating their workflow. AI studio uses this to generate the function definitions that the Assistant requires.  
-
-**How does authentication from AI Studio to Logic Apps work?**
-
-Logic Apps supports two primary types of authentications to invoke a request trigger.
-
-* Shared Access Signature (SAS) based authentication.
-    
-    Users can obtain a callback URL containing a SAS using the [list callback URL](/rest/api/logic/workflows/list-callback-url) API. Logic Apps also supports using multiple keys and rotating them as needed. Logic Apps also supports creating SAS URLs with a specified validity period. For more information, see the [Logic Apps documentation](../../../logic-apps/logic-apps-securing-a-logic-app.md#generate-shared-access-signatures-sas).
-
-* Microsoft Entra ID-based OAuth base authentication policy.
-
-    Logic Apps also supports authentication trigger invocations with Microsoft Entra ID OAuth, where you can specify authentication policies to be used in validating OAuth tokens. For more information, see the [Logic Apps documentation](../../../logic-apps/logic-apps-securing-a-logic-app.md#generate-shared-access-signatures-sas).
-
-When Azure OpenAI Assistants require invoking a Logic App as part of function calling, AI Studio will retrieve the callback URL with the SAS to invoke the workflow. 
+If you already have workflows with above three requirements, you should be able to use them in AI Studio and invoke them via user prompts.
+If you do not have existing workflows, you can follow the steps in this article to create them. There are two primary steps:
+1. [Create a Logic App on Azure portal](#create-logic-apps-workflows-for-function-calling).
+2. [Import your Logic Apps workflows as a function in the Assistants Playground](#import-your-logic-apps-workflows-as-functions).
 
 ## Create Logic Apps workflows for function calling
+
 Here are the steps to create a new Logic Apps workflow for function calling.
 
 1. In the Azure portal search box, enter **logic apps**, and select **Logic apps**.
@@ -129,7 +86,58 @@ Here are the steps to create a new Logic Apps workflow for function calling.
 
     :::image type="content" source="..\media\how-to\assistants\logic-apps\assistants-playground-add-function.png" alt-text="A screenshot showing the Assistant playground." lightbox="..\media\how-to\assistants\logic-apps\assistants-playground-add-function.png":::
 
+## Import your Logic Apps workflows as functions
+
+Here are the steps to import your Logic Apps workflows as function in the Assistants playground in Azure OpenAI Studio:
+
+1. In Azure OpenAI Studio, select **Assistants**. Select an existing Assistant or create a new one. After you have configured the assistant with a name and instructions, you are ready to add a function. Select **+ Add function**. 
+
+    :::image type="content" source="..\media\how-to\assistants\logic-apps\assistants-playground-add-function.png" alt-text="A screenshot showing the Assistant playground with the add function button." lightbox="..\media\how-to\assistants\logic-apps\assistants-playground-add-function.png":::
+
+1. The **Add function** option opens a screen with two tabs. Navigate to the tab for Logic Apps to browse your workflows with a request trigger. Select the workflow from list and select **Save**.  
+
+    > [!NOTE]
+    > This list only shows the consumption SKU workflows and with a request trigger.
+
+
+    :::image type="content" source="..\media\how-to\assistants\logic-apps\import-logic-apps.png" alt-text="A screenshot showing the menu for adding functions." lightbox="..\media\how-to\assistants\logic-apps\import-logic-apps.png":::
+
+You have now successfully imported your workflow and it is ready to be invoked. The function specification is generated based on the logic apps workflow swagger and includes the schema and description based on what you configured in the request trigger action.
+
+:::image type="content" source="..\media\how-to\assistants\logic-apps\edit-function.png" alt-text="A screenshot showing the imported workflow." lightbox="..\media\how-to\assistants\logic-apps\edit-function.png":::
+
+The workflow now will be invoked by the Azure OpenAI Assistants based on the user prompt. Below is an example where the workflow is invoked automatically based on user prompt to get the weather.
+
+:::image type="content" source="..\media\how-to\assistants\logic-apps\playground-weather-example.png" alt-text="A screenshot showing a weather prompt example." lightbox="..\media\how-to\assistants\logic-apps\playground-weather-example.png":::
+
+You can confirm the invocation by looking at the logs as well as your [workflow run history](../../../logic-apps/monitor-logic-apps.md?tabs=consumption.md#review-workflow-run-history).
+
+
+:::image type="content" source="..\media\how-to\assistants\logic-apps\example-log.png" alt-text="A screenshot showing a logging example." lightbox="..\media\how-to\assistants\logic-apps\example-log.png":::
+
+## FAQ 
+
+**What are Logic App connectors?**
+
 Azure Logic Apps has connectors to hundreds of line-of-business (LOB) applications and databases including but not limited to: SAP, Salesforce, Oracle, SQL, and more. You can also connect to SaaS applications or your in-house applications hosted in virtual networks. These out of box connectors provide operations to send and receive data in multiple formats. Leveraging these capabilities with Azure OpenAI assistants, you should be able to quickly bring your data for Intelligent Insights powered by Azure OpenAI.
+
+**What happens when a Logic Apps is imported in AI Studio and invoked**
+
+The Logic Apps swagger file is used to populate function definitions. Azure Logic App publishes an OpenAPI 2.0 definition (swagger) for workflows with a request trigger based on [annotations on the workflow](/rest/api/logic/workflows/list-swagger). Users are able to modify the content of this swagger by updating their workflow. AI studio uses this to generate the function definitions that the Assistant requires.  
+
+**How does authentication from AI Studio to Logic Apps work?**
+
+Logic Apps supports two primary types of authentications to invoke a request trigger.
+
+* Shared Access Signature (SAS) based authentication.
+    
+    Users can obtain a callback URL containing a SAS using the [list callback URL](/rest/api/logic/workflows/list-callback-url) API. Logic Apps also supports using multiple keys and rotating them as needed. Logic Apps also supports creating SAS URLs with a specified validity period. For more information, see the [Logic Apps documentation](../../../logic-apps/logic-apps-securing-a-logic-app.md#generate-shared-access-signatures-sas).
+
+* Microsoft Entra ID-based OAuth base authentication policy.
+
+    Logic Apps also supports authentication trigger invocations with Microsoft Entra ID OAuth, where you can specify authentication policies to be used in validating OAuth tokens. For more information, see the [Logic Apps documentation](../../../logic-apps/logic-apps-securing-a-logic-app.md#generate-shared-access-signatures-sas).
+
+When Azure OpenAI Assistants require invoking a Logic App as part of function calling, AI Studio will retrieve the callback URL with the SAS to invoke the workflow. 
 
 ## See also
 
