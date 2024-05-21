@@ -693,7 +693,7 @@ Use **Documents - Index** to load vector and nonvector data into an index. The p
 + [2024-05-01-preview](/rest/api/searchservice/documents/?view=rest-searchservice-2024-05-01-preview&preserve-view=true)
 + [2024-03-01-preview](/rest/api/searchservice/documents/?view=rest-searchservice-2024-03-01-preview&preserve-view=true)
 + [2023-10-01-preview](/rest/api/searchservice/documents/?view=rest-searchservice-2023-10-01-preview&preserve-view=true)
-+ [2023-07-01-Preview)](/rest/api/searchservice/preview-api/add-update-delete-documents)
++ [2023-07-01-Preview](/rest/api/searchservice/preview-api/add-update-delete-documents)
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/index?api-version=2023-11-01
