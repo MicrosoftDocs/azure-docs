@@ -158,7 +158,8 @@ instead of:
 | --------- | ------------|
 | ubuntu-1804  | 1804 for Gen1 or 1804-gen2 for Gen2 VM sizes  |
 
-**Note**: There's no problem for existing customers who still use the Ubuntu-18 DSVM, as of our October 2022 update. However, the deprecation plan is scheduled for December 2022. We recommend that you switch to Ubuntu-20 DSVM at your earliest convenience.
+>[!Note]
+There's no problem for existing customers who still use the Ubuntu-18 DSVM, as of our October 2022 update. However, the deprecation plan is scheduled for December 2022. We recommend that you switch to Ubuntu-20 DSVM at your earliest convenience.
 
 ## September 19, 2022
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
