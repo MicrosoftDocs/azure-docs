@@ -1,11 +1,12 @@
 ---
 title: Deploy your app with App Spaces
-description: Learn how to deploy your app with App Spaces in the Azure portal.
+description: App Spaces is an intelligent service that reduces the complexity of creating and managing web apps. Learn to deploy your app in the Azure portal.
 ms.author: msangapu
 author: msangapu-msft
 ms.service: app-spaces
 ms.topic: quickstart
 ms.date: 05/20/2024
+#customer intent: As a new cloud developer, I want to learn how to deploy my app into App Spaces.
 ---
 
 # Quickstart: Deploy your app with App Spaces
@@ -30,31 +31,30 @@ Follow these steps to deploy your app from a GitHub repository:
 
 ## Connect to GitHub to import your repository
 
+#### [App Component (Backend)](#tab/backend/)
 1. Enter the following values in the *Connect to GitHub to import your repository* section.
 
-
-#### [App Component (Backend)](#tab/backend/)
-
-    | Setting | Action |
-    |---|---|
-    | GitHub account | Select your GitHub account. |
-    | Organization | Select your organization. |
-    | Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github).|
-    | Branch | Select your GitHub branch. |
-    | App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
-    | Listening port |Specify the port that your web server is listening on. External requests being made to port 80 or 443 will get routed to this port internally for your application to server content from.|
-    | Startup command (optional) | Under *Advanced configurations* enter a **Startup command**.|
+| Setting | Action |
+|---|---|
+| GitHub account | Select your GitHub account. |
+| Organization | Select your organization. |
+| Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github).|
+| Branch | Select your GitHub branch. |
+| App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
+| Listening port |Specify the port that your web server is listening on. External requests being made to port 80 or 443 will get routed to this port internally for your application to server content from.|
+| Startup command (optional) | Under *Advanced configurations* enter a **Startup command**.|
 
 #### [Static App Component (Frontend)](#tab/frontend/)
+1. Enter the following values in the *Connect to GitHub to import your repository* section.
 
-    | Setting | Action |
-    |---|---|
-    | GitHub account | Select your GitHub account. |
-    | Organization | Select your organization. |
-    | Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github). |
-    | Branch | Select your GitHub branch. |
-    | App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
-    | Startup command | Under *Advanced configurations* enter a **Startup command**.|
+| Setting | Action |
+|---|---|
+| GitHub account | Select your GitHub account. |
+| Organization | Select your organization. |
+| Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github). |
+| Branch | Select your GitHub branch. |
+| App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
+| Startup command | Under *Advanced configurations* enter a **Startup command**.|
 
 * * *
 

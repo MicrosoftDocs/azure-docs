@@ -2,11 +2,12 @@
 title: Deploy a starter app with App Spaces
 description: Learn how to deploy a starter app to create a web application with App Spaces.
 ms.service: app-spaces
-ms.topic: how-to
+ms.topic: quickstart
 ms.author: msangapu
 author: msangapu-msft
 ms.date: 05/20/2024
 zone_pivot_groups: app-spaces-frontend-backend
+#customer intent: As a new cloud developer, I want to learn how to create a web application with App Spaces.
 ---
 
 # Deploy a starter app with App Spaces
