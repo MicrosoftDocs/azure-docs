@@ -152,9 +152,11 @@ landingContent:
           url: howto-targetingfilter-aspnet-core.md
       - linkListType: reference
         links:
-        - text: .NET library
+        - text: .NET feature management
+          url: feature-management-reference-dotnet.md
+        - text: .NET feature management library API
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
-        - text: Java Spring Library
+        - text: Java Spring feature management library API
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
 
   - title: Client libraries and tools
