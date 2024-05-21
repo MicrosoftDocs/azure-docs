@@ -417,8 +417,6 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
-    - name: Emulator Release Notes
-      href: emulator-release-notes.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
