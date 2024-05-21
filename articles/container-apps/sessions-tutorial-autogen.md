@@ -38,7 +38,7 @@ Before you deploy the app to Azure Container Apps, you can run it locally to tes
     cd container-apps-dynamic-sessions-samples/autogen-python-webapi
     ```
 
-[!INCLUDE [container-apps/sessions-tutorial-configure-local](../../includes/container-apps/sessions-tutorial-configure-local.md)]
+[!INCLUDE [container-apps/sessions-tutorial-configure-local](../../includes/container-apps/sessions-tutorial-configure-local-autogen.md)]
 
 ### Run the app
 
@@ -63,7 +63,7 @@ When it needs to perform calculations and tasks, the agent uses the code interpr
 
 [!INCLUDE [container-apps/sessions-tutorial-run-local](../../includes/container-apps/sessions-tutorial-run-local.md)]
 
-[!INCLUDE [container-apps/sessions-tutorial-deploy](../../includes/container-apps/sessions-tutorial-deploy.md)]
+[!INCLUDE [container-apps/sessions-tutorial-deploy-autogen](../../includes/container-apps/sessions-tutorial-deploy.md)]
 
 [!INCLUDE [container-apps/sessions-tutorial-clean-up](../../includes/container-apps/sessions-tutorial-clean-up.md)]
 
