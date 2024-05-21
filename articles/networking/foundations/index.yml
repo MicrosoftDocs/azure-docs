@@ -36,7 +36,7 @@ highlightedContent:
       url: https://www.youtube.com/watch?v=UHs4NTUGZeQ
 
 productDirectory:
-  title: Network foundation services
+  title: Get started
   items:
     - title: Azure Virtual Network
       imageSrc: media/virtual-network.svg
