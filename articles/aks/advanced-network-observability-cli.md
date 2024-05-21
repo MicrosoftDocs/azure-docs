@@ -12,9 +12,9 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 # Setup of Advanced Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
-Advanced Network Observability is used to collect the network traffic data of your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, Prometheus collects metrics, and Grafana can be used to visualize them. Advanced Network Observability also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters. In this article, learn how to enable these features and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
+Advanced Network Observability  (one of the features of [Advanced Container Networking Services](advanced-container-networking-services-overview.md)) is used to collect the network traffic data of your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, Prometheus collects metrics, and Grafana can be used to visualize them. Advanced Network Observability also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters. In this article, learn how to enable these features and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
 
-For more information about Advanced Network Observability for Azure Kubernetes Service (AKS), see [What is Advanced Network Observability for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
+For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
 
 > [!IMPORTANT]
 > Advanced Network Observability is currently in PREVIEW.

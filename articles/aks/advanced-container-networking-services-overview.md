@@ -18,29 +18,29 @@ Advanced Container Networking Services is a comprehensive suite built upon exist
 
 ## What is included in Advanced Container Networking Services?
 
-The first feature in this suite is Advanced Observability. This provides enhanced monitoring and diagnostics tools to give you a clear picture of your containerized workloads. But that's just the beginning! The Advanced Container Networking Services suite is packed with potential upcoming features unlocking even more powerful ways to manage your network within AKS clusters.
+The first feature in this suite is Advanced Network Observability. This provides enhanced monitoring and diagnostics tools to give you a clear picture of your containerized workloads. But that's just the beginning! The Advanced Container Networking Services suite is packed with potential upcoming features unlocking even more powerful ways to manage your network within AKS clusters.
 
-## What is Advanced Observability?
+## What is Advanced Network Observability?
 
-Advanced Observability is the foundation of the Advanced Container Networking Services suite. It equips you with next-level monitoring and diagnostics tools, providing unparalleled visibility into your containerized workloads. These tools empower you to pinpoint and troubleshoot network issues with ease, ensuring optimal performance for your applications.
+Advanced Network Observability is the foundation of the Advanced Container Networking Services suite. It equips you with next-level monitoring and diagnostics tools, providing unparalleled visibility into your containerized workloads. These tools empower you to pinpoint and troubleshoot network issues with ease, ensuring optimal performance for your applications.
 
-Advanced Observability offers compatibility across all Linux workloads. It seamlessly integrates with Hubble, regardless of the underlying dataplanes.
+Advanced Network Observability offers compatibility across all Linux workloads. It seamlessly integrates with Hubble, regardless of the underlying dataplanes.
 
 Advanced Container Networking Services offers support for both Cilium and non-Cilium dataplanes, ensuring flexibility for your container networking needs.
 
+  * Cilium Dataplane: This is a high-performance, eBPF-based dataplane specifically designed for Kubernetes environments.
+
+  * Non-Cilium Dataplane: Powered by the open-source project [Retina](https://retina.sh), this dataplane provides a compatible alternative for users not using Cilium. Retina is also built using eBPF technology.
+
 :::image type="content" source="./media/advanced-container-networking-services/advanced-network-observability.png" alt-text="Diagram of Advanced Network Observability.":::
 
-    * Cilium Dataplane: This is a high-performance, eBPF-based dataplane specifically designed for Kubernetes environments.
-
-    * Non-Cilium Dataplane: Powered by the open-source project [Retina](https://retina.sh), this dataplane provides a compatible alternative for users not using Cilium. Retina is also built using eBPF technology.
-
 > [!NOTE]
-> For deployments leveraging Cilium dataplanes, Advanced Observability is readily available starting with Kubernetes version 1.29.
-> There are no Kubernetes version limitations for non-Cilium Linux dataplanes – Advanced Observability is universally supported.
+> For deployments leveraging Cilium dataplanes, Advanced Network Observability is readily available starting with Kubernetes version 1.29.
+> For Non-Cilium Linux dataplanes, Advanced Network Observability is supported on all Linux distributions. Azure Linux is supported starting with version 2.0 and greater.
 
-### Features of Advanced Observability
+### Features of Advanced Network Observability
 
-Advanced Observability offers the following capabilities to monitor network-related issues in your cluster:
+Advanced Network Observability offers the following capabilities to monitor network-related issues in your cluster:
 
 - **Node-Level Metrics:** Understanding the health of your container network at the node-level is crucial for maintaining optimal application performance. These metrics indicate traffic volume, dropped packets, number of connections, etc. by node. Since they are Prometheus metrics, you can view them in Grafana or create custom alerts.
 
@@ -52,10 +52,10 @@ Advanced Observability offers the following capabilities to monitor network-rela
 
   - **Hubble UI:** Hubble UI is a user-friendly web-browser interface for exploring your cluster's network activity. It creates a service-connection graph based on Flow logs, and it also displays flow logs for the selected namespace.
 
-    > [!Note]
-    > Users are responsible for provisioning and managing the infrastructure required to run **Hubble UI**.
+  > [!Note]
+  > Users are responsible for provisioning and managing the infrastructure required to run **Hubble UI**.
 
-### Key Benefits of Advanced Observability
+### Key Benefits of Advanced Network Observability
 
 - **CNI-Agnostic**: Supported on kubenet and all Azure CNI modes.
 
