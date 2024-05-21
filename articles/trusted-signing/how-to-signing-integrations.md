@@ -5,7 +5,7 @@ author: microsoftshawarma
 ms.author: rakiasegev 
 ms.service: trusted-signing
 ms.topic: how-to
-ms.date: 04/04/2024 
+ms.date: 05/20/2024 
 ms.custom: template-how-to-pattern 
 ---
 
@@ -66,7 +66,7 @@ Another option is to use the latest *nuget.exe* file to download and extract the
    ```powershell
    .\nuget.exe install Microsoft.Windows.SDK.BuildTools -Version 10.0.22621.3233 -x
    ```
-
+   
 ### Download and install .NET 8.0 Runtime
 
 The components that SignTool uses to interface with Trusted Signing require the installation of [.NET 8.0 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) You need only the core .NET 8.0 Runtime. Make sure that you install the correct platform runtime depending on the version of SignTool you intend to run. Or, you can simply install both
