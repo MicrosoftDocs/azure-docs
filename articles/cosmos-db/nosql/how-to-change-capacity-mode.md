@@ -32,6 +32,7 @@ You can also change the throughput or provisioning mode from manual to autoscale
 
 ## Register for preview
 
+
 To enable this feature, register for the preview feature **Change capacity mode from serverless to provisioned throughput** in your subscription. For more information, see [register for an Azure Cosmos DB preview feature](../access-previews.md).
 
 ## Change capacity mode
@@ -56,8 +57,8 @@ Follow these steps to change the capacity mode using Azure portal.
 1. If you need to restore a deleted Cosmos DB account, the account will always be restored to provisioned throughput if the capacity mode was changed from serverless to provisioned, irrespective of the backup timestamp. 
 1. In case you need to restore a deleted serverless container within an existing account which was migrated from serverless to provisioned throughput, please contact Microsoft support.
 
-
 ## Related content
 
 - [Chose between autoscale and manual throughput](../how-to-choose-offer.md).
 - [Choose between serverless and provisioned throughput](../throughput-serverless.md).
+
