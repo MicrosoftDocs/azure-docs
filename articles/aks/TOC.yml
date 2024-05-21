@@ -846,6 +846,8 @@
           href: open-ai-secure-access-quickstart.md
         - name: Deploy an AI model with the AI toolchain operator
           href: ai-toolchain-operator.md
+        - name: Deploy data and ML pipelines with Flyte
+          href: use-flyte.md
     - name: DevOps
       items:
         - name: Azure DevOps Project
