@@ -27,6 +27,9 @@ Resource Health signals can generate one or more of the following alerts:
 
 Once the underlying condition causing an alert is remediated, the alert is cleared and the Resource Health is reported as *Available*.
 
+> [!NOTE]
+> This feature is not currently available for Azure Government cloud.
+
 ## Creating alert rules
 
 Configuring Resource Health alerts for an ARO cluster requires an alert rule. Alert rules define the conditions in which alert signals are generated.
