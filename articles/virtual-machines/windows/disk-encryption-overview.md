@@ -7,7 +7,7 @@ ms.subservice: security
 ms.collection: windows
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 02/20/2024
+ms.date: 05/21/2024
 ---
 
 # Azure Disk Encryption for Windows VMs
@@ -41,7 +41,8 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 
 - Windows client: Windows 8 and later.
 - Windows Server: Windows Server 2008 R2 and later.
-- Windows 10 Enterprise multi-session and later.  
+- Windows 10 Enterprise multi-session and later.
+Azure Disk Encryption uses BitLocker and has all the requirements of BitLocker. For more information, see [BitLocker overview](https://learn.microsoft.com/windows/security/operating-system-security/data-protection/bitlocker/#system-requirements).
  
 > [!NOTE]
 > Windows Server 2022 and Windows 11 do not support an RSA 2048 bit key. For more information, see [FAQ: What size should I use for my key encryption key?](disk-encryption-faq.yml#what-size-should-i-use-for-my-key-encryption-key--kek--)
