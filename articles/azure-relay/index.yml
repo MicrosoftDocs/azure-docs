@@ -50,11 +50,11 @@ landingContent:
     linkLists:
       - linkListType: tutorial      
         links:
-          - text: Expose an on-prem WCF service to a web application in the cloud
+          - text: Expose an on-premises WCF service to a web application in the cloud
             url: service-bus-dotnet-hybrid-app-using-service-bus-relay.md    
-          - text: Expose an on-prem WCF service to a WCF service outside your network
+          - text: Expose an on-premises WCF service to a WCF service outside your network
             url: service-bus-relay-tutorial.md            
-          - text: Expose an on-prem WCF REST service to a client outside your network
+          - text: Expose an on-premises WCF REST service to a client outside your network
             url: service-bus-relay-rest-tutorial.md
       - linkListType: download      
         links:
