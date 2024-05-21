@@ -51,11 +51,11 @@ Follow these steps to change the capacity mode using Azure portal.
 
 ## Limitations
 
-1. This is one time migration that is; the account can't be reversed to serverless capacity mode again.
-1. There's no SLA associated with the duration of migration. 
-1. Any management operation can't be executed while the migration is in progress.
-1. In cases where you need to restore a deleted Cosmos DB account, the account is restored to provisioned throughput if the capacity mode was changed from serverless to provisioned, irrespective of the backup timestamp. 
-1. In cases where you need to restore a deleted serverless container within an existing account, which was migrated from serverless to provisioned throughput, contact Microsoft support.
+- This is one time migration that is; the account can't be reversed to serverless capacity mode again.
+- There's no SLA associated with the duration of migration. 
+- Any management operation can't be executed while the migration is in progress.
+- In cases where you need to restore a deleted Cosmos DB account, the account is restored to provisioned throughput if the capacity mode was changed from serverless to provisioned, irrespective of the backup timestamp. 
+- In cases where you need to restore a deleted serverless container within an existing account, which was migrated from serverless to provisioned throughput, contact Microsoft support.
 
 ## Related content
 
