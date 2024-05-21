@@ -69,6 +69,9 @@ Now if you remove user_1 from  ACL_1, user_1 remains to have access of the data_
 
 And if ACL_1 and ACL_2 are removed from data_record_1, users.data.root continue to have owner access of the data. This preserves the data record from becoming orphan ever.
 
+### Unknown OID
+You will see one unknown OID in all the OSDU groups added by default, this OID refers to an internal Azure Data Manager for Energy instance ID that is used for system to system communication. This OID gets created uniquely for each instance. 
+
 ## Users
 
 For each OSDU group, you can add a user as either an OWNER or a MEMBER:
@@ -88,7 +91,7 @@ For a full list of Entitlement API endpoints, see [OSDU entitlement service](htt
 > [!NOTE]
 > The OSDU documentation refers to v1 endpoints, but the scripts noted in this documentation refer to v2 endpoints, which work and have been successfully validated.
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 

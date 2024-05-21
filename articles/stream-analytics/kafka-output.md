@@ -53,8 +53,8 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 |Property name   |Description   |
 |----------|-----------|
-|mTLS     |encryption and authentication       |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM. |
+|mTLS     |Encryption and authentication. Supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms.       |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The SASL_SSL protocol supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms. |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
 |None | No authentication and encryption. |
 

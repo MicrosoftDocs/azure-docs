@@ -27,7 +27,8 @@ The following architecture diagram shows how communications flow through private
 :::image type="content" source="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png" alt-text="Diagram showing inbound communication via a workspace private endpoint and outbound communication via private endpoints of a workspace managed virtual network." lightbox="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png":::
 
 > [!NOTE]
-> This article focuses on network isolation using the workspace's managed virtual network. For a description of the legacy method for network isolation, in which Azure Machine Learning creates a managed virtual network for each deployment in an endpoint, see the [Appendix](#appendix).
+> - This article focuses on network isolation using the workspace's managed virtual network. For a description of the legacy method for network isolation, in which Azure Machine Learning creates a managed virtual network for each deployment in an endpoint, see the [Appendix](#appendix).
+> - Each deployment is isolated from other deployments, regardless of inbound and outbound communication discussed in this article. In other words, even with endpoints/deployments that allow internet inbound/outbound, there's a network isolation between deployments, which blocks any deployment from directly connecting to other deployments. 
 
 ## Limitations
 

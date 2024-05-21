@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/19/2024
+ms.date: 05/02/2024
 ms.author: danlep
 ---
 
@@ -97,7 +97,6 @@ The `http-data-source` resolver policy configures the HTTP request and optionall
 
 * To configure and manage a resolver with this policy, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 * This policy is invoked only when resolving a single field in a matching GraphQL operation type in the schema. 
-* This policy supports GraphQL [union types](https://spec.graphql.org/October2021/#sec-Unions).
 
 ## Examples
 

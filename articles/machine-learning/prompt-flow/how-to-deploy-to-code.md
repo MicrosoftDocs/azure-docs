@@ -12,7 +12,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 02/22/2024
+ms.date: 05/08/2024
 ---
 
 # Deploy a flow to online endpoint for real-time inference with CLI
@@ -22,13 +22,21 @@ In this article, you'll learn to deploy your flow to a [managed online endpoint]
 Before beginning make sure that you have tested your flow properly, and feel confident that it's ready to be deployed to production. To learn more about testing your flow, see [test your flow](how-to-bulk-test-evaluate-flow.md). After testing your flow you'll learn how to create managed online endpoint and deployment, and how to use the endpoint for real-time inferencing.
 
 - This article will cover how to use the CLI experience.
-- The Python SDK isn't covered in this article, see the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
+- The Python SDK isn't covered in this article. See the GitHub sample notebook instead. To use the Python SDK, you must have The Python SDK v2 for Azure Machine Learning. To learn more, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 - The Azure CLI and the Azure Machine Learning extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](../how-to-configure-cli.md).
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources article](../quickstart-create-resources.md) to create one.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you will need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you'll need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md).
+
+> [!NOTE]
+> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you can deploy to Kubernetes online endpoint, or [deploy to other platforms suchs Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
 
 ### Virtual machine quota allocation for deployment
 
@@ -140,6 +148,9 @@ If you create a Kubernetes online endpoint, you need to specify the following ad
 
 For more configurations of endpoint, see [managed online endpoint schema](../reference-yaml-endpoint-online.md).
 
+> [!IMPORTANT]
+> If your flow uses Microsoft Entra ID based authentication connections, no matter you use system-assigned identity or user-assigned identity, you always need to grant the managed identity appropriate roles of the corresponding resources so that it can make API calls to that resource. For example, if your Azure OpenAI connection uses Microsoft Entra ID based authentication, you need to grant your endpoint managed identity **Cognitive Services OpenAI User or Cognitive Services OpenAI Contributor role** of the corresponding Azure OpenAI resources.
+
 ### Use user-assigned identity
 
 By default, when you create an online endpoint, a system-assigned managed identity is automatically generated for you. You can also specify an existing user-assigned managed identity for the endpoint.
@@ -153,11 +164,11 @@ identity:
     - resource_id: user_identity_ARM_id_place_holder
 ```
 
-Besides, you also need to specify the `Clicn ID` of the user-assigned identity under `environment_variables` the `deployment.yaml` as following. You can find the `Clicn ID` in the `Overview` of the managed identity in Azure portal.
+Besides, you also need to specify the `Client ID` of the user-assigned identity under `environment_variables` the `deployment.yaml` as following. You can find the `Client ID` in the `Overview` of the managed identity in Azure portal.
 
 ```yaml
 environment_variables:
-  AZURE_CLIENT_ID: <cliend_id_of_your_user_assigned_identity>
+  AZURE_CLIENT_ID: <client_id_of_your_user_assigned_identity>
 ```
 
 > [!IMPORTANT]
@@ -265,6 +276,11 @@ environment_variables:
 | Instance type | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md). |
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [limits for online endpoints](../how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). |
 | Environment variables | Following environment variables need to be set for endpoints deployed from a flow: <br> - (required) `PROMPTFLOW_RUN_MODE: serving`: specify the mode to serving <br> - (required) `PRT_CONFIG_OVERRIDE`: for pulling connections from workspace <br> - (optional) `PROMPTFLOW_RESPONSE_INCLUDED_FIELDS:`: When there are multiple fields in the response, using this env variable will filter the fields to expose in the response. <br> For example, if there are two flow outputs: "answer", "context", and if you only want to have "answer" in the endpoint response, you can set this env variable to '["answer"]'. |
+
+> [!IMPORTANT]
+>
+> If your flow folder has a `requirements.txt` file which contains the dependencies needed to execute the flow, you need to follow the [deploy with a custom environment steps](#deploy-with-a-custom-environment) to build the custom environment including the dependencies.
+
 
 If you create a Kubernetes online deployment, you need to specify the following additional attributes:
 
@@ -407,6 +423,15 @@ This section will show you how to use a docker build context to specify the envi
           port: 8080
     ```
 
+### Use FastAPI serving engine (preview)
+
+By default prompt flow serving uses FLASK serving engine. Starting from prompt flow SDK version 1.10.0, FastAPI based serving engine is supported. You can use `fastapi` serving engine by specifying an environment variable `PROMPTFLOW_SERVING_ENGINE`.
+
+```yaml
+environment_variables:
+  PROMPTFLOW_SERVING_ENGINE=fastapi
+```
+
 ### Configure concurrency for deployment
 
 When deploying your flow to online deployment, there are two environment variables, which you configure for concurrency: `PROMPTFLOW_WORKER_NUM` and `PROMPTFLOW_WORKER_THREADS`. Besides, you'll also need to set the `max_concurrent_requests_per_instance` parameter.
@@ -439,18 +464,33 @@ While tuning above parameters, you need to monitor the following metrics to ensu
     - If you receive a 429 response, this typically indicates that you need to either re-tune your concurrency settings following the above guide or scale your deployment.
 - Azure OpenAI throttle status
 
-### Monitor the endpoint
+### Monitor endpoints
 
-#### Monitor prompt flow deployment metrics
+#### Collect general metrics
 
-You can monitor general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more), and prompt flow deployment specific metrics (token consumption, flow latency, etc.) by adding `app_insights_enabled: true` in the deployment yaml file. Learn more about [metrics of prompt flow deployment](./how-to-deploy-for-real-time-inference.md#view-endpoint-metrics).
+You can view [general metrics of online deployment (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more)](../how-to-monitor-online-endpoints.md#metrics).
+
+#### Collect tracing data and system metrics during inference time
+
+You can also collect tracing data and prompt flow deployment specific metrics (token consumption, flow latency, etc.) during inference time to workspace linked Application Insights by adding a property `app_insights_enabled: true` in the deployment yaml file. Learn more about [trace and metrics of prompt flow deployment](./how-to-enable-trace-feedback-for-deployment.md).
+
+Prompt flow specific metrics and trace can be specified to other Application Insights other than the workspace linked one. You can specify an environment variable in the deployment yaml file as following. You can find the connection string of your Application Insights in the Overview page in Azure portal.
+
+```yaml
+environment_variables:
+  APPLICATIONINSIGHTS_CONNECTION_STRING: <connection_string>
+```
+
+> [!NOTE]
+> If you only set `app_insights_enabled: true` but your workspace does not have a linked Application Insights, your deployment will not fail but there will be no data collected.
+> If you specify both `app_insights_enabled: true` and the above environment variable at the same time, the tracing data and metrics will be sent to workspace linked Application Insights. Hence, if you want to specify a different Application Insights, you only need to keep the environment variable.
 
 
 ## Common errors
 
 ### Upstream request timeout issue when consuming the endpoint
 
-Such error is usually caused by timeout. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300000 ms. Following is example showing how to specify request time out in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
+Such error is usually caused by timeout. By default the `request_timeout_ms` is 5000. You can specify at max to 5 minutes, which is 300,000 ms. Following is example showing how to specify request timeout in the deployment yaml file. Learn more about the deployment schema [here](../reference-yaml-deployment-managed-online.md).
 
 ```yaml
 request_settings:

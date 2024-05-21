@@ -1,7 +1,7 @@
 ---
 title: Generate Azure CLI scripts using Microsoft Copilot for Azure (preview)
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can generate Azure CLI scripts for you to customize and use.
-ms.date: 03/25/2024
+ms.date: 04/25/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom: ignite-2023, ignite-2023-copilotinAzure, devx-track-azurecli
@@ -33,6 +33,7 @@ Here are a few examples of the kinds of prompts you can use to generate Azure CL
 - "Create VNet service endpoints for Azure Database for PostgreSQL using CLI"
 - "I want to create a function app with a named storage account connection using Azure CLI"
 - "How to create an App Service app and deploy code to a staging environment using CLI?"
+- "I want to use Azure CLI to deploy and manage AKS using a private service endpoint."
 
 ## Examples
 
@@ -40,13 +41,13 @@ In this example, the prompt "**I want to use Azure CLI to create a web applicati
 
 :::image type="content" source="media/generate-cli-scripts/cli-web-app.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a web app.":::
 
-Similarly, you can say "**I want to create a virtual machine using Azure CLI**" to get a step-by-step guide with commands.
+When you follow that request with "**Provide full script**", the commands are shown together in one script.
 
-:::image type="content" source="media/generate-cli-scripts/cli-vm.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing Azure CLI commands to create a VM.":::
+:::image type="content" source="media/generate-cli-scripts/cli-web-app-full.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing a full Azure CLI script to create a web app.":::
 
-For more detailed scenarios, you can use prompts like "**I want to use Azure CLI to deploy and manage AKS using a private service endpoint**."
+You can also start off by letting Microsoft Copilot for Azure (preview) know that you want the commands all together. For example, you could say "**I want a script to create a low cost VM (all in one codeblock for me to copy and paste)**".
 
-:::image type="content" source="media/generate-cli-scripts/cli-aks.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing commands to deploy and manage AKS using a private service endpoint.":::
+:::image type="content" source="media/generate-cli-scripts/cli-vm.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) providing an Azure CLI script to create a VM.":::
 
 ## Next steps
 

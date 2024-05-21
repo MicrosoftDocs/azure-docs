@@ -156,7 +156,8 @@ Add or remove specific rules your DNS forwarding ruleset as desired, such as:
 - A wildcard rule to forward unmatched DNS queries to a protective DNS service.
 
 > [!IMPORTANT]
-> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ### Delete a rule from the forwarding ruleset
 

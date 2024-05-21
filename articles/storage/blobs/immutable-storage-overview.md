@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 05/01/2024
 ms.author: normesta
 ---
 
@@ -77,7 +77,7 @@ You can't delete a locked time-based retention policy. You can extend the retent
 
 ### Retention policy audit logging
 
-Each container with a time-based retention policy enabled provides a policy audit log. The audit log includes up to seven time-based retention commands for locked time-based retention policies. Log entries include the user ID, command type, time stamps, and retention interval. The audit log is retained for the policy's lifetime in accordance with the SEC 17a-4(f) regulatory guidelines.
+Each container with a time-based retention policy enabled provides a policy audit log. The audit log includes up to seven time-based retention commands for locked time-based retention policies. Logging typically starts once you have locked the policy. Log entries include the user ID, command type, time stamps, and retention interval. The audit log is retained for the policy's lifetime in accordance with the SEC 17a-4(f) regulatory guidelines.
 
 The Azure Activity log provides a more comprehensive log of all management service activities. Azure resource logs retain information about data operations. It's the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
@@ -161,6 +161,10 @@ For more information about blob inventory, see [Azure Storage blob inventory](bl
 
 > [!NOTE]
 > You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
+
+## Configuring policies at scale
+
+You can use a _storage task_ to configure a immutability policies at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
 
 ## Pricing
 

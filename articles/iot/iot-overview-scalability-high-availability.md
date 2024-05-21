@@ -38,7 +38,7 @@ IoT Edge can help to help scale your solution. IoT Edge lets you move cloud anal
 Service tiers and pricing plans:
 
 - [Choose the right IoT Hub tier and size for your solution](../iot-hub/iot-hub-scaling.md)
-- [Choose the right pricing plan for your IoT Central solution](../iot-central/core/howto-create-iot-central-application.md#pricing-plans)
+- [Choose the right pricing plan for your IoT Central solution](https://azure.microsoft.com/pricing/details/iot-central/)
 
 Service limits and quotas:
 

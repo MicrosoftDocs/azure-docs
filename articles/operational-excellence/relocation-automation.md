@@ -1,6 +1,6 @@
 ---
 title: Relocation guidance for Azure Automation
-description: Learn how to relocate an Azure Automation to a new region
+description: Learn how to relocate an Azure Automation to a another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -26,6 +26,9 @@ If your Azure Automation instance doesn't have any configuration and the instanc
 - If the source Azure Automation is enabled with a private connection, create a private link and configure the private link with DNS at target. 
 - For Azure Automation to communicate with Hybrid RunBook Worker, Azure Update Manager, Change Tracking, Inventory Configuration, and Automation State Configuration, you must enable port 443 for both inbound and outbound internet access.
 
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
 ## Prepare
 
@@ -38,6 +41,8 @@ To get started, export a Resource Manager template. This template contains setti
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
+
+
 
 ## Redeploy
 

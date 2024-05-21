@@ -49,7 +49,7 @@ Code Optimizations analyzes the profiling data collected by the Application Insi
 
 ## Cost
 
-While Code Optimizations incurs no extra costs, you may encounter [indirect costs associated with Application Insights](../best-practices-cost.md#is-application-insights-free). 
+While Code Optimizations incurs no extra costs.
 
 ## Supported regions
 

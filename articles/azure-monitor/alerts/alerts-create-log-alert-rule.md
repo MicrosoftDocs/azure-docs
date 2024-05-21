@@ -43,7 +43,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 1.  On the **Logs** pane, write a query that returns the log events for which you want to create an alert. To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
 
 Limitations for log search alert rule queries:
- - Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
+- Log search alert rule queries do not support the 'bag_unpack()', 'pivot()' and 'narrow()' plugins.
  - The word "AggregatedValue" is a reserved word, it cannot be used in the query on Log search Alerts rules.
  - The combined size of all data in the log alert rule properties cannot exceed 64KB.
 
@@ -122,6 +122,7 @@ Limitations for log search alert rule queries:
     |Frequency of evaluation|How often the query is run. Can be set anywhere from one minute to one day (24 hours).|
 
     > [!NOTE]
+    > It is important to note that the frequency is not a specific time that the alert runs every day, but it is how often the alert rule will run. 
     > There are some limitations to using a <a name="frequency">one minute</a> alert rule frequency. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The following are the most common reasons a query are not supported: 
     > * The query contains the **search**, **union** * or **take** (limit) operations
     > * The query contains the **ingestion_time()** function
@@ -172,7 +173,7 @@ Limitations for log search alert rule queries:
     1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log search alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
 
         Keep these things in mind when selecting an identity:
-        - A managed identity is required if you're sending a query to Azure Data Explorer.
+        - A managed identity is required if you're sending a query to Azure Data Explorer (ADX) or to Azure Resource Graph (ARG).
         - Use a managed identity if you want to be able to see or edit the permissions associated with the alert rule.
         - If you don't use a managed identity, the alert rule permissions are based on the permissions of the last user to edit the rule, at the time the rule was last edited.
         - Use a managed identity to help you avoid a case where the rule doesn't work as expected because the user that last edited the rule didn't have permissions for all the resources added to the scope of the rule.
@@ -191,7 +192,7 @@ Limitations for log search alert rule queries:
         |Identity  |Description  |
         |---------|---------|
         |None|Alert rule permissions are based on the permissions of the last user who edited the rule, at the time the rule was edited.|
-        |System assigned managed identity| Azure creates a new, dedicated identity for this alert rule. This identity has no permissions and is automatically deleted when the rule is deleted. After creating the rule, you must assign permissions to this identity to access the workspace and data sources needed for the query. For more information about assigning permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). |
+        |System assigned managed identity| Azure creates a new, dedicated identity for this alert rule. This identity has no permissions and is automatically deleted when the rule is deleted. After creating the rule, you must assign permissions to this identity to access the workspace and data sources needed for the query. For more information about assigning permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml). |
         |User assigned managed identity|Before you create the alert rule, you [create an identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) and assign it appropriate permissions for the log query. This is a regular Azure identity. You can use one identity in multiple alert rules. The identity isn't deleted when the rule is deleted. When you select this type of identity, a pane opens for you to select the associated identity for the rule. |
 
 1. (Optional) In the **Advanced options** section, you can set several options:

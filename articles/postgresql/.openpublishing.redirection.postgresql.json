@@ -1576,6 +1576,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/postgresql/flexible-server/tutorial-django-app-service-postgres.md",
+        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/postgresql/migrate/how-to-migrate-single-to-flexible-portal.md",
         "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
         "redirect_document_id": false
@@ -1608,6 +1613,11 @@
     {
         "source_path_from_root": "/articles/postgresql/migrate/troubleshooting-networking-and-connectivity-issues.md",
         "redirect_url": "/azure/postgresql/migrate/migration-service/how-to-network-setup-migration-service",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/concepts-compute-storage.md",
+        "redirect_url": "/azure/postgresql/flexible-server/concepts-compute",
         "redirect_document_id": false
     }
     ]

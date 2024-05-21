@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 04/02/2024
+ms.date: 04/08/2024
 ms.author: radeltch
 ---
 # High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
@@ -775,7 +775,7 @@ You can migrate the SAP HANA master node by running the following command:
 crm resource move msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1 force
 ```
 
-If you set `AUTOMATED_REGISTER="false"`, this sequence of commands migrates the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
+The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`.
 
 When the migration is finished, the `crm_mon -r` output looks like this example:
 
@@ -797,7 +797,7 @@ Failed Actions:
     last-rc-change='Mon Aug 13 11:31:37 2018', queued=0ms, exec=2095ms
 ```
 
-The SAP HANA resource on `hn1-db-0` fails to start as secondary. In this case, configure the HANA instance as secondary by running this command:
+With `AUTOMATED_REGISTER="false"`, the cluster would not restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
 su - <hana sid>adm

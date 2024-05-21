@@ -289,6 +289,8 @@ items:
           href: ./cluster-reliability-issues.md
         - name: Kafka 2.4.1 validation error in ARM templates
           href: ./kafka241-validation-error-arm-templates.md
+        - name: Switch Users in Ambari UI
+          href: ./hdinsight-known-issues-ambari-users-cache.md
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
       - name: Troubleshoot Apache Ambari Metrics Collector
@@ -649,6 +651,8 @@ items:
         href: ./hadoop/troubleshoot-wasbs-storage-exception.md
       - name: Manage disk space
         href: ./hadoop/troubleshoot-disk-space.md
+      - name: Ambari user configs migration
+        href: ./migrate-ambari-recent-version-hdinsight.md  
 - name: Apache Kafka
   items:
   - name: Overview

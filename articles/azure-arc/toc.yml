@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc
     href: overview.md
+  - name: Choosing the right Azure Arc service
+    href: choose-service.md
 - name: Concepts
   items:
   - name: Custom locations
@@ -45,6 +47,8 @@
   href: ./kubernetes/overview.md
 - name: Azure Arc-enabled data services >
   href: ./data/overview.md
+- name: Azure Arc site manager >
+  href: ./site-manager/overview.md
 - name: Azure Arc-enabled VMware vSphere >
   href: ./vmware-vsphere/overview.md
 - name: Azure Arc-enabled System Center Virtual Machine Manager >

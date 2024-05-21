@@ -91,11 +91,10 @@ After setting up your account, you can review in the Review + create tab, at the
 To set using Azure CLI, use the command:
 
 ```azurecli-interactive
-subId=$(az account show --query id -o tsv)
 rg="myresourcegroup"
 dbName="mycosmosdbaccount"
 minimalTlsVersion="Tls12"
-az rest --uri "/subscriptions/$subId/resourceGroups/$rg/providers/Microsoft.DocumentDB/databaseAccounts/$dbName?api-version=2022-11-15" --method PATCH  --body "{ 'properties': { 'minimalTlsVersion': '$minimalTlsVersion' } }" --headers "Content-Type=application/json"
+az cosmosdb update -n $dbName -g $rg --minimal-tls-version $minimalTlsVersion
 ```
 
 ### Set via Azure PowerShell

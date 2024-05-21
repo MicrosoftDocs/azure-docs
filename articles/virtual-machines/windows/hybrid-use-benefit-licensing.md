@@ -110,7 +110,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 Once you've deployed your VM through either PowerShell, Resource Manager template or portal, you can verify the setting in the following methods.
 
 ### Portal
-From portal VM blade, you can view the toggle for Azure Hybrid Benefit for Windows Server by selecting "Configuration" tab.
+From portal VM blade, you can view the toggle for Azure Hybrid Benefit for Windows Server by selecting "Operating system" tab.
 
 ### PowerShell
 The following example shows the license type for a single VM

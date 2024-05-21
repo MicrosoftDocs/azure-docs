@@ -196,7 +196,7 @@ If you try connecting to Outlook by using a different account than the one curre
 
   1. Assign the **Contributor** role to the other account.
   
-     For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+     For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
   1. After you set up this role, sign in to the Azure portal with the account that now has Contributor permissions. You can now use this account to create the connection to Outlook.
 

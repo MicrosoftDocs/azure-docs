@@ -28,7 +28,7 @@ This article uses REST for illustration. For code samples in other languages, se
 
 + Azure AI Search, in any region and on any tier.
 
-+ [A vector store on Azure AI Search](vector-search-how-to-create-index.md).
++ [A vector index on Azure AI Search](vector-search-how-to-create-index.md).
 
 + Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. See [Quickstart: Azure AI Search using REST](search-get-started-rest.md) for help with getting started.
 
