@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/10/2023
+ms.date: 05/21/2024
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -80,7 +80,7 @@ The following copper SFP+ (10 Gbps) transceivers and cables are recommended for 
 
 |SFP+ transceiver type |Supported cables    | Notes |
 |----------------------|--------------------|-------|
-|SFP+ Direct-Attach Copper (10GSFP+Cu)| <ul><li>[FS SFP-10G-DAC](https://www.fs.com/c/fs-10g-sfp-dac-1115) (Available in industrial temperature -40ºC to +85ºC as custom order)</li><br><li>[10Gtek CAB-10GSFP-P0.5M](http://www.10gtek.com/10G-SFP+-182)</li><br><li>[Cisco SFP-H10GB-CU1M](https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/data_sheet_c78-455693.html)</li></ul> |<ul><li>Also known as SFP+ Twinax DAC cables.</li><br><li>Recommended option because it has lowest power usage and is simplest.</li><br><li>Autonegotiation isn't supported.</li><br><li>Connecting an SFP device to an SFP+ device isn't supported.</li></ul>|
+|SFP+ Direct-Attach Copper (10GSFP+Cu)| <ul><li>[FS SFP-H10GB-CU3M](https://www.fs.com/products/30862.html?attribute=8723&id=2354442)</li><br><li>[10Gtek CAB-10GSFP-P0.5M](http://www.10gtek.com/10G-SFP+-182)</li><br><li>[Cisco SFP-H10GB-CU1M](https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/data_sheet_c78-455693.html)</li></ul> |<ul><li>Also known as SFP+ Twinax DAC cables.</li><br><li>Recommended option because it has lowest power usage and is simplest.</li><br><li>Autonegotiation isn't supported.</li><br><li>Connecting an SFP device to an SFP+ device isn't supported.</li></ul>|
 
 ## Power supply unit
 
