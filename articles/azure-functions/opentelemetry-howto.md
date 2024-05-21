@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [functions-opentelemetry-preview-note](../../includes/functions-opentelemetry-preview-note.md)]
 
-This article shows you how to configure your function app to generate log and trace data in an OpenTelemetry format. Azure Functions generates telemetry data on your function executions from both the Functions host process and the language-specific worker process in which your function code runs. By default, this telemetry data is sent to Application Insights using the Application Insights SDK. However, you can also choose to export this data using OpenTelemetry semantics. While you can still use an OpenTelemetry format to send your data to Application Insights, you can now also export the same data to any other OpenTelemetry-compliant endpoint.  
+This article shows you how to configure your function app to export log and trace data in an OpenTelemetry format. Azure Functions generates telemetry data on your function executions from both the Functions host process and the language-specific worker process in which your function code runs. By default, this telemetry data is sent to Application Insights using the Application Insights SDK. However, you can choose to export this data using OpenTelemetry semantics. While you can still use an OpenTelemetry format to send your data to Application Insights, you can now also export the same data to any other OpenTelemetry-compliant endpoint.  
 
 > [!TIP]  
 > Because this article is targeted at your development language of choice, remember to choose the correct language at the top of the article.
@@ -66,9 +66,9 @@ Create specific application settings in your function app based on the OpenTelem
 
 ### [OTLP Exporter](#tab/otlp-export) 
  
-**`OTEL_EXPORTER_OTLP_ENDPOINT`**: the connection string for an OTLP exporter endpoint. 
+**`OTEL_EXPORTER_OTLP_ENDPOINT`**: an OTLP exporter endpoint URL. 
 
-**`OTEL_EXPORTER_OTLP_HEADERS`**: (Optional) list of headers to apply to all outgoing data. 
+**`OTEL_EXPORTER_OTLP_HEADERS`**: (Optional) list of headers to apply to all outgoing data. This is used by many endpoints to pass an API key.
 
 If your endpoint requires you to set other environment variables, you need to also add them to your application settings. For more information, see the [OTLP Exporter Configuration documentation](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/). 
 
