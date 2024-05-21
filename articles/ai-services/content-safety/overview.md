@@ -133,7 +133,7 @@ Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need
 
 ### Query rates
 
-| Pricing Tier | Requests per 10 seconds (RPS) |
+| Pricing Tier | Requests per 10 seconds  |
 | :----------- | :--------------------- |
 | F0           | 1000                     |
 | S0           | 1000                     |
