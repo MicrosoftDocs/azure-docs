@@ -4,7 +4,7 @@ description: Learn how to choose an upgrade channel that best supports your need
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli
 ms.author: nickoman,kaarthis
-author: nickomang
+author: nickomang,kaarthis
 ms.subservice: aks-upgrade
 ms.date: 05/10/2024
 ---
@@ -20,7 +20,7 @@ It's best to use both cluster-level [auto-upgrades][Autoupgrade] and the node OS
 
 ## Channels for node OS image upgrades
 
-The selected channel determines the timing of upgrades. When making changes to node OS auto-upgrade channels, allow up to 24 hours for the changes to take effect. Once you change from one channel to another channel, a reimage will be triggered leading to rolling nodes.
+The selected channel determines the timing of upgrades. When making changes to node OS auto-upgrade channels, allow up to 24 hours for the changes to take effect. Once you change from one channel to another channel, a reimage is triggered leading to rolling nodes.
 
 > [!NOTE]
 > Node OS image auto-upgrade won't affect the cluster's Kubernetes version. It only works for a cluster in a [supported version][supported].Use CLI version 2.61.0 or above for `SecurityPatch` channel. 
