@@ -49,6 +49,8 @@ productDirectory:
           url: /azure/virtual-network/concepts-and-best-practices
         - text: Plan virtual networks
           url: /azure/virtual-network/virtual-network-vnet-plan-design-arm
+        - text: Virtual networks and virtual machines in Azure
+          url: /azure/virtual-network/network-overview
 
     - title: Azure Private Link
       imageSrc: media/private-link-product.svg
@@ -61,6 +63,8 @@ productDirectory:
           url: /azure/private-link/private-endpoint-overview
         - text: What is Azure Private Link service?
           url: /azure/private-link/private-link-service-overview
+        - text: Azure Private Endpoint DNS integration
+          url: /azure/private-link/private-endpoint-dns-integration
 
     - title: Azure DNS
       imageSrc: media/dns.svg
