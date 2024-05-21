@@ -25,12 +25,12 @@ To complete this QuickStart, you need the following prerequisites:
 
 To stream large messages, you must configure your self-serve scalable dedicated cluster. You could follow below steps below:
 
-- On Azure Portal, navigate to the ‘Settings’ section for Dedicated cluster and select the ‘Quota’ tab under Settings.
+- On Azure portal, navigate to the ‘Settings’ section for Dedicated cluster and select the ‘Quota’ tab under Settings.
   
 :::image type="content" source="./media/event-hubs-quickstart-stream-large-messages/LMSconfigforCluster.png" alt-text="Screenshot showing the Quota blade for Dedicated Cluster":::
 
 - Validate that the value for read-only key **supportslargemessages** is set to true. 
-- You could update the key : **eventhubmaxmessagesizeinbytes** to suitable value in bytes. Acceptable range for this value is between 1048576 and 20971520 bytes.
+- You could update the key: **eventhubmaxmessagesizeinbytes** to suitable value in bytes. Acceptable range for this value is between 1048576 and 20971520 bytes.
 
 Once the configuration is saved, you're all set to stream Large messages with event hubs.
 
@@ -40,7 +40,7 @@ Once the configuration is saved, you're all set to stream Large messages with ev
 
 ## Streaming Large messages with Azure Event hubs
 
-Azure Event Hubs allows streaming of large messages up to 20 MB, both in batches and as individual publications. Being able to stream large messages or events requires no client code changes apart from the change in message or event itself. You could continue sending/receiving messages using any existing event hubs SDK/ Kafka API to stream large messages to event hub.This allows you to stream large messages to the event hub in the same manner as you would for messages of size less than 1 MB. 
+Azure Event Hubs allows streaming of large messages up to 20 MB, both in batches and as individual publications. Being able to stream large messages or events requires no client code changes apart from the change in message or event itself. You could continue sending/receiving messages using any existing event hubs SDK/ Kafka API to stream large messages to event hub. This allows you to stream large messages to the event hub in the same manner as you would for messages of size less than 1 MB. 
 Know more [here](event-hubs-dotnet-standard-getstarted-send.md)
 
 
