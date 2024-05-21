@@ -14,7 +14,7 @@ ms.date: 05/21/2024
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the [BitLocker](windows/security/operating-system-security/data-protection/bitlocker/) feature of Windows to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk encryption keys and secrets.
+Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the [BitLocker](/windows/security/operating-system-security/data-protection/bitlocker/) feature of Windows to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk encryption keys and secrets.
 
 Azure Disk Encryption is zone resilient, the same way as Virtual Machines. For details, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
@@ -45,7 +45,7 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 
  
 > [!NOTE]
-> Azure Disk Encryption uses BitLocker and has all the requirements of BitLocker. For more information, see [BitLocker overview](windows/security/operating-system-security/data-protection/bitlocker/#system-requirements).
+> Azure Disk Encryption uses BitLocker and has all the requirements of BitLocker. For more information, see [BitLocker overview](/windows/security/operating-system-security/data-protection/bitlocker/#system-requirements).
 >
 > Windows Server 2022 and Windows 11 do not support an RSA 2048 bit key. For more information, see [FAQ: What size should I use for my key encryption key?](disk-encryption-faq.yml#what-size-should-i-use-for-my-key-encryption-key--kek--)
 >
@@ -87,7 +87,7 @@ The following table defines some of the common terms used in Azure disk encrypti
 | --- | --- |
 | Azure Key Vault | Key Vault is a cryptographic, key management service that's based on Federal Information Processing Standards (FIPS) validated hardware security modules. These standards help to safeguard your cryptographic keys and sensitive secrets. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.yml). |
 | Azure CLI | [The Azure CLI](/cli/azure/install-azure-cli) is optimized for managing and administering Azure resources from the command line.|
-| BitLocker |[BitLocker](windows/security/operating-system-security/data-protection/bitlocker/) is an industry-recognized Windows volume encryption technology that's used to enable disk encryption on Windows VMs. |
+| BitLocker |[BitLocker](/windows/security/operating-system-security/data-protection/bitlocker/) is an industry-recognized Windows volume encryption technology that's used to enable disk encryption on Windows VMs. |
 | Key encryption key (KEK) | The asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security module (HSM)-protected key or software-protected key. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.yml). |
 | PowerShell cmdlets | For more information, see [Azure PowerShell cmdlets](/powershell/azure/). |
 
