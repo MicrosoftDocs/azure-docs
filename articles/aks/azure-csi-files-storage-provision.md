@@ -83,7 +83,7 @@ Storage classes define how to create an Azure file share. A storage account is a
 * `Standard_ZRS`: Standard zone redundant storage (ZRS)
 * `Standard_RAGRS`: Standard read-access geo-redundant storage (RA-GRS)
 * `Premium_LRS`: Premium locally redundant storage (LRS)
-* `Premium_ZRS`: pPremium zone redundant storage (ZRS)
+* `Premium_ZRS`: Premium zone redundant storage (ZRS)
 
 > [!NOTE]
 > Minimum premium file share is 100GB.
