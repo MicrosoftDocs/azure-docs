@@ -219,10 +219,12 @@
       href: grpc-api.md
     - name: Azure OpenAI
       items:
-      - name: Import Azure OpenAI API as REST API
+      - name: Import Azure OpenAI API
         href: azure-openai-api-from-specification.md
       - name: Authenticate and authorize to Azure OpenAI
         href: api-management-authenticate-authorize-azure-openai.md
+      - name: Semantic caching for Azure OpenAI API requests
+        href: azure-openai-enable-semantic-caching.md
       - name: Protect Azure OpenAI keys
         href: /semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Configure API for SSE
@@ -486,6 +488,14 @@
       href: authentication-certificate-policy.md
     - name: authentication-managed-identity
       href: authentication-managed-identity-policy.md
+    - name: azure-openai-emit-token-metric
+      href: azure-openai-emit-token-metric-policy.md
+    - name: azure-openai-sematic-cache-lookup
+      href: azure-openai-semantic-cache-lookup-policy.md
+    - name: azure-openai-semantic-cache-store
+      href: azure-openai-semantic-cache-store-policy.md
+    - name: azure-openai-token-limit
+      href: azure-openai-token-limit-policy.md
     - name: cache-lookup
       href: cache-lookup-policy.md
     - name: cache-lookup-value
