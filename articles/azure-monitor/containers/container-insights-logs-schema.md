@@ -24,13 +24,17 @@ The following table highlights the key differences between using ContainerLogV2 
 
 | Feature differences  | ContainerLog | ContainerLogV2 |
 | ------------------- | ----------------- | ------------------- |
-| Schema | Details at [ContainerLog](/azure/azure-monitor/reference/tables/containerlog). | Details at [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2).<br>Additional columns are:<br>- `ContainerName`<br>- `PodName`<br>- `PodNamespace`. |
-| Onboarding | Only configurable through ConfigMap. | Configurable through both ConfigMap and DCR. <sup>1</sup>|
+| Schema | Details at [ContainerLog](/azure/azure-monitor/reference/tables/containerlog). | Details at [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2).<br>Additional columns are:<br>- `ContainerName`<br>- `PodName`<br>- `PodNamespace`<br>- `LogLevel`<sup>1</sup><br>- `KubernetesMetadata`<sup>2</sup> |
+| Onboarding | Only configurable through ConfigMap. | Configurable through both ConfigMap and DCR. <sup>3</sup>|
 | Pricing | Only compatible with full-priced analytics logs. | Supports the low cost [basic logs](../logs/basic-logs-configure.md) tier in addition to analytics logs. |
 | Querying | Requires multiple join operations with inventory tables for standard queries. | Includes additional pod and container metadata to reduce query complexity and join operations. |
 | Multiline | Not supported, multiline entries are split into multiple rows. | Support for multiline logging to allow consolidated, single entries for multiline output. |
 
-<sup>1</sup>DCR configuration not supported for clusters using service principal authentication based clusters. To use this experience, [migrate your clusters with service principal to managed identity](./container-insights-authentication.md).
+<sup>1</sup>If LogMessage is a valid JSON and has a key named *level*, its value will be used. Otherwise we use a regex based keyword matching approach to infer LogLevel from the LogMessage itself. Note that you might see some misclassifications as this value is inferred.
+
+<sup>2</sup>KubernetesMetadata is optional column and collection of this field can be enabled with Kubernetes Metadata feature. Value of this field is JSON and it contains fields such as *podLabels, podAnnotations, podUid, Image, ImageTag and Image repo*.
+
+<sup>3</sup>DCR configuration not supported for clusters using service principal authentication based clusters. To use this experience, [migrate your clusters with service principal to managed identity](./container-insights-authentication.md).
 
 >[!NOTE]
 > [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming LogMessage is not a valid JSON. For best performance, we recommend emitting container logs in JSON format.
