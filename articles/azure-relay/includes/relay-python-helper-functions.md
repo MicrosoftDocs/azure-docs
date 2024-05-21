@@ -16,7 +16,7 @@ connections for secure communication.
 
 1. Install the following Python libraries using pip before running the helper function script
 
-	base64, hashlib, hmac, math, time, urllib
+	`base64`, `hashlib`, `hmac`, `math`, `time`, `urllib`
 
 	These libraries can be installed using the following command:
 
