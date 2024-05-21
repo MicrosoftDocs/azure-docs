@@ -1,5 +1,5 @@
 ---
-title: Create a vector store
+title: Create a vector index
 titleSuffix: Azure AI Search
 description: Create or update a search index to include vector fields.
 
@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 03/27/2024
 ---
 
-# Create a vector store
+# Create a vector index
 
 In Azure AI Search, a *vector store* has an index schema that defines vector and nonvector fields, a vector configuration for algorithms that create the embedding space, and settings on vector field definitions that are used in query requests. The [Create Index](/rest/api/searchservice/indexes/create-or-update) API creates the vector store.
 
