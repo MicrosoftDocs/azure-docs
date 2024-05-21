@@ -43,7 +43,7 @@ In the app registration overview, select **Delete**.
 
 ### Delete the external tenant
 
-In to the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Identity** > **Overview** > **Manage tenants**.
+If you created a new external tenant, you can [delete it](/entra/external-id/customers/how-to-delete-external-tenant-portal).  In to the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Identity** > **Overview** > **Manage tenants**.
 
 Select the tenant you want to delete, and then select **Delete**.
 

@@ -100,7 +100,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
     :::image type="content" alt-text="Screenshot that shows the Select a tenent dropdown." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-select.png":::
 
-1. In the **Create a tenant** page, add the *Tenant Name** and **Domain Name**.  Select a **Location** and select **Review and create**.
+1. (Optional) In the **Create a tenant** page, add the *Tenant Name** and **Domain Name**.  Select a **Location** and select **Review and create** and then **Create**.
 
     :::image type="content" alt-text="Screenshot the Create a tenant page." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-external-create-tenant.png":::
 
@@ -122,7 +122,7 @@ Now that you have a web app running on App Service, enable authentication and au
 
     :::image type="content" alt-text="Screenshot that shows the customized branding tab." source="../../media/scenario-secure-app-authentication-app-service/configure-authentication-branding.png":::
 
-1. Select **Next** and **Yes, update the changes** to accept the branding changes.
+1. Select **Next**.  If the tenant you selected already has a branding configuration you will need to confirm that you want to override it.
 
 1. Select **Configure** in the **Review** tab to confirm external tenant update. 
 

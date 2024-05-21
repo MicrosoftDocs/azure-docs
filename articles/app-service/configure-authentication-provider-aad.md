@@ -105,15 +105,15 @@ Use this option unless you need to create an app registration separately. You ca
 
 Select **Create new app registration** to create a new app registration.
 
-1. Select an existing tenant to use from the drop-down, or select **Create new** to create a new [customer (external) tenant](/entra/external-id/customers/quickstart-tenant-setup).
+1. Select an existing tenant to use from the drop-down, or select **Create new** to create a new [external tenant](/entra/external-id/customers/quickstart-tenant-setup).
 
 #### To create a new external tenant
 
-1. In the **Create a tenant** page, add the **Tenant Name** and **Domain Name**.  Select a **Location** and select **Review and create**.  The tenant creation process takes a few minutes.
+1. In the **Create a tenant** page, add the **Tenant Name** and **Domain Name**.  Select a **Location** and select **Review and create** and then select **Create**.  The tenant creation process takes a few minutes.
 
 1. Select **Configure** to **configure external authentication** for the new tenant.
 
-1. The browser opens **Configure customer authentication**.  In **Setup sign-in**, select **Create new** to create a sign-in experience for your external users.
+1. The browser opens **Configure customer authentication**.  
 
 1. Select a user flow from the drop-down or select **Create new**.  The user flow defines the sign-in methods your external users can use. Each app can only have one user flow, but you can reuse the same user flow for multiple apps.
 
@@ -121,17 +121,17 @@ Select **Create new app registration** to create a new app registration.
 
 1. Enter a **Name** for the user flow.
 
-1. Select the sign-in method for your external users.  **Email and password** and **Email and one time passcode** are already configured in the new tenant.  You can [Configure Google](/entra/external-id/customers/how-to-google-federation-customers) or [Configure Facebook](/entra/external-id/customers/how-to-facebook-federation-customers) as identity providers as well.
+1. Select the sign-in method for your external users.  **Email and password** and **Email and one-time passcode** are already configured in the new tenant.  You can [Configure Google](/entra/external-id/customers/how-to-google-federation-customers) or [Configure Facebook](/entra/external-id/customers/how-to-facebook-federation-customers) as identity providers as well.
 
 1. Select **Create** to create the user flow.
 
 1. Select **Next** to customize branding.
 
-1. Add your company logo, select a background color, and select a sign-in layout.
+1. Add your logo, select a background color, and select a sign-in layout.
 
 1. Select **Next** and **Yes, update the changes** to accept the branding changes.
 
-1. Select **Configure** in the **Review** tab to confirm External ID (CIAM) tenant update. 
+1. Select **Configure** in the **Review** tab to confirm external tenant update. 
 
 1. The browser opens to the **Add an identity provider** page again.
 
@@ -204,7 +204,7 @@ Select **Token store** (recommended).  The token store collects, stores, and ref
 
 ## Add the identity provider
 
-(Optional) Select **Next: Permissions** and add any Microsoft Graph permissions needed by the application. These will be added to the app registration, but you can also change them later.
+If you selected workforce configuration, you can select **Next: Permissions** and add any Microsoft Graph permissions needed by the application. These will be added to the app registration, but you can also change them later.  If you selected external configuration, you can add Microsoft Graph permissions later.
 
 Select **Add**.
 

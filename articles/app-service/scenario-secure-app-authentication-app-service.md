@@ -22,4 +22,4 @@ ms.subservice: web-apps
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/after.md)]
 
 > [!div class="nextstepaction"]
-> [App service accesses storage](scenario-secure-app-access-storage.md)
+> [App Service accesses storage](scenario-secure-app-access-storage.md)
