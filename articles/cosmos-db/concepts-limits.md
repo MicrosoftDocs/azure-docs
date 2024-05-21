@@ -122,7 +122,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 
 ## Control plane
 
-Azure Cosmos DB maintains a resource provider that offers a management layer to create, update, and delete resources in your Azure Cosmos DB account. The resource provider interfaces with the overall Azure Resource Management layer, which is the deployment and management service for Azure. You can [create and manage Azure Cosmos DB resources](how-to-manage-database-account.md) using the Azure portal, Azure PowerShell, Azure CLI, Azure Resource Manager and Bicep templates, Rest API, Azure Management SDKs as well as 3rd party tools such as Terraform and Pulumi.
+Azure Cosmos DB maintains a resource provider that offers a management layer to create, update, and delete resources in your Azure Cosmos DB account. The resource provider interfaces with the overall Azure Resource Management layer, which is the deployment and management service for Azure. You can [create and manage Azure Cosmos DB resources](how-to-manage-database-account.yml) using the Azure portal, Azure PowerShell, Azure CLI, Azure Resource Manager and Bicep templates, Rest API, Azure Management SDKs as well as 3rd party tools such as Terraform and Pulumi.
 
 This management layer can also be accessed from the Azure Cosmos DB data plane SDKs used in your applications to create and manage resources within an account. Data plane SDKs also make control plane requests during initial connection to the service to do things like enumerating databases and containers, as well as requesting account keys for authentication.
 
@@ -138,11 +138,11 @@ The following table lists resource limits per subscription or account.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of accounts per subscription | 50 by default. ¹ |
+| Maximum number of accounts per subscription | 250 by default ¹ |
 | Maximum number of databases & containers per account | 500 ² |
 | Maximum throughput supported by an account for metadata operations | 240 RU/s |
 
-¹ You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md) up to 1,000 max.
+¹ Default limits differ for Microsoft internal customers. You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md) up to 1,000 max. Cosmos DB reserves the right to delete any empty database accounts i.e. no databases/collections.
 ² This limit cannot be increased. Total count of both with an account. (1 database and 499 containers, 250 databases and 250 containers, etc.)
 
 ### Request limits

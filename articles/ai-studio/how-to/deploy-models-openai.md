@@ -23,7 +23,7 @@ Azure OpenAI Service offers a diverse set of models with different capabilities 
 
 To modify and interact with an Azure OpenAI model in the [Azure AI Studio](https://ai.azure.com) playground, first you need to deploy a base Azure OpenAI model to your project. Once the model is deployed and available in your project, you can consume its REST API endpoint as-is or customize further with your own data and other components (embeddings, indexes, etcetera).  
  
-1. Choose a model you want to deploy from Azure AI Studio [model catalog](../how-to/model-catalog.md). Alternatively, you can initiate deployment by selecting **+ Create** from `your project`>`deployments` 
+1. Choose a model you want to deploy from Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Alternatively, you can initiate deployment by selecting **+ Create** from `your project`>`deployments` 
 
 1. Select **Deploy** to project on the model card details page. 
 

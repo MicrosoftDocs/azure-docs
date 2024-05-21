@@ -6,7 +6,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 02/02/2023
+ms.date: 04/12/2024
 ms.author: malev 
 ms.custom:
 ---

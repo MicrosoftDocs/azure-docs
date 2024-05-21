@@ -11,7 +11,7 @@ services: iot-edge
 
 # Understand Azure IoT Edge limits and restrictions
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article explains the limits and restrictions when using IoT Edge.
 

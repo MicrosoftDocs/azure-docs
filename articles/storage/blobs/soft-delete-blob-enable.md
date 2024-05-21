@@ -173,4 +173,4 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 ## Next steps
 
 - [Soft delete for blobs](soft-delete-blob-overview.md)
-- [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md)
+- [Manage and restore soft-deleted blobs](soft-delete-blob-manage.yml)

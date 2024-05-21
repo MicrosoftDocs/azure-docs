@@ -151,7 +151,7 @@ For this tutorial, you create three separate storage containers in the same ADLS
 
 1. Copy the sample data required for this tutorial series into the newly created storage containers.
 
-   1. To write data to the storage containers, ensure that **Contributor** and **Storage Blob Data Contributor** roles are assigned to the user identity on the created ADLS Gen2 storage account in the Azure portal, [following these steps](../role-based-access-control/role-assignments-portal.md).
+   1. To write data to the storage containers, ensure that **Contributor** and **Storage Blob Data Contributor** roles are assigned to the user identity on the created ADLS Gen2 storage account in the Azure portal [following these steps](../role-based-access-control/role-assignments-portal.yml).
 
       > [!IMPORTANT]
       > Once you ensure that the **Contributor** and **Storage Blob Data Contributor** roles are assigned to the user identity, wait for a few minutes after role assignment, to let permissions propagate before you proceed with the next steps. To learn more about access control, visit [role-based access control (RBAC) for Azure storage accounts](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac)

@@ -506,6 +506,44 @@ To read more on TLS authentication, the following documents might be helpful.
 - Generating TLS certificates -> https://o11y.eu/blog/prometheus-server-tls/
 - Configurations -> https://prometheus.io/docs/alerting/latest/configuration/#tls_config
 
+### Basic Authentication
+If you are using `basic_auth` setting in your prometheus configuration, please follow the steps -
+1. Create a secret in the **kube-system** namespace named **ama-metrics-mtls-secret**
+
+
+The value for password1 is **base64encoded**
+The key *password1* can be anything, but just needs to match your scrapeconfig *password_file* filepath.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ama-metrics-mtls-secret
+  namespace: kube-system
+type: Opaque
+data:
+  password1: <base64-encoded-string>
+```
+
+2. In the configmap for the custom scrape configuration use the following setting -
+```yaml
+basic_auth:
+  username: admin
+  password_file: /etc/prometheus/certs/password1
+
+```
+
+> [!NOTE]
+>
+> Make sure the name is **ama-metrics-mtls-secret** and it is in **kube-system** namespace.
+>
+> The **/etc/prometheus/certs/** path is mandatory, but *password1* can be any string and needs to match the key for the data in the secret created above.
+This is because the secret **ama-metrics-mtls-secret** is mounted in the path **/etc/prometheus/certs/** within the container.
+>
+> The base64 encoded value is automatically decoded by the agent pods when the secret is mounted as file.
+>
+> Any other configuration setting for authorization that is considered as a secret in the [prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) needs to use the file setting alternative instead as described above.
+
 ## Next steps
 
 [Setup Alerts on Prometheus metrics](./container-insights-metric-alerts.md)<br>

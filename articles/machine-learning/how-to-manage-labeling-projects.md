@@ -77,7 +77,10 @@ Additionally, when ML-assisted labeling is enabled, you can scroll down to see t
 
 ### Review data and labels
 
-On the **Data** tab, preview the dataset and review labeled data. 
+On the **Data** tab, preview the dataset and review labeled data.
+
+> [!TIP]
+> Before you review, coordinate with any other possible reviewers.  Otherwise, you might both be trying to approve the same label at the same time, which will keep one of you from updating it.
 
 Scroll through the labeled data to see the labels. If you see data that's incorrectly labeled, select it and choose **Reject** to remove the labels and return the data to the unlabeled queue.
 

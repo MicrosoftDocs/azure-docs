@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 04/23/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -75,10 +75,10 @@ Azure File Sync is supported with the following versions of Windows Server:
 
 | Version | Supported SKUs | Supported deployment options |
 |---------|----------------|------------------------------|
-| Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
-| Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
-| Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
-| Windows Server 2012 R2* | Datacenter, Standard, and Storage Server | Full and Core |
+| Windows Server 2022 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2019 | Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2016 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
+| Windows Server 2012 R2* | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
 
 *Requires downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 

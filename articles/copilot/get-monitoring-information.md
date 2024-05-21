@@ -1,7 +1,7 @@
 ---
 title: Get information about Azure Monitor metrics and logs using Microsoft Copilot for Azure (preview)
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can provide information about Azure Monitor metrics and logs.
-ms.date: 03/11/2024
+ms.date: 04/30/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -33,20 +33,6 @@ Here are a few examples of the kinds of prompts you can use to get information a
 - "Show me the memory usage trend for my VM over the last 4 hours"
 - "Show trends for network bytes in over the last day"
 - "Give me a chart of os disk latency statistics for the last week"
-
-## Answer questions about Managed Prometheus metrics
-
-Use Microsoft Copilot for Azure (preview) to ask questions about your Azure Monitor managed service for Prometheus metrics. When asked about metrics for a particular resource, Microsoft Copilot for Azure (preview) generates an example PromQL expression and allow you to further explore the data in Prometheus Explorer. This capability is available for all customers using Managed Prometheus. It can be used in the context of either an Azure Monitor workspace or a particular Azure Kubernetes Service cluster that is using Managed Prometheus.
-
-### Sample prompts
-
-Here are a few examples of the kinds of prompts you can use to get information about Managed Prometheus metrics. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
-
-- "Create a promql query to show me the resource limits on my pods and containers"
-- "Use promql to get the node load for this cluster"
-- "Show me the Prometheus metrics for the memory usage of my containers"
-- "Get the memory requests of pod <provide_pod_name> under namespace <provide_namespace>"
-- "Show me the container reads by namespace"
 
 ## Answer questions about Azure Monitor logs
 

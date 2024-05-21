@@ -31,7 +31,7 @@ If you change your URL, another Azure IoT Central customer can take your old URL
 
 Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
 
-To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.yml).
 
 > [!IMPORTANT]
 > If you delete and IoT Central application, it's not possible to recover it. It is possible to create a new application with the same name, but it will be a new application with no data. You need to wait for several minutes before you can create a new application with the same name.

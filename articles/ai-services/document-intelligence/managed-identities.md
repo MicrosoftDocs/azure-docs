@@ -65,7 +65,7 @@ To get started, you need:
   * On the selected networks page, navigate to the **Exceptions** category and make certain that the  [**Allow Azure services on the trusted services list to access this storage account**](../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) checkbox is enabled.
 
     :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot of allow trusted services checkbox, portal view":::
-* A brief understanding of [**Azure role-based access control (Azure RBAC)**](../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
+* A brief understanding of [**Azure role-based access control (Azure RBAC)**](../../role-based-access-control/role-assignments-portal.yml) using the Azure portal.
 
 ## Managed identity assignments
 

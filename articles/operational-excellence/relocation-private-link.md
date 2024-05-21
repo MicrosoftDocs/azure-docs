@@ -18,9 +18,18 @@ This article shows you how to relocate [Azure Private Link Service](/azure/priva
 To learn how to to reconfigure [private endpoints](/azure/private-link/private-link-overview) for a particular service, see the [appropriate service relocation guide](overview-relocation.md).
 
 
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
+
+
 ## Prepare
 
 Identify all resources that are used by Private Link Service, such as Standard load balancer, virtual machines, virtual network, etc.
+
+
 
 ## Redeploy
 

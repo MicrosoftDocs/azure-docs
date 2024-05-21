@@ -184,6 +184,6 @@ One example would be the Operations Management Suite (OMS) subscription. OMS off
 
 You can view your price sheet in the Azure portal. For more information, see [Download pricing for an enterprise agreement](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
 
-## Next steps
+## Related content
 
 - [Get started with your Enterprise Agreement billing account](ea-direct-portal-get-started.md).
