@@ -30,8 +30,6 @@ items:
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
     href: tutorials/deploy-copilot-ai-studio.md
-  - name: Build and deploy a chat copilot using the prompt flow SDK
-    href: tutorials/deploy-copilot-ai-studio.md
 - name: How-to
   expanded: true
   items:
