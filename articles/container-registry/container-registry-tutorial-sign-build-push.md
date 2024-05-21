@@ -64,6 +64,8 @@ In this tutorial:
 1. Configure AKV resource names.
 
     ```bash
+    AKV_SUB_ID=myAkvSubscriptionId
+    AKV_RG=myAkvResourceGroup
     # Name of the existing AKV used to store the signing keys
     AKV_NAME=myakv
     # Name of the certificate created in AKV
@@ -75,6 +77,8 @@ In this tutorial:
 2. Configure ACR and image resource names.
 
     ```bash
+    ACR_SUB_ID=myAcrSubscriptionId
+    ACR_RG=myAcrResourceGroup
     # Name of the existing registry example: myregistry.azurecr.io
     ACR_NAME=myregistry
     # Existing full domain of the ACR
@@ -95,23 +99,71 @@ az login
 
 To learn more about Azure CLI and how to sign in with it, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## Assign access policy in AKV (Azure CLI)
+## Access control
 
-A user principal with the correct access policy permissions is needed to create a self-signed certificate and sign artifacts. This principal can be a user principal, service principal, or managed identity. At a minimum, this principal needs the following permissions:
+When working with ACR and AKV, it’s essential to grant the appropriate permissions to ensure secure and controlled access. You can authorize access for different entities, such as user principals, service principals, or managed identities, depending on your specific scenarios. In this tutorial, the access are authorized to a signed-in Azure user.
 
-- `Create` permissions for certificates
-- `Get` permissions for certificates
-- `Sign` permissions for keys
+### Authorize access to ACR
 
-In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+The `AcrPull` and `AcrPush` roles are required for signing container images in ACR.
 
-### Set the subscription that contains the AKV resource
+1. Set the subscription that contains the ACR resource
 
 ```bash
-az account set --subscription <your_subscription_id>
+az account set --subscription $ACR_SUB_ID
 ```
 
-### Set the access policy in AKV
+2. Assign the roles
+
+```bash
+USER_ID=$(az ad signed-in-user show --query id -o tsv)
+az role assignment create --role "AcrPull" --role "AcrPush" --assignee $USER_ID --scope "/subscriptions/$ACR_SUB_ID/resourceGroups/$ACR_RG/providers/Microsoft.ContainerRegistry/registries/$ACR_NAME"
+```
+
+### Authorize access to AKV
+
+In this section, we’ll explore two options for authorizing access to AKV.
+
+#### Use Azure RBAC (Recommended)
+
+The following roles are required for signing using self-signed certificates:
+
+- `Key Vault Certificates Officer` for creating and reading certificates
+- `Key Vault Certificates User`for reading existing certificates
+- `Key Vault Crypto User` for signing operations
+
+To learn more about Key Vault access with Azure RBAC, see [Use an Azure RBAC for managing access](/azure/key-vault/general/rbac-guide).
+
+1. Set the subscription that contains the AKV resource
+
+```bash
+az account set --subscription $AKV_SUB_ID
+```
+
+2. Assign the roles
+
+```bash
+USER_ID=$(az ad signed-in-user show --query id -o tsv)
+az role assignment create --role "Key Vault Certificates Officer" --role "Key Vault Crypto User" --assignee $USER_ID --scope "/subscriptions/$AKV_SUB_ID/resourceGroups/$AKV_RG/providers/Microsoft.KeyVault/vaults/$AKV_NAME"
+```
+
+#### Assign access policy in AKV (legacy)
+
+The following permissions are required for an identity:
+
+- `Create` permissions for creating a certificate
+- `Get` permissions for reading existing certificates
+- `Sign` permissions for signing operations
+
+To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+
+1. Set the subscription that contains the AKV resource:
+
+```bash
+az account set --subscription $AKV_SUB_ID
+```
+
+2. Set the access policy in AKV:
 
 ```bash
 USER_ID=$(az ad signed-in-user show --query id -o tsv)
