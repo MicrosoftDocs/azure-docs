@@ -458,7 +458,7 @@
               items:
                 - name: Workload identity overview
                   href: workload-identity-overview.md
-                - name: Deploy and configure cluster
+                - name: Deploy and configure workload identity for a cluster
                   href: workload-identity-deploy-cluster.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
