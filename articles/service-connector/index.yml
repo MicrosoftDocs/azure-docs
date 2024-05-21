@@ -7,6 +7,8 @@ metadata:
   title: Service Connector documentation
   description: Connect your Azure compute service to backing services easily with Service Connector.
   ms.service: service-connector
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev

@@ -8,7 +8,7 @@
  ms.subservice: sizes
  ms.date: 05/13/2024
  ms.author: mattmcinnes
- ms.custom: include file
+ms.custom: include file, build-2024
 ---
 
 ## Other size information

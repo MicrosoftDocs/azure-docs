@@ -7,6 +7,7 @@ description: General concepts of Event Grid namespace topics and their main func
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
 # Azure Event Grid namespace concepts

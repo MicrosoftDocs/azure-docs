@@ -1,6 +1,8 @@
 ---
 author: eric-urban
 ms.service: azure-ai-services
+ms.custom:
+  - build-2024
 ms.date: 5/21/2024
 ms.topic: include
 ms.author: eur

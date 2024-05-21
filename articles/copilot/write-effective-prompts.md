@@ -4,6 +4,8 @@ description: Maximize productivity and intent understanding with prompt engineer
 ms.date: 04/16/2024
 ms.topic: how-to
 ms.service: copilot-for-azure
+ms.custom:
+  - build-2024
 ms.author: jenhayes
 author: JnHs
 ---

@@ -2,6 +2,8 @@
 title: Azure OpenAI assistant query input binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant query input binding to access Azure OpenAI Assistants APIs during function execution in Azure Functions.
 ms.topic: reference
+ms.custom:
+  - build-2024
 ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -143,4 +145,3 @@ See the [Example section](#example) for complete examples.
 + [Azure OpenAI assistant trigger](functions-bindings-openai-assistant-trigger.md)
 + [Azure OpenAI assistant create output binding ](functions-bindings-openai-assistantcreate-output.md)
 + [Azure OpenAI assistant post input binding ](functions-bindings-openai-assistantpost-input.md)
-

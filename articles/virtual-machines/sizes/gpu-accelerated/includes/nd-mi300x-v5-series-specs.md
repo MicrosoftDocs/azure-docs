@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.date: 05/21/2024
 ms.author: marccharest
-ms.custom: include file
+ms.custom: include file, build-2024
 ---
 | Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units, etc.  |
 |---|---|---|

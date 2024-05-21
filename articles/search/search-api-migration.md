@@ -9,6 +9,7 @@ ms.author: beloh
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
 ms.date: 05/09/2024
 ---

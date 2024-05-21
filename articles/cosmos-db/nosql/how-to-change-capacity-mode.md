@@ -6,6 +6,8 @@ author: richagaur
 ms.author: richagaur
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 05/08/2024
 #Customer Intent: As an administrator, I want to change the capacity mode, so that I can migrate from serverless to provisioned capacity.

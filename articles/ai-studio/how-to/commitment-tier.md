@@ -6,11 +6,12 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: siarora
 ms.author: larryfr
-author: Blackmist 
+author: Blackmist
 ---
 
 # Commitment tier pricing for Azure AI Studio

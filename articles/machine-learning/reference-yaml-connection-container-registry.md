@@ -5,6 +5,8 @@ description: Reference documentation for the CLI (v2) Azure Container Registry c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom:
+  - build-2024
 ms.topic: reference
 
 author: AmarBadal

@@ -2,6 +2,8 @@
 title: Authenticate with namespaces using JSON Web Tokens
 description: This article shows you how to authenticate with Azure Event Grid namespace using JSON Web Tokens.
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 05/21/2024
 author: george-guirguis
 ms.author: geguirgu

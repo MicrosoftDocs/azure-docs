@@ -6,10 +6,11 @@ description: Learn about how to select and prepare data, to be successful in cre
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: jboback
-
 ---
 
 # Format data for custom Summarization

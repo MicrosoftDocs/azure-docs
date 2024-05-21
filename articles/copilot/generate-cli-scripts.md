@@ -4,7 +4,7 @@ description: Learn about scenarios where Microsoft Copilot for Azure can generat
 ms.date: 04/25/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
-ms.custom: ignite-2023, ignite-2023-copilotinAzure, devx-track-azurecli
+ms.custom: ignite-2023, ignite-2023-copilotinAzure, devx-track-azurecli, build-2024
 ms.author: jenhayes
 author: JnHs
 ---

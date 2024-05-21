@@ -11,7 +11,7 @@ mms.author: kritifaujdar
 .author: fkriti
 ms.author: mopeakande
 author: msakande
-ms.custom: [references_regions]
+ms.custom: references_regions, build-2024
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-mistral.md
 ---

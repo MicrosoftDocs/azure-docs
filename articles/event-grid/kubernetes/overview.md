@@ -4,6 +4,8 @@ description: This article provides an overview about Event Grid on Kubernetes wi
 author: robece
 ms.author: robece
 ms.subservice: kubernetes
+ms.custom:
+  - build-2024
 ms.date: 05/25/2021
 ms.topic: overview
 ---

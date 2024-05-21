@@ -1,10 +1,10 @@
 ---
-title: Azure Functions scale and hosting 
+title: Azure Functions scale and hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
 ms.date: 05/10/2024
-ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023
+ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024
 ---
 # Azure Functions hosting options
 

@@ -9,7 +9,7 @@ ms.date: 5/21/2024
 ms.reviewer: shubhiraj
 ms.author: mopeakande
 author: msakande
-ms.custom: [references_regions]
+ms.custom: references_regions, build-2024
 ---
 
 # How to deploy Cohere Embed models with Azure AI Studio

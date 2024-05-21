@@ -8,7 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 2/1/2024
 ms.author: eur
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
 # Language and voice support for the Speech service
@@ -137,12 +137,6 @@ To set the input speech recognition language, specify the full locale with a das
 To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
 
 [!INCLUDE [Language support include](includes/language-support/speech-translation.md)]
-
-### Video dubbing
-
-The following table illustrates the fixed mapping relationship between source and target locales, along with the full locales associated with each language.
-
-[!INCLUDE [Language support include](includes/language-support/video-dub.md)]
 
 # [Language identification](#tab/language-identification)
 

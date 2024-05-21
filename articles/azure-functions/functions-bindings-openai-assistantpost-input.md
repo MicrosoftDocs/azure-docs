@@ -2,6 +2,8 @@
 title: Azure OpenAI assistant post input binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant post input binding to query chat bots during function execution in Azure Functions.
 ms.topic: reference
+ms.custom:
+  - build-2024
 ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---

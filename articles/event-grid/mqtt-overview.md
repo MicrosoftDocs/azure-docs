@@ -4,6 +4,7 @@ description: 'Describes the main concepts for the MQTT broker feature in Azure E
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu

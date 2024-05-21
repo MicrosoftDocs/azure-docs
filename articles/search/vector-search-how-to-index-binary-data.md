@@ -6,13 +6,15 @@ description: Explains how to configure fields for binary data and the vector sea
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 05/21/2024
 ---
 
 # Index binary data for vector search
 
-Beginning with the 2024-05-01-preview REST API, Azure AI Search supports a packed binary type of `Collection(Edm.Binary)` for further reducing the storage and memory footprint of vector data. You can assign this data type to fields that store binary embeddings from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3).
+Beginning with the 2024-05-01-preview REST API, Azure AI Search supports a packed binary type of `Collection(Edm.Binary)` for further reducing the storage and memory footprint of vector data. You can use this data type for output from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3).
 
 There are three steps to configuring an index for binary data:
 
@@ -31,10 +33,11 @@ This article assumes you're familiar with [creating an index in Azure AI Search]
 
 + No scalar compression or integrated vectorization support.
 + No Azure portal support in the Import and vectorize data wizard.
++ No support for binary fields in the [AML skill](cognitive-search-aml-skill.md) that's used for integrated vectorization of models in the Azure AI Studio model catalog.
 
 ## Add a vector search algorithm and vector profile
 
-Vector search algorithms are used to create the query navigation structures during index. For binary data fields, vector comparisons are performed using the Hamming distance. Configuration of a vector search algorithm is in a search index.
+Vector search algorithms are used to create the query navigation structures during indexing. For binary data fields, vector comparisons are performed using the Hamming distance metric. 
 
 1. To add a binary field to an index, set up a [`Create or Update Index`](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) request using the **2024-05-01-preview REST API** or the Azure portal.
 

@@ -1,10 +1,12 @@
 ---
 title: Add user consent to the personal voice project - Speech service
 titleSuffix: Azure AI services
-description: Learn about how to add user consent to the personal voice project. 
+description: Learn about how to add user consent to the personal voice project.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 2/7/2024
 ms.author: eur
