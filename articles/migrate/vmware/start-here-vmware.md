@@ -36,7 +36,7 @@ You need a list of all of the servers in your environment. To get the list, you 
 
 ## Assess
 
-Assess your VMware environment for moving to [Azure Virtual Machines](tutorial-assess-vmware-azure-vm.md) or to the managed [Azure VMware Services](tutorial-assess-vmware-azure-vmware-solution.md) offering.
+Assess your VMware environment for moving to [Azure Virtual Machines](tutorial-assess-vmware-azure-vm.md) or to the managed [Azure VMware Solution](tutorial-assess-vmware-azure-vmware-solution.md) offering.
 
 ## Migrate 
 
