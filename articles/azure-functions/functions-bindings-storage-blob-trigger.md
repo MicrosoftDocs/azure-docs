@@ -14,7 +14,9 @@ zone_pivot_groups: programming-languages-set-functions
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
 > [!TIP] 
-> There are several ways to execute your function code based on changes to blobs in a storage container, and the Blob storage trigger might not be the best option. To learn more about alternate triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
+> There are several ways to execute your function code based on changes to blobs in a storage container. If you choose to use the Blob storage trigger, note that there are two implementations offered: a polling-based one (referenced in this article) and an event-based one. It is recommended that you use the [event-based implementation](./functions-event-grid-blob-trigger.md) as it has lower latency than the other. Also, the Flex Consumption plan supports only the event-based Blob storage trigger. 
+
+> For details about differences between the two implementations of the Blob storage trigger, as well as other triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
 
