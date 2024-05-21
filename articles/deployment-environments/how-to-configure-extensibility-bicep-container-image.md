@@ -263,8 +263,6 @@ When authoring environment definitions to use your custom image in their deploym
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
-
-
 ---
 
 ## Access operation logs and error details
