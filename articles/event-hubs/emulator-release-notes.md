@@ -6,7 +6,7 @@ ms.service: event-hubs
 ms.topic: release-notes
 ms.date: 05/20/2024
 ---
-# Azure Event Hubs emulator- Release Notes 
+# Azure Event Hubs emulator release notes 
 
 This article provides detailed release notes on latest and previous versions of [Azure Event Hubs emulator](overview-emulator.md).
 
@@ -19,6 +19,6 @@ This article provides detailed release notes on latest and previous versions of 
     - 1.2.3-preview-amd64
     - 1.2.3-preview-arm64
      
-- Initial release of Azure-Event Hubs emulator.
+- Initial release of Azure Event Hubs emulator.
 
 To get started with Event Hubs emulator, read [here](test-locally-with-event-hub-emulator.md).
