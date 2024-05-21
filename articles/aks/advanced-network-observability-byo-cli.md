@@ -174,13 +174,13 @@ az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 1. In **Targets** of Prometheus, verify the **network-obs-pods** are present.
 
 1. Sign in to Grafana and import following example dashboards using following ID's:
-  * **Clusters:** shows Node-level metrics for your clusters.
-  * **DNS (Cluster):** shows DNS metrics on a cluster or selection of Nodes.
-  * **DNS (Workload):** shows DNS metrics for the specified workload (e.g. Pods of a DaemonSet or Deployment such as CoreDNS).
-  * **Drops (Workload):** shows drops to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
+  * **Clusters:** shows Node-level metrics for your clusters. (ID: [18814](https://grafana.com/grafana/dashboards/18814-kubernetes-networking-clusters/))
+  * **DNS (Cluster):** shows DNS metrics on a cluster or selection of Nodes.(ID: [20925](https://grafana.com/grafana/dashboards/20925-kubernetes-networking-dns-cluster/))
+  * **DNS (Workload):** shows DNS metrics for the specified workload (e.g. Pods of a DaemonSet or Deployment such as CoreDNS). (ID: [20926] https://grafana.com/grafana/dashboards/20926-kubernetes-networking-dns-workload/)
+  * **Drops (Workload):** shows drops to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).(ID: [20927](https://grafana.com/grafana/dashboards/20927-kubernetes-networking-drops-workload/)). 
   * **Pod Flows (Namespace):** shows L4/L7 packet flows to/from the specified namespace (i.e. Pods in the
-  Namespace).
-  * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
+  Namespace). (ID: [20928](https://grafana.com/grafana/dashboards/20928-kubernetes-networking-pod-flows-namespace/))
+  * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).(ID: [20929](https://grafana.com/grafana/dashboards/20929-kubernetes-networking-pod-flows-workload/))
 
 1. Install the Hubble CLI to access the data it collects using the following commands:
 
@@ -252,7 +252,7 @@ hubble config set tls-server-name instance.hubble-relay.cilium.io
 
 1. Verify the secrets were generated using the following `kubectl get secrets` command:
 ```azurecli-interactive
-kubectl get secrets -owide -n kube-system | grep hubble-
+kubectl get secrets -n kube-system | grep hubble-
 ```
 
 Your output should look similar to the following example output:

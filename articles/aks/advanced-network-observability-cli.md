@@ -250,7 +250,7 @@ hubble config set tls-server-name instance.hubble-relay.cilium.io
 
 1. Verify the secrets were generated using the following `kubectl get secrets` command:
 ```azurecli-interactive
-kubectl get secrets -o wide -n kube-system | grep hubble-
+kubectl get secrets -n kube-system | grep hubble-
 ```
 
 Your output should look similar to the following example output:
