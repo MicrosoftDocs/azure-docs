@@ -41,7 +41,7 @@ The following models are available in Azure Marketplace for Llama 3 when deploye
 
 # [Meta Llama 2](#tab/llama-two)
 
-The following models are available in Azure Marketplace for Llama 3 when deployed as a service with pay-as-you-go:
+The following models are available in Azure Marketplace for Llama 2 when deployed as a service with pay-as-you-go:
 
 * Meta Llama-2-7B (preview)
 * Meta Llama 2 7B-Chat (preview)

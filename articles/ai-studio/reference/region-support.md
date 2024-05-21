@@ -60,6 +60,10 @@ For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/op
 
 Azure AI Speech capabilities including custom neural voice vary in regional availability due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions.md) for an overview.
 
+## Serverless API deployments
+
+Some models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. For information on the regions where each model is available, see [Region availability for models in Serverless API endpoints](../how-to/deploy-models-serverless-availability.md).
+
 ## Next steps
 
 - See [Azure global infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/).

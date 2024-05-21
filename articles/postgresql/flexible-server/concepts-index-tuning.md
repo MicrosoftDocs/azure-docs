@@ -4,7 +4,7 @@ description: This article describes the index tuning feature in Azure Database f
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 05/08/2024
+ms.date: 05/21/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: concept-article
@@ -32,7 +32,7 @@ When the `index_tuning.mode` server parameter is configured to `report`, tuning 
 
 In the first phase, the tuning session searches for the list of databases in which it considers that whatever recommendations it might produce might significantly impact the overall performance of the system. To do so, it collects all queries recorded by Query Store whose executions were captured within the lookup interval this tuning session is focusing on. The lookup interval currently spans to the past `index_tuning.analysis_interval` minutes, from the starting time of the tuning session.
 
-For all user-initiated queries with executions recorded in Query Store and whose runtime statistics aren't [reset](./concepts-query-store.md#query_storeqs_reset), the system ranks them based on their aggregated total execution time. It focuses its attention on the top 100 more prominent queries.
+For all user-initiated queries with executions recorded in Query Store and whose runtime statistics aren't [reset](./concepts-query-store.md#query_storeqs_reset), the system ranks them based on their aggregated total execution time. It focuses its attention on the most prominent queries, based on their duration.
 
 The following queries are excluded from that list:
 - System-initiated queries. (that is, queries executed by `azuresu` role)
@@ -58,7 +58,7 @@ Potential recommendations aim to improve the performance of these types of queri
 - Queries with sorting (queries with an ORDER BY clause).
 - Queries combining filters and sorting.
 
-> [!NOTE]  
+> [!NOTE]
 > The only type of indexes the system currently recommends are those of type [B-Tree](https://www.postgresql.org/docs/current/indexes-types.html#INDEXES-TYPES-BTREE).
 
 If a query references one column of a table and that table has no statistics because it was never analyzed (manually using the ANALYZE command or automatically by the autovacuum daemon), then the whole query is skipped, and no indexes are recommended to improve its execution.
@@ -70,6 +70,9 @@ If a query references one column of a table and that table has no statistics bec
 For an index recommendation to be emitted, the tuning engine must estimate that it improves at least one query in the analyzed workload by a factor specified with `index_tuning.min_improvement_factor`.
 
 Likewise, all index recommendations are checked to ensure that they don't introduce regression on any single query in that workload of a factor specified with `index_tuning.max_regression_factor`.
+
+> [!NOTE]
+> `index_tuning.min_improvement_factor` and `index_tuning.max_regression_factor` both refer to cost of query plans, not to their duration or the resources they consume during execution.
 
 All the parameters mentioned in the previous paragraphs, their default values and valid ranges are described in [configuration options](how-to-configure-index-tuning.md#configuration-options).
 
@@ -87,7 +90,7 @@ The impact of creating an index recommendation is measured on IndexSize (megabyt
 
 IndexSize is a single value that represents the estimated size of the index, considering the current cardinality of the table and the size of the columns referenced by the recommended index.
 
-QueryCostImprovement consists of an array of values, where each element represents the improvement in the plan's cost for each query whose plan's cost is estimated to improve if this index existed. Each element shows the query's identifier (queried) and the percentage by which the plan's cost would improve if the recommendation were implemented (dimensional). DimensionValue is hard-coded to a fixed value of 30%, arbitrarily assigned to all queries.
+QueryCostImprovement consists of an array of values, where each element represents the improvement in the plan's cost for each query whose plan's cost is estimated to improve if this index existed. Each element shows the query's identifier (queried) and the percentage by which the plan's cost would improve if the recommendation were implemented (dimensional).
 
 ### DROP INDEX recommendations
 
@@ -144,7 +147,7 @@ Index tuning in Azure Database for PostgreSQL - Flexible Server has the followin
 - The feature is available in specific regions, including East Asia, Central India, North Europe, Southeast Asia, South Central US, UK South, and West US 3. 
 - Index tuning is supported on all currently available tiers (Burstable, General Purpose, and Memory Optimized) and on any currently supported compute SKU with at least 4 vCores.
 - The feature is supported on major versions 14 or greater of Azure Database for PostgreSQL Flexible Server.
-- When an instance is in read-only mode or has read replicas configured, index tuning isn't supported.
+- In read replicas or when an instance is in read-only mode, index tuning isn't supported.
 - It's important to consider the implications of creating recommended indexes on servers with high availability or read replicas, especially when the size of the indexes is estimated to be large.
 
 For more information on index tuning and related articles, see the documentation links provided below.
@@ -166,11 +169,14 @@ Index tuning feature is available in the following regions:
 Index tuning is supported on all [currently available tiers](concepts-compute.md): Burstable, General Purpose, and Memory Optimized, and on any [currently supported compute SKU](concepts-compute.md) with at least 4 vCores.
 
 > [!IMPORTANT]  
-> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. However, if you plan to enable the feature in a server which is less than 4 vCores, the change will be rejected and a descriptive error will be reported back to the user. If you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
+> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. Because the feature is not supported on servers with less than 4 vCores, ifyou plan to enable it in a server which is less than 4 vCores, or you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
 
 ### Supported versions of PostgreSQL
 
 Index tuning is supported on [major versions](concepts-supported-versions.md) **14 or greater** of Azure Database for PostgreSQL Flexible Server.
+
+> [!IMPORTANT]
+> Although you can enable the feature on instances running versions lower than 14, you're not expected to do it as the feature is not supported in those versions.
 
 ### Read-only mode and read replicas
 
