@@ -50,7 +50,7 @@ GPT-4o ("o is for "omni") is the latest model from OpenAI launched on May 13, 20
 
 For information on model regional availability, see the [models page](./concepts/models.md).
 
-### Global standard deployment type (Preview)
+### Global standard deployment type (preview)
 
 Global deployments are available in the same Azure OpenAI resources as non-global offers but allow you to leverage Azure's global infrastructure to dynamically route traffic to the data center with best availability for each request. Global standard will provide the highest default quota for new models and eliminates the need to load balance across multiple resources.
 
