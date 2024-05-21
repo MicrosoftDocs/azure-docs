@@ -21,7 +21,7 @@ To deploy your repository to App Spaces, you must have the following items:
 
 - [Azure account and subscription](https://signup.azure.com/)
 - [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository). If you don't have your own repository, see [Deploy an App Spaces sample app](quickstart-deploy-starter-app.md).
-- Write access to your chosen GitHub repository to deploy with GitHub Actions.
+- Write access to your chosen GitHub repository (for GitHub Actions).
 
 ## Select your app
 
@@ -38,10 +38,10 @@ Follow these steps to deploy your app from a GitHub repository:
 |---|---|
 | GitHub account | Select your GitHub account. |
 | Organization | Select your organization. |
-| Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github).|
+| Repository | Select your GitHub code repository. If you can't find your repository, you need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github).|
 | Branch | Select your GitHub branch. |
 | App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
-| Listening port |Specify the port that your web server is listening on. External requests being made to port 80 or 443 will get routed to this port internally for your application to server content from.|
+| Listening port |Specify the port that your web server is listening on. External requests being made to port 80 or 443 get routed to this port internally for your application to server content from.|
 | Startup command (optional) | Under *Advanced configurations* enter a **Startup command**.|
 
 #### [Static App Component (Frontend)](#tab/frontend/)
@@ -54,7 +54,7 @@ Follow these steps to deploy your app from a GitHub repository:
 | Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github). |
 | Branch | Select your GitHub branch. |
 | App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
-| Startup command | Under *Advanced configurations* enter a **Startup command**.|
+| Startup command | Under *Advanced configurations*, enter a **Startup command**.|
 
 * * *
 
