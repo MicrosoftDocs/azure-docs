@@ -5,7 +5,7 @@ author: microsoftshawarma
 ms.author: rakiasegev 
 ms.service: trusted-signing
 ms.topic: how-to
-ms.date: 04/04/2024 
+ms.date: 05/20/2024 
 ms.custom: template-how-to-pattern 
 ---
 
@@ -64,7 +64,7 @@ Another option is to use the latest *nuget.exe* file to download and extract the
 1. Install *nuget.exe* by running the following installation command:
 
    ```powershell
-   .\nuget.exe install Microsoft.Windows.SDK.BuildTools -Version 10.0.20348.19 
+   .\nuget.exe install Microsoft.Windows.SDK.BuildTools -Version 10.0.2261.755 
    ```
 
 ### Download and install .NET 8.0 Runtime
@@ -94,7 +94,7 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
    ```json
    {
      "Endpoint": "<Trusted Signing account endpoint>",
-     "TrustedSigningAccountName": "<Trusted Signing account name>",
+     "CodeSigningAccountName": "<Trusted Signing account name>",
      "CertificateProfileName": "<certificate profile name>",
      "CorrelationId": "<Optional CorrelationId value>"
    }

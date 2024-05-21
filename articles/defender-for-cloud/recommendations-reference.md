@@ -297,13 +297,6 @@ When you restore from a recovery point, you can restore the whole VM or specific
 
 **Severity**: Low
 
-### [Diagnostic logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e)
-
-**Description**: Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised.
-(Related policy: [Diagnostic logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb4330a05-a843-4bc8-bf9a-cacce50c67f4)).
-
-**Severity**: Low
-
 ### [Diagnostic logs in Service Bus should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f19ab7d9-5ff2-f8fd-ab3b-0bf95dcb6889)
 
 **Description**: Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised.
@@ -613,7 +606,7 @@ Available resources and information about this tool & migration:
  Use Azure Disk Encryption to encrypt all this data.
  Disregard this recommendation if:
 
- 1. You're using the encryption-at-host feature, or 2. Server-side encryption on Managed Disks meets your security requirements.
+1. You're using the encryption-at-host feature, or 2. Server-side encryption on Managed Disks meets your security requirements.
 Learn more in [Server-side encryption of Azure Disk Storage](https://aka.ms/disksse).
 (Related policy: [Disk encryption should be applied on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0961003e-5a0a-4549-abde-af6a37f2724d))
 
