@@ -107,16 +107,17 @@ Optionally, [create secondary indexes](index-projections-concept-intro.md) for a
 
 ## Limitations
 
-Make sure you know the [Azure OpenAI quotas and limits for embedding models](/azure/ai-services/openai/quotas-limits). Azure AI Search has retry policies, but if the quota is exhausted, retries fail.
++ Make sure you know the [Azure OpenAI quotas and limits for embedding models](/azure/ai-services/openai/quotas-limits). Azure AI Search has retry policies, but if the quota is exhausted, retries fail.
 
-Azure OpenAI token-per-minute limits are per model, per subscription. Keep this in mind if you're using an embedding model for both query and indexing workloads. If possible, [follow best practices](/azure/ai-services/openai/quotas-limits#general-best-practices-to-remain-within-rate-limits). Have an embedding model for each workload, and try to deploy them in different subscriptions.
++ Azure OpenAI token-per-minute limits are per model, per subscription. Keep this in mind if you're using an embedding model for both query and indexing workloads. If possible, [follow best practices](/azure/ai-services/openai/quotas-limits#general-best-practices-to-remain-within-rate-limits). Have an embedding model for each workload, and try to deploy them in different subscriptions.
 
-On Azure AI Search, remember there are [service limits](search-limits-quotas-capacity.md) by tier and workloads. 
++ On Azure AI Search, remember there are [service limits](search-limits-quotas-capacity.md) by tier and workloads. 
+
++ If you are using shared private links to communicate to your Azure OpenAI endpoint, make sure that your service runs on Standard 2 (S2) tier as per the [Shared Private Link documentation](search-indexer-howto-access-private.md).
 
 Finally, the following features aren't currently supported: 
 
 + [Customer-managed encryption keys](search-security-manage-encryption-keys.md)
-+ [Shared private link connections](search-indexer-howto-access-private.md) to a vectorizer
 + Currently, there's no batching for integrated data chunking and vectorization
 
 ## Benefits of integrated vectorization 
