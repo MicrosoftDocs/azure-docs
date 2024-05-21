@@ -494,7 +494,7 @@ ExpressRoute Traffic Collector can handle up to 300,000 flows a minute. In the e
 
 ### Does ExpressRoute Traffic Collector support Virtual WAN?
 
-Yes, you can use Express Traffic Collector with ExpressRoute Direct circuits used in a Virtual WAN deployment. However, deploying ExpressRoute Traffic Collector within a Virtual WAN hub isn’t supported. You can deploy ExpressRoute Traffic collector in a spoke virtual network and ingest flow logs to a Log Analytics workspace.
+Yes, you can use Express Traffic Collector with ExpressRoute circuits used in a Virtual WAN deployment. 
 
 ### Does ExpressRoute Traffic Collector support ExpressRoute provider ports?
 
