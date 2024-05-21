@@ -62,8 +62,6 @@
           - name: Command line  
             displayName: JavaScript, quickstart, get started
             href: create-first-function-cli-node.md
-          - name: Azure portal (Flex Consumption preview)  
-            href: create-first-function-vs-code-web.md?pivots=programming-language-javascript
         - name: PowerShell
           items:
           - name: Visual Studio Code
@@ -72,8 +70,6 @@
           - name: Command line
             displayName: PowerShell, quickstart, get started
             href: create-first-function-cli-powershell.md
-          - name: Azure portal (Flex Consumption preview)  
-            href: create-first-function-vs-code-web.md?pivots=programming-language-powershell
         - name: Python
           items:
           - name: Visual Studio Code
@@ -82,8 +78,6 @@
           - name: Command line
             displayName: Python, quickstart, get started
             href: create-first-function-cli-python.md
-          - name: Azure portal (Flex Consumption preview)  
-            href: create-first-function-vs-code-web.md?pivots=programming-language-python
         - name: TypeScript
           items:
           - name: Visual Studio Code
@@ -92,9 +86,6 @@
           - name: Command line
             displayName: TypeScript, quickstart, get started
             href: create-first-function-cli-typescript.md
-          - name: Azure portal (Flex Consumption preview)  
-            href: create-first-function-vs-code-web.md?pivots=programming-language-typescript
-            displayName: Visual Studio Code for the Web   
         - name: Other (Go/Rust)
           items:
           - name: Visual Studio Code
