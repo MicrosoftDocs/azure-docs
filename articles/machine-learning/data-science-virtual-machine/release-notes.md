@@ -6,6 +6,7 @@ author: jesscioffi
 ms.service: data-science-vm
 ms.custom: linux-related-content
 
+ms.author: jcioffi
 ms.reviewer: franksolomon
 ms.date: 05/21/2024
 ms.topic: reference
