@@ -57,3 +57,12 @@ If you are still stuck between options after using the decision trees, here are 
 
 In order of most to least expensive, the core storage option prices are: Azure NetApp Files > Azure Premium Blob and Azure Premium Files > Azure Standard Blob.
 
+## Next steps
+
+To learn more, see the other articles in this best practices series:
+
+- [Cloud storage on Azure](/azure/storage/common/storage-introduction/)
+- [Azure Storage](/azure/storage/files/)
+- [Azure NetApp files](/azure/azure-netapp-files/)
+- [Azure Blob Storage](/azure/storage/blobs/)
+- [Azure Managed Lustre](/azure/azure-managed-lustre/)
