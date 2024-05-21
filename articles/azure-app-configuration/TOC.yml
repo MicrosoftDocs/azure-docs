@@ -307,12 +307,16 @@
           href: https://go.microsoft.com/fwlink/?linkid=2270866
     - name: Feature management
       items:
-        - name: .NET Feature Management
-          href: ./dotnet-feature-management.md
         - name: .NET
-          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
+          items: 
+            - name: Feature reference
+              href: ./feature-management-reference-dotnet.md
+            - name: API reference
+              href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring
-          href: https://azure.github.io/azure-sdk-for-java/springboot.html
+          items:
+            - name: API reference
+              href: https://azure.github.io/azure-sdk-for-java/springboot.html
     - name: Deployment
       items:
       - name: ARM template

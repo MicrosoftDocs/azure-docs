@@ -10,7 +10,7 @@ ms.date: 05/17/2024
 
 # .NET Feature Management
 
-This is the introduction to the .NET feature management library. The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
+The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
 
 [![Microsoft.FeatureManagement](https://img.shields.io/nuget/v/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement)
 [![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore)
@@ -217,7 +217,7 @@ public class Startup
 }
 ```
 
-By default, the feature manager retrieves feature flag configuration from the "FeatureManagement" section of the .NET Core configuration data. If the "FeatureManagement" section does not exist, the configuration is considered empty.
+By default, the feature manager retrieves feature flag configuration from the "FeatureManagement" section of the .NET Core configuration data. If the "FeatureManagement" section doesn't exist, the configuration is considered empty.
 
 You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
 
@@ -243,7 +243,7 @@ public class HomeController : Controller
 
 ### Scoped Feature Management Services
 
-The `AddFeatureManagement` method adds feature management services as singletons within the application, but there are scenarios where it may be necessary for feature management services to be added as scoped services instead. For example, users may want to use feature filters which consume scoped services for context information. In this case, the `AddScopedFeatureManagement` method should be used instead. This will ensure that feature management services, including feature filters, are added as scoped services.
+The `AddFeatureManagement` method adds feature management services as singletons within the application, but there are scenarios where it may be necessary for feature management services to be added as scoped services instead. For example, users may want to use feature filters that consume scoped services for context information. In this case, the `AddScopedFeatureManagement` method should be used instead. This ensures that feature management services, including feature filters, are added as scoped services.
 
 ``` C#
 services.AddScopedFeatureManagement();
@@ -380,7 +380,7 @@ app.UseForFeature(featureName, appBuilder =>
 
 ## Implementing a Feature Filter
 
-Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `IFeatureFilter` interface must be implemented. `IFeatureFilter` has a single method named `EvaluateAsync`. When a feature specifies that it can be enabled for a feature filter, the `EvaluateAsync` method is called. If `EvaluateAsync` returns `true` it means the feature should be enabled.
+Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `IFeatureFilter` interface must be implemented. `IFeatureFilter` has a single method named `EvaluateAsync`. When a feature specifies that it can be enabled for a feature filter, the `EvaluateAsync` method is called. If `EvaluateAsync` returns `true`, it means the feature should be enabled.
 
 The following snippet demonstrates how to add a customized feature filter `MyCriteriaFilter`.
 
@@ -534,7 +534,7 @@ The following passage describes the process of selecting a filter when contextua
 
 Let's say you have a non-contextual filter called `FilterA` and two contextual filters `FilterB` and FilterC that accept `TypeB` and `TypeC` contexts respectively. All three filters share the same alias `SharedFilterName`.
 
-You also have a feature flag `MyFeature` which uses the feature filter `SharedFilterName` in its configuration.
+You also have a feature flag `MyFeature` that uses the feature filter `SharedFilterName` in its configuration.
 
 If all of three filters are registered:
 * When you call IsEnabledAsync("MyFeature"), the `FilterA` is used to evaluate the feature flag.
@@ -857,7 +857,7 @@ When defining an Audience, users and groups can be excluded from the audience. T
 }
 ```
 
-In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It will also be enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
+In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It is also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
 
 ## Caching
 
