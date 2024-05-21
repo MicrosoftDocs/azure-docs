@@ -55,7 +55,6 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 
 1. Ensure your dependency `config.json` and `relaylib.py` are available in your path 
 
-
 2. Import the dependencies into your `sender.py` script.
 
     ```python
