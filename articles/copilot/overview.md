@@ -27,7 +27,7 @@ Microsoft Copilot for Azure (preview) is made available to customers under the t
 
 ## Manage access
 
-By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to limit access to Copilot for Azure for their organization.
+By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to control access to Copilot for Azure for their organization.
 
 For more information, see [Manage access to Microsoft Copilot for Azure](manage-access.md).
 
