@@ -1,8 +1,9 @@
 ---
 title: "Azure HPC workload best practices guide"
 description: A comprehensive guide to choosing a storage solution best suited to your HPC workloads.
-author: christinechen2, glennklockwood, normesta
-ms.author: christchen, glockwood, normesta
+author: christinechen2
+ms.author: christchen
+ms.reviewer: normesta
 ms.date: 05/09/2024
 ms.service: virtual-machines
 ms.subservice: hpc
@@ -41,17 +42,27 @@ Start with the amount of data that you plan to store, and narrow down your choic
     - Mostly smaller than 512 KiB, consider [**Azure NetApp Files**](/azure/azure-netapp-files/).
 - Over 5,000 TiB: Talk to your field or account team.
 
+## At a glance
+
+|Configuration  |Recommendation  |Benefits  |
+|---------|---------|---------|
+|[Applications running on a single VM](#recommendations-for-applications-running-on-a-single-vm)     |[Use Ultra Disks, Premium SSD v2, and Premium SSD disks](#use-ultra-disks-premium-ssd-v2-or-premium-ssd).         |Single VMs using only Ultra Disks, Premium SSD v2, or Premium SSD disks have the highest uptime service level agreement (SLA), and these disk types offer the best performance.         |
+|     |[Use zone-redundant storage (ZRS) disks](#use-zone-redundant-storage-disks).         |Access to your data even if an entire zone experiences an outage.         |
+|[Applications running on multiple VMs](#recommendations-for-applications-running-on-multiple-vms)    |Distribute VMs and disks across multiple availability zones using a [zone redundant Virtual Machine Scale Set with flexible orchestration mode](#use-zone-redundant-virtual-machine-scale-sets-with-flexible-orchestration) or by deploying VMs and disks across [three availability zones](#deploy-vms-and-disks-across-three-availability-zones).        |Multiple VMs have the highest uptime SLA when deployed across multiple zones.         |
+|     |Deploy VMs and disks across multiple fault domains with either [regional Virtual Machine Scale Sets with flexible orchestration mode](#use-regional-virtual-machine-scale-sets-with-flexible-orchestration) or [availability sets](#use-availability-sets).         |Multiple VMs have the second highest uptime SLA when deployed across fault domains.         |
+|     |[Use ZRS disks when sharing disks between VMs](#use-zrs-disks-when-sharing-disks-between-vms).         |Prevents a shared disk from becoming a single point of failure.         |
+
 ### Solution details
 
 If you are still stuck between options after using the decision trees, here are more details for each solution:
 
 | **Solution** **(link to each)** | **Optimal Performance & Scale** | **Data Access (Access Protocol)** | **Billing Model** | **Core Storage or Accelerator?** |
 |---|---|---|---|---|
-| **Azure Standard Blob** | Large file, bandwidth intensive workloads | Good for traditional (file) and cloud-native (REST) HPC appsEasy to access, share, manage datasetsWorks with all accelerators | Pay for what you use | Core Storage |
+| [**Azure Standard Blob**](**/azure/storage/blobs/**) | Large file, bandwidth intensive workloads | Good for traditional (file) and cloud-native (REST) HPC appsEasy to access, share, manage datasetsWorks with all accelerators | Pay for what you use | Core Storage |
 | **Azure Premium Blob** | Data sets with many medium-sized files and mixed file sizes | Good for traditional (file) and cloud-native (REST) HPC appsEasy to access, share, manage datasetsWorks with all accelerators | Pay for what you use | Core Storage |
 | **Azure Premium Files** | Smaller scale (<1k cores), IOPS/latency good for medium sized files (>512 KiB) | Easy integration with Linux (NFS) and Windows (SMB), but can't use both NFS+SMB to access the same data | Pay for what you provision | Core Storage |
-| **Azure NetApp Files** | Midrange jobs (1k-10k cores), IOPS+latency good for small-file datasets (<512 KiB), excellent for small, many-file workloads | Easy to integrate for Linux and Windows, supports multiprotocol for workflows using both Linux + Windows | Pay what you provision | Either |
-| **Azure Managed Lustre** | All job sizes (1k - >10k cores) IOPS/latency for 1000s of medium-sized files (>512 KiB), best for bandwidth-intensive read + write workloads | Lustre, CSI | Pay for what you provision | Durable enough to run as standalone (core) storage, most cost-effective as an accelerator |
+| [**Azure NetApp Files**](**/azure/azure-netapp-files/**) | Midrange jobs (1k-10k cores), IOPS+latency good for small-file datasets (<512 KiB), excellent for small, many-file workloads | Easy to integrate for Linux and Windows, supports multiprotocol for workflows using both Linux + Windows | Pay what you provision | Either |
+| [**Azure Managed Lustre**](**/azure/azure-managed-lustre/**) | All job sizes (1k - >10k cores) IOPS/latency for 1000s of medium-sized files (>512 KiB), best for bandwidth-intensive read + write workloads | Lustre, CSI | Pay for what you provision | Durable enough to run as standalone (core) storage, most cost-effective as an accelerator |
 
 ### Core storage price comparison
 
