@@ -15,7 +15,7 @@ author: litan2
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-This article shares some information on HPC VM images to be used to launch the InfiniBand-enabled [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs.
+This article shares some information on HPC VM images to be used to launch InfiniBand enabled [H-series](sizes-hpc.md) and GPU enabled [N-series](sizes-gpu.md) VMs.
 
 The Azure HPC team is pleased to announce the availability of optimized and pre-configured Linux VM images for HPC and AI workloads. These VM images are:
 
