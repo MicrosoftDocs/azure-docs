@@ -216,7 +216,7 @@
         href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
-      - name: Copilot for Security in Defender for Cloudd
+      - name: Copilot for Security in Defender for Cloud
         displayName: copilot, security, recommendations
         href: copilot-security-in-defender-for-cloud.md
       - name: Secrets protection
