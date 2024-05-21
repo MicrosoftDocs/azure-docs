@@ -430,7 +430,7 @@ $nsg | Set-AzNetworkSecurityGroup
 
 ## Deploy the application to Azure
 
-Save all files, switch from Debug to Release, and select F6 to rebuild. In Solution Explorer, right-click **Voting** and select **Publish**. Select the connection endpoint of the cluster created in [Deploy an application to a cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), or select another cluster. Select **Publish** to publish the application to the remote cluster.
+Save all files, switch from Debug to Release, and select F6 to rebuild. In Solution Explorer, right-click **Voting** and select **Publish**. Select the connection endpoint of the cluster created in [Deploy an application to a cluster](service-fabric-tutorial-deploy-app.md), or select another cluster. Select **Publish** to publish the application to the remote cluster.
 
 When the application deploys, open a web browser and go to `https://mycluster.region.cloudapp.azure.com:443` (update the URL with the connection endpoint for your cluster). If you're using a self-signed certificate, you see a warning that your PC doesn't trust this website's security. Continue to the webpage.
 
