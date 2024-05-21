@@ -39,7 +39,7 @@ The core component for constructing the Responsible AI image dashboard in Azure 
 - Complex objects, such as lists of column names, must be supplied as single JSON-encoded strings.
 - Hierarchical cohort naming or creating a new cohort from a subset of an existing cohort, and adding images to an existing cohort, aren't supported.
 - `Guided_gradcam` doesn't work with vision-transformer models.
-- SHapley Additive ExPlanations (SHAP) isn't supported for [AutoML computer vision models](#integration-with-automl-image-classification).
+- SHapley Additive ExPlanations (SHAP) isn't supported for [AutoML computer vision models](#integration-with-automl).
 <!-- - IOU threshold values can't be changed. The current default value is 50%. -->
 
 ### Parameters
@@ -169,13 +169,14 @@ And assemble the output:
 ```
 
 To learn how to submit the pipeline by using the Python SDK, see the [AutoML Image Classification scenario with RAI Dashboard sample notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
+
 ---
 
 You can also use the **Designer** UI in Azure Machine Learning studio to [create and submit a RAI-vision insights component pipeline](how-to-create-component-pipelines-ui.md).
 
 After you specify and submit the pipeline and it executes, the dashboard should appear in the Machine Learning studio in the registered model view.
 
-## Integration with AutoML image classification
+## Integration with AutoML
 
 Automated ML in Azure Machine Learning supports model training for computer vision tasks like image classification and object detection. AutoML models for computer vision are integrated with the RAI image dashboard for debugging AutoML vision models and explaining model predictions.
 
