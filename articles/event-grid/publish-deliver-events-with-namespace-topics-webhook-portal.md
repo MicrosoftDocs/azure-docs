@@ -7,7 +7,7 @@ author: spelluru
 ms.date: 05/21/2024
 ---
 
-# Deliver events to webhooks using namespace topics - Azure porta (preview)
+# Deliver events to webhooks using namespace topics - Azure portal (preview)
 
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and deliver those events by using the push delivery model. To be specific, you publish events to a namespace topic in Event Grid and push those events from an event subscription to a webhook handler destination. For more information about the push delivery model, see [Push delivery overview](push-delivery-overview.md).
 
@@ -81,7 +81,7 @@ Before subscribing to the events, let's create the endpoint for the event messag
     :::image type="content" source="./media/blob-event-quickstart-portal/web-site.png" alt-text="Screenshot that shows the selection of link to navigate to web app.":::    
 6. Confirm that you see the site but no events are posted to it yet. 
 
-   ![View new site.](./media/blob-event-quickstart-portal/view-site.png)
+   ![Screenshot of a new site.](./media/blob-event-quickstart-portal/view-site.png)
 
     > [!IMPORTANT]
     > Keep the Azure Event Grid Viewer window open so that you can see events as they are posted. 
