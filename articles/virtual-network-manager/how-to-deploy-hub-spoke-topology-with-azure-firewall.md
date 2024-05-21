@@ -58,16 +58,14 @@ In this task, you create a routing configuration and rule collection that includ
     | **Destination IP Addresses/CIDR ranges** | enter **0.0.0.0/0**. |
     | **Next hop** |  |
     | **Next hop type** | Select **Virtual Appliance**.</br> Select **Import Azure firewall private IP address**|
-    | **Azure firewalls** | Select your Azure firewall then choose **Select**. |
+    | **Azure firewalls** | Select your Azure firewall then choose **Select**. | 
 
-    :::image type="content" source="../../includes/media/virtual-network-manager-deploy-hub and spoke-topology/add-routing-rule.png" alt-text="Screenshot of Add a routing rule window with firewall as next hop.":::
+3. Select **Add** to add the routing rule to the rule collection.
+4. Select **Add** to add the rule collection to the routing configuration.
 
-1. Select **Add** to add the routing rule to the rule collection.
-1. Select **Add** to add the rule collection to the routing configuration.
+    :::image type="content" source="media/how-to-deploy-hub-spoke-topology-with-azure-firewall/add-routing-rule.png" alt-text="Screenshot of Add a routing rule window with firewall as next hop.":::
 
-    :::image type="content" source="../../includes/media/virtual-network-manager-deploy-hub and spoke-topology/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with routing rules added.":::
-
-1. Select **Review + create** then select **Create**.
+5. Select **Review + create** then select **Create**.
 
 ## Deploy the routing configuration
 
