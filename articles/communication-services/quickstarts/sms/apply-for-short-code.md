@@ -33,7 +33,7 @@ For **UK short code**, fill out [UK short code application form](https://forms.o
 
 For **CA short code**, download and fill out [CA short code application form](https://www.txt.ca/wp-content/uploads/2022/10/DownloadShortcodeApplicationPdf_100522.pdf) and email the form to [acstns@microsoft.com](mailto:acstns@microsoft.com). Include **CA Short Code application** in subject line and details on subscription ID and Azure Communication Services resource ID in the body of the email.
 
-## Prerequisites
+## Short code prerequisites
 The wizard on the **Short Codes** blade presents a series of questions about the program and a description of content to be shared with the carriers for them to review and approve your short code program brief. Review the prerequisites tab for a list of the program content deliverables you need to attach with your application.
 
 :::image type="content" source="./media/apply-for-short-code/prerequisites.png" alt-text="Screenshot showing prerequisites section.":::
