@@ -172,7 +172,7 @@ Make these replacements in the code:
 
 To send the email message, call the `beginSend` function from the `EmailClient`.
 
-Calling `beginSend` on the sync client returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the `beginSend` method is called.
+Calling `beginSend` on the sync client returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the `beginSend` method is called. Sending an email is a long running operation, so calling `getFinalResult` on the poller returned by `beginSend` could potentially block the application for a long time. The recommended method is to do manual polling at an interval that's appropriate for your application needs as demonstrated in the sample below.
 
 ```java
 try
@@ -216,6 +216,8 @@ catch (Exception exception)
 ```
 
 ## [Async Client](#tab/async-client)
+
+## Creating the email client with authentication
 
 The [Azure SDK for Java also contains non-blocking, asynchronous APIs for interacting with Azure services](https://learn.microsoft.com/en-us/azure/developer/java/sdk/async-programming).
 
