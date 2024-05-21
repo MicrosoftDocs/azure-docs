@@ -78,6 +78,8 @@ Here's an example *info* file produced by converting a file called `buggy.gltf`:
     "outputStatistics": {
         "numMeshPartsCreated": 236,
         "numMeshPartsInstanced": 88,
+        "numMaterials": 149,
+        "numPrimitives": 308306,
         "recenteringOffset": [
             -24.1,
             -50.9,
