@@ -42,8 +42,22 @@ Here are the steps to import your Logic Apps workflows as function in the Assist
 
     :::image type="content" source="..\media\how-to\assistants\logic-apps\import-logic-apps.png" alt-text="A screenshot showing the menu for adding functions." lightbox="..\media\how-to\assistants\logic-apps\import-logic-apps.png":::
 
+You have now successfully imported your workflow and it is ready to be invoked. The function specification is generated based on the logic apps workflow swagger and includes the schema and description based on what you configured in the request trigger action.
 
-## What happens when a Logic Apps is imported in AI Studio and invoked
+:::image type="content" source="..\media\how-to\assistants\logic-apps\edit-function.png" alt-text="A screenshot showing the imported workflow." lightbox="..\media\how-to\assistants\logic-apps\edit-function.png":::
+
+The workflow now will be invoked by the Azure OpenAI Assistants based on the user prompt. Below is an example where the workflow is invoked automatically based on user prompt to get the weather.
+
+:::image type="content" source="..\media\how-to\assistants\logic-apps\playground-weather-example.png" alt-text="A screenshot showing a weather prompt example." lightbox="..\media\how-to\assistants\logic-apps\playground-weather-example.png":::
+
+You can confirm the invocation by looking at the logs as well as your [workflow run history](../../../logic-apps/monitor-logic-apps.md?tabs=consumption.md#review-workflow-run-history).
+
+
+:::image type="content" source="..\media\how-to\assistants\logic-apps\example-log.png" alt-text="A screenshot showing a logging example." lightbox="..\media\how-to\assistants\logic-apps\example-log.png":::
+
+## FAQ 
+
+### What happens when a Logic Apps is imported in AI Studio and invoked
 
 **The Logic Apps swagger file is used to populate function definitions**
 
