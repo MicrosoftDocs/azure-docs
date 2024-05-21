@@ -1,5 +1,5 @@
 ---
-title: "Setup of Advanced Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana"
+title: "Set up Advanced Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana"
 description: Get started with Advanced Network Observability for your AKS cluster using BYO Prometheus and Grafana.
 author: Khushbu-Parekh
 ms.author: kparekh
@@ -10,7 +10,7 @@ ms.date: 05/10/2024
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Setup of Advanced Network Observability for Azure Kubernetes Service (AKS) (Preview)
+# Set up Advanced Network Observability for Azure Kubernetes Service (AKS) (Preview)
 
 This article shows you how to set up Advanced Network Observability for Azure Kubernetes Service (AKS) and use bring your own (BYO) Prometheus and Grafana to visualize the scraped metrics.
 

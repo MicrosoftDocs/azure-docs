@@ -1,5 +1,5 @@
 ---
-title: "Setup of Advanced Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
+title: "Set up Advanced Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
 description: Get started with Advanced Network Observability for your AKS cluster using Azure managed Prometheus and Grafana.
 author: Khushbu-Parekh
 ms.author: kparekh
@@ -10,7 +10,7 @@ ms.date: 05/10/2024
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Setup of Advanced Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
+# Set up Advanced Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
 This article shows you how to set up Advanced Network Observability for Azure Kubernetes Service (AKS) using Managed Prometheus and Grafana to visualize the scraped metrics.
 
@@ -206,8 +206,6 @@ az aks update \
     --azure-monitor-workspace-resource-id $azuremonitorId \
     --grafana-resource-id $grafanaId
 ```
----
-
 
 ## Visualization using Grafana
 
