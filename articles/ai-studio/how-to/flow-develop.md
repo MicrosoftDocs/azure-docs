@@ -40,7 +40,7 @@ You can create a flow by either cloning the samples available in the gallery or 
 
 To create a prompt flow from the gallery in Azure AI Studio:
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. 
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project. 
 1. From the collapsible left menu, select **Prompt flow**.
 1. Select **+ Create**.
 1. In the **Standard flow** tile, select **Create**.
@@ -134,7 +134,7 @@ By selecting a span, you can see the detailed information on the right side. Thi
 > [!NOTE]
 > In prompt flow SDK, we defined serval span types, including **LLM**, **Function**, **Embedding**, **Retrieval**, and **Flow**. And the system automatically creates spans with execution information in designated attributes and events.
 >
-> To learn more about span types, see  [Trace span](https://microsoft.github.io/promptflow/how-to-guides/tracing/trace-span.html).
+> To learn more about span types, see  [Trace span](https://microsoft.github.io/promptflow/reference/trace-span-spec-reference.html).
 
 After the flow run is completed, for checking the results, you can select the **View test results** button to check all historical run records in a list. By default, the run records created in the last 7 days are displayed. You can select the **Filter** to change the condition.
 
