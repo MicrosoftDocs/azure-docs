@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 03/20/2023
 ms.author: mametcal
 ms.custom: devx-track-azurecli
-zone_pivot_groups: appconfig-provider
 
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
 ---
@@ -164,6 +163,8 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 > - `spring-cloud-azure-appconfiguration-config`
 > - `spring-cloud-azure-appconfiguration-config-web`
 > - `spring-cloud-azure-starter-appconfiguration-config`
+
+### [Kubernetes](#tab/kubernetes)
 
 ---
 
