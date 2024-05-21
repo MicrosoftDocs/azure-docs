@@ -89,9 +89,6 @@ conceptualContent:
             - url: ./generate-powershell-scripts.md
               itemType: get-started
               text: Generate PowerShell scripts
-            - url: ./optimize-code-application-insights.md
-              itemType: get-started
-              text: Discover performance recommendations with Code Optimizations
             - url: ./generate-kubernetes-yaml.md
               itemType: get-started
               text: Generate Kubernetes YAML files
@@ -101,3 +98,6 @@ conceptualContent:
             - url: ./troubleshoot-app-service.md
               itemType: get-started
               text: Troubleshoot deployed web apps
+            - url: ./optimize-code-application-insights.md
+              itemType: get-started
+              text: Discover recommendations with Code Optimizations
