@@ -84,7 +84,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
     :::image type="content" source="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png" alt-text="Screenshot of volume properties interface." lightbox="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png":::
 
-## Populate an existing volume with availability zone information (preview)
+## <a name="populate-an-existing-volume-with-availability-zone-information"></a> Populate an existing volume with availability zone information (preview)
 
 1. Navigate to the volume that you want to populate with availability zone information.
 1. Select **Populate availability zone**.
