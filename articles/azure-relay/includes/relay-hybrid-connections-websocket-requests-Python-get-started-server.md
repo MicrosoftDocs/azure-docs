@@ -26,7 +26,6 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 	```bash
 	pip install <package name>
 	```
-
 2. Generate a `config.json` file to store your connection details
 
     ```json
@@ -37,12 +36,12 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
     "key": "SHARED_ACCESS_PRIMARY_KEY"
 	}
 	```
-Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
+	Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
 
-- `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
-- `path` - The name of the hybrid connection.
-- `keyrule` - Name of your Shared Access Policies key, which is `RootManageSharedAccessKey` by default.
-- `key` -   The primary key of the namespace you saved earlier.
+	- `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
+	- `path` - The name of the hybrid connection.
+	- `keyrule` - Name of your Shared Access Policies key, which is `RootManageSharedAccessKey` by default.
+	- `key` -   The primary key of the namespace you saved earlier.
 
 3. Generate a helper function file for helper functions
 
