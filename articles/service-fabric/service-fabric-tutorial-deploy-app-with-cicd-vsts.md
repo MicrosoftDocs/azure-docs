@@ -9,9 +9,9 @@ services: service-fabric
 ms.date: 05/17/2024
 ---
 
-# Tutorial: Deploy an application that uses CI/CD to a Service Fabric cluster
+# Tutorial: Set up CI/CD for a Service Fabric application by using Azure Pipelines
 
-This tutorial is *part four* in a series. It shows you how to set up continuous integration and continuous deployment (CI/CD) for an Azure Service Fabric application by using Azure Pipelines. To complete the tutorial, you must have an existing Service Fabric application. As an example, this tutorial uses the application that you create in [Tutorial: Build a .NET application](service-fabric-tutorial-create-dotnet-app.md).
+This tutorial is *part four* in a series. It shows you how to set up continuous integration and continuous deployment (CI/CD) for an Azure Service Fabric application by using Azure Pipelines. To complete the tutorial, you must have an existing Service Fabric application. This tutorial uses the application that is described in [part one of the tutorial series](service-fabric-tutorial-create-dotnet-app.md).
 
 In this tutorial, you learn how to:
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 The tutorial series shows you how to:
 
 * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
-* [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+* [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app.md)
 * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 * Configure CI/CD by using Azure Pipelines (*this tutorial*)
 * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
@@ -38,7 +38,7 @@ Before you begin this tutorial:
 * [Install Visual Studio 2019](https://www.visualstudio.com/), including the Azure development workload and the ASP.NET and web development workload.
 * [Install the Service Fabric SDK](service-fabric-get-started.md).
 * Create a Windows Service Fabric cluster in Azure, for example, by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-* Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). An organization allows you to create a project in Azure DevOps and use Azure Pipelines.
+* Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) so that you can create a project in Azure DevOps and use Azure Pipelines.
 
 ## Download the Voting sample application
 
@@ -50,17 +50,17 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## Prepare a publish profile
 
-Now that you [created an application](service-fabric-tutorial-create-dotnet-app.md) and [deployed the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), you're ready to set up continuous integration. First, prepare a publish profile within your application for use by the deployment process that executes within Azure Pipelines. The publish profile should be configured to target the cluster you previously created. Start Visual Studio and open an existing Service Fabric application project. In **Solution Explorer**, right-click the application and select **Publish**.
+Now that you [created an application](service-fabric-tutorial-create-dotnet-app.md) and [deployed the application to Azure](service-fabric-tutorial-deploy-app.md), you're ready to set up continuous integration. First, prepare a publish profile within your application for use by the deployment process that executes within Azure Pipelines. The publish profile should be configured to target the cluster you previously created. Start Visual Studio and open an existing Service Fabric application project. In **Solution Explorer**, right-click the application and select **Publish**.
 
-Choose a target profile in your application project to use for your continuous integration workflow, for example, **Cloud**. Specify the cluster connection endpoint. Select the **Upgrade the Application** checkbox so that your application upgrades for each deployment in Azure DevOps. Select the **Save** link to save the settings to the publish profile, and then select **Cancel** to close the dialog.
+Choose a target profile in your application project to use for your continuous integration workflow, for example, **Cloud**. Specify the cluster connection endpoint. Select the **Upgrade the Application** checkbox so that your application upgrades for each deployment in Azure DevOps. Select the **Save Profile** link to save the settings to the publish profile, and then select **Cancel** to close the dialog.
 
 :::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png" alt-text="Screenshot that shows pushing a profile to publish the application.":::
 
 ## Share your Visual Studio solution to a new Azure DevOps Git repo
 
-Share your application source files to a project in Azure DevOps, so you can generate builds.
+Share your application source files to a project in Azure DevOps so that you can generate builds.
 
-Create a [new GitHub repo and Azure DevOps repo](/visualstudio/version-control/git-create-repository#create-a-github-repo) from Visual Studio 2022 IDE by selecting **Git** >  **Create Git Repository** on the Git menu.
+To create a [new GitHub repo and Azure DevOps repo](/visualstudio/version-control/git-create-repository#create-a-github-repo) in Visual Studio 2022, select **Git** > **Create Git Repository** on the Git menu.
 
 Select your account and enter your repository name. Select **Create and Push**.
 
@@ -68,13 +68,13 @@ Select your account and enter your repository name. Select **Create and Push**.
 
 Publishing the repo creates a new project in your Azure DevOps Services account that has the same name as the local repo.
 
-View the newly created repository by going to `https://dev.azure.com/><organizationname>`. Hover your mouse over the name of your project and select the **Repos** icon.
+To view the newly created repository, go to `https://dev.azure.com/><organizationname>`. Hover over the name of your project and select the **Repos** icon.
 
 ## Configure continuous delivery by using Azure Pipelines
 
-An Azure Pipelines build pipeline describes a workflow that is composed of a set of build steps that are executed sequentially. To deploy to a Service Fabric cluster, create a build pipeline that produces a Service Fabric application package and other artifacts. Learn more about [Azure Pipelines build pipelines](https://www.visualstudio.com/docs/build/define/create).
+An Azure Pipelines build pipeline describes a workflow that has a set of build steps that are executed sequentially. To deploy to a Service Fabric cluster, create a build pipeline that produces a Service Fabric application package and other artifacts. Learn more about [Azure Pipelines build pipelines](https://www.visualstudio.com/docs/build/define/create).
 
-An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow, starting with source files to ending with a running application in your cluster. Learn more about [Azure Pipelines release pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow, starting with source files and ending with a running application in your cluster. Learn more about [Azure Pipelines release pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### Create a build pipeline
 
@@ -96,7 +96,7 @@ In **Select a template**, select the **Azure Service Fabric application** templa
 
 :::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/select-build-template.png" alt-text="Screenshot that shows selecting and building a template.":::
 
-In **Tasks**, for **Agent pool**, enter **Azure Pipelines**. For **Agent Specification**, enter **windows-2022**.
+On **Tasks**, for **Agent pool**, enter **Azure Pipelines**. For **Agent Specification**, enter **windows-2022**.
 
 :::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/save-and-queue.png" alt-text="Screenshot that shows selecting tasks.":::
 
@@ -116,11 +116,11 @@ Select **Tasks** > **New** to add a new cluster connection.
 
 :::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/add-cluster-connection.png" alt-text="Screenshot that shows adding a cluster connection.":::
 
-In **New Service Fabric Connection**, select **Certificate Based** or **Microsoft Entra credential** authentication. Specify a cluster endpoint of `tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000` (or the endpoint of the cluster you're deploying to).
+On **New Service Fabric Connection**, select **Certificate Based** or **Microsoft Entra credential** authentication. Specify a cluster endpoint of `tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000` (or the endpoint of the cluster you're deploying to).
 
-For certificate-based authentication, add the **Server certificate thumbprint** of the server certificate used to create the cluster. In **Client certificate**, add the base-64 encoding of the client certificate file. See the help pop-up on that field for info on how to get that base-64 encoded representation of the certificate. Also add the password for the certificate. You can use the cluster certificate or the server certificate if you don't have a separate client certificate.
+For certificate-based authentication, add the server certificate thumbprint of the server certificate used to create the cluster. In **Client certificate**, add the base-64 encoding of the client certificate file. See the help information for that field to learn how to get that base-64 encoded representation of the certificate. Also, add the password for the certificate. You can use the cluster certificate or the server certificate if you don't have a separate client certificate.
 
-For Microsoft Entra credentials, add a value for **Server certificate thumbprint**. Use the server certificate that you used to create the cluster and the credentials that you want to use to connect to the cluster in the **Username** and **Password** fields.
+For Microsoft Entra credentials, add a value for **Server certificate thumbprint**. Use the server certificate that you used to create the cluster and the credentials that you want to use to connect to the cluster in **Username** and **Password**.
 
 Select **Save**.
 
@@ -150,13 +150,13 @@ On **Git Changes**, select **Push** (the up arrow) to update your code in Azure 
 
 :::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/Push.png" alt-text="Screenshot that shows the Push option.":::
 
-Pushing the changes to Azure Pipelines triggers a build. To check your build progress, select the **Pipelines** tab in `https://dev.azure.com/organizationname/VotingSample`.
+Pushing the changes to Azure Pipelines triggers a build. To check your build progress, select the **Pipelines** tab in the application on `https://dev.azure.com/organizationname/VotingSample`.
 
 When the build finishes, a release is automatically created and starts upgrading the application on the cluster.
 
 Verify that the deployment succeeded and that the application is running in the cluster. Open a web browser and go to `https://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`. Note the application version. In this example, it's `1.0.0.20170815.3`.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png" alt-text="Screenshot of the Voting app in Service Fabric Explorer running in a browser, with the app version highlighted.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png" alt-text="Screenshot that shows the Voting app in Service Fabric Explorer running in a browser, with the app version highlighted.":::
 
 ## Update the application
 
@@ -168,7 +168,7 @@ When the application upgrade begins, you can track the upgrade progress in Servi
 
 The application upgrade might take several minutes. When the upgrade is finished, the application is running the next version. In this example, it's running version `1.0.0.20170815.4`.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png" alt-text="Screenshot of the Voting app in Service Fabric Explorer running in a browser, with the updated app version highlighted.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png" alt-text="Screenshot that shows the Voting app in Service Fabric Explorer running in a browser, with the updated app version highlighted.":::
 
 ## Next step
 

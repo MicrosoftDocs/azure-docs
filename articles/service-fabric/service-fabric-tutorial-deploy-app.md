@@ -50,9 +50,9 @@ Open Visual Studio by using the **Run as administrator** option. Open the applic
 
 ## Create a cluster
 
-Now that the application is ready, you create a Service Fabric cluster and then deploy the application to the cluster. A [Service Fabric cluster](./service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines or physical computers into which you deploy and manage your microservices.
+Now that the application is ready, create a Service Fabric cluster and then deploy the application to the cluster. A [Service Fabric cluster](./service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines or physical computers in which you deploy your microservices and manage them.
 
-In this tutorial, you create a new three-node test cluster in the Visual Studio integrated development environment (IDE), and then publish the application to that cluster. For information about creating a production cluster, see the [Create and manage a cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md). You can also deploy the application to an existing cluster that you previously created by using the [Azure portal](https://portal.azure.com), [Azure PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md), [Azure CLI](./scripts/cli-create-cluster.md) scripts, or an [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+In this tutorial, you create a new three-node test cluster in the Visual Studio integrated development environment (IDE), and then publish the application to that cluster. For information about creating a production cluster, see [Create and manage a cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md). You can also deploy the application to an existing cluster that you previously created by using the [Azure portal](https://portal.azure.com), [Azure PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md), [Azure CLI](./scripts/cli-create-cluster.md) scripts, or an [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
 > The Voting application, like many other applications, use Service Fabric reverse proxy to communicate between services. Clusters that you create by using Visual Studio have reverse proxy enabled by default. If you're deploying to an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy-setup.md) for the Voting application to work.
@@ -75,23 +75,23 @@ In **Connection Endpoint**, select **Create New Cluster**. If you're deploying t
 
 On the **Cluster** tab, enter the **Cluster name** (for example, **mytestcluster**), select your subscription, select a region for the cluster (such as South Central US), enter the number of cluster nodes (we recommend three nodes for a test cluster), and enter a resource group (such as `mytestclustergroup`). Select **Next**.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png" alt-text="Screenshot that shows the Cluster tab of the Create Service Fabric Cluster dialog.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app/create-cluster.png" alt-text="Screenshot that shows the Cluster tab of the Create Service Fabric Cluster dialog.":::
 
-On the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a PFX file and saved to the specified output path. The certificate is used for both node-to-node and client-to-node security. Don't use a self-signed certificate for production clusters. This certificate is used by Visual Studio to authenticate with the cluster and to deploy applications.
+On the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a Personal Information Exchange (PFX) file and saved to the specified output path. The certificate is used for both node-to-node and client-to-node security. Don't use a self-signed certificate for production clusters. Visual Studio uses this certificate to authenticate with the cluster and to deploy applications.
 
-Select the **Import certificate** checkbox to install the PFX in the *CurrentUser\My certificate store* of your computer. Then, select **Next**.
+Select the **Import certificate** checkbox to install the PFX in the *CurrentUser\My* certificate store of your computer. Then, select **Next**.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png" alt-text="Screenshot that shows the Certificate tab of the Create Service Fabric Cluster dialog.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app/certificate.png" alt-text="Screenshot that shows the Certificate tab of the Create Service Fabric Cluster dialog.":::
 
-On the **VM Detail** tab, enter the username and password for the cluster admin account. Select the value for **Virtual machine image** for the cluster nodes and the value for **Virtual machine size** for each cluster node. Select the **Advanced** tab.
+On the **VM Detail** tab, enter the username and password for the cluster admin account. Select the value for **Virtual machine image** for the cluster nodes and the value for **Virtual machine size** for each cluster node.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png" alt-text="Screenshot that shows the VM Detail tab of the Create Service Fabric Cluster dialog.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app/vm-detail.png" alt-text="Screenshot that shows the VM Detail tab of the Create Service Fabric Cluster dialog.":::
 
-On **Ports**, enter the VotingWeb service endpoint from the previous step (for example, `8080`). When the cluster is created, these application ports are opened in the Azure load balancer to forward traffic to the cluster.
+Select the **Advanced** tab. For **Ports**, enter the VotingWeb service endpoint from the previous step (for example, 8080). When the cluster is created, these application ports are opened in the Azure load balancer to forward traffic to the cluster.
 
 Select **Create** to create the cluster. The process takes several minutes.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png" alt-text="Screenshot that shows the Advanced tab of the Create Service Fabric Cluster dialog.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app/advanced.png" alt-text="Screenshot that shows the Advanced tab of the Create Service Fabric Cluster dialog.":::
 
 ## Publish the application to the cluster
 
@@ -99,18 +99,18 @@ When the new cluster is ready, you can deploy the Voting application directly in
 
 In Solution Explorer, right-click **Voting** and select **Publish**. The **Publish** dialog appears.
 
-In **Connection Endpoint**, select the endpoint for the cluster you created in the previous step. For example, `mytestcluster.southcentralus.cloudapp.azure.com:19000`. If you select **Advanced Connection Parameters**, the certificate information is filled in automatically.
+For **Connection Endpoint**, select the endpoint for the cluster that you created in the previous step. For example, `mytestcluster.southcentralus.cloudapp.azure.com:19000`. If you select **Advanced Connection Parameters**, the certificate information is filled in automatically.
 
 Select **Publish**.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png" alt-text="Screenshot that shows publishing a Service Fabric application.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app/publish-app.png" alt-text="Screenshot that shows publishing a Service Fabric application.":::
 
-After the application is deployed, open a browser and enter the cluster address followed by `:8080`. Or, you can enter another port if one is configured. An example is `http://mytestcluster.southcentralus.cloudapp.azure.com:8080`. You see the application running in the cluster in Azure. On the voting webpage, try to add and delete voting options.
+After the application is deployed, open a browser and enter the cluster address followed by `:8080`. Or, you can enter another port if one is configured. An example is `http://mytestcluster.southcentralus.cloudapp.azure.com:8080`. The application is running in the cluster in Azure. On the voting webpage, try to add and delete voting options.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png" alt-text="Screenshot that shows a Service Fabric voting sample.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app/application-screenshot-new-azure.png" alt-text="Screenshot that shows a Service Fabric voting sample.":::
 
 ## Next step
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Enable HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
+> [Add an HTTPS endpoint](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)

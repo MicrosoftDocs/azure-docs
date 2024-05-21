@@ -51,13 +51,13 @@
     items:
     - name: Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
-    - name: Deploy the application
+    - name: Deploy the application to a cluster
       href: service-fabric-tutorial-deploy-app.md
-    - name: Enable HTTPS
+    - name: Add an HTTPS endpoint for the application
       href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-    - name: Configure CI/CD
+    - name: Configure CI/CD by using Azure Pipelines
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: Monitor and diagnose
+    - name: Monitor and diagnose the application
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Deploy a Java app
     items:

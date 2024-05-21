@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 The tutorial series shows you how to:
 
 * Build a .NET Service Fabric application (*this tutorial*)
-* [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+* [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app.md)
 * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 * [Configure CI/CD by using Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
@@ -113,7 +113,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 
 ### Update the Index.cshtml file
 
-Go to **Views/Home/Index.cshtml** and open the file. This file has the view that's specific to the Home controller. Replace its contents with the following code, and then save your changes.
+Go to *Views/Home/Index.cshtml* and open the file. This file has the view that's specific to the Home controller. Replace its contents with the following code, and then save your changes.
 
 ```html
 @{
@@ -246,7 +246,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Also add the following `GetVotingDataServiceName` method after `CreateServiceInstanceListeners()`, and then save your changes. `GetVotingDataServiceName` returns the service name when polled.
+Then add the following `GetVotingDataServiceName` method after `CreateServiceInstanceListeners()`, and then save your changes. `GetVotingDataServiceName` returns the service name when polled.
 
 ```csharp
 internal static Uri GetVotingDataServiceName(ServiceContext context)
@@ -303,9 +303,11 @@ namespace VotingWeb.Controllers
 
 ### Configure the listening port
 
-When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on. The VotingWeb service acts as the front end for this application and accepts external traffic. Next, bind that service to a fixed and well-known port. The [service manifest](service-fabric-application-and-service-manifests.md) declares the service endpoints.
+When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on. The VotingWeb service acts as the front end for this application and accepts external traffic. In this section, you bind that service to a fixed and well-known port. The [service manifest](service-fabric-application-and-service-manifests.md) declares the service endpoints.
 
-In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*. In the `Resources` section, find the `Endpoint` element, and then change the `Port` value to `8080`. To deploy and run the application locally, the application listening port must be open and available on your computer.
+In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*. In the `Resources` section, find the `Endpoint` element, and then change the `Port` value to `8080`.
+
+To deploy and run the application locally, the application listening port must be open and available on your computer.
 
 ```xml
 <Resources>
@@ -318,7 +320,7 @@ In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*. In the 
   </Resources>
 ```
 
-Also update the `Application URL` property value in the Voting project so that a web browser opens to the correct port when you debug your application. In Solution Explorer, select the **Voting** project, and then update the `Application URL` property to `8080`.
+Then update the `Application URL` property value in the Voting project so that a web browser opens to the correct port when you debug your application. In Solution Explorer, select the **Voting** project, and then update the `Application URL` property to `8080`.
 
 ### Deploy and run the Voting application locally
 
@@ -339,7 +341,7 @@ Now that an ASP.NET Web API service is running in the application, add a statefu
 
 You can use Service Fabric to consistently and reliably store your data right inside your service by using reliable collections. Reliable collections are a set of highly available and reliable collection classes that are familiar to anyone who has experience using C# collections.
 
-In this tutorial, you create a service that stores a counter value in a reliable collection.
+To create a service that stores a counter value in a reliable collection:
 
 1. In Solution Explorer, right-click **Services** in the Voting application project and select **Add** > **New Service Fabric Service**.
 
@@ -347,7 +349,7 @@ In this tutorial, you create a service that stores a counter value in a reliable
 
     After your service project is created, you have two services in your application. As you continue to build your application, you can add more services the same way. Each service can be independently versioned and upgraded.
 
-1. The next page provides a set of ASP.NET Core project templates. For this tutorial, select **API**.
+1. The next pane shows a set of ASP.NET Core project templates. For this tutorial, select **API**.
 
     Visual Studio creates the VotingData service project and displays it in Solution Explorer:
 
@@ -443,11 +445,11 @@ namespace VotingData.Controllers
 
 ## Connect the services
 
-In this step, you connect the two services and make the front-end web application get and set voting information from the back-end service.
+In this section, you connect two services. You make the front-end web application get voting information from the back-end service, and then set the information in the app.
 
-Service Fabric provides complete flexibility for how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services might be accessible via an HTTP REST API, and still other services might be accessible via web sockets. For background on the options available and the tradeoffs that are involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
+Service Fabric gives you complete flexibility in the way that you communicate with reliable services. Within a single application, you might have services that are accessible via TCP/IP, via an HTTP REST API, or via WebSocket protocol. For background on the options that are available and their tradeoffs, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
-This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the VotingWeb front-end web service can communicate with the back-end VotingData service. The reverse proxy is configured by default to use port 19081 and should work for this tutorial. The reverse proxy port is set in the Azure Resource Manager template that sets up the cluster. To find which port is used, look in the cluster template in the `Microsoft.ServiceFabric/clusters` resource:
+This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so that the VotingWeb front-end web service can communicate with the back-end VotingData service. A reverse proxy is configured by default to use port 19081. The reverse proxy port is set in the Azure Resource Manager template that sets up the cluster. To find which port is used, look in the cluster template in the `Microsoft.ServiceFabric/clusters` resource:
 
 ```json
 "nodeTypes": [
@@ -465,7 +467,7 @@ To find the reverse proxy port that's used in your local development cluster, vi
 
 1. To open the Service Fabric Explorer tool, open a browser and go to `http://localhost:19080`.
 1. Select **Cluster** > **Manifest**.
-1. Make a note of the `HttpApplicationGatewayEndpoint` element port. By default, the port is 19081. If it isn't 19081, change the port in the `GetProxyAddress` method of the *VotesController.cs* code.
+1. Make a note of the `HttpApplicationGatewayEndpoint` element port. By default, the port is 19081. If it isn't 19081, change the port in the `GetProxyAddress` method of the *VotesController.cs* code as described in the next section.
 
 ### Update the VotesController.cs file
 
@@ -586,8 +588,8 @@ public class VotesController : Controller
 
 The voting application consists of two services:
 
-* A web front-end service (VotingWeb): An ASP.NET Core web front-end service that serves the webpage and exposes web APIs to communicate with the back-end service.
-* A back-end service (VotingData): An ASP.NET Core web service that exposes an API to store the vote results in a reliable dictionary persisted on disk.
+* *A web front-end service (VotingWeb)*: An ASP.NET Core web front-end service that serves the webpage and exposes web APIs to communicate with the back-end service.
+* *A back-end service (VotingData)*: An ASP.NET Core web service that exposes an API to store the vote results in a reliable dictionary that's persisted on disk.
 
 :::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/application-diagram.png" alt-text="Diagram that depicts the application services." border="false":::
 
@@ -605,7 +607,7 @@ When you debug an application in Visual Studio, you use a local Service Fabric d
 
 In this application, store data in the back-end service by using a reliable dictionary. Visual Studio removes the application by default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the Application Debug Mode as a property on the Voting project in Visual Studio.
 
-To look at what happens in the code, complete the following steps:
+To see what happens in the code, complete the following steps:
 
 1. Open the *VotingWeb\VotesController.cs* file and set a breakpoint in the web API's `Put` method (line 72).
 
@@ -615,7 +617,7 @@ To look at what happens in the code, complete the following steps:
 
 1. Go back to the browser and select a voting option or add a new voting option. You hit the first breakpoint in the web front-end's API controller.
 
-   The JavaScript in the browser sends a request to the web API controller in the front-end service
+   The JavaScript in the browser sends a request to the web API controller in the front-end service:
 
    :::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png" alt-text="Screenshot that shows adding a vote front-end service.":::
 
@@ -629,7 +631,7 @@ To look at what happens in the code, complete the following steps:
 
    :::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png" alt-text="Screenshot that shows adding a vote to the back-end service.":::
 
-   1. In the first line in the method, use `StateManager` to get or add a reliable dictionary called `counts`. **(1)**
+   1. In the first line in the method, use `stateManager` to get or add a reliable dictionary called `counts`. **(1)**
    1. All interactions that have values in a reliable dictionary require a transaction. This `using` statement creates that transaction. **(2)**
    1. In the transaction, update the value of the relevant key for the voting option and commit the operation. When the `commit` method returns, the data is updated in the dictionary. It then replicates to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes and still have the data available. **(3)**
 1. Select F5 to continue.
@@ -640,4 +642,4 @@ To stop the debugging session, select Shift+F5.
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Deploy the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [Deploy the application to Azure](service-fabric-tutorial-deploy-app.md)
