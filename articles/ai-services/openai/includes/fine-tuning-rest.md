@@ -37,7 +37,7 @@ The following models support fine-tuning:
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
-If you plan to use `gpt-4` for fine-tuning, please refer to the [GPT-4 public preview safety evaluation guidance](#safety-evaluation-gpt-4-fine-tuning-only---public-preview).
+If you plan to use `gpt-4` for fine-tuning, please refer to the [GPT-4 public preview safety evaluation guidance](#safety-evaluation-gpt-4-fine-tuning---public-preview).
 
 ## Review the workflow for the REST API
 
@@ -248,7 +248,9 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/{fine_tuning_job_id}
   -H "api-key: $AZURE_OPENAI_API_KEY" 
 ```
 
-## Safety evaluation GPT-4 fine-tuning only - public preview
+## Safety evaluation GPT-4 fine-tuning - public preview
+
+[!INCLUDE [Safety evaluation](../includes/safety-evaluation.md)]
 
 ## Deploy a customized model
 

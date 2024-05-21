@@ -319,7 +319,7 @@ Here are some of the tasks you can do on the **Models** pane:
 
 ## Safety evaluation GPT-4 fine-tuning - public preview
 
-[!INCLUDE [Safety evaluation](../includes/safety-evalutation.md)]
+[!INCLUDE [Safety evaluation](../includes/safety-evaluation.md)]
 
 ## Deploy a custom model
 

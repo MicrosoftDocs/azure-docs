@@ -377,7 +377,7 @@ This command isn't available in the 0.28.1 OpenAI Python library. Upgrade to the
 
 ## Safety evaluation GPT-4 fine-tuning - public preview
 
-[!INCLUDE [Safety evaluation](../includes/safety-evalutation.md)]
+[!INCLUDE [Safety evaluation](../includes/safety-evaluation.md)]
 
 ## Deploy a customized model
 

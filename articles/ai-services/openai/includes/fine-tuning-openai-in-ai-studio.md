@@ -248,7 +248,7 @@ Look for your loss to decrease over time, and your accuracy to increase. If you 
 
 ## Safety evaluation GPT-4 fine-tuning - public preview
 
-[!INCLUDE [Safety evaluation](../includes/safety-evalutation.md)]
+[!INCLUDE [Safety evaluation](../includes/safety-evaluation.md)]
 
 ## Deploy a fine-tuned model
 
