@@ -57,7 +57,7 @@ When you request to transfer an old enterprise enrollment to a new enrollment, t
 
 - Usage transferred might take up to 72 hours to be reflected in the new enrollment.
 - If department administrator (DA) or account owner (AO) view charges were enabled on the previously transferred enrollment, they must be enabled on the new enrollment.
-- If you're using API reports or Power BI, [generate a new API access key](enterprise-rest-apis.md#api-key-generation) under your new enrollment. For API use, the API access key is used for authentication to older enterprise APIs that are retiring. For more information about retiring APIs that use the API access key, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
+- If you're using API reports or Power BI, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
     - All APIs use either the old enrollment or the new one, not both, for reporting purposes. If you need reports from APIs for the old and new enrollments, you must create your own reports.
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to `Transferred` for the old enrollment. The old enrollment that was transferred is available for historic usage reporting purposes only.
