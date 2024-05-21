@@ -172,9 +172,11 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone pivot="programming-language-python"  
 # [v2](#tab/python-v2)
 
-This example uses SDK types to directly access the underlying `BlobClient` object provided by the Blob storage trigger: 
+This example uses SDK types to directly access the underlying [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object provided by the Blob storage trigger: 
 
 :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-14,31-39"::: 
+
+For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples.
 
 To learn more, including how to enable SDK type bindings in your project, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings-preview).
 
@@ -453,7 +455,11 @@ Access the blob data via a parameter that matches the name designated by binding
 ::: zone pivot="programming-language-python" 
 Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream). Refer to the [trigger example](#example) for details.
  
-Functions also supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using the underlying `BlobClient` type. 
+Functions also supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using these underlying SDK types:
+
++ [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient)
++ [`ContainerClient`](/python/api/azure-storage-blob/azure.storage.blob.containerclient)
++ [`StorageStreamDownloader`](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader)
 
 > [!IMPORTANT]  
 > SDK types support for Python is currently in preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings-preview).
