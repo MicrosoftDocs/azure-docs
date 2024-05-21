@@ -1,7 +1,7 @@
 ---
 title: Slider UI element
 description: Describes the Microsoft.Common.Slider UI element for Azure portal. Enables users to set a value from a range of options.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/10/2020
 ---
 
