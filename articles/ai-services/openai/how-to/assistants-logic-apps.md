@@ -40,7 +40,7 @@ Here are the steps to import your Logic Apps workflows as function in the Assist
     > This list only shows the consumption SKU workflows and with a request trigger.
 
 
-    :::image type="content" source="..\media\how-to\assistants\logic-apps\import-logic-apps.png" alt-text="A screenshot showing the Assistant playground with the add function button." lightbox="..\media\how-to\assistants\logic-apps\import-logic-apps.png":::
+    :::image type="content" source="..\media\how-to\assistants\logic-apps\import-logic-apps.png" alt-text="A screenshot showing the menu for adding functions." lightbox="..\media\how-to\assistants\logic-apps\import-logic-apps.png":::
 
 
 ## What happens when a Logic Apps is imported in AI Studio and invoked
