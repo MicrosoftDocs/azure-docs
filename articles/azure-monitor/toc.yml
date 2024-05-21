@@ -473,6 +473,8 @@ items:
         href: containers/container-insights-transition-solution.md
     - name: Configure Container Insights (logs)
       items:
+      - name: Configure and filter logs collection
+        href: containers/container-insights-data-collection-filter.md
       - name: Configure data collection
         items:
         - name: Configure with ConfigMap
