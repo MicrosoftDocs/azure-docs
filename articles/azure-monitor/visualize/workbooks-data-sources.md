@@ -74,7 +74,7 @@ To make a query control that uses this data source, use the **Data source** drop
 * `POST` - This method is used for APIs that pass information in a POST body.
   
 > [!NOTE]
-> The ARM data source only supports results that return a 200 `OK` response, indicating the result is synchronous.  APIs returning asynchronous results with 202 `ACCEPTED` asynchronous result and a header with a result url are not supported.
+> The Azure Resource Manager data source only supports results that return a 200 `OK` response, indicating the result is synchronous.  APIs returning asynchronous results with 202 `ACCEPTED` asynchronous result and a header with a result URL are not supported.
 
 ## Azure Data Explorer
 
