@@ -20,7 +20,7 @@ App Spaces reduces required decisions for developers to get started with web app
 
 The creation process is categorized in the following simplified sections:
 - GitHub Repository: Select your organization, repo, and branch.
-- App Space details: Enter a name for your App Space, service, and plan.
+- App Spaces details: Enter a name for your App Space, service, and plan.
 - Azure Destination: Select a subscription and region for deployment.
 
 Within a few minutes, you can deploy your App Space.

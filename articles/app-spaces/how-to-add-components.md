@@ -1,6 +1,6 @@
 ---
 title: Add components in App Spaces
-description: Learn how to add App Space components in the Azure portal.
+description: Learn how to add App Spaces components in the Azure portal.
 ms.author: msangapu
 author: msangapu-msft
 ms.service: app-spaces
@@ -10,9 +10,9 @@ zone_pivot_groups: app-spaces-add-component
 ---
 
 
-# Add App Space components
+# Add App Spaces components
 
-[App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This guide shows you how to add components to an existing App Space app. Components can be a backend app (Azure Container App), a frontend app (Static Web App), or a database (MariaDB, PostgreSQL, Qdrant).
+[App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This guide shows you how to add components to an existing App Spaces app. Components can be a backend app (Azure Container App), a frontend app (Static Web App), or a database (MariaDB, PostgreSQL, Qdrant).
 
 [!include [component types](./includes/component-types-table.md)]
 
@@ -26,7 +26,7 @@ Follow these steps to add a custom app component.
 
 ### Add tab
 
-1. In the _Add_ tab, select **GitHub repository**, and select the **Next** button at the bottom of the page.
+- In the _Add_ tab, select **GitHub repository**, and select the **Next** button at the bottom of the page.
 
 ### Configure tab
 
@@ -52,7 +52,7 @@ Follow these steps to add a custom app component.
 
 1. Select the **Add** button at the bottom of the page.
 
-[!include [deployment note](./includes/provisioning-text-aca.md)]
+[!include [deployment note](./includes/provision-text-aca.md)]
 #### [Static Web App (Frontend)](#tab/swa/)
 1. In the _Connect to GitHub to import your repository_ section, enter the following values.
 
@@ -73,7 +73,7 @@ Follow these steps to add a custom app component.
 
 1. Select the **Add** button at the bottom of the page.
 
-[!include [deployment note](./includes/provisioning-text-swa.md)]
+[!include [deployment note](./includes/provision-text-swa.md)]
 
 * * *
 
@@ -116,7 +116,7 @@ Follow these steps to add a database component.
 
 ### Add tab
 
-1. In the _Add_ tab, select **Database**, and then select the **Next** button at the bottom of the page.
+- In the _Add_ tab, select **Database**, and then select the **Next** button at the bottom of the page.
 
 ### Configure tab
 

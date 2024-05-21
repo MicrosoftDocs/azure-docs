@@ -27,12 +27,12 @@ To deploy your repository to App Spaces, you must have the following items:
 
 Follow these steps to deploy your app from a GitHub repository:
 
-1. Browse to [https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotCreate.ReactView](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotCreate.ReactView).
+- Browse to [https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotCreate.ReactView](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotCreate.ReactView).
 
 ## Connect to GitHub to import your repository
 
 #### [App Component (Backend)](#tab/backend/)
-1. Enter the following values in the *Connect to GitHub to import your repository* section.
+- Enter the following values in the *Connect to GitHub to import your repository* section.
 
 | Setting | Action |
 |---|---|
@@ -45,7 +45,7 @@ Follow these steps to deploy your app from a GitHub repository:
 | Startup command (optional) | Under *Advanced configurations* enter a **Startup command**.|
 
 #### [Static App Component (Frontend)](#tab/frontend/)
-1. Enter the following values in the *Connect to GitHub to import your repository* section.
+- Enter the following values in the *Connect to GitHub to import your repository* section.
 
 | Setting | Action |
 |---|---|
@@ -73,9 +73,9 @@ Follow these steps to deploy your app from a GitHub repository:
 The deployment can take a few minutes to complete. During deployment, App Spaces uses GitHub actions to deploy to an Azure service based on the code in the repository. The Azure service is either a Container App (App component) or a Static Web App (Static app component). Go to your app's **Deployment** tab to see your code deployment logs.
 
 #### [App Component (Backend)](#tab/backend/)
-[!include [deployment note](./includes/provisioning-text-aca.md)]
+[!include [deployment note](./includes/provision-text-aca.md)]
 #### [Static App Component (Frontend)](#tab/frontend/)
-[!include [deployment note](./includes/provisioning-text-swa.md)]
+[!include [deployment note](./includes/provision-text-swa.md)]
 * * *
 
 ## Clean up resources

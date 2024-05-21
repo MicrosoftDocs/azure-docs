@@ -57,13 +57,13 @@ Follow these steps to deploy a sample app to App Spaces.
 
 The sample web application code deploys to App Spaces. The deployment can take a few minutes to complete.
 
-[!include [deployment note](./includes/provisioning-text-swa.md)]
+[!include [deployment note](./includes/provision-text-swa.md)]
 ::: zone-end  
 ::: zone pivot="backend"  
 2. Under *Use a starter app*, select **Express.JS App**.
 ## Connect to GitHub
 
-1. Enter the following values in the *Connect to GitHub* section.
+- Enter the following values in the *Connect to GitHub* section.
 
     | Setting | Action |
     |---|---|
@@ -85,7 +85,7 @@ The sample web application code deploys to App Spaces. The deployment can take a
 
 The sample web application code deploys to App Spaces. The deployment can take a few minutes to complete.
 
-[!include [deployment note](./includes/provisioning-text-aca.md)]
+[!include [deployment note](./includes/provision-text-aca.md)]
 ::: zone-end  
 
 ## Verify deployment
