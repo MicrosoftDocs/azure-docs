@@ -203,7 +203,7 @@ The disk type conversion is instantaneous. You can start your VM after the conve
 
 ## Migrate to Premium SSD v2 or Ultra Disk
 
-Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through snapshots stored on Standard Storage (Incremental Standard HDD Snapshot). Migration with snapshots stored on Premium storage and other options isn't supported.
+Currently, you can only migrate an existing disk to either a Premium SSD v2 or an Ultra Disk through snapshots stored on Standard Storage (Incremental Standard HDD Snapshot). Migration with snapshots stored on Premium storage and other options isn't supported. Migration via snapshot from Premium SSD v2 or Ultra Disk to Premium SSD v1, Standard SSD and Standard HDD is not supported.
 
 Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
 
