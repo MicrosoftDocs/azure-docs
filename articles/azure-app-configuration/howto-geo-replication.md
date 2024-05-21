@@ -199,6 +199,21 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
+
+### [.Spring](#tab/spring)
+
+Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **5.11.0** or later of any of the following packages.
+> - `spring-cloud-azure-appconfiguration-config`
+> - `spring-cloud-azure-appconfiguration-config-web`
+> - `spring-cloud-azure-starter-appconfiguration-config`
+
 ### [Kubernetes](#tab/kubernetes)
 
 Update the `AzureAppConfigurationProvider` resource of your Azure App Configuration Kubernetes Provider. Add a `replicaDiscoveryEnabled` property and set it to `false`.
