@@ -77,14 +77,15 @@ The purpose of the Extension-based approach is to simplify the installation and 
 | --------------------- | --------------------- | ------------------- |
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
 
-### Permissions for Hybrid Worker credentials
+### Permissions for Hybrid worker credentials
 
-If agent-based Hybrid Worker is using custom Hybrid Worker credentials, then ensure that following permissions are assigned to the custom user to avoid jobs from getting suspended on the extension-based Hybrid Worker.
+If extension-based Hybrid Worker is using custom Hybrid Worker credentials, then ensure that following folder permissions are assigned to the custom user to avoid jobs from getting suspended.
 
-| **Resource type** | **Folder permissions** |
-| --- | --- |
-|Azure VM | C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
-|Arc-enabled Server | C:\ProgramData\AzureConnectedMachineAgent\Tokens (read)</br> C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
+| **Resource Type**  | **Folder permissions** |
+|---|---|
+|Azure VM | C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute)|
+| Arc-enabled Server | C:\ProgramData\AzureConnectedMachineAgent\Tokens (read) </br> C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute).
+
 
 > [!NOTE]
 > - When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-runbooks-go-into-a-suspended-state-on-a-hybrid-runbook-worker-when-using-a-custom-account-on-a-server-with-user-account-control-uac-enabled).
@@ -95,7 +96,7 @@ If agent-based Hybrid Worker is using custom Hybrid Worker credentials, then ens
 
 To utilize the benefits of extension based Hybrid Workers, you must migrate all existing agent based User Hybrid Workers to extension based Workers. A hybrid worker machine can co-exist on both **Agent based (V1)** and **Extension based (V2)** platforms. The extension based installation doesn't affect the installation or management of an agent based Worker.
 
-To install Hybrid worker extension on an existing agent based hybrid worker, follow these steps:
+To install Hybrid worker extension on an existing agent based hybrid worker, ensure the [prerequisites](#prerequisites) are fulfilled before following these steps:
 
 1. Under **Process Automation**, select **Hybrid worker groups**, and then select your existing hybrid worker group to go to the **Hybrid worker group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers** > **+ Add** to go to the **Add machines as hybrid worker** page.
