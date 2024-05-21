@@ -475,7 +475,7 @@ The app we created only specifies one event, but you can have multiple events an
 
 To put your newly setup experiment to the test and generate results for you to analyze, simulate some traffic to your application and wait a 10 to 15 minutes.
 
-To view the results of your experiment, navigate to **Feature Manager** and on the list of variant feature flags, select the **Active** link under the **Experiment** label in the grid view or click on **...** > **Experiment**.
+To view the results of your experiment, navigate to **Feature Manager** and on the list of variant feature flags, click on **...** > **Experiment**, or select the **Active** link in the **Experiment** column. This column isn't displayed by default. To show it, in **Feature manager**, select **Manage view** > **Edit Columns** > **Add Column** > **Experiment** and  **Apply**.
 
 On the results page, a **Version** of the Experiment, a **Baseline** to compare the results against, and a **Comparison** variant are selected by default. If needed, change the defaults per your liking, then select **Apply** to view the result of your experiment.
 
