@@ -77,7 +77,7 @@ Here are the steps to create a new Logic Apps workflow for function calling.
 
     :::image type="content" source="..\media\how-to\assistants\logic-apps\create-logic-app-6.png" alt-text="A screenshot showing the location property." lightbox="..\media\how-to\assistants\logic-apps\create-logic-app-6.png":::
 
-1. Configure the [response](../../../connectors/connectors-native-reqres.md#add-a-response-action). The workflow needs to return the response back to Azure OpenAI Studio . This is done using Response action.
+1. Configure the [response](../../../connectors/connectors-native-reqres.md#add-a-response-action). The workflow needs to return the response back to Azure OpenAI Studio. This is done using Response action.
 
     :::image type="content" source="..\media\how-to\assistants\logic-apps\create-logic-app-7.png" alt-text="A screenshot showing the response action." lightbox="..\media\how-to\assistants\logic-apps\create-logic-app-7.png":::
 
@@ -85,7 +85,7 @@ Here are the steps to create a new Logic Apps workflow for function calling.
     
     :::image type="content" source="..\media\how-to\assistants\logic-apps\create-logic-app-7.png" alt-text="A screenshot showing the comment box to specify a JSON schema." lightbox="..\media\how-to\assistants\logic-apps\create-logic-app-7.png":::
 
-1. The workflow is now ready. In Azure OpenAI Studio , you can import this function using the **Add function** feature in the Assistants playground.
+1. The workflow is now ready. In Azure OpenAI Studio, you can import this function using the **Add function** feature in the Assistants playground.
 
 
 ## Import your Logic Apps workflows as functions
