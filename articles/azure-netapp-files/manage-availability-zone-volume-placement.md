@@ -11,7 +11,7 @@ ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 
-You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Using availability zones for high availability](use-availability-zones.md).
+You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zones for high availability](use-availability-zones.md).
 
 ## Requirements and considerations 
 
@@ -84,7 +84,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
     :::image type="content" source="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png" alt-text="Screenshot of volume properties interface." lightbox="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png":::
 
-## Populate an existing volume with availability zone information
+## Populate an existing volume with availability zone information (preview)
 
 1. Navigate to the volume that you want to populate with availability zone information.
 1. Select **Populate availability zone**.
