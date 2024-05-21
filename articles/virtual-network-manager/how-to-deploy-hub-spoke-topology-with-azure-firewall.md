@@ -1,6 +1,6 @@
 ---
-title: How to deploy Hub-Spoke topology with Azure Firewall
-description: Learn how to deploy a Hub-Spoke topology with Azure Firewall using Virtual Network Manager.
+title: How to deploy hub and spoke topology with Azure Firewall
+description: Learn how to deploy a hub and spoke topology with Azure Firewall using Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
@@ -8,155 +8,84 @@ ms.topic: how-to
 ms.date: 05/7/2024
 ---
 
-# How to deploy Hub-Spoke topology with Azure Firewall
+# How to deploy hub and spoke topology with Azure Firewall
 
-In this article, you will learn how to deploy a Hub-Spoke topology with Azure Firewall using Azure Virtual Network Manager (AVNM). 
+In this article, you learn how to deploy a hub and spoke topology with Azure Firewall using Azure Virtual Network Manager (AVNM). 
 
-Many organizations use Azure Firewall to protect their virtual networks from threats and unwanted traffic, and they will route all traffic to Azure Firewall except trusted traffic within the same virtual network. Traditionally, setting up such a scenario is cumbersome because new user-defined routes (UDRs) need to be created for each new subnet, and all route tables have different UDRs. UDR management in Azure Virtual Network Manager can help you easily achieve this scenario by creating a routing rule that routes all traffic to Azure Firewall, except the traffic within the same virtual network.
+Many organizations use Azure Firewall to protect their virtual networks from threats and unwanted traffic, and they route all traffic to Azure Firewall except trusted traffic within the same virtual network. Traditionally, setting up such a scenario is cumbersome because new user-defined routes (UDRs) need to be created for each new subnet, and all route tables have different UDRs. UDR management in Azure Virtual Network Manager can help you easily achieve this scenario by creating a routing rule that routes all traffic to Azure Firewall, except the traffic within the same virtual network.
 
 ## Prerequisites
 
 - An Azure subscription with permissions to create resources in the subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- 
-
-## Create virtual networks and subnets
-
-In this step, you create a hub virtual network and spoke virtual networks with subnets.
-
-1. In the portal, search for and select **Virtual networks**.
-
-1. On the **Virtual networks** page, select **+ Create**.
-
-1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
-
-    | Setting | Value |
-    |---|---|
-    | **Project details** |  |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **rg-vnm** in Name. </br> Select **OK**. |
-    | **Instance details** |  |
-    | Name | Enter **hub-vnet-1**. |
-    | Region | Select **East US 2**. |
-
-    :::image type="content" source="./media/virtual-network-create/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal." lightbox="./media/virtual-network-create/create-virtual-network-basics.png":::
-
-1. Select **Next** to proceed to the **Security** tab.
-
-1. Select **Next** to proceed to the **IP Addresses** tab.
-    
-1. In the address space box in **Subnets**, select the **default** subnet.
-
-1. In **Edit subnet**, enter or select the following information:
-
-    | Setting | Value |
-    |---|---|
-    | **Subnet details** |  |
-    | Subnet template | Leave the default **Default**. |
-    | Name | Enter **subnet-1**. |
-    | Starting address | Leave the default of **10.0.0.0**. |
-    | Subnet size | Leave the default of **/24(256 addresses)**. |
-
-    :::image type="content" source="./media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of default subnet rename and configuration.":::
-
-1. Select **Save**.
-
-1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
-
-1. Repeat the virtual network creation steps to create two spoke virtual networks with subnets using the following details:
-
-| **Name** | **Region** | **Subnet name** | **Starting address** | **Subnet size** |
-|---|---|---|---|---|
-| spoke-vnet-1 | East US 2 |  subnet-1 | 10.0.1.0 | /24(256 addresses) |
-| spoke-vnet-2 | East US 2 |  subnet-1 | 10.0.2.0 | /24(256 addresses) |
+- Three virtual networks with subnets in the same region. One virtual network is the hub virtual network, and the other two virtual networks are the spoke virtual networks. 
+  - For this example, the hub virtual network is named **hub-vnet**, and the spoke virtual networks are **spoke-vnet-1** and **spoke-vnet-2**.
+  - The hub virtual network requires a subnet for the Azure Firewall named **AzureFirewallSubnet**.
+- An Azure Virtual Network Manager instance with user-defined routing and connectivity configurations enabled. 
+- All virtual networks configured in a hub and spoke topology. 
+- An Azure Firewall in the hub virtual network. For more information, see [Deploy and configure Azure Firewall and policy using the Azure portal](../firewall/tutorial-firewall-deploy-portal-policy.md).
 
 [!INCLUDE [virtual-network-manager-create-udr-instance](../../includes/virtual-network-manager-create-udr-instance.md)]
 
-## Add a spoke network group
+[!INCLUDE [virtual-network-manager-create-spoke-network-group](../../includes/virtual-network-manager-create-spoke-network-group.md)]
 
-In this step, you add a network group of spoke virtual networks to your virtual network manager.
+[!INCLUDE [virtual-network-manager-deploy-hub and spoke-topology](../../includes/virtual-network-manager-deploy-hub and spoke-topology.md)]
 
-1. Browse to the your resource group, and select the your Virtual Network Manager instance.
+## Create a routing configuration and rule collection
 
-1. Under **Settings**, select **Network groups**. Then select **Add a network group**.
+In this task, you create a routing configuration and rule collection that includes your spoke network group. Routing configurations define the routing rules for traffic between virtual networks.
 
-1. On the **Add a network group** pane, enter **ng-1** and select **Create**.
+1. In the network manager instance, select **Configurations** under **Settings**.
+2. On the **Create a routing configuration** page, enter the routing configuration **Name** and **Description** on the **Basics** tab then select **Next: Rule collection >**.
+3. Select **Add** on the **Rule collections** tab.
+4. In the **Add a rule collection** window, enter or select the following settings for the rule collection:
 
+    | **Setting** | **Value** |
+    |---|---|
+    | **Name** | Enter a name for your rule collection. |
+    | **Description** | (Optional) Enter a description for your rule collection. |
+    | **Local route setting** | Select **Direct routing within virtual network**. |
+    | **Enable BGP route propagation** | (Optional) Select **Enable BGP route propagation** if you want to enable BGP route propagation. |
+    | **Target network group** | Select your spoke network group. |
 
-Graphical user interface, text, application, email
+1. Under **Routing rules**, select **Add** to create a new routing rule.
+2. In the **Add a routing rule** window, enter or select the following settings for the routing rule:
 
-Description automatically generated 
+    | **Setting** | **Value** |
+    |---|---|
+    | **Name** | Enter a name for your routing rule. |
+    | **Destination** |  |
+    | **Destination type** | Select **IP Address**. |
+    | **Destination IP Addresses/CIDR ranges** | enter **0.0.0.0/0**. |
+    | **Next hop** |  |
+    | **Next hop type** | Select **Virtual Appliance**.</br> Select **Import Azure firewall private IP address**|
+    | **Azure firewalls** | Select your Azure firewall then choose **Select**. |
 
-Create a network group by naming it and adding VNets to the group. You can add VNets manually as static group members, or automatically as dynamic group members through conditional statements.  
+    :::image type="content" source="../../includes/media/virtual-network-manager-deploy-hub and spoke-topology/add-routing-rule.png" alt-text="Screenshot of Add a routing rule window with firewall as next hop.":::
 
-Here, we are going to create a network group of spoke VNets in the hub and spoke topology with the condition of VNets’ name containing “ANMDemo-Spoke” 
+1. Select **Add** to add the routing rule to the rule collection.
+1. Select **Add** to add the rule collection to the routing configuration.
 
-A screenshot of a computer
+    :::image type="content" source="../../includes/media/virtual-network-manager-deploy-hub and spoke-topology/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with routing rules added.":::
 
-Description automatically generated 
+1. Select **Review + create** then select **Create**.
 
-Step 3. Create a routing configuration and rule collection 
+## Deploy the routing configuration
 
-Navigate to the Configurations page under Settings and select Create” with the type “Routing configuration,” and add a rule collection, where the target network group is your spoke network group. 
+In this task, you deploy the routing configuration to create the routing rules for the hub and spoke topology.
 
-Step 4. Create routing rules 
+1. In the network manager instance, select **Deployments** under **Settings**.
+2. Select **Deploy configurations** then select **Routing configuration - Preview**.
+3. In the **Deploy a configuration** window, select the routing configuration you created, and select the **Target Regions** you wish to deploy the configuration to.
+1. Select **Next** or **Review + deploy** to review the deployment then select **Deploy**.
 
-Create the following rule. 
+## Delete all resources
 
-A screenshot of a computer
+If you no longer need the resources created in this article, you can delete them to avoid incurring more costs.
 
-Description automatically generated. 
+1. In the Azure portal, search for and select **Resource groups**.
+2. Select the resource group that contains the resources you want to delete.
 
-A screenshot of a computer
+## Next steps
 
-Description automatically generated with low confidence 
-
-By using the above rule, you can easily route all traffic to an Azure Firewall, except the destination is in the same VNet to reduce latency for routing and inspection cost if the traffic within the same VNet is trusted. All new subnets in the VNets in the spoke network group can automatically get the necessary UDRs to make this routing behavior happen. 
-
-Step 5. Commit the configuration 
-
-Deploy the configurations, and the target regions to commit your desired configuration(s).  
-
-A screenshot of a computer
-
-Description automatically generated with medium confidence 
-
-Variation - route all traffic to Azure Firewall in a hub and spoke topology but trusted VNets can have communicate directly 
-
-In this topology, some spoke virtual networks are directly connected by using AVNM's direct connectivity, unlike the hub and spoke topology above. This topology helps some trusted virtual networks communicate directly without the hub's firewall. This way, the latency between these virtual networks can be reduced. You can monitor the traffic between these virtual networks by using virtual network flow logs. 
-
- 
-
-Step 1. Create a network group of trusted VNets 
-
-In your Network Manager resource, navigate to the Network groups page under Settings and select Create and create Network group with Member type Virtual network. 
-
-
-
-In the previously created Network group, select Group members and click Add to add existing VNets 
-
-
- 
-
-Step 2. Create a connectivity configuration 
-
-In your Network Manager resource, navigate to the Configurations page under Settings and select Create - Connectivity configuration and create Connectivity configurations. 
-
-
-
-In Topology tab, select Hub and spoke option and choose Hub VNet where the trusted spoke VNet connected, and add the Nework group created in the previous Step 1. Also, check Enable connectivity within network group option to enable direct connectivity within trusted VNets. 
-
-
-
- 
-
-Step 3. Commit the configuration 
-
-Deploy the Connectivity configuration to the target region to commit your desired configuration. 
-
-In your Network Manager resource, navigate to the Deployments page under Settings and click Deploy configurations – Connectivity configuration. 
-
-
-
-In Connectivity configurations, select Connectivity configuration you have created, and select the target regions where the configuration to be deployed.   
-
-Click Next and review the configuration to be deployed, then click Deploy. 
+> [!div class="nextstepaction"]
+> [Learn more about Userefined Routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md)
