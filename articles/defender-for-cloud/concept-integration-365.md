@@ -2,7 +2,8 @@
 title: Alerts and incidents in Microsoft Defender XDR
 description: Learn about the benefits of receiving Microsoft Defender for Cloud's alerts in Microsoft Defender XDR 
 ms.topic: concept-article
-ms.date: 05/15/2024
+ms.date: 05/21/2024
+#customer intent: As a security professional, I want to understand the benefits of integrating Microsoft Defender for Cloud alerts with Microsoft Defender XDR.
 ---
 
 # Alerts and incidents in Microsoft Defender XDR
@@ -57,6 +58,6 @@ Customers who integrated their Microsoft 365 Defender incidents into Sentinel an
 
 Learn how [Defender for Cloud and Microsoft 365 Defender handle your data's privacy](data-security.md#defender-for-cloud-and-microsoft-defender-365-defender-integration).
 
-## Next step
+## Related content
 
 [Security alerts - a reference guide](alerts-reference.md)
