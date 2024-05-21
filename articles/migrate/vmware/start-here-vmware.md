@@ -24,11 +24,11 @@ There are several steps to using the Azure Migration Tools to migrate a VMware d
 Make sure you check out the [support matrix](migrate-support-matrix-vmware.md) before getting started.
 
 ## Discover
-You need a list of all of the servers in your environment. To get the list, you have 2 choices: 
+You need a list of all of the servers in your environment. To get the list, you have two choices: 
 
 - Deploy an appliance that continually discovers servers. For more information, see [Tutorial: Discover servers running in a VMware environment with Azure Migrate](tutorial-discover-vmware.md).
 
-- Use RVTools XLSX to discover servers and store the information in a .xlsx file. For more information, see [Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
+- Use RVTools XLSX to discover servers and store the information in an .xlsx file. For more information, see [Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
 
 ## Decide - build a business case (preview)
 
@@ -43,7 +43,7 @@ Assess your VMware environment for moving to [Azure Virtual Machines](tutorial-a
 Before you begin your migration, you need to [choose whether to use an agent-based migration or agentless](server-migrate-overview.md?context=/azure/migrate/context/vmware-context).
 
 
-Depending on whether you choose agent-based or agentless migration, the next step would be to review the migration topics for your choice.
+Depending on whether you choose agent-based or agentless migration, the next step would be to review the migration articles for your choice.
 
 ### Agent-based:
 
