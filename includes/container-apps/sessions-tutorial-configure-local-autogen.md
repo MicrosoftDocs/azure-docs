@@ -75,20 +75,6 @@ ms.author: antchu
         az account show --query user.name --output tsv
         ```
 
-    1. Run the following commands to retrieve the Azure OpenAI account resource ID:
-
-        ```bash
-        az cognitiveservices account show --name $AZURE_OPENAI_NAME --resource-group $RESOURCE_GROUP_NAME --query id --output tsv
-        ```
-
-    1. Assign the *Cognitive Services OpenAI User* role to your Azure CLI user on the Azure OpenAI account:
-
-        ```bash
-        az role assignment create --role "Cognitive Services OpenAI User" --assignee <CLI_USERNAME> --scope <AZURE_OPENAI_RESOURCE_ID>
-        ```
-
-        Replace `<CLI_USERNAME>` with your Azure CLI user name and `<AZURE_OPENAI_RESOURCE_ID>` with the Azure OpenAI account resource ID.
-
     1. Run the following commands to retrieve the session pool resource ID:
 
         ```bash
