@@ -7,7 +7,8 @@ ms.service: data-science-vm
 ms.custom: linux-related-content
 
 ms.author: jcioffi
-ms.date: 04/18/2023
+ms.reviewer: franksolomon
+ms.date: 05/21/2024
 ms.topic: reference
 ---
 
@@ -20,6 +21,21 @@ Due to the rapidly evolving needs and packages updates, we target to release new
 Azure portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or Azure Resource Manager (ARM) users, we keep images of individual versions available for 12 months. After that period, particular version of image is no longer available for provisioning.
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## May 7, 2024
+
+Version `05.04.2024`
+
+- SDK `1.55`
+- `azureml-dataset-runtime[fuse,pandas]` to version `1.55.0`  
+- `GitPython` to version `3.1.41`
+- `pyarrow` to version `14.0.2`
+
+## April 7, 2024
+
+Image version: 24.05.03
+SDK Version: 1.55.0
+Issue fixed: Office365ProPlus installation
 
 ## December 20, 2023
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
@@ -193,7 +209,6 @@ Main changes:
 
 - Base OS level image updates.
 
-
 ## August 16, 2022
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
@@ -302,7 +317,6 @@ Main changes:
   - `py38_default`: default system environment based on `Python 3.8`
   - We have removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
 
-
 ## March 18, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
 
@@ -318,9 +332,6 @@ Main changes:
   - `azureml_py38_PT_TF`: complementary environment `azureml_py38` with preinstalled with latest TensorFlow and PyTorch
   - `py38_default`: default system environment based on Python 3.8
   - we removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
-
-
-
 
 ## March 9, 2022
 
@@ -345,9 +356,6 @@ Main changes:
 - Fix for Azure Machine Learning SDK & AutoML environment
 - Windows Security update
 - Improvement of stability and minor bug fixes
-
-
-
 
 ## November 4, 2021
 
@@ -385,7 +393,6 @@ Main changes:
     * Changed scikit-learn to version 1.0.1
     * Changed tensorflow-gpu to version 2.6.2
 
-
 ## October 7, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview).
@@ -403,7 +410,6 @@ Main changes:
  - Fixed Azure Storage Explorer stability
  - Improvement of stability and minor bug fixes
 
-
 ## August 11, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
@@ -418,8 +424,6 @@ Main changes:
 - Added MLFLow for experiment tracking
 - Improvement of stability and minor bug fixes
 
-
-
 ## July 12, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview).
@@ -432,7 +436,6 @@ Main changes:
 - Update VS Code version 1.58.1
 - Improvement of stability and minor bug fixes
 
-
 ## June 22, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
@@ -443,7 +446,6 @@ Main changes:
 
 - Updated to PyTorch 1.9.0
 - Fixed a bug where git wasn't available
-
 
 ## June 1, 2021
 
@@ -460,7 +462,6 @@ Main changes are:
 - Updated PyCharm Community to 2021.1
 - Updated TensorFlow to version 2.5.0
 
-<br/>
 Removed several icons from desktop.
 
 ## May 22, 2021
@@ -491,10 +492,8 @@ Selected version updates are:
 - Azure Data Studio 1.28.0
 - Microsoft Edge browser
 
-<br/>
 Removed Firefox, Apache Drill and Microsoft Integration Runtime.
 
-<br/>
 Dark mode, changed icons on desktop, wallpaper background change.
 
 ## May 12, 2021
@@ -518,7 +517,6 @@ Selected version updates are:
 - azcopy 10.10
 - Microsoft Edge browser (beta)
 
-<br/>
 Added docker. To save resources, the docker service isn't started by default. To start the docker service, run the
 following command-line commands:
 
@@ -537,7 +535,6 @@ sudo systemctl start docker
 > will run an Ubuntu 18.04 container with PyTorch pre-installed and all GPUs enabled. It will also make a local folder
 > *local_dir* available in the container under *container_dir*.
 >
-
 
 ## February 24, 2020
 
