@@ -31,7 +31,7 @@ The **Deployment** section in App Spaces provides a detailed log of all deployme
 ## Logs
 App Spaces provides robust logging capabilities for static app components, which can be filtered over a range of time periods from the last hour to the last 30 days. You can enable logs through the **Log Settings** button, which offers different configuration options. The **Auto** setting automatically collects logs for HTTP requests, global errors, and usage analytics. For more customized tracking, users can choose the **Manual with npm packages** option to set up custom event tracking with IntelliSense. Alternatively, the **Manual with React and Angular plug-ins** option allows users to configure connection strings to define where to send telemetry data by replacing the placeholder `YOUR_CONNECTION_STRING` with the actual connection string. These flexible logging options ensure comprehensive monitoring and analysis tailored to specific needs.
 
-Select **Open in advanced queries** to go to the [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview).
+Select **Open in advanced queries** to go to the [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 For Application Insights, see [Enable a framework extension for Application Insights JavaScript SDK](https://go.microsoft.com/fwlink/?linkid=2269911).
 ::: zone-end
