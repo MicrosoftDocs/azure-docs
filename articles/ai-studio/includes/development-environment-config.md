@@ -6,7 +6,7 @@ ms.service: azure-ai-studio
 ms.topic: include
 ms.date: 5/21/2024
 ms.author: eur
-ms.custom: include file
+ms.custom: include file, build-2024
 ---
 
 1. Install Python as described in the [SDK quickstart](../quickstarts/get-started-code.md#create-a-new-python-environment).

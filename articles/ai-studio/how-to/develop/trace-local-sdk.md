@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: This article provides instructions on how to trace your application with prompt flow SDK.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: chenlujiao
@@ -11,7 +13,7 @@ ms.author: eur
 author: eric-urban
 ---
 
-# How to trace your application with prompt flow SDK
+# How to trace your application with prompt flow SDK | Azure AI Studio
 
 [!INCLUDE [Feature preview](../../includes/feature-preview.md)]
 

@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Use a Microsoft Bicep template to create a new Azure AI Studio hub.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.custom: devx-track-arm-template, devx-track-bicep
+ms.custom: devx-track-arm-template, devx-track-bicep, build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: deeikele

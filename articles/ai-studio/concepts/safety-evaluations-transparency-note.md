@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: Azure AI Studio safety evaluations intended purpose, capabilities, limitations and how to achieve the best performance.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: article
 ms.date: 5/21/2024
 ms.reviewer: mithigpe

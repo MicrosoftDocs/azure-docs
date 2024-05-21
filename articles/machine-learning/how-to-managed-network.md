@@ -14,6 +14,7 @@ ms.custom:
   - build-2023
   - devx-track-azurecli
   - ignite-2023
+  - build-2024
 ---
 
 # Workspace Managed Virtual Network Isolation

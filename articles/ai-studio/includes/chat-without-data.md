@@ -7,7 +7,7 @@ ms.author: eric-urban
 ms.service: azure-ai-studio
 ms.topic: include
 ms.date: 5/21/2024
-ms.custom: include
+ms.custom: include, build-2024
 ---
 
 To chat with your deployed GPT model in the chat playground, follow these steps:
@@ -29,4 +29,3 @@ To chat with your deployed GPT model in the chat playground, follow these steps:
 1. The assistant either replies that it doesn't know the answer or provides a generic response. For example, the assistant might say, "The price of TrailWalker hiking shoes can vary depending on the brand, model, and where you purchase them." The model doesn't have access to current product information about the TrailWalker hiking shoes. 
 
     :::image type="content" source="../media/tutorials/chat/assistant-reply-not-grounded.png" alt-text="Screenshot of the assistant's reply without grounding data." lightbox="../media/tutorials/chat/assistant-reply-not-grounded.png":::
-

@@ -11,6 +11,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 02/07/2024
 ms.author: eur
