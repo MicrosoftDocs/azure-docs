@@ -1,3 +1,4 @@
+items:
 - name: Azure Web Application Firewall documentation
   href: index.yml
 - name: Overview
@@ -96,6 +97,8 @@
       href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
     - name: Application DDoS protection
       href: ./shared/application-ddos-protection.md
+    - name: Microsoft Copilot for Security
+      href: waf-copilot.md
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
 - name: How-to guides
