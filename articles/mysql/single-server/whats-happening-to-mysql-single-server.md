@@ -220,11 +220,6 @@ When you migrate from Azure Database for MySQL - Single Server to Flexible Serve
 1. For *Problem type*, select **Migration**.
 1. For *Problem subtype*, select **Migrating from single to flexible server**
 
-You can also reach out to the Azure Database for MySQL product team at <AskAzureDBforMySQL@service.microsoft.com>.
-
-> [!WARNING]  
-> This article is not for Azure Database for MySQL - Flexible Server users. It is for Azure Database for MySQL - Single Server customers who need to upgrade to MySQL - Flexible Server.
-
 Visit the **[FAQ](../../dms/faq-mysql-single-to-flex.md)** for information about using the Azure Database Migration Service (classic) for Azure Database for MySQL - Single Server to Flexible Server migrations.
 
 We know migrating services can be a frustrating experience, and we apologize in advance for any inconvenience this might cause you. You can choose what scenario best works for you and your environment.
