@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 05/22/2024
 ---
 
-For a backend app, App Spaces creates the following resources for you during deployment:
+For a back-end app, App Spaces creates the following resources for you during deployment:
 - Azure Container App environment
 - Azure Container App
 - Virtual network + subnet (sub resource of virtual network)

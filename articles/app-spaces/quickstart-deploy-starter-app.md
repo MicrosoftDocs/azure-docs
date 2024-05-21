@@ -24,7 +24,7 @@ To deploy a sample app for App Spaces, you must have the following items:
 
 ## Select a starter app
 
-While Express.JS (backend) and React (frontend) apps are used in this quickstart, other starter apps are also available in App Spaces. See [App Spaces in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView) for a full list of starter apps in App Spaces.
+While Express.JS (back end) and React (front end) apps are used in this quickstart, other starter apps are also available in App Spaces. See [App Spaces in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_PaasServerless/StarshotTemplateGallery.ReactView) for a full list of starter apps in App Spaces.
 
 Follow these steps to deploy a sample app to App Spaces. 
 

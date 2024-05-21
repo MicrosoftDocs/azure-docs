@@ -8,6 +8,6 @@ App Spaces uses a concept of components. The following table describes the compo
 
 |Component type | App type| Azure service |
 |--------|----------|-----------|
-|App component|Backend|Azure Container Apps|
-|Static app component|Frontend|Static Web Apps|
+|App component|Back end|Azure Container Apps|
+|Static app component|Front end|Static Web Apps|
 |Database component|N/A|Azure Container Apps|

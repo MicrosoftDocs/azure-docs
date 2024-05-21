@@ -31,7 +31,7 @@ Follow these steps to deploy your app from a GitHub repository:
 
 ## Connect to GitHub to import your repository
 
-#### [App Component (Backend)](#tab/backend/)
+#### [App Component (back end)](#tab/backend/)
 - Enter the following values in the *Connect to GitHub to import your repository* section.
 
 | Setting | Action |
@@ -44,7 +44,7 @@ Follow these steps to deploy your app from a GitHub repository:
 | Listening port |Specify the port that your web server is listening on. External requests being made to port 80 or 443 get routed to this port internally for your application to server content from.|
 | Startup command (optional) | Under *Advanced configurations* enter a **Startup command**.|
 
-#### [Static App Component (Frontend)](#tab/frontend/)
+#### [Static App Component (front end)](#tab/frontend/)
 - Enter the following values in the *Connect to GitHub to import your repository* section.
 
 | Setting | Action |
@@ -72,9 +72,9 @@ Follow these steps to deploy your app from a GitHub repository:
 
 The deployment can take a few minutes to complete. During deployment, App Spaces uses GitHub actions to deploy to an Azure service based on the code in the repository. The Azure service is either a Container App (App component) or a Static Web App (Static app component). Go to your app's **Deployment** tab to see your code deployment logs.
 
-#### [App Component (Backend)](#tab/backend/)
+#### [App Component (back end)](#tab/backend/)
 [!include [deployment note](./includes/provision-text-aca.md)]
-#### [Static App Component (Frontend)](#tab/frontend/)
+#### [Static App Component (front end)](#tab/frontend/)
 [!include [deployment note](./includes/provision-text-swa.md)]
 * * *
 
