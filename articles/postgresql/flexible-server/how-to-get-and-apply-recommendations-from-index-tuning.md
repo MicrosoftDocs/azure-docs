@@ -4,7 +4,7 @@ description: This article describes how to query, interpret, and apply the recom
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 05/09/2024
+ms.date: 05/21/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -32,7 +32,7 @@ Currently, that information can be read using the Azure portal page build for th
 
    - If the feature is enabled and no recommendations are produced yet, the screen looks like this:
 
-     :::image type="content" source="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-page-when-enabled-and-has-recommendations.png" alt-text="Screenshot that shows the aspect of 'Index tuning (preview)' page when the feature is enabled and there aren't recommendations." lightbox="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-page-when-enabled-and-has-recommendations.png":::
+     :::image type="content" source="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-page-when-enabled-and-no-recommendations.png" alt-text="Screenshot that shows the aspect of 'Index tuning (preview)' page when the feature is enabled and there aren't recommendations." lightbox="media/how-to-get-and-apply-recommendations-from-index-tuning/index-tuning-page-when-enabled-and-no-recommendations.png":::
 
    - If the feature is disabled but it ever produced recommendations, the screen looks like this:
 
