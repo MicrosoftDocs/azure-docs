@@ -31,7 +31,7 @@ The model catalog  organizes models into Collections. There are three types of c
 
 For information on Azure OpenAI models,  refer to [Azure OpenAI Service](../../ai-services/openai/overview.md) .
 
-Some models in the **Curated by Azure AI** and **Open models from the Hugging Face hub** collections can be deployed with a Managed compute option, and some models are available to be deployed using serverless APIs with pay-as-you-go billing. These models can be discovered, compared, evaluated, fine-tuned (when supported) and deployed at scale and integrated into your Generative AI applications with enterprise-grade security and data governance.  
+Some models in the **Curated by Azure AI** and **Open models from the Hugging Face hub** collections can be deployed with a managed compute option, and some models are available to be deployed using serverless APIs with pay-as-you-go billing. These models can be discovered, compared, evaluated, fine-tuned (when supported) and deployed at scale and integrated into your Generative AI applications with enterprise-grade security and data governance.  
 
 * **Discover:** Review model cards, try sample inference and browse code samples to evaluate, fine-tune, or deploy the model. 
 * **Compare:** Compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. 
@@ -41,7 +41,7 @@ Some models in the **Curated by Azure AI** and **Open models from the Hugging Fa
 
 ## Model deployment: Managed compute and serverless API (pay-as-you-go)  
 
-Model Catalog offers two distinct ways to deploy models from the catalog for your use: Managed compute and serverless APIs. The deployment options available for each model vary; learn more about the features of the deployment options, and the options available for specific models, in the following tables. Learn more about [data processing]( concept-data-privacy.md) with the deployment options. 
+Model Catalog offers two distinct ways to deploy models from the catalog for your use: managed compute and serverless APIs. The deployment options available for each model vary; learn more about the features of the deployment options, and the options available for specific models, in the following tables. Learn more about [data processing]( concept-data-privacy.md) with the deployment options. 
 
 Features | Managed compute | serverless API (pay-as-you-go) 
 --|--|-- 
@@ -73,9 +73,9 @@ The models are made available through [Azure Machine Learning registries](../../
 
 * Supports enterprise security requirements as limiting access to models with Azure Policy and secure deployment with managed virtual networks. 
 
-### Deploy models for inference as a Managed compute 
+### Deploy models for inference with managed compute 
 
-Models available for deployment to a Managed compute can be deployed to Azure Machine Learning Online Endpoints for real-time inference. Deploying to Online endpoints requires you to have Virtual Machine quota in your Azure Subscription for the specific SKUs needed to optimally run the model.  Some models allow you to deploy to [temporarily shared quota for testing the model](deploy-models-open.md). Learn more about deploying models: 
+Models available for deployment to a Managed compute can be deployed to Azure Machine Learning Online Endpoints for real-time inference. Deploying to managed compute requires you to have Virtual Machine quota in your Azure Subscription for the specific SKUs needed to optimally run the model.  Some models allow you to deploy to [temporarily shared quota for testing the model](deploy-models-open.md). Learn more about deploying models: 
 
 * [Deploy Meta Llama models](deploy-models-llama.md) 
 * [Deploy Open models Created by Azure AI](deploy-models-open.md)
@@ -91,13 +91,13 @@ Prompt flow offers a great experience for prototyping. You can use models deploy
 
 ### Serverless APIs with Pay-as-you-go billing
 
-Certain models in the Model Catalog can be deployed as serverless APIs with pay-as-you-go billing; this method of deployment is called Models-as-a Service (MaaS), providing a way to consume them as an API without hosting them on your subscription. Models available through MaaS are hosted in infrastructure managed by Microsoft, which enables API-based access to the model provider's model. API based access can dramatically reduce the cost of accessing a model and significantly simplify the provisioning experience. Most MaaS models come with pay-as-you-go billing.   
+Certain models in the Model Catalog can be deployed as serverless APIs with pay-as-you-go billing; this method of deployment is called Models-as-a Service (MaaS), providing a way to consume them as an API without hosting them on your subscription. Models available through MaaS are hosted in infrastructure managed by Microsoft, which enables API-based access to the model provider's model. API based access can dramatically reduce the cost of accessing a model and significantly simplify the provisioning experience. Most MaaS models come with token-based pricing.   
 
 ### How are third-party models made available in MaaS?
 
 :::image type="content" source="../media/explore/model-publisher-cycle.png" alt-text="A diagram showing model publisher service cycle." lightbox="../media/explore/model-publisher-cycle.png":::
 
-Models that are available for pay-as-you-go deployment are offered by the model provider but hosted in Microsoft-managed Azure infrastructure and accessed via API. Model providers define the license terms and set the price for use of their models, while Azure Machine Learning service manages the hosting infrastructure, makes the inference APIs available, and acts as the data processor for prompts submitted and content output by models deployed via MaaS. Learn more about data processing for MaaS at the [data privacy](concept-data-privacy.md) article. 
+Models that are available for deployment as serverless APIs with pay-as-you-go billing are offered by the model provider but hosted in Microsoft-managed Azure infrastructure and accessed via API. Model providers define the license terms and set the price for use of their models, while Azure Machine Learning service manages the hosting infrastructure, makes the inference APIs available, and acts as the data processor for prompts submitted and content output by models deployed via MaaS. Learn more about data processing for MaaS at the [data privacy](concept-data-privacy.md) article. 
 
 ### Pay for model usage in MaaS    
 
@@ -132,7 +132,7 @@ Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Co
 
 [!INCLUDE [Feature preview](../includes/preview-ai-studio.md)]
 
-Azure AI Studio implements a default configuration of [Azure AI Content Safety](../../ai-services/content-safety/overview.md) text moderation filters for harmful content (sexual, violence, hate, and self-harm) in language models deployed with MaaS. To learn more about content filtering (preview), see [Harm categories](../../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. Complete this form to disable content filtering (preview) for [models deployed as a service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2WTn-w_72hGvfUv1OcrZVVUM05MQ1JLQ0xTUlBRVENQQlpQQzVBODNEUiQlQCN0PWcu). Submitting the form disables content filtering (preview) for all active serverless endpoints, and you'll have to resubmit the form to disable content filtering for any newly created endpoints.
+Azure AI Studio implements a default configuration of [Azure AI Content Safety](../../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) in language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering for individual serverless endpoints when you first deploy a language model or in the deployment details page by clicking the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
 
 
 ## Next steps
