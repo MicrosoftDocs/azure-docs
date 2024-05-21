@@ -25,7 +25,7 @@ Verify that you are on the correct article. The following table shows the config
 This article assumes that you've already performed the following prerequisites:
 
 * You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
-* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuation files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
+* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
 * You can either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
 
 ### Connection requirements
