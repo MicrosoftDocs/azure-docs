@@ -26,6 +26,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-client-mac.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-mac",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-cert-windows.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-windows",
             "redirect_document_id": false
