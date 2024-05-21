@@ -4,7 +4,7 @@ description: Learn how to configure access to an Azure Elastic SAN.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 05/21/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -175,7 +175,7 @@ The Elastic SAN and the virtual network could be in different resource groups, r
 
 # [Portal](#tab/azure-portal)
 
-You can create a private endpoint in the Azure portal either when you create a volume group or when modifying an existing volume group. You need an existing virtual network to create a private endpoint.
+You can create a private endpoint connection to your volume group in the Azure portal either when you create a volume group or when modifying an existing volume group. You need an existing virtual network to create a private endpoint.
 
 When creating or modifying a volume group, select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**.
 
