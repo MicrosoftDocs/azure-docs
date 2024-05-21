@@ -942,8 +942,8 @@ items:
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
         - name: Private link data query of Prometheus metrics
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
+          displayName: Private link data query
+          href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
