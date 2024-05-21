@@ -38,7 +38,7 @@ For more information, see [Create a Kubernetes Fleet resource without a hub clus
 
 ## Kubernetes Fleet resource with hub clusters
 
-A Kubernetes Fleet resource with a hub cluster has an associated AKS-managed cluster, which is used to store the configuration for workload orchestration and layer-4 load balancing.
+A Kubernetes Fleet resource with a hub cluster has an associated AKS-managed cluster, which hosts the open sourced [fleet manager][fleet-github] and [fleet network manager][fleet-networking-github] solution for workload orchestration and layer-4 load balancing.
 
 Upon the creation of a Kubernetes Fleet resource with a hub cluster, a hub AKS cluster is automatically created in the same subscription under a managed resource group that begins with `FL_`. To improve reliability, hub clusters are locked down by denying any user-initiated mutations to the corresponding AKS clusters (under the Fleet-managed resource group `FL_`) and their underlying Azure resources (under the AKS-managed resource group `MC_FL_*`), such as virtual machines (VMs), via Azure deny assignments. Control plane operations, such as changing the hub cluster's configuration through Azure Resource Manager (ARM) or deleting the cluster entirely, are denied. Data plane operations, such as connecting to the hub cluster's Kubernetes API server in order to configure workload orchestration, are not denied.
 
@@ -74,3 +74,7 @@ Now that you understand the different types of Kubernetes fleet resources, see [
 [create-fleet-without-hub]: quickstart-create-fleet-and-members.md?tabs=without-hub-cluster#create-a-fleet-resource
 [create-public-hub-cluster]: quickstart-create-fleet-and-members.md?tabs=with-hub-cluster#public-hub-cluster
 [create-private-hub-cluster]: quickstart-create-fleet-and-members.md?tabs=with-hub-cluster#private-hub-cluster
+
+<!-- LINKS - external -->
+[fleet-github]: https://github.com/Azure/fleet
+[fleet-networking-github]: (https://github.com/Azure/fleet-networking)
