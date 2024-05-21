@@ -9,7 +9,7 @@ services: service-fabric
 ms.date: 05/17/2024
 ---
 
-# Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric by using Application Insights
+# Tutorial: Monitor and diagnose a Service Fabric application by using Application Insights
 
 This tutorial is *part five* in a series. It walks through the steps to configure monitoring and diagnostics for an ASP.NET Core application running on an Azure Service Fabric cluster by using Application Insights. You collect telemetry from the application that's developed in [part one of the tutorial series](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -137,23 +137,23 @@ To set up the NuGet package:
           .Build();
       ```
 
-    In *VotingData.cs*, your code now looks similar to this example:
+In *VotingData.cs*, your code now looks similar to this example:
 
-      ```csharp
-      return new WebHostBuilder()
-          .UseKestrel()
-          .ConfigureServices(
-              services => services
-                  .AddSingleton<StatefulServiceContext>(serviceContext)
-                  .AddSingleton<IReliableStateManager>(this.StateManager)
-                  .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-          .UseContentRoot(Directory.GetCurrentDirectory())
-          .UseStartup<Startup>()
-          .UseApplicationInsights()
-          .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-          .UseUrls(url)
-          .Build();
-      ```
+```csharp
+return new WebHostBuilder()
+    .UseKestrel()
+    .ConfigureServices(
+        services => services
+            .AddSingleton<StatefulServiceContext>(serviceContext)
+            .AddSingleton<IReliableStateManager>(this.StateManager)
+            .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+    .UseContentRoot(Directory.GetCurrentDirectory())
+    .UseStartup<Startup>()
+    .UseApplicationInsights()
+    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+    .UseUrls(url)
+    .Build();
+```
 
 Double-check that the `UseApplicationInsights()` method is called in both *VotingWeb.cs* and *VotingData.cs* as shown in the examples.
 

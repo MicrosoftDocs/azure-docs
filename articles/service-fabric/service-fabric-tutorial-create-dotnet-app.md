@@ -642,4 +642,4 @@ To stop the debugging session, select Shift+F5.
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Deploy the application to Azure](service-fabric-tutorial-deploy-app.md)
+> [Deploy the application to a cluster](service-fabric-tutorial-deploy-app.md)

@@ -10,7 +10,7 @@ services: service-fabric
 ms.date: 05/17/2024
 ---
 
-# Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service by using Kestrel
+# Tutorial: Add an HTTPS endpoint for a Service Fabric application by using Kestrel
 
 This tutorial is *part three* in a series. Learn how to add an HTTPS endpoint in an ASP.NET Core service running in Azure Service Fabric. When you're finished, you have a voting application that has an HTTPS-enabled ASP.NET Core web front end that listens on port 443. If you don't want to manually create the voting application in [part one of the tutorial series](service-fabric-tutorial-deploy-app.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) to get the completed application.
 
