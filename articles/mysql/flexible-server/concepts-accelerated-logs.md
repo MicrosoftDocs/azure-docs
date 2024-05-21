@@ -19,7 +19,7 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL - Flexible Server introduces the Accelerated Logs feature, now generally available for servers utilizing the [Business Critical service tier](./concepts-service-tiers-storage#service-tiers-size-and-server-types). This documentation outlines the steps to enable or disable the accelerated logs feature, providing you with the flexibility to optimize your server's performance as needed.  
+Azure Database for MySQL - Flexible Server introduces the Accelerated Logs feature, now generally available for servers utilizing the [Business Critical service tier](./concepts-service-tiers-storage.md). This documentation outlines the steps to enable or disable the accelerated logs feature, providing you with the flexibility to optimize your server's performance as needed.  
 
 > [!IMPORTANT]  
 > The accelerated logs feature will be available for Business-Critical servers created after May 20th, 2024. For servers already under the Business-Critical service tier, this feature can be enabled following the upcoming maintenance window. Please visit the “Maintenance” section on our portal for details about the next maintenance schedule. For any further queries or assistance, please create a [support ticket](https://azure.microsoft.com/support/create-ticket/)
@@ -37,7 +37,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 - **Enhanced scalability:** Accelerated logs can accommodate growing workloads, making them ideal for applications that need to scale easily while maintaining high performance. Applications and services on the Business Critical service tier benefit from more responsive interactions and reduced query wait times.
 
 > [!Note]  
-> If [Zone Redundant HA](./concepts-high-availability#zone-redundant-ha-architecture) is enabled for your server, additonal latency due to the cross zonal copy of data is anticipated. We recommend users to conduct their own benchmark tests for accurate performance assessment.
+> If [Zone Redundant HA](./concepts-high-availability.md) is enabled for your server, additonal latency due to the cross zonal copy of data is anticipated. We recommend users to conduct their own benchmark tests for accurate performance assessment.
 
 ## Limitations
 
