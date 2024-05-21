@@ -88,7 +88,7 @@ conceptualContent:
               text: Generate Azure CLI scripts
             - url: ./generate-powershell-scripts.md
               itemType: get-started
-              text: Generate Azure PowerShell scripts
+              text: Generate PowerShell scripts
             - url: ./optimize-code-application-insights.md
               itemType: get-started
               text: Discover performance recommendations with Code Optimizations
