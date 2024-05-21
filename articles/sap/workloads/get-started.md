@@ -55,6 +55,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- May 21, 2024: Update timeouts and added start delay for pacemaker scheduled events in [Set up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure](./high-availability-guide-suse-pacemaker.md).
 - April 1, 2024: Reference the considerations section for sizing HANA shared file system in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md), [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md), [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md), and [Azure Files NFS for SAP](planning-guide-storage-azure-files.md)
 - March 18, 2024: Added considerations for sizing the HANA shared file system in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - February 07, 2024: Clarified disk allocation when using PPGs to bind availability set in specific Availability Zone in [Configuration options for optimal network latency with SAP applications](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
