@@ -21,9 +21,6 @@ Workspace-based resources:
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
 > - Don't require changing instrumentation keys after migration from a classic resource.
 
-> [!IMPORTANT]
-> * Diagnostic settings export might increase costs. For more information, see [Diagnostic settings-based export](export-telemetry.md#diagnostic-settings-based-export).
-
 ## New capabilities
 
 Workspace-based Application Insights resources allow you to take advantage of the latest capabilities of Azure Monitor and Log Analytics:
