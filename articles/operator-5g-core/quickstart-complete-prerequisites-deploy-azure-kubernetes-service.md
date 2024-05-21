@@ -94,7 +94,7 @@ Once you complete these steps, you can create the AKS cluster:
   
     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/add-a-node-tab.png" alt-text="Add a node tab displaying the fields the user must update.":::
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/update-node-pool.png" alt-text="Update node pool screen showing fields that user must update for successful AKS cluster creation.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/update-node-pool.png" alt-text="Screenshot of the Create a storage account page showing the Update node pool tab, highlighting the fields that user must update for successful AKS cluster creation.":::
 
 1. Navigate to the **Networking** tab and configure the following settings:
    - Select **Kubenet** for the **Network configuration**. 
@@ -147,7 +147,7 @@ Once you complete these steps, you can create the AKS cluster:
 1. Select **Subscriptions**/**resourceGroups/&lt;your-infrastructure-resource-group-name&gt;/ &lt;providers&gt; Microsoft.Compute &gt; virtualMachineScaleSets &gt;  &lt; your Azure Virtual Machine Scale Sets name>**. 
 1.  Select the virtual machine scale set associated with the user node pool, then select and change the option from **Read Only** to **Read/Write**.
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/read-write-option.png" alt-text="Image showing the Read/Write option active.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/read-write-option.png" alt-text="Screenshot of buttons on the Azure Resource Explorer page that show the the Read/Write option active.":::
 
 10. Choose **Edit** from the **Data** section of the screen.
 11. For each of your data planes ports, ensure that the **enableAcceleratedNetworking** and the **enableIPForwarding** fields are set to **True**.  
@@ -186,7 +186,7 @@ The following shows an example for the AMF_N2_subnet:
 
 13. At the top of the screen next to the **Edit** button, select the green **PUT** button to apply the configuration. 
     
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/green-put-button.png" alt-text="Image showing data option buttons for Patch, Put, and Cancel. The Put button is highlighted.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/green-put-button.png" alt-text="Screenshot of the Azure Resource Explorer page that shows the data option buttons for Patch, Put, and Cancel. The Put button is highlighted.":::
 
 1. Return to the Azure portal. Navigate to the cluster resource in the original managed infrastructure resource group. You should  see multiple accelerated interfaces in the networking section of the worker node pool. Select each interface and confirm **Accelerated networking** is enabled. 
 1. Navigate to the **Overview** section of resource group with the AKS cluster, and scale it up to the desired number of workers. Then start the cluster. This action starts the associated node pools in the cluster.
@@ -199,9 +199,9 @@ An Azure internal Load balancer is required to support N2 SCTP connections betwe
 
 Create a load balancer with the following settings, attaching the load balancer to the virtual network resource you created earlier. 
 
-1. Enter your subscription, resource group, provide a name for your load balancer resource. 
+1. Enter your **Subscription**, **Resource group**, and provide a name for your load balancer resource. 
 1. Select the appropriate region, the **standard** sku type standard, and the **internal** load balancer, as this load balancer connects to your RAN network on a private IP address via your express route connection.
-1. Select **Next** to move to the Frontend IP configuration
+1. Select **Next** to move to the **Frontend IP configuration**
 
 ### Add a frontend IP configuration
 
@@ -212,7 +212,7 @@ Create a load balancer with the following settings, attaching the load balancer 
 1. Select the **Static** assignment and a nonreserved **IP address** that is used for N2 SCTP associations.  
 1. Select **Availability zone** as **Zone-redundant** and **Save**.
     
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/load-balancer-frontend-configuration.png" alt-text="Screen showing the Add frontend IP configuration tab with fields that the user must configure highlighted.":::    
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/load-balancer-frontend-configuration.png" alt-text="Screenshot of the Create a load balancer page showing the Add frontend IP configuration tab with fields that the user must configure highlighted.":::    
 
 ### Add backend pools
 
@@ -240,7 +240,7 @@ Create a load balancer with the following settings, attaching the load balancer 
 1. Select **Client IP** as the **Session persistence**, set the **Idle timeout (minutes)** to **4** and **Enable Floating IP**.
 1. Select **Save**.
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/add-load-balancing-rule.png" alt-text="Add load balancing rule tab showing the fields the user must configure.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/add-load-balancing-rule.png" alt-text="Screenshot of the Add load balancing rule tab showing the fields the user must configure.":::
 
 6. Select **Review and create**, then **Create**. 
  
@@ -257,7 +257,7 @@ Azure Operator 5G Core requires Network File Storage (NFS) storage. Use the **Cr
 1. Select **File share** as the **Premium account type**, then select **Zone-redundant storage** for **Redundancy**. 
 1. Select **Next**. 
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-storage-account.png" alt-text="Screen showing the Create a storage account tab where users must enter the required fields to create the account.":::        
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-storage-account.png" alt-text="Screenshot of the Create a storage account tab where users must enter the required fields to create the account.":::        
 
 ## Advanced tab
 
@@ -266,7 +266,7 @@ Azure Operator 5G Core requires Network File Storage (NFS) storage. Use the **Cr
 1. Leave the **Default to Microsoft Entra authorization in the Azure portal** disabled.
 1. Select **Next**. 
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-storage-account-advanced.png" alt-text="Screen showing the Advanced tab of the Create a storage account page. Two selections under the Security section are highlighted for the user to mark the boxes.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-storage-account-advanced.png" alt-text="Screenshot of the the Create a storage account page showing the Advanced tab. Two selections under the Security section are highlighted for the user to mark the boxes.":::
 
 ### Networking tab
 
@@ -278,12 +278,12 @@ Azure Operator 5G Core requires Network File Storage (NFS) storage. Use the **Cr
     - Select the **Virtual network** you created earlier and choose the **Subnet**; in this configuration choose the infra subnet defined. This enables file transfer from the AKS cluster and ensures private dns integration is enabled with your subscription and resource group.  
     - Verify the **Private DNS zone** as privatelink.file.core.windows.net and select save. 
 
-     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-private-endpoint.png" alt-text="Screen showing the available fields in the Create private endpoint section of the page. ":::
+     :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-private-endpoint.png" alt-text="Screenhot of the Networking tab showing the available fields in the Create private endpoint section of the page. ":::
 
 1. In the **Network routing** section of the **Networking** tab, select **Microsoft network routing** 
 1. Select **Review + create**. 
 
-    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-storage-account-networking.png" alt-text="Screen showing the Networking tab of the Create a storage account page. Two fields are highlighted, indicating that the user must complete these steps before moving on.":::
+    :::image type="content" source="media/quickstart-complete-prerequisites-deploy-azure-kubernetes-service/create-storage-account-networking.png" alt-text="Screenshot of the  Networking tab of the Create a storage account page. Two fields are highlighted, indicating that the user must complete these steps before moving on.":::
 
 ### View the storage resource
 
