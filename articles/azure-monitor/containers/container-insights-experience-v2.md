@@ -133,7 +133,7 @@ When using the Prometheus based Container Insights experience, you may encounter
 
 ### The charts are stuck in a loading state
 
-This issue occurs if the network traffic for the Azure Monitor workspace is blocked. The root cause of this is typically related to network policies, such as ad blocking software. To resolve this issue, disable the ad block or allow list `monitor.azure.com` traffic and reload the page.
+This issue occurs if the network traffic for the Azure Monitor workspace is blocked. The root cause of this is typically related to network policies, such as ad blocking software. To resolve this issue, disable the ad block or allowlist `monitor.azure.com` traffic and reload the page.
 
 ### Unable to access Data Collection Rule
 
