@@ -146,7 +146,7 @@ az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 
 > [!NOTE]
 > The `hubble_flows_processed_total` metric isn't scraped by default due to high metric cardinality in large scale clusters. 
-> Because of this, the *Pods Flows* dashboards have panels with missing data. To change this, you can modify the ama metrics settings to include `hubble_flows_processed_total` in the metric keep list. To learn how do this, see the [Minimal Ingestion Doumentation](/articles/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md).
+> Because of this, the *Pods Flows* dashboards have panels with missing data. To change this, you can modify the ama metrics settings to include `hubble_flows_processed_total` in the metric keep list. To learn how do this, see the [Minimal Ingestion Doumentation](../articles/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md).
 > 
 
 1. Make sure the Azure Monitor pods are running using the `kubectl get pods` command.
@@ -166,7 +166,7 @@ ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
 ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
 ```
 
-1. We have created sample dashboards. They can be found under the **Dashboards > Azure Managed Prometheus** folder. They have names like **"Kubernetes / Networking / <name>"**. The suite of dashboards includes:
+1. We have created sample dashboards. They can be found under the **Dashboards > Azure Managed Prometheus** folder. They have names like **"Kubernetes / Networking / `<name>`"**. The suite of dashboards includes:
   * **Clusters:** shows Node-level metrics for your clusters.
   * **DNS (Cluster):** shows DNS metrics on a cluster or selection of Nodes.
   * **DNS (Workload):** shows DNS metrics for the specified workload (e.g. Pods of a DaemonSet or Deployment such as CoreDNS).
@@ -174,6 +174,10 @@ ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
   * **Pod Flows (Namespace):** shows L4/L7 packet flows to/from the specified namespace (i.e. Pods in the
   Namespace).
   * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
+
+> [!NOTE] 
+> * Depending on your Prometheus/Grafana instances’ settings, some dashboard panels may require tweaks to display all data.
+> * Cilium data plane does not currently support DNS metrics/dashboards.
 
 
 ## Install Hubble CLI

@@ -182,6 +182,10 @@ az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
   Namespace). (ID: [20928](https://grafana.com/grafana/dashboards/20928-kubernetes-networking-pod-flows-namespace/))
   * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).(ID: [20929](https://grafana.com/grafana/dashboards/20929-kubernetes-networking-pod-flows-workload/))
 
+> [!NOTE] 
+> * Depending on your Prometheus/Grafana instances’ settings, some dashboard panels may require tweaks to display all data.
+> * Cilium data plane does not currently support DNS metrics/dashboards.
+
 1. Install the Hubble CLI to access the data it collects using the following commands:
 
 ```azurecli-interactive
