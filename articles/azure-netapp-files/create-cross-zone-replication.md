@@ -18,8 +18,6 @@ For information about availability zones, see [Use availability zones for high a
 
 Before you begin, you should review the [requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md).
 
-You can also confirm what [regions support cross-zone replication](cross-zone-replication-introduction.md#supported-regions).
-
 ## Create the source volume with an availability zone  
 
 This process requires that your account is subscribed to the [availability zone volume placement feature](use-availability-zones.md).
