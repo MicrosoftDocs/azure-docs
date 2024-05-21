@@ -97,7 +97,7 @@ After creation, modify the app registration:
 
 # [External configuration](#tab/external-configuration)
 
-[Create and use a new app registration](#express_external) or [use an existing registration created separately](#advanced).
+[Create and use a new app registration](#express_external) or [use an existing registration created separately](#advanced_external).
 
 ### <a name="express_external"></a> Option 1: Create and use a new app registration
 
@@ -107,9 +107,11 @@ Select **Create new app registration** to create a new app registration.
 
 1. Select an existing tenant to use from the drop-down, or select **Create new** to create a new [external tenant](/entra/external-id/customers/quickstart-tenant-setup).
 
-#### To create a new external tenant
+#### To create a new external tenant (optional)
 
-1. In the **Create a tenant** page, add the **Tenant Name** and **Domain Name**.  Select a **Location** and select **Review and create** and then select **Create**.  The tenant creation process takes a few minutes.
+In the **Create a tenant** page, add the **Tenant Name** and **Domain Name**.  Select a **Location** and select **Review and create** and then select **Create**.  The tenant creation process takes a few minutes.
+
+#### To setup sign-in
 
 1. Select **Configure** to **configure external authentication** for the new tenant.
 
@@ -117,13 +119,15 @@ Select **Create new app registration** to create a new app registration.
 
 1. Select a user flow from the drop-down or select **Create new**.  The user flow defines the sign-in methods your external users can use. Each app can only have one user flow, but you can reuse the same user flow for multiple apps.
 
-##### To create a new user flow
+#### To create a new user flow
 
 1. Enter a **Name** for the user flow.
 
 1. Select the sign-in method for your external users.  **Email and password** and **Email and one-time passcode** are already configured in the new tenant.  You can [Configure Google](/entra/external-id/customers/how-to-google-federation-customers) or [Configure Facebook](/entra/external-id/customers/how-to-facebook-federation-customers) as identity providers as well.
 
 1. Select **Create** to create the user flow.
+
+#### To customize branding
 
 1. Select **Next** to customize branding.
 
@@ -137,9 +141,7 @@ Select **Create new app registration** to create a new app registration.
 
 ### <a name="advanced_external"> </a>Option 2: Use an existing registration created separately
 
-Either:
-- Select **Pick an existing app registration in this directory** and select an app registration from the drop-down
-- Select **Provide the details of an existing app registration** and provide:
+Select **Provide the details of an existing app registration** and provide:
     - Application (client) ID
     - Client secret
     - Issuer URL
