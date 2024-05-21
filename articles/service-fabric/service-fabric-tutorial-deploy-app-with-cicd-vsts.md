@@ -35,9 +35,9 @@ The tutorial series shows you how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/), including the Azure development workload and the ASP.NET and web development workload.
 * [Install the Service Fabric SDK](service-fabric-get-started.md).
-* Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+* Create a Windows Service Fabric cluster in Azure, for example, by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 * Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). An organization allows you to create a project in Azure DevOps and use Azure Pipelines.
 
 ## Download the Voting sample application

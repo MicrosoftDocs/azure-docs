@@ -16,8 +16,8 @@ This tutorial is *part two* in a series. Learn how to deploy an Azure Service Fa
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
-> * Create a cluster.
-> * Deploy an application to a remote cluster by using Visual Studio.
+> * Create a cluster
+> * Deploy an application to a remote cluster by using Visual Studio
 
 The tutorial series shows you how to:
 
@@ -32,7 +32,7 @@ The tutorial series shows you how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Install Visual Studio 2019](https://www.visualstudio.com/), and install the Azure development and ASP.NET and web development workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/), including the Azure development workload and the ASP.NET and web development workload.
 * [Install the Service Fabric SDK](service-fabric-get-started.md).
 
 > [!NOTE]
