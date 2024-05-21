@@ -1,7 +1,7 @@
 ---
 title: Monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel
 description: Install and learn how to use the Microsoft Sentinel Zero Trust (TIC3.0) solution for an automated visualization of Zero Trust principles, cross-walked to the Trusted Internet Connections framework.
-ms.date: 01/09/2023
+ms.date: 05/21/2024
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
@@ -16,6 +16,9 @@ ms.collection:
 This article describes how to use the Microsoft Sentinel **Zero Trust (TIC 3.0)** solution, which helps governance and compliance teams monitor and respond to Zero Trust requirements according to the [TRUSTED INTERNET CONNECTIONS (TIC) 3.0](https://www.cisa.gov/resources-tools/programs/trusted-internet-connections-tic) initiative. 
 
 [Microsoft Sentinel solutions](sentinel-solutions.md) are sets of bundled content, pre-configured for a specific set of data. The **Zero Trust (TIC 3.0)** solution includes a workbook, analytics rules, and a playbook, which provide an automated visualization of Zero Trust principles, cross-walked to the Trust Internet Connections framework, helping organizations to monitor configurations over time.
+
+> [!NOTE]
+> Get a comprehensive view of your organization's Zero Trust status with the Zero Trust initiative in Microsoft Exposure Management. For more information, see [Rapidly modernize your security posture for Zero Trust | Microsoft Learn](https://learn.microsoft.com/en-us/security/zero-trust/adopt/rapidly-modernize-security-posture#in-product-dashboards-and-reports).
 
 ## The Zero Trust solution and the TIC 3.0 framework
 
