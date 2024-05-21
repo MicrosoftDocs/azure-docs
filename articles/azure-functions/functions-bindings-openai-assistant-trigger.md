@@ -4,7 +4,7 @@ description: Learn how to use the Azure OpenAI assistant trigger to execute code
 ms.topic: reference
 ms.custom:
   - build-2024
-ms.date: 05/07/2024
+ms.date: 05/24/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -15,44 +15,24 @@ zone_pivot_groups: programming-languages-set-functions
 The Azure OpenAI assistant trigger lets you run your code based on custom chat bot or skill request made to an assistant. 
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-> [!NOTE]  
-> References and examples are only provided for the [Node.js v4 model](./functions-reference-node.md?pivots=nodejs-model-v4).
-::: zone-end  
-::: zone pivot="programming-language-python"  
-> [!NOTE]  
-> References and examples are only provided for the [Python v2 model](functions-reference-python.md?pivots=python-mode-decorators#development-options).
-::: zone-end  
+
+[!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"  
-A C# function can be created using one of the following C# modes:
-
-[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
-
-### [Isolated process](#tab/isolated-process)
-
 This example demonstrates how to create an assistant that adds a new todo task to a database. The trigger has a static description of `Create a new todo task` used by the model. The function itself takes a string, which represents a new task to add. When executed, the function adds the task as a new todo item in a custom item store and returns a response from the store.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantSkills.cs" range="31-43" ::: 
 
-### [In-process](#tab/in-process)
-
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-
----
-
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-:::code language="java" source="~/functions-openai-extension/samples/{{link to the correct sample.java}}" range="{{named is better than range}}":::
+This example demonstrates how to create an assistant that adds a new todo task to a database. The trigger has a static description of `Create a new todo task` used by the model. The function itself takes a string, which represents a new task to add. When executed, the function adds the task as a new todo item in a custom item store and returns a response from the store. 
 
-{{Add more examples if available}}
--->
+
+:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantSkills.java" range="27-43":::
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
@@ -72,20 +52,19 @@ This example demonstrates how to create an assistant that adds a new todo task t
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-Here's the _function.json_ file for {{example}}:
+This example demonstrates how to create an assistant that adds a new todo task to a database. The trigger has a static description of `Create a new todo task` used by the model. The function itself takes a string, which represents a new task to add. When executed, the function adds the task as a new todo item in a custom item store and returns a response from the store. 
 
-:::code language="json" source="~/functions-openai-extension/samples/{{link to the correct function.json}}" :::
+Here's the _function.json_ file for Add Todo:
+
+:::code language="json" source="~/functions-openai-extension/samples/assistant/powershell/AddTodo/function.json" :::
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-{{This comes from the example code comment}} 
 
-:::code language="powershell" source="~/functions-openai-extension/samples/{{link to the correct sample.ps1}}" :::
--->
+:::code language="powershell" source="~/functions-openai-extension/samples/assistant/powershell/AddTodo/run.ps1" :::
+
+
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 
@@ -177,6 +156,6 @@ When `parameterDescriptionJson` JSON value isn't provided, it's autogenerated. F
 
 + [Assistant samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant)
 + [Azure OpenAI extension](functions-bindings-openai.md)
-+ [Azure OpenAI assistant query input binding ](functions-bindings-openai-assistantcreate-output.md)
-+ [Azure OpenAI assistant create output binding ](functions-bindings-openai-assistantcreate-output.md)
-+ [Azure OpenAI assistant post input binding ](functions-bindings-openai-assistantpost-input.md)
++ [Azure OpenAI assistant query input binding](functions-bindings-openai-assistantquery-input.md)
++ [Azure OpenAI assistant create output binding](functions-bindings-openai-assistantcreate-output.md)
++ [Azure OpenAI assistant post input binding](functions-bindings-openai-assistantpost-input.md)

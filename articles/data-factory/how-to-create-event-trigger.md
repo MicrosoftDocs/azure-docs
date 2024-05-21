@@ -9,7 +9,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 05/17/2024
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event

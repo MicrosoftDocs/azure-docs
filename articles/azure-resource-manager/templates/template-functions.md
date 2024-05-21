@@ -131,6 +131,7 @@ For Bicep files, use the [deployment](../bicep/bicep-functions-deployment.md) fu
 
 <a id="filter" aria-hidden="true"></a>
 <a id="map" aria-hidden="true"></a>
+<a id="mapValues" aria-hidden="true"></a>
 <a id="reduce" aria-hidden="true"></a>
 <a id="sort" aria-hidden="true"></a>
 <a id="toObject" aria-hidden="true"></a>
@@ -141,9 +142,12 @@ Resource Manager provides the following functions for working with lambda expres
 
 * [filter](template-functions-lambda.md#filter)
 * [map](template-functions-lambda.md#map)
+* [mapValues](template-functions-lambda.md#mapvalues)
 * [reduce](template-functions-lambda.md#reduce)
 * [sort](template-functions-lambda.md#sort)
 * [toObject](template-functions-lambda.md#toobject)
+
+For Bicep files, use the [lambda](../bicep/bicep-functions-lambda.md) functions.
 
 <a id="and" aria-hidden="true"></a>
 <a id="bool" aria-hidden="true"></a>
@@ -217,6 +221,7 @@ Resource Manager provides several functions for working with objects.
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
 * [null](template-functions-object.md#null)
+* [shallowMerge](template-functions-object.md#shallowmerge)
 * [union](template-functions-object.md#union)
 
 For Bicep files, use the [object](../bicep/bicep-functions-object.md) functions.
