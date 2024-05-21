@@ -112,6 +112,9 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 | type | The type property of the dataset must be set to: **ServiceNowV2Object** | Yes |
 | tableName | Name of the table. | No (if "expression" in activity source is specified) |
 
+> [!Note]
+> In copy activities, the tableName in dataset will be the name of the table instead of the label in ServiceNow.
+
 **Example**
 
 ```json
@@ -119,7 +122,9 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
     "name": "ServiceNowDataset",
     "properties": {
         "type": "ServiceNowV2Object",
-        "typeProperties": {},
+        "typeProperties": {
+            "tableName": "<table name>"
+        },
         "schema": [],
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
@@ -140,14 +145,12 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ServiceNowV2Source** | Yes |
-| expression| Use the expression to read data. You can configure the expression in **Query builder**.  | No (if "tableName" in dataset is specified) |
+| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). | No (if "tableName" in dataset is specified) |
 | *Under `expression`* |  |  |
 | type | The expression type. Values can be Constant (default), Unary, Binary, and Field.  | No  |
 | value | The constant value. | Required when the expression type is Constant or Field |
-| operators | The operator value. For more information about available operators, see [Supported operators](#supported-operators).| Required when the expression type is Unary or Binary |
+| operators | The operator value. For more information about operators, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Required when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Required when the expression type is Unary or Binary |
-
-**Query builder** has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html).
 
 
 **Example:**
@@ -181,27 +184,6 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 ]
 ```
 
-#### Supported operators
-
-The supported operators in **Query builder** are shown in the table below:
-
-| Operator name | Unary/Binary| Values required |
-|:--- |:--- |:--- |
-| is | Binary | low | 
-| isnot | Binary | low | 
-| contains | Binary | low | 
-| starts with | Binary | low | 
-| ends with | Binary | low | 
-| is empty | Unary | NIL | 
-| is not empty | Unary | NIL | 
-| before | Binary | Low | 
-| after | Binary | Low | 
-| does not contain | Binary | low | 
-| greater than | Binary | low | 
-| less than | Binary | low | 
-| is anything | Unary | NIL | 
-| between | Binary | Low and High | 
-
 ## Performance tips
 
 ### Schema to use
@@ -223,8 +205,19 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 Here are the steps that help you to upgrade your ServiceNow linked service:
 
 1. Create a new linked service by referring to [Linked service properties](#linked-service-properties).
-2. **Query** in source is changed to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source) and [Condition builder](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html).
+2. **Query** in source is upgraded to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source).
 
+## Differences between ServiceNow and ServiceNow (legacy)
+
+The ServiceNow connector offers new functionalities and is compatible with most features of ServiceNow (legacy) connector. The table below shows the feature differences between ServiceNow and ServiceNow (legacy).
+
+| ServiceNow | ServiceNow (legacy) | 
+|:--- |:--- |
+| useEncryptedEndpoints, useHostVerification, and usePeerVerification are not supported in the linked service. | Support useEncryptedEndpoints, useHostVerification and usePeerVerification in the linked service. | 
+| Supports **Query builder** in the source. | **Query builder** is not supported  in the source. | 
+| SQL-based queries are not supported. | Support SQL-based queries. | 
+| sortBy queries are not supported in **Query builder**. | Support sortBy queries in **Query**. | 
+| You can view the schema in the dataset. | You can't view the schema in the dataset. | 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
