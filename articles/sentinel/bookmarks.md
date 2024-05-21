@@ -86,14 +86,20 @@ Add bookmarks to an incident from the bookmarks tab on the **Hunting** page.
 
 1. From the **Bookmarks** tab, select the bookmark or bookmarks you want to add to an incident.
 
-2. Select **Incident actions** from the command bar:
+1. Select **Incident actions** from the command bar:
 
     :::image type="content" source="media/bookmarks/incident-actions.png" alt-text="Screenshot of adding bookmarks to incident.":::
 
-3. Select either **Create new incident** or **Add to existing incident**, as appropriate. Then:
+1. Select either **Create new incident** or **Add to existing incident**, as appropriate. Then:
 
     - For a new incident: Optionally update the details for the incident, and then select **Create**.
     - For adding a bookmark to an existing incident: Select one incident, and then select **Add**.
+
+1. To view the bookmark within the incident, 
+   1. Go to **Microsoft Sentinel** > **Threat management** > **Incidents**.
+   1. Select the incident with your bookmark and **View full details**.
+   1. On the incident page, in the left pane, select the **Bookmarks**.
+
 
 ## View bookmarked data in logs
 
