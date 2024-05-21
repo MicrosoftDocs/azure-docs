@@ -4,7 +4,7 @@ description: Learn how to use the Azure OpenAI embeddings input binding to gener
 ms.topic: reference
 ms.custom:
   - build-2024
-ms.date: 05/07/2024
+ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -15,48 +15,30 @@ zone_pivot_groups: programming-languages-set-functions
 The Azure OpenAI embeddings input binding allows you to generate embeddings for inputs. The binding can generate embeddings from files or raw text inputs.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about embeddings in Azure OpenAI Service, see [Understand embeddings in Azure OpenAI Service](../ai-services/openai/concepts/understand-embeddings.md).
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-> [!NOTE]  
-> References and examples are only provided for the [Node.js v4 model](./functions-reference-node.md?pivots=nodejs-model-v4).
-::: zone-end  
-::: zone pivot="programming-language-python"  
-> [!NOTE]  
-> References and examples are only provided for the [Python v2 model](functions-reference-python.md?pivots=python-mode-decorators#development-options).
-::: zone-end  
+
+[!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"  
-A C# function can be created using one of the following C# modes:
-
-[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
-
-### [Isolated process](#tab/isolated-process)
-
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="38-54"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="41-57"::: 
 
-This example shows how to generate embeddings for text contained in a file on the file system.
+This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="60-76"::: 
-
-### [In-process](#tab/in-process)
-
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-
----
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="63-78"::: 
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
+This example shows how to generate embeddings for a raw text string.
 
-:::code language="java" source="~/functions-openai-extension/samples/{{link to the correct sample.java}}" range="{{named is better than range}}":::
+:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="26-55":::
 
-{{Add more examples if available}}
--->
+This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
+
+:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="61-90":::
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
@@ -69,41 +51,31 @@ This example shows how to generate embeddings for text contained in a file on th
 -->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
+This example shows how to generate embeddings for a raw text string.
 
-{{This comes from the example code comment}} 
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="7-31":::
 
-:::code language="typescript" source="~/functions-openai-extension/samples/{{link to the correct sample.ts}}" range="{{named is better than range}}":::
+This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-{{Add more examples if available}}
--->
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="37-61":::
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
+This example shows how to generate embeddings for a raw text string.
 
-Here's the _function.json_ file for {{example}}:
+Here's the _function.json_ file for generating the embeddings:
 
-:::code language="json" source="~/functions-openai-extension/samples/{{link to the correct function.json}}" :::
+:::code language="json" source="~/functions-openai-extension/samples/embeddings/powershell/GenerateEmbeddings/function.json" :::
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-{{This comes from the example code comment}} 
-
-:::code language="powershell" source="~/functions-openai-extension/samples/{{link to the correct sample.ps1}}" :::
--->
+:::code language="powershell" source="~/functions-openai-extension/samples/embeddings/powershell/GenerateEmbeddings/run.ps1" :::
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
+This example shows how to generate embeddings for a raw text string.
 
-:::code language="python" source="~/functions-openai-extension/samples/{{link to the correct sample.py}}" range="{{named is better than range}}":::
+:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-21":::
 
-{{Add more examples if available}}
--->
 ::: zone-end  
 <!--- End code examples section -->  
 ::: zone pivot="programming-language-csharp"  
