@@ -6,8 +6,10 @@ author: niklarin
 ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom:
+  - build-2024
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 05/20/2024
 #Customer Intent: As a database adminstrator, I want to configure cross-region replication, so that I can have disaster recovery plans in the event of a regional outage.
 ---
 
@@ -29,13 +31,29 @@ Azure Cosmos DB for MongoDB vCore allows continuous data streaming to a replica 
 
 ## Enable cross-region replication
 
-To enable cross-region replication on a new cluster, follow these steps:
+To enable cross-region replication on a new cluster *during cluster creation*, follow these steps:
 
 1. Follow the steps to [create a new Azure Cosmos DB for MongoDB vCore cluster](./quickstart-portal.md#create-a-cluster).
 1. On the **Basics** tab, select **Enable global distribution (preview)** flag.
-1. Once cluster is created, on the cluster sidebar, under **Settings**, select **Global distribution**.
-1. Select **Add replica** and select a region for cluster replica to be created in.
-1. Verify your selection and select **Save** to confirm your selection.
+1. On the **Global distribution (preview)** tab, select **Enable** for the **Read replica in another region (preview)**.
+1. Provide a replica cluster name in the **Read replica name** field. 
+1. Select a region in the **Read replica region**. The replica cluster is hosted in the selected Azure region.
+1. (optionally) Select desired network access settings for the cluster on the **Networking** tab.
+1. On the **Review + create** tab, review cluster configuration details, and then select **Create**. 
+
+> [!NOTE]
+> The replica cluster is created in the same Azure subscirption and resource group as its primary cluster.
+
+To enable cross-region replication on a new cluster *at any time after cluster creation*, follow these steps:
+
+1. Follow the steps to [create a new Azure Cosmos DB for MongoDB vCore cluster](./quickstart-portal.md#create-a-cluster).
+1. On the **Basics** tab, select **Enable global distribution (preview)** flag.
+1. Skip **Global distribution (preview)** tab. This tab is used to create a cluster replica during primary cluster provisioning.
+1. Once cluster is created, on the cluster sidebar, under **Settings**, select **Global distribution (preview)**.
+1. Select **Add new read replica**.
+1. Provide a replica cluster name in the **Read replica name** field. 
+1. Select a region in the **Read replica region**. The replica cluster is hosted in the selected Azure region.
+1. Verify your selection and select the **Save** button to confirm replica creation.
 
 ## Promote a replica
 
@@ -72,15 +90,24 @@ If you need to delete the primary and replica clusters, you would need to delete
 
 ## Use connection strings
 
-You can connect to the cluster replica as you would to a regular read-write cluster. When global distribution is enabled on the cluster, you can use global read-write connection string for reads and writes. This global read-write connection string would always point to the current read-write cluster.
+You can connect to the cluster replica as you would to a regular read-write cluster. 
 Follow these steps to [get the connection strings for different cases](./cross-region-replication.md#read-operations-on-cluster-replicas-and-connection-strings):
 
 1. Select the primary cluster or its cluster replica in the portal.
 1. On the cluster sidebar, under **Settings**, select **Connection strings**.
-1. On the primary cluster, copy the global read-write connection string for connections to the current read-write cluster. 
-1. Copy the connection string for currently selected cluster to connect to that cluster as you would with a regular read-write cluster.
+1. Copy the connection string for currently selected cluster to connect to that cluster.
 
-Connection strings are preserved after [the cluster replica promotion](./cross-region-replication.md#replica-cluster-promotion).
+Connection strings are preserved after [the cluster replica promotion](./cross-region-replication.md#replica-cluster-promotion). You can continue to use either string for read operations. You need to change connection string to point to the promoted replica cluster to continue writes to the database after promotion is completed.
+
+## Cross-region replication limits and limitations
+The following section describes various limits in the cross-region replication feature.
+
+- Cross-region replication isn't supported in [the Free tier](./free-tier.md).
+- [Burstable compute](./burstable-tier.md) isn't supported on replica clusters.
+- Cross-region replication is supported only on clusters with one shard.
+- Compute, storage, and shard count configuration is the same on the primary and replica clusters and can't be changed.
+- High availability isn't supported on replica clusters.
+- Replica of a replica cluster isn't supported.
 
 ## Related content
 

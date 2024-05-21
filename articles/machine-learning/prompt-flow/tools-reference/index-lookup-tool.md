@@ -6,6 +6,8 @@ author: e-straight
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - build-2024
 ms.topic: reference
 ms.date: 01/23/2024
 ms.author: eur

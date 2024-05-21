@@ -10,7 +10,7 @@ ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql
 ms.date: 5/5/2024
-ms.custom: query-reference
+ms.custom: query-reference, build-2024
 ---
 
 # VectorDistance (NoSQL query)

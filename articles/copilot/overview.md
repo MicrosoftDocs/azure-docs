@@ -1,12 +1,13 @@
 ---
 title:  Microsoft Copilot for Azure overview
-description: Microsoft Copilot for Azure is an AI-powered tool to help you do more with Azure. 
+description: Microsoft Copilot for Azure is an AI-powered tool to help you do more with Azure.
 ms.date: 05/21/2024
 ms.topic: overview
 ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
+  - build-2024
 ms.author: jenhayes
 author: JnHs
 hideEdit: true
@@ -26,7 +27,7 @@ Microsoft Copilot for Azure (preview) is made available to customers under the t
 
 ## Manage access
 
-By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to limit access to Copilot for Azure for their organization.
+By default, Copilot for Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to control access to Copilot for Azure for their organization.
 
 For more information, see [Manage access to Microsoft Copilot for Azure](manage-access.md).
 

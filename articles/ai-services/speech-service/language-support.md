@@ -8,7 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 2/1/2024
 ms.author: eur
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
 # Language and voice support for the Speech service
@@ -88,7 +88,7 @@ This table lists all the locales supported for [Viseme](speech-synthesis-markup-
 Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 > [!IMPORTANT]
-> Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and custom neural voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
+> Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and custom neural voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
 Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 
@@ -137,6 +137,12 @@ To set the input speech recognition language, specify the full locale with a das
 To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
 
 [!INCLUDE [Language support include](includes/language-support/speech-translation.md)]
+
+### Video translation
+
+The following table illustrates the fixed mapping relationship between source and target locales, along with the full locales associated with each language.
+
+[!INCLUDE [Language support include](includes/language-support/video-translation.md)]
 
 # [Language identification](#tab/language-identification)
 

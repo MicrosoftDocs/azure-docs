@@ -5,11 +5,11 @@ description: Learn how to create and customize your dev box by using Dev Home. M
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
-ms.topic: how-to 
+ms.custom:
+  - build-2024
+ms.topic: how-to
 ms.date: 06/05/2024
-
 #customer intent: As a developer, I want to use the Dev Home app to create customizations for my dev boxes, so that I can manage my customizations.
-
 ---
 
 # Create reusable dev box customizations with Dev Home Preview

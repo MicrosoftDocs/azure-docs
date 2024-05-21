@@ -8,7 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 2/7/2024
 ms.author: eur
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
 # Use personal voice in your application

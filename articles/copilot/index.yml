@@ -11,6 +11,7 @@ metadata:
   ms.custom:
     - ignite-2023
     - ignite-2023-copilotinAzure
+    - build-2024
   ms.topic: hub-page
   ms.date: 05/21/2024
 highlightedContent:
@@ -87,10 +88,7 @@ conceptualContent:
               text: Generate Azure CLI scripts
             - url: ./generate-powershell-scripts.md
               itemType: get-started
-              text: Generate Azure PowerShell scripts
-            - url: ./optimize-code-application-insights.md
-              itemType: get-started
-              text: Discover performance recommendations with Code Optimizations
+              text: Generate PowerShell scripts
             - url: ./generate-kubernetes-yaml.md
               itemType: get-started
               text: Generate Kubernetes YAML files
@@ -100,3 +98,6 @@ conceptualContent:
             - url: ./troubleshoot-app-service.md
               itemType: get-started
               text: Troubleshoot deployed web apps
+            - url: ./optimize-code-application-insights.md
+              itemType: get-started
+              text: Discover recommendations with Code Optimizations

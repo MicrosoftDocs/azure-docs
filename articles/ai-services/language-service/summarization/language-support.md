@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-summarization, ignite-2023
+ms.custom: language-service-summarization, ignite-2023, build-2024
 ---
 
 # Language support for document and conversation summarization

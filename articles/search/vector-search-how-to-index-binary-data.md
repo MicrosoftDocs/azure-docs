@@ -1,20 +1,22 @@
 ---
-title: Index binary data for vector search
+title: Index binary vectors for vector search
 titleSuffix: Azure AI Search
-description: Explains how to configure fields for binary data and the vector search configuration for querying the fields.
+description: Explains how to configure fields for binary vectors and the vector search configuration for querying the fields.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 05/21/2024
 ---
 
-# Index binary data for vector search
+# Index binary vectors for vector search
 
-Beginning with the 2024-05-01-preview REST API, Azure AI Search supports a packed binary type of `Collection(Edm.Binary)` for further reducing the storage and memory footprint of vector data. You can assign this data type to fields that store binary embeddings from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3).
+Beginning with the 2024-05-01-preview REST API, Azure AI Search supports a packed binary type of `Collection(Edm.Byte)` for further reducing the storage and memory footprint of vector data. You can use this data type for output from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3).
 
-There are three steps to configuring an index for binary data:
+There are three steps to configuring an index for binary vectors:
 
 > [!div class="checklist"]
 > + Add a vector search algorithm that specifies Hamming distance for binary vector comparison
@@ -25,16 +27,17 @@ This article assumes you're familiar with [creating an index in Azure AI Search]
 
 ## Prerequisites
 
-+ An embedding model that outputs embeddings in a packed form, where each 8-bit binary value is packed into one uint8 unit.
++ Binary vectors, with 1 bit per dimension, packaged in uint8 values with 8 bits per value. These can be obtained by using models that directly generate "packaged binary" vectors, or by quantizing vectors into binary vectors client-side during indexing and searching.
 
 ## Limitations
 
 + No scalar compression or integrated vectorization support.
 + No Azure portal support in the Import and vectorize data wizard.
++ No support for binary fields in the [AML skill](cognitive-search-aml-skill.md) that's used for integrated vectorization of models in the Azure AI Studio model catalog.
 
 ## Add a vector search algorithm and vector profile
 
-Vector search algorithms are used to create the query navigation structures during index. For binary data fields, vector comparisons are performed using the Hamming distance. Configuration of a vector search algorithm is in a search index.
+Vector search algorithms are used to create the query navigation structures during indexing. For binary vector fields, vector comparisons are performed using the Hamming distance metric. 
 
 1. To add a binary field to an index, set up a [`Create or Update Index`](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) request using the **2024-05-01-preview REST API** or the Azure portal.
 

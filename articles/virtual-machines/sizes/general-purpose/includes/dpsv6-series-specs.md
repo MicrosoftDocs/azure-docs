@@ -8,7 +8,7 @@ ms.subservice: sizes
 ms.date: 05/09/2024
 ms.author: tomcassidy
 ms.reviewer: tomcassidy
-ms.custom: include file
+ms.custom: include file, build-2024
 ---
 
 | Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units, etc.  |

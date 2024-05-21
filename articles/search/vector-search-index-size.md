@@ -6,6 +6,8 @@ description: Explanation of the factors affecting the size of a vector index.
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 05/21/2024
 ---
@@ -204,7 +206,8 @@ The following table summarizes the overhead percentages observed in internal tes
 | 96                | 4                  | 20%              |
 | 200               | 4                  | 8%               |  
 | 768               | 4                  | 2%               |  
-| 1536              | 4                  | 1%               |  
+| 1536              | 4                  | 1%               |
+| 3072              | 4                  | 0.5%             |
 
 These results demonstrate the relationship between dimensions, HNSW parameter `m`, and memory overhead for the HNSW algorithm.  
 

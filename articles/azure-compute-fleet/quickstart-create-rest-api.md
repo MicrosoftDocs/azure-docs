@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 05/09/2024
 ms.reviewer: jushiman
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, build-2024
 ---
 
 # Create an Azure Compute Fleet using an ARM template (Preview)

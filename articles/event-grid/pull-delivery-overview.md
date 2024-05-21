@@ -7,6 +7,7 @@ description: Learn about Event Grid's http pull delivery and the resources that 
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
 # Pull delivery with HTTP

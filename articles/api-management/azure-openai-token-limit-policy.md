@@ -5,6 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
+ms.custom:
+  - build-2024
 ms.topic: article
 ms.date: 05/10/2024
 ms.author: danlep
@@ -44,8 +46,7 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
         remaining-tokens-header-name="header name"  
         remaining-tokens-variable-name="policy expression variable name"
         consumed-tokens-header-name="header name"
-        consumed-tokens-variable-name="policy expression variable name">
-</azure-openai-token-limit>
+        consumed-tokens-variable-name="policy expression variable name" />
 ```
 ## Attributes
 
@@ -80,10 +81,9 @@ In the following example, the token limit of 5000 per minute is keyed by the cal
 <policies>
     <inbound>
         <base />
-        <azure-openai-token-limit>
+        <azure-openai-token-limit
             counter-key="@(context.Request.IpAddress)"
-            tokens-per-minute="5000" estimate-prompt-tokens="false" "remaining-tokens-variable-name="remainingTokens"
-        </azure-openai-token-limit>
+            tokens-per-minute="5000" estimate-prompt-tokens="false" "remaining-tokens-variable-name="remainingTokens" />
     </inbound>
     <outbound>
         <base />

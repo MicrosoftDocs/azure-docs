@@ -1,11 +1,13 @@
 ---
-title: Azure OpenAI semantic search input binding for Azure Functions
+title: Azure OpenAI Semantic Search Input Binding for Azure Functions
 description: Learn how to use the Azure OpenAI semantic search input binding to use semantic search on your embeddings during function execution in Azure Functions.
 ms.topic: reference
+ms.custom:
+  - build-2024
 ms.date: 05/08/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
-# Azure OpenAI semantic search input binding for Azure Functions
+# Azure OpenAI Semantic Search Input Binding for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
@@ -32,25 +34,23 @@ A C# function can be created using one of the following C# modes:
 
 This example shows how to perform a semantic search on a file.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="66-73"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="63-70"::: 
 
-
+<!-- 
 ### [In-process](#tab/in-process)
 
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)] -->
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-:::code language="java" source="~/functions-openai-extension/samples/{{link to the correct sample.java}}" range="{{named is better than range}}":::
+This example shows how to perform a semantic search on a file.
 
-{{Add more examples if available}}
--->
+
+:::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="70-84":::
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
@@ -63,30 +63,26 @@ This example shows how to perform a semantic search on a file.
 -->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-:::code language="typescript" source="~/functions-openai-extension/samples/{{link to the correct sample.ts}}" range="{{named is better than range}}":::
+This example shows how to perform a semantic search on a file.
 
-{{Add more examples if available}}
--->
+:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/nodejs/src/app.ts" range="40-58":::
+
+
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-Here's the _function.json_ file for {{example}}:
+This example shows how to perform a semantic search on a file.
 
-:::code language="json" source="~/functions-openai-extension/samples/{{link to the correct function.json}}" :::
+Here's the _function.json_ file for prompting a file:
+
+:::code language="json" source="~/functions-openai-extension/samples/rag-aisearch/powershell/PromptFile/function.json" :::
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-{{This comes from the example code comment}} 
 
-:::code language="powershell" source="~/functions-openai-extension/samples/{{link to the correct sample.ps1}}" :::
--->
+:::code language="powershell" source="~/functions-openai-extension/samples/rag-aisearch/powershell/PromptFile/run.ps1" :::
+
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 [!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
@@ -200,4 +196,3 @@ See the [Example section](#example) for complete examples.
 + [Semantic search samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch)
 + [Azure OpenAI extensions for Azure Functions](functions-bindings-openai.md)
 + [Azure OpenAI embeddings store output binding for Azure Functions](functions-bindings-openai-embeddingsstore-output.md)
-

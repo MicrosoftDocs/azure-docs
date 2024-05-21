@@ -8,9 +8,10 @@ ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 04/02/2024
 ms.reviewer: mopeakande
+reviewer: msakande
 ms.author: shubhiraj
 author: shubhirajMsft
-ms.custom: [references_regions]
+ms.custom: references_regions, build-2024
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-cohere.md
 ---
@@ -80,7 +81,7 @@ To create a deployment:
 
 1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
-    :::image type="content" source="media/how-to-deploy-models-cohere-embed/embed-english-existing-deployment.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="media/how-to-deploy-models-cohere-embed/embed-english-existing-deployment.png":::
+    :::image type="content" source="media/how-to-deploy-models-cohere-embed/embed-english-existing-deployment.png" alt-text="A screenshot showing a workspace that is already subscribed to the offering." lightbox="media/how-to-deploy-models-cohere-embed/embed-english-existing-deployment.png":::
 
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
@@ -280,7 +281,7 @@ Each time a workspace subscribes to a given model offering from Azure Marketplac
 
 For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per workspace. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
 ## Content filtering
 

@@ -6,7 +6,8 @@ ms.date: 05/02/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-
+ms.custom:
+  - build-2024
 ---
 
 # Upgrade hub cluster type for Azure Kubernetes Fleet Manager resource

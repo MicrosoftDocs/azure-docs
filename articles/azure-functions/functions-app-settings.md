@@ -6,6 +6,7 @@ ms.custom:
   - devx-track-extended-java
   - devx-track-python
   - ignite-2023
+  - build-2024
 ms.date: 12/28/2023
 ---
 

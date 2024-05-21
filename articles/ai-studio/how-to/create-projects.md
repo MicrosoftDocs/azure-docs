@@ -6,6 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: deeikele
@@ -14,8 +15,6 @@ author: sdgilley
 ---
 
 # Create a project in Azure AI Studio
-
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 This article describes how to create a project in Azure AI Studio. A project is used to organize your work and save state while building customized AI apps. 
 

@@ -6,7 +6,7 @@ ms.subservice: kubernetes
 ms.author: robece
 ms.date: 06/17/2021
 ms.topic: quickstart
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, build-2024
 ms.devlang: azurecli
 ---
 

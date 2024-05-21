@@ -9,7 +9,7 @@ ms.date: 5/21/2024
 ms.reviewer: haelhamm
 ms.author: ssalgado
 author: ssalgadodev
-ms.custom: [references_regions]
+ms.custom: references_regions, build-2024
 ---
 
 # How to deploy JAIS with Azure AI Studio
@@ -28,9 +28,9 @@ You can find the JAIS model in the [Model Catalog](model-catalog.md) by filterin
 - An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For JAIS models, the serverless API model deployment offering is only available with AI hubs created in East US 2 or Sweden Central region.
+    > For JAIS models, the serverless API model deployment offering is only available with hubs created in East US 2 or Sweden Central region.
 
-- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 
@@ -251,9 +251,12 @@ Response:
 
 ##### More inference examples
 
-| **Package**       | **Sample Notebook**                             |
+| **Sample Type**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests - JAIS   | [jais.ipynb](https://aka.ms/samples/jais/webrequests)|
+| CLI using CURL and Python web requests    | [webrequests.ipynb](
+https://aka.ms/jais/webrequests-sample) |
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/jais/openaisdk) |
+| LiteLLM | [litellm.ipynb](https://aka.ms/jais/litellm-sample) |
 
 ## Cost and quotas
 

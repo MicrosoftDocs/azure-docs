@@ -6,7 +6,7 @@
  ms.service: azure-ai-studio
  ms.topic: include
  ms.date: 05/03/2024
- ms.custom: include
+ms.custom: include, build-2024
 ---
 
 [!INCLUDE [Feature preview](../../../ai-studio/includes/feature-preview.md)]
@@ -209,6 +209,7 @@ Optionally, configure parameters for your fine-tuning job. The following are ava
 |`batch_size` |integer | The batch size to use for training. The batch size is the number of training examples used to train a single forward and backward pass. In general, we've found that larger batch sizes tend to work better for larger datasets. The default value as well as the maximum value for this property are specific to a base model. A larger batch size means that model parameters are updated less frequently, but with lower variance. When set to -1, batch_size is calculated as 0.2% of examples in training set and the max is 256. |
 | `learning_rate_multiplier` | number | The learning rate multiplier to use for training. The fine-tuning learning rate is the original learning rate used for pre-training multiplied by this value. Larger learning rates tend to perform better with larger batch sizes. We recommend experimenting with values in the range 0.02 to 0.2 to see what produces the best results. A smaller learning rate may be useful to avoid overfitting. |
 |`n_epochs` | integer | The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset. If set to -1, the number of epochs is determined dynamically based on the input data. |
+|`seed` | integer | The seed controls the reproducibility of the job. Passing in the same seed and job parameters should produce the same results, but may differ in rare cases. If a seed isn't specified, one will be generated for you. |
 
 You can choose to leave the default configuration or customize the values to your preference. After you finish making your configurations, select **Next**. 
 
@@ -232,11 +233,11 @@ The result file is a CSV file that contains a header row and a row for each trai
 | --- | --- |
 | `step` | The number of the training step. A training step represents a single pass, forward and backward, on a batch of training data. |
 | `train_loss` | The loss for the training batch. |
-| `training_accuracy` | The percentage of completions in the training batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `train_mean_token_accuracy` | The percentage of tokens in the training batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `valid_loss` | The loss for the validation batch. |
-| `valid_accuracy` | The percentage of completions in the validation batch for which the model's predicted tokens exactly matched the true completion tokens.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.67 (2 of 3) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
 | `validation_mean_token_accuracy` | The percentage of tokens in the validation batch correctly predicted by the model.<br>For example, if the batch size is set to 3 and your data contains completions `[[1, 2], [0, 5], [4, 2]]`, this value is set to 0.83 (5 of 6) if the model predicted `[[1, 1], [0, 5], [4, 2]]`. |
+| `full_valid_loss` | The validation loss calculated at the end of each epoch. When training goes well, loss should decrease. |
+|`full_valid_mean_token_accuracy` | The valid mean token accuracy calculated at the end of each epoch. When training is going well, token accuracy should increase. |
 
 You can also view the data in your results.csv file as plots in Azure AI Studio under the **Metrics** tab of your fine-tuned model. Select the link for your trained model, and you will see three charts: loss, mean token accuracy, and token accuracy. If you provided validation data, both datasets will appear on the same plot.
 

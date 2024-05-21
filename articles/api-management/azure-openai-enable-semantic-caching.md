@@ -3,6 +3,8 @@ title: Enable semantic caching for Azure OpenAI APIs in Azure API Management
 description: Prerequisites and configuration steps to enable semantic caching for Azure OpenAI APIs in Azure API Management.
 author: dlepow
 ms.service: api-management
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 05/13/2024
 ms.author: danlep

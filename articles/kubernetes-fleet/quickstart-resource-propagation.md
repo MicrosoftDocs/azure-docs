@@ -5,6 +5,8 @@ ms.date: 03/28/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: kubernetes-fleet
+ms.custom:
+  - build-2024
 ms.topic: quickstart
 ---
 

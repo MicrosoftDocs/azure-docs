@@ -3,6 +3,8 @@ title: Use deployment safeguards to enforce best practices in Azure Kubernetes S
 description: Learn how to use deployment safeguards to enforce best practices on an Azure Kubernetes Service (AKS) cluster.
 author: schaffererin
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 04/25/2024
 ms.author: schaffererin
 ---
@@ -102,7 +104,7 @@ If you want to submit an idea or request for deployment safeguards, open an issu
 ## Enable deployment safeguards
 
 >[!NOTE]
-> If you enabled Azure Policy for the first time to use deployment safeguards, you might need to wait *up to 35 minutes* for Azure Policy to take effect.
+> If you enabled Azure Policy for the first time to use deployment safeguards, you might need to wait *up to 20 minutes* for Azure Policy to take effect.
 >
 > Using the deployment safeguards `Enforcement` level means you're opting in to deployments being blocked and mutated. Please consider how these policies might work with your AKS cluster before enabling `Enforcement`.
 
@@ -121,7 +123,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --enable-addo
 Enable deployment safeguards on an existing cluster that has the Azure Policy add-on enabled using the [`az aks update`][az-aks-update] command with the `--safeguards-level` and `--safeguards-version` flags. If you want to receive noncompliance warnings, set the `--safeguards-level` to `Warning`. If you want to deny or mutate all noncompliant deployments, set it to `Enforcement`.
 
 ```azurecli-interactive
-az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Enforcement -safeguards-version v2.0.0
+az aks update --name myAKSCluster --resource-group myResourceGroup --safeguards-level Enforcement --safeguards-version v2.0.0
 ```
 
 If you want to update the deployment safeguards level of an existing cluster, use the [`az aks update`][az-aks-update] command with the `--safeguards-level` flag set to `Warning` or `Enforcement`.

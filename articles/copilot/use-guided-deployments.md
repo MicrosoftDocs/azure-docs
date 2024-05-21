@@ -4,6 +4,8 @@ description: Learn how Microsoft Copilot for Azure (preview) can provide one-cli
 ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
+ms.custom:
+  - build-2024
 ms.author: jenhayes
 author: JnHs
 ---
@@ -12,7 +14,7 @@ author: JnHs
 
 Microsoft Copilot for Azure (preview) can help you deploy certain resources and workloads by providing one-click or step-by-step deployment assistance.
 
-Guided deployments are currently available for select workloads. For other types of deployments, Copilot for Azure helps by providing links to templates that you can customize and deploy, often with various deployment options such as Azure CLI, Terraform, Bicep, or ARM. If a template isn't available for your scenario, Copilot for Azure provides information to help you choose and deploy the best resources for your scenario.
+Guided deployments are currently available for select workloads. For other types of deployments, Copilot for Azure helps by [providing links to templates](#template-suggestions) that you can customize and deploy, often with various deployment options such as Azure CLI, Terraform, Bicep, or ARM. If a template isn't available for your scenario, Copilot for Azure provides information to help you choose and deploy the best resources for your scenario.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
@@ -32,11 +34,11 @@ Copilot for Azure can help you deploy an NGINX web server, Azure MySQL Flexible 
 
 ### LEMP stack example
 
-You can say "**I want to deploy a LEMP stack on a Ubuntu VM**". Copilot for Azure checks for deployment experiences, and presents you with two options: **Step-by-step deployment** or **One-click deployment**.
+You can say "**I want to deploy a LEMP stack on a Ubuntu VM**". Copilot for Azure checks for deployment experiences, and presents you with two deployment options: **Step-by-Step** or **One-Click**.
 
 :::image type="content" source="media/use-guided-deployments/lemp-stack-deployment.png" alt-text="Screenshot showing Copilot for Azure presenting deployment options for a LEMP stack on Ubuntu.":::
 
-If you choose **Step-by-step deployment**, after you select a subscription, Copilot for Azure launches a guided experience that walks you through each step of the deployment.
+If you choose **Step-by-step deployment** and select a subscription, Copilot for Azure launches a guided experience that walks you through each step of the deployment.
 
 :::image type="content" source="media/use-guided-deployments/lemp-stack-step-start.png" lightbox="media/use-guided-deployments/lemp-stack-step-start.png" alt-text="Screenshot showing the start of the step-by-step guided deployment for a LEMP stack on Ubuntu.":::
 
@@ -58,7 +60,7 @@ Copilot for Azure can help you [create a Linux VM and connect to it via SSH](/az
 
 ### Linux VM example
 
-You can say "**How do I create a linux vm and ssh into it?**". You'll see two options: **Step-by-step deployment** or **One-click deployment**. If you select the one-click option, after selecting a subscription, you can run the script to deploy the infrastructure. While the deployment is running, don't close or refresh the page. You'll see progress as each step of the deployment is completed.
+You can say "**How do I create a Linux VM and SSH into it?**". You'll see two deployment options: **Step-by-Step deployment** or **One-Click**. If you choose the one-click option and select a subscription, you can run the script to deploy the infrastructure. While the deployment is running, don't close or refresh the page. You'll see progress as each step of the deployment is completed.
 
 :::image type="content" source="media/use-guided-deployments/linux-vm-deployment.png" lightbox="media/use-guided-deployments/linux-vm-deployment.png" alt-text="Screenshot showing Copilot for Azure providing a one-click deployment for a Linux VM.":::
 
@@ -76,9 +78,35 @@ Copilot for Azure can help you [create an Azure Kubernetes Service (AKS) cluster
 
 ### AKS cluster example
 
-When you say "**Seamless deployment for aks cluster on azure**", Microsoft Copilot for Azure presents you with two options: **Step-by-step deployment** or **One-click deployment**. In this example, the one-click deployment option was selected to deploy to the Lamna Healthcare subscription.
+When you say "**Seamless deployment for AKS cluster on Azure**", Microsoft Copilot for Azure presents you with two deployment options: **Step-by-Step** or **One-Click**. In this example, the one-click deployment option is selected. As with the other examples, you see progress as each step of the deployment is completed.
 
 :::image type="content" source="media/use-guided-deployments/aks-cluster-deployment.png" lightbox="media/use-guided-deployments/aks-cluster-deployment.png" alt-text="Screenshot showing Copilot for Azure providing a one-click deployment for an AKS cluster.":::
+
+## Template suggestions
+
+If a guided deployment isn't available, Copilot for Azure checks to see if there's a template available to help with your scenario. Where possible, multiple deployment options are provided, such as Azure CLI, Terraform, Bicep, or ARM. You can then download and customize the templates as desired.
+
+If a template isn't available, Copilot for Azure provides information to help you achieve your goal. You can also revise your prompt to be more specific or ask if there are any related templates you could start from.
+
+### Template suggestion sample prompts
+
+- "I want to use OpenAI to build a chatbot."
+- "Do you have a suggestion for a Python app?"
+- "I want to use Azure OpenAI endpoints in a sample app."
+- "I want to use OpenAI to build a chatbot."
+- "How could I easily deploy a Wordpress site?"
+- "Any templates to start with using App service?"
+- "Azure AI search + OpenAI template?"
+- "Can you suggest a template for app services using SAP cloud SDK?"
+- "Java app with Azure OpenAI?"
+- "Can I use Azure Open AI with React?"
+- "Enterprise chat with GPT using Java?"
+- "How can I deploy a sample app using Enterprise chat with GPT and java?"
+- "I want to use Azure functions to build an OpenAI app"
+- "How can I deploy container apps with Azure OpenAI?"
+- "Do you have a template for using Azure AI search?"
+- "Do you have a template for using Node js in Azure?"
+- "I want a Wordpress app using App services."
 
 ## Next steps
 

@@ -3,6 +3,8 @@ title: Estimating consumption-based costs in Azure Functions
 description: Learn how to better estimate the costs that you might incur when running your function app in either the Consumption plan or the Flex Consumption plan in Azure Functions.
 ms.date: 5/05/2024
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 # Customer intent: As a cloud developer, I want to understand the overall costs of running my code in a dynamic plan in Azure Functions so that I can make better architectural and business decisions.
 ---
 

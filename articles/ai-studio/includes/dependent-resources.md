@@ -7,7 +7,7 @@ ms.author: larryfr
 ms.service: azure-ai-studio
 ms.topic: include
 ms.date: 5/21/2024
-ms.custom: include
+ms.custom: include, build-2024
 ---
 
 |Dependent Azure resource|Resource provider|Optional|Note|
@@ -17,4 +17,3 @@ ms.custom: include
 |Azure Key Vault|`Microsoft.KeyVault/vaults`||Stores secrets like connection strings for your resource connections. For data isolation, secrets can't be retrieved across projects via APIs.|
 |Azure Container Registry|`Microsoft.ContainerRegistry/registries`|✔|Stores docker images created when using custom runtime for prompt flow. For data isolation, docker images are prefixed using the project GUID.|
 |Azure Application Insights &<br>Log Analytics Workspace| `Microsoft.Insights/components`<br>`Microsoft.OperationalInsights/workspaces` |✔|Used as log storage when you opt in for application-level logging for your deployed prompt flows.|
-

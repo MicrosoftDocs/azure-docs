@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 05/07/2024
 ms.author: jboback
-ms.custom: language-service-summarization
+ms.custom: language-service-summarization, build-2024
 ---
 
 # What is summarization?

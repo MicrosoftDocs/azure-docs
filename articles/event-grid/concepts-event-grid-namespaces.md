@@ -7,6 +7,7 @@ description: General concepts of Event Grid namespace topics and their main func
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
 # Azure Event Grid namespace concepts
@@ -230,7 +231,7 @@ Here are a few more points about namespaces:
 - Namespace is a tracked resource with `tags` and `location` properties, and once created, it can be found on `resources.azure.com`.  
 - The name of the namespace can be 3-50 characters long. It can include alphanumeric, and hyphen(-), and no spaces.  
 - The name needs to be unique per region.
-- **Current supported regions:** Central US, East Asia, East US, East US 2, North Europe, South Central US, Southeast Asia, UAE North, West Europe, West US 2, West US 3.
+
 
 ## Throughput units
 

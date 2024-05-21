@@ -6,6 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: jhirono
@@ -152,7 +153,7 @@ Before following the steps in this article, make sure you have the following pre
 
 ### Connectivity to other services
 
-* Azure AI services provisioned with Azure AI hub and Azure AI Search attached with Azure AI hub should be public.
+* Azure AI services provisioned with Azure AI Studio hub and Azure AI Search attached should be public.
 * The "Add your data" feature in the Azure AI Studio playground doesn't support using a virtual network or private endpoint on the following resources:
     * Azure AI Search
     * Azure OpenAI

@@ -7,6 +7,7 @@ ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
+  - build-2024
 ms.author: jenhayes
 author: JnHs
 hideEdit: true

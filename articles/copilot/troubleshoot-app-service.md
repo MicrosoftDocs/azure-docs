@@ -4,6 +4,8 @@ description: Learn how Microsoft Copilot for Azure can help you troubleshoot you
 ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
+ms.custom:
+  - build-2024
 ms.author: jenhayes
 author: JnHs
 ---
@@ -24,17 +26,35 @@ When you ask Microsoft Copilot for Azure for troubleshooting help, it automatica
 
 ## Sample prompts
 
-Here are a few examples of the kinds of prompts you can use to get help with App Service troubleshooting. Modify these prompts based on your real-life scenarios, or try additional prompts to get help with different types of issues.
+Here are a few examples of the kinds of prompts you can use to access troubleshooting tools and understand diagnostic information. Modify these prompts based on your real-life scenarios, or try additional prompts to get help with different types of issues.
+
+Troubleshooting:
 
 - "My web app is down"
-- "My web app is slow"
+- "Why is my web app slow?"
 - "Enable auto heal"
-- "Take a memory dump"
 - "High CPU issue"
 - "Troubleshoot performance issues with my app"
 - "Analyze app latency?"
+- "Take a memory dump"
+
+Understanding available tools:
+
+- "Can I track uptime and downtime of my web app over a specific time period?"
+- "Is there a tool that can help me view event logs for my web app?"
+
+Proactive practices:
+
+- "Risk alerts for my app"
+- "Are there any best practices for availability for this app?"
+- "How can I make my app future-proof"
+
+Summarization and explanation:
+
 - "Give me a summary of these diagnostics."
+- "Summarize this page."
 - "What does this error mean?"
+- "Can you tell me more about the 3rd diagnostic on this page?"
 - "What are the next steps to resolve this error?"
 
 ## Examples

@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: This article provides instructions on how to trace your application with prompt flow SDK.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: chenlujiao
@@ -67,6 +69,9 @@ Next, execute the following command to set the trace destination. Replace `<your
 ```azurecli
 pf config set trace.destination=azureml://subscriptions/<your_subscription_id>/resourcegroups/<your_resourcegroup_name>/providers/Microsoft.MachineLearningServices/workspaces/<your_studio_project_name>
 ```
+
+> [!NOTE]
+> The West US 3 (`westus3`) region does not support tracing.
 
 ### Collections
 

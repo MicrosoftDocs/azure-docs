@@ -1,7 +1,9 @@
 ---
-title: Azure Functions Dedicated hosting 
+title: Azure Functions Dedicated hosting
 description: Learn about the benefits of running Azure Functions on a dedicated App Service hosting plan.
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ms.date: 01/26/2023
 ---
 

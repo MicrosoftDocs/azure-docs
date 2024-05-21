@@ -1,7 +1,9 @@
 ---
 title: Custom domains for Azure Event Grid hostnames
-description: This article describes how custom domain names can be assigned to your Event Grid namespace's MQTT and HTTP host names along with the default host names. 
+description: This article describes how custom domain names can be assigned to your Event Grid namespace's MQTT and HTTP host names along with the default host names.
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 05/21/2024
 author: george-guirguis
 ms.author: geguirgu

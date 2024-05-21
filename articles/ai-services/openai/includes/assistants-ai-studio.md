@@ -5,6 +5,7 @@ description: Walkthrough on how to get started with Azure OpenAI assistants with
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
+  - build-2024
 ms.topic: include
 ms.date: 03/04/2024
 ms.author: mbullwin

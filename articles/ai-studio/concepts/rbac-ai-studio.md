@@ -6,6 +6,7 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
 ms.date: 5/21/2024
 ms.reviewer: deeikele
@@ -153,7 +154,7 @@ If the built-in roles are insufficient, you can create custom roles. Custom role
 
 When configuring a hub to use a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
 
-If your Azure AI hub is configured with a **user-assigned managed identity**, the identity must be granted the following roles. These roles allow the managed identity to create the Azure Storage, Azure Cosmos DB, and Azure Search resources used when using a customer-managed key:
+If your AI Studio hub is configured with a **user-assigned managed identity**, the identity must be granted the following roles. These roles allow the managed identity to create the Azure Storage, Azure Cosmos DB, and Azure Search resources used when using a customer-managed key:
 
 - `Microsoft.Storage/storageAccounts/write`
 - `Microsoft.Search/searchServices/write`
@@ -175,7 +176,7 @@ An Azure Container Registry instance is an optional dependency for Azure AI Stud
 | AI Studio hub system-assigned managed identity | ✓ | ✓ |
 | AI Studio hub user-assigned managed identity </br>with the **ACRPull** role assigned to the identity |  | ✓ |
 
-A system-assigned managed identity is automatically assigned to the correct roles when the Azure AI hub is created. If you're using a user-assigned managed identity, you must assign the **ACRPull** role to the identity.
+A system-assigned managed identity is automatically assigned to the correct roles when the hub is created. If you're using a user-assigned managed identity, you must assign the **ACRPull** role to the identity.
 
 ## Scenario: Use Azure Application Insights for logging
 

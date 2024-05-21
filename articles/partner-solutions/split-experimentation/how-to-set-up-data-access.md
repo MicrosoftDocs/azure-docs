@@ -4,6 +4,8 @@ description: This article provides information about setting up data access cont
 ms.author: malev
 author: maud-lv
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 05/01/2024
 ---
 

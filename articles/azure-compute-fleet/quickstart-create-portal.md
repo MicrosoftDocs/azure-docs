@@ -5,6 +5,8 @@ author: rajeeshr
 ms.author: rajeeshr
 ms.topic: how-to
 ms.service: virtual-machines
+ms.custom:
+  - build-2024
 ms.date: 05/09/2024
 ms.reviewer: jushiman
 ---

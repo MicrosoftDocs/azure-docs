@@ -5,7 +5,7 @@ author: nzthiago
 ms.topic: conceptual
 ms.date: 04/07/2024
 ms.author: thalme
-ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell
+ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell, build-2024
 ---
 
 # Azure Functions Premium plan

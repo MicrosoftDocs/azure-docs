@@ -4,7 +4,8 @@ description: Explains the scaling behaviors of Consumption plan and Premium plan
 ms.date: 05/12/2024
 ms.topic: conceptual
 ms.service: azure-functions
-
+ms.custom:
+  - build-2024
 ---
 # Event-driven scaling in Azure Functions
 

@@ -2,7 +2,7 @@
 title: Receive events using namespace topics with Java
 description: This article provides step-by-step instructions to consume events from Event Grid namespace topics using pull delivery.
 ms.topic: quickstart
-ms.custom: ignite-2023, devx-track-extended-java
+ms.custom: ignite-2023, devx-track-extended-java, build-2024
 ms.author: robece
 author: robece
 ms.date: 11/15/2023

@@ -6,11 +6,11 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: kritifaujdar 
+ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
 author: msakande
-ms.custom: [references_regions]
+ms.custom: references_regions, build-2024
 ---
 
 # How to deploy Mistral models with Azure AI Studio
@@ -21,7 +21,7 @@ In this article, you learn how to use Azure AI Studio to deploy the Mistral fami
 Mistral AI offers two categories of models in [Azure AI Studio](https://ai.azure.com):
 
 * __Premium models__: Mistral Large and Mistral Small. These models are available as serverless APIs with pay-as-you-go token-based billing in the AI Studio model catalog. 
-* __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with managed online endpoints.
+* __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the AI Studio model catalog and can be deployed to managed compute in your own Azure subscription.
 
 You can browse the Mistral family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Mistral collection.
 
@@ -56,7 +56,7 @@ Mistral Small is:
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-**Mistral Large** and **Mistral Small** can be deployed as a service with pay-as-you-go billing and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
+**Mistral Large** and **Mistral Small** can be deployed as a serverless API with pay-as-you-go billing and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
 
 ### Prerequisites
 
@@ -276,7 +276,7 @@ The following JSON is an example response:
 
 ### Cost and quota considerations for Mistral family of models deployed as a service
 
-Mistral models deployed as a service are offered by Mistral AI through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+Mistral models deployed as a serverless API are offered by Mistral AI through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
@@ -286,7 +286,7 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
+Models deployed as a serverless API with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
 ## Related content
 

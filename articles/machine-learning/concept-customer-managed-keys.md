@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/21/2024
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, build-2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # Customer-managed keys for Azure Machine Learning
@@ -135,6 +135,8 @@ Set the `enableServiceSideCMKEncryption` when you create a workspace to opt-in f
 
 > [!NOTE]
 > During this preview key rotation and data labeling capabilities are not supported.
+
+For a template that creates a workspace with service-side encryption of metadata, see [https://github.com/deeikele/azure-quickstart-templates/tree/cmk-service-side/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption](https://github.com/deeikele/azure-quickstart-templates/tree/cmk-service-side/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption).
   
 ## hbi_workspace flag
 

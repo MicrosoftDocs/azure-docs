@@ -10,6 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
 # Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server

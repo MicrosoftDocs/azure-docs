@@ -5,7 +5,7 @@ services: load-testing
 author: ninallam
 ms.service: load-testing
 ms.author: ninallam
-ms.custom: "include file"
+ms.custom: include file, build-2024
 ms.topic: "include"
 ms.date: 10/11/2023
 ---

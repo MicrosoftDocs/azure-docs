@@ -7,7 +7,7 @@ author: ninallam
 ms.author: ninallam
 ms.topic: conceptual
 ms.date: 11/24/2023
-ms.custom: template-concept 
+ms.custom: template-concept, build-2024
 ---
 
 # Key concepts for new Azure Load Testing users

@@ -4,6 +4,8 @@ titleSuffix: Microsoft Dev Box
 description: In this quickstart, learn how developers can create a dev box in the Microsoft Dev Box developer portal, and remotely connect to it through the browser.
 services: dev-box
 ms.service: dev-box
+ms.custom:
+  - build-2024
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm

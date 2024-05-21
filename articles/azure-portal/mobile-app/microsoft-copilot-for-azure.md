@@ -3,6 +3,8 @@ title: Use Microsoft Copilot for Azure with the Azure mobile app
 description: You can use the Azure mobile app to access Microsoft Copilot for Azure (preview) and benefit from its features.
 ms.date: 05/21/2024
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ---
 
 # Use Microsoft Copilot for Azure with the Azure mobile app

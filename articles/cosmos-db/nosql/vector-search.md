@@ -9,6 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom:
   - Build 2024
+  - build-2024
 ms.topic: conceptual
 ms.date: 5/7/2024
 ---
