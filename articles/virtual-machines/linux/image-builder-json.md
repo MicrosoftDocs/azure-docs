@@ -24,7 +24,6 @@ The basic format is:
 ```json
 {
   "type": "Microsoft.VirtualMachineImages/imageTemplates",
-  "apiVersion": "2022-02-14",
   "location": "<region>",
   "tags": {
     "<name>": "<value>",
@@ -98,16 +97,16 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 ```
 
 ---
+## API version
+The API version will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
 
-## Type and API version
-
-The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `apiVersion` will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
+## Type
+The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. 
 
 # [JSON](#tab/json)
 
 ```json
 "type": "Microsoft.VirtualMachineImages/imageTemplates",
-"apiVersion": "2022-02-14",
 ```
 
 # [Bicep](#tab/bicep)
@@ -852,8 +851,8 @@ imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
 
 az resource show \
-  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-  --api-version=2021-10-01
+  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName" \
+--api-version=2023-07-01
 ```
 
 Output:
@@ -1207,7 +1206,7 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```json
 "optimize": {
-      "vmboot": {
+      "vmBoot": {
         "state": "Enabled"
       }
     }
@@ -1217,15 +1216,15 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```bicep
 optimize: {
-      vmboot: {
+      vmBoot: {
         state: 'Enabled'
       }
     }
 ```
 ---
 
-- **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
-- state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
+- **vmBoot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
+- state: The state of the boot optimization feature within `vmBoot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
 To learn more, see [VM optimization for gallery images with Azure VM Image Builder](../vm-boot-optimization.md).
 
@@ -1361,7 +1360,7 @@ Sets the source image as an existing image version in an Azure Compute Gallery.
 ```json
 "source": {
   "type": "SharedImageVersion",
-  "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
+  "imageVersionId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
 }
 ```
 
@@ -1755,7 +1754,7 @@ Size of the proxy virtual machine used to pass traffic to the build VM and valid
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Run -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2023-07-01" -Action Run -Force
 ```
 
 ```azurecli-interactive
@@ -1775,7 +1774,7 @@ The build can be canceled anytime. If the distribution phase has started you can
 Examples of `cancel` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2023-07-01" -Action Cancel -Force
 ```
 
 ```azurecli-interactive

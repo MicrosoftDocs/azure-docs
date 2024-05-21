@@ -25,9 +25,9 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ## How many Active Directory connections are supported?
 
-You can configure only one Active Directory (AD) connection per subscription and per region. See [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) for additional information. 
+Azure NetApp Files now supports the ability to [create multiple Active Directory configurations in a subscription](create-active-directory-connections.md#multi-ad). 
 
-However, you can map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
+You can also map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
 <a name='does-azure-netapp-files-support-azure-active-directory'></a>
 
@@ -85,7 +85,7 @@ The same share name can be used for:
 * volumes deployed in different regions
 * volumes deployed to different availability zones within the same region 
 
-If you are using:
+If you're using:
 * regional volumes (without availability zones) or
 * volumes within the same availability zone, 
 

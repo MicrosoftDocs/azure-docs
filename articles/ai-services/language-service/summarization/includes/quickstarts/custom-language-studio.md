@@ -2,6 +2,8 @@
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
+ms.custom:
+  - build-2024
 ms.topic: include
 ms.date: 12/19/2023
 ms.author: jboback
@@ -24,7 +26,7 @@ Before you can use custom Summarization, you'll need to create an Azure AI Langu
 
 ## Download sample data
 
-If you need sample data, we've provided some for [document summarization](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/language-service/Custom%20summarization/abstractive-document-samples) and [conversation summarization](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/language-service/Custom%20summarization/abstractive-conversation-samples) scenarios for the purpose of this quickstart.
+If you need sample data, we've provided some for [text summarization](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/language-service/Custom%20summarization/abstractive-document-samples) and [conversation summarization](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/language-service/Custom%20summarization/abstractive-conversation-samples) scenarios for the purpose of this quickstart.
 
 ## Upload sample data to blob container
 

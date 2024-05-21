@@ -3,7 +3,7 @@ title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/14/2024
+ms.date: 05/21/2024
 ---
 # Lambda functions for Bicep
 
@@ -199,6 +199,43 @@ The output from the preceding example is:
 | mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
 
 **dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
+
+## mapValues
+
+`mapValues(inputObject, lambda expression)`
+
+Creates an object from an input object, using a lambda expression to map values.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputObject |Yes |object |The object to map.|
+| lambda expression |Yes |expression |The lambda expression used to map the values.|
+
+### Return value
+
+An object.
+
+### Example
+
+The following example shows how to use the `mapValues` function.
+
+```bicep
+var inputObject = { foo: 'foo', bar: 'bar' }
+
+output mapObject object = mapValues(inputObject, val => toUpper(val)) 
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| mapObject | Object | {foo: 'FOO', bar: 'BAR'} |
+
+**mapObject** creates another object with the values in upper case.
 
 ## reduce
 

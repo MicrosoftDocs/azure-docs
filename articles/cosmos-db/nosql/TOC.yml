@@ -409,8 +409,20 @@
       href: ../network-bandwidth.md
 - name: How to
   items:
+    - name: Configure vector database capabilities
+      items:
+      - name: .NET
+        href: how-to-dotnet-vector-index-query.md
+      - name: Python
+        href: how-to-python-vector-index-query.md
+      - name: JavaScript
+        href: how-to-javascript-vector-index-query.md
+      - name: Java
+        href: how-to-java-vector-index-query.md
     - name: Access preview features
       href: ../access-previews.md
+    - name: Change capacity mode
+      href: how-to-change-capacity-mode.md
     - name: Develop applications
       items:
         - name: Create account
@@ -569,6 +581,8 @@
           items:
             - name: Spark 3.x online transaction processing (OLTP) connector
               href: sdk-java-spark-v3.md
+            - name: Use a service principal with the OLTP Spark 3 connector
+              href: how-to-spark-service-principal.md
             - name: Throughput control
               href: throughput-control-spark.md
         - name: ASP.NET session state and cache provider

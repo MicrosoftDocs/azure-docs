@@ -3,7 +3,7 @@ title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/05/2023
+ms.date: 05/10/2024
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -121,9 +121,13 @@ When your Bicep file uses modules that are published to a registry, the restore 
 
 ## View type document
 
-From Visual Studio Code, you can easily open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
+From Visual Studio Code, you can open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
+
+## Go to definition
+
+When defining a [module](./modules.md), regardless of the types of the referenced file - whether it is a local file, module registry file, template spec, you can open the referenced file by selecting or highlighting the module path and then press **[F12]**. If the referenced file is an [Azure Verified Modules(AVM)](https://aka.ms/avm), you can toggle between compiled JSON or Bicep file. To be able to open the Bicep file of a private registry module, ensure that the module is published to the registry with the `WithSource` switch enabled. For more information, see [Publish files to registry](./private-module-registry.md#publish-files-to-registry). The Visual Studio Code Bicep extension version 0.27.1 or newer is required for opening Bicep file from private module registry.
 
 ## Paste as Bicep
 
