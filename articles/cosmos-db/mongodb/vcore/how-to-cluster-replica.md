@@ -102,12 +102,12 @@ Connection strings are preserved after [the cluster replica promotion](./cross-r
 ## Cross-region replication limits and limitations
 The following section describes various limits in the cross-region replication feature.
 
-- Cross-region replication is not supported in [the Free tier](./free-tier.md).
-- [Burstable compute](./burstable-tier.md) is not supported on replica clusters.
+- Cross-region replication isn't supported in [the Free tier](./free-tier.md).
+- [Burstable compute](./burstable-tier.md) isn't supported on replica clusters.
 - Cross-region replication is supported only on clusters with one shard.
 - Compute, storage, and shard count configuration is the same on the primary and replica clusters and can't be changed.
-- High availability is not supported on replica clusters.
-- Replica of a replica cluster is not supported.
+- High availability isn't supported on replica clusters.
+- Replica of a replica cluster isn't supported.
 
 ## Related content
 
