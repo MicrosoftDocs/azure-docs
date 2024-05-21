@@ -19,7 +19,7 @@ ms.custom: references_regions, build-2024
 
 # How to deploy Meta Llama models with Azure Machine Learning studio
 
-In this article, you learn about the Meta Llama models (LLMs). You also learn how to use Azure Machine Learning studio to deploy models from this set either to erverless APIs with pay-as you go billing or to managed compute.
+In this article, you learn about the Meta Llama models (LLMs). You also learn how to use Azure Machine Learning studio to deploy models from this set either to serverless APIs with pay-as you go billing or to managed compute.
 
 > [!IMPORTANT]
 > Read more about the announcement of Meta Llama 3 models available now on Azure AI Model Catalog: [Microsoft Tech Community Blog](https://aka.ms/Llama3Announcement) and from [Meta Announcement Blog](https://aka.ms/meta-llama3-announcement-blog).
