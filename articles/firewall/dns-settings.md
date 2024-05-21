@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 10/07/2022
+ms.date: 05/14/2024
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,7 +24,7 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 ### Configure custom DNS servers - Azure portal
 
 1. Under Azure Firewall **Settings**, select **DNS Settings**.
-2. Under **DNS servers**, you can type or add existing DNS servers that have been previously specified in your virtual network.
+2. Under **DNS servers**, you can type or add existing DNS servers that were previously specified in your virtual network.
 3. Select **Apply**.
 
 The firewall now directs DNS traffic to the specified DNS servers for name resolution.
@@ -94,7 +94,7 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 
 ##### Configure virtual network DNS servers 
 
-1. Select the virtual network where the DNS traffic will be routed through the Azure Firewall instance.
+1. Select the virtual network where the DNS traffic is routed through the Azure Firewall instance.
 2. Under **Settings**, select **DNS servers**.
 3. Under **DNS servers**, select **Custom**.
 4. Enter the firewall's private IP address.
