@@ -12,12 +12,12 @@ This article summarizes the steps to develop and test locally with Event hubs em
 
 ## Prerequisites
 
-- Docker emulator
-  - [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/#:~:text=Install%20Docker%20Desktop%20on%20Windows%201%20Download%20the,on%20your%20choice%20of%20backend.%20...%20More%20items) 
-- Minimum hardware Requirements:
+- Docker desktop
+  - [Docker desktop](https://docs.docker.com/desktop/install/windows-install/#:~:text=Install%20Docker%20Desktop%20on%20Windows%201%20Download%20the,on%20your%20choice%20of%20backend.%20...%20More%20items) 
+- Minimum hardware requirements:
   - 2 GB RAM
   - 5 GB of Disk space
-- WSL Enablement (Only for Windows):
+- WSL enablement (only for Windows):
   - [Install Windows Subsystem for Linux (WSL) | Microsoft Learn](/windows/wsl/install)
   -  [Configure Docker to use WSL](https://docs.docker.com/desktop/wsl/#:~:text=Turn%20on%20Docker%20Desktop%20WSL%202%201%20Download,engine%20..%20...%206%20Select%20Apply%20%26%20Restart.)
 
