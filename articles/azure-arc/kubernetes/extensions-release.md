@@ -154,7 +154,7 @@ Changes made for this version:
 
 ### 1.8.3 (March 2024)
 
-[!NOTE]
+> [!NOTE]
 > We recommend upgrading to version 1.8.4 or later due to a [security vulnerability](https://github.com/advisories/GHSA-v554-xwgw-hc3w) that has been fixed starting with 1.8.4.
 
 Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
