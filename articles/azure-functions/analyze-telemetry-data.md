@@ -50,7 +50,7 @@ To open Application Insights from a function app in the [Azure portal](https://p
 
 ![Open Application Insights from the function app Overview page](media/functions-monitoring/ai-link.png)
 
-For information about how to use Application Insights, see the [Application Insights documentation](/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you're already familiar with Application Insights, you can go directly to [the sections about how to configure and customize the telemetry data](configure-monitoring.md#configure-log-levels).
+For information about how to use Application Insights, see the [Application Insights documentation](../azure-monitor/app/app-insights-overview.md). This section shows some examples of how to view data in Application Insights. If you're already familiar with Application Insights, you can go directly to [the sections about how to configure and customize the telemetry data](configure-monitoring.md#configure-log-levels).
 
 ![Application Insights Overview tab](media/functions-monitoring/metrics-explorer.png)
 
