@@ -537,9 +537,9 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-This section describes the restore scenarios supported by Azure Blobs vaulted backup.
+Now, prepare the request body for the following restore scenarios supported by Azure Blobs vaulted backup.
 
-### Restore all containers.
+### Restore all containers
 
 To restore all the containers of a recovery point, use the `az dataprotection backup-instance restore initialize-for-data-recovery` command.
 
@@ -557,7 +557,7 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
 
 ### Restore specific blobs within a container
 
-Prepare a *JSON* file with the details of the containers and the prefixes you want to restore within each container.
+Prepare a JSON file with the details of the containers and the prefixes you want to restore within each container.
 
 ```azurecli-interactive
 

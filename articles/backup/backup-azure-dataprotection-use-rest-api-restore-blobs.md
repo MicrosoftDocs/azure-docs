@@ -20,7 +20,7 @@ This article describes how to restore [blobs](blob-backup-overview.md) using Azu
 
 This article considers that you have a backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md) if not configured.
 
-To illustrate the restoration steps in this article, we'll refer to blobs in a storage account named ``"msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d"` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
+To illustrate the restoration steps in this article, we'll refer to blobs in a storage account named `msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
 
 
 ## Prepare for Azure Blobs restore

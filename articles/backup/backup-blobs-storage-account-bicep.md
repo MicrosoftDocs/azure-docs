@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Quickstart: Back up a storage account with Blob data with a Bicep template
+# Quickstart: Back up a storage account with Blob data using Azure Backup using a Bicep template
 
 This quickstart describes how to back up a storage account with Azure Blob data with a vaulted backup policy using a Bicep template.
 
@@ -16,11 +16,11 @@ This quickstart describes how to back up a storage account with Azure Blob data 
 
 ## Prerequisites
 
-To set up your environment for Bicep development, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install).
+Before you back up a storage account with blob data using a Bicep template, ensure to set up your environment for Bicep development. [Learn more](/azure/azure-resource-manager/bicep/install).
 
 ## Review the template
 
-This template allows you to configure backup for two containers in a storage account with a vaulted backup policy with a daily schedule and retention as 30 days/weeks, months, and years for daily, weekly, monthly, and yearly backup, respectively.
+This template allows you to configure backup for two containers in a storage account with a vaulted backup policy with a daily schedule and retention as 30 days, weeks, months, and years for daily, weekly, monthly, and yearly backup, respectively.
 
 ```bicep
 @description('Name of the Vault')

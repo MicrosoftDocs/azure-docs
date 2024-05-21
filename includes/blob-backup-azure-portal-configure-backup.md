@@ -8,7 +8,7 @@ ms.author: v-abhmallick
 
 ## Configure backups
 
-You can configure backup for one or more storage accounts in an Azure region if you want them to back up to the same vault using a single backup policy.
+You can use a single backup policy to back up one or more storage accounts to the same vault in an Azure region.
 
 To configure backup for storage accounts, follow these steps:
 
@@ -16,29 +16,29 @@ To configure backup for storage accounts, follow these steps:
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/start-vaulted-backup.png" alt-text="Screenshot shows how to initiate vaulted blob backup.":::
 
-2. On the **Initiate: Configure Backup** tab, choose **Azure Blobs (Azure Storage)** as the **Datasource type**.
+2. On the **Initiate: Configure Backup** blade, choose **Azure Blobs (Azure Storage)** as the **Datasource type**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/choose-datasource-for-vaulted-backup.png" alt-text="Screenshot shows how to initiate configuring vaulted blob backup.":::
 
-3. On the **Basics** tab, specify **Azure Blobs (Azure Storage)** as the **Datasource type**, and then select the *Backup vault* that you want to associate with your storage accounts.
+3. On the **Configure backup** page, on the **Basics** tab, choose **Azure Blobs (Azure Storage)** as the **Datasource type**, and then select the *Backup vault* that you want to associate with your storage accounts as the **Vault**.
 
-   You can view details of the selected vault on this tab, and then select **Next**.
+   Review the *selected Backup vault details*, and then select **Next**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/select-datasource-type-for-vaulted-backup.png" alt-text="Screenshot shows how to select datasource type to initiate vaulted blob backup.":::
  
-4. Select the *backup policy* that you want to use for retention.
+4. On the **Backup policy** tab, select the *backup policy* you want to use for retention. You can also create a new backup policy, if needed.
 
-   You can view the details of the selected policy. You can also create a new backup policy, if needed. Once done, select **Next**.
+   Review the selected policy details, and then select **Next**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/select-policy-for-vaulted-backup.png" alt-text="Screenshot shows how to select policy for vaulted blob backup.":::
 
-5. On the **Datasources** tab, select the *storage accounts* you want to back up.
+5. On the **Configure Backup** page, on the **Datasources** tab, select the *storage accounts* you want to back up.
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/select-storage-account-for-vaulted-backup.png" alt-text="Screenshot shows how to select storage account for vaulted blob backup." lightbox="./media/blob-backup-azure-portal-configure-backup/select-storage-account-for-vaulted-backup.png":::
 
    You can select multiple storage accounts in the region to back up using the selected policy. Search or filter the storage accounts, if required.
   
-   If you've chosen the vaulted backup policy in step 4, you can also select specific containers to back up. Click "Change" under the "Selected containers" column. In the context blade, choose "browse containers to backup" and unselect the ones you don't want to back up.
+   If you've chosen the vaulted backup policy in step 4, you can also select specific containers to back up. Select **Change** under the **Selected containers** column. In the context blade, choose **browse containers to backup** and unselect the ones you don't want to back up.
 
 6. When you select the storage accounts and containers to protect, Azure Backup performs the following validations to ensure all prerequisites are met. The **Backup readiness** column shows if the Backup vault has enough permissions to configure backups for each storage account.
 
@@ -64,7 +64,7 @@ To configure backup for storage accounts, follow these steps:
       >[!Note]
       >In case of vaulted backups, the storage accounts to be backed up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.
 
-7. Once validation succeeds, open the **Review and configure** tab.
+7. Once validation succeeds, select the **Review + configure** tab.
 
 8. Review the details on the **Review + configure** tab and select **Next** to initiate the *configure backup* operation.
 

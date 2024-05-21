@@ -16,7 +16,7 @@ This quickstart describes how to back up a storage account with Azure Blob data 
 
 ## Review the template
 
-This template allows you to configure backup for two containers in a storage account with a vaulted backup policy with a daily schedule and retention as 30 days/weeks, months and years for daily, weekly, monthly and yearly backup respectively.
+This template allows you to configure backup for two containers in a storage account with a vaulted backup policy with a daily schedule and retention as 30 days, weeks, months, and years for daily, weekly, monthly, and yearly backup, respectively.
 
 ```json
 {

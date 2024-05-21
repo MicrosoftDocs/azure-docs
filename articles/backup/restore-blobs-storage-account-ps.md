@@ -30,13 +30,13 @@ Let's use an existing backup vault *TestBkpVault* under the resource group *
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName "testBkpVaultRG"
 ```
 
-## Restoring Azure blobs within a storage account
+## Restore Azure blobs within a storage account
 
 **Choose a backup tier**:
 
 # [Operational backup](#tab/operational-backup)
 
-### Fetching the valid time range for restore
+### Fetch the valid time range for restore
 
 As the operational backup for blobs is continuous, there are no distinct points to restore from. Instead, we need to fetch the valid time-range under which blobs can be restored to any point-in-time. In this example, let's check for valid time-ranges to restore within the last 30 days.
 
@@ -69,11 +69,11 @@ StartTime  : 2021-03-25T14:27:31.0000000Z
 $DesiredPIT = (Get-Date -Date "2021-04-23T02:47:02.9500000Z")
 ```
 
-### Preparing the restore request
+### Prepare the restore request
 
 Once the point-in-time to restore is fixed, there are multiple options to restore. Use the [Initialize-AzDataProtectionRestoreRequest](/powershell/module/az.dataprotection/initialize-azdataprotectionrestorerequest) command to prepare the restore request with all relevant details.
 
-#### Restoring all the blobs to a point-in-time
+#### Restore all the blobs to a point-in-time
 
 Using this option restores all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore.
 
@@ -81,7 +81,7 @@ Using this option restores all block blobs in the storage account by rolling the
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore OperationalStore -RestoreLocation $TestBkpVault.Location  -RestoreType OriginalLocation -PointInTime (Get-Date -Date "2021-04-23T02:47:02.9500000Z") -BackupInstance $AllInstances[2]
 ```
 
-#### Restoring selected containers
+#### Restore selected containers
 
 Using this option allows you to browse and select up to 10 containers to restore.
 
@@ -89,7 +89,7 @@ Using this option allows you to browse and select up to 10 containers to restore
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore OperationalStore -RestoreLocation $TestBkpVault.Location  -RestoreType OriginalLocation -PointInTime (Get-Date -Date "2021-04-23T02:47:02.9500000Z") -BackupInstance $AllInstances[2] -ItemLevelRecovery -ContainersList "abc","xyz"
 ```
 
-#### Restoring containers using a prefix match
+#### Restore containers using a prefix match
 
 This option lets you restore a subset of blobs using a prefix match. You can specify up to 10 lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point in time. Here are a few things to keep in mind:
 

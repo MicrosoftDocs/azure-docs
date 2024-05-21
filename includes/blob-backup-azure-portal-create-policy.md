@@ -12,15 +12,15 @@ A backup policy defines the schedule and frequency of the recovery points creati
 
 To create a backup policy, follow these steps:
 
-1. Go to **Backup center**, and then select **+ Policy**. This takes you to the create policy experience.
+1. Go to **Backup center** > **Overview**, and then select **+ Policy**. This takes you to the create policy experience.
 
    :::image type="content" source="./media/blob-backup-azure-portal-create-policy/add-policy.png" alt-text="Screenshot shows how to initiate adding backup policy for vaulted blob backup." lightbox="./media/blob-backup-azure-portal-create-policy/add-policy.png":::
 
-2. Select the *data source type* as **Azure Blobs (Azure Storage)**, and then select **Continue**.
+2. On the **Start: Create Policy** page, select the *data source type* as **Azure Blobs (Azure Storage)**, and then select **Continue**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-create-policy/datasource-type-selection-for-vaulted-blob-backup.png" alt-text="Screenshot shows how to select datasource type for vaulted blob backup.":::
 
-3. On the **Basics** tab, enter a name for the policy and select the vault you want this policy to be associated with.
+3. On the **Create Backup Policy** page, on the **Basics** tab, enter a name for the policy and select the vault you want this policy to be associated with.
 
    :::image type="content" source="./media/blob-backup-azure-portal-create-policy/add-vaulted-backup-policy-name.png" alt-text="Screenshot shows how to add vaulted blob backup policy name.":::
 
@@ -35,5 +35,5 @@ To create a backup policy, follow these steps:
 
    :::image type="content" source="./media/blob-backup-azure-portal-create-policy/define-vaulted-backup-schedule-and-retention.png" alt-text="Screenshot shows how to configure vaulted blob backup schedule and retention." lightbox="./media/blob-backup-azure-portal-create-policy/define-vaulted-backup-schedule-and-retention.png":::
 
-5. Go to **Review and create**.
+5. Select **Review + create**.
 6. Once the review is complete, select **Create**.

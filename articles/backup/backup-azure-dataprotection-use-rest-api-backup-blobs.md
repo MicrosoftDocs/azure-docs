@@ -20,6 +20,8 @@ For information on the Azure blob region availability, supported scenarios and l
 
 ## Prerequisites
 
+Before you back up blobs in a storage account using REST API, ensure that you:
+
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 - [Create a blob backup policy](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md)
 
