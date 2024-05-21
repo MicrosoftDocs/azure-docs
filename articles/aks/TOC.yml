@@ -672,7 +672,7 @@
               href: advanced-network-observability-cli.md  
     - name: Service Mesh
       items:
-        - name: service mesh AKS add-on
+        - name: Istio service mesh AKS add-on
           items:
             - name: About Istio
               href: istio-about.md

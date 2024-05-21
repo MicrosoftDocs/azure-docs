@@ -52,7 +52,7 @@ Advanced Network Observability offers the following capabilities to monitor netw
 
   - **Hubble UI:** Hubble UI is a user-friendly web-browser interface for exploring your cluster's network activity. It creates a service-connection graph based on Flow logs, and it also displays flow logs for the selected namespace.
 
-  > [!Note]
+  > [!NOTE]
   > Users are responsible for provisioning and managing the infrastructure required to run **Hubble UI**.
 
 ### Key Benefits of Advanced Network Observability
