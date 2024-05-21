@@ -134,4 +134,4 @@ Follow these steps to add a database component.
 ## Related content
 
 - [App Spaces overview](overview.md)
-- [Deploy an App Spaces template](deploy-app-spaces-template.md)
+- [Deploy an App Spaces template](quickstart-deploy-starter-app.md)
