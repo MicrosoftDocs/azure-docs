@@ -168,7 +168,7 @@ additionalContent:
         - title: Load balancing and Content Delivery
           url: https://review.learn.microsoft.com/en-us/azure/networking/load-balancer-content-delivery/index-d?branch=pr-en-us-270877
         - title: Network security
-          url: https://learn.microsoft.com/en-us/azure/networking/security/
+          url: https://review.learn.microsoft.com/en-us/azure/networking/security/?branch=pr-en-us-273509
         - title: Hybrid connectivity
           url: https://review.learn.microsoft.com/en-us/azure/networking/hybrid-connectivity/?branch=pr-en-us-275407
         - title: Network monitoring and management
