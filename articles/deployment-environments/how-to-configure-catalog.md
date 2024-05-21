@@ -40,11 +40,11 @@ Platform engineers have full control over the use of catalogs at the project lev
  
 By default, use of catalogs at the project level is disabled and none of the catalog item types are enabled. Environment definitions from a project-level catalog are synced and usable under two conditions. First, you must enable project-based catalogs at the corresponding dev center level. Second, you must enable the use of environment definitions for the project.
 
-### Enable project-level catalogs
+### Add a catalog to a project
 
 You must enable project-level catalogs at the dev center level before you can add a catalog to a project. You should also enable the use of environment definitions at the project level.
 
-To enable the catalog at the dev center level:
+To enable the use of project-level catalogs at the dev center level:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
 1. In the left menu, under **Settings**, select **Configuration**.
@@ -55,7 +55,7 @@ To enable the catalog at the dev center level:
 
     :::image type="content" source="media/how-to-configure-catalog/dev-center-project-catalog-selected.png" alt-text="Screenshot showing the Project level catalogs pane, with Enable catalogs per project highlighted." lightbox="media/how-to-configure-catalog/dev-center-project-catalog-selected.png":::
 
-To enable the use of environment definitions at the project level:
+To enable the use of environment definitions in the project:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your project.
 1. In the left menu, under **Settings**, select **Catalogs**.
@@ -71,6 +71,8 @@ To enable the use of environment definitions at the project level:
     :::image type="content" source="media/how-to-configure-catalog/project-enable-environment-definitions.png" alt-text="Screenshot showing the Catalog item settings pane with Azure deployment environment definitions selected." lightbox="media/how-to-configure-catalog/project-enable-environment-definitions.png":::
  
 Now, you can add a catalog to the project. 
+
+For catalogs that use a managed identity or Personal Access Token (PAT) for authentication, you must assign a managed identity for the project. For catalogs that use a PAT, you must store the PAT in a key vault and grant the managed identity access to the key vault secret.
 
 ## Configure a managed identity
 
