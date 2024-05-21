@@ -4,7 +4,7 @@ description: Learn how to use Key Management Service (KMS) etcd encryption with 
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 01/04/2024
+ms.date: 05/13/2024
 ---
 
 # Add Key Management Service etcd encryption to an Azure Kubernetes Service cluster
@@ -89,7 +89,7 @@ export KEYVAULT_RESOURCE_ID=$(az keyvault create --name MyKeyVault --resource-gr
 Assign yourself permissions to create a key:
 
 ```azurecli-interactive
-az role assignment create --role "Key Vault Crypto Officer" --assignee-object-id $(az ad signed-in-user show --query id --out tsv) --assignee-principal-type "User" --scope $KEYVAULT_RESOURCE_ID
+az role assignment create --role "Key Vault Crypto Officer" --assignee-object-id $(az ad signed-in-user show --query id -o tsv) --assignee-principal-type "User" --scope $KEYVAULT_RESOURCE_ID
 ```
 
 Use `az keyvault key create` to create a key:
@@ -142,7 +142,7 @@ The following sections describe how to assign decrypt and encrypt permissions fo
 If your key vault is not set with  `--enable-rbac-authorization`, you can use `az keyvault set-policy` to create an Azure key vault policy.
 
 ```azurecli-interactive
-az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+az keyvault set-policy --name MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
 #### Assign permissions for an RBAC public key vault
@@ -251,7 +251,7 @@ The following sections describe how to assign decrypt and encrypt permissions fo
 If your key vault is not set with  `--enable-rbac-authorization`, you can use `az keyvault set-policy` to create a key vault policy in Azure:
 
 ```azurecli-interactive
-az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+az keyvault set-policy --name MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
 #### Assign permissions for an RBAC private key vault
@@ -370,7 +370,7 @@ Beginning in AKS version 1.27, turning on the KMS feature configures KMS v2. Wit
 
 ### Migrate to KMS v2
 
-If your cluster version is later than 1.27 and you already turned on KMS, the upgrade to KMS 1.27 or later is blocked. Use the following steps to migrate to KMS v2:
+If your cluster version is older than 1.27 and you already turned on KMS, the upgrade to cluster version 1.27 or later is blocked. Use the following steps to migrate to KMS v2:
 
 1. Turn off KMS on the cluster.
 1. Perform the storage migration.

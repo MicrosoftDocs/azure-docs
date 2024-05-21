@@ -3,7 +3,7 @@ title: Bicep spread operator
 description: Describes Bicep spread operator.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/07/2024
+ms.date: 05/21/2024
 ---
 
 # Bicep spread operator
@@ -13,6 +13,8 @@ The spread operator is used to expand an iterable array or object into individua
 ## Spread
 
 `...`
+
+The spread operator is used to copy properties from one object to another or to merge arrays and objects in a concise and readable way.
 
 ### Examples
 

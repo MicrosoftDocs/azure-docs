@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & configure a dev center'
+          - text: 'Configure Azure Deployment Environments'
             url: quickstart-create-and-configure-devcenter.md
           - text: 'Create dev center & project (Azure Resource Manager)'
             url: quickstart-create-dev-center-project-azure-resource-manager.md

@@ -157,7 +157,7 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
 
 **B. Run the script** 
 
-   Download and run the PowerShell script [`MigrationPrerequisiteScript`](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/main/MigrationPrerequisites.ps1) locally. This script takes AutomationAccountResourceId of the Automation account to be migrated as the input.
+   Download and run the PowerShell script [`MigrationPrerequisiteScript`](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/main/MigrationPrerequisites.ps1) locally. This script takes AutomationAccountResourceId of the Automation account to be migrated and AutomationAccountAzureEnvironment as the inputs. The accepted values for AutomationAccountAzureEnvironment are AzureCloud, AzureUSGovernment and AzureChina signifying the cloud to which the automation account belongs.
     
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-script.png" alt-text="Screenshot that shows how to download and run the script." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-script.png":::
 
@@ -173,7 +173,8 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
 
 **D. Backend operations by the script**
 
- 1. Updating the Az.Modules for the Automation account, which will be required for running migration and deboarding scripts
+ 1. Updating the Az.Modules for the Automation account, which will be required for running migration and deboarding scripts.
+ 1. Creates an automation variable with name AutomationAccountAzureEnvironment which will store the Azure Cloud Environment to which Automation Account belongs.
  1. Creation of User Identity in the same Subscription and resource group as the Automation Account. The name of User Identity will be like *AutomationAccount_aummig_umsi*. 
  1. Attaching the User Identity to the Automation Account.
  1. The script assigns the following permissions to the user managed identity: [Update Management Permissions Required](../automation/automation-role-based-access-control.md#update-management-permissions).

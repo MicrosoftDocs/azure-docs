@@ -241,10 +241,10 @@ aio-akri-otel-collector-5c775f745b-g97qv       1/1     Running   3 (4h15m ago)  
 aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)    2d23h
 ```
 
-On the machine where your Kubernetes cluster is running, run the following command to apply a new configuration for the discovery handler:
+In your Codespaces terminal, run the following command to apply a new configuration for the discovery handler:
 
 ```console
-kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
+kubectl apply -f /workspaces/explore-iot-operations/samples/quickstarts/akri-opcua-asset.yaml
 ```
 
 The following snippet shows the YAML file that you applied:
