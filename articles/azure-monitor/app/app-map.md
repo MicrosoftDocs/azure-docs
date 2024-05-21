@@ -2,7 +2,7 @@
 title: Application map in Azure Application Insights
 description: Monitor complex application topologies with Application map and Intelligent view by using Application Insights in Azure Monitor.
 ms.topic: concept-article
-ms.date: 05/21/2024
+ms.date: 05/22/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
@@ -304,80 +304,90 @@ exporter.add_telemetry_processor(callback_function)
 
 ## Use Application map filters
 
-**Application map** filters help you reduce the number of visible nodes and edges on your map. These filters can be used to reduce the scope of the map and show a smaller and more focused view.
+**Application map** filters help you decrease the number of visible nodes and edges on your map. These filters can be used to reduce the scope of the map and show a smaller and more focused view.
 
-To create a filter, select **Add filter**:
+A quick way to filter is to use the **Filter to this node** option on the context menu for any node on the map:
 
-:::image type="content" source="media/app-map/image-1.png" alt-text="Screenshot that shows how to select the Add Filter option in Application map." lightbox="media/app-map/image-1.png":::
+:::image type="content" source="media/app-map/filter-on-node.png" alt-text="Screenshot that shows how to filter on the selected node in Application map." lightbox="media/app-map/filter-on-node-large.png":::
 
-The **Add filter** pane has three sections: **Select filter type**, **Choose filter parameters**, and **Review**:
+You can also create a filter with the **Add filter** option:
 
-:::image type="content" source="media/app-map/image-2.png" alt-text="Screenshot that shows the Node Filter radio button selected." lightbox="media/app-map/image-2.png":::
+:::image type="content" source="media/app-map/add-filter.png" alt-text="Screenshot that shows how to open the Add filter option in Application map." lightbox="media/app-map/add-filter-large.png":::
 
-:::image type="content" source="media/app-map/image-3.png" alt-text="Screenshot that shows the Connector Edge Filter radio button selected." lightbox="media/app-map/image-3.png":::
+Select your filter type (node or connector) and desired settings, then review your choices and apply them to the current map.
 
-The first section has two options, _node filter_ and _connector (edge) filter_. The contents in the other sections change based on the option selected.
+### Create node filters
 
-### Set node filters
+Node filters allow you to see only certain nodes in the application map and hide all other nodes. You configure parameters to search the properties of nodes in the map for values that match a condition. When a node filter removes a node, the filter also removes all connectors and edges for the node.
 
-Node filters allow the user to leave only selected nodes on the map and hide the rest. A node filter checks each node if it contains a property (its name, for example) with a value that matches a search value through a given operator. If a node is removed by a node filter, all of its connectors (edges) are also removed.
+A node filter has three parameters to configure:
 
-There are three parameters available for nodes:
+- **Nodes included**: The types of nodes to review in the application map for matching properties. There are four options:
 
-- **Nodes included** allows the user to select only nodes with matching properties or to also include source nodes, target nodes, or both in the resulting map.
+   - **Nodes, sources and targets**: All nodes that match the search criteria are included in the results map. All source and target nodes for the matching nodes are also automatically included in the results map, even if the sources or targets don't satisfy the search criteria. The source and target nodes are collectively referred to as _connected_ nodes.
 
-   - "Nodes and sources, targets": Nodes that match the search parameters are included in the resulting map. Nodes that are sources or targets for the match node are also included, even if they don't have property values that match the search. Source and target nodes are collectively referred to as "Connected" nodes.
+   - **Nodes and sources**: The same behavior as **Nodes, sources and targets**, but target nodes aren't automatically included in the results map.
 
-   - "Nodes and sources": Same behavior as "Nodes and sources, targets," but target nodes aren't automatically included in the results.
+   - **Nodes and targets**: The same behavior as **Nodes, sources and targets**, but source nodes aren't automatically included in the results map.
 
-   - "Nodes and targets": Same behavior as "Nodes and sources," but source nodes aren't automatically included.
+   - **Nodes only**: All nodes in the results map must have a property value that matches the search criteria.
 
-   - "Nodes only": All nodes in the resulting map must have a property value that matches.
+- **Operator**: The type of conditional test to perform on each node's property values. There are four options:
 
-- **Operator** is the type of check that will be performed on each node's property values:
+   - `contains`: The node property value contains the value specified in the **Search value** parameter.
+   - `!contains` The node property value doesn't contain the value specified in the **Search value** parameter.
+   - `==`: The node property value is equal to the value specified in the **Search value** parameter.
+   - `!=`: The node property value isn't equal to the value specified in the **Search value** parameter.
 
-   - `contains`
-   - `!contains` (not contains)
-   - `== (equals)`
-   - `!=` (not equals)
+- **Search value**: The text string to use for the property value conditional test. The dropdown list for the parameter shows values for existing nodes in the application map. You can select a value from the list, or create your own value. Enter your custom value in the parameter field and then select **Create option ...** in the list. For example, you might enter `test` and then select **Create option "test"** in the list.
 
-- **Search value** is the text that has to be contained, not contained, equal, or not equal to a node property value. Some of the values found in nodes that are on the map are shown in a drop-down. Any arbitrary value can be entered by clicking "Create option ..." in the drop-down.
+The following image shows an example of a filter applied to an application map that shows 30 days of data. The filter instructs **Application map** to search for nodes and connected targets that have properties that contain the text "retailapp":
 
-For example, in the screenshot below, the filter is being configured to select **Node(s)** that **contain(s)** the text **"-west".** **Source** and t**arget** nodes will also be included in the resulting map. In the same screenshot, the user is able to select one of the values found in the map or to create an option that isn't an exact match to one found in the map.
+:::image type="content" source="media/app-map/configure-node-filter.png" alt-text="Screenshot that shows how to configure a node filter to match the text 'retailapp'." lightbox="media/app-map/configure-node-filter-large.png" :::
 
-:::image type="content" source="media/app-map/image-4.png" alt-text="Screenshot that shows the filter configured to select nodes that contain the text west.":::
+Matching nodes and their connected target nodes are included in the results map:
 
-### Set connector (edge) filters
+:::image type="content" source="media/app-map/node-filter-map.png" alt-text="Screenshot that shows the results map with nodes and target nodes that match the node filter." lightbox="media/app-map/node-filter-map-large.png" :::
 
-Connector filters examine the properties of a connector to match a value. Connectors that don't match the filter are removed from the map. The same happens to nodes with no connectors left.
+### Create connector (edge) filters
 
-Connector filters require three parameters:
+Connector filters allow you to see only certain nodes with specific connectors in the application map and hide all other nodes and connectors. You configure parameters to search the properties of connectors in the map for values that match a condition. When a node has no matching connectors, the filter removes the node from the map.
 
-- **Filter connectors by** allows the user to choose which property of a connector to use:
+A connector filter has three parameters to configure:
 
-   - **Error connector (highlighted red)** selects connectors based on their color (red or not). A value can't be entered for this type of filter, only an operator that is "==" or "!=" meaning "connector with errors" and "connector without errors."
+- **Filter connectors by**: The types of connectors to review in the application map for matching properties. There are four choices. Your selection controls the available options for the other two parameters. 
 
-   - **Error rate** uses the average error rate for the connector (number of failed calls divided by number of all calls) expressed as a percentage. For example, a value of "1" would refer to 1% failed calls.
+- **Operator**: The type of conditional test to perform on each connector's value. 
 
-   - **Average call duration (****ms)** uses just that: the average duration of all calls represented by the connector, in milliseconds. For example, a value of "1000" would refer to calls that averaged 1 second.
+- **Value**: The comparison value to use for the property value conditional test. The dropdown list for the parameter contains values relevant to the current application map. You can select a value from the list, or create your own value. For example, you might enter `16` and then select **Create option "16"** in the list.
 
-   - **Calls count** uses the total number of calls represented by the connector.
+The following table summarizes the configuration options based on your choice for the **Filter connectors by** parameter.
 
-- **Operator** is the comparison that applied between the connector property and the value entered below. The options change: "Error connector" has equals/not equals options; all others have greater/less than.
+| Filter connectors by | Description | Operator parameter | Value parameter | Usage |
+| --- | --- | --- | --- | --- | 
+| **Error connector (highlighted red)** | Search for connectors based on their color. The color red indicates the connector is in an error state. | `==`: Equal to <br> `!=`: Not equal to | Always set to **Errors** | Show only connectors with errors or only connectors without errors. |
+| **Error rate (0% - 100%)** | Search for connectors based on their _average error rate_ (the number of failed calls divided by the number of all calls). The value is expressed as a percentage. | `>=` Greater or Equal <br> `<=` Less or Equal | The dropdown list shows average error rates relevant to current connectors in your application map. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with failure rates greater than or lower than the selected value. |
+| **Average call duration (ms)** | Search for connectors based on the average duration of all calls across the connector. The value is measured in milliseconds. | `>=` Greater or Equal <br> `<=` Less or Equal | The dropdown list shows average durations relevant to current connectors in your application map. For example, a value of `1000` refers to calls with an average duration of 1 second. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with average call duration rates greater than or lower than the selected value. |
+| **Calls count** | Search for connectors based on the total number of calls across the connector. | `>=` Greater or Equal <br> `<=` Less or Equal | The dropdown list shows total call counts relevant to current connectors in your application map. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with call counts greater than or lower than your selected value. |
 
-- **Value** is the comparison value for the filter. There's only one option for the "Error connector" filter: "Errors." Other filter types require a numeric value and offer a drop-down with some prepopulated entries relevant to the map.
+#### Percentile indicators for value
 
-   - Some of these entries have a designation "(Pxx)" which are percentile levels. For example, "Average call duration" filter might have the value "200 (P90)" which indicates 90% of all connectors (regardless of the number of calls they represent) have less than 200-ms call duration.
+When you filter connectors by the **Error rate**, **Average call duration**, or **Calls count**, some options for the **Value** parameter include the `(Pxx)` designation. This indicator shows the percentile level. For an **Average call duration** filter, you might see the value `200 (P90)`. This option means 90% of all connectors (regardless of the number of calls they represent) have less than 200-ms call duration.
 
-   - When a specific number isn't shown in the drop-down, it can be typed, and created by clicking on "Create option." Typing "P" shows all the percentile values in the drop-down.
+You can see the **Value** options that include the percentile level by entering `P` in the parameter field. 
 
 ### Review your filters
 
-The Review section contains textual and visual descriptions about the filter that can help you learn how filters work:
+After you make your selections, the **Review** section of the **Add filter** popup shows textual and visual descriptions about your filter. The summary display can help you understand how your filter applies to your application map.
 
-:::image type="content" source="media/app-map/image-5.png" alt-text="Screenshot that shows the Review section with node in focus." lightbox="media/app-map/image-5.png":::
+The following example shows the **Review** summary for a node filter that searches for nodes and targets with properties that have the text "-west":
 
-:::image type="content" source="media/app-map/image-6.png" alt-text="Screenshot that shows the Review section depicting an average call duration greater than 42 milliseconds." lightbox="media/app-map/image-6.png":::
+:::image type="content" source="media/app-map/review-node-filter.png" alt-text="Screenshot that shows the Review section with information about the configured node filter." lightbox="media/app-map/review-node-filter-large.png":::
+
+This example shows the summary for a connector filter that searches for connectors (and they nodes they connect) with an average call duration equal to or greater than 42 ms:
+
+:::image type="content" source="media/app-map/review-connector-filter.png" alt-text="Screenshot that shows the Review section with information about the configured connector filter." lightbox="media/app-map/review-connector-filter-large.png":::
+
 
 ### Apply filters to map
 
@@ -424,6 +434,7 @@ There are many filter combinations. Here are some suggestions that apply to most
 - Show only connectors that have higher error rates than a specific value
 
    :::image type="content" source="media/app-map/image-17.png" alt-text="Screenshot that shows the Last 24 hours and Errors greater than 0.01 filters." lightbox="media/app-map/image-17.png":::  
+
 
 ## Explore Intelligent view
 
