@@ -1,7 +1,7 @@
 ---
 title: Create and manage function apps in a Flex Consumption plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
-ms.date: 05/12/2024
+ms.date: 05/21/2024
 ms.topic: how-to
 ms.custom:
   - build-2024
@@ -321,19 +321,19 @@ When choosing a subnet, these considerations apply:
 
 ## Configure deployment settings
 
-In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a blob storage container. By default, deployments use the same storage account (`AzureWebJobsStorage`) and connection string value used by the Functions runtime to maintain your app. The connection string is stored in the `DEPLOYMENT_STORAGE_CONNECTION_STRING` application setting. However, you can instead designate a blob container in a separate storage account as the deployment source for your code or change the authentication type. 
+In the Flex Consumption plan, the deployment package that contains your app's code is maintained in an Azure Blob Storage container. By default, deployments use the same storage account (`AzureWebJobsStorage`) and connection string value used by the Functions runtime to maintain your app. The connection string is stored in the `DEPLOYMENT_STORAGE_CONNECTION_STRING` application setting. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. You can also change the authentication method used to access the container. 
 
-A custom deployment storage account should follow these considerations:
+A customized deployment source should meet this criteria:
 
 + The storage account must already exist.
 + The container to use for deployments must also exist.
-+ Each app should have its own deployment container. The deployed application package will be overwritten when multiple apps share the same container. 
++ When more than one app uses the same storage account, each should have its own deployment container. Using a unique container for each app prevents the deployment packages from being overwritten, which would happen if apps shared the same container.
 
 When configuring deployment storage authentication, keep these considerations in mind:
 
-+ When using connection string, the application setting containing the connection string for the deployment storage acccount must already exist.
-+ When using user assigned managed identity, the provided identity will be linked to the function app and the `Storage Blob Data Contributor` role scoped to the deployment storage account will be assigned to it.
-+ When using system assigned managed identity, a new identity will be created if one does not already exist for your app. If one exists, then the `Storage Blob Data Contributor` role scoped to the deployment storage account will be assigned to it.
++ When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
++ When you use a user-assigned managed identity, the provided identity gets linked to the function app. The `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
++ When you use a system-assigned managed identity, an identity gets created when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity does exists, the `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
 
 To configure deployment settings when you create your function app in the Flex Consumption plan:
 
@@ -446,7 +446,7 @@ You can't currently change the instance memory size setting for your app using V
 
 ## Set always ready instance counts
 
-When creating an app in a Flex Consumption plan, you can set the always ready instance count for specific groups (HTTP or Durable triggers) and triggers.
+When creating an app in a Flex Consumption plan, you can set the always ready instance count for specific groups (HTTP or Durable triggers) and triggers. For individual functions, use the format `function:<FUNCTION_NAME>=n`.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -459,7 +459,7 @@ az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --stor
 This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a service bus triggered function named `function5`:
 
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function5=2
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2
 ```
 
 ### [Azure portal](#tab/azure-portal)
