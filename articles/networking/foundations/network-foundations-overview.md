@@ -2,7 +2,6 @@
 title: Azure network foundation services overview
 description: Learn about Azure network foundation services.
 services: dns
-ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
@@ -21,9 +20,9 @@ Network foundation services include:
 - [Azure Private Link](/azure/private-link)
 - [Azure DNS](/azure/dns)
 
-The following diagram summarizes how these core services work together to provide infrastructure to your Azure network.
+The following diagram is an example of how these core services work together in your Azure network.
 
-![A conceptual diagram of Azure network foundation services.](./media/foundation-architecture.png)
+![A conceptual diagram of Azure network foundation services.](media/foundation-architecture.png)
 
 ## Learn more
 
