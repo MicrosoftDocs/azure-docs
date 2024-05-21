@@ -97,7 +97,7 @@ Follow these steps to [get the connection strings for different cases](./cross-r
 1. On the cluster sidebar, under **Settings**, select **Connection strings**.
 1. Copy the connection string for currently selected cluster to connect to that cluster.
 
-Connection strings are preserved after [the cluster replica promotion](./cross-region-replication.md#replica-cluster-promotion). You can continue to use either string for read opertions. You need to change connection string to point to the promoted replica cluster to continue writes to the database after promotino is completed.
+Connection strings are preserved after [the cluster replica promotion](./cross-region-replication.md#replica-cluster-promotion). You can continue to use either string for read operations. You need to change connection string to point to the promoted replica cluster to continue writes to the database after promotion is completed.
 
 ## Cross-region replication limits and limitations
 The following section describes various limits in the cross-region replication feature.
