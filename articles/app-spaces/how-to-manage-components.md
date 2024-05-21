@@ -18,18 +18,18 @@ You can manage the components of your App Space by selecting the component on th
 ::: zone pivot="static"
 ## Deployment
 
-The **Deployment** section in App Spaces provides a detailed log of all deployment activities and utilizes GitHub Actions to automate the deployment process. You have the option to redeploy the application if necessary. The section also includes a **Workflow run** log that tracks the deployment process step-by-step, starting from setting up the job, logging into Azure, checking out the branch, building and pushing the container image to the registry, and completing the job. This detailed workflow, powered by GitHub Actions, ensures transparency and provides insights into the deployment timeline, making it easier to manage and troubleshoot deployments.
+The **Deployment** section in App Spaces provides a detailed log of all deployment activities and utilizes GitHub Actions to automate the deployment process. You can redeploy the application if necessary. The section also includes a **Workflow run** log that tracks the deployment process step-by-step, starting from setting up the job, logging into Azure, checking out the branch, building and pushing the container image to the registry, and completing the job. This detailed workflow, powered by GitHub Actions, ensures transparency and provides insights into the deployment timeline, making it easier to manage and troubleshoot deployments.
 ::: zone-end
 ::: zone pivot="app"
 ## Deployment
-The **Deployment** section in App Spaces provides a detailed log of all deployment activities and utilizes GitHub Actions to automate the deployment process. You have the option to redeploy the application if necessary. The section also includes a **Workflow run** log that tracks the deployment process step-by-step, starting from setting up the job, logging into Azure, checking out the branch, building and pushing the container image to the registry, and completing the job. This detailed workflow, powered by GitHub Actions, ensures transparency and provides insights into the deployment timeline, making it easier to manage and troubleshoot deployments.
+The **Deployment** section in App Spaces provides a detailed log of all deployment activities and utilizes GitHub Actions to automate the deployment process. You can redeploy the application if necessary. The section also includes a **Workflow run** log that tracks the deployment process step-by-step, starting from setting up the job, logging into Azure, checking out the branch, building and pushing the container image to the registry, and completing the job. This detailed workflow, powered by GitHub Actions, ensures transparency and provides insights into the deployment timeline, making it easier to manage and troubleshoot deployments.
 ::: zone-end
 ::: zone pivot="database"
 ::: zone-end
 
 ::: zone pivot="static"
 ## Logs
-App Spaces provides robust logging capabilities for static app components, which can be filtered over a range of time periods from the last hour to the last 30 days. You can enable logs through the **Log Settings** button, which offers different configuration options. The **Auto** setting automatically collects logs for HTTP requests, global errors, and usage analytics. For more customized tracking, users can choose the **Manual with npm packages** option to set up custom event tracking with IntelliSense. Alternatively, the **Manual with React and Angular plug-ins** option allows users to configure connection strings to define where to send telemetry data by replacing the placeholder `YOUR_CONNECTION_STRING` with the actual connection string. These flexible logging options ensure comprehensive monitoring and analysis tailored to specific needs.
+App Spaces provides robust logging capabilities for static app components, which can be filtered over a range of time periods from the last hour to the last 30 days. You can enable logs through the **Log Settings** button, which offers different configuration options. The **Auto** setting automatically collects logs for HTTP requests, global errors, and usage analytics. For more customized tracking, you can choose the **Manual with npm packages** option to set up custom event tracking with IntelliSense. Alternatively, the **Manual with React and Angular plug-ins** option allows you to configure connection strings to define where to send telemetry data by replacing the placeholder `YOUR_CONNECTION_STRING` with the actual connection string. These flexible logging options ensure comprehensive monitoring and analysis tailored to specific needs.
 
 Select **Open in advanced queries** to go to the [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md).
 
@@ -49,7 +49,7 @@ Select **Open in advanced queries** to go to the [Log Analytics workspace](../az
 ## Metrics
 This tab provides metrics for Static Web Apps, displayed in two primary graphs: **Requests** and **Data Out**.
 - The **Requests** graph tracks the number of HTTP requests made to the static web app, giving insights into traffic and user activity.
-- The **Data Out** graph measures the amount of data transferred from the app to users, which helps in understanding bandwidth usage. Users can filter these metrics to view data over various time ranges, from the last hour up to the last 30 days, allowing for flexible monitoring and analysis of app performance and usage trends.
+- The **Data Out** graph measures the amount of data transferred from the app to users, which helps in understanding bandwidth usage. You can filter these metrics to view data over various time ranges. 
 ::: zone-end
 ::: zone pivot="app"
 ## Metrics
@@ -57,8 +57,6 @@ This tab provides metrics for Azure Container Apps, displayed in three primary g
 - The **Requests** graph provides a visual representation of HTTP requests made to the app, offering valuable insights into app traffic and user engagement over time. 
 - The **CPU Usage Nanocores** graph illustrates the CPU utilization of the app in nanocores, aiding in monitoring resource consumption and performance optimization.
 - The **Memory Working Set Bytes** graph displays the memory usage of the app, enabling users to track memory utilization trends and identify potential memory-related issues.
-
-With the ability to adjust the time range from the last hour to the past 30 days, users can analyze app performance and resource usage patterns, to make informed decision-making and efficient management of App Spaces.
 ::: zone-end
 ::: zone pivot="database"
 ::: zone-end
@@ -79,17 +77,15 @@ The **Settings** tab is divided into four main categories: General, Domains, Rou
 The **Settings** tab is divided into three categories: General, Environment variables, and Secrets.
 
 - In **General** section, options include defining the component name for easy identification within the app space, specifying the listening port to manage inbound connections, and configuring the ingress settings for controlling network traffic routing to the database.
-- In the **Environment variables** section, users can set up essential environment-specific variables, such as database usernames, connection strings, mount locations, and other parameters crucial for seamless database operations.
-- In the **Secrets** section provides a secure repository for storing sensitive data by inputting key/value pairs. These secrets can then be referenced by environment variables, ensuring the protection of confidential information within the database component. 
-- With these comprehensive settings, users can tailor their database configurations to meet specific requirements while prioritizing security and efficiency within Azure App Spaces.
+- In the **Environment variables** section, you can set up essential environment-specific variables, such as database usernames, connection strings, mount locations, and other parameters crucial for seamless database operations.
+- In the **Secrets** section provides a secure repository for storing sensitive data by inputting key/value pairs. These secrets can be referenced by environment variables, ensuring the protection of confidential information within the database component. 
 ::: zone-end
 ::: zone pivot="database"
 The **Settings** tab is divided into three categories: General, Environment variables, and Secrets.
 
 - In **General** section, options include defining the component name for easy identification within the app space, specifying the listening port to manage inbound connections, and configuring the ingress settings for controlling network traffic routing to the database.
-- In the **Environment variables** section, users can set up essential environment-specific variables, such as database usernames, connection strings, mount locations, and other parameters crucial for seamless database operations.
-- In the **Secrets** section provides a secure repository for storing sensitive data by inputting key/value pairs. These secrets can then be referenced by environment variables, ensuring the protection of confidential information within the database component. 
-- With these comprehensive settings, users can tailor their database configurations to meet specific requirements while prioritizing security and efficiency within Azure App Spaces.
+- In the **Environment variables** section, you can set up essential environment-specific variables, such as database usernames, connection strings, mount locations, and other parameters crucial for seamless database operations.
+- In the **Secrets** section provides a secure repository for storing sensitive data by inputting key/value pairs. These secrets can be referenced by environment variables, ensuring the protection of confidential information within the database component. 
 ::: zone-end
 
 
