@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/13/2024
+ms.date: 05/20/2024
 recommendations: false
 ---
 
@@ -55,6 +55,18 @@ For information on model regional availability, see the [models page](./concepts
 Global deployments are available in the same Azure OpenAI resources as non-global offers but allow you to leverage Azure's global infrastructure to dynamically route traffic to the data center with best availability for each request. Global standard will provide the highest default quota for new models and eliminates the need to load balance across multiple resources.
 
 For more information, see the [deployment types guide](https://aka.ms/aoai/docs/deployment-types).
+
+### DALL-E and GPT-4 Turbo Vision GA configurable content filters
+
+Create custom content filters for your DALL-E 2 and 3 and GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
+
+### Asynchronous Filter available for all Azure OpenAI customers
+
+Running filters asynchronously for improved latency in streaming scenarios is now available for all Azure OpenAI customers. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#content-streaming)
+
+### Prompt Shields
+
+Prompt Shields protect applications powered by Azure OpenAI models from two types of attacks: direct (jailbreak) and indirect attacks. Indirect Attacks (also known as Indirect Prompt Attacks or Cross-Domain Prompt Injection Attacks) are a type of attack on systems powered by Generative AI models that may occur when an application processes information that wasn’t directly authored by either the developer of the application or the user. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#prompt-shields)
 
 ### 2024-05-01-preview API release
 
