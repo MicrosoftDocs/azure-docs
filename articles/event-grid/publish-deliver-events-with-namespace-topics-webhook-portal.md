@@ -113,22 +113,35 @@ Create an event subscription setting its delivery mode to *Push*, which supports
 
 Now, send a sample event to the namespace topic by following steps in this section.
 
-### List namespace access keys
+### Declare variables
 
-1. Get the access keys associated with the namespace you created. You use one of them to authenticate when publishing events. To list your keys, you need the full namespace resource ID first. Get it by running the following command:
+1. Launch Cloud Shell in the Azure portal. Switch to **Bash**. 
+
+    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/cloud-shell-bash.png" alt-text="Screenshot that shows the Cloud Shell." lightbox="./media/publish-events-using-namespace-topics-portal/cloud-shell-bash.png":::
+1. Run the following command to declare a variable to hold the resource group name. Replace `RESOUREGROUPNAME` with the name of your Azure resource group.
+
+    ```bash
+    resource_group=RESOURCEGROUPNAME
+    ```
+1. In the Cloud Shell, run the following command to declare a variable to hold the namespace name. Replace `NAMESPACENAME` with the name of your Event Grid namespace.
+
+    ```bash
+    namespace=NAMESPACENAME
+    ```
+1. Run the following command to declare a variable to hold the access key value you noted down earlier. Replace `ACCESSKEY` with the value of access key to your Event Grid namespace.
 
     ```azurecli-interactive 
-    namespace_resource_id=$(az eventgrid namespace show -g $resource_group -n $namespace --query "id" --output tsv)
+    key=ACCESSKEY
     ```
-2. Get the first key from the namespace:
+1. In the Cloud Shell, run the following command to declare a variable to hold the namespace name. 
 
-    ```azurecli-interactive
-    key=$(az eventgrid namespace list-key -g $resource_group --namespace-name $namespace --query "key1" --output tsv)
+    ```bash
+    topic=TOPICNAME
     ```
 
 ### Publish an event
 
-1. Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. The following operations were first available with API version `2023-06-01-preview`.
+1. Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. The following operations were first available with API version `2023-06-01-preview`. You can also get the hostname from the **Overview** page of your Event Grid namespace in the Azure portal. 
 
     ```azurecli-interactive
     publish_operation_uri="https://"$(az eventgrid namespace show -g $resource_group -n $namespace --query "topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
