@@ -15,12 +15,12 @@ In this quickstart, you create Python sender and receiver applications that send
 In this quickstart, you take the following steps:
 
 1. Create a Relay namespace by using the Azure portal.
-2. Create a hybrid connection in that namespace by using the Azure portal.
-3. Generate a config.json properties file to store connection details
-4. Develop a relaylib.py for helper functions (SAS tokens, URLs)
-3. Write a server (listener) script to receive messages.
-4. Write a client (sender) script to send messages.
-5. Execute the server (listener) script and optionally the client (sender) script.
+1. Create a hybrid connection in that namespace by using the Azure portal.
+1. Generate a config.json properties file to store connection details
+1. Develop a relaylib.py for helper functions (SAS tokens, URLs)
+1. Write a server (listener) script to receive messages.
+1. Write a client (sender) script to send messages.
+1. Execute the server (listener) script and optionally the client (sender) script.
 
 ## Prerequisites
 - [Python](https://www.Python.com/en/). Ensure that you're running Python 3.10+
