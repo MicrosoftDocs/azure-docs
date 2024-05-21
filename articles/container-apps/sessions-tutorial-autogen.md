@@ -63,7 +63,7 @@ When it needs to perform calculations and tasks, the agent uses the code interpr
 
 [!INCLUDE [container-apps/sessions-tutorial-run-local](../../includes/container-apps/sessions-tutorial-run-local.md)]
 
-[!INCLUDE [container-apps/sessions-tutorial-deploy-autogen](../../includes/container-apps/sessions-tutorial-deploy.md)]
+[!INCLUDE [container-apps/sessions-tutorial-deploy-autogen](../../includes/container-apps/sessions-tutorial-deploy-autogen.md)]
 
 [!INCLUDE [container-apps/sessions-tutorial-clean-up](../../includes/container-apps/sessions-tutorial-clean-up.md)]
 

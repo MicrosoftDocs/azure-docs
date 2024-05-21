@@ -80,16 +80,6 @@ You then need to configure managed identity for the app and assign it the proper
             --scope <SESSION_POOL_RESOURCE_ID>
         ```
 
-    1. Retrieve the Azure OpenAI account resource ID:
-
-        ```bash
-        az cognitiveservices account show \
-            --name $AZURE_OPENAI_NAME \
-            --resource-group $RESOURCE_GROUP_NAME \
-            --query id \
-            --output tsv
-        ```
-
 1. Retrieve the app's fully qualified domain name (FQDN):
 
     ```bash
