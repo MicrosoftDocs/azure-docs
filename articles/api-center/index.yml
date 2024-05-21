@@ -33,6 +33,13 @@ landingContent:
           - text: Introduction to Azure API Center
             url: /training/modules/introduction-to-azure-api-center/
   # Card
+  - title: Related service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure API Management
+            url: ../api-management/api-management-key-concepts.md
+# Card
   - title: Manage your API inventory
     linkLists:
       - linkListType: quickstart
@@ -73,10 +80,3 @@ landingContent:
         links:
           - text: Self-host Azure API Center portal
             url: enable-api-center-portal.md
-  # Card
-  - title: Related service
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Azure API Management
-            url: ../api-management/overview.md

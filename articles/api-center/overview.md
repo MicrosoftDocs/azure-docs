@@ -43,7 +43,7 @@ Create and use an API center for the following:
 
 For more about the entities you can manage and the capabilities in Azure API Center, see [Key concepts](key-concepts.md).
 
-## Available regions and plans
+## Available regions
 Azure API Center is currently available in the following Azure regions:
 
 * Australia East
