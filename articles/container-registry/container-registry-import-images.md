@@ -300,9 +300,7 @@ Import-AzContainerRegistryImage -RegistryName myregistry -ResourceGroupName myRe
 
 ### Cross-tenant import with access token
 
-* Cross tenant for image transfer is possible even if the source registry has public access disabled. However, you need to use the resource ID of the source registry for authentication purposes. You cannot use both resource ID and login server together for cross-tenant transfers. The only way to achieve using both resource ID and login server together is by specifying the IP range of the ACR service tag in the source registry's firewall.
-
-* Cross-tenant doesn't work across the clouds. Cross-tenant import over private endpoints is also not supported.
+* Cross-tenant import over public access disabled registry is not supported.      
 
 To access the source registry using an identity in the source tenant that has registry permissions, you can get an access token:
 
