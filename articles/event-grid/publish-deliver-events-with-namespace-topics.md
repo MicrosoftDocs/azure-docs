@@ -13,9 +13,7 @@ ms.date: 02/20/2024
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and deliver those events by using the push delivery model. To be specific, you use Azure CLI and Curl to publish events to a namespace topic in Event Grid and push those events from an event subscription to an Event Hubs handler destination. For more information about the push delivery model, see [Push delivery overview](push-delivery-overview.md).
 
 > [!NOTE]
-> - Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North.
-> - The Azure [CLI Event Grid extension](/cli/azure/eventgrid) doesn't yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
-> - Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
+> The Azure [CLI Event Grid extension](/cli/azure/eventgrid) doesn't yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -70,7 +68,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 - It should be between 3-50 characters.
 - It should be regionally unique.
 - Only allowed characters are a-z, A-Z, 0-9 and -
-- It shouldn't start with reserved key word prefixes like `Microsoft`, `System` or `EventGrid`.
+- It shouldn't start with reserved key word prefixes like `Microsoft`, `System`, or `EventGrid`.
 
 1. Declare a variable to hold the name for your Event Grid namespace. Specify a name for the namespace by replacing `<your-namespace-name>` with a value you like.
 

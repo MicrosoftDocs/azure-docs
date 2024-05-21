@@ -3,7 +3,7 @@ title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/10/2024
+ms.date: 05/21/2024
 ---
 
 # Bicep functions
@@ -91,6 +91,7 @@ The following functions are available for loading the content from external file
 The following functions are available for working with lambda expressions. All of these functions are in the `sys` namespace.
 
 * [filter](bicep-functions-lambda.md#filter)
+* [groupBy](bicep-functions-lambda.md#groupby)
 * [map](bicep-functions-lambda.md#map)
 * [mapValue](bicep-functions-lambda.md#mapvalues)
 * [reduce](bicep-functions-lambda.md#reduce)
@@ -121,6 +122,7 @@ The following functions are available for working with objects. All of these fun
 * [items](./bicep-functions-object.md#items)
 * [json](./bicep-functions-object.md#json)
 * [length](./bicep-functions-object.md#length)
+* [objectKeys](./bicep-functions-object.md#objectkeys)
 * [shallowMerge](./bicep-functions-object.md#shallowmerge)
 * [union](./bicep-functions-object.md#union)
 
