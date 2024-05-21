@@ -7,7 +7,7 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 03/08/2024
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, build-2024
 ---
 
 # Ensure API Management availability and reliability

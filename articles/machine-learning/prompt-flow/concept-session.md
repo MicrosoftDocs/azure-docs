@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19

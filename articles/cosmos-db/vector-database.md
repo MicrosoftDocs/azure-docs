@@ -6,6 +6,8 @@ author: wmwxwa
 ms.author: wangwilliam
 ms.reviewer: sidandrews
 ms.service: cosmos-db
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 03/30/2024
 ---

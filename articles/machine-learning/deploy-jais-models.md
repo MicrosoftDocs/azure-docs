@@ -9,7 +9,7 @@ ms.date: 05/02/2024
 ms.reviewer: haelhamm
 ms.author: mopeakande
 author: msakande
-ms.custom: [references_regions]
+ms.custom: references_regions, build-2024
 ---
 
 # How to deploy JAIS with Azure Machine Learning Studio

@@ -5,7 +5,9 @@ description: In this tutorial, you learn how to set up experiments in an App Con
 #customerintent: As a user of Azure App Configuration, I want to learn how I can run experiments with variant feature flags, using Split Experimentation Workspace and Application Insights.
 author: maud-lv
 ms.author: malev
-ms.service: azure-app-configuration 
+ms.service: azure-app-configuration
+ms.custom:
+  - build-2024
 ms.topic: tutorial
 ms.date: 05/07/2024
 ---

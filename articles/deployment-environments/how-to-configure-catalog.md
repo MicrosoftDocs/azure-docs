@@ -3,12 +3,11 @@ title: Add a catalog from a GitHub or Azure DevOps repository
 titleSuffix: Azure Deployment Environments
 description: Learn how to add a catalog in your Azure Deployment Environments dev center or project to provide environment definitions for your developers.
 ms.service: deployment-environments
-ms.custom: build-2023
+ms.custom: build-2023, build-2024
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 05/10/2024
 ms.topic: how-to
-
 #customer intent: As a platform engineer, I want to learn how to add a catalog in my Azure Deployment Environments dev center or project so that I can provide environment definitions for my developers.
 ---
 

@@ -6,6 +6,8 @@ description: Explanation of the factors affecting the size of a vector index.
 author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 05/21/2024
 ---

@@ -1,6 +1,8 @@
 ---
 author: ggailey777
 ms.service: azure-functions
+ms.custom:
+  - build-2024
 ms.date: 05/03/2024
 ms.author: glenga
 ms.topic: include

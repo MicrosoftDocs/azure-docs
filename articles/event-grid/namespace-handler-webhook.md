@@ -1,7 +1,9 @@
 ---
 title: Webhooks as event handler for namespace topics' push delivery
-description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics'push delivery.  
+description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics'push delivery.
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ms.date: 05/21/2024
 ms.author: robece
 ---

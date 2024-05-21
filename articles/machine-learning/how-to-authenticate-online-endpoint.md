@@ -11,7 +11,7 @@ ms.reviewer: mopeakande
 reviewer: msakande
 ms.date: 04/23/2024
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, sdkv2, devx-track-azurecli
+ms.custom: how-to, devplatv2, cliv2, sdkv2, devx-track-azurecli, build-2024
 ---
 
 # Authenticate clients for online endpoints

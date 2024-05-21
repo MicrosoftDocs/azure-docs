@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Learn how to configure a private link for Azure AI Studio hubs. A private link is used to secure communication with the Azure AI Studio hub.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023, devx-track-azurecli, build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: jhirono

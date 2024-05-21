@@ -5,6 +5,8 @@ ms.date: 04/23/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ---
 

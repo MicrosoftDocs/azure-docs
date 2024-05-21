@@ -2,6 +2,8 @@
 title: Azure OpenAI semantic search input binding for Azure Functions
 description: Learn how to use the Azure OpenAI semantic search input binding to use semantic search on your embeddings during function execution in Azure Functions.
 ms.topic: reference
+ms.custom:
+  - build-2024
 ms.date: 05/08/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -200,4 +202,3 @@ See the [Example section](#example) for complete examples.
 + [Semantic search samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch)
 + [Azure OpenAI extensions for Azure Functions](functions-bindings-openai.md)
 + [Azure OpenAI embeddings store output binding for Azure Functions](functions-bindings-openai-embeddingsstore-output.md)
-

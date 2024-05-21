@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Details about how data provided by customers is processed, used, and stored when a user deploys a model from the model catalog.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ms.topic: conceptual
 ms.date: 5/21/2024
 ms.reviewer: shubhirajMsft
@@ -60,5 +60,3 @@ If you download a model from the Model Catalog, you choose where to deploy the m
 ## Learn more
 
 *  [Model Catalog and Collections](model-catalog-overview.md)
-
-

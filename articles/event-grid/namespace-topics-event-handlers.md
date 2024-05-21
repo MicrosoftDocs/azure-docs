@@ -2,6 +2,8 @@
 title: Azure Event Grid namespace topic push delivery event handlers
 description: Describes supported event handlers with Azure Event Grid push delivery available in namespace topics. Webhooks, Event Hubs.
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ms.date: 06/16/2023
 ms.author: robece
 ---

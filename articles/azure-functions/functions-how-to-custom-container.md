@@ -3,7 +3,7 @@ title: Working with Azure Functions in containers
 description: Learn how to work with function apps running in Linux containers.
 ms.date: 02/27/2024
 ms.topic: how-to
-ms.custom: build-2023, linux-related-content
+ms.custom: build-2023, linux-related-content, build-2024
 zone_pivot_groups: functions-container-hosting
 ---
 

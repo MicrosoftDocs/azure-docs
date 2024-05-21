@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 05/21/2024
  ms.author: heidist
- ms.custom: include file
+ms.custom: include file, build-2024
 ---
 
 Search service limits for storage, partitions, and replicas vary by service creation date, with higher limits for newer services in supported regions. Limits vary by service creation date:
@@ -100,4 +100,3 @@ Services must be in one of the following regions to get the extra storage. Watch
 | **Bazil** | Brazil South​​ |
 | **Asia Pacific** |  East Asia, Southeast Asia​ ​ |
 | **Australia** | Australia East​, Australia Southeast​​ |
-

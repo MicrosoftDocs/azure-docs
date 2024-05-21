@@ -2,6 +2,8 @@
 title: Azure OpenAI assistant create output binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant create output binding to create Azure OpenAI assistants from your function code executions.
 ms.topic: reference
+ms.custom:
+  - build-2024
 ms.date: 05/07/2024
 zone_pivot_groups: programming-languages-set-functions
 ---

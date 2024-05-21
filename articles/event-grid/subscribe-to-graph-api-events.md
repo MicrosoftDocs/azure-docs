@@ -1,10 +1,10 @@
 ---
-title: Receive Microsoft Graph change notifications through Azure Event Grid 
+title: Receive Microsoft Graph change notifications through Azure Event Grid
 description: This article explains how to subscribe to events published by Microsoft Graph API.
 author: robece
 ms.author: robece
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python, build-2024
 ms.date: 12/08/2023
 ---
 

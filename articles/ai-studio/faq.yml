@@ -5,6 +5,8 @@ metadata:
   description: Get answers to the most popular questions about Azure AI services.
   manager: nitinme
   ms.service: azure-ai-studio
+  ms.custom:
+    - build-2024
   ms.topic: faq
   ms.date: 5/21/2024
   ms.reviewer: eur
@@ -86,5 +88,3 @@ additionalContent: |
   ## Next steps
   - [Azure AI Studio](what-is-ai-studio.md)
   - [Plan and manage costs](./how-to/costs-plan-manage.md)
-
-

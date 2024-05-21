@@ -4,6 +4,8 @@ description: Learn how Microsoft Copilot for Azure (preview) can provide one-cli
 ms.date: 05/21/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
+ms.custom:
+  - build-2024
 ms.author: jenhayes
 author: JnHs
 ---
