@@ -27,14 +27,6 @@ Availability of serverless API endpoints for select models are listed in the fol
 | Phi-3             |             | **&check;** |                  |                  |             |             |                | **&check;**    |
 | Nixtla TimeGEN-1  | **&check;** | **&check;** | **&check;**      | **&check;**      | **&check;** | **&check;** |                | **&check;**    | -->
 
-#### Mistral models
-
-|   Region         | Mistral-Small | Mistral-Large |
-|----------------|:-------------:|:-------------:|
-| East US 2        | **&check;**   | **&check;**   |
-| France Central   | unavailable   | **&check;**   |
-| Sweden Central   | **&check;**   | **&check;**   |
-
 
 #### Cohere models
 
@@ -42,6 +34,14 @@ Availability of serverless API endpoints for select models are listed in the fol
 |----------------|:----------------:|:-----------------:|:---------------:|
 | East US 2        | **&check;**      | **&check;**       | **&check;**     |
 | Sweden Central   | **&check;**      | **&check;**       | **&check;**     |
+
+#### Mistral models
+
+|   Region         | Mistral-Small | Mistral-Large |
+|----------------|:-------------:|:-------------:|
+| East US 2        | **&check;**   | **&check;**   |
+| France Central   | unavailable   | **&check;**   |
+| Sweden Central   | **&check;**   | **&check;**   |
 
 #### Meta Llama models
 
