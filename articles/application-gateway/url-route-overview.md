@@ -21,6 +21,9 @@ In the following example, Application Gateway is serving traffic for contoso.com
 
 Requests for http\://contoso.com/video/* are routed to VideoServerPool, and http\://contoso.com/images/* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
 
+> [!Note]
+> When the request is routed the full URL path is sent to the backend pool. If the resources requested are on a different path (for example if a request to http\://contoso.com/video/* requires videos to be served from the root of the site behind the VideoServerPool) then you will also need to configure either a [URL Rewrite Rule](rewrite-http-headers-url.md), or [override the backend path](configuration-http-settings.md#override-backend-path) in your backend settings.
+
 > [!IMPORTANT]
 > For both the v1 and v2 SKUs, rules are processed in the order they are listed in the portal. The best practice when you create path rules is to have the least specific path (the ones with wildcards) at the end. If wildcards are on the top, then they take priority even if there's a more specific match in subsequent path rules.
 >
