@@ -91,7 +91,7 @@ To create a deployment:
 1. Select the endpoint to open its Details page.
 1. Select the **Test** tab to start interacting with the model.  
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
-1. Take note of the **Target** URL and the **Secret Key**. For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+1. Take note of the **Target** URL and the **Secret Key**. For more information on using the APIs, see the [reference] (#embed-api-reference-for-cohere-embed-models-deployed-as-a-serverless-api) section.
 
 To learn about billing for models deployed with pay-as-you-go, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
 
@@ -104,7 +104,7 @@ The previously mentioned Cohere models can be consumed using the chat API.
 1. Copy the **Target** URL and the **Key** token values.
 1. Cohere exposes two routes for inference with the Embed v3 - English and Embed v3 - Multilingual models. `v1/embeddings` adheres to the Azure AI Generative Messages API schema, and `v1/embed` supports Cohere's native API schema.
 
-    For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-serverless-api) section.
 
 ## Embed API reference for Cohere Embed models deployed as a serverless API
 

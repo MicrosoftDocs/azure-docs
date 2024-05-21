@@ -43,7 +43,7 @@ The following models are available in Azure Marketplace for Meta Llama models wh
 * [Meta Llama-3-8B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-base)
 * [Meta Llama-3-70B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-base)
 
-If you need to deploy a different model, [deploy it to real-time endpoints](#deploy-meta-llama-models-to-real-time-endpoints) instead.
+If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-managed-compute) instead.
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -54,7 +54,7 @@ If you need to deploy a different model, [deploy it to real-time endpoints](#dep
 * Meta Llama-2-70B (preview)
 * Meta Llama 2 70B-Chat (preview)
 
-If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-real-time-endpoints) instead.
+If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-managed-compute) instead.
 
 ---
 
@@ -199,7 +199,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Llama-3-8B`, use the [`<target_url>/v1/completions`](#completions-api) API.
     - For chat models, such as `Llama-3-8B-Instruct`, use the [`<target_url>/v1/chat/completions`](#chat-api) API.
 
-   For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
+   For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-a-serverless-api) section.
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -211,7 +211,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Meta-Llama-2-7B`, use the [`/v1/completions`](#completions-api) API or the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/completions`.
     - For chat models, such as `Meta-Llama-2-7B-Chat`, use the [`/v1/chat/completions`](#chat-api) API or the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions`.
 
-    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-a-serverless-api) section.
 
 ---
 
