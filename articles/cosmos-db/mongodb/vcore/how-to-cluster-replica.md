@@ -31,13 +31,29 @@ Azure Cosmos DB for MongoDB vCore allows continuous data streaming to a replica 
 
 ## Enable cross-region replication
 
-To enable cross-region replication on a new cluster, follow these steps:
+To enable cross-region replication on a new cluster *during cluster creation*, follow these steps:
 
 1. Follow the steps to [create a new Azure Cosmos DB for MongoDB vCore cluster](./quickstart-portal.md#create-a-cluster).
 1. On the **Basics** tab, select **Enable global distribution (preview)** flag.
-1. Once cluster is created, on the cluster sidebar, under **Settings**, select **Global distribution**.
-1. Select **Add replica** and select a region for cluster replica to be created in.
-1. Verify your selection and select **Save** to confirm your selection.
+1. On the **Global distribution (preview)** tab, select **Enable** for the **Read replica in another region (preview)**.
+1. Provide a replica cluster name in the **Read replica name** field. 
+1. Select a region in the **Read replica region**. This is the Azure region where replica cluster will be hosted.
+1. (optionally) Select desired network access settings for the cluster on the **Networking** tab.
+1. On the **Review + create** tab, review cluster configuration details, and then select **Create**. 
+
+> [!NOTE]
+> The replica cluster is created in the same Azure subscirption and resource group as its primary cluster.
+
+To enable cross-region replication on a new cluster *at any time after cluster creation*, follow these steps:
+
+1. Follow the steps to [create a new Azure Cosmos DB for MongoDB vCore cluster](./quickstart-portal.md#create-a-cluster).
+1. On the **Basics** tab, select **Enable global distribution (preview)** flag.
+1. Skip **Global distribution (preview)** tab. This tab is used to create a cluster replica during primary cluster provisioning.
+1. Once cluster is created, on the cluster sidebar, under **Settings**, select **Global distribution (preview)**.
+1. Select **Add new read replica**.
+1. Provide a replica cluster name in the **Read replica name** field. 
+1. Select a region in the **Read replica region**. This is the Azure region where replica cluster will be hosted.
+1. Verify your selection and select the **Save** button to confirm replica creation.
 
 ## Promote a replica
 
