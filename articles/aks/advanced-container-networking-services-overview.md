@@ -28,7 +28,7 @@ Advanced Network Observability offers compatibility across all Linux workloads. 
 
 Advanced Container Networking Services offers support for both Cilium and non-Cilium data planes, ensuring flexibility for your container networking needs.
 
-  * Cilium Data plane: This is a high-performance, eBPF-based data plane specifically designed for Kubernetes environments.
+  * Cilium Data plane: This is a high-performance, eBPF-based data plane specifically designed for Kubernetes environments. This data plane Powered by Open-source project [Cilium](https://cilium.io/).
 
   * Non-Cilium Data plane: Powered by the open-source project [Retina](https://retina.sh), this data plane provides a compatible alternative for users not using Cilium. Retina is also built using eBPF technology.
 
@@ -140,7 +140,7 @@ Certain scale limitations apply when you use Azure managed Prometheus and Grafan
 
 ## Pricing
 
-This feature is going to be charged. We will share more details in coming weeks
+This feature is going to be charged starting 28th May 2024. More details will be shared in few days. 
 
 ## Next steps
 

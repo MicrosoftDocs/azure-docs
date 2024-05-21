@@ -146,7 +146,7 @@ az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 
 > [!NOTE]
 > The `hubble_flows_processed_total` metric isn't scraped by default due to high metric cardinality in large scale clusters. 
-> Because of this, the *Pods Flows* dashboards have panels with missing data. To change this, you can modify the ama metrics settings to include `hubble_flows_processed_total` in the metric keep list. To learn how do this, see the [Minimal Ingestion Doumentation](../articles/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md).
+> Because of this, the *Pods Flows* dashboards have panels with missing data. To change this, you can modify the ama metrics settings to include `hubble_flows_processed_total` in the metric keep list. To learn how do this, see the [Minimal Ingestion Doumentation](../../articles/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md).
 > 
 
 1. Make sure the Azure Monitor pods are running using the `kubectl get pods` command.
@@ -176,9 +176,7 @@ ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
   * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
 
 > [!NOTE] 
-> * Depending on your Prometheus/Grafana instances’ settings, some dashboard panels may require tweaks to display all data.
 > * Cilium data plane does not currently support DNS metrics/dashboards.
-
 
 ## Install Hubble CLI
 
