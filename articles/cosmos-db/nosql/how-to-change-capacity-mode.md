@@ -1,53 +1,63 @@
 ---
-title: Change capacity mode from serverless to provisioned throughput in Azure Cosmos DB (preview)
-description: Learn how to change the capacity mode of a serverless account to a provisioned capacity account.
+title: Change from serverless to provisioned throughput (preview)
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Review the steps on how to change the capacity mode of a serverless Azure Cosmos DB for NoSQL account to a provisioned capacity account.
 author: richagaur
 ms.author: richagaur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 05/21/2024
-ms.custom: build-2024
+ms.date: 05/08/2024
+#Customer Intent: As an administrator, I want to change the capacity mode, so that I can migrate from serverless to provisioned capacity.
 ---
  
-# Change from serverless to provisioned capacity mode in Azure Cosmos DB (preview)
+# Change from serverless to provisioned capacity mode in Azure Cosmos DB for NoSQL (preview)
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB allows a user to change the capacity mode of an account from serverless to provisioned capacity. Changing from serverless to provisioned capacity mode converts all containers within the account to manual provisioned throughput containers in-place. The containers' throughput is approximately determined according to the following formula.
+Azure Cosmos DB for NoSQL accounts in serverless capacity mode can be changed to provisioned capacity mode. Changing from serverless to provisioned capacity mode converts all containers within the account to manual provisioned throughput containers in-place. The containers' throughput is determined according to the following formula: 
+            `Throughput(RU/s) = max(5000, StorageInGB * 10)`.
 
-`Throughput(RU/s) = max(5000, number of partitions (physical) * 1000)`
+You can also change the throughput or provisioning mode from manual to autoscale once the migration is complete.
 
-Users can also change the throughput or provisioning mode from manual to autoscale once the migration is complete.
-
->[!Caution]
+> [!WARNING]
 > This is an irreversible operation. Once migrated, the capacity mode can't be changed back to serverless.
-> The throughput calculation and default provisioning mode (manual) is subject to change in future. 
 
-## Getting started
+## Prerequisites
 
-To enable this feature, register for the preview feature **Change capacity mode (preview)** on your subscription.
+- An existing Azure Cosmos DB for NoSQL account.
+  - If you have an Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit.
 
-## How to change capacity mode?
+## Register for preview
 
-Follow the steps below to change the capacity mode using Azure portal. 
+To enable this feature, register for the preview feature **Change capacity mode from serverless to provisioned throughput** in your subscription. For more information, see [register for an Azure Cosmos DB preview feature](../access-previews.md).
 
-1. Click on the **Change** link next to *capacity mode* on the overview page of your Cosmos DB account.
+## Change capacity mode
 
-2. Review the changes and click on **Confirm** to start the migration.
+Follow these steps to change the capacity mode using Azure portal.
 
-3. Monitor the status in the **updating** state on the overview page of Cosmos DB account while the migration is in progress.
+1. In the Azure portal, navigate to your API for NoSQL account.
 
-4. Once the migration is complete, the capacity mode will be changed to **provisioned capacity**.
+1. Select the **Change capacity mode to provisioned throughput** option in the **Overview** section of the account page.
 
->[!Note] 
-> There are no SLA's associated with the duration of the capacity mode change.
-> Users cannot execute any management operation while the migration is in progress. However, the containers can be accessed as usual by any client application.
+1. Review the changes and select **Confirm** to start the migration.
 
-## Next Steps
+1. Monitor the status using the **state** field in the **Overview** section. The status indicates that the account is **updating** while the migration is in progress.
 
-- Learn [how to chose between autoscale and manual throughput](../how-to-choose-offer.md).
-- Learn [how to chose between serverless and provisioned throughput](../throughput-serverless.md).
-- Trying to do capacity planning for Azure Cosmos DB with provisioned capacity?  
-    If you know typical request rates for your current database workload, [read about estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).
+1. Once the migration is complete, the **capacity mode** field is now set to **provisioned throughput**.
 
+## Limitations
+
+1. This is one time migration i.e.; the account cannot be reversed to serverless capacity mode again.
+1. There is no SLA associated with the duration of migration. 
+1. You cannot execute any management operation while the migration is in progress.
+1. If you need to restore a deleted Cosmos DB account, the account will always be restored to provisioned throughput if the capacity mode was changed from serverless to provisioned, irrespective of the backup timestamp. 
+1. In case you need to restore a deleted serverless container within an existing account which was migrated from serverless to provisioned throughput, please contact Microsoft support.
+
+
+## Related content
+
+- [Chose between autoscale and manual throughput](../how-to-choose-offer.md).
+- [Choose between serverless and provisioned throughput](../throughput-serverless.md).
