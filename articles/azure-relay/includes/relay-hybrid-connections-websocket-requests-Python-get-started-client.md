@@ -19,7 +19,7 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 
 1. Install the following Python libraries using pip before running the client application
 
-	asyncio, json, logging, websockets
+	`asyncio`, `json`, `logging`, `websockets`
 
 	These can be installed using the following command:
 
