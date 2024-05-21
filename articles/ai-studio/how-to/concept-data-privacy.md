@@ -24,7 +24,7 @@ When you deploy models in Azure AI Studio, the following types of data are proce
 
 * **Uploaded** **data**. For models that support fine-tuning, customers can upload their data to a [datastore](../concepts/connections.md#connections-to-datastores) for use for fine-tuning.
 
-##  Generate inferencing outputs with real-time endpoints 
+##  Generate inferencing outputs with managed compute 
 
 Deploying models to managed computes deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the Model Catalog to managed computes [here](model-catalog-overview.md). You manage the infrastructure for these managed computes, and Azure's data, privacy, and security commitments apply. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3).
 
