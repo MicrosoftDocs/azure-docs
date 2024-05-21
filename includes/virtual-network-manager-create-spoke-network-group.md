@@ -1,12 +1,12 @@
 ---
- title: include file
- description: include file
- services: virtual-network-manager
- author: mbender
- ms.service: virtual-network-manager
- ms.topic: include
- ms.date: 05/21/2024
- ms.author: mbender-ms
+title: include file
+description: include file
+services: virtual-network-manager
+author: mbender
+ms.service: virtual-network-manager
+ms.topic: include
+ms.date: 05/21/2024
+ms.author: mbender-ms
 ms.custom: include-file
 ---
 
