@@ -58,6 +58,7 @@ From this example accumulation of Minutes Not Available, here's the calculation 
 - The following VM Series support creation of capacity reservations: 
     - Av2 
     - B
+    - Bpsv2
     - Bsv2 (Intel) and Basv2 (AMD)
     - D series, v2 and newer; AMD and Intel
     - DCsv2 series
