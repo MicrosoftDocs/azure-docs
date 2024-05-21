@@ -119,7 +119,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or object |The first value to use for finding common elements. |
 | arg2 |Yes |array or object |The second value to use for finding common elements. |
-| additional arguments |No |array or object |Additional values to use for finding common elements. |
+| additional arguments |No |array or object |More values to use for finding common elements. |
 
 ### Return value
 
@@ -427,7 +427,7 @@ The output from the preceding example is:
 
 `shallowMerge(inputArray)`
 
-Combines an array of objects, where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object aren't deeply merged; instead, they're replaced entirely by the corresponding property from the merging object.
+Combines an array of objects, where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object aren't deeply merged. Instead, they're replaced entirely by the corresponding property from the merging object.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -460,7 +460,7 @@ The output from the preceding example with the default values is:
 | firstOutput | object | {"one":"a","two":"c"}|
 | secondOutput | object | {"one":"a","nested":{"b":2},"two":"b"} |
 
-**firstOutput** shows the properties from the merging objects are combined into a new object. If there are conflicting properties (i.e., properties with the same name), the property from the last object being merged usually takes precedence.
+**firstOutput** shows the properties from the merging objects are combined into a new object. If there are conflicting properties (that is, properties with the same name), the property from the last object being merged usually takes precedence.
 
 **secondOutput** shows the shallow merge doesn't recursively merge these nested objects. Instead, the entire nested object is replaced by the corresponding property from the merging object.
 
@@ -478,7 +478,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or object |The first value to use for joining elements. |
 | arg2 |Yes |array or object |The second value to use for joining elements. |
-| additional arguments |No |array or object |Additional values to use for joining elements. |
+| additional arguments |No |array or object |More values to use for joining elements. |
 
 ### Return value
 
@@ -488,7 +488,7 @@ An array or object.
 
 The union function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any other parameters. If a value is already present, it's earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
