@@ -101,11 +101,13 @@ public class App
 }
 ```
 
+## [Sync Client](#tab/sync-client)
+
 ## Creating the email client with authentication
 
-There are a few different options available for authenticating an email client:
+There are a few different options available for authenticating an email client.
 
-#### [Connection String](#tab/connection-string)
+#### Connection String
 
 To authenticate a client, you instantiate an `EmailClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
@@ -122,7 +124,7 @@ EmailClient emailClient = new EmailClientBuilder()
 
 <a name='azure-active-directory'></a>
 
-#### [Microsoft Entra ID](#tab/aad)
+#### Microsoft Entra ID
 
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
@@ -137,7 +139,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### [AzureKeyCredential](#tab/azurekeycredential)
+#### AzureKeyCredential
 
 Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
@@ -150,23 +152,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
----
-
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
-
-#### Creating async client
-
-The [Azure SDK for Java also contains non-blocking, asynchronous APIs for interacting with Azure services](https://learn.microsoft.com/en-us/azure/developer/java/sdk/async-programming).
-
-To instantiate an async client, add the following code to the `main` method:
-
-```java
-String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
-
-EmailAsyncClient emailClient = new EmailClientBuilder()
-    .connectionString(connectionString)
-    .buildAsyncClient();
-```
 
 ## Basic email sending 
 
@@ -184,11 +170,9 @@ Make these replacements in the code:
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
-To send the email message, call the `beginSend` function from the `EmailClient`. This method is present in both the sync and async client.
+To send the email message, call the `beginSend` function from the `EmailClient`.
 
-#### Email sending with the sync client
-
-Calling `beginSend` on the sync client method returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the `beginSend` method is called.
+Calling `beginSend` on the sync client returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the `beginSend` method is called.
 
 ```java
 try
@@ -231,12 +215,79 @@ catch (Exception exception)
 }
 ```
 
-#### Email sending with the async client
+## [Async Client](#tab/async-client)
 
-Calling `beginSend` on the async client method returns a `PollerFlux` object to which you can subscribe. You will want to set up the subscriber in a seperate process to take advantage of the asynchronous functionality. Note that the initial request to send an email will not be sent until a subscriber is set up.
+The [Azure SDK for Java also contains non-blocking, asynchronous APIs for interacting with Azure services](https://learn.microsoft.com/en-us/azure/developer/java/sdk/async-programming).
+
+#### Connection String
+
+To authenticate a client, you instantiate an `EmailAsyncClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
+
+To instantiate a client, add the following code to the `main` method:
 
 ```java
-emailAsyncClient.beginSend(emailMessage).subscribe(
+// You can get your connection string from your resource in the Azure portal.
+String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
+
+EmailAsyncClient emailClient = new EmailClientBuilder()
+    .connectionString(connectionString)
+    .buildAsyncClient();
+```
+
+<a name='azure-active-directory'></a>
+
+#### Microsoft Entra ID
+
+A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
+
+The `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
+
+```java
+// You can find your endpoint and access key from your resource in the Azure portal
+String endpoint = "https://<resource-name>.communication.azure.com/";
+EmailAsyncClient emailClient = new EmailClientBuilder()
+    .endpoint(endpoint)
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .buildAsyncClient();
+```
+
+#### AzureKeyCredential
+
+Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
+
+```java
+String endpoint = "https://<resource-name>.communication.azure.com";
+AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key>");
+EmailAsyncClient emailClient = new EmailClientBuilder()
+    .endpoint(endpoint)
+    .credential(azureKeyCredential)
+    .buildAsyncClient();
+```
+
+For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
+
+## Basic email sending 
+
+An email message can be crafted using the `EmailMessage` object in the SDK.
+
+```java
+EmailMessage message = new EmailMessage()
+    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
+    .setToRecipients("<emailalias@emaildomain.com>")
+    .setSubject("Welcome to Azure Communication Services Email")
+    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.");
+```
+
+Make these replacements in the code:
+- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
+- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
+
+To send the email message, call the `beginSend` function from the `EmailAsyncClient`.
+
+Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. You will want to set up the subscriber in a seperate process to take advantage of the asynchronous functionality. Note that the initial request to send an email will not be sent until a subscriber is set up.
+
+```java
+emailClient.beginSend(emailMessage).subscribe(
         response -> {
             if (response.getStatus() == LongRunningOperationStatus.SUCCESSFULLY_COMPLETED) {
                 System.out.printf("Successfully sent the email (operation id: %s)", response.getValue().getId());
@@ -250,6 +301,7 @@ emailAsyncClient.beginSend(emailMessage).subscribe(
         }
 );
 ```
+---
 
 ### Run the code
 
