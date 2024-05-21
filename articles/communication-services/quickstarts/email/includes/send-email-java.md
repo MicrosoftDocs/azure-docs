@@ -219,7 +219,7 @@ catch (Exception exception)
 
 ## Creating the email client with authentication
 
-The [Azure SDK for Java also contains non-blocking, asynchronous APIs for interacting with Azure services](https://learn.microsoft.com/en-us/azure/developer/java/sdk/async-programming).
+The Azure SDK for Java also contains non-blocking, asynchronous APIs for interacting with Azure services.
 
 #### Connection String
 
