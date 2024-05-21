@@ -3,9 +3,10 @@ title: Zone resiliency considerations for Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn about the various considerations for zone resiliency in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/01/2024
+ms.date: 05/21/2024
 author: schaffererin
 ms.author: schaffererin
+ms.service: azure-kubernetes-service
 ---
 
 # Zone resiliency considerations for Azure Kubernetes Service (AKS)
@@ -89,8 +90,6 @@ For more information, see [Kubernetes Pod Topology Spread Constraints](https://k
 If you have pods that serve network traffic, you should load balance traffic across multiple AZs to ensure that your application is highly available and resilient to failures. You can use [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to distribute incoming traffic across the nodes in your AKS cluster.
 
 Azure Load Balancer supports both internal and external load balancing, and you can configure it to use a *Standard SKU* for zone-redundant load balancing. The Standard SKU supports regional resiliency with [availability zones](../reliability/reliability-load-balancer.md#availability-zone-support), to ensure your application isn't impacted by a region failure. In the event of a zone failure scenario, a zone-redundant Standard SKU load balancer isn't impacted by the failure and enables your deployments to continue serving traffic from the remaining zones. You can use a global load balancer, such as [Front Door](../frontdoor/front-door-overview.md) or [Traffic Manager](../traffic-manager/traffic-manager-overview.md), or you can use [cross-region load balancers](../reliability/reliability-load-balancer.md#cross-region-disaster-recovery-and-business-continuity) in front of your regional AKS clusters to ensure that your application isn't impacted by regional failures.
-
-../reliability/reliability-load-balancer.md#availability-zone-support
 
 To create a Standard SKU load balancer in AKS, see [Use a standard load balancer in Azure Kubernetes Service (AKS)](./load-balancer-standard.md).
 
