@@ -1,5 +1,5 @@
 ---
-title: Reference - Azure API Management GatewayLogs
+title: Reference - Azure API Management gateway log
 description: Schema reference for the Azure API Management GatewayLogs log. Entries include properties that are logged for each API request. 
 services: api-management
 author: dlepow
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 05/14/2024
 ms.author: danlep
 ---
-# Reference: API Management GatewayLogs schema
+# Reference: Gateway log schema
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 

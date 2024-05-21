@@ -1,5 +1,5 @@
 ---
-title: Reference - Azure API Management DeveloperPortalAuditLogs
+title: Reference - Azure API Management developer portal audit log
 description: Schema reference for the Azure API Management DeveloperPortalAuditLogs log. Entries include properties that are logged for requests to the developer portal. 
 services: api-management
 author: dlepow
@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 05/14/2024
 ms.author: danlep
 ---
-# Reference: API Management DeveloperPortalAuditLogs schema
+# Reference: Developer portal audit log schema
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
