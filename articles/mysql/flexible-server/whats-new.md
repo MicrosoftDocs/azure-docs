@@ -30,9 +30,9 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
   We're thrilled to announce the General Availability (GA) of the Accelerated Logs feature for Azure Database for MySQL Flexible Server. This feature is available within the Business-Critical service tier, which significantly enhances the performance of Azure Database for MySQL Flexible Server instances. It offers a dynamic solution designed for high throughput needs, reducing latency with no additional cost. [Learn more](concepts-accelerated-logs.md).
 
-- **Support for storage up to 32TiB in Azure Database for MySQL Flexible Server is now Generally Available**
+- **Support for storage up to 32 TB in Azure Database for MySQL Flexible Server is now Generally Available**
 
-  We're excited to announce the general availability (GA) of storage support up to 32 TiB in Azure Database for MySQL Flexible Server. The feature is available only in the Business Critical service tier. [Learn more](./concepts-service-tiers-storage.md) .
+  We're excited to announce the general availability (GA) of storage support up to 32 TB in Azure Database for MySQL Flexible Server. The feature is available only in the Business Critical service tier. To learn more, visit [service tiers](concepts-service-tiers-storage.md).
 
 ## April 2024
 
@@ -220,7 +220,7 @@ This article summarizes new releases and features in the Azure Database for MySQ
 - **Major version upgrade is now back and available for use**
 
   The Major Version upgrade feature was temporarily disabled in the portal due to technical issues, but it's now back in use.
-  If you encounter any issues with the upgrade feature, open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we'll assist you.
+  If you encounter any issues with the upgrade feature, open a [support ticket](https://azure.microsoft.com/support/create-ticket/) and we assist you.
 
 - **Redo logs management in MySQL version 8.0**
 
@@ -236,7 +236,7 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
 - **Known issues**
 
-  Upgrade Option Unavailable in Portal: Following technical issues after this month's deployment, the Major Version Upgrade feature has been temporarily disabled. We apologize for any inconvenience. Our team is working on a solution, and the issue will be resolved in the next deployment cycle. If you require immediate assistance with the Major Version Upgrade, open a [support ticket](https://azure.microsoft.com/support/create-ticket/), and we'll assist you.
+  Upgrade Option Unavailable in Portal: Following technical issues after this month's deployment, the Major Version Upgrade feature has been temporarily disabled. We apologize for any inconvenience. Our team is working on a solution, and the issue will be resolved in the next deployment cycle. If you require immediate assistance with the Major Version Upgrade, open a [support ticket](https://azure.microsoft.com/support/create-ticket/), and we assist you.
 
 ## December 2022
 
@@ -477,7 +477,7 @@ This release of Azure Database for MySQL flexible server includes the following 
 
 - **Read replicas in Azure Database for MySQL flexible server will no longer be available on Burstable SKUs**
 
-    If you have an existing Azure Database for MySQL flexible server instance with read replica enabled, you have to scale up your server to either General Purpose or Business Critical pricing tiers or delete the read replica within 60 days. After the 60 days, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Business Critical pricing tiers.
+    If you have an existing Azure Database for MySQL flexible server instance with read replica enabled, you have to scale up your server to either General Purpose or Business Critical pricing tiers or delete the read replica within 60 days. After the 60 days, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option is available only for the General Purpose and Business Critical pricing tiers.
 
 - **Monitoring Azure Database for MySQL flexible server with Azure Monitor Workbooks**
 
@@ -559,7 +559,7 @@ This release of Azure Database for MySQL flexible server includes the following 
 
 - **validate_password and caching_sha2_password plugin available in private preview**
 
-  Azure Database for MySQL flexible server now supports enabling validate_password and caching_sha2_password plugins in preview. Email us at AskAzureDBforMySQL@service.microsoft.com.
+  Azure Database for MySQL flexible server now supports enabling validate_password and caching_sha2_password plugins in preview. The validate_password plugin provides password policy enforcement and password strength validation. The caching_sha2_password plugin provides a more secure authentication method than the default mysql_native_password plugin. To learn more, visit [server parameters](concepts-server-parameters.md).
 
 - **Availability in four additional Azure regions**
 
@@ -716,7 +716,6 @@ If you have questions about or suggestions for working with Azure Database for M
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, email us at AskAzureDBforMySQL@service.microsoft.com.
 
 ## Related content
 
