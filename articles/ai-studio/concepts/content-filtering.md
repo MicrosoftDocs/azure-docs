@@ -6,8 +6,9 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
-ms.date: 2/22/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: pafarley
 author: PatrickFarley
@@ -15,7 +16,7 @@ author: PatrickFarley
 
 # Content filtering in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 Azure AI Studio includes a content filtering system that works alongside core models. 
 

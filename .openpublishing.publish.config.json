@@ -237,6 +237,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-python-extensions",
+      "url": "https://github.com/Azure/azure-functions-python-extensions",
+      "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-python-tensorflow-tutorial",
       "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
       "branch": "master",
@@ -1005,6 +1011,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-openai-extension",
+      "url": "https://github.com/Azure/azure-functions-openai-extension",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cosmos-db-nosql-dotnet-samples",
       "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
       "branch": "main",
@@ -1225,6 +1237,7 @@
   "redirection_files": [
   ".openpublishing.redirection.active-directory.json",
   ".openpublishing.redirection.ansible.json",
+  ".openpublishing.redirection.api-center.json",
   ".openpublishing.redirection.api-management.json",
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.asc-for-iot.json",

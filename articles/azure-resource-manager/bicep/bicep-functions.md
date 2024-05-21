@@ -3,7 +3,7 @@ title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/10/2024
+ms.date: 05/21/2024
 ---
 
 # Bicep functions
@@ -92,6 +92,7 @@ The following functions are available for working with lambda expressions. All o
 
 * [filter](bicep-functions-lambda.md#filter)
 * [map](bicep-functions-lambda.md#map)
+* [mapValue](bicep-functions-lambda.md#mapvalues)
 * [reduce](bicep-functions-lambda.md#reduce)
 * [sort](bicep-functions-lambda.md#sort)
 * [toObject](bicep-functions-lambda.md#toobject)
