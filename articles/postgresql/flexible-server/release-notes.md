@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 5/6/2024
+ms.date: 5/21/2024
 #customer intent: As a reader, I want the title and description to meet the required length and include the relevant information about the release notes for Azure DB for PostgreSQL - Flexible Server.
 ---
 
@@ -19,7 +19,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: May 2024
 * Support for [extensions](./concepts-extensions.md#extension-versions) TimescaleDB (ver 2.13.0) for PG16, login_hook, session_variable.
-* Support for [extensions](./concepts-extensions.md#extension-versions) TimescaleDB (ver 2.13.0) for PG16, login_hook, session_variable.
+* Public preview of [Upgrading PostgreSQL extensions](./concepts-extensions.md#upgrading-postgresql-extensions) on Azure Database for PostgreSQL flexible server.
 
 
 ## Release: April 2024

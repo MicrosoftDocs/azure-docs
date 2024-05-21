@@ -21,13 +21,4 @@ For public cloud deployments:
 | *.oms.opinsights.azure.com | *.oms.opinsights.azure.us | *.oms.opinsights.azure.cn | 443 |
 | login.microsoftonline.com  | login.microsoftonline.us | login.chinacloudapi.cn  | 443  |
 
-The following domains are only necessary if you're using a relevant OS. For example, if you have EKS clusters running in AWS, then you would only need to apply the `Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*"` domain.
-
-| Domain                     | Port | Host operating systems |
-| -------------------------- | ---- | -- |
-| amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
-| yum default repositories | - | RHEL / Centos |
-| apt default repositories | - | Debian |
-
 You'll also need to validate the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
-

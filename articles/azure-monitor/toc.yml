@@ -357,8 +357,6 @@ items:
       items:
       - name: Manage Application Insights
         href: app/powershell.md
-      - name: Access control
-        href: app/resources-roles-access-control.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -459,7 +457,9 @@ items:
       - name: Onboard cluster
         href: containers/kubernetes-monitoring-enable.md
       - name: Onboard hybrid cluster
-        href: containers/container-insights-hybrid-setup.md      
+        href: containers/container-insights-hybrid-setup.md
+      - name: Prometheus based Container Insights
+        href: containers/container-insights-experience-v2.md
       - name: Firewall requirements
         displayName: Container insights, Prometheus
         href: containers/kubernetes-monitoring-firewall.md
@@ -944,8 +944,8 @@ items:
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
         - name: Private link data query of Prometheus metrics
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
+          displayName: Private link data query
+          href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -993,6 +993,8 @@ items:
                 href: ../operational-excellence/relocation-log-analytics.md?toc=/azure/azure-monitor/toc.json
               - name: Delete and recover a workspace
                 href: logs/delete-workspace.md
+          - name: Replicate workspace across regions
+            href: logs/workspace-replication.md          
           - name: Manage access
             displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
@@ -1191,6 +1193,8 @@ items:
     items:
     - name: Overview
       href: logs/log-analytics-overview.md
+    - name: Simple mode
+      href: logs/log-analytics-simple-mode.md
     - name: Query scope
       href: logs/scope.md
     - name: Saving queries

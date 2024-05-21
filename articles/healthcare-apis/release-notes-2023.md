@@ -135,7 +135,7 @@ Batch bundles are executed serially in FHIR service by default. To improve throu
 
 Learn more:
 
-- [Batch bundle parallelization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+- [Batch bundle parallelization](./../healthcare-apis/fhir/rest-api-capabilities.md)
 - [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 #### Bug fixes

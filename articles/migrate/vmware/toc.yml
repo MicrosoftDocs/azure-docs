@@ -17,7 +17,7 @@ items:
 - name: Decide
   items:
   - name: Build a business case (preview)
-    href: ../how-to-build-a-business-case.md?context=/azure/migrate/context/migrate-context
+    href: ../how-to-build-a-business-case.md?context=/azure/migrate/context/vmware-context
 - name: Assess
   items:
   - name: Assess servers for migration to Azure VMs
@@ -35,7 +35,7 @@ items:
     items:
     - name: VMware agent-based migration architecture
       href: agent-based-migration-architecture.md
-    - name: Migrate with agent-based migration
+    - name: Migrate VMware vSphere VMs with agent-based migration
       href: tutorial-migrate-vmware-agent.md    
   - name: Agentless migration
     items:

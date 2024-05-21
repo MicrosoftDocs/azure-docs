@@ -126,7 +126,7 @@ Take the following steps to order Data Box Disk.
 
     The **Security** screen lets you use your own encryption key.
 
-    All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
+    All settings on the **Security** screen are optional. If you don't change any settings, the default settings apply.
 
 1. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
