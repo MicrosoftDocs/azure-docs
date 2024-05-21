@@ -194,11 +194,11 @@ Visual Studio Code uses Azurite to emulate Azure Storage services when running l
 
 1. Select the Azure icon in the Activity bar, expand **Workspace** > **Attached Storage Accounts** > **Local Emulator**, right-click **Blob Containers**, select **Create Blob Container...**, enter the name `samples-workitems`, and press Enter.
  
-    :::image type="content" source="media/functions-event-grid-blob-trigger/create_blob_container.png" alt-text="Select Create Blob Container in the local emulation in Visual Studio Code.":::
+    :::image type="content" source="media/functions-event-grid-blob-trigger/create-blob-container.png" alt-text="Screenshot showing how to select Create Blob Container in the local emulation in Visual Studio Code.":::
  
 1. Expand **Blob Containers** > **samples-workitems** and select **Upload files...**.
  
-    :::image type="content" source="media/functions-event-grid-blob-trigger/upload-file-blob-container.png" alt-text="Select Upload Files in the samples-workitems container in local emulation in Visual Studio Code.":::
+    :::image type="content" source="media/functions-event-grid-blob-trigger/upload-file-blob-container.png" alt-text="Screenshot showing how to select Upload Files in the samples-workitems container in local emulation in Visual Studio Code.":::
 
 1. Choose a file to upload to the locally emulated container. This file gets processed later by your function to verify and debug your function code. A text file might work best with the Blob trigger template code.
 
@@ -210,7 +210,7 @@ With a file in emulated storage, you can run your function to simulate an event 
 
 1. Back in the Azure area, expand **Workspace** > **Local Project** > **Functions**, right-click the function, and select **Execute Function Now...**.
 
-    :::image type="content" source="media/functions-event-grid-blob-trigger/execute_function_now.png" alt-text="Select the Execute Function Now button from the function in the local project workspace in Visual Studio Code.":::
+    :::image type="content" source="media/functions-event-grid-blob-trigger/execute-function-now.png" alt-text="Screenshot showing how to select the Execute Function Now button from the function in the local project workspace in Visual Studio Code.":::
 
 1. In the request body dialog, type `samples-workitems/<TEST_FILE_NAME>`, replacing `<TEST_FILE_NAME>` with the name of the file you uploaded in the local storage emulator. 
 
