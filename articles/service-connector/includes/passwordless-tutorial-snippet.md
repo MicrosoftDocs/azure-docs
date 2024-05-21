@@ -25,7 +25,7 @@ If you use:
 
 ::: zone pivot="postgresql"
 
-The following Azure CLI command uses a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
+The following Azure CLI command uses a `--client-type` parameter, it can be java, dotnet, python, etc. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
 
 ### [User-assigned managed identity](#tab/user)
 
@@ -37,7 +37,7 @@ az webapp connection create postgres-flexible \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
     --user-identity client-id=XX subs-id=XX \
-    --client-type java
+    --client-type $CLIENT_TYPE
 ```
 
 ### [System-assigned managed identity](#tab/system)
@@ -50,7 +50,7 @@ az webapp connection create postgres-flexible \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
     --system-identity \
-    --client-type java
+    --client-type $CLIENT_TYPE
 ```
 
 ### [Service principal](#tab/sp)
@@ -63,7 +63,7 @@ az webapp connection create postgres-flexible \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
     --service-principal client-id=XX secret=XX\
-    --client-type java
+    --client-type $CLIENT_TYPE
 ```
 
 ::: zone-end
@@ -191,6 +191,32 @@ This Service Connector command completes the following tasks in the background:
   * For App Service, the configurations are set in the **App Settings** blade.
   * For Spring Apps, the configurations are set when the application is launched.
   * For Container Apps, the configurations are set to the environment variables. You can get all configurations and their values in the **Service Connector** blade in the Azure portal.
+ 
+
+Service Connector will assign the following privileges to the user, you can revoke them and adjust the privileges based on your requirements.
+
+::: zone pivot="postgresql"
+```
+GRANT ALL PRIVILEGES ON DATABASE "$DATABASE_NAME" TO "username"; 
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "username"; 
+
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "username"; 
+```
+::: zone-end
+
+::: zone pivot="mysql"
+```
+
+GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO 'username'@'%'; 
+```
+::: zone-end
+
+::: zone pivot="sql"
+```
+GRANT CONTROL ON DATABASE::"$DATABASE_NAME" TO "username";
+```
+::: zone-end
 
 ## Connect to a database with Microsoft Entra authentication
 
