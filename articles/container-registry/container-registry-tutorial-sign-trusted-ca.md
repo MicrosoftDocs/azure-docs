@@ -164,16 +164,16 @@ The `AcrPull` and `AcrPush` roles are required for building and signing containe
 
 1. Set the subscription that contains the ACR resource
 
-```bash
-az account set --subscription $ACR_SUB_ID
-```
+    ```bash
+    az account set --subscription $ACR_SUB_ID
+    ```
 
 1. Assign the roles
 
-```bash
-USER_ID=$(az ad signed-in-user show --query id -o tsv)
-az role assignment create --role "AcrPull" --role "AcrPush" --assignee $USER_ID --scope "/subscriptions/$ACR_SUB_ID/resourceGroups/$ACR_RG/providers/Microsoft.ContainerRegistry/registries/$ACR_NAME"
-```
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az role assignment create --role "AcrPull" --role "AcrPush" --assignee $USER_ID --scope "/subscriptions/$ACR_SUB_ID/resourceGroups/$ACR_RG/providers/Microsoft.ContainerRegistry/registries/$ACR_NAME"
+    ```
 
 ### Build and push container images to ACR
 
@@ -193,11 +193,11 @@ az role assignment create --role "AcrPull" --role "AcrPush" --assignee $USER_ID 
     IMAGE=$REGISTRY/${REPO}@$DIGEST
     ```
 
-    In this tutorial, if the image has already been built and is stored in the registry, the tag serves as an identifier for that image for convenience.
+In this tutorial, if the image has already been built and is stored in the registry, the tag serves as an identifier for that image for convenience.
 
-    ```bash
-    IMAGE=$REGISTRY/${REPO}@$TAG
-    ```
+```bash
+IMAGE=$REGISTRY/${REPO}@$TAG
+```
 
 ### Authoring access to AKV
 
@@ -205,30 +205,30 @@ az role assignment create --role "AcrPull" --role "AcrPush" --assignee $USER_ID 
 
 1. Set the subscription that contains the AKV resource
 
-```bash
-az account set --subscription $AKV_SUB_ID
-```
+    ```bash
+    az account set --subscription $AKV_SUB_ID
+    ```
 
 1. Assign the roles
 
-If the certificate contains the entire certificate chain, the principal must be assigned with the following roles: 
-- `Key Vault Secrets User` for reading secrets
-- `Key Vault Certificates User`for reading certificates
-- `Key Vault Crypto User` for signing operations
+    If the certificate contains the entire certificate chain, the principal must be assigned with the following roles: 
+    - `Key Vault Secrets User` for reading secrets
+    - `Key Vault Certificates User`for reading certificates
+    - `Key Vault Crypto User` for signing operations
 
-```bash
-USER_ID=$(az ad signed-in-user show --query id -o tsv)
-az role assignment create --role "Key Vault Secrets User" --role "Key Vault Certificates User" --role "Key Vault Crypto User" --assignee $USER_ID --scope "/subscriptions/$AKV_SUB_ID/resourceGroups/$AKV_RG/providers/Microsoft.KeyVault/vaults/$AKV_NAME"
-```
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az role assignment create --role "Key Vault Secrets User" --role "Key Vault Certificates User" --role "Key Vault Crypto User" --assignee $USER_ID --scope "/subscriptions/$AKV_SUB_ID/resourceGroups/$AKV_RG/providers/Microsoft.KeyVault/vaults/$AKV_NAME"
+    ```
 
-If the certificate doesn't contain the chain, the principal must be assigned with the following roles:
-- `Key Vault Certificates User`for reading certificates
-- `Key Vault Crypto User` for signing operations
+    If the certificate doesn't contain the chain, the principal must be assigned with the following roles:
+    - `Key Vault Certificates User`for reading certificates
+    - `Key Vault Crypto User` for signing operations
 
-```bash
-USER_ID=$(az ad signed-in-user show --query id -o tsv)
-az role assignment create --role "Key Vault Certificates User" --role "Key Vault Crypto User" --assignee $USER_ID --scope "/subscriptions/$AKV_SUB_ID/resourceGroups/$AKV_RG/providers/Microsoft.KeyVault/vaults/$AKV_NAME"
-```
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az role assignment create --role "Key Vault Certificates User" --role "Key Vault Crypto User" --assignee $USER_ID --scope "/subscriptions/$AKV_SUB_ID/resourceGroups/$AKV_RG/providers/Microsoft.KeyVault/vaults/$AKV_NAME"
+    ```
 
 To learn more about Key Vault access with Azure RBAC, see [Use an Azure RBAC for managing access](/azure/key-vault/general/rbac-guide).
 
@@ -279,7 +279,6 @@ To learn more about assigning policy to a principal, see [Assign Access Policy](
    ```
 
    To authenticate with AKV, by default, the following credential types if enabled will be tried in order:
- 
    - [Environment credential](/dotnet/api/azure.identity.environmentcredential)
    - [Workload identity credential](/dotnet/api/azure.identity.workloadidentitycredential)
    - [Managed identity credential](/dotnet/api/azure.identity.managedidentitycredential)
