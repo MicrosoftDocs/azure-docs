@@ -26,7 +26,6 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 	```bash
 	pip install <package name>
 	```
-
 2. Generate a `config.json` file to store your connection details
 
     ```json
@@ -37,7 +36,6 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
     "key": "SHARED_ACCESS_PRIMARY_KEY"
     }
     ```
-
 	Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
 
     - `namespace` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.
@@ -64,7 +62,6 @@ a Hybrid Connections URL with SAS Tokens utilizing Websockets.
 	import relaylib
 	import websockets
     ```
-
 3. Add the following code to the `sender.py` file. The main script should look like the following code:
 
     ```python
