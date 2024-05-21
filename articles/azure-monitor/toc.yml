@@ -357,8 +357,6 @@ items:
       items:
       - name: Manage Application Insights
         href: app/powershell.md
-      - name: Access control
-        href: app/resources-roles-access-control.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
