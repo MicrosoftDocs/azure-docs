@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Stack Edge Mini R technical specifications and compliance| Microsoft Docs
-description: Learn about the technical specifications and compliance for your Azure Stack Edge Mini R device
+description: Learn about the technical specifications and compliance for your Azure Stack Edge Mini R device.
 services: databox
 author: alkohli
 
@@ -24,9 +24,9 @@ The Azure Stack Edge Mini R device has the following specifications for compute 
 | CPU type                | Intel Xeon-D 1577               |
 | CPU: raw                | 16 total cores, 32 total vCPUs  |
 | CPU: usable             | 24 vCPUs                        |
-| Memory type             | 16 GiB 2400 MT/s SODIMM          |
-| Memory: raw             | 48 GiB RAM (3 x 16 GiB)           |
-| Memory: usable          | 32 GiB RAM                       |
+| Memory type             | 16 GiB 2,400 MT/s SODIMM          |
+| Memory: raw             | 48-GiB RAM (3 x 16 GiB)           |
+| Memory: usable          | 32-GiB RAM                       |
 
 
 ## Compute acceleration
@@ -44,7 +44,7 @@ The Azure Stack Edge Mini R device has one data disk and one boot disk (that ser
 
 |     Specification                          |     Value                                              |
 |--------------------------------------------|--------------------------------------------------------|
-|    Number of solid-state drives (SSDs)     |    2 X 1 TB disks <br> One data disk and one boot disk |
+|    Number of solid-state drives (SSDs)     |    Two X 1-TB disks <br> One data disk and one boot disk |
 |    Single SSD capacity                     |    1 TB                                                |
 |    Total capacity (data only)              |    1 TB                                                |
 |    Total usable capacity*                  |    ~ 750 GB                                            |
@@ -59,7 +59,7 @@ The Azure Stack Edge Mini R device has the following specifications for the netw
 |----------------------|--------------------------------------------------------------------|
 |Network interfaces    |2 x 10 Gbps SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI    |
 |Network interfaces    |2 x 1 Gbps RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI     |
-|Wi-Fi <br> **Note:** On Azure Stack Edge 2309 and later, Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. Wi-Fi is no longer supported on the Azure Stack Edge Mini R device.             |802.11ac                                                            |
+|Wi-Fi <br> **Note:** On Azure Stack Edge 2309 and later, Wi-Fi functionality for Azure Stack Edge Mini R is deprecated. Wi-Fi is no longer supported on the Azure Stack Edge Mini R device.             |802.11ac                                                            |
 
 ## Routers and switches
 
@@ -84,7 +84,7 @@ The following copper SFP+ (10 Gbps) transceivers and cables are recommended for 
 
 ## Power supply unit
 
-The Azure Stack Edge Mini R device includes an external 85 W AC adapter to supply power and charge the onboard battery.
+The Azure Stack Edge Mini R device includes an external 85-W AC adapter to supply power and charge the onboard battery.
 
 The following table shows the power supply unit specifications:
 
@@ -96,7 +96,7 @@ The following table shows the power supply unit specifications:
 
 ## Included battery
 
-The Azure Stack Edge Mini R device also includes an onboard battery that is charged by the power supply.
+The Azure Stack Edge Mini R device also includes an onboard battery charged by the power supply.
 
 An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) can be used along with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country/region of use.
 
@@ -138,7 +138,7 @@ This section lists the specifications related to the enclosure environment, such
 |     Shock                      |     MIL-STD-810 Method 516.7*<br> Procedure IV, Logistic                 |
 |     Altitude                   |     Operational:   15,000 feet<br> Nonoperational: 40,000 feet          |
 
-**All references are to MIL-STD-810G Change 1 (2014)*
+**All references are to MIL-STD-810G Change 1 (2014).*
 
 ## Next steps
 
