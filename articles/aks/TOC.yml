@@ -4,6 +4,8 @@
   items:
     - name: What is AKS?
       href: what-is-aks.md
+    - name: What is AKS Automatic?
+      href: intro-aks-automatic.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
     - name: Track releases and region availability
@@ -31,6 +33,8 @@
     - name: Create a Linux-based AKS Cluster
       expanded: true
       items:
+        - name: Use AKS Automatic
+          href: learn/quick-kubernetes-automatic-deploy.md
         - name: Use the Azure CLI
           href: learn/quick-kubernetes-deploy-cli.md
         - name: Use the Azure Developer CLI

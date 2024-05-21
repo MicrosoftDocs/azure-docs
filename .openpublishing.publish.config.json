@@ -237,6 +237,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-python-extensions",
+      "url": "https://github.com/Azure/azure-functions-python-extensions",
+      "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-python-tensorflow-tutorial",
       "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
       "branch": "master",
@@ -1002,6 +1008,12 @@
       "path_to_root": "functions-sql-todo-sample",
       "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
       "branch": "docs-snippets",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-openai-extension",
+      "url": "https://github.com/Azure/azure-functions-openai-extension",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
