@@ -37,7 +37,7 @@ Some models in the **Curated by Azure AI** and **Open models from the Hugging Fa
 * **Compare:** Compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. 
 * **Evaluate:** Evaluate if the model is suited for your specific workload by providing your own test data. Evaluation metrics make it easy to visualize how well the selected model performed in your scenario. 
 * **Fine-tune:** Customize fine-tunable models using your own training data and pick the best model by comparing metrics across all your fine-tuning jobs. Built-in optimizations speedup fine-tuning and reduce the memory and compute needed for fine-tuning. 
-* **Deploy:** Deploy pretrained models or fine-tuned models seamlessly for inference. Models that can be deployed to real-time endpoints can also be downloaded.  
+* **Deploy:** Deploy pretrained models or fine-tuned models seamlessly for inference. Models that can be deployed to managed compute can also be downloaded.  
 
 ## Model deployment: Managed compute and serverless API (pay-as-you-go)  
 
@@ -86,7 +86,7 @@ Models available for deployment to a Managed compute can be deployed to Azure Ma
 
 ### Build Generative AI Apps with Managed computes
 
-Prompt flow offers a great experience for prototyping. You can use models deployed with Managed computes in Prompt Flow with the [Open Model LLM tool](../../machine-learning/prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
+Prompt flow offers a great experience for prototyping. You can use models deployed with Managed computes in Prompt Flow with the [Open Model LLM tool](../../machine-learning/prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by managed compute in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
 
 ### Content safety for models deployed as Managed Computes 
