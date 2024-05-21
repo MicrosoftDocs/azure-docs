@@ -94,7 +94,7 @@ Content-Type:application/fhir+json
 
 | Input part name   | Description | Cardinality |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
-| `type`|  Resource type of the input file. | 0..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. This is optional field.|
+| `type`|  Resource type of the input file. | 0..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. This field is optional.|
 |`url`|  Azure storage URL of the input file.   | 1..1 | URL value of the input file. The value can't be modified. |
 | `etag`|  ETag of the input file in the Azure storage. Used to verify that the file content isn't changed after `import` registration. | 0..1 |  ETag value of the input file.|
 
