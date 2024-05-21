@@ -37,7 +37,7 @@ To enable cross-region replication on a new cluster *during cluster creation*, f
 1. On the **Basics** tab, select **Enable global distribution (preview)** flag.
 1. On the **Global distribution (preview)** tab, select **Enable** for the **Read replica in another region (preview)**.
 1. Provide a replica cluster name in the **Read replica name** field. 
-1. Select a region in the **Read replica region**. This is the Azure region where replica cluster will be hosted.
+1. Select a region in the **Read replica region**. The replica cluster is hosted in the selected Azure region.
 1. (optionally) Select desired network access settings for the cluster on the **Networking** tab.
 1. On the **Review + create** tab, review cluster configuration details, and then select **Create**. 
 
