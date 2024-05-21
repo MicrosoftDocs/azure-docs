@@ -26,9 +26,9 @@ Many organizations use Azure Firewall to protect their virtual networks from thr
 
 [!INCLUDE [virtual-network-manager-create-udr-instance](../../includes/virtual-network-manager-create-udr-instance.md)]
 
-[!INCLUDE [virtual-network-manager-create-spoke-network-group](../../includes/virtual-network-manager-create-spoke-network-group.md)
+[!INCLUDE [virtual-network-manager-create-spoke-network-group](../../includes/virtual-network-manager-create-spoke-network-group.md)]
 
-[!INCLUDE [virtual-network-manager-deploy-hub and spoke-topology](../../includes/virtual-network-manager-deploy-hub and spoke-topology.md)]
+[!INCLUDE [virtual-network-manager-deploy-hub-spoke-topology](../../includes/virtual-network-manager-deploy-hub-spoke-topology.md)]
 
 ## Create a routing configuration and rule collection
 
