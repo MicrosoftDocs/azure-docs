@@ -40,7 +40,7 @@ For Application Insights, see [Enable a framework extension for Application Insi
 
 Select system logs to check service-level events, or console logs to debug code. For more information, see [Use queries in Log Analytics](../azure-monitor/logs/queries.md).
 
-Select **Open in advanced queries** to go to the [Log Analytics workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-overview).
+Select **Open in advanced queries** to go to the [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md).
 ::: zone-end
 ::: zone pivot="database"
 ::: zone-end
