@@ -95,7 +95,7 @@ The following section describes the steps needed to add additional IP configurat
 1. Select **Instances** under settings.
 :::image type="content" source="./media/network-virtual-appliance-address/find-instance.png"alt-text="Screenshot showing how to select instance from the settings bar."lightbox="./media/network-virtual-appliance-address/find-instance.png"::: 
 1. Select the VM instance for which you want to see assigned IP addresses.
-:::image type="content" source="./media/network-virtual-appliance-address/select-instance-view.png"alt-text="Screenshot showing how to select instance from the settings bar."lightbox="./media/network-virtual-appliance-address/select-instance-view.png"::: 
+:::image type="content" source="./media/network-virtual-appliance-address/select-instance-view.png"alt-text="Screenshot showing how to select instance to view configurations."lightbox="./media/network-virtual-appliance-address/select-instance-view.png"::: 
 
 ## Removing IP configurations
 
