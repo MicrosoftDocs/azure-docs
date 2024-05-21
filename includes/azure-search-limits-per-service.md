@@ -64,7 +64,6 @@ Services must be in one of the following regions to get the extra storage. Watch
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
-| **United States** | East US 2 EUAP |
 | **Switzerland** | Switzerland West​ |
 | **South Africa** | South Africa North​ |
 | **Germany** | Germany North​, Germany West Central​ ​|
