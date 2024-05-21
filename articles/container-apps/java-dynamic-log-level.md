@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Azure Container Apps platform offers a built-in diagnostics tool exclusively for Java developers to help them debug and troubleshoot their Java applications running on Azure Container Apps more easily and efficiently. One of the key features is a dynamic logger level change, which allows you to access log details that are hidden by default. When enabled, log information is collected without code modifications or forcing you to restart your app when changing log levels.
 
-Before getting started, you need to upgrade Azure Container Apps Extension in your Azure CLI to version **0.3.51** or higher to use this functionality.
+Before getting started, you need to upgrade Azure Container Apps extension in your Azure CLI to version **0.3.51** or higher.
 ```azurecli
 az extension update --name containerapp
 ```
@@ -53,7 +53,7 @@ Use the following command to adjust log levels for a specific logger:
 ```azurecli
 az containerapp java logger set \
   --logger-name "org.springframework.boot" \
-  --level "info"
+  --logger-level "info"
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <CONTAINER_APP_NAME>
