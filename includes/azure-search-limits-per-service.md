@@ -13,8 +13,8 @@ ms.custom: include file, build-2024
 Search service limits for storage, partitions, and replicas vary by service creation date, with higher limits for newer services in supported regions. Limits vary by service creation date:
 
 + [Before April 3, 2024](#before-april-3-2024)
-+ [After April 3, 2024](#after-april-3-2024)
-+ [After May 17, 2024 (L1 and L2 only)](#after-may-17-2024)
++ [Between April and May 2024 (Basic, S1, S2, S3, S3 HD)](#after-april-3-2024)
++ [After May 17, 2024 (L1 and L2)](#after-may-17-2024)
 
 A search service is subject to a maximum storage limit (partition size multiplied by the number of partitions) or by a hard limit on the [maximum number of indexes](../articles/search/search-limits-quotas-capacity.md#index-limits) or [indexers](../articles/search/search-limits-quotas-capacity.md#indexer-limits), whichever comes first. 
 
@@ -33,13 +33,9 @@ Free services don't have fixed partitions or replicas and they share resources w
 
 ### After April 3, 2024
 
-For new services created after April 3, 2024:
-
-+ Basic tier can have up to three partitions and three replicas, and a total of nine search units (SU).
-+ Basic, S1, S2, S3 have more storage per partition, ranging from 3-7 times more, depending on the tier.
-+ Your new search service must be in a [supported region](#supported-regions-with-higher-storage-limits) to get the extra capacity for Basic and other tiers.
-
-Currently, there's no in-place upgrade. You should [create a new search service](/azure/search/search-create-service-portal) to benefit from the extra storage.
++ Basic tier supports three partitions and three replicas, for a total of nine search units (SU). It also has larger partitions.
++ S1, S2, S3, and S3 HD have larger partitions, ranging from 3-7 times more, depending on the tier.
++ Higher capacity is limited to [new search services](/azure/search/search-create-service-portal) in [supported regions](#supported-regions-with-higher-storage-limits). There is no in-place upgrade at this time.
 
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
@@ -50,13 +46,8 @@ Currently, there's no in-place upgrade. You should [create a new search service]
 
 ### After May 17, 2024
 
-S2, S3, and S3 HD have larger partition sizes starting on May 17, 2024. If you created an S2 or higher search service after April 3, the higher partition size becomes available automatically. If you're running an older search service, you must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
-
-Storage Optimized tiers (L1 and L2) now have larger partitions at the current pricing.
-
-+ S2, S3, S3 HD automatically have more storage per partition on search services running on the April 3 infrastructure, or on new services created after May 17.
-+ L1 and L2 have more partition storage and compute power, but you must create a new service.
-+ Your new search service must be in a [supported region](#supported-regions-with-higher-storage-limits) to get the extra storage.
++ L1 and L2 have more partition storage and compute power.
++ Higher capacity is limited to [new search services](/azure/search/search-create-service-portal) in [supported regions](#supported-regions-with-higher-storage-limits). There is no in-place upgrade at this time.
 
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
@@ -69,23 +60,23 @@ Storage Optimized tiers (L1 and L2) now have larger partitions at the current pr
 
 Services must be in one of the following regions to get the extra storage. Watch for announcements in [What's New in Azure AI Search](/azure/search/whats-new) for expansion to other regions.
 
-### Roll out on May 17 2024
+### Available starting on May 17, 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
-| **United States** | East US 2 EUAP/PPE |
+| **Switzerland** | Switzerland West​ |
 | **South Africa** | South Africa North​ |
 | **Germany** | Germany North​, Germany West Central​ ​|
 | **Azure Government** | Texas, Arizona, Virginia |
 
-### Roll out on April 2024
+### Available starting on April 3, 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
 | **United States** | East US​, East US 2, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
 | **United Kingdom** | UK South​, UK West​ ​ |
 | **United Arab Emirates** | UAE North​​ |
-| **Switzerland** | Switzerland West​ |
+| **Switzerland** | Switzerland North​ |
 | **Sweden** | Sweden Central​​ |
 | **South Africa** | South Africa North​ |
 | **Poland** | Poland Central​​ |
