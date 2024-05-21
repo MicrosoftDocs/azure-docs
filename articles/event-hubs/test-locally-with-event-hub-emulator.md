@@ -138,7 +138,7 @@ ACCEPT_EULA="N"
 
 Once the steps are successful, you could find containers running in Docker:
 
-:::image type="content" source="./media/test-locally-with-event-hub-emulator/test-locally-with-event-hub-emulator.png" alt-text="Screenshot showing the event hubs emulator running in container":::
+:::image type="content" source="./media/test-locally-with-event-hub-emulator/test-locally-with-event-hub-emulator.png" alt-text="Screenshot showing the event hubs emulator running in container.":::
 
 
 ## Interacting with Emulator
