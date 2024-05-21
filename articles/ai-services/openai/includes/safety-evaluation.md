@@ -16,11 +16,11 @@ GPT-4 is our most advanced model that can be fine-tuned to your needs. As with A
 - Evaluation endpoints are in the same geography as the Azure OpenAI resource;
 - Training data is not stored in connection with performing evaluations; only the final model assessment (deployable or not deployable) is persisted; and
 
-GPT4 fine-tuned model evaluation filters are set to pre-defined thresholds and cannot be modified by customers; they are not tied to any custom content filtering configuration you may have created.
+GPT-4 fine-tuned model evaluation filters are set to predefined thresholds and cannot be modified by customers; they aren't tied to any custom content filtering configuration you may have created.
 
 ### Data evaluation
 
-Before training starts, your data is evaluated for potentially harmful content (violence, sexual, hate and fairness, self-harm – see category definitions [here](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#risk-categories)). If harmful content is detected above the specified severity level, your training job will fail, and you will receive a message informing you of the categories of failure.
+Before training starts, your data is evaluated for potentially harmful content (violence, sexual, hate, and fairness, self-harm – see category definitions [here](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#risk-categories)). If harmful content is detected above the specified severity level, your training job will fail, and you'll receive a message informing you of the categories of failure.
 
 **Sample message:**
 
@@ -30,13 +30,13 @@ The provided training data failed RAI checks for harm types: [hate_fairness, sel
 
 Your training data is evaluated automatically within your data import job as part of providing the fine-tuning capability.
 
-If the fine-tuning job fails due to the detection of harmful content in training data, you will not be charged.
+If the fine-tuning job fails due to the detection of harmful content in training data, you won't be charged.
 
 ### Model evaluation
 
-After training completes but before the fine-tuned model is available for deployment, the resulting model is evaluated for potentially harmful responses using Azure’s built-in [risk and safety metrics](/ai-studio/concepts/evaluation-metrics-built-in?tabs=warning#risk-and-safety-metrics). Using the same approach to testing that we use for the base large language models, our evaluation capability simulates a conversation with your fine-tuned model to assess the potential to output harmful content, again using specified harmful content [categories](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#risk-categories) (violence, sexual, hate and fairness, self-harm).  
+After training completes but before the fine-tuned model is available for deployment, the resulting model is evaluated for potentially harmful responses using Azure’s built-in [risk and safety metrics](/ai-studio/concepts/evaluation-metrics-built-in?tabs=warning#risk-and-safety-metrics). Using the same approach to testing that we use for the base large language models, our evaluation capability simulates a conversation with your fine-tuned model to assess the potential to output harmful content, again using specified harmful content [categories](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#risk-categories) (violence, sexual, hate, and fairness, self-harm).  
 
-If a model is found to generate output containing content detected as harmful at above an acceptable rate, you will be informed that your model is not available for deployment, with information about the specific categories of harm detected:
+If a model is found to generate output containing content detected as harmful at above an acceptable rate, you'll be informed that your model isn't available for deployment, with information about the specific categories of harm detected:
 
 **Sample Message**:
 
@@ -46,4 +46,4 @@ This model is unable to be deployed. Model evaluation identified that this fine 
 
    :::image type="content" source="../media/fine-tuning/failure.png" alt-text="Screenshot of a failed fine-tuning job due to safety evaluation" lightbox="../media/fine-tuning/failure.png":::
 
-As with data evaluation, the model is evaluated automatically within your fine-tuning job as part of providing the fine-tuning capability. Only the resulting assessment (deployable or not deployable) is logged by the service. If deployment of the fine-tuned model fails due to the detection of harmful content in model outputs, you will not be charged for the training run.
+As with data evaluation, the model is evaluated automatically within your fine-tuning job as part of providing the fine-tuning capability. Only the resulting assessment (deployable or not deployable) is logged by the service. If deployment of the fine-tuned model fails due to the detection of harmful content in model outputs, you won't be charged for the training run.
