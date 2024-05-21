@@ -56,6 +56,11 @@ Global deployments are available in the same Azure OpenAI resources as non-globa
 
 For more information, see the [deployment types guide](https://aka.ms/aoai/docs/deployment-types).
 
+### Fine-tuning updates
+
+- GPT-4 fine-tuning is [now available in public preview](./concepts/models.md#fine-tuning-models).
+- Added support for [seed](/azure/ai-services/openai/tutorials/fine-tune?tabs=python-new%2Ccommand-line#begin-fine-tuning), [events](/azure/ai-services/openai/tutorials/fine-tune?tabs=python-new%2Ccommand-line#list-fine-tuning-events), [full validation statistics](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#analyze-your-customized-model), and [checkpoints](/azure/ai-services/openai/tutorials/fine-tune?tabs=python-new%2Ccommand-line#list-checkpoints) as part of the `2024-05-01-preview` API release.
+
 ### DALL-E and GPT-4 Turbo Vision GA configurable content filters
 
 Create custom content filters for your DALL-E 2 and 3 and GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)

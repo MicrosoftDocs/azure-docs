@@ -35,6 +35,9 @@ The following models support fine-tuning:
 - `gpt-35-turbo` (0613)
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
+- `gpt-4` (0613)
+
+If you plan to use `gpt-4` for fine-tuning, please refer to the [GPT-4 public preview safety evaluation guidance](#safety-evaluation-gpt-4-fine-tuning---public-preview)
 
 Or you can fine tune a previously fine-tuned model, formatted as base-model.ft-{jobid}.
 
@@ -371,6 +374,10 @@ print(response.model_dump_json(indent=2))
 This command isn't available in the 0.28.1 OpenAI Python library. Upgrade to the latest release.
 
 ---
+
+## Safety evaluation GPT-4 fine-tuning - public preview
+
+[!INCLUDE [Safety evaluation](../includes/safety-evalutation.md)]
 
 ## Deploy a customized model
 
