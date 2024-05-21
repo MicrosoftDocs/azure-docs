@@ -5,6 +5,8 @@ ms.date: 03/28/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: kubernetes-fleet
+ms.custom:
+  - build-2024
 ms.topic: quickstart
 ---
 
@@ -206,5 +208,5 @@ kubectl delete clusterresourceplacement crp
 
 To learn more about resource propagation, see the following resources:
 
-* [Kubernetes resource propagation from hub cluster to member clusters (Preview)](./concepts-resource-propagation.md)
+* [Intelligent cross-cluster Kubernetes resource placement based on member clusters properties](./intelligent-resource-placement.md)
 * [Upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md)
