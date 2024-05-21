@@ -492,7 +492,7 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
-The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values are not merged. See the second example in the following section.
+The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values aren't merged. See the second example in the following section.
 
 ### Example
 

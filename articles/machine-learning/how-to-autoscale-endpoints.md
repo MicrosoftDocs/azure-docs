@@ -457,6 +457,38 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 
 ---
 
+## Enable or disable autoscaling
+
+You can enable or disable specific autoscale profile.
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="disable_profile" :::
+
+# [Python](#tab/python)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+```python
+mon_client.autoscale_settings.create_or_update(
+    resource_group, 
+    autoscale_settings_name, 
+    parameters = {
+        "location" : endpoint.location,
+        "target_resource_uri" : deployment.id,
+        "enabled" : False
+    }
+)
+```
+
+# [Studio](#tab/azure-studio)
+
+To disable the autoscale profile, simply choose "Manual scale" and Save.
+To enable the autoscale profile, simply choose "Custom autoscale". If you have added the autoscale profile before, you'll see them below. You can now click Save to enable it. 
+
+---
+
 ## Delete resources
 
 If you are not going to use your deployments, delete them:
