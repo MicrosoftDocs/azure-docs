@@ -22,14 +22,14 @@ For more information about Advanced Container Networking Services for Azure Kube
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [azure-CLI-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-- Minimum version of **Azure CLI** required for the steps in this article is **2.56.0**. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* The minimum version of Azure CLI required for the steps in this article is 2.56.0. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 ### Install the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+Install or update the Azure CLI preview extension using the [`az extension add`](/cli/azure/extension#az_extension_add) or [`az extension update`](/cli/azure/extension#az_extension_update) command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -40,44 +40,38 @@ az extension update --name aks-preview
 ```
 
 ### Register the `NetworkObservabilityPreview` feature flag
+Register the `NetworkObservabilityPreview` feature flag using the [`az feature register`](/cli/azure/feature#az_feature_register) command.
 
 ```azurecli-interactive 
 az feature register --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
 ```
 
-Use [az feature show](/cli/azure/feature#az-feature-show) to check the registration status of the feature flag:
+It takes a few minutes for the registration to complete.
+
+Verify successful registration using the [`az feature show`](/cli/azure/feature#az_feature_show) command.
 
 ```azurecli-interactive
 az feature show --namespace "Microsoft.ContainerService" --name "AdvancedNetworkingPreview"
 ```
 
-Wait for the feature to say **Registered** before preceding with the article.
 
-```output
-{
-  "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/providers/Microsoft.Features/providers/Microsoft.ContainerService/features/AdvancedNetworkingPreview",
-  "name": "Microsoft.ContainerService/AdvancedNetworkingPreview",
-  "properties": {
-    "state": "Registering"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-```
-When the feature is registered, refresh the registration of the Microsoft.ContainerService resource provider with [az provider register](/cli/azure/provider#az-provider-register):
+Once the feature shows `Registered`, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`](/cli/azure/provider#az_provider_register) command.
 
 ```azurecli-interactive
- az provider register -n Microsoft.ContainerService
+ az provider register --name Microsoft.ContainerService
 ```
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group with [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named **myResourceGroup** in the **eastus** location:
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using the [`az group create`](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
-az group create \
-    --name myResourceGroup \
-    --location eastus
-```
+# Set environment variables for the resource group name and location. Make sure to replace the placeholders with your own values.
+export RESOURCE_GROUP="<resource-group-name>"
+export LOCATION="<azure-region>"
+
+# Create a resource group
+az group create --name $RESOURCE_GROUP --location $LOCATION
 
 ## Create an AKS cluster with Advanced Network Observability
 
@@ -122,7 +116,7 @@ az aks create \
 
 ---
 
-## Enable on Existing cluster
+## Enable Advanced Network Observability on an existing cluster
 
 Use [az aks update](/cli/azure/aks#az-aks-update) to enable Advanced Network Observability for an existing cluster.
 
@@ -136,84 +130,83 @@ az aks update \
     --enable-advanced-network-observability
 ```
 
-## Azure managed Prometheus and Grafana
+## Enable Azure managed Prometheus and Grafana on your cluster
 
-Use the following example to install and enable Prometheus and Grafana for your AKS cluster.
 
-### Create Azure Monitor resource
+### Create an Azure Monitor resource
+
+Create an Azure Monitor resource using the [`az resource create`](/cli/azure#az_resource_create) command.
 
 ```azurecli-interactive
+# Set an environment variable for the Azure Monitor resource name. Make sure to replace the placeholder with your own value.
+export AZURE_MONITOR_NAME="<azure-monitor-name>"
+
 az resource create \
-    --resource-group myResourceGroup \
+    --resource-group $RESOURCE_ GROUP \
     --namespace microsoft.monitor \
     --resource-type accounts \
-    --name myAzureMonitor \
+    --name $AZURE_MONITOR_NAME \
     --location eastus \
     --properties '{}'
 ```
 
-### Create Grafana instance
+### Create a Grafana instance
 
-Use [az grafana create](/cli/azure/grafana#az-grafana-create) to create a Grafana instance. The name of the Grafana instance must be unique. Replace **myGrafana** with a unique name for your Grafana instance.
+Create a Grafana instance using the [`az grafana create`](/cli/azure/grafana#az_grafana_create) command.
 
 ```azurecli-interactive
-az grafana create \
-    --name myGrafana \
-    --resource-group myResourceGroup 
+# Set an environment variable for the Grafana instance name. Make sure to replace the placeholder with your own value.
+export GRAFANA_INSTANCE="<grafana-instance-name>"
+
+az grafana create --name $GRAFANA_INSTANCE --resource-group $RESOURCE_GROUP
 ```
 
 ### Place the Grafana and Azure Monitor resource IDs in variables
 
-Use [az grafana show](/cli/azure/grafana#az-grafana-show) to place the Grafana resource ID in a variable. Use [az resource show](/cli/azure/resource#az-resource-show) to place the Azure Monitor resource ID in a variable. Replace **myGrafana** with the name of your Grafana instance.
+Set environment variables for the Grafana instance and Azure Monitor resource IDs using the [`az grafana show`](/cli/azure/grafana#az_grafana_show) and [`az resource show`](/cli/azure#az_resource_show) commands.
 
 ```azurecli-interactive
-grafanaId=$(az grafana show \
-                --name myGrafana \
-                --resource-group myResourceGroup \
-                --query id \
-                --output tsv)
+export GRAFANA_ID=$(az grafana show --name $GRAFANA_INSTANCE --resource-group $RESOURCE_GROUP --query id --output tsv)
 
-azuremonitorId=$(az resource show \
-                    --resource-group myResourceGroup \
-                    --name myAzureMonitor \
-                    --resource-type "Microsoft.Monitor/accounts" \
-                    --query id \
-                    --output tsv)
+export AZURE_MONITOR_ID=$(az resource show --resource-group $RESOURCE_GROUP --name $AZURE_MONITOR_NAME --resource-type "Microsoft.Monitor/accounts" --query id --output tsv)
 ```
 
-### Link Azure Monitor and Grafana to AKS cluster
+### Link Azure Monitor and Grafana to your AKS cluster
 
-Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and Grafana resources to your AKS cluster.
+Link the Azure Monitor and Grafana resources to your AKS cluster using the [`az aks update`](/cli/azure/aks#az_aks_update) command.
 
 ```azurecli-interactive
 az aks update \
-    --name myAKSCluster \
-    --resource-group myResourceGroup \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
     --enable-azure-monitor-metrics \
-    --azure-monitor-workspace-resource-id $azuremonitorId \
-    --grafana-resource-id $grafanaId
+    --azure-monitor-workspace-resource-id $AZURE_MONITOR_ID \
+    --grafana-resource-id $GRAFANA_ID
 ```
 ---
 
 ## Get cluster credentials 
 
+Get your cluster credentials using the [`az aks get-credentials`](/cli/azure/aks#az_aks_get_credentials) command.
+
 ```azurecli-interactive
-az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
+az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 ```
 
 ## Visualization using Grafana
 
 > [!NOTE]
-> * **hubble_flows_processed_total** metric is not scraped by default due to high  >    metric cardinality in large scale clusters. 
-> * Because of this, "Pods Flows" dashboards will have panels missing data.
-> * To change this, you can modify ama metrics settings to include **hubble_flows_processed_total** to the metric keep list. To learn how to do it, visit [Minimal Ingestion Doumentation](/articles/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md).
+> The `hubble_flows_processed_total` metric isn't scraped by default due to high metric cardinality in large scale clusters. 
+> Because of this, the *Pods Flows* dashboards have panels with missing data. To change this, you can modify the ama metrics settings to include `hubble_flows_processed_total` in the metric keep list. To learn how do this, see the [Minimal Ingestion Doumentation](/articles/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md).
 > 
 
-1. Use the following example to verify the Azure Monitor pods are running. 
+1. Make sure the Azure Monitor pods are running using the `kubectl get pods` command.
 
 ```azurecli-interactive
-kubectl get po -owide -n kube-system | grep ama-
+kubectl get pods -o wide -n kube-system | grep ama-
 ```
+
+Your output should look similar to the following example output:
 
 ```output
 ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
@@ -234,14 +227,16 @@ ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
   * **Pod Flows (Workload):** shows L4/L7 packet flows to/from the specified workload (e.g. Pods of a Deployment or DaemonSet).
 
 
-## Steps to Setup Hubble CLI 
+## Install Hubble CLI
 
-1. In order to access the  data collected by Hubble, install the Hubble CLI:
+1. Install the Hubble CLI to access the data it collects using the following commands:
 
 ```azurecli-interactive
-HUBBLE_VERSION=0.11
-  
-HUBBLE_ARCH=amd64
+# Set environment variables
+export HUBBLE_VERSION=0.11  
+export HUBBLE_ARCH=amd64
+
+#Install Hubble CLI
 if [ "$(uname -m)" = "aarch64" ]; then HUBBLE_ARCH=arm64; fi
 curl -L --fail --remote-name-all https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
 sha256sum --check hubble-linux-${HUBBLE_ARCH}.tar.gz.sha256sum
@@ -249,25 +244,28 @@ sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
 rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
 ```
 
-## How to Visualize the Hubble Flows
+## Visualize the Hubble Flows
 
-1. Before you move ahead, use the following example to verify the Hubble pods are running. 
+1. Make sure the Hubble pods are running using the `kubectl get pods` command.
 
 ```azurecli-interactive
-kubectl get po -owide -n kube-system -l k8s-app=hubble-relay
+kubectl get pods -o wide -n kube-system -l k8s-app=hubble-relay
 ```
+
+Your output should look similar to the following example output:
 
 ```output
 hubble-relay-7ddd887cdb-h6khj     1/1  Running     0       23h 
 ```
 
-1. You will have to port forward Hubble Relay.
+1. Port forward Hubble Relay using the `kubectl port-forward` command.
 
 ```azurecli-interactive
 kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 9999:443
 ```
 
-1.  The Hubble relay server's security is ensured through mutual TLS (mTLS). To enable the Hubble client to retrieve flows, it is necessary to obtain the appropriate certificates and configure the client with these certificates.Use the following commands to apply the certs
+1. Mutual TLS (mTLS) ensures the security of the Hubble Relay server. To enable the Hubble client to retrieve flows, you need to get the appropriate certificates and configure the client with them. Apply the certificates using the following commands:
+
 ```azurecli-interactive
 #!/usr/bin/env bash
 
@@ -301,10 +299,12 @@ hubble config set tls true
 hubble config set tls-server-name instance.hubble-relay.cilium.io
 ```
 
-1. Run the following commands to check if the secrets were generated 
+1. Verify the secrets were generated using the following `kubectl get pods` command:
 ```azurecli-interactive
-kubectl get po -owide -n kube-system | grep hubble-
+kubectl get pods -o wide -n kube-system | grep hubble-
 ```
+
+Your output should look similar to the following example output:
 
 ```output
 kube-system     hubble-relay-client-certs     kubernetes.io/tls     3     9d
@@ -313,12 +313,13 @@ kube-system     hubble-relay-server-certs     kubernetes.io/tls     3     9d
 
 kube-system     hubble-server-certs           kubernetes.io/tls     3     9d    
  
-1. To check that the hubble relay pod is running, run the following command
+1. Make sure the Hubble Relay pod is running using the `hubble relay service` command.
+
 ```azurecli-interactive
 hubble relay service 
 ```
 
-## How to Visualize Using Hubble UI
+## Visualize using Hubble UI
 
 1. Use this command to deploy the yaml manifest for Hubble UI to your cluster:
 ```azurecli-interactive
@@ -560,31 +561,30 @@ spec:
 EOF
 ```
 
-1. Expose Service with port forwarding:
+
+1. Expose the service with port forwarding using the `kubectl port-forward` command.
+
 ```azurecli-interactive
 kubectl port-forward svc/hubble-ui 12000:80
 ```
 
-1. Now you can access the Hubble UI using your web browser:
-http://localhost:12000/
+1. Access Hubble UI by entering `http://localhost:12000/` into your web browser.
 
 ---
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-the AKS cluster and the other resources created in this article with the following example:
+If you don't plan on using this application, delete the other resources you created in this article using the [`az group delete`](/cli/azure/#az_group_delete) command.
 
 ```azurecli-interactive
-  az group delete \
-    --name myResourceGroup
+  az group delete --name $RESOURCE_GROUP
 ```
 
 ## Next steps
 
 In this how-to article, you learned how to install and enable Advanced Network Observability for your AKS cluster.
 
-- For more information about Advanced Network Observability for Azure Kubernetes Service (AKS), see [What is Advanced Network Observability for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
+* For more information about Advanced Network Observability for Azure Kubernetes Service (AKS), see [Advanced Network Observability for Azure Kubernetes Service (AKS)](advanced-container-networking-services-overview.md).
 
-- To create an Advanced Network Observability - BYO Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana](advanced-container-networking-services-byo-cli.md).
+* To create an Advanced Network Observability - BYO Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana](advanced-container-networking-services-byo-cli.md).
 

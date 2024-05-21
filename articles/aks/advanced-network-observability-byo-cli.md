@@ -210,13 +210,13 @@ Your output should look similar to the following example output:
 hubble-relay-7ddd887cdb-h6khj     1/1  Running     0       23h 
 ```
 
-1. You will have to port forward Hubble Relay.
+1. Port forward Hubble Relay using the `kubectl port-forward` command.
 
 ```azurecli-interactive
 kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 9999:443
 ```
 
-1. The Hubble relay server's security is ensured through mutual TLS (mTLS). To enable the Hubble client to retrieve flows, it is necessary to obtain the appropriate certificates and configure the client with these certificates.Use the following commands to apply the certs
+1. Mutual TLS (mTLS) ensures the security of the Hubble Relay server. To enable the Hubble client to retrieve flows, you need to get the appropriate certificates and configure the client with them. Apply the certificates using the following commands:
 ```azurecli-interactive
 #!/usr/bin/env bash
 
@@ -250,10 +250,12 @@ hubble config set tls true
 hubble config set tls-server-name instance.hubble-relay.cilium.io
 ```
 
-1. Run the following commands to check if the secrets were generated 
+1. Verify the secrets were generated using the following `kubectl get pods` command:
 ```azurecli-interactive
 kubectl get po -owide -n kube-system | grep hubble-
 ```
+
+Your output should look similar to the following example output:
 
 ```output
 kube-system     hubble-relay-client-certs     kubernetes.io/tls     3     9d
@@ -262,12 +264,13 @@ kube-system     hubble-relay-server-certs     kubernetes.io/tls     3     9d
 
 kube-system     hubble-server-certs           kubernetes.io/tls     3     9d    
  
-1. To check that the hubble relay pod is running, run the following command
+1. Make sure the Hubble Relay pod is running using the `hubble relay service` command.
+
 ```azurecli-interactive
 hubble relay service 
 ```
 
-## How to Visualize Using Hubble UI
+## Visualize using Hubble UI
 
 1. Use this command to deploy the yaml manifest for Hubble UI to your cluster:
 ```azurecli-interactive
@@ -509,24 +512,22 @@ spec:
 EOF
 ```
 
-1. Expose Service with port forwarding:
+1. Expose the service with port forwarding using the `kubectl port-forward` command.
+
 ```azurecli-interactive
 kubectl port-forward svc/hubble-ui 12000:80
 ```
 
-1. Now you can access the Hubble UI using your web browser:
-http://localhost:12000/
+1. Access Hubble UI by entering `http://localhost:12000/` into your web browser.
 
 ---
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-the AKS cluster and the other resources created in this article with the following example:
+If you don't plan on using this application, delete the other resources you created in this article using the [`az group delete`](/cli/azure/#az_group_delete) command.
 
 ```azurecli-interactive
-  az group delete \
-    --name myResourceGroup
+  az group delete --name $RESOURCE_GROUP
 ```
 
 ## Next steps
