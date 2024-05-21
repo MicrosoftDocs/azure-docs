@@ -5,33 +5,24 @@ description: How to create and delete an SMB Azure file share by using the Azure
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 05/15/2024
 ms.author: kendownie
-ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell, ai-video-demo
-ai-usage: ai-assisted
+ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
 
 # How to create an SMB Azure file share
 
-Before you create an Azure file share, you need to answer three questions about how you'll use it:
+Before you create an Azure file share, you need to answer two questions about how you'll use it:
 
 - **What are the performance requirements for your Azure file share?**  
     Azure Files offers standard file shares which are hosted on hard disk-based (HDD-based) hardware, and premium file shares, which are hosted on solid-state disk-based (SSD-based) hardware.
 
 - **What are your redundancy requirements for your Azure file share?**  
-    Standard file shares offer locally-redundant (LRS), zone redundant (ZRS), geo-redundant (GRS), or geo-zone-redundant (GZRS) storage, however the large file share feature is only supported on locally redundant and zone redundant file shares. Premium file shares don't support any form of geo-redundancy.
+    Standard file shares offer locally-redundant (LRS), zone redundant (ZRS), geo-redundant (GRS), or geo-zone-redundant (GZRS) storage. Premium file shares don't support any form of geo-redundancy.
 
     Premium file shares are available with local redundancy and zone redundancy in a subset of regions. To find out if premium file shares are available in your region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage). For more information, see [Azure Files redundancy](files-redundancy.md).
 
-- **What size file share do you need?**  
-    In local and zone redundant storage accounts, Azure file shares can span up to 100 TiB. However, in geo- and geo-zone redundant storage accounts, Azure file shares can span only up to 5 TiB unless you register for [Geo-redundant storage for large file shares](geo-redundant-storage-for-large-file-shares.md).
-
-For more information on these three choices, see [Planning for an Azure Files deployment](storage-files-planning.md).
-
-This video shows you how to create an SMB Azure file share.
-> [!VIDEO f846e86c-cf83-4311-a67d-190944635e53]
-
-The steps in the video are also described in the following sections.
+For more information on these choices, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
 ## Applies to
 
@@ -73,6 +64,7 @@ To create a FileStorage storage account, ensure the **Performance** radio button
 :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="A screenshot of the performance radio button with premium selected and account kind with FileStorage selected.":::
 
 The other basics fields are independent from the choice of storage account:
+
 - **Storage account name**: The name of the storage account resource to be created. This name must be globally unique. The storage account name will be used as the server name when you mount an Azure file share via SMB. Storage account names must be between 3 and 24 characters in length. They may contain numbers and lowercase letters only.
 - **Location**: The region for the storage account to be deployed into. This can be the region associated with the resource group, or any other available region.
 - **Replication**: Although this is labeled replication, this field actually means **redundancy**; this is the desired redundancy level: locally redundancy (LRS), zone redundancy (ZRS), geo-redundancy (GRS), and geo-zone-redundancy (GZRS). This drop-down list also contains read-access geo-redundancy (RA-GRS) and read-access geo-zone redundancy (RA-GZRS), which don't apply to Azure file shares; any file share created in a storage account with these selected will be either geo-redundant or geo-zone-redundant, respectively. 
@@ -91,11 +83,9 @@ The advanced section contains several important settings for Azure file shares:
 
 - **Secure transfer required**: This field indicates whether the storage account requires encryption in transit for communication to the storage account. If you require SMB 2.1 support, you must disable this.
 
-    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-secure-transfer.png" alt-text="A screenshot of secure transfer enabled in the advanced settings for the storage account.":::
+- **Enable storage account key access**: When storage account key access is disabled, any requests to the account that are authorized with the storage account key will be denied. You might wish to disable storage account key access if you plan to use identity-based authentication to grant access to the share. However keep in mind that full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key.
 
-- **Large file shares**: This field enables the storage account for file shares spanning up to 100 TiB. Enabling this feature will limit your storage account to only locally redundant and zone redundant storage options. Once a GPv2 storage account has been enabled for large file shares, you can't disable the large file share capability. FileStorage storage accounts (storage accounts for premium file shares) don't have this option, as all premium file shares can scale up to 100 TiB. 
-
-    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-large-file-shares.png" alt-text="A screenshot of the large file share setting in the storage account's advanced blade.":::
+- **Large file shares**: Provides file share support up to a maximum of 100 TiB. Large file shares are now enabled by default on all storage accounts and can't be disabled. All Azure file shares can now span up to 100 TiB, so this setting is displayed for legacy reasons only and appears grayed out in the Azure portal.
 
 The other settings that are available in the advanced tab (hierarchical namespace for Azure Data Lake storage gen 2, default blob tier, NFSv3 for blob storage, etc.) don't apply to Azure Files.
 
@@ -121,7 +111,7 @@ $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
 ```
 
-To create a storage account capable of storing standard Azure file shares, use the following command. The `-SkuName` parameter relates to the type of redundancy desired; if you desire a geo-redundant or geo-zone-redundant storage account, remove the `-EnableLargeFileShare` parameter.
+To create a storage account capable of storing standard Azure file shares, use the following command. The `-SkuName` parameter relates to the type of redundancy desired.
 
 ```powershell
 $storAcct = New-AzStorageAccount `
@@ -129,8 +119,7 @@ $storAcct = New-AzStorageAccount `
     -Name $storageAccountName `
     -SkuName Standard_LRS `
     -Location $region `
-    -Kind StorageV2 `
-    -EnableLargeFileShare
+    -Kind StorageV2
 ```
 
 To create a storage account capable of storing premium Azure file shares, use the following command. Note that the `-SkuName` parameter has changed to include both `Premium` and the desired redundancy level of locally redundant storage (`LRS`). The `-Kind` parameter is `FileStorage` instead of `StorageV2` because premium file shares must be created in a FileStorage storage account instead of a GPv2 storage account.
@@ -155,7 +144,7 @@ storageAccountName="mystorageacct$RANDOM"
 region="westus2"
 ```
 
-To create a storage account capable of storing standard Azure file shares, use the following command. The `--sku` parameter relates to the type of redundancy desired; if you desire a geo-redundant or geo-zone-redundant storage account, remove the `--enable-large-file-share` parameter.
+To create a storage account capable of storing standard Azure file shares, use the following command. The `--sku` parameter relates to the type of redundancy desired.
 
 ```azurecli
 az storage account create \
@@ -163,7 +152,6 @@ az storage account create \
     --name $storageAccountName \
     --kind StorageV2 \
     --sku Standard_ZRS \
-    --enable-large-file-share \
     --output none
 ```
 
@@ -180,35 +168,6 @@ az storage account create \
 
 ---
 
-### Enable large file shares on an existing account
-
-Before you create an Azure file share on an existing storage account, you might want to enable large file shares (up to 100 TiB) on the storage account. Standard storage accounts using either LRS or ZRS can be upgraded to support large file shares without causing downtime for existing file shares on the storage account. If you have a GRS, GZRS, RA-GRS, or RA-GZRS account, you'll either need to convert it to an LRS account before proceeding or register for [Azure Files geo-redundancy for large file shares](geo-redundant-storage-for-large-file-shares.md).
-
-# [Portal](#tab/azure-portal)
-1. Open the [Azure portal](https://portal.azure.com), and navigate to the storage account where you want to enable large file shares.
-1. Select **Configuration** under the **Settings** section.
-1. Go to the **Large file shares** setting at the bottom of the page. If it's set to **Disabled**, change the setting to **Enabled**.
-1. Select **Save**.
-
-# [PowerShell](#tab/azure-powershell)
-To enable large file shares on your existing storage account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
-
-```powershell
-Set-AzStorageAccount `
-    -ResourceGroupName <yourResourceGroup> `
-    -Name <yourStorageAccountName> `
-    -EnableLargeFileShare
-```
-
-# [Azure CLI](#tab/azure-cli)
-To enable large file shares on your existing storage account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
-
-```azurecli-interactive
-az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
-```
-
----
-
 ## Create a file share
 
 Once you've created your storage account, you can create your file share. This process is mostly the same regardless of whether you're using a premium file share or a standard file share. You should consider the following differences:
@@ -217,8 +176,6 @@ Standard file shares can be deployed into one of the standard tiers: transaction
 
 > [!IMPORTANT]
 > You can move file shares between tiers within GPv2 storage account types (transaction optimized, hot, and cool). Share moves between tiers incur transactions: moving from a hotter tier to a cooler tier will incur the cooler tier's write transaction charge for each file in the share, while a move from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file the share.
-
-
 
 # [Portal](#tab/azure-portal)
 Follow these instructions to create a new Azure file share using the Azure portal.
@@ -328,7 +285,7 @@ az storage share-rm update \
 
 ### Expand existing file shares
 
-If you enable large file shares on an existing storage account, you must expand existing file shares in that storage account to take advantage of the increased capacity and scale. 
+If you enable large file shares on an existing storage account, you must expand existing file shares in that storage account to take advantage of the increased capacity and scale.
 
 # [Portal](#tab/azure-portal)
 1. From your storage account, select **File shares**.
