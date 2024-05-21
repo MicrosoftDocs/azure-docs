@@ -69,11 +69,9 @@ With the ability to adjust the time range from the last hour to the past 30 days
 The **Settings** tab is divided into four main categories: General, Domains, Routes, and Authentication.
 
 - In the **General** settings, you can specify the component name, ensuring easy identification and management.
-- The **Domains** section provides information about the current domains associated with your app, and you can create new domains as needed. 
+- The **Domains** section provides information about the current domains associated with your app, and you can create new domains as needed. You can learn more about custom domains at [Custom domains with Azure Static Web Apps](../static-web-apps/custom-domain-azure-dns.md).
 - The **Routes** section allows you to [define route rules to restrict access to users based on specific roles or to perform actions such as redirects or rewrites](../static-web-apps/configuration.md#routes). 
-- The **Authentication** section is where you set up an authentication provider for your site. The available providers are Google and GitHub. Here, you can configure the client ID, client secret, and the API path for getting roles. After authentication, this API path will be called with the user's claims, and it must return an array of roles to determine which routes the user can access based on the roles defined in the Routes section.
-
-This comprehensive settings structure ensures that your application is secure, manageable, and adaptable to various user access needs.
+- The **Authentication** section is where you set up an authentication provider for your site. The available providers are Google and GitHub. Here, you can configure the client ID, client secret, and the API path for getting roles. After authentication, this API path will be called with the user's claims, and it must return an array of roles to determine which routes the user can access based on the roles defined in the Routes section. Learn more at [Authenticate and authorize Static Web Apps](../static-web-apps/authentication-authorization.yml).
 
 
 ::: zone-end
@@ -142,7 +140,7 @@ This tab shows the following details:
 
 ::: zone-end
 
-## Related articles
+## Related content
 
 - [App Spaces overview](overview.md)
 - [Deploy a starter app in App Spaces](quickstart-deploy-starter-app.md)

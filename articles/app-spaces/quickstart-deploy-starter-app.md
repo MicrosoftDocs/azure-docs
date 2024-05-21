@@ -40,7 +40,7 @@ Follow these steps to deploy a sample app to App Spaces.
     |---|---|
     | GitHub account | Select your GitHub account. |
     | Organization | Select your organization. |
-    | New repository | Eneter `myReactSample` for your new repository. |
+    | New repository | Enter `myReactSample` for your new repository. |
 
 ## Configure app details
 
@@ -67,7 +67,8 @@ The sample web application code deploys to App Spaces. The deployment can take a
     | Setting | Action |
     |---|---|
     | GitHub account | Select your GitHub account. |
-    | New repository | Eneter `myExpressSample` for your new repository. |
+    | Organization | Select your organization. |
+    | New repository | Enter `myExpressSample` for your new repository. |
 
 ## Configure app details
 
@@ -76,7 +77,6 @@ The sample web application code deploys to App Spaces. The deployment can take a
     | Setting | Action |
     |---|---|
     | App Space name | Enter `myAppSpace`. |
-    | Organization | Select your organization. |
     | Subscription | Select your subscription. |
     | Region | Select your region. |
 
@@ -103,7 +103,7 @@ In your *App Space Page*, select **Open app in browser** to view your new app.
 
 For more information about managing App Spaces, see [Manage components](how-to-manage-components.md).
 
-## Related articles
+## Related content
 
 - [App Spaces overview](overview.md)
 - [Deploy your app with App Spaces](quickstart-deploy-your-app.md)

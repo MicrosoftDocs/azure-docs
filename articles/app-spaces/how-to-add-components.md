@@ -42,8 +42,7 @@ Follow these steps to add a custom app component.
     | Branch | Select your GitHub branch. |
     | App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
     | Listening port | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
-    | Startup command | Under *Advanced configurations* enter a **Startup command** or leave blank for none.|
-
+    | Startup command (optional) | Under *Advanced configurations* enter a **Startup command** or leave blank for none.|
 
 1. Enter the following values in the _Configure app details_ section.
 
@@ -64,7 +63,7 @@ Follow these steps to add a custom app component.
     | Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github). |
     | Branch | Select your GitHub branch. |
     | App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
-    | Output location | Enter the location of your build output relative to your app location. For example, a value of 'build' when your app location is set to '/app' will cause the content at '/app/build' to be served. |
+    | Output location (optional) | Enter the location of your build output relative to your app location. For example, a value of 'build' when your app location is set to '/app' will cause the content at '/app/build' to be served. |
 
 1. Enter the following values in the _Configure app details_ section.
 
@@ -132,7 +131,7 @@ Follow these steps to add a database component.
 
 ::: zone-end
 
-## Related articles
+## Related content
 
 - [App Spaces overview](overview.md)
 - [Deploy an App Spaces template](deploy-app-spaces-template.md)

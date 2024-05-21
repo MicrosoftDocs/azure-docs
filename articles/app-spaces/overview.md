@@ -16,11 +16,11 @@ App Spaces offers all the benefits of deploying an app via existing Azure servic
 
 ## Easy to use
 
-App Spaces reduces required decisions for developers to get started with web apps. Based on what App Spaces detects within your repository, it choose a service for you. For example, if you have a Dockerfile inside your GitHub repository, it will create Container Apps as the service for your app.
+App Spaces reduces required decisions for developers to get started with web applications. Based on what App Spaces detects within your repository, it chooses a service for you. 
 
 The creation process is categorized in the following simplified sections:
 - GitHub Repository: Select your organization, repo, and branch.
-- App Space details: Enter a name for your App Space and use the autodetected language, service, and plan.
+- App Space details: Enter a name for your App Space, service, and plan.
 - Azure Destination: Select a subscription and region for deployment.
 
 Within a few minutes, you can deploy your App Space.
