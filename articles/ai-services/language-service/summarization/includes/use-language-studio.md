@@ -5,10 +5,10 @@
  author: jboback
  ms.service: azure-ai-language
  ms.topic: include
- ms.date: 12/19/2023
+ ms.date: 05/07/2024
  ms.author: jboback
- ms.custom: include
+ms.custom: include, build-2024
 ---
 
 > [!TIP]
-> You can use [**Language Studio**](../../language-studio.md) to try document summarization without needing to write code. 
+> You can use [**Language Studio**](../../language-studio.md) to try text summarization without needing to write code. 
