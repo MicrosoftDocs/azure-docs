@@ -39,7 +39,7 @@ Create and use an API center for the following:
 
 * **API governance** - Organize and filter APIs and related resources using built-in and custom metadata, to help with API governance and discovery by API consumers. Set up linting and analysis to enforce API definition quality.  
 
-* **API discovery and reuse** - Enable developers and API program managers to discover APIs via the Azure portal, an API Center portal, and developer tools including a [Visual Studio Code extension](use-vscode-extension.md) integrated with GitHub Copilot​.
+* **API discovery and reuse** - Enable developers and API program managers to discover APIs via the Azure portal, an API Center portal, and developer tools including a [Visual Studio Code extension](use-vscode-extension.md)​.
 
 For more about the entities you can manage and the capabilities in Azure API Center, see [Key concepts](key-concepts.md).
 
