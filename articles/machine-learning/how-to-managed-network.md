@@ -14,6 +14,7 @@ ms.custom:
   - build-2023
   - devx-track-azurecli
   - ignite-2023
+  - build-2024
 ---
 
 # Workspace Managed Virtual Network Isolation
@@ -99,8 +100,6 @@ Before following the steps in this article, make sure you have the following pre
 * The CLI examples in this article assume that you're using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
 
 * The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
-
-* With Azure CLI and managed VNet, SSH using public IP works, but SSH using private IP doesn't work. 
 
 # [Python SDK](#tab/python)
 
@@ -979,7 +978,7 @@ __Outbound__ service tag rules:
 * `AzureMachineLearning`
 * `BatchNodeManagement.region`
 * `AzureResourceManager`
-* `AzureFrontDoor`
+* `AzureFrontDoor.FirstParty`
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
@@ -1074,7 +1073,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Redis Cache
 * Azure Databricks
 * Azure Database for MariaDB
-* Azure Database for PostgreSQL
+* Azure Database for PostgreSQL Single Server
 * Azure Database for MySQL
 * Azure SQL Managed Instance
 * Azure API Management
