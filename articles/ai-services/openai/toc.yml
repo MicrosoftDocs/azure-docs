@@ -8,6 +8,9 @@ items:
       href: overview.md
     - name: Quotas and limits
       href: quotas-limits.md
+    - name: Deployment types
+      href: ./how-to/deployment-types.md
+      displayName: global, Global, globalstandard, global-standard, Global-Standard, standard, provisioned 
     - name: Models
       href: ./concepts/models.md
     - name: Model retirements

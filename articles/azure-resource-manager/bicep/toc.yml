@@ -377,6 +377,8 @@
       href: operators-numeric.md
     - name: Safe-dereference operator
       href: operator-safe-dereference.md
+    - name: Spread 
+      href: operator-spread.md
 - name: How to
   items:
   - name: Author
