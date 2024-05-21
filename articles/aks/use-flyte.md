@@ -1,27 +1,26 @@
 ---
-title: Build and deploy data and machine learning pipelines with Flyte on Azure Kubernetes Service
+title: Build and deploy data and machine learning pipelines with Flyte on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
-description: Learn about Flyte, an open-source platform for building and deploying data and machine learning pipelines on Azure Kubernetes Service.
+description: Learn about Flyte, an open-source platform for building and deploying data and machine learning pipelines on Azure Kubernetes Service (AKS).
 ms.topic: how-to
-ms.date: 05/17/2024
+ms.date: 05/21/2024
 author: schaffererin
 ms.author: schaffererin
+ms.service: azure-kubernetes-service
 ---
 
 # Build and deploy data and machine learning pipelines with Flyte on Azure Kubernetes Service (AKS)
 
-This article shows you how to use Flyte, an open-source platform for building and deploying data and machine learning pipelines on Azure Kubernetes Service (AKS).
-
-Flyte is a workflow orchestrator that unifies machine learning, data engineering, and data analytics stacks to help you build robust and reliable applications.
+This article shows you how to use Flyte on Azure Kubernetes Service (AKS). Flyte is an open-source workflow orchestrator that unifies machine learning, data engineering, and data analytics stacks to help you build robust and reliable applications.
 
 For more information, see [Introduction to Flyte](https://docs.flyte.org/en/latest/introduction.html).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* The Azure CLI installed and configured. Run `az --version` to check the version. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* The Helm CLI installed and updated. Run `helm version` to check the version. If you need to install or upgrade, see [Install Helm](https://helm.sh/docs/intro/install/).
-* The `kubectl` CLI installed and updated. Run `az aks install-cli` to install it locally or see [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+* The Azure CLI installed and configured. Check your version using the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* The Helm CLI installed and updated. Check your version using the `helm version` command. If you need to install or upgrade, see [Install Helm](https://helm.sh/docs/intro/install/).
+* The `kubectl` CLI installed and updated. Install it locally using the `az aks install-cli` command or using [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 > [!NOTE]
 > If you're using the Azure Cloud Shell, the Azure CLI, Helm, and kubectl are already installed.
