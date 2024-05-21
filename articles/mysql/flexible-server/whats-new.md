@@ -28,11 +28,11 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
 - **Accelerated Logs in Azure Database for MySQL Flexible Server is now Generally Available**
 
-  We're thrilled to announce the General Availability (GA) of the Accelerated Logs feature for Azure Database for MySQL Flexible Server. This feature is available within the Business-Critical service tier, which significantly enhances the performance of Azure Database for MySQL Flexible Server instances. It offers a dynamic solution designed for high throughput needs, reducing latency with no additional cost. [Accelerated logs feature in Azure Database for MySQL - Flexible Server (Preview)](concepts-accelerated-logs.md).
+  We're thrilled to announce the General Availability (GA) of the Accelerated Logs feature for Azure Database for MySQL Flexible Server. This feature is available within the Business-Critical service tier, which significantly enhances the performance of Azure Database for MySQL Flexible Server instances. It offers a dynamic solution designed for high throughput needs, reducing latency with no additional cost. [Learn more](concepts-accelerated-logs.md).
 
 - **Support for storage up to 32TiB in Azure Database for MySQL Flexible Server is now Generally Available**
 
-  We're excited to announce the general availability (GA) of storage support up to 32 TiB in Azure Database for MySQL Flexible Server. The feature is available only in the Business Critical service tier. [Learn more] (./concepts-service-tiers-storage).
+  We're excited to announce the general availability (GA) of storage support up to 32 TiB in Azure Database for MySQL Flexible Server. The feature is available only in the Business Critical service tier. [Learn more](./concepts-service-tiers-storage.md) .
 
 ## April 2024
 
