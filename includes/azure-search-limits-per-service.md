@@ -13,8 +13,8 @@ ms.custom: include file, build-2024
 Search service limits for storage, partitions, and replicas vary by service creation date, with higher limits for newer services in supported regions. Limits vary by service creation date:
 
 + [Before April 3, 2024](#before-april-3-2024)
-+ [Between April 3, 2024 and May 17, 2024](#after-april-3-2024)
-+ [After May 17, 2024](#after-may-17-2024)
++ [Between April and May 2024 (Basic, S1, S2, S3, S3 HD)](#after-april-3-2024)
++ [After May 17, 2024 (L1 and L2)](#after-may-17-2024)
 
 A search service is subject to a maximum storage limit (partition size multiplied by the number of partitions) or by a hard limit on the [maximum number of indexes](../articles/search/search-limits-quotas-capacity.md#index-limits) or [indexers](../articles/search/search-limits-quotas-capacity.md#indexer-limits), whichever comes first. 
 
@@ -39,7 +39,7 @@ For new services created after April 3, 2024:
 + Basic, S1, S2, S3 have more storage per partition, ranging from 3-7 times more, depending on the tier.
 + Your new search service must be in a [supported region](#supported-regions-with-higher-storage-limits) to get the extra capacity for Basic and other tiers.
 
-Currently, there's no in-place upgrade. You should [create a new search service](/azure/search/search-create-service-portal) to benefit from the extra storage.
+Currently, there's no in-place upgrade. You must [create a new search service](/azure/search/search-create-service-portal) to benefit from the extra storage.
 
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
@@ -50,9 +50,7 @@ Currently, there's no in-place upgrade. You should [create a new search service]
 
 ### After May 17, 2024
 
-S2, S3, and S3 HD have larger partition sizes starting on May 17, 2024. If you created an S2 or higher search service after April 3, the higher partition size becomes available automatically. If you're running an older search service, you must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
-
-Storage Optimized tiers (L1 and L2) now have larger partitions at the current pricing.
+Storage Optimized tiers (L1 and L2) now have larger partitions at the current pricing. You must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
 
 + S2, S3, S3 HD automatically have more storage per partition on search services running on the April 3 infrastructure, or on new services created after May 17.
 + L1 and L2 have more partition storage and compute power, but you must create a new service.
