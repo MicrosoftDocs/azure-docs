@@ -30,15 +30,15 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Send and receive messages using Websockets - .NET
+          - text: Send and receive messages using WebSockets - .NET
             url: relay-hybrid-connections-dotnet-get-started.md
           - text: Send and receive messages using HTTP - .NET
             url: relay-hybrid-connections-http-requests-dotnet-get-started.md
-          - text: Send and receive messages using Websockets - Node.js 
+          - text: Send and receive messages using WebSockets - Node.js 
             url: relay-hybrid-connections-node-get-started.md
           - text: Send and receive messages using HTTP - Node.js
             url: relay-hybrid-connections-http-requests-node-get-started.md
-          - text: Send and receive messages using Websockets - Python
+          - text: Send and receive messages using WebSockets - Python
             url: relay-hybrid-connections-python-get-started.md
       - linkListType: download
         links:
