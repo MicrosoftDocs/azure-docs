@@ -151,8 +151,6 @@ items:
     items:
     - name: Business case overview
       href: concepts-business-case-calculation.md
-    - name: Business case FAQ
-      href: concepts-business-case-calculation-faq.md
   - name: Assess
     items:
     - name: Assessments overview (migrate to Azure VMs)
