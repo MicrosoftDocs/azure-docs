@@ -666,10 +666,10 @@
           href: advanced-container-networking-services-overview.md
         - name: Advanced Network Observability
           items:
-            - name: BYO Prometheus and Grafana
-              href: advanced-network-observability-byo-cli.md
             - name: Azure managed Prometheus and Grafana
-              href: advanced-network-observability-cli.md  
+              href: advanced-network-observability-cli.md 
+            - name: BYO Prometheus and Grafana
+              href: advanced-network-observability-byo-cli.md 
     - name: Service Mesh
       items:
         - name: Istio service mesh AKS add-on
