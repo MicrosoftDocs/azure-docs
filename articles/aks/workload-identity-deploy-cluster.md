@@ -102,7 +102,7 @@ To get the OIDC issuer URL and save it to an environmental variable, run the fol
 export AKS_OIDC_ISSUER="$(az aks show --name myAKSCluster --resource-group "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -o tsv)"
 ```
 
-The variable should contain the issuer URL similar to the following example:
+The variable should contain the issuer URL, similar to the following example:
 
 ```output
 https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/11111111-1111-1111-1111-111111111111/
@@ -179,15 +179,8 @@ metadata:
 spec:
   serviceAccountName: ${SERVICE_ACCOUNT_NAME}
   containers:
-    - image: ghcr.io/azure/azure-workload-identity/msal-go
-      name: oidc
-      env:
-      - name: KEYVAULT_URL
-        value: ${KEYVAULT_URL}
-      - name: SECRET_NAME
-        value: ${KEYVAULT_SECRET_NAME}
-  nodeSelector:
-    kubernetes.io/os: linux
+    - image: <your image>
+      name: <containerName>
 EOF
 ```
 
@@ -196,7 +189,7 @@ EOF
 
 ## Grant permissions to access Azure Key Vault
 
-This step is necessary if you need to access secrets, keys, or certificates that are mounted in an Azure key vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure key vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
+Follow the instructions in this step if you need to access secrets, keys, or certificates that are mounted in an Azure key vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure key vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
 
 Before proceeding, you need the following information:
 
@@ -238,7 +231,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
     apiVersion: v1
     kind: Pod
     metadata:
-      name: quick-start
+      name: sample-workload-identity-key-vault
       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
       labels:
         azure.workload.identity/use: "true"
