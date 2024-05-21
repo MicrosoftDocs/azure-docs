@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 5/21/2024
 ms.author: eur
 ms.reviewer: eur
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go, build-2024
 zone_pivot_groups: programming-languages-speech-services-studio
 #customer intent: As a developer, I want to use Speech services to covert speech to text, from either a microphone or a file using my choice of technology.
 ---
