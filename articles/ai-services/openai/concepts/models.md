@@ -36,7 +36,7 @@ GPT-4o is available for **standard** and **global-standard** model deployment.
 
 You need to [create](../how-to/create-resource.md) or use an existing resource in a [supported standard](#gpt-4-and-gpt-4-turbo-model-availability) or [global standard](#global-standard-model-availability-preview) region where the model is available.
 
-Once you resource is created you can [deploy](../how-to/create-resource.md#deploy-a-model) the GPT-4o model. If you are performing a programmatic deployment the **model** name is `gpt-4o`, and the **version** is `2024-05-13`.
+When your resource is created, you can [deploy](../how-to/create-resource.md#deploy-a-model) the GPT-4o model. If you are performing a programmatic deployment, the **model** name is `gpt-4o`, and the **version** is `2024-05-13`.
 
 ### GPT-4 Turbo
 
