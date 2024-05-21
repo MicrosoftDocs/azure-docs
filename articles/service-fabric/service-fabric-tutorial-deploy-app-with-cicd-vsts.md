@@ -164,7 +164,7 @@ Make code changes in the application. Save and commit the changes.
 
 When the application upgrade begins, you can track the upgrade progress in Service Fabric Explorer:
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png" alt-text="Screenshot of the Voting app in Service Fabric Explorer running in a browser, with the status message "Upgrading" and the "Upgrade in Progress" message highlighted.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png" alt-text="Screenshot that shows the Voting app in Service Fabric Explorer running in a browser, with status messages highlighted.":::
 
 The application upgrade might take several minutes. When the upgrade is finished, the application is running the next version. In this example, it's running version `1.0.0.20170815.4`.
 
