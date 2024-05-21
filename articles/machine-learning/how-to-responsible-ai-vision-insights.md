@@ -194,11 +194,11 @@ In addition to the parameters in the preceding section, AutoML models can use th
 
 | Parameter name | Description                                           | Type                             | Values |
 |----------------|-------------------------------------------------------|----------------------------------|--------|
-| `model_type`   | Flavor of the model. Select `pyfunc` for AutoML models. | Enum |`• pyfunc` <br> `• fastai` |
-| `dataset_type` | Whether the images in the dataset are read from publicly available URLs or are stored in the user's datastore. <br> For AutoML models, images are always read from the user's workspace datastore, so the dataset type for AutoML models is `private`. For `private` dataset type, you download the images on the compute before generating the explanations. | Enum | `• public` <br> `• private` |
-| `xai_algorithm` | Type of XAI algorithm supported for AutoML models <br> Note: SHAP isn't supported for AutoML models. | Enum | `• guided_backprop` <br> `• guided_gradCAM` <br> `• integrated_gradients` <br> `• xrai` |
+| `model_type`   | Flavor of the model. Select `pyfunc` for AutoML models. | Enum |`pyfunc`, <br> `fastai` |
+| `dataset_type` | Whether the images in the dataset are read from publicly available URLs or are stored in the user's datastore. <br> For AutoML models, images are always read from the user's workspace datastore, so the dataset type for AutoML models is `private`. For `private` dataset type, you download the images on the compute before generating the explanations. | Enum | `public`, <br> `private` |
+| `xai_algorithm` | Type of XAI algorithm supported for AutoML models <br> Note: SHAP isn't supported for AutoML models. | Enum | `guided_backprop`, <br> `guided_gradCAM`, <br> `integrated_gradients`, <br> `xrai` |
 | `xrai_fast` | Whether to use the faster version of `xrai`. If `True`, computation time for explanations is faster but leads to less accurate explanations or attributions. | Boolean ||
-| `approximation_method` | This parameter is specific to `integrated gradients`. <br> Method for approximating the integral.| Enum | `• riemann_middle` <br> `• gausslegendre` |
+| `approximation_method` | This parameter is specific to `integrated gradients`. <br> Method for approximating the integral.| Enum | `riemann_middle`, <br> `gausslegendre` |
 | `n_steps` | This parameter is specific to `integrated gradients` and `xrai`. <br> The number of steps used by the approximation method. Larger number of steps lead to better approximations of attributions or explanations. The range of `n_steps` is [2, inf], but the performance of attributions starts to converge after 50 steps.| Integer||
 | `confidence_score_threshold_multilabel` | This parameter is specific to multilabel classification. The confidence score threshold above which labels are selected for generating explanations. | Float ||
 
