@@ -13,7 +13,7 @@ ms.date: 02/29/2024
 
 # Azure CNI networking in Azure Kubernetes Service (AKS) overview
 
-By default, AKS clusters use [kubenet][kubenet] and create a virtual network and subnet. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
+By default, AKS clusters use [kubenet][kubenet] and create a virtual network and subnet. With _kubenet_, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
 With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.  
 
@@ -39,15 +39,13 @@ With [Azure Container Networking Interface (CNI)][cni-networking], every pod get
 
 - AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic within the node CIDR range. For more information, see [Network security groups][aks-network-nsg].
 
-
-
 ## Deployment parameters
 
 When you create an AKS cluster, the following parameters are configurable for Azure CNI networking:
 
-**Virtual network**: The virtual network into which you want to deploy the Kubernetes cluster. If you want to create a new virtual network for your cluster, select *Create new* and follow the steps in the *Create virtual network* section. If you want to select an existing virtual network, make sure it's in the same location and Azure subscription as your Kubernetes cluster. For information about the limits and quotas for an Azure virtual network, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+**Virtual network**: The virtual network into which you want to deploy the Kubernetes cluster. If you want to create a new virtual network for your cluster, select _Create new_ and follow the steps in the _Create virtual network_ section. If you want to select an existing virtual network, make sure it's in the same location and Azure subscription as your Kubernetes cluster. For information about the limits and quotas for an Azure virtual network, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Subnet**: The subnet within the virtual network where you want to deploy the cluster. If you want to create a new subnet in the virtual network for your cluster, select *Create new* and follow the steps in the *Create subnet* section. For hybrid connectivity, the address range shouldn't overlap with any other virtual networks in your environment.
+**Subnet**: The subnet within the virtual network where you want to deploy the cluster. If you want to create a new subnet in the virtual network for your cluster, select _Create new_ and follow the steps in the _Create subnet_ section. For hybrid connectivity, the address range shouldn't overlap with any other virtual networks in your environment.
 
 **Azure Network Plugin**: When Azure network plugin is used, the internal LoadBalancer service with "externalTrafficPolicy=Local" can't be accessed from VMs with an IP in clusterCIDR that doesn't belong to AKS cluster.
 
@@ -112,7 +110,6 @@ Learn more about networking in AKS in the following articles:
 <!-- LINKS - External -->
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: concepts-network.md#kubenet-basic-networking
 [github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
 [github-azure-container-networking]: https://github.com/Azure/azure-container-networking
 [ip-masq-agent]: https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/
@@ -128,7 +125,8 @@ Learn more about networking in AKS in the following articles:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[max-pods]: concepts-network-ip-address-planning.md/#maximum-pods-per-node
+[kubenet]: concepts-network-legacy-cni.md#kubenet
+[max-pods]: concepts-network-ip-address-planning.md#maximum-pods-per-node
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models

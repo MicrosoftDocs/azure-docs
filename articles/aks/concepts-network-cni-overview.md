@@ -1,8 +1,8 @@
 ---
 title: Concepts - CNI Networking in AKS
-description: Learn about CNI networking in Azure Kubernetes Service (AKS)
+description: Learn about CNI networking options in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
-ms.date: 05/14/2024
+ms.date: 05/21/2024
 author: schaffererin
 ms.author: schaffererin
 
@@ -121,7 +121,7 @@ There are several requirements and considerations to keep in mind when planning 
 
 ### CNI plugin documentation:
 - [Azure CNI Overlay][azure-cni-overlay]
-- [Azure CNI Podsubnet][azure-cni-podsubnet]
+- [Azure CNI Pod Subnet][azure-cni-podsubnet]
 - [Legacy CNI Options][legacy-cni-options]
 - [IP Address Planning for your clusters][ip-address-planning]
 
@@ -130,12 +130,12 @@ There are several requirements and considerations to keep in mind when planning 
 
 
 <!-- LINKS - Internal -->
-[aks-network-nsg]: ../virtual-network/network-security-groups-overview.md
+[aks-network-nsg]: ../virtual-network/network-security-groups-overview
 [azure-cni-nodesubnet]: concepts-network-legacy-cni.md#azure-cni-nodesubnet
-[azure-cni-overlay]: concepts-network-azure-cni-overlay.md
-[azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md
+[azure-cni-overlay]: concepts-network-azure-cni-overlay
+[azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet
 [delegated-subnet]: ../virtual-network/subnet-delegation-overview.md
-[ip-address-planning]: concepts-network-ip-address-planning.md]
+[ip-address-planning]: concepts-network-ip-address-planning
 [kubenet]: concepts-network-legacy-cni.md#kubenet
 [legacy-cni-options]: concepts-network-legacy-cni.md
 [support-policies]: support-policies.md

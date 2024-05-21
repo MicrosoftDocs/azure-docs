@@ -2,7 +2,7 @@
 title: Concepts - IP Address Planning in Azure Kubernetes Service (AKS)
 description: Learn about IP address planning in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 05/21/2024
 author: schaffererin
 ms.author: schaffererin
 
@@ -102,4 +102,4 @@ The _maxPods_ per node setting can be defined when you create a new node pool. I
 <!-- LINKS - Internal -->
 [azure-cni-overlay]: concepts-network-azure-cni-overlay.md
 [azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md
-[podsubnet-static-block-allocation]: concepts-network-azure-cni-podsubnet.md#static-block-allocation-mode
+[podsubnet-static-block-allocation]: concepts-network-azure-cni-podsubnet.md#static-block-allocation-mode-preview
