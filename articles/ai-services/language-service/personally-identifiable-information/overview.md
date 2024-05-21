@@ -9,21 +9,19 @@ ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 01/31/2024
 ms.author: jboback
-ms.custom: language-service-pii
+ms.custom: language-service-pii, build-2024
 ---
 
 # What is Personally Identifiable Information (PII) detection in Azure AI Language?
 
-PII detection is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The PII detection feature can **identify, categorize, and redact** sensitive information in unstructured text. For example: phone numbers, email addresses, and forms of identification. The method for utilizing PII in conversations is different than other use cases, and articles for this use are separate.
+As of June 2024, we now provide General Availability support for the Conversational PII service (English-language only).
+Customers can now redact transcripts, chats, and other text written in a conversational style (i.e. text with “um”s, “ah”s, multiple speakers, and the spelling out of words for more clarity) with better confidence in AI quality, Azure SLA support and production environment support, and enterprise-grade security in mind.
+
+PII detection is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The PII detection feature can **identify, categorize, and redact** sensitive information in unstructured text. For example: phone numbers, email addresses, and forms of identification. Azure AI Language supports general text PII redaction, as well as [Conversational PII](how-to-call-for-conversations.md), a specialized model for handling speech transcriptions and the more informal, conversational tone of meeting and call transcripts. The service also supports [Native Document PII redaction](#native-document-support), where the input and output are structured document files.
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to-call.md) contain instructions for using the service in more specific or customized ways.
 * The [**conceptual articles**](concepts/entity-categories.md) provide in-depth explanations of the service's functionality and features.
-
-PII comes into two shapes:
-
-* [PII](how-to-call.md) - works on unstructured text.
-* [Conversation PII (preview)](how-to-call-for-conversations.md) - tailored model to work on conversation transcription.
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
