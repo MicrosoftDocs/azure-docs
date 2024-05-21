@@ -67,8 +67,6 @@ New-AzVm `
 ```
 ---
 
-
-
 ### Exceptions to attaching a new VM to a Virtual Machine Scale Set
 
 - The VM must be in the same resource group as the scale set.
@@ -76,24 +74,9 @@ New-AzVm `
 - If the scale set is zonal or spans multiple zones (one or more availability zones specified), the virtual machine must be created in one of the zones spanned by the scale set. For example, you can't create a virtual machine in Zone 1, and place it in a scale set that spans Zones 2 and 3.
 - The scale set must be in Flexible orchestration mode, and the singlePlacementGroup property must be false.
 
-### Attach an existing VM to a Virtual Machine Scale Set (Preview)
+### Attach an existing VM to a Virtual Machine Scale Set
 
 Attach an existing virtual machine to a Virtual Machine Scale Set after the time of VM creation by specifying the `virtualMachineScaleSet` property. Attaching an existing VM to a scale set with a fault domain count of 1 doesn't require downtime. 
-
-#### Enroll in the Preview
-
-Register for the `SingleFDAttachDetachVMToVmss` feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.Compute" --name "SingleFDAttachDetachVMToVmss"
-```
-
-It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show](/cli/azure/feature#az-feature-register) command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.Compute" --name "SingleFDAttachDetachVMToVmss"
-```
-
 
 > [!NOTE]
 > Attaching a virtual machine to Virtual Machine Scale Set doesn't by itself update any VM networking parameters such as load balancers. If you would like this virtual machine to receive traffic from any load balancer, you must manually configure the VM network interface to receive traffic from the load balancer. Learn more about [Load balancers](../virtual-network/network-overview.md#load-balancers).
@@ -142,16 +125,12 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm  -VirtualMachineScaleS
 - The VM must have a managed disk. 
 - The scale set must have `properties.singlePlacementGroup` set to `False`.
 
-## Detaching a VM from a Virtual Machine Scale Set (Preview)
+## Detaching a VM from a Virtual Machine Scale Set
 Should you need to detach a VM from a scale set, you can follow the below steps to remove the VM from the scale set.
-
-> [!NOTE]
-> Detaching VMs created by the scale set will require the VM to be `Stopped` prior to the detach. VMs that were previously attached to the scale set can be detached while running.
 
 ### [Azure portal](#tab/portal-3)
 
 1. Go to **Virtual Machines**.
-2. If your VM was created by the scale set, ensure the VM is `Stopped`. If the VM was created as a standalone VM, you can continue regardless of if the VM is `Running` or `Stopped`.
 3. Select the name of the virtual machine you'd like to attach to your scale set.
 4. Under **Settings** select **Availability + scaling**.
 5. Select the **Detach from the VMSS** button at the top of the page.
@@ -181,9 +160,8 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm -VirtualMachin
 ### Limitations for detaching a VM from a scale set
 - The scale set must use Flexible orchestration mode.
 - The scale set must have a `platformFaultDomainCount` of **1**.
-- VMs created by the scale set must be `Stopped` prior to being detached.
 
-## Moving VMs between scale sets (Preview)
+## Moving VMs between scale sets
 
 To move a VM from one scale set to another, use the following steps:
 1. [Detach](#detaching-a-vm-from-a-virtual-machine-scale-set-preview) the VM from scale set A.
@@ -194,7 +172,7 @@ The limitations for VMs to be [attached](#limitations-for-attaching-an-existing-
 
 ## Troubleshooting
 
-### Attach an existing VM to an existing scale set troubleshooting (Preview)
+### Attach an existing VM to an existing scale set troubleshooting
 
 | Error Message                                                                                                                                                                                                                                  | Description                                                                                                                                                                      | Troubleshooting Options                                                                                                                                                                                                                                                                                                                                                         |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -207,7 +185,7 @@ The limitations for VMs to be [attached](#limitations-for-attaching-an-existing-
 | Referenced Virtual Machine '{vmName}' belongs to a proximity placement group (PPG) and attaching to a Virtual Machine Scale Set is not supported. For more information, see https://aka.ms/vmo/attachdetach.                                   | `VmssDoesNotSupportAttachingPPGVM`: The attach of the VM failed because the VM is part of a Proximity Placement Group.                                                           | VMs from a Proximity Placement Group can't be attached to a scale set. [Remove the VM from the Proximity Placement Group](../virtual-machines/windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group) and then try to attach to the scale set. See the  documentation to learn about how to move a VM out of a Proximity Placement Group. |
 | PropertyChangeNotAllowed Changing property virtualMachineScaleSet.id isn't allowed.                                                                                                                                                            | The Virtual Machine Scale Set ID can't be changed to a different Virtual Machine Scale Set ID without detaching the VM from the scale set first.                                 | Detach the VM from the Virtual Machine Scale Set, and then attach to the new scale set.                                                                                                                                                                                                                                                                                         |
 
-### Detach a VM from a scale set troubleshooting (Preview)
+### Detach a VM from a scale set troubleshooting
 | Error Message                                                                                                                                                                                                                                                                                                  | Description                                                                                                                                                                                          | Troubleshooting options                                                                                                                                                                                    |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Virtual Machine Scale Set does not support detaching of Virtual Machines from it. For more information, see https://aka.ms/vmo/attachdetach.                                                                                                                                                                   | The subscription isn't enrolled in the Attach/Detach Preview.                                                                                                                                       | Ensure that your subscription is enrolled in the feature. Reference the [documentation](#enroll-in-the-preview) to check if you're enrolled.                                                               |
