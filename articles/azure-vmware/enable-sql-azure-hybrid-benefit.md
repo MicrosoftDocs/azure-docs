@@ -28,7 +28,7 @@ To enable through the Azure CLI, reference [az vmware placement-policy vm-host](
 
 For the Azure Portal step-by-step see below: 
 
-1. From your Azure VMware Solution private cloud, select Azure Hybrid Benefit, then Create VM-Host placement policy.
+1. From your Azure VMware Solution private cloud, select Azure Hybrid Benefit, then Create VM-Host affinity placement policy.
     :::image type="content" source="media/sql-azure-hybrid-benefit/azure-hybrid-benefit.png" alt-text="Diagram that shows how to create a host new virtual machine placement policy.":::
 
 1. Fill in the required fields for creating the placement policy.
