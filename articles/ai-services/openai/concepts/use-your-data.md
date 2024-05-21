@@ -613,6 +613,32 @@ You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the follo
 
 If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI On Your Data.
 
+| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125)` | `gpt-4-32k (0314)` | `gpt-4 (0613)` | `gpt-4 (0314)` | `gpt-4o`   |
+|------|---|---|---|---|---|----|----|----|----|
+| Australia East | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| Brazil South | ✅ | ✅ | ✅ |✅ | ✅  | ✅ | ✅ | ✅ | |
+| Canada East | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| East US | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| East US 2 | ✅ | ✅ | ✅ |✅ | ✅  | ✅ | ✅ | ✅ | |
+| France Central | ✅ | ✅ | ✅ |✅ | ✅  | ✅ | ✅ | ✅ | |
+| Japan East | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| North Central US | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| Norway East | ✅ | ✅ | ✅ |✅ | ✅  | ✅ | ✅ | ✅ | |
+| South Africa North | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| South Central US | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| South India | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| Sweden Central | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| Switzerland North | ✅ | ✅ | ✅ |✅ | ✅  | ✅ | ✅ | ✅ | |
+| UK South | ✅ | ✅ | ✅ |✅ |✅  | ✅ | ✅ | ✅ | |
+| West Europe | |  | | ✅ | ✅  | ✅ | ✅ | ✅ | |
+| West US  | ✅ |✅ |✅ |✅| ✅  | ✅ | ✅ | ✅ | |
+
+
+
+
+
+
+
 ## Next steps
 * [Get started using your data with Azure OpenAI](../use-your-data-quickstart.md)
 
