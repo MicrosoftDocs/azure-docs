@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 04/10/2024
+ms.date: 05/21/2024
 ms.custom: passwordless-js, devex-track-javascript
 ---
 
