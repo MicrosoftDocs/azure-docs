@@ -97,7 +97,7 @@ Other points to keep in mind before an enrollment transfer:
 
 - Cost view settings for department administrators or account owners don't carry over.
   - If previously enabled, settings must be enabled for the target enrollment.
-- Exports, Views, Budget alert, Scheduled actions - The existing rules at billing scopes (billing account, enrollment account and department scopes) need to be recreated after the enrolment transfer. All rules at management group, subscription and resource group scopes will be transferred to the new enrolment and no further action will be required.    
+- Exports, Views, Budget alert, Scheduled actions - The existing rules at billing scopes (billing account, enrollment account and department scopes) need to be recreated after the enrolment transfer. All rules at management group, subscription and resource group scopes will be transferred to the new enrolment and no further action will be required.  
 
 - Reservation utilization alert, Cost allocation rules - These features are supported only at billing account scope and hence they need to be recreated after the enrolment transfer.  
 
@@ -106,7 +106,8 @@ Other points to keep in mind before an enrollment transfer:
 - If the source and destination enrollments are on different cloud instances, the transfer fails. Support personnel can transfer only within the same cloud instance. Cloud instances are the global Azure cloud and individual national clouds. For more information about national clouds, see [National clouds](../../active-directory/develop/authentication-national-cloud.md).
 - For reservations (reserved instances):
   - The enrollment or account transfer between different currencies affects monthly reservation purchases. The following image illustrates the effects.  
-      :::image:::
+    :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
+
   - When there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
   - You might have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency. If you repurchase a reservation, the purchase term (one or three years) is reset. The repurchase doesn't continue under the previous term.
 - If there's a backdated enrollment transfer, any savings plan benefit is applicable from the transfer request submission date - not from the effective transfer date.
