@@ -6651,7 +6651,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/app-insights-azure-ad-api.md",
-            "redirect_url": "/azure/azure-monitor/azure-ad-authentication",
+            "redirect_url": "/azure/azure-monitor/app/azure-ad-authentication",
             "redirect_document_id": false
         },
         {
