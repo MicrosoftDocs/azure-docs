@@ -13,8 +13,8 @@ ms.custom: include file, build-2024
 Search service limits for storage, partitions, and replicas vary by service creation date, with higher limits for newer services in supported regions. Limits vary by service creation date:
 
 + [Before April 3, 2024](#before-april-3-2024)
-+ [After April 3, 2024](#after-april-3-2024)
-+ [After May 17, 2024 (L1 and L2 only)](#after-may-17-2024)
++ [Between April 3, 2024 and May 17, 2024](#after-april-3-2024)
++ [After May 17, 2024](#after-may-17-2024)
 
 A search service is subject to a maximum storage limit (partition size multiplied by the number of partitions) or by a hard limit on the [maximum number of indexes](../articles/search/search-limits-quotas-capacity.md#index-limits) or [indexers](../articles/search/search-limits-quotas-capacity.md#indexer-limits), whichever comes first. 
 
@@ -69,23 +69,24 @@ Storage Optimized tiers (L1 and L2) now have larger partitions at the current pr
 
 Services must be in one of the following regions to get the extra storage. Watch for announcements in [What's New in Azure AI Search](/azure/search/whats-new) for expansion to other regions.
 
-### Roll out on May 17 2024
+### Available starting on May 17, 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
-| **United States** | East US 2 EUAP/PPE |
+| **United States** | East US 2 EUAP |
+| **Switzerland** | Switzerland West​ |
 | **South Africa** | South Africa North​ |
 | **Germany** | Germany North​, Germany West Central​ ​|
 | **Azure Government** | Texas, Arizona, Virginia |
 
-### Roll out on April 2024
+### Available starting on April 3, 2024
 
 | Country | Regions providing extra capacity per partition |
 |---------|------------------------------------------------|
 | **United States** | East US​, East US 2, ​Central US​, North Central US​, South Central US​, West US​, West US 2​, West US 3​, West Central US​ |
 | **United Kingdom** | UK South​, UK West​ ​ |
 | **United Arab Emirates** | UAE North​​ |
-| **Switzerland** | Switzerland West​ |
+| **Switzerland** | Switzerland North​ |
 | **Sweden** | Sweden Central​​ |
 | **South Africa** | South Africa North​ |
 | **Poland** | Poland Central​​ |
