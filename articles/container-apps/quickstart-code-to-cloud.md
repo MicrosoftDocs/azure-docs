@@ -120,7 +120,7 @@ Extract the download and change into the *containerapps-albumapi-csharp-buildpac
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/buildpack) to your machine.
 
-Extract the download and change into the *containerapps-albumapi-java-buildpack/src* folder.
+Extract the download and change into the *containerapps-albumapi-java-buildpack* folder.
 
 > [!NOTE] 
 > The Java Buildpack uses [Maven](https://maven.apache.org/what-is-maven.html) with default settings to build your application. Alternatively, you can the [use `--build-env-vars` parameter to configure the image build from source code](java-build-environment-variables.md).
