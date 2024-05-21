@@ -80,7 +80,7 @@ To manage role assignments, you must have `Microsoft.Authorization/roleAssignmen
 ### Enable Azure RBAC permissions on Key Vault
 
 > [!NOTE]
-> Changing permission model requires 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator' are not supported.
+> Changing permission model requires unrestricted 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator', or restricted 'Key Vault Data Access Administrator' cannot be used to change permission model.
 
 1. Enable Azure RBAC permissions on new key vault:
 
