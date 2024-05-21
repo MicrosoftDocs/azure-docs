@@ -82,9 +82,9 @@ In the following example, the token limit of 5000 per minute is keyed by the cal
 <policies>
     <inbound>
         <base />
-        <azure-openai-token-limit>
+        <azure-openai-token-limit
             counter-key="@(context.Request.IpAddress)"
-            tokens-per-minute="5000" estimate-prompt-tokens="false" "remaining-tokens-variable-name="remainingTokens"
+            tokens-per-minute="5000" estimate-prompt-tokens="false" "remaining-tokens-variable-name="remainingTokens">
         </azure-openai-token-limit>
     </inbound>
     <outbound>
