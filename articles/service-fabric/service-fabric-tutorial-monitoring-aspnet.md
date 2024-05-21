@@ -35,7 +35,7 @@ The tutorial series shows you how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/) and install the Azure development and ASP.NET and web development workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md).
 
 ## Download the Voting sample application
@@ -103,39 +103,39 @@ To set up the NuGet package:
 
     :::image type="content" source="media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png" alt-text="Screenshot that shows the Application Insights SDK in NuGet.":::
 1. In the **Preview Changes** dialog, select **OK** to accept the license. The NuGet packages are added to the services.
-1. Next, set up the telemetry initializer in the two services. Open *VotingWeb.cs* and *VotingData.cs*, and complete the following steps in both code files:
+1. Next, set up the telemetry initializer in the two services. Open *VotingWeb.cs* and *VotingData.cs*. Complete the following steps in both code files:
 
-    1. Add these two *using* statements at the top of each file, after the existing *using* statements:
+   1. Add these two `using` statements at the top of each file, after the existing `using` statements:
+
+     ```csharp
+     using Microsoft.ApplicationInsights.Extensibility;
+     using Microsoft.ApplicationInsights.ServiceFabric;
+     ```
+
+   1. In both files, in the nested `return` statement of `CreateServiceInstanceListeners()` or `CreateServiceReplicaListeners()`, under `ConfigureServices` > `services`, with the other singleton services declared, add:
 
       ```csharp
-      using Microsoft.ApplicationInsights.Extensibility;
-      using Microsoft.ApplicationInsights.ServiceFabric;
+      .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
       ```
-
-    1. In both files, in the nested *return* statement of `CreateServiceInstanceListeners()` or `CreateServiceReplicaListeners()`, under `ConfigureServices` > `services`, with the other singleton services declared, add:
-
-       ```csharp
-       .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
-       ```
 
       This code adds `Service Context` to your telemetry, so you can better understand the source of your telemetry in Application Insights. Your nested *return* statement in *VotingWeb.cs* now looks similar to this example:
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<HttpClient>(new HttpClient())
-                .AddSingleton<FabricClient>(new FabricClient())
-                .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+          .UseKestrel()
+          .ConfigureServices(
+              services => services
+                  .AddSingleton<HttpClient>(new HttpClient())
+                  .AddSingleton<FabricClient>(new FabricClient())
+                  .AddSingleton<StatelessServiceContext>(serviceContext)
+                  .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+          .UseContentRoot(Directory.GetCurrentDirectory())
+          .UseStartup<Startup>()
+          .UseApplicationInsights()
+          .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+          .UseUrls(url)
+          .Build();
+      ```
 
     In *VotingData.cs*, your code now looks similar to this example:
 
@@ -209,12 +209,12 @@ Next, add some custom events to *VoteDataController.cs* (under **VotingData** > 
 
 1. Add `using Microsoft.ApplicationInsights;` at the end of the other `using` statements.
 1. Declare a new value for `TelemetryClient` at the start of the class, under the creation of `IReliableStateManager`: `private TelemetryClient telemetry = new TelemetryClient();`.
-1. In the `Put()` function, add an event that confirms that a vote is added. Add `telemetry.TrackEvent($"Added a vote for {name}");` after the transaction is completed, right before the return **OkResult** statement.
+1. In the `Put()` function, add an event that confirms that a vote is added. Add `telemetry.TrackEvent($"Added a vote for {name}");` after the transaction is completed, right before the return `OkResult` statement.
 1. In `Delete()`, there's an "if/else" based on the condition that `votesDictionary` contains votes for a specific voting option.
 
-    1. Add an event that confirms the deletion of a vote in the *if* statement, after `await tx.CommitAsync()`:
+    1. Add an event that confirms the deletion of a vote in the `if` statement, after `await tx.CommitAsync()`:
      `telemetry.TrackEvent($"Deleted votes for {name}");`
-    1. Add an event to show that the deletion didn't take place in the **else** statement, before the return statement:
+    1. Add an event to show that the deletion didn't take place in the `else` statement, before the `return` statement:
     `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
 
 Here's an example of what your `Put()` and `Delete()` functions might look like after you add the events:

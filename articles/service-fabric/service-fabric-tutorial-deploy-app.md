@@ -81,7 +81,7 @@ On the **Certificate** tab, enter the password and output path for the cluster c
 
 Select the **Import certificate** checkbox to install the PFX in the *CurrentUser\My certificate store* of your computer. Then, select **Next**.
 
-:::image type="content" source="media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png" alt-text="Screenshot shows the Certificate tab of the Create Service Fabric Cluster dialog.":::
+:::image type="content" source="media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png" alt-text="Screenshot that shows the Certificate tab of the Create Service Fabric Cluster dialog.":::
 
 On the **VM Detail** tab, enter the username and password for the cluster admin account. Select the value for **Virtual machine image** for the cluster nodes and the value for **Virtual machine size** for each cluster node. Select the **Advanced** tab.
 

@@ -586,8 +586,8 @@ public class VotesController : Controller
 
 The voting application consists of two services:
 
-* A web front-end service (VotingWeb) - An ASP.NET Core web front-end service that serves the web page and exposes web APIs to communicate with the back-end service.
-* A back-end service (VotingData) - An ASP.NET Core web service that exposes an API to store the vote results in a reliable dictionary persisted on disk.
+* A web front-end service (VotingWeb): An ASP.NET Core web front-end service that serves the webpage and exposes web APIs to communicate with the back-end service.
+* A back-end service (VotingData): An ASP.NET Core web service that exposes an API to store the vote results in a reliable dictionary persisted on disk.
 
 :::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/application-diagram.png" alt-text="Diagram that depicts the application services." border="false":::
 
@@ -597,7 +597,7 @@ When you vote in the application, the following events occur:
 
 1. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
 
-1. The back-end service takes the incoming request and stores the updated result in a reliable dictionary, which is replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
+1. The back-end service takes the incoming request and stores the updated result in a reliable dictionary. The dictionary is replicated to multiple nodes in the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Debug in Visual Studio
 
@@ -629,9 +629,9 @@ To look at what happens in the code, complete the following steps:
 
    :::image type="content" source="media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png" alt-text="Screenshot that shows adding a vote to the back-end service.":::
 
-   1. In the first line in the method use `StateManager` to get or add a reliable dictionary called `counts`. **(1)**
-   1. All interactions with values in a reliable dictionary require a transaction. This `using` statement creates that transaction. **(2)**
-   1. In the transaction, update the value of the relevant key for the voting option and commit the operation. When the `commit` method returns, the data is updated in the dictionary. It then replicates to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes while still having the data available. **(3)**
+   1. In the first line in the method, use `StateManager` to get or add a reliable dictionary called `counts`. **(1)**
+   1. All interactions that have values in a reliable dictionary require a transaction. This `using` statement creates that transaction. **(2)**
+   1. In the transaction, update the value of the relevant key for the voting option and commit the operation. When the `commit` method returns, the data is updated in the dictionary. It then replicates to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes and still have the data available. **(3)**
 1. Select F5 to continue.
 
 To stop the debugging session, select Shift+F5.

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add an HTTPS endpoint by using Kestrel"
-description: In this tutorial, learn how to add an HTTPS endpoint to an ASP.NET Core front-end web service using Kestrel and deploy the application to a cluster.
+description: Learn how to add an HTTPS endpoint to an ASP.NET Core front-end web service by using Kestrel, and then deploy the application to a cluster.
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
@@ -12,7 +12,7 @@ ms.date: 05/17/2024
 
 # Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service by using Kestrel
 
-This tutorial is *part three* in a series. Learn how to add an HTTPS endpoint in an ASP.NET Core service running in Azure Service Fabric. When you're finished, you have a voting application that has an HTTPS-enabled ASP.NET Core web front-end listening on port 443. If you don't want to manually create the voting application in [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application.
+This tutorial is *part three* in a series. Learn how to add an HTTPS endpoint in an ASP.NET Core service running in Azure Service Fabric. When you're finished, you have a voting application that has an HTTPS-enabled ASP.NET Core web front end listening on port 443. If you don't want to manually create the voting application in [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application.
 
 In this tutorial, you learn how to:
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > * Define an HTTPS endpoint in the service
 > * Set up Kestrel to use HTTPS
 > * Install the TLS/SSL certificate on the remote cluster nodes
-> * Give NETWORK SERVICE access to the certificate's private key
+> * Give NetworkService access to the certificate's private key
 > * Open port 443 in the Azure load balancer
 > * Deploy the application to a remote cluster
 
@@ -39,19 +39,19 @@ The tutorial series shows you how to:
 
 Before you begin this tutorial:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Visual Studio 2019](https://www.visualstudio.com/) version 16.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
-* [Install the Service Fabric SDK](service-fabric-get-started.md)
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Install Visual Studio 2019](https://www.visualstudio.com/) version 16.5 or later with the Azure development and ASP.NET and web development workloads.
+* [Install the Service Fabric SDK](service-fabric-get-started.md).
 
 ## Get a certificate or create a self-signed development certificate
 
-For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. The Service Fabric SDK provides the *CertSetup.ps1* script, which creates a self-signed certificate and imports it into the `Cert:\LocalMachine\My` certificate store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=mytestcert":
+For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. The Service Fabric SDK provides the *CertSetup.ps1* script, which creates a self-signed certificate and imports it to the *Cert:\LocalMachine\My* certificate store. Open a command prompt as administrator and run the following command to create a certificate that has the subject "CN=mytestcert":
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
 ```
 
-If you already have a certificate PFX file, run the following to import the certificate into the `Cert:\LocalMachine\My` certificate store:
+If you already have a certificate Personal Information Exchange (PFX) file, run the following to import the certificate to the *Cert:\LocalMachine\My* certificate store:
 
 ```powershell
 
@@ -101,7 +101,7 @@ Open Visual Studio by using the **Run as administrator** option, and then open t
 
 ## Configure Kestrel to use HTTPS
 
-In Solution Explorer, open the *VotingWeb/VotingWeb.cs* file. Configure Kestrel to use HTTPS and look up the certificate in the `Cert:\LocalMachine\My` store. Add the following `using` statements:
+In Solution Explorer, open the *VotingWeb/VotingWeb.cs* file. Configure Kestrel to use HTTPS and look up the certificate in the *Cert:\LocalMachine\My* store. Add the following `using` statements:
 
 ```csharp
 using System.Net;
@@ -149,7 +149,7 @@ serviceContext =>
         }))
 ```
 
-Also add the following method so that Kestrel can find the certificate in the `Cert:\LocalMachine\My` store using the subject.
+Also, add the following method so that Kestrel can find the certificate in the *Cert:\LocalMachine\My* store by using the subject.
 
 Replace `<your_CN_value>` with `mytestcert` if you created a self-signed certificate by using the previous PowerShell command, or use the CN of your certificate.
 
@@ -186,18 +186,18 @@ private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonNa
 
 ```
 
-## Grant NETWORK SERVICE access to the certificate's private key
+## Grant Network Service access to the certificate's private key
 
 In an earlier step, you imported the certificate to the *Cert:\LocalMachine\My* store on the development computer.
 
-Now, explicitly give the account that's running the service (NETWORK SERVICE, by default) access to the certificate's private key. You can do this step manually (by using the *certlm.msc* tool), but it's better to run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the `SetupEntryPoint` of the service manifest.
+Now, explicitly give the account that's running the service (Network Service, by default) access to the certificate's private key. You can do this step manually (by using the *certlm.msc* tool), but it's better to run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the `SetupEntryPoint` of the service manifest.
 
 > [!NOTE]
-> Service Fabric supports declaring endpoint certificates by thumbprint or subject common name. In that case, the runtime will set up the binding and ACL the certificate's private key to the identity that the service is running as. The runtime also monitors the certificate for changes, renewals, and ACL the corresponding private key accordingly.
+> Service Fabric supports declaring endpoint certificates by thumbprint or by subject common name. In that case, the runtime sets up the binding and access control list (ACL) for the certificate's private key to the identity that the service is running as. The runtime also monitors the certificate for changes and renewals, and then updates the ACL for the the corresponding private key.
 
 ### Configure the service setup entry point
 
-In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*. In the **CodePackage** section, add the **SetupEntryPoint** node, and then add an **ExeHost** node. In **ExeHost**, set **Program** to "Setup.bat", and set **WorkingFolder** to "CodePackage". When the VotingWeb service starts, the *Setup.bat* script executes in the *CodePackage* folder before *VotingWeb.exe* starts.
+In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*. In the `CodePackage` section, add the `SetupEntryPoint` node, and then add an `ExeHost` node. In `ExeHost`, set `Program` to `Setup.bat`, and set `WorkingFolder` to `CodePackage`. When the VotingWeb service starts, the *Setup.bat* script executes in the *CodePackage* folder before *VotingWeb.exe* starts.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -246,15 +246,15 @@ First, add the batch file the service project. In Solution Explorer, right-click
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
-Modify the *Setup.bat* file properties to set **Copy to Output Directory** to **Copy if newer**.
+Modify the *Setup.bat* file properties to set `Copy to Output Directory` to `Copy if newer`.
 
-![Set file properties][image1]
+:::image type="content" source="media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png" alt-text="Screenshot that shows setting up the file properties.":::
 
-In Solution Explorer, right-click **VotingWeb**. Then, select **Add** > **New Item** and add a new file named "SetCertAccess.ps1". Edit the *SetCertAccess.ps1* file and add the following script:
+In Solution Explorer, right-click **VotingWeb**. Then, select **Add** > **New Item**, and add a new file named *SetCertAccess.ps1*. Edit the *SetCertAccess.ps1* file and add the following script:
 
 ```powershell
 $subject="mytestcert"
-$userGroup="NETWORK SERVICE"
+$userGroup="Network Service"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
 
@@ -306,15 +306,15 @@ if ($cert -eq $null)
 
 ```
 
-Modify properties for the *SetCertAccess.ps1* file to set **Copy to Output Directory** to **Copy if newer**.
+Modify properties for the *SetCertAccess.ps1* file to set `Copy to Output Directory` to `Copy if newer`.
 
 ### Run the setup script as an administrator
 
-By default, the service setup entry point executable runs under the same credentials as Service Fabric (typically the NetworkService account). The *SetCertAccess.ps1* requires administrator privileges. In the application manifest, you can change the security permissions to run the startup script under a local administrator account.
+By default, the service setup entry point executable runs by using the same credentials as Service Fabric (typically, the NetworkService account). The *SetCertAccess.ps1* requires administrator permissions. In the application manifest, you can change the security permissions to run the startup script under a local administrator account.
 
-In Solution Explorer, open *Voting/ApplicationPackageRoot/ApplicationManifest.xml*. First, create a **Principals** section and add a new user (for example, "SetupAdminUser"). Add the SetupAdminUser user account to the Administrators system group.
+In Solution Explorer, open *Voting/ApplicationPackageRoot/ApplicationManifest.xml*. First, create a `Principals` section and add a new user (for example, `SetupAdminUser`). Add the SetupAdminUser user account to the Administrators system group.
 
-Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAsPolicy** to apply the SetupAdminUser principal to the setup entry point. This policy tells Service Fabric that the *Setup.bat* file runs as **SetupAdminUser** (with administrator privileges).
+Next, in the VotingWebPkg `ServiceManifestImport` section, configure a **RunAsPolicy** to apply the SetupAdminUser principal to the setup entry point. This policy tells Service Fabric that the *Setup.bat* file runs as **SetupAdminUser** (with administrator privileges).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -364,24 +364,24 @@ Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAs
 
 In Solution Explorer, select the **Voting** application and set the **Application URL** property to `https://localhost:443`.
 
-Save all files and select F5 to run the application locally. After the application deploys, a web browser opens to `https://localhost:443`. If you're using a self-signed certificate, you see a warning that your PC doesn't trust this website's security. Continue to the page.
+Save all files, and then select F5 to run the application locally. After the application deploys, a browser opens to `https://localhost:443`. If you're using a self-signed certificate, you see a warning that your PC doesn't trust this website's security. Continue to the page.
 
 :::image type="content" source="media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png" alt-text="Screenshot that shows the Service Fabric Voting Sample app running in a browser and the localhost URL.":::
 
 ## Install the certificate on cluster nodes
 
-Before you deploy the application to Azure, install the certificate in the *Cert:\LocalMachine\My store* of all the remote cluster nodes. Services can move to different nodes of the cluster. When the front-end web service starts on a cluster node, the startup script looks up the certificate and configures access permissions.
+Before you deploy the application to Azure, install the certificate in the *Cert:\LocalMachine\My* store of all the remote cluster nodes. Services can move to different nodes of the cluster. When the front-end web service starts on a cluster node, the startup script looks up the certificate and configures access permissions.
 
-To install certificate on cluster nodes, first export the certificate to a PFX file. Open the *certlm.msc* application and go to **Personal** > **Certificates**. Right-click the **mytestcert** certificate, and then select **All Tasks** > **Export**.
+To install certificate on cluster nodes, first export the certificate to a PFX file. Open the *certlm.msc* application file and go to **Personal** > **Certificates**. Right-click the **mytestcert** certificate, and then select **All Tasks** > **Export**.
 
 :::image type="content" source="media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/ExportCert.png" alt-text="Screenshot that shows exporting the certificate.":::
 
-In the export wizard, select **Yes, export the private key**, and then select the Personal Information Exchange (PFX) format. Export the file to *C:\Users\sfuser\votingappcert.pfx*.
+In the export wizard, select **Yes, export the private key**, and then select the PFX format. Export the file to *C:\Users\sfuser\votingappcert.pfx*.
 
 Next, install the certificate on the remote cluster by using [PowerShell scripts](./scripts/service-fabric-powershell-add-application-certificate.md).
 
 > [!WARNING]
-> A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of a self-signed certificate.
+> A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of using a self-signed certificate.
 
 ## Open port 443 in the Azure load balancer and virtual network
 
