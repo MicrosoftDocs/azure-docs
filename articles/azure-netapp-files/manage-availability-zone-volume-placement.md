@@ -86,24 +86,6 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 ## Populate an existing volume with availability zone information
 
-1. The feature to populate existing volumes with availability zone information is currently in preview. If you're using this feature for the first time, you need to register the feature first.  
-    1. Register the feature: 
-
-    ```azurepowershell-interactive
-     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
-    ```   
-    2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-   
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
-    ```
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-    
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.   
-    
 1. Navigate to the volume that you want to populate with availability zone information.
 1. Select **Populate availability zone**.
 1. The Populate Availability Zone window appears and displays the availability zone in which the Azure NetApp Files volume is deployed.
