@@ -107,7 +107,7 @@
             - name: Custom container
               displayName: Arc, container, Kubernetes, Docker
               href: create-first-function-arc-custom-container.md  
-        - name: Azure Container Apps (preview)
+        - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA 
     - name: Connect to storage
@@ -304,12 +304,18 @@
       items:
         - name: Consumption plan
           href: consumption-plan.md
+        - name: Flex Consumption plan (preview)
+          href: flex-consumption-plan.md  
         - name: Premium plan
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-        - name: Azure Container Apps hosting (preview)
-          href: functions-container-apps-hosting.md   
+        - name: Container hosting
+          items:
+            - name: Containerized functions
+              href: container-concepts.md
+            - name: Azure Container Apps hosting
+              href: functions-container-apps-hosting.md   
     - name: Deployment options
       href: functions-deployment-technologies.md 
     - name: Events and messaging
@@ -537,6 +543,8 @@
         - name: Manage a function app
           href: functions-how-to-use-azure-function-app-settings.md
           displayName: app setting, application setting
+        - name: Work with Flex Consumption apps
+          href: flex-consumption-how-to.md
         - name: App Configuration references
           href: ../app-service/app-service-configuration-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Set the runtime version
@@ -566,7 +574,7 @@
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitor
+        - name: Monitoring options
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Monitor function executions
@@ -581,6 +589,8 @@
         - name: Stream execution logs
           href: streaming-logs.md
           displayName: monitoring
+        - name: Work with OpenTelemetry
+          href: opentelemetry-howto.md  
     - name: Authenticate
       items:
         - name: Configure auth providers
@@ -797,6 +807,39 @@
             - name: Output
               href: functions-bindings-azure-data-explorer-output.md
               displayName: Azure Data Explorer
+        - name: Azure OpenAI
+          items:
+            - name: Overview
+              href: functions-bindings-openai.md
+              displayName: OpenAI    
+            - name: Assistants 
+              items: 
+                - name: Trigger
+                  href: functions-bindings-openai-assistant-trigger.md  
+                  displayName: assistants, OpenAI     
+                - name: Query input
+                  href: functions-bindings-openai-assistantquery-input.md 
+                  displayName: assistants, OpenAI 
+                - name: Create output
+                  href: functions-bindings-openai-assistantcreate-output.md
+                  displayName: assistants, OpenAI    
+                - name: Post input
+                  href: functions-bindings-openai-assistantpost-input.md 
+                  displayName: assistants, OpenAI 
+            - name: Embeddings  
+              items: 
+                - name: Input
+                  href: functions-bindings-openai-embeddings-input.md 
+                  displayName: embeddings, OpenAI
+                - name: Store output
+                  href: functions-bindings-openai-embeddingsstore-output.md  
+                  displayName: embeddings, OpenAI
+            - name: Semantic search input
+              href: functions-bindings-openai-semanticsearch-input.md 
+              displayName: OpenAI  
+            - name: Text Completion input
+              href: functions-bindings-openai-textcompletion-input.md                      
+              displayName: OpenAI  
         - name: Azure SQL
           items:
             - name: Overview

@@ -1,13 +1,13 @@
 ---
 title: Create and deploy a deployment stack with Bicep from template specs
 description: Learn how to use Bicep to create and deploy a deployment stack from template specs.
-ms.date: 07/06/2023
+ms.date: 05/14/2024
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack from a template spec.
 ---
 
-# Quickstart: Create and deploy a deployment stack with Bicep from template specs (Preview)
+# Quickstart: Create and deploy a deployment stack with Bicep from template specs
 
 This quickstart describes how to create a [deployment stack](deployment-stacks.md) from a template spec.
 
