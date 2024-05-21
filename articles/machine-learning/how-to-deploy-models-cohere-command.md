@@ -15,7 +15,7 @@ ms.custom: [references_regions]
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-cohere.md
 ---
 # How to deploy Cohere Command models with Azure Machine Learning studio
-Cohere offers two Command models in Azure Machine Learning studio. These models are available with pay-as-you-go token based billing with Models as a Service.
+Cohere offers two Command models in Azure Machine Learning studio. These models are available as serverless APIs with pay-as-you-go token-based billing.
 
 * Cohere Command R 
 * Cohere Command R+
@@ -24,7 +24,7 @@ You can browse the Cohere family of models in the model catalog by filtering on 
 
 ## Models
 
-In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere Command models as a service with pay-as you go billing.
+In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere Command models as a serverless API with pay-as you go billing.
 
 ### Cohere Command R 
 Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering. 
@@ -61,11 +61,11 @@ Pre-training data additionally included the following 13 languages: Russian, Pol
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Deploy with pay-as-you-go
+## Deploy as a serverless API
 
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This method of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-The previously mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
+The previously mentioned Cohere models can be deployed as a serverless API with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
@@ -84,12 +84,12 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the EastUS2 or Sweden Central region.
+1. Select the workspace in which you want to deploy your models. To use the serverless API deployment offering, your workspace must belong to the EastUS2 or Sweden Central region.
 1. Choose the model you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
 
-1. On the model's overview page in the model catalog, select **Deploy** and then **Pay-as-you-go**.
+1. On the model's overview page in the model catalog, select **Deploy**.
 
     :::image type="content" source="media/how-to-deploy-models-cohere-command/command-r-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-cohere-command/command-r-deploy-pay-as-you-go.png":::
 
@@ -115,7 +115,7 @@ To create a deployment:
 
 To learn about billing for models deployed with pay-as-you-go, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
 
-### Consume the models as a service
+### Consume the Cohere models as a service
 
 The previously mentioned Cohere models can be consumed using the chat API.
 
@@ -126,7 +126,7 @@ The previously mentioned Cohere models can be consumed using the chat API.
 
 For more information on using the APIs, see the [reference](#reference-for-cohere-models-deployed-as-a-service) section.
 
-## Reference for Cohere models deployed as a service
+## Reference for Cohere models deployed as a serverless API
 
 Cohere Command R and Command R+ models accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere Chat API](#cohere-chat-api) on `/v1/chat`. 
 
