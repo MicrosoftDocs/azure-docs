@@ -250,7 +250,7 @@ These instructions only apply for an OTLP exporter:
 
     Traces, metrics, and logs being exported using OpenTelemetry must be configured manually. For more information, see [Instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/) for Python.
 
-    This is a simple implementaton for exporting logs:
+    This is a simple implementation for exporting logs:
 
     ```python
     logging.basicConfig(level=logging.DEBUG)
