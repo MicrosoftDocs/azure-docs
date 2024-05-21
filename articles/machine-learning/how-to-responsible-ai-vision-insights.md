@@ -28,7 +28,7 @@ This article describes the Responsible AI vision insights component and how to u
 
 ## Responsible AI vision insights component
 
-The core component for constructing the Responsible AI image dashboard in Azure Machine Learning is the **RAI Vision Insights component**, which differs from how to construct the [Responsible AI dashboard for tabular data](how-to-responsible-ai-insights-sdk-cli.md#responsible-ai-components).
+The core component for constructing the Responsible AI image dashboard in Azure Machine Learning is the **RAI vision insights component**, which differs from how to construct the [Responsible AI dashboard for tabular data](how-to-responsible-ai-insights-sdk-cli.md#responsible-ai-components).
 
 ### Requirements and limitations
 
@@ -48,9 +48,9 @@ The Responsible AI vision insights component supports the following scenarios th
 
 | Name                                          | Description                                 | Parameter name in RAI Vision Insights component |
 |-----------------------------------------------|---------------------------------------------|------------------------------------------------------------|
-| Image Classification (Binary and Multiclass) | Predict a single class for the given image.  | `task_type="image_classification"`                         |
-| Image Multilabel Classification              | Predict multiple labels for the given image. | `task_type="multilabel_image_classification"`              |
-| Object Detection                              | Locate and identify the classes of multiple objects for a given image, and define objects with a bounding box. |`task_type="object_detection"` |
+| Image classification (binary and multiclass) | Predict a single class for the given image.  | `task_type="image_classification"`                         |
+| Image multilabel classification              | Predict multiple labels for the given image. | `task_type="multilabel_image_classification"`              |
+| Object detection                              | Locate and identify classes of multiple objects for a given image, and define objects with a bounding box. |`task_type="object_detection"` |
 
 The RAI vision insights component also accepts the following optional parameters:
 
@@ -72,9 +72,9 @@ The Responsible AI vision insights component has three major input ports:
 - The training dataset
 - The test dataset
 
-Register your input model in Azure Machine Learning and reference the same model in the `model_input` port of the Responsible AI vision insights component. To generate model-debugging insights like model performance, data explorer, model interpretability tools, and visualizations in your RAI dashboard, use the image dataset that you used to train your model.
+To start, register your input model in Azure Machine Learning and reference the same model in the `model_input` port of the Responsible AI vision insights component.
 
-The training and test datasets should be in `mltable` format. The two datasets don't have to be, but can be the same dataset.
+To generate RAI image dashboard model-debugging insights like model performance, data explorer, and model interpretability, and populate visualizations, use the same training and test datasets as for training your model. The datasets should be in `mltable` format and don't have to be, but can be the same dataset.
 
 The following example shows the dataset schema for the object detection task type:
 
@@ -106,7 +106,6 @@ The component assembles the generated insights into a single Responsible AI imag
 ### Pipeline job
 
 To create the Responsible AI image dashboard, you can define the RAI components in a pipeline and submit the pipeline job.
- .
 
 # [YAML](#tab/yaml)
 
@@ -181,28 +180,25 @@ After you specify and submit the pipeline and it executes, the dashboard should 
 
 Automated ML in Azure Machine Learning supports model training for computer vision tasks like image classification and object detection. AutoML models for computer vision are integrated with the RAI image dashboard for debugging AutoML vision models and explaining model predictions.
 
-To generate Responsible AI insights for AutoML computer vision models, register your best AutoML model in the Azure Machine Learning workspace and run it through the Responsible AI vision insights pipeline. For more information, see:
-
-- [AutoML Image Classification](component-reference-v2/image-classification.md)
-- [Set up AutoML to train computer vision models](how-to-auto-train-image-models.md)
+To generate Responsible AI insights for AutoML computer vision models, register your best AutoML model in the Azure Machine Learning workspace and run it through the Responsible AI vision insights pipeline. For more information, see [Set up AutoML to train computer vision models](how-to-auto-train-image-models.md).
 
 For notebooks related to AutoML supported computer vision tasks, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
 
 ### AutoML-specific RAI vision insights parameters
 <a name="responsible-ai-vision-insights-component-parameter-automl-specific"></a>
 
-In addition to the parameters in the preceding section, the following RAI vision component parameters apply specifically to AutoML models.
+In addition to the parameters in the preceding section, AutoML models can use the following AutoML-specific RAI vision component parameters.
 
 > [!NOTE]
 > A few parameters are specific to the Explainable AI (XAI) algorithm chosen and are optional for other algorithms.
 
 | Parameter name | Description                                           | Type                             | Values |
 |----------------|-------------------------------------------------------|----------------------------------|--------|
-| `model_type`   | Flavor of the model. Select `pyfunc` for AutoML models. | Enum |• `Pyfunc` <br> • `fastai` |
-| `dataset_type` | Whether the images in the dataset are read from publicly available URLs or are stored in the user's datastore. <br> For AutoML models, images are always read from the user's workspace datastore, so the dataset type for AutoML models is `private`. For `private` dataset type, you download the images on the compute before generating the explanations. | Enum | • `public` <br> • `private` |
-| `xai_algorithm` | Type of XAI algorithm supported for AutoML models <br> Note: SHAP isn't supported for AutoML models. | Enum | • `guided_backprop` <br> • `guided_gradCAM` <br> • `integrated_gradients` <br> • `xrai` |
+| `model_type`   | Flavor of the model. Select `pyfunc` for AutoML models. | Enum |`• pyfunc` <br> `• fastai` |
+| `dataset_type` | Whether the images in the dataset are read from publicly available URLs or are stored in the user's datastore. <br> For AutoML models, images are always read from the user's workspace datastore, so the dataset type for AutoML models is `private`. For `private` dataset type, you download the images on the compute before generating the explanations. | Enum | `• public` <br> `• private` |
+| `xai_algorithm` | Type of XAI algorithm supported for AutoML models <br> Note: SHAP isn't supported for AutoML models. | Enum | `• guided_backprop` <br> `• guided_gradCAM` <br> `• integrated_gradients` <br> `• xrai` |
 | `xrai_fast` | Whether to use the faster version of `xrai`. If `True`, computation time for explanations is faster but leads to less accurate explanations or attributions. | Boolean ||
-| `approximation_method` | This parameter is specific to `integrated gradients`. <br> Method for approximating the integral.| Enum | • `riemann_middle` <br> • `gausslegendre` |
+| `approximation_method` | This parameter is specific to `integrated gradients`. <br> Method for approximating the integral.| Enum | `• riemann_middle` <br> `• gausslegendre` |
 | `n_steps` | This parameter is specific to `integrated gradients` and `xrai`. <br> The number of steps used by the approximation method. Larger number of steps lead to better approximations of attributions or explanations. The range of `n_steps` is [2, inf], but the performance of attributions starts to converge after 50 steps.| Integer||
 | `confidence_score_threshold_multilabel` | This parameter is specific to multilabel classification. The confidence score threshold above which labels are selected for generating explanations. | Float ||
 
