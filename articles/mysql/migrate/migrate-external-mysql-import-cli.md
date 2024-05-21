@@ -59,10 +59,10 @@ The following are the steps for using Percona XtraBackup to take a full backup :
   * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html). For instructions for taking a Full backup with Percona XtraBackup 8.0, see [Full backup] (<https://docs.percona.com/percona-xtrabackup/8.0/create-full-backup.html>). While taking full backup, run the below commands in order:
     * **- xtrabackup --backup --host={host} --user={user} --password={password} --target-dir={backup__dir_path}**
     * **- xtrabackup --prepare --{backup_dir_path}** (Provide the same backup path here as in above command)
-    **Considerations while taking the Percona XtraBackup:**
-      * Make sure you run both the backup and prepare step.
-      * Make sure there are no errors in the backup and prepare step.
-      * Keep the backup and prepare step logs for Azure Support required in case of failures.
+  * **Considerations while taking the Percona XtraBackup:**
+    * Make sure you run both the backup and prepare step.
+    * Make sure there are no errors in the backup and prepare step.
+    * Keep the backup and prepare step logs for Azure Support required in case of failures.
 * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
 * Upload the full backup file at {backup_dir_path} to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
 * For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.

@@ -58,7 +58,7 @@ To achieve the best performance with the `import` operation, consider these fact
 
 - **Use large files for import**. The file size of a single `import` operation should be more than 200 MB. Smaller files might result in slower import times.
 
-- **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs.
+- **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs. The combined total size of all the files in a single import should be greater than 100 GB or 100 M resources. 
 
 - **Limit the number of parallel import jobs**. You can run multiple `import` jobs at the same time, but running multiple jobs might affect the overall throughput of the `import` operation. The FHIR server can handle up to five parallel `import` jobs. If you exceed this limit, the FHIR server might throttle or reject your requests.
 
@@ -94,7 +94,7 @@ Content-Type:application/fhir+json
 
 | Input part name   | Description | Cardinality |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
-| `type`|  Resource type of the input file. | 0..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. |
+| `type`|  Resource type of the input file. | 0..1 |  A valid [FHIR resource type](https://www.hl7.org/fhir/resourcelist.html) that matches the input file. This field is optional.|
 |`url`|  Azure storage URL of the input file.   | 1..1 | URL value of the input file. The value can't be modified. |
 | `etag`|  ETag of the input file in the Azure storage. Used to verify that the file content isn't changed after `import` registration. | 0..1 |  ETag value of the input file.|
 
@@ -113,30 +113,13 @@ Content-Type:application/fhir+json
         {
             "name": "input",
             "part": [
-                {
-                    "name": "type",
-                    "valueString": "Patient"
-                },
-                {
+                { 
                     "name": "url",
-                    "valueUri": "https://example.blob.core.windows.net/resources/Patient.ndjson"
+                    "valueUri": "https://example.blob.core.windows.net/resources/filename.ndjson"
                 },
                 {
                     "name": "etag",
                     "valueUri": "0x8D92A7342657F4F"
-                }
-            ]
-        },
-        {
-            "name": "input",
-            "part": [
-                {
-                    "name": "type",
-                    "valueString": "CarePlan"
-                },
-                {
-                    "name": "url",
-                    "valueUri": "https://example.blob.core.windows.net/resources/CarePlan.ndjson"
                 }
             ]
         }
@@ -176,14 +159,9 @@ The following table describes the important fields in the response body:
     "request": "https://importperf.azurewebsites.net/$Import",
     "output": [
         {
-            "type": "Patient",
+            "type": <null in case type parameter in not populated in request. If provided, resource name will be added>,
             "count": 10000,
-            "inputUrl": "https://example.blob.core.windows.net/resources/Patient.ndjson"
-        },
-        {
-            "type": "CarePlan",
-            "count": 199949,
-            "inputUrl": "https://example.blob.core.windows.net/resources/CarePlan.ndjson"
+            "inputUrl": "https://example.blob.core.windows.net/resources/filename.ndjson"
         }
     ],
     "error": [
