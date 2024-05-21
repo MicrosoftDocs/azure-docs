@@ -170,7 +170,6 @@ You can choose to deploy your project code to an existing function app using var
 
 ### [Visual Studio Code](#tab/vs-code-publish)
 
-
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 ### [Core Tools](#tab/core-tools)
@@ -319,17 +318,23 @@ When choosing a subnet, these considerations apply:
 + You can share the same subnet with more than one app running in a Flex Consumption plan. Because the networking resources are shared across all apps, one function app might impact the performance of others on the same subnet.
 + In a Flex Consumption plan, a single function app might use up to 40 IP addresses, even when the app scales beyond 40 instances. While this rule of thumb is helpful when estimating the subnet size you need, it's not strictly enforced.  
 
-## Configure the deployment storage account
+## Configure deployment settings
 
-In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a blob storage container. By default, deployments use the same storage account and connection string (`AzureWebJobsStorage`) used by the Functions runtime to maintain your app. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. 
+In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a blob storage container. By default, deployments use the same storage account (`AzureWebJobsStorage`) and connection string value used by the Functions runtime to maintain your app. The connection string is stored in the `DEPLOYMENT_STORAGE_CONNECTION_STRING` application setting. However, you can instead designate a blob container in a separate storage account as the deployment source for your code or change the authentication type. 
 
-A custom deployment storage account must meet these conditions:
+A custom deployment storage account should follow these considerations:
 
 + The storage account must already exist.
-+ The container to use for deployments must also exist and be empty.
-+ An application setting that contains the connection string for the deployment storage account must already exist. 
++ The container to use for deployments must also exist.
++ Each app should have its own deployment container. The deployed application package will be overwritten when multiple apps share the same container. 
 
-To configure the deployment storage account when you create your function app in the Flex Consumption plan:
+When configuring deployment storage authentication, keep these considerations in mind:
+
++ When using connection string, the application setting containing the connection string for the deployment storage acccount must already exist.
++ When using user assigned managed identity, the provided identity will be linked to the function app and the `Storage Blob Data Contributor` role scoped to the deployment storage account will be assigned to it.
++ When using system assigned managed identity, a new identity will be created if one does not already exist for your app. If one exists, then the `Storage Blob Data Contributor` role scoped to the deployment storage account will be assigned to it.
+
+To configure deployment settings when you create your function app in the Flex Consumption plan:
 
 ### [Azure CLI](#tab/azure-cli) 
 
@@ -337,15 +342,15 @@ Use the [`az functionapp create`] command and supply these additional options th
 
 | Parameter | Description |
 |--|--|--|
-| `--deployment-storage-name` | The storage account name to use for your deployment package. | 
-| `--deployment-storage-container-name` | The name of the container in the account that contains the deployment package. | 
-| `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Currently, only `storageAccountConnectionString` is supported. |
-| `--deployment-storage-auth-value` | When using  `storageAccountConnectionString`, this parameter is set to the name of the application setting that contains the storage account connection string used for deployment. |
+| `--deployment-storage-name` | The name of the deployment storage account. | 
+| `--deployment-storage-container-name` | The name of the container in the account to contain your app's deployment package. | 
+| `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Accepted values include `StorageAccountConnectionString`, `UserAssignedIdentity`, and `SystemAssignedIdentity`. |
+| `--deployment-storage-auth-value` | When using  `StorageAccountConnectionString`, this parameter is set to the name of the application setting that contains the connection string to the deployment storage account. When using `UserAssignedIdentity`, this parameter is set to the name of the resource ID of the identity you want to use. |
 
-This example creates a function app in the Flex Consumption plan with a separate deployment storage account:
+This example creates a function app in the Flex Consumption plan with a separate deployment storage account and user assigned identity:
 
 ```azurecli
-az functionapp create --resource-grpoup <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type storageAccountConnectionString --deployment-storage-auth-value <DEPLOYMENT_CONNECTION_STRING_NAME>"
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value <MI_RESOURCE_ID>
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -367,16 +372,20 @@ You can also modify the deployment storage configuration for an existing app.
 Use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration: 
 
 ```azurecli
-az functionapp deployment config set --resource-grpoup <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
+az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
 ```
 
 ### [Azure portal](#tab/azure-portal)
 
 1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Deployment settings**.
 
-1. Select an existing **Storage account** and then select an existing empty container in the account.
+1. Under Application package location, select an existing **Storage account** and then select an existing empty **container** in the account.
 
-1. Select the **App setting name** for the setting that contains the connection string for the deployment storage account.
+1. Under Storage authentication, select your preferred authentication type 
+
+    + If you selected **Connection string**, select the name of the app setting that contains the connection string for the deployment storage account.
+
+    + If you selected **User assigned identity**, select the identity you would like to use.
 
 1. Select **Save** to update the app.  
 
