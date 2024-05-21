@@ -3,6 +3,8 @@ title: Use Microsoft Playwright Testing Reporting with Playwright sharding (prev
 description: Learn to
 author: vvs11
 ms.service: playwright-testing
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: vanshsingh

@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: This article introduces you to the Azure OpenAI GPT-4 Turbo with Vision tool for flows in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: keli19

@@ -5,6 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 05/05/2024
 ms.author: danlep

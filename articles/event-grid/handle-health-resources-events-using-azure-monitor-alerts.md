@@ -1,7 +1,9 @@
 ---
 title: Handle Health Resources events using Azure Monitor alerts
-description: This article describes how to handle Health Resources events using Azure Monitor alerts. 
+description: This article describes how to handle Health Resources events using Azure Monitor alerts.
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 05/21/2024
 author: robece
 ms.author: robece

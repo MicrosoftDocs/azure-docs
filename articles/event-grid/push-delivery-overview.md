@@ -7,6 +7,7 @@ description: Learn about Event Grid's http push delivery and the resources that 
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
 # Push delivery with HTTP

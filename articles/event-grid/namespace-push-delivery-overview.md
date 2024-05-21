@@ -4,6 +4,7 @@ description: Learn about push delivery supported by Azure Event Grid namespaces.
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.date: 11/15/2023
 author: robece
 ms.author: robece

@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
 ms.subservice: aks-monitoring
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023, devx-track-azurecli, build-2024
 ms.topic: how-to
 ms.date: 05/06/2024
 

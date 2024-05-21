@@ -6,11 +6,12 @@ metadata:
   title: Split Experimentation Workspace (preview) documentation
   description: Split Experimentation for Azure App Configuration (preview) allows developers to Gain quantifiable insights for new features and enable faster, safer product releases, natively within Azure.
   ms.service: partner-services
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
   ms.date: 04/30/2024
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

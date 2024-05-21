@@ -9,6 +9,7 @@ ms.service: kubernetes-fleet
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
+  - build-2024
 ---
 
 # Orchestrate updates across multiple clusters by using Azure Kubernetes Fleet Manager

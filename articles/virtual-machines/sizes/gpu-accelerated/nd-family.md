@@ -4,6 +4,8 @@ description: Overview of the 'ND' sub-family of virtual machine sizes
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 04/18/2024
 ms.author: mattmcinnes

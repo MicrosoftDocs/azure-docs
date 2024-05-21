@@ -5,11 +5,11 @@ description: Customize your dev box by using a catalog of tasks and a configurat
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
-ms.topic: how-to 
+ms.custom:
+  - build-2024
+ms.topic: how-to
 ms.date: 05/07/2024
-
 #customer intent: As a platform engineer, I want to be able to complete configuration tasks on my dev boxes, so that my developers have the environment they need as soon as they start using their dev box.
-
 ---
 
 # Create reusable dev box customizations
@@ -280,4 +280,3 @@ If your organization's policies require you to keep your Key Vault private from 
 
 - [Add and configure a catalog from GitHub or Azure DevOps](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI)
 - [Accelerate developer onboarding with the configuration-as-code customization in Microsoft Dev Box](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/accelerate-developer-onboarding-with-the-configuration-as-code/ba-p/4062416)
-

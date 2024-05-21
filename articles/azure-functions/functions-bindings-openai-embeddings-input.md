@@ -2,6 +2,8 @@
 title: Azure OpenAI embeddings input binding for Azure Functions
 description: Learn how to use the Azure OpenAI embeddings input binding to generate embeddings during function execution in Azure Functions.
 ms.topic: reference
+ms.custom:
+  - build-2024
 ms.date: 05/07/2024
 zone_pivot_groups: programming-languages-set-functions
 ---

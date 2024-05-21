@@ -6,7 +6,7 @@
  ms.service: azure-ai-studio
  ms.topic: include
  ms.date: 05/03/2024
- ms.custom: include
+ms.custom: include, build-2024
 ---
 
 [!INCLUDE [Feature preview](../../../ai-studio/includes/feature-preview.md)]

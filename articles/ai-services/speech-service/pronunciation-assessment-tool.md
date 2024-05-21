@@ -5,6 +5,8 @@ description: The pronunciation assessment tool in AI Studio gives you feedback o
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 1/21/2024
 ms.author: v-baolianzou

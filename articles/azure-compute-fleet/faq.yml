@@ -8,8 +8,7 @@ metadata:
   ms.service: virtual-machines
   ms.date: 05/09/2024
   ms.reviewer: jushiman
-  ms.custom: references_regions
-
+  ms.custom: references_regions, build-2024
 title: FAQ for Azure Compute Fleet
 summary: Get answers to the most frequently asked questions about Azure Compute Fleet.
 

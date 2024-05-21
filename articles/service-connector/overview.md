@@ -4,6 +4,8 @@ description: Understand typical use case scenarios for Service Connector, and le
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
+ms.custom:
+  - build-2024
 ms.topic: overview
 ms.date: 05/06/2024
 ---

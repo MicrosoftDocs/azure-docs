@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: Learn about the architecture of Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 5/21/2024
 ms.reviewer: deeikele

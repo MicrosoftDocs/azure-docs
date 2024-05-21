@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 01/31/2024
 ms.author: jboback
-ms.custom: language-service-pii
+ms.custom: language-service-pii, build-2024
 ---
 
 # What is Personally Identifiable Information (PII) detection in Azure AI Language?

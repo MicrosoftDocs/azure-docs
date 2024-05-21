@@ -9,8 +9,9 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: concept-article
 ms.custom:
-    - references_regions
-    - ignite-2023
+  - references_regions
+  - ignite-2023
+  - build-2024
 #customer intent: As a reader, I want to understand the concept of accelerated logs in Azure Database for MySQL - Flexible Server.
 ---
 

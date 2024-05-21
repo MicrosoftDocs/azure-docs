@@ -7,6 +7,8 @@ ms.author: sidandrews
 ms.reviewer: jacodel
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 04/03/2023
 ---

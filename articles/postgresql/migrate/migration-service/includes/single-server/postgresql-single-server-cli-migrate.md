@@ -4,6 +4,8 @@ author: markingmyname
 ms.author: maghan
 ms.date: 05/21/2024
 ms.service: postgresql
+ms.custom:
+  - build-2024
 ms.topic: include
 ---
 

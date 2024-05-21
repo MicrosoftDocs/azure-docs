@@ -10,6 +10,7 @@ ms.subservice: flexible-server
 ms.topic: concept-article
 ms.custom:
   - references_regions
+  - build-2024
 # customer intent: As a user, I want to learn about the index tuning feature in Azure Database for PostgreSQL - Flexible Server, how does it work and what benefits it provides.
 ---
 

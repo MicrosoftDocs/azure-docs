@@ -1,7 +1,9 @@
 ---
-title: Manage Split Experimentation Workspace (preview) 
+title: Manage Split Experimentation Workspace (preview)
 description: This article describes management of Split Experimentation Workspace (preview) in the Azure portal. How to configure some basic settings and delete the resource.
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ms.date: 04/30/2024
 author: maud-lv
 ms.author: malev

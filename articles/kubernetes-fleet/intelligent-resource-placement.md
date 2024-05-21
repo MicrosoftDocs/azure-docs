@@ -6,6 +6,8 @@ ms.date: 05/13/2024
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
+ms.custom:
+  - build-2024
 ---
 
 # Intelligent cross-cluster Kubernetes resource placement using Azure Kubernetes Fleet Manager (Preview)
