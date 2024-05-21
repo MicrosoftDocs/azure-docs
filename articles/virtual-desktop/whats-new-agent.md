@@ -38,7 +38,7 @@ A rollout may take several weeks before the agent is available in all environmen
 
 In this update, we've made the following changes:
 
-- General improvements and bug fixes
+- General improvements and bug fixes.
 
 ## Version 1.0.8804.1400 (validation)
 
