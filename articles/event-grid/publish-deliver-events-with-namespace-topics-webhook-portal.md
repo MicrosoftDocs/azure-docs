@@ -1,10 +1,9 @@
 ---
 title: Deliver events to webhooks using push model (portal)
-description: This article provides step-by-step instructions to publish to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model to a webhook.
+description: This article provides step-by-step instructions to use the Azure portal to create a WebHook subscription for a namespace topic. 
 ms.topic: quickstart
 ms.author: spelluru
 author: spelluru
-ms.custom: references_regions
 ms.date: 05/21/2024
 ---
 
@@ -13,13 +12,10 @@ ms.date: 05/21/2024
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and deliver those events by using the push delivery model. To be specific, you publish events to a namespace topic in Event Grid and push those events from an event subscription to a webhook handler destination. For more information about the push delivery model, see [Push delivery overview](push-delivery-overview.md).
 
 > [!NOTE]
-> - Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North.
-> - Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
+> Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-
-## Create a namespace
 
 ## Create an Event Grid namespace
 An Event Grid namespace provides a user-defined endpoint to which you post your events. The following example creates a namespace in your resource group using Bash in Azure Cloud Shell. The namespace name must be unique because it's part of a Domain Name System (DNS) entry.
@@ -48,7 +44,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 1. Save the access key somewhere. You use it later in this quickstart.  
 
 ## Create a topic in the namespace
-Create a topic that's used to hold all events published to the namespace endpoint.
+Create a topic that holds all events published to the namespace endpoint.
 
 1. Select **Topics** on the left menu.
 1. On the **Topics** page, select **+ Topic** on the command bar.
@@ -60,7 +56,7 @@ Create a topic that's used to hold all events published to the namespace endpoin
 
 
 ## Create a message endpoint
-Before subscribing to the events for the Blob storage, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [prebuilt web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before subscribing to the events, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [prebuilt web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. 
 
@@ -83,7 +79,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
 
     :::image type="content" source="./media/blob-event-quickstart-portal/web-site.png" alt-text="Screenshot that shows the selection of link to navigate to web app.":::    
-6. Confirm that you see the site but no events have been posted to it yet. 
+6. Confirm that you see the site but no events are posted to it yet. 
 
    ![View new site.](./media/blob-event-quickstart-portal/view-site.png)
 
@@ -102,18 +98,17 @@ Create an event subscription setting its delivery mode to *Push*, which supports
 1. On the **Create Event Subscription** page, follow these steps:
     1. In the **Basic** tab, enter a **name** for the event subscription.
     1. Select **Push** for the event delivery mode.
-    1. Confirm that **Event hub** selected for the **Endpoint type**. 
+    1. For **Endpoint type**, select **Web Hook**. 
     1. Select **Configure an endpoint**.
-        :::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-push-subscription-page.png" alt-text="Screenshot that shows the Create Subscription page with Push selected for Delivery mode." lightbox="./media/publish-events-using-namespace-topics-portal/create-push-subscription-page.png":::       
-    1. On the **Select Event hub** page, follow these steps:
-        1. Select the **Azure subscription** and **resource group** that has the event hub. 
-        1. Select the **Event Hubs namespace** and the **event hub**.
-        1. Then, select **Confirm selection**.
-            :::image type="content" source="./media/publish-events-using-namespace-topics-portal/select-event-hub.png" alt-text="Screenshot that shows the Select event hub page." lightbox="./media/publish-events-using-namespace-topics-portal/select-event-hub.png":::       
-    1. Back on the **Create Subscription** page, select **System Assigned** for **Managed identity type**.
-        :::image type="content" source="./media/publish-events-using-namespace-topics-portal/create-subscription-managed-identity-delivery.png" alt-text="Screenshot that shows the Create Subscription page with System Assigned set for Managed identity type." lightbox="./media/publish-events-using-namespace-topics-portal/create-subscription-managed-identity-delivery.png":::                  
-    1. Select **Create**. 
     
+        :::image type="content" source="./media/publish-deliver-events-with-namespace-topics-webhook-portal/select-webhook-handler.png" alt-text="Screenshot that shows the Create Subscription page with Push selected for Delivery mode and WebHook as endpoint type." :::       
+    1. On the **Web Hook** page, specify the endpoint (for example: `https://spegridsite0520.azurewebsites.net/api/updates`) as shown in the following example, and select **Confirm selection**. 
+    
+        :::image type="content" source="./media/publish-deliver-events-with-namespace-topics-webhook-portal/webhook-endpoint.png" alt-text="Screenshot that shows the Web Hook page with a value for subscriber endpoint." :::          
+    1. Back on the **Create Subscription** page, select **Create**.
+    
+          :::image type="content" source="./media/publish-deliver-events-with-namespace-topics-webhook-portal/create-subscription-full.png" alt-text="Screenshot that shows the Create Subscription page with all fields filled." :::                          
+     
 ## Send events to your topic
 
 Now, send a sample event to the namespace topic by following steps in this section.
