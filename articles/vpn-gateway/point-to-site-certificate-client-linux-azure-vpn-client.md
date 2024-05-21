@@ -93,7 +93,7 @@ sudo apt-get update
 sudo apt-get install microsoft-azurevpnclient
 ```
 
-For more information about the repository, see [Linux Software Repository for Microsoft Products](https://learn.microsoft.com/linux/packages).
+For more information about the repository, see [Linux Software Repository for Microsoft Products](/linux/packages).
 
 ## Configure the Azure VPN Client profile
 

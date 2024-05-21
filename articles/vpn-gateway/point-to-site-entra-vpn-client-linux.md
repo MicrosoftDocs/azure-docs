@@ -33,7 +33,7 @@ Use the following steps to download and install the latest version of the Azure 
 
 > [!NOTE]
 > Add only the repository list of your Ubuntu version 20.04 or 22.04.
-> For more information, see the [Linux Software Repository for Microsoft Products](https://learn.microsoft.com/linux/packages).
+> For more information, see the [Linux Software Repository for Microsoft Products](/linux/packages).
 
 ```CLI
 # install curl utility

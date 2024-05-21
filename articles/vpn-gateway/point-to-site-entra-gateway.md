@@ -40,14 +40,14 @@ The articles in the [Next steps](#next-steps) section help you:
 
 **Point-to-site VPN gateway:** If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra ID authentication. If you don't already have a functioning P2S gateway environment, see [Create and manage a VPN gateway - Azure portal](tutorial-create-gateway-portal.md). Certain gateway options are incompatible with P2S VPN gateways (the Basic SKU and policy-based VPN type). For more information about settings values, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-**Microsoft Entra tenant:** The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant).
+**Microsoft Entra tenant:** The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
 
 ## <a name="configure-vpn"></a>Configure P2S VPN
 
 > [!IMPORTANT]
 > [!INCLUDE [Microsoft Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
 
-1. Locate the tenant ID of the directory that you want to use for authentication. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](https://learn.microsoft.com/entra/fundamentals/how-to-find-tenant).
+1. Locate the tenant ID of the directory that you want to use for authentication. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](/entra/fundamentals/how-to-find-tenant).
 
 1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**, then **Configure now** to open the Point-to-site configuration page.
 
