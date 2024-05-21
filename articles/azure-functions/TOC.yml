@@ -574,7 +574,7 @@
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitor
+        - name: Monitoring options
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Monitor function executions
@@ -589,6 +589,8 @@
         - name: Stream execution logs
           href: streaming-logs.md
           displayName: monitoring
+        - name: Work with OpenTelemetry
+          href: opentelemetry-howto.md  
     - name: Authenticate
       items:
         - name: Configure auth providers
