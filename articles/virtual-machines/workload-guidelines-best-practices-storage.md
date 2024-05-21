@@ -1,14 +1,14 @@
 ---
-title: "Storage: Workload guidelines & best practices"
-description: Provides storage best practices and guidelines to optimize the performance of your HPC workloads on Azure VMs.
-author: padmalathas
-ms.author: padmalathas
+title: "Azure HPC workload best practices guide"
+description: A comprehensive guide to choosing a storage solution best suited to your HPC workloads.
+author: christinechen2, glennklockwood, normesta
+ms.author: christchen, glockwood, normesta
 ms.date: 05/09/2024
 ms.service: virtual-machines
 ms.subservice: hpc
-ms.topic: conceptual
+ms.topic: conceptual 
 ---
-# High-performance computing (HPC) workload best practices for storage
+# High-performance computing (HPC) workload best practices guide
 
 <!-- [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)] -->
 
