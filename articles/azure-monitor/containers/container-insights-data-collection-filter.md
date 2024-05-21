@@ -1,6 +1,6 @@
 ---
-title: Configure Container insights data collection using ConfigMap
-description: 
+title: Configure Container insights data collection and filtering
+description: Details on configuring data collection in Azure Monitor Container insights including filtering data you don't require.
 ms.topic: conceptual
 ms.date: 05/14/2024
 ms.reviewer: aul
@@ -20,8 +20,7 @@ Kubernetes clusters generate a large amount of logging information. You can coll
 
 [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as a configuration file or environment variables. Container insights looks for a ConfigMap on each cluster with particular settings that define data that it should collect. 
 
-You can use settings in ConfigMap to enable or disable collection of stdout and stderr logs.
-- Filter specific namespaces from collection of stdout and stderr logs.
+You can use settings in ConfigMap to enable or disable collection of stdout and stderr logs and filter specific namespaces from collection of stdout and stderr logs.
 
 
 
