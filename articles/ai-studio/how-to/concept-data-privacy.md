@@ -26,7 +26,7 @@ When you deploy models in Azure AI Studio, the following types of data are proce
 
 ##  Generate inferencing outputs with real-time endpoints 
 
-Deploying models to Managed computes deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the Model Catalog to Managed computes [here](model-catalog-overview.md). You manage the infrastructure for these Managed computes, and Azure's data, privacy, and security commitments apply. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3).
+Deploying models to managed computes deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the Model Catalog to managed computes [here](model-catalog-overview.md). You manage the infrastructure for these managed computes, and Azure's data, privacy, and security commitments apply. Learn more about Azure compliance offerings applicable to Azure AI Studio [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3).
 
 Although containers for models "Curated by Azure AI" are scanned for vulnerabilities that could exfiltrate data, not all models available through the Model Catalog are scanned. To reduce the risk of data exfiltration, you can protect your deployment using virtual networks. [Learn more](configure-managed-network.md) . You can also use [Azure Policy](../../ai-services/policy-reference.md) to regulate the models that your users can deploy.
 
