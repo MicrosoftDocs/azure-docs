@@ -67,10 +67,14 @@ To make a query control that uses this data source, use the **Query type** dropd
 
 Azure Workbooks supports Azure Resource Manager REST operations so that you can query the management.azure.com endpoint without providing your own authorization header token.
 
-To make a query control that uses this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Provide the appropriate parameters, such as **Http method**, **url path**, **headers**, **url parameters**, and **body**.
+To make a query control that uses this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Provide the appropriate parameters, such as **Http method**, **url path**, **headers**, **url parameters**, and **body**.  Azure Resource Manager data source is intended to be used as a data source to power data *visualizations*; as such, it does not support `PUT` or `PATCH` operations.  The data source supports the following HTTP methods, with these expecations and limitations:
 
+* `GET` - the most common operation for visualization, execute a query and parse the `JSON` result using settings in the "Result Settings" tab. 
+* `GETARRAY` - for ARM APIs that may return multiple "pages" of results using the ARM standard `nextLink` or `@odata.nextLink` style response (See [Async operations, throttling, and paging](/rest/api/azure/#async-operations-throttling-and-paging), this method will make followup calls to the API for each `nextLink`, and merge those results into an array of results.
+* `POST` - This method is used for APIs that pass information in a POST body.
+  
 > [!NOTE]
-> Only GET, POST, and HEAD operations are currently supported.
+> The ARM data source only supports results that return a 200 `OK` response, indicating the result is synchronous.  APIs returning asynchronous results with 202 `ACCEPTED` asynchronous result and a header with a result url are not supported.
 
 ## Azure Data Explorer
 
