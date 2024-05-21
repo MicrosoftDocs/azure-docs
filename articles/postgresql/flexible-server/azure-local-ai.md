@@ -26,8 +26,7 @@ Local embeddings help customers:
 - Keep data within their database eliminating the need to transmit data to a remote endpoint.
 
 > [!IMPORTANT]
-> The azure_local_ai extension is currently in preview. Microsoft's Open-source AI models for installation through the Azure Local AI extension are deemed Non-Microsoft Products under the Microsoft Product Terms. The customer's use of open-source AI models is governed by the separate license terms provided in product documentation associated with such models made available through the azure_local_ai extension.
-
+> The azure_local_ai extension is currently in preview. Microsoft's Open-source AI models for installation through the Azure Local AI extension are deemed Non-Microsoft Products under the Microsoft Product Terms. The customer's use of open-source AI models is governed by the separate license terms provided in product documentation associated with such models made available through the azure_local_ai extension. [Supplemental Terms of Use: Limited Access AI Services (Previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 ## Enable the `azure_local_ai` extension (preview)
 
 Before you can enable azure_local_ai on your Azure Database for PostgreSQL flexible server instance, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](concepts-extensions.md) and check that it was correctly added by running the following SQL statement, `SHOW azure.extensions;`.
