@@ -25,18 +25,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ## Region availability
 
-Serverless API endpoints are available in the following regions for the indicated models:
-
-| Model              | East US 2   | West US 3      | Sweden Central | France Central |
-| ------------------ | ----------- | -------------- | -------------- | -------------- |
-| Mistral-Small      | **&check;** |                | **&check;**    |                |
-| Mistral-Large      | **&check;** |                | **&check;**    | **&check;**    |
-| Cohere Command R   | **&check;** |                | **&check;**    |                |
-| Cohere Command R+  | **&check;** |                | **&check;**    |                |
-| Cohere Embed v3    | **&check;** |                | **&check;**    |                |
-| Meta Llama 2       | **&check;** | **&check;**    |                |                |
-| Meta Llama 3       | **&check;** |                |                |                |
-| Phi-3              | **&check;** |                | **&check;**    |                |
+[!INCLUDE [region-availabilitity-serverless-api](../ai-studio/includes/region-availabilitity-serverless-api.md)]
 
 > [!NOTE]
 > Models offered through the Azure Marketplace are available for purchase only on [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions), with exception of Cohere family of models, which is also available in Japan.
