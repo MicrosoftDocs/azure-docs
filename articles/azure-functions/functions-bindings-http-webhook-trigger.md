@@ -1022,7 +1022,7 @@ When you use route parameters, an `invoke_URL_template` is automatically created
 You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-### HTTP streams (preview)
+### HTTP streams
 
 You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams).   
 ::: zone-end  

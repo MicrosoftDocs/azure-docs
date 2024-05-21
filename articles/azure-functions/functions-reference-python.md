@@ -534,7 +534,7 @@ This feature makes it possible to handle large data stream, OpenAI integrations,
 
 ### Prerequisites
 
-* [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34.1, or a later version.
+* [Azure Functions runtime](functions-versions.md?pivots=programming-language-python) version 4.34.1, or a later version.
 * [Python](https://www.python.org/downloads/) version 3.8, or a later [supported version](#python-version).
 
 ### Enable HTTP streams
@@ -549,7 +549,7 @@ HTTP streams are disabled by default. You need to enable this feature in your ap
 
     :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
 
-1. When deploying to a Consumption plan, add these [application settings](./functions-how-to-use-azure-function-app-settings.md#settings):
+1. When you deploy to Azure, add these [application settings](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
 
     + `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"` 
     + `"PYTHON_ENABLE_INIT_INDEXING": "1"`
