@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 05/21/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -44,7 +44,7 @@ Currently, no upgrade is available.
 
 ## How to upgrade - Enterprise and Enterprise Flash tiers
 
-In the Enterprise tiers, you have two options for upgrades: automatic and manual. Automatic upgrades are part of the standard patching process. With the manual process, You can use the start upgrades that are available outside the normal automatic process.
+In the Enterprise tiers, you have two options for upgrades: automatic and manual. Automatic upgrades are part of the standard patching process. With the manual process, you can start upgrades that are available outside the normal automatic process.
 
 ### Automatic upgrade
 
@@ -70,9 +70,9 @@ As an alternative to automatic upgrade, you can also manually upgrade to the lat
 
     If you're already running the latest version of Redis software available, the **Upgrade** button is disabled.
 
-### Defer Upgrades
+### Defer upgrades
 
-You can defer an automatic upgrade when a new version of Redis software by as many as 90 days. This option gives you time to test new versions and ensure that everything works as expected. The cache is then upgraded either 90 days after the new Redis version reaches GA, or whenever you trigger the upgrade manually.
+You can defer an automatic upgrade of a new version of Redis software by as many as 90 days. This option gives you time to test new versions and ensure that everything works as expected. The cache is then upgraded either 90 days after the new Redis version reaches GA, or whenever you trigger the upgrade manually.
 
 The deferral option must be selected before a new Redis version reaches GA for it to take effect before the automatic upgrade occurs.
 
@@ -88,7 +88,7 @@ To defer upgrades to your cache, navigate to the **Advanced Settings** on the Re
 
 Each new Redis version is intended to be a seamless upgrade from previous versions with backwards-compatibilty as a design principle. However, small changes and bug fixes do occur which can cause application changes. Being conscious of these changes is always a good idea.
 
-### Client Version
+### Client version
 
 If you're using an outdated Redis client, new commands or Redis features can't be supported properly. We always recommend updating to the latest stable version of your Redis client, as newer versions often have stability and performance improvements as well. For more information on configuring your client library, see [best practices using client libraries](cache-best-practices-client-libraries.md).
 
@@ -96,7 +96,7 @@ If you're using an outdated Redis client, new commands or Redis features can't b
 
 Redis version 7.2 enables an updated Redis serialization protocol specification (RESP) called [RESP3](https://redis.io/docs/reference/protocol-spec/). This protocol offers richer data types and performance improvements. Using RESP3 is optional and is negotiated by the Redis client. Because some Redis clients, such as [Go-Redis](https://github.com/redis/go-redis) version 9+ and [Lettuce](https://github.com/lettuce-io/lettuce-core) version 6+, enable RESP3 by default, upgrading the Redis server instance to version 7.2 can produce a response with a different format. To avoid this breaking change, you can [configure these clients to use RESP2](https://docs.redis.com/latest/rs/references/compatibility/resp/) by default instead.
 
-### Breaking Changes
+### Breaking changes
 
 Each version of Redis often has a few minor bug fixes that can present breaking changes. If you have concerns, we recommend reviewing the Redis 7.0 and 7.2 release notes before upgrading your Redis version:
 
