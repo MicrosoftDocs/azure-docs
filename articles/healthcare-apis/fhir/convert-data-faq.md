@@ -11,17 +11,15 @@ ms.author: jasteppe
 
 # $convert-data FAQ
 
-[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
-
 ## What's the difference between $convert-data and the FHIR converter?
 
-The FHIR&reg; converter is a stand-alone API decoupled from the FHIR service and packaged as a container (Docker) image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers many net new capabilities, such as:
+The FHIR&reg; converter (preview) is a stand-alone API decoupled from the FHIR service and packaged as a container (Docker) image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers many net new capabilities, such as:
 
-- Bidirectional data conversion between two formats in both directions. For example, the FHIR converter can convert data from FHIR R4 format back to HL7v2 format.
+- Bidirectional data conversion from source of record to FHIR R4 bundles and back. For example, the FHIR converter can convert data from FHIR R4 format back to HL7v2 format.
 - Improved experience for customization of default [Liquid](https://shopify.github.io/liquid/) templates. 
 - Samples that demonstrate how to create an ETL (extract, transform, load) pipeline with [Azure Data Factory (ADF)](../../data-factory/introduction.md).
  
-To implement the FHIR converter container image, see the [FHIR converter GitHub project](https://github.com/Azure-Samples/azure-health-data-services-samples).
+To implement the FHIR converter container image, see the [FHIR converter GitHub project](https://github.com/microsoft/fhir-converter).
 
 ## Does your service create and manage the entire ETL pipeline for me?
 

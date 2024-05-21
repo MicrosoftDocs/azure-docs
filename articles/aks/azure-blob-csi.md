@@ -47,13 +47,13 @@ Using the Azure CLI, you can enable the Blob storage CSI driver on a new or exis
 To enable the driver on a new cluster, include the `--enable-blob-driver` parameter with the `az aks create` command as shown in the following example:
 
 ```azurecli
-az aks create --enable-blob-driver -n myAKSCluster -g myResourceGroup
+az aks create --enable-blob-driver --name myAKSCluster --resource-group myResourceGroup
 ```
 
 To enable the driver on an existing cluster, include the `--enable-blob-driver` parameter with the `az aks update` command as shown in the following example:
 
 ```azurecli
-az aks update --enable-blob-driver -n myAKSCluster -g myResourceGroup
+az aks update --enable-blob-driver --name myAKSCluster --resource-group myResourceGroup
 ```
 
 You're prompted to confirm there isn't an open-source Blob CSI driver installed. After you confirm, it may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example resembles the section indicating the results of the previous command:
@@ -72,7 +72,7 @@ Using the Azure CLI, you can disable the Blob storage CSI driver on an existing 
 To disable the driver on an existing cluster, include the `--disable-blob-driver` parameter with the `az aks update` command as shown in the following example:
 
 ```azurecli
-az aks update --disable-blob-driver -n myAKSCluster -g myResourceGroup
+az aks update --disable-blob-driver --name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## Use a persistent volume with Azure Blob storage
