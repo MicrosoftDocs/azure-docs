@@ -15,12 +15,12 @@ ms.author: pafarley
 
 Get started with facial recognition using the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
 
-[Reference documentation](/python/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](/samples/browse/?products=azure&term=face)
+[Reference documentation](/python/api/azure-ai-vision-face/azure.ai.vision.face) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/azure/ai/vision/face) | [Package (PiPy)](https://aka.ms/azsdk-python-face-pkg) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/samples)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* [Python 3.x](https://www.python.org/)
+* [Python 3.8+](https://www.python.org/)
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 * [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
@@ -38,7 +38,7 @@ Get started with facial recognition using the Face client library for Python. Fo
     After installing Python, you can install the client library with:
 
     ```console
-    pip install --upgrade azure-cognitiveservices-vision-face
+    python -m pip install azure-ai-vision-face
     ```
 
 1. Create a new Python application
@@ -65,25 +65,28 @@ Get started with facial recognition using the Face client library for Python. Fo
 ## Output
 
 ```console
-Person group: c8e679eb-0b71-43b4-aa91-ab8200cae7df
-face 861d769b-d014-40e8-8b4a-7fd3bc9b425b added to person f80c1cfa-b8cb-46f8-9f7f-e72fbe402bc3
-face e3c356a4-1ac3-4c97-9219-14648997f195 added to person f80c1cfa-b8cb-46f8-9f7f-e72fbe402bc3
-face f9119820-c374-4c4d-b795-96ae2fec5069 added to person be4084a7-0c7b-4cf9-9463-3756d2e28e17
-face 67d626df-3f75-4801-9364-601b63c8296a added to person be4084a7-0c7b-4cf9-9463-3756d2e28e17
-face 19e2e8cc-5029-4087-bca0-9f94588fb850 added to person 3ff07c65-6193-4d3e-bf18-d7c106393cd5
-face dcc61e80-16b1-4241-ae3f-9721597bae4c added to person 3ff07c65-6193-4d3e-bf18-d7c106393cd5
-pg resource is c8e679eb-0b71-43b4-aa91-ab8200cae7df
-<msrest.pipeline.ClientRawResponse object at 0x00000240DAD47310>
-Training status: running.
-
-Training status: succeeded.
-
+Person group: dbd92bf0-8b74-43fc-a27a-b127c1bb1b66
+face 1d09b50e-0fb6-430c-a47c-9bb235761c17 added to person ea92a5d5-5250-44db-88fb-3b32e1a1ecaf
+face 74e1807a-6c86-4c74-b497-a3bcdda8c631 added to person ea92a5d5-5250-44db-88fb-3b32e1a1ecaf
+face 512cc8ff-e18a-4702-9413-3c83af9a0915 added to person f03219b3-c2dc-4ad6-b00b-bd71792686ac
+face 899bbe8e-2d03-4941-8221-d087911df21b added to person f03219b3-c2dc-4ad6-b00b-bd71792686ac
+face dfc0d142-36b0-4d90-982b-b51570ead5a8 added to person 8697d263-be7b-4d78-ba40-b55305dbbeb6
+face 29939a66-9da2-46f2-b572-abbe4e0d754a added to person 8697d263-be7b-4d78-ba40-b55305dbbeb6
+Train the person group dbd92bf0-8b74-43fc-a27a-b127c1bb1b66
+The person group dbd92bf0-8b74-43fc-a27a-b127c1bb1b66 is trained successfully.
 Pausing for 10 seconds to avoid triggering rate limit on free account...
 Identifying faces in image
-Person for face ID 40582995-d3a8-41c4-a9d1-d17ae6b46c5c is identified in image, with a confidence of 0.96725.
-Person for face ID 7a0368a2-332c-4e7a-81c4-2db3d74c78c5 is identified in image, with a confidence of 0.96921.
-No person identified for face ID c4a3dd28-ef2d-457e-81d1-a447344242c4 in image.
-Person for face ID 360edf1a-1e8f-402d-aa96-1734d0c21c1c is identified in image, with a confidence of 0.92886.
+Person is identified for face ID 5779a986-238c-499d-b22a-d2a7cec92e88 in image, with a confidence of 0.96725.
+verification result: True. confidence: 0.96725
+Person is identified for face ID a28a4997-600e-4595-be39-d7a7d0f8afc8 in image, with a confidence of 0.96921.
+verification result: True. confidence: 0.96921
+No person identified for face ID 02a56d35-f3a4-43eb-a295-f23a1b772de9 in image.
+Person is identified for face ID 5de2019a-c4d3-4021-b8d0-9a3b86adceb7 in image, with a confidence of 0.92886.
+verification result: True. confidence: 0.92886
+
+The person group dbd92bf0-8b74-43fc-a27a-b127c1bb1b66 is deleted.
+
+End of quickstart.
 ```
 
 
@@ -95,10 +98,6 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 * [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-To delete the **PersonGroup** you created in this quickstart, run the following code in your script:
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
 ## Next steps
 
 In this quickstart, you learned how to use the Face client library for Python to do basic face identification. Next, learn about the different face detection models and how to specify the right model for your use case.
@@ -107,4 +106,4 @@ In this quickstart, you learned how to use the Face client library for Python to
 > [Specify a face detection model version](../../how-to/specify-detection-model.md)
 
 * [What is the Face service?](../../overview-identity.md)
-* More extensive sample code can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).
+* More extensive sample code can be found on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/samples).
