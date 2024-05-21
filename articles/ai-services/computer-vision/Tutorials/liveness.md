@@ -209,7 +209,7 @@ The high-level steps involved in liveness with verification orchestration are il
         
         ```
 
-    - The mobile application provides the reference image when initializing the SDK. Note: this is not a supported scenario in the web-solution.
+    - The mobile application provides the reference image when initializing the SDK. This is not a supported scenario in the web solution.
 
         ```kotlin
         val singleFaceImageSource = VisionSource.fromFile("/path/to/image.jpg")
