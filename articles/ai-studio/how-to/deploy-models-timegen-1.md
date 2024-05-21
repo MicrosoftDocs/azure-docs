@@ -31,10 +31,18 @@ You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla 
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions don't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for TimeGEN-1 is only available with hubs created in these regions:
 
-  > [!IMPORTANT]
-  > The serverless API model deployment offering for TimeGEN-1 is only available with hubs created in the **East US 2** or **Sweden Central** regions.
+    > [!div class="checklist"]
+    > * East US
+    > * East US 2
+    > * North Central US
+    > * South Central US
+    > * West US
+    > * West US 3
+    > * Sweden Central
+
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 
 - An [Azure AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, visit [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -52,7 +60,7 @@ These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
     1. Select **+ Create deployment**.
     1. Search for and select **TimeGEN-1**. to open the Model's Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
-1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model, your project must be in the **East US 2** or **Sweden Central**  region.
+1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
 1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
 1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
