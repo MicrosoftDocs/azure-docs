@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 05/18/2024
 ms.author: normesta
 
 ---
@@ -67,8 +67,6 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 - To access the storage account using SFTP, your network must allow traffic on port 22.
  
 - Static IP addresses aren't supported for storage accounts. This isn't an SFTP specific limitation.
-  
-- Internet routing isn't supported. Use Microsoft network routing.
 
 - There's a 2-minute time out for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
@@ -123,8 +121,6 @@ To see how each Blob Storage feature is supported in accounts that have SFTP sup
   - Public network access is `Enabled from all networks` or `Enabled from selected virtual networks and IP addresses`.
   
   - The client IP address is allowed by the firewall.
-  
-  - Network Routing is set to `Microsoft network routing`.
 
 ## See also
 

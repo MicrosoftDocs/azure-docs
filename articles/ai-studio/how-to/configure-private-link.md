@@ -271,6 +271,8 @@ If you need to configure custom DNS server without DNS forwarding, use the follo
     > * Compute instances can be accessed only from within the virtual network.
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 
+* `<instance-name>.<region>.instances.azureml.ms` - Only used by the `az ml compute connect-ssh` command to connect to computes in a managed virtual network. Not needed if you are not using a managed network or SSH connections.
+
 * `<managed online endpoint name>.<region>.inference.ml.azure.com` - Used by managed online endpoints
 
 To find the private IP addresses for your A records, see the [Azure Machine Learning custom DNS](../../machine-learning/how-to-custom-dns.md#find-the-ip-addresses) article.

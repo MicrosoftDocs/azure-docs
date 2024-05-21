@@ -184,16 +184,16 @@ Before you can create and test your own configuration file, there must be a cata
 > As an alternative to Visual Studio Code, you can use Dev Home to create and validate a configuration file in a graphical user interface. Learn more about Dev Home at [Create reusable dev box customizations with Dev Home](https://aka.ms/dev-box/dev-home-app).
  
 > [!NOTE]
-> The ability to create and upload a file isn’t a security risk; the file uploaded can only apply settings defined in the catalog attached to the dev center. If the task isn't defined there, the developer will get an error saying the task isn't defined.
+> The ability to create and upload a file isn't a security risk; the file uploaded can only apply settings defined in the catalog attached to the dev center. If the task isn't defined there, the developer will get an error saying the task isn't defined.
 
 
 ## Share a configuration file from a code repository
 
 Make your configuration file seamlessly available to your developers by naming it *workload.yaml* and uploading it to a repository accessible to the developers, usually their coding repository. When you create a dev box, you specify the repository URL and the configuration file is cloned along with the rest of the repository. Dev box searches the repository for a file named workload.yaml and, if one is located, performs the tasks listed. This configuration provides a seamless way to perform customizations on a dev box.
 
-1.	Create a configuration file named *workload.yaml*.
-1.	Add the configuration file to the root of a private Azure Repos repository with your code and commit it.
-1.	Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
+1.    Create a configuration file named *workload.yaml*.
+1.    Add the configuration file to the root of a private Azure Repos repository with your code and commit it.
+1.    Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
 1. Select **New** > **Dev Box**.
 1. In **Add a dev box**, enter the following values, and then select **Continue**:
 
@@ -220,17 +220,17 @@ The new dev box has the repository cloned, and all instructions from configurati
 
 Creating new tasks in a catalog allows you to create customizations tailored to your development teams and add guardrails around the configurations that are possible. 
 
-1.	Create a repository to store your tasks. 
+1.    Create a repository to store your tasks. 
 
       Optionally, you can make a copy of the [quick start catalog](https://github.com/microsoft/devcenter-catalog) in your own repository to use as a starting point.
 
-1.	Create tasks in your repository by modifying existing PowerShell scripts, or creating new scripts. 
+1.    Create tasks in your repository by modifying existing PowerShell scripts, or creating new scripts. 
 
       To get started with creating tasks, you can use the examples given in the [dev center examples repository on GitHub](https://github.com/microsoft/devcenter-examples) and [PowerShell documentation](/powershell/).
 
-1.	[Attach your repository to your dev center as a catalog](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI).
+1.    [Attach your repository to your dev center as a catalog](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI).
 
-1.	Create a configuration file for those tasks by following the steps in [Write a configuration file](#write-a-configuration-file). 
+1.    Create a configuration file for those tasks by following the steps in [Write a configuration file](#write-a-configuration-file). 
 
 ## Use secrets from an Azure Key Vault
 
@@ -238,7 +238,7 @@ You can use secrets from your Azure Key Vault in your yaml configurations to clo
 
 To configure your Key Vault secrets for use in your yaml configurations, 
 
-1. Ensure that your dev center project’s managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault.
+1. Ensure that your dev center project's managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault.
 
 1. Grant the Secrets User role for the Key Vault secret to each user or user group who should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, your own user account, and any user or group who needs the secret during the customization of a dev box.
 
@@ -260,7 +260,7 @@ tasks:
          pat: '{{KEY_VAULT_SECRET_URI}}'
 ```
 
-If you wish to clone a private Azure DevOps repository (Azure Repos), you don’t need to configure a secret in Key Vault. Instead, you can use `{{ado}}`, or `{{ado://your-ado-organization-name}}` as a parameter. This fetches an access token on your behalf when creating a dev box, which has read-only permission to your repository. The git-clone task in the quickstart catalog uses the access token to clone your repository. Here's an example:
+If you wish to clone a private Azure DevOps repository (Azure Repos), you don't need to configure a secret in Key Vault. Instead, you can use `{{ado}}`, or `{{ado://your-ado-organization-name}}` as a parameter. This fetches an access token on your behalf when creating a dev box, which has read-only permission to your repository. The git-clone task in the quickstart catalog uses the access token to clone your repository. Here's an example:
 
 ```yml
 tasks:
@@ -275,6 +275,8 @@ tasks:
 If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
 
 :::image type="content" source="media/how-to-customize-dev-box-setup-tasks/customizations-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-customize-dev-box-setup-tasks/customizations-configure-firewall.png":::
+
+To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ## Related content
 
