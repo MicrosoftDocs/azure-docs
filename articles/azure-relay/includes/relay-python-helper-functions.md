@@ -18,7 +18,7 @@ connections for secure communication.
 
 	base64, hashlib, hmac, math, time, urllib
 
-	These can be installed using the following command:
+	These libraries can be installed using the following command:
 
 	```bash
 	pip install <package name>
