@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: devx-track-azurecli, build-2023, build-2023-dataai, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/25/2023
+ms.date: 05/20/2024
 zone_pivot_groups: openai-create-resource
 author: mrbullwinkle
 ms.author: mbullwin

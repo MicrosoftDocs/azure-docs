@@ -272,14 +272,17 @@ location=eastus
 logicalSectorSize=512
 #Select an Availability Zone, acceptable values are 1,2, or 3
 zone=1
+#Enter your disk size in GiB, disk size cannot be smaller than snapshot size
+diskSize=128
 
-# Get the disk you need to backup
+
+# Get the disk you need to create snapshot
 yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --output tsv)
 
 # Create the snapshot
-snapshot=$(az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true)
+snapshot=$(az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true --query "id" -o tsv)
 
-az disk create -g $resourceGroupName -n $newDiskName --source $snapshot --logical-sector-size $logicalSectorSize --location $location --zone $zone --sku $storageType
+az disk create -g $resourceGroupName -n $newDiskName --source $snapshot --logical-sector-size $logicalSectorSize --location $location --zone $zone --sku $storageType --size-gb $diskSize 
 
 ```
 
