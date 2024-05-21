@@ -130,6 +130,8 @@
       items:
         - name: Code interpreter sessions
           items:
+          - name: AutoGen
+            href: sessions-tutorial-autogen.md
           - name: LangChain
             href: sessions-tutorial-langchain.md
           - name: LlamaIndex
