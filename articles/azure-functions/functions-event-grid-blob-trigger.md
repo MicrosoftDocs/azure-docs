@@ -3,7 +3,7 @@ title: 'Tutorial: Trigger Azure Functions on blob containers using an event subs
 description: This tutorial shows how to create a low-latency, event-driven trigger on an Azure Blob Storage container using an Event Grid event subscription. 
 ms.topic: tutorial
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 05/8/2024
+ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want learn how to create an event-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
 ---
@@ -32,7 +32,9 @@ This article supports version 2 of the Python programming model for Azure Functi
 This article creates a C# app that runs in isolated worker mode, which supports .NET 8.0.
 ::: zone-end
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
+> [!IMPORTANT]  
+> This tutorial has you use the [Flex Consumption plan](flex-consumption-plan.md), which is currently in preview. The Flex Consumption plan only supports event subscriptions for triggering your functions based on changes in Blob Storage containers.
+> You can complete this tutorial using any other [hosting plan](functions-scale.md) for your function app. 
 
 ## Prerequisites
 
