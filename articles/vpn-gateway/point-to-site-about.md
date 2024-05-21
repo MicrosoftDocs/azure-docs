@@ -40,9 +40,7 @@ When using the native Azure certificate authentication, a client certificate tha
 
 The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure.
 
-<a name='azure-active-directory-authentication'></a>
-
-### Microsoft Entra ID authentication
+### <a name='entra-id'></a>Microsoft Entra ID authentication
 
 You can configure your P2S gateway to allow VPN users to authenticate using Microsoft Entra ID credentials. With Microsoft Entra ID authentication, you can use Microsoft Entra Conditional Access and multifactor authentication (MFA) features for VPN. Microsoft Entra ID authentication is supported only for the OpenVPN protocol. To authenticate and connect, clients must use the Azure VPN Client.
 

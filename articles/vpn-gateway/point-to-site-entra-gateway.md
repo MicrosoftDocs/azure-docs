@@ -11,12 +11,12 @@ ms.author: cherylmc
 # Customer intent: As an VPN Gateway administrator, I want to configure point-to-site to allow Microsoft Entra ID authentication using the Microsoft-registered Azure VPN Client APP ID.
 ---
 
-# Configure a P2S VPN gateway for Microsoft Entra ID authentication: Microsoft-registered client (Preview)
+# Configure server settings for P2S VPN Gateway connections - Microsoft Entra ID authentication: Microsoft-registered Azure VPN Client App (Preview)
 
 This article helps you configure your point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID.
 
 > [!NOTE]
-> The steps in this article apply to Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID and associated Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For manually registered Azure VPN Client steps, see [Configure P2S using manually registered VPN client](openvpn-azure-ad-tenant.md).
+> The steps in this article apply to Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID and associated Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For the manually registered Azure VPN Client steps, see [Configure P2S using manually registered VPN client](openvpn-azure-ad-tenant.md).
 
 [!INCLUDE [About the Microsoft-registered Azure VPN Client](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
@@ -40,14 +40,14 @@ The articles in the [Next steps](#next-steps) section help you:
 
 **Point-to-site VPN gateway:** If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra ID authentication. If you don't already have a functioning P2S gateway environment, see [Create and manage a VPN gateway - Azure portal](tutorial-create-gateway-portal.md). Certain gateway options are incompatible with P2S VPN gateways (the Basic SKU and policy-based VPN type). For more information about settings values, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-**Microsoft Entra tenant:** The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant).
+**Microsoft Entra tenant:** The steps in this article require a Microsoft Entra tenant. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
 
-## Configure P2S VPN
+## <a name="configure-vpn"></a>Configure P2S VPN
 
 > [!IMPORTANT]
 > [!INCLUDE [Microsoft Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
 
-1. Locate the tenant ID of the directory that you want to use for authentication. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](https://learn.microsoft.com/entra/fundamentals/how-to-find-tenant).
+1. Locate the tenant ID of the directory that you want to use for authentication. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](/entra/fundamentals/how-to-find-tenant).
 
 1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**, then **Configure now** to open the Point-to-site configuration page.
 
@@ -80,13 +80,13 @@ The articles in the [Next steps](#next-steps) section help you:
 1. You don't need to click **Grant administrator consent for Azure VPN client application**. This link is only for manually registered VPN clients that use the older Audience values. It opens a page in the Azure portal.
 1. Once you finish configuring settings, click **Save** at the top of the page.
 
-## Download the VPN client profile configuration package
+## <a name="download"></a>Download the VPN client profile configuration package
 
 In this section, you generate and download the Azure VPN client profile configuration package. This package contains the settings that you can use to configure the Azure VPN client profile on client computers.
 
 [!INCLUDE [Azure VPN client profile configuration package](../../includes/vpn-gateway-point-to-site-client-package-download.md)]
 
-## Configure the Azure VPN Client
+## <a name="configure-client"></a>Configure the Azure VPN Client
 
 Next, you examine the profile configuration package, configure the Azure VPN Client for the client computers, and connect to Azure. See the articles listed in the Next steps section.
 

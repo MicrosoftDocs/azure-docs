@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/22/2024
+ ms.date: 05/15/2024
  ms.author: cherylmc
 ---
 ## <a name="generate"></a>Generate profile configuration files

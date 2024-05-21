@@ -5,13 +5,13 @@ description: Learn how to enable OpenVPN Protocol on VPN gateways for point-to-s
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---
 # Configure OpenVPN for Point-to-Site VPN gateways
 
-This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. This article contains both Azure portal and PowerShell instructions.
+This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. This article contains both Azure portal and PowerShell instructions. If you're changing an existing gateway, you need to download new VPN client configuration files and configure any existing VPN clients with the new settings.
 
 ## Prerequisites
 
@@ -33,16 +33,18 @@ This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. This 
 
 ## PowerShell
 
-1. Enable OpenVPN on your gateway using the following example, adjusting the values as necessary.
+Enable OpenVPN on your gateway using the following example, adjusting the values as necessary.
 
-   ```azurepowershell-interactive
-   $gw = Get-AzVirtualNetworkGateway -ResourceGroupName TestRG1 -name VNet1GW
-   Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
-   ```
-1. Continue with **Next steps**.
+```azurepowershell-interactive
+$gw = Get-AzVirtualNetworkGateway -ResourceGroupName TestRG1 -name VNet1GW
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
+```
 
 ## Next steps
 
-To configure clients for OpenVPN, see Configure OpenVPN clients for [Windows](point-to-site-vpn-client-cert-windows.md), [macOS and IOS](point-to-site-vpn-client-cert-mac.md), and [Linux](point-to-site-vpn-client-cert-linux.md).
+Continue with one of the following articles:
+
+* [Configure a P2S VPN - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* [Configure a P2S VPN - Microsoft Entra ID authentication](point-to-site-entra-gateway.md).
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

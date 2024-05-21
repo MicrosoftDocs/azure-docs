@@ -5,13 +5,13 @@ description: Learn how to configure VPN Gateway server settings for P2S configur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 05/20/2024
 ms.author: cherylmc
 
 ---
 # Configure server settings for P2S VPN Gateway connections - certificate authentication
 
-This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. P2S VPN connections are useful when you want to connect to your VNet from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network (VNet). P2S connections don't require a VPN device or a public-facing IP address.
+This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your VNet from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network (VNet). P2S connections don't require a VPN device or a public-facing IP address.
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of point-to-site connection showing how to connect from a computer to an Azure VNet.":::
 
@@ -83,7 +83,7 @@ Certificates are used by Azure to authenticate clients connecting to a VNet over
 
 You also generate client certificates from the trusted root certificate, and then install them on each client computer. The client certificate is used to authenticate the client when it initiates a connection to the VNet.
 
-The root certificate must be generated and extracted prior to creating your point-to-site configuration in the next sections.
+The root certificate must be generated and extracted before you configure the point-to-site gateway settings.
 
 ### <a name="getcer"></a>Generate a root certificate
 
@@ -107,7 +107,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
 
-1. Next, configure tunnel and authentication type.
+1. Next, configure the tunnel and authentication type.
 
 ## <a name="type"></a>Specify tunnel and authentication type
 
@@ -119,7 +119,7 @@ In this section, you specify the tunnel type and the authentication type. These 
 
 You can select options that contain multiple tunnel types from the dropdown - such as *IKEv2 and OpenVPN(SSL)* or *IKEv2 and SSTP (SSL)*, however, only certain combinations of tunnel types and authentication types are supported. For example, Microsoft Entra authentication can only be used when you select *OpenVPN (SSL)* from the tunnel type dropdown, and not *IKEv2 and OpenVPN(SSL)*.
 
-Additionally, the tunnel type and the authentication type you choose impact the VPN client software that can be used to connect to Azure. Some VPN client software can only connect via IKEv2, others can only connect via OpenVPN. And some client software, while it supports a certain tunnel type, might not support the authentication type you choose.
+Additionally, the tunnel type and the authentication type correspond to the VPN client software that can be used to connect to Azure. For example, one VPN client software application might be only able to connect via IKEv2, while another can only connect via OpenVPN. And some client software, while it supports a certain tunnel type, might not support the authentication type you choose.
 
 As you can tell, planning the tunnel type and authentication type is important when you have various VPN clients connecting from different operating systems. Consider the following criteria when you choose your tunnel type in combination with **Azure certificate** authentication. Other authentication types have different considerations.
 
@@ -127,7 +127,7 @@ As you can tell, planning the tunnel type and authentication type is important w
 
   * Windows computers connecting via the native VPN client already installed in the operating system try IKEv2 first and, if that doesn't connect, they fall back to SSTP (if you selected both IKEv2 and SSTP from the tunnel type dropdown).
   * If you select the OpenVPN tunnel type, you can connect using an OpenVPN Client or the Azure VPN Client.
-  * The Azure VPN Client can support additional [optional configuration settings](azure-vpn-client-optional-configurations.md) such as custom routes and forced tunneling.
+  * The Azure VPN Client can support [optional configuration settings](azure-vpn-client-optional-configurations.md) such as custom routes and forced tunneling.
 
 * **macOS and iOS**:
 
@@ -176,17 +176,17 @@ In this section, you upload public root certificate data to Azure. Once the publ
 
 ## <a name="profile-files"></a>Generate VPN client profile configuration files
 
-All the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. You can generate client profile configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
+All the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. VPN client profile configuration files are specific to the P2S VPN gateway configuration for the VNet. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
 
-The VPN client profile configuration files that you generate are specific to the P2S VPN gateway configuration for the VNet. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
-
-### PowerShell
-
-[!INCLUDE [Generate profile configuration files - PowerShell](../../includes/vpn-gateway-generate-profile-powershell.md)]
+You can generate client profile configuration files using PowerShell, or by using the Azure portal. The following examples show both methods. Either method returns the same zip file.
 
 ### Azure portal
 
 [!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
+
+### PowerShell
+
+[!INCLUDE [Generate profile configuration files - PowerShell](../../includes/vpn-gateway-generate-profile-powershell.md)]
 
 ## <a name="clientconfig"></a>Configure VPN clients and connect to Azure
 
@@ -194,7 +194,7 @@ For steps to configure your VPN clients and connect to Azure, see the following 
 
 [!INCLUDE [Azure VPN Client install link table](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
-## <a name="verify"></a>To verify your connection
+## <a name="verify"></a>Verify your connection
 
 These instructions apply to Windows clients.
 
@@ -214,7 +214,7 @@ These instructions apply to Windows clients.
       NetBIOS over Tcpip..............: Enabled
    ```
 
-## <a name="connectVM"></a>To connect to a virtual machine
+## <a name="connectVM"></a>Connect to a virtual machine
 
 These instructions apply to Windows clients.
 
@@ -224,7 +224,7 @@ These instructions apply to Windows clients.
 
 * Use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you're connecting. If the IP address is within the address range of the VNet that you're connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network.
 
-## <a name="add"></a>To add or remove trusted root certificates
+## <a name="add"></a>Add or remove trusted root certificates
 
 You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from that root won't be able to authenticate, and thus won't be able to connect. If you want a client to authenticate and connect, you need to install a new client certificate generated from a root certificate that is trusted (uploaded) to Azure.
 
@@ -236,9 +236,9 @@ To remove a trusted root certificate:
 1. In the **Root certificate** section of the page, locate the certificate that you want to remove.
 1. Select the ellipsis next to the certificate, and then select **Remove**.
 
-## <a name="revokeclient"></a>To revoke a client certificate
+## <a name="revokeclient"></a>Revoke a client certificate
 
-You can revoke client certificates. The certificate revocation list allows you to selectively deny P2S connectivity based on individual client certificates. This is different than removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. Revoking a client certificate, rather than the root certificate, allows the other certificates that were generated from the root certificate to continue to be used for authentication.
+You can revoke client certificates. The certificate revocation list allows you to selectively deny P2S connectivity based on individual client certificates. This is different than removing a trusted root certificate. If you remove a trusted root certificate .cer from Azure, it revokes the access for all client certificates generated/signed by the revoked root certificate. When you revoke a client certificate, rather than the root certificate, it allows the other certificates that were generated from the root certificate to continue to be used for authentication.
 
 The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 

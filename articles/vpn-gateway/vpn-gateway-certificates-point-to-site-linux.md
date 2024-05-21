@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 05/15/2024
 ms.author: cherylmc
 ---
 # Generate and export certificates - Linux (strongSwan)
@@ -24,11 +24,10 @@ The following steps help you install strongSwan.
 ## <a name="cli"></a>Linux CLI instructions (strongSwan)
 
 The following steps help you generate and export certificates using the Linux CLI (strongSwan).
-For more information, see [Additional instructions to install the Azure CLI](/cli/azure/install-azure-cli-apt). 
+For more information, see [Additional instructions to install the Azure CLI](/cli/azure/install-azure-cli-apt).
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-
 ## Next steps
 
-Continue with your point-to-site configuration to [Create and install VPN client configuration files - Linux](point-to-site-vpn-client-cert-linux.md).
+Continue with your point-to-site configuration. See  [Configure P2S VPN clients: certificate authentication - Linux](point-to-site-vpn-client-certificate-ike-linux.md).

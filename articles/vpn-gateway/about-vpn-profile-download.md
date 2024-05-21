@@ -5,7 +5,7 @@ description: Learn how to generate P2S VPN client profile configuration files fo
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/03/2024
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---
@@ -19,9 +19,8 @@ This article helps you generate and extract VPN client profile configuration fil
 
 Configure VPN clients.
 
-* [Linux]
-
-* [Windows - Azure VPN Client - Microsoft Entra ID](openvpn-azure-ad-client.md).
-* [macOS - Azure VPN Client - Microsoft Entra ID](openvpn-azure-ad-client-mac.md).
+* [Linux ](point-to-site-entra-vpn-client-linux.md)
+* [Windows](point-to-site-entra-vpn-client-windows.md)
+* [macOS](point-to-site-entra-vpn-client-mac.md)
 
 For more information about point-to-site, see [About point-to-site](point-to-site-about.md).

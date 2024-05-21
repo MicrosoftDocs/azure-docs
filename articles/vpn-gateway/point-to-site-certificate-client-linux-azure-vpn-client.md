@@ -10,7 +10,7 @@ ms.date: 05/13/2024
 ms.author: cherylmc
 ---
 
-# Configure Azure VPN Client for Linux - P2S certificate authentication
+# Configure P2S VPN clients: certificate authentication - Azure VPN Client - Linux (Preview)
 
 This article helps you connect to your Azure virtual network (VNet) from the Azure VPN Client for Linux using VPN Gateway point-to-site (P2S) **Certificate authentication**. The Azure VPN Client for Linux requires the OpenVPN tunnel type.
 
@@ -93,7 +93,7 @@ sudo apt-get update
 sudo apt-get install microsoft-azurevpnclient
 ```
 
-For more information about the repository, see [Linux Software Repository for Microsoft Products](https://learn.microsoft.com/linux/packages).
+For more information about the repository, see [Linux Software Repository for Microsoft Products](/linux/packages).
 
 ## Configure the Azure VPN Client profile
 

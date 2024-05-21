@@ -1,18 +1,18 @@
 ---
-title: 'Configure P2S for different user and group access: Microsoft Entra authentication and multi app'
+title: 'Configure P2S for different user and group access: Microsoft Entra ID authentication and multi app'
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up a Microsoft Entra tenant for P2S OpenVPN authentication and register multiple apps in Microsoft Entra ID to allow different access for different users and groups.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/23/2024
+ms.date: 05/15/2024
 ms.author: cherylmc
 ms.custom: engagement-fy23
 ---
 
-# Configure P2S for access based on users and groups - Microsoft Entra authentication
+# Configure P2S for access based on users and groups - Microsoft Entra ID authentication
 
-When you use Microsoft Entra ID as the authentication method for P2S, you can configure P2S to allow different access for different users and groups. If you want different sets of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways. This article helps you set up a Microsoft Entra tenant for P2S Microsoft Entra authentication and create and register multiple apps in Microsoft Entra ID for allowing different access for different users and groups. For more information about point-to-site protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
+When you use Microsoft Entra ID as the authentication method for P2S, you can configure P2S to allow different access for different users and groups. If you want different sets of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways. This article helps you set up a Microsoft Entra tenant for P2S Microsoft Entra authentication and create and register multiple apps in Microsoft Entra ID for allowing different access for different users and groups. For more information about point-to-site protocols and authentication, see [About point-to-site VPN](point-to-site-about.md). These steps walk you through manually registering the Azure VPN Client App with your Microsoft Entra tenant.
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -133,5 +133,5 @@ In this section, you generate and download the Azure VPN Client profile configur
 
 ## Next steps
 
-* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections](point-to-site-entra-vpn-client-windows.md).
 * For frequently asked questions, see the **Point-to-site** section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
