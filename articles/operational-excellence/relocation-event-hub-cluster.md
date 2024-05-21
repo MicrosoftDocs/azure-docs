@@ -1,6 +1,6 @@
 ---
 title: Relocate an Azure Event Hubs dedicated cluster to another region
-description: This article shows you how to relocate an Azure Event Hubs dedicated cluster from the current region to another region. 
+description: This article shows you how to relocate an Azure Event Hubs dedicated cluster to another region. 
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -20,6 +20,13 @@ If you have other resources such as namespaces and event hubs in the Azure resou
 
 ## Prerequisites
 Ensure that the dedicated cluster can be created in the target region. The easiest way to find out is to use the Azure portal to try to [create an Event Hubs dedicated cluster](../event-hubs/event-hubs-dedicated-cluster-create-portal.md). You see the list of regions that are supported at that point of time for creating the cluster. 
+
+
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
 
 ## Prepare
 To get started, export a Resource Manager template. This template contains settings that describe your Event Hubs dedicated cluster.

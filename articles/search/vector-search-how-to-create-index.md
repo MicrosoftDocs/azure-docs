@@ -628,7 +628,7 @@ api-key: {{admin-api-key}}
                 . . .
             ],
             "contentVector": [
-                -0.02780858241021633,,
+                -0.02780858241021633,
                  . . .
             ],
             "@search.action": "upload"

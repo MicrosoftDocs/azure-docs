@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: engagement-fy23
-ms.date: 02/15/2024
+ms.date: 04/15/2024
 ---
 
 # Built-in connectors in Azure Logic Apps
@@ -159,7 +159,7 @@ You can use the following built-in connectors to perform general tasks, for exam
         [**FTP**][ftp-doc]<br>(*Standard workflow only*)
         \
         \
-        Connect to FTP or FTPS servers that you can access from the internet so that you can work with your files and folders.
+        Connect to an FTP or FTPS server in your Azure virtual network so that you can work with your files and folders.
     :::column-end:::
     :::column:::
         [![SFTP-SSH icon][sftp-ssh-icon]][sftp-doc]
@@ -168,7 +168,7 @@ You can use the following built-in connectors to perform general tasks, for exam
         [**SFTP**][sftp-doc]<br>(*Standard workflow only*)
         \
         \
-        Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
+        Connect to an SFTP server in your Azure virtual network so that you can work with your files and folders.
     :::column-end:::
     :::column:::
         [![SMTP icon][smtp-icon]][smtp-doc]
@@ -177,7 +177,7 @@ You can use the following built-in connectors to perform general tasks, for exam
         [**SMTP**][smtp-doc]<br>(*Standard workflow only*)
         \
         \
-        Connect to SMTP servers that you can send email.
+        Connect to an SMTP server so that you can send email.
     :::column-end:::
     :::column:::
     :::column-end:::

@@ -23,7 +23,7 @@ Deploying a large language model (LLM) makes it available for use in a website, 
 
 Follow the steps below to deploy an open model such as `distilbert-base-cased` to a real-time endpoint in Azure AI Studio.
 
-1. Choose a model you want to deploy from the Azure AI Studio [model catalog](../how-to/model-catalog.md). Alternatively, you can initiate deployment by selecting **+ Create** from `your project`>`deployments` 
+1. Choose a model you want to deploy from the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Alternatively, you can initiate deployment by selecting **+ Create** from `your project`>`deployments` 
 
 1. Select **Deploy** to project on the model card details page. 
 
@@ -59,7 +59,7 @@ client = AIClient(
 )
 ```
 
-Define the model and the deployment. `The model_id` can be found on the model card on Azure AI Studio [model catalog](../how-to/model-catalog.md).
+Define the model and the deployment. `The model_id` can be found on the model card on Azure AI Studio [model catalog](../how-to/model-catalog-overview.md).
 
 ```python
 model_id = "azureml://registries/azureml/models/distilbert-base-cased/versions/10"

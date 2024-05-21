@@ -1,7 +1,7 @@
 ---
 title:  Microsoft Copilot for Azure (preview) overview
 description: Learn about Microsoft Copilot for Azure (preview).
-ms.date: 11/15/2023
+ms.date: 04/10/2024
 ms.topic: overview
 ms.service: copilot-for-azure
 ms.custom:
@@ -27,7 +27,7 @@ To enable access to Microsoft Copilot for Azure (preview) for your organization,
 For more information about the preview, see [Limited access](limited-access.md).
 
 > [!IMPORTANT]
-> In order to use Microsoft Copilot for Azure (preview), your organization must allow websocket connections to `https://directline.botframework.com`.
+> In order to use Microsoft Copilot for Azure (preview), your organization must allow websocket connections to `https://directline.botframework.com`. Please ask your network administrator to enable this connection.
 
 ## Next steps
 

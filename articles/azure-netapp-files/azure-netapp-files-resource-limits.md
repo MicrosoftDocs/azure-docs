@@ -45,7 +45,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
 |  Maximum size of protected volume  |  100 TiB  |  No  |
 |  Maximum number of volumes that can be backed up per subscription   |  20  |  Yes  |
-|  Maximum number of manual backups per volume per day |  5  |  No  |
+|  Maximum number of manual backups per volume per day |  5  |  Yes  |
 |  Maximum number of volumes supported for cool access per subscription per region |  10  |  Yes  |
 
 

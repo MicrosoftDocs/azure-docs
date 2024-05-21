@@ -535,15 +535,12 @@
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: IoT device developer
-      displayName: MXCHIP, microchip, NXP MIMXRT, evaluation kit, STMicroelectronics
-      href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
         href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: ../iot-develop/about-iot-sdks.md
+        href: ../iot/iot-sdks.md
     - name: Azure IoT samples
       items:
       - name: C# (.NET)

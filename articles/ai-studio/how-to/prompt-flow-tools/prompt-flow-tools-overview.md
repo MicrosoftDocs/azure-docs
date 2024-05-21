@@ -29,7 +29,7 @@ The following table provides an index of tools in prompt flow.
 | [Index Lookup](./index-lookup-tool.md) | Search a vector-based query for relevant results using one or more text queries. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Vector Index Lookup](./vector-index-lookup-tool.md)<sup>1</sup> | Search text or a vector-based query from a vector index. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 | [Faiss Index Lookup](./faiss-index-lookup-tool.md)<sup>1</sup> | Search a vector-based query from the Faiss index file. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
-| [Vector DB Lookup](./vector-db-lookup-tool.md)<sup>1</sup> For | Search a vector-based query from an existing vector database. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
+| [Vector DB Lookup](./vector-db-lookup-tool.md)<sup>1</sup> | Search a vector-based query from an existing vector database. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 
 <sup>1</sup> The Index Lookup tool replaces the three deprecated legacy index tools: Vector Index Lookup, Vector DB Lookup, and Faiss Index Lookup. If you have a flow that contains one of those tools, follow the [migration steps](./index-lookup-tool.md#migrate-from-legacy-tools-to-the-index-lookup-tool) to upgrade your flow.
 

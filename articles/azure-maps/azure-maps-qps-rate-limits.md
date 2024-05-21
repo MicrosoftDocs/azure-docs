@@ -25,8 +25,8 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Azure Maps service | QPS Limit: Gen 2 Pricing Tier | QPS Limit: Gen 1 S1 Pricing Tier | QPS Limit: Gen 1 S0 Pricing Tier |
 |  ----------------- |  :--------------------------: | :------------------------------: | :------------------------: |
 | Copyright service | 10 | 10 | 10 |
-| Creator - Alias, TilesetDetails | 10 | Not Available | Not Available |
-| Creator - Conversion, Dataset, Feature State, Features, Map Configuration, Style, Routeset, Wayfinding | 50 | Not Available | Not Available |
+| Creator - Alias | 10 | Not Available | Not Available |
+| Creator - Conversion, Dataset, Feature State, Features, Map Configuration, Style, Routeset, TilesetDetails, Wayfinding | 50 | Not Available | Not Available |
 | Data registry service | 50 | 50 |  Not Available  |
 | Data service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
 | Geolocation service | 50 | 50 | 50 |

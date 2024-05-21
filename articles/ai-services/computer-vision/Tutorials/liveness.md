@@ -294,5 +294,4 @@ See the Azure AI Vision SDK reference to learn about other options in the livene
 
 See the Session REST API reference to learn more about the features available to orchestrate the liveness solution.
 
-- [Liveness Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectliveness-singlemodal)
-- [Liveness-With-Verify Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectlivenesswithverify-singlemodal)
+- [Liveness Session Operations](/rest/api/face/liveness-session-operations)

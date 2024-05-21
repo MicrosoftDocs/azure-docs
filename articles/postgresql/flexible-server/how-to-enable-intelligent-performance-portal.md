@@ -1,12 +1,13 @@
 ---
 title: Configure intelligent tuning - portal
 description: This article describes how to configure intelligent tuning in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
-ms.author: alkuchar
 author: AwdotiaRomanowna
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 01/23/2024
 ---
 
 # Configure intelligent tuning for Azure Database for PostgreSQL - Flexible Server by using the Azure portal

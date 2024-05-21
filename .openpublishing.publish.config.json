@@ -357,6 +357,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-python-worker",
+      "url": "https://github.com/Azure/azure-functions-python-worker",
+      "branch": "dev",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "functions-openapi-turbine-repair",
       "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
       "branch": "main",
@@ -867,6 +873,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "blob-devguide-go",
+      "url": "https://github.com/Azure-Samples/blob-storage-devguide-go",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
@@ -971,6 +983,12 @@
     {
       "path_to_root": "azuresignalr-samples",
       "url": "https://github.com/aspnet/AzureSignalR-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-typescript-e2e-apps",
+      "url": "https://github.com/Azure-Samples/azure-typescript-e2e-apps",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1183,6 +1201,12 @@
       "url": "https://github.com/Azure-Samples/explore-iot-operations",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "SupportArticles-docs",
+      "url": "https://github.com/MicrosoftDocs/SupportArticles-docs",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -1232,6 +1256,7 @@
   ".openpublishing.redirection.government.json",
   ".openpublishing.redirection.guidance.json",
   ".openpublishing.redirection.industry.json",
+  ".openpublishing.redirection.iot-accelerators.json",
   ".openpublishing.redirection.iot-develop.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
@@ -1297,7 +1322,6 @@
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
   "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
   "articles/internet-peering/.openpublishing.redirection.internet-peering.json",
-  "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
   "articles/iot-central/.openpublishing.redirection.iot-central.json",
   "articles/iot-dps/.openpublishing.redirection.iot-dps.json",
   "articles/iot-edge/.openpublishing.redirection.iot-edge.json",

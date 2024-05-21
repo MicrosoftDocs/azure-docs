@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 05/06/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.1.0'
 ---
@@ -33,6 +33,8 @@ monikerRange: '>=doc-intel-3.1.0'
 :::moniker-end
 
 :::moniker range=">=doc-intel-3.1.0"
+
+## Capabilities
 
 Document Intelligence supports more sophisticated and modular analysis capabilities. Use the add-on features to extend the results to include more features extracted from your documents. Some add-on features incur an extra cost. These optional features can be enabled and disabled depending on the scenario of the document extraction. To enable a feature, add the associated feature name to the `features` query string property. You can enable more than one add-on feature on a request by providing a comma-separated list of features. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases.
 
@@ -66,6 +68,8 @@ The following add-on capabilities are available for`2024-02-29-preview`, `2024-0
 
 ::: moniker-end
 
+## Version availability
+
 |Add-on Capability| Add-On/Free|[2024-02-29-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|---|
 |Font property extraction|Add-On| ✔️| ✔️| n/a| n/a|
@@ -76,8 +80,15 @@ The following add-on capabilities are available for`2024-02-29-preview`, `2024-0
 |Key value pairs|Free| ✔️|n/a|n/a| n/a|
 |Query fields|Add-On*| ✔️|n/a|n/a| n/a|
 
+✱ Add-On - Query fields are priced differently than the other add-on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
 
-Add-On* - Query fields are priced differently than the other add-on features. See [pricing](https://azure.microsoft.com/pricing/details/ai-document-intelligence/) for details.
+## Supported file formats
+
+* `PDF`
+
+* Images: `JPEG`/`JPG`, `PNG`, `BMP`, `TIFF`, `HEIF`
+
+✱ Microsoft Office files are currently not supported.
 
 ## High resolution extraction
 
@@ -133,7 +144,7 @@ The `ocr.formula` capability extracts all identified formulas, such as mathemati
      ]
    ```
 
-   ### REST API
+### REST API
 
 ::: moniker range="doc-intel-4.0.0"
 

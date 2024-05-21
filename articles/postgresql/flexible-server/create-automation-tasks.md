@@ -3,10 +3,11 @@ title: Stop/start automation tasks
 description: This article describes how to stop/start an Azure Database for PostgreSQL - Flexible Server instance by using automation tasks.
 author: varun-dhawan # GitHub alias
 ms.author: varundhawan # Microsoft alias
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.date: 01/25/2024
 ---
 
 # Manage Azure Database for PostgreSQL - Flexible Server using automation tasks (preview)

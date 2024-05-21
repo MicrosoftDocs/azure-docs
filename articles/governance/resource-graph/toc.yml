@@ -8,17 +8,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Run your first query - Portal
-    displayName: portal, resource, graph, explorer
+  - name: Run a query - Azure portal
+    displayName: portal, resource, az graph, explorer
     href: ./first-query-portal.md
-  - name: Run your first query - Azure CLI
-    displayName: extension, docker
+  - name: Run a query - Azure CLI
+    displayName: extension, docker, resource, graph, explorer
     href: ./first-query-azurecli.md
-  - name: Run your first query - Azure PowerShell
+  - name: Run a query - Azure PowerShell
     displayName: module, docker, Az.ResourceGraph
     href: ./first-query-powershell.md
-  - name: Run your first query - REST
-    displayName: armclient, postman
+  - name: Run a query - REST
+    displayName: az rest
     href: ./first-query-rest-api.md
   - name: Create a shared query - Azure CLI
     displayName: extension, docker, queries
@@ -74,6 +74,9 @@
   - name: Explore your Azure resources with Resource Graph
     displayName: vms, public ip
     href: ./concepts/explore-resources.md
+  - name: Analyze changes to your resources with Change Analysis
+    displayName: vms, public ip
+    href: ./changes/resource-graph-changes.md
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
@@ -88,7 +91,10 @@
   items:
   - name: Get resource changes
     displayName: resource, change, history, snapshot, details
-    href: ./how-to/get-resource-changes.md
+    href: ./changes/get-resource-changes.md
+  - name: View resource changes in the portal
+    displayName: resource, change, history, snapshot, details
+    href: ./changes/view-resource-changes.md
 - name: Troubleshoot
   items:
   - name: Alerts
