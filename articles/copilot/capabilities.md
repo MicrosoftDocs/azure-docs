@@ -38,7 +38,7 @@ Use Microsoft Copilot for Azure to perform many basic tasks in the Azure portal 
   - [Improve Azure SQL Database-driven applications](/azure/azure-sql/copilot/copilot-azure-sql-overview#microsoft-copilot-for-azure-enhanced-scenarios)
 - Write and optimize code:
   - [Generate Azure CLI scripts](generate-cli-scripts.md)
-  - [Generate Azure PowerShell scripts](generate-powershell-scripts.md)
+  - [Generate PowerShell scripts](generate-powershell-scripts.md)
   - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
   - [Author API Management policies](author-api-management-policies.md)
   - [Create Kubernetes YAML files](generate-kubernetes-yaml.md)
