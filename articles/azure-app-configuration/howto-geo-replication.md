@@ -200,7 +200,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 
-### [.Spring](#tab/spring)
+### [Java Spring](#tab/spring)
 
 Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
 
