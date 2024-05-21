@@ -34,16 +34,19 @@ Follow these steps to deploy your app from a GitHub repository:
 
 
 #### [App Component (Backend)](#tab/backend/)
+
     | Setting | Action |
     |---|---|
     | GitHub account | Select your GitHub account. |
     | Organization | Select your organization. |
-    | Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github). |
+    | Repository | Select your GitHub code repository. If you can't find your repository, you may need to [enable other permissions on GitHub](https://docs.github.com/get-started/learning-about-github/access-permissions-on-github).|
     | Branch | Select your GitHub branch. |
     | App location | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
-    | Listening port | Enter the location of your code in your GitHub repository. Use `/` for the root directory. |
+    | Listening port |Specify the port that your web server is listening on. External requests being made to port 80 or 443 will get routed to this port internally for your application to server content from.|
     | Startup command (optional) | Under *Advanced configurations* enter a **Startup command**.|
+
 #### [Static App Component (Frontend)](#tab/frontend/)
+
     | Setting | Action |
     |---|---|
     | GitHub account | Select your GitHub account. |
