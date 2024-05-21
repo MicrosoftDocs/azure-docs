@@ -249,6 +249,10 @@ Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endp
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
+## Limits
+
+The maximum size for uploading source code is 200MB. If the upload goes over the limit, error 413 is returned.
+
 ## Clean up resources
 
 If you're not going to continue on to the [Deploy a frontend](communicate-between-microservices.md) tutorial, you can remove the Azure resources created during this quickstart with the following command.
