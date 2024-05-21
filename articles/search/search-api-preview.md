@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
 ms.date: 04/04/2024
 ---

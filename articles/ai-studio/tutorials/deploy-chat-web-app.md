@@ -6,6 +6,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: tutorial
 ms.date: 5/21/2024
 ms.reviewer: eur

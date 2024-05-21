@@ -9,7 +9,7 @@ ms.date: 5/21/2024
 ms.reviewer: deeikele
 ms.author: eur
 author: eric-urban
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
 # Azure AI Studio feature availability across clouds regions

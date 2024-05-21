@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: Use this article to learn about using your image data for image generation in Azure AI Studio.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
 ms.reviewer: eur

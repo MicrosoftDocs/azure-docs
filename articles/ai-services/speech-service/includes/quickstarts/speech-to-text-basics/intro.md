@@ -1,6 +1,8 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom:
+  - build-2024
 ms.topic: include
 ms.date: 08/24/2023
 ms.author: eur

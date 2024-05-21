@@ -10,7 +10,7 @@ ms.reviewer: rasavage
 reviewer: shubhirajMsft
 ms.author: ssalgado
 author: ssalgadodev
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
 # Fine-tune Llama models in Azure AI Studio

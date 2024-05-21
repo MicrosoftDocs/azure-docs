@@ -11,7 +11,7 @@ ms.date: 05/07/2024
 ms.author: jboback
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-summarization, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: language-service-summarization, mode-api, devx-track-extended-java, devx-track-js, devx-track-python, build-2024
 zone_pivot_groups: programming-languages-text-analytics
 ---
 

@@ -1,5 +1,7 @@
-
-
+---
+ms.custom:
+  - build-2024
+---
 | Feature |[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------| ---|
 |[Inbound IP restrictions](../articles/azure-functions/functions-networking-options.md#inbound-networking-features)|✅Yes|✅Yes|✅Yes|✅Yes | 

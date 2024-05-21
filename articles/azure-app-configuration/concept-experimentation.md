@@ -4,7 +4,9 @@ description: Experimentation in Azure App Configuration
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.topic: conceptual 
+ms.custom:
+  - build-2024
+ms.topic: conceptual
 ms.date: 05/08/2024
 ---
 

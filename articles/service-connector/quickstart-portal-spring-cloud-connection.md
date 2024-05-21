@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 10/04/2023
 ms.custom:
   - kr2b-contr-experiment
+  - build-2024
 #Customer intent: As an app developer, I want to connect an application deployed to Azure Spring Apps to a Key Vault in the Azure portal.
 ---
 

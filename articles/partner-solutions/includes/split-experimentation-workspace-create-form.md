@@ -1,6 +1,8 @@
 ---
 author: maud-lv
 ms.topic: include
+ms.custom:
+  - build-2024
 ms.date: 04/25/2024
 ms.author: malev
 ---

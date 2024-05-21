@@ -3,6 +3,8 @@ title: Concurrency in Azure Functions
 description: An overview of the dynamic concurrency feature in Azure Functions.
 author: cachai2
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ms.date: 05/05/2024
 ms.author: cachai
 ---

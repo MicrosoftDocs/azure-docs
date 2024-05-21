@@ -2,6 +2,8 @@
 title: Deliver events to Azure Event Hubs using namespace topics - Portal
 description: This article provides step-by-step instructions to publish to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model. You use Azure portal in this quickstart.
 ms.topic: quickstart
+ms.custom:
+  - build-2024
 ms.author: spelluru
 author: spelluru
 ms.date: 02/20/2024

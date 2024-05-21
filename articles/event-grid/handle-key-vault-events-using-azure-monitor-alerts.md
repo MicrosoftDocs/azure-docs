@@ -1,7 +1,9 @@
 ---
 title: Handle Azure Key Vault events using Monitor alerts
-description: This article describes how to handle Azure Key Vault events using Azure Monitor alerts. 
+description: This article describes how to handle Azure Key Vault events using Azure Monitor alerts.
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 04/25/2024
 author: robece
 ms.author: robece

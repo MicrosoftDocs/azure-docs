@@ -8,7 +8,8 @@ ms.service: api-management
 ms.topic: article
 ms.date: 05/10/2024
 ms.author: danlep
-ms.custom: 
+ms.custom:
+  - build-2024
 ---
 
 # Emit metrics for consumption of Azure OpenAI tokens

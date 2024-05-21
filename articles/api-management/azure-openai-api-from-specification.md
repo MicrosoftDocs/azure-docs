@@ -6,7 +6,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 05/10/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, build-2024
 ---
 
 # Import an Azure OpenAI API 

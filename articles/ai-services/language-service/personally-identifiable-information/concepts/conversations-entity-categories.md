@@ -9,7 +9,7 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-pii
+ms.custom: language-service-pii, build-2024
 ---
 
 # Supported customer content (PII) entity categories in conversations

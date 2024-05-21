@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/01/2023
-ms.custom: query-reference, devx-track-python
+ms.custom: query-reference, devx-track-python, build-2024
 ---
 
 # Index and query vectors in Azure Cosmos DB for NoSQL in Python. 

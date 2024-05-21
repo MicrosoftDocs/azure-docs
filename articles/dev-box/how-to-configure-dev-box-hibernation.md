@@ -4,6 +4,8 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to enable, disable, and troubleshoot hibernation in Microsoft Dev Box. Configure hibernation settings for your image and dev box definition.
 services: dev-box
 ms.service: dev-box
+ms.custom:
+  - build-2024
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 01/02/2024

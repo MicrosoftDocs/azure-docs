@@ -1,10 +1,12 @@
 ---
 title:       ND MI300X v5-series
 description: Specifications for the ND MI300X v5-series VMs
-author:      charest 
-ms.author:   marccharest 
+author:      charest
+ms.author:   marccharest
 ms.reviewer: mattmcinnes
 ms.service:  virtual-machines
+ms.custom:
+  - build-2024
 ms.topic:    conceptual
 ms.date:     05/21/2024
 ---

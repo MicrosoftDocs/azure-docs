@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: Use this article to learn how to create a project, deploy a chat model, and use it in the chat playground in Azure AI Studio.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: tutorial
 ms.date: 5/21/2024
 ms.reviewer: eur

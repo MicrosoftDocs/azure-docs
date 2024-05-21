@@ -6,7 +6,7 @@ ms.service: azure-ai-studio
 ms.topic: include
 ms.date: 5/21/2024
 ms.author: eur
-ms.custom: include file
+ms.custom: include file, build-2024
 ---
 
 > [!IMPORTANT]

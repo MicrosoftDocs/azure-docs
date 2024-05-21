@@ -6,8 +6,9 @@ author: dlepow
 ms.service: api-management
 ms.topic: concept article
 ms.date: 05/13/2024
-ms.author: danlep 
+ms.author: danlep
 ms.custom:
+  - build-2024
 ---
 
 # Backends in API Management
@@ -267,4 +268,3 @@ For **Developer** and **Premium** tiers, an API Management instance deployed in 
 ## Related content
 
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
-

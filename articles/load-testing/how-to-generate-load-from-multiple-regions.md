@@ -5,7 +5,7 @@ description: Learn how to create a geo-distributed load test in Azure Load Testi
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 author: ntrogh
 ms.date: 05/10/2024
 ms.topic: how-to

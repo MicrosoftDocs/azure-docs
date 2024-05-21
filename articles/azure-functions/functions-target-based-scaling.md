@@ -4,6 +4,8 @@ description: Explains target-based scaling behaviors of Consumption plan and Pre
 ms.date: 05/05/2024
 ms.topic: conceptual
 ms.service: azure-functions
+ms.custom:
+  - build-2024
 ---
 
 # Target-based scaling

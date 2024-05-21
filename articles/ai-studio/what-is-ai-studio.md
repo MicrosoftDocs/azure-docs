@@ -10,7 +10,7 @@ ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
-ms.custom: ignite-2023
+ms.custom: ignite-2023, build-2024
 ---
 
 # What is Azure AI Studio?

@@ -3,7 +3,7 @@ title: Automated deployments for Azure Kubernetes Service
 description: Learn how to use automated deployments to simplify the process of adding GitHub Actions to your Azure Kubernetes Service (AKS) project
 ms.author: qpetraroia
 ms.topic: tutorial
-ms.custom: build-2023
+ms.custom: build-2023, build-2024
 ms.date: 05/10/2023
 ms.subservice: aks-developer
 author: qpetraroia

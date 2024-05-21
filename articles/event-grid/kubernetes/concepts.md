@@ -3,6 +3,8 @@ title: Azure Event Grid on Kubernetes - Concepts
 description: This article explains core concepts of Azure Event Grid on Kubernetes with Azure Arc (Preview)
 author: robece
 ms.subservice: kubernetes
+ms.custom:
+  - build-2024
 ms.author: robece
 ms.date: 05/25/2021
 ms.topic: conceptual

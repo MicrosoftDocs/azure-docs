@@ -6,6 +6,8 @@ description: Use the Import and vectorize data wizard to automate data chunking 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - build-2024
 ms.topic: quickstart
 ms.date: 05/09/2024
 ---
