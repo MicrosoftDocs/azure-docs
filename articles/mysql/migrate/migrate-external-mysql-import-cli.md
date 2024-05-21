@@ -53,18 +53,26 @@ az account set --subscription <subscription id>
   * System tablespace size should be greater than or equal to 12 MB. (MySQL Default)
   * Innodb_page_size = 16348 (MySQL Default)
   * Only INNODB engine is supported.
-* Take a physical backup of your MySQL workload using Percona XtraBackup
+* Take a physical backup of your MySQL workload using Percona XtraBackup.
 The following are the steps for using Percona XtraBackup to take a full backup :
   * Install Percona XtraBackup on the on-premises or VM workload. For MySQL engine version v5.7, install Percona XtraBackup version 2.4, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html). For MySQL engine version v8.0, install Percona XtraBackup version 8.0, see [Installing Percona XtraBackup 8.0]( https://docs.percona.com/percona-xtrabackup/8.0/installation.html).
-  * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html). For instructions for taking a Full backup with Percona XtraBackup 8.0, see [Full backup] (<https://docs.percona.com/percona-xtrabackup/8.0/create-full-backup.html>).
-  * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
-* Upload the full backup file to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
+  * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html). For instructions for taking a Full backup with Percona XtraBackup 8.0, see [Full backup] (<https://docs.percona.com/percona-xtrabackup/8.0/create-full-backup.html>). While taking full backup, run the below commands in order:
+    * **- xtrabackup --backup --host={host} --user={user} --password={password} --target-dir={backup__dir_path}**
+    * **- xtrabackup --prepare --{backup_dir_path}** (Provide the same backup path here as in above command)
+    **Considerations while taking the Percona XtraBackup:**
+      * Make sure you run both the backup and prepare step.
+      * Make sure there are no errors in the backup and prepare step.
+      * Please keep the backup and prepare step logs for Azure Support required in case of failures.
+* [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
+* Upload the full backup file at {backup_dir_path} to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
 * For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
 
 ## Limitations
 
 * Source server configuration isn't migrated. You must configure the target Flexible server appropriately.
+* Migration for encrypted backups is not supported.
 * Users and privileges aren't migrated as part of Azure Database for MySQL Import. You must take a manual dump of users and privileges before initiating Azure Database for MySQL Import to migrate logins post import operation by restoring them on the target Flexible Server.
+  * user1@localhost can't be migrated as we don't support localhost user creation in Flexible Server.
 * High Availability (HA) enabled Flexible Servers are returned as HA disabled servers to increase the speed of migration operation post the import migration. Enable HA for your target Flexible Server post migration.
 
 ## Recommendations for an optimal migration experience
