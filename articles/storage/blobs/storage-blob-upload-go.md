@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -37,7 +37,7 @@ To upload a blob, call any of the following methods from the client object:
 - [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile)
 - [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream)
 
-To perform the upload, the client library may use either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the data transfer options are set.
+To perform the upload, the client library might use either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the data transfer options are set.
 
 ## Upload a block blob from a local file path
 

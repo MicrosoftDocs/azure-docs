@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
@@ -45,7 +45,7 @@ The following example shows how to create a container:
 
 ## Create the root container
 
-A root container serves as a default container for your storage account. Each storage account may have one root container, which must be named *$root*. The root container must be explicitly created or deleted.
+A root container serves as a default container for your storage account. Each storage account can have one root container, which must be named *$root*. The root container must be explicitly created or deleted.
 
 You can reference a blob stored in the root container without including the root container name. The root container enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob in the root container as follows:
 

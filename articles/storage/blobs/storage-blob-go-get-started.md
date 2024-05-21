@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 ---
@@ -116,13 +116,13 @@ The following guides show you how to work with data resources and perform specif
 | Guide | Description |
 |--|---|
 | [Create a container](storage-blob-container-create-go.md) | Create containers. |
-| [Delete and restore containers](storage-blob-container-delete-go.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
+| [Delete and restore containers](storage-blob-container-delete-go.md) | Delete containers, and if soft-delete is enabled, restore deleted containers. |
 | [List containers](storage-blob-containers-list-go.md) | List containers in an account and the various options available to customize a listing. |
 | [Manage properties and metadata (containers)](storage-blob-container-properties-metadata-go.md) | Manage container properties and metadata. |
 | [Upload blobs](storage-blob-upload-go.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
 | [Download blobs](storage-blob-download-go.md) | Download blobs by using strings, streams, and file paths. |
 | [List blobs](storage-blobs-list-go.md) | List blobs in different ways. |
-| [Delete and restore blobs](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Delete and restore blobs](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-go.md) | Manage container properties and metadata. |
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]

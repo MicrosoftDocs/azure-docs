@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
@@ -43,7 +43,7 @@ You can specify options for listing containers by using the [ListContainersOptio
 
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `MaxResults` field in the [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions) struct.
+By default, a listing operation returns up to 5,000 results at a time. To return a smaller set of results, provide a nonzero value for the `MaxResults` field in the [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions) struct.
 
 ### Filter results with a prefix
 

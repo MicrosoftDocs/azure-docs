@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -31,7 +31,7 @@ The authorization mechanism must have the necessary permissions to perform a dow
 
 ## Download a blob
 
-You can use any of the following method to download a blob:
+You can use any of the following methods to download a blob:
 
 - [DownloadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadBuffer)
 - [DownloadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadFile)

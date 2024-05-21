@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
@@ -35,7 +35,7 @@ To delete a container, call the following method:
 
 - [DeleteContainer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DeleteContainer)
 
-After you delete a container, you can't create a container with the same name for *at least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code `409 (Conflict)`. Any other operations on the container or the blobs it contains will fail with HTTP error code `404 (Not Found)`.
+After you delete a container, you can't create a container with the same name for *at least* 30 seconds. Attempting to create a container with the same name fails with HTTP error code `409 (Conflict)`. Any other operations on the container or the blobs it contains fail with HTTP error code `404 (Not Found)`.
 
 The following example shows how to delete a specified container:
 
@@ -43,7 +43,7 @@ The following example shows how to delete a specified container:
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a deleted container and its contents may be recovered within a specified retention period. To learn more about container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md). You can restore a soft-deleted container by calling the following method from the embedded [ServiceClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.ServiceClient) for the client object:
+When container soft delete is enabled for a storage account, a deleted container and its contents can be recovered within a specified retention period. To learn more about container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md). You can restore a soft-deleted container by calling the following method from the embedded [ServiceClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.ServiceClient) for the client object:
 
 - [RestoreContainer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#Client.RestoreContainer)
 

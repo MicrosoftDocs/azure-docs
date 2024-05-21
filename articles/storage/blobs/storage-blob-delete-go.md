@@ -1,12 +1,12 @@
 ---
 title: Delete and restore a blob with Go
 titleSuffix: Azure Storage
-description: Learn how to delete and restore a blob in your Azure Storage account using the Go client library
+description: Learn how to delete and restore a blob in your Azure Storage account using the Go client library.
 services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -47,7 +47,7 @@ To delete *only* the snapshots and not the blob itself, you can pass the value `
 
 ## Restore a deleted blob
 
-Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
+Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period expires, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
 You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot.
 
