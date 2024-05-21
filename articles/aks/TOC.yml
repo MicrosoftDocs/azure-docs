@@ -830,9 +830,9 @@
               href: /troubleshoot/azure/azure-kubernetes/troubleshoot-dapr-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Configure applications with Azure App Configuration
+        - name: Build applications with Azure App Configuration
           items:
-            - name: Create the Azure App Configuration extension
+            - name: Install the Azure App Configuration extension
               href: azure-app-configuration.md
             - name: Configure the Azure App Configuration extension
               href: azure-app-configuration-settings.md

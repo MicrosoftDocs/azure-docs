@@ -83,9 +83,9 @@ Use the `az k8s-extension show` command to show the current Azure App Configurat
 
 ```azurecli
 az k8s-extension show --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name appconfigurationkubernetesprovider
+    --cluster-name myAKSCluster \
+    --resource-group myResourceGroup \
+    --name appconfigurationkubernetesprovider
 ```
 
 ## Update configuration settings
