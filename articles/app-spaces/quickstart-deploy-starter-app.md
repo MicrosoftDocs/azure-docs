@@ -10,7 +10,7 @@ zone_pivot_groups: app-spaces-frontend-backend
 #customer intent: As a new cloud developer, I want to learn how to create a web application with App Spaces.
 ---
 
-# Deploy a starter app with App Spaces
+# Quickstart: Deploy a starter app with App Spaces
 
 [App Spaces](https://go.microsoft.com/fwlink/?linkid=2234200) is an intelligent service for developers that reduces the complexity of creating and managing web apps. This article describes how to deploy a starter app to App Spaces. You select one of the samples provided to provision new resources on Azure. For more information, see [About App Spaces](overview.md). 
 
