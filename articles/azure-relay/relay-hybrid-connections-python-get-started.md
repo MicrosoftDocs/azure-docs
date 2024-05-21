@@ -32,7 +32,7 @@ In this quickstart, you take the following steps:
 ## Create a hybrid connection using the Azure portal
 [!INCLUDE [relay-create-hybrid-connection-portal](./includes/relay-create-hybrid-connection-portal.md)]
 
-## Develop a helper functions script
+## Develop helper functions
 [!INCLUDE [relay-python-helper-functions](./includes/relay-python-helper-functions.md)]
 
 ## Create a server application (listener)
