@@ -36,10 +36,10 @@ The core component for constructing the Responsible AI image dashboard in Azure 
 - MLflow models with PyTorch flavor and HuggingFace models are supported.
 - The dataset inputs must be in `mltable` format.
 - The test dataset is restricted to 5,000 rows of the visualization UI, for performance reasons.
-- Complex objects, such as lists of column names, must be supplied as single JSON-encoded strings to the RAI vision insights component.
+- Complex objects, such as lists of column names, must be supplied as single JSON-encoded strings.
 - Hierarchical cohort naming or creating a new cohort from a subset of an existing cohort, and adding images to an existing cohort, aren't supported.
 - `Guided_gradcam` doesn't work with vision-transformer models.
-- SHapley Additive ExPlanations (SHAP) isn't supported for AutoML computer vision models.
+- SHapley Additive ExPlanations (SHAP) isn't supported for [AutoML computer vision models](#integration-with-automl-image-classification).
 <!-- - IOU threshold values can't be changed. The current default value is 50%. -->
 
 ### Parameters
@@ -76,6 +76,12 @@ To start, register your input model in Azure Machine Learning and reference the 
 
 To generate RAI image dashboard model-debugging insights like model performance, data explorer, and model interpretability, and populate visualizations, use the same training and test datasets as for training your model. The datasets should be in `mltable` format and don't have to be, but can be the same dataset.
 
+The following example shows the dataset schema for the image classification task type:
+
+```python
+DataFrame({ 'image_path_1' : 'label_1', 'image_path_2' : 'label_2' ... })
+```
+
 The following example shows the dataset schema for the object detection task type:
 
 ```python
@@ -92,12 +98,6 @@ DataFrame({
 })
 ```
 
-The following example shows the dataset schema for the image classification task type:
-
-```python
-DataFrame({ 'image_path_1' : 'label_1', 'image_path_2' : 'label_2' ... })
-```
-
 The component assembles the generated insights into a single Responsible AI image dashboard. There are two output ports:
 
 - The `insights_pipeline_job.outputs.dashboard` port contains the completed `RAIVisionInsights` object.
@@ -105,7 +105,7 @@ The component assembles the generated insights into a single Responsible AI imag
 
 ### Pipeline job
 
-To create the Responsible AI image dashboard, you can define the RAI components in a pipeline and submit the pipeline job.
+To create the Responsible AI image dashboard, define the RAI components in a pipeline and submit the pipeline job.
 
 # [YAML](#tab/yaml)
 
@@ -131,6 +131,8 @@ You can specify the pipeline in a YAML file, as in the following example.
       precompute_explanation: True
       enable_error_analysis: True
 ```
+
+You can submit the pipeline by using the Azure CLI `az ml job create` command.
 
 # [Python SDK](#tab/python)
 
@@ -166,13 +168,10 @@ And assemble the output:
         rai_image_job.outputs.ux_json.mode = "upload"
 ```
 
+To learn how to submit the pipeline by using the Python SDK, see the [AutoML Image Classification scenario with RAI Dashboard sample notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
 ---
 
-You can submit the RAI vision insights pipeline through one of the following methods:
-
-- **Azure CLI:** You can submit the pipeline by using the Azure CLI `az ml job create` command.
-- **Python SDK:** To learn how to submit the pipeline through Python, see the [AutoML Image Classification scenario with RAI Dashboard sample notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai).
-- **Azure Machine Learning studio UI**: You can use the RAI-vision insights component to [create and submit a pipeline from the Designer in Azure Machine Learning studio](how-to-create-component-pipelines-ui.md).
+You can also use the **Designer** UI in Azure Machine Learning studio to [create and submit a RAI-vision insights component pipeline](how-to-create-component-pipelines-ui.md).
 
 After you specify and submit the pipeline and it executes, the dashboard should appear in the Machine Learning studio in the registered model view.
 
@@ -182,7 +181,7 @@ Automated ML in Azure Machine Learning supports model training for computer visi
 
 To generate Responsible AI insights for AutoML computer vision models, register your best AutoML model in the Azure Machine Learning workspace and run it through the Responsible AI vision insights pipeline. For more information, see [Set up AutoML to train computer vision models](how-to-auto-train-image-models.md).
 
-For notebooks related to AutoML supported computer vision tasks, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
+For notebooks related to AutoML supported computer vision tasks, see [RAI vision dashboard and scorecard notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/responsible-ai/vision#directory-) and [automl-standalone-jobs](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
 
 ### AutoML-specific RAI vision insights parameters
 <a name="responsible-ai-vision-insights-component-parameter-automl-specific"></a>
