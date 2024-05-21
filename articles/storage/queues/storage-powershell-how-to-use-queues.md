@@ -105,8 +105,6 @@ $queue
 
 ## Add messages to a queue
 
-<!--Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [`Microsoft.Azure.Storage.Queue.CloudQueueMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [`AddMessage`](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array.-->
-
 Operations that impact the messages in a queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, pass your message as a string to the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class's [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage) method. 
 
 Your message string must be in UTF-8 format.
@@ -139,10 +137,6 @@ There are two ways to retrieve messages from a queue:
 - **Peek**: Retrieving a message using `Peek` allows you to "preview" messages from the queue. `Peek` doesn't dequeue the message or increment its `DequeueCount` property.
 
 ### Receive messages
-
-<!--Messages are read in best-try first-in-first-out order. This is not guaranteed.When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.
-
-This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds. -->
 
 When you *read* a message from a queue using a method such as [`ReceiveMessage`](/dotnet/api/azure.storage.queues.queueclient.receivemessage), the message is temporarily dequeued and becomes temporarily invisible to other processes. This **visibility timeout** defines how long the message remains invisible. The default visibility timeout is 30 seconds. 
 
@@ -177,17 +171,16 @@ $queueMessage.Value
 
 ### Peek messages
 
-`Describe a use case which requires you to retrieve a message in the queue without altering its visibility.` 
-
-In these cases, you can use a method such as [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage) and [`PeekMessages`](/dotnet/api/azure.storage.queues.queueclient.peekmessages). As with the [`ReadMessages`](#receive-messages) example, multiple messages can be peeked simultaneously by passing an integer value to specify the maximum number of messages. 
+For use cases that might involve shared queues or previewing messages without altering their visibility, you can use the [`PeekMessage`](/dotnet/api/azure.storage.queues.queueclient.peekmessage) and [`PeekMessages`](/dotnet/api/azure.storage.queues.queueclient.peekmessages) methods. As with the previous [`ReceiveMessages`](#receive-messages) example, multiple messages can be peeked simultaneously by passing an integer value to specify the maximum number of messages. 
 
 The following examples use both the `PeekMessage` and `PeekMessages` methods to retrieve messages from a queue.
 
 ```powershell
 # Read the message from the queue, then show the contents of the message. 
-# Read the next four messages, then show the contents of the messages.
 $queueMessage = $queue.QueueClient.PeekMessage()
 $queueMessage.Value
+
+# Read the next four messages, then show the contents of the messages.
 $queueMessage = $queue.QueueClient.PeekMessages(4)
 $queueMessage.Value
 ```
