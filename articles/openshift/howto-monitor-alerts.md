@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: openshift, red hat, monitor, cluster, alerts
 ms.topic: how-to
-ms.date: 01/25/2024
+ms.date: 05/20/2024
 ms.custom: template-how-to
 ---
 
