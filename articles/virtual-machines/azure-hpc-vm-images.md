@@ -1,5 +1,5 @@
 ---
-title: Azure HPC VM Images
+title: Azure HPC VM images
 description: HPC VM images to be used on InfiniBand enabled H-series and GPU enabled N-series VMs.
 ms.service: virtual-machines
 ms.subservice: hpc
@@ -11,7 +11,7 @@ ms.author: litan2
 author: litan2
 ---
 
-# Azure HPC VM Images
+# Azure HPC VM images
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -19,9 +19,9 @@ This article shares some information on HPC VM images to be used to launch Infin
 
 The Azure HPC team is pleased to announce the availability of optimized and pre-configured Linux VM images for HPC and AI workloads. These VM images are:
 
-- based on the vanilla Ubuntu and AlmaLinux marketplace VM images.
-- pre-configured with NVIDIA Mellanox OFED driver for InfiniBand, NVIDIA GPU drivers, popular MPI libraries, vendor tuned HPC libraries, and recommended performance optimizations.
-- including optimizations and recommended configurations to deliver optimal performance, consistency, and reliability. 
+- Based on the vanilla Ubuntu and AlmaLinux marketplace VM images.
+- Pre-configured with NVIDIA Mellanox OFED driver for InfiniBand, NVIDIA GPU drivers, popular MPI libraries, vendor tuned HPC libraries, and recommended performance optimizations.
+- Including optimizations and recommended configurations to deliver optimal performance, consistency, and reliability. 
 
 ## Availability on Azure
 
@@ -51,7 +51,7 @@ az vm image list --publisher almalinux --offer almalinux-hpc --output table --al
 
 All images support both Gen 1 and Gen 2 VMs.
 
-## Supported VM Sizes
+## Supported VM sizes
 
 The HPC VM images support the following VM sizes:
 
@@ -67,7 +67,7 @@ The HPC VM images support the following VM sizes:
 
 Refer to [Azure VM sizes](sizes.md) for the latest H- and N-series VM size support matrix.
 
-## Installed Software Packages
+## Installed software packages
 
 - Mellanox OFED 24.01-0.3.3.1
 - Pre-configured IPoIB (IP-over-InfiniBand)
@@ -109,7 +109,7 @@ MPI libraries and software packages are available as environment modules. To loa
 module load <package-name>
 ```
 
-## Configuration and Optimization
+## Configuration and optimization
 
 Refer to the [azhpc-images](https://github.com/Azure/azhpc-images) repo at GitHub for the latest details on what packages and configuration is included in each VM image. The included configurations are based on optimization recommendations from vendors and partners, as well as learnings from common HPC workloads and usage practices in traditional HPC systems.
 
@@ -132,6 +132,6 @@ Refer to the [azhpc-images](https://github.com/Azure/azhpc-images) repo at GitHu
 
 - Disable firewall daemon to help MPI job launchers
 
-## Deploying HPC VM Images
+## Deploying HPC VM images
 
 As shown, the HPC VM images are available from Azure Marketplace and Azure CLI. They can be deployed through a variety of deployment vehicles on Azure (Azure CycleCloud, Azure Batch, ARM templates, etc.). [AzureHPC scripts](https://github.com/Azure/azurehpc/) provide an easy way to quickly deploy an HPC cluster using these images.
