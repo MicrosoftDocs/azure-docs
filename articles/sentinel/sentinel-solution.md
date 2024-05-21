@@ -91,7 +91,7 @@ After [installing](#install-the-zero-trust-tic-30-solution) the **Zero Trust (TI
     > Use the **Guide** toggle at the top of the page to display or hide recommendations and guide panes. Make sure that the correct details are selected in the **Subscription**, **Workspace**, and **TimeRange** options so that you can view the specific data you want to find.
     >
 
-1. **Review the control cards displayed**. For example, scroll down to view the **Adaptive Access Control** card:
+1. Select the control cards you want to display. For this procedure, select **Adaptive Access Control**, and then continue scrolling to view the displayed card.
 
     :::image type="content" source="media/sentinel-workbook/review-query-output-sample.png" alt-text="Screenshot of the Adaptive Access Control card.":::
 
@@ -99,7 +99,7 @@ After [installing](#install-the-zero-trust-tic-30-solution) the **Zero Trust (TI
     > Use the **Guides** toggle at the top left to view or hide recommendations and guide panes. For example, these may be helpful when you first access the workbook, but unnecessary once you've understood the relevant concepts.
     >
 
-1. **Explore queries**. For example, at the top right of the **Adaptive Access Control** card, select the **:** *More* button, and then select the :::image type="icon" source="media/sentinel-workbook/icon-open-in-logs.png" border="false"::: **Open the last run query in the Logs view.** option.
+1. **Explore queries**. For example, at the top right of the **Adaptive Access Control** card, select the three dot **Options** menu, and then select **Open the last run query in the Logs view.**
 
     The query is opened in the Microsoft Sentinel **Logs** page:
 
