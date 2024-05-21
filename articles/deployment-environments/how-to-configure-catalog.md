@@ -178,6 +178,12 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
 
+If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+
+:::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
+
+To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md).
+
 ### Store the personal access token in the key vault
 
 1. In the Key Vault, on the left menu, select **Secrets**.
@@ -377,6 +383,12 @@ Use the following steps to create an RBAC key vault:
 1. On the **Access policy** tab, select **Azure role-based access control**, and then select **Review + create**.
 
 1. On the **Review + create** tab, select **Create**.
+ 
+If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+
+:::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
+
+To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ### Store the personal access token in the key vault
 

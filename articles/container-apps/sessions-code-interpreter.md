@@ -45,7 +45,7 @@ To create a code interpreter session pool using the Azure CLI, ensure you have t
 az upgrade
 
 # Install or upgrade the Azure Container Apps extension
-az extension add --name containerapp --upgrade --allow-preview -y
+az extension add --name containerapp --upgrade --allow-preview true -y
 ```
 
 Use the `az containerapps sessionpool create` command to create the pool. The following example creates a Python code interpreter session pool named `my-session-pool`. Make sure to replace `<RESOURCE_GROUP>` with your resource group name before you run the command.

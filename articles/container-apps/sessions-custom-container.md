@@ -42,7 +42,7 @@ To create a custom container session pool using the Azure CLI, ensure you have t
 
 ```bash
 az upgrade
-az extension add --name containerapp --upgrade --allow-preview -y
+az extension add --name containerapp --upgrade --allow-preview true -y
 ```
 
 Custom container session pools require a workload profile enabled Azure Container Apps environment. If you don't have an environment, use the `az containerapp env create -n <ENVIRONMENT_NAME> -g <RESOURCE_GROUP> --location <LOCATION> --enable-workload-profiles` command to create one.
