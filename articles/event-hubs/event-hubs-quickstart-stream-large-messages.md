@@ -27,7 +27,7 @@ To stream large messages, you must configure your self-serve scalable dedicated 
 
 - On Azure portal, navigate to the ‘Settings’ section for Dedicated cluster and select the ‘Quota’ tab under Settings.
   
-:::image type="content" source="./media/event-hubs-quickstart-stream-large-messages/LMSconfigforCluster.png" alt-text="Screenshot showing the Quota blade for Dedicated Cluster":::
+:::image type="content" source="./media/event-hubs-quickstart-stream-large-messages/large-message-configuration-for-dedicated-cluster.png" alt-text="Screenshot showing the Quota blade for Dedicated Cluster.":::
 
 - Validate that the value for read-only key **supportslargemessages** is set to true. 
 - You could update the key: **eventhubmaxmessagesizeinbytes** to suitable value in bytes. Acceptable range for this value is between 1048576 and 20971520 bytes.
