@@ -114,7 +114,7 @@ You must have:
 
 ## Use an index in prompt flow
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. 
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project. 
 1. From the collapsible left menu, select **Prompt flow**.
 1. Open an existing prompt flow or select **+ Create** to create a new flow.
 1. On the top menu of the flow designer, select **More tools**, and then select ***Index Lookup***.
@@ -127,6 +127,7 @@ You must have:
     :::image type="content" source="../media/index-retrieve/configure-index-lookup-tool.png" alt-text="Screenshot of the prompt flow node to configure index lookup." lightbox="../media/index-retrieve/configure-index-lookup-tool.png":::
 
 
-## Next steps
+## Related content
 
 - [Learn more about RAG](../concepts/retrieval-augmented-generation.md)
+- [Build and consume an index using code](./develop/index-build-consume-sdk.md)
