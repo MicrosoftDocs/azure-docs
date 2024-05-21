@@ -23,7 +23,7 @@ Microsoft Copilot for Security capabilities can be accessed through an immersive
 
 - Copilot for Security also has access to threat intelligence and authoritative content through plugins. These plugins can search across Microsoft Defender Threat Intelligence articles and intel profiles, Microsoft Defender XDR threat analytics reports, and vulnerability disclosure publications, among others.
 
-    :::image type="content" source="media/security-copilot-diagram.png" alt-text="Image of how Copilot for Security works." lightbox="media/security-copilot-diagram.png":::
+    :::image type="content" source="media/copilot-security-in-defender-for-cloud/security-copilot-diagram.png" alt-text="Image of how Copilot for Security works." lightbox="media/security-copilot-diagram.png":::
 
 Here's an explanation of how Microsoft Copilot for Security works:
 
@@ -37,11 +37,11 @@ Here's an explanation of how Microsoft Copilot for Security works:
 
 Copilot for Security iteratively processes and orchestrates these sophisticated services to help produce results that are relevant to your organization because they're contextually based on your organizational data.
 
-## Copilot in Defender for Cloud
+## How Copilot for Security works  in Defender for Cloud
 
 Defender for Cloud has integrated copilot into the recommendation experience by allowing you to analyze your recommendations with Copilot.
 
-:::image type="content" source="media/copilot/analyze-copilot.png" alt-text="Screenshot that shows the analyze with copilot button located on the recommendations page." lightbox="media/copilot/analyze-copilot.png":::
+:::image type="content" source="media/copilot-security-in-defender-for-cloud/analyze-copilot.png" alt-text="Screenshot that shows the analyze with copilot button located on the recommendations page." lightbox="media/copilot/analyze-copilot.png":::
 
 When you open Copilot, you can use natural language prompts to ask questions about the recommendation. Copilot will provide you with a response in natural language that helps you understand the context of the recommendation, the impact of implementing the recommendation, and the steps to take to implement the recommendation.
 
@@ -53,7 +53,7 @@ Some sample prompts include:
 
 Copilot is also available within recommendations and give you the ability to summarize the recommendations with Copilot.
 
-:::image type="content" source="media/copilot/summarize-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/copilot/summarize-copilot.png":::
+:::image type="content" source="media/copilot-security-in-defender-for-cloud/summarize-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/copilot/summarize-copilot.png":::
 
 By selecting summarize with Copilot, you are presented a quick summary of the recommendation in natural language. You can then use Copilot to learn more about the recommendation or remediate it using common language.
 
