@@ -50,7 +50,7 @@ Advanced Network Observability offers the following capabilities to monitor netw
 
   - **Hubble CLI:** The Hubble Command-Line Interface (CLI) provides a means to retrieve flow logs from across the cluster with customizable filtering and formatting.
 
-  - **Hubble UI**: Hubble UI provides intuitive visualizations to help you troubleshoot performance issues, optimize resource allocation, and ensure secure communication within your cluster. You're responsible for provisioning and managing the infrastructure required to run Hubble UI.
+  - **Hubble UI:** Hubble UI is a user-friendly web-browser interface for exploring your cluster's network activity. It creates a service-connection graph based on Flow logs, and it also displays flow logs for the selected namespace. You're responsible for provisioning and managing the infrastructure required to run Hubble UI.
 
 ### Key Benefits of Advanced Network Observability
 
@@ -60,7 +60,7 @@ Advanced Network Observability offers the following capabilities to monitor netw
 
 * **eBPF-Based Network Observability:** Identify potential bottlenecks and congestion issues before they impact application performance. Gain insights into key network health indicators, including traffic volume, dropped packets, and connection information.
 
-* **Deep visibility into network activity**: Understand how your applications communicate with each other through detailed network analysis.
+* **Deep Visibility into Network Activity:** Understand how your applications are communicating with each other through detailed network flow logs.
 
 * **Simplified monitoring options**: Choose between:
    * **Azure Managed Prometheus and Grafana**: With this option, Azure manages the infrastructure and maintenance, allowing you to focus on configuring and visualizing metrics.

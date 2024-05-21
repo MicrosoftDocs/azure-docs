@@ -213,7 +213,7 @@ hubble-relay-7ddd887cdb-h6khj     1/1  Running     0       23h
 1. Port forward Hubble Relay using the `kubectl port-forward` command.
 
 ```azurecli-interactive
-kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 9999:443
+kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 4245:443
 ```
 
 1. Mutual TLS (mTLS) ensures the security of the Hubble Relay server. To enable the Hubble client to retrieve flows, you need to get the appropriate certificates and configure the client with them. Apply the certificates using the following commands:
@@ -235,7 +235,7 @@ declare -A CERT_FILES=(
 
 for FILE in "${!CERT_FILES[@]}"; do
   KEY="${CERT_FILES[$FILE]}"
-  JSONPATH="{.data['$FILE']}"
+  JSONPATH="{.data['${FILE//./\\.}']}"
 
   # Retrieve the secret and decode it
   kubectl get secret hubble-relay-client-certs -n kube-system \
@@ -250,9 +250,9 @@ hubble config set tls true
 hubble config set tls-server-name instance.hubble-relay.cilium.io
 ```
 
-1. Verify the secrets were generated using the following `kubectl get pods` command:
+1. Verify the secrets were generated using the following `kubectl get secrets` command:
 ```azurecli-interactive
-kubectl get po -owide -n kube-system | grep hubble-
+kubectl get secrets -owide -n kube-system | grep hubble-
 ```
 
 Your output should look similar to the following example output:
@@ -272,9 +272,9 @@ hubble relay service
 
 ## Visualize using Hubble UI
 
-1. Use this command to deploy the yaml manifest for Hubble UI to your cluster:
-```azurecli-interactive
-kubectl apply -f - <<EOF
+1. To use Hubble UI, save the following into hubble-ui.yaml
+
+```yml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -509,7 +509,11 @@ spec:
     - name: http
       port: 80
       targetPort: 8081
-EOF
+```
+
+1. Apply the hubble-ui.yaml manifest to your cluster, using the following command 
+```azurecli-interactive
+kubectl apply -f hubble-ui.yaml
 ```
 
 1. Expose the service with port forwarding using the `kubectl port-forward` command.
