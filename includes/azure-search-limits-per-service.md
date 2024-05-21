@@ -33,13 +33,9 @@ Free services don't have fixed partitions or replicas and they share resources w
 
 ### After April 3, 2024
 
-For new services created after April 3, 2024:
-
-+ Basic tier can have up to three partitions and three replicas, and a total of nine search units (SU).
-+ Basic, S1, S2, S3 have more storage per partition, ranging from 3-7 times more, depending on the tier.
-+ Your new search service must be in a [supported region](#supported-regions-with-higher-storage-limits) to get the extra capacity for Basic and other tiers.
-
-Currently, there's no in-place upgrade. You must [create a new search service](/azure/search/search-create-service-portal) to benefit from the extra storage.
++ Basic tier supports three partitions and three replicas, for a total of nine search units (SU). It also has larger partitions.
++ S1, S2, S3, and S3 HD have larger partitions, ranging from 3-7 times more, depending on the tier.
++ Higher capacity is limited to [new search services](/azure/search/search-create-service-portal) in [supported regions](#supported-regions-with-higher-storage-limits). There is no in-place upgrade at this time.
 
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
@@ -50,11 +46,8 @@ Currently, there's no in-place upgrade. You must [create a new search service](/
 
 ### After May 17, 2024
 
-Storage Optimized tiers (L1 and L2) now have larger partitions at the current pricing. You must [create a new search service](/azure/search/search-create-service-portal)  to get the higher limits.
-
-+ S2, S3, S3 HD automatically have more storage per partition on search services running on the April 3 infrastructure, or on new services created after May 17.
-+ L1 and L2 have more partition storage and compute power, but you must create a new service.
-+ Your new search service must be in a [supported region](#supported-regions-with-higher-storage-limits) to get the extra storage.
++ L1 and L2 have more partition storage and compute power.
++ Higher capacity is limited to [new search services](/azure/search/search-create-service-portal) in [supported regions](#supported-regions-with-higher-storage-limits). There is no in-place upgrade at this time.
 
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
