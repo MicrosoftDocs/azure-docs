@@ -171,3 +171,5 @@ additionalContent:
           url: https://learn.microsoft.com/en-us/azure/networking/security/
         - title: Hybrid connectivity
           url: https://review.learn.microsoft.com/en-us/azure/networking/hybrid-connectivity/?branch=pr-en-us-275407
+        - title: Network monitoring and management
+          url: https://review.learn.microsoft.com/en-us/azure/networking/hybrid-connectivity/?branch=pr-en-us-275407
