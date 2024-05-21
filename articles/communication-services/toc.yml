@@ -304,8 +304,12 @@ items:
             href: tutorials/virtual-visits/extend-teams/call.md
     - name: Calling widget
       items:
-        - name: Create Calling widget for Teams Voice Apps
+        - name: Overview
+          href: tutorials/calling-widget/calling-widget-overview.md
+        - name: Create Calling widget for Teams Voice Apps using React
           href: tutorials/calling-widget/calling-widget-tutorial.md
+        - name: Create Calling widget for Teams Voice Apps using JavaScript Bundles
+          href: tutorials/calling-widget/calling-widget-js-tutorial.md
     - name: Call management
       items:
       - name: Manage calls
