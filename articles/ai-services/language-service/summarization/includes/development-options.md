@@ -3,6 +3,8 @@
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
+ms.custom:
+  - build-2024
 ms.topic: include
 ms.date: 05/07/2024
 ms.author: jboback
@@ -34,8 +36,3 @@ Custom Summarization enables users to build custom AI models to summarize unstru
 |REST API or Client library (Azure SDK)      | Integrate text summarization into your applications using the REST API, or the client library available in various languages. For more information, see the [summarization quickstart](../quickstart.md).  
 
 ---
-
-
-
-
-

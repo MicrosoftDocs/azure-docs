@@ -4,7 +4,7 @@ description: This article provides step-by-step instructions to publish to Azure
 ms.topic: quickstart
 ms.author: spelluru
 author: spelluru
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ms.date: 05/21/2024
 ---
 

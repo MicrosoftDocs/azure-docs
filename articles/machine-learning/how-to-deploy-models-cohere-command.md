@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.date: 04/02/2024
 ms.reviewer: mopeakande
 ms.author: shubhiraj
-author: shubhirajMsft 
-ms.custom: [references_regions]
+author: shubhirajMsft
+ms.custom: references_regions, build-2024
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-cohere.md
 ---

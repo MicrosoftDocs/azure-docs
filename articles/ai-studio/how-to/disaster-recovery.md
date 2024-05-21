@@ -4,6 +4,8 @@ titleSuffix: Azure AI Studio
 description: Learn how to plan for disaster recovery for Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.author: larryfr
 author: Blackmist

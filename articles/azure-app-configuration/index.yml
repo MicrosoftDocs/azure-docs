@@ -7,9 +7,10 @@ metadata:
   author: maud-lv
   ms.author: malev
   ms.service: azure-app-configuration
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
   ms.date: 05/10/2024
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

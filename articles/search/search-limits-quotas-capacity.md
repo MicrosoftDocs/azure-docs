@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 05/21/2024
 ms.custom:
   - references_regions
+  - build-2024
 ---
 
 # Service limits in Azure AI Search

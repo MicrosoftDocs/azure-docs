@@ -7,7 +7,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ms.date: 05/07/2024
 ms.author: jboback
 ---

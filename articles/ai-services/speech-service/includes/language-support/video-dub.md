@@ -1,6 +1,8 @@
 ---
 author: sally-baolian
 ms.service: azure-ai-speech
+ms.custom:
+  - build-2024
 ms.date: 04/28/2024
 ms.topic: include
 ms.author: v-baolianzou

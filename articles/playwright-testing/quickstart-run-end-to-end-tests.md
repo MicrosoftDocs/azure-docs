@@ -3,7 +3,7 @@ title: 'Quickstart: Run Playwright tests at scale'
 description: 'This quickstart shows how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing Preview. The cloud-hosted browsers support multiple operating systems and all modern browsers.'
 ms.topic: quickstart
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview
+ms.custom: playwright-testing-preview, build-2024
 ---
 
 # Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview

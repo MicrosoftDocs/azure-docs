@@ -2,10 +2,9 @@
 title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
-ms.topic: concept-article 
+ms.topic: concept-article
 ms.date: 04/19/2024
-ms.custom: references_regions
-
+ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
 
@@ -137,4 +136,3 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 
 [Azure Functions hosting options](functions-scale.md)
 [Create and manage function apps in the Flex Consumption plan](flex-consumption-how-to.md)
-

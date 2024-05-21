@@ -2,6 +2,8 @@
 title: Namespace authentication using JSON Web Tokens
 description: This article describes authentication of Azure Event Grid namespaces using JSON Web Tokens.
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 05/21/2024
 author: george-guirguis
 ms.author: geguirgu

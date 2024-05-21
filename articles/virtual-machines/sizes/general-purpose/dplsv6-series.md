@@ -4,6 +4,8 @@ description: Information on and specifications of the Dplsv6-series sizes
 author: tomvcassidy
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 05/09/2024
 ms.author: tomcassidy

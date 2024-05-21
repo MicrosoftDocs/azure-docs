@@ -6,6 +6,8 @@ author: niklarin
 ms.author: nlarin
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom:
+  - build-2024
 ms.topic: concept-article
 ms.date: 05/09/2024
 #Customer Intent: As a database adminstrator, I want to configure cross-region replication, so that I can have disaster recovery plans in the event of a regional outage.

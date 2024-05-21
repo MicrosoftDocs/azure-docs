@@ -6,6 +6,8 @@ description: Learn how to build queries for vector search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 05/21/2024
 ---

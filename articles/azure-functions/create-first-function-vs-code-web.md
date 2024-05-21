@@ -2,9 +2,10 @@
 title: Create your first function using Visual Studio Code for the Web
 description: Learn how to create your first Flex Consumption hosted function using Visual Studio Code for the Web in the Azure portal.
 ms.topic: quickstart
+ms.custom:
+  - build-2024
 ms.date: 05/14/2024
 zone_pivot_groups: programming-languages-set-functions
-
 #customer intent: As an Azure developer, I want learn how to use Visual Studio Code for the Web to create functios that run in the Flex Consumption plan so that I can develop my function code directly in the Azure portal.
 ---
 

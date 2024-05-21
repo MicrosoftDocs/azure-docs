@@ -11,6 +11,8 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2024
 ms.subservice: flexible-server
+ms.custom:
+  - build-2024
 ---
 
 # Generate vector embeddings with azure_local_ai on Azure Database for PostgreSQL Flexible Server (preview)
@@ -173,5 +175,3 @@ Valid values for the `key` are:
 
 #### Return type
 `TEXT` representing the current value of the selected setting.
-
-

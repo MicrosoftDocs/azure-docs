@@ -8,6 +8,7 @@ ms.author: beleroy
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: reference
 ms.date: 01/27/2022
 ---

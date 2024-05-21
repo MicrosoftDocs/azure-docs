@@ -8,7 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 2/1/2024
 ms.author: eur
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
 # Language and voice support for the Speech service

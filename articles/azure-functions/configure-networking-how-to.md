@@ -3,7 +3,7 @@ title: How to use a secured storage account with Azure Functions
 description: Article that shows you how to use a secured storage account in a virtual network as the default storage account for a function app in Azure Functions.
 ms.topic: how-to
 ms.date: 05/06/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, build-2024
 ---
 
 # How to use a secured storage account with Azure Functions

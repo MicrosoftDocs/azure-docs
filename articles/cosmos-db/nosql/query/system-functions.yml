@@ -15,8 +15,7 @@ metadata:
   ms.topic: landing-page
   ms.devlang: nosql
   ms.date: 02/27/2024
-  ms.custom: query-reference
-
+  ms.custom: query-reference, build-2024
 landingContent:
   - title: Array functions
     linkLists:

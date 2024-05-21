@@ -5,6 +5,8 @@ author: rajeeshr
 ms.author: rajeeshr
 ms.topic: overview
 ms.service: virtual-machines
+ms.custom:
+  - build-2024
 ms.date: 05/10/2024
 ms.reviewer: jushiman
 ---

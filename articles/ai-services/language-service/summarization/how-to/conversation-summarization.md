@@ -12,6 +12,7 @@ ms.author: jboback
 ms.custom:
   - language-service-summarization
   - ignite-2023
+  - build-2024
 ---
 
 # How to use conversation summarization

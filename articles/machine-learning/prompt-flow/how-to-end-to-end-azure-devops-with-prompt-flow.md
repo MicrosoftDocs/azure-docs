@@ -14,6 +14,7 @@ ms.custom:
   - cli-v2
   - sdk-v2
   - ignite-2023
+  - build-2024
 ---
 
 # LLMOps with prompt flow and Azure DevOps
@@ -232,4 +233,3 @@ python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptfl
 * [Prompt flow open source repository](https://github.com/microsoft/promptflow)
 * [Install and set up Python SDK v2](/python/api/overview/azure/ai-ml-readme)
 * [Install and set up Python CLI v2](../how-to-configure-cli.md)
-

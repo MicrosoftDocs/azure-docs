@@ -4,6 +4,7 @@ description: This article describes how Azure Event Grid delivers Azure Key Vaul
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.date: 04/25/2024
 author: robece
 ms.author: robece
@@ -41,4 +42,3 @@ See the following How-to articles to learn how to handle Azure Key Vault and Hea
 
 - [Handle Azure Key Vault events using Azure Monitor alerts](handle-key-vault-events-using-azure-monitor-alerts.md)
 - [Handle Health Resources events using Azure Monitor alerts](handle-health-resources-events-using-azure-monitor-alerts.md)
-
