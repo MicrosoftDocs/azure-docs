@@ -25,7 +25,7 @@ The following diagram summarizes how these core services work together to provid
 
 ![A conceptual diagram of Azure network foundation services.](./media/foundation-architecture.png)
 
-## Azure networking documentation
+## Learn more
 
 Also see: [Azure networking documentation](/azure/networking)
 
