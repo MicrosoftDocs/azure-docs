@@ -1,12 +1,13 @@
 ---
 ms.date: 11/15/2023
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 title: Introduction to pull delivery
 description: Learn about Event Grid's http pull delivery and the resources that support them.
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
 # Pull delivery with HTTP

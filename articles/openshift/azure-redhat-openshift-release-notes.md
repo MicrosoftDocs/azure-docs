@@ -19,7 +19,7 @@ We're pleased to announce the launch of OpenShift 4.14 for Azure Red Hat OpenShi
 
 In addition to making version 4.14 available, this release also makes the following features generally available:
 
-- [Egress IP](https://docs.openshift.com/container-platform/4.14/networking/ovn_kubernetes_network_provider/configuring-egress-ips-ovn.html)
+- [Egress IP (v4.12.45+, 4.13.21+)](https://docs.openshift.com/container-platform/4.14/networking/ovn_kubernetes_network_provider/configuring-egress-ips-ovn.html) 
 
 - [Bring your own Network Security Group (NSG)](/azure/openshift/howto-bring-nsg).
 
