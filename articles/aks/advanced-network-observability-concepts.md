@@ -1,6 +1,6 @@
 ---
 title: Advanced Network Observability - Advanced Container Networking Services for Azure Kubernetes Service (AKS)
-description: An overview of Advanced Container Networking Services's Advanced Network Observability capabilities Azure Kubernetes Service (AKS).
+description: An overview of Advanced Container Networking Services'a Advanced Network Observability capabilities Azure Kubernetes Service (AKS).
 author: Khushbu-Parekh
 ms.author: kparekh
 ms.service: azure-kubernetes-service
@@ -11,9 +11,13 @@ ms.date: 05/10/2024
 
 # What is Advanced Network Observability?
 
-Advanced Network Observability is a debut feature of [Advanced Container Networking Services](advanced-container-networking-services-overview.md) suite. It equips you with next-level monitoring and diagnostics tools, providing unparalleled visibility into your containerized workloads. These tools empower you to pinpoint and troubleshoot network issues with ease, ensuring optimal performance for your applications.
+Advanced Network Observability is the foundation of the [Advanced Container Networking Services](advanced-container-networking-services-overview.md) suite. It equips you with next-level monitoring and diagnostics tools, providing unparalleled visibility into your containerized workloads. These tools empower you to pinpoint and troubleshoot network issues with ease, ensuring optimal performance for your applications.
 
 Advanced Network Observability is compatible with all Linux workloads seamlessly integrating with Hubble regardless of whether the underlying data plane is Cilium or non-Cilium (both are supported) ensuring flexibility for your container networking needs.
+
+* Cilium data plane: A high-performance, OSS (open-source), eBPF-based data plane specifically designed for Kubernetes environments. For more information, see [Cilium](https://cilium.io/).
+
+* Non-Cilium Data plane: For non-cilium data plane scenarios, Advanced Network Observability uses an OSS, eBPF-based data plane originally built by Microsoft known as Retina. For more information, see [Retina](https://retina.sh).
 
 :::image type="content" source="./media/advanced-container-networking-services/advanced-network-observability.png" alt-text="Diagram of Advanced Network Observability.":::
 

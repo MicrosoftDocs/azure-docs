@@ -27,7 +27,7 @@ For more information about Advanced Network Observability, see [What is Advanced
 
 ## Pricing
 > [!IMPORTANT]
-> Advanced Container Networking Services will be a paid offering starting May 28th, 2024. Pricing details will be shared in the coming days. 
+> Advanced Container Networking Services will be a premium paid offering starting May 28th, 2024. Pricing details will be shared in the coming days. 
 
 ## Next steps
 
