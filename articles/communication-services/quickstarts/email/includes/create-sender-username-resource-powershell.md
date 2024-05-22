@@ -49,7 +49,7 @@ You can configure your Domain resource with the following options:
 * The name of the Username.
 
 > [!NOTE]
-> The Sender Username and Username should be same.
+> The Sender Username and Username should be the same.
 
 ## Manage your Sender username resource
 
