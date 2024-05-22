@@ -30,8 +30,6 @@ Before using an availability zone, understand the following concepts:
 >[!IMPORTANT]
 >Although the use of zonal placement with Azure NetApp Files combined with application-based replication and failover technologies can be used to create a highly-available architecture, using Azure NetApp Files zonal placement alone does not provide zonal redundancy. If your workload does not support application-based replication and failover, consider using Azure NetApp Files [cross-zone replication](cross-zone-replication-introduction.md) for additional redundancy.
 
-[!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
-
 Azure NetApp Files' [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy each volume in the specific availability zone of your choice, in alignment with Azure compute and other services in the same zone. 
 
 :::image type="content" alt-text="Diagram of three availability zones in one Azure region." source="./media/use-availability-zones/availability-zone-diagram.png":::

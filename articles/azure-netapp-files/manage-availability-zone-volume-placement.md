@@ -83,8 +83,6 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 ## <a name="populate-an-existing-volume-with-availability-zone-information"></a> Populate an existing volume with availability zone information (preview)
 
-[!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
-
 1. Navigate to the volume that you want to populate with availability zone information.
 1. Select **Populate availability zone**.
 1. The Populate Availability Zone window appears and displays the availability zone in which the Azure NetApp Files volume is deployed.
