@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 04/30/2024
+ms.date: 05/21/2024
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -150,9 +150,12 @@ Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1
 
 Changes made for this version:
 
-- Updated source-controller to v1.2.5
+- Updated source-controller to v1.2.5 [to address security vulnerability](https://github.com/advisories/GHSA-v554-xwgw-hc3w)
 
 ### 1.8.3 (March 2024)
+
+> [!NOTE]
+> We recommend upgrading to version 1.8.4 or later due to a [security vulnerability](https://github.com/advisories/GHSA-v554-xwgw-hc3w) that has been fixed starting with 1.8.4.
 
 Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
 

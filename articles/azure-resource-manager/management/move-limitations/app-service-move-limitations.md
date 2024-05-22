@@ -30,6 +30,7 @@ When you move a Web App across subscriptions, the following guidance applies:
 - App Service apps with private endpoints cannot be moved. Delete the private endpoint(s) and recreate it after the move.
 - App Service apps with virtual network integration cannot be moved. Remove the virtual network integration and reconnect it after the move.
 - App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, move it back to its original resource group. Then, move the resource across subscriptions. For help with finding the original resource group, see the next section.
+- When you move a Web App to a different subscription, the location of the Web App remains the same, but its policy is changed. For example, if your Web App is in Subscription1 located in Central US and has Policy1, and Subscription2 is in the UK South and has Policy2. If you move the Web App to Subscription2, the location of the Web App remains the same (Central US); however, it will be under the new policy which is policy2.
 
 ## Find original resource group
 

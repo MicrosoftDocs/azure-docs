@@ -45,28 +45,28 @@ items:
       items:
       - name: Overview
         href: manage-devices-assets/overview-manage-assets.md
-      - name: Concepts
+      - name: Manage your assets
+        href: manage-devices-assets/howto-manage-assets-remotely.md
+      - name: Automatic asset discovery
         items:
         - name: Akri overview
           href: manage-devices-assets/overview-akri.md
         - name: Akri architecture
           href: manage-devices-assets/concept-akri-architecture.md
+        - name: Discover OPC UA data sources with Akri
+          href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
+      - name: Connect to your assets
+        items:
         - name: OPC UA broker overview
           href: manage-devices-assets/overview-opcua-broker.md
-        - name: OPC UA certificates infrastructure overview
+        - name: OPC UA application authentication overview
           href: manage-devices-assets/overview-opcua-broker-certificates-management.md
-      - name: How to
-        items:
-        - name: Manage assets remotely
-          href: manage-devices-assets/howto-manage-assets-remotely.md
-        - name: Discover OPC UA data sources
-          href: manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md
-        - name: Configure OPC UA certificates infrastructure
+        - name: Configure OPC UA application authentication
           href: manage-devices-assets/howto-configure-opcua-certificates-infrastructure.md
+        - name: Configure OPC UA user authentication
+          href: manage-devices-assets/howto-configure-opcua-authentication-options.md
         - name: Configure an OPC PLC simulator
           href: manage-devices-assets/howto-configure-opc-plc-simulator.md
-        - name: Configure OPC UA authentication options
-          href: manage-devices-assets/howto-configure-opcua-authentication-options.md
     - name: Manage MQTT connectivity
       items:
       - name: Overview

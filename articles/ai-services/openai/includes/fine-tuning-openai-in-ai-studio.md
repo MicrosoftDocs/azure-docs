@@ -35,8 +35,11 @@ The following models support fine-tuning:
 - `gpt-35-turbo` (0613)
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
+- `gpt-4` (0613)
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
+
+If you plan to use `gpt-4` for fine-tuning, please refer to the [GPT-4 public preview safety evaluation guidance](#safety-evaluation-gpt-4-fine-tuning---public-preview)
 
 ## Review the workflow for Azure AI Studio
 
@@ -242,6 +245,10 @@ The result file is a CSV file that contains a header row and a row for each trai
 You can also view the data in your results.csv file as plots in Azure AI Studio under the **Metrics** tab of your fine-tuned model. Select the link for your trained model, and you will see three charts: loss, mean token accuracy, and token accuracy. If you provided validation data, both datasets will appear on the same plot.
 
 Look for your loss to decrease over time, and your accuracy to increase. If you see a divergence between your training and validation data that may indicate that you are overfitting. Try training with fewer epochs, or a smaller learning rate multiplier.
+
+## Safety evaluation GPT-4 fine-tuning - public preview
+
+[!INCLUDE [Safety evaluation](../includes/safety-evaluation.md)]
 
 ## Deploy a fine-tuned model
 

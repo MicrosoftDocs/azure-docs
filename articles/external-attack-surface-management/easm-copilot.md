@@ -117,3 +117,4 @@ For more information about data privacy in Copilot for Security, go to [Privacy 
 
 - [What is Microsoft Copilot for Security?](/security-copilot/microsoft-security-copilot)
 - [Privacy and data security in Microsoft Copilot for Security](/security-copilot/privacy-data-security)
+- [Query your attack surface with Defender EASM using Microsoft Copilot for Azure](https://learn.microsoft.com/azure/copilot/query-attack-surface) 
