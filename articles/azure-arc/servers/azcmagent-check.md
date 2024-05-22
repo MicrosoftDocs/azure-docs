@@ -2,7 +2,7 @@
 title: azcmagent check CLI reference
 description: Syntax for the azcmagent check command line tool
 ms.topic: reference
-ms.date: 04/20/2023
+ms.date: 05/22/2024
 ---
 
 # azcmagent check
@@ -29,6 +29,13 @@ Check connectivity with the East US region using public endpoints.
 azcmagent check --location "eastus"
 ```
 
+Check connectivity for supported extensions (SQL Server enabled by Azure Arc) using public endpoints:
+
+```
+azcmagent check --extensions all
+```
+
+
 Check connectivity with the Central India region using private endpoints.
 
 ```
@@ -46,6 +53,15 @@ Supported values:
 * AzureCloud (public regions)
 * AzureUSGovernment (Azure US Government regions)
 * AzureChinaCloud (Microsoft Azure operated by 21Vianet regions)
+
+`-e`, `--extensions`
+
+Includes additional checks for extension endpoints to help validate end-to-end scenario readiness. This flag is available in agent version 1.41 and later.
+
+Supported values:
+
+* all (checks all supported extension endpoints)
+* sql (SQL Server enabled by Azure Arc)
 
 `-l`, `--location`
 

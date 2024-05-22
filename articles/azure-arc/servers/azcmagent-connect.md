@@ -55,11 +55,19 @@ This option generates a code that you can use to log in on a web browser on anot
 
 To authenticate with a device code, use the `--use-device-code` flag. If the account you're logging in with and the subscription where you're registering the server aren't in the same tenant, you must also provide the tenant ID for the subscription with `--tenant-id [tenant]`.
 
-### Service principal
+### Service principal with secret
 
 Service principals allow you to authenticate non-interactively and are often used for at-scale deployments where the same script is run across multiple servers. It's recommended that you provide service principal information via a configuration file (see `--config`) to avoid exposing the secret in any console logs. The service principal should also be dedicated for Arc onboarding and have as few permissions as possible, to limit the impact of a stolen credential.
 
-To authenticate with a service principal, provide the service principal's application ID, secret, and tenant ID: `--service-principal-id [appid] --service-principal-secret [secret] --tenant-id [tenantid]`
+To authenticate with a service principal using a secret, provide the service principal's application ID, secret, and tenant ID: `--service-principal-id [appid] --service-principal-secret [secret] --tenant-id [tenantid]`
+
+### Service principal with certificate
+
+Certificate-based authentication is a more secure way to authenticate using service principals. The agent accepts both PCKS #12 (PFX) files and ASCII-encoded files (such as PEM) that contain both the private and public keys. The certificate must be available on the local disk and the user running the `azcmagent` command must have read access to the file. Password-protected PFX files are not supported.
+
+To authenticate with a service principal using a certificate, provide the service principal's application ID, tenant ID and path to the certificate file: `--service-principal-id [appId] --service-principal-cert [pathToPEMorPFXfile] --tenant-id [tenantid]`
+
+For more information, see [create a service principal for RBAC with certificate-based authentication](/cli/azure/azure-cli-sp-tutorial-3).
 
 ### Access token
 
