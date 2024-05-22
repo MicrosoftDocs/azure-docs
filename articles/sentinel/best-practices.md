@@ -45,7 +45,7 @@ Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify
 
 The following image shows recommended steps in an incident management and response process.
 
-:::image type="content" source="media/best-practices/incident-handling.png" alt-text="Incident management process: Triage. Preparation. Remediation. Eradication. Post incident activities.":::
+:::image type="content" source="media/best-practices/incident-handling.png" alt-text="Diagram of incident management process: Triage. Preparation. Remediation. Eradication. Post incident activities.":::
 
 The following table provides high-level descriptions for how to use Microsoft Sentinel features for incident management and response. For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
