@@ -24,7 +24,7 @@ If your workspace is onboarded to the unified security operations platform, sele
 
 :::image type="content" source="media/get-visibility/dashboard.png" alt-text="Screenshot of the Microsoft Sentinel Overview dashboard.":::
 
-Data for each section of the dashboard is pre-calculated, and the last refresh time is shown at the top of each section. Select **Refresh** at the top of the page to refresh the entire page.
+Data for each section of the dashboard is precalculated, and the last refresh time is shown at the top of each section. Select **Refresh** at the top of the page to refresh the entire page.
 
 ## View incident data
 
@@ -36,7 +36,7 @@ The following image shows an example of the **Incidents** section on the **Overv
 
 The **Incidents** section lists the following data:
 
-- The number of number of new, active, and closed incidents over the last 24 hours.
+- The number of new, active, and closed incidents over the last 24 hours.
 - The total number of incidents of each severity.
 - The number of closed incidents of each type of closing classification.
 - Incident statuses by creation time, in four hour intervals.
@@ -52,7 +52,7 @@ After deploying automation with Microsoft Sentinel, monitor your workspace's aut
 
 - Start with a summary of the automation rules activity: Incidents closed by automation, the time the automation saved, and related playbooks health.
 
-   Microsoft Sentinel calculates the time saved by automation by finding the average time that a single automation saved, multiplied by the number of incident that were resolved by automation. The formula is as follows:
+   Microsoft Sentinel calculates the time saved by automation by finding the average time that a single automation saved, multiplied by the number of incidents resolved by automation. The formula is as follows:
 
    `(avgWithout - avgWith) * resolvedByAutomation`
 
@@ -64,7 +64,7 @@ After deploying automation with Microsoft Sentinel, monitor your workspace's aut
 
 - Below the summary, a graph summarizes the numbers of actions performed by automation, by type of action.
 
-- At the bottom of the section, find a count of the active automation rules with a link to the automation blade. 
+- At the bottom of the section, find a count of the active automation rules with a link to the **Automation** page. 
 
 Select the **configure automation rules** link to the jump the **Automation** page, where you can configure more automation.
 
@@ -90,10 +90,23 @@ Track data for your analytics rules in the **Analytics** section of the **Overvi
 
 :::image type="content" source="./media/qs-get-visibility/analytics.png" alt-text="Screenshot of the Analytics section in the Microsoft Sentinel Overview page.":::
 
-The number of analytics rules in Microsoft Sentinel are shown by status, including enabled, disabled, and auto-disabled.
+The number of analytics rules in Microsoft Sentinel are shown by status, including enabled, disabled, and autodisabled.
 
 Select the **MITRE view** link to jump to the **MITRE ATT&CK**, where you can view how your environment is protected against MITRE ATT&CK tactics and techniques. Select the **manage analytics rules** link to jump to the **Analytics** page, where you can view and manage the rules that configure how alerts are triggered.
 
+<!--unclear what this section is doing here. doesn't seem to have any connection to workbooks?
+## Create new detections
+
+Generate detections on the [data sources that you connected to Microsoft Sentinel](connect-data-sources.md) to investigate threats in your organization.
+
+When you create a new detection, leverage the detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
+
+To view the installed out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the installed Microsoft Sentinel rule templates. To find more rule templates, go to the **Content hub** in Microsoft Sentinel to install product solutions or standalone content.
+
+   ![Use built-in detections to find threats with Microsoft Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
+
+For more information about getting out-of-the-box detections, see [Get built-in-analytics](detect-threats-built-in.md).
+-->
 ## Next steps
 
 Use workbook templates to dive deeper into events generated across your environment. For more information, see [Visualize log and query data with Microsoft Sentinel workbooks](workbooks.md).
