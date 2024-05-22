@@ -113,7 +113,7 @@ In this section, you will create a function app and related resources in your Az
     |**Plan**| Choose the App Service plan pricing tier you want to use. Or click **+** to create a new App Service plan. |
 
 > [!IMPORTANT]
->  The Flex Consumption plan is [in preview](../../../includes/functions-flex-preview-note.md). You can select the option to choose **Flex Consumption** in this step.
+>  The Flex Consumption plan is [in preview](../../../includes/functions-flex-preview-note.md). You can select the option to choose **Flex Consumption** when you create a new App Service plan.
       
 3. Click **OK**. A notification will be displayed after your function app is created.
 
