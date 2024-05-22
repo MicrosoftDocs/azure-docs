@@ -25,7 +25,7 @@ The in-place migration provides a highly resilient and self-healing offline migr
 - **DNS switch and cutover** are performed successfully within the planned maintenance window with minimal downtime, allowing maintenance of the same connection string post-migration. Client applications seamlessly connect to the target flexible server without any user driven manual updates. In addition to both connection string formats (Single and Flexible Server) being supported on migrated Flexible Server, both username formats – username@server_name and username are also supported on the migrated Flexible Server.
 - The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI. Stopped Single Server is deleted seven days after the migration.
 
-> [!NOTE]
+> [!NOTE]  
 > If your Single Server instance has General Purpose V1 storage, your scheduled instance will undergo an additional restart operation 12 hours prior to the scheduled migration time. This restart operation serves to enable the log_bin server parameter needed to upgrade the instance to General Purpose V2 storage before undergoing the in-place auto-migration.
 
 ## Eligibility
@@ -91,7 +91,7 @@ The compute tier and SKU for the target flexible server is provisioned based on 
 
 Here's the info you need to know post in-place migration:
 
-> [!NOTE]
+> [!NOTE]  
 > Post-migration do no restart the stopped Single Server instance as it might hamper your client's and application connectivity.
 
 - Copy the following properties from the source Single Server to target Flexible Server post in-place migration operation is completed successfully:
@@ -141,4 +141,4 @@ Here's the info you need to know post in-place migration:
 
 ## Related content
 
-[Manage an Azure Database for MySQL - Flexible Server using the Azure portal.](../flexible-server/how-to-manage-server-portal.md)
+- [Manage an Azure Database for MySQL - Flexible Server using the Azure portal.](../flexible-server/how-to-manage-server-portal.md)
