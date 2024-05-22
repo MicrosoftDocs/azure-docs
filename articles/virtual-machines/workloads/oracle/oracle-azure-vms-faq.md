@@ -3,8 +3,7 @@ title: FAQs - Oracle on Azure VMs | Microsoft Docs
 description: FAQs - Oracle on Azure VMs 
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: oracle
 ms.topic: article
 ms.date: 06/12/2023
