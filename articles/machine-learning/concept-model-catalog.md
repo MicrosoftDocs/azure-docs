@@ -58,6 +58,9 @@ Model | Managed compute | Serverless API (pay-as-you-go)
 Llama family models  | Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat <br> Llama-3-8B-Instruct <br> Llama-3-70B-Instruct <br> Llama-3-8B <br> Llama-3-70B | Llama-3-70B-Instruct <br> Llama-3-8B-Instruct <br> Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat 
 Mistral family models | mistralai-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x22B-Instruct-v0-1 <br> mistral-community-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x7B-v01 <br> mistralai-Mistral-7B-Instruct-v0-2 <br> mistralai-Mistral-7B-v01 <br> mistralai-Mixtral-8x7B-Instruct-v01 <br> mistralai-Mistral-7B-Instruct-v01 | Mistral-large <br> Mistral-small
 Cohere family models | Not available | Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual
+JAIS | Not available | jais-30b-chat
+Phi3 family models | Phi-3-small-128k-Instruct <br> Phi-3-small-8k-Instruct <br> Phi-3-mini-4k-Instruct <br> Phi-3-mini-128k-Instruct <br> Phi3-medium-128k-instruct <br> Phi3-medium-4k-instruct | Phi-3-mini-4k-Instruct <br> Phi-3-mini-128k-Instruct <br> Phi3-medium-128k-instruct <br> Phi3-medium-4k-instruct <br> Phi-3-vision-128k-instruct 
+Nixtla | Not available | TimeGEN-1
 Other models | Available | Not available
 
 :::image type="content" source="./media/concept-model-catalog/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle." lightbox="media/concept-model-catalog/platform-service-cycle.png":::
@@ -90,7 +93,7 @@ Models available for deployment with managed compute can be deployed to Azure Ma
 
 ### Build Generative AI Apps with managed compute
 
-Prompt flow offers capabilities for prototyping, experimenting, iterating, and deploying your AI applications. You can use models deployed with managed compute in Prompt Flow with the [Open Model LLM tool](./prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by the Real-time endpoints in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
+Prompt flow offers capabilities for prototyping, experimenting, iterating, and deploying your AI applications. You can use models deployed with managed compute in Prompt Flow with the [Open Model LLM tool](./prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by the managed computes in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
 
 
 ### Content safety for models deployed with managed compute 
@@ -142,7 +145,9 @@ Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Co
 
 ### Content safety for models deployed via MaaS  
 
-Azure Machine Learning implements a default configuration of [Azure AI Content Safety](../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) for language models deployed with MaaS. To learn more about content filtering, see [harm categories in Azure AI Content Safety](../ai-services/content-safety/concepts/harm-categories.md). Content filtering occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering for individual serverless endpoints when you first deploy a language model or in the deployment details page by clicking the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
+Azure Machine Learning implements a default configuration of [Azure AI Content Safety](../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) for language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering (preview) for individual serverless endpoints when you first deploy a language model or in the deployment details page by selecting the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
 
 ## Learn more
 
