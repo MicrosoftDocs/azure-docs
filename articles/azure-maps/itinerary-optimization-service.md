@@ -30,7 +30,6 @@ Refer to the [Multi Itinerary Optimization] code sample for a quick start.
 
 ## Prerequisites
 
-- An [Azure Account]
 - An [Azure Maps account]
 - A [subscription key] or other form of [Authentication with Azure Maps]
 
@@ -328,8 +327,13 @@ After the locations in the cuOpt response are mapped to the corresponding coordi
 > [!div class="nextstepaction"]
 > [Azure Maps Route Matrix API]
 
+[Authentication with Azure Maps]: azure-maps-authentication.md
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps code samples]: https://samples.azuremaps.com/
+[Azure Maps Route Directions API]: /rest/api/maps/route/post-directions
+[Azure Maps Route Matrix API]: /rest/api/maps/route/post-route-matrix
 [Azure Maps]: /azure/azure-maps/
-[Azure Marketplace]: https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/nvidia.nvidia-ai-enterprise
+[Azure Marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.nvidia-ai-enterprise?tab=Overview
 [cuOpt best practices]: https://docs.nvidia.com/cuopt/user-guide/best-practices.html
 [cuOpt Supported Features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
 [List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
@@ -337,7 +341,4 @@ After the locations in the cuOpt response are mapped to the corresponding coordi
 [NVIDIA cuOpt]: https://www.nvidia.com/en-us/ai-data-science/products/cuopt/
 [Route Directions]: /rest/api/maps/route/post-directions
 [Route Matrix]: /rest/api/maps/route/post-route-matrix
-
-[Azure Maps code samples]: https://samples.azuremaps.com/
-[Azure Maps Route Directions API]: /rest/api/maps/route/post-directions
-[Azure Maps Route Matrix API]: /rest/api/maps/route/post-route-matrix
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
