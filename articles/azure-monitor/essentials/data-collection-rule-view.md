@@ -9,7 +9,7 @@ ms.reviewer: nikeist
 ---
 
 # View data collection rules in Azure Monitor
-There are multiple ways to view the DCRs in your subscription.
+There are multiple ways to view the DCRs in your subscription and the resources that they are associated with. 
 
 ### [Portal](#tab/portal)
 To view your DCRs in the Azure portal, select **Data Collection Rules** under **Settings** on the **Monitor** menu.
@@ -20,6 +20,8 @@ Select a DCR to view its details. For DCRs supporting VMs, you can view and modi
 
 > [!NOTE]
 > Although this view shows all DCRs in the specified subscriptions, selecting the **Create** button will create a data collection for Azure Monitor Agent. Similarly, this page will only allow you to modify DCRs for Azure Monitor Agent. For guidance on how to create and update DCRs for other workflows, see [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md).
+
+
 
 ### [PowerShell](#tab/powershell)
 Use [Get-AzDataCollectionRule](/powershell/module/az.monitor/get-azdatacollectionrule) to retrieve the DCRs in your subscription.
@@ -50,6 +52,29 @@ Use the following to return DCR associations for a VM.
 az monitor data-collection rule association list --resource "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm "
 ```
 ---
+
+
+
+## Preview DCR experience
+A preview of the new Azure portal experience for DCRs is now available. 
+
+:::image type="content" source="media/data-collection-rule-view/preview-experience.png" alt-text="Screenshot of title bar to enable the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/preview-experience.png":::
+
+The preview experience ties together DCRs and the resources they're associated with. You can either view the list by **Data collection rule**, which shows the number of resources associated with each DCR, or by **Resources**, which shows the count of DCRs associated with each resource.
+
+> [!IMPORTANT]
+> Not all DCRs are associated with resources. For example, DCRs used with the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) are specified in the API call and do not use associations. These DCRs still appear in the view, but will have a **Resource Count** of 0.
+
+### Data collection rule view
+In the **Data collection rule** view, the **Resource count** represents the number of resources that have a [data collection rule association](./data-collection-rule-overview.md#data-collection-rule-associations) with the DCR. Click this value to open the **Resources** view for that DCR.
+
+:::image type="content" source="media/data-collection-rule-view/data-collection-rules-view.png" alt-text="Screenshot of data collection rules view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/data-collection-rules-view.png":::
+
+### Resources view
+The **Resources** view lists all Azure resources that match the selected filter. The **Data collection rules** column represents the number of DCRs that are associated with each resource. Click this value to open the **Data collection rule** view for that resource .
+
+:::image type="content" source="media/data-collection-rule-view/resources-view.png" alt-text="Screenshot of resources view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view.png":::
+
 
 ## Next steps
 See the following articles for additional information on how to work with DCRs.
