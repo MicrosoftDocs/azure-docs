@@ -59,10 +59,7 @@ To use this API, you must create your Azure AI Content Safety resource in the su
 
 ### TPS limitations
 
-| Pricing Tier | Requests per 10 seconds |
-| :----------- | :--------------------------- |
-| F0           | 50                           |
-| S0           | 50                           |
+See [Query rates](/azure/ai-services/content-safety/overview#query-rates).
 
 If you need a higher rate, [contact us](mailto:contentsafetysupport@microsoft.com) to request it.
 
