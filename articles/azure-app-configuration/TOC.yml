@@ -86,6 +86,8 @@
           href: enable-dynamic-configuration-java-spring-app.md
         - name: Python
           href: enable-dynamic-configuration-python.md
+        - name: JavaScript
+          href: enable-dynamic-configuration-javascript.md
         - name: Azure Kubernetes Service
           href: enable-dynamic-configuration-azure-kubernetes-service.md
     - name: Enable dynamic configuration using push model

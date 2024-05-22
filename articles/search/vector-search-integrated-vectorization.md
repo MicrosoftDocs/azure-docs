@@ -102,8 +102,18 @@ Optionally, [create secondary indexes](index-projections-concept-intro.md) for a
 
 > [!TIP]
 > [Try the new **Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) in the Azure portal to explore integrated vectorization before writing any code.
->
-> Or, configure a Jupyter notebook to run the same workflow, cell by cell, to see how each step works.
+
+### Secure connections to vectorizers and models
+
+If your architecture requires private connections that bypass the internet, you can create a [shared private link connection](search-indexer-howto-access-private.md) to the embedding models used by skills during indexing and vectorizers at query time. 
+
+Shared private links only work for Azure-to-Azure connections. If you're connecting to OpenAI or another external model, the connection must be over the public internet.
+
+For vectorization scenarios, you would use:
+
++ `openai_account` for embedding models hosted on an Azure OpenAI resource.
+
++ `sites` for embedding models accessed as a [custom skill](cognitive-search-custom-skill-interface.md) or [custom vectorizer](vector-search-vectorizer-custom-web-api.md). The `sites` group ID is for App services and Azure functions, which you could use to host an embedding model that isn't one of the Azure OpenAI embedding models.
 
 ## Limitations
 
@@ -112,8 +122,6 @@ Make sure you know the [Azure OpenAI quotas and limits for embedding models](/az
 Azure OpenAI token-per-minute limits are per model, per subscription. Keep this in mind if you're using an embedding model for both query and indexing workloads. If possible, [follow best practices](/azure/ai-services/openai/quotas-limits#general-best-practices-to-remain-within-rate-limits). Have an embedding model for each workload, and try to deploy them in different subscriptions.
 
 On Azure AI Search, remember there are [service limits](search-limits-quotas-capacity.md) by tier and workloads. 
-
-If you need a [shared private link connection](search-indexer-howto-access-private.md) from a vectorizer, you must review the supportability of your setup and follow the respective instructions.
 
 Finally, the following features aren't currently supported: 
 
