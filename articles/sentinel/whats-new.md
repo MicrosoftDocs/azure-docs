@@ -20,7 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## May 2024
 
-- [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-availaible-ga)
+- [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-available-ga)
 - [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
 
 ### Incident and entity triggers in playbooks are now Generally Available (GA)
