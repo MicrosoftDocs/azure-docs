@@ -166,7 +166,7 @@ This section walks you through the configuration using the strongSwan CLI.
    : RSA ${USERNAME}Key.pem  # Replace ${USERNAME}Key.pem with the key filename inside /etc/ipsec.d/private directory. 
    ```
 
-1. Finally run the following commands:
+1. Run the following commands:
 
    ```cli
    sudo ipsec restart
