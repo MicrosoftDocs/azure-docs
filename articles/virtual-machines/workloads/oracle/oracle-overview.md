@@ -4,7 +4,7 @@ description: Learn about deploying Oracle Applications and solutions on Azure. R
 author: jjaygbay1
 tags: azure-resource-management
 ms.custom: linux-related-content
-ms.service: virtual-machines
+ms.service: oracle-on-azure
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article

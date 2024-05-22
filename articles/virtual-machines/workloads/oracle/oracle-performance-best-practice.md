@@ -3,7 +3,7 @@ title: Performance best practices for Oracle on Azure VMs
 description: Performance best practices for Oracle on Azure VMs - optimizing performance, dependability, and cost for your Oracle workloads on Azure VMs.
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machines
+ms.service: oracle-on-azure
 ms.subservice: oracle
 ms.collection: oracle
 ms.topic: article

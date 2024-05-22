@@ -6,7 +6,7 @@ summary: Oracle applications and solutions on Azure.
 metadata:
   title: Oracle on Azure
   description: Learn about solutions for Oracle workloads on Azure VMs
-  ms.service: virtual-machines
+  ms.service: oracle-on-azure
   ms.subservice: oracle
   ms.topic: landing-page
   ms.author: jjaygbay1
