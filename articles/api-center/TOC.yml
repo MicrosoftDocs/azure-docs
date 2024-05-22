@@ -77,6 +77,6 @@
 - name: Resources
   items:
       - name: Samples
-        href: https://learn.microsoft.com/samples/browse/?terms=%22azure%20api%20center%22
+        href: /samples/browse/?terms=%22azure%20api%20center%22
       - name: Azure updates
         href: https://azure.microsoft.com/updates/?query=%22API%20Center%22
