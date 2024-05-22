@@ -13,26 +13,22 @@ ms.topic: conceptual
 
 <!-- [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)] -->
 
-This article provides storage best practices and guidelines to optimize performance for your HPC workloads Azure Virtual Machines (VM). This is a starting point to help you choose the storage service that is best suited to your workload.
+This guide provides best practices and guidelines to a storage solution that is best suited to your high-performance computing (HPC) workload..
 
-There's typically a trade-off between optimizing for costs and optimizing for performance. This performance best practices series is focused on getting the *best* performance for HPC workloads on Azure VMs. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
-
-## Initial Considerations
-
-If you’re beginning from the ground up, consider reviewing [Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview) to choose a data store and [Choose an Azure storage service](/azure/architecture/guide/technology-choices/storage-options) or [Cloud storage on Azure](/azure/storage/common/storage-introduction) to evaluate storage service available.
+There's typically a trade-off between optimizing for costs and optimizing for performance. This workload best practices series is focused on getting the *best* storage solution for HPC workloads on Azure VMs. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
 ## Overview
 
-Storage for HPC workloads consists of core storage and in some cases, an accelerator. 
+Storage for HPC workloads consists of core storage and in some cases, an accelerator.  
 
-Core storage acts as the permanent home for your data. It is durable, available and secure, it contains rich data management features, and it is scalable and elastic. You have a few options for core storage.
+Core storage acts as the permanent home for your data. It contains rich data management features and is durable, available, scalable, elastic, and secure. An accelerator enhances core storage by providing high-performance data access. An accelerator can be provisioned on demand and gives your computational workload much faster access to data.
 
-An accelerator enhances core storage by providing higher performance for data access. It can be provisioned on-demand and provide higher performance when accessing data from your computational workload. 
-
-Start with the amount of data that you plan to store, and narrow down your choice of core storage (and, if applicable, the accelerator) based on CPU cores and file sizes:
- 
+:::image type="content" source="media/hpc/core-accelarator-model-for-hpc-storage.png" alt-text="Diagram depicting storage options for HPC workloads." lightbox="media/hpc/core-accelarator-model-for-hpc-storage.png":::
 
 ## At a glance
+
+Start with the amount of data that you plan to store. Then, consider the size of your files and number of CPU cores used by your workload. These factors help you to narrow down which core storage service best suits your workload and whether to use an accelerator to enhance performance.
+
 
 |Configuration  |CPU cores  |Sizes of files  |Core Storage Recommendation  |Accelarator Reccomendation  |
 |---------|---------|---------|---------|---------|
