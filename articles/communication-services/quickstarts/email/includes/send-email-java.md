@@ -104,7 +104,7 @@ public class App
 ### Creating the email client with authentication
 There are a few different options available for authenticating an email client.
 
-#### [Connection String](#tab/connection-string)
+## [Connection String](#tab/connection-string)
 
 #### Sync Client
 
@@ -138,7 +138,7 @@ EmailAsyncClient emailClient = new EmailClientBuilder()
 
 <a name='azure-active-directory'></a>
 
-#### [Microsoft Entra ID](#tab/entra-id)
+## [Microsoft Entra ID](#tab/entra-id)
 
 #### Sync Client
 
@@ -172,7 +172,7 @@ EmailAsyncClient emailClient = new EmailClientBuilder()
 
 #### [AzureKeyCredential](#tab/azure-key-credential)
 
-#### Sync Client
+## Sync Client
 Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
 ```java
@@ -184,7 +184,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### Async Client
+## Async Client
 
 Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
@@ -265,8 +265,6 @@ catch (Exception exception)
 ```
 
 ## [Async Client](#tab/async-client)
-
-## Basic email sending 
 
 Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. You will want to set up the subscriber in a seperate process to take advantage of the asynchronous functionality. Note that the initial request to send an email will not be sent until a subscriber is set up.
 
