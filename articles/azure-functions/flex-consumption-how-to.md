@@ -58,7 +58,7 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 ## Create a Flex Consumption app
 
-This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/README.md#iac-samples-overview).
+This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java" 
 You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-using-maven).   
 ::: zone-end  
@@ -270,8 +270,8 @@ You can't currently enable virtual networking when you use Visual Studio Code to
 
 For end-to-end examples of how to create apps in Flex Consumption with virtual network integration see these resources:
 
-+ [Flex Consumption: HTTP to Event Hubs using VNET Integration](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/E2E/HTTP-VNET-EH/README.md)
-+ [Flex Consumption: triggered from Service Bus using VNET Integration](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/E2E/SB-VNET/README.md)
++ [Flex Consumption: HTTP to Event Hubs using VNET Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/HTTP-VNET-EH/README.md)
++ [Flex Consumption: triggered from Service Bus using VNET Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/README.md)
 
 To modify or delete virtual network integration in an existing app:
 
