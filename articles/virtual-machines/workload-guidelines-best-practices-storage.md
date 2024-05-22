@@ -25,6 +25,10 @@ Core storage acts as the permanent home for your data. It contains rich data man
 
 :::image type="content" source="media/hpc/core-accelarator-model-for-hpc-storage.png" alt-text="Diagram depicting storage options for HPC workloads." lightbox="media/hpc/core-accelarator-model-for-hpc-storage.png":::
 
+## Initial consideration
+
+If you are starting from scratch, see [Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview) to choose a data store and [Choose an Azure storage service](/azure/architecture/guide/technology-choices/storage-options) or [Introduction to Azure Storage](/azure/storage/common/storage-introduction) to get an idea of your storage service options. 
+
 ## At a glance
 
 Start with the amount of data that you plan to store. Then, consider the size of your files and number of CPU cores used by your workload. These factors help you to narrow down which core storage service best suits your workload and whether to use an accelerator to enhance performance.
