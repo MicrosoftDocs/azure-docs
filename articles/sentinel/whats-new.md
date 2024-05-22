@@ -47,7 +47,6 @@ For more information, see:
 
 ## April 2024
 
-- 
 - [Unified security operations platform in the Microsoft Defender portal (preview)](#unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
 - [Microsoft Sentinel now generally available (GA) in Azure China 21Vianet](#microsoft-sentinel-now-generally-available-ga-in-azure-china-21vianet)
 - [Two anomaly detections discontinued](#two-anomaly-detections-discontinued)
