@@ -408,6 +408,18 @@ Currently not implemented.
 > [!WARNING]
 > When deleting resource groups with the action-on-unmanage switch set to `DeleteAll`, the managed resource groups and all the resources contained within them will also be deleted.
 
+### Handle the stack-out-of-sync error
+
+When updating a deployment stack, you might encounter the following stack-out-of-sync error, indicating the stack resource list is not correctly synchronized. 
+
+```error
+The deployment stack '{0}' may not have an accurate list of managed resources. To ensure no resources are accidentally deleted, please check that the managed resource list does not have any additional values. If there is any uncertainty, we recommend redeploying the stack with the same template and parameters as the current iteration. To bypass this warning, please specify the 'BypassStackOutOfSyncError' flag.
+```
+
+The `BypassStackOutOfSyncError` swith in Azure PowerShell ( or `bypass-stack-out-of-sync-error` in Azure CLI) should only be used after thoroughly review the list of resources in the stack before re-running the command. This switch should never be used by default.
+
+To obtain an accurate list of resources in a stack, you can redeploy the currently deployed template with the same parameters.
+
 ## Delete deployment stacks
 
 # [PowerShell](#tab/azure-powershell)
