@@ -75,18 +75,15 @@ To copy data by using the data copy service, you need to create a job:
 
 5. A job with the specified settings is created. You can pause, resume, cancel, or restart a job. Select the check box next to the job name, and then select the appropriate button.
 
-    ![Manage a job on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/select-job.png)
-    :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+    :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/select-job.png" alt-text="Screenshot of the Copy Data page highlighting the location of the check box used to select a copy Job." lightbox="media/data-box-deploy-copy-data-via-copy-service/select-job-lrg.png":::
     
     - You can pause a job if it's affecting the NAS device's resources during peak hours:
 
-        ![Pause a job on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/pause-job.png)
-        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/pause-job.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Pause button." lightbox="media/data-box-deploy-copy-data-via-copy-service/pause-job-lrg.png":::
 
-        You can either cancel or resume the job during off-peak hours:
+        You can resume the job during off-peak hours:
 
-        ![Resume a job on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/resume-job.png)
-        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/resume-job.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Resume button." lightbox="media/data-box-deploy-copy-data-via-copy-service/resume-job-lrg.png":::
 
     - You can cancel a job at any time:
 
@@ -95,13 +92,11 @@ To copy data by using the data copy service, you need to create a job:
         
         When you cancel a job, a confirmation is required:
 
-        ![Confirm job cancellation](media/data-box-deploy-copy-data-via-copy-service/confirm-cancel-job.png)
-        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/confirm-cancel-job.png" alt-text="Screenshot of the 'Confirm cancellation' dialog message.":::
 
         Canceling a copy job doesn't delete any data already copied to the device during a job. To delete data already copied to your Data Box device, reset the device.
 
-        ![Reset a device](media/data-box-deploy-copy-data-via-copy-service/reset-device.png)
-        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/reset-device.png" alt-text="Screenshot of the Reset Device page, used to delete all data from the device.":::
 
         >[!NOTE]
         > If you cancel or pause a job, large files might be only partially copied. These partially copied files are uploaded in the same state to Azure. When you cancel or pause a job, make sure that your files have been properly copied. To validate the files, look at the SMB shares or download the BOM file.
