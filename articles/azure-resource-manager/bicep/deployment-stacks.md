@@ -33,7 +33,7 @@ Deployment stacks provide the following benefits:
 
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
 - Deny assignments don't support tags.
-- Deny assignments are not supported at the management group scope. However, they are supported in a management group stack if the deployment is at the subscription scope.
+- Deny assignments are not supported at the management group scope. However, they are supported in a management group stack if the deployment is pointed at the subscription scope.
 - Deployment stacks cannot delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
 
 ### Known issues
