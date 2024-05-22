@@ -81,31 +81,31 @@ The column **Metrics to New Relic** indicates whether New Relic is receiving met
 
 While monitoring resources in a subscription is straightforward, observing multiple subscriptions, each with their own set of resources becomes tricky. Instead, you can monitor multiple subscriptions by linking them to a single New Relic resource that is tied to a New Relic organization. This provides a single pane view for all resources across multiple subscriptions.
 
-To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **New Relic new relic organization configurations** section of the Resource menu.
+To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **New Relic New Relic organization configurations** section of the Resource menu.
 
 <!-- :::image type="content" source="media/manage/new-relic-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu."::: -->
 
-From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have _Owner_ role assigned to and any new relic resource created in those subscriptions that is already linked to the same new relic organization as the current resource.
+From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have _Owner_ role assigned to and any New Relic resource created in those subscriptions that is already linked to the same New Relic organization as the current resource.
 
-If the subscription you want to monitor has a resource already linked to the same new relic org, we recommended that you delete the new relic resources to avoid shipping duplicate data, and incurring double the charges.
+If the subscription you want to monitor has a resource already linked to the same New Relic org, we recommended that you delete the New Relic resources to avoid shipping duplicate data, and incurring double the charges.
 
-Select the subscriptions you want to monitor through the new relic resource and select **Add**.
+Select the subscriptions you want to monitor through the New Relic resource and select **Add**.
 
 <!-- :::image type="content" source="media/manage/new-relic-add-subscription.png" alt-text="Screenshot showing subscriptions to add."::: -->
 
 If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. You might see an intermediate status of _In Progress_ while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
-<!-- :::image type="content" source="media/manage/new relic-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions."::: -->
+<!-- :::image type="content" source="media/manage/new-relic-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions."::: -->
 
-The set of tag rules for metrics and logs defined for the new relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the new relic resource. To reconfigure the rules, check [Reconfigure rules for metrics and logs](#reconfigure-rules-for-metrics-and-logs).
+The set of tag rules for metrics and logs defined for the New Relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the New Relic resource. To reconfigure the rules, check [Reconfigure rules for metrics and logs](#reconfigure-rules-for-metrics-and-logs).
 
 ## Connected New Relic resources
 
-To access all new relic resources and deployments you have created using the Azure or new relic portal experience, go to the **Connected new relic resources** tab in any of your Azure new relic resources.
+To access all New Relic resources and deployments you have created using the Azure or New Relic portal experience, go to the **Connected New Relic resources** tab in any of your Azure New Relic resources.
 
-<!-- :::image type="content" source="media/manage/connected-new relic-resources.png" alt-text="Screenshot showing Connected new relic resources selected in the Resource menu."::: -->
+<!-- :::image type="content" source="media/manage/connected-new-relic-resources.png" alt-text="Screenshot showing Connected New Relic resources selected in the Resource menu."::: -->
 
-You can easily manage the corresponding new relic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
+You can easily manage the corresponding New Relic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
 
 ## Monitor virtual machines by using the New Relic agent
 
