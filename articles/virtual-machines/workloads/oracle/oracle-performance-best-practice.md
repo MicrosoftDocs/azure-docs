@@ -4,7 +4,6 @@ description: Performance best practices for Oracle on Azure VMs - optimizing per
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: oracle-on-azure
-ms.subservice: oracle
 ms.collection: oracle
 ms.topic: article
 ms.date: 06/13/2023

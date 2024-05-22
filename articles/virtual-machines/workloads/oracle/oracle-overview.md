@@ -5,7 +5,6 @@ author: jjaygbay1
 tags: azure-resource-management
 ms.custom: linux-related-content
 ms.service: oracle-on-azure
-ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux

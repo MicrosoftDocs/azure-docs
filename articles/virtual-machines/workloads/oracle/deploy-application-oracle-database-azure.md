@@ -4,7 +4,6 @@ description: Learn about architectures for Oracle applications with database on 
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: oracle-on-azure
-ms.subservice: oracle
 ms.collection: oracle
 ms.topic: article
 ms.date: 08/23/2023
