@@ -142,6 +142,22 @@ New data sources are issued as preview features. [Sign up](https://aka.ms/azure-
 
 ---
 
+### Fabric OneLake files
+
+by [Azure AI Search](search-how-to-index-onelake-files.md)
+
+Connect to a OneLake lakehouse to extract supported files content from a hierarchy of directories and nested subdirectories.
+
+[More details](search-howto-index-cosmosdb.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/fabric_onelake_logo.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+
 ### Azure Cosmos DB for Apache Gremlin
 
 by [Azure AI Search](search-what-is-azure-search.md)
