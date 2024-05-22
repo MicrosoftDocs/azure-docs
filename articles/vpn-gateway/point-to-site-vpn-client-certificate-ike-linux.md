@@ -20,14 +20,11 @@ Before beginning, verify that you are on the correct article. The following tabl
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
-> [!IMPORTANT]
-> [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+## Client certificates
 
-## Generate certificates
+For certificate authentication, a client certificate must be installed on each client computer. The client certificate must be exported with the private key and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
-For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
-
-For information about working with certificates, see [Point-to site: Generate certificates](vpn-gateway-certificates-point-to-site-linux.md).
+There are multiple formats available for certificates. The format you'll need depends on the VPN client that you want to use. For steps to generate certificates compatible with strongSwan, see [Generate certificates - strongSwan](vpn-gateway-certificates-point-to-site-linux.md).
 
 ## Generate VPN client configuration files
 
@@ -43,11 +40,11 @@ Next, configure the VPN client.
 
 [!INCLUDE [Install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-## Install certificates
+## Locate client certificates
 
-A client certificate is required for authentication when using the Azure certificate authentication type. A client certificate must be installed on each client computer. The exported client certificate must be exported with the private key, and must contain all certificates in the certification path. Make sure that the client computer has the appropriate client certificate installed before proceeding to the next section.
+Client certificates are required for authentication the P2S VPN gateway configuration specifies the Azure certificate authentication type. Typically, you generate and export a client certificate. When you export a client certificate, it must be exported with the private key and must contain all certificates in the certification path.
 
-For information about client certificates, see [Generate certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md).
+A client certificate must be installed on each client computer in order to connect to Azure. There are a multiple ways to generate and export a client certificate, depending on the format that the VPN client requires. For information about client certificates, see [Generate certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
 ## View VPN client profile files
 
@@ -63,7 +60,9 @@ The Generic folder contains the following files:
 * **VpnSettings.xml**, which contains important settings like server address and tunnel type.
 * **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN gateway during P2S connection setup.
 
-After viewing the files, continue with the steps that you want to use:
+## Configure the VPN client
+
+After viewing the VPN client profile files, continue with the steps that you want to use:
 
 * [GUI steps](#gui)
 * [CLI steps](#cli)
