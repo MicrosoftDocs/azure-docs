@@ -400,7 +400,7 @@ The **Remove** action :::image type="icon" source="media/app-map/remove-filter.p
 
 You can change the configuration for an applied filter by selecting the filter pill. As you change the filter settings, **Application map** shows a preview of the map view with the new filter logic. If you decide not to apply the changes, you can use the **Cancel** option to the current map view and filters.
 
-:::image type="content" source="media/app-map/preview-filter-changes.png" alt-text="Screenshot of the preview of the map view that shows the updated filter settings." lightbox="media/app-map/preview-filter-changes-large.png":::
+:::image type="content" source="media/app-map/preview-filter-change.png" alt-text="Screenshot of the preview of the map view that shows the updated filter settings." lightbox="media/app-map/preview-filter-change-large.png":::
 
 ## Explore and save filters
 
@@ -438,13 +438,13 @@ Reveal high-traffic connectors that also have a high average call duration time.
 
 Locate components (nodes and connectors) in your application by name according to your implementation of the component `roleName` property naming convention. You can use this approach to see the specific portion of a distributed application. The filter searches for **Nodes, sources and targets** over the last 24 hours that contain the specified value. In this example, the search value is "west": 
 
-:::image type="content" source="media/app-map/show-components-with-name.png" alt-text="Screenshot of filters to show nodes and connectors over the last 24 hours with properties that include the term "west.":::
+:::image type="content" source="media/app-map/show-components-with-name.png" alt-text="Screenshot of filters to show nodes and connectors over the last 24 hours with properties that include the term west.":::
 
 ### Remove noisy components
 
 Define filters to hide noisy components by removing them from the map. Sometimes application components can have active dependent nodes that produce data that's not essential for the map view. In this example, the filter searches for **Nodes, sources and targets** over the last 24 hours that don't contain the specified value "retail": 
 
-:::image type="content" source="media/app-map/show-components-without-name.png" alt-text="Screenshot of filters to show nodes and connectors over the last 24 hours with properties that don't include the term "retail.":::
+:::image type="content" source="media/app-map/show-components-without-name.png" alt-text="Screenshot of filters to show nodes and connectors over the last 24 hours with properties that don't include the term retail.":::
 
 ### Look for error-prone connectors
 
