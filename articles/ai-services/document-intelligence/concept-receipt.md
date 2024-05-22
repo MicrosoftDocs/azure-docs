@@ -228,6 +228,24 @@ See how Document Intelligence extracts data, including time and date of transact
  Document Intelligence v3.0 and later versions introduce several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types.
 
  Document Intelligence v4.0 and later versions introduces support for currency for all price-related fields for thermal and hotel receipts.
+ 
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model/sample_analyze_receipts.py)
+
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_receipts.py)
+
+::: moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
 
 ### Receipt
 
