@@ -5,11 +5,11 @@ description: Learn how to connect to a VNet via P2S using multiple authenticatio
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 05/22/2024
 ms.author: cherylmc
 
 ---
-# Configure a point-to-site VPN connection to a VNet using multiple authentication types: Azure portal
+# Configure a P2S VPN using multiple authentication types
 
 This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure virutal network (VNet). Point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-site connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md).
 
