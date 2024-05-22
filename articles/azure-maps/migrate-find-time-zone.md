@@ -30,7 +30,7 @@ This article explains how to migrate from the Bing Maps [Find Time Zone] API to 
 
 ## Security and authentication
 
-Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], or [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Microsoft Azure Maps] and the [Security section] in the Azure Maps Get Time Zone By Coordinates documentation.
+Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], or [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps] and the [Security section] in the Azure Maps Get Time Zone By Coordinates documentation.
 
 ## Request parameters
 
@@ -200,7 +200,7 @@ Support
 - [Microsoft Q&A Forum]
 
 [Authentication with Azure Maps]: azure-maps-authentication.md
-[Authentication with Microsoft Azure Maps]: azure-maps-authentication.md
+[Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps service geographic scope]: geographic-scope.md

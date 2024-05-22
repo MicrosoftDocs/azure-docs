@@ -26,7 +26,7 @@ Covered in this article:
 
 Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone info, weather, and custom indoor maps into your web, mobile and server-side solutions. Azure Maps is an Azure service, so it inherently includes many of the Azure security and compliance promises that are important to enterprise customers. Azure Maps includes many of the same features as Bing Maps for Enterprise, along with more functionality, like:
 
-- Multiple service authentication method options. For more information on security and authentication in Azure Maps, See [Authentication with Microsoft Azure Maps].
+- Multiple service authentication method options. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps].
 - Data residency compliance support. For more information, see [Azure Maps service geographic scope].
 - Azure regulatory compliance standards (GDPR, ISO, FedRAMP, HIPAA, etc.). For more information, see [Microsoft Compliance].
 - Support for programmatically creating and managing Azure Maps accounts (resources). For more information, see [Create your Azure Maps account using an ARM template].
@@ -65,7 +65,7 @@ With Bing Maps for Enterprise, the [Bing Maps Account Center] is where you manag
 
 ### Security and authentication
 
-Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple authentication methods, such as a [Shared Key], [Microsoft Entra ID], or [Shared access signature token authentication]. For more information on security and authentication in Azure Maps, See [Authentication with Microsoft Azure Maps].
+Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple authentication methods, such as a [Shared Key], [Microsoft Entra ID], or [Shared access signature token authentication]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps].
 
 ## Licensing and billing considerations
 
@@ -163,7 +163,7 @@ More Azure Maps resources:
 
 Developers can get migration support through the [Azure Maps Q&A] or through one of the many [Azure support options].
 
-[Authentication with Microsoft Azure Maps]: azure-maps-authentication.md
+[Authentication with Azure Maps]: azure-maps-authentication.md
 [Authentication best practices]: authentication-best-practices.md
 [Autosuggest]: /bingmaps/rest-services/autosuggest
 [Azure Licensing]: https://azure.microsoft.com/pricing/purchase-options/azure-account
