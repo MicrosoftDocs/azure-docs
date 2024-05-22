@@ -3,10 +3,9 @@ title: Azure VM Disaster Recovery - High Churn support
 description: Describes how to protect your Azure VMs having high churning workloads.
 services: site-recovery
 author: ankitaduttaMSFT
-manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/29/2024
+ms.date: 05/22/2024
 ms.author: ankitadutta
 ---
 
@@ -21,8 +20,7 @@ Azure Site Recovery supports churn (data change rate) up to 100 MB/s per VM. You
 - Source disks must be Managed Disks.
 
 > [!NOTE]
-> This feature is available in all [public regions](./azure-to-azure-support-matrix.md#region-support) where Azure Site Recovery is supported and premium block blobs are available. However, this feature is not yet available in any Government cloud regions.
-> When using High Churn with any other regions outside the supported regions, replication and/or reprotection may fail.
+> This feature is available in all [regions](./azure-to-azure-support-matrix.md#region-support) where Azure Site Recovery is supported and [Premium Blob storage](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all&rar=true) accounts are available. When using High Churn with any other regions outside the supported regions, replication and/or reprotection may fail.
 
 ## Data change limits
 
