@@ -19,6 +19,7 @@ ms.custom: include file, linux-related-content
    sudo apt-get -y install network-manager-openvpn
    sudo service network-manager restart
    ```
+
 1. Next, go to the VPN client profile folder and unzip to view the files.
 
 1. Export the P2S client certificate you created and uploaded to your P2S configuration on the gateway. For steps, see [VPN Gateway point-to-site](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
@@ -62,11 +63,13 @@ ms.custom: include file, linux-related-content
      ```
      sudo openvpn --config <name and path of your VPN profile file>&
      ```
+
    - To disconnect using command line, type the following command:
 
      ```
      sudo pkill openvpn
      ```
+
    - To connect using the GUI, go to system settings.
 
 1. Select **+** to add a new VPN connection.
@@ -76,7 +79,5 @@ ms.custom: include file, linux-related-content
 1. Browse to the profile file and double-click or pick **Open**.
 
 1. Select **Add** on the **Add VPN** window.
-  
-   :::image type="content" source="./media/vpn-gateway-vwan-config-openvpn-linux/import.png" alt-text="Screenshot shows Import from file on the Add VPN page." lightbox="./media/vpn-gateway-vwan-config-openvpn-linux/import.png":::
 
 1. You can connect by turning the VPN **ON** on the **Network Settings** page, or under the network icon in the system tray.
