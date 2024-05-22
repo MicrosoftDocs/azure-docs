@@ -282,6 +282,9 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 | `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 4,096 | Sep 2021 |
 | `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
+| `gpt-4` (0613) <sup>**1**<sup> | North Central US <br> Sweden Central | 8192 | Sep 2021 |
+
+**<sup>1<sup>** GPT-4 fine-tuning is currently in public preview. See our [GPT-4 fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
 
 ### Whisper models
 
@@ -300,19 +303,20 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
 
-| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | 
-|-----|---|---|---|---|---|
-| Australia East | ✅ | ✅ | ✅ |✅ | |
-| East US  | ✅ | | | | ✅ |
-| East US 2 | ✅ |  | ✅ |✅ | |
-| France Central  | ✅ | ✅ |✅ |✅ |  |
-| Norway East | |  | | ✅ |  |
-| Sweden Central  | ✅ |✅ |✅ |✅| |
-| UK South  | ✅ |  ✅ | ✅ |✅ | |
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` |
+|-----|---|---|---|---|---|---|
+| Australia East | ✅ | ✅ | | ✅ |✅ | |
+| East US  | ✅ | | | | | ✅ |
+| East US 2 | ✅ |  | ✅ | ✅ |✅ | |
+| France Central  | ✅ | ✅ | | ✅ |✅ |  |
+| India South |  | ✅ | | | ✅ | |
+| Japan East | ✅ |  | | | | | 
+| Norway East | |  | | | ✅ |  |
+| Sweden Central  | ✅ |✅ | ✅ |✅ |✅| |
+| UK South | ✅  | ✅ | | | ✅ | ✅ |  
+| West US |  | ✅ | | | ✅ | | 
+| West US 3 |  |  | | |✅ | | 
 
-### Early access playground
-
-The GPT-4o model is now [GA and available for regular model deployment](#gpt-4o-and-gpt-4-turbo).
 
 ## Next steps
 

@@ -17,7 +17,7 @@ ms.custom: references_regions, build-2024
 
 [!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
-In this article, you learn how to use Azure AI Studio to deploy the TimeGEN-1 model as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the TimeGEN-1 model as a serverless API with pay-as-you-go billing.
 You filter on the Nixtla collection to browse the TimeGEN-1 model in the [Model Catalog](model-catalog.md).
 
 The Nixtla TimeGEN-1 is a generative, pretrained forecasting and anomaly detection model for time series data. TimeGEN-1 can produce accurate forecasts for new time series without training, using only historical values and exogenous covariates as inputs.
@@ -26,15 +26,23 @@ The Nixtla TimeGEN-1 is a generative, pretrained forecasting and anomaly detecti
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-You can deploy TimeGEN-1 as a service with pay-as-you-go. Nixtla offers TimeGEN-1 through the Microsoft Azure Marketplace. Nixtla can change or update the terms of use and pricing of this model.
+You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla offers TimeGEN-1 through the Microsoft Azure Marketplace. Nixtla can change or update the terms of use and pricing of this model.
 
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions don't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for TimeGEN-1 is only available with hubs created in these regions:
 
-  > [!IMPORTANT]
-  > The pay-as-you-go model deployment offering for TimeGEN1 is only available with hubs created in the **East US 2** or **Sweden Central** regions.
+    > [!div class="checklist"]
+    > * East US
+    > * East US 2
+    > * North Central US
+    > * South Central US
+    > * West US
+    > * West US 3
+    > * Sweden Central
+
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 
 - An [Azure AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, visit [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -50,34 +58,29 @@ These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
     1. From the left sidebar of your project, select **Components** > **Deployments**.
     1. Select **+ Create deployment**.
-    1. Search for and select **Mistral-large**. to open the Model's Details page.
+    1. Search for and select **TimeGEN-1**. to open the Model's Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
-1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model, your project must be in the **East US 2** or **Sweden Central**  region.
+1. Select the project in which you want to deploy your model. To deploy the TimeGEN-1 model, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
 1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
 1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
 1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you,  there's a **Continue to deploy** option to select.
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Select **Open in playground** to start interacting with the model.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-service) section.
+1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-serverless-api) section.
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
-To learn about billing for the TimeGEN-1 model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for the TimeGEN-1 family of models deployed as a service](#cost-and-quota-considerations-for-timegen-1-deployed-as-a-service).
+To learn about billing for the TimeGEN-1 model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for the TimeGEN-1 family of models deployed as a service](#cost-and-quota-considerations-for-timegen-1-deployed-as-a-serverless-api).
 
 ### Consume the TimeGEN-1 model as a service
 
-You can consume TimeGEN-1 models by using the chat API.
+You can consume TimeGEN-1 models by using the forecast API.
 
 1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
 1. Find and select the deployment you created.
 
 1. Copy the **Target** URL and the **Key** value.
-
-1. Make an API request using the [`/v1/chat/completions`](#chat-api) API using [`<target_url>/v1/chat/completions`](#chat-api).
-
-For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-service) section.
 
 1. Try the samples here:
 
@@ -86,21 +89,21 @@ For more information on using the APIs, see the [reference](#reference-for-timeg
 |Quick Start Forecast|The Nixtla TimeGEN1 is a generative, pretrained forecasting model for time series data. TimeGEN1 can produce accurate forecasts for new time series without training, using only historical values as inputs.|[Quick Start Forecast](https://aka.ms/quick-start-forecasting)|
 |Fine-tuning|Fine-tuning is a powerful process to utilize Time-GEN1 more effectively. Foundation models - for example, TimeGEN1 - are pretrained on vast amounts of data, to capture wide-ranging features and patterns. These models can then be specialized for specific contexts or domains. Fine-tuning refines the model parameters to forecast a new task, allowing it to tailor its vast pre-existing knowledge towards the requirements of the new data. In this way, fine-tuning serves as a crucial bridge, linking the broad TimeGEN1 capabilities to the specifics of your tasks. Concretely, the fine-tuning process involves performing some training iterations on your input data, to minimize the forecasting error. The forecasts are produced with the updated model. To control the number of iterations, use the finetune_steps argument of the forecast method.|[Fine-tuning](https://aka.ms/finetuning-TimeGEN1)|
 |Anomaly Detection|Anomaly detection in time series data is important across various industries - for example, finance and healthcare. It involves monitoring ordered data points to spot irregularities that might signal issues or threats. Organizations can then swiftly act to prevent, improve, or safeguard their operations.|[Anomaly Detection](https://aka.ms/anomaly-detection)|
-|Exogenous Variables|Exogenous variables are external factors that can influence forecasts. These variables take on one of a limited, fixed number of possible values, and induce a grouping of your observations. For example, if you’re forecasting daily product demand for a retailer, you could benefit from an event variable that may tell you what kind of event takes place on a given day, for example ‘None’, Sporting’, or ‘Cultural’. Or you might also include external factors such as weather.|[Exogenous Variables](https://aka.ms/exogenous-variables)|
+|Exogenous Variables|Exogenous variables are external factors that can influence forecasts. These variables take on one of a limited, fixed number of possible values, and induce a grouping of your observations. For example, if you're forecasting daily product demand for a retailer, you could benefit from an event variable that may tell you what kind of event takes place on a given day, for example 'None', Sporting', or 'Cultural'. Or you might also include external factors such as weather.|[Exogenous Variables](https://aka.ms/exogenous-variables)|
 |Demand Forecasting|Demand forecasting involves application of historical data and other analytical information, to build models that help predict future estimates of customer demand, for specific products, over a specific time period. It helps shape product road map, inventory production, and inventory allocation, among other things.|[Demand Forecasting](https://aka.ms/demand-forecasting-with-TimeGEN1)|
 
-For more information about use of the APIs, visit the [reference](#reference-for-timegen-1-deployed-as-a-service) section.
+For more information about use of the APIs, visit the [reference](#reference-for-timegen-1-deployed-as-a-serverless-api) section.
 
-### Reference for TimeGEN-1 deployed as a service
+### Reference for TimeGEN-1 deployed as a serverless API
 
-#### Chat API
+#### Forecast API
 
-Use the method `POST` to send the request to the `/v1/chat/completions` route:
+Use the method `POST` to send the request to the `/forecast_multi_series` route:
 
 __Request__
 
 ```rest
-POST /v1/chat/completions HTTP/1.1
+POST /forecast_multi_series HTTP/1.1
 Host: <DEPLOYMENT_URI>
 Authorization: Bearer <TOKEN>
 Content-type: application/json
@@ -233,19 +236,15 @@ This JSON sample is an example response:
 
 ## Cost and quotas
 
-### Cost and quota considerations for TimeGEN-1 deployed as a service
+### Cost and quota considerations for TimeGEN-1 deployed as a serverless API
 
-Nixtla offers TimeGEN-1 deployed as a service through the Azure Marketplace. TimeGEN-1 is integrated with Azure AI Studio for use. You can find more information about Azure Marketplace pricing when you deploy the model.
+Nixtla offers TimeGEN-1 deployed as a serverless API through the Azure Marketplace. TimeGEN-1 is integrated with Azure AI Studio for use. You can find more information about Azure Marketplace pricing when you deploy the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
 For more information about how to track costs, visit [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits are insufficient for your scenarios.
-
-## Content filtering
-
-[Azure AI Content Safety](../../ai-services/content-safety/overview.md) protects models deployed as a service with pay-as-you-go. With Azure AI content safety, both the prompt and completion pass through a set of classification models whose goal is to detect and prevent the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content, in both input prompts and output completions. For more information, visit [content filtering](../concepts/content-filtering.md).
 
 ## Related content
 
