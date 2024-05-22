@@ -472,7 +472,7 @@ items:
     - name: Configure Container Insights (logs)
       items:
       - name: Collect and filter logs
-        href: containers/container-insights-data-collection-filter.md
+        href: containers/container-insights-data-collection-configure.md
       - name: Configure data collection
         items:
         - name: Configure with ConfigMap
@@ -552,6 +552,8 @@ items:
       - name: Troubleshoot remote-write
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-troubleshooting.md
+    - name: Analyze and reduce costs
+      href: containers/container-insights-cost.md
     - name: Private Link
       items:
       - name: Private link for Container Insights          
@@ -591,8 +593,6 @@ items:
       - name: Log alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
-    - name: Manage cost and usage
-      href: containers/container-insights-cost.md
     - name: Disable monitoring
       href: containers/kubernetes-monitoring-disable.md      
     - name: Troubleshooting
