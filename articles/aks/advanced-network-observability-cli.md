@@ -602,7 +602,7 @@ If you don't plan on using this application, delete the other resources you crea
 
 In this how-to article, you learned how to install and enable Advanced Network Observability for your AKS cluster.
 
-* For more information about Advanced Network Observability for Azure Kubernetes Service (AKS), see [Advanced Network Observability for Azure Kubernetes Service (AKS)](advanced-container-networking-services-overview.md).
+* - For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What id Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
 
 * To create an Advanced Network Observability - BYO Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana](advanced-network-observability-byo-cli.md).
 
