@@ -31,7 +31,7 @@ Azure AI Search has three basic network traffic patterns:
 
 Inbound requests that target a search service endpoint include:
 
-+ Create, read, update or delete objects on the search service
++ Create, read, update, or delete objects on the search service
 + Load an index with search documents
 + Query an index
 + Trigger indexer or skillset execution
@@ -68,7 +68,7 @@ The following list is a full enumeration of the outbound requests for which you 
 | Custom skills | Connect to Azure functions, Azure web apps, or other apps running external code that's hosted off-service. The request for external processing is sent during skillset execution. |
 | Indexers and [integrated vectorization](vector-search-integrated-vectorization.md) | Connect to Azure OpenAI and a deployed embedding model, or it goes through a custom skill to connect to an embedding model that you provide. The search service sends text to embedding models for vectorization during indexing. |
 | Vectorizers | Connect to Azure OpenAI or other embedding models at query time to [convert user text strings to vectors](vector-search-how-to-configure-vectorizer.md) for vector search. |
-| Search service | Connect to Azure Key Vault for [customer-managed encyrption keys](search-security-manage-encryption-keys.md), used to encrypt and decrypt sensitive data. |
+| Search service | Connect to Azure Key Vault for [customer-managed encryption keys](search-security-manage-encryption-keys.md) used to encrypt and decrypt sensitive data. |
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or [a managed identity](search-howto-managed-identities-data-sources.md) if you're using Microsoft Entra ID and role-based access.
 
@@ -142,7 +142,7 @@ Content management refers to the objects created and hosted on a search service.
 
 + For role-based authorization, [use Azure role assignments](search-security-rbac.md) to establish read-write access to operations.
 
-+ For key-based authorization, [an API key](search-security-api-keys.md) and a qualified endpoint determine access. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create or update request) and the type of key (admin or query) authorize access to content and operations.
++ For key-based authorization, [an API key](search-security-api-keys.md) and a qualified endpoint determine access. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create request) and the type of key (admin or query) authorize access to content and operations.
 
 ### Restricting access to indexes
 
