@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge system requirements
 description: Learn about system requirements for Azure Arc resource bridge.
 ms.topic: conceptual
-ms.date: 02/09/2024
+ms.date: 05/22/2024
 ---
 
 # Azure Arc resource bridge system requirements
@@ -68,7 +68,7 @@ Management machine requirements:
 
 - communication over port 443 to the private cloud management console (ex: VMware vCenter machine)
 
-- Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
+- Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity-requirements) for deployment.
 - Internet access
   
 ## Appliance VM IP address requirements
@@ -81,7 +81,7 @@ Appliance VM IP address requirements:
 
 - Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
 
-- Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
+- Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity-requirements) enabled in proxy/firewall.
 - Static IP assigned and within the IP address prefix.
 
 - Internal and external DNS resolution.
@@ -97,7 +97,7 @@ Reserved appliance VM IP requirements:
 
 - Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
 
-- Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
+- Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity-requirements) enabled in proxy/firewall.
 
 - Static IP assigned and within the IP address prefix.
 
@@ -107,7 +107,7 @@ Reserved appliance VM IP requirements:
 
 ## Control plane IP requirements
 
-The appliance VM hosts a management Kubernetes cluster with a control plane that requires a single, static IP address. This IP is assigned from the `controlplaneendpoint` parameter in the `createconfig` command or equivalent configuration files creation command. 
+The appliance VM hosts a management Kubernetes cluster with a control plane that requires a single, static IP address. This IP is assigned from the `controlplaneendpoint` parameter in the `createconfig` command or equivalent configuration files creation command.
 
 Control plane IP requirements:
 

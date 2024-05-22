@@ -1,9 +1,9 @@
 ---
 ms.topic: include
-ms.date: 03/19/2024
+ms.date: 05/22/2024
 ---
 
-### Outbound connectivity
+### Outbound connectivity requirements
 
 The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
 
@@ -42,6 +42,16 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Azure Arc Agent| 443 | `*.dp.kubernetesconfiguration.azure.com`| Management machine needs outbound connection. | Dataplane used for Arc agent.|
 |Python package| 443 | `pypi.org`, `*.pypi.org`| Management machine needs outbound connection. | Validate Kubernetes and Python versions.|
 |Azure CLI| 443 | `pythonhosted.org`, `*.pythonhosted.org`| Management machine needs outbound connection. | Python packages for Azure CLI installation.|
-|SSH| 22 | `Arc resource bridge appliance VM IPs` | Management machine needs outbound connection. | Used for troubleshooting the appliance VM.|
-|Kubernetes API server| 6443 | `Arc resource bridge appliance VM IPs` | Management machine needs outbound connection. | Management of appliance VM.|
 
+## Inbound connectivity requirements
+
+The following ports must be allowlisted in your firewall/proxy to enable communication between the management machine, Appliance VM IPs, and Control Plane IPs. Ensure these ports are open to facilitate the deployment and maintenance of the Azure Arc Resource Bridge.
+
+|**Service**|**Port**|**URL**|**Direction**|**Notes**|
+|--|--|--|--|--|
+|SSH| 22 | `appliance VM IPs` and `Management machine` | Bidirectional | Used for deploying & maintaining the appliance VM.|
+|Kubernetes API server| 6443 | `appliance VM IPs` and `Management machine` | Bidirectional | Management of appliance VM.|
+|HTTPS | 443 | `private cloud management console` | Management machine needs outbound connection. | Communication with management console. (ex: VMware vCenter server)|
+|SSH| 22 | `control plane IP` and `Management machine` | Bidirectional | Used for deploying & maintaining the appliance VM.|
+|Kubernetes API server| 6443 | `control plane IP` and `Management machine`| Bidirectional | Management of appliance VM.|
+|HTTPS | 443 | `private cloud management console` | Appliance VM IPs needs outbound connection. | Communication with management console. (ex: VMware vCenter server)|
