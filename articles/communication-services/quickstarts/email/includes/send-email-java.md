@@ -133,8 +133,6 @@ EmailAsyncClient emailClient = new EmailClientBuilder()
     .buildAsyncClient();
 ```
 
-<a name='azure-active-directory'></a>
-
 ## [Microsoft Entra ID](#tab/entra-id)
 
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
@@ -163,11 +161,11 @@ EmailAsyncClient emailClient = new EmailClientBuilder()
     .buildAsyncClient();
 ```
 
-#### [AzureKeyCredential](#tab/azure-key-credential)
+## [AzureKeyCredential](#tab/azure-key-credential)
 
 Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
-## Sync Client
+#### Sync Client
 
 ```java
 String endpoint = "https://<resource-name>.communication.azure.com";
@@ -178,7 +176,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-## Async Client
+#### Async Client
 
 ```java
 String endpoint = "https://<resource-name>.communication.azure.com";
