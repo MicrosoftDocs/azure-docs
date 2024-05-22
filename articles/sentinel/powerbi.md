@@ -16,7 +16,7 @@ You can base Power BI reports on data from Microsoft Sentinel and share those re
 Microsoft Sentinel runs on Log Analytics workspaces, and you can use Kusto Query Language (KQL) to query the data.
 
 
-This article provides a scenario-based procedure to view analysis reports in PowerBI for your Microsoft Sentinel data. For more information, see [Connect data sources](connect-data-sources.md) and [Visualize collected data](get-visibility.md).
+This article provides a scenario-based procedure to view analysis reports in Power BI for your Microsoft Sentinel data. For more information, see [Connect data sources](connect-data-sources.md) and [Visualize collected data](get-visibility.md).
 
 In this article, you:
 
@@ -35,7 +35,7 @@ People you granted access in the Power BI service, and members of the Teams chan
 To complete the steps in this article, you need:
 
 - At least read access to a Microsoft Sentinel workspace that monitors sign-in attempts.
-- A Power BI account that has read access to the your Microsoft Sentinel workspace.
+- A Power BI account that has read access to your Microsoft Sentinel workspace.
 - [Power BI Desktop installed from the Microsoft Store](https://aka.ms/pbidesktopstore).
 
 ## Export a query from Microsoft Sentinel

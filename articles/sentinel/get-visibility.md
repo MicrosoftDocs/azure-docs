@@ -42,7 +42,7 @@ You see different types of automation data under **Automation**.
 
 - At the top, you see a summary of the automation rules activity: Incidents closed by automation, the time the automation saved, and related playbooks health.
 
-   Microsoft Sentinel calculates the time saved by automation by finding the average time that a single automation saved, multiplied by the number of incident that were resolved by automation. The formula is as follows:
+   Microsoft Sentinel calculates the time saved by automation by finding the average time that a single automation saved, multiplied by the number of incidents that were resolved by automation. The formula is as follows:
 
    `(avgWithout - avgWith) * resolvedByAutomation`
 
