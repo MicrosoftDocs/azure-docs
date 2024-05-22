@@ -2,7 +2,7 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
+ms.date: 05/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
@@ -14,7 +14,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the delay in microseconds between transaction commit and flushing WAL to disk.                    |
 | Data type      | integer     |
-| Default value  | `0`           |
+| Default value  | `0`                                                                        |
 | Allowed values | `0-100000`        |
 | Parameter type | dynamic        |
 | Documentation  | [commit_delay](https://www.postgresql.org/docs/16/runtime-config-wal.html)           |
@@ -31,7 +31,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the minimum concurrent open transactions before performing commit_delay.                          |
 | Data type      | integer     |
-| Default value  | `5`           |
+| Default value  | `5`                                                                        |
 | Allowed values | `0-1000`          |
 | Parameter type | dynamic        |
 | Documentation  | [commit_siblings](https://www.postgresql.org/docs/16/runtime-config-wal.html)        |
@@ -48,7 +48,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Forces synchronization of updates to disk.                                                             |
 | Data type      | boolean     |
-| Default value  | `on`          |
+| Default value  | `on`                                                                       |
 | Allowed values | `on`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Writes full pages to WAL when first modified after a checkpoint.                                       |
 | Data type      | boolean     |
-| Default value  | `on`          |
+| Default value  | `on`                                                                       |
 | Allowed values | `on`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the current transaction's synchronization level.                                                  |
 | Data type      | enumeration |
-| Default value  | `on`          |
+| Default value  | `on`                                                                       |
 | Allowed values | `on`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the number of disk-page buffers in shared memory for WAL. Unit is 8kb.                            |
 | Data type      | integer     |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
 | Allowed values | `-1-262143`       |
 | Parameter type | static         |
 | Documentation  | [wal_buffers](https://www.postgresql.org/docs/16/runtime-config-wal.html)            |
@@ -116,7 +116,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Compresses full-page writes written in WAL file.                                                       |
 | Data type      | boolean     |
-| Default value  | `on`          |
+| Default value  | `on`                                                                       |
 | Allowed values | `on,off`          |
 | Parameter type | dynamic        |
 | Documentation  | [wal_compression](https://www.postgresql.org/docs/16/runtime-config-wal.html)        |
@@ -133,7 +133,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Writes zeroes to new WAL files before first use.                                                       |
 | Data type      | boolean     |
-| Default value  | `on`          |
+| Default value  | `on`                                                                       |
 | Allowed values | `on`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -150,7 +150,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | It determines how much information is written to the WAL.                                              |
 | Data type      | enumeration |
-| Default value  | `replica`     |
+| Default value  | `replica`                                                                  |
 | Allowed values | `replica,logical` |
 | Parameter type | static         |
 | Documentation  | [wal_level](https://www.postgresql.org/docs/16/runtime-config-wal.html)              |
@@ -167,7 +167,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Writes full pages to WAL when first modified after a checkpoint, even for a non-critical modification. |
 | Data type      | boolean     |
-| Default value  | `off`         |
+| Default value  | `off`                                                                      |
 | Allowed values | `off`             |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -184,7 +184,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Recycles WAL files by renaming them.                                                                   |
 | Data type      | boolean     |
-| Default value  | `on`          |
+| Default value  | `on`                                                                       |
 | Allowed values | `on`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -201,7 +201,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Minimum size of new file to fsync instead of writing WAL.                                              |
 | Data type      | integer     |
-| Default value  | `2048`        |
+| Default value  | `2048`                                                                     |
 | Allowed values | `2048`            |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -218,7 +218,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Selects the method used for forcing WAL updates to disk.                                               |
 | Data type      | enumeration |
-| Default value  | `fdatasync`   |
+| Default value  | `fdatasync`                                                                |
 | Allowed values | `fdatasync`       |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -235,7 +235,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Time interval between WAL flushes performed by the WAL writer.                                         |
 | Data type      | integer     |
-| Default value  | `200`         |
+| Default value  | `200`                                                                      |
 | Allowed values | `1-10000`         |
 | Parameter type | dynamic        |
 | Documentation  | [wal_writer_delay](https://www.postgresql.org/docs/16/runtime-config-wal.html)       |
@@ -252,7 +252,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Amount of WAL written out by WAL writer that triggers a flush.                                         |
 | Data type      | integer     |
-| Default value  | `128`         |
+| Default value  | `128`                                                                      |
 | Allowed values | `0-2147483647`    |
 | Parameter type | dynamic        |
 | Documentation  | [wal_writer_flush_after](https://www.postgresql.org/docs/16/runtime-config-wal.html) |

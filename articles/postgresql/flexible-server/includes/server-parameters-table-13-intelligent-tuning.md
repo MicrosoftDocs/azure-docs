@@ -2,7 +2,7 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
+ms.date: 05/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`                                                                                                                           |
 | Parameter type | dynamic        |
-| Documentation  | [intelligent_tuning](../concepts-intelligent-tuning.md)                |
+| Documentation  | [intelligent_tuning](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-intelligent-tuning)                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `none`        |
 | Allowed values | `none,Storage-checkpoint_completion_target,Storage-min_wal_size,Storage-max_wal_size,Storage-bgwriter_delay,tuning-autovacuum,all` |
 | Parameter type | dynamic        |
-| Documentation  | [intelligent_tuning.metric_targets](../concepts-intelligent-tuning.md) |
+| Documentation  | [intelligent_tuning.metric_targets](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-intelligent-tuning) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

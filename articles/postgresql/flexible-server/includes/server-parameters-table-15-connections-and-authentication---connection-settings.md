@@ -2,7 +2,7 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
+ms.date: 05/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
@@ -14,7 +14,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Enables advertising the server via Bonjour.                                                                                         |
 | Data type      | boolean   |
-| Default value  | `off`         |
+| Default value  | `off`                                                                      |
 | Allowed values | `off`          |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -31,7 +31,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the Bonjour service name.                                                                                                      |
 | Data type      | string    |
-| Default value  |               |
+| Default value  |                                                                            |
 | Allowed values |                |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -48,7 +48,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the time interval between checks for disconnection while running queries.                                                      |
 | Data type      | integer   |
-| Default value  | `0`           |
+| Default value  | `0`                                                                        |
 | Allowed values | `0`            |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the host name or IP address(es) to listen to.                                                                                  |
 | Data type      | string    |
-| Default value  | `*`           |
+| Default value  | `*`                                                                        |
 | Allowed values | `*`            |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the maximum number of concurrent connections to the database server.                                                           |
 | Data type      | integer   |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.         |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
 | Allowed values | `25-5000`      |
 | Parameter type | static         |
 | Documentation  | [max_connections](https://www.postgresql.org/docs/15/runtime-config-connection.html)         |
@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the TCP port the server listens on.                                                                                            |
 | Data type      | integer   |
-| Default value  | `5432`        |
+| Default value  | `5432`                                                                     |
 | Allowed values | `5432`         |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -116,7 +116,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the number of connections slots reserved for replication users and super users.                                                |
 | Data type      | integer   |
-| Default value  | `5`           |
+| Default value  | `5`                                                                        |
 | Allowed values | `5`            |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -133,7 +133,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the number of connection slots reserved for superusers.                                                                        |
 | Data type      | integer   |
-| Default value  | `10`          |
+| Default value  | `10`                                                                       |
 | Allowed values | `10`           |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -150,7 +150,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of TCP keepalives that can be lost before the server's connection to the client is considered dead.            |
 | Data type      | integer   |
-| Default value  | `9`           |
+| Default value  | `9`                                                                        |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [tcp_keepalives_count](https://www.postgresql.org/docs/15/runtime-config-connection.html)    |
@@ -167,7 +167,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of seconds of inactivity after which TCP should send a keepalive message to the client.                        |
 | Data type      | integer   |
-| Default value  | `120`         |
+| Default value  | `120`                                                                      |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [tcp_keepalives_idle](https://www.postgresql.org/docs/15/runtime-config-connection.html)     |
@@ -184,7 +184,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of seconds after which a TCP keepalive message that is not acknowledged by the client should be retransmitted. |
 | Data type      | integer   |
-| Default value  | `30`          |
+| Default value  | `30`                                                                       |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [tcp_keepalives_interval](https://www.postgresql.org/docs/15/runtime-config-connection.html) |
@@ -201,7 +201,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the amount of time that transmitted data may remain unacknowledged before the TCP connection is forcibly closed.          |
 | Data type      | integer   |
-| Default value  | `0`           |
+| Default value  | `0`                                                                        |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [tcp_user_timeout](https://www.postgresql.org/docs/15/runtime-config-connection.html)        |
@@ -218,7 +218,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the directories where Unix-domain sockets will be created.                                                                     |
 | Data type      | string    |
-| Default value  | `/tmp`        |
+| Default value  | `/tmp`                                                                     |
 | Allowed values | `/tmp`         |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -235,7 +235,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the owning group of the Unix-domain socket.                                                                                    |
 | Data type      | string    |
-| Default value  |               |
+| Default value  |                                                                            |
 | Allowed values |                |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -252,7 +252,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the access permissions of the Unix-domain socket.                                                                              |
 | Data type      | integer   |
-| Default value  | `0777`        |
+| Default value  | `0777`                                                                     |
 | Allowed values | `0777`         |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |

@@ -4,7 +4,7 @@ description: Query Tuning / Genetic Query Optimizer server parameters for Azure 
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
+ms.date: 05/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include

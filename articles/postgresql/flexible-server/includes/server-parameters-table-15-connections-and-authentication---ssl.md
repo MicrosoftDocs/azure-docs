@@ -2,7 +2,7 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
+ms.date: 05/22/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
@@ -168,7 +168,7 @@ ms.topic: include
 | Description    | Sets the maximum SSL/TLS protocol version to use.                       |
 | Data type      | enumeration |
 | Default value  |                                                                                                                                                                                 |
-| Allowed values | `TLSv1.2,TLSv1.3`                                                                                                                                                              |
+| Allowed values | `TLSv1.2,TLSv1.3`                                                                                                                                                               |
 | Parameter type | dynamic        |
 | Documentation  | [ssl_max_protocol_version](https://www.postgresql.org/docs/15/runtime-config-connection.html) |
 
