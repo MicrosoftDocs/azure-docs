@@ -67,7 +67,7 @@ On HDInsight 4 Cluster (Old Cluster)
     ```
    :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/wget-output.png" alt-text="Screenshot showing wget output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/wget-output.png":::
 
-1. Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdinsights_upgrade_ambari_utils/ambari_export_cluster_configs.py` to download the Pyhton script.
+1. Run `wget https://hdiconfigactions2.blob.core.windows.net/hdi-sre-workspace/hdinsights_upgrade_ambari_utils/ambari_export_cluster_configs.py` to download the Python script.
 
    :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-script-output.png" alt-text="Screenshot showing python script output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-script-output.png":::
  
@@ -96,6 +96,6 @@ On HDInsight 4 Cluster (Old Cluster)
 
 1. You can see the difference in the output. 
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/python-code-sample.png" alt-text="Screenshot showing python code sample." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/python-code-sample.png":::
-1. Run the command 'l -ltr'.
-1. Additionally, both the clusters configs are stored here which you can use them for future reference. 
+1. Run the command 'ls -ltr'.
+1. Additionally, both the clusters configs are stored here, which you can use them for future reference. 
        :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/list-of-output-files.png" alt-text="Screenshot showing list of output files." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/list-of-output-files.png":::
