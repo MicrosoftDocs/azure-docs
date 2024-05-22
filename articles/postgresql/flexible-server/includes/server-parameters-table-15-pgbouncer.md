@@ -159,7 +159,6 @@ ms.topic: include
 [!INCLUDE [server-parameters-azure-notes-pgbouncer_server_idle_timeout](./server-parameters-azure-notes-pgbouncer_server_idle_timeout.md)]
 
 
-
 ### pgbouncer.stats_users
 
 | Attribute      | Value                                                      |
