@@ -1435,13 +1435,13 @@ items:
         href: autoscale/autoscale-diagnostics.md
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-  - name: Investigate
+  - name: AI Ops
     items:
-    - name: Investigator Overview
+    - name: Azure Monitor Investigator Overview
       href: ai-ops/investigator-overview.md
-    - name: AI FAQ
+    - name: Responsible AI FAQ
       href: ai-ops/investigator-ai-faq.md
-    - name: Investigate an alert
+    - name: Investigate an alert using Investigator
       href: ai-ops/investigator-alert-instance.md
 - name: Samples
   items:

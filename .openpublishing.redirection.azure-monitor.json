@@ -6675,21 +6675,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/ai-ops/responsible-ai-faq.md",
-            "redirect_url": "/azure/copilot/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/ai-ops/investigator-overview.md",
-            "redirect_url": "/azure/copilot/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/ai-ops/investigate-alert-instance.md",
-            "redirect_url": "/azure/copilot/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/azure-monitor-monitoring-reference.md",
             "redirect_url": "/azure/azure-monitor/monitor-azure-monitor-reference",
             "redirect_document_id": false
