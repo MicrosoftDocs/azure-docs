@@ -12,7 +12,7 @@ ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 # Observe user's capabilities
-Do I have permission to turn video on, do I have permission to turn mic on, do I have permission to share screen? Those are some examples of participant capabilities that you can learn from the capabilities API. Learning the capabilities can help build a user interface that only shows the buttons related to the actions the local user has permissions to.
+Do I have permission to turn on video, do I have permission to turn on mic, do I have permission to share screen? Those are some examples of participant capabilities that you can learn from the capabilities API. Learning the capabilities can help build a user interface that only shows the buttons related to the actions the local user has permissions to.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
