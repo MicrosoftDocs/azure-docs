@@ -219,7 +219,7 @@ for pager.More() {
 }
 ```
 
-To learn more about listing blobs, and to explore more code examples, see [List blobs with Go](storage-blob-list-go.md).
+To learn more about listing blobs, and to explore more code examples, see [List blobs with Go](storage-blobs-list-go.md).
 
 ### Download the blob
 
