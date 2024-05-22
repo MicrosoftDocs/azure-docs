@@ -271,7 +271,7 @@ sudo dnf install hibernation-setup-tool
 ---
 
 >[!NOTE]
-> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](/virtual-machines/linux/expand-disks?tabs=rhellvm#increase-the-size-of-the-os-disk).
+> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](expand-disks.md?tabs=rhellvm#increase-the-size-of-the-os-disk).
 
 Once the package installs successfully, your Linux guest OS is configured for hibernation. You can also create a new Azure Compute Gallery Image from this VM and use the image to create VMs. VMs created with this image have the hibernation package preinstalled, simplifying your VM creation experience. 
 
