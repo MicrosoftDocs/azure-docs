@@ -4,7 +4,7 @@ description: Connections and Authentication / Connection Settings server paramet
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/22/2024
+ms.date: 05/15/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include
