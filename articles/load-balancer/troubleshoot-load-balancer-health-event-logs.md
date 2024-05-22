@@ -11,145 +11,86 @@ ms.author: mbender
 
 # Troubleshoot load balancer health event logs
 
-In
+In this article, you'll learn how to troubleshoot common health event logs for Azure Load Balancer. It covers the a number of common health event logs that you may encounter when using Azure Load Balancer.
 
-Load balancer health event logs 
+## DataPathAvailabilityWarning metric
 
-Azure Load Balancer supports health event logs to help you identify and troubleshoot ongoing issues affecting your load balancer resource’s health. These events are provided through the Azure Monitor resource log category LoadBalancerHealthEvent.  
+The Data Path Availability metric of your load balancer has dropped below 90% due to potential platform issues. This can also be caused by reaching other Azure platform limits.
 
-[!INCLUDE [load-balancer-health-event-logs-preview](../../includes/load-balancer-health-event-logs-preview.md)]
+### Sample event
 
-These logs are supported for Standard (regional and global tier) and Gateway Load Balancers. 
+```plaintext
+**Error - DataPathAvailabilityWarning**: The data path availability for frontend IP 20.29.152.178 is below 90% on the following ports: 80. To mitigate this issue, please refer to aka.ms/lbhealth for more detailed event definitions and troubleshooting guidance.
+```
 
+### Troubleshooting steps
+1. Confirm at least 1 backend instance is responding to the health probe configured to the associated load balancing rule (note: the rule is indicated by the frontend IP, protocol, and port provided in the event description).
+   1. If yes, go to next step for Azure status.
+   2. If no, please refer to [Troubleshoot Azure Load Balancer health probe status](load-balancer-troubleshoot-health-probe-status.md) | for more detailed troubleshooting steps
+1. Please visit [Azure status](https://azure.status.microsoft/en-us/status) to identify if there are any known Azure platform or infrastructure issue that may be affecting your load balancer resource. 
+1. If you are observing these events in your logs, and you are experiencing ongoing connectivity issues, please reach out to Azure support for further investigation.
 
+## DataPathAvailabilityCritical metric
 
+The DataPathAvailability metric of your load balancer has dropped below 25% due to potential platform issues. This can also be caused by reaching other Azure platform limits.
 
+### Sample event
+    
+```plaintext
+    **Critical - DataPathAvailabilityCritical**: The data path availability for frontend IP {FrontendIPAddress} is below 25% on the following ports: {LoadBalancingRulePorts}. To mitigate this issue, please refer to aka.ms/lbhealth for more detailed event definitions and troubleshooting guidance.
+```
+
+## Troubleshooting steps
+
+1. Confirm at least 1 backend instance is responding to the health probe configured to the associated load balancing rule (note: the rule is indicated by the frontend IP, protocol, and port provided in the event description)
+   1. If yes, go to next step for Azure status.
+   2. If no, please refer to Troubleshoot Azure Load Balancer health probe status | Microsoft Learn for more detailed troubleshooting steps
+2.	Please visit Azure status to identify if there are any known Azure platform or infrastructure issue that may be affecting your load balancer resource. 
+3.	If you are observing these events in your logs, and you are experiencing ongoing connectivity issues, please reach out to Azure support for further investigation.
+
+## NoHealthyBackends metric
+The backend instances of your load balancer is not responding to health probes. This is typically caused by misconfiguration of the load balancer or the backend instances. Common reasons include:
+- A firewall or NSG rules are blocking the health probe IP or port(s).
+- The application is not listening on the configured health probe port or the health probe is configured to the wrong port.
+- An HTTP health probe is configured but the application is not responding with 200 OK status code.
+
+### Sample event
+
+```plaintext
+**Critical - NoHealthyBackends**: the frontend IP {FrontendIPAddress} is completely unreachable because all backend instances configured to the following protocol:port {Protocol:Port, Protocol:Port,...} are not responding to health probes. Please review the associated health probe configuration(s) and ensure that at least one of the backend instances are responding to the health probes on the configured ports. To mitigate this issue, please refer to aka.ms/lbhealth for more detailed event definitions and troubleshooting guidance.
+```
+
+### Troubleshooting steps
+1. Refer to [Troubleshoot Azure Load Balancer health probe status](load-balancer-troubleshoot-health-probe-status.md) | for common reasons why your backend instances may not be responding to the configured health probes.
+
+## HighSnatPortUsage metric
+This event indicates you are approaching SNAT port exhaustion on specific backend instances. You may need to review your outbound connectivity architecture. For more information about Azure’s common outbound connectivity options, see [Source Network Address Translation (SNAT) for outbound connections - Azure Load Balancer](.).
+
+For production scenarios, we recommend leveraging NAT Gateway for your outbound connectivity needs. NAT Gateway provides dynamic SNAT allocation, therefore reducing the risk of failed connections due to SNAT port exhaustion. For detailed steps on improving your outbound connectivity architecture, refer to the Troubleshooting steps section under SnatPortExhaustion.
+
+### Sample event
+
+```plaintext
+    **Warning - High SNAT Port Usage**: Backend IP {BackendIPAddress} is utilizing more than 75% of SNAT ports allocated from frontend IP {FrontendIPAddress} and is at-risk for SNAT port exhaustion. To reduce the risk of SNAT exhaustion, please refer to aka.ms/lbhealth for more detailed event definitions and troubleshooting guidance.
+```
+
+### Troubleshooting steps
+
+1. To resolve SNAT exhaustion issues, we recommend leveraging NAT Gateway instead. To learn more about how NAT Gateway mitigates the risk of SNAT port exhaustion, see more on [Source Network Address Translation (SNAT) with Azure NAT Gateway](https://docs.microsoft.com/learn/modules/source-network-address-translation-snat-azure-nat-gateway/).
+2. If you’re currently leveraging load balancer outbound rules and would like to migrate to using NAT Gateway instead, see [Tutorial: Migrate outbound access to NAT gateway](https://docs.microsoft.com/learn/modules/migrate-outbound-access-nat-gateway/).
+3. To identify the impact connections due to SNAT port exhaustion:
+    1. Go to Monitoring > Metrics
+    2. Select the metric SNAT Connection Count with aggregation Sum
+    3. Select Apply splitting with the value Connection State
+    4. Connection State = Failed indicates the number of failed connections due to SNAT port exhaustion.
  
-
-Severity definitions 
-
-Each health event type has an associated severity to indicate the level of expected impact. This property can help with filtering logs and creating more individualized alerts based on the urgency of the issue.  
-
-Critical 
-
-The load balancer resource needs immediate attention. The functionality of the load balancer has been impacted, resulting in issues such as failed connections, unsuccessful CRUD (create, read, update, delete) operations, or misconfigured load balancer components. 
-
-Warning 
-
-The load balancer resource may need to be monitored or reviewed. The functionality of the load balancer may be impacted in certain scenarios or operating in a partially degraded state. 
-
- 
-
-Health event types and publishing frequency 
-
-Health events can be detected in a variety of ways – some events are generated by actively checking the state of the load balancer, while others can be generated by an explicit condition being met. Each event has the possibility of being published every minute, if the event occurred during the detection window. 
-
-Once a health event has been published, there will be an extended window of time where the event will not be republished to avoid redundant logs due to a persisting issue. Following this redetection interval, the health event will be republished if the issue still persists. 
-
-Each event log will be published with a timestamp that indicates the time that Azure Load Balancer detects the event at the platform level. Please note that there may be a delay between the detection and the event being published by Azure Monitor.  
-
-Status 
-
-LoadBalancerHealthEventType 
-
-Severity 
-
-Description 
-
-Detection  window 
-
-Redetection interval 
-
-Supported properties 
-
-Preview 
-
-DataPathAvailabilityWarning 
-
-Warning 
-
-This event is published per affected Load Balancer frontend IP, when the Data Path Availability metric of the frontend IP is less than 25% due to platform issues 
-
-1 minute 
-
-5 minutes 
-
-Frontend IP address 
-
-List of frontend ports associated with affected load balancing rules 
-
- 
-
-Preview 
-
-DataPathAvailabilityCritical 
-
-Critical 
-
-This event is published per affected Load Balancer frontend IP, when the Data Path Availability metric of the frontend IP is less than 90% due to platform issues 
-
- 
-
-1 minute 
-
-5 minutes 
-
-Frontend IP address 
-
-List of frontend ports associated with affected load balancing rules 
-
- 
-
-Preview 
-
-NoHealthyBackends 
-
-Critical 
-
-This event is published per Load Balancer frontend IP, when an associated backend pool has no backend instances responding to the configured health probes. As a result, the load balancer has no healthy backends to distribute traffic to. 
-
-On-demand 
-
-60 minutes 
-
-Frontend IP address 
-
-Pairwise list of protocol and frontend ports associated with affected load balancing rules 
-
-Preview 
-
-HighSnatPortUsage 
-
-Warning 
-
-This event is published on a per backend instance-level, when a backend instance utilizes more than 75% of its allocated ports from a single frontend IP. 
-
- 
-
-On-demand 
-
-5 minutes 
-
-Backend IP address 
-
-Frontend IP address 
-
-Preview 
-
-SnatPortExhaustion 
-
-Critical 
-
-This event is published on a per backend instance-level, when a backend instance has exhausted all allocated ports and will fail any further outbound connections until ports have been released or more ports are allocated. 
-
-On-demand 
-
-5 minutes 
-
-Backend IP address 
-
-Frontend IP address 
-
- 
-
- 
+## 
+Alternative solutions
+1.	Ensure you have configured outbound rules via manual port allocation and are allocating the maximum number of ports possible
+2.	Add additional public IPs to your Load Balancer or NAT Gateway
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [> [!div class="nextstepaction"]
+> [Troubleshoot Azure Load Balancer outbound connectivity issues](./troubleshoot-outbound-connection.md)]
