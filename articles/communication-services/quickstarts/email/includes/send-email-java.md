@@ -102,15 +102,16 @@ public class App
 ```
 
 ### Creating the email client with authentication
+
 There are a few different options available for authenticating an email client.
 
 ## [Connection String](#tab/connection-string)
 
-#### Sync Client
-
-To authenticate a client, you instantiate an `EmailClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
+To authenticate a client, you instantiate an `EmailClient` or `EmailAsyncClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
 To instantiate a client, add the following code to the `main` method:
+
+#### Sync Client
 
 ```java
 // You can get your connection string from your resource in the Azure portal.
@@ -122,10 +123,6 @@ EmailClient emailClient = new EmailClientBuilder()
 ```
 
 #### Async Client
-
-To authenticate a client, you instantiate an `EmailAsyncClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
-
-To instantiate a client, add the following code to the `main` method:
 
 ```java
 // You can get your connection string from your resource in the Azure portal.
@@ -140,11 +137,11 @@ EmailAsyncClient emailClient = new EmailClientBuilder()
 
 ## [Microsoft Entra ID](#tab/entra-id)
 
-#### Sync Client
-
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
 The `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
+
+#### Sync Client
 
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal
@@ -157,10 +154,6 @@ EmailClient emailClient = new EmailClientBuilder()
 
 #### Async Client
 
-A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
-
-The `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
-
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<resource-name>.communication.azure.com/";
@@ -172,8 +165,9 @@ EmailAsyncClient emailClient = new EmailClientBuilder()
 
 #### [AzureKeyCredential](#tab/azure-key-credential)
 
-## Sync Client
 Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
+
+## Sync Client
 
 ```java
 String endpoint = "https://<resource-name>.communication.azure.com";
@@ -186,8 +180,6 @@ EmailClient emailClient = new EmailClientBuilder()
 
 ## Async Client
 
-Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
-
 ```java
 String endpoint = "https://<resource-name>.communication.azure.com";
 AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key>");
@@ -196,9 +188,9 @@ EmailAsyncClient emailClient = new EmailClientBuilder()
     .credential(azureKeyCredential)
     .buildAsyncClient();
 ```
+---
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
----
 
 ## Basic email sending 
 
