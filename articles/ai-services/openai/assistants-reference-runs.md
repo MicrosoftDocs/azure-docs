@@ -437,7 +437,7 @@ When a run has the status: "requires_action" and required_action.type is submit_
 
 |Name | Type | Required | Description |
 |---  |---   |---       |--- |
-| `tool_outputs | array | Required | A list of tools for which the outputs are being submitted. |
+| `tool_outputs` | array | Required | A list of tools for which the outputs are being submitted. |
 
 ### Returns
 
