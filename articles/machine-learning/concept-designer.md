@@ -20,7 +20,7 @@ Designer in Azure Machine Learning studio is a drag-and-drop user interface for 
 
 Designer supports two types of pipeline elements: classic prebuilt (v1) or custom (v2). These two types aren't compatible in pipelines. *This article applies to custom components.*
 
-- **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added. For information about classic prebuilt components and Designer (v1), see [Azure Machine Learning designer (v1)](/azure/machine-learning/concept-designer?view=azureml-api-1&preserve-view=true).
+- **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Azure Machine Learning continues to support the existing classic prebuilt components, but no new prebuilt components are being added. For information about classic prebuilt components and Designer (v1), see [Azure Machine Learning designer (v1)](https://learn.microsoft.com/azure/machine-learning/concept-designer?view=azureml-api-1&preserve-view=true).
 
 - **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with Azure Machine Learning v2 and continue to receive new updates.
 
@@ -95,4 +95,4 @@ After cloning, you can find out which pipeline job the new pipeline was cloned f
 
 ## Related content
 
-[Create a pipeline with components (UI)](./how-to-create-component-pipelines-ui.md)
+- [Create a pipeline with components (UI)](./how-to-create-component-pipelines-ui.md)
