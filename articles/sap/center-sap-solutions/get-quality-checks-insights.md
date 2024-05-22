@@ -88,11 +88,11 @@ The **Virtual Machine** tab provides insights about the VMs in your VIS. There a
 
 The **Azure Compute** tab shows summarized information regarding the virtual machines inside the VIS. It starts with a visual signifying the VM running status for all VMs. 
 
-:::image type="content" source="media/get-quality-checks-insights/azure-compute-metrics.png" lightbox="media/get-quality-checks-insights/azure-compute.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines and key metrics.":::
+:::image type="content" source="media/get-quality-checks-insights/azure-compute-metrics.png" lightbox="media/get-quality-checks-insights/azure-compute-metrics.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines and key metrics.":::
 
 This visual is followed by Key monitoring metrics at a virtual machine level that shows a 24 hours trend for key metrics such as VM Availability, CPU, Disk, and Network usage. 
 
-:::image type="content" source="media/get-quality-checks-insights/azure-compute-health.png" lightbox="media/get-quality-checks-insights/azure-compute.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines.":::
+:::image type="content" source="media/get-quality-checks-insights/azure-compute-health.png" lightbox="media/get-quality-checks-insights/azure-compute-health.png" alt-text="Screenshot of Azure Compute tab, showing a pie chart of running virtual machines.":::
 
 It also shows the current availability state of VMs along with corresponding reasons for unavailability. This visual is followed by a list of key health events that occurred in the last 14 days in any of the VMs of the VIS. 
 
