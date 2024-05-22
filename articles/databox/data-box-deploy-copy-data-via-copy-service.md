@@ -87,8 +87,7 @@ To copy data by using the data copy service, you need to create a job:
 
     - You can cancel a job at any time:
 
-        ![Cancel a job on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/cancel-job.png)
-        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/cancel-job.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button. Cancel a job on the 'Copy data' page" lightbox="media/data-box-deploy-copy-data-via-copy-service/cancel-job-lrg.png":::
         
         When you cancel a job, a confirmation is required:
 
@@ -103,8 +102,7 @@ To copy data by using the data copy service, you need to create a job:
 
     - You can restart a failed job that arises from a transient error, such as a network glitch. However, a job can't be restarted after it reaches a terminal status, such as **Succeeded** or **Completed with errors**. Errors resulting from file-naming or file-size issues are logged, but the job can't be restarted after it completes.
 
-        ![Restart a failed job](media/data-box-deploy-copy-data-via-copy-service/restart-failed-job.png)
-        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+        :::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/restart-failed-job.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Restart a failed job." lightbox="media/data-box-deploy-copy-data-via-copy-service/restart-failed-job-lrg.png":::
 
         If you experience a failure and can't restart the job, download the error logs and locate the underlying failure. After correcting the issue, create a new job to copy the files. Alternatively, you can also [copy the files over SMB](data-box-deploy-copy-data.md).
     
@@ -131,13 +129,11 @@ To copy data by using the data copy service, you need to create a job:
 
 Wait for the copy job to finish. Because some errors are logged only on the **Connect and copy** page, ensure that the copy job is complete and reports no errors before advancing to the next step.
 
-![No errors on "Connect and copy" page](media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png)
-:::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+:::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png" alt-text="Screenshot of the No errors on 'Connect and copy' page Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy-lrg.png":::
 
 To ensure data integrity, a checksum is computed inline as the data is copied. After the copy is complete, select **View dashboard** to verify the used space and free space on your device.
-    
-![Verify free and used space on dashboard](media/data-box-deploy-copy-data-via-copy-service/verify-used-space-dashboard.png)
-:::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/click-create.png" alt-text="Screenshot of the Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/click-create-lrg.png":::
+
+:::image type="content" source="media/data-box-deploy-copy-data-via-copy-service/verify-used-space-dashboard.png" alt-text="Screenshot of the Verify free and used space on dashboard Copy Data page highlighting the location of the Create button." lightbox="media/data-box-deploy-copy-data-via-copy-service/verify-used-space-dashboard-lrg.png":::
 
 After the copy job is finished, you can select **Prepare to ship**.
 
