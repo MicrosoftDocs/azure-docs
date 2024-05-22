@@ -10,7 +10,7 @@ ms.date: 05/22/2024
 
 # How to deploy hub and spoke topology with Azure Firewall
 
-In this article, you learn how to deploy a hub and spoke topology with Azure Firewall using Azure Virtual Network Manager (AVNM). You create a network manager instance, and implements network groups for trusted and untrusted traffic. Next, you deploy a connectivity configuration for defining your hub and spoke topology. When deploying the connectivity configuration, you have a choice of adding [direct connectivity](../articles/virtual-network-manager/concept-connectivity-configuration.md#direct-connectivity) for direct, trusted communication between spoke virtual networks, or requiring spokes to communicate through the hub network.  You finish by deploying a routing configuration to route all traffic to Azure Firewall, except the traffic within the same virtual network when the virtual networks are trusted.
+In this article, you learn how to deploy a hub and spoke topology with Azure Firewall using Azure Virtual Network Manager (AVNM). You create a network manager instance, and implements network groups for trusted and untrusted traffic. Next, you deploy a connectivity configuration for defining your hub and spoke topology. When deploying the connectivity configuration, you have a choice of adding [direct connectivity](concept-connectivity-configuration.md#direct-connectivity) for direct, trusted communication between spoke virtual networks, or requiring spokes to communicate through the hub network.  You finish by deploying a routing configuration to route all traffic to Azure Firewall, except the traffic within the same virtual network when the virtual networks are trusted.
 
 Many organizations use Azure Firewall to protect their virtual networks from threats and unwanted traffic, and they route all traffic to Azure Firewall except trusted traffic within the same virtual network. Traditionally, setting up such a scenario is cumbersome because new user-defined routes (UDRs) need to be created for each new subnet, and all route tables have different UDRs. UDR management in Azure Virtual Network Manager can help you easily achieve this scenario by creating a routing rule that routes all traffic to Azure Firewall, except the traffic within the same virtual network.
 
@@ -86,4 +86,4 @@ If you no longer need the resources created in this article, you can delete them
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Userefined Routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md)
+> [Learn more about User defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md)
