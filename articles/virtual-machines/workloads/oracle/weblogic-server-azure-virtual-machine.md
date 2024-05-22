@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: haiche
 ms.topic: quickstart
 ms.date: 01/24/2024
-ms.service: virtual-machines
+ms.service: oracle-on-azure
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, devx-track-extended-java
 ---
 

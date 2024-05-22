@@ -510,8 +510,8 @@ sections:
       - question: Which IP address does the backend server see when a connection is established with Application Gateway?
         answer: The backend server sees the IP address of the application gateway. Currently, we don't support “Client IP preservation” through which the backend application can be made aware of the original client’s IP address.
 
-      - question: How can I set the SSL policy for TLS listeners?
-        answer: The same SSL policy configuration is applicable for both Layer 7 (HTTPS) as well as Layer 4 (TLS). Currently, we don't support SSL Profile (listener-specific SSL policy or Mutual Authentication) for TLS listeners.
+      - question: How can I set the TLS policy for TLS listeners?
+        answer: The same TLS/SSL policy configuration is applicable for both Layer 7 (HTTPS) as well as Layer 4 (TLS). You can now use SSL Profile (for listener-specific TLS policy and Mutual Authentication) for TLS listeners. However, currently an SSL profile can be associated with a TLS listener through CLI, PowerShell or REST API only. 
 
       - question: Does Application Gateway support session affinity for Layer 4 routing?
         answer: No. Routing a client to the same backend server isn't supported at the moment. The connections will be distributed in a round-robin manner to the servers in a backend pool.

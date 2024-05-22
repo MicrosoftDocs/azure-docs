@@ -60,7 +60,7 @@ Use this option to migrate an existing location of your API Management instance 
     
 
 
-## Option 2: Migrate existing location of API Management instance (stv1 platform), injected in  VNet
+## Option 2: Migrate existing location of API Management instance (stv1 platform), injected in VNet
 
 Use this option to migrate an existing location of your API Management instance to availability zones when it is currently injected (deployed) in a virtual network. The following steps are needed when the API Management instance is currently hosted on the stv1 platform. Migrating to availability zones will also migrate the instance to the stv2 platform.
 

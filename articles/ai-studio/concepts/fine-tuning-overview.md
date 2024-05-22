@@ -4,8 +4,10 @@ titleSuffix: Azure AI Studio
 description: This article introduces fine-tuning of models in Azure AI Studio.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: conceptual
-ms.date: 5/13/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -13,7 +15,7 @@ author: eric-urban
 
 # Fine-tune models in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](../includes/feature-preview.md)]
 
 When we talk about fine-tuning, we really mean *supervised fine-tuning* not continuous pretraining or Reinforcement Learning through Human Feedback (RLHF). Supervised fine-tuning refers to the process of retraining pretrained models on specific datasets, typically to improve model performance on specific tasks or introduce information that wasn't well represented when the base model was originally trained.
 
