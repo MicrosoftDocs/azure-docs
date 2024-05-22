@@ -82,7 +82,7 @@ Concurrency has a direct effect on how your app scales because at lower concurre
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. Upon startup, your app will retrieve the package and run from it. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-the-deployment-storage-account). In streamlining the deployment path, there is no longer the need for app settings to influence deployment behaviour.
+Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. Upon startup, your app will retrieve the package and run from it. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings). In streamlining the deployment path, there is no longer the need for app settings to influence deployment behaviour.
 
 ## Billing
 
