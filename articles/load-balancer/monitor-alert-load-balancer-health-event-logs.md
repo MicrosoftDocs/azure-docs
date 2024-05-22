@@ -12,7 +12,7 @@ ms.author: mbender
 
 # Monitor and alert with LoadBalancerHealthEvent logs
 
-In this article, you'll learn how to monitor and alert with LoadBalancerHealthEvent logs for Azure Load Balancer. LoadBalancerHealthEvent logs help you identify and troubleshoot ongoing issues affecting your load balancer resource’s health. These events are provided through the Azure Monitor resource log category *LoadBalancerHealthEvent*.
+In this article, you learn how to monitor and alert with LoadBalancerHealthEvent logs for Azure Load Balancer. LoadBalancerHealthEvent logs help you identify and troubleshoot ongoing issues affecting your load balancer resource’s health. These events are provided through the Azure Monitor resource log category *LoadBalancerHealthEvent*.
 
 [!INCLUDE [load-balancer-health-event-logs-preview](../../includes/load-balancer-health-event-logs-preview.md)]
 
@@ -24,15 +24,15 @@ In this article, you'll learn how to monitor and alert with LoadBalancerHealthEv
 
 ## Configuring diagnostic settings to collect LoadBalancerHealthEvent logs
 
-In this section, you'll learn configure diagnostic settings to collect LoadBalancerHealthEvent logs and store the logs in a log analytics workspace. 
+In this section, you learn configure diagnostic settings to collect LoadBalancerHealthEvent logs and store the logs in a log analytics workspace. 
 
 > [!IMPORTANT]
 > We recommend sending your logs to a Log Analytics workspace, which will enable you to control access, log data retention and archive settings, and more. To learn more about configuring Log Analytics workspaces, see [Log Analytics workspace overview - Azure Monitor](../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 1. In the Azure portal, navigate to your load balancer resource.
-1. From your load balancer resource’s **Overview**page, choose  **Monitoring **> **Diagnostic settings**.
+1. From your load balancer resource’s **Overview page, choose  **Monitoring **> **Diagnostic settings**.
    
-   :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/add-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings window in azure portal.":::
+   :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/add-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings window in Azure portal.":::
 
 1. Select **+ Add diagnostic setting**.
 1. In the **Diagnostic setting** window, select or enter the following settings:
@@ -56,7 +56,7 @@ In this section, you'll learn configure diagnostic settings to collect LoadBalan
 
 ## Configure query
 
-In this section, you'll learn how to query LoadBalancerHealthEvent logs in Log Analytics workspace. In this example, you'll query for the latest *SnatPortExhaustion* health events from the last day, and summarize the events by the load balancer’s *resource IDs* and *frontend IP configurations*. 
+In this section, you learn how to query LoadBalancerHealthEvent logs in Log Analytics workspace. In this example, you query for the latest *SnatPortExhaustion* health events from the last day, and summarize the events by the load balancer’s *resource IDs* and *frontend IP configurations*. 
 
 1. In the Azure portal, navigate to your Log Analytics workspace.
 2. From the **Overview** page, select **Logs**.
@@ -65,7 +65,7 @@ In this section, you'll learn how to query LoadBalancerHealthEvent logs in Log A
    
    :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/search-queries.png" alt-text="Screenshot of Queries window performing search for built-in query.":::
 
-5. The following code will be displayed in the query editor:
+5. The following code is displayed in the query editor:
 
     ```kusto
         // Latest Snat Port Exhaustion Per LB Frontend 
@@ -85,11 +85,11 @@ In this section, you'll learn how to query LoadBalancerHealthEvent logs in Log A
 
 ## Create alerts based on LoadBalancerHealthEvent logs
 
-In this section, you'll learn how to create an alert that sends an email whenever the *SnatPortExhaustion* event has been generated in the past 5 minutes. You can create alerts based on log queries to be notified immediately when health event logs are generated, indicating potential impact to your load balancer resource.
+In this section, you learn how to create an alert that sends an email whenever a *SnatPortExhaustion* event is logged within the past 5 minutes. You can create alerts based on log queries to be notified immediately when health event logs are generated, indicating potential impact to your load balancer resource.
 
 1.  In the Azure portal, navigate to your Log Analytics workspace.
 2.  From the **Overview** page, select **Monitoring** > **Alerts**.
-3.  On the **Alerts** page, select **Create custome alert rule**.
+3.  On the **Alerts** page, select **Create customer alert rule**.
 4.  On the **Create an alert rule** page, choose **Custom log search** under **Signal name**.
 5.  In the **Logs** window for Log Analytics, enter the following query and select **Run**:
 
@@ -122,13 +122,14 @@ In this section, you'll learn how to create an alert that sends an email wheneve
     | Setting | Value |
     | --- | --- |
     | **Notification type** | Select **Email/SMS message/Push/Voice**.</br>Enter the email address to receive the alert.</br>Select **Ok**. |
-    | **Name** | Enter a name for the nofitification. |
+    | **Name** | Enter a name for the notification. |
     
     :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/create-notification.png" alt-text="Screenshot of Notifications tab in Create action group window with email notification settings.":::
 
 1. Select **Review + create** then **Create** to create the action group.
 1. On the **Create an alert rule** page, select **Next: Details** or the **Details** tab.
 2. On the **Details** tab, enter the following settings:
+3. 
     | Setting | Value |
     | --- | --- |
     | **Severity** | Select the severity level for the alert. |
@@ -139,7 +140,7 @@ In this section, you'll learn how to create an alert that sends an email wheneve
 
     :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/create-alert-rule-details-tab.png" alt-text="Screenshot of Details tab in Create an alert rule window.":::
 
-1. Select **Review + create** then **Create** to create the alert rule.
+4. Select **Review + create** then **Create** to create the alert rule.
 
 ## Next steps
 
