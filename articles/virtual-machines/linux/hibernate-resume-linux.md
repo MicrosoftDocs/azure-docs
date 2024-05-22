@@ -207,7 +207,7 @@ If the extension is missing, you can [manually install the LinuxHibernateExtensi
 > Azure extensions are currently disabled by default for Debian images. To re-enable extensions, [check the Linux hibernation troubleshooting guide](../linux/hibernate-resume-troubleshooting-linux.md#azure-extensions-disabled-on-debian-images).
 
 >[!NOTE]
-> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](/virtual-machines/linux/expand-disks?tabs=rhellvm#increase-the-size-of-the-os-disk).
+> For RHEL LVM you will need to expand the root volume and ensure there is sufficient space available to create the swap file. To expand the volume, [check the disk expansion guide](expand-disks?tabs=rhellvm#increase-the-size-of-the-os-disk).
 
 #### [CLI](#tab/cliLHE)
     
