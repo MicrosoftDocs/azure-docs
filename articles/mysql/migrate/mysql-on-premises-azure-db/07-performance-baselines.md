@@ -1,19 +1,18 @@
 ---
 title: "Migrate MySQL on-premises to Azure Database for MySQL: Performance Baselines"
 description: "Understanding the existing MySQL workload is one of the best investments that can be made to ensure a successful migration."
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: rothja
-ms.author: jroth
-ms.reviewer: maghan
-ms.custom:
-ms.date: 06/21/2021
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Performance Baselines
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -35,13 +34,13 @@ Below are tools used to gather server metrics and database workload information.
 
 ## Server parameters
 
-MySQL server default configurations may not adequately support a workload. There is a plethora of server parameters in MySQL, but in most cases the migration team should focus on a handful. The following parameters should be evaluated in the **source** and **target** environments. Incorrect configurations can affect the speed of the migration. We will revisit these parameters again when we execute the migration steps.
+MySQL server default configurations might not adequately support a workload. There is a plethora of server parameters in MySQL, but in most cases the migration team should focus on a handful. The following parameters should be evaluated in the **source** and **target** environments. Incorrect configurations can affect the speed of the migration. We will revisit these parameters again when we execute the migration steps.
 
   - **innodb\_buffer\_pool\_size**: A large value will ensure in-memory resources are used first before utilizing disk I/O. Typical values will range from 80-90% of the available memory. For example, a system with 8GB of memory should allocate 5-6GB for the pool size.
 
   - **innodb\_log\_file\_size**: The redo logs are used to ensure fast durable writes. This transactional backup is helpful during a system crash. Starting with innodb\_log\_file\_size = 512M (giving 1GB of redo logs) should give plenty of room for writes. Write-intensive applications using MySQL 5.6 or higher should start with innodb\_log\_file\_size = 4G.
 
-  - **max\_connections**: This parameter can help alleviate the `Too many connections` error. The default is 151 connections. Using a connection pool at the application level is preferred, but the server connection configuration may need to increase as well.
+  - **max\_connections**: This parameter can help alleviate the `Too many connections` error. The default is 151 connections. Using a connection pool at the application level is preferred, but the server connection configuration might need to increase as well.
 
   - **innodb\_file\_per\_table**: This setting will tell InnoDB if it should store data and indexes in the shared tablespace or in a separate.ibd file for each table. Having a file per table enables the server to reclaim space when tables are dropped, truncated, or rebuilt. Databases containing a large number of tables should not use the table per file configuration. As of MySQL 5.6, the default value is ON. Earlier database versions should set the configuration to ON prior to loading data. This setting only affects newly created tables.
 
@@ -73,9 +72,9 @@ For a list of server parameters that cannot be configured, reference [Non-config
 
 ### Egress and Ingress
 
-For each respective data migration tool and path, the source and the target MySQL server parameters will need to be modified to support the fastest possible egress and ingress. Depending on the tool, the parameters could be different. For example, a tool that performs a migration in parallel may need more connections on the source and the target versus a single threaded tool.
+For each respective data migration tool and path, the source and the target MySQL server parameters will need to be modified to support the fastest possible egress and ingress. Depending on the tool, the parameters could be different. For example, a tool that performs a migration in parallel might need more connections on the source and the target versus a single threaded tool.
 
-Review any timeout parameters that may be affected by the datasets. These include:
+Review any timeout parameters that might be affected by the datasets. These include:
 
   - [connect\_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_connect_timeout)
 
@@ -85,7 +84,7 @@ Additionally, review any parameters that will affect maximums:
 
   - [max\_allowed\_packet](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet)
 
-> [!NOTE]
+> [!NOTE]  
 > A common migration error is `MySQL server has gone away`. The parameters mentioned here are the typical culprits for resolving this error.
 
 ## WWI scenario
@@ -94,7 +93,7 @@ WWI reviewed their Conference database workload and determined it had a very sma
 
 In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Data Migration](./08-data-migration.md)
+> [Data Migration](08-data-migration.md)

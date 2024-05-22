@@ -4,7 +4,7 @@ description: This tutorial describes how to use the Azure Database for MySQL Imp
 author: adig
 ms.author: adig
 ms.reviewer: maghan
-ms.date: 07/03/2023
+ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -26,7 +26,7 @@ This tutorial shows how to use the Azure Database for MySQL Import CLI command t
 
 The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
+To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://portal.azure.com/#cloudshell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.54.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
@@ -46,14 +46,14 @@ az account set --subscription <subscription id>
 
 ## Prerequisites
 
-* Source server should have the following parameters:
+- Source server should have the following parameters:
   * Lower_case_table_names = 1
   * Innodb_file_per_table = ON
   * System tablespace name should be ibdata1.
   * System tablespace size should be greater than or equal to 12 MB. (MySQL Default)
   * Innodb_page_size = 16348 (MySQL Default)
   * Only INNODB engine is supported.
-* Take a physical backup of your MySQL workload using Percona XtraBackup.
+- Take a physical backup of your MySQL workload using Percona XtraBackup.
 The following are the steps for using Percona XtraBackup to take a full backup :
   * Install Percona XtraBackup on the on-premises or VM workload. For MySQL engine version v5.7, install Percona XtraBackup version 2.4, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html). For MySQL engine version v8.0, install Percona XtraBackup version 8.0, see [Installing Percona XtraBackup 8.0]( https://docs.percona.com/percona-xtrabackup/8.0/installation.html).
   * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html). For instructions for taking a Full backup with Percona XtraBackup 8.0, see [Full backup] (<https://docs.percona.com/percona-xtrabackup/8.0/create-full-backup.html>). While taking full backup, run the below commands in order:
@@ -63,22 +63,22 @@ The following are the steps for using Percona XtraBackup to take a full backup :
     * Make sure you run both the backup and prepare step.
     * Make sure there are no errors in the backup and prepare step.
     * Keep the backup and prepare step logs for Azure Support required in case of failures.
-* [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
-* Upload the full backup file at {backup_dir_path} to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
-* For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
+- [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** dropdown list. Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
+- Upload the full backup file at {backup_dir_path} to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
+- For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
 
 ## Limitations
 
-* Source server configuration isn't migrated. You must configure the target Flexible server appropriately.
-* Migration for encrypted backups isn't supported.
-* Users and privileges aren't migrated as part of Azure Database for MySQL Import. You must take a manual dump of users and privileges before initiating Azure Database for MySQL Import to migrate logins post import operation by restoring them on the target Flexible Server.
+- Source server configuration isn't migrated. You must configure the target Flexible server appropriately.
+- Migration for encrypted backups isn't supported.
+- Users and privileges aren't migrated as part of Azure Database for MySQL Import. You must take a manual dump of users and privileges before initiating Azure Database for MySQL Import to migrate logins post import operation by restoring them on the target Flexible Server.
   * user1@localhost can't be migrated as we don't support localhost user creation in Flexible Server.
-* High Availability (HA) enabled Flexible Servers are returned as HA disabled servers to increase the speed of migration operation post the import migration. Enable HA for your target Flexible Server post migration.
+- High Availability (HA) enabled Flexible Servers are returned as HA disabled servers to increase the speed of migration operation post the import migration. Enable HA for your target Flexible Server post migration.
 
 ## Recommendations for an optimal migration experience
 
-* Consider keeping the Azure Blob storage account and the target Flexible Server to be deployed in the same region for better import performance.
-* Recommended SKU configuration for target Azure Database for MySQL Flexible Server –
+- Consider keeping the Azure Blob storage account and the target Flexible Server to be deployed in the same region for better import performance.
+- Recommended SKU configuration for target Azure Database for MySQL Flexible Server –
   * Setting Burstable SKU for target isn't recommended in order to optimize migration time when running the Azure Database for MySQL Import operation. We recommend scaling to General Purpose/ Business Critical for the course of the import operation, post, which you can scale down to Burstable SKU.
 
 ## Trigger an Azure Database for MySQL Import operation to migrate from Azure Database for MySQL -Flexible Server
@@ -121,11 +121,10 @@ az mysql flexible-server import create --data-source-type
                                 [--vnet]
                                 [--zone]
 
-
-The following example takes in the data source information for your source MySQL server’s backup file and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location and performs an import from backup file to target. 
+The following example takes in the data source information for your source MySQL server's backup file and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location and performs an import from backup file to target.
 
 azurecli-interactive
-az mysql flexible-server import create --data-source-type "azure_blob" --data-source "https://onprembackup.blob.core.windows.net/onprembackup" --data-source-backup-dir "mysql_backup_percona" –-data-source-token "{sas-token}" --resource-group "test-rg"  --name "test-flexible-server" –-sku-name Standard_D2ds_v4  --tier GeneralPurpose –-version 5.7 -–location "westus”
+az mysql flexible-server import create --data-source-type "azure_blob" --data-source "https://onprembackup.blob.core.windows.net/onprembackup" --data-source-backup-dir "mysql_backup_percona" –-data-source-token "{sas-token}" --resource-group "test-rg"  --name "test-flexible-server" –-sku-name Standard_D2ds_v4  --tier GeneralPurpose –-version 5.7 -–location "westus"
 ```
 
 Here are the details for the arguments above:
@@ -168,16 +167,17 @@ To perform an online migration after completing the initial seeding from backup 
 Benchmarked performance based on storage size.
 
   | Backup file Storage Size | Import time |
-  | ------------- |:-------------:|
+  | --- | :---: |
   | 1 GiB | 0 min 23 secs |
   | 10 GiB | 4 min 24 secs |
   | 100 GiB | 10 min 29 secs |
   | 500 GiB | 13 min 15 secs |
   | 1 TB | 22 min 56 secs |
   | 10 TB | 2 hrs 5 min 30 secs |
-  
-As the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly impacted by network fluctuations. Therefore, the data provided here should be taken as a reference only.
 
-## Next steps
+As the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly affected by network fluctuations. Therefore, the data provided here should be taken as a reference only.
 
-* [Manage an Azure Database for MySQL - Flexible Server using the Azure portal](../flexible-server/how-to-manage-server-portal.md)
+## Next step
+
+> [!div class="nextstepaction"]
+> [Manage an Azure Database for MySQL - Flexible Server using the Azure portal](../flexible-server/how-to-manage-server-portal.md)
