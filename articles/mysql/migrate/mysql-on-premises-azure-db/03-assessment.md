@@ -195,9 +195,6 @@ There are currently three tiers:
 
 The tier decision can be influenced by the RTO and RPO requirements of the data workload. When the data workload requires over 4 TB of storage, an extra step is required. Review and select [a region that supports](../../concepts-pricing-tiers.md#storage) up to 16 TB of storage.
 
-> [!NOTE]
-> Contact the MySQL team (AskAzureDBforMySQL@service.microsoft.com) for regions that don't support your storage requirements.
-
 Typically, the decision-making focuses on the storage and IOPS, or Input/output Operations Per Second, needs. Thus, the target system always needs at least as much storage as in the source system. Additionally, since IOPS are allocated 3/GB, it's important to match up the IOPs needs to the final storage size.
 
 | Factors | Tier |

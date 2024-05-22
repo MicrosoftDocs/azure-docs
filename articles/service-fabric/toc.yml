@@ -487,6 +487,8 @@
       href: how-to-managed-cluster-application-gateway.md
     - name: Enable Safe Deployment Process
       href: how-to-managed-cluster-enable-safe-deployment-process.md
+    - name: Deploy cluster with shared subnets across NodeTypes
+      href: how-to-managed-cluster-deploy-with-subnet-per-nodetype.md
   - name: Set up your development environment
     items:
     - name: Windows

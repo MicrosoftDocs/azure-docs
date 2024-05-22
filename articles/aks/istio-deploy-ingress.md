@@ -3,7 +3,6 @@ title: Azure Kubernetes Service (AKS) external or internal ingresses for Istio s
 description: Deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service
 ms.topic: how-to
 ms.service: azure-kubernetes-service
-ms.subservice: aks-networking
 author: shashankbarsin
 ms.date: 08/07/2023
 ms.author: shasb
@@ -45,7 +44,7 @@ Applications aren't accessible from outside the cluster by default after enablin
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: bookinfo-gateway-external
@@ -60,7 +59,7 @@ spec:
     hosts:
     - "*"
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: bookinfo-vs-external
@@ -144,7 +143,7 @@ Applications aren't mapped to the Istio ingress gateway after enabling the ingre
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: bookinfo-internal-gateway
@@ -159,7 +158,7 @@ spec:
     hosts:
     - "*"
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: bookinfo-vs-internal
