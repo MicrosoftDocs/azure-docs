@@ -40,20 +40,20 @@ These steps are **needed** in order to follow this tutorial. Contact your Teams 
 - Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
 - Working with [Teams Auto Attendants](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) and Azure Communication Services.
 
-#### Checking for Node and VS Code
+#### Checking for Node and Visual Studio Code
 
 You can check that [Node](https://nodejs.org/) was installed correctly with this command.
 ```bash
 node -v
 ```
-The output will tell you the version you have installed, it will fail if Node was not installed and added to your `PATH`. Just like with Node you can check to see if [VS Code](https://code.visualstudio.com/) was installed with this command.
+The output tells you the version you have, it fails if Node was not installed and added to your `PATH`. Just like with Node you can check to see if [VS Code](https://code.visualstudio.com/) was installed with this command.
 ```bash
 code --version
 ```
 Like with Node this command will fail if there was an issue installing VS Code on your machine.
 
 ## Getting started
-We will complete this tutorial in 5 steps and at the end will be able to call a Teams voice application. The steps are:
+This tutorial has 7 steps and at the end the app will be able to call a Teams voice application. The steps are:
 1. [Set up the project](#1-set-up-the-project)
 2. [Get your dependencies](#2-get-your-dependencies)
 3. [Initial app setup](#3-initial-app-setup)
@@ -95,16 +95,21 @@ cd ui-library-calling-widget-app
 Then, you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we're going to build to work:
 
 ```json
-"@azure/communication-calling": "1.22.1",
-"@azure/communication-chat": "1.4.0",
-"@azure/communication-react": "1.13.0",
+"@azure/communication-calling": "^1.23.1",
+"@azure/communication-chat": "^1.4.0",
+"@azure/communication-react": "^1.15.0",
 "@azure/communication-calling-effects": "1.0.1",
 "@azure/communication-common": "2.3.0",
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
 ```
+Run the following Node Package Manager command to install the needed packages.
 
-After you add these packages to your `package.json`, you're all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
+```bash
+npm install
+```
+
+After you install these packages, you're all set to start writing the code that builds the application. In this tutorial, we are modifying the files in the `src` directory.
 
 ## 3. Initial app setup
 
