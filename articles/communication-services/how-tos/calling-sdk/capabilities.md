@@ -26,15 +26,15 @@ Do I have permission to turn video on, do I have permission to turn mic on, do I
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Capabilities Android](./includes/dominant-speaker/capabilities-android.md)]
+[!INCLUDE [Capabilities Android](./includes/capabilities/capabilities-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Dominant Speaker Windows](./includes/dominant-speaker/capabilities-windows.md)]
+[!INCLUDE [Capabilities Windows](./includes/capabilities/capabilities-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Dominant Speaker iOS](./includes/dominant-speaker/capabilities-ios.md)]
+[!INCLUDE [Capabilities iOS](./includes/capabilities/capabilities-ios.md)]
 ::: zone-end
 
 ## Supported Calltype
