@@ -9,6 +9,7 @@ ms.subservice: calling
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.custom: template-how-to
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 # Observe user's capabilities
 Do I have permission to turn video on, do I have permission to turn mic on, do I have permission to share screen? Those are some examples of participant capabilities that you can learn from the capabilities API. Learning the capabilities can help build a user interface that only shows the buttons related to the actions the local user has permissions to.
