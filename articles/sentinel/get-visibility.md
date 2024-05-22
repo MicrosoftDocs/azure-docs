@@ -84,10 +84,10 @@ Workbook templates provide integrated data from your connected data sources to l
 2. Search for a specific workbook to see the whole list and description of what each offers. 
 3. Assuming you use Microsoft Entra ID, to get up and running with Microsoft Sentinel, we recommend that you install the Microsoft Entra solution for Microsoft Sentinel and use the following workbooks:
    - **Microsoft Entra ID**: Use either or both of the following:
-       - **Microsoft Entra sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbooks provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
+       - **Microsoft Entra sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbook provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
        - **Microsoft Entra audit logs** analyzes admin activities, such as changes in users (add, remove, etc.), group creation, and modifications.  
 
-   - Install the appropriate solution to add a workbook for your firewall. For example, install the Palo Alto firewall solution for Microsoft Sentinel to add the Palo Alto workbooks. The workbooks analyze your firewall traffic, providing you with correlations between your firewall data and threat events, and highlights suspicious events across entities. Workbooks provide you with information about trends in your traffic and let you drill down into and filter results. 
+   - Install the appropriate solution to add a workbook for your firewall. For example, install the Palo Alto firewall solution for Microsoft Sentinel to add the Palo Alto workbooks. The workbooks analyze your firewall traffic, providing you with correlations between your firewall data and threat events, and highlight suspicious events across entities. Workbooks provide you with information about trends in your traffic and let you drill down into and filter results. 
 
       ![Palo Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
