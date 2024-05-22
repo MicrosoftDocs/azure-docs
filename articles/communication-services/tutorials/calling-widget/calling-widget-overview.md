@@ -39,6 +39,9 @@ A complete start to finish tutorial built using [React](https://react.dev/) that
 We also include JavaScript bundles that you can use to integrate our `CallComposite` Calling experiences into your application that is not built in react. This tutorial uses our precompiled JavaScript bundles to integrate the `CallComposite` into your web page.
 - [Get started with Azure Communication Services UI library JavaScript bundles calling to Teams Call Queue and Auto Attendant](./calling-widget-js-tutorial.md)
 
+![Home page of js bundle sample app](../media/calling-widget/js-bundle-splash.png)
+
+
 ## Next steps
 
 For more information about Teams voice applications, check out our documentation on Teams auto attendants and Teams call queues.
