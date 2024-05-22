@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the number of disk-page buffers in shared memory for WAL. Unit is 8kb.                            |
 | Data type      | integer     |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.      |
 | Allowed values | `-1-262143`       |
 | Parameter type | static         |
 | Documentation  | [wal_buffers](https://www.postgresql.org/docs/11/runtime-config-wal.html)            |
@@ -184,7 +184,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Time interval between WAL flushes performed by the WAL writer.                                         |
 | Data type      | integer     |
-| Default value  | `200`                                                                      |
+| Default value  | `200`         |
 | Allowed values | `1-10000`         |
 | Parameter type | dynamic        |
 | Documentation  | [wal_writer_delay](https://www.postgresql.org/docs/11/runtime-config-wal.html)       |
@@ -201,7 +201,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Amount of WAL written out by WAL writer that triggers a flush.                                         |
 | Data type      | integer     |
-| Default value  | `128`                                                                      |
+| Default value  | `128`         |
 | Allowed values | `0-2147483647`    |
 | Parameter type | dynamic        |
 | Documentation  | [wal_writer_flush_after](https://www.postgresql.org/docs/11/runtime-config-wal.html) |

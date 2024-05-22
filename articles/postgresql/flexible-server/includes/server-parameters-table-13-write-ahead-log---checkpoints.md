@@ -14,7 +14,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Checkpoints |
 | Description    | Specifies the target of checkpoint completion, as a fraction of total time between checkpoints.                |
 | Data type      | numeric   |
-| Default value  | `0.9`                                                                      |
+| Default value  | `0.9`         |
 | Allowed values | `0-1`          |
 | Parameter type | dynamic        |
 | Documentation  | [checkpoint_completion_target](https://www.postgresql.org/docs/13/runtime-config-wal.html) |
@@ -31,7 +31,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Checkpoints |
 | Description    | Number of pages after which previously performed writes are flushed to disk.                                   |
 | Data type      | integer   |
-| Default value  | `32`                                                                       |
+| Default value  | `32`          |
 | Allowed values | `32`           |
 | Parameter type | read-only      |
 | Documentation  |                                                                                            |
@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Checkpoints |
 | Description    | Maximum size to let the WAL grow before triggering automatic checkpoint.                                       |
 | Data type      | integer   |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.      |
 | Allowed values | `32-65536`     |
 | Parameter type | dynamic        |
 | Documentation  | [max_wal_size](https://www.postgresql.org/docs/13/runtime-config-wal.html)                 |

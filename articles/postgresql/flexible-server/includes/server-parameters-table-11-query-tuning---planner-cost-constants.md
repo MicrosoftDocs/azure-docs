@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's assumption about the size of the disk cache.                                          |
 | Data type      | integer   |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.      |
 | Allowed values | `1-2147483647`   |
 | Parameter type | dynamic        |
 | Documentation  |                                                                                              |
@@ -133,7 +133,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the minimum amount of index data for a parallel scan.                                               |
 | Data type      | integer   |
-| Default value  | `64`                                                                       |
+| Default value  | `64`          |
 | Allowed values | `0-715827882`    |
 | Parameter type | dynamic        |
 | Documentation  | [min_parallel_index_scan_size](https://www.postgresql.org/docs/11/runtime-config-query.html) |
@@ -150,7 +150,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the minimum amount of table data that must be scanned for a parallel scan to be considered.         |
 | Data type      | integer   |
-| Default value  | `1024`                                                                     |
+| Default value  | `1024`        |
 | Allowed values | `0-715827882`    |
 | Parameter type | dynamic        |
 | Documentation  | [min_parallel_table_scan_size](https://www.postgresql.org/docs/11/runtime-config-query.html) |
@@ -184,7 +184,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's estimate of the cost of passing each tuple (row) from worker to master backend.       |
 | Data type      | numeric   |
-| Default value  | `0.1`                                                                      |
+| Default value  | `0.1`         |
 | Allowed values | `0-1.79769e+308` |
 | Parameter type | dynamic        |
 | Documentation  | [parallel_tuple_cost](https://www.postgresql.org/docs/11/runtime-config-query.html)          |
@@ -201,7 +201,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's estimate of the cost of a nonsequentially fetched disk page.                          |
 | Data type      | numeric   |
-| Default value  | `2`                                                                        |
+| Default value  | `2`           |
 | Allowed values | `0-1.79769e+308` |
 | Parameter type | dynamic        |
 | Documentation  |                                                                                              |
@@ -218,7 +218,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's estimate of the cost of a sequentially fetched disk page.                             |
 | Data type      | numeric   |
-| Default value  | `1`                                                                        |
+| Default value  | `1`           |
 | Allowed values | `0-1.79769e+308` |
 | Parameter type | dynamic        |
 | Documentation  |                                                                                              |

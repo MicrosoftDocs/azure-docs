@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the maximum number of concurrent connections to the database server.                                                           |
 | Data type      | integer   |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.      |
 | Allowed values | `25-5000`      |
 | Parameter type | static         |
 | Documentation  | [max_connections](https://www.postgresql.org/docs/15/runtime-config-connection.html)         |
@@ -252,7 +252,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the access permissions of the Unix-domain socket.                                                                              |
 | Data type      | integer   |
-| Default value  | `0777`                                                                     |
+| Default value  | `0777`        |
 | Allowed values | `0777`         |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
