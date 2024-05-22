@@ -98,7 +98,6 @@ az spring job execution list --job <job-name>
 # [Azure portal](#tab/azure-portal)
 
 1. In the *Executions* blade of *Jobs* overview page, latest job executions are listed
-1. Select *Rerun Job* to trigger a new job execution with the same configuration
 1. Select *Cancel Job* to cancel a running job execution
 1. Select *View execution detail* to see the configuration both in job level and execution level
 
@@ -127,24 +126,56 @@ az spring job logs --name <job-name> --execution <execution-name>
 
 If there are multiple instances for the job execution, specify `--instance <instance-name>` to view logs of one instance.
 
+## Rerun job execution
+
+# [Azure CLI](#tab/azure-cli)
+
+Using Azure CLI, you can use the same command as the previous one to start the job execution to trigger a new one:
+
+```
+az spring job start --name <job-name> --args <argument-value> --envs <key=value>
+```
+
+# [Azure portal](#tab/azure-portal)
+
+In Azure Portal, to rerun the job execution:
+
+1. Open the *Executions* blade of *Jobs* overview page
+1. Select *Rerun* to trigger a new job execution with the same configuration as the previous one
+1. A new job execution is shown in the *Executions* blade
+
+---
 
 ## Integrate with managed components
 
 During the public preview, jobs are enabled to integrate seamlessly with Spring Cloud Config Server for efficient configuration management and Tanzu Service Registry for service discovery.
 
-### Spring Cloud Config
+### Spring Cloud Config Server
 
-With Spring Cloud Config, external properties for jobs can be managed in a central place. After configuring the Spring Cloud Config with the right settings, bind the job to use it.
+With Spring Cloud Config Server, configurations or properties that are required by the job can be managed externally on Git repos and then loaded into the job accordingly. After setting up git repo configurations on Spring Cloud Config Server, you need bind the jobs with it as below.
 
 # [Azure CLI](#tab/azure-cli)
 
-Bind the job to Spring Cloud Config using the command:
+1. Bind the job to Spring Cloud Config Server using the command:
 
 ```
-az spring job create --bind-config-server true
+az spring job create --bind-config-server true --name <job-name>
+```
+
+1. For existing jobs binding with Spring Cloud Config Server, you can use the command:
+```
+az spring config-server bind --job <job-name>
 ```
 
 # [Azure portal](#tab/azure-portal)
+
+To create the job with Spring Cloud Config Server binded:
+
+1. Go to your Azure Spring Apps instance. From the navigation pane, select *Job*
+1. Click *Create Job* button and choose *Spring Cloud Config Server* in the *bind* part
+1. Click *Create* button to start creation process
+
+For existing jobs, you can bind them with Spring Cloud Config Server with following steps:
 
 1. Go to your Azure Spring Apps instance. From the navigation pane, select *Spring Cloud Config Server* in *Managed components*.
 1. If the component is disabled, select *Manage* to enable it.
@@ -157,7 +188,7 @@ az spring job create --bind-config-server true
 
 ### Tanzu Service registry
 
-To make the job discover the other apps in the same Azure Spring Apps service, you can first create an app that uses Service Registry, then create job and bind it to Service Registry.
+It's pretty common for a job to call an API from a long running app in collaboration for querying some info, notifying, etc. To make the job discover apps running in the same Azure Spring Apps service, you can enable both your apps and jobs binding to managed Service Registry. Please refer to below instructions about how to bind a job with Service Registry.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -177,4 +208,4 @@ az spring job create --bind-service-registry true
 
 ---
 
-When running the job execution, you can access the endpoint of registered app through Service Registry.
+When running the job execution, it can access the endpoint of registered apps through Service Registry then.
