@@ -485,8 +485,6 @@ A toggle above the application map lets you enable **Intelligent view** and cont
 | **Medium**  | (Default setting) A balanced number of edges are highlighted. |
 | **Low**     | More edges are highlighted. |
 
-For tips about working with the sensitivity settings, see the [troubleshooting](#adjust-sensitivity-setting) section later in this article.
-
 ### Check actionable insights
 
 After you enable **Intelligent view**, select a highlighted edge (red) on the map to see the "actionable insights" for the component. The insights display in a pane to the right and explain why the edge is highlighted.
