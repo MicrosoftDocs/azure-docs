@@ -33,7 +33,7 @@ To configure a diagnostic setting for developer portal usage logs:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
 
-    :::image type="content" source="media/developer-portal-enable-usage-logs/monitoring-menu.png" alt-text="Screenshot of adding a diagnostic setting in the portal":::
+    :::image type="content" source="media/developer-portal-enable-usage-logs/monitoring-menu.png" alt-text="Screenshot of adding a diagnostic setting in the portal.":::
 1. On the **Diagnostic setting** blade, enter or select details for the setting:
     1. **Diagnostic setting name**: Enter a descriptive name.
     1. **Category groups**: Optionally make a selection for your scenario. 
