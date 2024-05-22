@@ -16,7 +16,7 @@ ms.date: 09/07/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-[jq](https://jqlang.github.io/jq/) is an open source JSON processor that you can use restructure and format structured payloads in Azure IoT Data Processor Preview) pipelines:
+[jq](https://jqlang.github.io/jq/) is an open-source JSON processor that you can use restructure and format structured payloads in Azure IoT Data Processor Preview) pipelines:
 
 - The [filter](howto-configure-filter-stage.md) pipeline stage uses jq to enable flexible filter queries.
 - The [transform](howto-configure-transform-stage.md) pipeline stage uses jq to enable data transformation.
