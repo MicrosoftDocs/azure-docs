@@ -97,7 +97,7 @@ If the list doesn’t get updated automatically, select **Refresh**  to view the
 
 :::image type="content" source="media/manage/new-relic-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions.":::
 
-The set of tag rules for metrics and logs defined for the New Relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the New Relic resource. To reconfigure the rules, check [Reconfigure rules for metrics and logs](#reconfigure-rules-for-metrics-and-logs).
+The set of tag rules for metrics and logs defined for the New Relic resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the New Relic resource.
 
 ## Connected New Relic resources
 
