@@ -279,7 +279,7 @@ Locate your Web PubSub resource on Azure portal and go to "Networking" blade.
 :::image type="content" source="media/howto-integrate-app-gateway/web-pubsub-create-private-endpoint-step-1.jpg" alt-text="Screenshot showing how to create a separate subnet.":::
 
 Create a Private Endpoint in the same region as your Web PubSub resource. 
-:::image type="content" source="media/howto-integrate-app-gateway/web-pubsub-create-private-endpoint-step-2.jpg" alt-text="Screenshot showing how to create an Private Endpoint for Web PubSub resource.":::
+:::image type="content" source="media/howto-integrate-app-gateway/web-pubsub-create-private-endpoint-step-2.jpg" alt-text="Screenshot showing how to create a Private Endpoint for Web PubSub resource.":::
 
 Select the separate subnet we just created. 
 :::image type="content" source="media/howto-integrate-app-gateway/web-pubsub-create-private-endpoint-step-3.jpg" alt-text="Screenshot showing how to place Web PubSub's Private Endpoint in the newly created subnet.":::
