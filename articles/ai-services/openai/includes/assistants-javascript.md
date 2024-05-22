@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 04/10/2024
+ms.date: 05/21/2024
 ms.custom: passwordless-js, devex-track-javascript
 ---
 
@@ -38,19 +38,13 @@ For passwordless authentication, you need to
 1. Install the OpenAI Assistants client library for JavaScript with:
 
     ```console
-    npm install @azure/openai-assistants
+    npm install openai
     ```
 
 2. For the **recommended** passwordless authentication:
 
     ```console
     npm install @azure/identity
-    ```
-
-    Or to use the service key connection:
-
-    ```console
-    npm install @azure/core-auth
     ```
 
 ## Retrieve key and endpoint

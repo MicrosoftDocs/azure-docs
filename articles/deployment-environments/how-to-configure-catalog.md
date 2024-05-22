@@ -38,7 +38,41 @@ Attaching catalogs at the project level enables platform engineers to provide cu
  
 Platform engineers have full control over the use of catalogs at the project level. The use of project level catalogs must be enabled at the dev center level before a catalog can be added to a project. Platform engineers can also configure which types of catalogs items, such as environment definitions, can be consumed at the project level.
  
-By default, use of catalogs at the project level is disabled and none of the catalog item types are enabled. Environment definitions from a project-level catalog are synced and usable only when both project-based catalogs are activated at the corresponding dev center level and environment definitions are enabled for the project.
+By default, use of catalogs at the project level is disabled and none of the catalog item types are enabled. Environment definitions from a project-level catalog are synced and usable under two conditions. First, you must enable project-based catalogs at the corresponding dev center level. Second, you must enable the use of environment definitions for the project.
+
+### Add a catalog to a project
+
+You must enable project-level catalogs at the dev center level before you can add a catalog to a project. You should also enable the use of environment definitions at the project level.
+
+To enable the use of project-level catalogs at the dev center level:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
+1. In the left menu, under **Settings**, select **Configuration**.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/dev-center-overview.png" alt-text="Screenshot showing the Overview page for a dev center with Configuration highlighted." lightbox="media/how-to-configure-catalog/dev-center-overview.png"::: 
+ 
+1. In the **Project level catalogs** pane, select **Enable catalogs per project**, and then select **Apply**.
+
+    :::image type="content" source="media/how-to-configure-catalog/dev-center-project-catalog-selected.png" alt-text="Screenshot showing the Project level catalogs pane, with Enable catalogs per project highlighted." lightbox="media/how-to-configure-catalog/dev-center-project-catalog-selected.png":::
+
+To enable the use of environment definitions in the project:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your project.
+1. In the left menu, under **Settings**, select **Catalogs**.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/project-overview.png" alt-text="Screenshot showing the Overview page for a project with Catalogs highlighted." lightbox="media/how-to-configure-catalog/project-overview.png":::
+  
+1. On the **Catalogs** page, select **Catalog item permissions**.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/project-catalog-item-permissions.png" alt-text="Screenshot showing the Catalogs pane with Catalog item permissions highlighted." lightbox="media/how-to-configure-catalog/project-catalog-item-permissions.png":::
+ 
+1. In the **Catalog item settings** pane, select **Azure deployment environment definitions** to enable the use of environment definitions at the project level.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/project-enable-environment-definitions.png" alt-text="Screenshot showing the Catalog item settings pane with Azure deployment environment definitions selected." lightbox="media/how-to-configure-catalog/project-enable-environment-definitions.png":::
+ 
+Now, you can add a catalog to the project. 
+
+For catalogs that use a managed identity or Personal Access Token (PAT) for authentication, you must assign a managed identity for the project. For catalogs that use a PAT, you must store the PAT in a key vault and grant the managed identity access to the key vault secret.
 
 ## Configure a managed identity
 

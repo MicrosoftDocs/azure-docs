@@ -200,14 +200,16 @@ items:
             displayName: geolocation, IP collection, IP tracking, IP storage
         - name: SDK support policy
           href: app/sdk-support-guidance.md
-      - name: Create a resource
-        href: app/create-workspace-resource.md
       - name: Upgrade from classic resources and iKey
         items:
         - name: Migrate to a workspace-based resource
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
+      - name: Create a resource
+        href: app/create-workspace-resource.md
+      - name: Manage Application Insights
+        href: app/powershell.md
     - name: Experiences
       items:
       - name: Application dashboard
@@ -353,10 +355,6 @@ items:
           href: alerts/proactive-arm-config.md
         - name: E-mail notification
           href: alerts/proactive-email-notification.md
-    - name: Administration and security
-      items:
-      - name: Manage Application Insights
-        href: app/powershell.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -1250,8 +1248,6 @@ items:
           items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
-          - name: Application Insights API access with Microsoft Entra ID
-            href: app/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md
           - name: Request format
