@@ -41,7 +41,13 @@ No, Azure NetApp Files does not currently support deploying volumes in a dual-st
 ## Is the number of the IP addresses using Azure VMware Solutions for Guest OS mounts limited to 1000?
 
 No. Azure VMware Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the [1000 IP address limit](azure-netapp-files-resource-limits.md#resource-limits) is not applicable.
+
+## Can I use DNS A/AAAA records or CNAME records to connect to Azure NetApp Files volumes?
  
+Azure NetApp Files provides full support for using both A/AAAA (hostname) and CNAME (alias) records in DNS when connecting to NFS and SMB shares. Both  types of records can be used for hostname to IP resolution, load balancing, preserving legacy mount paths when data has been migrated, and more.
+ 
+For additional flexibility, see [How to use DFS Namespaces with Azure NetApp Files](use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files.md). 
+
 ## Next steps  
 
 - [Microsoft Azure ExpressRoute FAQs](../expressroute/expressroute-faqs.md)
