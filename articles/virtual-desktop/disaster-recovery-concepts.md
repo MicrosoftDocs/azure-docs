@@ -46,7 +46,7 @@ Basically, the disaster recovery strategy we recommend for Azure Virtual Desktop
 
 ## Design and implement a disaster recovery plan
 
-Azure Virtual Desktop doesn't have any native feature for managing disaster recovery. The following table lists the technology areas you need to consider as part of your disaster recovery strategy and links to other Microsoft documentation that provides guidance for each area::
+Azure Virtual Desktop doesn't have any native feature for managing disaster recovery. The following table lists the technology areas you need to consider as part of your disaster recovery strategy and links to other Microsoft documentation that provides guidance for each area:
 
 |Technology area |Documentation link |
 |---------|---------|
