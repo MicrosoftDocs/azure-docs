@@ -9,7 +9,7 @@ ms.date: 05/14/2024
 ms.author: cherylmc
 ---
 
-# Configure P2S VPN clients: certificate authentication - native VPN client - Windows
+# Configure native VPN client client for P2S certificate authentication connections - Windows
 
 If your point-to-site (P2S) VPN gateway is configured to use IKEv2/SSTP and certificate authentication, you can connect to your virtual network using the native VPN client that's part of your Windows operating system. This article walks you through the steps to configure the native VPN client and connect to your virtual network.
 

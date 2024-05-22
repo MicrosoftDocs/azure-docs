@@ -1,5 +1,5 @@
 ---
-title: 'Configure P2S VPN clients - certificate authentication - Linux'
+title: 'Configure P2S VPN clients - certificate authentication IKEv2 - Linux'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a Linux VPN client solution for VPN Gateway P2S configurations that use certificate authentication.
 author: cherylmc
@@ -10,7 +10,7 @@ ms.date: 05/04/2023
 ms.author: cherylmc
 ---
 
-# Configure P2S VPN clients: certificate authentication - Linux
+# Configure strongSwan VPN for P2S certificate authentication IKEv2 connections - Linux
 
 This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) and **Certificate authentication** from a Linux client. There are multiple sets of steps in this article, depending on the tunnel type you selected for your P2S configuration, the operating system, and the VPN client that is used to connect.
 
@@ -37,10 +37,7 @@ To generate configuration files using the Azure portal:
 
 [!INCLUDE [generate profile configuration files - Azure Portal](../../includes/vpn-gateway-generate-profile-portal.md)]
 
-Next, configure the VPN client. Select from the following instructions:
-
-* [IKEv2 tunnel type steps](#ike) for strongSwan
-* [OpenVPN tunnel type steps](#openvpn) for OpenVPN client
+Next, configure the VPN client.
 
 ## <a name="ike"></a>IKEv2 - strongSwan steps
 
@@ -149,8 +146,6 @@ This section walks you through the configuration using the strongSwan CLI.
          auto=add
          esp=aes256gcm16
    ```
-   
-   
 
 1. Add the secret values to **/etc/ipsec.secrets**.
 
@@ -167,15 +162,6 @@ This section walks you through the configuration using the strongSwan CLI.
    sudo ipsec up azure
    ```
 
-## <a name="openvpn"></a>OpenVPN steps
-
-This section helps you configure Linux clients for certificate authentication that uses the OpenVPN tunnel type. To connect to Azure, download the OpenVPN client and configure the connection profile.
-
-[!INCLUDE [Configuration steps for OpenVPN Linux](../../includes/vpn-gateway-config-openvpn-linux.md)]
-
 ## Next steps
 
-For additional steps, return to the original point-to-site article that you were working from.
-
-* [P2S Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
-* [P2S PowerShell steps](vpn-gateway-howto-point-to-site-rm-ps.md).
+For additional steps, return to the [P2S Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.
