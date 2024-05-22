@@ -23,7 +23,10 @@ Azure Cosmos DB for NoSQL now offers vector indexing and search in preview. This
 Azure Cosmos DB for NoSQL offers the flexibility it offers in choosing the vector indexing method: 
 - A "flat" or k-nearest neighbors exact search (sometimes called brute-force) can provide 100% retrieval recall for smaller, focused vector searches. especially when combined with query filters and partition-keys.
 - A quantized flat index that compresses vectors using DiskANN-based quantization methods for better efficiency in the kNN search.
-- DiskANN, a suite of state-of-the-art vector indexing algorithms developed by Microsoft Research to power efficient, high accuracy vector search at any scale. (Available June 1, 2024) [Learn more about vector indexing here](../index-policy.md#vector-indexes)
+- DiskANN, a suite of state-of-the-art vector indexing algorithms developed by Microsoft Research to power efficient, high accuracy vector search at any scale.
+
+[Learn more about vector indexing here](../index-policy.md#vector-indexes)
+
   
 Vector search in Azure Cosmos DB can be combined with all other supported Azure Cosmos DB NoSQL query filters and indexes using `WHERE` clauses. This enables your vector searches to be the most relevant data to your applications.
 
@@ -53,7 +56,10 @@ Vector search for Azure Cosmos DB for NoSQL requires preview feature registratio
 5. Select "Enable" to enroll in the preview. 
 
 > [!NOTE]  
-> The registration request will be autoapproved, however it may take several minutes to take effect.  
+> The registration request will be autoapproved, however it may take several minutes to take effect.
+
+> [!NOTE]  
+> DiskANN is available in early gated-preview and requires filling out [this form](https://aka.ms/DiskANNSignUp). You'll be contacted by a member of the Azure Cosmos DB team when your resource has been onboarded to use the DiskANN index.
 
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
@@ -118,9 +124,9 @@ The container vector policy can be described as JSON objects. Here are two examp
 A few points to note:
   - The `flat` and `quantizedFlat` index types uses Azure Cosmos DB's index to store and read each vector when performing a vector search. Vector searches with a `flat` index are brute-force searches and produce 100% accuracy or recall. That is, it's guaranteed to find the most similar vectors in the dataset. However, there's a limitation of `505` dimensions for vectors on a flat index.
 
-  - The `quantizedFlat` index stores quantized (compressed) vectors on the index. Vector searches with `quantizedFlat` index are also brute-force searches, however their accuracy might be slightly less than 100% since the vectors are quantized before adding to the index. However, vector searches with `quantized flat` should have lower latency, higher throughput, and lower RU cost than vector searches on a `flat` index. This is a good option for scenarios where you're using query filters to narrow down the vector search to a relatively small set of vectors (fewer than 100,000) and near-perfect accuracy is required. 
+  - The `quantizedFlat` index stores quantized (compressed) vectors on the index. Vector searches with `quantizedFlat` index are also brute-force searches, however their accuracy might be slightly less than 100% since the vectors are quantized before adding to the index. However, vector searches with `quantized flat` should have lower latency, higher throughput, and lower RU cost than vector searches on a `flat` index. This is a good option for smaller scenarios, or scenarios where you're using query filters to narrow down the vector search to a relatively small set of vectors. `quantizedFlat` should be used when there are at least 1,000 vectors and fewer than 100,000 vectors in the container.
 
-  - The `diskANN` index is a separate index defined specifically for vectors using [DiskANN](https://www.microsoft.com/research/publication/diskann-fast-accurate-billion-point-nearest-neighbor-search-on-a-single-node/), a suite of high performance vector indexing algorithms developed by Microsoft Research. DiskANN indexes can offer some of the lowest latency, highest throughput, and lowest RU cost queries, while still maintaining high accuracy. However, since DiskANN is an approximate nearest neighbors (ANN) index, the accuracy can be lower than `quantizedFlat` or `flat`.
+  - The `diskANN` index is a separate index defined specifically for vectors using [DiskANN](https://www.microsoft.com/research/publication/diskann-fast-accurate-billion-point-nearest-neighbor-search-on-a-single-node/), a suite of high performance vector indexing algorithms developed by Microsoft Research. DiskANN indexes can offer some of the lowest latency, highest throughput, and lowest RU cost queries, while still maintaining high accuracy. However, since DiskANN is an approximate nearest neighbors (ANN) index, the accuracy can be lower than `quantizedFlat` or `flat`. DiskANN is available in early gated-preview and requires filling out [this form](https://aka.ms/DiskANNSignUp).
 
 Here are examples of valid vector index policies:
 
