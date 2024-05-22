@@ -54,47 +54,6 @@ There are two methods that you can use to filter data being collected in Contain
 ## Container logs
 Depending on the [log schema](container-insights-logs-schema.md) you have configured for your cluster, stdout and stderr logs will be collected in either [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) or [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2). You can filter container logs using either ConfigMap or DCR. 
 
-### ConfigMap
-
- - Use `[log_collection_settings]` in ConfigMap to either disable collection of stdout/stderr logs or exclude specific namespaces from collection.<br>- Use data collection rule (DCR) to exclude specific tables from collection. |
-
-
-
-The following examples show what changes you can apply to your cluster by modifying the ConfigMap file to help control cost.
-
-1. Disable stdout logs across all namespaces in the cluster by modifying the following code in the ConfigMap file for the Azure Container insights service that's pulling the metrics:
-
-    ```
-    [log_collection_settings]       
-       [log_collection_settings.stdout]          
-          enabled = false
-    ```
-
-1. Disable collecting stderr logs from your development namespace. An example is `dev-test`. Continue collecting stderr logs from other namespaces, such as, `prod` and `default`, by modifying the following code in the ConfigMap file:
-
-    >[!NOTE]
-    >The kube-system log collection is disabled by default. The default setting is retained. Adding the `dev-test` namespace to the list of exclusion namespaces is applied to stderr log collection.
-
-    ```
-    [log_collection_settings.stderr]          
-       enabled = true          
-          exclude_namespaces = ["kube-system", "dev-test"]
-    ```
-
-1. Disable environment variable collection across the cluster by modifying the following code in the ConfigMap file. This modification applies to all containers in every Kubernetes namespace.
-
-    ```
-    [log_collection_settings.env_var]
-        enabled = false
-    ```
-
-
-
-After you apply one or more of these changes to your ConfigMaps, apply it to your cluster with the command `kubectl apply -f <config3. map_yaml_file.yaml>`. For example, run the command `kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.
-
-### DCR
-
-
 
 ### Configure Basic Logs
 [Basic Logs in Azure Monitor](../logs/basic-logs-configure.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that 

@@ -38,6 +38,8 @@ The DCR that gets created when you enable Container insights is named *MSCI-\<cl
 
 
 ## [Azure portal](#tab/portal)
+
+## Azure portal
 You can use the Azure portal to enable cost optimization on your existing cluster after Container insights has been enabled, or you can enable Container insights on the cluster along with cost optimization.
 
 1. Select the cluster in the Azure portal.
@@ -88,16 +90,9 @@ You can use the Azure portal to enable cost optimization on your existing cluste
 
 ## [CLI](#tab/cli)
 
+## Azure CLI
 
-### Prerequisites
-
-- Azure CLI minimum version 2.51.0.
-- For AKS clusters, [aks-preview](../../aks/cluster-configuration.md) version 0.5.147 or higher
-- For Arc enabled Kubernetes and AKS hybrid, [k8s-extension](../../azure-arc/kubernetes/extensions.md#prerequisites) version 1.4.3 or higher
-
-## AKS cluster
-
-When you use CLI to configure monitoring for your AKS cluster, you provide the configuration as a JSON file using the following format. Each of these settings is described in the following table.
+When you use CLI to configure monitoring for your AKS cluster, you provide the configuration as a JSON file using the following format. See the section below for how to use CLI to apply these settings to different cluster configurations.
 
 ```json
 {
@@ -109,6 +104,8 @@ When you use CLI to configure monitoring for your AKS cluster, you provide the c
 }
 ```
 
+Each of the settings in the configuration is described in the following table.
+
 | Name | Description |
 |:---|:---|
 | `interval` | Determines how often the agent collects data.  Valid values are 1m - 30m in 1m intervals The default value is 1m. If the value is outside the allowed range, then it defaults to *1 m*. |
@@ -117,6 +114,15 @@ When you use CLI to configure monitoring for your AKS cluster, you provide the c
 |  `enableContainerLogV2` | Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logs-schema.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
 | `streams` | An array of container insights table streams. See the supported streams above to table mapping. |
 
+### Prerequisites
+
+- Azure CLI minimum version 2.51.0.
+- For AKS clusters, [aks-preview](../../aks/cluster-configuration.md) version 0.5.147 or higher
+- For Arc enabled Kubernetes and AKS hybrid, [k8s-extension](../../azure-arc/kubernetes/extensions.md#prerequisites) version 1.4.3 or higher
+
+
+
+### AKS cluster
 
 ### New AKS cluster
 
@@ -171,45 +177,38 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 ## [ARM](#tab/arm)
 
+## ARM template
 
-1. Download the Azure Resource Manager template and parameter files using the following commands. See below for the template and parameter files for each cluster configuration.
+The following template and parameter files are available for different cluster configurations.
 
-    ```bash
-    curl -L <template file> -o existingClusterOnboarding.json
-    curl -L <parameter file> -o existingClusterParam.json
-    ```
+**AKS cluster**
+- Template: https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file
+- Parameter: https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file 
 
-    **AKS cluster**
-    - Template: https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-file
-    - Parameter: https://aka.ms/aks-enable-monitoring-costopt-onboarding-template-parameter-file 
+**Arc-enabled Kubernetes**
+- Template: https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-file
+- Parameter: https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-parameter-file
 
-    **Arc-enabled Kubernetes**
-    - Template: https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-file
-    - Parameter: https://aka.ms/arc-k8s-enable-monitoring-costopt-onboarding-template-parameter-file
+**AKS hybrid cluster**
+- Template: https://aka.ms/existingClusterOnboarding.json
+- Parameter: https://aka.ms/existingClusterParam.json
 
-    **AKS hybrid cluster**
-    - Template: https://aka.ms/existingClusterOnboarding.json
-    - Parameter: https://aka.ms/existingClusterParam.json
 
-1. Edit the values in the parameter file. See [Data collection parameters](#data-collection-parameters) for details on each setting. See below for settings unique to each cluster configuration.
-
-    **AKS cluster**<br>
-    - For _aksResourceId_ and _aksResourceLocation_, use the values on the  **AKS Overview**  page for the AKS cluster.
-
-    **Arc-enabled Kubernetes**
-    - For _clusterResourceId_ and _clusterResourceLocation_, use the values on the  **Overview**  page for the AKS hybrid cluster.
-
-    **AKS hybrid cluster**
-    - For _clusterResourceId_ and  _clusterRegion_, use the values on the  **Overview**  page for the Arc enabled Kubernetes cluster.
-    
 
 | Name | Description |
 |:---|:---|
+| `aksResourceId` | Resource ID for the cluster.|
+| `aksResourceLocation` | Location of the cluster.|
+| `workspaceRegion` | Location of the Log Analytics workspace. | 
+| `enableContainerLogV2` | Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logs-schema.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
+| `enableSyslog` | Specifies whether Syslog collection should be enabled. |
+| `syslogLevels` | If Syslog collection is enabled, specifies the log levels to collect. |
 | `dataCollectionInterval` | Determines how often the agent collects data.  Valid values are 1m - 30m in 1m intervals The default value is 1m. If the value is outside the allowed range, then it defaults to *1 m*. |
 | `namespaceFilteringModeForDataCollection` | *Include*: Collects only data from the values in the *namespaces* field.<br>*Exclude*: Collects data from all namespaces except for the values in the *namespaces* field.<br>*Off*: Ignores any *namespace* selections and collect data on all namespaces.
 | `namespacesForDataCollection` | Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_.<br>For example, *namespaces = ["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_. With an _Off_ setting, the agent collects data from all namespaces including _kube-system_ and _default_. Invalid and unrecognized namespaces are ignored. |
-| `enableContainerLogV2` | Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logs-schema.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
 | `streams` | An array of container insights table streams. See the supported streams above to table mapping. |
+| `useAzureMonitorPrivateLinkScope` | Specifies whether to use private link for the cluster connection to Azure Monitor. |
+| `azureMonitorPrivateLinkScopeResourceId` | If private link is used, resource ID of the private link scope.  |
 
 ---
 

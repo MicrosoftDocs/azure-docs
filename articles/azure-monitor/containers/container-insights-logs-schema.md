@@ -15,9 +15,9 @@ Container insights stores log data it collects in a table called *ContainerLogV2
 
 ## Table comparison
 
+ContainerLogV2 is the default schema for CLI version 2.54.0 and greater. ContainerLogV2 is the default table for customers who will be onboarding Container insights with managed identity authentication. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using data collection settings.
+
 >[!IMPORTANT]
-> ContainerLogV2 is the default schema for CLI version 2.54.0 and greater. ContainerLogV2 is the default table for customers who will be onboarding Container insights with managed identity authentication. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using data collection settings.
-> 
 > Support for the *ContainerLog* table will be retired on 30th September 2026.
 
 The following table highlights the key differences between using ContainerLogV2 and ContainerLog schema.
@@ -59,15 +59,7 @@ resources
 
 ## Kubernetes metadata
 When Kubernetes Logs Metadata is enabled, it adds a column to `ContainerLogV2` called `KubernetesMetadata` that enhances troubleshooting with simple Log Analytics queries and removes the need for joining with other tables. 
-The field in this column include the following:
-
-- `PodLabels`
-- `PodAnnotations`
-- `PodUid`
-- `Image`
-- `ImageID`
-- `ImageRepo`
-- `ImageTag`
+The field in this column include: `PodLabels`, `PodAnnotations`, `PodUid`, `Image`, `ImageID`, `ImageRepo`, `ImageTag`.
 
 Enable Kubernetes metadata using [ConfigMap](./container-insights-data-collection-filter.md#configure-using-configmap) with the following settings. All metadata fields are collected by default when the `metadata_collection` is enabled. Uncomment `include_fields` to specify individual fields to be collected.
 
