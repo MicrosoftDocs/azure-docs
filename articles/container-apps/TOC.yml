@@ -58,8 +58,12 @@
       href: jobs.md
     - name: Dynamic sessions
       items:
+      - name: Overview
+        href: sessions.md
       - name: Code interpreter sessions
         href: sessions-code-interpreter.md
+      - name: Custom container sessions
+        href: sessions-custom-container.md
     - name: Microservices
       href: microservices.md
     - name: Build and deliver apps with Container Apps (video)
@@ -130,6 +134,8 @@
       items:
         - name: Code interpreter sessions
           items:
+          - name: AutoGen
+            href: sessions-tutorial-autogen.md
           - name: LangChain
             href: sessions-tutorial-langchain.md
           - name: LlamaIndex
