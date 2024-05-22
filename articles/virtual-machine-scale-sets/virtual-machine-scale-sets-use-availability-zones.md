@@ -295,7 +295,7 @@ When you are satisfied that the new instances are ready, scale in your scale set
 With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md), new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances is added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. Upgrades continue until all instances are brought up-to-date.
 
 > [!IMPORTANT]
-> Rolling upgrades with MaxSurge is currently in preview for Virtual Machine Scale Sets with Flexible and Uniform orchestration.
+> Rolling upgrades with MaxSurge is currently in preview for Virtual Machine Scale Sets with Flexible and Uniform orchestration. For more information, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)
 
 ### Known issues and limitations
 
