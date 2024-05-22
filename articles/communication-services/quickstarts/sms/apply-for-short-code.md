@@ -52,7 +52,7 @@ Configuring your short code is broken down into two steps:
 - Select a short code *type*
 - Select the short code *features*
 
-You can select from two short code types: *random* or *vanity*. If you select a *random* short code, you get a short code randomly selected by the U.S. Common Short Codes Association (CSCA). If you select a *vanity* short code, you're required to provide a prioritized list of vanity short codes that you’d like to use for your program. If the first short code in your list isn't available to lease, the CSCA chooses an alternative from the list. For example: 234567, 234578, 234589. You can search the list of available short codes in the [US Short Codes Directory](https://usshortcodedirectory.com/).
+You can select from two short code types: *random* or *vanity*. If you select a *random* short code, you get a short code randomly selected by the U.S. Common Short Codes Association (CSCA). If you select a *vanity* short code, you're required to provide a prioritized list of vanity short codes that you want to use for your program. If the first short code in your list isn't available to lease, the CSCA chooses an alternative from the list. For example: 234567, 234578, 234589. You can search the list of available short codes in the [US Short Codes Directory](https://usshortcodedirectory.com/).
 
 After selecting a number type, you can then choose the message type and target date. Short code registration with carriers usually takes 8-12 weeks, so select a target date based on the registration period.
 
