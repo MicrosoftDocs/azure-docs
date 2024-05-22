@@ -57,7 +57,7 @@ The new Jailbreak risk detection and Protected material detection APIs let you m
 - Jailbreak risk detection scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md)
 - Protected material text detection scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)
 
-Jailbreak risk and Protected material detection are available in the East US and West Europe Azure regions.
+Jailbreak risk and Protected material detection are only available in select regions. See [Region availability](/azure/ai-services/content-safety/overview#region-availability).
 
 ## October 2023
 
