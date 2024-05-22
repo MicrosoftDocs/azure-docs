@@ -1,6 +1,6 @@
 ---
 title: Advanced Network Observability - Advanced Container Networking Services for Azure Kubernetes Service (AKS)
-description: An overview of Advanced Network Observability - Advanced Container Networking Services for Azure Kubernetes Service (AKS).
+description: An overview of Advanced Container Networking Services'a Advanced Network Observability capabilities Azure Kubernetes Service (AKS).
 author: Khushbu-Parekh
 ms.author: kparekh
 ms.service: azure-kubernetes-service
@@ -13,61 +13,59 @@ ms.date: 05/10/2024
 
 Advanced Network Observability is the foundation of the [Advanced Container Networking Services](advanced-container-networking-services-overview.md) suite. It equips you with next-level monitoring and diagnostics tools, providing unparalleled visibility into your containerized workloads. These tools empower you to pinpoint and troubleshoot network issues with ease, ensuring optimal performance for your applications.
 
-Advanced Network Observability offers compatibility across all Linux workloads. It seamlessly integrates with Hubble, regardless of the underlying data planes.
+Advanced Network Observability is compatible with all Linux workloads seamlessly integrating with Hubble regardless of whether the underlying data plane is Cilium or non-Cilium (both are supported) ensuring flexibility for your container networking needs.
 
-Advanced Container Networking Services offers support for both Cilium and non-Cilium data planes, ensuring flexibility for your container networking needs.
+* Cilium data plane: A high-performance, OSS (open-source), eBPF-based data plane specifically designed for Kubernetes environments. For more information, see [Cilium](https://cilium.io/).
 
-* Cilium Data plane: This is a high-performance, eBPF-based data plane specifically designed for Kubernetes environments. This data plane is Powered by Open-source project [Cilium](https://cilium.io/).
-
-* Non-Cilium Data plane: For non-cilium data plane users, we are using an ebpf based open-source project [Retina](https://retina.sh) to collect network related metrics.
+* Non-Cilium Data plane: For non-cilium data plane scenarios, Advanced Network Observability uses an OSS, eBPF-based data plane originally built by Microsoft known as Retina. For more information, see [Retina](https://retina.sh).
 
 :::image type="content" source="./media/advanced-container-networking-services/advanced-network-observability.png" alt-text="Diagram of Advanced Network Observability.":::
 
 > [!NOTE]
-> For deployments leveraging Cilium data planes, Advanced Network Observability is readily available starting with Kubernetes version 1.29.
-> For Non-Cilium Linux data planes, Advanced Network Observability is supported on all Linux distributions. Azure Linux is supported starting with version 2.0 and greater.
+> For Cilium data plane scenarios, Advanced Network Observability is available beginning with Kubernetes version 1.29.
+> For non-Cilium data plane scenarios, Advanced Network Observability is supported on all Linux distributions including Azure Linux beginning with version 2.0.
 
 ## Features of Advanced Network Observability
 
 Advanced Network Observability offers the following capabilities to monitor network-related issues in your cluster:
 
-* **Node-Level Metrics:** Understanding the health of your container network at the node-level is crucial for maintaining optimal application performance. These metrics indicate traffic volume, dropped packets, number of connections, etc. by node. Since they are Prometheus metrics, you can view them in Grafana or create custom alerts.
+* **Node-Level Metrics:** Understanding the health of your container network at the node-level is crucial for maintaining optimal application performance. These metrics provides insights into traffic volume, dropped packets, number of connections, etc. by node. The metrics are stored in Prometheus format and, as such, you can view them in Grafana.
 
-* **Hubble Metrics (DNS and Pod-Level Metrics):** These Prometheus metrics include source/destination Pod information, empowering you to pinpoint network-related issues at a granular level. Metrics cover traffic volume, dropped packets, TCP resets, L4/L7 packet flows, etc. There are also DNS metrics (currently only for Non-Cilium data planes), covering DNS errors and DNS requests missing responses.
+* **Hubble Metrics (DNS and Pod-Level Metrics):** These Prometheus metrics include source and destination pod information allowing you to pinpoint network-related issues at a granular level. Metrics cover traffic volume, dropped packets, TCP resets, L4/L7 packet flows, etc. There are also DNS metrics (currently only for Non-Cilium data planes), covering DNS errors and DNS requests missing responses.
 
-* **Hubble Flow Logs:** Flow logs unlock deep visibility into your cluster's network activity. All communications to/from Pods are logged, allowing you to investigate connectivity issues and more. Flow logs help answer questions such as: did the server receive the client's request? What is the round-trip latency between the client's request and server's response?
+* **Hubble Flow Logs:** Flow logs provide deep visibility into your cluster's network activity. All communications to and from pods are logged allowing you to investigate connectivity issues over time. Flow logs help answer questions such as: did the server receive the client's request? What is the round-trip latency between the client's request and server's response?
 
-  * **Hubble CLI:** The Hubble Command-Line Interface (CLI) provides a means to retrieve flow logs from across the cluster with customizable filtering and formatting.
+  * **Hubble CLI:** The Hubble Command-Line Interface (CLI) can retrieve flow logs across the entire cluster with customizable filtering and formatting.
 
-  * **Hubble UI:** Hubble UI is a user-friendly web-browser interface for exploring your cluster's network activity. It creates a service-connection graph based on Flow logs, and it also displays flow logs for the selected namespace. You're responsible for provisioning and managing the infrastructure required to run Hubble UI.
+  * **Hubble UI:** Hubble UI is a user-friendly browser-based interface for exploring cluster network activity. It creates a service-connection graph based on flow logs, and displays flow logs for the selected namespace. Users are responsible for provisioning and managing the infrastructure required to run Hubble UI.
 
 ## Key Benefits of Advanced Network Observability
 
-* **CNI-Agnostic**: Supported on kubenet and all Azure CNI modes.
+* **CNI-Agnostic**: Supported on all Azure CNI variants including kubenet.
 
-* **Cilium and Non-Cilium**: Uniform and seamless experience across Cilium and Non-Cilium data planes.
+* **Cilium and Non-Cilium**: Provides a uniform, seamless experience across both Cilium and non-Cilium data planes.
 
-* **eBPF-Based Network Observability:** Identify potential bottlenecks and congestion issues before they impact application performance. Gain insights into key network health indicators, including traffic volume, dropped packets, and connection information.
+* **eBPF-Based Network Observability:** Leverages eBPF (extended Berkeley Packet Filter) for performance and scalability to identify potential bottlenecks and congestion issues before they impact application performance. Gain insights into key network health indicators, including traffic volume, dropped packets, and connection information.
 
 * **Deep Visibility into Network Activity:** Understand how your applications are communicating with each other through detailed network flow logs.
 
-* **Simplified monitoring options**: Choose between:
-  * **Azure Managed Prometheus and Grafana**: With this option, Azure manages the infrastructure and maintenance, allowing you to focus on configuring and visualizing metrics.
-  * **Bring your own (BYO) Prometheus and Grafana**: With this option, you set up your own instances and manage the underlying infrastructure.
+* **Simplified Metrics Storage and Visualization Options**: Choose between:
+  * **Azure Managed Prometheus and Grafana**: Azure manages the infrastructure and maintenance, allowing users to focus on configuring metrics and visualizing metrics.
+  * **Bring Your Own (BYO) Prometheus and Grafana**: Users deploy and configure their own instances and manage the underlying infrastructure.
 
 ## Metrics
 
 ### Node-Level Metrics
 
-The following metrics are aggregated per Node. All metrics include the labels:
+The following metrics are aggregated per node. All metrics include labels:
 
 * `cluster`
 * `instance` (Node name)
 
 #### [**Non-Cilium**](#tab/non-cilium)
 
-On Non-Cilium data plane, the Network Observability add-on provides metrics in both Linux and Windows platforms.
-The below table outlines the different metrics generated.
+For non-Cilium data plane scenarios, Advanced Network Observability provides metrics for both Linux and Windows operating systems.
+The table below outlines the different metrics generated.
 
 | Metric Name                                    | Description | Extra Labels | Linux | Windows |
 |------------------------------------------------|-------------|--------------|-------|---------|
@@ -86,13 +84,13 @@ The below table outlines the different metrics generated.
 
 #### [**Cilium**](#tab/cilium)
 
-Cilium currently only supports Linux nodes.
-It exposes several metrics including the following for network observability.
+For Cilium data plane scenarios, Advanced Network Observability provides metrics only for Linux, Windows is currently not supported.
+Cilium exposes several metrics including the following used by Advanced Network Observability.
 
 | Metric Name                    | Description                  | Extra Labels          |Linux | Windows |
 |--------------------------------|------------------------------|-----------------------|-------|---------|
 | **cilium_forward_count_total** | Total forwarded packet count | `direction`           | ✅ | ❌ |
-| **cilium_forward_bytes_total** | Total forwarded byte count   | `direction`           |✅ | ❌ |
+| **cilium_forward_bytes_total** | Total forwarded byte count   | `direction`           | ✅ | ❌ |
 | **cilium_drop_count_total**    | Total dropped packet count   | `direction`, `reason` | ✅ | ❌ |
 | **cilium_drop_bytes_total**    | Total dropped byte count     | `direction`, `reason` | ✅ | ❌ |
 
@@ -100,33 +98,33 @@ It exposes several metrics including the following for network observability.
 
 ### Pod-Level Metrics (Hubble Metrics)
 
-The following metrics are aggregated per Pod (still containing Node information). All metrics include the labels:
+The following metrics are aggregated per pod (node information is preserved). All metrics include labels:
 
 * `cluster`
 * `instance` (Node name)
 * `source` or `destination`
 
-For *outgoing traffic*, there will be a `source` label with source Pod namespace/name.
-For *incoming traffic*, there will be a `destination` label with destination Pod namespace/name.
+For *outgoing traffic*, there will be a `source` label with source pod namespace/name.
+For *incoming traffic*, there will be a `destination` label with destination pod namespace/name.
 
 | Metric Name                      | Description                  | Extra Labels          | Linux | Windows |
 |----------------------------------|------------------------------|-----------------------|-------|---------|
 | **hubble_dns_queries_total**     | Total DNS requests by query  | `source` or `destination`, `query`, `qtypes` (query type) | ✅ | ❌ |
 | **hubble_dns_responses_total**   | Total DNS responses by query/response | `source` or `destination`, `query`, `qtypes` (query type), `rcode` (return code), `ips_returned` (number of IPs) | ✅ | ❌ |
 | **hubble_drop_total**            | Total dropped packet count | `source` or `destination`, `protocol`, `reason` | ✅ | ❌ |
-| **hubble_tcp_flags_total**       | Toctal TCP packets count by flag. | `source` or `destination`, `flag` | ✅ | ❌ |
+| **hubble_tcp_flags_total**       | Total TCP packets count by flag. | `source` or `destination`, `flag` | ✅ | ❌ |
 | **hubble_flows_processed_total** | Total network flows processed (L4/L7 traffic) | `source` or `destination`, `protocol`, `verdict`, `type`, `subtype` | ✅ | ❌ |
 
 ### Limitations
 
-* Pod-level metrics available only on Linux.
+* Pod-level metrics are available only on Linux.
 * Cilium data plane is supported starting with Kubernetes version 1.29.
-* Metric labels may have subtle differences between Cilium and Non-Cilium clusters.
+* Metric labels may have subtle differences between Cilium and non-Cilium clusters.
 * Cilium data plane does not currently support DNS metrics.
 
 ### Scale
 
-Certain scale limitations apply when you use Azure managed Prometheus and Grafana. For more information, see [Scrape Prometheus metrics at scale in Azure Monitor](/azure/azure-monitor/essentials/prometheus-metrics-scrape-scale)
+Azure managed Prometheus and Grafana impose service-specific scale limitations. For more information, see [Scrape Prometheus metrics at scale in Azure Monitor](/azure/azure-monitor/essentials/prometheus-metrics-scrape-scale)
 
 ## Next steps
 
