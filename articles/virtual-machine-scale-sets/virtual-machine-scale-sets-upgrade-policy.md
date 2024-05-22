@@ -44,7 +44,7 @@ Manual upgrade policy is best suited for workloads where you require more contro
 > [!NOTE]
 > Rolling upgrade policy is in general availability (GA) for Virtual Machine Scale Sets with Uniform Orchestration. 
 >
->**Rolling upgrade policy is in preview for Virtual Machine Scale Sets with Flexible Orchestration.**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+>**Rolling upgrade policy is in preview for Virtual Machine Scale Sets with Flexible Orchestration.** Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 > 
 > For more information on using a rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md).
 
