@@ -128,7 +128,7 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 | France Central | ✅ | | | | | |
 | West Europe | ✅ | ✅ |✅ | | |✅ |
 | Japan East | ✅ | | | | | |
-| Australia East| ✅ | ✅ | | | | | |
+| Australia East| ✅ | ✅ | | | | |
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
