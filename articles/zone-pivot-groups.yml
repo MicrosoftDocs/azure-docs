@@ -2883,6 +2883,24 @@ groups:
     title: GitHub
   - id: azure-devops
     title: Azure DevOps
+# Owner: mametcal
+- id: appconfig-provider
+  title: Client library pivots
+  prompt: Choose a c library
+  pivots:
+  - id: framework-dotnet
+    title: .NET
+  - id: framework-spring
+    title: Spring Framework
+# Owner: zhiyuanliang
+- id: feature-management
+  title: Library version pivots
+  prompt: Choose a library version
+  pivots:
+  - id: stable-version
+    title: Stable Release
+  - id: preview-version
+    title: Preview Release
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience
