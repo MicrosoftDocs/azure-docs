@@ -9,7 +9,7 @@ metadata:
   ms.service: azure-resource-manager
   ms.subservice: Bicep
   ms.topic: landing-page
-  ms.date: 06/23/2023
+  ms.date: 05/21/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -37,6 +37,10 @@ landingContent:
             url: quickstart-create-bicep-use-visual-studio.md
           - text: Create and deploy template specs
             url: quickstart-create-template-specs.md
+          - text: Create deployment stacks
+            url: quickstart-create-deployment-stacks.md
+          - text: Use private module registry
+            url: quickstart-private-module-registry.md
       - linkListType: learn
         links:
           - text: Introduction to Bicep
@@ -70,7 +74,7 @@ landingContent:
             url: ./operators.md
           - text: Data types
             url: ./data-types.md
-          - text: Azure Quickstart templates
+          - text: Azure Quickstart Templates
             url: https://azure.microsoft.com/resources/templates/
   # Card
   - title: Deploy Bicep files
