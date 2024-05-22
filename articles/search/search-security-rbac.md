@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/21/2024
+ms.date: 05/22/2024
 ms.custom:
   - subject-rbac-steps
   - references_regions
@@ -22,7 +22,7 @@ Azure provides a global [role-based access control authorization system](../role
 > + [Service administration](#assign-roles-for-service-administration)
 > + [Development or write-access to a search service](#assign-roles-for-development)
 > + [Read-only access for queries](#assign-roles-for-read-only-queries)
-> + [Custom access to a single index](#grant-access-to-a-single-index)
+> + [Scoped access to a single index](#grant-access-to-a-single-index)
 
 Per-user access over search results (sometimes referred to as *row-level security* or *document-level security*) isn't supported through role assignments. As a workaround, [create security filters](search-security-trimming-for-azure-search.md) that trim results by user identity, removing documents for which the requestor shouldn't have access. See this [Enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template) for a demonstration.
 
@@ -38,13 +38,13 @@ Role-based access is optional, but recommended. The alternative is [key-based au
 
 ## Limitations
 
-+ Role-based access control can increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request triggers an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
++ Role-based access control can increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal triggers an authorization check. These authorization checks can add up to 200 milliseconds of latency per request. 
 
 + In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
 ## Enable role-based access for data plane operations
 
-Role-based access control for service administration (control plane) is mandatory. Roles for data plane operations are optional. You must enable role-based access before you can assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles.
+Roles for service administration (control plane) is mandatory. Roles for data plane operations are optional. You must enable role-based access before you can assign Search Service Contributor, Search Index Data Contributor, or Search Index Data Reader roles for data operations.
 
 In this step, configure your search service to recognize an **authorization** header on data plane requests that provide an OAuth2 access token.
 
@@ -110,7 +110,7 @@ When you enable role-based access control, the failure mode is "http401WithBeare
 
 <a name = "built-in-roles-used-in-search"></a>
 
-## Built-in role reference
+## Built-in roles used in Azure AI Search
 
 The following roles are built in. If these roles are insufficient, [create a custom role](#create-a-custom-role). 
 
@@ -126,11 +126,19 @@ The following roles are built in. If these roles are insufficient, [create a cus
 > [!NOTE]
 > If you disable Azure role-based access, built-in roles for the control plane (Owner, Contributor, Reader) continue to be available. Disabling role-based access removes just the data-related permissions associated with those roles. If data plane roles are disabled, Search Service Contributor is equivalent to control-plane Contributor.
 
-## Assign roles for service administration
+## Assign roles
+
+In this section, assign roles for:
+
++ [Service administration](#assign-roles-for-service-administration)
++ [Development or write-access to a search service](#assign-roles-for-development)
++ [Read-only access for queries](#assign-roles-for-read-only-queries)
+
+### Assign roles for service administration
 
 As a service administrator, you can create and configure a search service, and perform all control plane operations described in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. Depending on the role, you can also perform most data plane [Search REST API](/rest/api/searchservice/) tasks.
 
-### [**Azure portal**](#tab/roles-portal-admin)
+#### [**Azure portal**](#tab/roles-portal-admin)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -150,7 +158,7 @@ As a service administrator, you can create and configure a search service, and p
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-### [**PowerShell**](#tab/roles-powershell-admin)
+#### [**PowerShell**](#tab/roles-powershell-admin)
 
 When you [use PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
@@ -164,14 +172,14 @@ New-AzRoleAssignment -SignInName <email> `
 
 ---
 
-## Assign roles for development
+### Assign roles for development
 
 Role assignments are global across the search service. To [scope permissions to a single index](#rbac-single-index), use PowerShell or the Azure CLI to create a custom role.
 
 > [!IMPORTANT]
 > If you configure role-based access for a service or index and you also provide an API key on the request, the search service uses the API key to authenticate.
 
-### [**Azure portal**](#tab/roles-portal)
+#### [**Azure portal**](#tab/roles-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -195,7 +203,7 @@ Role assignments are global across the search service. To [scope permissions to 
 
 1. Repeat for the other roles. Most developers need all three.
 
-### [**PowerShell**](#tab/roles-powershell)
+#### [**PowerShell**](#tab/roles-powershell)
 
 When you [use PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
@@ -217,13 +225,13 @@ New-AzRoleAssignment -SignInName <email> `
 
 ---
 
-## Assign roles for read-only queries
+### Assign roles for read-only queries
 
 Use the Search Index Data Reader role for apps and processes that only need read-access to an index. This is a very specific role. It grants [GET or POST access](/rest/api/searchservice/documents) to the *documents collection of a search index* for search, autocomplete, and suggestions.
 
 It doesn't support GET or LIST operations on an index or other top-level objects, or GET service statistics.
 
-### [**Azure portal**](#tab/roles-portal-query)
+#### [**Azure portal**](#tab/roles-portal-query)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -239,7 +247,7 @@ It doesn't support GET or LIST operations on an index or other top-level objects
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-### [**PowerShell**](#tab/roles-powershell-query)
+#### [**PowerShell**](#tab/roles-powershell-query)
 
 When [using PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
@@ -275,7 +283,7 @@ When [using PowerShell to assign roles](../role-based-access-control/role-assign
 
 ## Test role assignments
 
-Use a client to test role assignments. Remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group can't be deleted or denied at the resource (search service) level. 
+Use a client to test role assignments. Remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group level can't be deleted or denied at the resource (search service) level. 
 
 Make sure that you [register your client application with Microsoft Entra ID](search-howto-aad.md) and have role assignments in place before testing access. 
 
@@ -590,7 +598,7 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 ## Disable API key authentication
 
-Key access, or local authentication, can be disabled on your service if you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
+Key access, or local authentication, can be disabled on your service if you're using the built-in roles and Microsoft Entra authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
 
 > [!NOTE]
 > Admin API keys can only be disabled, not deleted. Query API keys can be deleted.
