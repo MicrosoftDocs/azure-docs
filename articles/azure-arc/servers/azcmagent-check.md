@@ -17,7 +17,7 @@ azcmagent check [flags]
 
 ## Examples
 
-Check connectivity with the agent's currently configured cloud and region.
+Check connectivity with the agent's configured cloud and region.
 
 ```
 azcmagent check
@@ -46,7 +46,7 @@ azcmagent check --location "centralindia" --enable-pls-check
 
 `--cloud`
 
-Specifies the Azure cloud instance. Must be used with the `--location` flag. If the machine is already connected to Azure Arc, the default value is the cloud to which the agent is already connected. Otherwise, the default value is "AzureCloud".
+Specifies the Azure cloud instance. Must be used with the `--location` flag. If the machine is already connected to Azure Arc, the default value is the cloud to which the agent is already connected. Otherwise, the default value is AzureCloud.
 
 Supported values:
 
@@ -56,7 +56,7 @@ Supported values:
 
 `-e`, `--extensions`
 
-Includes additional checks for extension endpoints to help validate end-to-end scenario readiness. This flag is available in agent version 1.41 and later.
+Includes extra checks for extension endpoints to help validate end-to-end scenario readiness. This flag is available in agent version 1.41 and later.
 
 Supported values:
 
