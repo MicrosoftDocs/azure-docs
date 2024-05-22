@@ -189,7 +189,13 @@ Optionally, you can add customer-managed keys (CMK) for supplemental encryption 
 
 ### Data in transit
 
-In Azure AI Search, encryption starts with connections and transmissions. For search services on the public internet, Azure AI Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) aren't supported.
+In Azure AI Search, encryption starts with connections and transmissions. For search services on the public internet, Azure AI Search listens on HTTPS port 443. 
+
++ All client-to-service connections use TLS 1.2 encryption by default. 
+
++ You can [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) to use TLS 1.3 instead. 
+
+Earlier versions (1.0 or 1.1) aren't supported.
 
 ### Data at rest
 
