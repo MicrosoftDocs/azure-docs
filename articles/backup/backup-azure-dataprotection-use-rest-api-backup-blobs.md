@@ -130,7 +130,7 @@ For example, this translates to:
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
 ```
 
-The [request body](#prepare-the-request-to-configure-backup) that you prepared earlier is used to give the details of the storage account to be protected.
+The [request body](#prepare-the-request-to-configure-blob-backup) that you prepared earlier is used to give the details of the storage account to be protected.
 
 #### Example request body
 
