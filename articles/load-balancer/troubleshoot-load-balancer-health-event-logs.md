@@ -84,8 +84,7 @@ For production scenarios, we recommend leveraging NAT Gateway for your outbound 
     3. Select Apply splitting with the value Connection State
     4. Connection State = Failed indicates the number of failed connections due to SNAT port exhaustion.
  
-## 
-Alternative solutions
+## Alternative solutions
 1.	Ensure you have configured outbound rules via manual port allocation and are allocating the maximum number of ports possible
 2.	Add additional public IPs to your Load Balancer or NAT Gateway
 
