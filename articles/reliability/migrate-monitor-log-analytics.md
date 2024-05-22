@@ -4,7 +4,7 @@ description: Learn how to migrate Log Analytics workspaces to availability zone 
 author: anaharris-ms
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/21/2022
+ms.date: 05/19/2024
 ms.author: noakuper
 ms.custom: references_regions, subject-reliability
 ---
@@ -52,9 +52,7 @@ Transitioning to a new cluster can be a gradual process. Don't remove the previo
 Any queries against your workspace queries both clusters as required to provide you with a single, unified result set. As a result, all Azure Monitor features that rely on the workspace, such as workbooks and dashboards, continue to receive the full, unified result set based on data from both clusters.
 
 ## Billing
-There is a [cost for using a dedicated cluster](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster). It requires a daily capacity reservation of 500 GB. 
-
-If you already have a dedicated cluster and choose to retain it to access its data, you are charged for both dedicated clusters. Starting August 4, 2021, the minimum required capacity reservation for dedicated clusters is reduced from 1000 GB/Daily to 500 GB/Daily, so we’d recommend applying that minimum to your old cluster to reduce charges.
+[Dedicated clustrs](../azure-monitor/logs/logs-dedicated-clusters.md#create-a-dedicated-cluster) require a commitment tier starting at 100 GB per day.
 
 The new cluster isn’t billed during its first day to avoid double billing during configuration. Only the data ingested before the migration completes would still be billed on the date of migration. 
 

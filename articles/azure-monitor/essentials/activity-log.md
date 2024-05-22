@@ -15,7 +15,7 @@ The Azure Monitor activity log is a platform log that provides insight into subs
 
 For more functionality, create a diagnostic setting to send the activity log to one or more of these locations for the following reasons:
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to twelve years](../logs/data-retention-archive.md).
+- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to 12 years](../logs/data-retention-archive.md).
 - Send to Azure Event Hubs to forward outside of Azure.
 - Send to Azure Storage for cheaper, long-term archiving.
 
@@ -127,7 +127,7 @@ The following sample output data is from event hubs for an activity log:
 
 ## Send to Azure Storage
 
-Send the activity log to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you're required to retain your events for 90 days or less, you don't need to set up archival to a storage account. Activity log events are retained in the Azure platform for 90 days.
+Send the activity log to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or back up. If you're required to retain your events for 90 days or less, you don't need to set up archival to a storage account. Activity log events are retained in the Azure platform for 90 days.
 
 When you send the activity log to Azure, a storage container is created in the storage account as soon as an event occurs. The blobs in the container use the following naming convention:
 
@@ -141,7 +141,7 @@ For example, a particular blob might have a name similar to:
 insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/y=2020/m=06/d=08/h=18/m=00/PT1H.json
 ```
 
-Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they are received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
+Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they're received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
 
 Each event is stored in the PT1H.json file with the following format. This format uses a common top-level schema but is otherwise unique for each category, as described in [Activity log schema](activity-log-schema.md).
 
@@ -175,9 +175,12 @@ If you're collecting activity logs using the legacy collection method, we recomm
 1. Use the [Data Sources - Delete API](/rest/api/loganalytics/data-sources/delete?tabs=HTTP) to stop collecting activity logs for the specific resource.
 
     :::image type="content" source="media/activity-log/data-sources-delete-api.png" alt-text="Screenshot of the configuration of the Data Sources - Delete API." lightbox="media/activity-log/data-sources-delete-api.png":::
-### Managing legacy log profiles
+### Managing legacy Log Profiles - retiring
+> [!NOTE]
+> * Logs Profiles was used to forward Activity Logs to storage accounts and Event Hubs. This method is being retired on the 15th of Sept 2026. 
+> * If you are using this method, transition to Diagnostic Settings before 15th of Sept 2025, when we will stop allowing new creates of Log Profiles.
 
-Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, consider transitioning to diagnostic settings, which provide better functionality and consistency with resource logs.
+Log profiles are the legacy method for sending the activity log to storage or event hubs. If you're using this method, transition to Diagnostic Settings, which provide better functionality and consistency with resource logs.
 
 #### [PowerShell](#tab/powershell)
 
@@ -282,4 +285,3 @@ Learn more about:
 * [Platform logs](./platform-logs-overview.md)
 * [Activity log event schema](activity-log-schema.md)
 * [Activity log insights](activity-log-insights.md)
-

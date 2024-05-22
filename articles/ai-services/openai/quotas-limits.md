@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 05/19/2024
 ms.author: mbullwin
 ---
 
@@ -32,7 +32,7 @@ The following sections provide you with a quick guide to the default quotas and 
 | Total number of training jobs per resource | 100 |
 | Max simultaneous running training jobs per resource | 1 |
 | Max training jobs queued | 20 |
-| Max Files per resource (fine-tuning) | 30 |
+| Max Files per resource (fine-tuning) | 50 |
 | Total size of all files per resource (fine-tuning) | 1 GB |
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
@@ -49,6 +49,31 @@ The following sections provide you with a quick guide to the default quotas and 
 ## Regional quota limits
 
 [!INCLUDE [Quota](includes/model-matrix/quota.md)]
+
+## gpt-4o rate limits
+
+`gpt-4o` introduces rate limit tiers with higher limits for certain customer types.
+
+### gpt-4o global standard
+
+> [!NOTE]
+> The [global standard model deployment type](./how-to/deployment-types.md#deployment-types) is currently in public preview.
+
+|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
+|---|:---:|:---:|
+|Enterprise agreement | 10 M | 60 K |
+|Default | 450 K | 2.7 K |
+
+M = million | K = thousand
+
+### gpt-4o standard
+
+|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
+|---|:---:|:---:|
+|Enterprise agreement | 1 M | 6 K |
+|Default | 150 K | 900 |
+
+M = million | K = thousand
 
 ### General best practices to remain within rate limits
 

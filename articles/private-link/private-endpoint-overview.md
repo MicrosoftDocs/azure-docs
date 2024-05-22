@@ -81,12 +81,14 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
 | Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
+| Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
 | Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
 | Azure Database for MySQL - Single Server | Microsoft.DBforMySQL/servers | mysqlServer |
 | Azure Database for MySQL- Flexible Server | Microsoft.DBforMySQL/flexibleServers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
+| Azure Database for PostgreSQL - Flexible server | Microsoft.DBforPostgreSQL/flexibleServers | postgresqlServer |
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |

@@ -1,5 +1,5 @@
 ---
-title: RedisPubSubTrigger for Azure Functions (preview)
+title: RedisPubSubTrigger for Azure Functions
 description: Learn how to use RedisPubSubTrigger Azure Function with Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -8,10 +8,10 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 05/20/2024
 ---
 
-# RedisPubSubTrigger for Azure Functions (preview)
+# RedisPubSubTrigger for Azure Functions
 
 Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers.
 
@@ -609,4 +609,4 @@ JSON string format
 - [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
-- [Redis pub sub messages](https://redis.io/docs/manual/pubsub/)
+- [Redis pub sub messages](https://redis.io/docs/latest/develop/interact/pubsub/)

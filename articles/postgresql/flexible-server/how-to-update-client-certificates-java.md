@@ -3,7 +3,8 @@ title: Updating Client SSL/TLS Certificates for Java
 description: Learn about updating Java clients with Flexible Server using SSL and TLS.
 author: GennadNY
 ms.author: gennadyk
-ms.date: 04/04/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -18,6 +19,12 @@ ms.topic: conceptual
 
 Custom-written Java applications  use a default keystore, called *cacerts*, which contains trusted certificate authority (CA) certificates. It's also often known as Java trust store. A certificates file named *cacerts* resides in the security properties directory, java.home\lib\security, where java.home is the runtime environment directory (the jre directory in the SDK or the top-level directory of the Java™ 2 Runtime Environment).
 You can use following directions to update client root CA certificates for client certificate pinning scenarios with PostgreSQL Flexible Server:
+1. Check *cacerts* java keystore to see if it already contains required certificates. You can list certificates in Java keystore by using following command:
+  ```powershell
+    keytool -list -v -keystore ..\lib\security\cacerts > outputfile.txt
+  ```
+If necessary certificates are not present in the java key store on the client,as can be checked in output, you should proceed with following directions:
+   
 1. Make a backup copy of your custom keystore.
 2. Download [certificates](../flexible-server/concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)
 3. Generate a combined CA certificate store with both Root CA certificates are included. Example below shows using DefaultJavaSSLFactory for PostgreSQL JDBC users.
@@ -48,9 +55,10 @@ You can use following directions to update client root CA certificates for clien
 
 For more information on configuring client certificates with PostgreSQL JDBC driver, see this [documentation.](https://jdbc.postgresql.org/documentation/ssl/)
 
+> [!NOTE]
+> To import certificates to client certificate stores you may have to convert certificate .crt files to .pem format. You ?..can use **[OpenSSL utility to do these file conversions](./concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)**.
 
-
-## Get list of trusted certificates in Java Key Store
+## Get list of trusted certificates in Java Key Store programmatically
 
 As stated above, Java, by default, stores the trusted certificates in a special file named *cacerts* that is located inside  Java installation folder on the client.
 Example below first reads *cacerts* and loads it into *KeyStore* object:

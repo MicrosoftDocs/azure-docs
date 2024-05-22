@@ -1,6 +1,6 @@
 ---
-title: Linux VMs with Azure MANA
-description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Linux VMs on Azure.
+title: Linux VMs with the Microsoft Azure Network Adapter
+description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Linux VMs in Azure.
 author: mattmcinnes
 ms.service: virtual-network
 ms.custom: linux-related-content
@@ -9,45 +9,47 @@ ms.date: 07/10/2023
 ms.author: mattmcinnes
 ---
 
-# Linux VMs with Azure MANA
+# Linux VMs with the Microsoft Azure Network Adapter
 
-Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the performance and availability of Linux virtual machines in Azure.
+Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the performance and availability of Linux virtual machines (VMs) in Azure.
 
-For Windows support, see [Windows VMs with Azure MANA](./accelerated-networking-mana-windows.md)
+For Windows support, see [Windows VMs with the Microsoft Azure Network Adapter](./accelerated-networking-mana-windows.md).
 
-For more info regarding Azure MANA, see [Microsoft Azure Network Adapter (MANA) overview](./accelerated-networking-mana-overview.md)
+For more info about MANA, see [Microsoft Azure Network Adapter overview](./accelerated-networking-mana-overview.md).
 
 > [!IMPORTANT]
-> Azure MANA is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> MANA is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Supported Marketplace Images
-Several [Azure marketplace](/marketplace/azure-marketplace-overview) Linux images have built-in support for Azure MANA's ethernet driver.
+## Supported Azure Marketplace images
+
+Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
 
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 - Red Hat Enterprise Linux 8.8
 - Red Hat Enterprise Linux 9.2
 - SUSE Linux Enterprise Server 15 SP4
-- Debian 12 “Bookworm”
+- Debian 12 "Bookworm"
 - Oracle Linux 9.0
 
->[!NOTE]
->None of the current Linux distros in Azure Marketplace are on a 6.2 or later kernel, which is required for RDMA/InfiniBand and DPDK. If you use an existing Marketplace Linux image, you will need to update the kernel.
+> [!NOTE]
+> None of the current Linux distributions in Azure Marketplace are on a 6.2 or later kernel, which is required for RDMA/InfiniBand and Data Plane Development Kit (DPDK). If you use an existing Linux image from Azure Marketplace, you need to update the kernel.
 
-## Check status of MANA support
-Because Azure MANA's feature set requires both host hardware and VM software components, there are several checks required to ensure MANA is working properly
+## Check the status of MANA support
+
+Because the MANA feature set requires both host hardware and VM software components, you must perform the following checks to ensure that MANA is working properly on your VM.
 
 ### Azure portal check
 
-Ensure that you have Accelerated Networking enabled on at least one of your NICs:
-1.	From the Azure portal page for the VM, select Networking from the left menu.
-1.	On the Networking settings page, select the Network Interface.
-1.	On the NIC Overview page, under Essentials, note whether Accelerated networking is set to Enabled or Disabled.
+Ensure that Accelerated Networking is enabled on at least one of your NICs:
+
+1. On the Azure portal page for the VM, select **Networking** from the left menu.
+1. On the **Networking settings** page, for **Network Interface**, select your NIC.
+1. On the **NIC Overview** pane, under **Essentials**, note whether **Accelerated Networking** is set to **Enabled** or **Disabled**.
 
 ### Hardware check
 
-When Accelerated Networking is enabled, the underlying MANA NIC can be identified as a PCI device in the Virtual Machine.
+When you enable Accelerated Networking, you can identify the underlying MANA NIC as a PCI device in the virtual machine:
 
 ```
 $ lspci
@@ -55,7 +57,8 @@ $ lspci
 ```
 
 ### Kernel version check
-Verify your VM has a MANA Ethernet driver installed.
+
+Verify that your VM has a MANA Ethernet driver installed:
 
 ```
 $ grep /mana*.ko /lib/modules/$(uname -r)/modules.builtin || find /lib/modules/$(uname -r)/kernel -name mana*.ko*
@@ -63,15 +66,15 @@ $ grep /mana*.ko /lib/modules/$(uname -r)/modules.builtin || find /lib/modules/$
 kernel/drivers/net/ethernet/microsoft/mana/mana.ko
 ```
 
-## Kernel update
+## Update the kernel
 
-Ethernet drivers for MANA are included in kernel 5.15 and up. Linux support for features such as InfiniBand/RDMA and DPDK are included in kernel 6.2. Prior or forked kernel versions (5.15 and 6.1) require backported support.
+Ethernet drivers for MANA are included in kernel version 5.15 and later. Kernel version 6.2 includes Linux support for features such as InfiniBand/RDMA and DPDK. Earlier or forked kernel versions (5.15 and 6.1) require backported support.
 
-To update your VM's Linux kernel, check the docs for your specific distro.
+To update your VM's Linux kernel, check the documentation for your specific distribution.
 
-## Verify traffic is flowing through the MANA adapter
+## Verify that traffic is flowing through MANA
 
-Each vNIC configured for the VM with Accelerated Networking enabled will result in two network interfaces in the VM. For example, eth0 and enP30832p0s0 a single-NIC configuration:
+Each virtual NIC (vNIC) that you configure for the VM, with Accelerated Networking enabled, results in two network interfaces in the VM. The following example shows `eth0` and `enP30832p0s0` in a single-NIC configuration:
 
 ```
 $ ip link
@@ -85,7 +88,8 @@ $ ip link
     altname enP30832s1296119428
 ```
 
-The eth0 interface is the primary port serviced by the netvsc driver and the routable interface for the vNIC. The associated enP* interface represents the MANA Virtual Function (VF) and is bound to the eth0 interface in this case. You can get packet and byte count of the MANA Virtual Function (VF) from the routable ethN interface:
+The `eth0` interface is the primary port serviced by the Network Virtual Service Client (NetVSC) driver and the routable interface for the vNIC. The associated `enP*` interface represents the MANA Virtual Function (VF) and is bound to the `eth0` interface in this case. You can get the packet and byte count of the MANA VF from the routable `ethN` interface:
+
 ```
 $ ethtool -S eth0 | grep -E "^[ \t]+vf"
      vf_rx_packets: 226418
@@ -95,8 +99,8 @@ $ ethtool -S eth0 | grep -E "^[ \t]+vf"
      vf_tx_dropped: 0
 ```
 
-## Next Steps
+## Next steps
 
-- [TCP/IP Performance Tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
-- [Proximity Placement Groups](../virtual-machines/co-location.md)
-- [Monitor Virtual Network](./monitor-virtual-network.md)
+- [TCP/IP performance tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
+- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Monitoring Azure virtual networks](./monitor-virtual-network.md)

@@ -159,6 +159,12 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 * *Volume Backup Last Transferred Bytes*   
     The total bytes transferred for the last backup or restore operation.  
 
+* *Volume Backup Operation Last Transferred Bytes*   
+    Total bytes transferred for last backup operation.
+
+* *Volume Backup Restore Operation Last Transferred Bytes*   
+    Total bytes transferred for last backup restore operation.
+
 ## Cool access metrics
 
 * *Volume cool tier size*   

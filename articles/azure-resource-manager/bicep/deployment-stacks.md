@@ -3,12 +3,12 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 02/23/2024
+ms.date: 04/11/2024
 ---
 
-# Deployment stacks (Preview)
+# Deployment stacks
 
-An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as an atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC).
+An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as an atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC). 
 
 To create and update a deployment stack, you can utilize Azure CLI, Azure PowerShell, or the Azure portal along with Bicep files. These Bicep files are transpiled into ARM JSON templates, which are then deployed as a deployment object by the stack. The deployment stack offers additional capabilities beyond the [familiar deployment resources](./deploy-cli.md), serving as a superset of those capabilities.
 
@@ -33,6 +33,7 @@ Deployment stacks provide the following benefits:
 
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
 - Deny assignments don't support tags.
+- Deny assignments is not supported within the management group scope.
 - Deployment stacks cannot delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
 
 ### Known issues
@@ -590,8 +591,6 @@ To add a managed resource, add the resource definition to the underlying Bicep f
 To delete a managed resource, remove the resource definition from the underlying Bicep files, and then run the update command or rerun the create command. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
 ## Protect managed resources against deletion
-
-When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
 
 # [PowerShell](#tab/azure-powershell)
 

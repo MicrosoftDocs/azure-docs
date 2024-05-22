@@ -1,5 +1,35 @@
 {
-    "redirections": [          
+    "redirections": [  
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/how-to-azure-rtos-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-threadx-security-module",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/iot-security-azure-rtos.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/iot-security-threadx",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/azure-rtos-security-module-api.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/threadx-security-module-api",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-rtos-security-alerts-recommendations.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-threadx-security-alerts-recommendations",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-rtos-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-threadx-security-module",
+            "redirect_document_id": false
+        },         
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/how-to-rtos-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-threadx-security-module",
+            "redirect_document_id": false
+        },         
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/resources-manage-proprietary-protocols.md",
             "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-individual-sensors#manage-custom-plugins-legacy",
@@ -730,7 +760,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-edge.md",
+            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-edge.yml",
             "redirect_url": "/azure/defender-for-iot/device-builders/how-to-deploy-edge",
             "redirect_document_id": false
         },

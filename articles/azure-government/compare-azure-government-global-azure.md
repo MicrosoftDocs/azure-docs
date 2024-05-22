@@ -1,6 +1,6 @@
 ---
 title: Compare Azure Government and global Azure
-description: Describe feature differences between Azure Government and global Azure.
+description: Describes the feature differences between Azure Government and the global (public) Azure.
 ms.service: azure-government
 ms.topic: article
 author: EliotSeattle
@@ -64,6 +64,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |-----------|-----------|-------|----------|----------------------|
 |**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
 ||Azure AI Document Intelligence|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Azure OpenAI Service|openai.azure.com|openai.azure.us||
 ||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
@@ -112,6 +113,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
 |**Networking**|Traffic Manager|trafficmanager.net|usgovtrafficmanager.net||
 |**Security**|Key Vault|vault.azure.net|vault.usgovcloudapi.net||
+||Managed HSM|managedhsm.azure.net|managedhsm.usgovcloudapi.net||
 |**Storage**|Azure Backup|backup.windowsazure.com|backup.windowsazure.us||
 ||Blob|blob.core.windows.net|blob.core.usgovcloudapi.net||
 ||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||
@@ -180,6 +182,22 @@ Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-serv
 For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../ai-services/speech-service/sovereign-clouds.md).
 
 <a name='cognitive-services-translator'></a>
+
+### [Azure AI services: OpenAI Service](../ai-services/openai/overview.md)
+
+The following features of Azure OpenAI are available in Azure Government:
+
+|Feature|Azure OpenAI|
+|--------|--------|
+|Models available|US Gov Arizona:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (1106)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>US Gov Virginia:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>Learn more in [Azure OpenAI Service models](../ai-services/openai/concepts/models.md)|
+|Virtual network support & private link support|Yes, unless using [Azure OpenAI on your data](../ai-services/openai/concepts/use-your-data.md)|
+|Managed Identity|Yes, via Microsoft Entra ID|
+|UI experience|**Azure portal** for account & resource management<br>**Azure OpenAI Studio** for model exploration|
+
+**Next steps**
+* Get started by requesting access to Azure OpenAI Service in Azure Government at [https://aka.ms/AOAIgovaccess](https://aka.ms/AOAIgovaccess)
+* Request quota increases for the pay-as-you-go consumption model, please fill out a separate form at [https://aka.ms/AOAIGovQuota](https://aka.ms/AOAIGovQuota)
+
 
 ### [Azure AI services: Translator](../ai-services/translator/index.yml)
 

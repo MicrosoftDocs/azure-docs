@@ -2,7 +2,7 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 05/01/2024
 ms.author: davidsmatlak
 ms.custom: generated
 ---
@@ -49,7 +49,7 @@ To review how the available Azure Policy built-ins for all Azure services map to
 standard, see
 [Azure Policy Regulatory Compliance - CMMC Level 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
 For more information about this compliance standard, see
-[Cybersecurity Maturity Model Certification (CMMC)](https://www.acq.osd.mil/cmmc/documentation.html).
+[Cybersecurity Maturity Model Certification (CMMC)](https://dodcio.defense.gov/CMMC/).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -352,4 +352,21 @@ For more information about this compliance standard, see
 |Reduce Attack Surface and Vulnerabilities | 2.6 |Operator Session Confidentiality and Integrity |[Enforce SSL connection should be enabled for MySQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
 |Detect Anomalous Activity to Systems or Transaction Records | 6.3 |Database Integrity |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
 |Detect Anomalous Activity to Systems or Transaction Records | 6.3 |Database Integrity |[Public network access should be disabled for MySQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9844e8a-1437-4aeb-a32c-0c992f056095) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_DisablePublicNetworkAccess_Audit.json) |
+
+## System and Organization Controls (SOC) 2
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for System and Organization Controls (SOC) 2](../../../../articles/governance/policy/samples/soc-2.md).
+For more information about this compliance standard, see
+[System and Organization Controls (SOC) 2](/azure/compliance/offerings/offering-soc-2).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Additional Criteria For Availability | A1.2 |Environmental protections, software, data back-up processes, and recovery infrastructure |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Logical and Physical Access Controls | CC6.1 |Logical access security software, infrastructure, and architectures |[Enforce SSL connection should be enabled for MySQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Logical and Physical Access Controls | CC6.1 |Logical access security software, infrastructure, and architectures |[MySQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83cef61d-dbd1-4b20-a4fc-5fbc7da10833) |[1.0.4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableByok_Audit.json) |
+|Logical and Physical Access Controls | CC6.6 |Security measures against threats outside system boundaries |[Enforce SSL connection should be enabled for MySQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Logical and Physical Access Controls | CC6.7 |Restrict the movement of information to authorized users |[Enforce SSL connection should be enabled for MySQL database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Additional Criteria For Processing Integrity | PI1.5 |Store inputs and outputs completely, accurately, and timely |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
 

@@ -33,7 +33,7 @@ First, you need a Microsoft account; if you don't have one, you can sign up for 
 
 Next, you need to  have an Azure account—navigate to the [**Azure sign-up page**](https://azure.microsoft.com/free/ai/), select the **Start free** button, and create a new Azure account using your Microsoft account credentials.
 
-Now, you're ready to get started! [**Create a Translator service**](create-translator-resource.md "Go to the Azure portal."), [**get your access keys and API endpoint**](create-translator-resource.md#authentication-keys-and-endpoint-url "An endpoint URL and read-only key are required for authentication."), and try our [**quickstart**](quickstart-text-rest-api.md "Learn to use Translator via REST.").
+Now, you're ready to get started! [**Create a Translator service**](create-translator-resource.yml "Go to the Azure portal."), [**get your access keys and API endpoint**](create-translator-resource.yml#authentication-keys-and-endpoint-url "An endpoint URL and read-only key are required for authentication."), and try our [**quickstart**](quickstart-text-rest-api.md "Learn to use Translator via REST.").
 
 ## Next steps
 
