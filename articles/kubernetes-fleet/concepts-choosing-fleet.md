@@ -77,4 +77,4 @@ Now that you understand the different types of Kubernetes fleet resources, see [
 
 <!-- LINKS - external -->
 [fleet-github]: https://github.com/Azure/fleet
-[fleet-networking-github]: (https://github.com/Azure/fleet-networking)
+[fleet-networking-github]: https://github.com/Azure/fleet-networking
