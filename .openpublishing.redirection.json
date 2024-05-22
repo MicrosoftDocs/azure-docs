@@ -4060,12 +4060,12 @@
         },
         {
             "source_path_from_root":"/articles/migrate/how-to-assess.md",
-            "redirect_url":"/articles/migrate/whats-new#update-april-2024",
+            "redirect_url":"/azure/migrate/whats-new#update-april-2024",
             "redirect_document_id":false 
         },
         {
             "source_path_from_root":"/articles/migrate/prepare-isv-movere.md",
-            "redirect_url":"/articles/migrate/whats-new#update-april-2024",
+            "redirect_url":"/azure/migrate/whats-new#update-april-2024",
             "redirect_document_id":false 
         }
     ]
