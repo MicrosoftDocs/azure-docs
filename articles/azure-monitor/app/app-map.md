@@ -509,7 +509,7 @@ Here are some general recommendations:
 
 - Support Azure Functions with C# by upgrading to [Azure Functions V2](../../azure-functions/functions-versions.md).
 
-- Confirm the [cloud role name](#set-cloud-role-names) is correctly configured.
+- Ensure the [cloud role name](#set-cloud-role-names) is correctly configured.
 
 - Confirm any missing dependencies are listed as [autocollected dependencies](asp-net-dependencies.md#dependency-auto-collection). If a dependency isn't listed, you can track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
