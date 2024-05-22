@@ -47,13 +47,16 @@ Connect to the lab VM by using the remote desktop application. You can retrieve 
 
 1. When prompted, enter your user name and password.
 
-    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/password-chromebook.png" alt-text="Screenshot that shows the Logon screen where you enter your username and password." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/password-chromebook.png":::
+    :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/password-chromebook.png" alt-text="Screenshot that shows the sign-in screen where you enter your username and password." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/password-chromebook.png":::
 
 1. If you receive a certificate warning, you can select **Continue**.
 
     :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/certificate-error-chromebook.png" alt-text="Screenshot that shows certificate warning when connecting to lab VM." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/certificate-error-chromebook.png":::
 
 1. After the connection is established, you see the desktop of your lab VM.
+ 
+> [!NOTE]
+> The Microsoft Remote Desktop app is the recommended client for connecting to Azure Lab Services VMs. While you can connect to a lab VM from a Chromebook using RDP clients like Chrome Remote Desktop, third-party apps often need software installation and configuration on the VM. Coordinate with your lab administrator to confirm third-party app usage is permitted. 
 
 ## Related content
 
