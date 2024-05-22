@@ -78,7 +78,7 @@ Copilot for Azure can help you [create an Azure Kubernetes Service (AKS) cluster
 
 ### AKS cluster example
 
-When you say "**Seamless deployment for AKS cluster on Azure**", Microsoft Copilot for Azure presents you with two deployment options: **Step-by-Step** or **One-Click**. In this example, the one-click deployment option was selected to deploy to the Lamna Healthcare subscription.
+When you say "**Seamless deployment for AKS cluster on Azure**", Microsoft Copilot for Azure presents you with two deployment options: **Step-by-Step** or **One-Click**. In this example, the one-click deployment option is selected. As with the other examples, you see progress as each step of the deployment is completed.
 
 :::image type="content" source="media/use-guided-deployments/aks-cluster-deployment.png" lightbox="media/use-guided-deployments/aks-cluster-deployment.png" alt-text="Screenshot showing Copilot for Azure providing a one-click deployment for an AKS cluster.":::
 

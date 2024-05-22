@@ -9,7 +9,7 @@ ms.subservice: mongodb-vcore
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 05/09/2024
+ms.date: 05/20/2024
 #Customer Intent: As a database adminstrator, I want to configure cross-region replication, so that I can have disaster recovery plans in the event of a regional outage.
 ---
 
@@ -43,15 +43,15 @@ When you create a replica by enabling cross-region replication, it doesn't inher
 
 The replica inherits the admin account from the primary cluster. User accounts need to be managed on the primary cluster. You can connect to the primary cluster and its replica cluster using the same user accounts.
 
-When cross-region replication is enabled, applications can use the replica cluster connection string to perform reads from the cluster replica. The primary cluster is available for read and write operations using a read-write connection string. The global read-write connection string is updated as a part of replica promotion process to point to the current read-write cluster.
+When cross-region replication is enabled, applications can use the replica cluster connection string to perform reads from the cluster replica. The primary cluster is available for read and write operations using its own connection string.
 
 ## Replica cluster promotion
 
 If a region outage occurs, you can perform disaster recovery operation by promoting your cluster replica in another region to become available for writes. During replica promotion operation, these steps are happening:
 
 1. Writes on the replica in region B are enabled in addition to reads. The former replica becomes a new read-write cluster.
-1. The global read-write string now points to the promoted cluster in region B.
-1. The cluster in region A is set to read-only.
+1. The promoted replica cluster accepts writes using its connection string.
+1. The cluster in region A is set to read-only and keeps its connection string.
 
 > [!IMPORTANT]
 > Because replication is asynchronous, some data from cluster in region A might not be replicated to region B when cluster replica in region B is promoted. If this is the case, promotion would result in the un-replicated data not present on both clusters.
