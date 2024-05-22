@@ -31,6 +31,6 @@ Here are some of the benefits of using .NET feature management library:
   * Filters
   * Action Attributes
 
-The latest stable version of .NET feature management library is [v3.1.1](./feature-management-dotnet-reference-v3.md). Version 4.0.0 is currently in preview. [.NET feature management v4](./feature-management-dotnet-reference-v4.md) includes new features such as variants and telemetry, which enable running experiments with variant feature flags. For more information, see [Run experiments with variant feature flags](./run-experiments-aspnet-core.md)
+The latest stable version of .NET feature management library is [v3.1.1](./feature-management-dotnet-reference-v3.md). Version 4.0.0 is currently in preview. [.NET feature management v4](./feature-management-dotnet-reference-v4.md) includes new features such as variants and telemetry, which enable [running experiments with variant feature flags](./run-experiments-aspnet-core.md).
 
 The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
