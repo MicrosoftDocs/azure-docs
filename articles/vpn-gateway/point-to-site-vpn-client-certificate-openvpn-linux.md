@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 05/22/2024
 ms.author: cherylmc
 ---
 
@@ -33,7 +33,7 @@ This article assumes that you've already performed the following prerequisites:
 To connect to Azure using the OpenVPN client using certificate authentication, each connecting client requires the following items:
 
 * The Open VPN Client software must be installed and configured on each client.
-* The client must have a client certificate that's installed locally.
+* The client must have the correct certificates installed locally.
 
 ### Workflow
 
@@ -44,11 +44,14 @@ The workflow for this article is:
 1. Configure the OpenVPN client.
 1. Connect to Azure.
 
-## Generate certificates
+### About certificates
 
 For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
-For information about working with certificates, see [Point-to site: Generate certificates](vpn-gateway-certificates-point-to-site-linux.md).
+For more information about certificates for Linux, see the following articles:
+
+* [Generate certificates - OpenSSL](point-to-site-certificates-linux-openssl.md)
+* [Generate certificates - strongSwan](vpn-gateway-certificates-point-to-site-linux.md)
 
 ## <a name="openvpn"></a>Configuration steps
 

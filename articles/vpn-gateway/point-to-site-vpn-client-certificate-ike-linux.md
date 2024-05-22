@@ -1,7 +1,7 @@
 ---
 title: 'Configure P2S VPN clients - certificate authentication IKEv2 - Linux'
 titleSuffix: Azure VPN Gateway
-description: Learn how to configure an Ubuntu Linux strongSwan  VPN client solution for VPN Gateway P2S configurations that use certificate authentication.
+description: Learn how to configure an Ubuntu Linux strongSwan VPN client solution for VPN Gateway P2S configurations that use certificate authentication.
 author: cherylmc
 ms.service: vpn-gateway
 ms.custom: linux-related-content
@@ -20,35 +20,48 @@ Before beginning, verify that you are on the correct article. The following tabl
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
-## Client certificates
+### Prerequisites
 
-For certificate authentication, a client certificate must be installed on each client computer. The client certificate must be exported with the private key and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
+This article assumes that you've already performed the following prerequisites:
 
-There are multiple formats available for certificates. The format you'll need depends on the VPN client that you want to use. For steps to generate certificates compatible with strongSwan, see [Generate certificates - strongSwan](vpn-gateway-certificates-point-to-site-linux.md).
+* The VPN gateway is configured for point-to-site certificate authentication and the IKEv2 tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
+* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuration files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
 
-## Generate VPN client configuration files
+### Connection requirements
 
-All of the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files that you generate are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect. For more information about P2S connections, see [About point-to-site VPN](point-to-site-about.md).
+To connect to Azure using the strongSwan client and certificate authentication via IKEv2 tunnel type, each connecting client requires the following items:
 
-To generate configuration files using the Azure portal:
+* Each client must be configured to use strongSwan.
+* The client must have the correct certificates installed locally.
 
-[!INCLUDE [generate profile configuration files - Azure Portal](../../includes/vpn-gateway-generate-profile-portal.md)]
+### Workflow
 
-Next, configure the VPN client.
+The workflow for this article is:
+
+1. Install strongSwan.
+1. View the VPN client profile configuration files contained in the VPN client profile configuration package that you generated.
+1. Locate any necessary client certificates.
+1. Configure strongSwan.
+1. Connect to Azure.
+
+### About certificates
+
+For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
+
+For more information about certificates for Linux, see the following articles:
+
+* [Generate certificates - OpenSSL](point-to-site-certificates-linux-openssl.md)
+* [Generate certificates - strongSwan](vpn-gateway-certificates-point-to-site-linux.md)
 
 ## Install strongSwan
 
 [!INCLUDE [Install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-## Locate client certificates
+## View VPN client profile configuration files
 
-Client certificates are required for authentication the P2S VPN gateway configuration specifies the Azure certificate authentication type. Typically, you generate and export a client certificate. When you export a client certificate, it must be exported with the private key and must contain all certificates in the certification path.
+When you generate a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
-A client certificate must be installed on each client computer in order to connect to Azure. There are a multiple ways to generate and export a client certificate, depending on the format that the VPN client requires. For information about client certificates, see [Generate certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md).
-
-## View VPN client profile files
-
-Go to the downloaded VPN client profile configuration files. You can find all of the information that you need for configuration in the **Generic** folder. Azure doesn’t provide a *mobileconfig* file for this configuration.
+Locate and unzip the [VPN client profile configuration package](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) you generated and downloaded. You can find all of the information that you need for configuration in the **Generic** folder. Azure doesn’t provide a *mobileconfig* file for this configuration.
 
 If you don't see the Generic folder, check the following items, then generate the zip file again.
 
@@ -76,6 +89,7 @@ This section walks you through the configuration using the strongSwan GUI. The f
    ```
    sudo apt install network-manager-strongswan
    ```
+
 1. Select **Settings**, then select **Network**. Select the **+** button to create a new connection.
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-linux/edit-connections.png" alt-text="Screenshot shows the network connections page." lightbox="./media/point-to-site-vpn-client-cert-linux/expanded/edit-connections.png":::
@@ -152,7 +166,7 @@ This section walks you through the configuration using the strongSwan CLI.
    : RSA ${USERNAME}Key.pem  # Replace ${USERNAME}Key.pem with the key filename inside /etc/ipsec.d/private directory. 
    ```
 
-1. Finally run the following commands:
+1. Run the following commands:
 
    ```cli
    sudo ipsec restart
@@ -161,4 +175,4 @@ This section walks you through the configuration using the strongSwan CLI.
 
 ## Next steps
 
-For additional steps, return to the [P2S Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.
+For more steps, return to the [P2S Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.

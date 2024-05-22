@@ -27,6 +27,13 @@ This article assumes that you've already performed the following prerequisites:
 * The VPN gateway is configured for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
 * VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuration files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
 
+### Connection requirements
+
+To connect to Azure using the Azure VPN Client and certificate authentication, each connecting client requires the following items:
+
+* The Azure VPN Client software must be installed and configured on each client.
+* The client must have the correct certifcates installed locally.
+
 ### Workflow
 
 The basic workflow is as follows:
