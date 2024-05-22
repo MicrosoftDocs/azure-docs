@@ -94,8 +94,6 @@ The number of analytics rules in Microsoft Sentinel are shown by status, includi
 
 Select the **MITRE view** link to jump to the **MITRE ATT&CK**, where you can view how your environment is protected against MITRE ATT&CK tactics and techniques. Select the **manage analytics rules** link to jump to the **Analytics** page, where you can view and manage the rules that configure how alerts are triggered.
 
-
 ## Next steps
 
 Use workbook templates to dive deeper into events generated across your environment. For more information, see [Visualize log and query data with Microsoft Sentinel workbooks](workbooks.md).
-

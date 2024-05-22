@@ -14,11 +14,9 @@ ms.collection: usx-security
 
 # Visualize log and query data with Microsoft Sentinel workbooks
 
-Microsoft Sentinel workbooks 
+Microsoft Sentinel workbooks add to the 
 
 Microsoft Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use workbook templates or create a new workbook easily, from scratch or based on an existing workbook. 
-
-## Use workbooks templates<a name="dashboards"></a>
 
 Workbook templates provide integrated data from your connected data sources to let you deep dive into the events generated in those services. Workbook templates include Microsoft Entra ID, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The workbooks are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own workbook. For more information, see [Workbooks](../azure-monitor/visualize/workbooks-overview.md).
 
@@ -26,10 +24,10 @@ Workbook templates provide integrated data from your connected data sources to l
 2. Search for a specific workbook to see the whole list and description of what each offers. 
 3. Assuming you use Microsoft Entra ID, to get up and running with Microsoft Sentinel, we recommend that you install the Microsoft Entra solution for Microsoft Sentinel and use the following workbooks:
    - **Microsoft Entra ID**: Use either or both of the following:
-       - **Microsoft Entra sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbooks provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
+       - **Microsoft Entra sign-ins** analyzes sign-ins over time to see if there are anomalies. This workbook provides failed sign-ins by applications, devices, and locations so that you can notice, at a glance if something unusual happens. Pay attention to multiple failed sign-ins. 
        - **Microsoft Entra audit logs** analyzes admin activities, such as changes in users (add, remove, etc.), group creation, and modifications.  
 
-   - Install the appropriate solution to add a workbook for your firewall. For example, install the Palo Alto firewall solution for Microsoft Sentinel to add the Palo Alto workbooks. The workbooks analyze your firewall traffic, providing you with correlations between your firewall data and threat events, and highlights suspicious events across entities. Workbooks provide you with information about trends in your traffic and let you drill down into and filter results. 
+   - Install the appropriate solution to add a workbook for your firewall. For example, install the Palo Alto firewall solution for Microsoft Sentinel to add the Palo Alto workbooks. The workbooks analyze your firewall traffic, providing you with correlations between your firewall data and threat events, and highlight suspicious events across entities. Workbooks provide you with information about trends in your traffic and let you drill down into and filter results. 
 
       ![Palo Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 

@@ -53,18 +53,26 @@ az account set --subscription <subscription id>
   * System tablespace size should be greater than or equal to 12 MB. (MySQL Default)
   * Innodb_page_size = 16348 (MySQL Default)
   * Only INNODB engine is supported.
-* Take a physical backup of your MySQL workload using Percona XtraBackup
+* Take a physical backup of your MySQL workload using Percona XtraBackup.
 The following are the steps for using Percona XtraBackup to take a full backup :
   * Install Percona XtraBackup on the on-premises or VM workload. For MySQL engine version v5.7, install Percona XtraBackup version 2.4, see [Installing Percona XtraBackup 2.4]( https://docs.percona.com/percona-xtrabackup/2.4/installation.html). For MySQL engine version v8.0, install Percona XtraBackup version 8.0, see [Installing Percona XtraBackup 8.0]( https://docs.percona.com/percona-xtrabackup/8.0/installation.html).
-  * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html). For instructions for taking a Full backup with Percona XtraBackup 8.0, see [Full backup] (<https://docs.percona.com/percona-xtrabackup/8.0/create-full-backup.html>).
-  * [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
-* Upload the full backup file to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
+  * For instructions for taking a Full backup with Percona XtraBackup 2.4, see [Full backup]( https://docs.percona.com/percona-xtrabackup/2.4/backup_scenarios/full_backup.html). For instructions for taking a Full backup with Percona XtraBackup 8.0, see [Full backup] (<https://docs.percona.com/percona-xtrabackup/8.0/create-full-backup.html>). While taking full backup, run the below commands in order:
+    * **- xtrabackup --backup --host={host} --user={user} --password={password} --target-dir={backup__dir_path}**
+    * **- xtrabackup --prepare --{backup_dir_path}** (Provide the same backup path here as in above command)
+  * **Considerations while taking the Percona XtraBackup:**
+    * Make sure you run both the backup and prepare step.
+    * Make sure there are no errors in the backup and prepare step.
+    * Keep the backup and prepare step logs for Azure Support required in case of failures.
+* [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create and Write in the **Permissions** drop-down list.  Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
+* Upload the full backup file at {backup_dir_path} to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
 * For performing an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
 
 ## Limitations
 
 * Source server configuration isn't migrated. You must configure the target Flexible server appropriately.
+* Migration for encrypted backups isn't supported.
 * Users and privileges aren't migrated as part of Azure Database for MySQL Import. You must take a manual dump of users and privileges before initiating Azure Database for MySQL Import to migrate logins post import operation by restoring them on the target Flexible Server.
+  * user1@localhost can't be migrated as we don't support localhost user creation in Flexible Server.
 * High Availability (HA) enabled Flexible Servers are returned as HA disabled servers to increase the speed of migration operation post the import migration. Enable HA for your target Flexible Server post migration.
 
 ## Recommendations for an optimal migration experience
@@ -138,7 +146,7 @@ sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration 
 tier | Burstable | Compute tier of the target Azure Database for MySQL Flexible Server. Accepted values: Burstable, GeneralPurpose, MemoryOptimized; Default value: Burstable.
 public-access | 0.0.0.0 | Determines the public access for the target Azure Database for MySQL Flexible Server. Enter single or range of IP addresses to be included in the allowed list of IPs. IP address ranges must be dash-separated and not contain any spaces. Specifying 0.0.0.0 allows public access from any resources deployed within Azure to access your server. Setting it to "None" sets the server in public access mode but doesn't create a firewall rule.
 vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and can contain only letters, numbers, underscores, periods, or hyphens.
-subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, provide resource ID instead of name. Note that the subnet is delegated to flexibleServers. After delegation, this subnet can't be used for any other type of Azure resources.
+subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, provide resource ID instead of name. The subnet is delegated to flexibleServers. After delegation, this subnet can't be used for any other type of Azure resources.
 private-dns-zone | myserver.private.contoso.com | The name or ID of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, provide resource Id. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
 key | key identifier of testKey | The resource ID of the primary keyvault key for data encryption.
 identity | testIdentity | The name or resource ID of the user assigned identity for data encryption.
@@ -153,7 +161,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 ## Migrate to Flexible Server with minimal downtime
 
-In order to perform an online migration after completing the initial seeding from backup file using Azure Database for MySQL import, you can configure data-in replication between the source and target by following steps [here](../flexible-server/how-to-data-in-replication.md?tabs=bash%2Ccommand-line). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
+To perform an online migration after completing the initial seeding from backup file using Azure Database for MySQL import, you can configure data-in replication between the source and target by following steps [here](../flexible-server/how-to-data-in-replication.md?tabs=bash%2Ccommand-line). You can use the bin-log position captured while taking the backup file using Percona XtraBackup to set up Bin-log position based replication.
 
 ## How long does Azure Database for MySQL Import take to migrate my MySQL instance?
 
