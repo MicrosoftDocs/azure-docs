@@ -45,7 +45,7 @@ May 21, 2024
 
 Defender for Cloud's alerts and incidents are now integrated with Microsoft Defender XDR. This integration allows security teams to access Defender for Cloud alerts and incidents within the Microsoft Defender Portal. This integration provides richer context to investigations that span cloud resources, devices, and identities.
 
-Learn more about about the [advanced hunting in XDR integration](concept-integration-365.md#advanced-hunting-in-xdr).
+Learn more about the [advanced hunting in XDR integration](concept-integration-365.md#advanced-hunting-in-xdr).
 
 ### Checkov integration for IaC scanning in Defender for Cloud (Preview)
 
