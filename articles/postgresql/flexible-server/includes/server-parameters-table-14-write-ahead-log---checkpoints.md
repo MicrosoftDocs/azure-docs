@@ -48,7 +48,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Checkpoints |
 | Description    | Maximum time between automatic WAL checkpoints, in seconds. The valid range is between 30 seconds and one day. |
 | Data type      | integer   |
-| Default value  | `600`                                                                      |
+| Default value  | `600`         |
 | Allowed values | `30-86400`     |
 | Parameter type | dynamic        |
 | Documentation  | [checkpoint_timeout](https://www.postgresql.org/docs/14/runtime-config-wal.html)           |
@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Checkpoints |
 | Description    | Sets the minimum size to shrink the WAL to.                                                                    |
 | Data type      | integer   |
-| Default value  | `80`                                                                       |
+| Default value  | `80`          |
 | Allowed values | `32-2097151`   |
 | Parameter type | dynamic        |
 | Documentation  | [min_wal_size](https://www.postgresql.org/docs/14/runtime-config-wal.html)                 |

@@ -31,7 +31,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the Bonjour service name.                                                                                                      |
 | Data type      | string    |
-| Default value  |                                                                            |
+| Default value  |               |
 | Allowed values |                |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the TCP port the server listens on.                                                                                            |
 | Data type      | integer   |
-| Default value  | `5432`                                                                     |
+| Default value  | `5432`        |
 | Allowed values | `5432`         |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -218,7 +218,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the owning group of the Unix-domain socket.                                                                                    |
 | Data type      | string    |
-| Default value  |                                                                            |
+| Default value  |               |
 | Allowed values |                |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |

@@ -14,7 +14,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's estimate of the cost of processing each index entry during an index scan.             |
 | Data type      | numeric   |
-| Default value  | `0.005`                                                                    |
+| Default value  | `0.005`       |
 | Allowed values | `0-1.79769e+308` |
 | Parameter type | dynamic        |
 | Documentation  | [cpu_index_tuple_cost](https://www.postgresql.org/docs/14/runtime-config-query.html)         |
@@ -31,7 +31,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's estimate of the cost of processing each operator or function executed during a query. |
 | Data type      | numeric   |
-| Default value  | `0.0025`                                                                   |
+| Default value  | `0.0025`      |
 | Allowed values | `0-1.79769e+308` |
 | Parameter type | dynamic        |
 | Documentation  | [cpu_operator_cost](https://www.postgresql.org/docs/14/runtime-config-query.html)            |
@@ -48,7 +48,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's estimate of the cost of processing each row during a query.                           |
 | Data type      | numeric   |
-| Default value  | `0.01`                                                                     |
+| Default value  | `0.01`        |
 | Allowed values | `0-1.79769e+308` |
 | Parameter type | dynamic        |
 | Documentation  | [cpu_tuple_cost](https://www.postgresql.org/docs/14/runtime-config-query.html)               |
@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the query cost above which JIT compilation is activated, if enabled.                                |
 | Data type      | integer   |
-| Default value  | `100000`                                                                   |
+| Default value  | `100000`      |
 | Allowed values | `-1-2147483647`  |
 | Parameter type | dynamic        |
 | Documentation  | [jit_above_cost](https://www.postgresql.org/docs/14/runtime-config-query.html)               |
@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the query cost above which JIT compilation attempts to inline functions and operators.              |
 | Data type      | integer   |
-| Default value  | `500000`                                                                   |
+| Default value  | `500000`      |
 | Allowed values | `-1-2147483647`  |
 | Parameter type | dynamic        |
 | Documentation  | [jit_inline_above_cost](https://www.postgresql.org/docs/14/runtime-config-query.html)        |
@@ -116,7 +116,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the query cost above which JIT compilation applies expensive optimizations.                         |
 | Data type      | integer   |
-| Default value  | `500000`                                                                   |
+| Default value  | `500000`      |
 | Allowed values | `-1-2147483647`  |
 | Parameter type | dynamic        |
 | Documentation  | [jit_optimize_above_cost](https://www.postgresql.org/docs/14/runtime-config-query.html)      |
