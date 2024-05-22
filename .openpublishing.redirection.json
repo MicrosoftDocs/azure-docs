@@ -3634,8 +3634,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/azure-functions/create-first-function-vs-code-web.md",
-            "redirect_url": "/azure/azure-functions/",
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-web.md",
+            "redirect_url": "/azure/azure-functions",
             "redirect_document_id": false
         },
         {
