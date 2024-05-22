@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 04/26/2024
+ms.date: 05/13/2024
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -33,6 +33,10 @@ Data connectors are available as part of the following offerings:
 ## Data connector prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
+
+## Syslog and Common Event Format (CEF) connectors
+
+Some Microsoft Sentinel solutions are supported by the data connectors Syslog via AMA or Common Event Format (CEF) via AMA in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing either the **Common Event Format** or **Syslog** solution from the **Content hub** in Microsoft Sentinel. Then, configure the related AMA connector that's installed with the solution. Complete the set up by configuring the appropriate devices or appliances. For more information, refer to the solution provider's installation instructions or contact the solution provider.
 
 [comment]: <> (DataConnector includes start)
 
@@ -392,7 +396,7 @@ Data connectors are available as part of the following offerings:
 - [Common Event Format (CEF)](data-connectors/common-event-format-cef.md)
 - [Common Event Format (CEF) via AMA](data-connectors/common-event-format-cef-via-ama.md)
 - [Windows DNS Events via AMA](data-connectors/windows-dns-events-via-ama.md)
-- [Azure Event Hub](data-connectors/azure-event-hub.md)
+- [Azure Event Hubs](data-connectors/azure-event-hub.md)
 - [Microsoft 365 Insider Risk Management](data-connectors/microsoft-365-insider-risk-management.md)
 - [Azure Logic Apps](data-connectors/azure-logic-apps.md)
 - [Microsoft Defender for Identity](data-connectors/microsoft-defender-for-identity.md)
@@ -402,7 +406,7 @@ Data connectors are available as part of the following offerings:
 - [Subscription-based Microsoft Defender for Cloud (Legacy)](data-connectors/subscription-based-microsoft-defender-for-cloud-legacy.md)
 - [Tenant-based Microsoft Defender for Cloud (Preview)](data-connectors/tenant-based-microsoft-defender-for-cloud.md)
 - [Microsoft Defender for Office 365 (Preview)](data-connectors/microsoft-defender-for-office-365.md)
-- [Microsoft PowerBI](data-connectors/microsoft-powerbi.md)
+- [Microsoft Power BI](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project](data-connectors/microsoft-project.md)
 - [Microsoft Purview Information Protection](data-connectors/microsoft-purview-information-protection.md)
 - [Network Security Groups](data-connectors/network-security-groups.md)

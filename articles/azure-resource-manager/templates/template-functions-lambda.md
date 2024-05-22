@@ -3,7 +3,7 @@ title: Template functions - lambda
 description: Describes the lambda functions to use in an Azure Resource Manager template (ARM template)
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 01/25/2024
+ms.date: 05/13/2024
 ---
 
 # Lambda functions for ARM templates
@@ -13,7 +13,6 @@ This article describes the lambda functions to use in ARM templates. [Lambda fun
 ```bicep
 lambda(<lambda variable>, [<lambda variable>, ...], <expression>)
 ```
-
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
@@ -139,6 +138,58 @@ The output from the preceding example:
 
 **filterdLoop** shows the numbers in an array that are greater than 5; and **isEven** shows the even numbers in the array.
 
+## groupBy
+
+`groupBy(inputArray, lambda expression)`
+
+Creates an object with array values from an array, using a grouping condition.
+
+In Bicep, use the [groupBy](../bicep/bicep-functions-lambda.md#groupby) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array |The array for grouping.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element, and group the elements using the grouping condition.|
+
+### Return value
+
+An object.
+
+### Examples
+
+The following example shows how to use the `groupBy` function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "inputArray": [
+      "foo",
+      "bar",
+      "baz"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "outObject": {
+      "type": "object",
+      "value": "[groupBy(variables('inputArray'), lambda('x', substring(lambdaVariables('x'), 0, 1)))]"
+    }
+  }
+}
+```
+
+The output from the preceding example shows the dogs that are five or older:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| outObject | Object | {"f":["foo"],"b":["bar","baz"]} |
+
+**outObject** shows an object that groups the array elements by their first letters.
+
 ## map
 
 `map(inputArray, lambda function)`
@@ -226,6 +277,57 @@ The output from the preceding example is:
 | mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
 
 **dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
+
+## mapValues
+
+`mapValues(inputObject, lambda expression)`
+
+Creates an object from an input object, using a lambda expression to map values.
+
+In Bicep, use the [mapValues](../bicep/bicep-functions-lambda.md#mapvalues) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputObject |Yes |object |The object to map.|
+| lambda expression |Yes |expression |The lambda expression used to map the values.|
+
+### Return value
+
+An object.
+
+### Example
+
+The following example shows how to use the `mapValues` function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "inputObject": {
+      "foo": "foo",
+      "bar": "bar"
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "mapObject": {
+      "type": "object",
+      "value": "[mapValues(variables('inputObject'), lambda('val', toUpper(lambdaVariables('val'))))]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| mapObject | Object | {foo: 'FOO', bar: 'BAR'} |
+
+**mapObject** creates another object with the values in upper case.
 
 ## reduce
 

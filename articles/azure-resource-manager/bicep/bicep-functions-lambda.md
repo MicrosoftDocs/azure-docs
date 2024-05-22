@@ -3,7 +3,7 @@ title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 01/25/2024
+ms.date: 05/21/2024
 ---
 # Lambda functions for Bicep
 
@@ -38,7 +38,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| lambda expression |Yes |expression |The lambda expression is applied to each input array element. If the result is true, the item will be included in the output array; otherwise, the item is discarded.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element. If the result is true, the item is included in the output array; otherwise, the item is discarded.|
 
 ### Return value
 
@@ -96,6 +96,43 @@ The output from the preceding example:
 | isEven | Array | [0, 2, 4, 6, 8] |
 
 **filterdLoop** shows the numbers in an array that are greater than 5; and **isEven** shows the even numbers in the array.
+
+## groupBy
+
+`groupBy(inputArray, lambda expression)`
+
+Creates an object with array values from an array, using a grouping condition.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array |The array for grouping.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element, and group the elements using the grouping condition.|
+
+### Return value
+
+An object.
+
+### Examples
+
+The following examples show how to use the `groupBy` function.
+
+```bicep
+var inputArray = ['foo', 'bar', 'baz']
+
+output outObject object = groupBy(inputArray, x => substring(x, 0, 1)) 
+```
+
+The output from the preceding example shows the dogs that are five or older:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| outObject | Object | {"f":["foo"],"b":["bar","baz"]} |
+
+**outObject** shows an object that groups the array elements by their first letters.
 
 ## map
 
@@ -162,6 +199,43 @@ The output from the preceding example is:
 | mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
 
 **dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
+
+## mapValues
+
+`mapValues(inputObject, lambda expression)`
+
+Creates an object from an input object, using a lambda expression to map values.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputObject |Yes |object |The object to map.|
+| lambda expression |Yes |expression |The lambda expression used to map the values.|
+
+### Return value
+
+An object.
+
+### Example
+
+The following example shows how to use the `mapValues` function.
+
+```bicep
+var inputObject = { foo: 'foo', bar: 'bar' }
+
+output mapObject object = mapValues(inputObject, val => toUpper(val)) 
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| mapObject | Object | {foo: 'FOO', bar: 'BAR'} |
+
+**mapObject** creates another object with the values in upper case.
 
 ## reduce
 
