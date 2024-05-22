@@ -42,7 +42,7 @@ For more information, see [About API Management](api-management-key-concepts.md)
 
 API Management supports import of Web Apps hosted in App Service that include an OpenAPI specification (Swagger definition). However, an OpenAPI specification isn't required.
 
-* If the Web App has an OpenAPI specification configured in an API definition, API Management creates API operations that map directly to the definition, including required paths, parameters, and response types. 
+* If the Web App has an OpenAPI specification configured in an API definition, you can [import the specification](import-api-from-oas.md) to API Management. API Management then creates API operations that map directly to the definition, including required paths, parameters, and response types. 
 
   Having an OpenAPI specification is recommended, because the API is imported to API Management with high fidelity, giving you flexibility to validate, manage, secure, and update configurations for each operation separately.
 
