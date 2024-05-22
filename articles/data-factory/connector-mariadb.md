@@ -299,7 +299,7 @@ Here are steps that help you upgrade your MariaDB driver version:
 
 ## Differences between MariaDB using the recommended and the legacy driver version
 
-The table below shows the feature differences between MariaDB using the recommended and the legacy driver version.
+The table below shows the data type mapping differences between MariaDB using the recommended and the legacy driver version.
 
 |MariaDB data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
 |:---|:---|:---|
