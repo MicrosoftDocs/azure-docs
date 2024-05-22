@@ -2,14 +2,14 @@
 title: Rearchitect the event-driven workflow (EDW) workload for Azure
 description: Learn about architectural differences for replicating the AWS EKS Scaling with KEDA and Karpenter event driven workflow (EDW) workload in Azure.
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 author: JnHs
 ms.author: jenhayes
 ---
 
 # Rearchitect the event-driven workflow (EDW) workload for Azure
 
-Now that you understand some key platform differences between AWS and Azure relevant to this workload, let' take a look at the workflow architecture and how it must be changed for Azure.
+Now that you understand some key platform differences between AWS and Azure relevant to this workload, let's take a look at the workflow architecture and how it must be changed for Azure.
 
 ## Understand the AWS workload architecture
 
@@ -44,7 +44,7 @@ Using the service mapping described in this article, the architecture for the Az
 
 Depending on cost considerations and resilience to possible node eviction, users can choose different types of compute. In AWS, users can choose between on-demand compute (more expensive but no eviction risk) or Spot instances (cheaper but with eviction risk). Azure offers similar compute options for Azure Kubernetes Service (AKS) users, who can select either an [on-demand node pool](/azure/aks/create-node-pools) or a [Spot node pool](/azure/aks/spot-node-pool) according to the workload needs.
 
-The next step after creating an equivalent infrastructure architecture for Azure is to start looking into the code and authentication changes that are required for the app to work on Azure.
+The next step after creating an equivalent infrastructure architecture for Azure is to understand how the application code and authentication works with Azure.
 
 ## Next step
 

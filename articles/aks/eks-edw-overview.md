@@ -2,7 +2,7 @@
 title: Replicate the AWS EDW workload with KEDA and Karpenter workload in Azure
 description: Learn how to replicate the AWS EKS Scaling with KEDA and Karpenter event driven workflow (EDW) workload in Azure.
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 author: JnHs
 ms.author: jenhayes
 ---
@@ -17,7 +17,7 @@ To replicate this workload from AWS to Azure, follow these basic steps:
 
 1. [Understand the conceptual differences](eks-edw-understand.md): Start by gaining a clear understanding of the differences between AWS and Azure for the workload in terms of services, architecture, and deployment.
 1. [Rearchitect the workload](eks-edw-rearchitect.md): Analyze the existing AWS workload architecture and identify the components or services that need to be rearchitected or redesigned to fit Azure. Changes must be made to the workload infrastructure, application architecture, and deployment process.
-1. [Refactor the application code](eks-edw-refactor.md): Modify the AWS application code to ensure compatibility with Azure APIs, services, and authentication models. These modifications include rewriting certain parts of the code, updating dependencies, and making configuration changes.
+1. [Update the application code](eks-edw-refactor.md): Ensure your code is compatible with Azure APIs, services, and authentication models.
 1. [Prepare for deployment](eks-edw-prepare.md): Modify the AWS deployment process to use the Azure CLI.
 1. [Deploy the workload](eks-edw-deploy.md): Deploy the replicated workload in Azure, and test the workload to ensure that it functions as expected.
 

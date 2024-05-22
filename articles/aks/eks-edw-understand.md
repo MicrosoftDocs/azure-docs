@@ -2,7 +2,7 @@
 title: Understand platform differences for the event-driven workflow (EDW) workload
 description: Become familiar with key differences in how the AWS and Azure platforms operate that are relevant to the EDW scaling workload.
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 author: JnHs
 ms.author: jenhayes
 ---
@@ -17,7 +17,7 @@ This article walks through some of the key concepts that are especially useful t
 
 The AWS EDW workload uses AWS resource policies that assign AWS Identity and Access Management (IAM) roles to code running in Kubernetes pods on EKS. These roles allow those pods to access external resources such as queues or databases.
 
-Azure does not have the concept of IAM roles. Instead, Azure uses [Role-based access control (RBAC)](/azure/role-based-access-control/overview) to control permissions to a resource at a given level of scope, such as a subscription, resource group, or individual resource type. These Azure RBAC role assignments allow you to grant access to specific Azure resources for a security principal (user, group, managed identity, or service principal).
+Azure doesn't have the concept of IAM roles. Instead, Azure uses [Role-based access control (RBAC)](/azure/role-based-access-control/overview) to control permissions to a resource at a given level of scope, such as a subscription, resource group, or individual resource type. These Azure RBAC role assignments allow you to grant access to specific Azure resources for a security principal (user, group, managed identity, or service principal).
 
 ## Authentication between services
 

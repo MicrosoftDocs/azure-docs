@@ -1,19 +1,19 @@
 ---
-title: Refactor application code for the event-driven workflow (EDW) workload
-description: Learn what needs to be refactored to replicate the AWS EKS event-driven workflow (EDW) workload in Azure.
+title: Update application code for the event-driven workflow (EDW) workload
+description: Learn what needs to be updated to replicate the AWS EKS event-driven workflow (EDW) workload in Azure.
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 05/22/2024
 author: JnHs
 ms.author: jenhayes
 ---
 
-# Refactor application code for the event-driven workflow (EDW) workload
+# Update application code for the event-driven workflow (EDW) workload
 
-To replicate the EDW workload in Azure you will use Azure services and you need to refactor your application code to use Azure SDKs to access those services. This article outlines the key changes that are needed, including example code to support the workflow in Azure.
+To replicate the EDW workload in Azure, your code uses Azure SDKs to work with Azure services. This article outlines some key aspects, including example code to support the workflow in Azure.
 
-## Update data access code
+## Data access code
 
-The AWS workload relies on AWS services and their associated data access AWS SDKs. You have already [mapped AWS services to equivalent Azure services](eks-edw-rearchitect.md#map-aws-services-to-azure-services). Now you need to update the code that accesses data for the producer queue and the consumer results database table in Python, using Azure SDKs.
+The AWS workload relies on AWS services and their associated data access AWS SDKs. You have already [mapped AWS services to equivalent Azure services](eks-edw-rearchitect.md#map-aws-services-to-azure-services). Now you need to create the code that accesses data for the producer queue and the consumer results database table in Python, using Azure SDKs.
 
 For the data plane, the producer message body (payload) is JSON, and it doesn't need any schema changes for Azure. However, the consumer saves results in a database, and the table schema for DynamoDB is incompatible with an equivalent table definition in Azure Cosmos DB. The DynamoDB table schema will need to be re-mapped to an Azure Cosmos DB table schema. The data access layer code will also require changes to work with Azure Cosmos DB. Finally, you need to change the authentication logic for the Azure Storage Queue and the Azure Cosmos DB results table.
 
@@ -21,7 +21,7 @@ For the data plane, the producer message body (payload) is JSON, and it doesn't 
 
 ### AWS service-to-service authentication implementation
 
-The AWS workload uses a resource-based policy that defines full access to a Amazon Simple Queue Service (SQS) resource:
+The AWS workload uses a resource-based policy that defines full access to an Amazon Simple Queue Service (SQS) resource:
 
 ```json
 {
@@ -107,12 +107,12 @@ The **Storage Queue Data Contributor** role definition is shown below. Note the 
 }
 ```
 
-The **Cosmos DB Built-in Data Contributor** role works differently than previously applied RBAC roles, and it can't be assigned directly in the Azure portal or through `az role assignment` using the Azure CLI. Instead, a resource [Microsoft.DocumentDB databaseAccounts/sqlRoleAssignments](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments?pivots=deployment-language-bicep) can be used. To simplify assignment, you can also use the following Azure CLI command to assign this role:
+The **Cosmos DB Built-in Data Contributor** role works differently than previously applied RBAC roles, and it can't be assigned directly in the Azure portal or through `az role assignment` using the Azure CLI. Instead, a resource [Microsoft.DocumentDB databaseAccounts/sqlRoleAssignments](/azure/templates/microsoft.documentdb/2021-10-15/databaseaccounts/sqlroleassignments?pivots=deployment-language-bicep) can be used.
+
+To simplify assignment, you can use the following Azure CLI command to assign this role. Replace `--principal-id` with the `objectid` of the security principal used. In our case, this is the `objectid` associated with the user-assigned managed identity that is bound to the AKS workload identity.
 
 ```azurecli
 az cosmosdb sql role assignment create --account-name MyAccountName --resource-group MyResourceGroup --role-assignment-id 00000000-0000-0000-0000-000000000002 --role-definition-name "Cosmos DB Built-in Data Contributor" --scope "/dbs/mydb/collections/mycontainer" --principal-id 00000000-0000-0000-0000-000000000000
-
-# Replace --principal-id with the objectid of the security principal used. In our case this is the objectid associated with the user-assigned managed identity that is bound to the AKS workload identity.
 ```
 
 To create the EDW workload in Azure, you need to set up service-to-service authentication to allow application code running AKS to authenticate to both Azure Storage Queues and Azure Cosmos DB, in a manner similar to EKS to SQS/DynamoDB. The following steps show how to use Azure CLI to create a single AKS cluster that will let an application access Azure Queue Service and Azure Cosmos DB from a pod using workload identity.
@@ -123,7 +123,7 @@ To create the EDW workload in Azure, you need to set up service-to-service authe
    az aks update -g "${RESOURCE_GROUP}" -n $AKS_CLUSTER_NAME --enable-oidc-issuer --enable-workload-identity
    ```
 
-1. You need to configure an identity from an external OpenID Connect Provider (AKS) to get tokens as the user assigned managed identity to access [Microsoft Entra ID protected services](/entra/identity-platform/v2-protocols-oidc) such as Azure Storage Queues or Cosmos DB. Retrieve the OIDC Issuer URL from the AKS cluster before creating the managed identity:
+1. Next, you need to configure an identity from an external OpenID Connect Provider (AKS) to get tokens as the user assigned managed identity to access [Microsoft Entra ID protected services](/entra/identity-platform/v2-protocols-oidc) such as Azure Storage Queues or Cosmos DB. Retrieve the OIDC Issuer URL from the AKS cluster before creating the managed identity:
 
    ```azurecli
    KS_OIDC_ISSUER=$(az aks show --name $AKS_CLUSTER_NAME --resource-group "$RESOURCE_GROUP_NAME" --query "oidcIssuerProfile.issuerUrl" -otsv)
@@ -164,7 +164,7 @@ To create the EDW workload in Azure, you need to set up service-to-service authe
 
 ## Producer code changes
 
-In the original AWS code for storage queue access, the AWS boto3 library is used to interact with AWS SQS queues. You will refactor the application code to use the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) to interact with Azure Storage Queue services.
+In the original AWS code for storage queue access, the AWS boto3 library is used to interact with AWS SQS queues. For Azure, the code uses the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) to interact with Azure Storage Queue services.
 
 ### AWS producer code implementation
 
@@ -191,7 +191,7 @@ In Azure, an equivalent means of making connections to Azure Storage Queue is to
 >
 > For more fine-grained control over credential discovery, you could use the [ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential), which also exists in all of the languages listed above.
 
-For Azure, update your code to:
+This example shows the code required For Azure:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -233,9 +233,9 @@ table.put_item(
 
 #### Azure consumer code implementation
 
-You learned how replicate the passwordless authentication mechanism used in the AWS Workload by using workload identity for AKS. You need to make similar updates to the producer code to authenticate to Azure Cosmos DB. As discussed earlier, the schema used in the preceeding section with DynamoDB is incompatible with Azure Cosmos DB. You'll also make changes that use a table schema compatible with Azure Cosmos DB that stores the same data as the AWS workload does in DynamoDB.
+You learned how replicate the passwordless authentication mechanism used in the AWS Workload by using workload identity for AKS. Now you need the producer code to authenticate to Azure Cosmos DB. As discussed earlier, the schema used in the preceeding section with DynamoDB is incompatible with Azure Cosmos DB. You'll also use a table schema that is compatible with Azure Cosmos DB, which stores the same data as the AWS workload does in DynamoDB.
 
-For Azure, update your code to:
+This example shows the code required For Azure:
 
 ```python
 # presumes Azure RBAC assignment with a built-in or equivalent Azure RBAC role definition such as 'Cosmos DB Built-in Data Contributor' that is associated with the managed identity used by Microsoft Entra Workload ID with Azure Kubernetes Service.
@@ -263,7 +263,9 @@ TODO: Insert link to final python code file for the consumer from the sample (ka
 
 ## Create container images and push to Azure Container Registry
 
-Once you have refactored the app code to use Azure services and authenticate between Azure services using Microsoft Entra Workload ID with AKS, you can build the container images and push them to [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro). In the `app` directory of the cloned repository, a shell script builds the container images and pushes them to ACR. The script is called `docker-command.sh`. Open the `.sh` file and review the code. The script builds the producer and consumer container images and pushes them to ACR. For more information, see [Introduction to container registries in Azure](/azure/container-registry/container-registry-intro) and learn how to [push and pull images](/azure/container-registry/container-registry-get-started-docker-cli) from ACR.
+Next, build the container images and push them to [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro).
+
+In the `app` directory of the cloned repository, a shell script called `docker-command.sh` builds the container images and pushes them to ACR. Open the `.sh` file and review the code. The script builds the producer and consumer container images and pushes them to ACR. For more information, see [Introduction to container registries in Azure](/azure/container-registry/container-registry-intro) and learn how to [push and pull images](/azure/container-registry/container-registry-get-started-docker-cli) from ACR.
 
 To build the container images and push them to ACR, make sure the environment variable `AZURE_CONTAINER_REGISTRY` is set to the name of the registry you want to push the images to, then run the following command:
 
@@ -273,4 +275,4 @@ To build the container images and push them to ACR, make sure the environment va
 
 ## Next steps
 
-- With your refactored code, [prepare to deploy the EDW workload to Azure](eks-edw-prepare.md).
+- Now that your code is ready, [prepare to deploy the EDW workload to Azure](eks-edw-prepare.md).
