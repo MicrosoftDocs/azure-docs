@@ -32,11 +32,11 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Microsoft open source packages manager| 443 | `packages.microsoft.com`| Appliance VM IPs need outbound connection. | Download Linux installation package.|
 |Custom Location| 443 | `sts.windows.net`| Appliance VM IPs need outbound connection. | Required for Custom Location.|
 |Azure Arc| 443 | `guestnotificationservice.azure.com` | Appliance VM IPs need outbound connection. | Required for Azure Arc.|
-|Custom Location | 443 | `k8sconnectcsp.azureedge.net`	|	Appliance VM IPs need outbound connection. | Required for Custom Location. |
-|Diagnostic data | 443 | `gcs.prod.monitoring.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.microsoftmetrics.com`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.hot.ingest.monitor.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.warm.ingest.monitor.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
+|Custom Location | 443 | `k8sconnectcsp.azureedge.net` | Appliance VM IPs need outbound connection. | Required for Custom Location. |
+|Diagnostic data | 443 | `gcs.prod.monitoring.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
+|Diagnostic data | 443 | `*.prod.microsoftmetrics.com` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
+|Diagnostic data | 443 | `*.prod.hot.ingest.monitor.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
+|Diagnostic data | 443 | `*.prod.warm.ingest.monitor.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
 |Azure portal | 443 | `*.arc.azure.net`| Appliance VM IPs need outbound connection. | Manage cluster from Azure portal.|
 |Azure CLI & Extension | 443 | `*.blob.core.windows.net`| Management machine needs outbound connection. | Download Azure CLI Installer and extension. |
 |Azure Arc Agent| 443 | `*.dp.kubernetesconfiguration.azure.com`| Management machine needs outbound connection. | Dataplane used for Arc agent.|
@@ -49,9 +49,7 @@ The following ports must be allowlisted in your firewall/proxy to enable communi
 
 |**Service**|**Port**|**URL**|**Direction**|**Notes**|
 |--|--|--|--|--|
-|SSH| 22 | `appliance VM IPs` and `Management machine` | Bidirectional | Used for deploying & maintaining the appliance VM.|
-|Kubernetes API server| 6443 | `appliance VM IPs` and `Management machine` | Bidirectional | Management of appliance VM.|
-|HTTPS | 443 | `private cloud management console` | Management machine needs outbound connection. | Communication with management console. (ex: VMware vCenter server)|
-|SSH| 22 | `control plane IP` and `Management machine` | Bidirectional | Used for deploying & maintaining the appliance VM.|
-|Kubernetes API server| 6443 | `control plane IP` and `Management machine`| Bidirectional | Management of appliance VM.|
-|HTTPS | 443 | `private cloud management console` | Appliance VM IPs needs outbound connection. | Communication with management console. (ex: VMware vCenter server)|
+|SSH| 22 | `appliance VM IPs` and `Management machine` | Bidirectional | Used for deploying and maintaining the appliance VM.|
+|Kubernetes API server| 6443 | `appliance VM IPs` and `Management machine` | Bidirectional | Management of the appliance VM.|
+|HTTPS | 443 | `private cloud management console` | Management machine needs outbound connection. | Communication with management console (for example, VMware vCenter Server).|
+
