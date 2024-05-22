@@ -21,6 +21,8 @@ Supported distributions:
 - RHEL 8
 - RHEL 9
 
+This release has been produced in accordance with Microsoft's Secure Development Lifecycle, including processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
+
 ### Known issues
 
 None
@@ -39,6 +41,8 @@ None
 Supported distributions: 
 - RHEL 8
 - RHEL 9
+
+This release has been produced in accordance with Microsoft's Secure Development Lifecycle, including processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ### Known issues
 
