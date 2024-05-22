@@ -245,7 +245,7 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ### Receipt
 
