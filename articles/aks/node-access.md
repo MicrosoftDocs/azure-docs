@@ -2,9 +2,13 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: troubleshooting
+ms.subservice: aks-security
 ms.date: 01/08/2024
+author: nickomang
+ms.author: nickoman
+
 ms.reviewer: mattmcinnes
-ms.custom: linux-related-content
+ms.custom:
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
@@ -26,9 +30,9 @@ Complete these steps if you don't have an SSH key. Create an SSH key depending o
 
 ### Linux and macOS
 
-Linux and macOS users can SSH to access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
+Linux and macOS users can access their node using `kubectl debug` or their private IP Address. Windows users should skip to the Windows Server Proxy section for a workaround to SSH via proxy.
 
-#### SSH using kubectl debug
+#### Connect using kubectl debug
 
 To create an interactive shell connection, use the `kubectl debug` command to run a privileged container on your node.
 
@@ -239,30 +243,30 @@ For convenience, AKS nodes are exposed on the cluster's virtual network through 
 1. Obtain private IPs using the `az aks machine list` command, targeting all the VMs in a specific node pool with the `--nodepool-name` flag.
 
     ```bash
-        az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
-     ```
+    az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
+    ```
 
     The following example output shows the internal IP addresses of all the nodes in the node pool:
 
-     ```output
-       Name                               Ip         Family    
-    ---------------------------------  -----------  ----------- 
+    ```output
+    Name                               Ip           Family
+    ---------------------------------  -----------  -----------
     aks-nodepool1-33555069-vmss000000  10.224.0.5   IPv4
     aks-nodepool1-33555069-vmss000001  10.224.0.6   IPv4
-    aks-nodepool1-33555069-vmss000002  10.224.0.4   IPv4            
+    aks-nodepool1-33555069-vmss000002  10.224.0.4   IPv4
     ```
     To target a specific node inside the node pool, use the `--machine-name` flag:
 
     ```bash
-        az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
-     ```
+    az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
+    ```
     The following example output shows the internal IP address of all the specified node:
 
     ```output
-      Name                               Ip         Family    
-    ---------------------------------  -----------  ----------- 
+    Name                               Ip         Family
+    ---------------------------------  -----------  -----------
     aks-nodepool1-33555069-vmss000000  10.224.0.5   IPv4
-       ```
+    ```
 
 2. SSH to the node using the private IP address you obtained in the previous step. This step is applicable for Linux machines only. For Windows machines, see [Connect with Azure Bastion][azure-bastion].
 

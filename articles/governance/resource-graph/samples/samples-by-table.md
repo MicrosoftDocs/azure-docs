@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by table
 description: List sample queries for Azure Resource-Graph. Tables include Resources, ResourceContainers, PolicyResources, and more.
-ms.date: 12/13/2023
+ms.date: 03/20/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -34,6 +34,10 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 [!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
 
 [!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
+
+## ComputeResources
+
+[!INCLUDE [vmss-computeresources-uniform-orchestration](../../includes/resource-graph/query/vmss-computeresources-uniform-orchestration.md)]
 
 ## ExtendedLocationResources
 
@@ -96,6 +100,8 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 [!INCLUDE [virtual-machine-basic-sku-public-ip](../../includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md)]
 
 [!INCLUDE [azure-monitor-data-collection-rules-resources-table](../../includes/resource-graph/query/resources-monitor-data-collection-rules.md)]
+
+[!INCLUDE [vmss-resources-flexible-orchestration](../../includes/resource-graph/query/vmss-resources-flexible-orchestration.md)]
 
 ## SecurityResources
 

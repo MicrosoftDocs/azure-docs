@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 02/20/2024
+ms.date: 05/21/2024
 ---
 
 ## Supported client versions
@@ -11,13 +11,82 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5112 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5248 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Public | 1.2.5405  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5450 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5248 (Insider)
+## Updates for version 1.2.5450 (Insider) 
 
-*Date published: February 13, 2024* 
+*Date published: May 21, 2024* 
 
+In this release, we made the following changes:
+
+- When subscribing to feeds via URL, all message states for the status message box can be announced by screen readers. 
+- Users can try out the Windows App Preview by clicking the toggle at the top of Azure Virtual Desktop Preview app. Users will be able to download and install the application. If Windows App Preview is already downloaded, the toggle will close Azure Virtual Desktop app and open the Windows App Preview. 
+- When users are searching for workspaces via url, they will now see the searching status when entering url-formatted input and receive an error if results are not found. 
+- Improved error messaging for end users when their saved credentials expire. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.5405
+
+*Date published: April 17, 2024*
+
+In this release, we made the following changes:
+
+- Fixed an issue that made the multi-factor authentication (MFA) prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that caused an extra string to appear next to a user's tenant URL.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.5331
+
+*Date published: April 18, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed an issue that caused the RemoteApp window to appear stretched.
+- When users enter text into the email or URL field to search for a workspace while subscribing to a feed, screen readers now announce whether the client can find the workspace.
+- Fixed an issue that made the MFA prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that caused an extra string to appear next to a user's tenant URL.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+>[!NOTE]
+>This release was originally version 1.2.5326, but we made a hotfix after receiving user reports about issues that affected the MFA prompt and tenant URLs. Version 1.2.5331, which fixes these issues, has replaced version 1.2.5326.
+
+## Updates for version 1.2.5255
+
+*Date published: March 11, 2024*
+
+>[!NOTE]
+>This version includes all the latest updates made in public build [1.2.5252](#updates-for-version-125252) and Insider builds [1.2.5248](#updates-for-version-125248) and [1.2.5126](#updates-for-version-125126). 
+
+In this release, we've made the following change:
+
+- Fixed an issue that caused connections to stop working when users tried to connect from a Private Network to Azure Virtual Desktop environment.
+
+## Updates for version 1.2.5254  
+
+*Date published: March 6, 2024*
+
+>[!NOTE]
+>This version replaced [1.2.5252](#updates-for-version-125252) and has the same release notes as [version 1.2.5112](#updates-for-version-125112).
+
+## Updates for version 1.2.5252
+
+*Date published: February 29, 2024*
+
+>[!NOTE]
+>This version was released as a Public version on March 5, 2024 but was replaced by [version 1.2.5254](#updates-for-version-125254) on March 6, 2024.
+
+In this release, we've made the following changes:
+
+- Devices no longer go into idle mode when video playback is active. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.5248
+
+*Date published: February 13, 2024*
+
+>[!NOTE]
+>This version was an Insiders version that was replaced by version 1.2.5252 and never released to Public.
 In this release, we've made the following changes:
 
 - Fixed an issue that caused artifacts to appear on the screen during RemoteApp sessions.
@@ -31,7 +100,6 @@ In this release, we've made the following changes:
 
 >[!NOTE]
 >This version was an Insiders version that was replaced by version 1.2.5248 and never released to Public.
-
 In this release, we've made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session. 

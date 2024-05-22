@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -23,11 +23,11 @@ You can check your remaining credit on the [Microsoft Azure Sponsorships portal]
 1. Sign in using your Azure for Students account credentials.
 2. The balance page gives information about used and remaining credit. You can find your credit expiration date below the credit chart.  
 
-    ![Screenshot that shows credit information for Azure for Students subscription](./media/azurestudents-subscription-disabled/azurestudents-credit-balance.png)
+    :::image type="content" border="true" source="./media/azurestudents-subscription-disabled/azurestudents-credit-balance.png" alt-text="Screenshot that shows credit information for Azure for Students subscription.":::
 
 3. To check usage of services that are consuming your Azure credit, select **Usage** from the left navigation then select your Azure for Students subscription.
 
-    ![Screenshot that shows usage information for Azure for Students credit](./media/azurestudents-subscription-disabled/azurestudents-credit-usage.png)
+    :::image type="content" border="true" source="./media/azurestudents-subscription-disabled/azurestudents-credit-usage.png" alt-text="Screenshot that shows usage information for Azure for Students credit.":::
 
 The table contains the following columns:
 

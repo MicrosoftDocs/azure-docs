@@ -34,7 +34,7 @@ In this article, learn the steps for defining and publishing a search index. Cre
 
 ## Document keys
 
-A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure AI Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service doesn't generate key values, but in some scenarios (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it synthesizes existing values to create a unique key for the documents being indexed.
+A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure AI Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service doesn't generate key values, but in some scenarios (such as the [Azure table indexer](search-howto-indexing-azure-tables.md)) it synthesizes existing values to create a unique key for the documents being indexed.
 
 During incremental indexing, where new and updated content is indexed, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated.
 
@@ -95,7 +95,7 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
 ### [**REST**](#tab/index-rest)
 
-[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. The Postman app can function as a search index client to connect to your search service and send requests. See [Create a search index using REST and Postman](search-get-started-rest.md) to get started.
+[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. You need a REST client to connect to your search service and send requests. See [Quickstart: Text search using REST](search-get-started-rest.md) to get started.
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 
@@ -208,7 +208,7 @@ To minimize churn in the design process, the following table describes which ele
 | [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify `searchAnalyzer`. All other assignments and modifications require a rebuild. |
 | [Scoring profiles](index-add-scoring-profiles.md) | Yes |
 | [Suggesters](index-add-suggesters.md) | No |
-| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
+| [cross-origin resource sharing (CORS)](#corsoptions) | Yes |
 | [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
 ## Next steps

@@ -7,7 +7,7 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 08/14/2023
 ms.author: abell
-ms.custom: template-how-to, linux-related-content
+ms.custom: template-how-to
 ---
 
 # Azure Firewall scenarios to inspect traffic destined to a private endpoint

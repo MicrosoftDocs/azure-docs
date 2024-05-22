@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 02/08/2024
+ms.date: 04/30/2024
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions
 ---
@@ -42,7 +42,7 @@ To deploy applications using GitOps with Flux v2, you need:
 
   > [!IMPORTANT]
   > Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  > For new AKS clusters created with `az aks create`, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
+  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 
@@ -150,7 +150,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
   > [!IMPORTANT]
   > Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  > For new AKS clusters created with `az aks create`, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
+  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 
@@ -207,7 +207,7 @@ The following example uses the `az k8s-configuration create` command to apply a 
 * The scope of the configuration is `cluster`. This scope gives the operators permissions to make changes throughout cluster. To use `namespace` scope with this tutorial, [see the changes needed](conceptual-gitops-flux2.md#multi-tenancy).
 * Two kustomizations are specified with names `infra` and `apps`. Each is associated with a path in the repository.
 * The `apps` kustomization depends on the `infra` kustomization. (The `infra` kustomization must finish before the `apps` kustomization runs.)
-* Set `prune=true` on both kustomizations. This setting ensures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository, or if the Flux configuration or kustomizations are deleted.
+* Set `prune=true` on both kustomizations. This setting ensures that the objects that Flux deployed to the cluster are cleaned up if they're removed from the repository, or if the Flux configuration or kustomizations are deleted.
 
 ```azurecli
 az k8s-configuration flux create -g flux-demo-rg \
@@ -380,7 +380,7 @@ You can use the `k8s-extension` command to change the default options:
 
 For instance, to disable notifications, you can set `notification-controller.enabled` to `false`.
 
-This example command installs the `image-reflector` and `image-automation` controllers. If the Flux extension was created automatically when a Flux configuration was first created, the extension name will be `flux`.
+This example command installs the `image-reflector` and `image-automation` controllers. If the Flux extension was created automatically when a Flux configuration was first created, the extension name is `flux`.
 
 ```azurecli
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters or provisionedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
@@ -417,7 +417,7 @@ The Azure portal is useful for managing GitOps configurations and the Flux exten
 > [!NOTE]
 > Some options are not currently supported in the Azure portal. See the Azure CLI steps for additional options, including suspending continuous reconciliation, controlling which controllers are deployed with the Flux cluster extension, and using Kubelet identity as authentication method for AKS clusters.
 
-Follow these steps to apply a sample Flux configuration to a cluster. As part of this process, Azure installs the `microsoft.flux` extension on the cluster, if it hasn't already been installed due to a previous deployment.
+Follow these steps to apply a sample Flux configuration to a cluster. As part of this process, Azure installs the `microsoft.flux` extension on the cluster, if it wasn't already installed in a previous deployment.
 
 1. Navigate to your cluster in the Azure portal.
 1. In the left pane, under **Settings**, select **GitOps**.
@@ -451,7 +451,7 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
 
       1. For **Instance name**, enter **infrastructure**.
       1. For **Path**, enter **./infrastructure**.
-      1. Check the box for **Prune**. This setting ensures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
+      1. Check the box for **Prune**. This setting ensures that the objects that Flux deployed to the cluster are cleaned up if they're removed from the repository, or if the Flux configuration or kustomizations are deleted.
       1. Leave the other options as is, then select **Save** to create the `infrastructure` kustomization.
 
          :::image type="content" source="media/tutorial-use-gitops-flux2/portal-kustomization-infrastructure.png" alt-text="Screenshot showing the options to create the infrastructure kustomization in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-kustomization-infrastructure.png":::
@@ -566,6 +566,52 @@ az k8s-extension update --resource-group <resource-group> --cluster-name <cluste
 
 If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the default memory threshold is set to 95%, with the interval at which to check the memory utilization set to 500 ms.
 
+## Configurable log-level parameters
+
+By default, the `log-level` for Flux controllers is set to `info`. Starting with `microsoft.flux` v1.8.3, you can modify these default settings using the `k8s-extension` command as follows:
+
+```azurecli
+--config helm-controller.log-level=<info/error/debug>
+--config source-controller.log-level=<info/error/debug>
+--config kustomize-controller.log-level=<info/error/debug>
+--config notification-controller.log-level=<info/error/debug>
+--config image-automation-controller.log-level=<info/error/debug>
+--config image-reflector-controller.log-level=<info/error/debug>
+```
+
+Valid values are `debug`, `info`, or `error`. For instance, to change the `log-level` for the `source-controller` and `kustomize-controller`, use the following command:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --config source-controller.log-level=error kustomize-controller.log-level=error
+```
+
+Starting with [`microsoft.flux` v1.9.1](extensions-release.md#flux-gitops), `fluxconfig-agent` and `fluxconfig-controller` support `info` and `error` log levels (but not `debug`). These can be modified by using the k8s-extension command as follows:
+
+```azurecli
+--config fluxconfig-agent.log-level=<info/error>
+--config fluxconfig-controller.log-level=<info/error>
+```
+
+For example, the following command changes `log-level` to `error`:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --config fluxconfig-agent.log-level=error fluxconfig-controller.log-level=error
+```
+
+### Azure DevOps SSH-RSA deprecation
+
+Azure DevOps [announced the deprecation of SSH-RSA](https://aka.ms/ado-ssh-rsa-deprecation) as a supported encryption method for connecting to Azure repositories using SSH. If you use SSH keys to connect to Azure repositories in Flux configurations, we recommend moving to more secure RSA-SHA2-256 or RSA-SHA2-512 keys.
+
+When reconciling Flux configurations, you might see an error message indicating ssh-rsa is about to be deprecated or is unsupported. If so, update the host key algorithm used to establish SSH connections to Azure DevOps repositories from the Flux `source-controller` and `image-automation-controller` (if enabled) by using the `az k8s-extension update` command. For example:
+
+```azurecli
+az k8s-extension update --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type <cluster-type> --name flux --config source-controller.ssh-host-key-args="--ssh-hostkey-algos=rsa-sha2-512,rsa-sha2-256"
+
+az k8s-extension update --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type <cluster-type> --name flux --config image-automation-controller.ssh-host-key-args="--ssh-hostkey-algos=rsa-sha2-512,rsa-sha2-256"
+```
+
+For more information on Azure DevOps SSH-RSA deprecation,  see [End of SSH-RSA support for Azure Repos](https://aka.ms/ado-ssh-rsa-deprecation).
+
 ### Workload identity in AKS clusters
 
 Starting with [`microsoft.flux` v1.8.0](extensions-release.md#flux-gitops), you can create Flux configurations in [AKS clusters with workload identity enabled](/azure/aks/workload-identity-deploy-cluster). To do so, modify the flux extension as shown in the following steps.
@@ -588,7 +634,7 @@ Starting with [`microsoft.flux` v1.8.0](extensions-release.md#flux-gitops), you 
    az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"flux-system":"image-reflector-controller" --audience api://AzureADTokenExchange
    ```
 
-1. Make sure the custom resource that needs to use workload identity has set `.spec.provider` value to `azure` in the manifest. For example:
+1. Make sure the custom resource that needs to use workload identity sets `.spec.provider` value to `azure` in the manifest. For example:
 
    ```json
    apiVersion: source.toolkit.fluxcd.io/v1beta2
@@ -640,11 +686,11 @@ az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t connectedClu
 
 To delete a Flux configuration, navigate to the cluster where the configuration was created and select **GitOps** in the left pane. Select the configuration you want to delete. From the top of the page, select **Delete**, then select **Delete** again when prompted to confirm.
 
-When you delete a Flux configuration, all of the Flux configuration objects in the cluster will also be deleted. However, this action doesn't delete the `microsoft.flux` extension itself.
+When you delete a Flux configuration, all of the Flux configuration objects in the cluster are deleted. However, this action doesn't delete the `microsoft.flux` extension itself.
 
 #### Delete the Flux cluster extension
 
-When you delete the Flux extension, both the `microsoft.flux` extension resource in Azure and the Flux extension objects in the cluster will be removed.
+When you delete the Flux extension, both the `microsoft.flux` extension resource in Azure and the Flux extension objects in the cluster are removed.
 
 > [!IMPORTANT]
 > Be sure to delete all Flux configurations in the cluster before you delete the Flux extension. Deleting the extension without first deleting the Flux configurations may leave your cluster in an unstable condition.

@@ -25,7 +25,7 @@ To achieve these goals, Contoso needs to:
 
 ## Prerequisites
 
-- Follow the steps in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
+- Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations Preview on an Azure Arc-enabled Kubernetes cluster.
 
 - A Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
@@ -58,6 +58,8 @@ Make a note of your workspace ID and lakehouse ID, you need them later. You can 
 
 ### Add a secret to your cluster
 
+To access the lakehouse from a Data Processor pipeline, you need to enable your cluster to access the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
+
 [!INCLUDE [add-cluster-secret](../includes/add-cluster-secret.md)]
 
 ## Understand the scenario and data
@@ -70,7 +72,7 @@ To calculate OEE for Contoso, you need data from three data sources: production 
 
 ### Production line assets
 
-_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _assembly_, _test_, and _packaging_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
+_Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso production lines contain _assembly_, _test_, and _packaging_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ Preview.
 
 In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [manifest](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/industrial-data-simulator/manifests/oee/manifest.yml) file determines how the industrial data simulator generates the measurements.
 
@@ -236,7 +238,7 @@ To make the production data available to the enrichment stage in the process pip
 
 To create the _production-data_ dataset:
 
-1. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
+1. Navigate to the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 1. Select **Get started** and navigate to **Azure IoT Operations instances** to see a list of the clusters you have access to.
 
@@ -295,7 +297,7 @@ To make the operations data available to the enrichment stage in the process pip
 
 To create the _operations-data_ dataset:
 
-1. In the [Azure IoT Operations](https://iotoperations.azure.com) portal, make sure you're still on the **Data pipelines** page.
+1. In the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, make sure you're still on the **Data pipelines** page.
 
 1. Select **Reference datasets**. Then select **Create reference dataset**.
 
@@ -560,7 +562,7 @@ To create the _oee-process-pipeline_ pipeline:
 
 1. Review your pipeline diagram to make sure all the stages are present and connected. It should look like the following:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the Azure IoT Operations portal." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png":::
+    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the Azure IoT Operations (preview) portal." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png":::
 
 1. To save your pipeline, select **Save**. It may take a few minutes for the pipeline to deploy to your cluster, so make sure it's finished before you proceed.
 
@@ -614,7 +616,7 @@ Next, you can send your transformed and enriched measurement data to Microsoft F
 
 The next step is to create a Data Processor pipeline that sends the transformed and enriched measurement data to your Microsoft Fabric lakehouse.
 
-1. Back in the [Azure IoT Operations](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
+1. Back in the [Azure IoT Operations (preview)](https://iotoperations.azure.com) portal, navigate to **Data pipelines** and select **Create pipeline**.
 
 1. Select the title of the pipeline on the top left corner, rename it to _oee-fabric_, and **Apply** the change.
 
@@ -645,7 +647,6 @@ The next step is to create a Data Processor pipeline that sends the transformed 
           "y": 432
         }
       },
-      "url": "https://msit-onelake.pbidedicated.windows.net",
       "workspace": "",
       "lakehouse": "",
       "table": "OEE",
@@ -860,7 +861,7 @@ To share your dashboard with your coworkers, select **Publish** in the top nav
 ## Related content
 
 - [Tutorial: Detect anomalies in real time](tutorial-anomaly-detection.md)
-- [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+- [Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
 - [Build event-driven apps with Dapr](../develop/tutorial-event-driven-with-dapr.md)
 - [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
 - [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)

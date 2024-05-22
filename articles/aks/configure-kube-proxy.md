@@ -3,7 +3,7 @@ title: Configure kube-proxy (iptables/IPVS) (Preview)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure kube-proxy to utilize different load balancing configurations with Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/25/2023
 ms.author: allensu
@@ -110,10 +110,10 @@ You can view the full `kube-proxy` configuration structure in the [AKS Cluster S
 
     ```azurecli-interactive
     # Create a new cluster
-    az aks create -g <resourceGroup> -n <clusterName> --kube-proxy-config kube-proxy.json
+    az aks create --resource-group <resourceGroup> --name <clusterName> --kube-proxy-config kube-proxy.json
 
     # Update an existing cluster
-    az aks update -g <resourceGroup> -n <clusterName> --kube-proxy-config kube-proxy.json
+    az aks update --resource-group <resourceGroup> --name <clusterName> --kube-proxy-config kube-proxy.json
     ```
 
 ## Next steps
@@ -135,3 +135,4 @@ This article covered how to configure `kube-proxy` in Azure Kubernetes Service (
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update
+

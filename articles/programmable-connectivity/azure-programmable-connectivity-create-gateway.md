@@ -3,7 +3,7 @@ title: Create an Azure Programmable Connectivity Gateway
 description: In this guide, learn how to create an APC gateway.
 author: anzaman
 ms.author: alzam
-ms.service: azure-operator-nexus
+ms.service: azure-programmable-connectivity
 ms.topic: overview 
 ms.date: 02/08/2024
 ms.custom: template-overview

@@ -1,6 +1,5 @@
 ---
-title: Send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka
-titleSuffix: Azure IoT MQ
+title: Send receive messages between Azure IoT MQ and Event Hubs or Kafka
 description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka.
 author: PatAltimore
 ms.author: patricka
@@ -8,16 +7,16 @@ ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 01/16/2024
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
 
-# Send and receive messages between Azure IoT MQ and Event Hubs or Kafka
+# Send and receive messages between Azure IoT MQ Preview and Azure Event Hubs or Kafka
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Kafka connector pushes messages from Azure IoT MQ's MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
+The Kafka connector pushes messages from Azure IoT MQ Preview MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
 
 
 ## Configure Event Hubs connector via Kafka endpoint
@@ -128,7 +127,7 @@ spec:
   image:
     pullPolicy: IfNotPresent
     repository: mcr.microsoft.com/azureiotoperations/kafka
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   instances: 2
   clientIdPrefix: my-prefix
   kafkaConnection:
@@ -142,7 +141,7 @@ spec:
       authType:
         systemAssignedManagedIdentity:
           # plugin in your Event Hubs namespace name
-          audience: "https://<EVENTHUBS_NAMESPACE>.servicebus.windows.net" 
+          audience: "https://<NAMESPACE>.servicebus.windows.net" 
   localBrokerConnection:
     endpoint: "aio-mq-dmqtt-frontend:8883"
     tls:
@@ -493,4 +492,4 @@ This connector only uses MQTT v5.
 
 ## Related content
 
-[Publish and subscribe MQTT messages using Azure IoT MQ](../manage-mqtt-connectivity/overview-iot-mq.md)
+[Publish and subscribe MQTT messages using Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)

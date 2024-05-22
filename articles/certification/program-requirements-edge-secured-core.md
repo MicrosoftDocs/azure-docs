@@ -5,7 +5,7 @@ author: sufon
 ms.author: sufon
 ms.topic: conceptual 
 ms.date: 02/20/2024
-ms.custom: Edge Secured-core Certification Requirements
+ms.custom: Edge Secured-core Certification Requirements, linux-related-content
 ms.service: certification
 zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 ---

@@ -4,6 +4,7 @@ titleSuffix: Azure Chaos Studio
 description: Learn how to configure customer-managed keys (preview) for your Azure Chaos Studio experiment resource by using Azure Blob Storage.
 services: chaos-studio
 ms.service: chaos-studio
+ms.custom: devx-track-azurecli
 ms.author: abbyweisberg
 ms.reviewer: ninallam
 author: nikhilkaul-msft
@@ -31,6 +32,7 @@ When configured, Chaos Studio uses Azure Storage, which uses the CMK to encrypt 
 - You need to use our *2023-10-27-preview REST API* to create and use CMK-enabled experiments only. There's *no* support for CMK-enabled experiments in our general availability-stable REST API until H1 2024.
 - Chaos Studio currently *only supports creating Chaos Studio CMK experiments via the command line by using our 2023-10-27-preview REST API*. As a result, you *can't* create a Chaos Studio experiment with CMK enabled via the Azure portal. We plan to add this functionality in H1 of 2024.
 - The storage account must have *public access from all networks* enabled for Chaos Studio experiments to be able to use it. If you have a hard requirement from your organization, reach out to your CSA for potential solutions.
+- Experiment data will appear in ARG even after using CMK. This is a known issue, but the visbility is limited to only the active subcription using CMK. 
 
 ## Configure your storage account
 

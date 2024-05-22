@@ -2,7 +2,11 @@
 title: Cluster access control with AKS-managed Microsoft Entra integration
 description: Learn how to access clusters when integrating Microsoft Entra ID in your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
+ms.subservice: aks-integration
 ms.date: 04/20/2023
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurecli
 ---
 
@@ -91,7 +95,7 @@ When you integrate Microsoft Entra ID with your AKS cluster, you can use [Condit
 6. Create the AKS cluster with AKS-managed Microsoft Entra integration using the [`az aks create`][az-aks-create] command with the `--aad-admin-group-objects-ids` and `--aad-tenant-id parameters` and include the values noted in the steps earlier.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    az aks create --resource-group myResourceGroup --name myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
     ```
 
 7. In the Azure portal, select **Activity** > **Privileged Access (Preview)** > **Enable Privileged Access**.
@@ -175,3 +179,4 @@ Make sure the admin of the security group has given your account an *Active* ass
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group
 [az-aks-create]: /cli/azure/aks#az_aks_create
+

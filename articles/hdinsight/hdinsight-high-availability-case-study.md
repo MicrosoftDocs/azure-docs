@@ -16,7 +16,7 @@ High availability disaster recovery recommendations can have many permutations a
 
 The following image depicts the Contoso Retail primary architecture. The architecture consists of a streaming workload, batch workload, serving layer, consumption layer, storage layer, and version control.
 
-:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-architecture.png" alt-text="Contoso Retail architecture":::
+:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-architecture.png" alt-text="Contoso Retail architecture.":::
 
 ### Streaming workload
 
@@ -59,7 +59,7 @@ It's important to determine the minimal business functionality you'll need if th
 
 The following image shows Contoso Retail's high availability disaster recovery architecture.
 
-:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Contoso solution":::
+:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Contoso solution.":::
 
 **Kafka** uses [Active – Passive](hdinsight-business-continuity-architecture.md#apache-kafka) replication to mirror Kafka Topics from the primary region to the secondary region. An alternative to Kafka replication could be to produce to Kafka in both the regions.
 

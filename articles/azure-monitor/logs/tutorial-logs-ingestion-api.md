@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.custom:
 author: bwren
 ms.author: bwren
-ms.date: 10/27/2023
+ms.date: 03/13/2024
 ---
 
 # Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)
-The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), and [Python](/python/api/overview/azure/monitor-ingestion-readme).
+The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send custom data to a Log Analytics workspace. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of the components required to support the API and then provides a sample application using both the REST API and client libraries for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), and [Python](/python/api/overview/azure/monitor-ingestion-readme).
 
 > [!NOTE]
 > This tutorial uses ARM templates to configure the components required to support the Logs ingestion API. See [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](tutorial-logs-ingestion-portal.md) for a similar tutorial that uses the Azure portal UI to configure these components.
@@ -17,11 +17,13 @@ The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows
 The steps required to configure the Logs ingestion API are as follows:
 
 1. [Create a Microsoft Entra application](#create-azure-ad-application) to authenticate against the API.
-3. [Create a data collection endpoint (DCE)](#create-data-collection-endpoint) to receive data.
 2. [Create a custom table in a Log Analytics workspace](#create-new-table-in-log-analytics-workspace). This is the table you'll be sending data to.
 4. [Create a data collection rule (DCR)](#create-data-collection-rule) to direct the data to the target table. 
 5. [Give the Microsoft Entra application access to the DCR](#assign-permissions-to-a-dcr).
 6. See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md) for sample code to send data to using the Logs ingestion API.
+
+> [!NOTE]
+> This article previously included a step to create a data collection endpoint (DCE). This is no longer required since [DCRs now include their own endpoint](../essentials/data-collection-endpoint-overview.md). A DCE is only required with Logs ingestion API if private link is used.
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -61,73 +63,6 @@ Start by registering a Microsoft Entra application to authenticate against the A
 1. Select **Add** to save the secret and then note the **Value**. Ensure that you record this value because you can't recover it after you leave this page. Use the same security measures as you would for safekeeping a password because it's the functional equivalent.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot that shows the secret value for the new app.":::
-
-## Create data collection endpoint
-A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. After you configure the DCE and link it to a DCR, you can send data over HTTP from your application. The DCE must be located in the same region as the DCR and the Log Analytics workspace where the data will be sent.
-
-1. In the Azure portal's search box, enter **template** and then select **Deploy a custom template**.
-
-    :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows how to deploy a custom template.":::
-
-1. Select **Build your own template in the editor**.
-
-    :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows how to build a template in the editor.":::
-
-1. Paste the following ARM template into the editor and then select **Save**. You don't need to modify this template because you'll provide values for its parameters.
-
-    :::image type="content" source="media/tutorial-workspace-transformations-api/edit-template.png" lightbox="media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows how to edit an ARM template.":::
-
-
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "dataCollectionEndpointName": {
-                "type": "string",
-                "metadata": {
-                    "description": "Specifies the name of the Data Collection Endpoint to create."
-                }
-            },
-            "location": {
-                "type": "string",
-                "defaultValue": "westus2",
-                "metadata": {
-                    "description": "Specifies the location for the Data Collection Endpoint."
-                }
-            }
-        },
-        "resources": [
-            {
-                "type": "Microsoft.Insights/dataCollectionEndpoints",
-                "name": "[parameters('dataCollectionEndpointName')]",
-                "location": "[parameters('location')]",
-                "apiVersion": "2021-04-01",
-                "properties": {
-                    "networkAcls": {
-                    "publicNetworkAccess": "Enabled"
-                    }
-                }
-            }
-        ],
-        "outputs": {
-            "dataCollectionEndpointId": {
-                "type": "string",
-                "value": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dataCollectionEndpointName'))]"
-            }
-        }
-    }
-    ```
-
-1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the DCR and then provide values like a **Name** for the DCE. The **Location** should be the same location as the workspace. The **Region** will already be populated and will be used for the location of the DCE.
-
-    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-custom-deploy.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-custom-deploy.png" alt-text="Screenshot to edit custom deployment values.":::
-
-1. Select **Review + create** and then select **Create** after you review the details.
-
-1. Select **JSON View** to view other details for the DCE. Copy the **Resource ID** and the **logsIngestion endpoint** which you'll need in a later step.
-
-    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows the DCE resource ID.":::
 
 
 ## Create new table in Log Analytics workspace
@@ -207,7 +142,6 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
     Notice the following details in the DCR defined in this template:
 
-    - `dataCollectionEndpointId`: Resource ID of the data collection endpoint.
     - `streamDeclarations`: Column definitions of the incoming data.
     - `destinations`: Destination workspace.
     - `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table. The output of the destination query is what will be sent to the destination table.
@@ -249,7 +183,6 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "location": "[parameters('location')]",
                 "apiVersion": "2021-09-01-preview",
                 "properties": {
-                    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
                     "streamDeclarations": {
                         "Custom-MyTableRawData": {
                             "columns": [
@@ -318,15 +251,12 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
 
     :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot that shows DCR details.":::
 
-1. Copy the **Immutable ID** for the DCR. You'll use it in a later step when you send sample data using the API.
+1. Copy the **Immutable ID** and **Logs ingestion URI** for the DCR. You'll use these when you [send data to Azure Monitor using the API](./tutorial-logs-ingestion-code.md).
 
-    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
-
-    > [!NOTE]
-    > All the properties of the DCR, such as the transformation, might not be displayed in the Azure portal even though the DCR was successfully created with those properties.
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-rule-json-view.png" alt-text="Screenshot that shows DCR JSON view.":::
 
 ## Assign permissions to a DCR
-After the DCR has been created, the application needs to be given permission to it. Permission will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
+After the DCR has been created, the application needs to be given permission to it. Permission will allow any application using the correct application ID and application key to send data to the new DCR.
 
 1. From the DCR in the Azure portal, select **Access Control (IAM)** > **Add role assignment**.
 

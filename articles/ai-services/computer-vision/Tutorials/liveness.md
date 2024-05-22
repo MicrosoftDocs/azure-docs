@@ -16,7 +16,7 @@ Face Liveness detection can be used to determine if a face in an input video str
 
 The goal of liveness detection is to ensure that the system is interacting with a physically present live person at the time of authentication. Such systems have become increasingly important with the rise of digital finance, remote access control, and online identity verification processes.
 
-The liveness detection solution successfully defends against a variety of spoof types ranging from paper printouts, 2d/3d masks, and spoof presentations on phones and laptops. Liveness detection is an active area of research, with continuous improvements being made to counteract increasingly sophisticated spoofing attacks over time. Continuous improvements will be rolled out to the client and the service components over time as the overall solution gets more robust to new types of attacks.
+The liveness detection solution successfully defends against various spoof types ranging from paper printouts, 2d/3d masks, and spoof presentations on phones and laptops. Liveness detection is an active area of research, with continuous improvements being made to counteract increasingly sophisticated spoofing attacks over time. Continuous improvements will be rolled out to the client and the service components over time as the overall solution gets more robust to new types of attacks.
 
 [!INCLUDE [liveness-sdk-gate](../includes/liveness-sdk-gate.md)]
 
@@ -28,19 +28,20 @@ The liveness detection solution successfully defends against a variety of spoof 
 - Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**. 
     - You need the key and endpoint from the resource you create to connect your application to the Face service. You'll paste your key and endpoint into the code later in the quickstart.
     - You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-- Access to the Azure AI Vision Face Client SDK for mobile (IOS and Android). To get started, you need to apply for the [Face Recognition Limited Access features](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to get access to the SDK. For more information, see the [Face Limited Access](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext) page.
+- Access to the Azure AI Vision Face Client SDK for mobile (IOS and Android) and web. To get started, you need to apply for the [Face Recognition Limited Access features](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to get access to the SDK. For more information, see the [Face Limited Access](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext) page.
 
 ## Perform liveness detection
 
-The liveness solution integration involves two different components: a mobile application and an app server/orchestrator.
+The liveness solution integration involves two different components: a frontend mobile/web application and an app server/orchestrator.
 
 ### Integrate liveness into mobile application 
 
-Once you have access to the SDK, follow instruction in the [azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) GitHub repository to integrate the UI and the code into your native mobile application. The liveness SDK supports both Java/Kotlin for Android and Swift for iOS mobile applications:
+Once you have access to the SDK, follow instruction in the [azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) GitHub repository to integrate the UI and the code into your native mobile application. The liveness SDK supports Java/Kotlin for Android mobile applications, Swift for iOS mobile applications and JavaScript for web applications:
 - For Swift iOS, follow the instructions in the [iOS sample](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme) 
 - For Kotlin/Java Android, follow the instructions in the [Android sample](https://aka.ms/liveness-sample-java) 
+- For JavaScript Web, follow the instructions in the [Web sample](https://aka.ms/liveness-sample-web) 
 
-Once you've added the code into your application, the SDK will handle starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
+Once you've added the code into your application, the SDK handles starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
 
 ### Orchestrate the liveness solution
 
@@ -48,9 +49,9 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
 :::image type="content" source="../media/liveness/liveness-diagram.jpg" alt-text="Diagram of the liveness workflow in Azure AI Face." lightbox="../media/liveness/liveness-diagram.jpg":::
 
-1. The mobile application starts the liveness check and notifies the app server. 
+1. The frontend application starts the liveness check and notifies the app server. 
 
-1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token.
+1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token. More information regarding each request parameter involved in creating a liveness session is referenced in [Liveness Create Session Operation](https://aka.ms/face-api-reference-createlivenesssession).
     
     ```json
     Request:
@@ -70,9 +71,9 @@ The high-level steps involved in liveness orchestration are illustrated below:
     }
     ```
 
-1. The app server provides the session-authorization-token back to the mobile application. 
+1. The app server provides the session-authorization-token back to the frontend application. 
 
-1. The mobile application provides the session-authorization-token during the Azure AI Vision SDK’s initialization. 
+1. The frontend application provides the session-authorization-token during the Azure AI Vision SDK’s initialization. 
 
     ```kotlin
     mServiceOptions?.setTokenCredential(com.azure.android.core.credential.TokenCredential { _, callback ->
@@ -84,11 +85,15 @@ The high-level steps involved in liveness orchestration are illustrated below:
     serviceOptions?.authorizationToken = "<INSERT_TOKEN_HERE>"
     ```
 
+    ```javascript
+    azureAIVisionFaceAnalyzer.token = "<INSERT_TOKEN_HERE>"
+    ```
+
 1. The SDK then starts the camera, guides the user to position correctly and then prepares the payload to call the liveness detection service endpoint. 
  
-1. The SDK calls the Azure AI Vision Face service to perform the liveness detection. Once the service responds, the SDK will notify the mobile application that the liveness check has been completed. 
+1. The SDK calls the Azure AI Vision Face service to perform the liveness detection. Once the service responds, the SDK notifies the mobile application that the liveness check has been completed. 
 
-1. The mobile application relays the liveness check completion to the app server. 
+1. The frontend application relays the liveness check completion to the app server. 
 
 1. The app server can now query for the liveness detection result from the Azure AI Vision Face service. 
     
@@ -110,7 +115,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
                 "method": "POST",
                 "contentLength": 352568,
                 "contentType": "multipart/form-data; boundary=--------------------------482763481579020783621915",
-                "userAgent": "PostmanRuntime/7.34.0"
+                "userAgent": ""
             },
             "response": {
                 "body": {
@@ -122,7 +127,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
                             "width": 409,
                             "height": 395
                         },
-                        "fileName": "video.webp",
+                        "fileName": "content.bin",
                         "timeOffsetWithinFile": 0,
                         "imageType": "Color"
                     },
@@ -162,12 +167,12 @@ Use the following tips to ensure that your input images give the most accurate r
 #### Composition requirements:
 -	Photo is clear and sharp, not blurry, pixelated, distorted, or damaged. 
 -	Photo is not altered to remove face blemishes or face appearance.
--	Photo must be in an RGB color supported format (JPEG, PNG, WEBP, BMP). Recommended Face size is 200 pixels x 200 pixels. Face sizes larger than 200 pixels x 200 pixels will not result in better AI quality, and no larger than 6MB in size.
+-	Photo must be in an RGB color supported format (JPEG, PNG, WEBP, BMP). Recommended Face size is 200 pixels x 200 pixels. Face sizes larger than 200 pixels x 200 pixels will not result in better AI quality, and no larger than 6 MB in size.
 -	User is not wearing glasses, masks, hats, headphones, head coverings, or face coverings. Face should be free of any obstructions.
 -	Facial jewelry is allowed provided they do not hide your face. 
 -	Only one face should be visible in the photo.
 -	Face should be in neutral front-facing pose with both eyes open, mouth closed, with no extreme facial expressions or head tilt.
--	Face should be free of any shadows or red eyes. Please retake photo if either of these occur.
+-	Face should be free of any shadows or red eyes. Retake photo if either of these occur.
 -	Background should be uniform and plain, free of any shadows. 
 -	Face should be centered within the image and fill at least 50% of the image.
 
@@ -175,7 +180,7 @@ Use the following tips to ensure that your input images give the most accurate r
 
 The high-level steps involved in liveness with verification orchestration are illustrated below:
 1.	Provide the verification reference image by either of the following two methods:
-    - The app server provides the reference image when creating the liveness session.
+    - The app server provides the reference image when creating the liveness session. More information regarding each request parameter involved in creating a liveness session with verification is referenced in [Liveness With Verify Create Session Operation](https://aka.ms/face-api-reference-createlivenesswithverifysession).
 
         ```json
         Request:
@@ -204,7 +209,7 @@ The high-level steps involved in liveness with verification orchestration are il
         
         ```
 
-    - The mobile application provides the reference image when initializing the SDK.
+    - The mobile application provides the reference image when initializing the SDK. This is not a supported scenario in the web solution.
 
         ```kotlin
         val singleFaceImageSource = VisionSource.fromFile("/path/to/image.jpg")
@@ -227,7 +232,7 @@ The high-level steps involved in liveness with verification orchestration are il
     --header 'Content-Type: multipart/form-data' \
     --header 'apim-recognition-model-preview-1904: true' \
     --header 'Authorization: Bearer.<session-authorization-token> \
-    --form 'Content=@"video.webp"' \
+    --form 'Content=@"content.bin"' \
     --form 'Metadata="<insert-metadata>"
     
     Response:
@@ -243,7 +248,7 @@ The high-level steps involved in liveness with verification orchestration are il
                 "method": "POST",
                 "contentLength": 352568,
                 "contentType": "multipart/form-data; boundary=--------------------------590588908656854647226496",
-                "userAgent": "PostmanRuntime/7.34.0"
+                "userAgent": ""
             },
             "response": {
                 "body": {
@@ -255,7 +260,7 @@ The high-level steps involved in liveness with verification orchestration are il
                             "width": 409,
                             "height": 395
                         },
-                        "fileName": "video.webp",
+                        "fileName": "content.bin",
                         "timeOffsetWithinFile": 0,
                         "imageType": "Color"
                     },
@@ -291,8 +296,8 @@ See the Azure AI Vision SDK reference to learn about other options in the livene
 
 - [Kotlin (Android)](https://aka.ms/liveness-sample-java)
 - [Swift (iOS)](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme)
+- [JavaScript (Web)](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-web-readme)
 
 See the Session REST API reference to learn more about the features available to orchestrate the liveness solution.
 
-- [Liveness Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectliveness-singlemodal)
-- [Liveness-With-Verify Session APIs](https://westus.dev.cognitive.microsoft.com/docs/services/609a5e53f0971cb3/operations/session-create-detectlivenesswithverify-singlemodal)
+- [Liveness Session Operations](/rest/api/face/liveness-session-operations)

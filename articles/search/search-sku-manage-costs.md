@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/11/2024
+ms.date: 04/01/2024
 ---
 
 # Plan and manage costs of an Azure AI Search service
@@ -69,7 +69,7 @@ Cost management is built into the Azure infrastructure. Review [Billing and cost
 
 Follow these guidelines to minimize costs of an Azure AI Search solution.
 
-1. If possible, create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
+1. If possible, create a search service [in a region that has more storage per partition]([supported regions](search-limits-quotas-capacity.md#supported-regions-with-higher-storage-limits). If you're using multiple Azure resources in your solution, create them in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 
 1. [Scale up](search-capacity-planning.md) for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. If there are predictable patterns to your workloads, you might be able to synchronize scale up to coincide with the expected volume (you would need to write code to automate this).
 

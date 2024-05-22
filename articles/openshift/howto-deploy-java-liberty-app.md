@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Li
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 04/04/2024
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java
 ---
 
@@ -12,7 +12,7 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift (ARO) using the Azure portal.
 
-This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to ARO. The offer automatically provisions several resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operator, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
+This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to ARO. The offer automatically provisions several resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operators, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
@@ -22,12 +22,20 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 ## Prerequisites
 
-- A local machine with a Unix-like operating system installed (for example, Ubuntu, Azure Linux, or macOS, Windows Subsystem for Linux).
+- A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
+- The [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+* Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+* When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+* Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
 - A Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 - [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.31.0 or higher.
 - The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+
+> [!NOTE]
+> You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed, with the exception of Docker.
+>
+> :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 ## Get a Red Hat pull secret
 
@@ -48,8 +56,6 @@ The following content is an example that was copied from the Red Hat console por
 ```
 
 Save the secret to a file so you can use it later.
-
-<a name='create-an-azure-active-directory-service-principal-from-the-azure-portal'></a>
 
 ## Create a Microsoft Entra service principal from the Azure portal
 
@@ -87,7 +93,7 @@ The steps in this section direct you to deploy IBM WebSphere Liberty or Open Lib
 
 The following steps show you how to find the offer and fill out the **Basics** pane.
 
-1. In the search bar at the top of the Azure portal, enter *Liberty*. In the auto-suggested search results, in the **Marketplace** section, select **IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift**, as shown in the following screenshot.
+1. In the search bar at the top of the Azure portal, enter *Liberty*. In the auto-suggested search results, in the **Marketplace** section, select **IBM Liberty on ARO**, as shown in the following screenshot.
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/marketplace-search-results.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift in search results." lightbox="media/howto-deploy-java-liberty-app/marketplace-search-results.png":::
 
@@ -99,7 +105,15 @@ The following steps show you how to find the offer and fill out the **Basics** p
 
 1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *abc1228rg*.
 
+1. Create an environment variable in your shell for the resource group name.
+
+   ```bash
+   export RESOURCE_GROUP_NAME=<your-resource-group-name>
+   ```
+
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions where OpenShift operates, see [Regions for Red Hat OpenShift 4.x on Azure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=openshift&regions=all).
+
+1. After selecting the region, select **Next**.
 
 The following steps show you how to fill out the **ARO** pane shown in the following screenshot:
 
@@ -109,9 +123,11 @@ The following steps show you how to fill out the **ARO** pane shown in the follo
 
 1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, fill in the Red Hat pull secret that you obtained in the [Get a Red Hat pull secret](#get-a-red-hat-pull-secret) section. Use the same value for **Confirm secret**.
 
-1. Fill in **Service principal client ID** with the service principal Application (client) ID that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section.
+1. Fill in **Service principal client ID** with the service principal Application (client) ID that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-a-microsoft-entra-service-principal-from-the-azure-portal) section.
 
-1. Fill in **Service principal client secret** with the service principal Application secret that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-an-azure-active-directory-service-principal-from-the-azure-portal) section. Use the same value for **Confirm secret**.
+1. Fill in **Service principal client secret** with the service principal Application secret that you obtained in the [Create a Microsoft Entra service principal from the Azure portal](#create-a-microsoft-entra-service-principal-from-the-azure-portal) section. Use the same value for **Confirm secret**.
+
+1. After filling in the values, select **Next**.
 
 The following steps show you how to fill out the **Operator and application** pane shown in the following screenshot, and start the deployment.
 
@@ -195,6 +211,12 @@ The following steps guide you through creating an Azure SQL Database single data
    > At the **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
    >
    > :::image type="content" source="media/howto-deploy-java-liberty-app/create-sql-database-networking.png" alt-text="Screenshot of the Azure portal that shows the Networking tab of the Create SQL Database page with the Connectivity method and Firewall rules settings highlighted." lightbox="media/howto-deploy-java-liberty-app/create-sql-database-networking.png":::
+
+1. Create an environment variable in your shell for the resource group name for the database.
+
+   ```bash
+   export DB_RESOURCE_GROUP_NAME=<db-resource-group>
+   ```
 
 Now that you created the database and ARO cluster, you can prepare the ARO to host your WebSphere Liberty application.
 
@@ -386,8 +408,8 @@ Use the following steps to deploy and test the application:
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, ARO cluster, Azure SQL Database, and all related resources.
 
 ```bash
-az group delete --name abc1228rg --yes --no-wait
-az group delete --name <db-resource-group> --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
+az group delete --name $DB_RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## Next steps

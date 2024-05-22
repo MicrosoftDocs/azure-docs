@@ -1,8 +1,8 @@
 ---
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
-ms.topic: conceptual
-ms.date: 08/22/2023
+ms.topic: reference
+ms.date: 03/18/2024
 ms.custom: devx-track-arm-template
 ---
 
@@ -143,8 +143,7 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/list-keys) |
-| Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
-| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
+| Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/aiservices/accountmanagement/accounts/list-keys) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |
@@ -414,7 +413,7 @@ In the templates with [symbolic names](./resource-declaration.md#use-symbolic-na
 
 `reference(symbolicName or resourceIdentifier, [apiVersion], ['Full'])`
 
-Returns an object representing a resource's runtime state. To return an array of objects representing a resource collections's runtime states, see [references](#references).
+Returns an object representing a resource's runtime state. The output and behavior of the `reference` function highly relies on how each resource provider (RP) implements its PUT and GET responses. To return an array of objects representing a resource collections's runtime states, see [references](#references).
 
 Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
 

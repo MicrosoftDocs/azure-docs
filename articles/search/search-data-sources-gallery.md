@@ -306,7 +306,7 @@ The Adobe Experience Manager connector enables indexing of content managed by th
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from the Adobe Active Experience Manager (AEM) and intelligently searching it with Azure AI Search. It robustly indexes pages, attachments, and other generated document types from Adobe AEM in near real time. The connector fully supports Adobe AEM’s permission model, its built-in user and group management, and AEM installations based on Active Directory or other directory services.
+Secure enterprise search connector for reliably indexing content from the Adobe Active Experience Manager (AEM) and intelligently searching it with Azure AI Search. It robustly indexes pages, attachments, and other generated document types from Adobe AEM in near real time. The connector fully supports Adobe AEM’s permission model, its built-in user and group management, and AEM installations based on Microsoft Entra ID or other directory services.
 
 [More details](https://www.raytion.com/connectors/adobe-experience-manager-aem)
 
@@ -332,7 +332,7 @@ The Alfresco Connector is built on the BAI connector framework, which is the pla
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Alfresco One and intelligently searching it with Azure AI Search. It robustly indexes files, folders, and user profiles from Alfresco One in near real time. The connector fully supports Alfresco One’s permission model, its built-in user and group management, as well as Alfresco One installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from Alfresco One and intelligently searching it with Azure AI Search. It robustly indexes files, folders, and user profiles from Alfresco One in near real time. The connector fully supports Alfresco One’s permission model, its built-in user and group management, as well as Alfresco One installations based on Microsoft Entra ID and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-alfresco-connector)
 
@@ -636,7 +636,7 @@ The Confluence Connector is an enterprise grade indexing connector that enables 
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Atlassian Confluence and intelligently searching it with Azure AI Search. It robustly indexes pages, blog posts, attachments, comments, spaces, profiles, and hub sites for tags from on-premises Confluence instances in near real time. The connector fully supports Atlassian Confluence’s built-in user and group management, as well as Confluence installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from Atlassian Confluence and intelligently searching it with Azure AI Search. It robustly indexes pages, blog posts, attachments, comments, spaces, profiles, and hub sites for tags from on-premises Confluence instances in near real time. The connector fully supports Atlassian Confluence’s built-in user and group management, as well as Confluence installations based on Microsoft Entra ID and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-confluence-connector)
 
@@ -935,7 +935,7 @@ Secure enterprise search connector for reliably indexing content from locally mo
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from e-Spirit FirstSpirit and intelligently searching it with Azure AI Search. It robustly indexes pages, attachments and other generated document types from FirstSpirit in near real time. The connector fully supports e-Spirit FirstSpirit’s built-in user, group and permission management, as well as FirstSpirit installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from e-Spirit FirstSpirit and intelligently searching it with Azure AI Search. It robustly indexes pages, attachments and other generated document types from FirstSpirit in near real time. The connector fully supports e-Spirit FirstSpirit’s built-in user, group and permission management, as well as FirstSpirit installations based on Microsoft Entra ID and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-firstspirit-connector)
 
@@ -1086,7 +1086,7 @@ The IBM Connections Connector was developed for IBM Connections, establishing a 
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from IBM Connections and intelligently searching it with Azure AI Search. It robustly indexes public and personal files, blogs, wikis, forums, communities, bookmarks, profiles, and status updates from on-premises Connections instances in near real time. The connector fully supports IBM Connection’s built-in user and group management, as well as Connections installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from IBM Connections and intelligently searching it with Azure AI Search. It robustly indexes public and personal files, blogs, wikis, forums, communities, bookmarks, profiles, and status updates from on-premises Connections instances in near real time. The connector fully supports IBM Connection’s built-in user and group management, as well as Connections installations based on Microsoft Entra ID and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-ibm-connections-connector)
 
@@ -1260,7 +1260,7 @@ The Jira Connector enables users to perform searches against all Jira objects, e
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Atlassian Jira and intelligently searching it with Azure AI Search. It robustly indexes projects, issues, attachments, comments, work logs, issue histories, links, and profiles from on-premises Jira instances in near real time. The connector fully supports Atlassian Jira’s built-in user and group management, as well as Jira installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from Atlassian Jira and intelligently searching it with Azure AI Search. It robustly indexes projects, issues, attachments, comments, work logs, issue histories, links, and profiles from on-premises Jira instances in near real time. The connector fully supports Atlassian Jira’s built-in user and group management, as well as Jira installations based on Microsoft Entra ID and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-jira-connector)
 
@@ -1373,7 +1373,7 @@ The LDAP Connector enables organizations to connect to any LDAP-compliant direct
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from directory services compatible with the Lightweight Directory Access Protocol (LDAP) and intelligently searching it with Azure AI Search. It robustly indexes LDAP objects from Active Directory, Novell E-Directory and other LDAP-compatible directory services in near real time. The connector can be used for ingesting principals into Google Cloud Search for use cases like expert, equipment and location searches or for implementing security trimming for custom data sources. The connector supports LDAP over SSL.
+Secure enterprise search connector for reliably indexing content from directory services compatible with the Lightweight Directory Access Protocol (LDAP) and intelligently searching it with Azure AI Search. It robustly indexes LDAP objects from Microsoft Entra ID, Novell E-Directory and other LDAP-compatible directory services in near real time. The connector can be used for ingesting principals into Google Cloud Search for use cases like expert, equipment and location searches or for implementing security trimming for custom data sources. The connector supports LDAP over SSL.
 
 [More details](https://www.raytion.com/connectors/raytion-ldap-connector)
 
@@ -1473,7 +1473,7 @@ BA Insight's MediaPlatform PrimeTime indexing connector makes it possible to mak
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from MediaWiki and intelligently searching it with Azure AI Search. It robustly indexes pages, discussion pages, and attachments from MediaWiki instances in near real time. The connector fully supports MediaWiki’s built-in permission model, as well as MediaWiki installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from MediaWiki and intelligently searching it with Azure AI Search. It robustly indexes pages, discussion pages, and attachments from MediaWiki instances in near real time. The connector fully supports MediaWiki’s built-in permission model, as well as MediaWiki installations based on Microsoft Entra ID and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-mediawiki-connector)
 
@@ -2160,7 +2160,7 @@ The SAP HANA (Cloud Version) Connector honors the security of the source databas
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from the SAP NetWeaver Portal (NWP) and intelligently searching it with Azure AI Search. It robustly indexes pages, attachments, and other document types from SAP NWP, its Knowledge Management and Collaboration (KMC) and Portal Content Directory (PCD) areas in near real time. The connector fully supports SAP NetWeaver Portal’s built-in user and group management, as well as SAP NWP installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from the SAP NetWeaver Portal (NWP) and intelligently searching it with Azure AI Search. It robustly indexes pages, attachments, and other document types from SAP NWP, its Knowledge Management and Collaboration (KMC) and Portal Content Directory (PCD) areas in near real time. The connector fully supports SAP NetWeaver Portal’s built-in user and group management, as well as SAP NWP installations based on Microsoft Entra ID and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-sap-netweaver-portal-connector)
 
@@ -2260,7 +2260,7 @@ Secure enterprise search connector for reliably indexing content from ServiceNow
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Microsoft SharePoint and intelligently searching it with Azure AI Search. It robustly indexes sites, webs, modern (SharePoint 2016 and later) and classic pages, wiki pages, OneNote documents, list items, tasks, calendar items, attachments, and files from SharePoint on-premises instances in near real time. The connector fully supports Microsoft SharePoint’s built-in user and group management, as well as Active Directory and also OAuth providers like SiteMinder and Okta. The connector comes with support for Basic, NTLM and Kerberos authentication.
+Secure enterprise search connector for reliably indexing content from Microsoft SharePoint and intelligently searching it with Azure AI Search. It robustly indexes sites, webs, modern (SharePoint 2016 and later) and classic pages, wiki pages, OneNote documents, list items, tasks, calendar items, attachments, and files from SharePoint on-premises instances in near real time. The connector fully supports Microsoft SharePoint’s built-in user and group management, as well as Microsoft Entra ID and also OAuth providers like SiteMinder and Okta. The connector comes with support for Basic, NTLM and Kerberos authentication.
 
 [More details](https://www.raytion.com/connectors/raytion-sharepoint-connector)
 
@@ -2423,7 +2423,7 @@ The Sitecore Connector honors the security of the source system and provides bot
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Sitecore and intelligently searching it with Azure AI Search. It robustly indexes pages, attachments, and further generated document types in near real time. The connector fully supports Sitecore’s permission model and the user and group management in the associated Active Directory.
+Secure enterprise search connector for reliably indexing content from Sitecore and intelligently searching it with Azure AI Search. It robustly indexes pages, attachments, and further generated document types in near real time. The connector fully supports Sitecore’s permission model and the user and group management in the associated Microsoft Entra ID tenant.
 
 [More details](https://www.raytion.com/connectors/raytion-sitecore-connector)
 
@@ -2636,7 +2636,7 @@ The BA Insight West km Connector supports search across transaction and litigati
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from windream ECM-System and intelligently searching it with Azure AI Search. It robustly indexes files and folders including the comprehensive sets of metadata associated by windream ECM-System in near real time. The connector fully supports windream ECM-System’s permission model and the user and group management in the associated Active Directory.
+Secure enterprise search connector for reliably indexing content from windream ECM-System and intelligently searching it with Azure AI Search. It robustly indexes files and folders including the comprehensive sets of metadata associated by windream ECM-System in near real time. The connector fully supports windream ECM-System’s permission model and the user and group management in the associated Microsoft Entra ID tenant.
 
 [More details](https://www.raytion.com/connectors/raytion-windream-ecm-system-connector)
 

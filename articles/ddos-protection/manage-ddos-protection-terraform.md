@@ -6,7 +6,7 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: tarcher
-ms.date: 4/14/2023
+ms.date: 3/18/2024
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

@@ -1,9 +1,8 @@
 ---
 title: Build an event-driven app with Dapr
-titleSuffix: Azure IoT MQ
-description: Learn how to create a Dapr application that aggregates data and publishing on another topic.
-author: timlt
-ms.author: timlt
+description: Learn how to create a Dapr application that aggregates data and publishing on another topic using Azure IoT MQ Preview.
+author: PatAltimore 
+ms.author: patricka 
 ms.subservice: mq
 ms.topic: tutorial
 ms.date: 11/13/2023
@@ -11,11 +10,11 @@ ms.date: 11/13/2023
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
-# Build an event-driven app with Dapr
+# Tutorial: Build an event-driven app with Dapr and Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to Azure IoT MQ, applies a windowing function, and then publishes the result back to IoT MQ. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the IoT MQ state store to cache past values needed for the window calculations.
+In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to Azure IoT MQ Preview, applies a windowing function, and then publishes the result back to IoT MQ. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the IoT MQ state store to cache past values needed for the window calculations.
 
 The Dapr application performs the following steps:
 
@@ -30,7 +29,7 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* Azure IoT Operations installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
+* Azure IoT Operations Preview installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
 * IoT MQ Dapr components installed - [Install IoT MQ Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application
@@ -41,7 +40,6 @@ To start, create a yaml file that uses the following definitions:
 
 | Component | Description |
 |-|-|
-| `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
 | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
 | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
 | `containers.mq-event-driven` | The prebuilt Dapr application container. | 
@@ -73,7 +71,7 @@ To start, create a yaml file that uses the following definitions:
             app: mq-event-driven-dapr
           annotations:
             dapr.io/enabled: "true"
-            dapr.io/unix-domain-socket-path: "/tmp/dapr-components-sockets"
+            dapr.io/inject-pluggable-components: "true"
             dapr.io/app-id: "mq-event-driven-dapr"
             dapr.io/app-port: "6001"
             dapr.io/app-protocol: "grpc"
@@ -81,9 +79,6 @@ To start, create a yaml file that uses the following definitions:
           serviceAccountName: dapr-client
 
           volumes:
-          - name: dapr-unix-domain-socket
-            emptyDir: {}
-
           # SAT token used to authenticate between Dapr and the MQTT broker
           - name: mqtt-client-token
             projected:
@@ -99,20 +94,8 @@ To start, create a yaml file that uses the following definitions:
               name: aio-ca-trust-bundle-test-only
 
           containers:
-          # Container for the dapr quickstart application 
           - name: mq-event-driven-dapr
             image: ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr:latest
-
-          # Container for the pluggable component
-          - name: aio-mq-components
-            image: ghcr.io/azure/iot-mq-dapr-components:latest
-            volumeMounts:
-            - name: dapr-unix-domain-socket
-              mountPath: /tmp/dapr-components-sockets
-            - name: mqtt-client-token
-              mountPath: /var/run/secrets/tokens
-            - name: aio-ca-trust-bundle
-              mountPath: /var/run/certs/aio-mq-ca-cert/
     ```
 
 1. Deploy the application by running the following command:
@@ -132,7 +115,7 @@ To start, create a yaml file that uses the following definitions:
     ```output
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
-    mq-event-driven-dapr          4/4     Running             0          30s
+    mq-event-driven-dapr          3/3     Running             0          30s
     ```
 
 

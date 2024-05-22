@@ -19,7 +19,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL enables 
 
 Data encryption with customer-managed keys for Azure Database for MySQL, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](../../key-vault/general/security-features.md) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) is described in more detail later in this article.
 
-Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../../key-vault/keys/hsm-protected-keys.md).
+Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../../key-vault/keys/hsm-protected-keys.md).
 
 > [!NOTE]
 > This feature is supported only on "General Purpose storage v2 (support up to 16TB)" storage available in General Purpose and Memory Optimized pricing tiers. Refer [Storage concepts](concepts-pricing-tiers.md#storage) for more details. For other limitations, refer to the [limitation](concepts-data-encryption-mysql.md#limitations) section.
@@ -139,7 +139,7 @@ For Azure Database for MySQL, the support for encryption of data at rest using c
 
     > [!NOTE]
     > - All new MySQL servers created in the [Azure regions](concepts-pricing-tiers.md#storage) supporting general purpose storage v2, support for encryption with customer manager keys is **available**. Point In Time Restored (PITR) server or read replica will not qualify though in theory they are ‘new’.
-    > - To validate if your provisioned server general purpose storage v2, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server is on general purpose storage v1 and will not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times. Please reach out to AskAzureDBforMySQL@service.microsoft.com if you have any questions.
+    > - To validate if your provisioned server general purpose storage v2, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server is on general purpose storage v1 and will not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times.
 
 * Encryption is only supported with RSA 2048 cryptographic key.
 

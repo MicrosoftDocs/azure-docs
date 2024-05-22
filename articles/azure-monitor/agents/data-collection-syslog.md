@@ -2,6 +2,7 @@
 title: Collect Syslog events with Azure Monitor Agent 
 description: Configure collection of Syslog events by using a data collection rule on virtual machines with Azure Monitor Agent.
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 05/10/2023
 ms.reviewer: glinuxagent
 ---
@@ -9,7 +10,7 @@ ms.reviewer: glinuxagent
 # Collect Syslog events with Azure Monitor Agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon that's built in to Linux devices and appliances to collect local events of the types you specify. Then you can have it send those events to a Log Analytics workspace. Applications send messages that might be stored on the local machine or delivered to a Syslog collector.
 
@@ -19,25 +20,34 @@ When the Azure Monitor agent for Linux is installed, it configures the local Sys
 
 :::image type="content" source="media/azure-monitor-agent/linux-agent-syslog-communication.png" lightbox="media/azure-monitor-agent/linux-agent-syslog-communication.png" alt-text="Diagram that shows Syslog daemon and Azure Monitor Agent communication.":::
 
+>[!Note]
+> Azure Monitor Agent uses a TCP port to receive messages sent by rsyslog or syslog-ng, however, in case SELinux is enabled and we aren't able to use semanage to add rules for the TCP port, we will use Unix sockets.
+
+
 The following facilities are supported with the Syslog collector:
-* alert
-* audit
-* auth
-* authpriv
-* clock (formerly mark)
-* cron
-* daemon
-* ftp
-* kern
-* local0-local7
-* lpr
-* mail
-* news
-* nopri
-* ntp
-* syslog
+* None
+* Kern
 * user
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
 * uucp
+* ftp
+* ntp
+* audit
+* alert
+* mark
+* local0
+* local1
+* local2
+* local3
+* local4
+* local5
+* local6
+* local7
 
 For some device types that don't allow local installation of Azure Monitor Agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. For more information, see the [Sentinel tutorial](../../sentinel/forward-syslog-monitor-agent.md).
 
@@ -141,7 +151,24 @@ queue.dequeueBatchSize="2048"
 queue.saveonshutdown="on"
 target="127.0.0.1" Port="28330" Protocol="tcp")
 ```
- 
+
+The following configuration is used when you use SELinux and we decide to use Unix sockets.
+```
+$ cat /etc/rsyslog.d/10-azuremonitoragent.conf
+# Azure Monitor Agent configuration: forward logs to azuremonitoragent
+$OMUxSockSocket /run/azuremonitoragent/default_syslog.socket
+template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="<%PRI%>%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%") 
+$OMUxSockDefaultTemplate AMA_RSYSLOG_TraditionalForwardFormat
+# Forwarding all events through Unix Domain Socket
+*.* :omuxsock: 
+```
+
+```
+$ cat /etc/rsyslog.d/05-azuremonitoragent-loadomuxsock.conf
+# Azure Monitor Agent configuration: load rsyslog forwarding module. 
+$ModLoad omuxsock
+```
+
 On some legacy systems, such as CentOS 7.3, we've seen rsyslog log formatting issues when a traditional forwarding format is used to send Syslog events to Azure Monitor Agent. For these systems, Azure Monitor Agent automatically places a legacy forwarder template instead:
 
 `template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%\n")`
@@ -171,6 +198,23 @@ log {
 	flags(flow-control);
 };
 ```
+The following configuration is used when you use SELinux and we decide to use Unix sockets.
+```
+$ cat /etc/syslog-ng/conf.d/azuremonitoragent.conf 
+# Azure MDSD configuration: syslog forwarding config for mdsd agent options {}; 
+# during install time, we detect if s_src exist, if it does then we 
+# replace it by appropriate source name like in redhat 's_sys' 
+# Forwrding using unix domain socket 
+destination d_azure_mdsd { 
+	unix-dgram("/run/azuremonitoragent/default_syslog.socket" 
+	flags(no_multi_line) ); 
+};
+ 
+log {
+	source(s_src); # will be automatically parsed from /etc/syslog-ng/syslog-ng.conf 
+	destination(d_azure_mdsd);
+}; 
+```
 
 >[!Note]
 > Azure Monitor supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default Syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) isn't supported for Syslog event collection. To collect Syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
@@ -183,6 +227,7 @@ You need:
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
+- Syslog messages must follow RFC standards ([RFC5424](https://www.ietf.org/rfc/rfc5424.txt) or [RFC3164](https://www.ietf.org/rfc/rfc3164.txt))
 
 ## Syslog record properties
 

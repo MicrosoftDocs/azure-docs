@@ -6,6 +6,7 @@ ms.custom:
   - devx-track-extended-java
   - devx-track-python
   - ignite-2023
+  - build-2024
 ms.date: 12/28/2023
 ---
 
@@ -686,11 +687,13 @@ Sets the version of Node.js to use when running your function app on Windows. Yo
 
 ## WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS
 
-When performing [a slot swap](functions-deployment-slots.md#swap-slots) on Premium Functions it can fail to swap if the storage account associated with the Function App is network restricted. This is due to a legacy [application logging feature](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows) that Functions and App Service share. This setting overrides that legacy logging feature and allows the swap to occur. Set to `0` in the production slot and mark it as a Deployment Slot setting (also known as sticky), or add to all slots to make sure that all version settings are also swapped.
+When performing [a slot swap](functions-deployment-slots.md#swap-slots) on a function app running on a Premium plan, the swap can fail when the dedicated storage account used by the app is network restricted. This failure is caused by a legacy [application logging feature](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows), which is shared by both Functions and App Service. This setting overrides that legacy logging feature and allows the swap to occur.
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS|`0`| 
+
+Add `WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS` with a value of `0` to all slots to make sure that legacy diagnostic settings don't block your swaps. You can also add this setting and value to just the production slot as a [deployment slot (_sticky_) setting](functions-deployment-slots.md#create-a-deployment-setting). 
 
 ## WEBSITE\_OVERRIDE\_STICKY\_EXTENSION\_VERSIONS
 
@@ -702,13 +705,15 @@ By default, the version settings for function apps are specific to each slot. Th
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
-Enables your function app to run from a mounted package file.
+Enables your function app to run from a package file, which can be locally mounted or deployed to an external URL. 
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
-Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+
+When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 
@@ -769,7 +774,7 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 ## WEBSITES_ENABLE_APP_SERVICE_STORAGE
 
-Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container. d 
+Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container.
 
 ## App Service site settings
 
@@ -816,11 +821,51 @@ Sets the specific version of PowerShell on which your functions run. For more in
 
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
-### vnetrouteallenabled
+### vnetRouteAllEnabled
 
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
 This site setting replaces the legacy [WEBSITE\_VNET\_ROUTE\_ALL](#website_vnet_route_all) setting.
+
+## Flex Consumption plan deprecations
+
+In the [Flex Consumption plan](./flex-consumption-plan.md), these site properties and application settings are deprecated and shouldn't be used when creating function app resources:
+
+| Setting/property | Reason | 
+| ----- | ----- | 
+| `ENABLE_ORYX_BUILD` |Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
+| `FUNCTIONS_EXTENSION_VERSION` |App Setting is set by the backend. A value of ~1 can be ignored. |
+| `FUNCTIONS_WORKER_RUNTIME` |Replaced by `name` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_WORKER_RUNTIME_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_MAX_HTTP_CONCURRENCY` |Replaced by scale and concurrency's trigger section|
+| `FUNCTIONS_WORKER_PROCESS_COUNT` |Setting not valid|
+| `FUNCTIONS_WORKER_DYNAMIC_CONCURRENCY_ENABLED` |Setting not valid|
+| `SCM_DO_BUILD_DURING_DEPLOYMENT`|Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
+| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |Replaced by functionAppConfig's deployment section|
+| `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
+| `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
+| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated VNet in Flex|
+| `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|
+| `WEBSITE_VNET_ROUTE_ALL` |Not used for networking in Flex Consumption|
+| `properties.alwaysOn` |Not valid|
+| `properties.containerSize` |Renamed as `instanceMemoryMB`|
+| `properties.ftpsState` | FTPS not supported | 
+| `properties.isReserved` |Not valid|
+| `properties.IsXenon` |Not valid|
+| `properties.javaVersion` | Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.LinuxFxVersion` |Replaced by `properties.functionAppConfig.runtime`|
+| `properties.netFrameworkVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.powerShellVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.siteConfig.functionAppScaleLimit` |Renamed as `maximumInstanceCount`|
+| `properties.siteConfig.preWarmedInstanceCount` | Renamed as `alwaysReadyInstances` |
+| `properties.use32BitWorkerProcess` |32-bit not supported |
+| `properties.vnetBackupRestoreEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetContentShareEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetImagePullEnabled` |Not used for networking in Flex Consumptionlid|
+| `properties.vnetRouteAllEnabled` |Not used for networking in Flex Consumption|
+| `properties.windowsFxVersion` |Not valid|
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Use location data in an Azure IoT Central solution
 description: Learn how to use location data sent from a device connected to your IoT Central application. Plot location data on a map or create geofencing rules.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/03/2022
+ms.date: 03/04/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central

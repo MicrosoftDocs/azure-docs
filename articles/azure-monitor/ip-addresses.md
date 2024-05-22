@@ -2,7 +2,7 @@
 title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: reference
-ms.date: 11/15/2023
+ms.date: 03/14/2024
 ms.servce: azure-monitor
 ms.author: aaronmax
 ms.reviewer: saars
@@ -18,6 +18,9 @@ Author: AaronMaxwell
 
 You can use Azure [network service tags](../virtual-network/service-tags-overview.md) to manage access if you're using Azure network security groups. If you're managing access for hybrid/on-premises resources, you can download the equivalent IP address lists as [JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files), which are updated each week. To cover all the exceptions in this article, use the service tags `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
 
+> [!NOTE]
+> Service tags do not replace validation/authentication checks required for cross-tenant communications between a customer's azure resource and other service tag resources.
+
 ## Outgoing ports
 
 You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Application Insights Agent to send data to the portal.
@@ -28,13 +31,10 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Purpose | URL | Type | IP | Ports |
 | --- | --- | --- | --- | --- |
 | Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>\*.in.applicationinsights.azure.com<br/><br/> |Global<br/>Global<br/>Global<br/>Regional<br/>|| 443 |
-| Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/><br/>*Example for {region}: westus2<br/>Find all supported regions in [this table](#addresses-grouped-by-region-azure-public-cloud).*|Global<br/>Global<br/>Global<br/><br/>Regional<br/>|20.49.111.32/29<br/>13.73.253.112/29| 443 |
+| Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/><br/>*Example for {region}: westus2|Global<br/>Global<br/>Global<br/><br/>Regional<br/>|20.49.111.32/29<br/>13.73.253.112/29| 443 |
 
 > [!NOTE]
 > Application Insights ingestion endpoints are IPv4 only.
-
-> [!IMPORTANT]
-> For Live Metrics, it is *required* to add the list of [IPs for the respective region](#addresses-grouped-by-region-azure-public-cloud) aside from global IPs.
 
 ## Application Insights Agent
 
@@ -53,114 +53,7 @@ Application Insights Agent configuration is needed only when you're making chang
 
 ## Availability tests
 
-This is the list of addresses from which [availability web tests](./app/availability-overview.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
-
-> [!NOTE]
-> For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](app/availability-azure-functions.md#review-trackavailability-test-results).
-
-### Service tag
-
-If you're using Azure network security groups, add an *inbound port rule* to allow traffic from Application Insights availability tests. Select **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
-
->[!div class="mx-imgBorder"]
->:::image type="content" source="./app/media/ip-addresses/add-inbound-security-rule.png" lightbox="./app/media/ip-addresses/add-inbound-security-rule.png" alt-text="Screenshot that shows selecting Inbound security rules and then selecting Add.":::
-
->[!div class="mx-imgBorder"]
->:::image type="content" source="./app/media/ip-addresses/add-inbound-security-rule2.png" lightbox="./app/media/ip-addresses/add-inbound-security-rule2.png" alt-text="Screenshot that shows the Add inbound security rule tab.":::
-
-Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these addresses. IP addresses are grouped by location.
-
-### IP addresses
-
-If you're looking for the actual IP addresses so that you can add them to the list of allowed IPs in your firewall, download the JSON file that describes Azure IP ranges. These files contain the most up-to-date information. After you download the appropriate file, open it by using your favorite text editor. Search for **ApplicationInsightsAvailability** to go straight to the section of the file that describes the service tag for availability tests.
-
-For Azure public cloud, you need to allow both the global IP ranges and the ones specific for the region of your Application Insights resource which receives live data. You can find the global IP ranges in the [Outgoing ports](#outgoing-ports) table at the top of this document, and the regional IP ranges in the [Addresses grouped by region](#addresses-grouped-by-region-azure-public-cloud) table below.
-
-#### Azure public cloud
-
-Download [public cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=56519).
-
-#### Azure US Government cloud
-
-Download [US Government cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57063).
-
-#### Microsoft Azure operated by 21Vianet cloud
-
-Download [China cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
-
-#### Addresses grouped by region (Azure public cloud)
-
-Add the subdomain of the corresponding region to the Live Metrics URL from the [Outgoing ports](#outgoing-ports) table.
-
-> [!NOTE]
-> As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Application Insights connection-string based regional telemetry endpoints only support TLS 1.2. Global telemetry endpoints continue to support TLS 1.0 and TLS 1.1.
->
-> If you're using an older version of TLS, Application Insights will not ingest any telemetry. For applications based on .NET Framework see [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls) to support the newer TLS version.
-
-| Continent/Country | Region | Subdomain | IP |
-| --- | --- | --- | --- |
-|Asia|East Asia|eastasia|52.229.216.48/28<br/>20.189.111.16/29|
-||Southeast Asia|southeastasia|52.139.250.96/28<br/>23.98.106.152/29|
-|Australia|Australia Central|australiacentral|20.37.227.104/29<br/><br/>|
-||Australia Central 2|australiacentral2|20.53.60.224/31<br/><br/>|
-||Australia East|australiaeast|20.40.124.176/28<br/>20.37.198.232/29|
-||Australia Southeast|australiasoutheast|20.42.230.224/29<br/><br/>|
-|Brazil|Brazil South|brazilsouth|191.233.26.176/28<br/>191.234.137.40/29|
-||Brazil Southeast|brazilsoutheast|20.206.0.196/31<br/><br/>|
-|Canada|Canada Central|canadacentral|52.228.86.152/29<br/><br/>|
-|Europe|North Europe|northeurope|52.158.28.64/28<br/>20.50.68.128/29|
-||West Europe|westeurope|51.144.56.96/28<br/>40.113.178.32/29|
-|France|France Central|francecentral|20.40.129.32/28<br/>20.43.44.216/29|
-||France South|francesouth|20.40.129.96/28<br/>52.136.191.12/31|
-|Germany|Germany West Central|germanywestcentral|20.52.95.50/31<br/><br/>|
-|India|Central India|centralindia|52.140.108.216/29<br/><br/>|
-||South India|southindia|20.192.153.106/31<br/><br/>|
-|Japan|Japan East|japaneast|52.140.232.160/28<br/>20.43.70.224/29|
-||Japan West|japanwest|20.189.194.102/31<br/><br/>|
-|Korea|Korea Central|koreacentral|20.41.69.24/29<br/><br/>|
-|Norway|Norway East|norwayeast|51.120.235.248/29<br/><br/>|
-||Norway West|norwaywest|51.13.143.48/31<br/><br/>|
-|Qatar|Qatar Central|qatarcentral|20.21.39.224/29<br/><br/>|
-|South Africa|South Africa North|southafricanorth|102.133.219.136/29<br/><br/>|
-|Switzerland|Switzerland North|switzerlandnorth|51.107.52.200/29<br/><br/>|
-||Switzerland West|switzerlandwest|51.107.148.8/29<br/><br/>|
-|United Arab Emirates|UAE North|uaenorth|20.38.143.44/31<br/>40.120.87.204/31|
-|United Kingdom|UK South|uksouth|51.105.9.128/28<br/>51.104.30.160/29|
-||UK West|ukwest|20.40.104.96/28<br/>51.137.164.200/29|
-|United States|Central US|centralus|13.86.97.224/28<br/>20.40.206.232/29|
-||East US|eastus|20.42.35.32/28<br/>20.49.111.32/29|
-||East US 2|eastus2|20.49.102.24/29<br/><br/>|
-||North Central US|northcentralus|23.100.224.16/28<br/>20.49.114.40/29|
-||South Central US|southcentralus|20.45.5.160/28<br/>13.73.253.112/29|
-||West US|westus|40.91.82.48/28<br/>52.250.228.8/29|
-||West US 2|westus2|40.64.134.128/29<br/><br/>|
-||West US 3|westus3|20.150.241.64/29<br/><br/>|
-
-#### Upcoming regions (Azure public cloud)
-
-> [!NOTE]
-> The following regions are not supported yet, but will be added in the near future.
-
-| Continent/Country | Region | Subdomain | IP |
-| --- | --- | --- | --- |
-|Canada|Canada East|TBD|52.242.40.208/31<br/><br/>|
-|Germany|Germany North|TBD|51.116.75.92/31<br/><br/>|
-|India|West India|TBD|20.192.84.164/31<br/><br/>|
-||Jio India Central|TBD|20.192.50.200/29<br/><br/>|
-||Jio India West|TBD|20.193.194.32/29<br/><br/>|
-|Israel|Israel Central|TBD|20.217.44.250/31<br/><br/>|
-|Poland|Poland Central|TBD|20.215.4.250/31<br/><br/>|
-|South Africa|South Africa West|TBD|102.37.86.196/31<br/><br/>|
-|Sweden|Sweden Central|TBD|51.12.25.192/29<br/><br/>|
-||Sweden South|TBD|51.12.17.128/29<br/><br/>|
-|Taiwan|Taiwan North|TBD|51.53.28.214/31<br/><br/>|
-||Taiwan Northwest|TBD|51.53.172.214/31<br/><br/>|
-|United Arab Emirates|UAE Central|TBD|20.45.95.68/31<br/><br/>|
-|United States|West Central US|TBD|52.150.154.24/29<br/><br/>|
-
-### Discovery API
-
-You might also want to [programmatically retrieve](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) the current list of service tags together with IP address range details.
+For more information on availability tests, see [Private availability testing](./app/availability-private-test.md).
 
 ## Application Insights and Log Analytics APIs
 

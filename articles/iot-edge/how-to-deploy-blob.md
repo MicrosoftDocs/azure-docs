@@ -1,9 +1,9 @@
 ---
-title: Deploy blob storage on module to your device - Azure IoT Edge
-description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
+title: Deploy blob storage on module to your device
+description: Deploy and configure an Azure Blob Storage module to your IoT Edge device and store data at the edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/14/2024
+ms.date: 03/18/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
@@ -91,16 +91,12 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
    - Replace `<mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to an existing directory on your IoT Edge device where the blob module stores its data. The storage mount maps a location on your device that you provide to a set location in the module.
 
-     - For Linux containers, the format is **\<your storage path or volume>:/blobroot**. For example:
-         - use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
-         - use [bind mount](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot`. Make sure to follow the steps to [grant directory access to the container user](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - For Windows containers, the format is **\<your storage path or volume>:C:/BlobRoot**. For example:
-         - use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
-         - use [bind mount](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
-         - Instead of using your local drive, you can map your SMB network location, for more information, see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+    For Linux containers, the format is **\<your storage path or volume>:/blobroot**. For example:
+    - Use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
+    - Use [bind mount](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot`. Make sure to follow the steps to [grant directory access to the container user](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
 
     > [!IMPORTANT]
-    > * Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
+    > * Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers.
     >
     > * IoT Edge does not remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are left unused, then it may lead to disk space exhaustion and subsequent system errors. If you use docker volumes in your scenario, then we encourage you to use docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.
 
@@ -138,7 +134,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
    :::image type="content" source="./media/how-to-deploy-blob/addmodule-tab4.png" alt-text="Screenshot showing the Module Twin Settings tab of the Add IoT Edge Module page.":::
 
-   For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+   For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module is deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
 6. Select **Add**.
 
@@ -161,7 +157,7 @@ After you create the deployment, you return to the **Devices** page of your IoT 
 1. Select the IoT Edge device that you targeted with the deployment to open its details.
 1. In the device details, verify that the blob storage module is listed as both **Specified in deployment** and **Reported by device**.
 
-It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
+It might take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
 ## Deploy from Visual Studio Code
 
@@ -215,16 +211,12 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. Replace `<mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage mount maps a location on your device that you provide to a set location in the module.  
 
-     - For Linux containers, the format is **\<your storage path or volume>:/blobroot**. For example:
-         - use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
-         - use [bind mount](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot`. Make sure to follow the steps to [grant directory access to the container user](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - For Windows containers, the format is **\<your storage path or volume>:C:/BlobRoot**. For example:
-         - Use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
-         - Use [bind mount](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
-         - Instead of using your local drive, you can map your SMB network location. For more information, see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
+    For Linux containers, the format is **\<your storage path or volume>:/blobroot**. For example:
+    - Use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
+    - Use [bind mount](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot`. Make sure to follow the steps to [grant directory access to the container user](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
 
     > [!IMPORTANT]
-    > * Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
+    > * Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers.
     >
     > * IoT Edge does not remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are left unused, then it may lead to disk space exhaustion and subsequent system errors. If you use docker volumes in your scenario, then we encourage you to use docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.
 
@@ -255,7 +247,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
    :::image type="content" source="./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png" alt-text="Screenshot showing how to set desired properties for azureblobstorageoniotedge in Visual Studio Code.":::
 
-   For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
+   For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module is deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
 1. Save the *deployment.template.json* file.
 
@@ -304,7 +296,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Select **Update**, then **Review + Create**.
 
-1. Note that the proxy is added to the module in deployment manifest and select **Create**.
+1. See the proxy is added to the module in deployment manifest and select **Create**.
 
 1. Verify the setting by selecting the module from the device details page, and on the lower part of the **IoT Edge Modules Details** page select the **Environment Variables** tab.
 

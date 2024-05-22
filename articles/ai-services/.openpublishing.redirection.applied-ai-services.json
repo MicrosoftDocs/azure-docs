@@ -214,6 +214,31 @@
             "source_path_from_root": "/articles/ai-services/luis/luis-migration-authoring.md",
             "redirect_url": "/azure/ai-services/language-service/conversational-language-understanding/how-to/migrate-from-luis",
             "redirect_document_id": false
-          }
-     ]
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/openai/how-to/prepare-dataset.md",
+            "redirect_url": "/azure/ai-services/openai/concepts/fine-tuning-considerations",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/content-moderator/try-image-api.md",
+            "redirect_url": "/azure/ai-services/content-moderator/client-libraries",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/content-moderator/try-text-api.md",
+            "redirect_url": "/azure/ai-services/content-moderator/client-libraries",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/content-moderator/try-image-list-api.md",
+            "redirect_url": "/azure/ai-services/content-moderator/image-lists-quickstart-dotnet",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/content-moderator/try-terms-list-api.md",
+            "redirect_url": "/azure/ai-services/content-moderator/term-lists-quickstart-dotnet",
+            "redirect_document_id": false
+          },
+	]
 }

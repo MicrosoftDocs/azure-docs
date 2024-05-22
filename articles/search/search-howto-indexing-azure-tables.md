@@ -1,5 +1,5 @@
 ---
-title: Azure Table indexer
+title: Azure table indexer
 titleSuffix: Azure AI Search
 description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure AI Search.
 
@@ -28,7 +28,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Read permissions on Azure Storage. A "full access" connection string includes a key that gives access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
 
-+ Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
++ Use a [REST client](search-get-started-rest.md) to formulate REST calls similar to the ones shown in this article.
 
 ## Define the data source
 

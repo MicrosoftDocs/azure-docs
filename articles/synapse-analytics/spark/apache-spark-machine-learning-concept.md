@@ -5,9 +5,8 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 11/13/2020
+ms.date: 03/06/2023
 ms.author: midesa
-ms.reviewer: sngun
 ---
 
 # Machine learning with Apache Spark
@@ -37,8 +36,14 @@ Learn more about the machine learning capabilities by viewing the article on how
 ### SparkML and MLlib
 Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. ```spark.ml``` provides a uniform set of high-level APIs that help users create and tune  machine learning pipelines.To learn more about ```spark.ml```, you can visit the [Apache Spark ML programming guide](https://spark.apache.org/docs/1.2.2/ml-guide.html).
 
-### Azure Machine Learning automated ML
+### Azure Machine Learning automated ML (deprecated)
 [Azure Machine Learning automated ML](../../machine-learning/concept-automated-ml.md) (automated machine learning) helps automate the process of developing machine learning models. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. The components to run the Azure Machine Learning automated ML SDK is built directly into the Synapse Runtime.
+
+> [!WARNING]
+> - Effective September 29, 2023, Azure Synapse will discontinue official support for [Spark 2.4 Runtimes](../spark/apache-spark-24-runtime.md). Post September 29, 2023, we will not be addressing any support tickets related to Spark 2.4. There will be no release pipeline in place for bug or security fixes for Spark 2.4. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+> - As part of the deprecation process for Apache Spark 2.4, we would like to notify you that AutoML in Azure Synapse Analytics will also be deprecated. This includes both the low code interface and the APIs used to create AutoML trials through code.
+> - Please note that AutoML functionality was exclusively available through the Spark 2.4 runtime.
+> - For customers who wish to continue leveraging AutoML capabilities, we recommend saving your data into your Azure Data Lake Storage Gen2 (ADLSg2) account. From there, you can seamlessly access the AutoML experience through Azure Machine Learning (AzureML). Further information regarding this workaround is available [here](../machine-learning/access-data-from-aml.md).
 
 ### Open-source libraries
 Every Apache Spark pool in Azure Synapse Analytics comes with a set of pre-loaded and popular machine learning libraries.  Some of the relevant machine learning libraries that are included by default include:

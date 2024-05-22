@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 # Prepare on-premises machines for migration to Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
 

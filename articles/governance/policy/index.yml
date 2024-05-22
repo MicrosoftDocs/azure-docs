@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 06/02/2021
+  ms.date: 04/08/2024
 
 landingContent:
   - title: About Azure Policy
@@ -19,10 +19,10 @@ landingContent:
         links:
           - text: What is Azure Policy?
             url: ./overview.md
-          - text: Policy effects
-            url: ./concepts/effects.md
+          - text: Policy effect
+            url: ./concepts/effect-basics.md
           - text: Definition structure
-            url: ./concepts/definition-structure.md
+            url: ./concepts/definition-structure-basics.md
           - text: Scope
             url: ./concepts/scope.md
           - text: Assignment structure
@@ -40,7 +40,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Assign a policy (Portal)
+          - text: Assign a policy (Azure portal)
             url: ./assign-policy-portal.md
           - text: Assign a policy (Azure CLI)
             url: ./assign-policy-azurecli.md

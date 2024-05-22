@@ -191,7 +191,7 @@ If you used a free service, remember that you're limited to three indexes, index
 
 ## Next steps
 
-You can create skillsets using the portal, .NET SDK, or REST API. To further your knowledge, try the REST API using Postman and more sample data.
+You can create skillsets using the portal, .NET SDK, or REST API. To further your knowledge, try the REST API using a REST client and more sample data.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Extract text and structure from JSON blobs using REST APIs ](cognitive-search-tutorial-blob.md)

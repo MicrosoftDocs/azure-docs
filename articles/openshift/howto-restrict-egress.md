@@ -4,7 +4,7 @@ description: Learn what ports and addresses are required to control egress traff
 author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: article
 ms.date: 10/10/2023
 ---

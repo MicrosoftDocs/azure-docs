@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/22/2023
+ms.date: 03/12/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -27,6 +27,8 @@ Scopes are where you manage billing data, have roles specific to payments, view 
 To learn more about scopes, watch the [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
 
 ## How Cost Management uses scopes
 
@@ -246,6 +248,9 @@ The following tables show how Cost Management features can be utilized by each r
 
 ## AWS scopes
 
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
+
 After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
 
 - **External Billing account** - Represents a customer agreement with a third-party vendor. It's similar to the EA billing account.
@@ -360,6 +365,6 @@ When you work with Cost Management APIs, knowing the scope is critical. Use the 
 
 Cost Management is currently supported in Azure Global with `https://management.azure.com` and Azure Government with `https://management.usgovcloudapi.net`. For more information about Azure Government, see [Azure Global and Government API endpoints](../../azure-government/documentation-government-developer-guide.md#endpoint-mapping).
 
-## Next steps
+## Related content
 
 - If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).

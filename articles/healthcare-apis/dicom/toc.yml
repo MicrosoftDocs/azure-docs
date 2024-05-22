@@ -14,13 +14,11 @@ items:
   expanded: true
   items: 
     - name: Get started with the DICOM service
-      href: get-started-with-dicom.md
-    - name: Azure Data Lake Storage integration for the DICOM service (Preview)
       href: dicom-data-lake.md
-    - name: Deploy the DICOM service
-      href: deploy-dicom-services-in-azure.md
-    - name: Deploy the DICOM service with Data Lake Storage (Preview)
+    - name: Deploy the DICOM service with Data Lake Storage
       href: deploy-dicom-services-in-azure-data-lake.md
+    - name: Deploy the DICOM service with the Azure portal
+      href: deploy-dicom-services-in-azure.md
     - name: Get an access token
       href: get-access-token.md
     - name: Register a client application
@@ -45,6 +43,8 @@ items:
       href: dicom-configure-azure-rbac.md
     - name: Enable audit and diagnostic logging
       href: enable-diagnostic-logging.md
+    - name: Enable data partitioning
+      href: data-partitions.md
     - name: Access DICOM Change Feed logs 
       href: pull-dicom-changes-from-change-feed.md
     - name: Import DICOM files

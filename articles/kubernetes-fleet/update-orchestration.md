@@ -9,6 +9,7 @@ ms.service: kubernetes-fleet
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
+  - build-2024
 ---
 
 # Orchestrate updates across multiple clusters by using Azure Kubernetes Fleet Manager
@@ -18,6 +19,8 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
 :::image type="content" source="./media/update-orchestration/fleet-overview-inline.png" alt-text="Screenshot of the Azure portal pane for a fleet resource, showing member cluster Kubernetes versions and node images in use across all node pools of member clusters." lightbox="./media/update-orchestration/fleet-overview-lightbox.png":::
 
 ## Prerequisites
+
+* Read the [conceptual overview of this feature](./concepts-update-orchestration.md), which provides an explanation of update strategies, runs, stages, and groups references in this document.
 
 * You must have a fleet resource with one or more member clusters. If not, follow the [quickstart][fleet-quickstart] to create a Fleet resource and join Azure Kubernetes Service (AKS) clusters as members. This walkthrough demonstrates a fleet resource with five AKS member clusters as an example.
 
@@ -42,7 +45,8 @@ Platform admins managing Kubernetes fleets with large number of clusters often h
   az extension update --name fleet
   ```
 
-* Follow the [conceptual overview of this feature](./architectural-overview.md#update-orchestration-across-multiple-clusters), which provides an explanation of update runs, stages, groups, and their characteristics.
+> [!NOTE]
+> Update runs honor [planned maintenance windows](../aks/planned-maintenance.md) that you set at the AKS cluster level. For more information about how update runs handle member clusters that have been configured with planned maintenance windows, see [Planned maintenance across multiple member clusters](./concepts-update-orchestration.md#planned-maintenance).
 
 ## Update all clusters one by one
 

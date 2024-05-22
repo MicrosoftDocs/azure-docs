@@ -4,7 +4,7 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/22/2023
+ms.date: 03/05/2024
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: devx-track-azurecli
@@ -37,48 +37,6 @@ Blob Storage destinations let you configure the connection with a *connection st
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
 ### Create an Azure Blob Storage destination
-
-# [Connection string](#tab/connection-string)
-
-
-If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. It then prints the connection string to use when you configure the data export in IoT Central:
-
-```azurecli-interactive
-# Replace the storage account name with your own unique value
-SA=yourstorageaccount$RANDOM
-CN=exportdata
-RG=centralexportresources
-LOCATION=eastus
-
-az group create -n $RG --location $LOCATION
-az storage account create --name $SA --resource-group $RG --location $LOCATION --sku Standard_LRS
-az storage container create --account-name $SA --resource-group $RG --name $CN
-
-CS=$(az storage account show-connection-string --resource-group $RG --name $SA --query "connectionString" --output tsv)
-
-echo "Storage connection string: $CS"
-```
-
-You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following table shows the known compatible storage account types:
-
-|Performance Tier|Account Type|
-|-|-|
-|Standard|General Purpose V2|
-|Standard|General Purpose V1|
-|Standard|Blob storage|
-|Premium|Block Blob storage|
-
-To create the Blob Storage destination in IoT Central on the **Data export** page:
-
-1. Select **+ New destination**.
-
-1. Select **Azure Blob Storage** as the destination type.
-
-1. Select **Connection string** as the authorization type.
-
-1. Paste in the connection string for your Blob Storage resource, and enter the case-sensitive container name if necessary.
-
-1. Select **Save**.
 
 # [Managed identity](#tab/managed-identity)
 
@@ -139,6 +97,48 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 1. Select **Save**.
 
 If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshooting.md).
+
+# [Connection string](#tab/connection-string)
+
+
+If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. It then prints the connection string to use when you configure the data export in IoT Central:
+
+```azurecli-interactive
+# Replace the storage account name with your own unique value
+SA=yourstorageaccount$RANDOM
+CN=exportdata
+RG=centralexportresources
+LOCATION=eastus
+
+az group create -n $RG --location $LOCATION
+az storage account create --name $SA --resource-group $RG --location $LOCATION --sku Standard_LRS
+az storage container create --account-name $SA --resource-group $RG --name $CN
+
+CS=$(az storage account show-connection-string --resource-group $RG --name $SA --query "connectionString" --output tsv)
+
+echo "Storage connection string: $CS"
+```
+
+You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following table shows the known compatible storage account types:
+
+|Performance Tier|Account Type|
+|-|-|
+|Standard|General Purpose V2|
+|Standard|General Purpose V1|
+|Standard|Blob storage|
+|Premium|Block Blob storage|
+
+To create the Blob Storage destination in IoT Central on the **Data export** page:
+
+1. Select **+ New destination**.
+
+1. Select **Azure Blob Storage** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Blob Storage resource, and enter the case-sensitive container name if necessary.
+
+1. Select **Save**.
 
 ---
 

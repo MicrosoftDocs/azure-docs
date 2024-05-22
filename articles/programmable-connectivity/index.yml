@@ -6,7 +6,7 @@ summary: Learn how to use Azure Programmable Connectivity.
 metadata:
   title: Azure Programmable Connectivity documentation
   description: Learn about Azure Programmable Connectivity.
-  ms.service: azure-operator-nexus
+  ms.service: azure-programmable-connectivity
   ms.topic: landing-page
   author: lnyswonger
   ms.author: lnyswonger

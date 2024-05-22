@@ -6,6 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/01/2023
 ms.author: alkohli

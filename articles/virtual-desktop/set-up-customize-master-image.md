@@ -66,19 +66,17 @@ If you're installing Microsoft 365 Apps for enterprise and OneDrive on your VM, 
 
 If your users need to access certain LOB applications, we recommend you install them after completing this section's instructions.
 
-### Set up user profile container (FSLogix)
+### Set up FSLogix profile container
 
 To include the FSLogix container as part of the image, follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](/fslogix/configure-cloud-cache-tutorial/).
 
-### Configure Windows Defender
+### Configure antivirus exclusions for FSLogix
 
-If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment.
+If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment. You can find a list of exclusions for FSLogix at [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
 
 This configuration only removes scanning of VHD and VHDX files during attachment, but won't affect real-time scanning.
 
-For more detailed instructions for how to configure Windows Defender, see [Configure Windows Defender Antivirus exclusions on Windows Server](/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus/).
-
-To learn more about how to configure Windows Defender to exclude certain files from scanning, see [Configure and validate exclusions based on file extension and folder location](/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus/).
+If you're using Windows Defender, you can learn more about how to configure Windows Defender to exclude certain files from scanning at [Configure and validate exclusions based on file extension and folder location](/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus/).
 
 ### Disable Automatic Updates
 
@@ -121,16 +119,17 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Se
 
 ### Disable Storage Sense
 
-For Azure Virtual Desktop session hosts that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. Disks where the operating system is installed are typically small in size and user data is stored remotely through profile roaming. This scenario results in Storage Sense believing that the disk is critically low on free space. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
+For Azure Virtual Desktop session hosts that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. Disks where the operating system is installed are typically small in size and user data is stored remotely through profile roaming. This scenario results in Storage Sense believing that the disk is critically low on free space. You can disable Storage Sense in the image using the registry, or use Group Policy or Intune to disable Storage Sense after the session hosts are deployed.
 
-> [!div class="mx-imgBorder"]
-> ![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)
+- For the registry, you can run the following command from an elevated PowerShell prompt to disable Storage Sense:
 
-You can also run the following command from an elevated PowerShell prompt to disable Storage Sense:
+   ```powershell
+   New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" -Name 01 -PropertyType DWORD -Value 0 -Force
+   ```
 
-```powershell
-New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" -Name 01 -PropertyType DWORD -Value 0 -Force
-```
+- For Group Policy, configure a Group Policy Object with the setting **Computer Configuration** > **Administrative Templates** > **System** > **Storage Sense** > **Allow Storage Sense** set to **Disabled**.
+
+- For Intune, configure a configuration profile using the settings catalog with the setting **Storage** > **Allow Storage Sense Global** set to **Block**.
 
 ### Include additional language support
 

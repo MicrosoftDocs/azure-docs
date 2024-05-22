@@ -5,7 +5,7 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: how-to
-ms.date: 08/26/2022
+ms.date: 03/04/2024
 ms.author: jushiman
 ---
 
@@ -105,9 +105,9 @@ Generation 2 VMs support the following Marketplace images:
 * SUSE Linux Enterprise Server 15 SP3, SP2
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS 
-* RHEL 8.5, 8.4, 8.3, 8.2, 8.1, 8.0, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0
+* RHEL 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.5, 8.4, 8.3, 8.2, 8.1, 8.0, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0
 * Cent OS 8.4, 8.3, 8.2, 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
-* Oracle Linux 8.4 LVM, 8.3 LVM, 8.2 LVM, 8.1, 7.9 LVM, 7.9, 7.8, 7.7
+* Oracle Linux 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7, 8.6, 8.5, 8.4, 8.3, 8.2, 8.1, 7.9, 7.9, 7.8, 7.7
 
 > [!NOTE]
 > Specific Virtual machine sizes like Mv2-Series, DC-series, ND A100 v4-series, NDv2-series, Msv2 and Mdsv2-series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.

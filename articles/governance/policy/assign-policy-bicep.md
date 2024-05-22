@@ -16,7 +16,7 @@ In this quickstart, you use a Bicep file to create a policy assignment that vali
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Bicep](../../azure-resource-manager/bicep/install.md).
-- [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - `Microsoft.PolicyInsights` must be [registered](../../azure-resource-manager/management/resource-providers-and-types.md) in your Azure subscription. To register a resource provider, you must have permission to register resource providers. That permission is included in the Contributor and Owner roles.
 - A resource group with at least one virtual machine that doesn't use managed disks.
@@ -351,10 +351,9 @@ az logout
 
 ## Next steps
 
-In this quickstart, you assigned a built-in policy definition to a resource group scope and reviewed its compliance state. The policy definition audits if the virtual machines in the resource group are compliant and identifies resources that aren't compliant.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial.
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

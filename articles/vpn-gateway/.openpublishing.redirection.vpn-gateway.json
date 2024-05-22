@@ -1,0 +1,124 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/vpn-gateway/create-routebased-vpn-gateway-portal.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/create-vpn-azure-aws-managed-solutions.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/nva-working-remotely-support.md",
+            "redirect_url": "/azure/vpn-gateway/nva-work-remotely-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/powershell-samples.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpngateways",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-routebased-vpn-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-how-to-radius-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-download-vpndevicescript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/scripts/vpn-gateway-sample-vnet-vnet-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-view-virtual-network-gateway-metrics.md",
+            "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-plan-design.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpngateways",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-point-to-site-create.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-about",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
+            "redirect_url": "/azure/vpn-gateway/reset-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-security-attributes.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-security-controls",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-security-controls.md",
+            "redirect_url": "/azure/vpn-gateway/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
+            "redirect_document_id": false
+        }
+    ]
+}

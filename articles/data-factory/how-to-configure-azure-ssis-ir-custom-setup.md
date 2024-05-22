@@ -6,7 +6,7 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -317,7 +317,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * A *POSTGRESQL ODBC* folder, which contains a custom setup script (*main.cmd*) to install the PostgreSQL ODBC drivers on each node of your Azure-SSIS IR. This setup lets you use the ODBC Connection Manager, Source, and Destination to connect to the PostgreSQL server. 
      
-        First, [download the latest 64-bit and 32-bit versions of PostgreSQL ODBC driver installers](https://www.postgresql.org/ftp/odbc/versions/msi/) (for example, *psqlodbc_x64.msi* and *psqlodbc_x86.msi*), and then upload them all together with *main.cmd* to your blob container.
+        First, [download the latest 64-bit and 32-bit versions of PostgreSQL ODBC driver installers](https://sbp.enterprisedb.com/getfile.jsp?fileid=1259018) (for example, *psqlodbc_x64.msi* and *psqlodbc_x86.msi*), and then upload them all together with *main.cmd* to your blob container.
 
       * A *SAP BW* folder, which contains a custom setup script (*main.cmd*) to install the SAP .NET connector assembly (*librfc32.dll*) on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the SAP BW Connection Manager, Source, and Destination to connect to the SAP BW server. 
       
@@ -329,7 +329,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * A *TERADATA* folder, which contains a custom setup script (*main.cmd*), its associated file (*install.cmd*), and installer packages (*.msi*). These files install the Teradata connectors, the Teradata Parallel Transporter (TPT) API, and the ODBC driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Teradata Connection Manager, Source, and Destination to connect to the Teradata server. 
       
-        First, [download the Teradata Tools and Utilities 15.x zip file](http://partnerintelligence.teradata.com) (for example,  *TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip*), and then upload it together with the previously mentioned *.cmd* and *.msi* files to your blob container.
+        First, [download the Teradata Tools and Utilities 15.x zip file](https://downloads.teradata.com/download/tools/teradata-tools-and-utilities-windows-installation-package-1) (for example,  *TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip*), and then upload it together with the previously mentioned *.cmd* and *.msi* files to your blob container.
 
       * A *TLS 1.2* folder, which contains a custom setup script (*main.cmd*) to use only strong cryptography/more secure network protocol (TLS 1.2) on each node of your Azure-SSIS IR. The script also disables older SSL/TLS versions (SSL 3.0, TLS 1.0, TLS 1.1) at the same time.
 

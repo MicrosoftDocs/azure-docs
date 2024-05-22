@@ -47,6 +47,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
+   > [!TIP]
+   > If you use [VPN](use-vpn.md) then you don't need to open any other connection.
+
    > [!NOTE]
    > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly. See [Required outbound network rules](network-rules.md) for more detailed information.
    > - Azure Storage

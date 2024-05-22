@@ -64,6 +64,8 @@ landingContent:
             url: how-to-connect-to-data-source-privately.md
           - text: Set up private access
             url: how-to-set-up-private-access.md
+          - text: Connect to self-hosted Prometheus via managed private endpoint
+            url: tutorial-mpe-oss-prometheus.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
 

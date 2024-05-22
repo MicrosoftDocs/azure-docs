@@ -12,17 +12,20 @@ ms.author: jboback
 ms.custom:
   - language-service-summarization
   - ignite-2023
+  - build-2024
 ---
 
 # How to use conversation summarization
 
 [!INCLUDE [availability](../includes/regional-availability.md)]
 
-## Conversation summarization types
+## Conversation summarization aspects
 
-- Chapter title and narrative (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents. This summarization type works on conversations with any number of parties. 
+- Chapter title and narrative (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents. This summarization aspect works on conversations with any number of parties. 
 
 - Issue and resolution (call center focused) is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs, which occur between two parties.
+
+- Narrative is designed to summarize the narrative of a conversation.
 
 - Recap is designed to condense lengthy meetings or conversations into a concise one-paragraph summary to provide a quick overview.
 
@@ -32,12 +35,21 @@ ms.custom:
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
+For easier navigation, here are links to the corresponding sections for each service:
+
+|Aspect                 |Section                                               |
+|-----------------------|------------------------------------------------------|
+|Issue and Resolution   |[Issue and Resolution](#get-summaries-from-text-chats)|
+|Chapter Title          |[Chapter Title](#get-chapter-titles)                  |
+|Narrative              |[Narrative](#get-narrative-summarization)             |
+|Recap and Follow-up    |[Recap and follow-up](#get-narrative-summarization)   |
+
 ## Features
 
 The conversation summarization API uses natural language processing techniques to summarize conversations into shorter summaries per request. Conversation summarization can summarize for issues and resolutions discussed in a two-party conversation or summarize a long conversation into chapters and a short narrative for each chapter.
 
-There's another feature in Azure AI Language named [document summarization](../overview.md?tabs=document-summarization) that is more suitable to summarize documents into concise summaries. When you're deciding between document summarization and conversation summarization, consider the following points:
-* Input format: Conversation summarization can operate on both chat text and speech transcripts, which have speakers and their utterances. Document summarization operates using simple text, or Word, PDF, or PowerPoint formats.
+There's another feature in Azure AI Language named [text summarization](../overview.md?tabs=text-summarization) that is more suitable to summarize documents into concise summaries. When you're deciding between text summarization and conversation summarization, consider the following points:
+* Input format: Conversation summarization can operate on both chat text and speech transcripts, which have speakers and their utterances. Text summarization operates using simple text, or Word, PDF, or PowerPoint formats.
 * Purpose of summarization: for example, conversation issue and resolution summarization returns a reason and the resolution for a chat between a customer and a customer service agent.
 
 ## Submitting data

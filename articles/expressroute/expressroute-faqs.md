@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 04/09/2024
 ms.author: duau
 
 ---
@@ -107,13 +107,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Multifactor Authentication Server (legacy)
 * Traffic Manager
 * Logic Apps
-
-### Public peering
-
-Public peering is no longer available on new ExpressRoute circuits and is scheduled for retirement on March 31, 2024. Access to Azure services can be done through Microsoft peering. To avoid disruption to your services, you should migrate to Microsoft peering before the retirement date. 
-
-* For more information, see [Migrate from public peering to Microsoft peering](how-to-move-peering.md). 
-* For a comparison between the different peering types, see [Peering comparison](about-public-peering.md#compare).
+* [Intune](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service)
 
 ### Why does the **Advertised public prefixes** status show *Validation needed*, while configuring Microsoft peering?
 
@@ -189,11 +183,11 @@ You can achieve high availability by connecting up to 4 ExpressRoute circuits in
 > - Although it is possible to connect up to 16 circuits to your virtual network, the outgoing traffic from your virtual network will be load-balanced using Equal-Cost Multipath (ECMP) across a maximum of 4 circuits.
 > - Equal-Cost Multipath (ECMP) in ExpressRoute uses the Per-Flow (based on 5-tuple) load balancing method. Accordingly, traffic flow between a given source and destination host pair are guaranteed to take the same path, even if multiple ECMP paths are available. 
 
-### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
+### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering is preferred on the ExpressRoute path?
 
 You must implement the *Local Preference* attribute on your router(s) to ensure that the path from on-premises to Azure is always preferred on your ExpressRoute circuit(s).
 
-For more information, see [BGP path selection and common router configurations](./expressroute-optimize-routing.md#path-selection-for-microsoft-and-public-peering).
+For more information, see [BGP path selection and common router configurations](./expressroute-optimize-routing.md#path-selection-for-microsoft-peering).
 
 ### <a name="onep2plink"></a>If I'm not colocated at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
@@ -486,9 +480,9 @@ VNet-to-VNet connectivity over ExpressRoute isn't recommended. Instead, configur
 
 ## ExpressRoute Traffic Collector
 
-### Where does ExpressRoute Traffic Collector store your data?
+### Does ExpressRoute Traffic Collector store customer data?
 
-All flow logs are ingested into your Log Analytics workspace by the ExpressRoute Traffic Collector. ExpressRoute Traffic Collector itself, doesn't store any of your data.
+ExpressRoute Traffic Collector doesn't store any customer data.
 
 ### What is the sampling rate used by ExpressRoute Traffic Collector?
 

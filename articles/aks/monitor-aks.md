@@ -1,9 +1,10 @@
 ---
 title: Monitor Azure Kubernetes Service (AKS)
 description: Start here to learn how to monitor Azure Kubernetes Service (AKS).
-author: bwren
+author: xuhongl
 ms.author: xuhliu
 ms.topic: conceptual
+ms.subservice: aks-monitoring
 ms.custom: subject-monitoring
 ms.date: 11/01/2023
 ---
@@ -67,6 +68,8 @@ Metrics play an important role in cluster monitoring, identifying issues, and op
 
 - [List of default platform metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-containerservice-managedclusters-metrics)
 - [List of default Prometheus metrics](../azure-monitor/containers/prometheus-metrics-scrape-default.md)
+
+AKS also exposes metrics from a critical Control Plane components such as API server, ETCD, Scheduler through Azure Managed Prometheus. This feature is currently in preview and more details can be found [here](./monitor-control-plane-metrics.md).
 
 ## Logs
 
@@ -212,3 +215,4 @@ When the [Network Observability](/azure/aks/network-observability-overview) add-
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
 
 - See [Monitoring AKS data reference](monitor-aks-reference.md) for a reference of the metrics, logs, and other important values created by AKS.
+

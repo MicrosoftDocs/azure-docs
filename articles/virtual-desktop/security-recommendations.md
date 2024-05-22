@@ -182,7 +182,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 - Restrict Windows Explorer access by hiding local and remote drive mappings. This prevents users from discovering unwanted information about system configuration and users.
 
-- Avoid direct RDP access to session hosts in your environment. If you need direct RDP access for administration or troubleshooting, enable [just-in-time](../defender-for-cloud/just-in-time-access-usage.md) access to limit the potential attack surface on a session host.
+- Avoid direct RDP access to session hosts in your environment. If you need direct RDP access for administration or troubleshooting, enable [just-in-time](../defender-for-cloud/just-in-time-access-usage.yml) access to limit the potential attack surface on a session host.
 
 - Grant users limited permissions when they access local and remote file systems. You can restrict permissions by making sure your local and remote file systems use access control lists with least privilege. This way, users can only access what they need and can't change or delete critical resources.
 

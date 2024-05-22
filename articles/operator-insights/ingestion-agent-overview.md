@@ -13,7 +13,7 @@ ms.date: 12/8/2023
 
 # Ingestion agent overview
 
-An _ingestion agent_ uploads data to an Azure Operator Insights data product. We provide an ingestion agent called the Azure Operator Insights ingestion agent that you can install on a Linux virtual machine to upload data from your network. This ingestion agent supports uploading:
+An _ingestion agent_ uploads data to an Azure Operator Insights Data Product. We provide an ingestion agent called the Azure Operator Insights ingestion agent that you can install on a Linux virtual machine to upload data from your network. This ingestion agent supports uploading:
 
 - Affirmed Mobile Content Cloud (MCC) Event Data Record (EDR) data streams.
 - Files stored on an SFTP server.
@@ -61,7 +61,7 @@ The ingestion agent is designed to be highly reliable and resilient to low level
 
 The ingestion agent authenticates to two separate systems, with separate credentials.
 
-- To authenticate to the ingestion endpoint of an Azure Operator Insights Data Product, the agent obtains a connection string from an Azure Key Vault. The agent authenticates to this Key Vault with a Microsoft Entra ID service principal and certificate that you setup when you created the agent.
+- To authenticate to the ingestion endpoint of an Azure Operator Insights Data Product, the agent obtains a SAS token from an Azure Key Vault. The agent authenticates to this Key Vault with either a Microsoft Entra ID managed identity or service principal and certificate that you setup when you created the agent.
 - To authenticate to your SFTP server, the agent can use password authentication or SSH key authentication.
 
 For configuration instructions, see [Set up authentication to Azure](set-up-ingestion-agent.md#set-up-authentication-to-azure), [Prepare the VMs](set-up-ingestion-agent.md#prepare-the-vms) and [Configure the agent software](set-up-ingestion-agent.md#configure-the-agent-software).

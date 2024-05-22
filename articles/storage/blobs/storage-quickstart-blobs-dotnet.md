@@ -7,7 +7,7 @@ ms.date: 02/06/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet, ai-video-demo
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 zone_pivot_groups: azure-blob-storage-quickstart-options
 ---

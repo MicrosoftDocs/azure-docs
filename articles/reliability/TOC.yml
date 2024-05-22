@@ -22,24 +22,52 @@
         href: migrate-app-configuration.md
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
+      - name: Azure App Service
+        href: reliability-app-service.md#availability-zone-migration
       - name: Azure Functions
         href: migrate-functions.md
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
       - name: Azure AI Search
         href: migrate-search-service.md
+      - name: Azure Backup
+        href: migrate-recovery-services-vault.md
+      - name: Azure Batch
+        href: reliability-batch.md#availability-zone-migration
+      - name: Azure Container Apps
+        href: reliability-azure-container-apps.md#availability-zone-migration
       - name: Azure Container instances
         href: migrate-container-instances.md
+      - name: Azure Container Registry
+        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
+      - name: Azure Cosmos DB for NoSQL
+        href: migrate-cosmos-nosql.md
       - name: Azure Database for MySQL - Flexible Server
         href: migrate-database-mysql-flex.md
+      - name: Azure Database for PostgreSQL
+        href: /azure/postgresql/flexible-server/how-to-manage-high-availability-portal#enable-high-availability-during-server-creation
+      - name: Azure Elastic SAN
+        href: reliability-elastic-san.md#availability-zone-migration
+      - name: Azure Functions
+        href: reliability-functions.md#availability-zone-migration
+      - name: Azure HDInsight
+        href: reliability-hdinsight.md#availability-zone-migration
+      - name: Azure Key Vault
+        href: /azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability
+      - name: Azure Kubernetes Service
+        href: /azure/aks/availability-zones?toc=/azure/reliability
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
       - name: Azure Log Analytics workspaces
         href: migrate-monitor-log-analytics.md
+      - name: Azure Logic Apps
+        href: /azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability
       - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
       - name: Azure Service Fabric
         href: migrate-service-fabric.md
+      - name: Azure Service Bus
+        href: /azure/service-bus-messaging/service-bus-geo-dr#availability-zones?toc=/azure/reliability
       - name: Azure SQL Database
         href: migrate-sql-database.md
       - name: Azure Storage accounts
@@ -61,15 +89,15 @@
 - name: Reliability guides by service
   items:
   - name: Overview
-    href: reliability-guidance-overview.md
+    href: overview-reliability-guidance.md
   - name: Foundational services
     items:
-      - name: Azure Cosmos DB
+      - name: Azure Cosmos DB for NoSQL
         items:
-        - name: Availability zones
-          href:  ../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Disaster recovery
-          href: ../cosmos-db/how-to-multi-master.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        - name: Proactive resiliency
+          href: resiliency-recommendations/recommend-cosmos-db-nosql.md
+        - name: Reliability guide
+          href: reliability-cosmos-db-nosql.md
       - name: Azure Event Hubs
         href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure ExpressRoute
@@ -158,8 +186,6 @@
       href: ../bastion/bastion-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#dr
     - name: Azure Batch
       href: reliability-batch.md
-    - name: Azure Bot Service 
-      href: reliability-bot.md
     - name: Azure Cognitive Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cache for Redis
@@ -197,11 +223,7 @@
     - name: Azure Data Explorer
       href: /azure/data-explorer/business-continuity-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure DDoS Protection
-      items:
-      - name: Availability zones
-        href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../ddos-protection/ddos-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity
+      href: reliability-ddos.md
     - name: Azure Disk Encryption 
       href: ../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure DNS 
@@ -249,7 +271,7 @@
     - name: Azure Network Watcher
       href: ../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
     - name: Azure Notification Hubs
-      href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-notification-hubs.md
     - name: Azure Operator Nexus
       href: reliability-operator-nexus.md
     - name: Azure Private Link
@@ -262,8 +284,6 @@
       href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
     - name: Azure Storage - Blob Storage
       href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Traffic Manager
-      href: reliability-traffic-manager.md
     - name: Azure Virtual WAN
       items:
       - name: Availability zones
@@ -280,18 +300,16 @@
       href: ../active-directory-domain-services/tutorial-create-replica-set.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Strategic services
     items:
+    - name: Azure API Center
+      href: reliability-api-center.md
     - name: Azure Application Gateway for Containers
       href: reliability-app-gateway-containers.md
     - name: Azure Chaos Studio
       href: reliability-chaos-studio.md
     - name: Azure Community Training
       href: reliability-community-training.md
-    - name : Azure Cosmos DB for MongoDB vCore
-      items:
-      - name: Availability zones
-        href: /azure/cosmos-db/mongodb/vcore/high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href : ../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Cosmos DB for MongoDB vCore
+      href: reliability-cosmos-mongodb.md
     - name: Azure Databox
       href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Data Manager for Energy
@@ -304,6 +322,8 @@
       href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true#data-availability&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
+    - name: Azure HDInsight on AKS
+      href: reliability-hdinsight-on-aks.md
     - name: Azure Health Data Services - Azure API for FHIR
       href: ../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Health Insights 
@@ -330,6 +350,12 @@
       href: reliability-fabric.md
     - name: Microsoft Purview
       href: reliability-microsoft-purview.md
+  - name: Non-regional services
+    items:
+    - name: Azure Bot Service 
+      href: reliability-bot.md
+    - name: Azure Traffic Manager
+      href: reliability-traffic-manager.md
   - name:  Azure Service Manager retirement
     items:
     - name: Overview

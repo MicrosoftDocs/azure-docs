@@ -7,7 +7,7 @@ mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a confidential VM with the Azure CLI
@@ -57,8 +57,7 @@ az vm create \
   --public-ip-sku Standard \
   --security-type ConfidentialVM \
   --os-disk-security-encryption-type VMGuestStateOnly \
-  --enable-secure-boot true \
-  --encryption-at-host \
+  --enable-secure-boot true
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.

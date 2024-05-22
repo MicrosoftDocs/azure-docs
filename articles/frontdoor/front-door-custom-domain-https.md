@@ -13,6 +13,8 @@ ms.author: duau
 
 # Configure HTTPS on a Front Door (classic) custom domain
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 This article shows how to enable the HTTPS protocol for a custom domain that's associated with your Front Door (classic) under the frontend hosts section. By using the HTTPS protocol on your custom domain (for example, `https://www.contoso.com`), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site using HTTPS, it validates the web site's security certificate and verifies if issued by a legitimate certificate authority. This process provides security and protects your web applications from malicious attacks.
 
 Azure Front Door supports HTTPS on a Front Door default hostname, by default. For example, if you create a Front Door (such as `https://contoso.azurefd.net`), HTTPS is automatically enabled for requests made to `https://contoso.azurefd.net`. However, once you onboard the custom domain 'www.contoso.com' you need to additionally enable HTTPS for this frontend host.

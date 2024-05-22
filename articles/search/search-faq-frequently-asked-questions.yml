@@ -8,10 +8,8 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.service: cognitive-search
-  ms.custom:
-    - ignite-2023
   ms.topic: faq
-  ms.date: 02/21/2024
+  ms.date: 05/21/2024
 title: Azure AI Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure AI Search.
 
@@ -36,12 +34,14 @@ sections:
       - question: |
           What languages are supported?
         answer: |
-          The default analyzer used for tokenization is standard Lucene and it is language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
+          For vectors, the embedding models you use determines the linguistic experience. 
+          
+          For nonvector strings and numbers, the default analyzer used for tokenization is standard Lucene and it is language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
 
       - question: |
           How do I integrate search into my solution?
         answer: |
-          Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
+          Client code should call the Azure SDK client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
 
       - question: |
           Is there functional parity across the various APIs?
@@ -70,14 +70,16 @@ sections:
       - question: |
           What does "indexing" mean in Azure AI Search?
         answer: |
-          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval. It creates vector indexes if the schema includes vector fields.
+          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval. 
+          
+          It creates vector indexes if the schema includes vector fields.
 
       - question: |
           Can I move, backup, and restore indexes?
         answer: |
           There's no native support for porting indexes. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there's no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it, or wanted to move it.
           
-          However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure AI Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). There's also a [Python version of backup and restore](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/azure-search-backup-and-restore.ipynb).
+          However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure AI Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-utilities). There's also a [Python version of backup and restore](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/index-backup-restore/azure-search-backup-and-restore.ipynb).
                    
       - question: |
           Can I restore my index or service once it's deleted?
@@ -104,16 +106,16 @@ sections:
       - question: |
           How does vector search work in Azure AI Search?
         answer: |
-          With standalone vector search, you first use an embedding model to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents.
+          With standalone vector search, you first use an embedding model to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same deep neural network (DNN) from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents.
           
-          In Azure AI Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is `Collection(Edm.Single)`. 
+          In Azure AI Search, you can index vector data as fields in documents alongside textual and other types of content. There are [multiple data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) for vector fields. 
           
           Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
 
       - question: |
           Can Azure AI Search vectorize my content or queries?
         answer: |
-          Integrated vectorization is now in public preview.
+          [Built-in integrated vectorization](vector-search-integrated-vectorization.md) is now in public preview. 
 
       - question: |
           Does my search service support vector search?
@@ -139,7 +141,7 @@ sections:
           
           * Add a "vectorSearch" section to the index schema specifying the configuration used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
           
-          * Use [**2023-11-01**](/rest/api/searchservice) or an Azure SDK to create or update the index, load documents, and issue queries.
+          * Use [**2023-11-01**](/rest/api/searchservice) or later, oor an Azure SDK to create or update the index, load documents, and issue queries.
 
   - name: Queries
     questions:
@@ -182,12 +184,14 @@ sections:
       - question: |
           Does Azure AI Search send customer data to other services for processing?
         answer: |
-          Yes, if you use the built-in skills based on Azure AI services, the indexer sends requests to Azure AI services over the internal network. If you add a custom skill, the indexer sends content to the URI provided in the custom skill over the public network.
+          Yes, if you use the built-in skills based on Azure AI services, the indexer sends requests to Azure AI services over the internal network. If you add a custom skill, the indexer sends content to the URI provided in the custom skill over the public network unless you configure a [shared private link](search-indexer-howto-access-private.md).
+
+          When you configure indexing and queries for text-to-vector or image-to-image conversions, indexers and vectorizors send requests to models on Azure OpenAI, Azure AI Vision multimodal API, or to the model catalog in Azure AI Studio.
 
       - question: |
           Can I control access to search results based on user identity?
         answer: |
-          Not exactly. Typically, users who are authorized to run your application are also authorized to see all search results. Azure AI Search doesn't have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. 
+          Not exactly. Typically, users who are authorized to run your application are also authorized to see all search results. Azure AI Search doesn't have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. For steps and script, see [Get started with the Python enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template).
 
       - question: |
           Can I control access to operations based on user identity?

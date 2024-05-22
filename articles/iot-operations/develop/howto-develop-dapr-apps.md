@@ -1,9 +1,8 @@
 ---
 title: Use Dapr to develop distributed applications
-titleSuffix: Azure IoT MQ
 description: Develop distributed applications that talk with Azure IoT MQ using Dapr.
-author: timlt
-ms.author: timlt
+author: PatAltimore 
+ms.author: patricka 
 ms.subservice: mq
 ms.topic: how-to
 ms.custom:
@@ -13,11 +12,11 @@ ms.date: 11/14/2023
 # CustomerIntent: As a developer, I want to understand how to use Dapr to develop distributed apps that talk with Azure IoT MQ.
 ---
 
-# Use Dapr to develop distributed application workloads
+# Use Dapr to develop distributed application workloads that talk with Azure IoT MQ Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To use the IoT MQ Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
+To use the Azure IoT MQ Preview Dapr pluggable components, deploy both the pub/sub and state store components in your application deployment along with your Dapr application. This guide shows you how to deploy an application using the Dapr SDK and IoT MQ pluggable components.
 
 ## Prerequisites
 
@@ -51,13 +50,14 @@ After you finish writing the Dapr application, build the container:
 
 ## Deploy a Dapr application
 
-The following [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) definition defines the different volumes required to deploy the application along with the required containers.
+The following [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) definition contains the volumes required to deploy the application along with the required containers. This deployment utilizes the Dapr sidecar injector to automatically add the pluggable component pod.
 
-To start, create a yaml file with the following definitions:
+The yaml contains both a ServiceAccount, used to generate SATs for authentication with IoT Mq and the Dapr application Deployment.
+
+To create the yaml file, use the following definitions:
 
 > | Component | Description |
 > |-|-|
-> | `volumes.dapr-unix-domain-socket` | A shared directory to host unix domain sockets used to communicate between the Dapr sidecar and the pluggable components |
 > | `volumes.mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the IoT MQ broker |
 > | `volumes.aio-ca-trust-bundle` | The chain of trust to validate the MQTT broker TLS cert. This defaults to the test certificate deployed with Azure IoT Operations |
 > | `containers.mq-dapr-app` | The Dapr application container you want to deploy |
@@ -89,7 +89,7 @@ To start, create a yaml file with the following definitions:
             app: mq-dapr-app
           annotations:
             dapr.io/enabled: "true"
-            dapr.io/unix-domain-socket-path: "/tmp/dapr-components-sockets"
+            dapr.io/inject-pluggable-components: "true"
             dapr.io/app-id: "mq-dapr-app"
             dapr.io/app-port: "6001"
             dapr.io/app-protocol: "grpc"
@@ -97,9 +97,6 @@ To start, create a yaml file with the following definitions:
           serviceAccountName: dapr-client
 
           volumes:
-          - name: dapr-unix-domain-socket
-            emptyDir: {}
-
           # SAT token used to authenticate between Dapr and the MQTT broker
           - name: mqtt-client-token
             projected:
@@ -118,17 +115,6 @@ To start, create a yaml file with the following definitions:
           # Container for the Dapr application 
           - name: mq-dapr-app
             image: <YOUR_DAPR_APPLICATION>
-
-          # Container for the pluggable component
-          - name: aio-mq-components
-            image: ghcr.io/azure/iot-mq-dapr-components:latest
-            volumeMounts:
-            - name: dapr-unix-domain-socket
-              mountPath: /tmp/dapr-components-sockets
-            - name: mqtt-client-token
-              mountPath: /var/run/secrets/tokens
-            - name: aio-ca-trust-bundle
-              mountPath: /var/run/certs/aio-mq-ca-cert/
     ```
 
 2. Deploy the component by running the following command:

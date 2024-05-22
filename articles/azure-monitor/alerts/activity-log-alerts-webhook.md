@@ -1,13 +1,13 @@
 ---
-title: Configure the webhook to get activity log alerts
+title: Configure a webhook to get activity log alerts
 description: Learn about the schema of the JSON that's posted to a webhook URL when an activity log alert activates.
 ms.author: abbyweisberg
-ms.reviewer: nolavime
+ms.reviewer: yagil
 ms.topic: conceptual
-ms.date: 03/31/2017
+ms.date: 04/01/2024
 ---
 
-# Webhooks for activity log alerts
+# Configure a webhook to get activity log alerts
 
 As part of the definition of an action group, you can configure webhook endpoints to receive activity log alert notifications. With webhooks, you can route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 

@@ -4,10 +4,10 @@ description: Learn how to create a self-signed root certificate, export the publ
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 10/18/2022
 ms.author: cherylmc
-
 ---
 # Generate and export certificates - Linux (strongSwan)
 

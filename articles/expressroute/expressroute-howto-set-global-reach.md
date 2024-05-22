@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Configure ExpressRoute Global Reach
 
-This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
 
  ## Before you begin
 

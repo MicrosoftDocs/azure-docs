@@ -98,7 +98,7 @@ Migrate applications that were pointing to the old FHIR server.
 
 - Reconfigure any remaining settings in the new Azure Health Data Services FHIR Service server after migration.
 
-- If you’d like to double check to make sure that the Azure Health Data Services FHIR Service and Azure API for FHIR servers have the same configurations, you can check both [metadata endpoints](use-postman.md#get-capability-statement) to compare and contrast the two servers.
+- If you’d like to double check to make sure that the Azure Health Data Services FHIR Service and Azure API for FHIR servers have the same configurations, you can check both [metadata endpoints](use-postman.md#get-the-capability-statement) to compare and contrast the two servers.
 
 - Set up any jobs that were previously running in your old Azure API for FHIR server (for example, \$export jobs)
 

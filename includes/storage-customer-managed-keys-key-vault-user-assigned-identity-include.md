@@ -20,7 +20,7 @@ The user-assigned managed identity must have permissions to access the key in th
 
 ### [Azure portal](#tab/azure-portal)
 
-Before you can configure customer-managed keys with a user-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity, scoped to the key vault. This role grants the user-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../articles/role-based-access-control/role-assignments-portal.md).
+Before you can configure customer-managed keys with a user-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity, scoped to the key vault. This role grants the user-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../articles/role-based-access-control/role-assignments-portal.yml).
 
 When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface.
 

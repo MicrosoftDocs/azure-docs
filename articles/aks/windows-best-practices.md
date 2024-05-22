@@ -2,6 +2,7 @@
 title: Best practices for Windows containers on Azure Kubernetes Service (AKS)
 description: Learn about best practices for running Windows containers in Azure Kubernetes Service (AKS).
 ms.service: azure-kubernetes-service
+ms.custom: linux-related-content
 ms.author: schaffererin
 ms.topic: article
 ms.date: 10/27/2023
@@ -30,11 +31,12 @@ You might want to containerize existing applications and run them using Windows 
 
 > **Best practice guidance**
 >
-> Windows Server 2022 provides the latest security and performance improvements and is the recommended OS for Windows node pools on AKS.
+> Windows Server 2022 provides improved security and performance, and is the recommended OS for Windows node pools on AKS.
 
 AKS uses Windows Server 2019 and Windows Server 2022 as the host OS versions and only supports process isolation. AKS doesn't support container images built by other versions of Windows Server. For more information, see [Windows container version compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of service and won't be supported in future releases. For more information, see the [AKS release notes][aks-release-notes].
+Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of life. Windows Server 2022 will retire after Kubernetes version 1.34 reaches its end of life. For more information, see [AKS release notes][aks-release-notes]. To stay up to date on the latest Windows Server OS versions and learn more about our roadmap of what's planned for support on AKS, see our [AKS public roadmap](https://github.com/azure/aks/projects/1).
+
 
 ## Networking
 
@@ -57,11 +59,11 @@ To help you decide which networking mode to use, see [Choosing a network model][
 
 > **Best practice guidance**
 >
-> Use network policies to secure traffic between pods. Windows supports Azure Network Policy Manager and Calico Network Policy. For more information, see [Differences between Azure Network Policy Manager and Calico Network Policy][azurenpm-vs-calico].
+> Use network policies to secure traffic between pods. Windows supports Azure Network Policy Manager and Calico Network Policy. For more information, see [Differences between Network Policy engines: Cilium, Azure NPM, and Calico][azurenpm-vs-calico].
 
 When managing traffic between pods, you should apply the principle of least privilege. The Network Policy feature in Kubernetes allows you to define and enforce ingress and egress traffic rules between the pods in your cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policies-aks].
 
-Windows pods on AKS clusters that use the Calico Network Policy enable [Floating IP][dsr] by default.
+Windows pods on AKS clusters that use the Calico Network Policy enable Floating IP by default.
 
 ## Upgrades and updates
 
@@ -111,7 +113,7 @@ To learn more about Windows containers on AKS, see the following resources:
 [azure-cni-choose-network-model]: ./azure-cni-overlay.md#choosing-a-network-model-to-use
 [network-concepts-for-aks-applications]: ./concepts-network.md
 [windows-vs-linux]: ./windows-vs-linux-containers.md
-[azurenpm-vs-calico]: ./use-network-policies.md#differences-between-azure-network-policy-manager-and-calico-network-policy-and-their-capabilities
+[azurenpm-vs-calico]: ./use-network-policies.md#differences-between-network-policy-engines-cilium-azure-npm-and-calico
 [network-policies-aks]: ./use-network-policies.md
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
 [upgrade-aks-cluster]: ./upgrade-cluster.md

@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected System Center Virtual Machine Manager 
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager.
-ms.date: 02/26/2024
+ms.date: 04/12/2024
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -26,6 +26,9 @@ Arc-enabled System Center VMM allows you to:
 - Discover and onboard existing SCVMM managed VMs to Azure.
 - Install the Arc-connected machine agents at scale on SCVMM VMs to [govern, protect, configure, and monitor them](../servers/overview.md#supported-cloud-operations).
 
+> [!NOTE]
+> For more information regarding the different services Azure Arc offers, see [Choosing the right Azure Arc service for machines](../choose-service.md).
+
 ## Onboard resources to Azure management at scale
 
 Azure services such as Microsoft Defender for Cloud, Azure Monitor, Azure Update Manager, and Azure Policy provide a rich set of capabilities to secure, monitor, patch, and govern off-Azure resources via Arc.
@@ -40,7 +43,7 @@ To Arc-enable a System Center VMM management server, deploy [Azure Arc resource 
 
 The following image shows the architecture for the Arc-enabled SCVMM:
 
-:::image type="content" source="media/architecture/arc-scvmm-architecture.png" alt-text="Screenshot of Arc enabled SCVMM - architecture." lightbox="media/architecture/arc-scvmm-architecture.png":::
+:::image type="content" source="media/architecture/azure-arc-scvmm-architecture.png" alt-text="Screenshot of Arc enabled SCVMM - architecture." lightbox="media/architecture/azure-arc-scvmm-architecture.png":::
 
 ## How is Arc-enabled SCVMM different from Arc-enabled Servers
 

@@ -23,7 +23,7 @@ For more information on the supported scenarios, see the [support matrix](./sap-
 - [Create a Recovery Services vault](sap-hana-database-instances-backup.md#create-a-recovery-services-vault) for the backup and restore operations.
 - [Create a backup policy](sap-hana-database-instances-backup.md#create-a-policy).
 
-[!INCLUDE [How to configure backup for SAP HANA instance snapshot, run an on-demand backup, and monitor the backup job.](../../includes/backup-azure-configure-sap-hana-database-instance-backup.md)]
+[!INCLUDE [How to configure backup for SAP HANA instance snapshot, run an on-demand backup, and monitor the backup job](../../includes/backup-azure-configure-sap-hana-database-instance-backup.md)]
 
 ## Next steps
 

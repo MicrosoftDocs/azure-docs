@@ -152,7 +152,7 @@ The VNet-to-VNet secured transit enables VNets to connect to each other via secu
 
 ### VNet-to-Internet or third-party Security Service (i)
 
-The VNet-to-Internet enables VNets to connect to the internet via the  via security appliances (Azure Firewall, select NVA and SaaS) in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through a security appliance and is routed straight to the third-party security service. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
+The VNet-to-Internet enables VNets to connect to the internet via the security appliances (Azure Firewall, select NVA and SaaS) in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through a security appliance and is routed straight to the third-party security service. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
 
 ### Branch-to-Internet or third-party Security Service (j)
 

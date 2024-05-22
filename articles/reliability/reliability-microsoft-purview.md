@@ -58,48 +58,10 @@ Microsoft Purview makes commercially reasonable efforts to provide availability 
 
 [!INCLUDE [next step](includes/reliability-disaster-recovery-description-include.md)]
 
-There's some key information to consider upfront:
+>[!IMPORTANT]
+>Today, Microsoft Purview doesn't support automated disaster recovery. Until that support is added, you're responsible to take care of backup and restore activities. You can manually create a secondary Microsoft Purview account as a warm standby instance in another region.
 
-- It isn't advisable to back up "scanned" assets' details. You should only back up the curated data such as mapping of classifications and glossaries on assets. The only case when you need to back up assets' details is when you have custom assets via custom `typeDef`.
-
-- The backed-up asset count should be fewer than 100,000 assets. The main driver is that you have to use the search query API to get the assets, which have limitation of 100,000 assets returned. However, if you're able to segment the search query to get smaller number of assets per API call, it's possible to back up more than 100,000 assets.
-
-- The goal is to perform one time migration. If you wish to continuously "sync" assets between two accounts, there are other steps that won't be covered in detail by this article. You have to use [Microsoft Purview's Event Hubs to subscribe and create entities to another account](/purview/manage-kafka-dotnet). However, Event Hubs only has Atlas information. Microsoft Purview has added other capabilities such as **glossaries** and **contacts** which won't be available via Event Hubs.
-
-### Identify key requirements
-
-Most of enterprise organizations have critical requirement for Microsoft Purview for capabilities such as Backup, Business Continuity, and Disaster Recovery (BCDR). To get into more details of this requirement, you need to differentiate between Backup, High Availability (HA), and Disaster recovery (DR).
-
-While they're similar, HA keeps the service operational if there was a hardware fault, for example, but it wouldn't protect you if someone accidentally or deliberately deleted all the records in your database. For that, you might need to restore the service from a backup.
-
-### Backup
-
-You might need to create regular backups from a Microsoft Purview account and use a backup in case a piece of data or configuration is accidentally or deliberately deleted from the Microsoft Purview account by the users.
-
-The backup should allow saving a point in time copy of the following configurations from the Microsoft Purview account:
-
-- Account information (for example, Friendly name)
-- Collection structure and role assignments
-- Custom Scan rule sets, classifications, and classification rules
-- Registered data sources
-- Scan information
-- Create and maintain key vaults connections
-- Key vault connections and Credentials and relations with current scans
-- Registered SHIRs
-- Glossary terms templates
-- Glossary terms
-- Manual asset updates (including classification and glossary assignments)
-- ADF and Synapse connections and lineage
-
-Backup strategy is determined by restore strategy, or more specifically how long it will take to restore things when a disaster occurs. To answer that, you might need to engage with the affected stakeholders (the business owners) and understand what the required recovery objectives are.
-
-There are three main requirements to take into consideration:
-
-- **Recover Time Objective (RTO)** – Defines the maximum allowable downtime following a disaster for which ideally the system should be back operational.
-- **Recovery Point Objective (RPO)** – Defines the acceptable amount of data loss that is ok following a disaster. Normally RPO is expressed as a timeframe in hours or minutes.
-- **Recovery Level Object (RLO)** – Defines the granularity of the data being restored. It could be a SQL server, a set of databases, tables, records, etc.
-
-To implement disaster recovery for Microsoft Purview, see the [Microsoft Purview disaster recovery documentation.](/purview/concept-best-practices-migration#implementation-steps)
+To implement disaster recovery for Microsoft Purview, see the [Microsoft Purview disaster recovery documentation.](/purview/disaster-recovery)
 
 ## Next steps
 

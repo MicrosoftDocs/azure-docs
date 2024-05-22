@@ -31,7 +31,11 @@
             href: flexible-server/release-notes/january-2024.md
           - name: February 2024
             href: flexible-server/release-notes/february-2024.md
-      - name: Compute and storage
+          - name: April 2024
+            href: flexible-server/release-notes/april-2024.md
+          - name: May 2024
+            href: flexible-server/release-notes/may-2024.md
+      - name: Service tiers
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
     expanded: true
@@ -769,6 +773,10 @@
     displayName: SUPER privilege, DBA role, Access is denied
 - name: Troubleshooting
   items:
+  - name: Resolve capacity errors
+    href: ./flexible-server/resolve-capacity-errors-mysql-flex.md
+  - name: Request quota increase
+    href: ./flexible-server/how-to-request-quota-increase.md
   - name: Troubleshoot migration errors
     href: single-server/how-to-troubleshoot-common-errors.md
     displayName: SUPER privilege, DBA role, Access is denied

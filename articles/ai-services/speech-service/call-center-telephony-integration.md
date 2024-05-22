@@ -18,15 +18,11 @@ Typically, integration with the Speech service is handled by a telephony client 
 
 Usually the telephony client handles the incoming audio stream from the SIP/RTP processor, the conversion to PCM and connects the streams using continuous recognition. It also triages the processing of the results, for example, analysis of speech transcripts for Agent Assist or connect with a dialog processing engine (for example, Azure Botframework or Power Virtual Agent) for Virtual Agent.
 
-For easier integration the Speech service also supports “ALAW in WAV container” and “MULAW in WAV container” for audio streaming.
+For easier integration the Speech service also supports “ALAW in WAV container” and “MULAW in WAV container” for audio streaming. To build this integration, we recommend using the [Speech SDK](./speech-sdk.md).
 
-To build this integration we recommend using the [Speech SDK](./speech-sdk.md).
+## Azure Communication Services 
 
-
-> [!TIP]
-> For guidance on reducing Text to speech latency check out the **[How to lower speech synthesis latency](./how-to-lower-speech-synthesis-latency.md?pivots=programming-language-csharp)** guide.
-> 
-> In addition, consider implementing a text to speech cache to store all synthesized audio and playback from the cache in case a string has previously been synthesized.
+[Azure Communication Services](../../communication-services/overview.md) call automation APIs provide telephony integration. real-time event triggers to perform actions based on custom business logic specific to their domain. Within the Call Automation APIs developers can use simple AI powered APIs, which can be used to play personalized greeting messages, recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers, use sentiment analysis to improve customer service overall. These content specific APIs are orchestrated through Azure AI services with support for customization of AI models without developers needing to terminate media streams on their services and streaming back to Azure for AI functionality. For more information, see [Azure Communication Services](../../communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md?context=/azure/ai-services/speech-service/context/context).
 
 ## Next steps
 

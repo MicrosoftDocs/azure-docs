@@ -71,7 +71,7 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
    ```javascript
    var mongoose = require('mongoose');
    var env = require('dotenv').config();   //Use the .env file to load the variables
-    ```
+   ```
 
 5. Add your Azure Cosmos DB connection string and Azure Cosmos DB Name to the ```.env``` file. Replace the placeholders {cosmos-account-name} and {dbname} with your own Azure Cosmos DB account name and database name, without the brace symbols.
 
@@ -87,15 +87,15 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 6. Connect to Azure Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
 
-   ```javascript
-   mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
-      auth: {
-        username: process.env.COSMOSDB_USER,
-        password: process.env.COSMOSDB_PASSWORD
-      },
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    retryWrites: false
+    ```javascript
+    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true& replicaSet=globaldb", {
+       auth: {
+         username: process.env.COSMOSDB_USER,
+         password: process.env.COSMOSDB_PASSWORD
+       },
+       useNewUrlParser: true,
+       useUnifiedTopology: true,
+       retryWrites: false
     })
     .then(() => console.log('Connection to CosmosDB successful'))
     .catch((err) => console.error(err));

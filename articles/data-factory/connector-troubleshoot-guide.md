@@ -36,6 +36,7 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 - [ORC format](connector-troubleshoot-orc.md)
 - [Parquet format](connector-troubleshoot-parquet.md)
 - [REST](connector-troubleshoot-rest.md)
+- [Salesforce and Salesforce Service Cloud](connector-troubleshoot-salesforce.md)
 - [SharePoint Online list](connector-troubleshoot-sharepoint-online-list.md)
 - [XML format](connector-troubleshoot-xml.md)
 

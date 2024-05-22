@@ -11,7 +11,7 @@ ms.author: eur
 zone_pivot_groups: speech-studio-rest
 ---
 
-# Create a project for professional voice (preview)
+# Create a project for professional voice
 
 ::: zone pivot="speech-studio"
 [!INCLUDE [Speech Studio include](./includes/how-to/professional-voice/create-project/speech-studio.md)]

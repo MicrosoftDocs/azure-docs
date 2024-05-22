@@ -1,5 +1,5 @@
 ---
-title: Enable SUPI concealment (preview)
+title: Enable SUPI concealment
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, learn how to configure SUPI concealment. 
 author: robswain
@@ -10,7 +10,7 @@ ms.date: 02/01/2024
 ms.custom: template-how-to
 ---
 
-# Enable SUPI concealment (preview)
+# Enable SUPI concealment
 
 The **subscription permanent identifier (SUPI)** is a unique, permanent identifier for a device. To avoid transmitting this identifier in plain text, it can be concealed through encryption. The encrypted value is known as the **subscription concealed identifier (SUCI)**. The encryption (SUPI concealment) is performed by the UE on registration, generating a new SUCI each time to prevent the user from being tracked. Decryption (SUCI deconcealment) is performed by the Unified Data Management (UDM) network function in the packet core.
 
@@ -93,9 +93,9 @@ The home network private keys are stored in Azure Key Vault.
 
 ## Create a user-assigned managed identity
 
-1. [Create a user-assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). Make a note of its UAMI resource ID.
+1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). Make a note of its UAMI resource ID.
 
-1. [Assign Key Vault Secrets User access](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/howto-assign-access-portal) to the Key Vault for the managed identity.
+1. [Assign Key Vault Secrets User access](/entra/identity/managed-identities-azure-resources/howto-assign-access-portal) to the Key Vault for the managed identity.
 
 1. Go to the **Mobile Network** resource in the portal and select **Identity** from the left-hand **Settings** menu. Select **Add** to add the user-assigned managed identity to the mobile network.
 

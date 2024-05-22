@@ -18,7 +18,7 @@ Network Security Group flow logs allow you to view information about ingress and
 It can be difficult to gain insights into flow logging data by manually searching the log files. In this article, we provide a solution to visualize your most recent flow logs and learn about traffic on your network.
 
 > [!Warning]  
-> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
+> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](nsg-flow-logs-overview.md). The following instructions will not work with version 2 of the log files, without modification.
 
 ## Scenario
 
@@ -36,7 +36,7 @@ The template provided is editable so you can modify it to add new data, visuals,
 
 ## Setup
 
-Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account. For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
+Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account. For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](nsg-flow-logs-overview.md).
 
 You must also have the Power BI Desktop client installed on your machine, and enough free space on your machine to download and load the log data that exists in your storage account.
 
@@ -44,7 +44,7 @@ You must also have the Power BI Desktop client installed on your machine, and en
 
 ### Steps
 
-1. Download and open the following Power BI template in the Power BI Desktop Application [Network Watcher PowerBI flow logs template](https://aka.ms/networkwatcherflowlogspowerbitemplate)
+1. Download and open the following Power BI template in the Power BI Desktop Application [Network Watcher Power BI flow logs template](https://aka.ms/networkwatcherflowlogspowerbitemplate)
 1. Enter the required Query parameters
    1. **StorageAccountName** – Specifies to the name of the storage account containing the NSG flow logs that you would like to load and visualize.
    1. **NumberOfLogFiles** – Specifies the number of log files that you would like to download and visualize in Power BI. For example, if 50 is specified, the 50 latest log files. If we have 2 NSGs enabled and configured to send NSG flow logs to this account, then the past 25 hours of logs can be viewed.
@@ -61,7 +61,7 @@ You must also have the Power BI Desktop client installed on your machine, and en
 
 ## Understanding the visuals
 
-Provided in the template are a set of visuals that help make sense of the NSG Flow Log data. The following images show a sample of what the dashboard looks like when populated with data. Below we examine each visual in greater detail 
+Provided in the template are a set of visuals that help make sense of the NSG Flow Log data. The following images show a sample of what the dashboard looks like when populated with data. Below we examine each visual in greater detail. 
 
 ![powerbi][5]
  
@@ -91,7 +91,7 @@ The following informational charts display information about the NSGs present in
 
 ![infochart2][12]
 
-This template includes the following slicers to allow you to view only the data you are most interested in. You can filter on your resource groups, NSGs, and rules. You can also filter on 5-tuple information, decision, and the time the log was written.
+This template includes the following slicers to allow you to view only the data you're most interested in. You can filter on your resource groups, NSGs, and rules. You can also filter on 5-tuple information, decision, and the time the log was written.
 
 ![slicers][13]
 
@@ -107,7 +107,7 @@ Feel free to customize this template for your needs. There are many numerous way
 
     * If other data exists in another directory they the queries to pull and process the data must be modified.
 
-* The provided template is not recommended for use with more than 1 GB of logs.
+* The provided template isn't recommended for use with more than 1 GB of logs.
 
 * If you have a large amount of logs, we recommend that you investigate a solution using another data store like Data Lake or SQL server.
 

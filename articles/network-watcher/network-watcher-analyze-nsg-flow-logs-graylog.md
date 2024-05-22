@@ -13,14 +13,14 @@ ms.custom: engagement-fy23, linux-related-content
 # Manage and analyze network security group flow logs in Azure using Network Watcher and Graylog
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-[Network security group flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that you can use to understand ingress and egress IP traffic for Azure network interfaces. Flow logs show outbound and inbound flows on a per network security group rule basis, the network interface the flow applies to, 5-tuple information (Source/Destination IP, Source/Destination Port, Protocol) about the flow, and if the traffic was allowed or denied.
+[Network security group flow logs](nsg-flow-logs-overview.md) provide information that you can use to understand ingress and egress IP traffic for Azure network interfaces. Flow logs show outbound and inbound flows on a per network security group rule basis, the network interface the flow applies to, 5-tuple information (Source/Destination IP, Source/Destination Port, Protocol) about the flow, and if the traffic was allowed or denied.
 
 You can have many network security groups in your network with flow logging enabled. Several network security groups with flow logging enabled can make it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these network security group flow logs using Graylog, an open source log management and analysis tool, and Logstash, an open source server-side data processing pipeline.
 
 > [!Warning]
-> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
+> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](nsg-flow-logs-overview.md). The following instructions will not work with version 2 of the log files, without modification.
 
 ## Scenario
 
@@ -33,7 +33,7 @@ Network security group flow logs are enabled using Network Watcher. Flow logs fl
 ### Enable network security group flow logging
 
 For this scenario, you must have network security group flow logging enabled on at least one network security group in your account. For instructions on
-enabling network security group flow logs, refer to the following article [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md).
+enabling network security group flow logs, refer to the following article [Introduction to flow logging for network security groups](nsg-flow-logs-overview.md).
 
 ### Setting up Graylog
 

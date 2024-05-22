@@ -235,11 +235,11 @@ Your runbook currently starts the VM that you've hardcoded in the runbook. It wi
 
 1. Replace line 3, `$resourceGroup = "resourceGroupName"`, with the following:
 
-    ```powershell
-    Param(
-        [string]$resourceGroup,
-        [string]$VMName
-    )
+   ```powershell
+   Param(
+       [string]$resourceGroup,
+       [string]$VMName
+   )
    ```
 
 1. Replace the previous `Start-AzVM` command with the following:

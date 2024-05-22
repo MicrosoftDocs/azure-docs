@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Number types
 
-Azure Communication Services allows you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). In this document, we'll review the phone number types, region availability, and use cases for planning your telephony and SMS solution using Communication Services.
+Azure Communication Services allows you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). In this document, we review the phone number types, region availability, and use cases for planning your telephony and SMS solution using Communication Services.
 
 ## Available options
 
@@ -25,7 +25,7 @@ Azure Communication Services offers three types of Numbers: Toll-Free, Local, an
 - **To send or receive an SMS**, choose a Toll-Free Number or a Short Code
 - **To make or receive phone calls**, choose a Toll-Free Number or a Local Number
 
-The table below summarizes these number types with supported capabilities:
+This table summarizes the number types and supported capabilities:
 
 | Type                                                                  | Example           | Send SMS | Receive SMS | Make Calls | Receive Calls | Typical Use Case                             | Restrictions   |
 | :-------------------------------------------------------------------- | :---------------- | :------: | :---------: | :--------: | :-----------: | :------------------------------------------- | :------------- |
@@ -35,7 +35,8 @@ The table below summarizes these number types with supported capabilities:
 
 ## Next steps
 
-For additional information about getting or managing phone numbers please see the following pages:
+For more information about getting or managing phone numbers, see the following topics:
 
 - Get a [Toll-Free or Local Phone Number](../../quickstarts/telephony/get-phone-number.md)
 - Get a [Short-Code](../../quickstarts/sms/apply-for-short-code.md)
+- [Quickstart: Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md)

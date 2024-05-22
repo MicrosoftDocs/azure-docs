@@ -8,12 +8,14 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 12/12/2022
 ms.author: allensu
-ms.custom: mode-arm, FY23 content-maintenance
+ms.custom: mode-arm, FY23 content-maintenance, devx-track-arm-template
 ---
 
 # Quickstart: Use a Resource Manager template to create a virtual network
 
 In this quickstart, you learn how to create a virtual network with two subnets by using an Azure Resource Manager template. A virtual network is the fundamental building block for your private network in Azure. It enables Azure resources, like virtual machines (VMs), to securely communicate with each other and with the internet.
+
+:::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -40,7 +42,7 @@ Deploy the Resource Manager template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates a virtual network with two subnets.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fvnet-two-subnets%2Fazuredeploy.json)
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fvnet-two-subnets%2Fazuredeploy.json":::
 
 1. In the portal, on the **Create a Virtual Network with two Subnets** page, enter or select the following values:
    - **Resource group**: Select **Create new**, enter **CreateVNetQS-rg** for the resource group name, and then select **OK**.

@@ -1,8 +1,8 @@
 ---
 title: Azure Database for PostgreSQL output from Azure Stream Analytics
 description: This article describes using Azure Database for PostgreSQL as output for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/12/2023

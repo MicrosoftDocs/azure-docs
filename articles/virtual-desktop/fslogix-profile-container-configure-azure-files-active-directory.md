@@ -168,7 +168,7 @@ To get the Storage account access key:
 
 1. From the Azure portal, search for and select **storage account** in the search bar.
 
-1. From the list of storage accounts, select the account that you enabled Microsoft Entra Domain Services and assigned the RBAC role for in the previous sections.
+1. From the list of storage accounts, select the account that you enabled Active Directory Domain Services or Microsoft Entra Domain Services as the identity source and assigned the RBAC role for in the previous sections.
 
 1. Under **Security + networking**, select **Access keys**, then show and copy the key from **key1**.
 
@@ -183,7 +183,7 @@ To set the correct NTFS permissions on the folder:
      ```
 
     - Replace `<desired-drive-letter>` with a drive letter of your choice (for example, `y:`).
-    - Replace all instances of `<storage-account-name>` with the name of the storage account you specified earlier.
+    - Replace both instances of `<storage-account-name>` with the name of the storage account you specified earlier.
     - Replace `<share-name>` with the name of the share you created earlier.
     - Replace `<storage-account-key>` with the storage account key from Azure.
 

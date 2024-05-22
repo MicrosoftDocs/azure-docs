@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 10/31/2023
+ms.date: 03/29/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -311,6 +311,10 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 `--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2). For accounts that have a hierarchical namespace, your security principal must be the owning user of the target container or it must be assigned the Storage Blob Data Owner role, scoped to the target container, storage account, parent resource group, or subscription. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
 
 `--preserve-smb-info`    For SMB-aware locations, flag is set to true by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files are transferred; any others are ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for `Last Write Time` which is never preserved for folders. (default true)
+
+`--preserve-symlinks`   If enabled, symlink destinations are preserved as the blob content, rather than uploading the file or folder on the other end of the symlink.
+
+`--put-blob-size-mb`    Use this size (specified in MiB) as a threshold to determine whether to upload a blob as a single PUT request when uploading to Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
 
 `--put-md5`    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 

@@ -35,7 +35,7 @@
     items:
     - name: In-place migration feature
       href: migrate.md
-    - name: Side by side migration feature
+    - name: Side-by-side migration feature
       href: side-by-side-migrate.md
 - name: How-To guides
   items:
@@ -55,7 +55,7 @@
     items:
     - name: Use the in-place migration feature
       href: how-to-migrate.md
-    - name: Use the side by side migration feature
+    - name: Use the side-by-side migration feature
       href: how-to-side-by-side-migrate.md
     - name: Manually migrate to App Service Environment v3
       href: migration-alternatives.md
@@ -91,8 +91,6 @@
       href: intro.md
     - name: Create ASE v2 from template
       href: create-from-template.md
-    - name: Create external ASE v2
-      href: create-external-ase.md
     - name: Create internal ASE v2
       href: create-ilb-ase.md
     - name: Use an ASE v2

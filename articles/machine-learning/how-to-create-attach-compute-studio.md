@@ -8,10 +8,11 @@ ms.author: vijetaj
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: compute
-ms.date: 08/11/2022
+ms.date: 03/04/2024
 ms.topic: how-to
 ms.custom: build-2023
 ---
+
 # Manage compute resources for model training and deployment in studio
 
 In this article, learn how to manage the compute resources you use for model training and deployment in Azure Machine studio.  
@@ -37,7 +38,7 @@ To see all compute targets for your workspace, use the following steps:
 
 1. Select tabs at the top to show each type of compute target.
 
-    :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="View list of compute targets":::
+    :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="Screenshot of view list of compute targets." lightbox="media/how-to-create-attach-studio/compute-targets.png":::
 
 [!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 

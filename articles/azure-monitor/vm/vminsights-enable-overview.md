@@ -32,7 +32,7 @@ The following table shows the installation methods available for enabling VM Ins
 | [Azure portal](vminsights-enable-portal.md) | Enable individual machines with the Azure portal. |
 | [Azure Policy](vminsights-enable-policy.md) | Create policy to automatically enable when a supported machine is created. |
 | [Azure Resource Manager templates](../vm/vminsights-enable-resource-manager.md) | Enable multiple machines by using any of the supported methods to deploy a Resource Manager template, such as the Azure CLI and PowerShell. |
-| [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. Currently only supported for Log Analytics agent. |
+| [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. |
 | [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises with other cloud environments.|
 
 ### Supported Azure Arc machines
@@ -91,7 +91,7 @@ When you enable VM Insights for a machine, the following agents are installed.
 	- global.handler.control.monitor.azure.com
 	- `<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
 	- `<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
-    (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
+    (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-dce))
 
     For more information, see [Define Azure Monitor Agent network settings](../agents/azure-monitor-agent-data-collection-endpoint.md).
 

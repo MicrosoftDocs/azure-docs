@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 # Create a multi-container (preview) app using a Docker Compose configuration
 
 > [!NOTE]
-> Multi-container is in preview.
+> Sidecar containers (preview) will succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 [Web App for Containers](overview.md#app-service-on-linux) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app (preview) to Web App for Containers in the [Cloud Shell](../cloud-shell/overview.md) using a Docker Compose configuration.
 
@@ -20,7 +20,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 This article requires version 2.0.32 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -1,22 +1,23 @@
 ---
 title: Configure MQ diagnostics service
-titleSuffix: Azure IoT MQ
-description: How to configure Azure IoT MQ diagnostics service.
-author: timlt
-ms.author: timlt
+description: How to configure the Azure IoT MQ diagnostics service to create a Prometheus endpoint, and monitor the health of the system.
+author: kgremban
+ms.author: kgremban
 ms.subservice: mq
-ms.topic: how-to
+ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 11/14/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to use observability and diagnostics 
 #to monitor the health of the MQ service.
 ---
 
-# Configure Azure IoT MQ diagnostic service settings
+# Configure Azure IoT MQ Preview diagnostic service settings
 
-Azure IoT MQ includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Azure IoT MQ Preview includes a diagnostics service that periodically self tests Azure IoT MQ components and emits metrics. Operators can use these metrics to monitor the health of the system. The diagnostics service provides a Prometheus endpoint for metrics from all IoT MQ components including Broker self-test metrics.
 
 
 ## Diagnostics service configuration
@@ -26,6 +27,7 @@ The diagnostics service processes and collates diagnostic signals from various A
 | Name | Required | Format | Default | Description |
 | --- | --- | --- | --- | --- |
 | dataExportFrequencySeconds | false | Int32 | `10` | Frequency in seconds for data export |
+| enableTls | false | Boolean | false | Enable TLS for the diagnostics service |
 | image.repository | true | String | N/A | Docker image name |
 | image.tag | true | String | N/A | Docker image tag |
 | image.pullPolicy | false | String | N/A | Image pull policy to use |
@@ -37,18 +39,21 @@ The diagnostics service processes and collates diagnostic signals from various A
 | openTelemetryTracesCollectorAddr | false | String | `null` | Endpoint URL of the OpenTelemetry collector |
 | staleDataTimeoutSeconds | false | Int32 | `600` | Data timeouts in seconds |
 
-Here's an example of a Diagnostics service resource with basic configuration:
+## Example of a diagnostics service resource
+
+Here's an example of a diagnostics service resource with basic configuration:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: DiagnosticService
 metadata:
-  name: "broker"
+  name: diagnostics
   namespace: azure-iot-operations
 spec:
+  enableTls: false
   image:
     repository: mcr.microsoft.com/azureiotoperations/diagnostics-service
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   logLevel: info
   logFormat: text
 ```

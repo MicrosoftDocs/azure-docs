@@ -12,8 +12,6 @@ ms.service: azure-communication-services
 
 # Quickstart: How to create authentication credentials for sending emails using SMTP
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
-
 In this quick start, you learn about how to use an Entra application to create the authentication credentials for using SMTP to send an email using Azure Communication Services.
 
 ## Prerequisites
@@ -21,8 +19,8 @@ In this quick start, you learn about how to use an Entra application to create t
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
 - An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
-- An Entra application with access to the Azure Communication Services Resource. [Register an application with Microsoft Entra ID and create a service principal](../../../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-microsoft-entra-id-and-create-a-service-principal)
-- A client secret for the Entra application with access to the Azure Communication Service Resource. [Create a new client secret](../../../../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret)
+- An Entra application with access to the Azure Communication Services Resource. [Register an application with Microsoft Entra ID and create a service principal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal)
+- A client secret for the Entra application with access to the Azure Communication Service Resource. [Create a new client secret](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret)
 
 ## Using a Microsoft Entra application with access to the Azure Communication Services Resource for SMTP
 
@@ -81,8 +79,6 @@ username: <Azure Communication Services Resource name>.<Entra Application ID>.<E
 ```
 **Pipe-delimited Format:**
 ```
-username: <Azure Communication Services Resource name>.<Entra Application ID>.<Entra Tenant ID>
-OR
 username: <Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>
 ```
 

@@ -4,6 +4,7 @@ description: Learn about the various upgradeable components of an Azure Kubernet
 author: nickomang
 ms.author: nickoman
 ms.topic: conceptual
+ms.subservice: aks-upgrade
 ms.date: 01/26/2024
 ---
 
@@ -69,3 +70,4 @@ For more information what cluster operations may trigger specific upgrade events
 [ts-subnet-full]: /troubleshoot/azure/azure-kubernetes/error-code-subnetisfull-upgrade
 [node-security-patches]: ./concepts-vulnerability-management.md#worker-nodes
 [node-updates-kured]: ./node-updates-kured.md
+

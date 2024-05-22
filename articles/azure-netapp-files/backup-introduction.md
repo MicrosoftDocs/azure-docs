@@ -14,17 +14,6 @@ ms.custom: references_regions
 
 Azure NetApp Files backup expands the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. For more information, see [How Azure NetApp Files snapshots work](snapshots-introduction.md).
 
-> [!IMPORTANT]
-> The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. The Azure NetApp Files backup feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
->
-> ```azurepowershell-interactive
-> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupPreview                                                      
-> 
-> FeatureName      ProviderName     RegistrationState   
-> -----------      ------------     -----------------   
-> ANFBackupPreview Microsoft.NetApp Registered
-> ```
-
 ## Supported regions 
 
 Azure NetApp Files backup is supported for the following regions:   
@@ -45,9 +34,11 @@ Azure NetApp Files backup is supported for the following regions:
 * France Central
 * Germany North
 * Germany West Central
+* Israel Central
 * Japan East
 * Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe
 * Norway East
@@ -63,6 +54,7 @@ Azure NetApp Files backup is supported for the following regions:
 * UAE Central
 * UAE North
 * UK South
+* UK West
 * West Europe
 * West US
 * West US 2
@@ -103,7 +95,6 @@ If you choose to restore a backup of, for example, 600 GiB to a new volume, you'
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)

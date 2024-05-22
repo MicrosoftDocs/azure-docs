@@ -1,7 +1,7 @@
 ---
 title: Managed Service offers in Azure Marketplace
 description: Offer your Azure Lighthouse management services to customers through Managed Services offers in Azure Marketplace.
-ms.date: 03/28/2023
+ms.date: 03/07/2024
 ms.topic: conceptual
 ---
 
@@ -32,7 +32,9 @@ Public plans let you promote your services to new customers. These are usually m
 If appropriate, you can include both public and private plans in the same offer.
 
 > [!IMPORTANT]
-> Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can stop selling the plan completely if you choose to do so). After a customer accepts an offer, you can [remove access to a delegation](../how-to/remove-delegation.md) only if you included an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when you published the offer. You can also reach out to the  customer and ask them to [remove your access](../how-to/view-manage-service-providers.md#remove-service-provider-offers).
+> Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can stop selling the plan completely if you choose).
+>
+> After a customer accepts an offer, you can [remove access to a delegation](../how-to/remove-delegation.md) only if you included an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when you published the offer. You can also reach out to the  customer and ask them to [remove your access](../how-to/view-manage-service-providers.md#remove-service-provider-offers).
 
 ## Publish Managed Service offers
 

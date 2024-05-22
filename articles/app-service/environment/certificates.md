@@ -41,7 +41,7 @@ You cannot create the ASE and upload the certificate as one action in the portal
 If you want to create a self signed certificate quickly for testing, you can use the following bit of PowerShell:
 
 ```azurepowershell-interactive
-$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal.contoso.com","*.scm.internal.contoso.com"
 
 $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
 $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -89,7 +89,7 @@ dir cert:\localmachine\root
 To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
 
 ```azurepowershell-interactive
-$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal.contoso.com","*.scm.internal.contoso.com"
 
 $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
 $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText

@@ -109,7 +109,7 @@ Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the p
 
 The following diagram shows how communication flows between Spark and Kafka:
 
-:::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network" border="false":::
+:::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network." border="false":::
 
 > [!NOTE]  
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -145,7 +145,7 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
     | SSH User Name           | The SSH user to create for the clusters.                                                               |
     | SSH Password            | The password for the SSH user.                                                                         |
 
-    :::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png" alt-text="Screenshot of the customized template":::
+    :::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png" alt-text="Screenshot of the customized template.":::
 
 3. Read the **Terms and Conditions**, then select **I agree to the terms and conditions stated above**.
 

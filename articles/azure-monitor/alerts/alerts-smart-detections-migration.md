@@ -4,7 +4,7 @@ description: Learn about the steps required to upgrade your Azure Monitor Applic
 ms.author: abbyweisberg
 ms.reviewer: yagil
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 04/01/2024
 ---
 
 # Migrate Azure Monitor Application Insights smart detection to alerts (preview)

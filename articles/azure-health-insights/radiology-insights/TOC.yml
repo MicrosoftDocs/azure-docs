@@ -1,3 +1,19 @@
+title: Radiology Insights documentation TOC
+summary: Radiology Insights is offered within the context of the broader Azure AI Health Insights. It augments traditional clinical natural language processing tools by adding inferences positively impacting the radiology documentation workflow and enabling analysis and quality follow-up.
+
+metadata:
+  title: Radiology Insights documentation TOC
+  titleSuffix: Azure AI Health Insights
+  description: Enable healthcare organizations to optimize documentation workflows.
+  ms.service: Azure AI Health Insights
+  ms.topic: TOC 
+  author: JanSchietse
+  ms.collection: collection
+  ms.author: JanSchietse
+  ms.date: 12/12/2023
+
+
+
 items: 
 - name: Radiology Insights
   href: index.yml
@@ -8,14 +24,14 @@ items:
       href: overview.md
 - name: Quickstarts
   items:
-     - name: Use the Radiology Insights model
-       href: get-started.md
+      - name: Use the Radiology Insights model (Platform)
+        href: get-started.md
 - name: Responsible use of AI
   items:
     - name: Transparency note for Radiology Insights
       href: transparency-note.md
     - name: Data, privacy, and security
-      href: /azure/azure-health-insights/responsible-ai/data-privacy-security?toc=/azure/azure-health-insights/oncophenotype/toc.json
+      href: /azure/azure-health-insights/responsible-ai/data-privacy-security?toc=/azure/azure-health-insights/radiology-insights/toc.json
 - name: Concepts
   items:
      - name: Model configuration
@@ -24,8 +40,10 @@ items:
        href: inferences.md
 - name: Reference
   items:
+     - name: Tutorial
+       href: tutorial.md
      - name: REST API
-       href: /rest/api/cognitiveservices/healthinsights/radiologyinsights
+       href: /java/api/com.azure.health.insights.radiologyinsights
      - name: SDKs
        items:
          - name: .NET
@@ -34,6 +52,8 @@ items:
            href: /java/api/overview/azure/health-insights-radiologyinsights-readme
          - name: Python
            href: /python/api/overview/azure/healthinsights-radiologyinsights-readme
+         - name: JavaScript
+           href: /javascript/api/overview/azure/health-insights-radiologyinsights-rest-readme
 - name: Resources
   items:
      - name: FAQ

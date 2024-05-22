@@ -11,7 +11,7 @@ ms.topic: how-to
 We recommend that you enable Defender for Storage on the subscription level. Doing so ensures all storage accounts in the subscription will be protected, including future ones.
 
 > [!TIP]
-> You can always [configure specific storage accounts](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level (override subscription-level settings).
+> You can always [configure specific storage accounts](../storage/common/azure-defender-storage-configure.md?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level (override subscription-level settings).
 
 ## [Enable on a subscription](#tab/enable-subscription/)
 
@@ -54,7 +54,7 @@ Learn more about the `azurerm_security_center_subscription_pricing` resource by 
 
 ### Bicep template
 
-To enable and configure Microsoft Defender for Storage at the subscription level using [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), make sure your [target scope is set to subscription](/azure/azure-resource-manager/bicep/deploy-to-subscription?tabs=azure-cli#scope-to-subscription), and add the following to your Bicep template:
+To enable and configure Microsoft Defender for Storage at the subscription level using [Bicep](../azure-resource-manager/bicep/overview.md?tabs=bicep), make sure your [target scope is set to subscription](../azure-resource-manager/bicep/deploy-to-subscription.md?tabs=azure-cli#scope-to-subscription), and add the following to your Bicep template:
 
 ```terraform
 resource StorageAccounts 'Microsoft.Security/pricings@2023-01-01' = {
@@ -244,9 +244,9 @@ To disable the entire Defender plan for the storage account, set the `isEnabled`
 Learn more about the [Microsoft.Security/DefenderForStorageSettings API](/rest/api/defenderforcloud/defender-for-storage/create) documentation.
 
 > [!TIP]
-> Malware Scanning can be configured to send scanning results to the following: <br>  **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to [configure malware scanning to send scanning events to an Event Grid custom topic](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-event-grid-for-malware-scanning). <br> **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to [configure malware scanning to send scanning results to a Log Analytics workspace](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-logging-for-malware-scanning).
+> Malware Scanning can be configured to send scanning results to the following: <br>  **Event Grid custom topic** - for near-real time automatic response based on every scanning result. Learn more how to [configure malware scanning to send scanning events to an Event Grid custom topic](../storage/common/azure-defender-storage-configure.md?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-event-grid-for-malware-scanning). <br> **Log Analytics workspace** - for storing every scan result in a centralized log repository for compliance and audit. Learn more how to [configure malware scanning to send scanning results to a Log Analytics workspace](../storage/common/azure-defender-storage-configure.md?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-storage-account#setting-up-logging-for-malware-scanning).
 
-Learn more on how to [set up response for malware scanning results.](/azure/defender-for-cloud/defender-for-storage-configure-malware-scan)
+Learn more on how to [set up response for malware scanning results.](defender-for-storage-configure-malware-scan.md)
 
 ### ARM template - storage account
 

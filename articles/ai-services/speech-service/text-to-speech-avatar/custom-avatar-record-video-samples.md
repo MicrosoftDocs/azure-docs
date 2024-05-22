@@ -118,6 +118,7 @@ Gesture video clips are optional, and customers who have the need to insert cert
 | Gestures                       | Samples                |
 |--------------------------------|------------------------|
 | Delivering sell link/promotion code | ![An animated graphic depicting sample of delivering sell link.](media/delivering-sell-link.gif)       |
+| Praising the product         |  ![An animated graphic depicting sample of praising the product](media/commending-the-product.gif)       |
 | Introducing the product          | ![An animated graphic depicting sample of introducing the product.](media/introducing-the-product.gif)       |
 | Displaying the price (number from 1 to 10-fist-number with each hand) | Right hand ![An animated graphic depicting sample of displaying the price with right hand.](media/displaying-the-price-with-right-hand.gif) Left hand ![An animated graphic depicting sample of displaying the price with left hand.](media/displaying-the-price-with-left-hand.gif) |
 
@@ -129,9 +130,9 @@ High-quality avatar models are built from high-quality video recordings, includi
 
 ## Data requirements
 
-Doing some basic processing of your video data is helpful for model training efficiency, such as:
+Doing some basic processing of your video data is helpful for model training efficiency, such as: 
 
-- Make sure that the character is in the middle of the screen, the size and position are consistent during the video processing. Each video processing parameter such as brightness, contrast remains the same and doesn't change.
+- Make sure that the character is in the middle of the screen, the size and position are consistent during the video processing. Each video processing parameter such as brightness, contrast remains the same and doesn't change. The output avatar's size, position, brightness, contrast will directly reflect those present in the training data. We don't apply any alterations during processing or model building.
 - The start and end of the clip should be kept in state 0; the actors should close their mouths and smile, and look ahead. The video should be continuous, not abrupt.
 
 **Avatar training video recording file format:** .mp4 or .mov.

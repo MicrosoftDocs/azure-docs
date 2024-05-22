@@ -143,7 +143,7 @@ sections:
       - question: |
           How do I configure environment variables for my app?
         answer: |
-          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configurate variables that are used by your app's API, use [application settings](application-settings.md). To learn more, see [Configuration overview](configuration-overview.md).
+          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configurate variables that are used by your app's API, use [application settings](application-settings.yml). To learn more, see [Configuration overview](configuration-overview.md).
 
       - question: |
           Does Static Web Apps support managed identity?
@@ -167,7 +167,7 @@ sections:
       - question: |
           Am I limited to using a single identity provider?
         answer: |
-          When using Static Web Apps' built-in authentication, users can log in with any of the supported identity providers. If you want to prevent users from logging in with a specific identity provider, you can [block it](authentication-authorization.md?#block-an-authentication-provider).
+          When using Static Web Apps' built-in authentication, users can log in with any of the supported identity providers. If you want to prevent users from logging in with a specific identity provider, you can [block it](authentication-authorization.yml?#block-an-authentication-provider).
 
           If you're using [custom authentication](authentication-custom.md), you can configure one or more identity providers.
 

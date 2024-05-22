@@ -29,7 +29,10 @@ To execute a query, a query plan needs to be built. This in general represents a
 
 Azure Cosmos DB NoSQL has an optimization called Optimistic Direct Execution (ODE), which can improve the efficiency of certain NoSQL queries. Specifically, queries that don’t require distribution include those that can be executed on a single physical partition or that have responses that don't require [pagination](query/pagination.md). Queries that don’t require distribution can confidently skip some processes, such as client-side query plan generation and query rewrite, thereby reducing query latency and RU cost. If you specify the partition key in the request or query itself (or have only one physical partition), and the results of your query don’t require pagination, then ODE can improve your queries.
 
-ODE is now available and enabled by default in the .NET SDK (preview) version 3.35.0-preview and later. When you execute a query and specify a partition key in the request or query itself, or your database has only one physical partition, your query execution can leverage the benefits of ODE. To disable ODE, set EnableOptimisticDirectExecution to false in the QueryRequestOptions. 
+>[!NOTE]
+> Optimistic Direct Execution (ODE), which offers improved performance for queries that don't require distribution, should not to be confused with [Direct Mode](sdk-connection-modes.md), which is a path for connecting your application to backend replicas. 
+
+ODE is now available and enabled by default in the .NET SDK version 3.38.0 and later. When you execute a query and specify a partition key in the request or query itself, or your database has only one physical partition, your query execution can leverage the benefits of ODE. To disable ODE, set EnableOptimisticDirectExecution to false in the QueryRequestOptions. 
 
 Single partition queries that feature GROUP BY, ORDER BY, DISTINCT, and aggregation functions (like sum, mean, min, and max) can significantly benefit from using ODE. However, in scenarios where the query is targeting multiple partitions or still requires pagination, the latency of the query response and RU cost might be higher than without using ODE. Therefore, when using ODE, we recommend to:
 -	Specify the partition key in the call or query itself. 

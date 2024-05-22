@@ -3,6 +3,7 @@ title: Azure Synapse Runtime for Apache Spark 3.3
 description: New runtime is GA and ready for production workloads. Spark 3.3.1, Python 3.10, Delta Lake 2.2.
 author: ekote
 ms.author: eskot
+ms.reviewer: wiassaf, sngun
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
@@ -13,8 +14,10 @@ ms.custom: has-adal-ref, devx-track-python
 # Azure Synapse Runtime for Apache Spark 3.3 (GA)
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
 
-## Component versions
+> [!TIP]
+> We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime which currently is [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md). 
 
+## Component versions
 |  Component   | Version      |  
 | ----- |--------------|
 | Apache Spark | 3.3.1        |
@@ -25,6 +28,9 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Delta Lake | 2.2.0        |
 | Python | 3.10         |
 | R (Preview) | 4.2.2        |
+
+>[!TIP]
+> For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime).
 
 [Synapse-Python310-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python310-CPU.yml) contains the list of libraries shipped in the default Python 3.10 environment in Azure Synapse Spark.
 
@@ -583,4 +589,4 @@ The following sections present the libraries included in Azure Synapse Runtime f
 
 ## Migration between Apache Spark versions - support
 
-For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md#migration-between-apache-spark-versions---support).

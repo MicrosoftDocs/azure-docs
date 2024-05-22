@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/08/2024
+ms.date: 05/06/2024
 ms.author: banders
 ---
 
@@ -21,7 +21,11 @@ This article applies to you if you are:
 
 If you signed up for Azure through a Microsoft representative, then your default payment method is already set to *wire transfer*, so these steps aren't needed.
 
-When you switch to pay by wire transfer, you must pay your bill within 30 days of the invoice date by wire transfer.
+When you switch to pay by wire transfer:
+- Specify the invoice ID that you want to pay on your wire transfer.
+- Send the wire payment to the designated bank as is stated on your monthly invoice.
+- Send the exact amount per the invoice.
+- Pay the bill by the due date.
 
 Users with a Microsoft Customer Agreement must always [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer.
 
@@ -33,12 +37,14 @@ Customers who have a Microsoft Online Services Program (pay-as-you-go) account c
 > * An outstanding invoice is paid by your default payment method. In order to have it paid by wire transfer, you must change your default payment method to wire transfer after you've been approved.
 > * Currently, payment by wire transfer isn't supported for Global Azure in China.
 > * For Microsoft Online Services Program accounts, if you switch to pay by wire transfer, you can't switch back to paying by credit or debit card.
-> * Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer. Support for other regions is being evaluated. 
+> * Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer. Support for other regions is being evaluated.
+> * As of September 30, 2023 Microsoft no longer accepts checks as a payment method.
 
 ## Request to pay by wire transfer
 
 > [!NOTE]
-> Currently only customers in the United States can get automatically approved to change their payment method to wire transfer and use the following procedure. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
+> - Currently only customers in the United States can get automatically approved to change their payment method to wire transfer and use the following procedure. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
+> - After you're approved to pay by wire transfer, you can't switch back to credit card except for one-time payments.
 
 1. Sign in to the Azure portal.
     - If you have a pay-as-you-go subscription, navigate to **Subscriptions** and then select the one that you want to set up wire transfer for.
@@ -63,8 +69,8 @@ If you're not automatically approved, you can submit a request to Azure support 
 1. Select **New support request**.  
     :::image type="content" source="./media/pay-by-invoice/help-and-support.png" alt-text="Screenshot of the New support request link." lightbox="./media/pay-by-invoice/help-and-support.png" :::
 1. Select **Billing** as the **Issue type**. The *issue type* is the support request category. Select the subscription for which you want to pay by wire transfer, select a support plan, and then select **Next**.
-1. Select **Payment** as the **Problem Type**. The *problem type* is the support request subcategory.
-1. Select **Switch to Pay by Invoice** as the **Problem subtype**.
+1. Select **Manage Payment Methods** as the **Problem Type**. The *problem type* is the support request subcategory.
+1. Select **Switch to pay by invoice as my default payment method** as the **Problem subtype**.
 1. Enter the following information in the **Details** box, and then select **Next**.
     - New or existing customer:
     - If existing, current payment method:
@@ -90,7 +96,7 @@ If you're not automatically approved, you can submit a request to Azure support 
         - (Old quota) Existing Cores:
         - (New quota) Requested cores:
         - Specific region & series of Subscription:
-    - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](change-azure-account-profile.md).
+    - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](change-azure-account-profile.yml).
     - Add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department.
 1. Verify your contact information and preferred contact method, and then select **Create**.
 

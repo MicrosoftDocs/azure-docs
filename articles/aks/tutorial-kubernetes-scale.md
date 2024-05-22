@@ -2,7 +2,10 @@
 title: Kubernetes on Azure tutorial - Scale applications in Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods and implement horizontal pod autoscaling.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 03/05/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: mvc
 #Customer intent: As a developer or IT pro, I want to learn how to scale my applications in an Azure Kubernetes Service (AKS) cluster so I can provide high availability or respond to customer demand and application load.
 ---
@@ -103,7 +106,7 @@ These resource requests and limits are defined for each container, as shown in t
 1. Create a manifest file to define the autoscaler behavior and resource limits, as shown in the following condensed example manifest file `aks-store-quickstart-hpa.yaml`:
 
     ```yaml
-    apiVersion: autoscaling/v1
+    apiVersion: autoscaling/v2
     kind: HorizontalPodAutoscaler
     metadata:
       name: store-front-hpa
@@ -114,7 +117,13 @@ These resource requests and limits are defined for each container, as shown in t
         apiVersion: apps/v1
         kind: Deployment
         name: store-front
-        metrics: 50 # target CPU utilization
+      metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          target:
+            type: Utilization
+            averageUtilization: 50
     ```
 
 2. Apply the autoscaler manifest file using the `kubectl apply` command.
@@ -234,3 +243,4 @@ In the next tutorial, you learn how to upgrade Kubernetes in your AKS cluster.
 [set-azakscluster]: /powershell/module/az.aks/set-azakscluster
 [aks-tutorial-upgrade-kubernetes]: ./tutorial-kubernetes-upgrade-cluster.md
 [keda-addon]: ./keda-about.md
+

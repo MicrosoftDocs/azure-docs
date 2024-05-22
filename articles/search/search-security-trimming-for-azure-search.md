@@ -188,5 +188,5 @@ This article describes a pattern for filtering results based on user identity an
 
 For an alternative pattern based on Microsoft Entra ID, or to revisit other security features, see the following links.
 
-* [Security filters for trimming results using Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)
+* [Security filters for trimming results using Microsoft Entra ID identities](search-security-trimming-for-azure-search-with-aad.md)
 * [Security in Azure AI Search](search-security-overview.md)

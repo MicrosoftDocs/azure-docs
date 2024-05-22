@@ -7,7 +7,7 @@ ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 02/06/2024
+ms.date: 03/21/2024
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -21,6 +21,9 @@ Azure Cosmos DB for PostgreSQL gets updated regularly.
 Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
+
+### March 2024
+* General availability: [Oracle's compatibility functions and packages enablement via orafce extension](reference-extensions.md#functions-extensions).
 
 ### February 2024
 * General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (12.18, 13.14, 14.11, 15.6, and 16.2) are now available.

@@ -37,9 +37,9 @@ You can also learn more by watching these videos from the Defender for Cloud in 
 - [Microsoft Defender for Containers in a multicloud environment](episode-nine.md)
 - [Protect Containers in GCP with Defender for Containers](episode-ten.md)
 
-::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
+::: zone pivot="defender-for-container-arc"
 > [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters, AWS EKS, and GCP GKE is a preview feature. The preview feature is available on a self-service, opt-in basis.
+> Defender for Containers' support for Arc-enabled Kubernetes clusters is a preview feature. The preview feature is available on a self-service, opt-in basis.
 >
 > Previews are provided "as is" and "as available" and are excluded from the service level agreements and limited warranty.
 >
@@ -91,7 +91,7 @@ A full list of supported alerts is available in the [reference table of all Defe
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Microsoft Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
 
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
-[!INCLUDE [Remove the agent](./includes/defender-for-containers-remove-extension.md)]
+[!INCLUDE [Remove the sensor](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
@@ -103,7 +103,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
-[!INCLUDE [Remove the agent](./includes/defender-for-containers-remove-profile.md)]
+[!INCLUDE [Remove the sensor](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
 
 ## Learn more
@@ -118,7 +118,7 @@ You can check out the following blogs:
 
 Now that you enabled Defender for Containers, you can:
 
-- [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
+- [Scan your ACR images for vulnerabilities](agentless-vulnerability-assessment-aws.md)
 - [Scan your AWS images for vulnerabilities with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md)
 - [Scan your GGP images for vulnerabilities with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-gcp.md)
 - Check out [common questions](faq-defender-for-containers.yml) about Defender for Containers.

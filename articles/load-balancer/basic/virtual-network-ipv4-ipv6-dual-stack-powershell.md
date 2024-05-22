@@ -5,7 +5,8 @@ description: This article shows how deploy an IPv6 dual stack application in Azu
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 03/12/2024
+ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
 ---

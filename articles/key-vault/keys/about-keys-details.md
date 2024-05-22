@@ -109,8 +109,8 @@ For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf
 
 Key vault key auto-rotation can be set by configuring key auto-rotation policy. It is only available on Key Vault resource.
 
-- **Get Rotation Policy**: Retrieve rotation policy configuration
-- **Set Rotation Policy**: Set rotation policy configuration 
+- **Get Rotation Policy**: Retrieve rotation policy configuration.
+- **Set Rotation Policy**: Set rotation policy configuration.
 
 ## Key attributes
 
@@ -126,7 +126,7 @@ There are more read-only attributes that are included in any response that inclu
 - *updated*: IntDate, optional. The *updated* attribute indicates when this version of the key was updated. The value is null for keys that were last updated prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.
 - *hsmPlatform*: string, optional. The underlying HSM Platform that is protecting a key.
     - A hsmPlatform value of 2 means the key is protected by our latest FIPS 140 Level 3 validated HSM platform.
-    - A hsmPlatform value of 1 means the key is protected by our previous FIPS 140 Level 2 HSM platform using nCipher HSMs.
+    - A hsmPlatform value of 1 means the key is protected by our previous FIPS 140 Level 2 validated HSM platform.
     - A hsmPlatform value of 0 means the key is protected by a FIPS 140 Level 1 HSM software cryptographic module.
     - if this is not set by a Managed HSM pool, it is protected by our latest FIPS 140 Level 3 validated HSM platform.
  

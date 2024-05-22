@@ -30,7 +30,7 @@ It also contains a sample twin graph that you can use to see the historized grap
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 >[!NOTE]
 > You can also use Azure Cloud Shell in the PowerShell environment instead of the Bash environment, if you prefer. The commands on this page are written for the Bash environment, so they may require some small adjustments to be run in PowerShell.

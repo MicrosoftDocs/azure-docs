@@ -41,7 +41,7 @@ This quickstart requires the Az PowerShell module version 1.0.0 or later. Run `G
     - To start hostctrl sapstartsrv use this command for Linux VMs: 'hostexecstart -start'
     - To start instance sapstartsrv use the command: 'sapcontrol -nr 'instanceNr' -function StartService S0S'
     - To check status of hostctrl sapstartsrv use this command for Windows VMs: C:\Program Files\SAP\hostctrl\exe\saphostexec –status
-- For successful discovery and registration of the SAP system, ensure there is network connectivity between ASCS, App and DB VMs. 'ping' command for App instance hostname must be successful from ASCS VM. 'ping' for Database hostname must be successful from App server VM.
+- For successful discovery and registration of the SAP system, ensure there's network connectivity between ASCS, App and DB VMs. 'ping' command for App instance hostname must be successful from ASCS VM. 'ping' for Database hostname must be successful from App server VM.
 - On App server profile, SAPDBHOST, DBTYPE, DBID parameters must have the right values configured for the discovery and registration of Database instance details.
 
 ## Register SAP system
@@ -65,7 +65,7 @@ To register an existing SAP system in Azure Center for SAP solutions:
        -UserAssignedIdentity @{'/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-MSI'= @{}} `
      ```
    - **ResourceGroupName** is used to specify the name of the existing Resource Group into which you want the Virtual Instance for SAP solutions resource to be deployed. It could be the same RG in which you have Compute, Storage resources of your SAP system or a different one. 
-   - **Name** attribute is used to specify the SAP System ID (SID) that you are registering with Azure Center for SAP solutions.
+   - **Name** attribute is used to specify the SAP System ID (SID) that you're registering with Azure Center for SAP solutions.
    - **Location** attribute is used to specify the Azure Center for SAP solutions service location. Following table has the mapping that enables you to choose the right service location based on where your SAP system infrastructure is located on Azure.
 
    | **SAP application location** | **Azure Center for SAP solutions service location** |
@@ -84,16 +84,23 @@ To register an existing SAP system in Azure Center for SAP solutions:
    | Australia Central | Australia East |
    | East Asia | East Asia |
    | Southeast Asia | East Asia |
+   | Korea Central | Korea Central |
+   | Japan East | Japan East |
    | Central India | Central India |
    | Canada Central | Canada Central |
    | Brazil South | Brazil South |
    | UK South | UK South |
    | Germany West Central | Germany West Central |
    | Sweden Central | Sweden Central |
-
-   - **Environment** is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
-   - **SapProduct** is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
-   - **ManagedResourceGroupName** is used to specify the name of the managed resource group which is deployed by ACSS service in your Subscription. This RG is unique for each SAP system (SID) you register. If you do not specify the name, ACSS service sets a name with this naming convention 'mrg-{SID}-{random string}'.
+   | France Central | France Central |
+   | Switzerland North | Switzerland North |
+   | Norway East | Norway East |
+   | South Africa North | South Africa North |
+   | UAE North | UAE North |
+   
+   - **Environment** is used to specify the type of SAP environment you're registering. Valid values are *NonProd* and *Prod*.
+   - **SapProduct** is used to specify the type of SAP product you're registering. Valid values are *S4HANA*, *ECC*, *Other*.
+   - **ManagedResourceGroupName** is used to specify the name of the managed resource group which is deployed by ACSS service in your Subscription. This RG is unique for each SAP system (SID) you register. If you don't specify the name, ACSS service sets a name with this naming convention 'mrg-{SID}-{random string}'.
    - **ManagedRgStorageAccountName** is used to specify the name of the Storage Account which is deployed into the managed resource group. This storage account is unique for each SAP system (SID) you register. ACSS service sets a default name using '{SID}{random string}' naming convention. 
 
 3. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.

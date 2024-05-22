@@ -8,13 +8,13 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 02/27/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
-# Build and train a custom model
+# Build and train a custom extraction model
 
 :::moniker range=">=doc-intel-3.0.0"
 
@@ -32,18 +32,18 @@ First, make sure your training data set follows the input requirements for Docum
 
 Follow these tips to further optimize your data set for training:
 
-* If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
-* For forms with input fields, use examples that have all of the fields completed.
+* Use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
+* Use examples that have all of the fields completed for forms with input fields.
 * Use forms with different values in each field.
-* If your form images are of lower quality, use a larger data set (10-15 images, for example).
+* Use a larger data set (10-15 images) if your form images are of lower quality.
 
 ## Upload your training data
 
-Once you've put together the set of forms or documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+Once you gather a set of forms or documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Video: Train your custom model
 
-* Once you've gathered and uploaded your training dataset, you're ready to train your custom model. In the following video, we create a project and explore some of the fundamentals for successfully labeling and training a model.
+* Once you gather and upload your training dataset, you're ready to train your custom model. In the following video, we create a project and explore some of the fundamentals for successfully labeling and training a model.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
 
@@ -78,13 +78,13 @@ In your project, your first task is to label your dataset with the fields you wi
 
 The files you uploaded to storage are listed on the left of your screen, with the first file ready to be labeled.
 
-1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type.
+1. Start labeling your dataset and creating your first field by selecting the plus (➕) button on the top-right of the screen.
 
     :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot of Create a label.":::
 
 1. Enter a name for the field.
 
-1. To assign a value to the field, choose a word or words in the document and select the field in either the dropdown or the field list on the right navigation bar. The labeled value is below the field name in the list of fields.
+1. Assign a value to the field by choosing a word or words in the document. Select the field in either the dropdown or the field list on the right navigation bar. The labeled value is below the field name in the list of fields.
 
 1. Repeat the process for all the fields you wish to label for your dataset.
 
@@ -100,7 +100,7 @@ With your dataset labeled, you're now ready to train your model. Select the trai
 
 1. For the build mode, select the type of model you want to train. Learn more about the [model types and capabilities](../concept-custom.md).
 
-    :::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot of Train model dialog":::
+    :::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot of Train model dialog.":::
 
 1. Select **Train** to initiate the training process.
 
@@ -124,7 +124,7 @@ Once the model training is complete, you can test your model by selecting the mo
 
 1. The right navigation bar also has the sample code to invoke your model and the JSON results from the API.
 
-Congratulations you've trained a custom model in the Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
+Congratulations you learned to train a custom model in the Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
 
 ::: moniker-end
 
@@ -134,9 +134,9 @@ Congratulations you've trained a custom model in the Document Intelligence Studi
 
 When you use the Document Intelligence custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
 
-You need at least five filled-in forms of the same type.
+You need at least five completed forms of the same type.
 
-If you want to use manually labeled training data, you must start with at least five filled-in forms of the same type. You can still use unlabeled forms in addition to the required data set.
+If you want to use manually labeled training data, you must start with at least five completed forms of the same type. You can still use unlabeled forms in addition to the required data set.
 
 ## Custom model input requirements
 
@@ -148,14 +148,14 @@ First, make sure your training data set follows the input requirements for Docum
 
 Follow these tips to further optimize your data set for training.
 
-* If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
-* For filled-in forms, use examples that have all of their fields filled in.
+* Use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
+* Use examples that have all of their fields filled in for completed forms.
 * Use forms with different values in each field.
-* If your form images are of lower quality, use a larger data set (10-15 images, for example).
+* Use a larger data set (10-15 images) for completed forms.
 
 ## Upload your training data
 
-When you've put together the set of documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+Once you gather the set of documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
 
 If you want to use manually labeled data, upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample Labeling tool](../label-tool.md) (or your own UI) to generate these files.
 
@@ -186,7 +186,7 @@ If you add the following content to the request body, the API trains with docume
 
 ## Next steps
 
-Now that you've learned how to build a training data set, follow a quickstart to train a custom Document Intelligence model and start using it on your forms.
+Now that you learned how to build a training data set, follow a quickstart to train a custom Document Intelligence model and start using it on your forms.
 
 :::moniker range=">=doc-intel-3.0.0"
 

@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.date: 08/15/2022
 ms.author: moala
-ms.custom: devops
+ms.custom: devops, linux-related-content
 ---
 
 # Configure the rolling deployment strategy for Azure Linux virtual machines

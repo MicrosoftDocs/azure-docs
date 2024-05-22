@@ -33,7 +33,7 @@ items:
         href: concepts-understanding-throttling.md
       - name: Using your license keys
         href: concepts-byol-and-credentials.md
-      - name: Using LLM APIs
+      - name: Using generative AI
         href: concepts-llm-apis.md        
   - name: How-to guides
     items:

@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/07/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -201,6 +201,7 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | Microsoft.ContainerRegistry/registries/webhooks/listEvents/action | Lists recent events for the specified webhook. |
 > | Microsoft.ContainerRegistry/registries/webhooks/operationStatuses/read | Gets a webhook async operation status |
 > | **DataAction** | **Description** |
+> | Microsoft.ContainerRegistry/registries/catalog/read | List repositories in a container registry. |
 > | Microsoft.ContainerRegistry/registries/quarantinedArtifacts/read | Allows pull or get of the quarantined artifacts from container registry. This is similar to Microsoft.ContainerRegistry/registries/quarantine/read except that it is a data action |
 > | Microsoft.ContainerRegistry/registries/quarantinedArtifacts/write | Allows write or update of the quarantine state of quarantined artifacts. This is similar to Microsoft.ContainerRegistry/registries/quarantine/write action except that it is a data action |
 > | Microsoft.ContainerRegistry/registries/repositories/content/read | Pull or Get images from a container registry. |
@@ -215,7 +216,7 @@ Azure service: [Container Registry](/azure/container-registry/)
 
 Accelerate your containerized application development without compromising security.
 
-Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/)
+Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -233,6 +234,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/)
 > | Microsoft.ContainerService/fleets/write | Create or Update a fleet |
 > | Microsoft.ContainerService/fleets/delete | Delete a fleet |
 > | Microsoft.ContainerService/fleets/listCredentials/action | List fleet credentials |
+> | Microsoft.ContainerService/fleets/autoUpgradeProfiles/read | Get a fleet auto upgrade profile |
+> | Microsoft.ContainerService/fleets/autoUpgradeProfiles/write | Create or Update a fleet auto upgrade profile |
+> | Microsoft.ContainerService/fleets/autoUpgradeProfiles/delete | Delete a fleet auto upgrade profile |
 > | Microsoft.ContainerService/fleets/members/read | Get a fleet member |
 > | Microsoft.ContainerService/fleets/members/write | Create or Update a fleet member |
 > | Microsoft.ContainerService/fleets/members/delete | Delete a fleet member |
@@ -247,6 +251,7 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/)
 > | Microsoft.ContainerService/locations/guardrailsVersions/read | Get Guardrails Versions |
 > | Microsoft.ContainerService/locations/kubernetesversions/read | List available Kubernetes versions in the region. |
 > | Microsoft.ContainerService/locations/meshRevisionProfiles/read | Read service mesh revision profiles in a location |
+> | Microsoft.ContainerService/locations/nodeimageversions/read | List available Node Image versions in the region. |
 > | Microsoft.ContainerService/locations/operationresults/read | Gets the status of an asynchronous operation result |
 > | Microsoft.ContainerService/locations/operations/read | Gets the status of an asynchronous operation |
 > | Microsoft.ContainerService/locations/orchestrators/read | Lists the supported orchestrators |
@@ -288,6 +293,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/)
 > | Microsoft.ContainerService/managedClusters/extensionaddons/read | Gets an extension addon |
 > | Microsoft.ContainerService/managedClusters/extensionaddons/write | Creates a new extension addon or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/extensionaddons/delete | Deletes an extension addon |
+> | Microsoft.ContainerService/managedClusters/loadBalancers/read | Gets a load balancer configuration |
+> | Microsoft.ContainerService/managedClusters/loadBalancers/write | Creates a new LoadBalancerConfiguration or updates an existing one |
+> | Microsoft.ContainerService/managedClusters/loadBalancers/delete | Deletes a load balancer configuration |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/read | Gets a maintenance configuration |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/write | Creates a new MaintenanceConfiguration or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/delete | Deletes a maintenance configuration |
@@ -801,8 +809,8 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/)
 > | Microsoft.ContainerService/managedClusters/livez/poststarthook/start-kube-apiserver-admission-initializer/read | Reads start-kube-apiserver-admission-initializer |
 > | Microsoft.ContainerService/managedClusters/logs/read | Reads logs |
 > | Microsoft.ContainerService/managedClusters/metrics/read | Reads metrics |
-> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
-> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read | Reads pods |
+> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read | Reads nodes metrics |
+> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read | Reads pods metrics |
 > | Microsoft.ContainerService/managedClusters/namespaces/read | Reads namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/write | Writes namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/delete | Deletes namespaces |

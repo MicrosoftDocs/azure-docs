@@ -3,11 +3,9 @@ title: include file
 description: include file
 author: dominicbetts
 ms.topic: include
-ms.date: 12/18/2023
+ms.date: 02/29/2024
 ms.author: dobett
 ---
-
-To access the lakehouse from a Data Processor pipeline, you need to enable your cluster to access the service principal details you created earlier. You need to configure your Azure Key Vault with the service principal details so that the cluster can retrieve them.
 
 Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal. You created the Azure Key Vault in the [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) quickstart:
 
@@ -59,7 +57,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. Save the changes and exit from the editor.
 
-The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the polling interval is reached. To update the pod immediately, restart the pods for the component. To restart Data Processor, run the following commands:
+The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the next polling interval. To update a component immediately, restart the pods for the component. For example, to restart the Data Processor component, run the following commands:
 
 ```console
 kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations

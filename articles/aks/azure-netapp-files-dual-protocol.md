@@ -3,7 +3,11 @@ title: Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes S
 description: Describes how to statically provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service.
 ms.topic: article
 ms.custom:
+ms.subservice: aks-storage
 ms.date: 02/26/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service
@@ -182,20 +186,20 @@ This section describes how to expose an Azure NetApp Files dual-protocol volume 
 
 1. Create a secret on your AKS cluster to access the AD server using the [`kubectl create secret`][kubectl-create-secret] command. This secret will be used by the Kubernetes persistent volume to access the Azure NetApp Files SMB volume. Use the following command to create the secret, replacing `USERNAME` with your username, `PASSWORD` with your password, and `DOMAIN_NAME` with your Active Directory domain name.
 
-    ```bash
-        kubectl create secret generic smbcreds --from-literal=username=USERNAME --from-literal=password="PASSWORD" --from-literal=domain='DOMAIN_NAME'
-    ```
+  ```bash
+  kubectl create secret generic smbcreds --from-literal=username=USERNAME --from-literal=password="PASSWORD" --from-literal=domain='DOMAIN_NAME'
+  ```
 
 2. To verify the secret has been created, run the [`kubectl get`][kubectl-get] command.
 
-    ```bash
-       kubectl get secret
-    ```
+  ```bash
+  kubectl get secret
+  ```
 
-   ```output
-       NAME       TYPE     DATA   AGE
-       smbcreds   Opaque   2      20h
-    ```
+ ```output
+ NAME       TYPE     DATA   AGE
+ smbcreds   Opaque   2      20h
+ ```
 
 ### Install an SMB CSI driver
 
@@ -471,3 +475,4 @@ Astra Trident supports many features with Azure NetApp Files. For more informati
 [azure-netapp-smb]: azure-netapp-files-smb.md
 [azure-netapp-files]: azure-netapp-files.md
 [azure-netapp-files-volume-dual-protocol]: ../azure-netapp-files/create-volumes-dual-protocol.md
+

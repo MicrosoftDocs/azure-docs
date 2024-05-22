@@ -154,7 +154,7 @@ Currently, the **Windows update history** for a VM doesn't show the updates that
 
 > [!NOTE]
 > - To view a summary of the updates applied on your machines, go to **Azure Update Manager** > **Manage** > **History** in [Azure portal](https://portal.azure.com).
-> - Alternatively, go to **Control Panel** > **Programs** > **Programs and Features** > **Installed Updates** to view the installed CBS updates. This view only shows history of CBS updates [Servicing stack updates - Windows Deployment](https://learn.microsoft.com/windows/deployment/update/servicing-stack-updates) which can be uninstalled.
+> - Alternatively, go to **Control Panel** > **Programs** > **Programs and Features** > **Installed Updates** to view the installed CBS updates. This view only shows history of CBS updates [Servicing stack updates - Windows Deployment](/windows/deployment/update/servicing-stack-updates) which can be uninstalled.
  
 A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 

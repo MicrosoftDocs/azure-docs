@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 01/07/2024
 ms.author: edbaynash
 ---
-# Send custom metrics for an Azure resource to the Azure Monitor metrics store by using a REST API
+# Ingest custom metrics for an Azure resource using the REST API
 
-This article shows you how to send custom metrics for Azure resources to the Azure Monitor metrics store via a REST API. When the metrics are in Azure Monitor, you can do all the things with them that you do with standard metrics. For example, you can generate charts and alerts and route the metrics to other external tools.
+This article shows you how to send custom metrics for Azure resources to the Azure Monitor metrics store via the REST API. When the metrics are in Azure Monitor, you can do all the things with them that you do with standard metrics. For example, you can generate charts and alerts and route the metrics to other external tools.
 
 > [!NOTE]
 > The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in other environments or on-premises, use [Application Insights](../app/api-custom-events-metrics.md).

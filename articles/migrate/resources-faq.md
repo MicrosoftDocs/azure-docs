@@ -4,7 +4,7 @@ description: Get answers to common questions about the Azure Migrate service.
 author: MaryMichael-MS
 ms.author: v-michaelar
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 05/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -68,7 +68,9 @@ Review the supported geographies for [public](migrate-support-matrix.md#public-c
 When you create a project, you select a geography of your choice. The project and related resources are created in one of the regions in the geography, as allocated by the Azure Migrate service. 
 See the metadata storage locations for each geography [here](migrate-support-matrix.md#public-cloud).
 
-Azure Migrate doesn't move or store customer data outside of the region allocated, guaranteeing data residency and resiliency in the same geography. 
+Azure Migrate doesn't move or store customer data outside of the region allocated, guaranteeing data residency and resiliency in the same geography.
+
+Azure Migrate provides an additional option for creating projects and ensuring data residency in preferred regions beyond the specified geographies. To avail this option, use the link - https://aka.ms/migrate/ProjectRegionSelection.
 
 ## Does Azure Migrate offer Backup and Disaster Recovery?
 
@@ -79,17 +81,6 @@ While using different capabilities, it's recommended that you export the softwar
 In the event of a regional failure or outage in the Azure region that your project is created in:
 - You may not be able to access your Azure Migrate projects, assessments, and other reports for the duration of the outage. However, you can use the offline copies that you've exported. 
 - Any in-progress replication and/or migration will be paused and you might have to restart it post the outage.
-
-## How do I get started?
-
-Identify the tool you need, and then add the tool to an Azure Migrate project.
-
-To add an ISV tool or Movere:
-
-1. Get started by obtaining a license, or sign up for a free trial, in accordance with the tool policy. Licensing for tools is in accordance with the ISV or tool licensing model.
-2. In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation to connect the tool with Azure Migrate.
-
-You can track your migration journey from within the Azure Migrate project, across Azure, and in other tools.
 
 ## How do I delete a project?
 

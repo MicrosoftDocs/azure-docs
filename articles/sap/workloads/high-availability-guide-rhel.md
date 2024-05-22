@@ -3,7 +3,7 @@ title: Azure Virtual Machines HA for SAP NW on RHEL | Microsoft Docs
 description: This article describes Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux (RHEL).
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article

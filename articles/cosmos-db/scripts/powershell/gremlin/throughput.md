@@ -4,6 +4,7 @@ description: PowerShell scripts for throughput (RU/s) operations for API for Gre
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: sidandrews

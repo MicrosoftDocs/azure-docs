@@ -25,8 +25,8 @@ The following example shows how to insert a gesture in the text to speech avatar
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-<voice name="en-US-JennyNeural">
-Hello <bookmark mark='gesture.wave-left-1'/>, my name is Jenny, nice to meet you!
+<voice name="en-US-AvaMultilingualNeural">
+Hello <bookmark mark='gesture.wave-left-1'/>, my name is Ava, nice to meet you!
 </voice>
 </speak>
 ```

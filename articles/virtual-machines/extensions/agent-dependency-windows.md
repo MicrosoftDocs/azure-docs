@@ -16,7 +16,9 @@ The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependenc
 
 ## Operating system
 
-The Azure VM Dependency agent extension for Windows can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
+The Azure VM Dependency agent extension for Windows can be run against the supported operating systems listed in the following table. All operating systems in the following table are assumed to be x64. x86 isn't supported for any operating system.
+
+[!INCLUDE [dependency-agent-windows-versions](../../azure-monitor/includes/vm-insights-dependency-agent-windows-versions.md)]
 
 ## Extension schema
 

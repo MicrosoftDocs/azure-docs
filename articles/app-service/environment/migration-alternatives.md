@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3
 description: Learn how to migrate your applications to App Service Environment v3.
 author: seligj95
 ms.topic: article
-ms.date: 02/12/2024
+ms.date: 03/06/2024
 ms.author: jordanselig
 ---
 
@@ -96,7 +96,7 @@ To clone an app by using the Azure portal:
 
 ## Manually create your apps in App Service Environment v3
 
-If the migration feature doesn't support your apps or you want to take a more manual route, you can deploy your apps by following the same process that you used for your existing App Service Environment. You don't need to make updates when you deploy your apps to your new environment.
+If the migration feature doesn't support your apps or you want to take a more manual route, you can deploy your apps by following the same process that you used for your existing App Service Environment.
 
 You can export [Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) (ARM templates) of your existing apps, App Service plans, and any other supported resources and deploy them in or with your new environment. To export a template for just an app, go to your App Service plan. Under **Automation**, select **Export template**.
 
@@ -147,13 +147,13 @@ The following initial changes to your ARM templates are required to get your app
     }
     ```
 
-Other changes might be required, depending on how you configured your app.
+Other changes might be required, depending on how you configured your app. For example, if you use system-assigned managed identities and the same application names for your old and new environments, you might run into conflicts. To resolve this conflict and avoid downtime, you can use a user-assigned managed identity.
 
 You can [deploy ARM templates](../deploy-complex-application-predictably.md) by using the Azure portal, the Azure CLI, or PowerShell.
 
 ## Migrate manually
 
-The [in-place migration feature](migrate.md) automates the migration to App Service Environment v3 and transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If your apps can't have any downtime, we recommend that you use the [side by side migration feature](side-by-side-migrate.md), which is a zero-downtime migration option since the new environment is created in a different subnet. If you also choose not to use the side by side migration feature, you can use one of the manual options to re-create your apps in App Service Environment v3.
+The [in-place migration feature](migrate.md) automates the migration to App Service Environment v3 and transfers all of your apps to the new environment. There's about one hour of downtime during this migration. If your apps can't have any downtime, we recommend that you use the [side-by-side migration feature](side-by-side-migrate.md), which is a zero-downtime migration option since the new environment is created in a different subnet. If you also choose not to use the side-by-side migration feature, you can use one of the manual options to re-create your apps in App Service Environment v3.
 
 You can distribute traffic between your old and new environments by using [Application Gateway](../networking/app-gateway-with-service-endpoints.md). If you're using an internal load balancer (ILB) App Service Environment, [create an Azure Application Gateway instance](integrate-with-application-gateway.md) with an extra back-end pool to distribute traffic between your environments. For information about ILB App Service Environments and internet-facing App Service Environments, see [Application Gateway integration](../overview-app-gateway-integration.md).
 

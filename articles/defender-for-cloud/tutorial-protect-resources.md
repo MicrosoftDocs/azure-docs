@@ -27,7 +27,7 @@ JIT VM access can be used to lock down inbound traffic to your Azure VMs, reduci
 
 Management ports don't need to be open always. They only need to be open while you're connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Defender for Cloud uses Network Security Group (NSG) rules, which restrict access to management ports so they can't be targeted by attackers.
 
-Follow the guidance in [Secure your management ports with just-in-time access](just-in-time-access-usage.md).
+Follow the guidance in [Secure your management ports with just-in-time access](just-in-time-access-usage.yml).
 
 ## Harden VMs against malware
 
@@ -47,4 +47,4 @@ In this tutorial, you learned how to limit your exposure to threats by:
 Advance to the next tutorial to learn about responding to security incidents.
 
 > [!div class="nextstepaction"]
-> [Manage and respond to alerts](managing-and-responding-alerts.md)
+> [Manage and respond to alerts](managing-and-responding-alerts.yml)

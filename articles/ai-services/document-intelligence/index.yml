@@ -84,7 +84,7 @@ landingContent:
              - text: 🆕 Add-on capabilities
                url:  concept-add-on-capabilities.md
              - text: 🆕 Retrieve-Augmented Generation (RAG)
-               url:  concept-retrieval-augumented-generation.md
+               url:  concept-retrieval-augmented-generation.md
          - linkListType: concept
            links:
              - text: Pretrained model overview

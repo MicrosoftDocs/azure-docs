@@ -5,7 +5,7 @@ description: Provides a how-to guide for connecting Azure Communication Services
 author: kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: include
+ms.topic: conceptual
 ms.date: 11/27/2023
 ms.author: kpunjabi
 ms.custom: references_regions
@@ -29,8 +29,8 @@ Azure AI services can be easily integrated into any application regardless of th
 
 With the ability to connect your Azure AI services to Azure Communication Services. You can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [Speech Synthesis Markup Language (SSML)](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Azure AI services connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced through the ability to create custom models within Azure AI services that are bespoke to your domain and region, through the ability to choose which languages are spoken and recognized, custom voices and custom models built based on your experience. 
 
-## Run time flow
-[![Screen shot of integration run time flow.](./media/run-time-flow.png)](./media/run-time-flow.png#lightbox)
+## Runtime flow
+[![Screen shot of integration runtime flow.](./media/run-time-flow.png)](./media/run-time-flow.png#lightbox)
 
 ## Azure portal experience
 You'll need to connect your Azure Communication Services resource with the Azure AI resource through the Azure portal. There are two ways you can accomplish this step:
