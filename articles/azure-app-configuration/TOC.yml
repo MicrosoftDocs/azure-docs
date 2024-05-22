@@ -315,12 +315,8 @@
       items:
         - name: .NET
           items: 
-            - name: Overview
-              href: feature-management-dotnet-overview.md
-            - name: Microsoft.FeatureManagement v3
-              href: ./feature-management-dotnet-reference-v3.md
-            - name: Microsoft.FeatureManagement v4
-              href: ./feature-management-dotnet-reference-v4.md
+            - name: Feature reference
+              href: ./feature-management-dotnet-reference.md
             - name: API reference
               href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring

@@ -157,7 +157,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: .NET feature management
-          url: feature-management-dotnet-reference-v3.md
+          url: feature-management-dotnet-reference.md
         - text: .NET feature management library API
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - text: Java Spring feature management library API

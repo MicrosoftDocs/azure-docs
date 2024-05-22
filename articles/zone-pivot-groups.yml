@@ -2883,15 +2883,6 @@ groups:
     title: GitHub
   - id: azure-devops
     title: Azure DevOps
-# Owner: mametcal
-- id: appconfig-provider
-  title: Client Library pivots
-  prompt: Choose a Client Library
-  pivots:
-  - id: framework-dotnet
-    title: .NET
-  - id: framework-spring
-    title: Spring Framework
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience
