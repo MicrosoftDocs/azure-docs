@@ -1,6 +1,6 @@
 ---
 title: "Set up Advanced Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana"
-description: Get started with Advanced Network Observability for your AKS cluster using BYO Prometheus and Grafana.
+description: Get started with Advanced Network Observability for your AKS cluster using Bring-Your-Own (BYO) Prometheus and Grafana.
 author: Khushbu-Parekh
 ms.author: kparekh
 ms.service: azure-kubernetes-service
@@ -12,11 +12,11 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 # Set up Advanced Network Observability for Azure Kubernetes Service (AKS) (Preview)
 
-This article shows you how to set up Advanced Network Observability for Azure Kubernetes Service (AKS) and use bring your own (BYO) Prometheus and Grafana to visualize the scraped metrics.
+This article shows you how to set up Advanced Network Observability for Azure Kubernetes Service (AKS) and use bring your own (BYO) Prometheus and Grafana to visualize the metrics.
 
-You can use Advanced Network Observability to collect the network traffic data of your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, Prometheus collects metrics, and Grafana can be used to visualize them. Advanced Network Observability also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters. 
+You can use Advanced Network Observability to collect data about the network traffic data in your AKS clusters. It enables a centralized platform for monitoring application and network health. Currently, metrics are stored in Prometheus and Grafana can be used to visualize them. Advanced Network Observability also offers the ability to enable Hubble. These capabilities are supported for both Cilium and non-Cilium clusters.
 
-Advanced Network Observability one of the features of advanced Container Networking Services. For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
+Advanced Network Observability is one of the features of advanced Container Networking Services. For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
 
 > [!IMPORTANT]
 > Advanced Network Observability is currently in PREVIEW.
@@ -92,10 +92,10 @@ az aks create \
 
 ### [**Cilium**](#tab/cilium)
 
-Create an AKS cluster with Advanced Network Observability with a Cilium data plane using the [`az aks create`](/cli/azure/aks#az_aks_create) command and the `--enable-advanced-networking-observability` flag.
+Create an AKS cluster with Advanced Network Observability with Cilium using the [`az aks create`](/cli/azure/aks#az_aks_create) command and the `--enable-advanced-networking-observability` flag.
 
 > [!NOTE]
-> Clusters with the Cilium data plane support Advanced Observability starting with Kubernetes version 1.29.
+> Clusters with Cilium support Advanced Observability starting with Kubernetes version 1.29.
 
 
 ```azurecli-interactive
@@ -184,9 +184,9 @@ az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 
 > [!NOTE] 
 > * Depending on your Prometheus/Grafana instances’ settings, some dashboard panels may require tweaks to display all data.
-> * Cilium data plane does not currently support DNS metrics/dashboards.
+> * Cilium does not currently support DNS metrics/dashboards.
 
-1. Install the Hubble CLI to access the data it collects using the following commands:
+1. Install Hubble CLI to access the data it collects using the following commands:
 
 ```azurecli-interactive
 # Set environment variables
@@ -214,7 +214,7 @@ Your output should look similar to the following example output:
 hubble-relay-7ddd887cdb-h6khj     1/1  Running     0       23h 
 ```
 
-1. Port forward Hubble Relay using the `kubectl port-forward` command.
+1. Set up port forwarding for Hubble Relay using the `kubectl port-forward` command.
 
 ```azurecli-interactive
 kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 4245:443
@@ -520,7 +520,7 @@ spec:
 kubectl apply -f hubble-ui.yaml
 ```
 
-1. Expose the service with port forwarding using the `kubectl port-forward` command.
+1. Expose the service by setting up port forwarding using the `kubectl port-forward` command.
 
 ```azurecli-interactive
 kubectl port-forward svc/hubble-ui 12000:80
@@ -542,6 +542,6 @@ If you don't plan on using this application, delete the other resources you crea
 
 In this how-to article, you learned how to install and enable Advanced Network Observability for your AKS cluster.
 
-- For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What id Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
+- For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
 
 - To create an AKS cluster with Advanced Network Observability and Azure managed Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) Azure managed Prometheus and Grafana](advanced-network-observability-cli.md).
