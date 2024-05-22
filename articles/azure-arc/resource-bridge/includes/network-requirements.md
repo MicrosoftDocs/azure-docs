@@ -45,7 +45,7 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 
 ## Inbound connectivity requirements
 
-The following ports must be allowlisted in your firewall/proxy to enable communication between the management machine, Appliance VM IPs, and Control Plane IPs. Ensure these ports are open to facilitate the deployment and maintenance of the Azure Arc Resource Bridge.
+The following ports must be allowlisted in your firewall/proxy to enable communication between the management machine, Appliance VM IPs, and Control Plane IPs. Ensure these ports are open to facilitate the deployment and maintenance of Arc resource bridge.
 
 |**Service**|**Port**|**URL**|**Direction**|**Notes**|
 |--|--|--|--|--|
