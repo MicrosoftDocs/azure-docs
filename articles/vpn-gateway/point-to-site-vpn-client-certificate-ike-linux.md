@@ -37,10 +37,7 @@ To generate configuration files using the Azure portal:
 
 [!INCLUDE [generate profile configuration files - Azure Portal](../../includes/vpn-gateway-generate-profile-portal.md)]
 
-Next, configure the VPN client. Select from the following instructions:
-
-* [IKEv2 tunnel type steps](#ike) for strongSwan
-* [OpenVPN tunnel type steps](#openvpn) for OpenVPN client
+Next, configure the VPN client.
 
 ## <a name="ike"></a>IKEv2 - strongSwan steps
 
