@@ -12,7 +12,7 @@ services: azure-maps
 
 # Create multi-itinerary optimization service
 
-This guide describes how to use [Azure Maps] and NVIDIA cuOpt to build an itinerary optimization service that automates the process of building itineraries for multiple agents and mixed fleets, and optimizes their route across multiple destinations.
+This guide describes how to use [Azure Maps] and [NVIDIA cuOpt] to build an itinerary optimization service that automates the process of building itineraries for multiple agents and mixed fleets, and optimizes their route across multiple destinations.
 
 This is a two-step process that requires a cost matrix for the travel time and a solver to optimize the problem and generate an outcome. A cost matrix represents the cost of traveling between every two sets of locations in the problem, which includes the travel time cost and other costs of travel.
 
@@ -313,12 +313,20 @@ Sample response
 
 ## Call Azure Maps Route Directions API for routing
 
-After the location in the cuOpt response is mapped to the corresponding coordinate, you can call the Azure Maps [Route Directions] API for automobile, commercial trucks, and walking routes and directions. You can color code the route path for individual vehicle based on the assigned stops and display it on the Azure Maps base data for visualization.
+After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
 
 :::image type="content" source="media/multi-itinerary-optimization-service/multi-itinerary-route.png" alt-text="A screenshot showing the multi-itinerary route on a map.":::
 
+## Next steps
 
-:::image type="content" source="media/multi-itinerary-optimization-service/multi-itinerary-route-assigned-stops.png" alt-text="A screenshot showing the multi-itinerary route with assigned stops on a map.":::
+> [!div class="nextstepaction"]
+> [Azure Maps code samples]
+
+> [!div class="nextstepaction"]
+> [Azure Maps Route Directions API]
+
+> [!div class="nextstepaction"]
+> [Azure Maps Route Matrix API]
 
 [Azure Maps]: /azure/azure-maps/
 [Azure Marketplace]: https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/nvidia.nvidia-ai-enterprise
@@ -326,5 +334,10 @@ After the location in the cuOpt response is mapped to the corresponding coordina
 [cuOpt Supported Features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
 [List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
 [Multi Itinerary Optimization]: https://samples.azuremaps.com/rest-services/mio
+[NVIDIA cuOpt]: https://www.nvidia.com/en-us/ai-data-science/products/cuopt/
 [Route Directions]: /rest/api/maps/route/post-directions
 [Route Matrix]: /rest/api/maps/route/post-route-matrix
+
+[Azure Maps code samples]: https://samples.azuremaps.com/
+[Azure Maps Route Directions API]: /rest/api/maps/route/post-directions
+[Azure Maps Route Matrix API]: /rest/api/maps/route/post-route-matrix
