@@ -36,6 +36,7 @@ capabilitiesCallFeature.CapabilitiesChanged += Call__OnCapabilitiesChangedAsync;
 
 private async void Call__OnCapabilitiesChangedAsync(object sender, CapabilitiesChangedEventArgs args)
 {
+    Trace.WriteLine(args.Reason.ToString());
     foreach (var capability in args.ChangedCapabilities)
     {
         //Prints out capability kind and resolution reason in console
