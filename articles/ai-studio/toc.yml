@@ -20,7 +20,11 @@ items:
     href: quickstarts/get-started-playground.md
   - name: Get started building a chat app using the prompt flow SDK
     href: quickstarts/get-started-code.md
-  - name: Moderate text and images with content safety
+  - name: Get started with Assistants and code interpreter in the playground
+    href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
+  - name: Hear and speak with chat in the playground
+    href: quickstarts/hear-speak-playground.md
+  - name: Moderate text and images with Content Safety
     href: quickstarts/content-safety.md
   - name: Use Azure AI Studio with a screen reader
     href: tutorials/screen-reader.md
@@ -29,8 +33,6 @@ items:
   - name: Deploy an enterprise chat web app
     href: tutorials/deploy-chat-web-app.md
   - name: Build your own copilot using prompt flow
-    href: tutorials/deploy-copilot-ai-studio.md
-  - name: Build and deploy a chat copilot using the prompt flow SDK
     href: tutorials/deploy-copilot-ai-studio.md
 - name: How-to
   expanded: true
@@ -166,8 +168,10 @@ items:
       items:
       - name: Overview of SDKs
         href: how-to/develop/sdk-overview.md
-      - name: Work with Azure AI projects in VS Code
+      - name: Work with AI Studio projects in VS Code
         href: how-to/develop/vscode.md
+      - name: Start with an AI template
+        href: how-to/develop/ai-template-get-started.md
       - name: Trace your application with prompt flow
         href: how-to/develop/trace-local-sdk.md
   - name: Evaluate generative AI apps
@@ -225,6 +229,14 @@ items:
       - name: Use your image data with Azure OpenAI
         href: how-to/data-image-add.md
         displayName: vision, gpt, turbo
+    - name: Azure AI Content Safety
+      items:
+      - name: Content filtering
+        href: concepts/content-filtering.md
+      - name: Prevent input attacks with Prompt Shields
+        href: how-to/prompt-shields.md
+      - name: Detect groundedness in chat responses
+        href: how-to/groundedness.md
     - name: Speech
       items:
       - name: Real-time speech to text
@@ -274,12 +286,8 @@ items:
     href: ../ai-services/responsible-use-of-ai-overview.md?context=/azure/ai-studio/context/context
   - name: Limited Access features
     href: ../ai-services/cognitive-services-limited-access.md?context=/azure/ai-studio/context/context
-  - name: Content safety
-    items:
-    - name: Content filtering
-      href: concepts/content-filtering.md
-    - name: System message templates
-      href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
+  - name: System message templates
+    href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
   - name: Transparency Note for safety evaluations
     href: ./concepts/safety-evaluations-transparency-note.md
 - name: Reference

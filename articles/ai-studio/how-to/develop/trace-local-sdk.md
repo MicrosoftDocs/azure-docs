@@ -70,6 +70,9 @@ Next, execute the following command to set the trace destination. Replace `<your
 pf config set trace.destination=azureml://subscriptions/<your_subscription_id>/resourcegroups/<your_resourcegroup_name>/providers/Microsoft.MachineLearningServices/workspaces/<your_studio_project_name>
 ```
 
+> [!NOTE]
+> The West US 3 (`westus3`) region does not support tracing.
+
 ### Collections
 
 A **collection** is a group of associated traces. In [AI Studio](https://ai.azure.com), these collections along with their internal traces are managed and stored in the **Tracing** module under the **Collections** tab.
