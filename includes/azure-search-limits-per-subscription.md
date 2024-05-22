@@ -4,7 +4,7 @@
  author: HeidiSteen
  ms.service: cognitive-search
  ms.topic: include
- ms.date: 01/02/2024
+ms.date: 04/01/2024
  ms.author: heidist
 ms.custom:
   - include file

@@ -224,6 +224,13 @@ You can make custom roles compatible with both V1 and V2 APIs by including both 
 
 When using a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
 
+If your workspace is configured with a **user-assigned managed identity**, the identity must be granted the following roles. These roles allow the managed identity to create the Azure Storage, Azure Cosmos DB, and Azure Search resources used when using a customer-managed key:
+
+- `Microsoft.Storage/storageAccounts/write`
+- `Microsoft.Search/searchServices/write`
+- `Microsoft.DocumentDB/databaseAccounts/write`
+
+
 Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](/azure/key-vault/general/security-features#controlling-access-to-key-vault-data).
 
 ### User-assigned managed identity with Azure Machine Learning compute cluster

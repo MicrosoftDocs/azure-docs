@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Import an Azure Web App as an API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import an Azure Web App to Azure API Management and test the imported API, using the Azure portal.
 
 > [!NOTE]

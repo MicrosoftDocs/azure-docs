@@ -4,13 +4,13 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
-ms.date: 04/05/2023
+ms.date: 05/13/2024
 ms.custom: UpdateFrequency3
 ---
 
 # Inbound and outbound IP addresses in Azure App Service
 
-[Azure App Service](overview.md) is a multi-tenant service, except for [App Service Environments](environment/intro.md). Apps that are not in an App Service environment (not in the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/)) share network infrastructure with other apps. As a result, the inbound and outbound IP addresses of an app can be different, and can even change in certain situations.
+[Azure App Service](overview.md) is a multitenant service, except for [App Service Environments](environment/intro.md). Apps that aren't in an App Service environment (not in the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/)) share network infrastructure with other apps. As a result, the inbound and outbound IP addresses of an app can be different, and can even change in certain situations.
 
 [App Service Environments](environment/intro.md) use dedicated network infrastructures, so apps running in an App Service environment get static, dedicated IP addresses both for inbound and outbound connections.
 
@@ -38,7 +38,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## Get a static inbound IP
 
-Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
+Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](./configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service creates a static IP address to make it happen. 
 
 ## When outbound IPs change
 
@@ -50,13 +50,13 @@ The set of outbound IP addresses for your app changes when you perform one of th
 - Delete the last app in a resource group _and_ region combination and recreate it (deployment unit may change).
 - Scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**), the **PremiumV2** tier, the **PremiumV3** tier, and the **Pmv3** options within the **PremiumV3** tier (IP addresses may be added to or subtracted from the set).
 
-You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutboundIpAddresses` property or in the **Additional Outbound IP Addresses** field in the **Properties** blade in the Azure portal. See [Find outbound IPs](#find-outbound-ips).
+You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutboundIpAddresses` property or in the **Additional Outbound IP Addresses** field in the **Properties** page in the Azure portal. See [Find outbound IPs](#find-outbound-ips).
 
-Note that the set of all possible outbound IP addresses can increase over time if App Service adds new pricing tiers or options to existing App Service deployments. For example, if App Service adds the **PremiumV3** tier to an existing App Service deployment, then the set of all possible outbound IP addresses will increase. Similarly, if App Service adds new **Pmv3** options to a deployment that already supports the **PremiumV3** tier, then the set of all possible outbound IP addresses will also increase. This has no immediate effect since the outbound IP addresses for running applications do not change when a new pricing tier or option is added to an App Service deployment. However, if applications switch to a new pricing tier or option that wasn't previously available, then new outbound addresses will be used and customers will need to update downstream firewall rules and IP address restrictions.
+The set of all possible outbound IP addresses can increase over time if App Service adds new pricing tiers or options to existing App Service deployments. For example, if App Service adds the **PremiumV3** tier to an existing App Service deployment, then the set of all possible outbound IP addresses increases. Similarly, if App Service adds new **Pmv3** options to a deployment that already supports the **PremiumV3** tier, then the set of all possible outbound IP addresses increases. Adding IP addresses to a deployment has no immediate effect since the outbound IP addresses for running applications don't change when a new pricing tier or option is added to an App Service deployment. However, if applications switch to a new pricing tier or option that wasn't previously available, then new outbound addresses are used and customers need to update downstream firewall rules and IP address restrictions.
 
 ## Find outbound IPs
 
-To find the outbound IP addresses currently used by your app in the Azure portal, click **Properties** in your app's left-hand navigation. They are listed in the **Outbound IP Addresses** field.
+To find the outbound IP addresses currently used by your app in the Azure portal, select **Properties** in your app's left-hand navigation. They're listed in the **Outbound IP Addresses** field.
 
 You can find the same information by running the following command in the [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -68,7 +68,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-To find _all_ possible outbound IP addresses for your app, regardless of pricing tiers, click **Properties** in your app's left-hand navigation. They are listed in the **Additional Outbound IP Addresses** field.
+To find _all_ possible outbound IP addresses for your app, regardless of pricing tiers, select **Properties** in your app's left-hand navigation. They're listed in the **Additional Outbound IP Addresses** field.
 
 You can find the same information by running the following command in the [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -81,11 +81,21 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 ## Get a static outbound IP
-You can control the IP address of outbound traffic from your app by using regional VNet integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Regional VNet integration](./overview-vnet-integration.md) is available on **Basic**, **Standard**, **Premium**, **PremiumV2** and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](./networking/nat-gateway-integration.md).
+
+You can control the IP address of outbound traffic from your app by using virtual network integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Virtual network integration](./overview-vnet-integration.md) is available on **Basic**, **Standard**, **Premium**, **PremiumV2**, and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](./networking/nat-gateway-integration.md).
+
+## Service tag
+
+By using the `AppService` service tag, you can define network access for the Azure App Service service without specifying individual IP addresses. The service tag is a group of IP address prefixes that you use to minimize the complexity of creating security rules. When you use service tags, Azure automatically updates the IP addresses as they change for the service. However, the service tag isn't a security control mechanism. The service tag is merely a list of IP addresses.
+
+The `AppService` service tag includes only the inbound IP addresses of multitenant apps. Inbound IP addresses from apps deployed in isolated (App Service Environment) and apps using [IP-based TLS bindings](./configure-ssl-bindings.md) aren't included. Further all outbound IP addresses used in both multitenant and isolated aren't included in the tag.
+
+The tag can be used to allow outbound traffic in a Network security group (NSG) to apps. If the app is using IP-based TLS or the app is deployed in isolated mode, you must use the dedicated IP address instead.
+
+> [!NOTE]
+> Service tag helps you define network access, but it shouldn't be considered as a replacement for proper network security measures as it doesn't provide granular control over individual IP addresses.
 
 ## Next steps
 
-Learn how to restrict inbound traffic by source IP addresses.
-
-> [!div class="nextstepaction"]
-> [Static IP restrictions](app-service-ip-restrictions.md)
+* Learn how to [restrict inbound traffic](./app-service-ip-restrictions.md) by source IP addresses.
+* Learn more about [service tags](../virtual-network/service-tags-overview.md).

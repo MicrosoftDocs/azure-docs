@@ -6,7 +6,7 @@ ms.custom: devx-track-arm-template
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.reviewer: yagil
-ms.date: 12/28/2022
+ms.date: 04/01/2024
 ---
 
 # Resource Manager template samples for Azure Monitor activity log alert rules (Administrative category) 

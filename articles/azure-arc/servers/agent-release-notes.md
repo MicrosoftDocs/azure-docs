@@ -2,7 +2,7 @@
 title: What's new with Azure Connected Machine agent
 description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 02/07/2024
+ms.date: 04/09/2024
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,25 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Connected Machine agent](agent-release-notes-archive.md).
+
+## Version 1.40 - April 2024
+
+Download for [Windows](https://download.microsoft.com/download/2/1/0/210f77ca-e069-412b-bd94-eac02a63255d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issues
+
+The first release of the 1.40 agent may impact SQL Server enabled by Azure Arc when configured with least privileges on Windows servers. The 1.40 agent was re-released to address this problem. To check if your server is affected, run `azcmagent show` and locate the agent version number. Agent version `1.40.02664.1629` has the known issue and agent `1.40.02669.1635` fixes it. Download and install the [latest version of the agent](https://aka.ms/AzureConnectedMachineAgent) to restore functionality for SQL Server enabled by Azure Arc.
+
+### New features
+
+- Oracle Linux 9 is now a [supported operating system](prerequisites.md#supported-operating-systems)
+
+### Fixed
+
+- Improved error handling when a machine configuration policy has an invalid SAS token
+- The installation script for Windows now includes a flag to suppress reboots in case any agent executables are in use during an upgrade
+- Fixed an issue that could block agent installation or upgrades on Windows when the installer can't change the access control list on the agent's log directories.
+- Extension package maximum download size increased to fix access to the [latest versions of the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-extension-versions) on Azure Arc-enabled servers.
 
 ## Version 1.39 - March 2024
 
@@ -38,7 +57,7 @@ Download for [Windows](https://download.microsoft.com/download/4/8/f/48f69eb1-f7
 
 ### Known issues
 
-Windows machines that try to upgrade to version 1.38 via Microsoft Update and encounter an error might fail to roll back to the previously installed version. As a result, the machine will appear "Disconnected" and won't be manageable from Azure. The update has been removed from the Microsoft Update Catalog while Microsoft investigates this behavior. Manual installations of the agent on new and existing machines aren't affected.
+Windows machines that try and fail to upgrade to version 1.38 manually or via Microsoft Update might not roll back to the previously installed version. As a result, the machine will appear "Disconnected" and won't be manageable from Azure. A new version of 1.38 was released to Microsoft Update and the Microsoft Download Center on March 5, 2024 that resolves this issue.
 
 If your machine was affected by this issue, you can repair the agent by downloading and installing the agent again. The agent will automatically discover the existing configuration and restore connectivity with Azure. You don't need to run `azcmagent connect`.
 
@@ -96,27 +115,6 @@ The Windows Admin Center in Azure feature is incompatible with Azure Connected M
 - Upgraded the OpenSSL library and PowerShell runtime shipped with the agent to include the latest security fixes.
 - Fixed an issue that could prevent the agent from reporting the correct product type on Windows machines.
 - Improved handling of upgrades when the previously installed extension version wasn't in a successful state.
-
-## Version 1.35 - October 2023
-
-Download for [Windows](https://download.microsoft.com/download/e/7/0/e70b1753-646e-4aea-bac4-40187b5128b0/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
-
-### Known issues
-
-The Windows Admin Center in Azure feature is incompatible with Azure Connected Machine agent version 1.35. Upgrade to version 1.37 or later to use this feature.
-
-### New features
-
-- The Linux installation script now downloads supporting assets with either wget or curl, depending on which tool is available on the system
-- [azcmagent connect](azcmagent-connect.md) and [azcmagent disconnect](azcmagent-disconnect.md) now accept the `--user-tenant-id` parameter to enable Lighthouse users to use a credential from their tenant and onboard a server to a different tenant.
-- You can configure the extension manager to run, without allowing any extensions to be installed, by configuring the allowlist to `Allow/None`. This supports Windows Server 2012 ESU scenarios where the extension manager is required for billing purposes but doesn't need to allow any extensions to be installed. Learn more about [local security controls](security-overview.md#local-agent-security-controls).
-
-### Fixed
-
-- Improved reliability when installing Microsoft Defender for Endpoint on Linux by increasing [available system resources](agent-overview.md#agent-resource-governance) and extending the timeout
-- Better error handling when a user specifies an invalid location name to [azcmagent connect](azcmagent-connect.md)
-- Fixed a bug where clearing the `incomingconnections.enabled` [configuration setting](azcmagent-config.md) would show `<nil>` as the previous value
-- Security fix for the extension allowlist and blocklist feature to address an issue where an invalid extension name could impact enforcement of the lists.
 
 ## Next steps
 

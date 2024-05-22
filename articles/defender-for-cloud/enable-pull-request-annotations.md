@@ -22,16 +22,16 @@ Annotations can be added by a user with access to the repository, and can be use
 **For GitHub**:
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
-- Be a [GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) customer. 
+- Be a [GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) customer.
 - [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
 - [Configure the Microsoft Security DevOps GitHub action](github-action.md).
 
 **For Azure DevOps**:
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
-- [Have write access (owner/contributer) to the Azure subscription](../active-directory/privileged-identity-management/pim-how-to-activate-role.md). 
+- [Have write access (owner/contributer) to the Azure subscription](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
-- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.yml).
 
 ## Enable pull request annotations in GitHub
 
@@ -98,13 +98,13 @@ Before you can enable pull request annotations, your main branch must have enabl
 
     :::image type="content" source="media/tutorial-enable-pr-annotations/branch-policies.png" alt-text="Screenshot that shows where to locate the branch policies." lightbox="media/tutorial-enable-pr-annotations/branch-policies.png":::
 
-1. Locate the Build Validation section. 
+1. Locate the Build Validation section.
 
 1. Ensure the build validation for your repository is toggled to **On**.
 
     :::image type="content" source="media/tutorial-enable-pr-annotations/build-validation.png" alt-text="Screenshot that shows where the CI Build toggle is located." lightbox="media/tutorial-enable-pr-annotations/build-validation.png":::
 
-1. Select **Save**. 
+1. Select **Save**.
 
     :::image type="content" source="media/tutorial-enable-pr-annotations/validation-policy.png" alt-text="Screenshot that shows the build validation.":::
 
@@ -141,13 +141,14 @@ All annotations on your pull requests will be displayed from now on based on you
 
 **To enable pull request annotations for my Projects and Organizations in Azure DevOps**:
 
-You can do this programatically by calling the Update Azure DevOps Resource API exposed the Microsoft. Security
+You can do this programmatically by calling the Update Azure DevOps Resource API exposed the Microsoft. Security
 Resource Provider.
 
 API Info:
 
 **Http Method**: PATCH
 **URLs**:
+
 - Azure DevOps Project Update: `https://management.azure.com/subscriptions/<subId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Security/securityConnectors/<connectorName>/devops/default/azureDevOpsOrgs/<adoOrgName>/projects/<adoProjectName>?api-version=2023-09-01-preview`
 - Azure DevOps Org Update]: `https://management.azure.com/subscriptions/<subId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Security/securityConnectors/<connectorName>/devops/default/azureDevOpsOrgs/<adoOrgName>?api-version=2023-09-01-preview`
 
@@ -173,12 +174,12 @@ Parameters / Options Available
 **Options**: Enabled | Disabled
 
 **`<Category>`**
-**Description**: Category of Findings that will be annotated on pull requests. 
+**Description**: Category of Findings that will be annotated on pull requests.
 **Options**: IaC | Code | Artifacts | Dependencies | Containers
 **Note**: Only IaC is supported currently
 
 **`<Severity>`**
-**Description**: The minimum severity of a finding that will be considered when creating PR annotations. 
+**Description**: The minimum severity of a finding that will be considered when creating PR annotations.
 **Options**: High | Medium | Low
 
 Example of enabling an Azure DevOps Org's PR Annotations for the IaC category with a minimum severity of Medium using the az cli tool.

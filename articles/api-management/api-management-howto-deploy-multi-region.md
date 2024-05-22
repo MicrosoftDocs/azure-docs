@@ -5,11 +5,13 @@ description: Learn how to deploy a Premium tier Azure API Management instance to
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 05/15/2024
 ms.author: danlep
 ---
 
 # Deploy an Azure API Management instance to multiple Azure regions
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 Azure API Management supports multi-region deployment, which enables API publishers to add regional API gateways to an existing API Management instance in one or more supported Azure regions. Multi-region deployment helps reduce request latency perceived by geographically distributed API consumers and improves service availability if one region goes offline.
 
@@ -24,8 +26,6 @@ When adding a region, you configure:
 >[!IMPORTANT]
 > The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
-[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
-
 ## About multi-region deployment
 
 [!INCLUDE [api-management-multi-region-concepts](../../includes/api-management-multi-region-concepts.md)]
@@ -33,7 +33,7 @@ When adding a region, you configure:
 ## Prerequisites
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
+* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network and subnet in the location that you plan to add, and within the same subscription. To enable zone redundancy, also set up a new public IP. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional region
 
@@ -42,7 +42,7 @@ When adding a region, you configure:
 1. Select the added location from the dropdown list.
 1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
 1. Optionally select one or more [**Availability zones**](../reliability/migrate-api-mgt.md). 
-1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location. Select an existing virtual network, subnet, and public IP address that are available in the location.
+1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location, including virtual network, subnet, and public IP address (if enabling availability zones).
 1. Select **Add** to confirm.
 1. Repeat this process until you configure all locations.
 1. Select **Save** in the top bar to start the deployment process.

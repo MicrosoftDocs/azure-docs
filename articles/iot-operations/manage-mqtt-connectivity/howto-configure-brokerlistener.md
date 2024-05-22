@@ -7,7 +7,7 @@ ms.subservice: mq
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
@@ -31,6 +31,7 @@ The *BrokerListener* resource has these fields:
 | `authenticationEnabled` | No | A boolean flag that indicates whether this listener requires authentication from clients. If set to `true`, this listener uses any *BrokerAuthentication* resources associated with it to verify and authenticate the clients. If set to `false`, this listener allows any client to connect without authentication. This field is optional and defaults to `false`. To learn more about authentication, see [Configure Azure IoT MQ Preview authentication](howto-configure-authentication.md). |
 | `authorizationEnabled` | No | A boolean flag that indicates whether this listener requires authorization from clients. If set to `true`, this listener uses any *BrokerAuthorization* resources associated with it to verify and authorize the clients. If set to `false`, this listener allows any client to connect without authorization. This field is optional and defaults to `false`. To learn more about authorization, see [Configure Azure IoT MQ Preview authorization](howto-configure-authorization.md). |
 | `tls` | No | The TLS settings for the listener. The field is optional and can be omitted to disable TLS for the listener. To configure TLS, set it one of these types: <br> * If set to `automatic`, this listener uses cert-manager to get and renew a certificate for the listener. To use this type, [specify an `issuerRef` field to reference the cert-manager issuer](howto-configure-tls-auto.md). <br> * If set to `manual`, the listener uses a manually provided certificate for the listener. To use this type, [specify a `secretName` field that references a Kubernetes secret containing the certificate and private key](howto-configure-tls-manual.md). <br> * If set to `keyVault`, the listener uses a certificate from Azure Key Vault. To use this type, [specify a `keyVault` field that references the Azure Key Vault instance and secret](howto-manage-secrets.md). |
+| `protocol` | No | The protocol that this listener uses. This field is optional and defaults to `mqtt`. Must be either `mqtt` or `websockets`. |
 
 ## Default BrokerListener
 

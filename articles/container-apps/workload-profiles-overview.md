@@ -48,7 +48,7 @@ There are different types and sizes of workload profiles available by region. By
 
 | Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation |
 |---|---|---|---|---|---|
-| Consumption | consumption |4 | 8 | - | Consumption | per replica |
+| Consumption | Consumption |4 | 8 | - | Consumption | per replica |
 | Dedicated-D4 | D4 | 4 | 16 | - | General purpose | per node |
 | Dedicated-D8 | D8 | 8 | 32 | - | General purpose | per node |
 | Dedicated-D16 | D16 | 16 | 64 | - | General purpose | per node |

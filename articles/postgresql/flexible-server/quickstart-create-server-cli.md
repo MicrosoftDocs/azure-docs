@@ -1,14 +1,18 @@
 ---
-title: 'Quickstart: Create with Azure CLI'
+title: "Quickstart: Create with Azure CLI"
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for PostgreSQL - Flexible Server instance in an Azure resource group.
-ms.author: sunila
-author: sunilagarwal
+author: AlicjaKucharczyk
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/04/2024
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI
@@ -145,4 +149,4 @@ az postgres flexible-server delete --resource-group myresourcegroup --name mydem
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)
+>[Deploy a Django app with App Service and PostgreSQL](/azure/app-service/tutorial-python-postgresql-app)

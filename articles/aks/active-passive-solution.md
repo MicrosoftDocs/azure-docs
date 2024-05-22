@@ -81,3 +81,4 @@ If you're considering a different solution, see the following articles:
 
 - [Active active high availability solution overview for Azure Kubernetes Service (AKS)](./active-active-solution.md)
 - [Passive cold solution overview for Azure Kubernetes Service (AKS)](./passive-cold-solution.md)
+

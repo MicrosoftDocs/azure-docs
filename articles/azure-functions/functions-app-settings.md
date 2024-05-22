@@ -6,6 +6,7 @@ ms.custom:
   - devx-track-extended-java
   - devx-track-python
   - ignite-2023
+  - build-2024
 ms.date: 12/28/2023
 ---
 
@@ -704,13 +705,15 @@ By default, the version settings for function apps are specific to each slot. Th
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
-Enables your function app to run from a mounted package file.
+Enables your function app to run from a package file, which can be locally mounted or deployed to an external URL. 
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
-Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+
+When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 
@@ -823,6 +826,35 @@ When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](f
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
 This site setting replaces the legacy [WEBSITE\_VNET\_ROUTE\_ALL](#website_vnet_route_all) setting.
+
+## Flex Consumption plan deprecations
+
+In the [Flex Consumption plan](./flex-consumption-plan.md), these site properties and application settings are deprecated and shouldn't be used when creating function app resources:
+
+| Property/setting | Reason | 
+| ----- | ----- | 
+| `properties.ftpsState` | FTPS not supported | 
+| `properties.use32BitWorkerProcess` |32-bit not supported |
+| `properties.isReserved` |Not valid|
+| `properties.IsXenon` |Not valid|
+| `properties.windowsFxVersion` |Not valid|
+| `properties.alwaysOn` |Not valid|
+| `properties.siteConfig.preWarmedInstanceCount` | Renamed as `alwaysReadyInstances` |
+| `properties.siteConfig.functionAppScaleLimit` |Renamed as `maximumInstanceCount`|
+| `properties.containerSize` |Renamed as `instanceMemoryMB`|
+| `properties.javaVersion` | Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.powerShellVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.netFrameworkVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.LinuxFxVersion` |Replaced by `properties.functionAppConfig.runtime`|
+| `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_EXTENSION_VERSION` |App Setting is set by the backend. A value of ~1 can be ignored. |
+| `FUNCTIONS_WORKER_RUNTIME` |Replaced by `name` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_WORKER_RUNTIME_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_MAX_HTTP_CONCURRENCY` |App Setting replaced by scale and concurrency's trigger section|
+| `FUNCTIONS_WORKER_PROCESS_COUNT` |Setting not valid|
+| `FUNCTIONS_WORKER_DYNAMIC_CONCURRENCY_ENABLED` |Setting not valid|
+| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |App Setting replaced by functionAppConfig's deployment section|
+| `WEBSITE_CONTENTSHARE` |App Setting replaced by functionAppConfig's deployment section|
 
 ## Next steps
 

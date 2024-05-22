@@ -28,7 +28,7 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 
 ### Can't set storage pool type to NVMe
 
-If you try to install Azure Container Storage with ephemeral disk, specifically with local NVMe on a cluster where the virtual machine (VM) SKU doesn't have NVMe drives, you get the following error message: *Cannot set --storage-pool-option as NVMe as none of the node pools can support ephemeral NVMe disk*.
+If you try to install Azure Container Storage with Ephemeral Disk, specifically with local NVMe on a cluster where the virtual machine (VM) SKU doesn't have NVMe drives, you get the following error message: *Cannot set --storage-pool-option as NVMe as none of the node pools can support ephemeral NVMe disk*.
 
 To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](../../virtual-machines/sizes-storage.md).
 
@@ -42,7 +42,7 @@ If you're trying to create an Elastic SAN storage pool, you might see the messag
 
 ### No block devices found
 
-If you see this message, you're likely trying to create an ephemeral disk storage pool on a cluster where the VM SKU doesn't have NVMe drives.
+If you see this message, you're likely trying to create an Ephemeral Disk storage pool on a cluster where the VM SKU doesn't have NVMe drives.
 
 To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](../../virtual-machines/sizes-storage.md).
 
@@ -63,6 +63,13 @@ If you select Y, an automatic validation runs to ensure that there are no persis
 If you created an Elastic SAN storage pool, you might not be able to delete the resource group in which your AKS cluster is located.
 
 To resolve this, sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
+
+## Troubleshoot persistent volume issues
+
+### Can't create persistent volumes from ephemeral disk storage pools
+Because ephemeral disks (local NVMe and Temp SSD) are ephemeral and not durable, we enforce the use of [Kubernetes Generic Ephemeral Volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes). If you try to create a persistent volume claim using an ephemeral disk pool, you'll see the following error: *Error from server (Forbidden): error when creating "eph-pvc.yaml": admission webhook "pvc.acstor.azure.com" denied the request: only generic ephemeral volumes are allowed in unreplicated ephemeralDisk storage pools*.
+
+If you need a persistent volume, where the volume has a lifecycle independent of any individual pod that's using the volume, Azure Container Storage supports replication for NVMe. You can create a storage pool with replication and create persistent volumes from there. See [Create storage pool with volume replication](use-container-storage-with-local-disk.md#optional-create-storage-pool-with-volume-replication-nvme-only) for guidance. Note that because ephemeral disk storage pools consume all the available NVMe disks, you must delete any existing ephemeral disk storage pools before creating a new storage pool with replication enabled. If you don't need persistence, you can create a generic ephemeral volume.
 
 ## See also
 

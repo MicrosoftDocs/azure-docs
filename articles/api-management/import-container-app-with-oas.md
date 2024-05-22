@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Import an Azure Container App as an API
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article shows how to import an Azure Container App to Azure API Management and test the imported API using the Azure portal.  In this article, you learn how to:
 
 > [!div class="checklist"]

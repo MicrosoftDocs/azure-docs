@@ -187,7 +187,7 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Germany North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Israel Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Italy North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -211,6 +211,8 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Taiwan North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| Taiwan Northwest | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | UAE Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -224,11 +226,9 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-## Contacts
+## Feedback and support
 
-For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL flexible server team ([@Ask Azure Database for MySQL flexible server](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
-
-In addition, consider the following points of contact as appropriate:
+For any questions or suggestions you might have about working with Azure Database for MySQL flexible server, consider the following points of contact:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.

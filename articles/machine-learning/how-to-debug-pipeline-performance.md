@@ -12,20 +12,14 @@ ms.topic: how-to
 ms.date: 05/27/2023
 ms.custom: designer, pipeline UI
 ---
-# View profiling to debug pipeline performance issues (preview)
+# View profiling to debug pipeline performance issues
 
-Profiling (preview) feature can help you debug pipeline performance issues such as hang, long pole etc. Profiling will list the duration information of each step in a pipeline and provide a Gantt chart for visualization.
+Profiling feature can help you debug pipeline performance issues such as hang, long pole etc. Profiling will list the duration information of each step in a pipeline and provide a Gantt chart for visualization.
 
 Profiling enables you to:
 
 - Quickly find which node takes longer time than expected.
 - Identify the time spent of job on each status
-
-To enable this feature:
-
-1. Navigate to Azure Machine Learning studio UI.
-2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-3. In **Managed preview feature** panel, toggle on **View profiling to debug pipeline performance issues** feature.
 
 ## How to find the node that runs totally the longest
 

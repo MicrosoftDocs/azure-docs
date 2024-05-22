@@ -168,7 +168,7 @@ You can modify a scale to expand the set of zones over which to spread VM instan
 > Updating Virtual Machine Scale Sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 > [!IMPORTANT]
-> This preview is intended for stateless workloads on Virtual Machine Scale Sets. Scale sets with stateful workloads or used with **Service Fabric or Azure Kubernetes Services are not supported for zonal expansion**.
+> This feature is intended for stateless workloads on Virtual Machine Scale Sets. Scale sets with stateful workloads or used with **Service Fabric or Azure Kubernetes Services are not supported for zonal expansion**.
 
 This feature can be used with API version 2023-03-01 or greater.
 
@@ -224,7 +224,7 @@ Expanding to a zonal scale set is done in 3 steps:
 #### Prepare for zonal expansion
 
 > [!WARNING]
-> This preview allows you to add zones to the scale set. You can't go back to a regional scale set or remove zones once they have been added.
+> This feature allows you to add zones to the scale set. You can't go back to a regional scale set or remove zones once they have been added.
 
 In order to prepare for zonal expansion:
 * [Check that you have enough quota](../virtual-machines/quotas.md) for the VM size in the selected region to handle more instances.
@@ -297,9 +297,9 @@ With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md)
 > [!IMPORTANT]
 > Rolling upgrades with MaxSurge is currently under Public Preview. It is only available for VMSS Uniform Orchestration Mode.
 
-### Preview known issues and limitations
+### Known issues and limitations
 
-* The preview is targeted to stateless workloads on Virtual Machine Scale Sets.
+* The feature is targeted to stateless workloads on Virtual Machine Scale Sets.
 
 * Scale sets running Service Fabric or Azure Kubernetes Service are not supported.
 

@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 11/03/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Best practices for performance and scaling for small to medium workloads in Azure Kubernetes Service (AKS)
@@ -251,3 +254,4 @@ Ephemeral OS disks can provide dynamic IOPS and throughput for your application,
 ### Pod scheduling
 
 The memory and CPU resources allocated to a VM have a direct impact on the performance of the pods running on the VM. When a pod is created, it's assigned a certain amount of memory and CPU resources, which are used to run the application. If the VM doesn't have enough memory or CPU resources available, it can cause the pods to slow down or even crash. If the VM has too much memory or CPU resources available, it can cause the pods to run inefficiently, wasting resources and increasing costs. We recommend monitoring the total pod requests across your workloads against the total allocatable resources for best scheduling predictability and performance. You can also set the maximum pods per node based on your capacity planning using `--max-pods`.
+

@@ -4,6 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 03/18/2024
+author: schaffererin
+ms.author: schaffererin
+
 
 ---
 
@@ -248,3 +251,4 @@ This article focused on network connectivity and security. For more information 
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
+

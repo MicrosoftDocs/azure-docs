@@ -3,6 +3,9 @@ title: Kubernetes on Azure tutorial - Scale applications in Azure Kubernetes Ser
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods and implement horizontal pod autoscaling.
 ms.topic: tutorial
 ms.date: 03/05/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: mvc
 #Customer intent: As a developer or IT pro, I want to learn how to scale my applications in an Azure Kubernetes Service (AKS) cluster so I can provide high availability or respond to customer demand and application load.
 ---
@@ -240,3 +243,4 @@ In the next tutorial, you learn how to upgrade Kubernetes in your AKS cluster.
 [set-azakscluster]: /powershell/module/az.aks/set-azakscluster
 [aks-tutorial-upgrade-kubernetes]: ./tutorial-kubernetes-upgrade-cluster.md
 [keda-addon]: ./keda-about.md
+

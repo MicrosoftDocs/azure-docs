@@ -94,7 +94,7 @@ using Microsoft.ApplicationInsights.SnapshotCollector;
 builder.Services.Configure<SnapshotCollectorConfiguration>(builder.Configuration.GetSection("SnapshotCollector"));
 ```
 
-Next, add a `SnapshotCollector` section to *appsettings.json* where you can override the defaults. The following example shows a configuration equivalent to the default configuration:
+Next, add a `SnapshotCollector` section to _appsettings.json_ where you can override the defaults. The following example shows a configuration equivalent to the default configuration:
 
 ```json
 {
@@ -114,7 +114,7 @@ Next, add a `SnapshotCollector` section to *appsettings.json* where you can over
 }
 ```
 
-If you need to customize the Snapshot Collector's behavior manually, without using *appsettings.json*, use the overload of `AddSnapshotCollector` that takes a delegate. For example:
+If you need to customize the Snapshot Collector's behavior manually, without using _appsettings.json_, use the overload of `AddSnapshotCollector` that takes a delegate. For example:
 ```csharp
 builder.Services.AddSnapshotCollector(config => config.IsEnabledInDeveloperMode = true);
 ```
@@ -124,21 +124,72 @@ builder.Services.AddSnapshotCollector(config => config.IsEnabledInDeveloperMode 
 Snapshots are collected only on exceptions that are reported to Application Insights. For ASP.NET and ASP.NET Core applications, the Application Insights SDK automatically reports unhandled exceptions that escape a controller method or endpoint route handler. For other applications, you might need to modify your code to report them. The exception handling code depends on the structure of your application. Here's an example:
 
 ```csharp
-TelemetryClient _telemetryClient = new TelemetryClient();
-void ExampleRequest()
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+
+internal class ExampleService
 {
+  private readonly TelemetryClient _telemetryClient;
+
+  public ExampleService(TelemetryClient telemetryClient)
+  {
+    // Obtain the TelemetryClient via dependency injection.
+    _telemetryClient = telemetryClient;
+  }
+
+  public void HandleExampleRequest()
+  {
+    using IOperationHolder<RequestTelemetry> operation = 
+        _telemetryClient.StartOperation<RequestTelemetry>("Example");
     try
     {
-        // TODO: Handle the request.
+      // TODO: Handle the request.
+      operation.Telemetry.Success = true;
     }
     catch (Exception ex)
     {
-        // Report the exception to Application Insights.
-        _telemetryClient.TrackException(ex);
-        // TODO: Rethrow the exception if desired.
+      // Report the exception to Application Insights.
+      operation.Telemetry.Success = false;
+      _telemetryClient.TrackException(ex);
+      // TODO: Rethrow the exception if desired.
     }
+  }
 }
 ```
+
+The following example uses `ILogger` instead of `TelemetryClient`. This example assumes you're using the [Application Insights Logger Provider](../app/ilogger.md#console-application). As the example shows, when handling an exception, be sure to pass the exception as the first parameter to `LogError`.
+
+```csharp
+using Microsoft.Extensions.Logging;
+
+internal class LoggerExample
+{
+  private readonly ILogger _logger;
+
+  public LoggerExample(ILogger<LoggerExample> logger)
+  {
+    _logger = logger;
+  }
+
+  public void HandleExampleRequest()
+  {
+    using IDisposable scope = _logger.BeginScope("Example");
+    try
+    {
+      // TODO: Handle the request
+    }
+    catch (Exception ex)
+    {
+      // Use the LogError overload with an Exception as the first parameter.
+      _logger.LogError(ex, "An error occurred.");
+    }
+  }
+}
+```
+
+> [!NOTE]
+> By default, the Application Insights Logger (`ApplicationInsightsLoggerProvider`) forwards exceptions to the Snapshot Debugger via `TelemetryClient.TrackException`. This behavior is controlled via the `TrackExceptionsAsExceptionTelemetry` property on the `ApplicationInsightsLoggerOptions` class. If you set `TrackExceptionsAsExceptionTelemetry` to `false` when configuring the Application Insights Logger, then the preceding example will not trigger the Snapshot Debugger. In this case, modify your code to call `TrackException` manually.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -146,4 +197,4 @@ void ExampleRequest()
 
 - Generate traffic to your application that can trigger an exception. Then wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
 - See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
-- For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
+- [Troubleshoot](snapshot-debugger-troubleshoot.md) Snapshot Debugger problems.
