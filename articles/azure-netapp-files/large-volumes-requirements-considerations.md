@@ -15,9 +15,7 @@ This article describes the requirements and considerations you need to be aware 
 
 ## Register the feature 
 
-
-<!-- TBD for GA -->
-To enroll in the preview for large volumes, use the [large volumes preview sign-up form](https://aka.ms/anflargevolumespreviewsignup).
+If this is your first time using large volumes, register the feature with the[large volumes sign-up form](https://aka.ms/anflargevolumespreviewsignup).
 
 ## Requirements and considerations
 
