@@ -18,6 +18,8 @@ Running experiments on your application can help you make informed decisions to 
 
 By doing so, you can make data-driven decisions to improve your application.
 
+A quick way to start your experimentation journey is to run the [AZD sample Quote of the Day.](https://github.com/Azure-Samples/quote-of-the-day-dotnet/) This repository provides a comprehensive example, complete with Azure resource provisioning and a first experiment, on how to integrate Azure App Configuration with your .NET applications to run experiments.
+
 In this tutorial, you:
 
 > [!div class="checklist"]

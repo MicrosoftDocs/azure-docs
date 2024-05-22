@@ -27,7 +27,7 @@ To get started, follow the quickstart to [create a Split Experimentation Workspa
 
 ## Prerequisites
 
-To set up an experimentation, the Azure subscription Owner, or subscription Contributor with User Access Administrator role is required.
+To set up an experimentation, either the Azure subscription Owner role or the combination of subscription Contributor and User Access Administrator roles is required.
 
 ## Billing
 

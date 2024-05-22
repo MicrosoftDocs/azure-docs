@@ -29,6 +29,7 @@ Split Experimentation allows you to run A/B tests for your applications and gath
 Find Split Experimentation Workspace (preview) in one of the following ways:
 
 - Find Split Experimentation Workspace from Azure App Configuration.
+
     1. Open the App Configuration store in which you want to create the Split Experimentation Workspace, then select **Experimentation > Split Experimentation Workspace (preview)** from the left menu.
 
         :::image type="content" source="./media/create/find-in-app-configuration-store.png" alt-text="Screenshot of the Azure portal, finding resource from the App Configuration store left menu.":::
@@ -54,7 +55,9 @@ Find Split Experimentation Workspace (preview) in one of the following ways:
 
     1. The **Monthly Pay As You Go** plan is selected by default. Click on **Subscribe**.
 
-## Basics
+## Create Split Experimentation Workspace (preview)
+
+### Basics
 
 Under **Basics**, select or enter the following information, then select **Next**. This tab contains basic information about your Split Experimentation Workspace.
 
@@ -66,7 +69,7 @@ Under **Basics**, select or enter the following information, then select **Next*
 - **Region:** Select the region where you want to deploy the resource.
 - **Pricing plan:** **Monthly Pay As You Go** is displayed on screen. This is the only plan available.
 
-## Data source
+### Data source
 
 Under **Data Source**, select the following information, then select **Next**. The data source is the resource that provides Split with the feature flag impressions and events data for analyzing the experiments.
 
@@ -83,7 +86,7 @@ Under **Data Source**, select the following information, then select **Next**. T
 > [!NOTE]
 > When creating a new storage account for your experimentation, you must use the same region as your Log Analytics workspace.
 
-## Data access policy
+### Data access policy
 
 Under **Data Access Policy**, select the Microsoft Entra ID application to use for authentication and authorization in your Split workspace, then select **Review + create**.
 
@@ -91,7 +94,7 @@ Under **Data Access Policy**, select the Microsoft Entra ID application to use f
 
 If your group already uses a shared enterprise application, you may contact the administrator of your group to add you as a user. Otherwise, [create and set up your Microsoft Entra ID application](../../partner-solutions/split-experimentation/how-to-set-up-data-access.md) for Split Experimentation Workspace, then add yourself as a user.
 
-## Review and create
+### Review and create
 
 Under **Review + create**, review the information listed for your new Split Experimentation resource, read the terms, and select **Create**.
 
