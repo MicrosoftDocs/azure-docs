@@ -150,7 +150,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | It determines how much information is written to the WAL.                                              |
 | Data type      | enumeration |
-| Default value  | `replica`                                                                  |
+| Default value  | `replica`     |
 | Allowed values | `replica,logical` |
 | Parameter type | static         |
 | Documentation  | [wal_level](https://www.postgresql.org/docs/12/runtime-config-wal.html)              |
@@ -201,7 +201,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Selects the method used for forcing WAL updates to disk.                                               |
 | Data type      | enumeration |
-| Default value  | `fdatasync`                                                                |
+| Default value  | `fdatasync`   |
 | Allowed values | `fdatasync`       |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |

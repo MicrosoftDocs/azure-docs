@@ -14,8 +14,8 @@ ms.topic: include
 | Category       | Client Connection Defaults / Shared Library Preloading |
 | Description    | JIT provider to use.                                              |
 | Data type      | string    |
-| Default value  | `llvmjit`                    |
-| Allowed values | `llvmjit`                                                                                                                                            |
+| Default value  | `llvmjit`                                                                                                                                            |
+| Allowed values | `llvmjit`                                                                                                                                             |
 | Parameter type | read-only      |
 | Documentation  |               |
 

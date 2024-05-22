@@ -31,7 +31,7 @@ ms.topic: include
 | Category       | Resource Usage / Asynchronous Behavior |
 | Description    | Sets the number of concurrent disk I/O operations that PostgreSQL expects can be executed simultaneously. |
 | Data type      | integer   |
-| Default value  | `1`           |
+| Default value  | `1`                                                                        |
 | Allowed values | `0-1000`       |
 | Parameter type | dynamic        |
 | Documentation  | [effective_io_concurrency](https://www.postgresql.org/docs/13/runtime-config-resource.html)         |

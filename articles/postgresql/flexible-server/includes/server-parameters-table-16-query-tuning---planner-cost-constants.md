@@ -167,7 +167,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's estimate of the cost of starting up worker processes for parallel query.              |
 | Data type      | numeric   |
-| Default value  | `1000`                                                                     |
+| Default value  | `1000`        |
 | Allowed values | `0-1.79769e+308` |
 | Parameter type | dynamic        |
 | Documentation  | [parallel_setup_cost](https://www.postgresql.org/docs/16/runtime-config-query.html)          |
@@ -218,7 +218,7 @@ ms.topic: include
 | Category       | Query Tuning / Planner Cost Constants |
 | Description    | Sets the planner's estimate of the cost of a sequentially fetched disk page.                             |
 | Data type      | numeric   |
-| Default value  | `1`           |
+| Default value  | `1`                                                                        |
 | Allowed values | `0-1.79769e+308` |
 | Parameter type | dynamic        |
 | Documentation  |                                                                                              |

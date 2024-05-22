@@ -48,7 +48,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Multiple of work_mem to use for hash tables.                                                                                                                                        |
 | Data type      | numeric     |
-| Default value  | `1`           |
+| Default value  | `1`                                                                        |
 | Allowed values | `1`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
