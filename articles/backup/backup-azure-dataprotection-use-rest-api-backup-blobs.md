@@ -29,29 +29,28 @@ Before you back up blobs in a storage account using REST API, ensure that you:
 
 Once you create the vault and policy, you need to consider two critical points to protect all Azure Blobs within a storage account.
 
+- Key entities
+- Permissions
+
 ### Key entities
 
-#### Storage account that contains the blobs for protection
+- **Storage account containing the blobs to be protected**: Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This serves as the identifier of the storage account.
 
-Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This serves as the identifier of the storage account.
+  For example, we'll use a storage account named *msblobbackup*, under the resource group *RG-BlobBackup*, in a different subscription and in *west US*.
 
-For example, we'll use a storage account named *msblobbackup*, under the resource group *RG-BlobBackup*, in a different subscription and in *west US*.
+  ```http
+  "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-BlobBackup/providers/Microsoft.Storage/storageAccounts/msblobbackup"
+  ```
 
-```http
-"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-BlobBackup/providers/Microsoft.Storage/storageAccounts/msblobbackup"
-```
+- **Backup vault**: The Backup vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning the permissions.
 
-#### Backup vault
-
-The Backup vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning the permissions.
-
-For example, we'll use a backup vault called *testBkpVault* in *West US* region under *TestBkpVaultRG* resource group.
+  For example, we'll use a backup vault called *testBkpVault* in *West US* region under *TestBkpVaultRG* resource group.
 
 ### Assign permissions
 
 You need to assign a few permissions via Azure role-based access control (Azure RBAC) to vault (represented by vault Managed Service Identity) and the relevant storage account. You can do these via Azure portal, PowerShell, or REST API. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
-### Prepare the request to configure backup
+### Prepare the request to configure blob backup
 
 Once you set the relevant permissions to the vault and storage account, and configure the vault and policy, prepare the request to configure backup.
 
