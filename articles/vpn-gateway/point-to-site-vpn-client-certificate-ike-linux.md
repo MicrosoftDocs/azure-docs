@@ -32,7 +32,7 @@ This article assumes that you've already performed the following prerequisites:
 To connect to Azure using the strongSwan client and certificate authentication via IKEv2 tunnel type, each connecting client requires the following items:
 
 * Each client must be configured to use strongSwan.
-* The client must have a client certificate that's installed locally.
+* The client must have the correct certificates installed locally.
 
 ### Workflow
 
@@ -89,6 +89,7 @@ This section walks you through the configuration using the strongSwan GUI. The f
    ```
    sudo apt install network-manager-strongswan
    ```
+
 1. Select **Settings**, then select **Network**. Select the **+** button to create a new connection.
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-linux/edit-connections.png" alt-text="Screenshot shows the network connections page." lightbox="./media/point-to-site-vpn-client-cert-linux/expanded/edit-connections.png":::

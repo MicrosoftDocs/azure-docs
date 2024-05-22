@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 05/22/2024
 ms.author: cherylmc
 ---
 
@@ -33,7 +33,7 @@ This article assumes that you've already performed the following prerequisites:
 To connect to Azure using the OpenVPN client using certificate authentication, each connecting client requires the following items:
 
 * The Open VPN Client software must be installed and configured on each client.
-* The client must have a client certificate that's installed locally.
+* The client must have the correct certificates installed locally.
 
 ### Workflow
 
