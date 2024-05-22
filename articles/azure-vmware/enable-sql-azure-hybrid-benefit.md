@@ -27,6 +27,7 @@ To enable by using the Azure CLI, see [az vmware placement-policy vm-host](/cli/
 To use the Azure portal:
 
 1. From your Azure VMware Solution private cloud, select **Azure Hybrid Benefit** > **Create VM-Host affinity placement policy**.
+
     :::image type="content" source="media/sql-azure-hybrid-benefit/azure-hybrid-benefit.png" alt-text="Screenshot that shows how to create a new VM-Host affinity placement policy.":::
 
 1. Fill in the required fields for creating the placement policy:
@@ -35,11 +36,14 @@ To use the Azure portal:
      - **Azure Hybrid Benefit**: Select the checkbox to apply Azure Hybrid Benefit for SQL Server.
      - **Cluster**: Select the correct cluster. The policy is scoped to host in this cluster only.
      - **Enabled**: Select **Enabled** to apply the policy immediately after creation.
+
      :::image type="content" source="media/sql-azure-hybrid-benefit/create-placement-policy.png" alt-text="Screenshot that shows how to create a host VM placement policy by using the host VM affinity.":::
+
 1. Select the hosts and VMs to be applied to the VM-Host affinity policy:
      - **Select hosts**: Select the hosts to run SQL Server. When hosts are replaced, policies are re-created on the new hosts automatically.
      - **Select virtual machines**: Select the VMs that should run on the selected hosts.
      - **Review and Create**: Select to create the policy.
+
      :::image type="content" source="media/sql-azure-hybrid-benefit/select-policy-host.png" alt-text="Screenshot that shows how to create a host VM affinity.":::
 
 ## Manage placement policies
