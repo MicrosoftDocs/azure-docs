@@ -14,7 +14,11 @@ ms.custom: upgradepolicy
 > [!NOTE]
 > Rolling upgrade policy is in general availability (GA) for Virtual Machine Scale sets with Uniform Orchestration. 
 >
->**Rolling upgrade policy in preview for Virtual Machine scale Sets with Flexible Orchestration.**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+> **Rolling upgrade policy in preview for Virtual Machine scale Sets with Flexible Orchestration.** To use this preview feature, register the provider feature using Azure Cloud Shell.
+>
+> `Register-AzProviderFeature -FeatureName VMSSFlexRollingUpgrade -ProviderNameSpace Microsoft.Compute`
+>
+> Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 
 
 Rolling upgrade policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances available to take traffic, meaning you don't need to take down your entire workload to make a change. 
@@ -24,12 +28,14 @@ Rolling upgrade policy is best suited for production workloads.
 
 ## Requirements
 
-- If using a rolling upgrade policy, the scale set must have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
+- When using a rolling upgrade policy on Virtual Machine Scale Sets with Flexible Orchestration, the scale set must also use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
+
+- When using a rolling upgrade policy on Virtual Machine Scale Sets with Uniform Orchestration, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
 - If using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
->[!IMPORTANT]
-> MaxSurge is currently in preview for Virtual Machine Scale Sets. To use this preview feature, register the provider feature using Azure Cloud Shell. 
+> [!NOTE]
+> MaxSurge is currently in preview for Virtual Machine Scale Sets with Flexible Orchestration and Uniform Orchestration. To use this preview feature, register the provider feature using Azure Cloud Shell. 
 >
 > `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute`
 >

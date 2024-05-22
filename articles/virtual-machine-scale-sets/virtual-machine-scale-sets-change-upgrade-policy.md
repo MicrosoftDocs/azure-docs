@@ -14,7 +14,9 @@ ms.custom: upgradepolicy
 > [!NOTE]
 > Automatic, manual and rolling upgrade policy in general availability (GA) for Virtual Machine Scale sets with Uniform Orchestration. 
 >
->**Manual and rolling upgrade policy is in preview for Virtual Machine scale Sets with Flexible Orchestration.**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+>**Manual and rolling upgrade policy is in preview for Virtual Machine scale Sets with Flexible Orchestration.** Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
+>
+> For more information on rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md)
 
 The upgrade policy for a Virtual Machine Scale Set can be changed at any point in time. Depending on your scenario, you may want to use a particular upgrade policy when setting up and developing your workload and once you're ready to move to production, change it to another upgrade policy mode. 
 
