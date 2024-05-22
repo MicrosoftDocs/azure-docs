@@ -62,7 +62,7 @@ To perform packet capture using the command line, you must:
 
 1. Once the packet capture has completed, the AP5GC online service will save the output at the provided storage account URL.
 
-    In HA deployments, two packet capture files will be uploaded, one for each node. The files will be labelled with a `0` or a `1`, corresponding to the `core-mec-dp-0` or `core-mec-dp-1` pod. If one packet capture fails, the status page will show an error, but the successful capture results will upload as normal.
+    In HA deployments, two packet capture files will be uploaded, one for each node. The files will be labeled with a `0` or a `1`, corresponding to the `core-mec-dp-0` or `core-mec-dp-1` pod. If one packet capture fails, the status page will show an error, but the successful capture results will upload as normal.
 
 1. To download the packet capture output, you can use the **Copy to clipboard** button in the **Storage** or **File name** columns to copy those details and then paste them into the **Search** box in the portal. To download the output, right-click the file and select **Download**.
 
