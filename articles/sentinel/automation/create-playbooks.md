@@ -90,11 +90,11 @@ Do the following to create your playbook:
 
 1. In the **Review and create** tab, review the configuration choices you made, and select **Create and continue to designer**.
 
-    Your playbook will take a few minutes to be created and deployed, after which you see the message "Your deployment is complete" and you're taken to your new playbook's [Logic App Designer](/azure/logic-apps/logic-apps-overview). The trigger you chose at the beginning is automatically been added as the first step, and you can continue designing the workflow from there.
+    Your playbook will take a few minutes to be created and deployed, after which you see the message "Your deployment is complete" and you're taken to your new playbook's [Logic App Designer](/azure/logic-apps/logic-apps-overview). The trigger you chose at the beginning is automatically added as the first step, and you can continue designing the workflow from there.
 
     :::image type="content" source="../media/tutorial-respond-threats-playbook/logic-app-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="../media/tutorial-respond-threats-playbook/logic-app-blank.png":::
 
-1. If you chose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input.
+1. If you chose the **Microsoft Sentinel entity** trigger, select the type of entity you want this playbook to receive as an input.
 
     :::image type="content" source="../media/tutorial-respond-threats-playbook/entity-trigger-types.png" alt-text="Screenshot of drop-down list of entity types to choose from to set playbook schema.":::
 
