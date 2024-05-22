@@ -1,100 +1,96 @@
 ---
-title: What is the Azure Machine Learning designer(v2)?
+title: What is Designer (v2)?
 titleSuffix: Azure Machine Learning
-description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables customer to build machine learning pipeline. 
+description: Learn about the drag-and-drop Designer UI in Machine Learning studio, and how to use Designer v2 custom components to build and edit machine learning pipelines.
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar
 ms.reviewer: lagayhar
 author: lgayhardt
-ms.date: 05/25/2023
+ms.date: 05/21/2024
 ms.custom: designer
 ---
 
-# What is Azure Machine Learning designer(v2)?
+# What is Designer (v2) in Azure Machine Learning studio?
 
-Azure Machine Learning designer is a drag-and-drop UI interface for building machine learning pipelines in Azure Machine Learning Workspaces.
+Designer in Azure Machine Learning studio is a drag-and-drop user interface for building machine learning pipelines in Azure Machine Learning workspaces.
 
-As shown in below GIF, you can build a pipeline visually by dragging and dropping building blocks and connecting them.
+The following animated GIF shows how you can build a pipeline visually in Designer by dragging and dropping building blocks and connecting them.
 
 :::image type="content" source="./media/concept-designer/designer-drag-and-drop.gif" alt-text="GIF of a building a pipeline in the designer." lightbox= "./media/concept-designer/designer-drag-and-drop.gif":::
 
+## Classic prebuilt (v1) or custom (v2) components
 
->[!Note]
->Designer supports two types of components, classic prebuilt components (v1) and custom components(v2). These two types of components are NOT compatible.
+Designer supports two types of pipeline components: classic prebuilt (v1) or custom (v2). These two types of components aren't compatible. This article applies to custom components.
 
->Classic prebuilt components support typical data processing and machine learning tasks including regression and classification. Though classic prebuilt components will continue to be supported, no new components will be added.
->
->Custom components allow you to wrap your own code as a component enabling sharing across workspaces and seamless authoring across the Azure Machine Learning Studio, CLI v2, and SDK v2 interfaces.
->
->For new projects, we highly recommend that you use custom components since they are compatible with AzureML V2 and will continue to receive new updates.
->
->This article applies to custom components..
+- **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Support continues for existing classic prebuilt components, but no new prebuilt components are to be added. For more information about Designer v1, see [Azure Machine Learning designer (v1)](v1/concept-designer.md).
 
+- **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with AzureML v2 and continue to receive new updates.
 
-## Assets
+## Assets library
 
-The building blocks of pipeline are called assets in Azure Machine Learning, which includes:
- - [Data](./concept-data.md)
- - [Model](how-to-manage-models.md?view=azureml-api-2&preserve-view=true&tabs=cli)
- - [Component](./concept-component.md)
+Designer uses building blocks from the Azure Machine Learning asset library to create pipelines. The asset library includes the following pipeline building blocks:
 
-Designer has an asset library on the left side, where you can access all the assets you need to create your pipeline. It shows both the assets you created in your workspace, and the assets shared in [registry](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have permission to access.
+ - [Data](concept-data.md)
+ - [Models](how-to-manage-models.md?view=azureml-api-2&preserve-view=true&tabs=cli)
+ - [Components](concept-component.md)
 
-:::image type="content" source="./media/concept-designer/asset-library.png" alt-text="Screenshot of the asset library." lightbox= "./media/concept-designer/asset-library.png":::
+The asset libraries on the left side of the designer show both assets you created in your workspace and assets shared in all Azure Machine Learning [registries](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have access to.
 
+To see assets from specific registries, select the **Registry name** filter above the asset libraries. The assets you created in your current workspace are in the **Workspace** registry. The assets provided by Azure Machine Learning are in the **azureml** registry.
 
-To see assets from a specific registry, select the Registry name filter above the asset library. The assets you created in your current workspace are in the registry = workspace. The assets provided by Azure Machine Learning are in the registry = azureml.
+:::image type="content" source="./media/concept-designer/asset-library.png" alt-text="Screenshot of the asset libraries for the azureml registriy." lightbox= "./media/concept-designer/asset-library.png":::
 
-Designer only shows the assets that you created and named in your workspace. You won't see any unnamed assets in the asset library. To learn how to create data and component assets, read these articles:
+To learn how to create data and component assets in your workspace, see the following articles:
 
-- [How to create data asset](./how-to-create-data-assets.md)
-- [How to create component](./how-to-create-component-pipelines-ui.md#register-component-in-your-workspace)
+- [How to create data assets](./how-to-create-data-assets.md)
+- [How to create components](./how-to-create-component-pipelines-ui.md)
 
-## Pipeline
+## Pipelines
 
-Designer is a tool that lets you create pipelines with your assets in a visual way. When you use designer, you'll encounter two concepts related to pipelines: pipeline draft and pipeline jobs.
+Designer lets you visually create pipelines with your assets. When you open Designer, you see two tabs on the bottom part of the screen: **Pipeline drafts** and **Pipeline jobs**.
 
 :::image type="content" source="./media/concept-designer/pipeline-draft-and-job.png" alt-text="Screenshot of pipeline draft and pipeline job list." lightbox= "./media/concept-designer/pipeline-draft-and-job.png":::
 
-### Pipeline draft
+### Pipeline drafts
 
-As you edit a pipeline in the designer, your progress is saved as a **pipeline draft**. You can edit a pipeline draft at any point by adding or removing components, configuring compute targets, creating parameters, and so on.
+As you edit a pipeline, Designer saves your progress as a pipeline draft. You can edit a pipeline draft anytime by adding or removing components, configuring compute targets, and setting parameters.
 
-A valid pipeline draft has these characteristics:
+A valid pipeline draft has the following characteristics:
 
-- Data assets can only connect to components.
-- Components can only connect to either data assets or other components.
+- Data assets can connect only to components.
+- Components can connect only to either data assets or to other components.
 - All required input ports for components must have some connection to the data flow.
 - All required parameters for each component must be set.
 
 When you're ready to run your pipeline draft, you submit a pipeline job.
 
-### Pipeline job
+### Pipeline jobs
 
-Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline job**. You can go back to any pipeline job to inspect it for troubleshooting or auditing. **Clone** a pipeline job creates a new pipeline draft for you to continue editing.
+Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a pipeline job. You can resubmit any past pipeline job, inspect it for troubleshooting or auditing, or clone it to create a new pipeline draft for further editing.
 
-## Approaches to build pipeline in designer
+## Ways to build pipelines
 
-### Create new pipeline from scratch
+In Designer, you can create new pipelines or clone and build on existing workspace pipeline jobs.
 
-You can create a new pipeline and build from scratch. Remember to select the **Custom component** option when you create the pipeline in designer.
+### New pipeline from scratch
 
-:::image type="content" source="./media/how-to-create-component-pipelines-ui/new-pipeline.png" alt-text="Screenshot showing to select custom component." lightbox= "./media/how-to-create-component-pipelines-ui/new-pipeline.png":::
+You can create a new pipeline and build it from scratch. Be sure to select the **Custom component** option when you create the pipeline in Designer.
+
+:::image type="content" source="./media/concept-designer/new-pipeline.png" alt-text="Screenshot of selecting new pipeline with custom components." lightbox= "./media/concept-designer/new-pipeline.png":::
 
 ### Clone an existing pipeline job
 
-If you would like to work based on an existing pipeline job in the workspace, you can easily clone it into a new pipeline draft to continue editing.
+If you want to base a pipeline on an existing pipeline job in the workspace, you can clone the job into a new pipeline draft to continue editing.
 
-:::image type="content" source="./media/how-to-debug-pipeline-failure/job-detail-clone.png" alt-text="Screenshot of a pipeline job in the workspace with the clone button highlighted." lightbox= "./media/how-to-debug-pipeline-failure/job-detail-clone.png":::
+:::image type="content" source="./media/concept-designer/pipeline-clone.png" alt-text="Screenshot of a pipeline job in the workspace with the clone button highlighted." lightbox= "./media/concept-designer/pipeline-clone.png":::
+After cloning, you can find out which pipeline job the new pipeline is cloned from by selecting **Show lineage**.
 
-After cloning, you can also know which pipeline job it's cloned from by selecting **Show lineage**.
+:::image type="content" source="./media/concept-designer/draft-show-lineage.png" alt-text="Screenshot showing the draft lineage after selecting Show lineage." lightbox= "./media/concept-designer/draft-show-lineage.png":::
 
-:::image type="content" source="./media/how-to-debug-pipeline-failure/draft-show-lineage.png" alt-text="Screenshot showing the draft lineage after selecting show lineage button." lightbox= "./media/how-to-debug-pipeline-failure/draft-show-lineage.png":::
+You can edit your pipeline and resubmit your pipelines. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
 
-You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
+## Related content
 
-## Next step
-
-- [Create pipeline with components (UI)](./how-to-create-component-pipelines-ui.md)
+- [Create a pipeline with components (UI)](./how-to-create-component-pipelines-ui.md)
