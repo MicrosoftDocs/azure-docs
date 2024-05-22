@@ -136,8 +136,6 @@ The page should now look like the following image:
 :::zone-end
 
 ## Add compute and IP addresses
-> [!IMPORTANT]
-> In VLAN-trunking mode, no IP configuration is done for each virtual network. It is all done when configuring the mobile network.
 
 In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'll set up all of the configuration and then apply it once, as you did in [Set up Advanced Networking](#set-up-advanced-networking).
 
@@ -146,6 +144,8 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
       1. Enter six IP addresses in a range for the node IP addresses on the management network.
       1. Enter one IP address in a range for the service IP address, also on the management network. This will be used for accessing local monitoring tools for the packet core instance.
       1. Select **Modify** at the bottom of the panel to save the configuration.
+    > [!IMPORTANT]
+    > In VLAN-trunking mode, no IP configuration is done for the virtual networks at this point. IP configuration is done when configuring the mobile network.
 1. Under **Virtual network**, select a virtual network. In VLAN-trunking mode, this will be either **N2**, **N3** and **N6**. Otherwise, choose from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
       1. Enable the virtual network for Kubernetes and add a pool of IP addresses. If **NOT** in VLAN-trunking mode, also add a pool of IP addresses: 
         1. For a standard deployment, add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.
