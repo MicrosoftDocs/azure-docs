@@ -23,14 +23,14 @@ The liveness detection solution successfully defends against various spoof types
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+- Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 - Your Azure account must have a **Cognitive Services Contributor** role assigned in order for you to agree to the responsible AI terms and create a resource. To get this role assigned to your account, follow the steps in the [Assign roles](/azure/role-based-access-control/role-assignments-steps) documentation, or contact your administrator. 
 - Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**. 
     - You need the key and endpoint from the resource you create to connect your application to the Face service. You'll paste your key and endpoint into the code later in the quickstart.
     - You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - Access to the Azure AI Vision Face Client SDK for mobile (IOS and Android) and web. To get started, you need to apply for the [Face Recognition Limited Access features](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to get access to the SDK. For more information, see the [Face Limited Access](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext) page.
 
-## Perform liveness detection
+## Set up a mobile application and an app server for liveness detection
 
 The liveness solution integration involves two different components: a frontend mobile/web application and an app server/orchestrator.
 
@@ -43,7 +43,19 @@ Once you have access to the SDK, follow instruction in the [azure-ai-vision-sdk]
 
 Once you've added the code into your application, the SDK handles starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
 
-### Orchestrate the liveness solution
+### Download Azure Ai Vision Face client library for an app server
+
+The app server/orchestrator is responsible for controlling the lifecycle of a liveness session. The app server has to create a session before performing liveness detection, and then it can query the result and delete the session when the liveness check is finished. We offer an SDK in various languages for easily implementing liveness session. Follow these steps to install the package you want:
+- For C#, follow the instructions in the [dotnet SDK Readme](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/face/Azure.AI.Vision.Face)
+- For Java, follow the instructions in the [Java SDK Readme](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/face/ai-vision-face-rest)
+- For Python, follow the instructions in the [Python SDK Readme](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face)
+- For Javascript, follow the instructions in the [Javascript SDK Readme](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/face/ai-vision-face-rest)
+
+#### Create environment variables
+
+[!INCLUDE [create environment variables](../environment-variables.md)]
+
+## Perform liveness detection
 
 The high-level steps involved in liveness orchestration are illustrated below:  
 
@@ -52,38 +64,76 @@ The high-level steps involved in liveness orchestration are illustrated below:
 1. The frontend application starts the liveness check and notifies the app server. 
 
 1. The app server creates a new liveness session with Azure AI Face Service. The service creates a liveness-session and responds back with a session-authorization-token. More information regarding each request parameter involved in creating a liveness session is referenced in [Liveness Create Session Operation](https://aka.ms/face-api-reference-createlivenesssession).
-    
-    ```json
-    Request:
-    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectliveness/singlemodal/sessions' \
-    --header 'Ocp-Apim-Subscription-Key:<insert-api-key>
-    --header 'Content-Type: application/json' \
-    --data '{
+
+#### [C#](#tab/csharp)
+
+```csharp
+```
+
+#### [Java](#tab/java)
+
+```java
+```
+
+#### [Python](#tab/python)
+
+```python
+```
+
+#### [Javascript](#tab/javascript)
+
+```javascript
+```
+
+#### [REST API (Windows)](#tab/windows)
+
+```console
+curl --request POST --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions" ^
+--header "Ocp-Apim-Subscription-Key: %VISION_KEY%" ^
+--header "Content-Type: application/json" ^
+--data ^
+"{ ^
+      \"livenessOperationMode\": \"passive\", ^
+      \"deviceCorrelationId\": \"723d6d03-ef33-40a8-9682-23a1feb7bccd\", ^
+      \"sendResultsToClient\": \"false\" ^
+}"
+```
+
+#### [REST API (Linux)](#tab/linux)
+
+```bash
+curl --request POST --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions" \
+--header "Ocp-Apim-Subscription-Key: ${VISION_KEY}" \
+--header "Content-Type: application/json" \
+--data \
+'{
       "livenessOperationMode": "passive",
       "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
       "sendResultsToClient": "false"
-    }'
-     
-    Response:
-    {
-        "sessionId": "a6e7193e-b638-42e9-903f-eaf60d2b40a5",
-        "authToken": <session-authorization-token>
-    }
-    ```
+}'
+```
+
+Here is an example of the response body:
+```json 
+{
+	"sessionId": "a6e7193e-b638-42e9-903f-eaf60d2b40a5",
+	"authToken": <session-authorization-token>
+}
+```
 
 1. The app server provides the session-authorization-token back to the frontend application. 
 
 1. The frontend application provides the session-authorization-token during the Azure AI Vision SDK’s initialization. 
 
-    ```kotlin
-    mServiceOptions?.setTokenCredential(com.azure.android.core.credential.TokenCredential { _, callback ->
-        callback.onSuccess(com.azure.android.core.credential.AccessToken("<INSERT_TOKEN_HERE>", org.threeten.bp.OffsetDateTime.MAX))
-    })
-    ```
-    
-    ```swift
-    serviceOptions?.authorizationToken = "<INSERT_TOKEN_HERE>"
-    ```
+	```kotlin
+	mServiceOptions?.setTokenCredential(com.azure.android.core.credential.TokenCredential { _, callback ->
+		callback.onSuccess(com.azure.android.core.credential.AccessToken("<INSERT_TOKEN_HERE>", org.threeten.bp.OffsetDateTime.MAX))
+	})
+	```
+
+	```swift
+	serviceOptions?.authorizationToken = "<INSERT_TOKEN_HERE>"
+	```
 
     ```javascript
     azureAIVisionFaceAnalyzer.token = "<INSERT_TOKEN_HERE>"
@@ -96,56 +146,121 @@ The high-level steps involved in liveness orchestration are illustrated below:
 1. The frontend application relays the liveness check completion to the app server. 
 
 1. The app server can now query for the liveness detection result from the Azure AI Vision Face service. 
-    
-    ```json
-    Request:
-    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectliveness/singlemodal/sessions/a3dc62a3-49d5-45a1-886c-36e7df97499a' \
-    --header 'Ocp-Apim-Subscription-Key: <insert-api-key>
-    
-    Response:
-    {
-        "status": "ResultAvailable",
-        "result": {
-            "id": 1,
-            "sessionId": "a3dc62a3-49d5-45a1-886c-36e7df97499a",
-            "requestId": "cb2b47dc-b2dd-49e8-bdf9-9b854c7ba843",
-            "receivedDateTime": "2023-10-31T16:50:15.6311565+00:00",
-            "request": {
-                "url": "/face/v1.1-preview.1/detectliveness/singlemodal",
-                "method": "POST",
-                "contentLength": 352568,
-                "contentType": "multipart/form-data; boundary=--------------------------482763481579020783621915",
-                "userAgent": ""
-            },
-            "response": {
-                "body": {
-                    "livenessDecision": "realface",
-                    "target": {
-                        "faceRectangle": {
-                            "top": 59,
-                            "left": 121,
-                            "width": 409,
-                            "height": 395
-                        },
-                        "fileName": "content.bin",
-                        "timeOffsetWithinFile": 0,
-                        "imageType": "Color"
-                    },
-                    "modelVersionUsed": "2022-10-15-preview.04"
-                },
-                "statusCode": 200,
-                "latencyInMilliseconds": 1098
-            },
-            "digest": "537F5CFCD8D0A7C7C909C1E0F0906BF27375C8E1B5B58A6914991C101E0B6BFC"
-        },
-        "id": "a3dc62a3-49d5-45a1-886c-36e7df97499a",
-        "createdDateTime": "2023-10-31T16:49:33.6534925+00:00",
-        "authTokenTimeToLiveInSeconds": 600,
-        "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
-        "sessionExpired": false
-    }
-    
-    ```
+
+#### [C#](#tab/csharp)
+
+```csharp
+```
+
+#### [Java](#tab/java)
+
+```java
+```
+
+#### [Python](#tab/python)
+
+```python
+```
+
+#### [Javascript](#tab/javascript)
+
+```javascript
+```
+
+#### [REST API (Windows)](#tab/windows)
+
+```console
+curl --request GET --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" ^
+--header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+```
+
+#### [REST API (Linux)](#tab/linux)
+
+```bash
+curl --request GET --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
+--header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+```
+
+Here is an example of the response body:
+```json
+{
+	"status": "ResultAvailable",
+	"result": {
+		"id": 1,
+		"sessionId": "a3dc62a3-49d5-45a1-886c-36e7df97499a",
+		"requestId": "cb2b47dc-b2dd-49e8-bdf9-9b854c7ba843",
+		"receivedDateTime": "2023-10-31T16:50:15.6311565+00:00",
+		"request": {
+			"url": "/face/v1.1-preview.1/detectliveness/singlemodal",
+			"method": "POST",
+			"contentLength": 352568,
+			"contentType": "multipart/form-data; boundary=--------------------------482763481579020783621915",
+			"userAgent": ""
+		},
+		"response": {
+			"body": {
+				"livenessDecision": "realface",
+				"target": {
+					"faceRectangle": {
+						"top": 59,
+						"left": 121,
+						"width": 409,
+						"height": 395
+					},
+					"fileName": "content.bin",
+					"timeOffsetWithinFile": 0,
+					"imageType": "Color"
+				},
+				"modelVersionUsed": "2022-10-15-preview.04"
+			},
+			"statusCode": 200,
+			"latencyInMilliseconds": 1098
+		},
+		"digest": "537F5CFCD8D0A7C7C909C1E0F0906BF27375C8E1B5B58A6914991C101E0B6BFC"
+	},
+	"id": "a3dc62a3-49d5-45a1-886c-36e7df97499a",
+	"createdDateTime": "2023-10-31T16:49:33.6534925+00:00",
+	"authTokenTimeToLiveInSeconds": 600,
+	"deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
+	"sessionExpired": false
+}
+```
+
+1. Delete the session you created if you won't query its result anymore.
+
+#### [C#](#tab/csharp)
+
+```csharp
+```
+
+#### [Java](#tab/java)
+
+```java
+```
+
+#### [Python](#tab/python)
+
+```python
+```
+
+#### [Javascript](#tab/javascript)
+
+```javascript
+```
+
+#### [REST API (Windows)](#tab/windows)
+
+```console
+curl --request DELETE --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" ^
+--header "Ocp-Apim-Subscription-Key: %VISION_KEY%"
+```
+
+#### [REST API (Linux)](#tab/linux)
+
+```bash
+curl --request DELETE --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectliveness/singlemodal/sessions/<session-id>" \
+--header "Ocp-Apim-Subscription-Key: ${VISION_KEY}"
+```
 
 ## Perform liveness detection with face verification
 
@@ -182,106 +297,191 @@ The high-level steps involved in liveness with verification orchestration are il
 1.	Provide the verification reference image by either of the following two methods:
     - The app server provides the reference image when creating the liveness session. More information regarding each request parameter involved in creating a liveness session with verification is referenced in [Liveness With Verify Create Session Operation](https://aka.ms/face-api-reference-createlivenesswithverifysession).
 
-        ```json
-        Request:
-        curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions' \
-        --header 'Ocp-Apim-Subscription-Key: <api_key>' \
-        --form 'Parameters="{
-          \"livenessOperationMode\": \"passive\",
-          \"deviceCorrelationId\": \"723d6d03-ef33-40a8-9682-23a1feb7bccd\"
-        }"' \
-        --form 'VerifyImage=@"test.png"'
-        
-        Response:
-        {
-            "verifyImage": {
-                "faceRectangle": {
-                    "top": 506,
-                    "left": 51,
-                    "width": 680,
-                    "height": 475
-                },
-                "qualityForRecognition": "high"
-            },
-            "sessionId": "3847ffd3-4657-4e6c-870c-8e20de52f567",
-            "authToken":<session-authorization-token>
-        }
-        
-        ```
+#### [C#](#tab/csharp)
+
+```csharp
+```
+
+#### [Java](#tab/java)
+
+```java
+```
+
+#### [Python](#tab/python)
+
+```python
+```
+
+#### [Javascript](#tab/javascript)
+
+```javascript
+```
+
+#### [REST API (Windows)](#tab/windows)
+
+```console
+curl --request POST --location "%VISION_ENDPOINT%/face/v1.1-preview.1/detectliveness/singlemodal/sessions" ^
+--header "Ocp-Apim-Subscription-Key: %VISION_KEY%" ^
+--form "Parameters=^
+"{ ^
+    \"livenessOperationMode\": \"passive\", ^
+    \"deviceCorrelationId\": \"723d6d03-ef33-40a8-9682-23a1feb7bccd\" ^
+}"' ^
+--form 'VerifyImage=@"test.png"'
+```
+
+#### [REST API (Linux)](#tab/linux)
+
+```bash
+curl --request POST --location "${VISION_ENDPOINT}/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions" \
+--header "Ocp-Apim-Subscription-Key: ${VISION_KEY}" \
+--form 'Parameters="{
+  \"livenessOperationMode\": \"passive\",
+  \"deviceCorrelationId\": \"723d6d03-ef33-40a8-9682-23a1feb7bccd\"
+}"' \
+--form 'VerifyImage=@"test.png"'
+```
+
+Here is an example of the response body:
+```json
+{
+	"verifyImage": {
+		"faceRectangle": {
+			"top": 506,
+			"left": 51,
+			"width": 680,
+			"height": 475
+		},
+		"qualityForRecognition": "high"
+	},
+	"sessionId": "3847ffd3-4657-4e6c-870c-8e20de52f567",
+	"authToken":<session-authorization-token>
+}
+```
 
     - The mobile application provides the reference image when initializing the SDK. This is not a supported scenario in the web solution.
 
-        ```kotlin
-        val singleFaceImageSource = VisionSource.fromFile("/path/to/image.jpg")
-        mFaceAnalysisOptions?.setRecognitionMode(RecognitionMode.valueOfVerifyingMatchToFaceInSingleFaceImage(singleFaceImageSource))
-        ```
+	```kotlin
+	val singleFaceImageSource = VisionSource.fromFile("/path/to/image.jpg")
+	mFaceAnalysisOptions?.setRecognitionMode(RecognitionMode.valueOfVerifyingMatchToFaceInSingleFaceImage(singleFaceImageSource))
+	```
 
-        ```swift
-        if let path = Bundle.main.path(forResource: "<IMAGE_RESOURCE_NAME>", ofType: "<IMAGE_RESOURCE_TYPE>"),
-           let image = UIImage(contentsOfFile: path),
-           let singleFaceImageSource = try? VisionSource(uiImage: image) {
-            try methodOptions.setRecognitionMode(.verifyMatchToFaceIn(singleFaceImage: singleFaceImageSource))
-        }
-        ```
+	```swift
+	if let path = Bundle.main.path(forResource: "<IMAGE_RESOURCE_NAME>", ofType: "<IMAGE_RESOURCE_TYPE>"),
+	   let image = UIImage(contentsOfFile: path),
+	   let singleFaceImageSource = try? VisionSource(uiImage: image) {
+		try methodOptions.setRecognitionMode(.verifyMatchToFaceIn(singleFaceImage: singleFaceImageSource))
+	}
+	```
 
 1. The app server can now query for the verification result in addition to the liveness result.
     
-    ```json
-    Request:
-    curl --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/3847ffd3-4657-4e6c-870c-8e20de52f567' \
-    --header 'Content-Type: multipart/form-data' \
-    --header 'apim-recognition-model-preview-1904: true' \
-    --header 'Authorization: Bearer.<session-authorization-token> \
-    --form 'Content=@"content.bin"' \
-    --form 'Metadata="<insert-metadata>"
-    
-    Response:
-    {
-        "status": "ResultAvailable",
-        "result": {
-            "id": 1,
-            "sessionId": "3847ffd3-4657-4e6c-870c-8e20de52f567",
-            "requestId": "f71b855f-5bba-48f3-a441-5dbce35df291",
-            "receivedDateTime": "2023-10-31T17:03:51.5859307+00:00",
-            "request": {
-                "url": "/face/v1.1-preview.1/detectlivenesswithverify/singlemodal",
-                "method": "POST",
-                "contentLength": 352568,
-                "contentType": "multipart/form-data; boundary=--------------------------590588908656854647226496",
-                "userAgent": ""
-            },
-            "response": {
-                "body": {
-                    "livenessDecision": "realface",
-                    "target": {
-                        "faceRectangle": {
-                            "top": 59,
-                            "left": 121,
-                            "width": 409,
-                            "height": 395
-                        },
-                        "fileName": "content.bin",
-                        "timeOffsetWithinFile": 0,
-                        "imageType": "Color"
-                    },
-                    "modelVersionUsed": "2022-10-15-preview.04",
-                    "verifyResult": {
-                        "matchConfidence": 0.9304124,
-                        "isIdentical": true
-                    }
-                },
-                "statusCode": 200,
-                "latencyInMilliseconds": 1306
-            },
-            "digest": "2B39F2E0EFDFDBFB9B079908498A583545EBED38D8ACA800FF0B8E770799F3BF"
-        },
-        "id": "3847ffd3-4657-4e6c-870c-8e20de52f567",
-        "createdDateTime": "2023-10-31T16:58:19.8942961+00:00",
-        "authTokenTimeToLiveInSeconds": 600,
-        "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
-        "sessionExpired": true
-    }
-    ```
+#### [C#](#tab/csharp)
+
+```csharp
+```
+
+#### [Java](#tab/java)
+
+```java
+```
+
+#### [Python](#tab/python)
+
+```python
+```
+
+#### [Javascript](#tab/javascript)
+
+```javascript
+```
+
+#### [REST API](#tab/rest)
+```bash
+curl --request GET --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/3847ffd3-4657-4e6c-870c-8e20de52f567' \
+--header 'Content-Type: multipart/form-data' \
+--header 'apim-recognition-model-preview-1904: true' \
+--header 'Authorization: Bearer.<session-authorization-token> \
+--form 'Content=@"content.bin"' \
+--form 'Metadata="<insert-metadata>"
+```
+
+An example of the response body:
+```json
+{
+	"status": "ResultAvailable",
+	"result": {
+		"id": 1,
+		"sessionId": "3847ffd3-4657-4e6c-870c-8e20de52f567",
+		"requestId": "f71b855f-5bba-48f3-a441-5dbce35df291",
+		"receivedDateTime": "2023-10-31T17:03:51.5859307+00:00",
+		"request": {
+			"url": "/face/v1.1-preview.1/detectlivenesswithverify/singlemodal",
+			"method": "POST",
+			"contentLength": 352568,
+			"contentType": "multipart/form-data; boundary=--------------------------590588908656854647226496",
+			"userAgent": ""
+		},
+		"response": {
+			"body": {
+				"livenessDecision": "realface",
+				"target": {
+					"faceRectangle": {
+						"top": 59,
+						"left": 121,
+						"width": 409,
+						"height": 395
+					},
+					"fileName": "content.bin",
+					"timeOffsetWithinFile": 0,
+					"imageType": "Color"
+				},
+				"modelVersionUsed": "2022-10-15-preview.04",
+				"verifyResult": {
+					"matchConfidence": 0.9304124,
+					"isIdentical": true
+				}
+			},
+			"statusCode": 200,
+			"latencyInMilliseconds": 1306
+		},
+		"digest": "2B39F2E0EFDFDBFB9B079908498A583545EBED38D8ACA800FF0B8E770799F3BF"
+	},
+	"id": "3847ffd3-4657-4e6c-870c-8e20de52f567",
+	"createdDateTime": "2023-10-31T16:58:19.8942961+00:00",
+	"authTokenTimeToLiveInSeconds": 600,
+	"deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
+	"sessionExpired": true
+}
+```
+
+1. Delete the session you created if you won't query its result anymore.
+
+#### [C#](#tab/csharp)
+
+```csharp
+```
+
+#### [Java](#tab/java)
+
+```java
+```
+
+#### [Python](#tab/python)
+
+```python
+```
+
+#### [Javascript](#tab/javascript)
+
+```javascript
+```
+
+#### [REST API](#tab/rest)
+```bash
+curl --request DELETE --location '<insert-api-endpoint>/face/v1.1-preview.1/detectlivenesswithverify/singlemodal/sessions/<session-id>' \
+--header 'Ocp-Apim-Subscription-Key: <insert-api-key>
+```
 
 ## Clean up resources
 
