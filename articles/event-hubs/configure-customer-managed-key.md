@@ -367,7 +367,7 @@ Follow instructions from the [Create a user-assigned managed identity](../active
 > [!NOTE]
 > You can assign up to **4** user identities to a namespace. These associations are deleted when the namespace is deleted or when you pass the `identity -> type` in the template to `None`. 
 
-### Ggrant access to user-assigned identity 
+### Grant access to user-assigned identity 
 
 1. Get the **Service principal ID** for the user identity using the following PowerShell command. In the example, `ud1` is the user-assigned identity to be used for encryption.
 
@@ -386,7 +386,7 @@ Follow instructions from the [Create a user-assigned managed identity](../active
 ### Create an Event Hubs namespace with user identity and key vault information
 This section gives you an example that shows you how to do the following tasks using an Azure Resource Manager template. 
 
-- Assign a user-managed identity to an Event Hubs namespace.
+1. Assign a user-managed identity to an Event Hubs namespace.
 
     ```json
                 "identity": {
@@ -396,7 +396,7 @@ This section gives you an example that shows you how to do the following tasks u
                     }
                 },
     ```    
-- Enable encryption on the namespace by specifying a key from your key vault and the user-managed identity to access the key. 
+1. Enable encryption on the namespace by specifying a key from your key vault and the user-managed identity to access the key. 
 
     ```json
                     "encryption":{
@@ -505,7 +505,7 @@ This section gives you an example that shows you how to do the following tasks u
        ]
     }        
     ```  
-2. Create a template parameter file: **CreateEventHubsNamespaceWithUserIdentityAndEncryptionParams.json**.
+1. Create a template parameter file: **CreateEventHubsNamespaceWithUserIdentityAndEncryptionParams.json**.
 
    # [Key Vault](#tab/Key-Vault) 
 
@@ -576,7 +576,7 @@ This section gives you an example that shows you how to do the following tasks u
     | `<RESOURCE GROUP NAME>` | Resource group of the user-managed identity. | 
     | `<USER MANAGED IDENTITY NAME>` | Name of the user-managed identity. | 
 
-3. Run the following PowerShell command to deploy the Resource Manager template. Replace `{MyRG}` with the name of your resource group before running the command.
+1. Run the following PowerShell command to deploy the Resource Manager template. Replace `{MyRG}` with the name of your resource group before running the command.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name CreateEventHubsNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./ CreateEventHubsNamespaceWithUserIdentityAndEncryption.json -TemplateParameterFile ./ CreateEventHubsNamespaceWithUserIdentityAndEncryptionParams.json        
