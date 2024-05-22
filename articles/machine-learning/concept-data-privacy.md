@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 5/02/2024
+ms.date: 5/22/2024
 ms.reviewer: jcioffi
 ms.author: ssalgado
 author: ssalgadodev
@@ -24,9 +24,9 @@ When you deploy models in Azure Machine Learning, the following types of data ar
 
 * **Uploaded data**. For models that support fine-tuning, customers can upload their data to the [Azure Machine Learning Datastore](./concept-data.md) for use for fine-tuning.
 
-## Generate inferencing outputs with real-time endpoints
+## Generate inferencing outputs with managed compute
 
-Deploying models to managed compute deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the [Model Catalog to real-time endpoints](concept-model-catalog.md). You manage the infrastructure for these real-time endpoints, and Azure's data, privacy, and security commitments apply. Learn more about [Azure compliance offerings](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3) applicable to Azure Machine Learning.
+Deploying models to managed compute deploys model weights to dedicated Virtual Machines and exposes a REST API for real-time inference. Learn more about deploying models from the [Model Catalog to managed compute](concept-model-catalog.md). You manage the infrastructure for these managed computes, and Azure's data, privacy, and security commitments apply. Learn more about [Azure compliance offerings](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3) applicable to Azure Machine Learning.
 
 Although containers for models "Curated by Azure AI" are scanned for vulnerabilities that could exfiltrate data, not all models available through the model catalog have been scanned. To reduce the risk of data exfiltration, you can protect your deployment using virtual networks. Follow this link to [learn more](./how-to-network-isolation-model-catalog.md). You can also use [Azure Policy](./how-to-regulate-registry-deployments.md) to regulate the models that can be deployed by your users.
 
