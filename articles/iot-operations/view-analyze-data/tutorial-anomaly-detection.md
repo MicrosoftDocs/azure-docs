@@ -261,9 +261,9 @@ To create the ERP reference data pipeline that ingests the data from the HTTP en
 
 You now have a pipeline that queries an HTTP endpoint every 30 minutes for ERP reference data to store in a reference dataset.
 
-### OPCUA anomaly detection pipeline
+### OPC UA anomaly detection pipeline
 
-Now you can build the OPCUA anomaly detection pipeline that:
+Now you can build the OPC UA anomaly detection pipeline that:
 
 - Ingests the sensor measurements from the production line assets.
 - Detects any anomalies in the measurement data.

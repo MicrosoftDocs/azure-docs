@@ -41,6 +41,8 @@ landingContent:
             url: quickstart-create-deployment-stacks.md
           - text: Use private module registry
             url: quickstart-private-module-registry.md
+          - text: Create and deploy Microsoft Graph resources
+            url: https://learn.microsoft.com/graph/templates/quickstart-create-bicep-interactive-mode
       - linkListType: learn
         links:
           - text: Introduction to Bicep
@@ -128,6 +130,8 @@ landingContent:
         links:
         - text: Bicep resource reference
           url: /azure/templates/
+        - text: Microsoft Graph Bicep reference
+          url: https://learn.microsoft.com/graph/templates/reference/overview
         - text: Azure PowerShell
           url: /powershell/module/az.resources
         - text: Azure CLI
