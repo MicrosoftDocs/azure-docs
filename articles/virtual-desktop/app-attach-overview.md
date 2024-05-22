@@ -1,17 +1,20 @@
 ---
-title: App attach and MSIX app attach - Azure Virtual Desktop
-description: Learn about app attach and MSIX app attach in Azure Virtual Desktop, where you can dynamically attach applications from an application package to a user session.
+title: MSIX app attach and app attach - Azure Virtual Desktop
+description: Learn about MSIX app attach and app attach in Azure Virtual Desktop, where you can dynamically attach applications from an application package to a user session.
 ms.topic: conceptual
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 03/04/2024
+ms.date: 12/08/2023
 ---
 
-# App attach and MSIX app attach in Azure Virtual Desktop
+# MSIX app attach and app attach in Azure Virtual Desktop
 
+> [!IMPORTANT]
+> App attach is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *app attach* and *MSIX app attach*. *App attach* is now generally available and improves the administrative and user experiences. With both *app attach* and *MSIX app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. 
+There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *MSIX app attach* and *app attach (preview)*. *MSIX app attach* is generally available, but *app attach* is available in preview, which improves the administrative and user experiences. With both *MSIX app attach* and *app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. 
 
 The following table compares MSIX app attach with app attach:
 
@@ -34,7 +37,7 @@ You can use the following application package types and file formats:
 MSIX and Appx are Windows application package formats that provide a modern packaging experience to Windows applications. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. MSIX and Appx are similar, where the main difference is that MSIX is a superset of Appx. MSIX supports all the features of Appx, plus other features that make it more suitable for enterprise use.
 
 > [!TIP]
-> Select a button at the top of this article to choose between *app attach* and *MSIX app attach* to see the relevant documentation.
+> Select a button at the top of this article to choose between *MSIX app attach* (current) and *app attach* (preview) to see the relevant documentation.
 
 You can get MSIX packages from software vendors, or you can [create an MSIX package from an existing installer](/windows/msix/packaging-tool/create-an-msix-overview). To learn more about MSIX, see [What is MSIX?](/windows/msix/overview)
 
@@ -105,7 +108,7 @@ MSIX app attach mounts disk images containing your applications from a file shar
 
 - **On-demand**: applications are only partially registered at sign-in and the full registration of an application is postponed until the user starts the application. On-demand is the registration type we recommend you use as it doesn't affect the time it takes to sign-in to Azure Virtual Desktop. On-demand is the default registration method.
 
-- **Register at log on**: each application you assign to a user is fully registered. Registration happens while the user is signing in to their session, which might affect the sign-in time to Azure Virtual Desktop.
+- **Log on blocking**: each application you assign to a user is fully registered. Registration happens while the user is signing in to their session, which might affect the sign-in time to Azure Virtual Desktop.
 
 ::: zone pivot="app-attach"
 > [!IMPORTANT]
@@ -126,7 +129,7 @@ MSIX app attach doesn't limit the number of applications users can use. You shou
 ## Application state
 
 ::: zone pivot="app-attach"
-An MSIX and Appx package is set as **active** or **inactive**. Packages set to active makes the application available to users. Packages set to inactive are ignored by Azure Virtual Desktop and not added when a user signs-in.
+An MSIX and Appx package is set as **active** or **inactive**. Packages set to active makes the application available to users. Packages set to inactive are ignored by Azure Virtual Desktop and not added when a user signs in.
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"

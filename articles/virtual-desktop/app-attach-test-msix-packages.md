@@ -208,7 +208,7 @@ Now that your MSIX package is registered, your application should be available f
 
 ## Deregister an MSIX package
 
-Once you're finished with your MSIX package and are ready to remove it, first you need to deregister it. To deregister the MSIX package, run the following commands in the same PowerShell session. These commands get the disk's `DeviceId` parameter again, and removes the package using the `$msixPackageFullName` variable created in a previous section.
+Once you're finished with your MSIX package and are ready to remove it, first you need to deregister it. To deregister the MSIX package, run the following commands in the same PowerShell session. These commands get the disk's `DeviceId` parameter again, and remove the package using the `$msixPackageFullName` variable created in a previous section.
 
 ```powershell
 $appPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') $msixPackageFullName
