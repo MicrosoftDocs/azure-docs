@@ -10,7 +10,7 @@ ms.date: 05/7/2024
 
 # How to deploy hub and spoke topology with Azure Firewall
 
-In this article, you learn how to deploy a hub and spoke topology with Azure Firewall using Azure Virtual Network Manager (AVNM). 
+In this article, you learn how to deploy a hub and spoke topology with Azure Firewall using Azure Virtual Network Manager (AVNM). You'll create a network manager instance, and implements network groups for trusted and untrusted traffic. Next, you'll deploy a connectivity configuration for defining your hub and spoke topology. You'll finish by deploying deploying a routing configuration to route all traffic to Azure Firewall, except the traffic within the same virtual network when the virtual networks are trusted.
 
 Many organizations use Azure Firewall to protect their virtual networks from threats and unwanted traffic, and they route all traffic to Azure Firewall except trusted traffic within the same virtual network. Traditionally, setting up such a scenario is cumbersome because new user-defined routes (UDRs) need to be created for each new subnet, and all route tables have different UDRs. UDR management in Azure Virtual Network Manager can help you easily achieve this scenario by creating a routing rule that routes all traffic to Azure Firewall, except the traffic within the same virtual network.
 
