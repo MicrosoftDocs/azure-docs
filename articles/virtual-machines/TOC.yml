@@ -415,6 +415,9 @@
       - name: Configure and optimize VMs
         displayName: Configure and optimize Infiniband enabled VMs
         href: configure.md
+      - name: Azure HPC VM images
+        displayName: Azure HPC VM images
+        href: azure-hpc-vm-images.md
       - name: HB-series
         href: hb-series.md
         items:

@@ -16,7 +16,7 @@ This article lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](includes/sentinel-limits-analytics-rules.md)]
 
-## Hunts
+## Hunts limits
 
 [!INCLUDE [sentinel-service-limits](includes/sentinel-limits-hunts.md)]
 
