@@ -310,7 +310,7 @@
         - name: .NET
           items: 
             - name: Feature reference
-              href: ./feature-management-reference-dotnet.md
+              href: ./feature-management-dotnet-reference-v3.md
             - name: API reference
               href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring

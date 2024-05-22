@@ -1,6 +1,6 @@
 ---
 title: .NET Feature Management
-description: Introduction of .NET Feature Management library
+description: Introduction of .NET Feature Management library V3
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 05/17/2024
 ---
 
-# .NET Feature Management
+# .NET Feature Management V3.0.0
 
 The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
 
@@ -132,7 +132,7 @@ The `RequirementType` property of a feature flag is used to determine if the fil
 * `Any` means only one filter needs to evaluate to true for the feature to be enabled. 
 * `All` means every filter needs to evaluate to true for the feature to be enabled.
 
-A `RequirementType` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature-filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it is considered enabled.
+A `RequirementType` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it is considered enabled.
 
 ``` JavaScript
 "FeatureW": {
@@ -219,7 +219,7 @@ public class Startup
 
 By default, the feature manager retrieves feature flag configuration from the "FeatureManagement" section of the .NET Core configuration data. If the "FeatureManagement" section doesn't exist, the configuration is considered empty.
 
-You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
+**Note:** You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
 
 ``` C#
 services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
@@ -543,7 +543,7 @@ If all of three filters are registered:
 
 ## Built-In Feature Filters
 
-There a few feature filters that come with the `Microsoft.FeatureManagement` package: `PercentageFilter`, `TimeWindowFilter`, `ContextualTargetingFilter` and `TargetingFilter`. All filters, except for the `TargetingFilter`, are added automatically when feature management is registered. The `TargetingFilter` is added with the `WithTargeting` method that is detailed in the `Targeting` section below.
+There are a few feature filters that come with the `Microsoft.FeatureManagement` package: `PercentageFilter`, `TimeWindowFilter`, `ContextualTargetingFilter` and `TargetingFilter`. All filters, except for the `TargetingFilter`, are added **automatically** when feature management is registered by `AddFeatureManagement` method. The `TargetingFilter` is added with the `WithTargeting` method that is detailed in the `Targeting` section below.
 
 Each of the built-in feature filters has its own parameters. Here's the list of feature filters along with examples.
 
@@ -613,7 +613,7 @@ The `Recurrence` settings are made up of two parts: `Pattern` (how often the tim
 
 #### Recurrence Pattern
 
-There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window could repeat "every day", "every 3 days", "every Monday" or "on Friday per 2 weeks". 
+There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window could repeat "every day", "every 3 days", "every Monday" or "every other Friday". 
 
 Depending on the type, certain fields of the `Pattern` are required, optional, or ignored.
 
