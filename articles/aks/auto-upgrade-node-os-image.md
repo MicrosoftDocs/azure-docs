@@ -3,8 +3,8 @@ title: Auto-upgrade Node OS Images
 description: Learn how to choose an upgrade channel that best supports your needs for cluster's node OS security and maintenance. 
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli
-ms.author: nickoman,kaarthis
-author: nickomang,kaarthis
+ms.author: kaarthis
+author: kaarthis
 ms.subservice: aks-upgrade
 ms.date: 05/10/2024
 ---
