@@ -69,7 +69,7 @@ The following request body defines properties required to fetch the time ranges 
 }
 ```
 
-####$ Responses for fetch valid time ranges
+#### Responses for fetch valid time ranges
 
 Once you submit the *POST* request, the response is 200(OK) with the start and end time of the range available for restore within the specified start and end time of the request.
 

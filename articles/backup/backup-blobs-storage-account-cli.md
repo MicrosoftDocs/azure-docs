@@ -66,7 +66,7 @@ You can create a backup policy for *operational backup* and *vaulted backup* for
 
 # [Operational backup](#tab/operational-backup)
 
-Before creating the policy and configure backups for Azure Blobs, see the [prerequisites](blob-backup-configure-manage.md#before-you-start).
+Before creating the policy and configuring backups for Azure Blobs, see the [prerequisites](blob-backup-configure-manage.md#before-you-start).
 
 To understand the inner components of a Backup policy for Azure Blobs backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-get-default-policy-template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
