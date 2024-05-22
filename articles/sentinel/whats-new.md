@@ -23,7 +23,7 @@ The listed features were released in the last three months. For information abou
 - [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-availaible-ga)
 - [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
 
-### Incident and entity triggers in playbooks are now Generally Availaible (GA)
+### Incident and entity triggers in playbooks are now Generally Available (GA)
 
 The ability to use incident and entity triggers is playbooks is now supported as GA.
 
