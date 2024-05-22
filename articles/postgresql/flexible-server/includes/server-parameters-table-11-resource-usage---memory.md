@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the maximum memory to be used for maintenance operations such as VACUUM, Create Index.                                                                                         |
 | Data type      | integer     |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.      |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
 | Allowed values | `1024-2097151`   |
 | Parameter type | dynamic        |
 | Documentation  | [maintenance_work_mem](https://www.postgresql.org/docs/11/runtime-config-resource.html)      |
@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the maximum number of simultaneously prepared transactions. When running a replica server, you must set this parameter to the same or higher value than on the primary server. |
 | Data type      | integer     |
-| Default value  | `0`           |
+| Default value  | `0`                                                                        |
 | Allowed values | `0-262143`       |
 | Parameter type | static         |
 | Documentation  | [max_prepared_transactions](https://www.postgresql.org/docs/11/runtime-config-resource.html) |
@@ -116,7 +116,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the number of shared memory buffers used by the server. Unit is 8kb. Allowed values are inside the range of 10% - 75% of available memory.                                     |
 | Data type      | integer     |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.      |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.                                                                   |
 | Allowed values | `16-1073741823`  |
 | Parameter type | static         |
 | Documentation  | [shared_buffers](https://www.postgresql.org/docs/11/runtime-config-resource.html)            |
@@ -133,7 +133,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the maximum number of temporary buffers used by each database session.                                                                                                         |
 | Data type      | integer     |
-| Default value  | `1024`        |
+| Default value  | `1024`                                                                     |
 | Allowed values | `100-1073741823` |
 | Parameter type | dynamic        |
 | Documentation  | [temp_buffers](https://www.postgresql.org/docs/11/runtime-config-resource.html)              |
