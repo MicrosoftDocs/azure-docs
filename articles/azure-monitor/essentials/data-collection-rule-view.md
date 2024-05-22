@@ -56,14 +56,12 @@ az monitor data-collection rule association list --resource "/subscriptions/0000
 
 
 ## Preview DCR experience
-A preview of the new Azure portal experience for DCRs is now available. 
+A preview of the new Azure portal experience for DCRs is now available. Select the option on the displayed banner to enable this experience.
 
 :::image type="content" source="media/data-collection-rule-view/preview-experience.png" alt-text="Screenshot of title bar to enable the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/preview-experience.png":::
 
 The preview experience ties together DCRs and the resources they're associated with. You can either view the list by **Data collection rule**, which shows the number of resources associated with each DCR, or by **Resources**, which shows the count of DCRs associated with each resource.
 
-> [!IMPORTANT]
-> Not all DCRs are associated with resources. For example, DCRs used with the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) are specified in the API call and do not use associations. These DCRs still appear in the view, but will have a **Resource Count** of 0.
 
 ### Data collection rule view
 In the **Data collection rule** view, the **Resource count** represents the number of resources that have a [data collection rule association](./data-collection-rule-overview.md#data-collection-rule-associations) with the DCR. Click this value to open the **Resources** view for that DCR.
@@ -71,10 +69,27 @@ In the **Data collection rule** view, the **Resource count** represents the numb
 :::image type="content" source="media/data-collection-rule-view/data-collection-rules-view.png" alt-text="Screenshot of data collection rules view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/data-collection-rules-view.png":::
 
 ### Resources view
-The **Resources** view lists all Azure resources that match the selected filter. The **Data collection rules** column represents the number of DCRs that are associated with each resource. Click this value to open the **Data collection rule** view for that resource .
+The **Resources** view lists all Azure resources that match the selected filter, whether they have a DCR association or not. Tiles at the top of the view list the count of total resources listed, the number of resources not associated with a DCR, and the total number of DCRs matching the selected filter.
 
-:::image type="content" source="media/data-collection-rule-view/resources-view.png" alt-text="Screenshot of resources view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view.png":::
+:::image type="content" source="media/data-collection-rule-view/resources-view.png" alt-text="Screenshot of resources view in the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view.png":::
 
+The **Data collection rules** column represents the number of DCRs that are associated with each resource. Click this value to open a new pane listing the DCRs associated with the resource. 
+
+:::image type="content" source="media/data-collection-rule-view/resources-view-association.png" alt-text="Screenshot of the DCR associations for a resource in the resources view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view-association.png":::
+
+> [!IMPORTANT]
+> Not all DCRs are associated with resources. For example, DCRs used with the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) are specified in the API call and do not use associations. These DCRs still appear in the view, but will have a **Resource Count** of 0.
+
+### Create new associations
+Using the **Resources** view, you can create new associations to one or more DCRs for a particular resource. Select the resource and then click **Associate to existing data collection rules**.
+
+:::image type="content" source="media/data-collection-rule-view/resources-view-associate.png" alt-text="Screenshot of the create association button in the resources view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view-associate.png":::
+
+This opens a list of DCRs that can be associated with the current resource. This list only includes DCRs that are valid for the particular resource. For example, if the resource is a VM with the Azure Monitor agent (AMA) installed, only DCRs that process AMA data are listed. 
+
+:::image type="content" source="media/data-collection-rule-view/resources-view-create-associations.png" alt-text="Screenshot of the create associations view in the resources view in the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view-create-associations.png":::
+
+Click **Review & Associate** to create the association.
 
 ## Next steps
 See the following articles for additional information on how to work with DCRs.
