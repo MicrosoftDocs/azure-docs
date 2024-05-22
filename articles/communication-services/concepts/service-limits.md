@@ -178,8 +178,9 @@ If you have strict compliance needs, we recommend that you delete chat threads u
 
 | **Name**         | **Scope** |  Limit  |
 |--|--|--|
-|Default number of outbound concurrent calls |per Number | 2 
+|Default number of outbound* concurrent calls |per Number | 2 
 
+*: no limits on inbound concurrent calls
 ### Call maximum limitations
 
 | **Name**         | Limit  |
@@ -213,7 +214,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 ### Action to take
 
-For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
+For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md). You can also [submit a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to increase some of the limits and then it is reviewed by our vetting team.
 
 ## Job Router
 When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests will be dropped until the token of bucket to handle requests is replenished after a certain time.

@@ -17,7 +17,7 @@ ms.custom: references_regions, build-2024
 ---
 
 # How to deploy Cohere Embed models with Azure Machine Learning studio
-Cohere offers two Embed models in Azure Machine Learning studio. These models are available with pay-as-you-go token based billing with Models as a Service.
+Cohere offers two Embed models in Azure Machine Learning studio. These models are available as serverless APIs with pay-as-you-go, token-based billing.
 
 * Cohere Embed v3 - English
 * Cohere Embed v3 - Multilingual
@@ -26,7 +26,7 @@ You can browse the Cohere family of models in the model catalog by filtering on 
 
 ## Models
 
-In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere models as a service with pay-as you go billing.
+In this article, you learn how to use Azure Machine Learning studio to deploy the Cohere models as a serverless API with pay-as you go billing.
 
 ### Cohere Embed v3 - English
 Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on various industries such as Finance, Legal, and General-Purpose Corpora.
@@ -42,9 +42,8 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Deploy with pay-as-you-go
-
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+## Deploy as a serverless API
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
 The previously mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
 
@@ -70,7 +69,7 @@ To create a deployment:
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
 
-1. On the model's overview page in the model catalog, select **Deploy** and then **Pay-as-you-go**.
+1. On the model's overview page in the model catalog, select **Deploy**.
 
     :::image type="content" source="media/how-to-deploy-models-cohere-embed/embed-english-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-cohere-embed/embed-english-deploy-pay-as-you-go.png":::
 
@@ -92,11 +91,11 @@ To create a deployment:
 1. Select the endpoint to open its Details page.
 1. Select the **Test** tab to start interacting with the model.  
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
-1. Take note of the **Target** URL and the **Secret Key**. For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+1. Take note of the **Target** URL and the **Secret Key**. For more information on using the APIs, see the [reference] (#embed-api-reference-for-cohere-embed-models-deployed-as-a-serverless-api) section.
 
 To learn about billing for models deployed with pay-as-you-go, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
 
-### Consume the models as a service
+### Consume the models deployed as a serverless API
 
 The previously mentioned Cohere models can be consumed using the chat API.
 
@@ -105,9 +104,9 @@ The previously mentioned Cohere models can be consumed using the chat API.
 1. Copy the **Target** URL and the **Key** token values.
 1. Cohere exposes two routes for inference with the Embed v3 - English and Embed v3 - Multilingual models. `v1/embeddings` adheres to the Azure AI Generative Messages API schema, and `v1/embed` supports Cohere's native API schema.
 
-    For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#embed-api-reference-for-cohere-embed-models-deployed-as-a-serverless-api) section.
 
-## Embed API reference for Cohere Embed models deployed as a service
+## Embed API reference for Cohere Embed models deployed as a serverless API
 
 Cohere Embed v3 - English and Embed v3 - Multilingual accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/embeddings` (for text) and `/images/embeddings` (for images), and the native [Cohere Embed v3 API](#cohere-embed-v3) on `/embed`. 
 
