@@ -122,7 +122,7 @@ $blobBkpPol = Get-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultR
 
 **Choose a backup tier**:
 
-# Operational Backup](#tab/operational-backup)
+# [Operational Backup](#tab/operational-backup)
 
 Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [Initialize-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/initialize-azdataprotectionbackupinstance) command. Then, we submit the request to protect the blobs within the storage account using the [New-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/new-azdataprotectionbackupinstance) command.
 
