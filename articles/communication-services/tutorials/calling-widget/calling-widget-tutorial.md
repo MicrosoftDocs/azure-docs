@@ -52,7 +52,17 @@ code --version
 ```
 Like with Node this command will fail if there was an issue installing VS Code on your machine.
 
-### Set up the project
+## Getting started
+We will complete this tutorial in 5 steps and at the end will be able to call a Teams voice application. The steps are:
+1. [Set up the project](#1-set-up-the-project)
+2. [Get your dependencies](#2-get-your-dependencies)
+3. [Initial app setup](#3-initial-app-setup)
+4. [Create the widget](#4-create-the-widget)
+5. [Style the widget](#5-style-the-widget)
+6. [Setup identity values](#6-setup-identity-values)
+7. [Run the app](#7-run-the-app)
+
+### 1. Set up the project
 
 Only use this step if you're creating a new application.
 
@@ -80,7 +90,7 @@ npx create-react-app ui-library-calling-widget-app --template typescript
 cd ui-library-calling-widget-app
 ```
 
-### Get your dependencies
+### 2. Get your dependencies
 
 Then, you need to update the dependency array in the `package.json` to include some packages from Azure Communication Services for the widget experience we're going to build to work:
 
@@ -96,7 +106,7 @@ Then, you need to update the dependency array in the `package.json` to include s
 
 After you add these packages to your `package.json`, you're all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
 
-## Initial app setup
+## 3. Initial app setup
 
 To get started, we replace the provided `App.tsx` content with a main page that will:
 
@@ -229,7 +239,7 @@ export default App;
 
 In this snippet, we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we're creating in the next section.
 
-### Create the widget
+### 4. Create the widget
 
 Now we need to make a widget that can show in three different modes:
 - Waiting: This widget state is how the component will be in before and after a call is made
@@ -521,7 +531,7 @@ export const CallingWidgetComponent = (
 };
 ```
 
-#### Style the widget
+#### 5. Style the widget
 
 We need to write some styles to make sure the widget looks appropriate and can hold our call composite. These styles should already be used in the widget if copying the snippet we added to the file `CallingWidgetComponent.tsx`.
 
@@ -648,7 +658,7 @@ export const callingWidgetInCallContainerStyles = (
 };
 ```
 
-### Swap placeholders for identifiers
+### 6. Setup identity values
 
 Before we run the app, go to `App.tsx` and replace the placeholder values there with your Azure Communication Services Identities and the identifier for your Teams Voice application. Here are input values for the `token`, `userId` and `teamsAppIdentifier`.
 
@@ -675,7 +685,7 @@ const teamsAppIdentifier: MicrosoftTeamsAppIdentifier = {
 };
 ```
 
-### Run the app
+### 7. Run the app
 
 Finally we can run the application to make our calls! Run the following commands to install our dependencies and run our app.
 
