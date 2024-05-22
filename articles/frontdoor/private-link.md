@@ -116,6 +116,7 @@ Origin support for direct private endpoint connectivity is currently limited to:
 
 > [!NOTE]
 > This feature is not supported with App Service Slots and Functions
+> Application Gateway integration is currnetly not supported using Azure Portal
 
 The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
 
