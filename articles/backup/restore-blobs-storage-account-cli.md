@@ -537,7 +537,7 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Now, prepare the request body for the following restore scenarios supported by Azure Blobs vaulted backup.
+Prepare the request body for the following restore scenarios supported by Azure Blobs vaulted backup.
 
 ### Restore all containers
 

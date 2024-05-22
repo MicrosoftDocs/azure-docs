@@ -27,9 +27,9 @@ To illustrate the restoration steps in this article, we'll refer to blobs in a s
 
 You can now do the restore operation for *operational backup* and *vaulted backup* for Azure Blobs.
 
-**Choose the backup tier**:
+**Choose a backup tier**:
 
-# [Restore using operational backup](#tab/restore-using-operational-backup)
+# [Operational backup](#tab/operational-backup)
 
 ### Fetch the valid time range for restore
 
@@ -201,7 +201,7 @@ The key points to remember in this scenario are:
 }
 ```
 
-# [Restore using vaulted backup](#tab/restore-using-vaulted-backup)
+# [Vaulted backup](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-restore-restapi.md](../../includes/blob-vaulted-backup-restore-restapi.md)]
 

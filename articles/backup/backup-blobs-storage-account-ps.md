@@ -54,7 +54,8 @@ After creation of vault, let's create a backup policy to protect Azure blobs.
 > Though you'll see the Backup storage redundancy of the vault, the redundancy doesn't apply to the operational backup of blobs as the backup is local in nature and no data is stored in the Backup vault. Here, the backup vault is the management entity to help you manage the protection of block blobs in your storage accounts.
 
 ## Create a Backup policy
-**Choose the backup tier**:
+
+**Choose a backup tier**:
 
 # [Operational Backup](#tab/operational-backup)
 
@@ -115,29 +116,13 @@ $blobBkpPol = Get-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultR
 
 ## Configure backup
 
-Once the vault and policy are created, there are two critical points that the user needs to consider to protect all Azure blobs within a storage account.
+[!INCLUDE [blob-vaulted-backup-configure-policy-ps.md](../../includes/blob-vaulted-backup-configure-policy-ps.md)]
 
-### Key entities involved
+### Prepare the request to configure blob backup
 
-#### Storage account which contains the blobs to be protected
+**Choose a backup tier**:
 
-Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This will serve as the identifier of the storage account. We will use an example of a storage account named _PSTestSA_, under the resource group _blobrg_, in a different subscription.
-
-```azurepowershell-interactive
-$SAId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/PSTestSA"
-```
-
-#### Backup vault
-
-The Backup vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning such permissions.
-
-### Assign permissions
-
-You need to assign a few permissions via RBAC to vault (represented by vault MSI) and the relevant storage account. These can be performed via Portal or PowerShell. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
-
-### Prepare the request
-**Choose the backup tier**:
-# [Prepare Operational Backup](#tab/prepare-operational-backup)
+# Operational Backup](#tab/operational-backup)
 
 Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [Initialize-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/initialize-azdataprotectionbackupinstance) command. Then, we submit the request to protect the blobs within the storage account using the [New-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/new-azdataprotectionbackupinstance) command.
 
@@ -153,7 +138,7 @@ blobrg-PSTestSA-3df6ac08-9496-4839-8fb5-8b78e594f166 Microsoft.DataProtection/ba
 > [!IMPORTANT]
 > Once a storage account is configured for blobs backup, a few capabilities are affected, such as change feed and delete lock. [Learn more](blob-backup-configure-manage.md#effects-on-backed-up-storage-accounts).
 
-# [Prepare Vaulted Backup](#tab/prepare-vaulted-backup)
+# [Vaulted Backup](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-prepare-request-ps.md](../../includes/blob-vaulted-backup-prepare-request-ps.md)]
 

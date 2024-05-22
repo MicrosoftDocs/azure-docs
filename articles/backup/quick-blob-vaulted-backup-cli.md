@@ -30,7 +30,7 @@ Before you configure blob vaulted backup, ensure that:
 
 [!INCLUDE [blob-backup-configure-policy-cli.md](../../includes/blob-backup-configure-policy-cli.md)]
 
-## Prepare the request
+## Prepare the request to configure blob backup
 
 [!INCLUDE [blob-backup-prepare-request-cli.md](../../includes/blob-backup-prepare-request-cli.md)]
 

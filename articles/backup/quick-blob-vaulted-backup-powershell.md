@@ -32,7 +32,7 @@ Before you configure blob vaulted backup, ensure that:
 
 [!INCLUDE [blob-vaulted-backup-configure-policy-ps.md](../../includes/blob-vaulted-backup-configure-policy-ps.md)]
 
-## Prepare the request
+## Prepare the request to configure blob backup
 
 [!INCLUDE [blob-vaulted-backup-prepare-request-ps.md](../../includes/blob-vaulted-backup-prepare-request-ps.md)]
 

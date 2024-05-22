@@ -101,7 +101,7 @@ This option lets you restore a subset of blobs using a prefix match. You can spe
 ```azurepowershell-interactive
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore OperationalStore -RestoreLocation $TestBkpVault.Location  -RestoreType OriginalLocation -PointInTime (Get-Date -Date "2021-04-23T02:47:02.9500000Z") -BackupInstance $AllInstances[2] -ItemLevelRecovery -FromPrefixPattern "containerabc/aaa","containerabc/ccc" -ToPrefixPattern "containerabc/bbb","containerabc/ddd"
 ```
-# [Vaulted backup restore](#tab/vaulted-backup-restore)
+# [Vaulted backup](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-restore-ps.md](../../includes/blob-vaulted-backup-restore-ps.md)]
 

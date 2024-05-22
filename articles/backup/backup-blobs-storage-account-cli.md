@@ -178,27 +178,9 @@ az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVau
 
 ## Configure backup
 
-Once the vault and policy are created, there are two critical points that you need to consider to protect all Azure Blobs within a storage account.
+[!INCLUDE [blob-backup-configure-policy-cli.md](../../includes/blob-backup-configure-policy-cli.md)]
 
-### Key entities involved
-
-#### Storage account that contains the blobs to be protected
-
-Fetch the Azure Resource Manager ID of the storage account that contains the blobs to be protected. This will serve as the identifier of the storage account. We'll use an example of a storage account named _CLITestSA_, under the resource group _blobrg_, in a different subscription present in the South-east Asia region.
-
-```azurecli-interactive
-"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
-```
-
-#### Backup vault
-
-The Backup vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning such permissions.
-
-### Assign permissions
-
-You need to assign a few permissions via RBAC to vault (represented by vault MSI) and the relevant storage account. These can be performed via Portal or PowerShell. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
-
-### Prepare the request
+### Prepare the request to configure blob backup
 
 Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command. Then, we submit the request using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
 
