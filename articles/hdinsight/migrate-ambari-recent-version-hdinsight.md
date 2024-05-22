@@ -55,7 +55,7 @@ On HDInsight 4 Cluster (Old Cluster)
     
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/script-output.png" alt-text="Screenshot showing script output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/script-output.png":::
  
-1. you can see an output file with cluster name as `Plutos.out`.
+1. You can see an output file with cluster name as `Plutos.out`.
 1. Upload the file to a storage container.
 
 ## On HDInsight 5.x Cluster (New Cluster)
@@ -77,7 +77,7 @@ On HDInsight 4 Cluster (Old Cluster)
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/ambari-python-script.png" alt-text="Screenshot showing Ambari python script." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/ambari-python-script.png":::
 
 1. You can see an output file with cluster name `Sugar.out`.
-1. Download the old cluster out file.
+1. Download the old cluster `Sugar.out` file.
 
     :::image type="content" source="./media/migrate-ambari-recent-version-hdinsight/wget-command-output.png" alt-text="Screenshot showing wget command output." border="true" lightbox="./media/migrate-ambari-recent-version-hdinsight/wget-command-output.png":::
 
