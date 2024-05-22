@@ -14,7 +14,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Enables advertising the server via Bonjour.                                                                                         |
 | Data type      | boolean   |
-| Default value  | `off`                                                                      |
+| Default value  | `off`         |
 | Allowed values | `off`          |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the maximum number of concurrent connections to the database server.                                                           |
 | Data type      | integer   |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
 | Allowed values | `25-5000`      |
 | Parameter type | static         |
 | Documentation  | [max_connections](https://www.postgresql.org/docs/12/runtime-config-connection.html)         |

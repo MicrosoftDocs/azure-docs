@@ -48,7 +48,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Forces synchronization of updates to disk.                                                             |
 | Data type      | boolean     |
-| Default value  | `on`                                                                       |
+| Default value  | `on`          |
 | Allowed values | `on`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Writes full pages to WAL when first modified after a checkpoint.                                       |
 | Data type      | boolean     |
-| Default value  | `on`                                                                       |
+| Default value  | `on`          |
 | Allowed values | `on`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the current transaction's synchronization level.                                                  |
 | Data type      | enumeration |
-| Default value  | `on`                                                                       |
+| Default value  | `on`          |
 | Allowed values | `on`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the number of disk-page buffers in shared memory for WAL. Unit is 8kb.                            |
 | Data type      | integer     |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.        |
 | Allowed values | `-1-262143`       |
 | Parameter type | static         |
 | Documentation  | [wal_buffers](https://www.postgresql.org/docs/11/runtime-config-wal.html)            |
@@ -116,7 +116,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Compresses full-page writes written in WAL file.                                                       |
 | Data type      | boolean     |
-| Default value  | `on`                                                                       |
+| Default value  | `on`          |
 | Allowed values | `on,off`          |
 | Parameter type | dynamic        |
 | Documentation  | [wal_compression](https://www.postgresql.org/docs/11/runtime-config-wal.html)        |
@@ -150,7 +150,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Writes full pages to WAL when first modified after a checkpoint, even for a non-critical modification. |
 | Data type      | boolean     |
-| Default value  | `off`                                                                      |
+| Default value  | `off`         |
 | Allowed values | `off`             |
 | Parameter type | read-only      |
 | Documentation  |                                                                                      |
