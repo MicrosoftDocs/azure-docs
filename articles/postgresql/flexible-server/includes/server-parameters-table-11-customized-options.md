@@ -442,7 +442,7 @@ ms.topic: include
 | Default value  | `720`          |
 | Allowed values | `60-10080`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.analysis_interval](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -459,7 +459,7 @@ ms.topic: include
 | Default value  | `2`            |
 | Allowed values | `1-10`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_columns_per_index](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -476,7 +476,7 @@ ms.topic: include
 | Default value  | `10`           |
 | Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_index_count](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -493,7 +493,7 @@ ms.topic: include
 | Default value  | `10`           |
 | Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_indexes_per_table](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -510,7 +510,7 @@ ms.topic: include
 | Default value  | `25`           |
 | Allowed values | `5-100`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_queries_per_database](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -527,7 +527,7 @@ ms.topic: include
 | Default value  | `0.1`          |
 | Allowed values | `0.05-0.2`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_regression_factor](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -544,7 +544,7 @@ ms.topic: include
 | Default value  | `0.1`          |
 | Allowed values | `0-1.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_total_size_factor](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -561,7 +561,7 @@ ms.topic: include
 | Default value  | `0.2`          |
 | Allowed values | `0-20.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.min_improvement_factor](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -578,7 +578,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `off,report`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.mode](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -595,7 +595,7 @@ ms.topic: include
 | Default value  | `1000`         |
 | Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.unused_dml_per_table](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -612,7 +612,7 @@ ms.topic: include
 | Default value  | `35`           |
 | Allowed values | `30-720`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.unused_min_period](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -629,7 +629,7 @@ ms.topic: include
 | Default value  | `1000`         |
 | Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.unused_reads_per_table](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

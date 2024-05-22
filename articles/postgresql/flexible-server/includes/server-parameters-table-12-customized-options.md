@@ -508,9 +508,9 @@ ms.topic: include
 | Description    | Sets the frequency at which each index optimization session is triggered when index_tuning.mode is set to 'REPORT'.                                                                 |
 | Data type      | integer     |
 | Default value  | `720`          |
-| Allowed values | `60-10080`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Allowed values | `60-10080`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.analysis_interval](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -525,9 +525,9 @@ ms.topic: include
 | Description    | Maximum number of columns that can be part of the index key for any recommended index.                                                                                              |
 | Data type      | integer     |
 | Default value  | `2`            |
-| Allowed values | `1-10`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Allowed values | `1-10`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_columns_per_index](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -542,9 +542,9 @@ ms.topic: include
 | Description    | Maximum number of indexes that can be recommended for each database during one optimization session.                                                                                |
 | Data type      | integer     |
 | Default value  | `10`           |
-| Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_index_count](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -559,9 +559,9 @@ ms.topic: include
 | Description    | Maximum number of indexes that can be recommended for each table.                                                                                                                   |
 | Data type      | integer     |
 | Default value  | `10`           |
-| Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_indexes_per_table](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -576,9 +576,9 @@ ms.topic: include
 | Description    | Number of slowest queries per database for which indexes can be recommended.                                                                                                        |
 | Data type      | integer     |
 | Default value  | `25`           |
-| Allowed values | `5-100`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Allowed values | `5-100`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_queries_per_database](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -593,9 +593,9 @@ ms.topic: include
 | Description    | Acceptable regression introduced by a recommended index on any of the queries analyzed during one optimization session.                                                             |
 | Data type      | numeric     |
 | Default value  | `0.1`          |
-| Allowed values | `0.05-0.2`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Allowed values | `0.05-0.2`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_regression_factor](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -610,9 +610,9 @@ ms.topic: include
 | Description    | Maximum total size, in percentage of total disk space, that all recommended indexes for any given database can use.                                                                 |
 | Data type      | numeric     |
 | Default value  | `0.1`          |
-| Allowed values | `0-1.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Allowed values | `0-1.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.max_total_size_factor](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -627,9 +627,9 @@ ms.topic: include
 | Description    | Cost improvement that a recommended index must provide to at least one of the queries analyzed during one optimization session.                                                     |
 | Data type      | numeric     |
 | Default value  | `0.2`          |
-| Allowed values | `0-20.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Allowed values | `0-20.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.min_improvement_factor](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -644,9 +644,9 @@ ms.topic: include
 | Description    | Configures index optimization as disabled ('OFF') or enabled to only emit recommendation. Requires Query Store to be enabled by setting pg_qs.query_capture_mode to 'TOP' or 'ALL'. |
 | Data type      | enumeration |
 | Default value  | `off`          |
-| Allowed values | `off,report`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Allowed values | `off,report`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.mode](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -661,9 +661,9 @@ ms.topic: include
 | Description    | Minimum number of daily average DML operations affecting the table, so that their unused indexes are considered for dropping.                                                       |
 | Data type      | integer     |
 | Default value  | `1000`         |
-| Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.unused_dml_per_table](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -678,9 +678,9 @@ ms.topic: include
 | Description    | Minimum number of days the index has not been used, based on system statistics, so that it is considered for dropping.                                                              |
 | Data type      | integer     |
 | Default value  | `35`           |
-| Allowed values | `30-720`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Allowed values | `30-720`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.unused_min_period](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -695,9 +695,9 @@ ms.topic: include
 | Description    | Minimum number of daily average read operations affecting the table, so that their unused indexes are considered for dropping.                                                      |
 | Data type      | integer     |
 | Default value  | `1000`         |
-| Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                  |
+| Documentation  | [index_tuning.unused_reads_per_table](../how-to-configure-index-tuning.md#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
