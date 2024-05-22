@@ -94,7 +94,7 @@ Specifies the path to a service principal certificate file. Must be used with th
 
 `-p`, `--service-principal-secret`
 
-Specifies the service principal secret. Must be used with the `--service-principal-id` and `--tenant-id` flags. To avoid exposing the secret in console logs, Microsoft recommendeds providing the service principal secret in a configuration file. For more information, see [authentication options](#authentication-options).
+Specifies the service principal secret. Must be used with the `--service-principal-id` and `--tenant-id` flags. To avoid exposing the secret in console logs, Microsoft recommends providing the service principal secret in a configuration file. For more information, see [authentication options](#authentication-options).
 
 `--use-device-code`
 
