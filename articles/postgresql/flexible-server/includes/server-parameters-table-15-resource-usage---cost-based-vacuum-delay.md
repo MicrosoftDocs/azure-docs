@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Resource Usage / Cost-Based Vacuum Delay |
 | Description    | The estimated cost for vacuuming a buffer found in the shared buffer cache.                                    |
 | Data type      | integer   |
-| Default value  | `1`                                                                        |
+| Default value  | `1`           |
 | Allowed values | `0-10000`      |
 | Parameter type | dynamic        |
 | Documentation  | [vacuum_cost_page_hit](https://www.postgresql.org/docs/15/runtime-config-resource.html)   |

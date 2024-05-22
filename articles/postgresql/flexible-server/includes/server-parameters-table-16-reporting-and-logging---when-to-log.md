@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Reporting and Logging / When to Log |
 | Description    | Fraction of statements exceeding log_min_duration_sample to be logged.                                                                  |
 | Data type      | numeric     |
-| Default value  | `1`                                                                        |
+| Default value  | `1`           |
 | Allowed values | `1`                                                                            |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
