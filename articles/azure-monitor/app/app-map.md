@@ -473,7 +473,7 @@ There are many benefits to using **Intelligent view**:
 
 A toggle above the application map lets you enable **Intelligent view** and control the issue detection sensitivity:
 
-:::image type="content" source="media/app-map/intelligent-view-toggle.png" alt-text="Screenshot that shows how to enable Intelligent view for the application map and control the detection sensitivity." lightbox="media/app-map/intelligent-view-toggle-large.png":::
+:::image type="content" source="media/app-map/intelligent-view.png" alt-text="Screenshot that shows how to enable Intelligent view for the application map and control the detection sensitivity." lightbox="media/app-map/intelligent-view-large.png":::
 
 **Intelligent view** uses the patented AIOps machine learning model to highlight (red) the significant and important data in an application map. Various application data are used to determine which data to highlight on the map, including failure rates, request counts, durations, anomalies, and dependency type. For comparison, the standard map view utilizes only the _raw_ failure rate.
 
