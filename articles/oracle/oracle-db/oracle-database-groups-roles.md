@@ -4,8 +4,8 @@ description: Learn about groups and roles for Oracle Database@Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: conceptual
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
+ms.subservice: database
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ---
