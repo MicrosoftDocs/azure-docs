@@ -34,7 +34,7 @@ In this article, you learn how to create, update, and manage the OIDC Issuer for
 You can create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-issuer
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-oidc-issuer
 ```
 
 ## Update an AKS cluster with OIDC Issuer
@@ -42,7 +42,7 @@ az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-is
 You can update an AKS cluster using the [az aks update][az-aks-update] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example updates a cluster named *myAKSCluster*:
 
 ```azurecli-interactive
-az aks update -g myResourceGroup -n myAKSCluster --enable-oidc-issuer 
+az aks update --resource-group myResourceGroup --name myAKSCluster --enable-oidc-issuer 
 ```
 
 ## Show the OIDC Issuer URL
@@ -50,7 +50,7 @@ az aks update -g myResourceGroup -n myAKSCluster --enable-oidc-issuer
 To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+az aks show --name myAKScluster --resource-group myResourceGroup --query "oidcIssuerProfile.issuerUrl" -o tsv
 ```
 
 By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com`, where the value for `{region}` matches the location the AKS cluster is deployed in.
@@ -60,7 +60,7 @@ By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks
 To rotate the OIDC key, run the [az aks oidc-issuer][az-aks-oidc-issuer] command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
+az aks oidc-issuer rotate-signing-keys --name myAKSCluster --resource-group myResourceGroup
 ```
 
 > [!IMPORTANT]
@@ -73,16 +73,16 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+az aks show --name myAKScluster --resource-group myResourceGroup --query "oidcIssuerProfile.issuerUrl" -o tsv
 ```
 
 The output should resemble the following:
 
 ```output
-https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/11111111-1111-1111-1111-111111111111/
 ```
 
-By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key, which is a randomly generated guid for each cluster that is immutable.
+By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{tenant_id}/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key, which is a randomly generated guid for each cluster that is immutable.
 
 ### Get the discovery document
 

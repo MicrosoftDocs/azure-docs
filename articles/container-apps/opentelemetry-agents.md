@@ -48,7 +48,7 @@ The following table shows you what type of data you can send to each destination
 
 | Destination | Logs | Metrics | Traces |
 |---|------|---------|--------|
-| [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | Yes | Yes |
+| [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
 | [Datadog](https://datadoghq.com/) | No | Yes | Yes |
 | [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP) configured endpoint | Yes | Yes | Yes |
 
@@ -73,7 +73,7 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
         "destinations": ["appInsights"]
       },
       "logsConfiguration": {
-        "destinations": ["apInsights"]
+        "destinations": ["appInsights"]
       }
     }
   }

@@ -140,7 +140,7 @@ az provider register --namespace Microsoft.ContainerService
 - The `SecurityPatch` channel isn't supported on Windows OS node pools. 
  
  > [!NOTE]
- > By default, any new cluster created with an API version of `06-01-2022` or later will set the node OS auto-upgrade channel value to `NodeImage`. Any existing clusters created with an API version earlier than `06-01-2022` will have the node OS auto-upgrade channel value set to `None` by default.
+ > By default, any new cluster created with an API version of `06-01-2023` or later (including 06-02-preview)  will set the node OS auto-upgrade channel value to `NodeImage`. Any existing clusters created with an API version earlier than `06-01-2023` will have the node OS auto-upgrade channel value set to `None` by default.
 
 
 ## Node OS planned maintenance windows

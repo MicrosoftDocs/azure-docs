@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Configure customer-managed keys for your existing Azure Cosmos DB account with Azure Key Vault
 
-[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Enabling a second layer of encryption for data at rest using [Customer Managed Keys](./how-to-setup-customer-managed-keys.md) while creating a new Azure Cosmos DB account has been Generally available for some time now. As a natural next step, we now have the capability to enable CMK on existing Azure Cosmos DB accounts.
 
@@ -87,8 +87,8 @@ For enabling CMK on existing account that has continuous backup and point in tim
     ```
 ## Known limitations
 
-- Enabling CMK is available only at a Cosmos DB account level and not at collections.
 - We don't support enabling CMK on existing Azure Cosmos DB for Apache Cassandra accounts.
+- Enabling CMK is available only at a Cosmos DB account level and not at collections.
 - We don't support enabling CMK on existing accounts that are enabled for Materialized Views and [all versions and deletes change feed mode](nosql/change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview).
 - Ensure account must not have documents with large IDs greater than 990 bytes before enabling CMK. If not, you'll get an error due to max supported limit of 1024 bytes after encryption.
 - During encryption of existing data, [control plane](./audit-control-plane-logs.md) actions such as "add region" is blocked. These actions are unblocked and can be used right after the encryption is complete.

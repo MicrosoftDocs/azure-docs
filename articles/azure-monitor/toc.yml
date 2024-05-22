@@ -224,7 +224,7 @@ items:
           href: app/availability-overview.md
         - name: Standard tests
           href: app/availability-standard-tests.md
-        - name: Private testing
+        - name: Testing behind a firewall
           href: app/availability-private-test.md
         - name: TrackAvailability()
           href: app/availability-azure-functions.md
@@ -357,8 +357,6 @@ items:
       items:
       - name: Manage Application Insights
         href: app/powershell.md
-      - name: Access control
-        href: app/resources-roles-access-control.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -431,8 +429,6 @@ items:
         href: azure-monitor-operations-manager.md
       - name: Azure Monitor SCOM Managed Instance
         href: vm/scom-managed-instance-overview.md
-      - name: Connect Operations Manager
-        href: agents/om-agents.md
       - name: Assess Operations Manager
         href: insights/scom-assessment.md
     - name: Tutorials
@@ -461,7 +457,9 @@ items:
       - name: Onboard cluster
         href: containers/kubernetes-monitoring-enable.md
       - name: Onboard hybrid cluster
-        href: containers/container-insights-hybrid-setup.md      
+        href: containers/container-insights-hybrid-setup.md
+      - name: Prometheus based Container Insights
+        href: containers/container-insights-experience-v2.md
       - name: Firewall requirements
         displayName: Container insights, Prometheus
         href: containers/kubernetes-monitoring-firewall.md
@@ -623,25 +621,30 @@ items:
     href: data-sources.md
   - name: Data collection methods
     items:
-    - name: Data collection rules
+    - name: Azure Monitor pipeline
       items:
       - name: Overview
-        displayName: data collection, data collection rules
-        href: essentials/data-collection-rule-overview.md
-      - name: Best practices
-        displayName: data collection, data collection rules
-        href: essentials/data-collection-rule-best-practices.md
-      - name: Create and edit
+        displayName: Pipeline
+        href: essentials/pipeline-overview.md
+      - name: Data collection rules
         items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+        - name: Overview
+          displayName: data collection, data collection rules
+          href: essentials/data-collection-rule-overview.md
+        - name: Best practices
+          displayName: data collection, data collection rules
+          href: essentials/data-collection-rule-best-practices.md
+        - name: Create and edit
+          items:
+          - name: Create
+            displayName: Data collection rules
+            href: essentials/data-collection-rule-create-edit.md
+          - name: Edit tutorial
+            displayName: data collection rules
+            href: essentials/data-collection-rule-edit.md
+          - name: Structure
+            displayName: Data collection rules
+            href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -671,6 +674,8 @@ items:
         href: essentials/data-collection-rule-samples.md      
       - name: Data collection endpoints
         href: essentials/data-collection-endpoint-overview.md
+      - name: Edge pipeline configuration
+        href: essentials/edge-pipeline-configure.md
     - name: Diagnostic Settings
       items:
       - name: Overview
@@ -721,6 +726,8 @@ items:
           href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Log Analytics gateway
           href: agents/gateway.md
+        - name: Send data to Event Hubs and Storage
+          href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
       - name: Define network settings
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Configure Private Link for Azure Monitor Agent
@@ -789,8 +796,6 @@ items:
           items:
           - name: Overview
             href: agents/diagnostics-extension-overview.md
-          - name: Send data to Event Hubs and Storage
-            href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
           - name: Windows
             displayName: diagnostics extension
             items:
@@ -937,8 +942,8 @@ items:
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
         - name: Private link data query of Prometheus metrics
-        displayName: Private link data query
-        href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
+          displayName: Private link data query
+          href: ../managed-grafana/how-to-connect-to-data-source-privately.md?toc=/azure/azure-monitor/toc.json
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -986,6 +991,8 @@ items:
                 href: ../operational-excellence/relocation-log-analytics.md?toc=/azure/azure-monitor/toc.json
               - name: Delete and recover a workspace
                 href: logs/delete-workspace.md
+          - name: Replicate workspace across regions
+            href: logs/workspace-replication.md          
           - name: Manage access
             displayName: Manage access to a Log Analytics workspace
             href: logs/manage-access.md
@@ -1184,6 +1191,8 @@ items:
     items:
     - name: Overview
       href: logs/log-analytics-overview.md
+    - name: Simple mode
+      href: logs/log-analytics-simple-mode.md
     - name: Query scope
       href: logs/scope.md
     - name: Saving queries
@@ -1241,8 +1250,6 @@ items:
           items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
-          - name: Application Insights API access with Microsoft Entra ID
-            href: app/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md
           - name: Request format

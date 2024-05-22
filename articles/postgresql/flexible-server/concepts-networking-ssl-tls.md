@@ -4,12 +4,12 @@ description: Learn about secure connectivity with Flexible Server using SSL and 
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 04/05/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Secure connectivity with TLS and SSL in Azure Database for PostgreSQL - Flexible Server
@@ -94,7 +94,11 @@ There are many connection parameters for configuring the client for SSL. Few imp
 |verify-ca| Encryption is used. Moreover, verify the server certificate signature against certificate stored on the client|
 |verify-full| Encryption is used. Moreover, verify server certificate signature and host name  against certificate stored on the client|
 
-3. **sslcert**, **sslkey, and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
+The default **sslmode** mode used is different between libpq-based clients (such as psql) and JDBC. The libpq-based clients default to *prefer*, and JDBC clients default to *verify-full*.
+
+3. **sslcert**, **sslkey**, and **sslrootcert**. These parameters can override default location of the client certificate, the PKCS-8 client key and root certificate. These defaults to /defaultdir/postgresql.crt, /defaultdir/postgresql.pk8, and /defaultdir/root.crt respectively where defaultdir is ${user.home}/.postgresql/ in *nix systems and %appdata%/postgresql/ on windows. 
+
+
 
 **Certificate Authorities (CAs)** are the institutions responsible for issuing certificates. A trusted certificate authority is an entity that’s entitled to verify someone is who they say they are. In order for this model to work, all participants must agree on a set of trusted CAs. All operating systems and most web browsers ship with a set of trusted CAs.
 
@@ -119,13 +123,18 @@ Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/
 * Optionally, to prevent future disruption, it's also recommended to add the following roots to the trusted store:
   Microsoft ECC Root Certificate Authority 2017 - https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt
 
-To import certificates to client certificate stores you may have to convert certificate .crt files to .pem format, after downloading certificate files from URIs above. You can use OpenSSL utility to do these file conversions, as shown in example below:
+To import certificates to client certificate stores you may have to **convert certificate .crt files to .pem format**, after downloading certificate files from URIs above. You can use OpenSSL utility to do these file conversions, as shown in example below:
 
 ```powershell
 openssl x509 -in certificate.crt -out certificate.pem -outform PEM
 ```
 
 **Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [how-to document](../flexible-server/how-to-update-client-certificates-java.md)**. 
+
+
+> [!IMPORTANT]
+> Some of the Postgres client libraries, while using **sslmode=verify-full** setting, may experience connection failures with Root CA certificates that are cross-signed with intermediate certificates, resulting in alternate trust paths. In this case, its recommended explicitly specify **sslrootcert** parameter, explained above, or set the PGSSLROOTCERT environment variable to local path where Microsoft RSA Root Certificate Authority 2017 Root CA certificate is placed, from default value of *%APPDATA%\postgresql\root.crt*. 
+
 
 ### Read Replicas with certificate pinning scenarios
 
@@ -156,6 +165,8 @@ Before trying to access your SSL enabled server from client application, make su
 *psql (14.5)*
 *SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)*
 *Type "help" for help.*
+
+You can also load the **[sslinfo extension](./concepts-extensions.md)** and then call the *ssl_is_used()* function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f.
 
 
 

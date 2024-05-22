@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: mq
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
@@ -117,11 +117,11 @@ spec:
   authImage:
     pullPolicy: Always
     repository: mcr.microsoft.com/azureiotoperations/dmqtt-authentication
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   brokerImage:
     pullPolicy: Always
     repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   memoryProfile: medium
   mode: distributed
   cardinality:
@@ -170,7 +170,7 @@ If you don't specify settings, default values are used. The following table show
 | `selfCheckTimeoutSeconds`                  | false   | Integer           | 15     |Timeout interval for probe messages  |
 | `selfTraceFrequencySeconds`                | false   | Integer           | 30     |How often to automatically trace external messages if `enableSelfTracing` is true |  
 | `spanChannelCapacity`                      | false   | Integer           | 1000   |Maximum number of spans that selftest can store before sending to the diagnostics service     |  
-| `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.1.0-preview | Image used for self check |
+| `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.4.0-preview | Image used for self check |
 
 
 Here's an example of a Broker CR with metrics and tracing enabled and self-check disabled:

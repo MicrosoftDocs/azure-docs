@@ -4,7 +4,7 @@ description: Learn about changes in the Microsoft Defender portal with the integ
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 04/29/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -96,7 +96,7 @@ The following table lists the changes in navigation between the Azure and Defend
 |--------------|--------------------------------------------------------|
 | Content hub  | Microsoft Sentinel > Content management > Content hub  |
 | Repositories | Microsoft Sentinel > Content management > Repositories |
-| Community    | Not available                                          |
+| Community    | Microsoft Sentinel > Content management > Community    |
 
 ### Configuration
 
