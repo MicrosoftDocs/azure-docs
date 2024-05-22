@@ -130,7 +130,7 @@ There are several requirements and considerations to keep in mind when planning 
 
 
 <!-- LINKS - Internal -->
-[aks-network-nsg]: ../virtual-network/network-security-groups-overview
+[aks-network-nsg]: ../virtual-network/network-security-groups-overview.md
 [azure-cni-nodesubnet]: concepts-network-legacy-cni.md#azure-cni-nodesubnet
 [azure-cni-overlay]: concepts-network-azure-cni-overlay.md
 [azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md

@@ -95,4 +95,7 @@ Azure CNI Overlay has the following limitations:
 - In case you are using your own subnet to deploy the cluster, the names of the subnet, VNET and resource group which contains the VNET, must be 63 characters or less. This comes from the fact that these names will be used as labels in AKS worker nodes, and are therefore subjected to [Kubernetes label syntax rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).  
 
 <!-- LINKS - Internal -->
-[azure-cni-podsubnet]: ./concepts-network-azure-cni-podsubnet
+[azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md
+[aks-egress]: limit-egress-traffic.md
+[aks-network-policies]: use-network-policies.md
+[nsg]: ../virtual-network/network-security-groups-overview.md

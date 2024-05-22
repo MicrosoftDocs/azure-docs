@@ -43,7 +43,7 @@ This article shows you how to use Azure CNI networking to create and use a virtu
 
 ## Configure networking
 
-For information on planning IP addressing for your AKS cluster, see [Plan IP addressing for your cluster](./azure-cni-overview.md#plan-ip-addressing-for-your-cluster).
+For information on planning IP addressing for your AKS cluster, see [Plan IP addressing for your cluster](concepts-network-ip-address-planning.md).
 
 # [**Portal**](#tab/configure-networking-portal)
 
