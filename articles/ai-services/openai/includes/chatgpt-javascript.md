@@ -39,7 +39,7 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 
 ## Install the client library
 
-Install the required client libraries for JavaScript with npm from within the context of your new directory:
+Install the required packages for JavaScript with npm from within the context of your new directory:
 
 ```console
 npm install openai dotenv @azure/identity
