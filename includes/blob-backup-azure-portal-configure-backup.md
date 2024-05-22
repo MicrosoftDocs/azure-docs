@@ -20,9 +20,9 @@ To configure backup for storage accounts, follow these steps:
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/choose-datasource-for-vaulted-backup.png" alt-text="Screenshot shows how to initiate configuring vaulted blob backup.":::
 
-3. On the **Configure backup** page, on the **Basics** tab, choose **Azure Blobs (Azure Storage)** as the **Datasource type**, and then select the *Backup vault* that you want to associate with your storage accounts as the **Vault**.
+3. On the **Configure Backup** page, on the **Basics** tab, choose **Azure Blobs (Azure Storage)** as the **Datasource type**, and then select the *Backup vault* that you want to associate with your storage accounts as the **Vault**.
 
-   Review the **Selected Backup vault details**, and then select **Next**.
+   Review the **Selected backup vault details**, and then select **Next**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/select-datasource-type-for-vaulted-backup.png" alt-text="Screenshot shows how to select datasource type to initiate vaulted blob backup.":::
  
