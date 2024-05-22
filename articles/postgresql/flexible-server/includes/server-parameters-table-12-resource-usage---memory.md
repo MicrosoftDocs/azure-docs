@@ -167,7 +167,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the maximum number of temporary buffers used by each database session.                                                                                                         |
 | Data type      | integer     |
-| Default value  | `1024`        |
+| Default value  | `1024`                                                                     |
 | Allowed values | `100-1073741823` |
 | Parameter type | dynamic        |
 | Documentation  | [temp_buffers](https://www.postgresql.org/docs/12/runtime-config-resource.html)              |

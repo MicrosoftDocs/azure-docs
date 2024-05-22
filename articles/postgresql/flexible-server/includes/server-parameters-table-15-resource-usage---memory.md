@@ -48,7 +48,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Multiple of work_mem to use for hash tables.                                                                                                                                        |
 | Data type      | numeric     |
-| Default value  | `2`           |
+| Default value  | `2`                                                                        |
 | Allowed values | `2`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -82,7 +82,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | The size of huge page that should be requested.                                                                                                                                     |
 | Data type      | integer     |
-| Default value  | `0`           |
+| Default value  | `0`                                                                        |
 | Allowed values | `0`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -167,7 +167,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Amount of dynamic shared memory reserved at startup.                                                                                                                                |
 | Data type      | integer     |
-| Default value  | `0`           |
+| Default value  | `0`                                                                        |
 | Allowed values | `0`              |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -218,7 +218,7 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the maximum number of temporary buffers used by each database session.                                                                                                         |
 | Data type      | integer     |
-| Default value  | `1024`        |
+| Default value  | `1024`                                                                     |
 | Allowed values | `100-1073741823` |
 | Parameter type | dynamic        |
 | Documentation  | [temp_buffers](https://www.postgresql.org/docs/15/runtime-config-resource.html)              |
