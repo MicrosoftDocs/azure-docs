@@ -33,7 +33,7 @@ Azure Container Apps offers managed generally available Dapr APIs (building bloc
 
 To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dapr-faq].
 
-:::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
+:::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" lightbox="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
 
 | API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
