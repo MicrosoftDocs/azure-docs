@@ -89,7 +89,7 @@ a2 raw event time: 10:10:00, a2 ingestion time: 10:13:00
 
 And the search executes at 10:00, 10:15 and 10:30.
 
-In the case above event a1 has a raw event time (the time the event actually occurred on the system) of 10:09:03 and an ingestion time (the time in which the event was ingested by Splunk) of 10:15:03 and a2 has a raw event time (the time the event actually occurred on the system) of 10:10:00 and an ingestion time (the time in which the event was ingested by Splunk) of 10:13:00.
+In the case above event a1 has a raw event time (the time the event actually occurred on the system) of 10:09:03 and an ingestion time (the time in which the event was ingested) of 10:15:03 and a2 has a raw event time (the time the event actually occurred on the system) of 10:10:00 and an ingestion time (the time in which the event was ingested) of 10:13:00.
 
 If the ingestion delay were the same for both events the design pattern recommended above would suffice to account for the delay. However, given the ingestion delay varies between the two events the search would fail to pick up the case above as a1 would only be considered by search execution that started at 10:30 while a2 would only be considered by the search execution that started at 10:15.
 
