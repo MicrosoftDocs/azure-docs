@@ -16,7 +16,7 @@ ms.date: 05/14/2024
 
 OPC UA (OPC Unified Architecture) is a standard developed by the [OPC Foundation](https://opcfoundation.org/) to enable the exchange of data between industrial components at the edge and with the cloud. OPC UA provides a consistent, secure, documented standard based on widely used data formats. Industrial components can implement the OPC UA standard to enable universal data exchange.
 
-Azure IoT OPC UA Broker Preview is a part of Azure IoT Operations Preview. OPC UA Broker connects to OPC UA servers to retrieve data that it publishes to topics in the Azure IoT MQ service. OPC UA Broker enables your industrial OPC UA environment to ingress data into your local workloads running on a KUbernetes cluster, and into your cloud workloads.
+Azure IoT OPC UA Broker Preview is a part of Azure IoT Operations Preview. OPC UA Broker connects to OPC UA servers to retrieve data that it publishes to topics in the Azure IoT MQ service. OPC UA Broker enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
 
 OPC UA Broker is a client application that runs as a middleware service in Azure IoT Operations. OPC UA Broker connects to OPC UA servers, lets you browse the server address space, and monitor data changes and events in connected assets. Operations teams and developers use the broker to streamline the task of connecting OPC UA assets to their industrial solution at the edge.
 

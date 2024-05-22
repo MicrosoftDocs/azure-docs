@@ -78,7 +78,7 @@ The following example demonstrates discovery of an OPC PLC server. You can add t
     kubectl apply -f opcua-configuration.yaml -n azure-iot-operations
     ```
 
-## Verfiy the configuration
+## Verify the configuration
 
 To confirm that the asset discovery container is configured and running:
 
