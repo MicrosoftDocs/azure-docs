@@ -64,9 +64,6 @@ If we use the above example, the API might return these summarized sentences:
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-> [!IMPORTANT]
-> Conversation summarization is only available in English.
-
 This documentation contains the following article types:
 
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=conversation-summarization)** are getting-started instructions to guide you through making requests to the service.
