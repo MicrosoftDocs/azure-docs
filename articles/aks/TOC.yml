@@ -848,6 +848,8 @@
           href: ai-toolchain-operator.md
         - name: Deploy data and ML pipelines with Flyte
           href: use-flyte.md
+        - name: Run an LLM workflow with Flyte
+          href: llm-workflow-flyte.md
     - name: DevOps
       items:
         - name: Azure DevOps Project
