@@ -21,7 +21,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory and Syn
 >To copy data from or to [Azure Database for MySQL](../mysql/overview.md) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
 
 >[!IMPORTANT]
->The MySQL connector using the recommended driver version provides improved native MySQL support. If you are using the MySQL connector with the legacy driver version in your solution, please [upgrade your MySQL driver version](#upgrade-the-mysql-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-mysql-using-the-recommended-driver-version-and-using-the-legacy-driver-version) for details on the difference between the legacy and recommended version. 
+>The MySQL connector using the recommended driver version provides improved native MySQL support. If you are using the MySQL connector with the legacy driver version in your solution, please [upgrade your MySQL driver version](#upgrade-the-mysql-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-mysql-using-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version. 
 
 ## Supported capabilities
 
@@ -326,9 +326,9 @@ Here are steps that help you upgrade your MySQL driver version:
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 
-## Differences between MySQL using the recommended driver version and using the legacy driver version
+## Differences between MySQL using the recommended and the legacy driver version
 
-The table below shows the data type mapping differences between MySQL connector using the recommended driver version and using the legacy driver version.
+The table below shows the feature differences between MySQL using the recommended and the legacy driver version.
 
 |MySQL data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
 |:---|:---|:---|
