@@ -3,7 +3,6 @@ title: Overview - Oracle Database@Azure
 description: Learn about Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
-ms.subservice: database
 ms.collection: linux
 ms.topic: article
 ms.date: 12/12/2023

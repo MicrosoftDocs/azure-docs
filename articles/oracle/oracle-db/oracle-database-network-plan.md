@@ -5,7 +5,6 @@ ms.author: jacobjaygbay
 description: Learn about topologies and constraints for Oracle Database@Azure. 
 ms.topic: conceptual
 ms.service: oracle-on-azure
-ms.subservice: database
 ms.custom: engagement-fy23
 ms.date: 12/12/2023
 ---
