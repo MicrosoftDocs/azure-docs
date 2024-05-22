@@ -5,7 +5,7 @@ metadata:
   ms.service: virtual-machines
   ms.topic: faq
   ms.custom: references_regions
-title: NVMe - Temp NVMe Disks FAQQ
+title: NVMe - Temp NVMe Disks FAQ
 summary: |
   This article addresses some common questions about support for Temp NVMe Disks on virtual machines created in Azure.
 
