@@ -72,6 +72,6 @@ Azure Integration Environments doesn't incur charges during preview. However, wh
 
 Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
-## Next
+## Related content
 
-[Create an integration environment](create-integration-environment.md)
+[Business process tracking](../business-process-tracking/overview.md)
