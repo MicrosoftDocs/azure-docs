@@ -52,6 +52,23 @@ Collect all the values in the following table for the packet core instance that 
    | The Azure Stack Edge resource representing the Azure Stack Edge Pro device in the site. You created this resource as part of the steps in [Order and set up your Azure Stack Edge Pro devices](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).</br></br> If you're going to create your site using the Azure portal, collect the name of the Azure Stack Edge resource.</br></br> If you're going to create your site using an ARM template, collect the full resource ID of the Azure Stack Edge resource. You can do this by navigating to the Azure Stack Edge resource, selecting **JSON View**, and copying the contents of the **Resource ID** field. | **Azure Stack Edge device** |
    |The custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Commission the AKS cluster](commission-cluster.md).</br></br> If you're going to create your site using the Azure portal, collect the name of the custom location.</br></br> If you're going to create your site using an ARM template, collect the full resource ID of the custom location. You can do this by navigating to the Custom location resource, selecting **JSON View**, and copying the contents of the **Resource ID** field.|**Custom location**|
 
+## Collect RADIUS values
+
+If you have a Remote Authentication Dial-In User Service (RADIUS) authentication, authorization and accounting (AAA) server in your network, you can optionally configure the packet core to use it to authenticate UEs on attachment to the network and session establishment. If you want to use RADIUS, collect all the values in the following table.
+
+|Value  |Field name in Azure portal  |
+|---------|---------|
+|IP address for the RADIUS AAA server. |RADIUS server address |
+|IP address for the network access servers (NAS). |RADIUS NAS address |
+|Authentication port to use on the RADIUS AAA server. |RADIUS server port |
+|The names of one or more data networks that require RADIUS authentication. |RADIUS Auth applies to DNs |
+|Whether to use: </br></br>- the default username and password, defined in your Azure Key Vault </br></br>- the International Mobile Subscriber Identity (IMSI) as the username, with the password defined in your Azure Key Vault. |RADIUS authentication username. |
+|URL of the secret used to secure communication between the packet core and AAA server, stored in your Azure Key Vault. |Shared secret |
+|URL of the default username secret, stored in your Azure Key Vault. Not required if using IMSI. |Secret URI for the default username |
+|URL of the default password secret, stored in your Azure Key Vault. |Secret URI for the default password |
+
+To add the secrets to Azure Key Vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
+
 ## Collect access network values
 
 Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces. The field name displayed in the Azure portal depends on the value you have chosen for **Technology type**, as described in [Collect packet core configuration values](#collect-packet-core-configuration-values).
@@ -141,7 +158,7 @@ You can use a self-signed or a custom certificate to secure access to the [distr
 
 If you don't want to provide a custom HTTPS certificate at this stage, you don't need to collect anything. You'll be able to change this configuration later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
-If you want to provide a custom HTTPS certificate at site creation, follow the steps below.
+If you want to provide a custom HTTPS certificate at site creation:
 
    1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your certificate. Ensure the key vault is configured with **Azure Virtual Machines for deployment** resource access.
    1. Ensure your certificate is stored in your key vault. You can either [generate a Key Vault certificate](../key-vault/certificates/create-certificate.md) or [import an existing certificate to your Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal#import-a-certificate-to-your-key-vault). Your certificate must:
@@ -158,7 +175,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
       > - Certificate validation is always performed against the latest version of the local access certificate in the Key Vault.
       > - If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
 
-   1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
+   1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (RBAC).
 
       - [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Azure Private MEC** service principal.
       - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Azure Private MEC** service principal.
