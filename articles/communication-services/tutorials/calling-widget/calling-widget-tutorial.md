@@ -716,10 +716,12 @@ After you fill out your name, click start call and the call should begin. The wi
 
 ## Next steps
 
-For more information about Teams voice applications, check out our documentation on Teams auto attendants and Teams call queues.
+For more information about Teams voice applications, check out our documentation on Teams auto attendants and Teams call queues. Or also see our tutorial on how to build a similar experience with JavaScript bundles.
 
 > [!div class="nextstepaction"] 
 
 > [Quickstart: Join your calling app to a Teams call queue](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
 
 > [Quickstart: Join your calling app to a Teams Auto Attendant](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md)
+
+> [Quickstart: Get started with Azure Communication Services UI library JavaScript bundles calling to Teams Call Queue and Auto Attendant](./calling-widget-js-tutorial.md)
