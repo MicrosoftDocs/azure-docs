@@ -14,7 +14,7 @@ zone_pivot_groups: dapr-languages-set
 
 # Tutorial: Microservices communication using Microservices Publish and Subscribe API
 
-In this tutorial, you create publisher and subscriber microservices that leverage [the Microservices Pub/sub API](./dapr-overview.md#supported-microservices-apis) (powered by Dapr) to communicate using messages for event-driven architectures. You'll:
+In this tutorial, you create publisher and subscriber microservices that leverage [the Microservices Pub/sub API](./dapr-overview.md#supported-dapr-apis-components-and-tooling) (powered by Dapr) to communicate using messages for event-driven architectures. You'll:
 
 > [!div class="checklist"]
 > * Create a publisher microservice and a subscriber microservice that leverage the pub/sub API to communicate using messages for event-driven architectures. 

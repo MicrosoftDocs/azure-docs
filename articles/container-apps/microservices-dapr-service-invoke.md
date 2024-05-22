@@ -14,7 +14,7 @@ zone_pivot_groups: dapr-languages-set
 
 # Tutorial: Microservices communication using the Service Invocation API
 
-In this tutorial, you create and run two microservices that communicate securely using auto-mTLS and reliably using built-in retries via [the Microservices Service Invocation API](./dapr-overview.md#supported-microservices-apis), powered by Dapr. You'll:
+In this tutorial, you create and run two microservices that communicate securely using auto-mTLS and reliably using built-in retries via [the Microservices Service Invocation API](./dapr-overview.md#supported-dapr-apis-components-and-tooling), powered by Dapr. You'll:
 
 > [!div class="checklist"]
 > * Run the application locally.
