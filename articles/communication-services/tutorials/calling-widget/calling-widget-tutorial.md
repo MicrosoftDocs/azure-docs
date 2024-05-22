@@ -50,7 +50,7 @@ The output tells you the version you have, it fails if Node was not installed an
 ```bash
 code --version
 ```
-Like with Node this command will fail if there was an issue installing VS Code on your machine.
+Like with Node this command fails if there was an issue installing VS Code on your machine.
 
 ## Getting started
 This tutorial has 7 steps and at the end the app will be able to call a Teams voice application. The steps are:
@@ -89,7 +89,7 @@ npx create-react-app ui-library-calling-widget-app --template typescript
 # Change to the directory of the newly created App.
 cd ui-library-calling-widget-app
 ```
-After these commands complete you will want to open the created project in VS Code. You can do this with the following command.
+After these commands complete, you want to open the created project in VS Code. You can open the project with the following command.
 ```bash
 code .
 ```
@@ -107,7 +107,7 @@ Then, you need to update the dependency array in the `package.json` to include s
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
 ```
-Run the following Node Package Manager command to install the needed packages.
+To install the needed packages run the following Node Package Manager command.
 
 ```bash
 npm install

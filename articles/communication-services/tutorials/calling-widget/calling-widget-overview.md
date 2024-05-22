@@ -23,10 +23,10 @@ Using the Azure Communication Services UI Library you can quickly connect your c
 
 ## Choosing your adventure
 
-We provide 3 ways to experience our Calling Widget. Feel free to choose any of the three options, but we highly recommend checking out our quickstart in the run it section if you’re new to coding.
+We provide three ways to experience our Calling Widget. Feel free to choose any of the three options, but we highly recommend checking out our quickstart in the run it section if you’re new to coding.
 
 #### Run it
-If you are wanting to just try out the experience without following either of the tutorials please check out the [completed quickstart](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-click-to-call) and follow the instructions to run the experience. Choose this path if you are unfamiliar with coding and just want to see what the calling widget can do. You have to meet the [pre-requisites](./calling-widget-tutorial.md#prerequisites) of the other two developer tutorials to complete this experience.
+If you are wanting to just try out the experience without following either of the tutorials please check out the [completed quickstart](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-click-to-call) and follow the instructions to run the experience. Choose this path if you are unfamiliar with coding and just want to see what the calling widget can do. You **need** to meet the [prerequisites](./calling-widget-tutorial.md#prerequisites) of the other two developer tutorials to complete this experience.
 
 #### Build it - Platform: React
 
