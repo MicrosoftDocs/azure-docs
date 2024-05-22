@@ -20,7 +20,22 @@ Do I have permission to turn video on, do I have permission to turn mic on, do I
 - Optional: Complete the quick start to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 ## Supported Platform - Web
+
+::: zone pivot="platform-web"
 [!INCLUDE [Capabilities JavaScript](./includes/capabilities/capabilities-web.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Capabilities Android](./includes/dominant-speaker/capabilities-android.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Dominant Speaker Windows](./includes/dominant-speaker/capabilities-windows.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Dominant Speaker iOS](./includes/dominant-speaker/capabilities-ios.md)]
+::: zone-end
 
 ## Supported Calltype
 The feature is currently supported only for Azure Communication Services Rooms call type and teams meeting call type
