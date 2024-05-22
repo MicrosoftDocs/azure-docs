@@ -4,7 +4,7 @@ description: Model a business process to add business context about transactions
 ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 11/15/2023
+ms.date: 06/07/2024
 # CustomerIntent: As a business analyst or business SME, I want a way to visualize my organization's business processes so I can map them to the actual resources that implement these business use cases and scenarios.
 ---
 

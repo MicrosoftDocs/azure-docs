@@ -4,7 +4,7 @@ description: Deploy your business process and tracking profile for an applicatio
 ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 11/15/2023
+ms.date: 06/07/2024
 # CustomerIntent: As an integration developer, I want to deploy previously created business processes and tracking profiles to deployed Standard logic app resources so I can capture and track key business data moving through my deployed resources.
 ---
 

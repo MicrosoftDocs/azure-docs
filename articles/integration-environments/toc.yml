@@ -16,17 +16,6 @@ items:
       href: create-integration-environment.md
     - name: Create an application group
       href: create-application-group.md
-  - name: Business process tracking
-    expanded: true
-    items:
-    - name: Create a business process
-      href: create-business-process.md
-    - name: Map business process to workflow
-      href: Map-business-process-workflow.md
-    - name: Deploy business process and tracking
-      href: deploy-business-process.md
-    - name: Manage a business process
-      href: manage-business-process.md
 - name: Reference
   expanded: true
   items:

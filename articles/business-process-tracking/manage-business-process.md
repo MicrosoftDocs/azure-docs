@@ -4,7 +4,7 @@ description: Learn how to edit the description, make a copy, discard pending cha
 ms.service: integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 11/15/2023
+ms.date: 06/07/2024
 # CustomerIntent: As a business analyst or business SME, I want to learn ways to manage an existing business process, for example, edit the details, remove a deployed busienss processs, duplicate, or discard pending changes.
 ---
 
