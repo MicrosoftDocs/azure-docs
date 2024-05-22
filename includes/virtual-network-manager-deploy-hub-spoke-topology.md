@@ -11,7 +11,7 @@ ms.custom: include-file
 ---
 ## Create a connectivity configuration
 
-In this task, you create a connectivity configuration that includes your network group and a routing rule collection. You can choose to enable [direct connectivity](../articles/virtual-network-manager/concept-connectivity-configuration.md#direct-connectivity) or [global mesh](../articles/virtual-network-manager/concept-connectivity-configuration.md#global-mesh) in the hub and spoke topology as well
+In this task, you create a connectivity configuration that includes your network group and a routing rule collection. You can choose to enable [direct connectivity](../articles/virtual-network-manager/concept-connectivity-configuration.md#direct-connectivity) in the hub and spoke topology, or leave all communication to go through the hub virtual network and Azure firewall.
 
 1. In the network manager instance, select **Configurations** under **Settings** then select **Create connectivity configuration**.
 2. In the **Create a connectivity configuration** window, enter the connectivity configuration **Name** and **Description** on the **Basics** tab then select **Next: Topology >**.
@@ -22,7 +22,10 @@ In this task, you create a connectivity configuration that includes your network
     | **Topology** | Select **Hub and spoke**. |
     | **Hub** | Choose **Select a hub**.</br>On the **Select a hub** page, choose your hub virtual network then select **Select**. |
     | **Spoke network groups** | Choose **+ Add**>**Add network groups**.</br>On the **Add network groups** page, choose your network group then choose **Select**. |
-4. From the list of **Spoke network groups**, you can choose to enable **Direct connectivity** or **Global mesh**. Direct connectivity allows spoke virtual networks to communicate directly with each other. Global mesh allows all virtual networks to communicate with each other.
+4. From the list of **Spoke network groups**, you can choose to enable **Direct connectivity** or **Global mesh**. Direct connectivity allows spoke virtual networks to communicate directly with each other. Global mesh allows all virtual networks to communicate with each other. Leaving these unchecked results in all spoke virtual networks communicating through the hub virtual network and Azure firewall.
+
+    > [!IMPORTANT]
+    > If you enable direct connectivity, you must have a routing configuration with direct routing within the virtual network. If you enable global mesh, you must have a routing configuration with global mesh enabled.
    
    :::image type="content" source="media/virtual-network-manager-deploy-hub-spoke-topology/create-direct-connectivity-hub-spoke-configuration.png" alt-text="Screenshot of Create a connectivity configuration configuration for hub and spoke with direct connectivity.":::
 
