@@ -133,7 +133,7 @@ An MSIX and Appx package is set as **active** or **inactive**. Packages set to a
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
-An MSIX package is set as **active** or **inactive**. MSIX packages set to active makes the application available to users. MSIX packages set to inactive are ignored by Azure Virtual Desktop and not added when a user signs-in.
+An MSIX package is set as **active** or **inactive**. MSIX packages set to active makes the application available to users. MSIX packages set to inactive are ignored by Azure Virtual Desktop and not added when a user signs in.
 ::: zone-end
 
 ::: zone pivot="app-attach"
