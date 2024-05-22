@@ -1,5 +1,5 @@
 ---
-title: RedisStreamTrigger for Azure Functions (preview)
+title: RedisStreamTrigger for Azure Functions
 description: Learn how to use RedisStreamTrigger Azure Function for Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -8,10 +8,10 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 05/20/2024
 ---
 
-# RedisStreamTrigger for Azure Functions (preview)
+# RedisStreamTrigger for Azure Functions
 
 The `RedisStreamTrigger` reads new entries from a stream and surfaces those elements to the function.
 
