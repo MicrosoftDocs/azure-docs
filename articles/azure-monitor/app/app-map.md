@@ -306,7 +306,7 @@ exporter.add_telemetry_processor(callback_function)
 
 **Application map** filters help you decrease the number of visible nodes and edges on your map. These filters can be used to reduce the scope of the map and show a smaller and more focused view.
 
-A quick way to filter is to use the **Filter to this node** option on the context menu for any node on the map:
+A quick way to filter is to use the **Filter on this node** option on the context menu for any node on the map:
 
 :::image type="content" source="media/app-map/filter-on-node.png" alt-text="Screenshot that shows how to filter on the selected node in Application map." lightbox="media/app-map/filter-on-node-large.png":::
 
@@ -366,9 +366,9 @@ The following table summarizes the configuration options based on your choice fo
 | Filter connectors by | Description | Operator parameter | Value parameter | Usage |
 | --- | --- | --- | --- | --- | 
 | **Error connector (highlighted red)** | Search for connectors based on their color. The color red indicates the connector is in an error state. | `==`: Equal to <br> `!=`: Not equal to | Always set to **Errors** | Show only connectors with errors or only connectors without errors. |
-| **Error rate (0% - 100%)** | Search for connectors based on their _average error rate_ (the number of failed calls divided by the number of all calls). The value is expressed as a percentage. | `>=` Greater or Equal <br> `<=` Less or Equal | The dropdown list shows average error rates relevant to current connectors in your application map. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with failure rates greater than or lower than the selected value. |
-| **Average call duration (ms)** | Search for connectors based on the average duration of all calls across the connector. The value is measured in milliseconds. | `>=` Greater or Equal <br> `<=` Less or Equal | The dropdown list shows average durations relevant to current connectors in your application map. For example, a value of `1000` refers to calls with an average duration of 1 second. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with average call duration rates greater than or lower than the selected value. |
-| **Calls count** | Search for connectors based on the total number of calls across the connector. | `>=` Greater or Equal <br> `<=` Less or Equal | The dropdown list shows total call counts relevant to current connectors in your application map. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with call counts greater than or lower than your selected value. |
+| **Error rate (0% - 100%)** | Search for connectors based on their _average error rate_ (the number of failed calls divided by the number of all calls). The value is expressed as a percentage. | `>=` Greater than or Equal to <br> `<=` Less than or Equal to | The dropdown list shows average error rates relevant to current connectors in your application map. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with failure rates greater than or lower than the selected value. |
+| **Average call duration (ms)** | Search for connectors based on the average duration of all calls across the connector. The value is measured in milliseconds. | `>=` Greater than or Equal to <br> `<=` Less than or Equal to  | The dropdown list shows average durations relevant to current connectors in your application map. For example, a value of `1000` refers to calls with an average duration of 1 second. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with average call duration rates greater than or lower than the selected value. |
+| **Calls count** | Search for connectors based on the total number of calls across the connector. | `>=` Greater than or Equal to <br> `<=` Less than or Equal to  | The dropdown list shows total call counts relevant to current connectors in your application map. Choose a value from the list or enter a custom value by following the process described earlier. | Show connectors with call counts greater than or lower than your selected value. |
 
 #### Percentile indicators for value
 
@@ -388,53 +388,69 @@ This example shows the summary for a connector filter that searches for connecto
 
 :::image type="content" source="media/app-map/review-connector-filter.png" alt-text="Screenshot that shows the Review section with information about the configured connector filter." lightbox="media/app-map/review-connector-filter-large.png":::
 
-
 ### Apply filters to map
 
-After you configure a filter in the **Add filter** pane, select **Apply** to create the filter. Several filters can be applied, and they work sequentially, from left to right. Each filter can remove further nodes and connectors, but can't add them back to the map.
+After you configure and review your filter settings, select **Apply** to create the filter. You can apply multiple filters to the same application map. In **Application map**, the applied filters display as _pills_ above the map:
 
-Your filters display as rounded buttons above the application map:
+:::image type="content" source="media/app-map/apply-filters.png" alt-text="Screenshot that shows the filter pills above the application map." lightbox="media/app-map/apply-filters-large.png":::
 
-:::image type="content" source="media/app-map/apply-filters.png" alt-text="Screenshot that shows the rounded filter buttons above the application map." lightbox="media/app-map/apply-filters-large.png":::
+The **Remove** action :::image type="icon" source="media/app-map/remove-filter.png"::: on a filter pill lets you delete a filter. When you delete an applied filter, the map view updates to subtract the filter logic.
 
-Select the :::image type="icon" source="media/app-map/remove-filter.png"::: action on a filter to remove the filter from the map view. If you select the filter name, you can edit the filter's values. As you change values in the filter, the new values are applied to a preview of the map so you can inspect the change. Select **Cancel** to restore the previous filter values.
+**Application map** applies the filter logic to your map sequentially, starting from the left-most filter in the list. As filters are applied, nodes and connectors are removed from the map view. After a node or connector is removed from the view, a subsequent filter can't restore the item.
 
-:::image type="content" source="media/app-map/image-9.png" alt-text="Screenshot that shows the Configure Connector Filter section with a Cancel button." lightbox="media/app-map/image-9.png":::
+You can change the configuration for an applied filter by selecting the filter pill. As you change the filter settings, **Application map** shows a preview of the map view with the new filter logic. If you decide not to apply the changes, you can use the **Cancel** option to the current map view and filters.
 
-Filters can be reused in two ways:
+:::image type="content" source="media/app-map/preview-filter-changes.png" alt-text="Screenshot of the preview of the map view that shows the updated filter settings." lightbox="media/app-map/preview-filter-changes-large.png":::
 
-- The "Copy link" button on the toolbar above the map encodes the filter information in the copied URL. This link can be saved in the browser's bookmarks or shared with others. "Copy link" preserves the duration value, but not the absolute time, so the map shown at a later time might be different from the one observed when the link was created.
+## Explore and save filters
 
-- The dashboard pin :::image type="icon" source="media/app-map/pin-to-dashboard.png"::: is located next to the title bar of the **Application map** pane. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view shows only nodes that have errors in their HTTP calls.
+When you discover an interesting filter, you can save the filter to reuse it later with the **Copy Link** or **Pin to dashboard** option:
 
-There are many filter combinations. Here are some suggestions that apply to most maps and can be useful to pin on a dashboard:
+:::image type="content" source="media/app-map/reuse-filters.png" alt-text="Screenshot that shows the two options to reuse filters in Application map." lightbox="media/app-map/reuse-filters-large.png":::
 
-- Show only errors that appear significant by using the "Error connector" filter along with "Intelligent view":
+- The **Copy link** option encodes all current filter settings in the copied URL. You can save this link in your browser bookmarks or share it with others. This feature preserves the duration value in filter settings, but not the absolute time. When you use the link later, the produced application map might differ from the map present at the time the link was captured.
+
+- The **Pin to dashboard** option adds the current application map to a dashboard, along with its current filters. A common diagnostic approach is to pin a map with an **Error connector** filter applied. You can monitor your application for nodes with errors in their HTTP calls.
+
+The following sections describe some common filters that apply to most maps and can be useful to pin on a dashboard.
+
+### Check for important errors
+
+Produce a map view of only connectors with errors (highlighted red) over the last 24 hours. The filters include the **Error connector** parameter combined with **Intelligent view**:
     
-   :::image type="content" source="media/app-map/image-11.png" alt-text="Screenshot that shows the Last 24 hours and Highlighted Errors filters." lightbox="media/app-map/image-11.png":::
-    
-   :::image type="content" source="media/app-map/image-12.png" alt-text="Screenshot that shows the Intelligent Overview toggle." lightbox="media/app-map/image-12.png":::
+:::image type="content" source="media/app-map/show-important-errors.png" alt-text="Screenshot of filters to show only errors highlighted red over the last 24 hours and Intelligent view is enabled.":::
 
-- Hide low-traffic connectors with no errors to quickly focus on issues that have higher impact:
+The [Intelligent view](#work-with-intelligent-view) feature is described later in this article.
 
-   :::image type="content" source="media/app-map/image-13.png" alt-text="Screenshot that shows the Last 24 hours, calls greater than 876, and highlighted errors filters." lightbox="media/app-map/image-13.png":::
-    
-- Show high-traffic connectors with high average duration to focus on potential performance issues:
+### Hide low-traffic connectors
 
-   :::image type="content" source="media/app-map/image-14.png" alt-text="Screenshot that shows the Last 24 hours, calls greater than 3057, and average time greater than 467 filters." lightbox="media/app-map/image-14.png":::
-    
-- Show a specific portion of a distributed application (requires suitable roleName naming convention):
+Hide low-traffic connectors without errors from the map view, so you can quickly focus on more significant issues. The filters include connectors over the last 24 hours with a **Calls count** greater than 2872 (P20):
 
-   :::image type="content" source="media/app-map/image-15.png" alt-text="Screenshot that shows the Last 24 hours and Connected Contains West filters." lightbox="media/app-map/image-15.png":::
+:::image type="content" source="media/app-map/hide-low-traffic-connectors.png" alt-text="Screenshot of filters to show only errors highlighted red over the last 24 hours for connectors with a call count greater than 2872.":::
 
-- Hide a dependency type that is too noisy:
+### Show high-traffic connectors
 
-   :::image type="content" source="media/app-map/image-16.png" alt-text="Screenshot that shows the Last 24 hours and Nodes Contains Storage Accounts filters." lightbox="media/app-map/image-16.png":::
+Reveal high-traffic connectors that also have a high average call duration time. This filter can help identify potential performance issues. The filters in this example include connectors over the last 24 hours with a **Calls count** greater than 10854 (P50) and **Average call duration** time greater than 578 (P80):
 
-- Show only connectors that have higher error rates than a specific value
+:::image type="content" source="media/app-map/show-high-traffic-connectors.png" alt-text="Screenshot of filters to show connectors over the last 24 hours with a call count greater than 10854 and average call duration greater than 578 ms.":::
 
-   :::image type="content" source="media/app-map/image-17.png" alt-text="Screenshot that shows the Last 24 hours and Errors greater than 0.01 filters." lightbox="media/app-map/image-17.png":::  
+### Locate components by name
 
+Locate components (nodes and connectors) in your application by name according to your implementation of the component `roleName` property naming convention. You can use this approach to see the specific portion of a distributed application. The filter searches for **Nodes, sources and targets** over the last 24 hours that contain the specified value. In this example, the search value is "west": 
+
+:::image type="content" source="media/app-map/show-components-with-name.png" alt-text="Screenshot of filters to show nodes and connectors over the last 24 hours with properties that include the term "west.":::
+
+### Remove noisy components
+
+Define filters to hide noisy components by removing them from the map. Sometimes application components can have active dependent nodes that produce data that's not essential for the map view. In this example, the filter searches for **Nodes, sources and targets** over the last 24 hours that don't contain the specified value "retail": 
+
+:::image type="content" source="media/app-map/show-components-without-name.png" alt-text="Screenshot of filters to show nodes and connectors over the last 24 hours with properties that don't include the term "retail.":::
+
+### Look for error-prone connectors
+
+Show only connectors that have higher error rates than a specific value. The filter in this example searches for connectors over the last 24 hours that have an **Error rate** greater than 3%: 
+
+:::image type="content" source="media/app-map/show-high-errors.png" alt-text="Screenshot of filters to show connectors over the last 24 hours with an error rate greater than 3 percent.":::  
 
 ## Explore Intelligent view
 
