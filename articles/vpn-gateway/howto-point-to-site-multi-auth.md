@@ -11,7 +11,7 @@ ms.author: cherylmc
 ---
 # Configure a point-to-site VPN connection to a VNet using multiple authentication types: Azure portal
 
-This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md).
+This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure virutal network (VNet). Point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-site connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md).
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="Connect from a computer to an Azure VNet - point-to-site connection diagram":::
 
@@ -31,7 +31,7 @@ You can use the following values to create a test environment, or refer to these
 * **Address space:** 10.1.0.0/16<br>For this example, we use only one address space. You can have more than one address space for your VNet.
 * **Subnet name:** FrontEnd
 * **Subnet address range:** 10.1.0.0/24
-* **Subscription:** If you have more than one subscription, verify that you are using the correct one.
+* **Subscription:** If you have more than one subscription, verify that you're using the correct one.
 * **Resource Group:** TestRG1
 * **Location:** East US
 * **GatewaySubnet:** 10.1.255.0/27<br>
@@ -55,8 +55,8 @@ Before beginning, verify that you have an Azure subscription. If you don't alrea
 
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
->[!NOTE]
->The Basic gateway SKU does not support OpenVPN tunnel type.
+> [!NOTE]
+> The Basic gateway SKU does not support OpenVPN tunnel type.
 >
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -70,7 +70,7 @@ You can see the deployment status on the Overview page for your gateway. A gatew
 
 ## <a name="addresspool"></a>Client address pool
 
-The client address pool is a range of private IP addresses that you specify. The clients that connect over a point-to-site VPN dynamically receive an IP address from this range. Use a private IP address range that does not overlap with the on-premises location that you connect from, or the VNet that you want to connect to. If you configure multiple protocols and SSTP is one of the protocols, then the configured address pool is split between the configured protocols equally.
+The client address pool is a range of private IP addresses that you specify. The clients that connect over a point-to-site VPN dynamically receive an IP address from this range. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or the VNet that you want to connect to. If you configure multiple protocols and SSTP is one of the protocols, then the configured address pool is split between the configured protocols equally.
 
 1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway page. In **Settings**, select **Point-to-site configuration**. Select **Configure now** to open the configuration page.
 
@@ -83,7 +83,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 ## <a name="type"></a>Authentication and tunnel types
 
-In this section, you configure authentication type and tunnel type. On the **Point-to-site configuration** page, if you don't see **Tunnel type** or **Authentication type**, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
+In this section, you configure authentication type and tunnel type. On the **Point-to-site configuration** page, if you don't see **Tunnel type** or **Authentication type**, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
 
 > [!IMPORTANT]
 > [!INCLUDE [Entra ID note for portal pages](../../includes/vpn-gateway-entra-portal-note.md)]
@@ -112,18 +112,18 @@ See the below table to check what authentication mechanisms are compatible with 
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-multiauth-tunnel-mapping.md)]
 
->[!NOTE]
->For tunnel type "IKEv2 and OpenVPN" and selected authentication mechanisms "Microsoft Entra ID and Radius" or "Microsoft Entra ID and Azure
+> [!NOTE]
+> For tunnel type "IKEv2 and OpenVPN" and selected authentication mechanisms "Microsoft Entra ID and Radius" or "Microsoft Entra ID and Azure
 >Certificate", Microsoft Entra ID will only work for OpenVPN since it is not supported by IKEv2
 >
 
-Depending on the authentication type(s) selected, you will see different configuration setting fields that will have to be filled in. Fill in the required information and select **Save** at the top of the page to save all of the configuration settings.
+Depending on the authentication type(s) selected, you'll see different configuration setting fields that have to be filled in. Fill in the required information and select **Save** at the top of the page to save all of the configuration settings.
 
 For more information about authentication type, see:
 
 * [Azure certificate](vpn-gateway-howto-point-to-site-resource-manager-portal.md#type)
 * [RADIUS](point-to-site-how-to-radius-ps.md)
-* [Microsoft Entra ID](openvpn-azure-ad-tenant.md)
+* [Microsoft Entra ID](point-to-site-entra-gateway.md)
 
 ## <a name="clientconfig"></a>VPN client configuration package
 
