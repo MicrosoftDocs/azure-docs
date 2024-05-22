@@ -18,7 +18,7 @@ Defender for Cloud's **Email notifications** settings page allows you to define 
 - ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription.
 - ***what* they should be notified about** - Modify the severity levels for which Defender for Cloud should send out notifications.
 
-:::image type="content" source="./media/configure-email-notifications/email-notification-settings.png" alt-text="Configuring the details of the contact who is to receive emails about alerts and attack paths." lightbox="media/configure-email-notifications/email-notification-settings.png":::
+:::image type="content" source="./media/configure-email-notifications/email-notification-settings.png" alt-text="Screenshot showing how to configure the details of the contact who is to receive emails about alerts and attack paths." lightbox="media/configure-email-notifications/email-notification-settings.png":::
 
 ## Email frequency
 
