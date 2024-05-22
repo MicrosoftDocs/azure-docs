@@ -8,7 +8,7 @@ ms.reviewer: viviandiec
 
 # Understand monitoring costs for Container insights
 
-This article provides guidance for Container insights to help you understand your costs for Container insights after it's been enabled for one or more containers and how to filter data that you don't require and edit your collection settings to reduce your overall costs.
+This article helps you understand your costs for Container insights after it's been enabled for one or more containers and how to filter data that you don't require and edit your collection settings to reduce your overall costs.
 
 ## Data collected by Container insights
 The following table describes each of the tables stored in the Log Analytics workspace for Container insights.

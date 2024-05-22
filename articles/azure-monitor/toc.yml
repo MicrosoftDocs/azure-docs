@@ -483,7 +483,7 @@ items:
         - name: Configure with  Data collection rule
           displayName: Container insights
           href: containers/container-insights-data-collection-dcr.md
-      - name: Log schema
+      - name: Container log schema
         href: containers/container-insights-logs-schema.md
       - name: Data transformations
         displayName: Container insights
