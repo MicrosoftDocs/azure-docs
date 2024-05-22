@@ -37,6 +37,7 @@ The steps to configure both scenarios are covered in this article. You can confi
 * **If you want to use transit routing between ExpressRoute and VPN, the ASN of Azure VPN Gateway must be set to 65515.** Azure VPN Gateway supports the BGP routing protocol. For ExpressRoute and Azure VPN to work together, you must keep the Autonomous System Number of your Azure VPN gateway at its default value, 65515. If you previously selected an ASN other than 65515 and you change the setting to 65515, you must reset the VPN gateway for the setting to take effect.
 * **The gateway subnet must be /27 or a shorter prefix**, such as /26, /25, or you receive an error message when you add the ExpressRoute virtual network gateway.
 * **Coexistence for IPv4 traffic only.** ExpressRoute co-existence with VPN gateway is supported, but only for IPv4 traffic. IPv6 traffic isn't supported for VPN gateways.
+* For ExpressRoute-VPN Gateway coexistence, if you’ve already deployed an ExpressRoute, you do not need to create a virtual network and gateway subnet as these are prerequisites in creating an ExpressRoute.
 
 ## Configuration designs
 
