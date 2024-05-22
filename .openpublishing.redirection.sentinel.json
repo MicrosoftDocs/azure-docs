@@ -1,6 +1,86 @@
 {
     "redirections": [
         {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts",
+            "redirect_url": "/azure/sentinel/playbooks/logic-apps-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#how-to-run-a-playbook",
+            "redirect_url": "/azure/sentinel/playbooks/run-manage-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md#recommended-playbooks",
+            "redirect_url": "/azure/sentinel/playbooks/playbooks-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/authenticate-playbooks-to-sentinel.md",
+            "redirect_url": "/azure/sentinel/automation/authenticate-playbooks-to-sentinel",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automate-responses-with-playbooks.md",
+            "redirect_url": "/azure/sentinel/automation/automate-responses-with-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/automation.md",
+            "redirect_url": "/azure/sentinel/automation/automation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/create-playbooks.md",
+            "redirect_url": "/azure/sentinel/automation/create-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/create-tasks-playbook.md",
+            "redirect_url": "/azure/sentinel/automation/create-tasks-playbook",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/define-playbook-access-restrictions.md",
+            "redirect_url": "/azure/sentinel/automation/define-playbook-access-restrictions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/logic-apps-playbooks.md",
+            "redirect_url": "/azure/sentinel/automation/logic-apps-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/migrate-playbooks-to-automation-rules.md",
+            "redirect_url": "/azure/sentinel/automation/migrate-playbooks-to-automation-rules",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/playbook-recommendations.md",
+            "redirect_url": "/azure/sentinel/automation/playbook-recommendations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/playbook-triggers-actions.md",
+            "redirect_url": "/azure/sentinel/automation/playbook-triggers-actions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/run-playbooks.md",
+            "redirect_url": "/azure/sentinel/automation/run-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/tutorial-respond-threats-playbook.md",
+            "redirect_url": "/azure/sentinel/automation/tutorial-respond-threats-playbook",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sentinel/use-playbook-templates.md",
+            "redirect_url": "/azure/sentinel/automation/use-playbook-templates",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sentinel/sap/deploy-data-connector-agent-container-other-methods.md",
             "redirect_url": "/azure/sentinel/sap/deploy-data-connector-agent-container",
             "redirect_document_id": true
