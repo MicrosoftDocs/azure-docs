@@ -32,13 +32,17 @@ landingContent:
         links:
           - text: Introduction to Azure API Center
             url: /training/modules/introduction-to-azure-api-center/
-  # Card
-  - title: Related service
+ # Card
+  - title: Govern APIs
     linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Analyze APIs using linting rules
+            url: enable-api-analysis-linting.md
       - linkListType: concept
         links:
-          - text: Azure API Management
-            url: ../api-management/api-management-key-concepts.md
+          - text: Use metadata for governance
+            url: metadata.md
 # Card
   - title: Manage your API inventory
     linkLists:
@@ -63,16 +67,12 @@ landingContent:
           - text: Build and register APIs - VS Code extension
             url: use-vscode-extension.md
 # Card
-  - title: Govern APIs
+  - title: Related service
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Analyze APIs using linting rules
-            url: enable-api-analysis-linting.md
       - linkListType: concept
         links:
-          - text: Use metadata for governance
-            url: metadata.md
+          - text: Azure API Management
+            url: ../api-management/api-management-key-concepts.md
   # Card
   - title: Discover APIs
     linkLists:
