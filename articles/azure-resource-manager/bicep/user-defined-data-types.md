@@ -227,7 +227,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 ## Declare tagged union type
 
-To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declartion. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
+To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declaration. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
 
 ```bicep
 @discriminator('<propertyName>')
