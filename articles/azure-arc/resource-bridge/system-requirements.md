@@ -79,7 +79,7 @@ Appliance VM IP address requirements:
 
 - Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443)
 
-- Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
+- Communication with the private cloud management endpoint via Port 443 (such as VMware vCenter).
 
 - Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity-requirements) enabled in proxy/firewall.
 - Static IP assigned and within the IP address prefix.
