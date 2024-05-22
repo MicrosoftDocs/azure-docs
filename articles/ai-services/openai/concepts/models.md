@@ -282,6 +282,9 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 | `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 4,096 | Sep 2021 |
 | `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
+| `gpt-4` (0613) <sup>**1**<sup> | North Central US <br> Sweden Central | 8192 | Sep 2021 |
+
+**<sup>1<sup>** GPT-4 fine-tuning is currently in public preview. See our [GPT-4 fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
 
 ### Whisper models
 
