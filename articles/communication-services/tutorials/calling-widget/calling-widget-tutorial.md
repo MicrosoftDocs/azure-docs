@@ -89,6 +89,10 @@ npx create-react-app ui-library-calling-widget-app --template typescript
 # Change to the directory of the newly created App.
 cd ui-library-calling-widget-app
 ```
+After these commands complete you will want to open the created project in VS Code. You can do this with the following command.
+```bash
+code .
+```
 
 ### 2. Get your dependencies
 
@@ -665,7 +669,7 @@ export const callingWidgetInCallContainerStyles = (
 
 ### 6. Setup identity values
 
-Before we run the app, go to `App.tsx` and replace the placeholder values there with your Azure Communication Services Identities and the identifier for your Teams Voice application. Here are input values for the `token`, `userId` and `teamsAppIdentifier`.
+Before we run the app, go to `App.tsx` and replace the placeholder values there with your [Azure Communication Services Identities](../../quickstarts/identity/access-tokens.md) and the [Resource account identifier](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md#find-object-id-for-call-queue) for your Teams Voice application. Here are input values for the `token`, `userId` and `teamsAppIdentifier`.
 
 `./src/App.tsx`
 ```typescript
