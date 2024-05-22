@@ -150,8 +150,12 @@ landingContent:
           url: use-feature-flags-dotnet-core.md
         - text: Use feature flags in Spring Boot
           url: use-feature-flags-spring-boot.md
-        - text: Enable a feature for specified users/groups
-          url: howto-targetingfilter-aspnet-core.md
+        - text: Enable conditional features with feature filters
+          url: howto-feature-filters.md
+        - text: Enable features on a schedule
+          url: howto-timewindow-filter.md
+        - text: Roll out features to targeted audience
+          url: howto-targetingfilter.md
         - text: Run experiments with variant feature flags
           url: run-experiments-aspnet-core.md
       - linkListType: reference

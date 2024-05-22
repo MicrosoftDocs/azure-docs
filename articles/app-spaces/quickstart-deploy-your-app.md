@@ -84,4 +84,4 @@ The deployment can take a few minutes to complete. During deployment, App Spaces
 ## Related content
 
 - [App Spaces overview](overview.md)
-- [Deploy an App Spaces template](quickstart-deploy-starter-app.md)
+- [Deploy an App Spaces starter app](quickstart-deploy-starter-app.md)

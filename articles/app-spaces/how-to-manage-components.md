@@ -103,7 +103,7 @@ This tab shows the following details:
 | Repository     | The GitHub repository used for the app's source code|
 | Branch         | The GitHub branch used for the app's source code|
 | Subscription   | The Azure subscription under which the app is running|
-| Resource name  | The internal name used within Azure App Spaces|
+| Resource name  | The internal name used within App Spaces|
 ::: zone-end
 ::: zone pivot="app"
 
@@ -118,7 +118,7 @@ This tab shows the following details:
 | Repository     | The GitHub repository used for the app's source code|
 | Branch         | The GitHub branch used for the app's source code|
 | Subscription   | The Azure subscription under which the app is running|
-| Resource name  | The internal name used within Azure App Spaces|
+| Resource name  | The internal name used within App Spaces|
 
 ::: zone-end
 ::: zone pivot="database"
@@ -132,7 +132,7 @@ This tab shows the following details:
 | Resource group | The specific resource group managing your app|
 | Pricing        | [Pricing details](https://go.microsoft.com/fwlink/?linkid=2261690)|
 | Subscription   | The Azure subscription under which the app is running|
-| Resource name  | The internal name used within Azure App Spaces|
+| Resource name  | The internal name used within App Spaces|
 
 ::: zone-end
 
