@@ -48,7 +48,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the host name or IP address(es) to listen to.                                                                                  |
 | Data type      | string    |
-| Default value  | `*`                                                                        |
+| Default value  | `*`           |
 | Allowed values | `*`            |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -99,7 +99,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the number of connections slots reserved for replication users and super users.                                                |
 | Data type      | integer   |
-| Default value  | `5`                                                                        |
+| Default value  | `5`           |
 | Allowed values | `5`            |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -116,7 +116,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the number of connection slots reserved for superusers.                                                                        |
 | Data type      | integer   |
-| Default value  | `10`                                                                       |
+| Default value  | `10`          |
 | Allowed values | `10`           |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |
@@ -133,7 +133,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of TCP keepalives that can be lost before the server's connection to the client is considered dead.            |
 | Data type      | integer   |
-| Default value  | `9`                                                                        |
+| Default value  | `9`           |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [tcp_keepalives_count](https://www.postgresql.org/docs/13/runtime-config-connection.html)    |
@@ -150,7 +150,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of seconds of inactivity after which TCP should send a keepalive message to the client.                        |
 | Data type      | integer   |
-| Default value  | `120`                                                                      |
+| Default value  | `120`         |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [tcp_keepalives_idle](https://www.postgresql.org/docs/13/runtime-config-connection.html)     |
@@ -167,7 +167,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of seconds after which a TCP keepalive message that is not acknowledged by the client should be retransmitted. |
 | Data type      | integer   |
-| Default value  | `30`                                                                       |
+| Default value  | `30`          |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [tcp_keepalives_interval](https://www.postgresql.org/docs/13/runtime-config-connection.html) |
@@ -184,7 +184,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the amount of time that transmitted data may remain unacknowledged before the TCP connection is forcibly closed.          |
 | Data type      | integer   |
-| Default value  | `0`                                                                        |
+| Default value  | `0`           |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [tcp_user_timeout](https://www.postgresql.org/docs/13/runtime-config-connection.html)        |
@@ -201,7 +201,7 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the directories where Unix-domain sockets will be created.                                                                     |
 | Data type      | string    |
-| Default value  | `/tmp`                                                                     |
+| Default value  | `/tmp`        |
 | Allowed values | `/tmp`         |
 | Parameter type | read-only      |
 | Documentation  |                                                                                              |

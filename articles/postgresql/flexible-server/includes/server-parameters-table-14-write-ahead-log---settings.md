@@ -14,7 +14,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the delay in microseconds between transaction commit and flushing WAL to disk.                    |
 | Data type      | integer     |
-| Default value  | `0`                                                                        |
+| Default value  | `0`           |
 | Allowed values | `0-100000`        |
 | Parameter type | dynamic        |
 | Documentation  | [commit_delay](https://www.postgresql.org/docs/14/runtime-config-wal.html)           |
@@ -31,7 +31,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Settings |
 | Description    | Sets the minimum concurrent open transactions before performing commit_delay.                          |
 | Data type      | integer     |
-| Default value  | `5`                                                                        |
+| Default value  | `5`           |
 | Allowed values | `0-1000`          |
 | Parameter type | dynamic        |
 | Documentation  | [commit_siblings](https://www.postgresql.org/docs/14/runtime-config-wal.html)        |

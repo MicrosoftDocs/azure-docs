@@ -65,7 +65,7 @@ ms.topic: include
 | Category       | Write-Ahead Log / Checkpoints |
 | Description    | Writes a warning message if checkpoints caused by the filling of WAL segment more frequently than this.        |
 | Data type      | integer   |
-| Default value  | `30`                                                                       |
+| Default value  | `30`          |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
 | Documentation  | [checkpoint_warning](https://www.postgresql.org/docs/12/runtime-config-wal.html)           |
