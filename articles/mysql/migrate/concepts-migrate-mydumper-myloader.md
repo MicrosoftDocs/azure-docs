@@ -43,8 +43,6 @@ Before you begin migrating your MySQL database, you need to:
 
 1. Install mysql client, do the following steps:
 
-4.
-
 - Update the package index on the Azure VM running Linux by running the following command:
 
 ```bash

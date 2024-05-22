@@ -70,11 +70,11 @@ Azure Database for MySQL flexible server allows configuring high availability wi
 
 - **Zone Redundant High Availability (HA):** This option is preferred for complete isolation and infrastructure redundancy across multiple availability zones. It provides highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](overview.md#azure-regions) where the region supports multiple Availability Zones and Zone redundant Premium file shares are available.
 
-:::image type="content" source="media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Zone redundant HA." lightbox="media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png":::
+:::image type="content" source="media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="Screenshot of the zone-redundant HA." lightbox="media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png":::
 
 - **Same-Zone High Availability (HA):** This option is preferred for infrastructure redundancy with lower network latency as both primary and standby server are in the same availability zone. It provides high availability without configuring application redundancy across zones. Same-Zone HA is preferred when you want to achieve highest level of availability within a single Availability zone with the lowest network latency. Same-Zone HA is available in [all Azure regions](overview.md#azure-regions) where you can create Azure Database for MySQL flexible server instances.
 
-:::image type="content" source="media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Zone redundant high availability." lightbox="media/concepts-high-availability/flexible-server-overview-same-zone-ha.png":::
+:::image type="content" source="media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="Screenshot of the zone-redundant high availability." lightbox="media/concepts-high-availability/flexible-server-overview-same-zone-ha.png":::
 
 For more information, see [high availability concepts](concepts-high-availability.md).
 

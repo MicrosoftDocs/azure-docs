@@ -70,7 +70,7 @@ To support the migration, set the target MySQL instance parameters to allow for 
 
 - `max\_connections` - If using a tool that generates multiple threads to increase throughput, increase the connections to support that tool. Default is `151`, max is `5000`.
 
-    > [!NOTE]  
+    > [!NOTE]
     > Take care when performing scaling. Some operations can't be undone, such as storage scaling.
 
 These settings can be updated using the Azure PowerShell cmdlets below:
@@ -114,13 +114,13 @@ With the database objects and users from the source system migrated, the migrati
 
 - Also, select the **Include Create Schema** checkbox. Refer to the image below to observe the correct mysqldump configuration.
 
-    :::image type="content" source="media/09-data-migration-with-mysql-workbench/image6.jpg" alt-text="Include Create Schema." lightbox="media/09-data-migration-with-mysql-workbench/image6.jpg":::
+    :::image type="content" source="media/09-data-migration-with-mysql-workbench/image6.jpg" alt-text="Screenshot of the include create schema." lightbox="media/09-data-migration-with-mysql-workbench/image6.jpg":::
 
     **Test**
 
 - If any of these options appear unavailable, they're likely obstructed by the Output pane. Just change the editor layout.
 
-    :::image type="content" source="media/09-data-migration-with-mysql-workbench/image7.jpg" alt-text="Editor layout.":::
+    :::image type="content" source="media/09-data-migration-with-mysql-workbench/image7.jpg" alt-text="Screenshot of the editor layout.":::
 
     **Test**
 
@@ -132,7 +132,7 @@ With the database objects and users from the source system migrated, the migrati
 
 - Find any `DEFINER` statements and either change to a valid user or remove them completely.
 
-> [!NOTE]  
+> [!NOTE]
 > This can be done by passing the `--skip-definer` in the mysqldump command. This is not an option in the MySQL Workbench; therefore, the lines need to be manually removed in the export commands. Although we point out four items to remove here, there can be other items that could fail when migrating from one MySQL version to another (such as new reserved words).
 
 - Find `SET GLOBAL` statements and either change to a valid user or remove them completely.
@@ -155,7 +155,7 @@ With the database objects and users from the source system migrated, the migrati
 
     - Select **OK**.
 
-        :::image type="content" source="media/09-data-migration-with-mysql-workbench/image8.jpg" alt-text="MySQL connection dialog box." lightbox="media/09-data-migration-with-mysql-workbench/image8.jpg":::
+        :::image type="content" source="media/09-data-migration-with-mysql-workbench/image8.jpg" alt-text="Screenshot of the MySQL connection dialog box." lightbox="media/09-data-migration-with-mysql-workbench/image8.jpg":::
 
         **MySQL connection dialog box is displayed.**
 

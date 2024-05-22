@@ -249,11 +249,11 @@ CALL Migration_PerformInventory('reg_app');
 
   - Calling this procedure on the source DB reveals the following (truncated output):
 
-:::image type="content" source="media/08-data-migration/image4.jpg" alt-text="Truncated output." lightbox="media/08-data-migration/image4.jpg":::
+:::image type="content" source="media/08-data-migration/image4.jpg" alt-text="Screenshot of truncated output." lightbox="media/08-data-migration/image4.jpg":::
 
   - The target database procedure result should resemble the image below after completing the migration. Notice there are no functions in the DB.Functions were eliminated before the migration.
 
-:::image type="content" source="media/08-data-migration/image5.jpg" alt-text="DB Functions." lightbox="media/08-data-migration/image5.jpg":::
+:::image type="content" source="media/08-data-migration/image5.jpg" alt-text="Screenshot of DB Functions." lightbox="media/08-data-migration/image5.jpg":::
 
 ## Users and permissions
 

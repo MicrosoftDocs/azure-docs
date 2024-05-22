@@ -136,7 +136,7 @@ To configure Data in replication, perform the following steps:
 
     The results should appear as shown in the following image:
 
-    :::image type="content" source="media/how-to-migrate-single-flexible-minimum-downtime/metadata.png" alt-text="Continuous sync with the Azure Database Migration Service.":::
+    :::image type="content" source="media/how-to-migrate-single-flexible-minimum-downtime/metadata.png" alt-text="Screenshot of the continuous sync with the Azure Database Migration Service.":::
 
     Make sure to note the binary file name for use in later steps.
 
