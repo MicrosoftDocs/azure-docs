@@ -662,13 +662,9 @@
             href: cost-analysis.md
         - name: Network Observability
           items:
-            - name: BYO Prometheus and Grafana
-              href: network-observability-byo-cli.md
-            - name: Azure managed Prometheus and Grafana
-              href: network-observability-managed-cli.md
-            - name: Azure managed Prometheus and Grafana
+            - name: Advanced Network Observability - Azure managed Prometheus and Grafana
               href: advanced-network-observability-cli.md 
-            - name: BYO Prometheus and Grafana
+            - name: Advanced Network Observability - BYO Prometheus and Grafana
               href: advanced-network-observability-byo-cli.md 
     - name: Service Mesh
       items:
