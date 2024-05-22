@@ -44,7 +44,7 @@ Start with the amount of data that you plan to store. Then, consider the size of
 |Over 5,000 TiB |N/A      |N/A|    |Talk to your field or account team.   |
 <!---|     |[Use ZRS disks when sharing disks between VMs](#use-zrs-disks-when-sharing-disks-between-vms).         |Prevents a shared disk from becoming a single point of failure.         | --->
 
-### Solution details
+## Solution details
 
 If you are still stuck between options after using the decision trees, here are more details for each solution:
 
@@ -56,7 +56,7 @@ If you are still stuck between options after using the decision trees, here are 
 | [**Azure NetApp Files**](/azure/azure-netapp-files/) | Midrange jobs (1k-10k cores), IOPS+latency good for small-file datasets (<512 KiB), excellent for small, many-file workloads | Easy to integrate for Linux and Windows, supports multiprotocol for workflows using both Linux + Windows | Pay what you provision | Either |
 | [**Azure Managed Lustre**](/azure/azure-managed-lustre/) | All job sizes (1k - >10k cores) IOPS/latency for 1000s of medium-sized files (>512 KiB), best for bandwidth-intensive read + write workloads | Lustre, CSI | Pay for what you provision | Durable enough to run as standalone (core) storage, most cost-effective as an accelerator |
 
-### Core storage price comparison
+## Core storage price comparison
 
 In order of most to least expensive, the core storage option prices are: Azure NetApp Files > Azure Premium Blob and Azure Premium Files > Azure Standard Blob.
 
