@@ -4,7 +4,7 @@ description: Learn how to use Bash scripts to customize HDInsight clusters. Scri
 ms.service: hdinsight
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 05/22/2024
 ---
 
 # Script action development with HDInsight

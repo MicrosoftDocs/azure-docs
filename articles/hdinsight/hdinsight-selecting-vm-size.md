@@ -5,7 +5,7 @@ keywords: vm sizes, cluster sizes, cluster configuration
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 05/22/2024
 ---
 # Selecting the right VM size for your Azure HDInsight cluster
 
