@@ -43,9 +43,6 @@ NVIDIA NVLink Interconnect: Supported <br>
 |---------------------|------|------------|------------------------|----------------------------|----------------|----------------|-----------------------------------------|------------------------------|----------|
 | Standard_ND96isr_MI300X_v5 | 96 | 1850 | 1000 | 8 MI300X | 192 | 32 | 40800/612 | 80,000 Mbps | 8 |
 
->[!NOTE]
->The ND MI300X v5 series supports the following kernel version: Ubuntu 20.04: 5.4.0-1046-azure
-
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
