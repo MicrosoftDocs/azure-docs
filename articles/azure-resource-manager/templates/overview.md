@@ -1,7 +1,7 @@
 ---
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
-ms.topic: conceptual
+ms.topic: overview
 ms.custom: devx-track-arm-template
 ms.date: 06/23/2023
 ---

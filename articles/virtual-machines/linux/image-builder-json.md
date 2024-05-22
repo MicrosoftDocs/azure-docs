@@ -1721,6 +1721,8 @@ vnetConfig: {
 }
 ```
 
+---
+
 #### subnetId
 Resource ID of a pre-existing subnet on which the build VM and validation VM is deployed.
 
@@ -1744,8 +1746,6 @@ This field can be specified only if `subnetId` is also specified and must meet t
 
 #### proxyVmSize (optional)
 Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This field must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
-
----
 
 ## Image Template Operations
 
