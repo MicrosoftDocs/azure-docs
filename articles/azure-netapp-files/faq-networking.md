@@ -40,7 +40,7 @@ No. Azure NetApp Files doesn't currently support deploying volumes in a dual-sta
 
 ## Is the number of the IP addresses using Azure VMware Solution for Guest OS mounts limited to 1000?
 
-No. Azure VMware Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" isn't visible to Azure NetApp Files, and the [1000 IP address limit](azure-netapp-files-resource-limits.md#resource-limits) isn't applicable.
+No. Azure VMware Solution is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is n visible to Azure NetApp Files, and the [1000 IP address limit](azure-netapp-files-resource-limits.md#resource-limits) isn't applicable.
 
 ## Can I use DNS A/AAAA records or CNAME records to connect to Azure NetApp Files volumes?
  
