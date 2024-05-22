@@ -1435,6 +1435,14 @@ items:
         href: autoscale/autoscale-diagnostics.md
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
+  - name: Investigate
+    items:
+    - name: Investigator Overview
+      href: ai-ops/investigator-overview.md
+    - name: AI FAQ
+      href: ai-ops/investigator-ai-faq.md
+    - name: Investigate an alert
+      href: ai-ops/investigator-alert-instance.md
 - name: Samples
   items:
   - name: Resource Manager templates
