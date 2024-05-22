@@ -1,18 +1,18 @@
 ---
 title: 'Configure P2S VPN clients - certificate authentication IKEv2 - Linux'
 titleSuffix: Azure VPN Gateway
-description: Learn how to configure a Linux VPN client solution for VPN Gateway P2S configurations that use certificate authentication.
+description: Learn how to configure an Ubuntu Linux strongSwan  VPN client solution for VPN Gateway P2S configurations that use certificate authentication.
 author: cherylmc
 ms.service: vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 05/22/2024
 ms.author: cherylmc
 ---
 
 # Configure strongSwan VPN for P2S certificate authentication IKEv2 connections - Linux
 
-This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) and **Certificate authentication** from a Linux client. There are multiple sets of steps in this article, depending on the tunnel type you selected for your P2S configuration, the operating system, and the VPN client that is used to connect.
+This article helps you connect to your Azure virtual network (VNet) using VPN Gateway point-to-site (P2S) VPN and **Certificate authentication** from an Ubuntu Linux client using strongSwan.
 
 ## Before you begin
 
@@ -20,8 +20,8 @@ Before beginning, verify that you are on the correct article. The following tabl
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
->[!IMPORTANT]
->[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+> [!IMPORTANT]
+> [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 
 ## Generate certificates
 
@@ -39,19 +39,17 @@ To generate configuration files using the Azure portal:
 
 Next, configure the VPN client.
 
-## <a name="ike"></a>IKEv2 - strongSwan steps
-
-### Install strongSwan
+## Install strongSwan
 
 [!INCLUDE [Install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-### Install certificates
+## Install certificates
 
 A client certificate is required for authentication when using the Azure certificate authentication type. A client certificate must be installed on each client computer. The exported client certificate must be exported with the private key, and must contain all certificates in the certification path. Make sure that the client computer has the appropriate client certificate installed before proceeding to the next section.
 
 For information about client certificates, see [Generate certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
-### View VPN client profile files
+## View VPN client profile files
 
 Go to the downloaded VPN client profile configuration files. You can find all of the information that you need for configuration in the **Generic** folder. Azure doesn’t provide a *mobileconfig* file for this configuration.
 
@@ -70,9 +68,9 @@ After viewing the files, continue with the steps that you want to use:
 * [GUI steps](#gui)
 * [CLI steps](#cli)
 
-#### <a name="gui"></a>strongSwan GUI steps
+### <a name="gui"></a>GUI steps
 
-This section walks you through the configuration using the strongSwan GUI. The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 doesn’t support strongSwan GUI. If you want to use Ubuntu 16.0.10, you’ll have to use the [command line](#cli). The following examples may not match screens that you see, depending on your version of Linux and strongSwan.
+This section walks you through the configuration using the strongSwan GUI. The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 doesn’t support strongSwan GUI. If you want to use Ubuntu 16.0.10, you’ll have to use the [command line](#cli). The following examples might not match screens that you see, depending on your version of Linux and strongSwan.
 
 1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example.
 
@@ -105,7 +103,7 @@ This section walks you through the configuration using the strongSwan GUI. The f
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-linux/turn-on.png" alt-text="Screenshot shows copy." lightbox="./media/point-to-site-vpn-client-cert-linux/expanded/turn-on.png":::
 
-#### <a name="cli"></a>strongSwan CLI steps
+### <a name="cli"></a>CLI steps
 
 This section walks you through the configuration using the strongSwan CLI.
 
@@ -150,7 +148,7 @@ This section walks you through the configuration using the strongSwan CLI.
 1. Add the secret values to **/etc/ipsec.secrets**.
 
    The name of the PEM file must match what you have used earlier as your client key file.
-      
+
    ```cli
    : RSA ${USERNAME}Key.pem  # Replace ${USERNAME}Key.pem with the key filename inside /etc/ipsec.d/private directory. 
    ```
