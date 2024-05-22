@@ -132,10 +132,10 @@ There are several requirements and considerations to keep in mind when planning 
 <!-- LINKS - Internal -->
 [aks-network-nsg]: ../virtual-network/network-security-groups-overview
 [azure-cni-nodesubnet]: concepts-network-legacy-cni.md#azure-cni-nodesubnet
-[azure-cni-overlay]: concepts-network-azure-cni-overlay
-[azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet
+[azure-cni-overlay]: concepts-network-azure-cni-overlay.md
+[azure-cni-podsubnet]: concepts-network-azure-cni-podsubnet.md
 [delegated-subnet]: ../virtual-network/subnet-delegation-overview.md
-[ip-address-planning]: concepts-network-ip-address-planning
+[ip-address-planning]: concepts-network-ip-address-planning.md
 [kubenet]: concepts-network-legacy-cni.md#kubenet
 [legacy-cni-options]: concepts-network-legacy-cni.md
 [support-policies]: support-policies.md
