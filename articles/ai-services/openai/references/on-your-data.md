@@ -89,7 +89,7 @@ The response assistant message schema inherits from the chat completions assista
 | `data_source_index` | integer | True | The index of the data source. |
 | `original_search_score` | double | True | The original search score of the retrieved document. |
 | `rerank_score` | double | False | The rerank score of the retrieved document. |
-| `filter_reason` | [] | False | Represents the rationale for filtering the document. If the document does not undergo filtering, this field will remain unset. |
+| `filter_reason` | [Filter reason](#filter-reason)[] | False | Represents the rationale for filtering the document. If the document does not undergo filtering, this field will remain unset. |
 
 ## Filter reason
 
