@@ -50,6 +50,12 @@ Azure Private 5G Core provides write-only access to SIM credentials. SIM credent
 
 As these credentials are highly sensitive, Azure Private 5G Core won't allow users of the service read access to the credentials, except as required by law. Sufficiently privileged users may overwrite the credentials, or revoke them.
 
+## RADIUS authentication
+
+Azure Private 5G Core supports Remote Authentication Dial-In User Service (RADIUS) authentication. You can configure the packet core to contact a RADIUS authentication, authorization and accounting (AAA) server in your network to authenticate UEs on attachment to the network and session establishment. Communication between the packet core and RADIUS server is secured with a shared secret that is stored in Azure Key Vault. The default username and password for UEs are also stored in Azure Key Vault. You can use the UE's International Mobile Subscriber Identity (IMSI) in place of a default username. See [Collect RADIUS values](collect-required-information-for-a-site.md#collect-radius-values) for details.
+
+Your RADIUS server must be reachable from your Azure Stack Edge device on the management network. RADIUS is only supported for initial authentication. Other RADIUS features, such as accounting, are not supported.
+
 ## Access to local monitoring tools
 
 ### Secure connectivity using TLS/SSL certificates
@@ -64,10 +70,6 @@ We recommend that you replace certificates at least once per year, including rem
 
 For more information on how to generate a Key Vault certificate, see [Certificate creation methods](../key-vault/certificates/create-certificate.md).
 
-## Personally identifiable information
-
-[Diagnostics packages](gather-diagnostics.md) may contain information from your site which may, depending on use, include data such as personal data, customer data, and system-generated logs. When providing the diagnostics package to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any information that it contains. You should confirm that this is acceptable under your company's privacy policies and agreements.
-
 ### Access authentication
 
 You can use [Microsoft Entra ID](../active-directory/authentication/overview-authentication.md) or a local username and password to access the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). 
@@ -79,6 +81,10 @@ If you decide to set up Microsoft Entra ID for local monitoring access, after de
 See [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) for additional information on configuring local monitoring access authentication.
 
 You can use Azure Policy to enforce using Entra ID for local monitoring access. See [Azure Policy definitions for Azure Private 5G Core](azure-policy-reference.md).
+
+## Personally identifiable information
+
+[Diagnostics packages](gather-diagnostics.md) may contain information from your site which may, depending on use, include data such as personal data, customer data, and system-generated logs. When providing the diagnostics package to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any information that it contains. You should confirm that this is acceptable under your company's privacy policies and agreements.
 
 ## Next steps
 
