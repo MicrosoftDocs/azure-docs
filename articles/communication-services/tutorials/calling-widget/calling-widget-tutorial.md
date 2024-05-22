@@ -36,7 +36,7 @@ These steps are **needed** in order to follow this tutorial. Contact your Teams 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS (Long Term Support) and versions [Node 20](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version.
 - An Azure Communication Services resource. [Create a Communications Resource](../../quickstarts/create-communication-resource.md)
-- Complete the [Teams tenant setup](../../concepts/includes/enable-interoperability-for-teams-tenant.md) for interoping with your Azure Communication Services resource
+- Complete the [Teams tenant setup](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) for interoping with your Azure Communication Services resource
 - Working with [Teams Call Queues](../../quickstarts/voice-video-calling/get-started-teams-call-queue.md) and Azure Communication Services.
 - Working with [Teams Auto Attendants](../../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md) and Azure Communication Services.
 
