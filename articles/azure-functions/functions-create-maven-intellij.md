@@ -94,6 +94,29 @@ To debug the project locally, follow these steps:
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-debug-functions-break.png" alt-text="Local debug function app break." lightbox="media/functions-create-first-java-intellij/local-debug-functions-break.png":::
 
+## Create the function app in Azure
+
+In this section, you will create a function app and related resources in your Azure subscription.
+
+1. Right-click on Function App within Azure Explorer in your IDEA and select **Create**.
+
+2. Check the box for **More Settings** and provide the following information at the prompts:
+
+    |Prompt|Selection|
+    |--|--|
+    |**Subscription**| Choose the subscription to use.  |
+    |**Resource Group**|Choose the resource group for your Function App.|
+    |**Name**| Specify the name for a new Function App. Here you can accept the default value.  |
+    |**Platform**| Choose the platform with 'Windows-Java 17' or another platform as appropriate.  |
+    |**Region**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. |
+    |**Hosting Options**| Choose the Hosting Options for your Function App. |
+    |**Plan**| Choose the App Service plan pricing tier you want to use. Or click **+** to create a new App Service plan. |
+
+> [!IMPORTANT]
+>  The Flex Consumption plan is [in preview](../../../includes/functions-flex-preview-note.md). You can select the option to choose **Flex Consumption** in this step.
+      
+3. Click **OK**. A notification will be displayed after your function app is created.
+
 ## Deploy your project to Azure
 
 To deploy your project to Azure, follow these steps:
@@ -102,11 +125,13 @@ To deploy your project to Azure, follow these steps:
 
    :::image type="content" source="media/functions-create-first-java-intellij/deploy-functions-to-azure.png" alt-text="Deploy project to Azure." lightbox="media/functions-create-first-java-intellij/deploy-functions-to-azure.png":::
 
-1. If you don't have any Function App yet, click **+** in the *Function* line. Type in the function app name and choose proper platform. Here you can accept the default value. Click **OK** and the new function app you created will be automatically selected. Click **Run** to deploy your functions.
+1. You can select the Function App from the previous section. To create a new one, click **+** in the *Function* line. Type in the function app name and choose proper platform. Here you can accept the default value. Click **OK** and the new function app you created will be automatically selected. Click **Run** to deploy your functions.
 
    :::image type="content" source="media/functions-create-first-java-intellij/deploy-functions-create-app.png" alt-text="Create function app in Azure." lightbox="media/functions-create-first-java-intellij/deploy-functions-create-app.png":::
 
    :::image type="content" source="media/functions-create-first-java-intellij/deploy-functions-log.png" alt-text="Deploy function app to Azure log." lightbox="media/functions-create-first-java-intellij/deploy-functions-log.png":::
+
+
 
 ## Manage function apps from IDEA
 
