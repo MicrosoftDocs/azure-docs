@@ -42,6 +42,16 @@ Deployment stacks provide the following benefits:
 - [What-if](./deploy-what-if.md) isn't available in the preview.
 - A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
 
+## Built-in roles
+
+> [!WARNING]
+> Enforcement of the RBAC permission [Microsoft.Resources/deploymentStacks/manageDenySetting/action](/azure/role-based-access-control/permissions/management-and-governance) is rolling out across regions, including Government Clouds. 
+
+There are two built-in roles for deployment stack:
+
+- **Azure Deployment Stack Contributor**: Allows users to manage deployment stacks, but cannot create or delete deny assignments within the deployment stacks.
+- **Azure Deployment Stack Owner**: Allows users to manage deployment stacks, including those with deny assignments.
+
 ## Create deployment stacks
 
 A deployment stack resource can be created at resource group, subscription, or management group scope. The template passed into a deployment stack defines the resources to be created or updated at the target scope specified for the template deployment.
@@ -591,6 +601,16 @@ To add a managed resource, add the resource definition to the underlying Bicep f
 To delete a managed resource, remove the resource definition from the underlying Bicep files, and then run the update command or rerun the create command. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
 ## Protect managed resources against deletion
+
+When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
+
+> [!NOTE]
+> The latest release requires specific permissions at the stack scope in order to:
+>
+> - Create or update a deployment stack and set the deny setting to a value other than "None".
+> - Update or delete a deployment stack with an existing deny setting of something other than "None"
+>
+> Use the [built-in roles](#built-in-roles) to grant the permissions.
 
 # [PowerShell](#tab/azure-powershell)
 
