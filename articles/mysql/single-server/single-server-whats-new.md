@@ -132,11 +132,9 @@ This release of Azure Database for MySQL - Single Server includes the following 
 - Added new stored procedures for control innodb buffer pool dump/restore.
 - Exposed the innodb warm up related server parameter for large storage server.
 
-## Contacts
+## Feedback and support
 
-If you have questions about or suggestions for working with Azure Database for MySQL, contact the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
-
-In addition, consider the following points of contact as appropriate:
+For any questions or suggestions you might have about working with Azure Database for MySQL flexible server, consider the following points of contact:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
