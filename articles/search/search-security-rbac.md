@@ -197,6 +197,8 @@ Role assignments are global across the search service. To [scope permissions to 
    + Search Index Data Contributor (load documents and run indexing jobs)
    + Search Index Data Reader (query an index)
 
+   Another combination of roles that provides full access is Contributor or Owner, plus Search Index Data Reader.
+
 1. On the **Members** tab, select the Microsoft Entra user or group identity.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
