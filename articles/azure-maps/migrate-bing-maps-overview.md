@@ -225,7 +225,7 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [Search: Fuzzy (typehead)]: /rest/api/maps/search/get-search-fuzzy
 [Search: Fuzzy Search (typeahead)]: /rest/api/maps/search/get-search-fuzzy
 [Search: Fuzzy]: /rest/api/maps/search/get-search-fuzzy
-[Search: POI]:  /rest/api/maps/search/get-search-poi
+[Search: POI]: /rest/api/maps/search/get-search-poi
 [Search: Polygon]: /rest/api/maps/search/get-polygon
 [Search: Reverse Geocoding Batch]: /rest/api/maps/search/get-reverse-geocoding-batch
 [Search: Reverse Geocoding]: /rest/api/maps/search/get-reverse-geocoding

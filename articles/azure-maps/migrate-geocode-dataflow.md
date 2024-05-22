@@ -47,7 +47,7 @@ For more information about the Azure Maps URI parameters and request body, see t
 
 Bing Maps Data Schema 2.0 input and output comparison to Azure Maps *Geocode Batch* and *Reverse Geocode Batch* API:
 
-| Bing Maps Field  | Bing Maps Operation  | Azure Maps Field  | Azure Maps Data Type  | Description                                                             |
+| Bing Maps Field  | Bing Maps Operation  | Azure Maps Field  | Azure Maps data type  | Description                                                             |
 |------------------|----------------------|-------------------|-----------------------|-------------------------------------------------------------------------|
 | Address.AddressLine | Geocode Request<BR>Geocode Response | addressLine | string    ||
 | Address.AdminDistrict | Geocode Request<BR>Geocode Response | adminDistrict | string||

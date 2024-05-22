@@ -36,7 +36,7 @@ Bing Maps for Enterprise only supports API key authentication. Azure Maps suppor
 
 The following table lists the Bing Maps *Find Time Zone* request parameters and the Azure Maps equivalent:
 
-| Bing Maps Parameter | Bing Maps Parameter Alias | Azure Maps Parameter | Required in Azure Maps  | Azure Maps Data Type  | Description  |
+| Bing Maps Parameter | Bing Maps Parameter Alias | Azure Maps Parameter | Required in Azure Maps  | Azure Maps data type  | Description  |
 |---------------------|---------------------------|----------------------|-------------------------|-----------------------|--------------|
 | dateTime  | dt | timeStamp | False | string date-time | Alternatively, use alias "stamp", or "s". Reference time, if omitted, the API uses the machine time serving the request. |
 | IncludeDstRules  | None  | transitionsFrom | False | string date-time | The start date from which daylight savings time (DST) transitions are requested, only applies when "options" = all or "options" = transitions. See options (Timezone Options) parameter for more info.  |
@@ -58,14 +58,14 @@ https://dev.virtualearth.net/REST/v1/timezone/37.7800,-122.4201?key=%7bBingMapsK
 Azure Maps *Get Time Zone by Coordinates* API request:
 
 ```HTTP
-https://atlas.microsoft.com/timezone/byCoordinates/json?api-version=1.0&query=37.7800,-122.4201
+https://atlas.microsoft.com/timezone/byCoordinates/json?api-version=1.0&query=37.7800,-122.4201&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ## Response fields
 
 The following table lists the fields that can appear in the HTTP response when running the Bing Maps Find Time Zone API and the Azure Maps equivalent:
 
-| Bing Maps Response Field                       | Azure Maps Response Field           |
+| Bing Maps response field                       | Azure Maps response field           |
 |------------------------------------------------|-------------------------------------|
 | abbreviation (JSON) <br> Abbreviation (XML)    | ReferenceTime (Tag)                 |
 | convertedTime (JSON) <br>ConvertedTime (XML)   |ReferenceTime (WallTime)             |
