@@ -342,6 +342,8 @@ items:
         href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
+      - name: Pass contextual information
+        href: how-tos/calling-sdk/call-context.md
     - name: Call recording
       items:
       - name: Record a call

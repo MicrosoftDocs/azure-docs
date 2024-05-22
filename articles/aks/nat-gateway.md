@@ -166,11 +166,11 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
 
     ```azurecli-interactive
     az aks nodepool add \
-        --resource-group myResourceGroup
-        --cluster-name myNatCluster
-        --name mynodepool
-        --node-count 3
-        --os-type Windows
+        --resource-group myResourceGroup \
+        --cluster-name myNatCluster \
+        --name mynp \
+        --node-count 3 \
+        --os-type Windows \
         --disable-windows-outbound-nat
     ```
 
