@@ -1,12 +1,12 @@
 ---
 title: Use deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack.
-ms.date: 07/06/2023
+ms.date: 05/14/2024
 ms.topic: tutorial
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ---
 
-# Tutorial: use deployment stack with Bicep (Preview)
+# Tutorial: use deployment stack with Bicep
 
 In this tutorial, you learn the process of creating and managing a deployment stack. The tutorial focuses on creating the deployment stack at the resource group scope. However, you can also create deployment stacks at either the subscription scope. To gain further insights into creating deployment stacks, see [Create deployment stacks](./deployment-stacks.md).
 
