@@ -72,7 +72,7 @@ landingContent:
             url: ./operators.md
           - text: Data types
             url: ./data-types.md
-          - text: Azure Quickstart templates
+          - text: Azure Quickstart Templates
             url: https://azure.microsoft.com/resources/templates/
   # Card
   - title: Deploy Bicep files
