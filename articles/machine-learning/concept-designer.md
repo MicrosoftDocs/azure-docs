@@ -24,9 +24,9 @@ The following animated GIF shows how you can build a pipeline visually in Design
 
 Designer supports two types of pipeline components: classic prebuilt (v1) or custom (v2). These two types of components aren't compatible. This article applies to custom components.
 
-- **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Support continues for existing classic prebuilt components, but no new prebuilt components are to be added. For more information about Designer v1, see [Azure Machine Learning designer (v1)](v1/concept-designer.md).
+- **Classic prebuilt components (v1)** support typical data processing and machine learning tasks like regression and classification. Support continues for existing classic prebuilt components, but no new prebuilt components are being added. For more information about Designer v1, see [Azure Machine Learning designer (v1)](v1/concept-designer.md?view=azureml-api-1&preserve-view=true).
 
-- **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with AzureML v2 and continue to receive new updates.
+- **Custom components (v2)** let you wrap your own code as components, enabling sharing across workspaces and seamless authoring across Azure Machine Learning studio, CLI v2, and SDK v2 interfaces. It's best to use custom components for new projects, because they're compatible with Azure Machine Learning v2 and continue to receive new updates.
 
 ## Assets library
 
@@ -40,7 +40,7 @@ The asset libraries on the left side of the designer show both assets you create
 
 To see assets from specific registries, select the **Registry name** filter above the asset libraries. The assets you created in your current workspace are in the **Workspace** registry. The assets provided by Azure Machine Learning are in the **azureml** registry.
 
-:::image type="content" source="./media/concept-designer/asset-library.png" alt-text="Screenshot of the asset libraries for the azureml registriy." lightbox= "./media/concept-designer/asset-library.png":::
+:::image type="content" source="./media/concept-designer/asset-library.png" alt-text="Screenshot of the asset libraries filtered for one registry." lightbox= "./media/concept-designer/asset-library.png":::
 
 To learn how to create data and component assets in your workspace, see the following articles:
 
@@ -49,7 +49,7 @@ To learn how to create data and component assets in your workspace, see the foll
 
 ## Pipelines
 
-Designer lets you visually create pipelines with your assets. When you open Designer, you see two tabs on the bottom part of the screen: **Pipeline drafts** and **Pipeline jobs**.
+You can use Designer to visually create pipelines with your assets. When you open Designer, you see two tabs at the bottom of the screen: **Pipeline drafts** and **Pipeline jobs**.
 
 :::image type="content" source="./media/concept-designer/pipeline-draft-and-job.png" alt-text="Screenshot of pipeline draft and pipeline job list." lightbox= "./media/concept-designer/pipeline-draft-and-job.png":::
 
@@ -85,7 +85,7 @@ You can create a new pipeline and build it from scratch. Be sure to select the *
 If you want to base a pipeline on an existing pipeline job in the workspace, you can clone the job into a new pipeline draft to continue editing.
 
 :::image type="content" source="./media/concept-designer/pipeline-clone.png" alt-text="Screenshot of a pipeline job in the workspace with the clone button highlighted." lightbox= "./media/concept-designer/pipeline-clone.png":::
-After cloning, you can find out which pipeline job the new pipeline is cloned from by selecting **Show lineage**.
+After cloning, you can find out which pipeline job the new pipeline was cloned from by selecting **Show lineage**.
 
 :::image type="content" source="./media/concept-designer/draft-show-lineage.png" alt-text="Screenshot showing the draft lineage after selecting Show lineage." lightbox= "./media/concept-designer/draft-show-lineage.png":::
 
