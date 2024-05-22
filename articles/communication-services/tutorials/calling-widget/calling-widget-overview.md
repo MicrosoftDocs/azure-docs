@@ -23,16 +23,19 @@ Using the Azure Communication Services UI Library you can quickly connect your c
 
 ## Choosing your adventure
 
-We offer two different tutorials using the Azure Communication Services UI library. Depending on your application's framework you can choose between the following two tutorials.
+We provide 3 ways to experience our Calling Widget. Feel free to choose any of the three options, but we highly recommend checking out our quickstart in the run it section if you’re new to coding.
 
-### Platform: React
+#### Run it
+If you are wanting to just try out the experience without following either of the tutorials please check out the [completed quickstart](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-click-to-call) and follow the instructions to run the experience. Choose this path if you are unfamiliar with coding and just want to see what the calling widget can do. You have to meet the [pre-requisites](./calling-widget-tutorial.md#prerequisites) of the other two developer tutorials to complete this experience.
+
+#### Build it - Platform: React
 
 A complete start to finish tutorial built using [React](https://react.dev/) that teaches you to create a Calling widget using [Fluent UI](https://developer.microsoft.com/en-us/fluentui#/) and the UI Library.
 - [Get started with Azure Communication Services UI library calling to Teams Call Queue and Auto Attendant](./calling-widget-tutorial.md)
 
 ![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
-### Crossplatform: JavaScript
+#### Build it - Crossplatform: JavaScript
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
