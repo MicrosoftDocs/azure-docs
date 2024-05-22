@@ -231,7 +231,6 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 The following are the fields extracted per document type. The Document Intelligence ID model `prebuilt-idDocument` extracts the following fields in the `documents.*.fields`. The json output includes all the extracted text in the documents, words, lines, and styles.
 
-::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
 
@@ -247,7 +246,6 @@ The following are the fields extracted per document type. The Document Intellige
 
 ::: moniker-end
 
-::: moniker range=">=doc-intel-3.0.0"
 ### `idDocument.driverLicense`
 
 | Field | Type | Description | Example |
