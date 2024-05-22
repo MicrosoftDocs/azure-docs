@@ -35,11 +35,15 @@ You can now create messages with the [assistant](.//assistants-reference-message
 * Support for fine-tuned `gpt-3.5-turbo-0125` [models](./concepts/models.md#assistants-preview) in the following regions:
     * East US 2
     * Sweden Central
-* Expanded regional support for:
+* Expanded [regional support](./concepts/models.md#assistants-preview) for:
     * Japan East
     * UK South
     * West US
     * West US 3
+    * India South
+    * Norway east
+
+For more information, see the [blog post](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/announcing-azure-openai-service-assistants-preview-refresh/ba-p/4143217) about assistants.
 
 ### GPT-4o model general availability (GA)
 
