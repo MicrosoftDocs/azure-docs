@@ -115,7 +115,7 @@
     - name: Investigate the health of your resources
       displayName: health, resources, outstanding, security, issues,
       href: investigate-resource-health.md
-    - name: Set up email notifications
+    - name: Configure email notifications for alerts and attack paths
       displayName: email,e-mail, notifications
       href: configure-email-notifications.md
     - name: Create autoresponses to alerts using an ARM template or Bicep
