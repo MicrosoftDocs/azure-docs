@@ -17,4 +17,4 @@ Azure VMware Solution is a Hyperconverged Infrastructure (HCI) service that offe
 
 ## Solutions
 
-[Pure Cloud Block Storage](../azure-vmware/configure-pure-cloud-block-store.md)
+[Pure Cloud Block Store](../azure-vmware/configure-pure-cloud-block-store.md)

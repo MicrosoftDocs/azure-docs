@@ -69,3 +69,4 @@ You can also [select and deploy Kubernetes applications available through Market
 
 <!-- EXTERNAL -->
 [arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all
+

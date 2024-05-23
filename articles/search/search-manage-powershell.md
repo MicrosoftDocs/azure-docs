@@ -1,5 +1,5 @@
 ---
-title: PowerShell scripts using `Az.Search` module
+title: PowerShell scripts using Azure Search PowerShell module
 titleSuffix: Azure AI Search
 description: Create and configure an Azure AI Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 04/05/2024
 ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
@@ -22,7 +22,9 @@ ms.custom:
 > * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](search-manage-rest.md)
 
-You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](../cloud-shell/overview.md) to create and configure Azure AI Search. The **Az.Search** module extends [Azure PowerShell](/powershell/) with full parity to the [Search Management REST APIs](/rest/api/searchmanagement) and the ability to perform the following tasks:
+You can run PowerShell cmdlets and scripts on Windows, Linux, or in Azure Cloud Shell to create and configure Azure AI Search. 
+
+Use the [**Az.Search** module](/powershell/module/az.search/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * [List search services in a subscription](#list-search-services)
@@ -41,6 +43,8 @@ You can't change a server name, region, or tier programmatically or in the porta
 You can't use tools or APIs to transfer content, such as an index, from one service to another. Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or an SDK such as [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated commands for content migration, you can write script that calls REST API or a client library to create and load indexes on a new service.
 
 Preview administration features are typically not available in the **Az.Search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version. 
+
+The [**Az.Search** module](/powershell/module/az.search/) extends [Azure PowerShell](/powershell/) with full parity to the stable versions of the [Search Management REST APIs](/rest/api/searchmanagement).
 
 <a name="check-versions-and-load"></a>
 

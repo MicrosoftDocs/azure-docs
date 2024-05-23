@@ -6,13 +6,15 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 10/19/2023
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Validate Microsoft Entra token
 
-The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Microsoft Entra service for a specified set of principals in the directory. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Microsoft Entra (formerly called Azure Active Directory) service for a specified set of principals in the directory. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
 
 > [!NOTE]
 > To validate a JWT that was provided by another identity provider, API Management also provides the generic [`validate-jwt`](validate-jwt-policy.md) policy. 
@@ -86,7 +88,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -131,7 +133,7 @@ For more details on optional claims, read [Provide optional claims to your app](
 
 ## Related policies 
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

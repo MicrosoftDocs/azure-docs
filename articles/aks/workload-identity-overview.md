@@ -5,6 +5,9 @@ ms.topic: article
 ms.subservice: aks-security
 ms.custom: build-2023
 ms.date: 11/17/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use Microsoft Entra Workload ID with Azure Kubernetes Service (AKS)
@@ -16,6 +19,9 @@ Workloads deployed on an Azure Kubernetes Services (AKS) cluster require Microso
 Microsoft Entra Workload ID works especially well with the [Azure Identity client libraries](#azure-identity-client-libraries) and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) collection if you're using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
 This article helps you understand this new authentication feature, and reviews the options available to plan your project strategy and potential migration from Microsoft Entra pod-managed identity.
+
+> [!NOTE]
+> Instead of configuring all steps manually, there is another implementation called _Service Connector_ which will help you configure some steps automatically. See also: [What is Service Connector?][service-connector-overview]
 
 ## Dependencies
 
@@ -300,6 +306,7 @@ The following table summarizes our migration or deployment recommendations for w
 [virtual-kubelet]: https://virtual-kubelet.io/docs/
 
 <!-- INTERNAL LINKS -->
+[service-connector-overview]: ../service-connector/overview.md
 [use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
 [azure-ad-workload-identity]: ../active-directory/develop/workload-identities-overview.md
 [microsoft-authentication-library]: ../active-directory/develop/msal-overview.md
@@ -314,3 +321,4 @@ The following table summarizes our migration or deployment recommendations for w
 [aks-virtual-nodes]: virtual-nodes.md
 [unsupported-regions-user-assigned-managed-identities]: ../active-directory/workload-identities/workload-identity-federation-considerations.md#unsupported-regions-user-assigned-managed-identities
 [general-federated-identity-credential-considerations]: ../active-directory/workload-identities/workload-identity-federation-considerations.md#general-federated-identity-credential-considerations
+

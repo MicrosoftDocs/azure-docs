@@ -320,7 +320,7 @@ QPUs consumed by an API call.
 
 List of remaining quotas.
 
-## Next steps
+## Related content
 
 - [Analyze Azure costs with the Power BI template app](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 - [Create and manage exported data](./tutorial-export-acm-data.md) with Exports.

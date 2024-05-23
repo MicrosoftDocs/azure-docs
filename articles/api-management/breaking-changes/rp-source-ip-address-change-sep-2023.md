@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Resource provider source IP address updates (September 2023)
 
+[!INCLUDE [api-management-availability-premium-dev](../../../includes/api-management-availability-premium-dev.md)]
+
 On 30 September 2023 as part of our continuing work to increase the resiliency of API Management services, we're making the resource providers for Azure API Management zone redundant in each region. The IP address that the resource provider uses to communicate with your service will change if it's located in Switzerland North:
 
 * Old IP address: 51.107.0.91

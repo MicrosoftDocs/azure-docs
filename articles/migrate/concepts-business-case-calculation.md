@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 12/12/2023
+ms.date: 05/22/2024
 ms.custom: engagement-fy24
 ---
 
@@ -45,13 +45,13 @@ There are three types of migration strategies that you can choose while building
 Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
 
 
-## How do I build a business case?
+## Discovery sources to create a Business case
 
 Currently, you can create a Business case with the two discovery sources:
 
  **Discovery Source** | **Details** | **Migration strategies that can be used to build a business case**
     --- | --- | ---
-    Use more accurate data insights collected via **Azure Migrate appliance** | You need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [Physical/Bare-metal or other clouds](how-to-set-up-appliance-physical.md). The appliance discovers servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md). | Azure recommended to minimize cost, Migrate to all IaaS (Infrastructure as a Service), Modernize to PaaS (Platform as a Service)
+    Use more accurate data insights collected via **Azure Migrate appliance** | You need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [Physical/Bare-metal or other clouds](how-to-set-up-appliance-physical.md). The appliance discovers servers, SQL Server instance and databases, and ASP.NET/Java webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md). | Azure recommended to minimize cost, Migrate to all IaaS (Infrastructure as a Service), Modernize to PaaS (Platform as a Service)
     Build a quick business case using the **servers imported via a .csv file** | You need to provide the server inventory in a [.CSV file and import in Azure Migrate](tutorial-discover-import.md) to get a quick business case based on the provided inputs. You don't need to set up the Azure Migrate appliance to discover servers for this option. | Migrate to all IaaS (Infrastructure as a Service)
 
 ## How do I use the appliance?

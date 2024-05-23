@@ -3,7 +3,7 @@ title: How to perform Change Data Capture of SQL Server with Apache Flink® Data
 description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 04/02/2024
 ---
 
 # Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source on HDInsight on AKS
@@ -138,7 +138,7 @@ GO
 ```
 ##### Maven source code on IdeaJ
 
-In the below snippet, we use HDInsight Kafka 2.4.1. Based on your usage, update the version of Kafka on `<kafka.version>`. 
+Based on your usage, update the version of Kafka on `<kafka.version>`. 
 
 **maven pom.xml**
 
@@ -158,7 +158,7 @@ In the below snippet, we use HDInsight Kafka 2.4.1. Based on your usage, update 
          <flink.version>1.17.0</flink.version>
          <java.version>1.8</java.version>
          <scala.binary.version>2.12</scala.binary.version>
-         <kafka.version>3.2.0</kafka.version> // Replace with 3.2 if you're using HDInsight Kafka 3.2
+         <kafka.version>3.2.0</kafka.version> //
      </properties>
      <dependencies>
          <dependency>
@@ -335,7 +335,7 @@ public class mssqlSinkToKafka {
    
 ### Reference
 
-* [SQLServer CDC Connector](https://github.com/ververica/flink-cdc-connectors/blob/master/docs/content/connectors/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+* [SQLServer CDC Connector](https://github.com/apache/flink-cdc/blob/master/docs/content/docs/connectors/legacy-flink-cdc-sources/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
 * [Apache Kafka in Azure HDInsight](../../hdinsight/kafka/apache-kafka-introduction.md)
 * [Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka/#behind-the-scene)
 * Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

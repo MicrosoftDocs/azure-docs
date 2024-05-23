@@ -15,9 +15,6 @@ Azure Managed Instance for Apache Cassandra nodes requires access to many other 
 
 However, if you have internal security concerns about data exfiltration, your security policy might prohibit direct access to these services from your virtual network. By using a virtual private network (VPN) with Azure Managed Instance for Apache Cassandra, you can ensure that data nodes in the virtual network communicate with only a single VPN endpoint, with no direct access to any other services.
 
-> [!IMPORTANT]
-> The ability to use a VPN with Azure Managed Instance for Apache Cassandra is in public preview. This feature is provided without a service-level agreement, and we don't recommend it for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## How it works
 
 A virtual machine called the operator is part of each Azure Managed Instance for Apache Cassandra. It helps manage the cluster, by default, the operator is in the same virtual network as the cluster. Which means that the operator and data VMs have the same Network Security Group (NSG) rules. Which isn't ideal for security reasons, and it also lets customers prevent the operator from reaching necessary Azure services when they set up NSG rules for their subnet. 

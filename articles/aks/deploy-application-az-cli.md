@@ -77,3 +77,4 @@ To deploy the application (extension) through Azure CLI, follow the steps outlin
 
 - Learn about [Kubernetes applications available through Marketplace](deploy-marketplace.md).
 - Learn about [cluster extensions](cluster-extensions.md).
+

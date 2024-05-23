@@ -89,6 +89,10 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 
     For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 
+1. Grant **your Azure user identity** the **Storage Blob Data reader** role for the Azure storage account. The studio uses your identity to access data to blob storage, even if the workspace managed identity has the Reader role.
+
+    For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
+
 1. **Grant the workspace managed identity the Reader role for storage private endpoints**. If your storage service uses a private endpoint, grant the workspace's managed identity *Reader* access to the private endpoint. The workspace's managed identity in Microsoft Entra ID has the same name as your Azure Machine Learning workspace. A private endpoint is necessary for both blob and file storage types.
 
     > [!TIP]

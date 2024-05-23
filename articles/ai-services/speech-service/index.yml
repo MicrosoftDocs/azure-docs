@@ -147,8 +147,8 @@ conceptualContent:
           text: Migrate to neural voice
           url: migration-overview-neural-voice.md
         - itemType: how-to-guide
-          text: Migrate to the v3.1 REST API
-          url: migrate-v3-0-to-v3-1.md
+          text: Migrate to the v3.2 REST API
+          url: migrate-v3-1-to-v3-2.md
         - itemType: how-to-guide
           text: Migrate to Batch synthesis REST API
           url: migrate-to-batch-synthesis.md

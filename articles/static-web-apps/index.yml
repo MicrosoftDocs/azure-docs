@@ -78,7 +78,7 @@ landingContent:
           - text: Staging environments
             url: review-publish-pull-requests.md
           - text: Authentication and authorization
-            url: authentication-authorization.md
+            url: authentication-authorization.yml
           - text: Build configuration with GitHub Actions
             url: build-configuration.md?tabs=github-actions
           - text: Build configuration with Azure DevOps

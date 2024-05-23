@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 02/29/2024
+ms.date: 04/02/2024
 ms.topic: conceptual
 ---
 
@@ -144,6 +144,11 @@ A job doesn't automatically move to completed state unless explicitly terminated
 
 There's a default [active job and job schedule quota](batch-quota-limit.md#resource-quotas). Jobs and job schedules in completed state don't count towards this quota.
 
+Delete jobs when they're no longer needed, even if in completed state. Although completed jobs don't count towards
+active job quota, it's beneficial to periodically clean up completed jobs. For example,
+[listing jobs](/rest/api/batchservice/job/list) will be more efficient when the total number of jobs is a smaller
+set (even if proper filters are applied to the request).
+
 ## Tasks
 
 [Tasks](jobs-and-tasks.md#tasks) are individual units of work that comprise a job. Tasks are submitted by the user and scheduled by Batch on to compute nodes. The following sections provide suggestions for designing your tasks to handle issues and perform efficiently.
@@ -167,7 +172,7 @@ Deleting tasks accomplishes two things:
 > For tasks just submitted to Batch, the DeleteTask API call takes up to 10 minutes to take effect. Before it takes effect,
 > other tasks might be prevented from being scheduled. It's because Batch Scheduler still tries to schedule the tasks just
 > deleted. If you wanted to delete one task shortly after it's submitted, please terminate the task instead (since the
-> terminate task will take effect immediately). And then delete the task 10 minutes later.
+> terminate task request will take effect immediately). And then delete the task 10 minutes later.
 
 ### Submit large numbers of tasks in collection
 

@@ -12,6 +12,8 @@ ms.author: danlep
 ---
 # Reference: API Management resource log schema
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article provides a schema reference for the Azure API Management GatewayLogs resource log. Log entries also include fields in the [top-level common schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 To enable collection of the resource log in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md#resource-logs).

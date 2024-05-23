@@ -42,13 +42,13 @@ Support is still provided for non-CNI-related issues.
 1. Create an Azure resource group for your AKS cluster using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create -l eastus -n myResourceGroup
+    az group create --location eastus --name myResourceGroup
     ```
 
 2. Create an AKS cluster using the [`az aks create`][az-aks-create] command. Pass the `--network-plugin` parameter with the parameter value of `none`.
 
     ```azurecli-interactive
-    az aks create -l eastus -g myResourceGroup -n myAKSCluster --network-plugin none
+    az aks create --location eastus --resource-group myResourceGroup --name myAKSCluster --network-plugin none
     ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
@@ -182,3 +182,4 @@ Learn more about networking in AKS in the following articles:
 [deploy-bicep-template]: ../azure-resource-manager/bicep/deploy-cli.md
 [az-group-create]: /cli/azure/group#az_group_create
 [deploy-arm-template]: ../azure-resource-manager/templates/deploy-cli.md
+

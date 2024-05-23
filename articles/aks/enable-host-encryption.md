@@ -4,6 +4,9 @@ description: Learn how to configure a host-based encryption in an Azure Kubernet
 ms.topic: article
 ms.subservice: aks-security
 ms.date: 07/17/2023 
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -60,3 +63,4 @@ Before you begin, review the following prerequisites and limitations.
 [akv-built-in-roles]: ../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+

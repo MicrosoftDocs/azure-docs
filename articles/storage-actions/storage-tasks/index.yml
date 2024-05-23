@@ -8,7 +8,6 @@ metadata:
   description: Azure Storage Actions documentation hub page. Points to service documentation for using the Azure Storage Actions to perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
   ms.service: azure-storage-actions
   ms.topic: landing-page
-  ms.collection: collection
   author: normesta
   ms.author: normesta
   ms.date: 01/19/2024

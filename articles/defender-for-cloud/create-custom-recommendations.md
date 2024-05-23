@@ -87,7 +87,7 @@ You can create custom recommendations and standards in Defender for cloud by cre
 
 Here's how you do that:
 
-1. Create one or more policy definitions in the [Azure Policy portal](../governance/policy/tutorials/create-custom-policy-definition.md), or [programatically](../governance/policy/how-to/programmatically-create.md).
+1. Create one or more policy definitions in the [Azure Policy portal](../governance/policy/tutorials/create-custom-policy-definition.md), or [programmatically](../governance/policy/how-to/programmatically-create.md).
 1. [Create a policy initiative](../governance/policy/concepts/initiative-definition-structure.md) that contains the custom policy definitions.
 
 ### Onboard the initiative as a custom standard (legacy)
