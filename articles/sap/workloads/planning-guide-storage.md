@@ -261,7 +261,7 @@ For information about service levels, see [Service levels for Azure NetApp Files
 - SAPMNT share:			Performance, ideally Ultra
 - Global transport directory: Performance, ideally Ultra
 
-Sizing recommendations are available in the [SAP on Azure NetApp FIles TCO Estimator](https://aka.ms/anfsapcalc).
+Sizing recommendations are available in the [SAP on Azure NetApp Files TCO Estimator](https://aka.ms/anfsapcalc).
 
 > [!NOTE]
 > The minimum provisioning size is a 1 TiB unit that is called capacity pool. You then create volumes out of this capacity pool. Whereas the smallest volume you can build is 100 GiB. You can expand a capacity pool in 1 TiB see. For pricing, see [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/)
@@ -281,7 +281,7 @@ Azure NetApp Files is currently supported for several SAP workload scenarios:
 > [!NOTE]
 > So far no DBMS workloads are supported on SMB based on Azure NetApp Files.
 
-Storage for database applications typically has throughput requirements that do not scale linearly with the size of the volumes, ie log volumes are relatively small in size but require high levels of throughput.
+Storage for database applications typically has throughput requirements that don't scale linearly with the size of the volumes, ie log volumes are relatively small in size but require high levels of throughput.
 
 Azure NetApp Files allows you to allocate volume throughput independently from volume sizes when using a capacity pool of type [manual QoS](../../azure-netapp-files/azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool).
 
@@ -310,7 +310,7 @@ The capability matrix for SAP workload looks like:
 | Latency | Very low | Typically less than 1 ms |
 | IOPS SLA | Yes | - |
 | IOPS linear to capacity | Linear with auto QoS; independent with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
-| Throughput SLA | Yes | - |
+| Throughput SLA | Yes | - |Sizing recommendations are available in the SAP on Azure NetApp FIles TCO Esti
 | Throughput linear to capacity | Linear with auto QoS; independent with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
 | HANA certified | Yes | - |
 | Disk snapshots possible | Yes | - |
