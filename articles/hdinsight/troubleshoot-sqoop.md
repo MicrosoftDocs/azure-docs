@@ -4,7 +4,7 @@ description: 'Apache Sqoop import/export command fails with "Import Failed: java
 ms.service: hdinsight
 ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
-ms.date: 04/26/2023
+ms.date: 05/23/2024
 ---
 
 # Scenario: Sqoop import/export command fails for usernames greater than 20 characters in Azure HDInsight ESP clusters
