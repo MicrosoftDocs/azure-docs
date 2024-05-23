@@ -3,7 +3,7 @@ title: Prepare on-premises Hyper-V servers for disaster recovery by using Azure 
 description: Learn how to prepare on-premises Hyper-V VMs for disaster recovery to Azure by using Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/02/2023
+ms.date: 05/23/2024
 ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -88,8 +88,5 @@ After failover, you can access Azure VMs by using the same IP address as the rep
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for Hyper-V VMs](./hyper-v-azure-tutorial.md)
-
-> [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for Hyper-V VMs in Virtual Machine Manager clouds](./hyper-v-vmm-azure-tutorial.md)
+- [Set up disaster recovery to Azure for Hyper-V VMs](./hyper-v-azure-tutorial.md)
+- [Set up disaster recovery to Azure for Hyper-V VMs in Virtual Machine Manager clouds](./hyper-v-vmm-azure-tutorial.md).
