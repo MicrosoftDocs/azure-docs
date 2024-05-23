@@ -6,7 +6,7 @@ summary: Model business processes that map to Azure resources. Collect and track
 metadata:
   title: Business Process Tracking documentation
   description: Model business processes that map to Azure resources. Collect and track key business data.
-  ms.service: business-process-tracking
+  ms.service: logic-apps
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan; azla

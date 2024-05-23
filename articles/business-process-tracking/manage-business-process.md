@@ -1,7 +1,7 @@
 ---
 title: Manage business processes
 description: Learn how to edit the description, make a copy, discard pending changes, or delete the deployment for a business process in an application group.
-ms.service: integration-environments
+ms.service: logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024

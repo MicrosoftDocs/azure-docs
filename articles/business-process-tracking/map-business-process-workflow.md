@@ -1,7 +1,7 @@
 ---
 title: Map business processes to Standard workflows
-description: Map business process stages to operations in Standard workflows created with Azure Logic Apps.
-ms.service: integration-environments
+description: Map your business process stages to operations in Standard logic app workflows from Azure Logic Apps.
+ms.service: logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024
@@ -20,8 +20,6 @@ After you create a business process for an application group in an integration e
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- An [integration environment](create-integration-environment.md) that contains an [application group](create-application-group.md), which has at least the [Standard logic app resources, workflows, and operations](../logic-apps/create-single-tenant-workflows-azure-portal.md) for mapping to your business process stages
 
 - A [business process with the stages](create-business-process.md) where you want to define the key business data to capture, and then map to actual operations and property values in a Standard logic app workflow
 

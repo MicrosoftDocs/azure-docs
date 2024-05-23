@@ -1,7 +1,7 @@
 ---
 title: Overview
 description: Model and map business processes to Azure resources. Collect business data from deployed solutions.
-ms.service: business-process-tracking
+ms.service: logic-apps
 ms.topic: overview
 ms.reviewer: estfan, azla
 ms.date: 06/07/2024

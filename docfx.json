@@ -984,7 +984,7 @@
         "articles/ai-studio/**/*.md": "azure-ai-services",
         "articles/ai-services/**/*.md": "azure-ai-services",
         "articles/ai-services/speech-service/*.md": "azure-ai-speech",
-        "articles/business-process-tracking/*.md": "integration-environments",
+        "articles/business-process-tracking/*.md": "logic-apps",
         "articles/connectors/*.md": "logic-apps",
         "articles/container-instances/**/*.md": "container-instances",
         "articles/container-registry/**/*.md": "container-registry",
