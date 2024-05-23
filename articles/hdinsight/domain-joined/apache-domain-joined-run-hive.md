@@ -146,7 +146,7 @@ To test the second policy (read-hivesampletable-devicemake) that you created in 
     SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
     ```
 
-    When finished, you see two columns of imported data.
+    When it's finished, you see two columns of imported data.
 
 ## Next steps
 

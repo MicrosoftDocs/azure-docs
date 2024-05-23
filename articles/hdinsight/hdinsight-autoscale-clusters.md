@@ -26,7 +26,7 @@ Schedule-based scaling can be used:
 
 Load based scaling can be used: 
 
-* When the load patterns fluctuate substantially and unpredictably during the day, for example, order data processing with random fluctuations in load patterns based on various factors.
+* When the load patterns fluctuate substantially and unpredictably during the day. For example, order data processing with random fluctuations in load patterns based on various factors.
 
 ### Cluster metrics
 
@@ -228,7 +228,7 @@ All of the cluster status messages that you might see are explained in the follo
 | Updating  | The cluster Autoscale configuration is being updated.  |
 | HDInsight configuration  | A cluster scale up or scale down operation is in progress.  |
 | Updating Error  | HDInsight met issues during the Autoscale configuration update. Customers can choose to either retry the update or disable autoscale.  |
-| Error  | Something is wrong with the cluster, and it'sn't usable. Delete this cluster and create a new one.  |
+| Error  | Something is wrong with the cluster, and it isn't usable. Delete this cluster and create a new one.  |
 
 To view the current number of nodes in your cluster, go to the **Cluster size** chart on the **Overview** page for your cluster. Or select **Cluster size** under **Settings**.
 

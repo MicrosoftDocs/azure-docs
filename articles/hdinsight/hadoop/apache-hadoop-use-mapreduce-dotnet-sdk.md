@@ -11,7 +11,7 @@ ms.date: 05/22/2024
 
 [!INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
-Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters come with a jar file with some MapReduce samples. The jar file is`/example/jars/hadoop-mapreduce-examples.jar`. One of the samples is **wordcount**. You develop a C# console application to submit a wordcount job. The job reads the `/example/data/gutenberg/davinci.txt` file, and outputs the results to `/example/data/davinciwordcount`.  If you want to rerun the application, you must clean up the output folder.
+Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters come with a jar file with some MapReduce samples. The jar file is `/example/jars/hadoop-mapreduce-examples.jar`. One of the samples is **wordcount**. You develop a C# console application to submit a wordcount job. The job reads the `/example/data/gutenberg/davinci.txt` file, and outputs the results to `/example/data/davinciwordcount`.  If you want to rerun the application, you must clean up the output folder.
 
 > [!NOTE]  
 > The steps in this article must be performed from a Windows client. For information on using a Linux, OS X, or Unix client to work with Hive, use the tab selector shown on the top of the article.
@@ -34,7 +34,7 @@ The HDInsight .NET SDK provides .NET client libraries, which make it easier to w
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Copy the code into **Program.cs**. Then edit the code by setting the values for: `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`, and `defaultStorageContainerName`.
+1. Copy the code below into **Program.cs**. Then edit the code by setting the values for: `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`, and `defaultStorageContainerName`.
 
     ```csharp
     using System.Collections.Generic;
@@ -155,7 +155,7 @@ The HDInsight .NET SDK provides .NET client libraries, which make it easier to w
 
 1. Press **F5** to run the application.
 
-To run the job again, you must change the job output folder name, in the sample its `/example/data/davinciwordcount`.
+To run the job again, you must change the job output folder name, in the sample it's `/example/data/davinciwordcount`.
 
 When the job completes successfully, the application prints the content of the output file `part-r-00000`.
 

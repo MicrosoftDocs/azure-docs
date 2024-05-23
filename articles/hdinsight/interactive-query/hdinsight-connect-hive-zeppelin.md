@@ -61,7 +61,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     limit ${total_count=10}
     ```
 
-    When you Compare the traditional Hive, the query results come back must faster.
+    Compared to the traditional Hive, the query results come back much faster.
 
 ### More examples
 

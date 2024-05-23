@@ -34,7 +34,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 * [Target the Apache Hadoop version](#bPS1)
 * [Target the OS Version](#bps10)
 * [Provide stable links to script resources](#bPS2)
-* [Use precompiled resources](#bPS4)
+* [Use pre-compiled resources](#bPS4)
 * [Ensure that the cluster customization script is idempotent](#bPS3)
 * [Ensure high availability of the cluster architecture](#bPS5)
 * [Configure the custom components to use Azure Blob storage](#bPS6)
@@ -118,15 +118,15 @@ The best practice is to download and archive everything in an Azure Storage acco
 
 For example, the samples provided by Microsoft are stored in the `https://hdiconfigactions.blob.core.windows.net/`  storage account. This location is a public, read-only container maintained by the HDInsight team.
 
-### <a name="bPS4"></a>Use precompiled resources
+### <a name="bPS4"></a>Use pre-compiled resources
 
-To reduce the time it takes to run the script, avoid operations that compile resources from source code. For example, precompile resources and store them in an Azure Storage account blob in the same data center as HDInsight.
+To reduce the time it takes to run the script, avoid operations that compile resources from source code. For example, pre-compile resources and store them in an Azure Storage account blob in the same data center as HDInsight.
 
 ### <a name="bPS3"></a>Ensure that the cluster customization script is idempotent
 
 Scripts must be idempotent. If the script runs multiple times, it should return the cluster to the same state every time.
 
-If the script runs multiple times, the script modifies configuration files shouldn't add duplicate entries.
+If the script runs multiple times, the script that modifies configuration files shouldn't add duplicate entries.
 
 ### <a name="bPS5"></a>Ensure high availability of the cluster architecture
 
