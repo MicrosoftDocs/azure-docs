@@ -25,6 +25,7 @@ The application can calculate the delay between when the call is initiated and w
 If a user consistently experiences long call setup times, they should check their network for issues such as slow network speed, long round trip time, or high packet loss.
 These issues can affect call setup time because the signaling layer uses a `TCP` connection, and factors such as retransmissions can cause delays.
 Additionally, if the user suspects the delay comes from stream acquisition, they should check their devices. For example, they can choose a different audio input device.
+If a user consistently experiences this issue and you are unable to determine the cause, you may consider filing a support ticket for further assistance.
 
 ### Check the duration of stream acquisition
 The stream acquisition is part of the call setup flow. You can get this information from webrtc-internals page.
