@@ -226,7 +226,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    If you're building a cluster on **RHEL 8.x/RHEL 9.x**, use the following commands:  
 
    ```bash
-   sudo pcs host auth prod-cl1-0 prod-cl1-1 -u hacluster
+   sudo pcs cluster auth prod-cl1-0 prod-cl1-1 -u hacluster
    sudo pcs cluster setup nw1-azr prod-cl1-0 prod-cl1-1 totem token=30000
    sudo pcs cluster start --all
    ```
