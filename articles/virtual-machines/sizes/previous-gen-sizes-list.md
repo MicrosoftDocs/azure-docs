@@ -15,10 +15,10 @@ ms.reviewer: iamwilliew
 This article provides a list of all size series that are considered *previous-gen*. Status is listed as *next-gen available* or *capacity limited* based on capacity. For sizes that require it there are *migration guides* to help move to replacement sizes.
 
 > [!NOTE]
-> Series listed as *previous-gen* are **not currently retired** and can still be used.
+> Series listed as *previous-gen* are **not currently retired** and can still be used. To view retired size series, see [Retired Azure VM size series](./retired-sizes-list.md).
 
 ## What are previous-gen size series?
-Previous generations virtual machine size series are running on older hardware. While they can still be used and are fully supported, there are newer generations available. It's recommended to migrate to the latest generation replacements.
+Previous generation virtual machine size series are running on older hardware. While they can still be used and are fully supported, there are newer generations available. It's recommended to migrate to the latest generation replacements.
 
 To learn more about previous-gen sizes, retirement, and the status states of previous-gen size series, see the [size series retirement overview](./retirement-overview.md).
 
@@ -26,9 +26,9 @@ To learn more about previous-gen sizes, retirement, and the status states of pre
 
 |Series name                 | Status                 | Migration guide   |
 |----------------------------|------------------------|-------------------|
-| Basic A-series             | [Capacity limited](./retirement-overview.md#capacity-limited) |
-| Standard A-series          | [Capacity limited](./retirement-overview.md#capacity-limited) |
-| Compute-intensive A-series | [Capacity limited](./retirement-overview.md#capacity-limited) |
+| Basic A-series             | [Capacity limited](./retirement-overview.md#capacity-limited) | [Av1-series Retirement](./migration-guides/av1-series-retirement.md) |
+| Standard A-series          | [Capacity limited](./retirement-overview.md#capacity-limited) | [Av1-series Retirement](./migration-guides/av1-series-retirement.md) |
+| Compute-intensive A-series | [Capacity limited](./retirement-overview.md#capacity-limited) | [Av1-series Retirement](./migration-guides/av1-series-retirement.md) |
 | Standard D-series          | [Capacity limited](./retirement-overview.md#capacity-limited) | 
 | Preview DC-series          | [Capacity limited](./retirement-overview.md#capacity-limited) |
 | DS-series                  | [Capacity limited](./retirement-overview.md#capacity-limited) |
@@ -59,7 +59,7 @@ For a list of memory optimized sizes listed as "retired" and "announced for reti
 
 |Series name                | Replacement series   | Migration guide|
 |---------------------------|----------------------|----------------|
-| Ls-series                 | [Capacity limited](./retirement-overview.md#capacity-limited) |                |
+| Lsv2-series               | [Capacity limited](./retirement-overview.md#capacity-limited) |                |
 
 For a list of storage optimized sizes listed as "retired" and "announced for retirement" (sizes that are no longer available or soon to be unavailable for use), see [retired storage optimized sizes](./retired-sizes-list.md#storage-optimized-retired-sizes).
 

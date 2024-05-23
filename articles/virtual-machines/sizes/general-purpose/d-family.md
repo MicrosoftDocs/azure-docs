@@ -21,44 +21,52 @@ ms.author: mattmcinnes
 
 ## Series in family
 
-### Dv2 and Dsv2-series
-[!INCLUDE [dv2-dsv2-series-summary](./includes/dv2-dsv2-series-summary.md)]
+### Dpsv6-series
+[!INCLUDE [dpsv6-series-summary](./includes/dpsv6-series-summary.md)]
 
-[View the full Dv2 and Dsv2-series page](../../dv2-dsv2-series.md).
+[View the full Dpsv6-series page](./dpsv6-series.md).
 
-[!INCLUDE [dv2-dsv2-series-specs](./includes/dv2-dsv2-series-specs.md)]
-
-
-### Dv3 and Dsv3-series
-[!INCLUDE [dv3-dsv3-series-summary](./includes/dv3-dsv3-series-summary.md)]
-
-[View the full Dv3 and Dsv3-series page](../../dv3-dsv3-series.md).
-
-[!INCLUDE [dv3-dsv3-series-specs](./includes/dv3-dsv3-series-specs.md)]
+[!INCLUDE [dpsv6-series-specs](./includes/dpsv6-series-specs.md)]
 
 
-### Dv4 and Dsv4-series
-[!INCLUDE [dv4-dsv4-series-summary](./includes/dv4-dsv4-series-summary.md)]
+### Dpldsv6-series
+[!INCLUDE [dpldsv6-series-summary](./includes/dpldsv6-series-summary.md)]
 
-[View the full Dv4 and Dsv4-series page](../../dv4-dsv4-series.md).
+[View the full Dpldsv6-series page](./dpldsv6-series.md).
 
-[!INCLUDE [dv4-dsv4-series-specs](./includes/dv4-dsv4-series-specs.md)]
-
-
-### Dav4 and Dasv4-series
-[!INCLUDE [dav4-dasv4-series-summary](./includes/dav4-dasv4-series-summary.md)]
-
-[View the full Dav4 and Dasv4-series page](../../dav4-dasv4-series.md).
-
-[!INCLUDE [dav4-dasv4-series-specs](./includes/dav4-dasv4-series-specs.md)]
+[!INCLUDE [dpldsv6-series-specs](./includes/dpldsv6-series-specs.md)]
 
 
-### Ddv4 and Ddsv4-series
-[!INCLUDE [ddv4-ddsv4-series-summary](./includes/ddv4-ddsv4-series-summary.md)]
+### Dpdsv6-series
+[!INCLUDE [dpdsv6-series-summary](./includes/dpdsv6-series-summary.md)]
 
-[View the full Ddv4 and Ddsv4-series page](../../ddv4-ddsv4-series.md).
+[View the full Dpdsv6-series page](./dpdsv6-series.md).
 
-[!INCLUDE [ddv4-ddsv4-series-specs](./includes/ddv4-ddsv4-series-specs.md)]
+[!INCLUDE [dpdsv6-series-specs](./includes/dpdsv6-series-specs.md)]
+
+
+### Dpldsv6-series
+[!INCLUDE [dpldsv6-series-summary](./includes/dpldsv6-series-summary.md)]
+
+[View the full Dpldsv6-series page](./dpldsv6-series.md).
+
+[!INCLUDE [dpldsv6-series-specs](./includes/dpldsv6-series-specs.md)]
+
+
+### Dasv6 and Dadsv6-series
+[!INCLUDE [dasv6-dadsv6-series-summary](./includes/dasv6-dadsv6-series-summary.md)]
+
+[View the full Dasv6 and Dadsv6-series page](../../dasv6-dadsv6-series.md).
+
+[!INCLUDE [dasv6-dadsv6-series-specs](./includes/dasv6-dadsv6-series-specs.md)]
+
+
+### Dalsv6 and Daldsv6-series
+[!INCLUDE [dalsv6-daldsv6-series-summary](./includes/dalsv6-daldsv6-series-summary.md)]
+
+[View the full Dalsv6 and Daldsv6-series page](../../dalsv6-daldsv6-series.md).
+
+[!INCLUDE [dalsv6-daldsv6-series-specs](./includes/dalsv6-daldsv6-series-specs.md)]
 
 
 ### Dv5 and Dsv5-series
@@ -101,25 +109,48 @@ ms.author: mattmcinnes
 [!INCLUDE [dplsv5-dpldsv5-series-specs](./includes/dplsv5-dpldsv5-series-specs.md)]
 
 
-Dlsv5 and Dldsv5-series
+### Dlsv5 and Dldsv5-series
 [!INCLUDE [dlsv5-dldsv5-series-summary](./includes/dlsv5-dldsv5-series-summary.md)]
 
 [View the full Dlsv5 and Dldsv5-series page](../../dlsv5-dldsv5-series.md).
 
 [!INCLUDE [dlsv5-dldsv5-series-specs](./includes/dlsv5-dldsv5-series-specs.md)]
 
+### Dv4 and Dsv4-series
+[!INCLUDE [dv4-dsv4-series-summary](./includes/dv4-dsv4-series-summary.md)]
 
-### Dasv6 and Dadsv6-series
-[!INCLUDE [dasv6-dadsv6-series-summary](./includes/dasv6-dadsv6-series-summary.md)]
+[View the full Dv4 and Dsv4-series page](../../dv4-dsv4-series.md).
 
-[View the full Dasv6 and Dadsv6-series page](../../dasv6-dadsv6-series.md).
-
-[!INCLUDE [dasv6-dadsv6-series-specs](./includes/dasv6-dadsv6-series-specs.md)]
+[!INCLUDE [dv4-dsv4-series-specs](./includes/dv4-dsv4-series-specs.md)]
 
 
-### Dalsv6 and Daldsv6-series
-[!INCLUDE [dalsv6-daldsv6-series-summary](./includes/dalsv6-daldsv6-series-summary.md)]
+### Dav4 and Dasv4-series
+[!INCLUDE [dav4-dasv4-series-summary](./includes/dav4-dasv4-series-summary.md)]
 
-[View the full Dalsv6 and Daldsv6-series page](../../dalsv6-daldsv6-series.md).
+[View the full Dav4 and Dasv4-series page](../../dav4-dasv4-series.md).
 
-[!INCLUDE [dalsv6-daldsv6-series-specs](./includes/dalsv6-daldsv6-series-specs.md)]
+[!INCLUDE [dav4-dasv4-series-specs](./includes/dav4-dasv4-series-specs.md)]
+
+
+### Ddv4 and Ddsv4-series
+[!INCLUDE [ddv4-ddsv4-series-summary](./includes/ddv4-ddsv4-series-summary.md)]
+
+[View the full Ddv4 and Ddsv4-series page](../../ddv4-ddsv4-series.md).
+
+[!INCLUDE [ddv4-ddsv4-series-specs](./includes/ddv4-ddsv4-series-specs.md)]
+
+
+### Dv3 and Dsv3-series
+[!INCLUDE [dv3-dsv3-series-summary](./includes/dv3-dsv3-series-summary.md)]
+
+[View the full Dv3 and Dsv3-series page](../../dv3-dsv3-series.md).
+
+[!INCLUDE [dv3-dsv3-series-specs](./includes/dv3-dsv3-series-specs.md)]
+
+
+### Dv2 and Dsv2-series
+[!INCLUDE [dv2-dsv2-series-summary](./includes/dv2-dsv2-series-summary.md)]
+
+[View the full Dv2 and Dsv2-series page](../../dv2-dsv2-series.md).
+
+[!INCLUDE [dv2-dsv2-series-specs](./includes/dv2-dsv2-series-specs.md)]
