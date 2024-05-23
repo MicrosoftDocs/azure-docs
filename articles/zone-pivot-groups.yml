@@ -2898,9 +2898,9 @@ groups:
   prompt: Choose a library version
   pivots:
   - id: stable-version
-    title: Stable Release
+    title: Version 3.3.0
   - id: preview-version
-    title: Preview Release
+    title: Version 4.0.0-preview
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience
