@@ -5,7 +5,7 @@ description: Learn how to use the ADE extensibility model to build and utilize c
 ms.service: deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/20/2024
+ms.date: 05/23/2024
 ms.topic: how-to
 
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
@@ -32,9 +32,9 @@ The ADE team provides a selection of images to get you started, including a core
 
 You can take one of the following approaches to use container images with ADE:
 
-1.    Use the standard image directly by configuring runner: Bicep
-2.    Build a container image using the script in the repo
-3.    Build out the container image manually
+- Use the standard image provided by ADE
+- Customize a container image  
+- Build a custom container image using the script provided by ADE
 
 Select the appropriate tab to learn more about each approach.
 
@@ -56,10 +56,6 @@ The following example shows a runner that references the sample Bicep container 
     templatePath: azuredeploy.json
 ```
 You can see the standard Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
-
-## [Build a container image with a script](#tab/build-a-container-image-with-a-script/)
-
-[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
 
 ## [Create a custom bicep container image](#tab/create-a-custom-bicep-container-image/)
 
@@ -217,7 +213,6 @@ fi
 echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 ```
 
-
 #### Build the image
 
 Before you build the image to be pushed to your registry, ensure the [Docker Engine is installed](https://docs.docker.com/desktop/) on your computer. Then, navigate to the directory of your Dockerfile, and run the following command:
@@ -262,6 +257,10 @@ When authoring environment definitions to use your custom image in their deploym
 ```yaml
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
+
+## [Build a container image with a script](#tab/build-a-container-image-with-a-script/)
+
+[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
 
 ---
 
