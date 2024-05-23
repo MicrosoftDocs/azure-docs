@@ -36,7 +36,7 @@ After you Arc-enable the VMware vSphere in Azure VMware Solution and enable gues
 To find the SQL Server configuration from the Azure portal:
 
 1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
-1. On the left pane, expand **Operations** to see the SQL Server configuration.
+1. On the left pane, under **Operations**, select **SQL Server Configuration**.
 1. Follow the steps in the section [Subscribe to Extended Security Updates enabled by Azure Arc](/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc). This section also provides syntax to configure by using Azure PowerShell or the Azure CLI.
 
 #### View ESU subscription status
