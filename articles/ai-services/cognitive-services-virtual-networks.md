@@ -370,11 +370,9 @@ Currently, only IPv4 addresses are supported. Each Azure AI services resource su
 
 To grant access from your on-premises networks to your Azure AI services resource with an IP network rule, identify the internet-facing IP addresses used by your network. Contact your network administrator for help.
 
-If you use Azure ExpressRoute on-premises for public peering or Microsoft peering, you need to identify the NAT IP addresses. For more information, see [What is Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+If you use Azure ExpressRoute on-premises for Microsoft peering, you need to identify the NAT IP addresses. For more information, see [What is Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
-For public peering, each ExpressRoute circuit by default uses two NAT IP addresses. Each is applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP addresses that are used are either customer provided or supplied by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting.
-
-To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) use the Azure portal. For more information, see [NAT requirements for Azure public peering](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering).
+For Microsoft peering, the NAT IP addresses that are used are either customer provided or supplied by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting.
 
 ### Managing IP network rules
 

@@ -77,7 +77,7 @@ items:
   - name: Reference
     items:
     - name: OCR REST API v4.0 (preview)
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2022-10-12-preview/operations/61d65934cd35050c20f73ab6
+      href: https://aka.ms/vision-4-0-ref
     - name: OCR REST API v3.2
       href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.2-preview
     - name: OCR REST API v3.1
@@ -378,6 +378,8 @@ items:
         href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-android-api-reference
       - name: Swift (iOS)
         href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-api-reference
+      - name: JavaScript (Web)
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-web-api-reference
 - name: Video Analysis
   items:
   - name: Video Analysis overview

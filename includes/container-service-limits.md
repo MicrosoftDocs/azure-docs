@@ -1,18 +1,16 @@
 ---
-title: include file
-description: include file
-author: mgoedtel
+author: nickomang
 ms.service: azure-kubernetes-service
 ms.topic: include
 ms.date: 01/12/2024
-ms.author: magoedte
+ms.author: nickoman
 ms.custom: include file
 ---
 
 | Resource | Limit |
 |--|:-|
-| Maximum clusters per subscription | 5000 <br />Note: spread clusters across different regions to account for Azure API throttling limits |
-| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 5000 across all [node-pools][node-pool] <br />Note: If you are unable to scale up to 5000 nodes per cluster, see [Best Practices for Large Clusters](../articles/aks/best-practices-performance-scale-large.md). |
+| Maximum clusters per subscription | 5,000 <br />Note: spread clusters across different regions to account for Azure API throttling limits |
+| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 5,000 across all [node pools][node-pool] <br />Note: If you're unable to scale up to 5,000 nodes per cluster, see [Best Practices for Large Clusters](../articles/aks/best-practices-performance-scale-large.md). |
 | Maximum nodes per node pool (Virtual Machine Scale Sets node pools) | 1000 |
 | Maximum node pools per cluster | 100 |
 | Maximum pods per node: with [Kubenet][Kubenet] networking plug-in<sup>1</sup> | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30 |
@@ -21,11 +19,11 @@ ms.custom: include file
 | Maximum load-balanced kubernetes services per cluster  with [Standard Load Balancer SKU][standard-load-balancer] | 300 |
 | Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU | 100 |
 
-<sup>1</sup> Windows Server containers must use Azure CNI networking plug-in. Kubenet is not supported for Windows Server containers.
+<sup>1</sup> Windows Server containers must use Azure CNI networking plug-in. Kubenet isn't supported for Windows Server containers.
 
 | Kubernetes Control Plane tier | Limit |
 |--|:-|
-| Standard tier | Automatically scales Kubernetes API server based on load. Larger control plane component limits and API server/etc instances. |
+| Standard tier | Automatically scales Kubernetes API server based on load. Larger control plane component limits and API server/etcd instances. |
 | Free tier | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls. Recommended node limit of 10 nodes per cluster. Best for experimenting, learning, and simple testing. **Not advised for production/critical workloads**. |
 
 <!-- LINKS - Internal -->
