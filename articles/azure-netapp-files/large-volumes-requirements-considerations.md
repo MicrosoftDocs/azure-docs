@@ -13,10 +13,6 @@ ms.author: anfdocs
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
-## Register the feature 
-
-If this is your first time using large volumes, register the feature with the[large volumes sign-up form](https://aka.ms/anflargevolumespreviewsignup).
-
 ## Requirements and considerations
 
 The following requirements and considerations apply to large volumes. For performance considerations of *regular volumes*, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
@@ -75,6 +71,10 @@ Support for Azure NetApp Files large volumes is available in the following regio
 >Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
 
 Once your [regional capacity quota](regional-capacity-quota.md) has increased, you can create volumes that are up to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as regular volumes. 
+
+### Register the feature 
+
+If this is your first time using large volumes, register the feature with the[large volumes sign-up form](https://aka.ms/anflargevolumespreviewsignup).
 
 ## Next steps
 
