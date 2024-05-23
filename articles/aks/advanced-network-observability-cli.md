@@ -217,20 +217,20 @@ Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and 
 
 1. Make sure the Azure Monitor pods are running using the `kubectl get pods` command.
 
-    ```azurecli-interactive
-    kubectl get pods -o wide -n kube-system | grep ama-
-    ```
+```azurecli-interactive
+kubectl get pods -o wide -n kube-system | grep ama-
+```
 
-    Your output should look similar to the following example output:
+Your output should look similar to the following example output:
 
-    ```output
-    ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
-    ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
-    ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
-    ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
-    ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
-    ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
-    ```
+```output
+ama-metrics-5bc6c6d948-zkgc9          2/2     Running   0 (21h ago)   26h
+ama-metrics-ksm-556d86b5dc-2ndkv      1/1     Running   0 (26h ago)   26h
+ama-metrics-node-lbwcj                2/2     Running   0 (21h ago)   26h
+ama-metrics-node-rzkzn                2/2     Running   0 (21h ago)   26h
+ama-metrics-win-node-gqnkw            2/2     Running   0 (26h ago)   26h
+ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
+```
 
 1. We have created sample dashboards. They can be found under the **Dashboards > Azure Managed Prometheus** folder. They have names like **"Kubernetes / Networking / `<name>`"**. The suite of dashboards includes:
       * **Clusters:** shows Node-level metrics for your clusters.
@@ -248,18 +248,18 @@ Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and 
 
 Install the Hubble CLI to access the data it collects using the following commands:
 
-    ```azurecli-interactive
-    # Set environment variables
-    export HUBBLE_VERSION=0.11  
-    export HUBBLE_ARCH=amd64
-    
-    #Install Hubble CLI
-    if [ "$(uname -m)" = "aarch64" ]; then HUBBLE_ARCH=arm64; fi
-    curl -L --fail --remote-name-all https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
-    sha256sum --check hubble-linux-${HUBBLE_ARCH}.tar.gz.sha256sum
-    sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
-    rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
-    ```
+```azurecli-interactive
+# Set environment variables
+export HUBBLE_VERSION=0.11  
+export HUBBLE_ARCH=amd64
+
+#Install Hubble CLI
+if [ "$(uname -m)" = "aarch64" ]; then HUBBLE_ARCH=arm64; fi
+curl -L --fail --remote-name-all https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
+sha256sum --check hubble-linux-${HUBBLE_ARCH}.tar.gz.sha256sum
+sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
+rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
+```
 
 ## Visualize the Hubble Flows
 
@@ -275,7 +275,7 @@ Install the Hubble CLI to access the data it collects using the following comman
     hubble-relay-7ddd887cdb-h6khj     1/1  Running     0       23h 
     ```
     
-    1. Port forward Hubble Relay using the `kubectl port-forward` command.
+1. Port forward Hubble Relay using the `kubectl port-forward` command.
     
     ```azurecli-interactive
     kubectl port-forward -n kube-system svc/hubble-relay --address 127.0.0.1 4245:443

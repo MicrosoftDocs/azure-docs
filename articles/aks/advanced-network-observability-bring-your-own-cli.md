@@ -75,20 +75,20 @@ az group create --name $RESOURCE_GROUP --location $LOCATION
 
 ### [**Non-Cilium**](#tab/non-cilium)
 Create an AKS cluster with Advanced Network Observability with a non-Cilium data plane using the [`az aks create`](/cli/azure/aks#az_aks_create) command and the `--enable-advanced-networking-observability` flag.
-    ```azurecli-interactive
-    # Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
-    export CLUSTER_NAME="<aks-cluster-name>"
-    
-    # Create an AKS cluster
-    az aks create \
-        --name $CLUSTER_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --generate-ssh-keys \
-        --network-plugin azure \
-        --network-plugin-mode overlay \
-        --pod-cidr 192.168.0.0/16 \
-        --enable-advanced-network-observability
-    ```
+```azurecli-interactive
+# Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
+export CLUSTER_NAME="<aks-cluster-name>"
+
+# Create an AKS cluster
+az aks create \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --generate-ssh-keys \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --pod-cidr 192.168.0.0/16 \
+    --enable-advanced-network-observability
+```
 
 ### [**Cilium**](#tab/cilium)
 
@@ -97,25 +97,25 @@ Create an AKS cluster with Advanced Network Observability with Cilium using the 
 > [!NOTE]
 > Clusters with Cilium support Advanced Observability starting with Kubernetes version 1.29.
 
-    ```azurecli-interactive
-    # Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
-    export CLUSTER_NAME="<aks-cluster-name>"
-    
-    # Create an AKS cluster
-    az aks create \
-        --name $CLUSTER_NAME \
-        --resource-group $RESOURCE_GROUP \
-        --generate-ssh-keys \
-        --location eastus \
-        --max-pods 250 \
-        --network-plugin azure \
-        --network-plugin-mode overlay \
-        --network-dataplane cilium \
-        --node-count 2 \
-        --pod-cidr 192.168.0.0/16 \
-        --kubernetes-version 1.29 \
-        --enable-advanced-network-observability
-    ```
+```azurecli-interactive
+# Set an environment variable for the AKS cluster name. Make sure to replace the placeholder with your own value.
+export CLUSTER_NAME="<aks-cluster-name>"
+
+# Create an AKS cluster
+az aks create \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --generate-ssh-keys \
+    --location eastus \
+    --max-pods 250 \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --network-dataplane cilium \
+    --node-count 2 \
+    --pod-cidr 192.168.0.0/16 \
+    --kubernetes-version 1.29 \
+    --enable-advanced-network-observability
+```
 
 ---
 
@@ -126,20 +126,20 @@ Enable Advanced Network Observability on an existing cluster using the [`az aks 
 > [!NOTE]
 > Clusters with the Cilium data plane support Advanced Observability starting with Kubernetes version 1.29.
 
-    ```azurecli-interactive
-    az aks update \
-        --resource-group $RESOURCE_GROUP \
-        --name $CLUSTER_NAME \
-        --enable-advanced-network-observability
-    ```
+```azurecli-interactive
+az aks update \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
+    --enable-advanced-network-observability
+```
 
 ## Get cluster credentials 
 
 Get your cluster credentials using the [`az aks get-credentials`](/cli/azure/aks#az_aks_get_credentials) command.
 
-    ```azurecli-interactive
-    az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
-    ```
+```azurecli-interactive
+az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
+```
 
 ## Visualization using Grafana
 
@@ -534,9 +534,9 @@ Get your cluster credentials using the [`az aks get-credentials`](/cli/azure/aks
 
 If you don't plan on using this application, delete the other resources you created in this article using the [`az group delete`](/cli/azure/#az_group_delete) command.
 
-    ```azurecli-interactive
-      az group delete --name $RESOURCE_GROUP
-    ```
+```azurecli-interactive
+  az group delete --name $RESOURCE_GROUP
+```
 
 ## Next steps
 
