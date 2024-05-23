@@ -33,3 +33,7 @@ If the incoming audio isn't silent, the user can know that the issue occurs in t
 The system volume settings may affect the output volume of the web app. For example, if the user uses Windows, they should check the volume mixer settings and apps volume settings.
 
 :::image type="content" source="./media/apps-volume-mixer.png" alt-text="Screenshot of volume mixer.":::
+
+Below is a flow diagram of the debugging process for this issue.
+
+:::image type="content" source="./media/speaker-issue-debugging.png" alt-text="Diagram of debugging the speaker issue.":::
