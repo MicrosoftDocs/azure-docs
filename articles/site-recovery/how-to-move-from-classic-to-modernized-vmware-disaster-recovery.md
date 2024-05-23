@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 # How to move from classic to modernized VMware disaster recovery  
 
-This article provides information about how you can move/migrate your VMware or Physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that the complete initial replication is not performed again for non-critical replicated items, and only the differential data is transferred. 
+This article provides information about how you can move/migrate your VMware or Physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that the complete initial replication is not performed again for noncritical replicated items, and only the differential data is transferred. 
 
 > [!NOTE]
 > - Recovery plans is not migrated and must be created again in the modernized Recovery Services vault.   
@@ -52,18 +52,18 @@ Follow these steps to move the replicated items from classic architecture to mod
 
 ### During the migration of machines   
 
-During the migration of a replicated item, continuous replication may get broken for some time. Replication continues as soon as the migration is complete. During migration, you is allowed to do **Failover** operation. The last available recovery point will be present for selection and can be chosen for replication.   
+During the migration of a replicated item, continuous replication may get broken for some time. Replication continues as soon as the migration is complete. During migration, you are allowed to do **Failover** operation. The last available recovery point is present for selection and can be chosen for replication.   
 
-While the migration is in progress, you can only perform **Failover** operation. Once the migration is complete, data will start replicating using the modernized architecture and the new vault. All the operations is available for you to perform from the new vault.   
+While the migration is in progress, you can only perform **Failover** operation. Once the migration is complete, data starts replicating using the modernized architecture and the new vault. All the operations are available for you to perform from the new vault.   
 
 > [!NOTE]
 > If the migration fails, Site Recovery automatically rolls back the changes and ensures the replication starts again from the classic vault.   
 
 ### Post migration operations from Classic vault  
 
-**Failover** and **Disable replication** operations continue to be available from the classic vault even after migration is performed successfully. The classic vault continues to exist till the retention period of last available recovery point has expired. Once the retention period is up, the vault is cleaned up automatically. During this time, recovery points from both the vaults can be used for failover. It depends on your failover needs to select a proper recovery point.  
+**Failover** and **Disable replication** operations continue to be available from the classic vault even after migration is performed successfully. The classic vault continues to exist until the retention period of last available recovery point has expired. Once the retention period is up, the vault is cleaned up automatically. During this time, recovery points from both the vaults can be used for failover. It depends on your failover needs to select a proper recovery point.  
 
-Till deletion of classic vault, you can continue to get charged for the retention points. Once the deletion has been done, no charges is associated to the classic vault.  
+You can continue to get charged for the retention points until the deletion of classic vault, . Once the deletion is done, no charge is associated to the classic vault.  
 
 After migration, if the failover is performed using the classic vault, then the replicated items present in the modernized vault is automatically cleaned up. Once done, all the further operations, such as commit, reprotect, failback, is only possible via the classic vault.   
 
