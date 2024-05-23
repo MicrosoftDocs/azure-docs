@@ -149,5 +149,5 @@ In this section, you learn how to create an alert that sends an email whenever a
 In this article, you learned how to collect, analyze, and create alerts using these logs.
 
 For more information about Azure Load Balancer health event logs and health event types, along with how to troubleshoot each health event type, see:
-* [Azure Load Balancer health event logs](/load-balancer-health-event-logs.md)
+* [Azure Load Balancer health event logs](./load-balancer-health-event-logs.md)
 * [Troubleshoot load balancer health event logs](./load-balancer-troubleshoot-health-event-logs.md)
