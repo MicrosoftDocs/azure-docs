@@ -621,17 +621,17 @@ items:
     href: data-sources.md
   - name: Data collection methods
     items:
-    - name: Data collection rules
+    - name: Data collection rules (DCR)
       items:
       - name: Overview
-        displayName: data collection, pipeline
+        displayName: data collection rule, dcr, Azure Monitor pipeline
         href: essentials/data-collection-rule-overview.md
       - name: Best practices
         displayName: data collection, data collection rules
         href: essentials/data-collection-rule-best-practices.md
-      - name: View rules
+      - name: View DCRs
         href: essentials/data-collection-rule-view.md
-      - name: Create and edit
+      - name: Create and edit DCRs
         items:
         - name: Create
           displayName: Data collection rules

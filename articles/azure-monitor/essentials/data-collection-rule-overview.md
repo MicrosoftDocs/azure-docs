@@ -48,7 +48,7 @@ With direct ingestion, a particular DCR is specified to process the incoming dat
 [Transformations](./data-collection-transformations.md) allow you to modify incoming data before it's stored in Azure Monitor. You may filter unneeded data to reduce your ingestion costs, remove sensitive data that shouldn't be persisted in the Log Analytics workspace, or format data to ensure that it matches the schema of its destination. Transformations are [KQL queries](../logs/log-query-overview.md) defined in the DCR that run in the cloud pipeline.
 
 ## Endpoints
-Data sent to the cloud pipeline must be sent to the URL of a specific endpoint. Depending on the scenario, this may be a public endpoint, an endpoint provided by the DCR itself, or a data collection endpoint (DCE) that you create in your Azure subscription. See [Data collection endpoints in Azure Monitor](./data-collection-endpoints.md) for details on the endpoints used in different data collection scenarios.
+Data sent to the cloud pipeline must be sent to the URL of a specific endpoint. Depending on the scenario, this may be a public endpoint, an endpoint provided by the DCR itself, or a data collection endpoint (DCE) that you create in your Azure subscription. See [Data collection endpoints in Azure Monitor](./data-collection-endpoint-overview.md) for details on the endpoints used in different data collection scenarios.
 
 ## Edge pipeline
 The [edge pipeline](./edge-pipeline-configure.md) extends the Azure Monitor pipeline to your own data center. It enables at-scale collection and routing of telemetry data before it's delivered to Azure Monitor in the Azure cloud. 
