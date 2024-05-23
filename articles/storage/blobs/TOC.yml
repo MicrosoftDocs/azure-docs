@@ -176,8 +176,6 @@ items:
         href: secure-file-transfer-protocol-performance.md
       - name: Limitations and known issues
         href: secure-file-transfer-protocol-known-issues.md
-    - name: Data Movement library
-      href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data management
     items:
     - name: Containers and blobs
@@ -795,6 +793,10 @@ items:
           href: storage-blob-get-url-javascript.md
         - name: Set or change a blob's access tier
           href: storage-blob-use-access-tier-javascript.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-javascript.md
       - name: 'Tutorial: Upload and process image files'
         href: blob-upload-function-trigger-javascript.md
     - name: TypeScript
@@ -865,6 +867,10 @@ items:
           href: storage-blob-get-url-typescript.md
         - name: Set or change a blob's access tier
           href: storage-blob-use-access-tier-typescript.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-javascript.md
     - name: Python
       items:
       - name: Get started
@@ -999,6 +1005,8 @@ items:
         href: storage-blob-event-overview.md
       - name: Route events to a custom endpoint
         href: storage-blob-event-quickstart.md
+    - name: Data Movement library (.NET)
+      href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Troubleshooting
     href: /troubleshoot/azure/azure-storage/welcome-azure-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Samples

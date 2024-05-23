@@ -25,7 +25,7 @@ The ADE team provides a selection of images to get you started, including a core
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Deployment Environments set up in your Azure subscription. 
-  - To set up ADE, follow the [Quickstart: Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
+  - To set up ADE, follow the [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
 
 ## Use container images with ADE
