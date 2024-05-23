@@ -559,7 +559,7 @@ items:
         href: storage-blob-dotnet-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /dotnet/azure/sdk/authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -653,7 +653,7 @@ items:
         href: storage-blob-java-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /azure/developer/java/sdk/identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -733,7 +733,7 @@ items:
         href: storage-blob-javascript-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -803,7 +803,7 @@ items:
         href: storage-blob-typescript-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -871,7 +871,7 @@ items:
         href: storage-blob-python-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Overview
             href: /azure/developer/python/sdk/authentication-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -951,7 +951,7 @@ items:
         href: storage-blob-go-get-started.md
       - name: Authorize access from your application
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           items:
           - name: Authentication in development environments
             href: /azure/developer/go/azure-sdk-authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
