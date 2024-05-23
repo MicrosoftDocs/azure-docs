@@ -26,7 +26,7 @@ Copilot gives you the ability to analyze your recommendations. By using prompts,
 
 1. Select **Analyze with Copilot**.
 
-    :::image type="content" source="media/review-with-copilot/analyze-with-copilot.png" alt-text="Screenshot of the recommendations page that shows where the analyze with Copilot button is located." lightbox="media/review-with-copilot/analyze-with-copilot.png":::
+    :::image type="content" source="media/analyze-with-copilot/analyze-with-copilot.png" alt-text="Screenshot of the recommendations page that shows where the analyze with Copilot button is located." lightbox="media/analyze-with-copilot/analyze-with-copilot.png":::
 
 1. Select one of the suggested prompts or enter a prompt in natural language.
 
@@ -42,11 +42,11 @@ Copilot gives you the ability to analyze your recommendations. By using prompts,
 
 1. Select **Apply filter** to view the updated recommendations.
 
-    :::image type="content" source="media/review-with-copilot/show-results-copilot.png" alt-text="Screenshot that shows where the apply filter button is located in the Copilot window." lightbox="media/review-with-copilot/show-results-copilot.png":::
+    :::image type="content" source="media/analyze-with-copilot/show-results-copilot.png" alt-text="Screenshot that shows where the apply filter button is located in the Copilot window." lightbox="media/analyze-with-copilot/show-results-copilot.png":::
 
 The recommendations page will update with the appropriate filters applied based on the prompt you provided. Copilot will remain open and you can enter additional prompts as needed.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Remediate recommendations](implement-security-recommendations.md)
+> [Summarize recommendations wih Copilot for Security](summarize-with-copilot.md)

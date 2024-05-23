@@ -28,10 +28,17 @@ Once you have selected a recommendation you can summarize it with Copilot. By us
 
 1. Select **Summarize with Copilot**.
 
-    :::image type="content" source="media/review-with-copilot/summarize-with-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/review-with-copilot/summarize-with-copilot.png":::
+    :::image type="content" source="media/summarize-with-copilot/summarize-with-copilot.png" alt-text="Screenshot of a recommendation that shows where the Summarize with Copilot button is located." lightbox="media/summarize-with-copilot/summarize-with-copilot.png":::
 
-1. Review the summary provided by Copilot and prompt copilot with addition questions if needed.
-
-    :::image type="content" source="media/review-with-copilot/summarize-with-copilot-results.png" alt-text="Screenshot of the Copilot window that shows the summary of the recommendation." lightbox="media/review-with-copilot/summarize-with-copilot-results.png":::
+1. Review the provided summary.
 
 1. Enter additional prompts as needed.
+
+    :::image type="content" source="media/summarize-with-copilot/summarize-with-copilot-results.png" alt-text="Screenshot of the Copilot window that shows the summary of the recommendation." lightbox="media/summarize-with-copilot/summarize-with-copilot-results.png":::
+
+Once you have gained a better understanding of the recommendation you can decide how best to handle it. Copilot will remain open and you can enter additional prompts as needed.
+
+## Related content
+
+- Remediate recommendations with Copilot for Security
+- Delegate recommendations with Copilot for Security

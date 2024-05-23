@@ -216,9 +216,6 @@
         href: permissions-management.md
       - name: Agentless machine scanning
         href: concept-agentless-data-collection.md
-      - name: Copilot for Security in Defender for Cloud
-        displayName: copilot, security, recommendations
-        href: copilot-security-in-defender-for-cloud.md
       - name: Secrets protection
         items:
         - name: Overview
@@ -244,6 +241,23 @@
           - name: Create automatic tickets with governance rules
             displayName: CSPM, cloud security, posture, management, ServiceNow
             href: create-governance-rule-servicenow.md
+      - name: Copilot for Security
+        items: 
+        - name: Copilot for Security in Defender for Cloud
+          displayName: copilot, security, recommendations
+          href: copilot-security-in-defender-for-cloud.md
+        - name: Analyze recommendations with Copilot for Security
+          displayName: copilot, security, recommendations
+          href: analyze-with-copilot.md
+        - name: Summarize recommendations wih Copilot for Security
+          displayName: copilot, security, recommendations
+          href: summarize-with-copilot.md
+        - name: Remediate recommendations with Copilot for Security
+          displayName: copilot, security, recommendations
+          href: remediate-with-copilot.md
+        - name: Delegate recommendations with Copilot for Security
+          displayName: copilot, security, recommendations
+          href: delegate-with-copilot.md
       - name: Common questions 
         displayName: questions, common, CSPM, agentless scanning, faq, frequently asked questions
         href: faq-cspm.yml
@@ -376,9 +390,6 @@
           displayName: security, recommendations, owner, azure, resource, graph, azure
             resource graph, csv report
           href: review-security-recommendations.md
-        - name: Analyze recommendations wih Copilot for Security
-          displayName: copilot, security, recommendations
-          href: analyze-with-copilot.md
         - name: Review resources exempted from recommendations
           href: review-exemptions.md
         - name: Remediate recommendations
