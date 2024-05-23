@@ -213,8 +213,8 @@ The ServiceNow connector offers new functionalities and is compatible with most 
 
 | ServiceNow | ServiceNow (legacy) | 
 |:--- |:--- |
-| useEncryptedEndpoints, useHostVerification, and usePeerVerification are not supported in the linked service. | Support useEncryptedEndpoints, useHostVerification and usePeerVerification in the linked service. | 
-| Supports **Query builder** in the source. | **Query builder** is not supported  in the source. | 
+| useEncryptedEndpoints, useHostVerification and usePeerVerification are not supported in the linked service. | Support useEncryptedEndpoints, useHostVerification and usePeerVerification in the linked service. | 
+| Support **Query builder** in the source. | **Query builder** is not supported in the source. | 
 | SQL-based queries are not supported. | Support SQL-based queries. | 
 | sortBy queries are not supported in **Query builder**. | Support sortBy queries in **Query**. | 
 | You can view the schema in the dataset. | You can't view the schema in the dataset. | 
