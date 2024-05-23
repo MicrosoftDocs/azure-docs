@@ -60,3 +60,6 @@ and the user starts speaking, the user's audio input in the first few seconds ma
 leading to distortion in the sound. This can be observed by comparing the ref\_out.wav and input.wav files in aecdump files.
 In this case, reducing the volume of audio playing sound may help.
 
+Below is a flow diagram of the troubleshooting process for this issue.
+
+:::image type="content" source="./media/poor-audio-quality-issue-troubleshooting.png" alt-text="Diagram of troubleshooting the poor audio quality issue.":::
