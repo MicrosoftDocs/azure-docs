@@ -30,9 +30,14 @@ Speaker issues are considered external problems from the perspective of the ACS 
 Your application user interface should display a [volume level indicator](../../../../quickstarts/voice-video-calling/get-started-volume-indicator.md?pivots=platform-web) to let your users know what the current volume level of incoming audio is.
 
 If the incoming audio isn't silent, the user can know that the issue occurs in their speaker or output volume settings and can troubleshoot accordingly.
-The system volume settings may affect the output volume of the web app. For example, if the user uses Windows, they should check the volume mixer settings and apps volume settings.
+
+If the user uses Windows, they should also check the volume mixer settings and apps volume settings.
 
 :::image type="content" source="./media/apps-volume-mixer.png" alt-text="Screenshot of volume mixer.":::
+
+If your are using Web Audio API in your application, you might also check if there is `AudioRenderer error with rendering audio code: 3` in the log.
+This error occurs when there are too many AudioContext instances open at the same time, particularly if the application doesn't properly close the AudioContext or 
+if there is an AudioContext creation associated with the UI component refresh logic.
 
 Below is a flow diagram of the debugging process for this issue.
 
