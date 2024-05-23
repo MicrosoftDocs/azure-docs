@@ -27,6 +27,15 @@ Support Microsoft Entra ID for authentication and role-based access control acro
 
 For more information, see [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md).
 
+### .NET Output Cache and Hybrid Cache
+Redis Output Cache has been introduced in .NET 8 since November 2023. The Web Output Caching saves rendered web pages to improve performance, resilience, and reduce cost from server resource utilization. Redis has been implemeted as built-in output cache store in .NET 8. For more information, see [Output caching middleware in ASP.NET Core](https://learn.microsoft.com/aspnet/core/performance/caching/output#redis-cache)
+
+ASP.NET Core's support for distributed caching is getting an upgrade with the new HybridCache API. HybridCache augments the existing IDistributedCache support in ASP.NET Core with new capabilities, including multi-tier storage, with a limited in-process (L1) cache supplemented by a separate (usually larger) out-of-process (L2) cache. This "hybrid" approach to cache storage gives the best of both worlds, where most fetches are served efficiently from L1, but cold-start and less-frequently-accessed data still doesn't hammer the underlying backend, thanks to L2. HybridCache also includes "stampede" protection (to prevent parallel fetches of the same work) and configurable serialization, while simplifying the API usage for common scenarios. For more information, see [New HybridCache library](https://learn.microsoft.com/aspnet/core/release-notes/aspnetcore-9.0#new-hybridcache-library)
+
+### Connection Auditing
+
+Connection auditing is already GA for all SKUs. You can configure an Azure Policy to audit or enforce specific policies about private endpoints and public network access. There is not currently a built-in policy for doing this, but you can author a custom policy to enforce that private endpoints are enabled. For more information, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md)
+
 ## April 2024
 
 Support for a built-in _flush_ operation that can be started at the control plane level for caches in the Basic, Standard, and Premium tier is now in General Availability (GA).
