@@ -378,7 +378,7 @@
           href: review-security-recommendations.md
         - name: Analyze recommendations wih Copilot for Security
           displayName: copilot, security, recommendations
-          href: review-with-copilot.md
+          href: analyze-with-copilot.md
         - name: Review resources exempted from recommendations
           href: review-exemptions.md
         - name: Remediate recommendations

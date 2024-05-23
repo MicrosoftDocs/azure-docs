@@ -10,7 +10,7 @@ ms.date: 05/23/2024
 
 # Analyze recommendations with Copilot for Security
 
-Microsoft Copilot for Security integration in Microsoft Defender for Cloud allows you to analyze all of the recommendations presented on the recommendations page. By narrowing the scope of the recommendations page you can focus on specific recommendations and get a better understanding of your security posture.
+Microsoft Defender for Cloud's integration with Microsoft Copilot for Security allows you to analyze all of the recommendations presented on the recommendations page. By narrowing the scope of the recommendations page you can focus on specific recommendations and get a better understanding of your security posture.
 
 Once you have narrowed down the list of recommendations you can investigate specific recommendations and gain a better understanding of the risks and vulnerabilities that are present in your environment.
 
@@ -36,19 +36,15 @@ Copilot gives you the ability to analyze your recommendations. By using prompts,
     - Show critical risks to sensitive data
     - Show resources with high severity vulnerabilities
 
-1. Review the answer given by Copilot and select **Show results**.
+1. Review the provided answer.
 
-    :::image type="content" source="media/review-with-copilot/show-results-copilot.png" alt-text="Screenshot that shows where the show results button is located in the Copilot window." lightbox="media/review-with-copilot/show-results-copilot.png":::
+1. (Optional) You can select a suggested prompt or enter a unique prompt to further refine the results.
 
-1. (Optional) You can further refine the results by prompting Copilot with additional questions such as:
+1. Select **Apply filter** to view the updated recommendations.
 
-    - Focus on risks to sensitive data
-    - Focus on resources with high severity vulnerabilities
-    - Focus on host code execution
+    :::image type="content" source="media/review-with-copilot/show-results-copilot.png" alt-text="Screenshot that shows where the apply filter button is located in the Copilot window." lightbox="media/review-with-copilot/show-results-copilot.png":::
 
-1. Select **Show results** to view the updated recommendations.
-
-The recommendations page will update with the appropriate filters applied based on the prompt you provided.
+The recommendations page will update with the appropriate filters applied based on the prompt you provided. Copilot will remain open and you can enter additional prompts as needed.
 
 ## Next step
 
