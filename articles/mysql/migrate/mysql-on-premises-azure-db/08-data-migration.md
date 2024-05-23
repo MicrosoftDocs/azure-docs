@@ -1,19 +1,18 @@
 ---
 title: "Migrate MySQL on-premises to Azure Database for MySQL: Data Migration"
 description: "As a prudent step before upgrade or migrate data, export the database before the upgrade using MySQL Workbench or manually via the mysqldump command."
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: rothja
-ms.author: jroth
-ms.reviewer: maghan
-ms.custom:
-ms.date: 06/21/2021
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Data Migration
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -33,26 +32,26 @@ Before a migration tool is selected, it should be determined if the migration sh
 
 For WWI, their environment has some complex networking and security requirements that don't allow for the appropriate changes to be applied for inbound and outbound connectivity in the target migration time frame. These complexities and requirements essentially eliminate the online approach from consideration.
 
-> [!NOTE]
+> [!NOTE]  
 > Review the Planning and Assessment sections for more details on Offline vs Online migration.
 
 ## Data drift
 
 Offline migration strategies have the potential for data drift. Data drift occurs when newly modified source data becomes out of sync with migrated data. When this happens, a full export or a delta export is needed. You can mitigate this problem by stopping all traffic to the database and then performing your export. If stopping all data modification traffic isn't possible, you need to account for the drift.
 
-Determining the changes can become complicated if the database tables don’t have columns such as a numeric based primary keys, or some type of modify and create date in every table that needs to be migrated.
+Determining the changes can become complicated if the database tables don't have columns such as a numeric based primary keys, or some type of modify and create date in every table that needs to be migrated.
 
 For example, if a numeric based primary key is present and the migration is importing in sort order, it's relatively simple to determine where the import stopped and restart it from that position. If no numeric based key is present, then it could be possible to utilize modify and create date, and again, import in a sorted manner so you can restart the migration from the last date seen in the target.
 
 ## Performance recommendations
 
-### Exporting
+### Export
 
   - Use an export tool that can run in a multi-threaded mode such as mydumper
 
   - When using MySQL 8.0, use [partitioned tables](https://dev.mysql.com/doc/refman/8.0/en/partitioning-overview.html) when appropriate to increase the speed of exports.
 
-### Importing
+### Import
 
   - Create clustered indexes and primary keys after loading data. Load data in primary key order, or other if primary key some date column (such as modify date or create date) in sorted order.
 
@@ -132,129 +131,129 @@ As outlined in the Test Plans section, an inventory of database objects should b
 
 If you would like to execute a stored procedure to generate this information, you can use something similar to the following:
 
-```
-DELIMITER // 
-CREATE PROCEDURE `Migration_PerformInventory`(IN schemaName CHAR(64)) 
-BEGIN 
+```sql
+DELIMITER //
+CREATE PROCEDURE `Migration_PerformInventory`(IN schemaName CHAR(64))
+BEGIN
 
-        DECLARE finished INTEGER DEFAULT 0; 
-          DECLARE tableName varchar(100) DEFAULT ""; 
+        DECLARE finished INTEGER DEFAULT 0;
+          DECLARE tableName varchar(100) DEFAULT "";
 
-        #get all tables 
-            DECLARE curTableNames 
-                CURSOR FOR 
+        #get all tables
+            DECLARE curTableNames
+                CURSOR FOR
                     SELECT TABLE_NAME FROM information_schema.tables where TABL
-E_SCHEMA = schemaName; 
-        
-            -- declare NOT FOUND handler 
-            DECLARE CONTINUE HANDLER 
-                FOR NOT FOUND SET finished = 1; 
-        
-            DROP TABLE IF EXISTS MIG_INVENTORY; 
+E_SCHEMA = schemaName;
 
-                CREATE TABLE MIG_INVENTORY 
-                ( 
-                      REPORT_TYPE VARCHAR(1000), 
-                      OBJECT_NAME VARCHAR(1000), 
-                  PARENT_OBJECT_NAME VARCHAR (1000), 
-                      OBJECT_TYPE VARCHAR(1000), 
+            -- declare NOT FOUND handler
+            DECLARE CONTINUE HANDLER
+                FOR NOT FOUND SET finished = 1;
+
+            DROP TABLE IF EXISTS MIG_INVENTORY;
+
+                CREATE TABLE MIG_INVENTORY
+                (
+                      REPORT_TYPE VARCHAR(1000),
+                      OBJECT_NAME VARCHAR(1000),
+                  PARENT_OBJECT_NAME VARCHAR (1000),
+                      OBJECT_TYPE VARCHAR(1000),
                       COUNT INT
-                ) 
-                ROW_FORMAT=DYNAMIC, 
+                )
+                ROW_FORMAT=DYNAMIC,
                 ENGINE='InnoDB';
-              INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT) 
+              INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT)
                 SELECT
                      'OBJECTCOUNT', 'TABLES', 'TABLES', COUNT(*)
-              FROM 
-                     information_schema.tables 
-                where 
+              FROM
+                     information_schema.tables
+                where
                      TABLE_SCHEMA = schemaName;
                 #### Constraints
-              INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT) 
-                SELECT 
-                      'OBJECTCOUNT', 'STATISTICS', 'STATISTICS', COUNT(*) 
-                FROM 
-                      information_schema.STATISTICS 
-                WHERE 
-                      TABLE_SCHEMA = schemaName; 
-                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT) 
-                SELECT 
-                      'OBJECTCOUNT', 'VIEWS', 'VIEWS', COUNT(*) 
-                FROM 
-                      information_schema.VIEWS 
-                WHERE 
-                      ROUTINE_TYPE = 'FUNCTION' and 
+              INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT)
+                SELECT
+                      'OBJECTCOUNT', 'STATISTICS', 'STATISTICS', COUNT(*)
+                FROM
+                      information_schema.STATISTICS
+                WHERE
+                      TABLE_SCHEMA = schemaName;
+                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT)
+                SELECT
+                      'OBJECTCOUNT', 'VIEWS', 'VIEWS', COUNT(*)
+                FROM
+                      information_schema.VIEWS
+                WHERE
+                      ROUTINE_TYPE = 'FUNCTION' and
                       ROUTINE_SCHEMA = schemaName;
 
-                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT) 
-                SELECT 
-                      'OBJECTCOUNT', 'PROCEDURES', 'PROCEDURES', COUNT(*) 
-                FROM 
-                      information_schema.ROUTINES 
-                WHERE 
-                      ROUTINE_TYPE = 'PROCEDURE' and 
-                      ROUTINE_SCHEMA = schemaName; 
+                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT)
+                SELECT
+                      'OBJECTCOUNT', 'PROCEDURES', 'PROCEDURES', COUNT(*)
+                FROM
+                      information_schema.ROUTINES
+                WHERE
+                      ROUTINE_TYPE = 'PROCEDURE' and
+                      ROUTINE_SCHEMA = schemaName;
 
-                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT) 
-                SELECT 
-                       'OBJECTCOUNT', 'EVENTS', 'EVENTS', COUNT(*) 
-                FROM 
-                       information_schema.EVENTS 
-                WHERE 
-                       EVENT_SCHEMA = schemaName; 
+                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT)
+                SELECT
+                       'OBJECTCOUNT', 'EVENTS', 'EVENTS', COUNT(*)
+                FROM
+                       information_schema.EVENTS
+                WHERE
+                       EVENT_SCHEMA = schemaName;
 
-                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT) 
-                SELECT 
+                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT)
+                SELECT
                        'OBJECTCOUNT', 'USER DEFINED FUNCTIONS', 'USER DEFINED FUNCTIONS'
-        , COUNT(*) 
-                FROM 
-                        mysql.func; 
+        , COUNT(*)
+                FROM
+                        mysql.func;
 
-                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT) 
-                SELECT 
-                        'OBJECTCOUNT', 'USERS', 'USERS', COUNT(*) 
-                FROM 
-                        mysql.user 
-                WHERE 
-                        user <> '' order by user; 
+                INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT)
+                SELECT
+                        'OBJECTCOUNT', 'USERS', 'USERS', COUNT(*)
+                FROM
+                        mysql.user
+                WHERE
+                        user <> '' order by user;
 
-                OPEN curTableNames; 
-        
-                getTableName: LOOP 
-                        FETCH curTableNames INTO tableName; 
-                        IF finished = 1 THEN 
-                              LEAVE getTableName; 
-                        END IF; 
+                OPEN curTableNames;
 
-                   SET @s = CONCAT('SELECT COUNT(*) into @TableCount FROM ', schemaName, 
-'.', tableName); 
-        #SELECT @s; 
-            PREPARE stmt FROM @s; 
+                getTableName: LOOP
+                        FETCH curTableNames INTO tableName;
+                        IF finished = 1 THEN
+                              LEAVE getTableName;
+                        END IF;
+
+                   SET @s = CONCAT('SELECT COUNT(*) into @TableCount FROM ', schemaName,
+'.', tableName);
+        #SELECT @s;
+            PREPARE stmt FROM @s;
         EXECUTE stmt;
-        INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT) 
-            
-                SELECT 
-                    'TABLECOUNT', tableName, 'TABLECOUNT', @TableCount; 
-        DEALLOCATE PREPARE stmt; 
-        
-     END LOOP getTableName; 
-     CLOSE curTableNames; 
-          
-   SELECT * FROM MIG_INVENTORY; 
-END // 
+        INSERT INTO MIG_INVENTORY (REPORT_TYPE,OBJECT_NAME, OBJECT_TYPE, COUNT)
 
-DELIMITER ; 
+                SELECT
+                    'TABLECOUNT', tableName, 'TABLECOUNT', @TableCount;
+        DEALLOCATE PREPARE stmt;
+
+     END LOOP getTableName;
+     CLOSE curTableNames;
+
+   SELECT * FROM MIG_INVENTORY;
+END //
+
+DELIMITER ;
 
 CALL Migration_PerformInventory('reg_app');
 ```
 
   - Calling this procedure on the source DB reveals the following (truncated output):
 
-![truncated output](./media/image4.jpg)
+:::image type="content" source="media/08-data-migration/image4.jpg" alt-text="Screenshot of truncated output." lightbox="media/08-data-migration/image4.jpg":::
 
   - The target database procedure result should resemble the image below after completing the migration. Notice there are no functions in the DB.Functions were eliminated before the migration.
 
-![DB Functions](./media/image5.jpg)
+:::image type="content" source="media/08-data-migration/image5.jpg" alt-text="Screenshot of DB Functions." lightbox="media/08-data-migration/image5.jpg":::
 
 ## Users and permissions
 
@@ -262,37 +261,37 @@ A successful migration requires migrating associated users and permissions to th
 
 Export all users and their grants using the following PowerShell script:
 
-```
-$username = "yourusername"; 
-$password = "yourpassword"; 
+```powershell
+$username = "yourusername";
+$password = "yourpassword";
 mysql -u$username -p$password --skip-column-names -A -e"SELECT CONCAT('SHOW G
 RANTS FOR ''',user,'''@''',host,''';') FROM mysql.user WHERE user<>''" > Show
-Grants.sql; 
+Grants.sql;
 
-$lines = get-content "ShowGrants.sql" 
+$lines = get-content "ShowGrants.sql"
 
-foreach ($line in $lines) 
-{ 
-mysql -u$username -p$password --skip-column-names -A -e"$line" >> AllGrants.sql 
+foreach ($line in $lines)
+{
+mysql -u$username -p$password --skip-column-names -A -e"$line" >> AllGrants.sql
 }
 ```
 
   - Create a new PowerShell script using PowerShell ISE (refer to the Setup document)
 
-  - Set **your username** to root and **your password** to the root user’s password
+  - Set **your username** to root and **your password** to the root user's password
 
 You can then run the `AllGrants.sql` script targeting the new Azure Database for MySQL:
 
-```
-$username = "yourusername"; 
-$password = "yourpassword"; 
-$server = "serverDNSname"; 
-$lines = get-content "AllGrants.sql" 
+```powershell
+$username = "yourusername";
+$password = "yourpassword";
+$server = "serverDNSname";
+$lines = get-content "AllGrants.sql"
 
 foreach ($line in $lines)
-{ 
+{
 mysql -u$username -p$password -h$server --ssl-ca=c:\temp\BaltimoreCyberTrus
-tRoot.crt.cer --skip-column-names -A -e"$line" 
+tRoot.crt.cer --skip-column-names -A -e"$line"
 }
 ```
 
@@ -316,10 +315,9 @@ With the basic migration components in place, it's now possible to proceed with 
 
   - Migrate any non-data based objects such as user names and privileges.
 
-  - Make sure all tasks are documented and checked off as the migration is executed.  
+  - Make sure all tasks are documented and checked off as the migration is executed.
 
-
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Data Migration with MySQL Workbench](./09-data-migration-with-mySQL-workbench.md)
+> [Data Migration with MySQL Workbench](09-data-migration-with-mySQL-workbench.md)

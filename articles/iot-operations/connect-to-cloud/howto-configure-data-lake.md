@@ -402,8 +402,8 @@ The specification field of a DataLakeConnectorTopicMap resource contains the fol
             - `name`: The name of the column in the Delta table.
             - `format`: The data type of the column in the Delta table. It can be one of `boolean`, `int8`, `int16`, `int32`, `int64`, `uInt8`, `uInt16`, `uInt32`, `uInt64`, `float16`, `float32`, `float64`, `date32`, `timestamp`, `binary`, or `utf8`. Unsigned types, like `uInt8`, aren't fully supported, and are treated as signed types if specified here.
             - `optional`: A boolean value that indicates whether the column is optional or required. This field is optional and defaults to false.
-            - `mapping`: JSON path expression that defines how to extract the value of the column from the MQTT message payload. Built-in mappings `$client_id`, `$topic`, `$properties`, and `$received_time` are available to use as columns to enrich the JSON in MQTT message body. This field is required.
-                Use $properties for MQTT user properties. For example, $properties.assetId represents the value of the assetId property from the MQTT message.
+            - `mapping`: JSON path expression that defines how to extract the value of the column from the MQTT message payload. Built-in mappings `$client_id`, `$topic`, `$property`, and `$received_time` are available to use as columns to enrich the JSON in MQTT message body. This field is required.
+                Use $property for MQTT user properties. For example, $property.assetId represents the value of the assetId property from the MQTT message.
 
 Here's an example of a *DataLakeConnectorTopicMap* resource:
 
