@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/21/2024
 ms.service: backup
 author: AbhishekMallick-MS

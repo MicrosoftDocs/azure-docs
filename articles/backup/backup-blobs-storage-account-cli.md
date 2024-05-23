@@ -1,9 +1,9 @@
 ---
 title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 08/06/2021
+ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -66,7 +66,7 @@ You can create a backup policy for *operational backup* and *vaulted backup* for
 
 # [Operational backup](#tab/operational-backup)
 
-Before creating the policy and configure backups for Azure Blobs, see the [prerequisites](blob-backup-configure-manage.md#before-you-start).
+Before creating the policy and configuring backups for Azure Blobs, see the [prerequisites](blob-backup-configure-manage.md#before-you-start).
 
 To understand the inner components of a Backup policy for Azure Blobs backup, retrieve the policy template using the [az dataprotection backup-policy get-default-policy-template](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-get-default-policy-template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
@@ -178,82 +178,68 @@ az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVau
 
 ## Configure backup
 
-Once the vault and policy are created, there are two critical points that you need to consider to protect all Azure Blobs within a storage account.
+[!INCLUDE [blob-backup-configure-policy-cli.md](../../includes/blob-backup-configure-policy-cli.md)]
 
-### Key entities involved
+### Prepare the request to configure blob backup
 
-#### Storage account that contains the blobs to be protected
+Once all the relevant permissions are set, configure the backup by running the following commands:
 
-Fetch the Azure Resource Manager ID of the storage account that contains the blobs to be protected. This will serve as the identifier of the storage account. We'll use an example of a storage account named _CLITestSA_, under the resource group _blobrg_, in a different subscription present in the South-east Asia region.
+1. Prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command. 
 
-```azurecli-interactive
-"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
-```
+    ```azurecli-interactive
+    az dataprotection backup-instance initialize --datasource-type AzureBlob  -l southeastasia --policy-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
+    ```
 
-#### Backup vault
+2. Submit the request using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
 
-The Backup vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning such permissions.
+    ```azurecli-interactive
+    az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpVault --backup-instance backup_instance.json
 
-### Assign permissions
-
-You need to assign a few permissions via RBAC to vault (represented by vault MSI) and the relevant storage account. These can be performed via Portal or PowerShell. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
-
-### Prepare the request
-
-Once all the relevant permissions are set, the configuration of backup is performed in 2 steps. First, we prepare the relevant request by using the relevant vault, policy, storage account using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command. Then, we submit the request using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
-
-```azurecli-interactive
-az dataprotection backup-instance initialize --datasource-type AzureBlob  -l southeastasia --policy-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" --datasource-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
-```
-
-```azurecli-interactive
-az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpVault --backup-instance backup_instance.json
-
-{
-    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036",
-    "name": "CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036",
-    "properties": {
-      "currentProtectionState": "ProtectionConfigured",
-      "dataSourceInfo": {
-        "datasourceType": "Microsoft.Storage/storageAccounts/blobServices",
-        "objectType": "Datasource",
-        "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA",
-        "resourceLocation": "southeastasia",
-        "resourceName": "CLITestSA",
-        "resourceType": "Microsoft.Storage/storageAccounts",
-        "resourceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
-      },
-      "dataSourceSetInfo": null,
-      "friendlyName": "CLITestSA",
-      "objectType": "BackupInstance",
-      "policyInfo": {
-        "policyId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy",
-        "policyParameters": {
-          "dataStoreParametersList": [
-            {
-              "dataStoreType": "OperationalStore",
-              "objectType": "AzureOperationalStoreParameters",
-              "resourceGroupId": ""
-            }
-          ]
+    {
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036",
+        "name": "CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036",
+        "properties": {
+          "currentProtectionState": "ProtectionConfigured",
+          "dataSourceInfo": {
+            "datasourceType": "Microsoft.Storage/storageAccounts/blobServices",
+            "objectType": "Datasource",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA",
+            "resourceLocation": "southeastasia",
+            "resourceName": "CLITestSA",
+            "resourceType": "Microsoft.Storage/storageAccounts",
+            "resourceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
+          },
+          "dataSourceSetInfo": null,
+          "friendlyName": "CLITestSA",
+          "objectType": "BackupInstance",
+          "policyInfo": {
+            "policyId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy",
+            "policyParameters": {
+              "dataStoreParametersList": [
+                {
+                  "dataStoreType": "OperationalStore",
+                  "objectType": "AzureOperationalStoreParameters",
+                  "resourceGroupId": ""
+                }
+              ]
+            },
+            "policyVersion": ""
+          },
+          "protectionErrorDetails": null,
+          "protectionStatus": {
+            "errorDetails": null,
+            "status": "ProtectionConfigured"
+          },
+          "provisioningState": "Succeeded"
         },
-        "policyVersion": ""
-      },
-      "protectionErrorDetails": null,
-      "protectionStatus": {
-        "errorDetails": null,
-        "status": "ProtectionConfigured"
-      },
-      "provisioningState": "Succeeded"
-    },
-    "resourceGroup": "testBkpVaultRG",
-    "systemData": null,
-    "type": "Microsoft.DataProtection/backupVaults/backupInstances"
-  }
-```
+        "resourceGroup": "testBkpVaultRG",
+        "systemData": null,
+        "type": "Microsoft.DataProtection/backupVaults/backupInstances"
+      }
+    ```
 
 > [!IMPORTANT]
-> Once a storage account is configured for blobs backup, a few capabilities are affected, such as change feed and delete lock. [Learn more](blob-backup-configure-manage.md#effects-on-backed-up-storage-accounts).
+> Once a storage account is configured for blobs backup, a few capabilities such as change feed and delete lock are affected. [Learn more](blob-backup-configure-manage.md#effects-on-backed-up-storage-accounts).
 
 ## Next steps
 

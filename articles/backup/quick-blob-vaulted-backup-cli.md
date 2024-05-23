@@ -9,16 +9,18 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Quickstart: Configure vaulted backup for Azure Blobs using Azure CLI
+# Quickstart: Configure vaulted backup for Azure Blobs using Azure Backup via Azure CLI
 
-This quickstart describes how to configure vaulted backup for Azure Blobs using Azure PowerShell.
+This quickstart describes how to configure vaulted backup for Azure Blobs using Azure CLI.
 
 [!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
 
 ## Prerequisites
 
-- Ensure you review the [support matrix](../backup/blob-backup-support-matrix.md) to learn about the Azure Blob region availability, supported scenarios, and limitations.
-- You need to have a Backup vault to configure Azure Blob backup. If the Backup vault isn't present, [create one](../backup/backup-blobs-storage-account-ps.md#create-a-backup-vault).
+Before you configure blob vaulted backup, ensure that:
+
+- You review the [support matrix](../backup/blob-backup-support-matrix.md) to learn about the Azure Blob region availability, supported scenarios, and limitations.
+- You have a Backup vault to configure Azure Blob backup. If you haven't created the Backup vault, [create one](../backup/backup-blobs-storage-account-ps.md#create-a-backup-vault).
 
 ## Create a backup policy
 
@@ -28,7 +30,7 @@ This quickstart describes how to configure vaulted backup for Azure Blobs using 
 
 [!INCLUDE [blob-backup-configure-policy-cli.md](../../includes/blob-backup-configure-policy-cli.md)]
 
-## Prepare the request
+## Prepare the request to configure blob backup
 
 [!INCLUDE [blob-backup-prepare-request-cli.md](../../includes/blob-backup-prepare-request-cli.md)]
 

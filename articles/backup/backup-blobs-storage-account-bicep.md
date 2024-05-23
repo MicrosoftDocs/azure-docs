@@ -1,26 +1,26 @@
 ---
-title: Back up blobs in a storage account
+title: Quickstart - Back up blobs in a storage account
 description: Learn how to back up blobs in a storage account with a Bicep template.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up a storage account with Blob data with a Bicep template
+# Quickstart: Back up a storage account with Blob data using Azure Backup via a Bicep template
 
-This article describes how to back up a storage account with Azure Blob data with a vaulted backup policy using a Bicep template.
+This quickstart describes how to back up a storage account with Azure Blob data with a vaulted backup policy using a Bicep template.
 
 [!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
 
 ## Prerequisites
 
-To set up your environment for Bicep development, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install).
+Before you back up a storage account with blob data using a Bicep template, ensure to set up your environment for Bicep development. [Learn more](/azure/azure-resource-manager/bicep/install).
 
 ## Review the template
 
-This template allows you to configure backup for two containers in a storage account with a vaulted backup policy with a daily schedule and retention as 30 days/weeks, months, and years for daily, weekly, monthly, and yearly backup, respectively.
+This template allows you to configure backup for two containers in a storage account with a vaulted backup policy with a daily schedule and retention as 30 days, weeks, months, and years for daily, weekly, monthly, and yearly backup, respectively.
 
 ```bicep
 @description('Name of the Vault')
@@ -360,4 +360,4 @@ resource backupInstance 'Microsoft.DataProtection/backupVaults/backupInstances@2
 
 ## Next step
 
-[Learn how](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI) to create Bicep templates.
+Learn [how to create Bicep templates](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI).

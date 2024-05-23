@@ -12,6 +12,8 @@ ms.author: v-abhmallick
 
 # Create Azure Data Protection backup policies for blobs using REST API
 
+This article describes how to create Azure Data Protection backup policies for Azure Blobs using REST API.
+
 Azure Backup policy typically governs the retention and schedule of your backups. As operational backup for blobs is continuous in nature, you don't need a schedule to perform backups. The policy is essentially needed to specify the retention period. You can reuse the backup policy to configure backup for multiple storage accounts to a vault.
 
 > [!IMPORTANT]
@@ -92,7 +94,7 @@ The policy says:
 }
 ```
 
-To configure a backup policy with vaulted backup enabled, use the following JSON:
+To configure a backup policy with the vaulted backup, use the following JSON script:
 
 ```json
 {
