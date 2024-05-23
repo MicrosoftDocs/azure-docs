@@ -7,10 +7,9 @@ ms.date: 05/22/2024
 
 # Microsoft Outlook events
 
-This article provides the properties and schema for Microsoft Outlook events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
+This article provides the properties and schema for Microsoft Outlook events that the Microsoft Graph API publishes. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
 
 ## Available event types
-These events are triggered when an Outlook event or an Outlook contact is created, updated or deleted or by operating over those resources using Microsoft Graph API. 
 
  | Event name | Description |
  | ---------- | ----------- |
@@ -323,12 +322,12 @@ The data object has the following properties:
 | `@odata.id` | string | The Graph API resource identifier for which the event was raised. |
 | `id` | string | The resource identifier for which the event was raised. |
 | `organizationId` | string | The Outlook tenant identifier.  |
-| `eventTime` | string | The time at which the resource state occurred. |
+| `eventTime` | string | The time when the resource state occurred. |
 | `sequenceNumber` | string | A sequence number. |
-| `subscriptionExpirationDateTime` | string | The time in [RFC 3339](https://tools.ietf.org/html/rfc3339) format at which the Graph API subscription expires.  |
+| `subscriptionExpirationDateTime` | string | The time in [Request for Change (RFC) 3339](https://tools.ietf.org/html/rfc3339) format at which the Graph API subscription expires.  |
 | `subscriptionId` | string | The Graph API subscription identifier. |
 | `tenantId` | string | The Outlook tenant identifier.  |
-| `otherResourceData` | string | Placeholder that represents one or more dynamic properties that may be included in the event. |
+| `otherResourceData` | string | Placeholder that represents one or more dynamic properties that might be included in the event. |
 
 
 ## Next steps
@@ -337,4 +336,4 @@ The data object has the following properties:
 * For information on how to subscribe to Microsoft Graph API to receive Outlook events, see [subscribe to Azure Graph API events](subscribe-to-graph-api-events.md).
 * For information about Azure Event Grid event handlers, see [event handlers](event-handlers.md).
 * For more information about creating an Azure Event Grid subscription, see [create event subscription](subscribe-through-portal.md#create-event-subscriptions) and [Event Grid subscription schema](subscription-creation-schema.md).
-* For information about how to configure an event subscription to select specific events to be delivered, consult [event filtering](event-filtering.md). You may also want to refer to [filter events](how-to-filter-events.md).
+* For information about how to configure an event subscription to select specific events to be delivered, consult [event filtering](event-filtering.md). You might also want to refer to [filter events](how-to-filter-events.md).
