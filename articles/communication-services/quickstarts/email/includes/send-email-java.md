@@ -213,7 +213,7 @@ To send the email message, call the `beginSend` function from the `EmailClient`.
 
 ## [Sync Client](#tab/sync-client)
 
-Calling `beginSend` on the sync client returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the `beginSend` method is called. Sending an email is a long running operation, so calling `getFinalResult` on the poller returned by `beginSend` could potentially block the application for a long time. The recommended method is to do manual polling at an interval that's appropriate for your application needs as demonstrated in the sample below.
+Calling beginSend on the sync client returns a SyncPoller object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the beginSend method is called. **Sending an email is a long running operation. Its important to note that the getFinalResult() method on the poller is a blocking operation until a terminal state (SUCCESSFULLY_COMPLETED or FAILED) is reached.** The recommended method is to do manual polling at an interval that's appropriate for your application needs as demonstrated in the sample below.
 
 ```java
 try
@@ -259,11 +259,12 @@ catch (Exception exception)
 
 ## [Async Client](#tab/async-client)
 
-Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. You will want to set up the subscriber in a seperate process to take advantage of the asynchronous functionality. Note that the initial request to send an email will not be sent until a subscriber is set up.
+Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. The callbacks defined in the subscribe method will be triggered once the email sending opertion is complete. **Note that the initial request to send an email will not be sent until a subscriber is set up.**
 
 ```java
+PollerFlux<EmailSendResult, EmailSendResult> poller = emailAsyncClient.beginSend(emailMessage);
 // The initial request is sent out as soon as we subscribe the to PollerFlux object
-emailClient.beginSend(emailMessage).subscribe(
+poller.subscribe(
         response -> {
             if (response.getStatus() == LongRunningOperationStatus.SUCCESSFULLY_COMPLETED) {
                 System.out.printf("Successfully sent the email (operation id: %s)", response.getValue().getId());
