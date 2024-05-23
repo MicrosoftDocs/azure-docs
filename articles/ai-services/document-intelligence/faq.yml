@@ -158,7 +158,7 @@ sections:
           What is a bounding box?
         answer: |
 
-          A bounding box (`polygon` in v3.0 and later versions) is an abstract rectangle that surrounds text elements in a document or form. It's used as a reference point for object detection.
+          A bounding box (`polygon` in v3.0 and later versions) is an abstract rectangle that surrounds text elements in a document or form used as a reference point for object detection.
 
           The bounding box specifies position by using an x and y coordinate plane presented in an array of four numerical pairs. Each pair represents a corner of the box in the following order: upper left, upper right, lower right, lower left.
 
@@ -189,17 +189,17 @@ sections:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to read/write data and is **required to call the API**.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to use Document Intelligence Studio.
 
           - Advanced
 
-            - **Contributor**: You need this role to create a resource group or a Document Intelligence resource. The Contributor role doesn't allow you to list keys for Cognitive Services and doesn't give you access to use the created resources or storage, it only allows a user to read/write the resource itself. To use Document Intelligence Studio, you still need the Cognitive Services User role.
+            - **Contributor**: You need this role to create a resource group or a Document Intelligence resource.
 
           For custom model projects, here are the role requirements for user scenarios:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to read/write data and is **required to call the API**.  This role is also the minimum necessary to train a custom model or analyze with trained models.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to train a custom model or analyze with trained models.
 
             - **Storage Blob Data Contributor**: You need this role for a storage account to create project and label data.
 
@@ -207,9 +207,9 @@ sections:
 
             - **Storage Account Contributor**: You need this role for the storage account to set up cross-origin resource sharing (CORS) settings. It's a one-time effort if you reuse the same storage account.
 
-              The Contributor role doesn't allow you to access data in your blob. To use Document Intelligence Studio, you still need the Storage Blob Data Contributor role.
+            - **Contributor**: You need this role to create a resource group and resources.
 
-            - **Contributor**: You need this role to create a resource group and resources. The Contributor role doesn't give you access to use the created resources or storage, it only allows a user to read/write the resource itself. To use Document Intelligence Studio, you still need basic roles.
+          Having Contributor or Storage Account Contributor role doesn't give you access to use your Document Intelligence resource or storage account if local (key-based) authentication is disabled. You still need the basic roles (Cognitive Services User and Storage Data Blob Contributor) to use the functions on Document Intelligence Studio.
 
           For more information, see [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and the sections about Azure role assignments in the [Document Intelligence Studio quickstart](quickstarts/try-document-intelligence-studio.md).
 
@@ -264,7 +264,7 @@ sections:
 
           - "URL for the Azure US Government cloud (Azure Fairfax): [Document Intelligence Studio US Government](https://formrecognizer.appliedai.azure.us/studio)".
 
-          - "URL Microsoft Azure operated by 21Vianet (Azure in China): [Document Intelligence Studio China](https://formrecognizer.appliedai.azure.cn/studio)".
+          - "URL Microsoft Azure operated by 21Vianet (Azure in China): [Document Intelligence Studio China](https://formrecognizer.appliedai.azure.cn/studio)."
 
 
   - name: App development
