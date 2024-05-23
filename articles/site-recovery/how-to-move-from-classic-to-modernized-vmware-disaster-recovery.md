@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: jsuri
 ms.service: site-recovery
 ms.topic: how-to
-ms.date: 01/13/2023
+ms.date: 05/23/2024
 ms.custom: engagement-fy23
 ---
 
@@ -70,4 +70,4 @@ After migration, if the failover is performed using the classic vault, then the 
 
 ## Next steps
 
-[move from classic to modernized VMware disaster recovery](move-from-classic-to-modernized-vmware-disaster-recovery.md)
+-  Learn to [move from classic to modernized VMware disaster recovery](move-from-classic-to-modernized-vmware-disaster-recovery.md).
