@@ -20,8 +20,7 @@ You can set the permissions on a query pack when you view it in the Azure portal
 - **Contributor**: Users can modify existing queries and add new queries to the query pack.
 
   > [!IMPORTANT]
-  > When a user needs to modify or add queries, always grant the user the Contributor permission on the `DefaultQueryPack`. Otherwise, the user won't be able to save any queries to the subscription, including in other query packs.
-
+  > When a user needs to create a query pack assign the user Log Analytics Contributor at the Resource Group level.
 ## View query packs
 You can view and manage query packs in the Azure portal from the **Log Analytics query packs** menu. Select a query pack to view and edit its permissions. This article describes how to create a query pack by using the API.
 <!-- convertborder later -->

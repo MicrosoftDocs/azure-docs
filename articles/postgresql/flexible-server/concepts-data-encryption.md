@@ -77,6 +77,8 @@ Here are requirements for configuring Key Vault:
 
 - The **Days to retain deleted vaults** setting for Key Vault must be **90**. If you configured the existing Key Vault instance with a lower number, you need to create a new Key Vault instance because you can't modify an instance after creation.
 
+- It is recommended to set the **Days to retain deleted vaults** configuration for Key Vault to 90 days. In the event that you have configured an existing Key Vault instance with a lower number, it should still valid. However, if you wish to modify this setting and increase the value, it is necessary to create a new Key Vault instance. Once an instance is created, it is not possible to modify its configuration.
+
 - Enable the soft-delete feature in Key Vault to help protect from data loss if a key or a Key Vault instance is accidentally deleted. Key Vault retains soft-deleted resources for 90 days unless the user recovers or purges them in the meantime. The recover and purge actions have their own permissions associated with a Key Vault access policy.
 
   The soft-delete feature is off by default, but you can turn it on through PowerShell or the Azure CLI. You can't turn it on through the Azure portal.
