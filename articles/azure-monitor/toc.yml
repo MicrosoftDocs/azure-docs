@@ -200,14 +200,16 @@ items:
             displayName: geolocation, IP collection, IP tracking, IP storage
         - name: SDK support policy
           href: app/sdk-support-guidance.md
-      - name: Create a resource
-        href: app/create-workspace-resource.md
       - name: Upgrade from classic resources and iKey
         items:
         - name: Migrate to a workspace-based resource
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
+      - name: Create a resource
+        href: app/create-workspace-resource.md
+      - name: Manage Application Insights
+        href: app/powershell.md
     - name: Experiences
       items:
       - name: Application dashboard
@@ -353,10 +355,6 @@ items:
           href: alerts/proactive-arm-config.md
         - name: E-mail notification
           href: alerts/proactive-email-notification.md
-    - name: Administration and security
-      items:
-      - name: Manage Application Insights
-        href: app/powershell.md
     - name: Help and support
       items:
       - name: Create an Azure support ticket
@@ -1435,6 +1433,14 @@ items:
         href: autoscale/autoscale-diagnostics.md
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
+  - name: AI Ops
+    items:
+    - name: Azure Monitor Investigator Overview
+      href: ai-ops/investigator-overview.md
+    - name: Responsible AI FAQ
+      href: ai-ops/responsible-ai-faq.md
+    - name: Investigate an alert using Investigator
+      href: ai-ops/investigate-alert-instance.md
 - name: Samples
   items:
   - name: Resource Manager templates
