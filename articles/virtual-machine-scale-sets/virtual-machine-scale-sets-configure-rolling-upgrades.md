@@ -45,7 +45,7 @@ Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespac
 
 - When using a rolling upgrade policy on Virtual Machine Scale Sets with Uniform Orchestration, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
-- If using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- When using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 ## Concepts
@@ -64,7 +64,7 @@ Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespac
 
 ## Setting or updating the rolling upgrade policy
 
-Rolling upgrade policy can be configured during scale set creation. Because Rolling upgrade policy requires successfully monitoring application health and there are specific settings that determine how upgrades are completed, it's suggested to first create your scale set using manual upgrade policy. Once you have confirmed the application health is being successfully reported, update your upgrade policy from manual to Rolling.
+Rolling upgrade policy can be configured during scale set creation. Because rolling upgrade policy requires successfully monitoring application health and there are specific settings that determine how upgrades are completed, it's suggested to first create your scale set using manual upgrade policy. Once you have confirmed the application health is being successfully reported, update your upgrade policy from manual to rolling.
 
 ### [Portal](#tab/portal1)
 
@@ -111,7 +111,7 @@ Update-Azvmss -ResourceGroupName "myResourceGroup" `
 
 ### [ARM Template](#tab/template1)
 
-Update the properties section of your ARM template and set the upgrade policy to Rolling and various rolling upgrade options.  
+Update the properties section of your ARM template and set the upgrade policy to rolling and various rolling upgrade options.  
 
 
 ``` ARM Template

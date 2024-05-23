@@ -31,7 +31,7 @@ If using a rolling upgrade policy, see [configure rolling upgrade policy](virtua
 ### [CLI](#tab/cli)
 When creating a new scale set using Azure CLI, use [az vmss create](/cli/azure/vmss#az-vmss-create) and the `-upgrade-policy-mode` to set the upgrade policy mode.  
 
-If using a rolling upgrade policy, see [Configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
+If using a rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
 ```azurecli-interactive
 az vmss create \
@@ -67,7 +67,7 @@ New-AzVmss `
 ### [ARM Template](#tab/template)
 When using an ARM template, add the `upgradePolicy` parameter to the properties section of your template to set the upgrade policy mode. 
 
-If using a rolling upgrade policy, see [configure Rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
+If using a rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
 
 ```ARM
 "properties": {
