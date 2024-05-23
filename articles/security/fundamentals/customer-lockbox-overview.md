@@ -26,6 +26,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - Azure AI Search
 - Azure Chaos Studio
 - Azure Cognitive Services
+- Azure Communications Gateway
 - Azure Container Registry
 - Azure Data Box
 - Azure Data Explorer
@@ -40,6 +41,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - Azure HDInsight
 - Azure Health Bot
 - Azure Intelligent Recommendations
+- Azure Information Protection
 - Azure Kubernetes Service
 - Azure Load Testing (CloudNative Testing)
 - Azure Logic Apps
