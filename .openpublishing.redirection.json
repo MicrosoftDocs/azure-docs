@@ -4060,7 +4060,7 @@
         },
         {
             "source_path_from_root":"/articles/cosmos-db/high-availability.md",
-            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql.md",
+            "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql",
             "redirect_document_id":false
         },
         {
