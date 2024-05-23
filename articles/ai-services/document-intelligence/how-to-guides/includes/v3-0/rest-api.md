@@ -17,7 +17,7 @@ monikerRange: 'doc-intel-3.1.0 || doc-intel-3.0.0'
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Supported Azure SDKS](../../../sdk-overview-v3-0.md) | 
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP) | [Supported Azure SDKS](../../../sdk-overview-v3-0.md) | 
 :::moniker-end
 
 > [!NOTE]

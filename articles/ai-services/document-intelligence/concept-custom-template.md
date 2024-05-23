@@ -162,11 +162,11 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2023-07-31
 
 ::: moniker range="doc-intel-2.1.0"
 
-Custom (template) models  are generally available with the [v2.1 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm).
+Custom (template) models  are generally available with the [v2.1 API](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true).
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom model (template) | [Document Intelligence 2.1 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-python)| [Document Intelligence Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom model (template) | [Document Intelligence 2.1 ](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-python)| [Document Intelligence Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
 
 ::: moniker-end
 
