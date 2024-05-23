@@ -10,7 +10,7 @@ ms.author: v-abhmallick
 
 Vaulted backup of blobs is a managed offsite backup solution that stores the backup data in a general v2 storage account, enabling you to protect your backup data against ransomware attacks or source data loss due to malicious or rogue admin. 
 
-For vaulted backup, you can:
+With vaulted backup, you can:
 
 - Define the backup schedule to create recovery points and the retention settings that determine how long the backups will be retained in the vault.
 - Configure and manage the vaulted and operational backups using a single backup policy.
