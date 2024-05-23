@@ -100,7 +100,7 @@ The following table describes the SQL Server source configuration parameters:
 | Server port | Integer | The port number to connect to on the server.  | Required | `1433` | `1433` |
 | Authentication | Authentication type | The authentication method for connecting to the server. One of: `None`, `Username/Password`, `Managed identity`, or `Service principal`. | Optional | `NA` | `Username/Password` |
 | Username/Password > Username | String | The username for the username/password authentication | Yes | NA | `myuser` |
-| Username/Password > Secret | Reference to the password stored in Azure Key Vault. | Yes | Yes | `AKV_USERNAME_PASSWORD` |
+| Username/Password > Secret | String | Reference to the password stored in Azure Key Vault. | Yes | Yes | `AKV_USERNAME_PASSWORD` |
 | Service principal > Tenant ID | String | The Tenant ID of the service principal. | Yes | NA | `<Tenant ID>` |
 | Service principal > Client ID | String | The Client ID of the service principal. | Yes | NA | `<Client ID>` |
 | Service principal > Secret | String | Reference to the service principal client secret stored in Azure Key Vault. | Yes | NA | `AKV_SERVICE_PRINCIPAL` |

@@ -286,16 +286,14 @@ The following table highlights key aspects about the online deployment options:
 
 We *highly recommend* that you test-run your endpoint locally to validate and debug your code and configuration before you deploy to Azure. Azure CLI and Python SDK support local endpoints and deployments, while Azure Machine Learning studio and ARM template don't.
 
-#### Limitations of local endpoints
-
-Local endpoints have the following limitations:
-- They do *not* support traffic rules, authentication, or probe settings.
-- They support only one deployment per endpoint.
-- They support local model files and environment with local conda file only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder. If you want to test registered environments, check the context of the environment in Azure Machine Learning studio and prepare a local conda file to use. 
-
 Azure Machine Learning provides various ways to debug online endpoints locally and by using container logs.
 
-#### Local debugging with the Azure Machine Learning inference HTTP server
+- [Local debugging with Azure Machine Learning inference HTTP server](#local-debugging-with-azure-machine-learning-inference-http-server)
+- [Local debugging with local endpoint](#local-debugging-with-local-endpoint)
+- [Local debugging with local endpoint and Visual Studio Code](#local-debugging-with-local-endpoint-and-visual-studio-code-preview)
+- [Debugging with container logs](#debugging-with-container-logs)
+
+#### Local debugging with Azure Machine Learning inference HTTP server
 
 You can debug your scoring script locally by using the Azure Machine Learning inference HTTP server. The HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
 You can also use Visual Studio Code to debug with the Azure Machine Learning inference HTTP server.
@@ -305,12 +303,13 @@ You can also use Visual Studio Code to debug with the Azure Machine Learning inf
 
 To learn more about debugging with the HTTP server, see [Debugging scoring script with Azure Machine Learning inference HTTP server](how-to-inference-server-http.md).
 
-#### Local debugging
+#### Local debugging with local endpoint
 
 For **local debugging**, you need a local deployment; that is, a model that is deployed to a local Docker environment. You can use this local deployment for testing and debugging before deployment to the cloud. To deploy locally, you'll need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running. Azure Machine Learning then creates a local Docker image that mimics the Azure Machine Learning image. Azure Machine Learning will build and run deployments for you locally and cache the image for rapid iterations.
 
 > [!TIP]
 > Docker Engine typically starts when the computer starts. If it doesn't, you can [troubleshoot Docker Engine](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
+> You can use client-side tools such as [Docker Desktop](https://www.docker.com/blog/getting-started-with-docker-desktop/) to debug what happens in the container.
 
 The steps for local debugging typically include:
 
@@ -318,9 +317,15 @@ The steps for local debugging typically include:
 - Invoking the local endpoint for inferencing
 - Reviewing the logs for output of the invoke operation
 
+> [!NOTE]
+> Local endpoints have the following limitations:
+> - They do *not* support traffic rules, authentication, or probe settings.
+> - They support only one deployment per endpoint.
+> - They support local model files and environment with local conda file only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder. If you want to test registered environments, check the context of the environment in Azure Machine Learning studio and prepare a local conda file to use. 
+
 To learn more about local debugging, see [Deploy and debug locally by using a local endpoint](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-a-local-endpoint).
 
-#### Local debugging with Visual Studio Code (preview)
+#### Local debugging with local endpoint and Visual Studio Code (preview)
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 

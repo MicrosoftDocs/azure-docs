@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/29/2024
+ms.date: 05/10/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to migrate my network security group flow logs to the new virtual network flow logs so that I can use all the benefits of virtual network flow logs, which overcome some of the network security group flow logs limitations.
@@ -14,7 +14,19 @@ ms.custom: devx-track-azurepowershell
 
 # Migrate from network security group flow logs to virtual network flow logs
 
-In this article, you learn how to migrate your existing network security group flow logs to virtual network flow logs. Virtual network flow logs overcome some of the limitations of network security group flow logs. For more information, see [Virtual network flow logs](vnet-flow-logs-overview.md).
+In this article, you learn how to migrate your existing network security group flow logs to virtual network flow logs using a migration script. Virtual network flow logs overcome some of the limitations of network security group flow logs. For more information, see [Virtual network flow logs](vnet-flow-logs-overview.md).
+
+> [!NOTE]
+> Use the migration script:
+> - when you don't have flow logging enabled on all network interfaces or subnets in a virtual network and you don't want to enable virtual network flow logging on all of them, or
+> - when your network security group flow logs in a virtual network have different configurations, and you want to create virtual network flow logs with those different configurations as the network security group flow logs.
+> 
+> Use Azure Policy:
+> - when you have the same network security group applied to all network interfaces or subnets in a virtual network,
+> - when you have the same network security group flow log configurations for all network interfaces or subnets in a virtual network, or
+> - when you want to enable virtual network flow logging on the virtual network level.
+> 
+> For more information, see [Deploy and configure virtual network flow logs using a built-in policy](vnet-flow-logs-policy.md#deploy-and-configure-virtual-network-flow-logs-using-a-built-in-policy).
 
 ## Prerequisites
 
@@ -122,7 +134,17 @@ In this section, you learn how to use the script file that you downloaded in the
 
     :::image type="content" source="./media/nsg-flow-logs-migrate/delete-flow-logs-confirmation.png" alt-text="Screenshot that shows how to confirm the deletion of migrated flow logs." lightbox="./media/nsg-flow-logs-migrate/delete-flow-logs-confirmation.png":::
 
+## Considerations
+
+- **Scale set with a load balancer**: The migration script enables virtual network flow logging on the subnet that has the scale set virtual machines.
+
+    > [!NOTE]
+    > If network security group flow logging is not enabled on all network interfaces of the scale set, or the network interfaces don't share the same network security group flow log, then a virtual network flow log is created on the subnet with the same configurations as one of the network interfaces of the scale set.
+
+- **PaaS**: The migration script doesn't support environments with PaaS solutions that have network security group flow logs in a user's subscription but target resources are in different subscriptions. For such environments, you should manually enable virtual network flow logging on the virtual network or subnet of the PaaS solution.
+
 ## Related content
 
 - [Network security group flow logs](nsg-flow-logs-overview.md)
 - [Virtual network flow logs](vnet-flow-logs-overview.md)
+- [Manage virtual network flow logs using Azure Policy](vnet-flow-logs-policy.md)
