@@ -38,6 +38,9 @@ This article describes requirements and considerations about [using the volume c
 
 [Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) are supported in cross-zone replication. You must [first register for the large volumes feature](large-volumes-requirements-considerations.md#register-the-feature) then register to use large volumes with cross-zone replication:
 
+>[!NOTE]
+>Cross-zone and cross-region replication use the same Azure Feature Exposure Control (AFEC) name of `ANFLargeVolumesCRR`. If you've registered for cross-region replication, the registration also works for cross-zone replication. 
+
 1.  Register the feature by running the following commands:
 
     ```azurepowershell-interactive
