@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 11/10/2022
+ms.date: 05/23/2024
 ms.author: victorh
 ms.custom: template-tutorial, engagement-fy23
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
@@ -39,9 +39,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an application gateway
 
-1. Select **Create a resource** on the left menu of the Azure portal. The **New** window appears.
+1. Select **Create a resource** on the left menu of the Azure portal. The **Create a resource** window appears.
 
-2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
+2. Select **Networking** and then select **Application Gateway** in the **Popular Azure services** list.
 
 ### Basics tab
 
@@ -55,21 +55,20 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
      :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png" alt-text="Screenshot of Create new application gateway: Basics tab." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png":::
 
-2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and then later add another for the backend servers.
 
-    Under **Configure virtual network**,  select **Create new** to create a new virtual network. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
+    Under **Configure virtual network**,  select **Create new** to create a new virtual network. In the **Create virtual network** window that opens, enter the following values to create the virtual network and a subnet:
+
+
 
     - **Name**: Enter *myVNet* for the name of the virtual network.
+    - **Address space** : Accept the **10.0.0.0/16** address range.
 
-    - **Subnet name** (Application Gateway subnet): The **Subnets** grid will show a subnet named *Default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
+    - **Subnet name** (Application Gateway subnet): The **Subnets** area shows a subnet named *Default*. Change the name of this subnet to *myAGSubnet*, and leave the default IPv4 Adddress range of **10.0.0.0/24**.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
 
-    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
+       Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
-    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.21.0.0/24, enter *10.21.1.0/24* for the address range of *myBackendSubnet*.
-
-    Select **OK** to close the **Create virtual network** window and save the virtual network settings.
-
-    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-vnet.png" alt-text="Screenshot of Create new application gateway: Create virtual network.":::
+      :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-vnet.png" alt-text="Screenshot of Create new application gateway: Create virtual network.":::
     
 3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
 
@@ -114,7 +113,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 3. A routing rule requires a listener. On the **Listener** tab within the **Add a routing rule** window, enter the following values for the listener:
 
     - **Listener name**: Enter *myListener* for the name of the listener.
-    - **Frontend IP**: Select **Public** to choose the public IP you created for the frontend.
+    - **Frontend IP Protocol**: Select **Public IPv4** to choose the public IP you created for the frontend.
   
       Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
@@ -137,6 +136,15 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. 
 
 Wait until the deployment finishes successfully before moving on to the next section.
+
+## Add the backend server subnet
+
+1. Open the myVNet virtual network.
+1. Under **Settings**, select **Subnets**.
+1. Select **+ Subnet**.
+1. For **Name**, type **myBackendSubnet**.
+1. For **Starting address**, type **10.0.1.0**.
+1. Select **Add** to add the subnet.
 
 ## Add backend targets
 
@@ -177,6 +185,9 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
 1. Open a Bash Cloud Shell. To do so, select the **Cloud Shell** icon from the top navigation bar of the Azure portal and then select **Bash** from the drop-down list.
 
    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/bash-shell.png" alt-text="Screenshot showing the Bash Cloud Shell.":::
+1. Ensure your bash session is set for your suscription:
+   
+   `account set --subscription "<your subscription name>"`
 
 2. Run the following command to install NGINX on the virtual machine: 
 
