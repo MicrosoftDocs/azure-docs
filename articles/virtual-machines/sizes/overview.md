@@ -46,7 +46,7 @@ Here's a breakdown of a 'General purpose, **DCads_v5**-series' size series.
 <br><sup>4</sup> Version numbers only appear in the size name if there are multiple versions of the same series. If you're using the first version of a series (`HB-series`, `B-series`, etc.) it is often not included in the size name.
 
 | Category name | Description | Examples |
-|---| --- | --- |
+| ----- | --- | ------- |
 | **Family** | Families are subsets within each type that share similar characteristics and are optimized for specific tasks. | <ul><li>`D-family` <li>`F-family` <li>`NV-family` |
 | **Subfamily** | Subfamilies further divide families into more specialized categories, often by generation or slight variations in capability adjustments. | <ul><li>`DC-family` <li>`FX-family` |
 | **Feature 1** <br>(Processor info) | Denotes the CPU vendor and architecture used on the VM host. | <ul><li>`No entry` = Intel (x86-64) <li>`a` = AMD (x86-64) <li>`p` = Microsoft Cobalt or Ampere Altra (ARM-64) |
@@ -98,39 +98,39 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 |----|---|---|
 | [A-family](./general-purpose/a-family.md)  | Entry-level economical |  [Av2-series](./general-purpose/a-family.md#av2-series) <br> [Previous-gen A-family series](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes) |
 | [B-family](./general-purpose/b-family.md)  | Burstable | [Bsv2-series](./general-purpose/b-family.md#bsv2-series) <br> [Basv2-series](./general-purpose/b-family.md#basv2-series) <br> [Bpsv2-series](./general-purpose/b-family.md#bpsv2-series) |
-| [D-family](./general-purpose/d-family.md) | Enterprise-grade applications <br> Relational databases <br> In-memory caching <br> Data analytics | [Dpsv6-series](./general-purpose/d-family.md#dpsv6-series) and [Dplsv6-series](./general-purpose/dplsv6-series.md) <br> [Dpdsv6-series](./general-purpose/dpdsv6-series.md) and [Dpldsv6-series](./general-purpose/dpdsv6-series.md) <br> [Dalsv6 and Daldsv6-series](./general-purpose/d-family.md#dalsv6-and-daldsv6-series) <br> [Dpsv5 and Dpdsv5-series](./general-purpose/d-family.md#dpsv5-and-dpdsv5-series) <br> [Dpldsv5 and Dpldsv5-series](./general-purpose/d-family.md#dplsv5-and-dpldsv5-series) <br> [Dlsv5 and Dldsv5-series](./general-purpose/d-family.md#dlsv5-and-dldsv5-series) <br> [Dv5 and Dsv5-series](./general-purpose/d-family.md#dv5-and-dsv5-series) <br> [Ddv5 and Ddsv5-series](./general-purpose/d-family.md#ddv5-and-ddsv5-series) <br> [Dasv5 and Dadsv5-series](./general-purpose/d-family.md#dasv5-and-dadsv5-series) <br> [Previous-gen D-family series](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes) |
+| [D-family](./general-purpose/d-family.md) | Enterprise-grade applications <br> Relational databases <br> In-memory caching <br> Data analytics | [Dpsv6-series](./general-purpose/d-family.md#dpsv6-series) and [Dplsv6-series](./general-purpose/d-family.md#dplsv6-series ) <br> [Dpdsv6-series](./general-purpose/d-family.md#dpdsv6-series) and [Dpldsv6-series](./general-purpose/d-family.md#dpldsv6-series) <br> [Dalsv6 and Daldsv6-series](./general-purpose/d-family.md#dalsv6-and-daldsv6-series) <br> [Dpsv5 and Dpdsv5-series](./general-purpose/d-family.md#dpsv5-and-dpdsv5-series) <br> [Dpldsv5 and Dpldsv5-series](./general-purpose/d-family.md#dplsv5-and-dpldsv5-series) <br> [Dlsv5 and Dldsv5-series](./general-purpose/d-family.md#dlsv5-and-dldsv5-series) <br> [Dv5 and Dsv5-series](./general-purpose/d-family.md#dv5-and-dsv5-series) <br> [Ddv5 and Ddsv5-series](./general-purpose/d-family.md#ddv5-and-ddsv5-series) <br> [Dasv5 and Dadsv5-series](./general-purpose/d-family.md#dasv5-and-dadsv5-series) <br> [Previous-gen D-family series](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes) |
 | [DC-family](./general-purpose/dc-family.md) | D-family with confidential computing | [DCasv5 and DCadsv5-series](./general-purpose/dc-family.md#dcasv5-and-dcadsv5-series) <br> [DCas_cc_v5 and DCads_cc_v5-series](./general-purpose/dc-family.md#dcas_cc_v5-and-dcads_cc_v5-series) <br> [DCesv5 and DCedsv5-series](./general-purpose/dc-family.md#dcesv5-and-dcedsv5-series) <br> [DCsv3 and DCdsv3-series](./general-purpose/dc-family.md#dcsv3-and-dcdsv3-series) <br> [Previous-gen DC-family](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes)|
 
 
 
 
-#### ['A' family](#tab/gen-a-fam)
+#### [A family](#tab/gen-a-fam)
 ##### A family
 [!INCLUDE [a-family-summary](./general-purpose/includes/a-family-summary.md)]
 
-[View the full 'A' family page](./general-purpose/a-family.md)
+[View the full A family page](./general-purpose/a-family.md)
 [!INCLUDE [a-family-workloads](./general-purpose/includes/a-family-workloads.md)]
 
 
-#### ['B' family](#tab/gen-b-fam)
+#### [B family](#tab/gen-b-fam)
 ##### B family
 [!INCLUDE [b-family-summary](./general-purpose/includes/b-family-summary.md)]
 
-[View the full 'B' family page](./general-purpose/a-family.md)
+[View the full B family page](./general-purpose/a-family.md)
 [!INCLUDE [b-family-workloads](./general-purpose/includes/b-family-workloads.md)]
 
 
-#### ['D' family](#tab/gen-d-fam)
+#### [D family](#tab/gen-d-fam)
 ##### D family
 [!INCLUDE [d-family-summary](./general-purpose/includes/d-family-summary.md)]
 
-[View the full 'D' family page](./general-purpose/a-family.md)
+[View the full D family page](./general-purpose/a-family.md)
 [!INCLUDE [d-family-workloads](./general-purpose/includes/d-family-workloads.md)]
 
 ##### DC family
 [!INCLUDE [dc-family-summary](./general-purpose/includes/dc-family-summary.md)]
 
-[View the full 'DC' family page](./general-purpose/a-family.md)
+[View the full DC family page](./general-purpose/a-family.md)
 [!INCLUDE [dc-family-workloads](./general-purpose/includes/dc-family-workloads.md)]
 
 ---
@@ -148,19 +148,19 @@ List of compute optimized VM size families:
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
 
-#### ['F' family](#tab/comp-a-fam)
+#### [F family](#tab/comp-a-fam)
 ##### F family
 [!INCLUDE [f-family-summary](./compute-optimized/includes/f-family-summary.md)]
 
-[View the full 'F' family page](./compute-optimized/f-family.md)
+[View the full F family page](./compute-optimized/f-family.md)
 [!INCLUDE [f-series-workloads](./compute-optimized/includes/f-family-workloads.md)]
 
 
-#### ['FX' family](#tab/comp-fx-fam)
+#### [FX family](#tab/comp-fx-fam)
 ##### FX family
 [!INCLUDE [fx-family-summary](./compute-optimized/includes/fx-family-summary.md)]
 
-[View the full 'FX' family page](./compute-optimized/fx-family.md)
+[View the full FX family page](./compute-optimized/fx-family.md)
 [!INCLUDE [fx-series-workloads](./compute-optimized/includes/fx-family-workloads.md)]
 
 
@@ -182,25 +182,25 @@ List of memory optimized VM sizes with links to each series' family page section
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
 
-#### ['E' family](#tab/mem-e-fam)
+#### [E family](#tab/mem-e-fam)
 ##### E family
 [!INCLUDE [e-family-summary](./memory-optimized/includes/e-family-summary.md)]
 
-[View the full 'E' family page](./memory-optimized/e-family.md)
+[View the full E family page](./memory-optimized/e-family.md)
 [!INCLUDE [e-series-workloads](./memory-optimized/includes/e-family-workloads.md)]
 
 ##### EC family
 [!INCLUDE [ec-family-summary](./memory-optimized/includes/ec-family-summary.md)]
 
-[View the full 'EC' family page](./memory-optimized/ec-family.md)
+[View the full EC family page](./memory-optimized/ec-family.md)
 [!INCLUDE [ec-series-workloads](./memory-optimized/includes/ec-family-workloads.md)]
 
 
-#### ['M' family](#tab/mem-m-fam)
+#### [M family](#tab/mem-m-fam)
 ##### M family
 [!INCLUDE [m-family-summary](./memory-optimized/includes/m-family-summary.md)]
 
-[View the full 'M' family page](./memory-optimized/m-family.md)
+[View the full M family page](./memory-optimized/m-family.md)
 [!INCLUDE [m-series-workloads](./memory-optimized/includes/m-family-workloads.md)]
 
 ---
@@ -216,11 +216,11 @@ List of storage optimized VM size families:
 
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
-#### ['L' family](#tab/stor-l-fam)
+#### [L family](#tab/stor-l-fam)
 ##### L family
 [!INCLUDE [l-family-summary](./storage-optimized/includes/l-family-summary.md)]
 
-[View the full 'L' family page](./storage-optimized/l-family.md)
+[View the full L family page](./storage-optimized/l-family.md)
 [!INCLUDE [l-series-workloads](./storage-optimized/includes/l-family-workloads.md)]
 
 ---
@@ -239,35 +239,35 @@ List of storage optimized VM size families:
 
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
-#### ['NC' family](#tab/gpu-nc-fam)
+#### [NC family](#tab/gpu-nc-fam)
 ##### NC family
 [!INCLUDE [nc-family-summary](./gpu-accelerated/includes/nc-family-summary.md)]
 
-[View the full 'NC' family page](./gpu-accelerated/nc-family.md)
+[View the full NC family page](./gpu-accelerated/nc-family.md)
 [!INCLUDE [nc-series-workloads](./gpu-accelerated/includes/nc-family-workloads.md)]
 
 
-#### ['ND' family](#tab/gpu-nd-fam)
+#### [ND family](#tab/gpu-nd-fam)
 ##### ND family
 [!INCLUDE [nd-family-summary](./gpu-accelerated/includes/nd-family-summary.md)]
 
-[View the full 'ND' family page](./gpu-accelerated/nd-family.md)
+[View the full ND family page](./gpu-accelerated/nd-family.md)
 [!INCLUDE [nd-series-workloads](./gpu-accelerated/includes/nd-family-workloads.md)]
 
 
-#### ['NG' family](#tab/gpu-ng-fam)
+#### [NG family](#tab/gpu-ng-fam)
 ##### NG family
 [!INCLUDE [ng-family-summary](./gpu-accelerated/includes/ng-family-summary.md)]
 
-[View the full 'NG' family page](./gpu-accelerated/ng-family.md)
+[View the full NG family page](./gpu-accelerated/ng-family.md)
 [!INCLUDE [ng-series-workloads](./gpu-accelerated/includes/ng-family-workloads.md)]
 
 
-#### ['NV' family](#tab/gpu-nv-fam)
+#### [NV family](#tab/gpu-nv-fam)
 ##### NV family
 [!INCLUDE [nv-family-summary](./gpu-accelerated/includes/nv-family-summary.md)]
 
-[View the full 'NV' family page](./gpu-accelerated/nv-family.md)
+[View the full NV family page](./gpu-accelerated/nv-family.md)
 [!INCLUDE [nv-series-workloads](./gpu-accelerated/includes/nv-family-workloads.md)]
 
 
@@ -285,11 +285,11 @@ List of field programmable gate array accelerated VM size families:
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
 
-#### ['NP' family](#tab/fpga-np-fam)
+#### [NP family](#tab/fpga-np-fam)
 ##### NP family
 [!INCLUDE [np-family-summary](./fpga-accelerated/includes/np-family-summary.md)]
 
-[View the full 'NP' family page](./fpga-accelerated/np-family.md)
+[View the full NP family page](./fpga-accelerated/np-family.md)
 [!INCLUDE [np-series-workloads](./fpga-accelerated/includes/np-family-workloads.md)]
 
 ---
@@ -307,24 +307,24 @@ List of high performance computing optimized VM size families:
 
 To learn more about a specific size family, sub-family, or specific series, click the tab for that group and scroll to find your desired size series. 
 
-#### ['H' family](#tab/hpc-h-fam)
+#### [H family](#tab/hpc-h-fam)
 [!INCLUDE [hb-family-summary](./high-performance-compute/includes/hb-family-summary.md)]
 
 [View the full 'HB' family page](./high-performance-compute/hb-family.md)
 [!INCLUDE [hb-series-workloads](./high-performance-compute/includes/hb-family-workloads.md)]
 
 
-#### ['HC' family](#tab/hpc-hc-fam)
+#### [HC family](#tab/hpc-hc-fam)
 [!INCLUDE [hc-family-summary](./high-performance-compute/includes/hc-family-summary.md)]
 
-[View the full 'HC' family page](./high-performance-compute/hc-family.md)
+[View the full HC family page](./high-performance-compute/hc-family.md)
 [!INCLUDE [hc-series-workloads](./high-performance-compute/includes/hc-family-workloads.md)]
 
 
-#### ['HX' family](#tab/hpc-hx-fam)
+#### [HX family](#tab/hpc-hx-fam)
 [!INCLUDE [hx-family-summary](./high-performance-compute/includes/hx-family-summary.md)]
 
-[View the full 'HX' family page](./high-performance-compute/hx-family.md)
+[View the full HX family page](./high-performance-compute/hx-family.md)
 [!INCLUDE [hx-series-workloads](./high-performance-compute/includes/hx-family-workloads.md)]
 
 ---
