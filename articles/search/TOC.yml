@@ -25,7 +25,7 @@
     items:
     - name: Create an index (Import data wizard)
       href: search-get-started-portal.md
-    - name: Chunk and vectorize (Import and vectorize data wizard)
+    - name: Import, chunk, and vectorize data
       href: search-get-started-portal-import-vectors.md
     - name: Create a demo app
       href: search-create-app-portal.md
@@ -123,6 +123,8 @@
     href: samples-python.md
   - name: REST samples
     href: samples-rest.md
+  - name: Vector samples
+    href: https://github.com/Azure/azure-search-vector-samples
 - name: Concepts
   items:
   - name: Data
@@ -554,7 +556,7 @@
         href: /python/api/azure-mgmt-search/
   - name: Data reference
     items:
-    - name: Supported data types
+    - name: Data types
       href: /rest/api/searchservice/supported-data-types
     - name: Data types for indexer data sources
       href: /rest/api/searchservice/data-type-map-for-indexers-in-azure-search
@@ -687,11 +689,9 @@
   - name: Azure products by region
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search
   - name: Compliance and certification
-    href: https://learn.microsoft.com/azure/compliance/
+    href: /azure/compliance/
   - name: Demos, tools, and training
     items:
-    - name: Vector samples
-      href: https://github.com/Azure/azure-search-vector-samples
     - name: Demo sites
       href: resource-demo-sites.md
     - name: Tools and accelerators
