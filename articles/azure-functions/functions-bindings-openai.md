@@ -67,7 +67,7 @@ When using a vector database for storing content, you should also install at lea
 
 ## Install bundle
 
-You can add the preview extension by adding or replacing the following code in your `host.json` file:
+You can add the preview extension by adding or replacing the following code in your `host.json` file, which specifically targets a preview version of the 4.x bundle that contains the OpenAI extension:
 <!---verify this bundle info-->
 ```json
 {
