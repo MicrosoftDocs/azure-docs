@@ -213,7 +213,7 @@ To send the email message, call the `beginSend` function from the `EmailClient`.
 
 ## [Sync Client](#tab/sync-client)
 
-Calling beginSend on the sync client returns a SyncPoller object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the beginSend method is called. **Sending an email is a long running operation. Its important to note that the `getFinalResult()` method on the poller is a blocking operation until a terminal state (`SUCCESSFULLY_COMPLETED` or `FAILED`) is reached.** The recommended method is to do manual polling at an interval that's appropriate for your application needs as demonstrated in the sample below.
+Calling beginSend on the sync client returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it's finished. Note that the initial request to send an email will be sent as soon as the `beginSend` method is called. **Sending an email is a long running operation. Its important to note that the `getFinalResult()` method on the poller is a blocking operation until a terminal state (`SUCCESSFULLY_COMPLETED` or `FAILED`) is reached.** The recommended method is to do manual polling at an interval that's appropriate for your application needs as demonstrated in the sample below.
 
 ```java
 try
