@@ -153,9 +153,9 @@ In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) c
 
 The Enterprise Flash tier utilizes both NVMe Flash storage and RAM. Because Flash storage is lower cost, using the Enterprise Flash tier allows you to trade off some performance for price efficiency.
 
-On Enterprise Flash instances, 20% of the cache space is on RAM, while the other 80% uses Flash storage. All of the _keys_ are stored on RAM, while the _values_ can be stored either in Flash storage or RAM. The Redis software intelligently determines the location of the values. _Hot_ values that are accessed frequently are stored on RAM, while _Cold_ values that are less commonly used are kept on Flash. Before data is read or written, it must be moved to RAM, becoming "Hot" data.
+On Enterprise Flash instances, 20% of the cache space is on RAM, while the other 80% uses Flash storage. All of the _keys_ are stored on RAM, while the _values_ can be stored either in Flash storage or RAM. The Redis software intelligently determines the location of the values. _Hot_ values that are accessed frequently are stored on RAM, while _Cold_ values that are less commonly used are kept on Flash. Before data is read or written, it must be moved to RAM, becoming _Hot_ data.
 
-Because Redis optimizes for the best performance, the instance first fills up the available RAM before adding items to Flash storage. Filly RAM first has a few implications for performance:
+Because Redis optimizes for the best performance, the instance first fills up the available RAM before adding items to Flash storage. Filling RAM first has a few implications for performance:
 
 - Better performance and lower latency can occur when testing with low memory usage. Testing with a full cache instance can yield lower performance because only RAM is being used in the low memory usage testing phase.
 - As you write more data to the cache, the proportion of data in RAM compared to Flash storage decreases, typically causing latency and throughput performance to decrease as well.
